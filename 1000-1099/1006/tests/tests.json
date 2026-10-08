@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "input_encoding": "cp437",
+  "reference": "1006_greedy.cpp",
+  "cases": [
+    { "name": "01", "note": "one smallest frame in the corner" },
+    { "name": "02", "example": true, "note": "six frames, some overlapping" },
+    { "name": "03", "note": "fifteen largest frames, each shifted by one column" },
+    { "name": "04", "note": "fifteen 2x2 frames packed into a block; only corners are visible" },
+    { "name": "05", "note": "ten nested frames under five small ones" },
+    { "name": "06", "note": "frames in all four corners of the screen" },
+    { "name": "gen1", "generator": "1 15 20", "note": "fifteen random frames of any size" },
+    { "name": "gen2", "generator": "2 15 4", "note": "fifteen random small frames" },
+    { "name": "gen3", "generator": "3 15 8", "note": "fifteen random medium frames" },
+    { "name": "gen4", "generator": "4 1 20", "note": "a single random frame" }
+  ]
+}
