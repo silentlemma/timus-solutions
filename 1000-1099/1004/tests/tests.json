@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1004_shortest_paths_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two triangles share a vertex; a path has no cycle" },
+    { "name": "02", "example": true, "note": "parallel roads between two vertices are not a tour" },
+    { "name": "03", "note": "the shortest of parallel roads must be used" },
+    { "name": "04", "note": "a square is shorter than any triangle" },
+    { "name": "05", "note": "five small random multigraphs" },
+    { "name": "06", "note": "the only cycle goes through all 100 vertices" },
+    { "name": "big1", "generator": "1 5 100 9900 300", "note": "five maximal dense multigraphs" },
+    { "name": "big2", "generator": "2 5 100 150 300", "note": "five sparse graphs with long cycles" }
+  ]
+}
