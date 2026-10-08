@@ -1,0 +1,13 @@
+{
+  "judging": "lines",
+  "reference": "1015_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two of four dice are rotations of the first one" },
+    { "name": "02", "example": true, "note": "a single die" },
+    { "name": "03", "note": "all 720 dice: 30 groups of 24" },
+    { "name": "04", "note": "500 equal dice: one group" },
+    { "name": "05", "note": "mirror images are not rotations of each other" },
+    { "name": "big1", "generator": "1 100000 30", "note": "the maximal number of dice of all 30 kinds" },
+    { "name": "big2", "generator": "2 100000 2", "note": "the maximal number of dice of two kinds: long lines" }
+  ]
+}

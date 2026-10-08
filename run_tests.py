@@ -145,6 +145,10 @@ def build_and_run(solution, image, lang, inputs, out):
 def same(output, expected, judging):
     if judging == "exact":
         return output.rstrip() == expected.rstrip()
+    if judging == "lines":
+        return [s.split() for s in output.rstrip().split("\n")] == [
+            s.split() for s in expected.rstrip().split("\n")
+        ]
     a, b = output.split(), expected.split()
     if judging.startswith("float:"):
         eps = float(judging.split(":", 1)[1])
