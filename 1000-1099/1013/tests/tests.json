@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "binary numbers of five digits" },
+    { "name": "02", "example": true, "note": "a small modulus" },
+    { "name": "03", "note": "all three values at the maximum" },
+    { "name": "04", "note": "binary, the longest numbers: a Fibonacci number modulo M" },
+    { "name": "05", "note": "a huge base: K - 1 exceeds 2^59, products need 128 bits" },
+    { "name": "06", "note": "modulus 2" },
+    { "name": "07", "note": "arbitrary large values" },
+    { "name": "08", "note": "long decimal numbers with the largest allowed modulus" },
+    { "name": "09", "note": "binary, modulus 3" },
+    { "name": "10", "note": "all lower bounds: two binary digits with the leading zero excluded" },
+    { "name": "11", "note": "the shortest length where a pair of trailing zeros must be rejected" },
+    { "name": "12", "note": "separated zeros are allowed and K - 1 shares factors with a composite modulus" },
+    { "name": "13", "note": "seed 1013: moderate random length with a large base exceeding a large modulus" },
+    { "name": "14", "note": "seed 1014: a random large base with N - 1 equal to the single high bit 2^59" }
+  ]
+}
