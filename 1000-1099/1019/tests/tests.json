@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1019_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two white segments merge, then a black one cuts them" },
+    { "name": "02", "example": true, "note": "everything repainted white: the whole line" },
+    { "name": "03", "note": "the part after the only black segment is the longest" },
+    { "name": "04", "note": "two white segments of equal length: the left one" },
+    { "name": "05", "note": "touching white segments form one interval" },
+    { "name": "06", "note": "only the two ends stay white, of length 1 each: the left one" },
+    { "name": "07", "note": "nested repaintings: the last one covering a point wins" },
+    { "name": "08", "note": "random repaintings over a black interior test overlapping colour changes" },
+    { "name": "big1", "generator": "1 5000 1000000000 1", "note": "random repaintings across the full coordinate range at the operation limit" },
+    { "name": "big2", "generator": "2 5000 20000 1", "note": "many shared endpoints in a narrow coordinate range" },
+    { "name": "big3", "generator": "3 5000 999999999 0", "note": "a maximum-length repainting sequence with no initial black cover" },
+    { "name": "09", "note": "one unit of black at the largest legal right endpoint leaves the longest prefix" },
+    { "name": "10", "note": "physical length wins over the number of compressed pieces in a white run" },
+    { "name": "11", "note": "one overlapping white repaint bridges a black gap and joins both white neighbours" },
+    { "name": "12", "note": "a final white cover erases earlier overlapping repaintings and reconnects the whole line" },
+    { "name": "13", "note": "unsorted touching and overlapping black intervals leave an untouched internal gap" },
+    { "name": "14", "note": "a retained random case has three longest white runs tied near the upper coordinate limit" },
+    { "name": "15", "generator": "nested 5000", "note": "alternating nested repaintings use all 5000 operations with distinct endpoints" },
+    { "name": "16", "generator": "comb 1019 5000", "note": "shuffled disjoint white islands force a scan of thousands of separate runs" }
+  ]
+}
