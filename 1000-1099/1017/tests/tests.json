@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "six cubes with three valid staircases" },
+    { "name": "02", "example": true, "note": "eleven cubes" },
+    { "name": "03", "note": "small odd total with two-step and three-step staircases" },
+    { "name": "04", "note": "a hundred cubes" },
+    { "name": "05", "note": "three hundred cubes: the answer exceeds 32 bits" },
+    { "name": "06", "note": "an odd large N" },
+    { "name": "07", "note": "the maximal N" },
+    { "name": "08", "note": "ten cubes" },
+    { "name": "09", "note": "minimum N: only two valid staircases and no single column" },
+    { "name": "10", "note": "first five-step staircase: include heights 1 through 5 exactly once" },
+    { "name": "11", "note": "last N whose answer fits in a signed 32-bit integer" },
+    { "name": "12", "note": "first N whose answer exceeds the signed 32-bit limit" },
+    { "name": "13", "note": "seventy cubes with a five-digit staircase count" },
+    { "name": "14", "note": "large input with an answer in the trillions" }
+  ]
+}
