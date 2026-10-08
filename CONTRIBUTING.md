@@ -45,8 +45,8 @@ inequalities, value ranges, sizes), time limit and memory limit.
 ## Output
 
 ## Checking
-Token by token | absolute/relative error ≤ ε | any valid answer, and what the
-checker verifies.
+Token by token | line by line | absolute/relative error ≤ ε | any valid
+answer, and what the checker verifies.
 
 ## Examples
 The tests marked `"example": true` in tests.json, in the same order: for each,
@@ -190,6 +190,7 @@ hidden tests are much stronger.
 | Mode | Comparison |
 |------|------------|
 | `tokens` | the outputs are equal as sequences of whitespace-separated tokens (default) |
+| `lines` | the outputs have the same lines, each compared as a sequence of tokens |
 | `exact` | the outputs are equal byte for byte, ignoring trailing whitespace at the end |
 | `float:<eps>` | tokens; numeric tokens may differ by absolute or relative error ≤ `eps` |
 | `checker` | `checker.py` decides (problems with several valid answers) |
