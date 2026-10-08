@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1018_dp_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a light branch leads to the two heaviest ones" },
+    { "name": "02", "example": true, "note": "a single branch" },
+    { "name": "03", "note": "all branches are kept" },
+    { "name": "04", "note": "one branch: only branches at the root can be kept alone" },
+    { "name": "05", "note": "random tree, checked by brute force" },
+    { "name": "06", "note": "random tree with large apple counts, checked by brute force" },
+    { "name": "07", "note": "random tree with many ties, checked by brute force" },
+    { "name": "08", "note": "no apples at all" },
+    { "name": "big1", "generator": "1 99 50 30000", "note": "the largest tree, half of the branches kept" },
+    { "name": "big2", "generator": "2 99 98 30000", "note": "the largest tree, all branches kept" },
+    { "name": "big3", "generator": "3 99 1 30000", "note": "the largest tree, one branch kept" },
+    { "name": "big4", "generator": "4 99 30 5", "note": "the largest tree with small apple counts" }
+  ]
+}
