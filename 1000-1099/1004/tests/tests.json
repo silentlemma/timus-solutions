@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1004_shortest_paths_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two triangles share a vertex; a path has no cycle" },
+    { "name": "02", "example": true, "note": "parallel roads between two vertices are not a tour" },
+    { "name": "03", "note": "the shortest of parallel roads must be used" },
+    { "name": "04", "note": "a square is shorter than any triangle" },
+    { "name": "05", "note": "five small random multigraphs" },
+    { "name": "06", "note": "the only cycle goes through all 100 vertices" },
+    { "name": "big1", "generator": "1 5 100 9900 300", "note": "five maximal dense multigraphs" },
+    { "name": "big2", "generator": "2 5 100 150 300", "note": "five sparse graphs with long cycles" },
+    { "name": "07", "note": "minimum vertex and road counts with all lengths at the lower bound" },
+    { "name": "08", "note": "a star on 100 vertices centered at the largest label must not create a cycle during relaxation" },
+    { "name": "09", "note": "the best cycle is in a high-label component disconnected from vertex one" },
+    { "name": "10", "note": "a triangle and a square tie for minimum length across a bridge" },
+    { "name": "11", "note": "the only triangle has one road longer than the two-road detour, testing cycle restoration" },
+    { "name": "12", "note": "cheap parallel roads on a tree branch must not beat the genuine heavy five-vertex cycle" },
+    { "name": "13", "note": "five changing graph sizes mix cycles and forests to check per-graph state reset" },
+    { "name": "14", "note": "seeded random graph has a five-vertex optimum despite containing triangles" },
+    { "name": "15", "note": "seeded random graph has its globally cheapest road outside the optimal cycle" },
+    { "name": "16", "generator": "bipartite 16 5 100", "note": "five maximum-road bipartite graphs have no triangles and many tied four-vertex optima" },
+    { "name": "17", "generator": "forest 17 5 100", "note": "five maximum-road multigraphs reduce to trees despite thousands of parallel roads" }
+  ]
+}
