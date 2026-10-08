@@ -13,3 +13,4 @@
 | 1006 | [Restoring the order of overlapping square frames](1006/) | greedy | C++, Go, Python, Java, Rust |
 | 1007 | [Correcting one error in checksum code words](1007/) | math | C++, Go, Python, Java, Rust |
 | 1008 | [Converting between two encodings of a connected pixel figure](1008/) | bfs | C++, Go, Python, Java, Rust |
+| 1009 | [Counting base-K numbers without two adjacent zeros](1009/) | dp, combinatorics | C++, Go, Python, Java, Rust |
