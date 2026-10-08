@@ -20,3 +20,4 @@
 | 1013 | [Counting base-K numbers without two adjacent zeros, modulo M](1013/) | matrix | C++, Go, Python, Java, Rust |
 | 1014 | [The smallest number with a given product of digits](1014/) | greedy | C++, Go, Python, Java, Rust |
 | 1015 | [Grouping dice that are rotations of each other](1015/) | hashing, implementation | C++, Go, Python, Java, Rust |
+| 1016 | [The cheapest walk of a rolling cube on a chessboard](1016/) | dijkstra, graphs | C++, Go, Python, Java, Rust |
