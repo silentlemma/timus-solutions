@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1003_dsu_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the third answer contradicts the first two" },
+    { "name": "02", "example": true, "note": "two tests: all answers consistent; a direct contradiction" },
+    { "name": "03", "note": "no questions" },
+    { "name": "04", "note": "positions up to 10^9" },
+    { "name": "05", "note": "single positions, then a sum that contradicts them" },
+    { "name": "06", "note": "random short questions on a sequence of length 10" },
+    { "name": "big1", "generator": "1 2 5000 1000000000", "note": "maximum question count on a billion-bit sequence" },
+    { "name": "big2", "generator": "2 4 5000 3000", "note": "dense queries over a short sequence" },
+    { "name": "07", "note": "a single even or odd answer at the minimum sequence length" },
+    { "name": "08", "note": "crossing and nested intervals form consistent cycles with repeated answers" },
+    { "name": "09", "note": "consume all answers after an early contradiction and reset across an empty test" },
+    { "name": "10", "note": "merge unanchored prefix components with mixed parities before a false closure" },
+    { "name": "11", "generator": "cycle 1003 5000 1000000000", "note": "a 4999-edge random sparse path contradicts only at the final answer" },
+    { "name": "12", "generator": "consistent 2026 3 5000 64", "note": "three maximum-size dense random tests remain consistent through every answer" }
+  ]
+}
