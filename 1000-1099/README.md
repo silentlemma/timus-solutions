@@ -16,3 +16,4 @@
 | 1009 | [Counting base-K numbers without two adjacent zeros](1009/) | dp, combinatorics | C++, Go, Python, Java, Rust |
 | 1010 | [The steepest chord above a discrete function](1010/) | math | C++, Go, Python, Java, Rust |
 | 1011 | [The smallest population with a share strictly between two percentages](1011/) | math, number_theory | C++, Go, Python, Java, Rust |
+| 1012 | [Counting base-K numbers without two adjacent zeros, with long arithmetic](1012/) | dp | C++, Go, Python, Java, Rust |
