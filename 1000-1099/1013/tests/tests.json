@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "binary numbers of five digits" },
+    { "name": "02", "example": true, "note": "a small modulus" },
+    { "name": "03", "note": "all three values at the maximum" },
+    { "name": "04", "note": "binary, the longest numbers: a Fibonacci number modulo M" },
+    { "name": "05", "note": "a huge base: K - 1 exceeds 2^59, products need 128 bits" },
+    { "name": "06", "note": "modulus 2" },
+    { "name": "07", "note": "arbitrary large values" },
+    { "name": "08", "note": "checked against the exact count" },
+    { "name": "09", "note": "binary, modulus 3" }
+  ]
+}
