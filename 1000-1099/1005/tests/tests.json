@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "five stones that split evenly" },
+    { "name": "02", "example": true, "note": "a single stone" },
+    { "name": "03", "note": "two equal stones" },
+    { "name": "04", "note": "twenty stones, one per line" },
+    { "name": "05", "note": "twenty random stones" },
+    { "name": "06", "note": "nineteen maximal stones and one light stone" },
+    { "name": "07", "note": "twenty heavy stones of similar weight" }
+  ]
+}
