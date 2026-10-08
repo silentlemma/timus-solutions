@@ -16,7 +16,9 @@ For every problem there is:
 ## Problems
 
 <!-- index:start -->
-No problems yet.
+| Range | Problems |
+|-------|----------|
+| [1000–1099](1000-1099/) | 1 problem |
 <!-- index:end -->
 
 Each folder `1000-1099/1005/` holds the write-ups (`README.md`,
