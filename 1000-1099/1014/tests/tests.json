@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "two digits: 4 · 9" },
+    { "name": "02", "example": true, "note": "zero: the smallest number with a zero digit is 10" },
+    { "name": "03", "note": "one: the answer is the single digit 1" },
+    { "name": "04", "note": "a prime above 7: no answer" },
+    { "name": "05", "note": "the maximal N = 2^9 · 5^9" },
+    { "name": "06", "note": "9!: the digits 9 and 8 must be taken before 3 and 2" },
+    { "name": "07", "note": "a large prime: no answer" },
+    { "name": "08", "note": "a single digit" },
+    { "name": "09", "note": "26, not 34 or 62" },
+    { "name": "10", "note": "a power of two: eights and one four" },
+    { "name": "11", "note": "a power of three: nines" },
+    { "name": "12", "note": "999999999 has a prime factor above 7" }
+  ]
+}
