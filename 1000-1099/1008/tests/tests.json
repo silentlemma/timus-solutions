@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1008_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small figure given as a pixel list" },
+    { "name": "02", "example": true, "note": "the same figure given as a neighbour description" },
+    { "name": "03", "note": "a single pixel as a list" },
+    { "name": "04", "note": "a single pixel as a description: just a full stop" },
+    { "name": "05", "note": "the whole 10x10 field as a list" },
+    { "name": "06", "note": "the whole 10x10 field as a description" },
+    { "name": "07", "note": "a snake through all columns, many steps from the start" },
+    { "name": "08", "note": "a ring with a hole as a list" },
+    { "name": "09", "note": "a ring with a hole as a description" },
+    { "name": "gen1", "generator": "1 60 1", "note": "a random figure of 60 pixels as a list" },
+    { "name": "gen2", "generator": "2 60 2", "note": "a random figure of 60 pixels as a description" },
+    { "name": "gen3", "generator": "3 100 2", "note": "a random figure of 100 pixels as a description" }
+  ]
+}
