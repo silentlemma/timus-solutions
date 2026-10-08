@@ -1,0 +1,10 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "basic case" },
+    { "name": "02", "note": "both numbers are zero" },
+    { "name": "03", "note": "a negative number" },
+    { "name": "04", "example": true, "note": "the sum does not fit in 32 bits" },
+    { "name": "05", "note": "the numbers are on separate lines" }
+  ]
+}
