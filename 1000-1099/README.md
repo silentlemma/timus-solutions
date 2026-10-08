@@ -11,3 +11,4 @@
 | 1004 | [Shortest cycle in an undirected multigraph](1004/) | shortest_paths, graphs | C++, Go, Python, Java, Rust |
 | 1005 | [Splitting weights into two piles](1005/) | dp, bitmask, bruteforce | C++, Go, Python, Java, Rust |
 | 1006 | [Restoring the order of overlapping square frames](1006/) | greedy | C++, Go, Python, Java, Rust |
+| 1007 | [Correcting one error in checksum code words](1007/) | math | C++, Go, Python, Java, Rust |
