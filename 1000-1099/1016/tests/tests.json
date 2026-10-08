@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1016_dijkstra.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a detour around the heavy face is cheaper than one roll" },
+    { "name": "02", "example": true, "note": "equal faces: any shortest path from corner to corner" },
+    { "name": "03", "note": "a single roll between neighbours" },
+    { "name": "04", "note": "only the top face is cheap: it can never stay at the bottom for long" },
+    { "name": "05", "note": "all faces zero: every route costs nothing" },
+    { "name": "06", "note": "only the bottom face is cheap: the cube must still roll" },
+    { "name": "07", "note": "random values between opposite corners" },
+    { "name": "gen1", "generator": "1 1000", "note": "random query" },
+    { "name": "gen2", "generator": "2 3", "note": "random query with small values and many ties" },
+    { "name": "gen3", "generator": "3 1000", "note": "random query" },
+    { "name": "gen4", "generator": "4 1", "note": "faces 0 and 1 only" }
+  ]
+}
