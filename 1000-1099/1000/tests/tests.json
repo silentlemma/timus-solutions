@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "basic case" },
+    { "name": "02", "note": "both numbers are zero" },
+    { "name": "03", "note": "a negative number" },
+    { "name": "04", "example": true, "note": "the sum does not fit in 32 bits" },
+    { "name": "05", "note": "the numbers are on separate lines" },
+    { "name": "06", "note": "adding one reaches the largest signed 64-bit result" },
+    { "name": "07", "note": "adding minus one reaches the smallest signed 64-bit result" },
+    { "name": "08", "note": "the smallest and largest signed 64-bit operands sum to minus one" },
+    { "name": "09", "note": "large opposite operands cancel exactly to zero" },
+    { "name": "10", "note": "two minimum signed 32-bit operands sum below the 32-bit range" },
+    { "name": "11", "note": "adding one above the exact integer range of double precision" },
+    { "name": "12", "note": "a zero first operand preserves a nonzero negative second operand" },
+    { "name": "13", "note": "seeded random positive 64-bit operands with a nonboundary sum" },
+    { "name": "14", "note": "seeded random opposite signs with a positive sum and padded whitespace" }
+  ]
+}
