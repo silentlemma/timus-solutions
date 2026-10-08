@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1003_dsu_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the third answer contradicts the first two" },
+    { "name": "02", "example": true, "note": "two tests: all answers consistent; a direct contradiction" },
+    { "name": "03", "note": "no questions" },
+    { "name": "04", "note": "positions up to 10^9" },
+    { "name": "05", "note": "single positions, then a sum that contradicts them" },
+    { "name": "06", "note": "random short questions on a sequence of length 10" },
+    { "name": "big1", "generator": "1 2 5000 1000000000", "note": "5000 questions, long sequence" },
+    { "name": "big2", "generator": "2 4 5000 3000", "note": "5000 questions over few positions" }
+  ]
+}
