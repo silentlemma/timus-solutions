@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1007_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an unchanged word, a raised zero, a deletion and an insertion" },
+    { "name": "02", "example": true, "note": "extra spaces and empty lines around the words" },
+    { "name": "03", "note": "every single change of every code word of length 4" },
+    { "name": "04", "note": "exhaustive repairs for seven-bit code words" },
+    { "name": "05", "note": "changes at the first and last positions of all-zero and all-one words of length 1000" },
+    { "name": "big1", "generator": "1 1000 2001", "note": "a full batch of random words of the maximal length" },
+    { "name": "big2", "generator": "2 4 2001", "note": "random words of the minimal length at the maximum word count" },
+    { "name": "big3", "generator": "3 999 2001", "note": "mixed errors on random words of odd length" },
+    { "name": "06", "note": "dense maximal words with raised zeros around byte-sized index boundaries and the middle" },
+    { "name": "07", "note": "a missing final zero or one must be appended after a different last received bit" },
+    { "name": "08", "note": "nonconstant words with an inserted trailing zero still have checksum zero and must shrink" },
+    { "name": "09", "note": "several received words share a line with spaces and tabs between different edit types" },
+    { "name": "10", "generator": "prefix 1000 2001", "note": "maximum input size with every repair forced at the first position of sparse and dense words" },
+    { "name": "11", "generator": "1007 32 257", "note": "seeded random repairs at length 32 exercise the odd composite checksum modulus 33" }
+  ]
+}
