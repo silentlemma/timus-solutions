@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "three decimal digits: only d00 is excluded" },
+    { "name": "02", "example": true, "note": "the smallest case: two binary digits" },
+    { "name": "03", "note": "binary, the longest numbers: a Fibonacci number" },
+    { "name": "04", "note": "decimal, the longest numbers" },
+    { "name": "05", "note": "base 9, nine digits" },
+    { "name": "06", "note": "maximum ternary length with two choices for each nonzero digit" },
+    { "name": "07", "note": "the combined limit reached with three nonzero digit choices" },
+    { "name": "08", "note": "the largest answer over all valid inputs" },
+    { "name": "09", "note": "two decimal digits: exclude leading zero but allow a final zero" },
+    { "name": "10", "note": "three binary digits: the first length where adjacent zeros are forbidden" },
+    { "name": "11", "note": "four ternary digits: two separated zeros may include the final digit" },
+    { "name": "12", "note": "five base-4 digits: odd length with two separated zeros and several nonzero choices" },
+    { "name": "13", "note": "seed 1009 random interior input: seven base-5 digits" },
+    { "name": "14", "note": "seed 1010 random input: ten base-6 digits two below the combined limit" }
+  ]
+}
