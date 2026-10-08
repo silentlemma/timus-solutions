@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1007_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an unchanged word, a raised zero, a deletion and an insertion" },
+    { "name": "02", "example": true, "note": "extra spaces and empty lines around the words" },
+    { "name": "03", "note": "every single change of every code word of length 4" },
+    { "name": "04", "note": "every single change of every code word of length 7" },
+    { "name": "05", "note": "N = 1000: changes at the first and last positions of all-zero and all-one words" },
+    { "name": "big1", "generator": "1 1000 2001", "note": "2001 random words of the maximal length" },
+    { "name": "big2", "generator": "2 4 2001", "note": "2001 random words of the minimal length" },
+    { "name": "big3", "generator": "3 999 2001", "note": "2001 random words of odd length" }
+  ]
+}
