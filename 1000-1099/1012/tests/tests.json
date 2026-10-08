@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "binary: a Fibonacci number" },
+    { "name": "02", "example": true, "note": "three decimal digits: only d00 is excluded" },
+    { "name": "03", "note": "binary, the longest numbers" },
+    { "name": "04", "note": "decimal, the longest numbers: the answer has about 1700 digits" },
+    { "name": "05", "note": "base 7, a thousand digits" },
+    { "name": "06", "note": "the shortest numbers" },
+    { "name": "07", "note": "base 5, nearly the longest numbers" },
+    { "name": "08", "note": "the largest answer of the small version still fits in 32 bits" }
+  ]
+}
