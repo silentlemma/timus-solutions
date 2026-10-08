@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small answer: 1/9 lies between 10% and 12%" },
+    { "name": "02", "example": true, "note": "the left end 1/8 itself is excluded" },
+    { "name": "03", "note": "the narrowest interval at the lower end of the range" },
+    { "name": "04", "note": "the narrowest interval at the upper end of the range" },
+    { "name": "05", "note": "one third lies strictly between adjacent hundredths" },
+    { "name": "06", "note": "two inhabitants suffice around 50 percent" },
+    { "name": "07", "note": "a wide interval: one inhabitant is never enough" },
+    { "name": "08", "note": "a trailing zero in the fraction, an integer bound" },
+    { "name": "09", "note": "a tight interval around two thirds" },
+    { "name": "10", "note": "the right end 1/2 is excluded: one of the largest answers" },
+    { "name": "11", "note": "both 1/5 and 1/4 endpoints are excluded before the interior fraction 2/9" },
+    { "name": "12", "note": "two one-decimal bounds must be scaled correctly rather than truncated to integers" },
+    { "name": "13", "note": "a narrow interval around 32 percent first admits the terminating fraction 8/25" },
+    { "name": "14", "note": "adjacent hundredths just above 40 percent exclude two fifths" }
+  ]
+}
