@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1019_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two white segments merge, then a black one cuts them" },
+    { "name": "02", "example": true, "note": "everything repainted white: the whole line" },
+    { "name": "03", "note": "the part after the only black segment is the longest" },
+    { "name": "04", "note": "two white segments of equal length: the left one" },
+    { "name": "05", "note": "touching white segments form one interval" },
+    { "name": "06", "note": "only the two ends stay white, of length 1 each: the left one" },
+    { "name": "07", "note": "nested repaintings: the last one covering a point wins" },
+    { "name": "08", "note": "300 random repaintings over a black line, checked independently" },
+    { "name": "big1", "generator": "1 5000 1000000000 1", "note": "the maximal N over the whole line" },
+    { "name": "big2", "generator": "2 5000 20000 1", "note": "the maximal N with many shared coordinates" },
+    { "name": "big3", "generator": "3 5000 999999999 0", "note": "the maximal N without the initial black cover" }
+  ]
+}
