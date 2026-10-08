@@ -1,0 +1,25 @@
+{
+  "judging": "lines",
+  "reference": "1015_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three of four dice belong to the same kind" },
+    { "name": "02", "example": true, "note": "a single die" },
+    { "name": "03", "note": "all 720 dice: 30 groups of 24" },
+    { "name": "04", "note": "five hundred identical dice form one group" },
+    { "name": "05", "note": "mirror images are not rotations of each other" },
+    { "name": "big1", "generator": "1 100000 30", "note": "the maximal number of dice of all 30 kinds" },
+    { "name": "big2", "generator": "2 100000 2", "note": "the maximal number of dice of two kinds: long lines" },
+    { "name": "06", "note": "two dice related by one quarter turn, at the smallest size allowing a merge" },
+    { "name": "07", "note": "a body-diagonal rotation moves every face and still gives one kind" },
+    { "name": "08", "note": "one die of each of the 30 kinds in reverse key order gives only singleton lines" },
+    { "name": "09", "note": "three interleaved kinds return in rotated forms with unequal group sizes" },
+    { "name": "10", "note": "a second kind first appears at die 4096 after a long prefix of rotations" },
+    { "name": "11", "note": "the same left, top and front labels hide six different arrangements of the other faces" },
+    { "name": "12", "note": "all 24 orientations of one kind in shuffled order with repeated endpoints" },
+    { "name": "13", "note": "random rotations and mirror images leave both singleton and repeated kinds" },
+    { "name": "14", "generator": "1015 100000 1", "note": "maximum N with many orientations of one kind produces a single longest output line" },
+    { "name": "15", "generator": "314159 1009 7", "note": "seeded random sample of seven kinds checks uneven membership across four-digit indices" },
+    { "name": "16", "generator": "tail 2718 100000 30", "note": "the final 29 dice each introduce a new kind after 99971 dice of one kind" },
+    { "name": "17", "generator": "blocks 1618 100000 30", "note": "maximum N in 30 contiguous blocks checks every group transition without interleaving" }
+  ]
+}
