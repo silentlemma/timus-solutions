@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1002_dp_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one word beats two; a number with no spelling" },
+    { "name": "02", "example": true, "note": "several shortest answers" },
+    { "name": "03", "note": "a word may be used many times" },
+    { "name": "04", "note": "a 100-digit number spelled by two 50-letter words" },
+    { "name": "05", "note": "no solution: a digit no word covers" },
+    { "name": "06", "note": "a 100-digit number with words of every length up to 50" },
+    { "name": "big1", "generator": "1 45000 6", "note": "a large dictionary of short words" },
+    { "name": "big2", "generator": "2 5000 50", "note": "long words, up to 50 letters" },
+    { "name": "07", "note": "every letter mapping, including q and z for zero and j for one" },
+    { "name": "08", "note": "longest-prefix greedy can get stuck or use too many words" },
+    { "name": "09", "note": "all digits are covered but overlapping words cannot tile the number" },
+    { "name": "10", "note": "leading zeros and dictionary resets across repeated phone numbers" },
+    { "name": "11", "generator": "limit 1002", "note": "a 50000-word dictionary and nearly 300 KB with a 100-digit number" },
+    { "name": "12", "generator": "random 1002 80", "note": "seeded small dictionaries with both spellable and arbitrary numbers" }
+  ]
+}
