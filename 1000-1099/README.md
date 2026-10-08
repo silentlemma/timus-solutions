@@ -15,3 +15,4 @@
 | 1008 | [Converting between two encodings of a connected pixel figure](1008/) | bfs | C++, Go, Python, Java, Rust |
 | 1009 | [Counting base-K numbers without two adjacent zeros](1009/) | dp, combinatorics | C++, Go, Python, Java, Rust |
 | 1010 | [The steepest chord above a discrete function](1010/) | math | C++, Go, Python, Java, Rust |
+| 1011 | [The smallest population with a share strictly between two percentages](1011/) | math, number_theory | C++, Go, Python, Java, Rust |

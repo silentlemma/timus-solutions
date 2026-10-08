@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small answer: 1/9 lies between 10% and 12%" },
+    { "name": "02", "example": true, "note": "the left end 1/8 itself is excluded" },
+    { "name": "03", "note": "the narrowest interval at the lower end of the range" },
+    { "name": "04", "note": "the narrowest interval at the upper end of the range" },
+    { "name": "05", "note": "1/3 inside a narrow interval" },
+    { "name": "06", "note": "1/2 inside: two inhabitants" },
+    { "name": "07", "note": "the widest interval: one inhabitant is never enough" },
+    { "name": "08", "note": "a trailing zero in the fraction, an integer bound" },
+    { "name": "09", "note": "2/3 inside a narrow interval" },
+    { "name": "10", "note": "the right end 1/2 is excluded: one of the largest answers" }
+  ]
+}
