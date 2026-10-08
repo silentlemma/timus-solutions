@@ -1,0 +1,20 @@
+{
+  "judging": "float:1e-4",
+  "reference": "1001_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "extra spaces and an empty line; the maximal value" },
+    { "name": "02", "example": true, "note": "a single number" },
+    { "name": "03", "note": "zero" },
+    { "name": "04", "note": "a value just below 10^18 whose root rounds up" },
+    { "name": "05", "note": "three hundred perfect squares on one line" },
+    { "name": "big1", "generator": "1 12000", "note": "about 256 KB of random values and separators" },
+    { "name": "06", "note": "largest allowed values and roots near one billion" },
+    { "name": "07", "note": "values around the unsigned 32-bit boundary" },
+    { "name": "08", "note": "zeros and ones check exact roots and repeated values" },
+    { "name": "09", "note": "small primes with non-terminating square roots" },
+    { "name": "10", "note": "tabs, leading spaces, repeated separators, and blank lines" },
+    { "name": "11", "note": "ascending exact squares expose the required descending output" },
+    { "name": "12", "note": "repeated large nonsquares should produce identical results" },
+    { "name": "13", "note": "values immediately beside perfect squares at larger roots" }
+  ]
+}
