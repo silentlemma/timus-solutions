@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1002_dp_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one word beats two; a number with no spelling" },
+    { "name": "02", "example": true, "note": "several shortest answers" },
+    { "name": "03", "note": "a word may be used many times" },
+    { "name": "04", "note": "100 digits: two words of 50 letters" },
+    { "name": "05", "note": "no solution: a digit no word covers" },
+    { "name": "06", "note": "100 digits with words of every length up to 50" },
+    { "name": "big1", "generator": "1 45000 6", "note": "a large dictionary of short words" },
+    { "name": "big2", "generator": "2 5000 50", "note": "long words, up to 50 letters" }
+  ]
+}
