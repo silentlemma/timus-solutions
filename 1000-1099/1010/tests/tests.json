@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1010_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the steepest step goes down" },
+    { "name": "02", "example": true, "note": "two points" },
+    { "name": "03", "note": "all steps equally steep: the first pair" },
+    { "name": "04", "note": "extreme values: steps of 2^32 - 1 overflow 32 bits" },
+    { "name": "05", "note": "a straight line: longer chords pass through points" },
+    { "name": "06", "note": "a constant function: every step has slope 0" },
+    { "name": "07", "note": "the steepest step is the last one" },
+    { "name": "08", "note": "an equally steep step up and down: the first one" },
+    { "name": "09", "note": "small random values with many ties" },
+    { "name": "big1", "generator": "1 100000 -2147483648 2147483647", "note": "maximal N, values over the full range" },
+    { "name": "big2", "generator": "2 100000 -3 3", "note": "maximal N, small values, many ties" }
+  ]
+}
