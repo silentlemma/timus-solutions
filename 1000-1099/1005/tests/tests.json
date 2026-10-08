@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "five stones with a minimum difference of three" },
+    { "name": "02", "example": true, "note": "a single stone" },
+    { "name": "03", "note": "two equal stones" },
+    { "name": "04", "note": "twenty stones, one per line" },
+    { "name": "05", "note": "twenty random stones" },
+    { "name": "06", "note": "nineteen maximal stones and one light stone" },
+    { "name": "07", "note": "twenty heavy stones of similar weight" },
+    { "name": "08", "note": "smallest input: one stone of minimum weight" },
+    { "name": "09", "note": "two unequal stones at opposite weight limits" },
+    { "name": "10", "note": "perfect split missed by placing the next heaviest stone in the lighter pile" },
+    { "name": "11", "note": "even total without an equal split; reusing a stone would give a false zero" },
+    { "name": "12", "note": "maximum total of two million with twenty maximum weights" },
+    { "name": "13", "note": "seeded random weights from one to three with many duplicates and an odd total" },
+    { "name": "14", "note": "seeded random multiples of one thousand with an odd sum after scaling" }
+  ]
+}
