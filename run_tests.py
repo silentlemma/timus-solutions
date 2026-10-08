@@ -163,6 +163,17 @@ def same(output, expected, judging):
     return a == b
 
 
+def encode_inputs(inputs, encoding):
+    """Test inputs are stored in UTF-8; give them to the solutions in the
+    encoding the judge uses."""
+    for name in os.listdir(inputs):
+        path = os.path.join(inputs, name)
+        with open(path, encoding="utf-8", newline="") as f:
+            text = f.read()
+        with open(path, "wb") as f:
+            f.write(text.encode(encoding))
+
+
 def read(path):
     with open(path, encoding="utf-8", errors="replace") as f:
         return f.read()
@@ -197,6 +208,9 @@ def run_problem(problem, only, pypy):
         if p.returncode != 0:
             print("%s: generator failed\n%s" % (problem, p.stderr[-2000:]))
             return False
+    if "input_encoding" in spec:
+        encode_inputs(inputs, spec["input_encoding"])
+    if generated:
         reference = os.path.join(sol_dir, spec["reference"])
         image, lang = IMAGES[os.path.splitext(reference)[1]]
         ref_out = os.path.join(base, "reference")

@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "input_encoding": "cp437",
+  "reference": "1006_greedy.cpp",
+  "cases": [
+    { "name": "01", "note": "one smallest frame in the corner" },
+    { "name": "02", "example": true, "note": "six frames, some overlapping" },
+    { "name": "03", "note": "fifteen largest frames, each shifted by one column" },
+    { "name": "04", "note": "fifteen 2x2 frames packed into a block; only corners are visible" },
+    { "name": "05", "note": "ten nested frames under five small ones" },
+    { "name": "06", "note": "frames in all four corners of the screen" },
+    { "name": "gen1", "generator": "1 15 20", "note": "fifteen random frames of any size" },
+    { "name": "gen2", "generator": "2 15 4", "note": "fifteen random small frames" },
+    { "name": "gen3", "generator": "3 15 8", "note": "fifteen random medium frames" },
+    { "name": "gen4", "generator": "4 1 20", "note": "a single random frame" },
+    { "name": "07", "note": "an older frame has all four corners overwritten by tiny frames" },
+    { "name": "08", "note": "growing frames share an upper left corner and overwrite common top and left sides" },
+    { "name": "09", "note": "two frames meet at exactly one cell whose corner character changes" },
+    { "name": "10", "note": "two frames keep every corner visible while crossing sides overwrite each other" },
+    { "name": "11", "note": "fifteen separated 3x3 rings preserve one dot inside each ring and gaps between them" },
+    { "name": "12", "note": "fifteen diagonal overlaps reach the bottom row and require repeated peeling scans" },
+    { "name": "gen5", "generator": "11 2 20", "note": "a seeded random pair shares a vertical border with partially overwritten endpoints" },
+    { "name": "gen6", "generator": "1006 7 20", "note": "seven seeded random frames mix isolated and overlapping components across the screen" }
+  ]
+}
