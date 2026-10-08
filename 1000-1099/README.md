@@ -18,3 +18,4 @@
 | 1011 | [The smallest population with a share strictly between two percentages](1011/) | math, number_theory | C++, Go, Python, Java, Rust |
 | 1012 | [Counting base-K numbers without two adjacent zeros, with long arithmetic](1012/) | dp | C++, Go, Python, Java, Rust |
 | 1013 | [Counting base-K numbers without two adjacent zeros, modulo M](1013/) | matrix | C++, Go, Python, Java, Rust |
+| 1014 | [The smallest number with a given product of digits](1014/) | greedy | C++, Go, Python, Java, Rust |
