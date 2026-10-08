@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "6 = 5 + 1 = 4 + 2 = 3 + 2 + 1" },
+    { "name": "02", "example": true, "note": "eleven cubes" },
+    { "name": "03", "note": "7 = 6 + 1 = 5 + 2 = 4 + 3 = 4 + 2 + 1" },
+    { "name": "04", "note": "a hundred cubes" },
+    { "name": "05", "note": "300 cubes: the answer exceeds 32 bits" },
+    { "name": "06", "note": "an odd large N" },
+    { "name": "07", "note": "the maximal N" },
+    { "name": "08", "note": "ten cubes" }
+  ]
+}
