@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "three decimal digits: only d00 is excluded" },
+    { "name": "02", "example": true, "note": "the smallest case: two binary digits" },
+    { "name": "03", "note": "binary, the longest numbers: a Fibonacci number" },
+    { "name": "04", "note": "decimal, the longest numbers" },
+    { "name": "05", "note": "base 9, nine digits" },
+    { "name": "06", "note": "base 3, fifteen digits" },
+    { "name": "07", "note": "base 4, fourteen digits" },
+    { "name": "08", "note": "the largest answer over all valid inputs" }
+  ]
+}
