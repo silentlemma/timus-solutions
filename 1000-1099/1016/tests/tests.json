@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1016_dijkstra.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a detour around the heavy face is cheaper than one roll" },
+    { "name": "02", "example": true, "note": "equal faces: any shortest path from corner to corner" },
+    { "name": "03", "note": "a single roll between neighbours" },
+    { "name": "04", "note": "only the top face is cheap: it can never stay at the bottom for long" },
+    { "name": "05", "note": "all faces zero: every route costs nothing" },
+    { "name": "06", "note": "only the bottom face is cheap: the cube must still roll" },
+    { "name": "07", "note": "random values between opposite corners" },
+    { "name": "gen1", "generator": "1 1000", "note": "random query" },
+    { "name": "gen2", "generator": "2 3", "note": "random query with small values and many ties" },
+    { "name": "gen3", "generator": "3 1000", "note": "unequal positive face values on a descent to the bottom rank" },
+    { "name": "gen4", "generator": "4 1", "note": "faces 0 and 1 only" },
+    { "name": "08", "note": "maximum face values and maximum board distance give a total of 15000" },
+    { "name": "09", "note": "rolling south from the upper corner charges the near face and the costly initial bottom" },
+    { "name": "10", "note": "a long zero-cost detour revisits squares in different orientations while avoiding two costly faces" },
+    { "name": "11", "note": "three opposite pairs of equal positive values still need distinct cube orientations" },
+    { "name": "12", "note": "a full-height descent is cheaper after leaving the right edge to avoid the heavy near face" },
+    { "name": "13", "note": "two south rolls put the initial near face then the initial top on the bottom for zero cost" },
+    { "name": "gen5", "generator": "94 1000", "note": "six unequal faces and a cheap left face on a westward move along the upper boundary" },
+    { "name": "gen6", "generator": "95 1", "note": "a distant target can be reached for just the starting charge by avoiding the sole positive face" }
+  ]
+}
