@@ -1,0 +1,12 @@
+{
+  "judging": "float:1e-4",
+  "reference": "1001_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "extra spaces and an empty line; the maximal value" },
+    { "name": "02", "example": true, "note": "a single number" },
+    { "name": "03", "note": "zero" },
+    { "name": "04", "note": "a value just below 10^18 whose root rounds up" },
+    { "name": "05", "note": "three hundred perfect squares on one line" },
+    { "name": "big1", "generator": "1 12000", "note": "about 256 KB of random values and separators" }
+  ]
+}
