@@ -12,3 +12,4 @@
 | 1105 | [Choosing intervals so that exactly one covers two thirds of the time](1105/) | greedy | C++, Go, Python, Java, Rust |
 | 1106 | [Splitting a graph so that every vertex has a neighbour on the other side](1106/) | bfs | C++, Go, Python, Java, Rust |
 | 1107 | [Separating multisets that differ by one item](1107/) | math | C++, Go, Python, Java, Rust |
+| 1108 | [Unit fractions that leave the smallest positive remainder](1108/) | math | C++, Go, Python, Java, Rust |
