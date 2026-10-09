@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1064_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an index this large is never reached in two comparisons" },
+    { "name": "02", "example": true, "note": "four groups of lengths" },
+    { "name": "03", "note": "the first index found at once: lengths 1 and 2" },
+    { "name": "04", "note": "the first index is always found before 14 comparisons" },
+    { "name": "05", "note": "the middle of the longest arrays at once" },
+    { "name": "06", "note": "the last possible index after 14 comparisons" },
+    { "name": "07", "note": "the last index is never the first middle" },
+    { "name": "08", "note": "many separate groups" },
+    { "name": "09", "note": "a small index after two comparisons" },
+    { "name": "10", "note": "a small index after 13 comparisons: long groups" },
+    { "name": "11", "note": "index 0 after two comparisons" },
+    { "name": "12", "note": "a middle case with 63 groups" },
+    { "name": "big1", "generator": "1 9999", "note": "a random query" },
+    { "name": "big2", "generator": "2 9999", "note": "a random query" },
+    { "name": "big3", "generator": "3 100", "note": "a random query with a small index" }
+  ]
+}

@@ -68,3 +68,4 @@
 | 1061 | [The cheapest window of free buffers](1061/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 1062 | [Who can win a triathlon with suitable stage lengths](1062/) | geometry | C++, Go, Python, Java, Rust |
 | 1063 | [The cheapest extra dominoes for a chain](1063/) | dijkstra | C++, Go, Python, Java, Rust |
+| 1064 | [Array lengths for which a binary search ends at a given step](1064/) | simulation | C++, Go, Python, Java, Rust |
