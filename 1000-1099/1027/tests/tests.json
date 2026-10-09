@@ -1,0 +1,23 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "text, an expression and a comment with a bracket inside" },
+    { "name": "02", "example": true, "note": "a closing bracket outside expressions" },
+    { "name": "03", "note": "spaces are not allowed inside expressions" },
+    { "name": "04", "note": "nested balanced expressions" },
+    { "name": "05", "note": "(*) opens a comment that never closes" },
+    { "name": "06", "note": "comments do not nest: the first *) closes" },
+    { "name": "07", "note": "an expression may continue on the next line" },
+    { "name": "08", "note": "an expression left open after a comment" },
+    { "name": "09", "note": "a comment inside an expression" },
+    { "name": "10", "note": "one closing bracket too many" },
+    { "name": "11", "note": "balanced counts but a wrong order" },
+    { "name": "12", "note": "an empty text" },
+    { "name": "13", "note": "a letter inside an expression" },
+    { "name": "14", "note": "an empty expression" },
+    { "name": "15", "note": "a comment opened at the end of the text" },
+    { "name": "16", "note": "a comment right after an opening bracket, then a sign" },
+    { "name": "17", "note": "a long correct text" },
+    { "name": "18", "note": "a long text with one stray bracket at the end" }
+  ]
+}
