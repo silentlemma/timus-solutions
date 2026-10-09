@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1091_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eleven sets of three numbers up to 10" },
+    { "name": "02", "note": "last year's exam: no set at all" },
+    { "name": "03", "note": "the smallest input has no valid pair" },
+    { "name": "04", "note": "all fifty numbers" },
+    { "name": "05", "note": "pairs up to 50" },
+    { "name": "06", "note": "more than the capacity: 10000" },
+    { "name": "07", "note": "only the even numbers up to 50" },
+    { "name": "08", "note": "choosing half the available numbers leaves exactly one valid set" },
+    { "name": "09", "note": "all three numbers up to 3" },
+    { "name": "10", "note": "four numbers up to 20, checked by listing all sets" },
+    { "name": "11", "note": "just above the capacity" },
+    { "name": "12", "note": "just below the capacity" },
+    { "name": "big1", "generator": "1", "note": "ten even triples and one triple of multiples of three" },
+    { "name": "big2", "generator": "2", "note": "the sole valid pair is formed by the two even numbers" },
+    { "name": "big3", "generator": "3", "note": "six-element sets can only share the divisor two" },
+    { "name": "13", "note": "smallest upper bound admitting a valid distinct pair: {2, 4}" },
+    { "name": "14", "note": "the triple {6, 12, 18} must be counted once despite two common primes" },
+    { "name": "15", "note": "an uncapped eight-element count includes both even sets and multiples of three" }
+  ]
+}
