@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "input_encoding": "cp1251",
+  "reference": "1050_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "paragraphs ended by \\par and by an empty line; an umlaut stays" },
+    { "name": "02", "example": true, "note": "Cyrillic text, a line of spaces ends a paragraph, no final line break" },
+    { "name": "03", "note": "\\parbox does not end a paragraph, \\par does" },
+    { "name": "04", "note": "a backslash pair followed by a space, then quotes and an umlaut" },
+    { "name": "05", "note": "a quote spans three lines; a line with a tab ends the paragraph" },
+    { "name": "06", "note": "several \\par commands in one line" },
+    { "name": "07", "note": "nothing but \\endinput, without a final line break" },
+    { "name": "08", "note": "random text, checked line by line" },
+    { "name": "09", "note": "random text without a final line break, checked line by line" },
+    { "name": "big1", "generator": "1 250", "note": "the longest text" },
+    { "name": "big2", "generator": "2 250 1", "note": "the longest text without a final line break" },
+    { "name": "big3", "generator": "3 120", "note": "a random text of medium length" }
+  ]
+}
