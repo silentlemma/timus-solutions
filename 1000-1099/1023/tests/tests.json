@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "02", "example": true, "note": "a power of two whose smallest allowed divisor is four" },
+    { "name": "10", "example": true, "note": "an odd semiprime selects its smaller prime factor" },
+    { "name": "01", "note": "the smallest K" },
+    { "name": "03", "note": "the largest K" },
+    { "name": "04", "note": "the largest prime: L = K - 1" },
+    { "name": "05", "note": "twice a large prime: the divisor K / 2" },
+    { "name": "06", "note": "the only divisor above two is the pile size itself" },
+    { "name": "07", "note": "the square of a prime" },
+    { "name": "08", "note": "six buttons give the second player a winning limit of two" },
+    { "name": "09", "note": "a power of two" },
+    { "name": "11", "note": "multiple winning limits require choosing the smallest" },
+    { "name": "12", "note": "skipping divisor two must find five before the composite half" },
+    { "name": "13", "note": "distinct large prime factors straddle the square root" },
+    { "name": "14", "note": "an odd product of three distinct primes above five" }
+  ]
+}
