@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1068_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a negative N: the numbers from -3 up to 1" },
+    { "name": "02", "note": "N = 0: zero and one" },
+    { "name": "03", "note": "N = 1: a single number" },
+    { "name": "04", "note": "N = 2" },
+    { "name": "05", "note": "N = -1: the sum is zero" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "07", "note": "the smallest N" },
+    { "name": "08", "note": "a small positive N" },
+    { "name": "big1", "generator": "1 10000", "note": "a random N" },
+    { "name": "big2", "generator": "2 10000", "note": "a random N" },
+    { "name": "big3", "generator": "3 100", "note": "a random small N" }
+  ]
+}
