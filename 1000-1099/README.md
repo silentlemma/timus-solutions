@@ -87,3 +87,4 @@
 | 1080 | [Colouring a map with two colours](1080/) | bfs, graphs | C++, Go, Python, Java, Rust |
 | 1081 | [The K-th binary string without two adjacent ones](1081/) | dp | C++, Go, Python, Java, Rust |
 | 1082 | [Input that makes a quicksort count a given number of steps](1082/) | constructive | C++, Go, Python, Java, Rust |
+| 1083 | [A factorial with k exclamation marks](1083/) | math | C++, Go, Python, Java, Rust |
