@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1101_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five forks and two switches in a 3 by 3 field" },
+    { "name": "02", "note": "no forks: straight to the right edge" },
+    { "name": "03", "note": "a constant FALSE expression forces left turns" },
+    { "name": "04", "note": "parentheses right after NOT and OR, registers switched on the way" },
+    { "name": "05", "note": "doubled parentheses and constants" },
+    { "name": "06", "note": "a small random field" },
+    { "name": "big1", "generator": "1 100 100 100 6 5", "note": "a single register steers turns among switches for five registers" },
+    { "name": "big2", "generator": "2 100 100 100 4 26", "note": "negated X steers a maximum-size field with many unrelated switches" },
+    { "name": "big3", "generator": "3 100 100 100 3 2", "note": "mixed NOT, OR and AND precedence with switches for A and B" },
+    { "name": "07", "note": "smallest field and an untouched Z register turning left at the boundary" },
+    { "name": "08", "note": "a switch at the starting cell affects the first fork" },
+    { "name": "09", "note": "negation binds before AND when both registers are initially false" },
+    { "name": "10", "note": "conjunction binds before OR with only A switched to true" },
+    { "name": "11", "note": "two distinct switches cancel before a fork on the positive edge" },
+    { "name": "12", "note": "a seeded random walk revisits switches and forks and changes turn direction" },
+    { "name": "13", "note": "a 250-character expression with 123 nested parentheses" },
+    { "name": "14", "generator": "snake", "note": "exactly 100 forks and 100 switches on a long route with fifty nested NOT operators" },
+    { "name": "15", "generator": "17 12 100 100 8 26", "note": "a seeded random field with a deeper mixed boolean expression and many revisits" }
+  ]
+}
