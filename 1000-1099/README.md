@@ -96,3 +96,4 @@
 | 1089 | [Fixing one-letter typos with a dictionary](1089/) | strings | C++, Go, Python, Java, Rust |
 | 1090 | [The row of recruits that jumps the most: counting inversions](1090/) | fenwick, binary_search | C++, Go, Python, Java, Rust |
 | 1091 | [Counting sets of numbers with a common divisor](1091/) | number_theory | C++, Go, Python, Java, Rust |
+| 1092 | [Clearing a sign table with transversal flips](1092/) | constructive | C++, Go, Python, Java, Rust |
