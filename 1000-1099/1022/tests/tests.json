@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1022_bfs_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a member with several parents" },
+    { "name": "02", "example": true, "note": "a single member" },
+    { "name": "03", "note": "a chain of five generations" },
+    { "name": "04", "note": "one parent of everybody else" },
+    { "name": "05", "note": "nobody has children: any order" },
+    { "name": "06", "note": "shared children over three generations" },
+    { "name": "big1", "generator": "1 100 5", "note": "100 members, sparse relations" },
+    { "name": "big2", "generator": "2 100 60", "note": "100 members, dense relations" },
+    { "name": "big3", "generator": "3 100 100", "note": "every earlier member is a parent of every later one" }
+  ]
+}
