@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1110_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "squares modulo 6" },
+    { "name": "02", "note": "cubes modulo a prime with three roots" },
+    { "name": "03", "note": "Y is not below M: no answer" },
+    { "name": "04", "note": "the first power: X equals Y" },
+    { "name": "05", "note": "a non-residue: no answer" },
+    { "name": "06", "note": "the largest N and M" },
+    { "name": "07", "note": "sixth roots of one modulo the prime 997" },
+    { "name": "08", "note": "the smallest modulus" },
+    { "name": "09", "note": "fourth powers modulo 16: every odd number" },
+    { "name": "10", "note": "a large odd power modulo a prime" },
+    { "name": "11", "note": "square roots of 4 modulo 998" },
+    { "name": "12", "note": "fifth powers modulo 32" }
+  ]
+}
