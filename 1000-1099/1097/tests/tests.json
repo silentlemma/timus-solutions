@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1097_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the park takes plots of influence 2 and 3" },
+    { "name": "02", "example": true, "note": "a jury plot in the middle: impossible" },
+    { "name": "03", "note": "free land is enough" },
+    { "name": "04", "note": "the park covers the whole country" },
+    { "name": "05", "note": "the whole country with a jury plot in a corner" },
+    { "name": "06", "note": "the park only touches the plots along their sides" },
+    { "name": "07", "note": "the largest country with a park of one square" },
+    { "name": "08", "note": "the best place takes one plot of influence 3 and several of influence 2" },
+    { "name": "big1", "generator": "1 10000 3000 100 3000 10", "note": "a hundred plots in the largest country" },
+    { "name": "big2", "generator": "2 40 12 100 6 10", "note": "a crowded small country" },
+    { "name": "big3", "generator": "3 10000 9000 100 2000 0", "note": "a park nearly as large as the country" }
+  ]
+}
