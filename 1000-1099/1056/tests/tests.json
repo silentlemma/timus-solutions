@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1056_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two centers in the middle of a path of length 3" },
+    { "name": "02", "example": true, "note": "a path of six computers: the two middle ones" },
+    { "name": "03", "note": "two computers: both are centers" },
+    { "name": "04", "note": "a path of seven computers: one center" },
+    { "name": "05", "note": "a star: its middle" },
+    { "name": "06", "note": "the longest path goes through the first computer and bends" },
+    { "name": "07", "note": "random tree, checked by the eccentricities of all computers" },
+    { "name": "08", "note": "a deep narrow tree, checked by the eccentricities of all computers" },
+    { "name": "09", "note": "a broom, checked by the eccentricities of all computers" },
+    { "name": "big1", "generator": "1 10000 path", "note": "the longest path: two centers" },
+    { "name": "big2", "generator": "2 9999 path", "note": "a path of odd length: one center" },
+    { "name": "big3", "generator": "3 10000 random", "note": "the most computers, random tree" },
+    { "name": "big4", "generator": "4 10000 deep", "note": "the most computers, deep tree" },
+    { "name": "big5", "generator": "5 10000 star", "note": "the most computers, a star" }
+  ]
+}
