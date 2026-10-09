@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1079_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two queries" },
+    { "name": "02", "note": "the smallest n" },
+    { "name": "03", "note": "ten small queries" },
+    { "name": "04", "note": "the largest n" },
+    { "name": "05", "note": "queries around the record positions, in no order" },
+    { "name": "06", "note": "queries at Fibonacci records and immediately adjacent indices" },
+    { "name": "big1", "generator": "1 10", "note": "ten random queries" },
+    { "name": "big2", "generator": "2 10", "note": "unsorted queries include two prefixes containing the global maximum" },
+    { "name": "big3", "generator": "3 3", "note": "a shorter prefix after a longer one lowers the answer" },
+    { "name": "07", "note": "immediate zero terminates an empty query list" },
+    { "name": "08", "note": "ten repeated queries alternating the largest and smallest n" },
+    { "name": "09", "note": "descending powers of two have term one but much larger prefix maxima" },
+    { "name": "10", "generator": "small 1079 10", "note": "seeded queries in 1..256 exercise small odd and even indices" }
+  ]
+}
