@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1039_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "equal ratings: the leaves and the root" },
+    { "name": "02", "example": true, "note": "a negative rating is skipped, and its subordinates are taken" },
+    { "name": "03", "note": "a single employee" },
+    { "name": "04", "note": "a single employee with a negative rating: nobody is invited" },
+    { "name": "05", "note": "all ratings negative: the answer is 0" },
+    { "name": "06", "note": "a chain with zeros: the two good employees are not adjacent" },
+    { "name": "07", "note": "a star: the boss alone is worth more than all the others" },
+    { "name": "08", "note": "random small tree, checked over all subsets" },
+    { "name": "09", "note": "random small tree, checked over all subsets" },
+    { "name": "10", "note": "random small binary tree, checked over all subsets" },
+    { "name": "big1", "generator": "1 6000 chain -128 127", "note": "the largest chain: 6000 levels" },
+    { "name": "big2", "generator": "2 6000 star -128 127", "note": "the largest star" },
+    { "name": "big3", "generator": "3 6000 random -128 127", "note": "the largest random tree" },
+    { "name": "big4", "generator": "4 6000 binary 127 127", "note": "the largest binary tree, all ratings 127" },
+    { "name": "big5", "generator": "5 6000 random -128 -1", "note": "the largest tree, all ratings negative" }
+  ]
+}
