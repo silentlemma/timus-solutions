@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1086_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four small queries" },
+    { "name": "02", "note": "the first prime is 2, not 1" },
+    { "name": "03", "note": "the largest n: 163 841" },
+    { "name": "04", "note": "the first twenty primes" },
+    { "name": "05", "note": "repeated queries in no order" },
+    { "name": "big1", "generator": "1 0 15000 1", "note": "every n from 15 000 down to 1" },
+    { "name": "big2", "generator": "2 1000 15000 0", "note": "a thousand random queries" },
+    { "name": "big3", "generator": "3 10 100 0", "note": "ten small random queries" }
+  ]
+}
