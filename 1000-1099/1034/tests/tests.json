@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1034_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the smallest board: no other peaceful position" },
+    { "name": "02", "example": true, "note": "N = 9, four positions" },
+    { "name": "03", "note": "N = 6, nothing reachable" },
+    { "name": "04", "note": "N = 8, checked by enumerating all positions" },
+    { "name": "05", "note": "N = 10, checked by enumerating all positions" },
+    { "name": "06", "note": "N = 10, nothing reachable" },
+    { "name": "07", "note": "N = 50, checked independently" },
+    { "name": "big1", "generator": "1 50", "note": "the largest board, a random position" },
+    { "name": "big2", "generator": "2 50", "note": "the largest board, another random position" },
+    { "name": "big3", "generator": "3 37", "note": "a random position on an odd board" }
+  ]
+}
