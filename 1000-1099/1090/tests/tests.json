@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1090_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the reversed row jumps most" },
+    { "name": "02", "note": "a single row of two" },
+    { "name": "03", "note": "equal rows: the first one" },
+    { "name": "04", "note": "the reversed row in the middle" },
+    { "name": "05", "note": "three rows with one jump each: the first one" },
+    { "name": "06", "note": "sorted rows: nobody jumps" },
+    { "name": "07", "note": "twenty random rows of 300, checked by a double loop" },
+    { "name": "big1", "generator": "1 10000 20 0", "note": "the largest random input" },
+    { "name": "big2", "generator": "2 10000 20 1", "note": "nearly sorted rows" },
+    { "name": "big3", "generator": "3 10000 20 2", "note": "twenty equal rows" }
+  ]
+}
