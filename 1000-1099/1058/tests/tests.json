@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1058_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a rectangle: the cut across the long side" },
+    { "name": "02", "example": true, "note": "a square turned by 45 degrees: a cut parallel to a side" },
+    { "name": "03", "note": "a regular hexagon" },
+    { "name": "04", "note": "a long thin rectangle" },
+    { "name": "05", "note": "a house-shaped pentagon" },
+    { "name": "06", "note": "50 points near a circle, checked by a sweep over cut directions" },
+    { "name": "07", "note": "a long thin polygon of 50 points, checked by a sweep over cut directions" },
+    { "name": "08", "note": "a random heptagon, checked by a sweep over cut directions" },
+    { "name": "09", "note": "a heptagon listed clockwise, checked by a sweep over cut directions" },
+    { "name": "10", "note": "a triangle with extra vertices on its sides, checked by a sweep" },
+    { "name": "big1", "generator": "1 50 95 60", "note": "50 vertices on an ellipse" },
+    { "name": "big2", "generator": "2 4 90 30", "note": "a random quadrilateral" },
+    { "name": "big3", "generator": "3 50 98 0.5", "note": "an extremely flat polygon" },
+    { "name": "big4", "generator": "4 12 80 79", "note": "twelve points near a circle" }
+  ]
+}

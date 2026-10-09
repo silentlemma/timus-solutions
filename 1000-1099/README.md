@@ -62,3 +62,4 @@
 | 1055 | [The number of prime divisors of a binomial coefficient](1055/) | number_theory | C++, Go, Python, Java, Rust |
 | 1056 | [The centers of a tree](1056/) | bfs, trees | C++, Go, Python, Java, Rust |
 | 1057 | [Sums of K different powers of B in a range](1057/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1058 | [The shortest cut halving a convex polygon](1058/) | geometry | C++, Go, Python, Java, Rust |
