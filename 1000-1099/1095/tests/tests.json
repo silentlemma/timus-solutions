@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1095_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two numbers" },
+    { "name": "02", "note": "only the four key digits" },
+    { "name": "03", "note": "many zeros, which must not lead the answer" },
+    { "name": "04", "note": "twenty digits with repeated key digits" },
+    { "name": "05", "note": "all 24 orders of 1, 2, 3, 4" },
+    { "name": "06", "note": "one extra digit with every remainder modulo 7" },
+    { "name": "big1", "generator": "1 10000 20", "note": "ten thousand random numbers" },
+    { "name": "big2", "generator": "2 10000 20", "note": "mixed lengths and zero counts across a full batch" },
+    { "name": "big3", "generator": "3 100 8", "note": "short random numbers" },
+    { "name": "07", "note": "one through six zeros with no non-key nonzero digit" },
+    { "name": "08", "note": "seventeen copies of each key digit in turn at length twenty" },
+    { "name": "09", "note": "valid numbers on both sides of signed and unsigned integer limits" },
+    { "name": "10", "note": "all ten distinct digits with changing positions of the key digits" },
+    { "name": "11", "note": "two-digit heads covering all seven remainders with varied zero tails" },
+    { "name": "12", "note": "alternating long and short numbers reset head and zero counts" },
+    { "name": "13", "note": "retained stress cases with a pair of equal non-key nonzero digits" },
+    { "name": "14", "generator": "dense 109514 10000", "note": "maximum count and length with dense nonzero random digits" },
+    { "name": "15", "generator": "sparse 109515 10000", "note": "maximum count and length with one through fifteen shuffled zeros" }
+  ]
+}
