@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1102_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six lines, two of them dialogues" },
+    { "name": "02", "note": "every one- and two-word dialogue and tricky near misses" },
+    { "name": "03", "note": "every three-word dialogue" },
+    { "name": "04", "note": "three hundred random lines, half of them spoiled" },
+    { "name": "big1", "generator": "1 1 4000000 0", "note": "one dialogue of almost four million letters" },
+    { "name": "big2", "generator": "2 1000 4000000 50", "note": "a thousand long lines, half of them spoiled" },
+    { "name": "big3", "generator": "3 1 3999999 100", "note": "one long line spoiled by one letter" }
+  ]
+}
