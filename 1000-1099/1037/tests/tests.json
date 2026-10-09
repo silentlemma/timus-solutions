@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1037_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "allocations, accesses, expiry and reuse of the smallest free blocks" },
+    { "name": "02", "example": true, "note": "an access extends the lifetime; a block expires exactly 600 seconds after its last request" },
+    { "name": "03", "note": "accesses to blocks that were never taken" },
+    { "name": "04", "note": "several blocks expire at the same moment and are reused in order" },
+    { "name": "05", "note": "times near the largest value 65000" },
+    { "name": "06", "note": "random small, checked by a naive scan and a segment tree" },
+    { "name": "07", "note": "random small, checked by a naive scan and a segment tree" },
+    { "name": "08", "note": "random small, checked by a naive scan and a segment tree" },
+    { "name": "big1", "generator": "1 80000 1 50", "note": "the most requests, slowly growing time" },
+    { "name": "big2", "generator": "2 80000 1 60 1", "note": "all 30000 blocks taken at time 0, then they expire together" },
+    { "name": "big3", "generator": "3 80000 10 30", "note": "mostly accesses, blocks expire and get reused" },
+    { "name": "big4", "generator": "4 80000 2000 50", "note": "large time steps: most blocks expire between requests" },
+    { "name": "big5", "generator": "5 80000 0 100", "note": "all requests at time 0: every block gets taken" }
+  ]
+}
