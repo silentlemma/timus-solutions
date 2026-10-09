@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1107_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "twenty sets from the statement" },
+    { "name": "02", "note": "one kind of item: each set is one removal from the next" },
+    { "name": "03", "note": "a single set" },
+    { "name": "04", "note": "five one-item sets, all similar, with exactly N + 1 shops" },
+    { "name": "05", "note": "sets one removal, addition or replacement apart" },
+    { "name": "06", "note": "the largest item numbers" },
+    { "name": "big1", "generator": "1 99 50000 100 100 2", "note": "maximum set count with every set at the maximum size" },
+    { "name": "big2", "generator": "2 99 50000 100 20 1", "note": "many families of similar sets at the maximum set count" },
+    { "name": "big3", "generator": "3 10 50000 11 100 1", "note": "ten kinds of items and only eleven shops" },
+    { "name": "07", "note": "a common 99-item core and all additions require 100 groups and reach sum 9900" },
+    { "name": "08", "note": "equal sums with different multiplicities and sizes, interleaved with removal neighbors" },
+    { "name": "09", "note": "all multisets on two item kinds through size six form overlapping triangles with only three groups" },
+    { "name": "10", "generator": "1107 4 400 100 100 0", "note": "seeded independent random multisets with mixed lengths and many spare groups" }
+  ]
+}
