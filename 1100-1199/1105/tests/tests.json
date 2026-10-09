@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1105_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven observers from the statement" },
+    { "name": "02", "note": "a single observer present all the time" },
+    { "name": "03", "note": "two identical observers: painting both gives nothing" },
+    { "name": "04", "note": "three overlapping observers" },
+    { "name": "05", "note": "a chain of observers touching end to end" },
+    { "name": "06", "note": "negative and fractional times" },
+    { "name": "07", "note": "a chain where neighbours overlap by most of their time" },
+    { "name": "08", "note": "one observer present all the time among shorter ones" },
+    { "name": "big1", "generator": "1 9999 0", "note": "9999 observers: a chain and many short ones" },
+    { "name": "big2", "generator": "2 9999 1", "note": "9999 observers on a chain of heavy overlaps" },
+    { "name": "big3", "generator": "3 9999 2", "note": "9999 observers with small integer times" },
+    { "name": "big4", "generator": "4 9998 1", "note": "another chain of heavy overlaps" }
+  ]
+}
