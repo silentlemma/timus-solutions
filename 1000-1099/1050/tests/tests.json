@@ -1,0 +1,31 @@
+{
+  "judging": "exact",
+  "input_encoding": "cp1251",
+  "reference": "1050_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "paragraphs ended by \\par and by an empty line; an umlaut stays" },
+    { "name": "02", "example": true, "note": "cyrillic text, a line of spaces ends a paragraph, no final line break" },
+    { "name": "03", "note": "longer command names keep quotes together while the exact paragraph command separates them" },
+    { "name": "04", "note": "a backslash pair followed by a space, then quotes and an umlaut" },
+    { "name": "05", "note": "a quote spans three lines; a line with a tab ends the paragraph" },
+    { "name": "06", "note": "several \\par commands in one line" },
+    { "name": "07", "note": "nothing but \\endinput, without a final line break" },
+    { "name": "08", "note": "mixed Latin and Cyrillic text combines repeated empty lines with command boundaries and umlauts" },
+    { "name": "09", "note": "quote pairs span text lines among whitespace separators, with no final line break" },
+    { "name": "big1", "generator": "1 250", "note": "maximum line count with mixed commands, Cyrillic bytes and paragraph separators" },
+    { "name": "big2", "generator": "2 250 1", "note": "blank opening lines and a missing final newline in a full 250-line document" },
+    { "name": "big3", "generator": "3 120", "note": "umlauts and longer command names amid space and tab separators in 120 lines" },
+    { "name": "10", "note": "existing TeX quotes and repeated umlaut commands are copied when no ordinary quote occurs" },
+    { "name": "11", "note": "quote-only paragraphs of lengths one through seven include empty pairs and odd tails" },
+    { "name": "12", "note": "adjacent umlaut commands do not affect quote pairing or removal" },
+    { "name": "13", "note": "longer command names and uppercase variants of par leave a quote pair in one paragraph" },
+    { "name": "14", "note": "digits, underscores, braces and punctuation terminate the exact par command" },
+    { "name": "15", "note": "cyrillic letters and the numero sign terminate Latin command names and remain unchanged" },
+    { "name": "16", "note": "eighty-character lines of spaces or tabs ending in a visible character keep a quotation open" },
+    { "name": "17", "note": "quotes at column eighty and column one pair across a newline before an odd final quote" },
+    { "name": "18", "note": "all 250 lines have eighty bytes; one huge paragraph has 19671 quotes and drops only the last" },
+    { "name": "19", "note": "mixed whitespace lines separate unmatched openings from a quote pair beside an uppercase command" },
+    { "name": "20", "generator": "1063 2", "note": "umlauts beside a quote pair and an unmatched quote do not change their roles" },
+    { "name": "21", "generator": "2050 3", "note": "an unmatched quote before a paragraph command is deleted while a later pair spans two text lines" }
+  ]
+}
