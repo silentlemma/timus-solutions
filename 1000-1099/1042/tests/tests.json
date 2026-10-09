@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1042_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a valve turned three times ends up open" },
+    { "name": "02", "example": true, "note": "two technicians together cover every valve once" },
+    { "name": "03", "note": "a single technician and a single valve" },
+    { "name": "04", "note": "every technician has one valve: all of them are needed" },
+    { "name": "05", "note": "nested lists: the last technician alone is enough" },
+    { "name": "06", "note": "a chain of overlapping pairs" },
+    { "name": "07", "note": "random small system, checked over all subsets" },
+    { "name": "08", "note": "dense overlapping lists with shuffled valve order" },
+    { "name": "09", "note": "sparse random small system, checked over all subsets" },
+    { "name": "big1", "generator": "1 250 5000", "note": "the largest system, dense lists" },
+    { "name": "big2", "generator": "2 250 300", "note": "the largest system, sparse lists" },
+    { "name": "big3", "generator": "3 250 0", "note": "the largest system, one valve each" },
+    { "name": "big4", "generator": "4 250 60000", "note": "the largest system after many operations" },
+    { "name": "10", "note": "zero diagonal forces pivot swaps and distinguishes the input from its transpose" },
+    { "name": "11", "note": "four independent subsystems have interleaved technician and valve numbers" },
+    { "name": "12", "note": "a 64-valve binary tree needs alternating depth levels including technician 64" },
+    { "name": "13", "note": "private valves force 193 technicians to open a shared valve without technician 64" },
+    { "name": "14", "generator": "offdiag 250", "note": "maximum size with 249 valves per technician requires all 250 technicians" },
+    { "name": "15", "generator": "104215 129 1600", "note": "a random mixed system crosses the 128-bit boundary with 129 unknowns" }
+  ]
+}
