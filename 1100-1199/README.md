@@ -14,3 +14,4 @@
 | 1107 | [Separating multisets that differ by one item](1107/) | math | C++, Go, Python, Java, Rust |
 | 1108 | [Unit fractions that leave the smallest positive remainder](1108/) | math | C++, Go, Python, Java, Rust |
 | 1109 | [The fewest edges touching every vertex of a bipartite graph](1109/) | matching | C++, Go, Python, Java, Rust |
+| 1110 | [All residues whose N-th power gives a remainder Y](1110/) | bruteforce | C++, Go, Python, Java, Rust |
