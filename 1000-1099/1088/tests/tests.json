@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1088_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the paths part at the first stone" },
+    { "name": "02", "note": "no roads at all: both at the first stone" },
+    { "name": "03", "note": "both stones are the first stone" },
+    { "name": "04", "note": "the two outermost piers, just enough hours" },
+    { "name": "05", "note": "the two outermost piers, one hour short" },
+    { "name": "06", "note": "both at the same pier of the deepest tree" },
+    { "name": "07", "note": "both at the first stone of the deepest tree" },
+    { "name": "08", "note": "neighbouring piers, Ilya nearer the sea" },
+    { "name": "09", "note": "neighbouring piers, Alyosha nearer the sea" },
+    { "name": "10", "note": "from the last pier all the way back to the first stone, one hour short" },
+    { "name": "big1", "generator": "1 0", "note": "a journey from a pier to the root within the riding budget" },
+    { "name": "big2", "generator": "4 0", "note": "unequal-depth forks meet below the root but need one more hour than allowed" },
+    { "name": "big3", "generator": "5 30", "note": "a random journey in the deepest tree" },
+    { "name": "11", "note": "different pier labels identify the same interior fork with no riding time" },
+    { "name": "12", "note": "consecutive central piers in the deepest tree need sixty hours despite their close labels" },
+    { "name": "13", "note": "the two highest pier labels are siblings reachable in exactly two hours" },
+    { "name": "14", "note": "zero riding time cannot connect distinct piers in the smallest nontrivial tree" },
+    { "name": "15", "note": "seeded small random forks at unequal depths split below the root and miss the budget by one hour" }
+  ]
+}
