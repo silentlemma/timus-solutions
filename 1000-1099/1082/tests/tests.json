@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1082_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three numbers" },
+    { "name": "02", "note": "single element with no counted moves" },
+    { "name": "03", "note": "two elements requiring a single partition" },
+    { "name": "04", "note": "the largest N" },
+    { "name": "05", "note": "half the maximum output length" },
+    { "name": "06", "note": "four elements split down to singletons" },
+    { "name": "07", "note": "one element below the maximum size" },
+    { "name": "big1", "generator": "1 1000", "note": "a random N" },
+    { "name": "big2", "generator": "2 1000", "note": "random size close to the upper bound" },
+    { "name": "big3", "generator": "3 30", "note": "a random small N" },
+    { "name": "08", "note": "first answer containing a two-digit integer" },
+    { "name": "09", "note": "first required move count above signed 16-bit range" },
+    { "name": "10", "note": "first required move count above unsigned 16-bit range" }
+  ]
+}
