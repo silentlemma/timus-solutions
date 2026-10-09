@@ -112,7 +112,9 @@ Pitfalls:
 - **C++**, **Go**, **Rust**: plain `O(N^3)` loops are far below the limit.
 - **Python**: `5 · 100^3` inner steps are tight for 0.5 seconds; the loop
   over `j` works on local references to the rows (`di`, `dk`) and skips rows
-  with `dist[i][k]` infinite. PyPy is a safe fallback.
+  with `dist[i][k]` infinite. Even so, under CPython 3.12 it exceeds the
+  time limit on test 4 (0.531 s); the same file is accepted under PyPy 3.10
+  in 0.187 s, so the Python solution passes only under PyPy.
 - **Java**: a hand-written byte reader for the up to 50 000 input lines.
 
 ## Solutions

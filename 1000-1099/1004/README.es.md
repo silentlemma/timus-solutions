@@ -116,7 +116,9 @@ Detalles a tener en cuenta:
   del límite.
 - **Python**: `5 · 100^3` pasos del bucle interno son justos para 0.5 segundos;
   el bucle sobre `j` usa referencias locales a las filas (`di`, `dk`) y omite
-  las filas con `dist[i][k]` infinito. PyPy es una alternativa segura.
+  las filas con `dist[i][k]` infinito. Aun así, con CPython 3.12 supera el
+  límite de tiempo en la prueba 4 (0,531 s); el mismo archivo se acepta con
+  PyPy 3.10 en 0,187 s, así que la solución en Python solo pasa con PyPy.
 - **Java**: un lector de bytes propio para las hasta 50 000 líneas de entrada.
 
 ## Soluciones
