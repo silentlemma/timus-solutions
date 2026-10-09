@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1033_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an L-shaped block inside" },
+    { "name": "02", "example": true, "note": "no blocks: only the outer wall" },
+    { "name": "03", "note": "both entrances closed off by blocks" },
+    { "name": "04", "note": "diagonally touching blocks close a corner: no gap between them" },
+    { "name": "05", "note": "a snake-like corridor" },
+    { "name": "06", "note": "the largest maze without blocks" },
+    { "name": "07", "note": "random blocks, checked independently" },
+    { "name": "big1", "generator": "1 33 30", "note": "the largest maze, random blocks" },
+    { "name": "big2", "generator": "2 33 55", "note": "the largest maze, many blocks: separate regions" }
+  ]
+}
