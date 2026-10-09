@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1081_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first string of length 3" },
+    { "name": "02", "note": "the last string of length 3" },
+    { "name": "03", "note": "one past the last string of length 3" },
+    { "name": "04", "note": "N = 1, the first string" },
+    { "name": "05", "note": "N = 1, the second string" },
+    { "name": "06", "note": "N = 1 has only two strings" },
+    { "name": "07", "note": "the largest N, the first string" },
+    { "name": "08", "note": "the largest N and K" },
+    { "name": "09", "note": "the last of the 701 408 733 strings of length 42" },
+    { "name": "10", "note": "one past the last string of length 42" },
+    { "name": "11", "note": "the last string of length 10" },
+    { "name": "12", "note": "one past the last string of length 10" },
+    { "name": "big1", "generator": "1 43 999999999", "note": "a random query" },
+    { "name": "big2", "generator": "5 43 999999999", "note": "a random query with a long string" },
+    { "name": "big3", "generator": "3 20 20000", "note": "a random string of length up to 20" }
+  ]
+}

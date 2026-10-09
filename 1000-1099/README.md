@@ -85,3 +85,4 @@
 | 1078 | [The longest chain of segments nested one inside the next](1078/) | dp | C++, Go, Python, Java, Rust |
 | 1079 | [The largest term of Stern's sequence up to n](1079/) | dp | C++, Go, Python, Java, Rust |
 | 1080 | [Colouring a map with two colours](1080/) | bfs, graphs | C++, Go, Python, Java, Rust |
+| 1081 | [The K-th binary string without two adjacent ones](1081/) | dp | C++, Go, Python, Java, Rust |
