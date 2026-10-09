@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1089_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eleven typos in three lines" },
+    { "name": "02", "note": "an exact match stays while nearby misspellings are corrected" },
+    { "name": "03", "note": "missing and extra letters are not corrected" },
+    { "name": "04", "note": "spaces, punctuation and an empty line are kept as they are" },
+    { "name": "05", "note": "words longer than any dictionary word" },
+    { "name": "06", "note": "an empty dictionary" },
+    { "name": "07", "note": "digits split words" },
+    { "name": "big1", "generator": "1 100 1000", "note": "a hundred words and a thousand words of text" },
+    { "name": "big2", "generator": "2 100 1000", "note": "exact matches, substitutions and unknown words at the word-count limit" },
+    { "name": "big3", "generator": "3 10 300", "note": "a small dictionary" },
+    { "name": "08", "note": "a single one-letter word needs one substitution" },
+    { "name": "09", "note": "all words are correct despite adjacent dictionary entries" },
+    { "name": "10", "note": "a typo at each of the eight positions of a maximum-length word" },
+    { "name": "11", "note": "both sides of apostrophes and repeated hyphens are separate words" },
+    { "name": "12", "note": "wordless text preserves leading and trailing empty lines" },
+    { "name": "13", "note": "seeded small edits with nearby entries and a two-letter correction" },
+    { "name": "14", "generator": "all-typos 1089", "note": "maximum dictionary and text with all thousand occurrences corrected" },
+    { "name": "15", "generator": "near-misses 1089", "note": "maximum eight-letter workload with two final mismatches and zero corrections" }
+  ]
+}
