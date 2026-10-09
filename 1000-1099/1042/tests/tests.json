@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1042_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a valve turned three times ends up open" },
+    { "name": "02", "example": true, "note": "two technicians together cover every valve once" },
+    { "name": "03", "note": "a single technician and a single valve" },
+    { "name": "04", "note": "every technician has one valve: all of them are needed" },
+    { "name": "05", "note": "nested lists: the last technician alone is enough" },
+    { "name": "06", "note": "a chain of overlapping pairs" },
+    { "name": "07", "note": "random small system, checked over all subsets" },
+    { "name": "08", "note": "random small system, checked over all subsets" },
+    { "name": "09", "note": "sparse random small system, checked over all subsets" },
+    { "name": "big1", "generator": "1 250 5000", "note": "the largest system, dense lists" },
+    { "name": "big2", "generator": "2 250 300", "note": "the largest system, sparse lists" },
+    { "name": "big3", "generator": "3 250 0", "note": "the largest system, one valve each" },
+    { "name": "big4", "generator": "4 250 60000", "note": "the largest system after many operations" }
+  ]
+}
