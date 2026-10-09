@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1035_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three groups of stitches; one of them needs two threads" },
+    { "name": "02", "example": true, "note": "a line of three front stitches with one back stitch in the middle" },
+    { "name": "03", "note": "no stitches at all: no thread" },
+    { "name": "04", "note": "both diagonals on both sides of one cell: two separate groups" },
+    { "name": "05", "note": "front stitches only: every stitch needs its own thread" },
+    { "name": "06", "note": "random small pattern, checked by exhaustive search" },
+    { "name": "07", "note": "random small pattern, checked by exhaustive search" },
+    { "name": "08", "note": "random small pattern, checked by exhaustive search" },
+    { "name": "big1", "generator": "0 200 200 0 0 X", "note": "the largest grid, crosses everywhere on both sides: 2 threads" },
+    { "name": "big2", "generator": "0 200 200 0 100 X", "note": "the largest grid, crosses on the front only: 80000 threads" },
+    { "name": "big3", "generator": "1 200 200 30 30", "note": "the largest grid, dense random pattern" },
+    { "name": "big4", "generator": "2 200 200 70 70", "note": "the largest grid, sparse random pattern" },
+    { "name": "big5", "generator": "3 200 200 0 50", "note": "the largest grid, a full front and a half-empty back" },
+    { "name": "big6", "generator": "4 1 200 50 50", "note": "a single row of cells" },
+    { "name": "big7", "generator": "5 200 1 50 50", "note": "a single column of cells" }
+  ]
+}
