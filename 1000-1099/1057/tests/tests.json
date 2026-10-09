@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1057_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three numbers with two binary ones" },
+    { "name": "02", "example": true, "note": "powers of ten up to 100" },
+    { "name": "03", "note": "all powers of two in the whole range" },
+    { "name": "04", "note": "20 binary ones among 31 positions" },
+    { "name": "05", "note": "ten ones among twenty base-3 positions" },
+    { "name": "06", "note": "a single number that is a power of ten" },
+    { "name": "07", "note": "the range [1, 1] with two ones: nothing" },
+    { "name": "08", "note": "more ones than base-10 positions: nothing" },
+    { "name": "09", "note": "a single number 12 = 9 + 3" },
+    { "name": "10", "note": "a medium range, checked number by number" },
+    { "name": "big1", "generator": "1 100000 15 2", "note": "a narrow range, 15 binary ones" },
+    { "name": "big2", "generator": "2 0 12 2", "note": "a wide range, 12 binary ones" },
+    { "name": "big3", "generator": "3 0 8 3", "note": "a wide range, eight ones in base 3" },
+    { "name": "big4", "generator": "5 0 5 4", "note": "a wide range, five ones in base 4" }
+  ]
+}
