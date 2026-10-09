@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1109_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three delegates of A share one partner" },
+    { "name": "02", "note": "one pair" },
+    { "name": "03", "note": "repeated pairs" },
+    { "name": "04", "note": "one delegate of A talks to everyone in B" },
+    { "name": "05", "note": "a staircase where the first free partner is the wrong one" },
+    { "name": "06", "note": "everyone can talk to everyone" },
+    { "name": "07", "note": "a star and a path, separate" },
+    { "name": "big1", "generator": "1 1000 1000 3000 0", "note": "1000 by 1000 with few random pairs" },
+    { "name": "big2", "generator": "2 1000 1000 20000 1", "note": "staircases" },
+    { "name": "big3", "generator": "3 1000 1000 200000 2", "note": "200 000 pairs in dense blocks" },
+    { "name": "big4", "generator": "4 1000 999 100000 3", "note": "most of A crowding a few hubs of B" },
+    { "name": "big5", "generator": "6 1000 1000 1500 0", "note": "barely more pairs than delegates" }
+  ]
+}
