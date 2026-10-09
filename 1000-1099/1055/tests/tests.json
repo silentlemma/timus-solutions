@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1055_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "C(5, 3) = 10 = 2 · 5" },
+    { "name": "02", "example": true, "note": "C(10, 5) = 252 = 2^2 · 3^2 · 7" },
+    { "name": "03", "note": "the smallest input: C(2, 1) = 2" },
+    { "name": "04", "note": "C(N, N - 1) = N = 50000 = 2^4 · 5^5" },
+    { "name": "05", "note": "C(N, 1) = N, a prime" },
+    { "name": "06", "note": "the largest middle binomial coefficient" },
+    { "name": "07", "note": "a prime N" },
+    { "name": "08", "note": "a power of two split in halves" },
+    { "name": "09", "note": "checked by factoring the exact binomial coefficient" },
+    { "name": "10", "note": "a power of three, checked by factoring the exact binomial coefficient" },
+    { "name": "big1", "generator": "1 50000", "note": "a random pair" },
+    { "name": "big2", "generator": "2 50000", "note": "a random pair" },
+    { "name": "big3", "generator": "3 100", "note": "a random small pair" }
+  ]
+}
