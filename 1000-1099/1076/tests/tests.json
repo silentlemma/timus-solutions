@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1076_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four containers" },
+    { "name": "02", "note": "one container: nothing moves" },
+    { "name": "03", "note": "no trash at all" },
+    { "name": "04", "note": "taking the largest amount first is wrong" },
+    { "name": "05", "note": "all amounts equal" },
+    { "name": "06", "note": "already sorted along the diagonal" },
+    { "name": "07", "note": "already sorted along the other diagonal" },
+    { "name": "08", "note": "seven containers, checked against all assignments" },
+    { "name": "09", "note": "seven containers with small amounts and many ties" },
+    { "name": "big1", "generator": "1 150 100 0", "note": "the largest random input" },
+    { "name": "big2", "generator": "2 150 100 1", "note": "amounts 99 and 100 only" },
+    { "name": "big3", "generator": "3 150 100 2", "note": "a shuffled multiplication table modulo 101" },
+    { "name": "10", "note": "two types share one full container while the other container is empty" },
+    { "name": "11", "note": "the last container forces reassignment through all eight containers" },
+    { "name": "12", "note": "random binary matrix with no empty row or column still requires a zero-weight pair" },
+    { "name": "13", "generator": "13 150 100 3", "note": "maximum total trash and maximum answer with all 22500 amounts at 100" },
+    { "name": "14", "generator": "14 150 100 4", "note": "one type occupies all 150 containers and the other 149 types are absent" },
+    { "name": "15", "generator": "15 150 100 5", "note": "twenty-five independent random groups remain separate after row and column shuffling" }
+  ]
+}
