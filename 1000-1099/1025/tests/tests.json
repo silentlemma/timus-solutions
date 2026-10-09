@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1025_greedy_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the three smallest of five groups" },
+    { "name": "02", "example": true, "note": "a single group: a majority of the whole island" },
+    { "name": "03", "note": "groups of one voter" },
+    { "name": "04", "note": "the largest number of groups, all equal" },
+    { "name": "05", "note": "random sizes, checked by brute force over sets of groups" },
+    { "name": "06", "note": "one huge group that is better avoided" },
+    { "name": "07", "note": "equal groups" },
+    { "name": "big1", "generator": "1 101 197", "note": "the maximum number of groups with random sizes" },
+    { "name": "big2", "generator": "2 51 399", "note": "random groups of up to 399 voters" },
+    { "name": "08", "note": "one voter in one group, the absolute minimum input" },
+    { "name": "09", "note": "three large groups totaling 9999 voters with a tie at the selection cutoff" },
+    { "name": "10", "note": "descending distinct sizes require sorting and a separate majority in each chosen group" },
+    { "name": "11", "note": "only 50 singleton groups among 101 groups totaling 9999 voters, so a large group must also be won" },
+    { "name": "12", "generator": "1025 9 9", "note": "small random groups with repeated sizes on both sides of the winning cutoff" }
+  ]
+}
