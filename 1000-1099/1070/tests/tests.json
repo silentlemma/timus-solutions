@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1070_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first flight lands after midnight" },
+    { "name": "02", "note": "both airports in one time zone" },
+    { "name": "03", "note": "the largest shift, six-hour and 5:50 flights" },
+    { "name": "04", "note": "the largest shift the other way; the first flight lasts five minutes" },
+    { "name": "05", "note": "the return flight lands on the clock before it leaves" },
+    { "name": "06", "note": "the durations differ by exactly ten minutes" },
+    { "name": "07", "note": "a flight leaves at 00.00 and another lands at 23.59" },
+    { "name": "08", "note": "a random pair of flights" },
+    { "name": "big1", "generator": "1", "note": "a negative three-hour shift with the outward flight eight minutes longer" },
+    { "name": "big2", "generator": "2 5", "note": "a random pair of flights with the largest shift" },
+    { "name": "big3", "generator": "3 0", "note": "a random pair of flights in one time zone" },
+    { "name": "09", "note": "all four clocks at midnight, with zero elapsed minutes in both directions" },
+    { "name": "10", "note": "identical outward departure and arrival clocks still represent a three-hour flight" },
+    { "name": "11", "note": "both flights take the full six hours and both arrivals are exactly midnight" },
+    { "name": "12", "note": "a one-minute outward flight and a nine-minute return with a three-hour shift" },
+    { "name": "13", "note": "only the return clock subtraction borrows an hour; durations differ by nine minutes" },
+    { "name": "14", "note": "a positive four-hour shift with a 5:59 outward flight just below the duration limit" },
+    { "name": "15", "generator": "14972 -1", "note": "seeded ten-minute outward flight and zero-minute return reach both lower and tolerance bounds" }
+  ]
+}
