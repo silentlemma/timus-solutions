@@ -73,3 +73,4 @@
 | 1066 | [The lowest end of a sagging garland](1066/) | math | C++, Go, Python, Java, Rust |
 | 1067 | [A folder tree rebuilt from full paths](1067/) | trees, sorting | C++, Go, Python, Java, Rust |
 | 1068 | [The sum of all integers between 1 and N](1068/) | math | C++, Go, Python, Java, Rust |
+| 1069 | [Rebuilding a tree from its Prüfer code](1069/) | trees | C++, Go, Python, Java, Rust |
