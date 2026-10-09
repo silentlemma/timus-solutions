@@ -64,3 +64,4 @@
 | 1057 | [Sums of K different powers of B in a range](1057/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1058 | [The shortest cut halving a convex polygon](1058/) | geometry | C++, Go, Python, Java, Rust |
 | 1059 | [The shortest postfix program for a polynomial](1059/) | math | C++, Go, Python, Java, Rust |
+| 1060 | [The fewest flips to make a 4 × 4 board one colour](1060/) | bruteforce, bitmask | C++, Go, Python, Java, Rust |
