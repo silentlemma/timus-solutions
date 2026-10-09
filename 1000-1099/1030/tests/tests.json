@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.01",
+  "cases": [
+    { "name": "01", "example": true, "note": "an iceberg about 53 miles away: danger" },
+    { "name": "02", "example": true, "note": "an iceberg far away" },
+    { "name": "03", "note": "the iceberg at the ship's position" },
+    { "name": "04", "note": "from pole to pole: half of the great circle" },
+    { "name": "05", "note": "across the 180th meridian, east and west longitudes" },
+    { "name": "06", "note": "just below 100 miles: 99.99 and danger" },
+    { "name": "07", "note": "a distance just below 100 miles rounds to 100.00 without a warning" },
+    { "name": "08", "note": "antipodal points across the equator" },
+    { "name": "09", "note": "one arcsecond of latitude carries into the next degree" },
+    { "name": "10", "note": "different longitudes denote the same north pole" },
+    { "name": "11", "note": "crossing both the equator and Greenwich requires both hemisphere signs" },
+    { "name": "12", "note": "equal southern latitudes use a great circle through the pole rather than a parallel" },
+    { "name": "13", "note": "maximum latitude and longitude endpoints on a pole-to-equator quarter circle" },
+    { "name": "14", "note": "minute and second components of 59 near the coordinate limits" },
+    { "name": "15", "note": "one arcsecond beyond a hundred-minute arc prints 100.01 without danger" },
+    { "name": "16", "note": "distinct points one longitude second apart near a pole round to zero miles" },
+    { "name": "17", "note": "seeded global pair has an obtuse central angle and a distance over 10000 miles" },
+    { "name": "18", "note": "seeded nearby southern points differ in both latitude and longitude seconds" },
+    { "name": "19", "note": "seeded oblique near-antipodes retain a small deficit from the maximum distance" }
+  ]
+}
