@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1094_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "corrections with the left key, written over and over" },
+    { "name": "02", "note": "no keys: eighty spaces" },
+    { "name": "03", "note": "the eighty-first letter goes to the first position" },
+    { "name": "04", "note": "the left key at the left edge keeps the cursor there" },
+    { "name": "05", "note": "the last position is written, then the cursor jumps back" },
+    { "name": "06", "note": "only cursor keys" },
+    { "name": "07", "note": "letters, digits, punctuation and spaces" },
+    { "name": "08", "note": "the right key past the right edge" },
+    { "name": "big1", "generator": "1 10000 50", "note": "the longest random sequence" },
+    { "name": "big2", "generator": "2 10000 5", "note": "mostly typing, the cursor wraps many times" },
+    { "name": "big3", "generator": "3 10000 95", "note": "mostly cursor keys" }
+  ]
+}
