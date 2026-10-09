@@ -33,3 +33,4 @@
 | 1026 | [The k-th smallest element of a database](1026/) | sorting, prefix_sums | C++, Go, Python, Java, Rust |
 | 1027 | [Checking brackets and comments in a toy language](1027/) | parsing | C++, Go, Python, Java, Rust |
 | 1028 | [Counting points below and to the left of each point](1028/) | fenwick, segment_tree | C++, Go, Python, Java, Rust |
+| 1029 | [The cheapest walk up a building of offices](1029/) | dp, dijkstra | C++, Go, Python, Java, Rust |

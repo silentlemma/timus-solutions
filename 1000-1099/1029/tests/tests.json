@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1029_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the cheap offices zigzag through the building" },
+    { "name": "02", "example": true, "note": "one office" },
+    { "name": "03", "note": "one floor: the cheapest office alone" },
+    { "name": "04", "note": "one room per floor" },
+    { "name": "05", "note": "a cheap start that leads to expensive floors" },
+    { "name": "06", "note": "random small fees with many ties" },
+    { "name": "07", "note": "a hundred floors of equal fees: the total stays within 10^9" },
+    { "name": "big1", "generator": "1 100 500 10000000", "note": "the largest building" },
+    { "name": "big2", "generator": "2 100 500 3", "note": "the largest building with tiny fees" },
+    { "name": "08", "note": "the optimal walk crosses an entire floor in each direction between narrow gates" },
+    { "name": "09", "note": "one floor of 500 rooms: the unique cheapest start is the last room and a fee reaches 10^9" },
+    { "name": "10", "note": "a cheap central shaft keeps side offices above the first floor reachable at exactly 10^9" },
+    { "name": "11", "generator": "102911 100 2 10000000", "note": "random two-room floors at maximum height require choosing when to switch shafts" },
+    { "name": "12", "generator": "102912 2 500 10000000", "note": "random maximum-width floors with only one upward step test the best crossing room" }
+  ]
+}
