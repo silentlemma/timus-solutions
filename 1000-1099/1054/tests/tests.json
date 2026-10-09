@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1054_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the position after three moves of three disks" },
+    { "name": "02", "example": true, "note": "one disk on the spare rod: never reached" },
+    { "name": "03", "note": "the starting position" },
+    { "name": "04", "note": "the final position of ten disks: 2^10 - 1 moves" },
+    { "name": "05", "note": "a random position, checked by simulating all moves" },
+    { "name": "06", "note": "12 disks: the smallest disk first goes to the spare rod, not to rod 2" },
+    { "name": "07", "note": "a reachable position of 12 disks, checked by simulating all moves" },
+    { "name": "08", "note": "a random position of 12 disks, checked by simulating all moves" },
+    { "name": "big1", "generator": "1 31 valid", "note": "a reachable position of the most disks" },
+    { "name": "big2", "generator": "2 31 last", "note": "the final position of 31 disks: 2^31 - 1 moves" },
+    { "name": "big3", "generator": "3 31 random", "note": "a random position of the most disks" },
+    { "name": "big4", "generator": "4 30 valid", "note": "a reachable position of 30 disks" }
+  ]
+}
