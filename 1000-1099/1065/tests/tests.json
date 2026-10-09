@@ -1,0 +1,30 @@
+{
+  "judging": "float:0.011",
+  "reference": "1065_dp_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "no monuments: the shortest triangle with an area" },
+    { "name": "02", "example": true, "note": "two monuments force a longer border" },
+    { "name": "03", "note": "a triangle stays as it is" },
+    { "name": "04", "note": "a monument in the middle of a square: the square stays" },
+    { "name": "05", "note": "collinear towers: a triangle of three towers on one side has no area" },
+    { "name": "06", "note": "a monument next to a corner of the largest square" },
+    { "name": "07", "note": "random towers on a circle, checked over all subsets" },
+    { "name": "08", "note": "a rectangle with towers on its sides, checked over all subsets" },
+    { "name": "09", "note": "a rectangle without monuments, checked over all subsets" },
+    { "name": "big1", "generator": "1 50 1000 ring", "note": "the most towers and monuments" },
+    { "name": "big2", "generator": "2 50 3 ring", "note": "the most towers, a few monuments" },
+    { "name": "big3", "generator": "3 50 0 ring", "note": "the most towers, no monuments" },
+    { "name": "big4", "generator": "4 48 1000 box", "note": "a rectangle of 48 towers and many monuments" },
+    { "name": "10", "note": "a triangle of area one half with nearly parallel edges at coordinate limits" },
+    { "name": "11", "note": "the minimum three towers with the maximum 1000 distinct monuments" },
+    { "name": "12", "note": "a thin rectangle with many collinear towers still requires a positive-area triangle" },
+    { "name": "13", "note": "a monument in every corner ear makes all fifty strictly convex towers necessary" },
+    { "name": "14", "note": "a monument gives cross products of minus one and plus one on a nearly parallel diagonal" },
+    { "name": "15", "note": "a random pentagon has a four-tower optimum that omits the first input tower" },
+    { "name": "16", "note": "a random hexagon needs five towers and skips a short edge near two close corners" },
+    { "name": "17", "note": "collinear monuments span a narrow strip whose optimum uses intermediate side towers" },
+    { "name": "18", "generator": "106518 10 1 ring", "note": "one random monument allows a triangle that skips seven of ten circular towers" },
+    { "name": "19", "generator": "106519 12 8 ring", "note": "eight scattered random monuments need five of twelve circular towers" },
+    { "name": "20", "generator": "106520 12 1 box", "note": "one random monument fits a short triangle using three towers on two rectangle sides" }
+  ]
+}
