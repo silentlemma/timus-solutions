@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1032_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one number is already a multiple of N" },
+    { "name": "02", "example": true, "note": "any number is a multiple when N = 1" },
+    { "name": "03", "note": "all equal ones: all of them are needed" },
+    { "name": "04", "note": "equal numbers that are not multiples of N" },
+    { "name": "05", "note": "a hundred random numbers" },
+    { "name": "06", "note": "a longer block of consecutive numbers" },
+    { "name": "big1", "generator": "1 10000 15000", "note": "the largest N" },
+    { "name": "big2", "generator": "2 10000 1", "note": "the largest N, all numbers 1: all of them are needed" },
+    { "name": "big3", "generator": "3 9999 2", "note": "ones and twos" },
+    { "name": "07", "note": "two distinct large odd values with N = 2: both must be chosen" },
+    { "name": "08", "note": "a repeated nonzero remainder gives an interior pair; no prefix is divisible" },
+    { "name": "09", "note": "mixed repeated large values require three copies of one value and one of the other" },
+    { "name": "10", "note": "maximum N and every value 15000: largest possible total sum, with two values sufficient" },
+    { "name": "11", "generator": "late 1032 10000", "note": "shuffled prefix remainders force a full scan before finding a long suffix" }
+  ]
+}
