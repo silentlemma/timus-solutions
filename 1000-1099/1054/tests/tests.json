@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1054_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the position after three moves of three disks" },
+    { "name": "02", "example": true, "note": "one disk on the spare rod: never reached" },
+    { "name": "03", "note": "the starting position" },
+    { "name": "04", "note": "the final position of ten disks: 2^10 - 1 moves" },
+    { "name": "05", "note": "a random position, checked by simulating all moves" },
+    { "name": "06", "note": "the smallest disk on rod 2 instead of rod 3 for an even disk count" },
+    { "name": "07", "note": "a reachable position of 12 disks, checked by simulating all moves" },
+    { "name": "08", "note": "an unreachable mixed position with disk 10 on its current spare rod" },
+    { "name": "big1", "generator": "1 31 valid", "note": "a reachable position of the most disks" },
+    { "name": "big2", "generator": "2 31 last", "note": "the completed tower at the signed 32-bit answer limit" },
+    { "name": "big3", "generator": "3 31 random", "note": "a random position of the most disks" },
+    { "name": "big4", "generator": "4 30 valid", "note": "an intermediate position before the largest disk moves with an even disk count" },
+    { "name": "09", "note": "one disk successfully reaches rod 2 at the minimum input size" },
+    { "name": "10", "note": "the position just before the largest of 31 disks moves: 2^30 - 1 steps" },
+    { "name": "11", "note": "the largest disk has just moved to rod 2, leaving all smaller disks on rod 3" },
+    { "name": "12", "note": "only the smallest disk is unreachable after all larger disks reach rod 2" },
+    { "name": "13", "note": "two disks after the first legal move to rod 3, exercising even parity" },
+    { "name": "14", "note": "seeded small stress position at step 85 with alternating binary move bits" },
+    { "name": "15", "note": "the penultimate position: all higher step bits set and the low bit clear" }
+  ]
+}
