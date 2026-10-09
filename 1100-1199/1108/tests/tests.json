@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1108_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two heirs" },
+    { "name": "02", "note": "one heir: a half" },
+    { "name": "03", "note": "three heirs" },
+    { "name": "04", "note": "four heirs" },
+    { "name": "05", "note": "five heirs" },
+    { "name": "06", "note": "eight heirs, past 64 bits" },
+    { "name": "07", "note": "twelve heirs" },
+    { "name": "08", "note": "fifteen heirs, under the 4300-digit text limit of Python" },
+    { "name": "09", "note": "sixteen heirs, over that limit" },
+    { "name": "10", "note": "seventeen heirs" },
+    { "name": "11", "note": "eighteen heirs, the largest case" }
+  ]
+}
