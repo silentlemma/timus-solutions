@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1104_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example" },
+    { "name": "02", "note": "a single zero: base 2" },
+    { "name": "03", "note": "a single one: base 2" },
+    { "name": "04", "note": "Z alone: only base 36 is possible" },
+    { "name": "05", "note": "Z1: base 36 does not work, no solution" },
+    { "name": "06", "note": "10: every number is divisible by 1" },
+    { "name": "07", "note": "a single 2: base 3" },
+    { "name": "08", "note": "two of the largest digits, no solution" },
+    { "name": "09", "note": "a hundred leading zeros" },
+    { "name": "10", "note": "a word of letters, no solution" },
+    { "name": "big1", "generator": "1 1000000 36 36", "note": "a million digits up to Z: base 36" },
+    { "name": "big2", "generator": "2 1000000 10 11", "note": "a million decimal digits: base 11" },
+    { "name": "big3", "generator": "3 1000000 20 21", "note": "a million digits up to J: base 21" },
+    { "name": "big4", "generator": "4 1000000 36 0", "note": "a million random digits, no solution" }
+  ]
+}
