@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1068_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a negative N: the numbers from -3 up to 1" },
+    { "name": "02", "note": "zero as the endpoint includes both zero and one" },
+    { "name": "03", "note": "the endpoint one leaves a single term" },
+    { "name": "04", "note": "two positive terms are included" },
+    { "name": "05", "note": "opposite unit terms cancel to zero" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "07", "note": "the smallest N" },
+    { "name": "08", "note": "a small positive N" },
+    { "name": "big1", "generator": "1 10000", "note": "an even negative endpoint requires including zero and one" },
+    { "name": "big2", "generator": "2 10000", "note": "an odd negative endpoint gives an exact integer sum" },
+    { "name": "big3", "generator": "3 100", "note": "a random small N" }
+  ]
+}
