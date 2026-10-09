@@ -49,3 +49,4 @@
 | 1042 | [Toggling every switch an odd number of times](1042/) | math | C++, Go, Python, Java, Rust |
 | 1043 | [The integer bounding box of a circular arc](1043/) | geometry | C++, Go, Python, Java, Rust |
 | 1044 | [Counting balanced tickets of N digits](1044/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1045 | [A token game on a tree with burned vertices](1045/) | games, trees | C++, Go, Python, Java, Rust |
