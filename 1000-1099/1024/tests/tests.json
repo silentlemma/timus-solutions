@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "cycles of lengths 3 and 2: order 6" },
+    { "name": "02", "example": true, "note": "a single element" },
+    { "name": "03", "note": "the identity: order 1" },
+    { "name": "04", "note": "one cycle through all 1000 elements" },
+    { "name": "05", "note": "coprime cycle lengths with an order close to 10^9" },
+    { "name": "06", "note": "cycles of lengths 4 and 6: their lcm, not their product" },
+    { "name": "07", "note": "500 swaps" },
+    { "name": "08", "note": "prime cycle lengths 2 to 11" }
+  ]
+}
