@@ -1,0 +1,18 @@
+{
+  "judging": "lines",
+  "input_encoding": "latin-1",
+  "reference": "1074_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "truncation, a lost minus sign and two broken lines" },
+    { "name": "02", "note": "broken lines: empty, spaces, 5., a lone sign, e without digits, 1.e5, #1" },
+    { "name": "03", "note": "signs, leading zeros, N = 0, -0 and -.5" },
+    { "name": "04", "note": "exponents: long, with leading zeros, huge with a zero mantissa, far below zero" },
+    { "name": "05", "note": "truncation instead of rounding; minus signs that survive and vanish" },
+    { "name": "06", "note": "answers of exactly 200 characters" },
+    { "name": "07", "note": "characters above 127: letters with accents, a non-breaking space, superscript digits" },
+    { "name": "08", "note": "lines of 100 characters with N up to 100" },
+    { "name": "big1", "generator": "1 400", "note": "four hundred random lines, half of them broken" },
+    { "name": "big2", "generator": "2 400", "note": "four hundred random lines, half of them broken" },
+    { "name": "big3", "generator": "3 1000", "note": "a thousand random lines" }
+  ]
+}
