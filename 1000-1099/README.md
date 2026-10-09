@@ -97,3 +97,4 @@
 | 1090 | [The row of recruits that jumps the most: counting inversions](1090/) | fenwick, binary_search | C++, Go, Python, Java, Rust |
 | 1091 | [Counting sets of numbers with a common divisor](1091/) | number_theory | C++, Go, Python, Java, Rust |
 | 1092 | [Clearing a sign table with transversal flips](1092/) | constructive | C++, Go, Python, Java, Rust |
+| 1093 | [Does a falling dart pass through a round target in space](1093/) | geometry | C++, Go, Python, Java, Rust |
