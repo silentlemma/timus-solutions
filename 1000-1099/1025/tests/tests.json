@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1025_greedy_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the three smallest of five groups" },
+    { "name": "02", "example": true, "note": "a single group: a majority of the whole island" },
+    { "name": "03", "note": "groups of one voter" },
+    { "name": "04", "note": "the largest number of groups, all equal" },
+    { "name": "05", "note": "random sizes, checked by brute force over sets of groups" },
+    { "name": "06", "note": "one huge group that is better avoided" },
+    { "name": "07", "note": "equal groups" },
+    { "name": "big1", "generator": "1 101 197", "note": "101 random groups" },
+    { "name": "big2", "generator": "2 51 399", "note": "51 random groups of up to 399 voters" }
+  ]
+}
