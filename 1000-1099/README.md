@@ -82,3 +82,4 @@
 | 1075 | [The shortest thread around a fixed ball](1075/) | geometry | C++, Go, Python, Java, Rust |
 | 1076 | [Sorting trash into containers with the least moving](1076/) | matching | C++, Go, Python, Java, Rust |
 | 1077 | [The most tours that each own a road](1077/) | bfs, graphs | C++, Go, Python, Java, Rust |
+| 1078 | [The longest chain of segments nested one inside the next](1078/) | dp | C++, Go, Python, Java, Rust |

@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1078_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three nested segments and one apart" },
+    { "name": "02", "note": "a single segment" },
+    { "name": "03", "note": "five equal segments: none is inside another" },
+    { "name": "04", "note": "common ends do not count as inside" },
+    { "name": "05", "note": "segments of zero length nest too" },
+    { "name": "06", "note": "the longest possible chain, 499 segments in random order" },
+    { "name": "07", "note": "overlapping segments without nesting" },
+    { "name": "08", "note": "a small random set with many ties" },
+    { "name": "big1", "generator": "1 499 10000 0", "note": "random segments over the whole range" },
+    { "name": "big2", "generator": "2 499 10000 1", "note": "a long chain hidden among random segments" },
+    { "name": "big3", "generator": "3 499 30 0", "note": "short random segments with many ties" }
+  ]
+}
