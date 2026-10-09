@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1031_dp_two_pointers.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two tickets of different kinds" },
+    { "name": "02", "example": true, "note": "two stations, given in reverse order" },
+    { "name": "03", "note": "cheap short tickets beat the expensive long one" },
+    { "name": "04", "note": "the largest distances and prices" },
+    { "name": "05", "note": "the journey from the last station to the first" },
+    { "name": "06", "note": "irregular station spacing on a journey between interior stations" },
+    { "name": "big1", "generator": "1 10000 1000000 100000", "note": "the largest number of stations" },
+    { "name": "big2", "generator": "2 10000 30 100000", "note": "a reverse interior journey with gaps up to the longest ticket reach" },
+    { "name": "07", "note": "zero cost when both query stations are the same interior station" },
+    { "name": "08", "note": "forced rides exactly at all three inclusive distance cutoffs" },
+    { "name": "09", "note": "distances just above each cutoff must use a dearer fare or a transfer" },
+    { "name": "10", "note": "a short interior journey near coordinate one billion excludes costly earlier travel" },
+    { "name": "11", "generator": "dense 10000", "note": "all 10000 stations fit in one cheapest ticket with coordinates near the upper limit" },
+    { "name": "12", "generator": "1031 400 3 30", "note": "seeded random gaps with the minimum three ticket reaches exercise frequent fare changes" }
+  ]
+}
