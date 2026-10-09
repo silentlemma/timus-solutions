@@ -1,0 +1,19 @@
+{
+  "judging": "float:0.01",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 3-4-5 triangle" },
+    { "name": "02", "example": true, "note": "one nail: the thread is its circle" },
+    { "name": "03", "note": "two nails: the thread goes there and back" },
+    { "name": "04", "note": "sixteen nails on a circle, coordinates with many decimals" },
+    { "name": "05", "note": "zero radius, clockwise order" },
+    { "name": "06", "note": "the extreme coordinates, a rotated square" },
+    { "name": "07", "note": "fractional radius and coordinates" },
+    { "name": "08", "note": "one zero-radius nail at a coordinate boundary has zero thread length" },
+    { "name": "09", "note": "two diagonal nail heads touch exactly, with fractional centre distance" },
+    { "name": "10", "note": "a very thin triangle has a tiny side and a long closing edge" },
+    { "name": "11", "note": "radius 100 makes neighbouring heads tangent at all four bounding-box corners" },
+    { "name": "12", "note": "an asymmetric clockwise pentagon has positive-radius arcs and unequal sides" },
+    { "name": "13", "note": "short fractional sides must be summed before rounding the final length" },
+    { "name": "14", "note": "sixteen unevenly spaced vertices on a parabola mix short edges with a long closure" }
+  ]
+}
