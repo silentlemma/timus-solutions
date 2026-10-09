@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1022_bfs_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a member with several parents" },
+    { "name": "02", "example": true, "note": "a single member" },
+    { "name": "03", "note": "a chain of five generations" },
+    { "name": "04", "note": "one parent of everybody else" },
+    { "name": "05", "note": "nobody has children: any order" },
+    { "name": "06", "note": "shared children over three generations" },
+    { "name": "big1", "generator": "1 100 5", "note": "a sparse graph of 100 members" },
+    { "name": "big2", "generator": "2 100 60", "note": "dense relations among 100 members" },
+    { "name": "big3", "generator": "3 100 100", "note": "every earlier member is a parent of every later one" },
+    { "name": "07", "note": "disconnected chain and diamond with interleaved isolated members" },
+    { "name": "08", "note": "one child waits for all 99 parents, including member 100" },
+    { "name": "09", "note": "maximum depth of 100 with alternating low and high member numbers" },
+    { "name": "10", "note": "fifty parents jointly release 50 children with unsorted child lists" },
+    { "name": "11", "generator": "1022 9 45", "note": "small random DAG suitable for exhaustive permutation verification" }
+  ]
+}
