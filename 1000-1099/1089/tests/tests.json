@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1089_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eleven typos in three lines" },
+    { "name": "02", "note": "a correct word stays even when another word is one letter away" },
+    { "name": "03", "note": "missing and extra letters are not corrected" },
+    { "name": "04", "note": "spaces, punctuation and an empty line are kept as they are" },
+    { "name": "05", "note": "words longer than any dictionary word" },
+    { "name": "06", "note": "an empty dictionary" },
+    { "name": "07", "note": "digits split words" },
+    { "name": "big1", "generator": "1 100 1000", "note": "a hundred words and a thousand words of text" },
+    { "name": "big2", "generator": "2 100 1000", "note": "a hundred words and a thousand words of text" },
+    { "name": "big3", "generator": "3 10 300", "note": "a small dictionary" }
+  ]
+}
