@@ -28,3 +28,4 @@
 | 1021 | [A pair from two sorted lists with a given sum](1021/) | two_pointers, hashing | C++, Go, Python, Java, Rust |
 | 1022 | [Ordering a family so that ancestors come first](1022/) | graphs, bfs, dfs | C++, Go, Python, Java, Rust |
 | 1023 | [Choosing the move limit that lets the second player win](1023/) | games, number_theory | C++, Go, Python, Java, Rust |
+| 1024 | [The order of a permutation](1024/) | math | C++, Go, Python, Java, Rust |
