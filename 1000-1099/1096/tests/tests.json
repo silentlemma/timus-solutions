@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1096_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two exchanges" },
+    { "name": "02", "note": "no driver wants the first plate: IMPOSSIBLE" },
+    { "name": "03", "note": "a single exchange" },
+    { "name": "04", "note": "a chain of a thousand exchanges, buses in random order" },
+    { "name": "05", "note": "a short way and longer ones" },
+    { "name": "06", "note": "both sides of the first plate show the same route" },
+    { "name": "07", "note": "plates going round in a circle without the route" },
+    { "name": "08", "note": "a small random set of buses" },
+    { "name": "big1", "generator": "1 1000 2000 0", "note": "a thousand random buses" },
+    { "name": "big2", "generator": "2 1000 600 1", "note": "a chain of five hundred that random buses cut short" },
+    { "name": "big3", "generator": "3 1000 100 0", "note": "a thousand buses on a hundred routes" }
+  ]
+}
