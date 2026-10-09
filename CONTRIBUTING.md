@@ -151,12 +151,15 @@ hidden tests are much stronger.
 - `<name>.in` / `<name>.out`: input and expected output, byte for byte. Text
   files with LF line endings and a final newline, at most 64 KB each; anything
   larger is generated. Outputs have no trailing spaces; inputs may have them,
-  to test how solutions handle whitespace.
+  to test how solutions handle whitespace. With `exact` judging the
+  whitespace is part of the answer: outputs may keep trailing spaces, and a
+  file may end without a final newline.
 - All test files are UTF-8. When the judge gives the input in a single-byte
   legacy encoding (e.g. cp437 box-drawing characters), the tests still store
   it in UTF-8, so that it is readable here, and `input_encoding` in tests.json
   names the encoding: the runner converts the inputs before running the
-  solutions and the checker.
+  solutions and the checker, and reads the outputs of the solutions in the
+  same encoding.
 - `tests.json`: how outputs are compared and the list of tests.
 - `checker.py`: required when `judging` is `checker`.
 - `gen.py`: required when some test is generated.
@@ -179,7 +182,7 @@ hidden tests are much stronger.
 |-------|---------|
 | `judging` | how an output is compared with the expected one (below) |
 | `reference` | the solution that produces expected outputs of generated tests; required if any test is generated |
-| `input_encoding` | optional: the encoding the solutions receive the inputs in, e.g. `cp437` |
+| `input_encoding` | optional: the encoding the solutions read the inputs and write the outputs in, e.g. `cp437` |
 | `cases[].name` | file name without extension |
 | `cases[].example` | shown in the "Examples" section of the write-ups |
 | `cases[].note` | what the test checks; required |

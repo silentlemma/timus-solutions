@@ -178,8 +178,8 @@ def encode_inputs(inputs, encoding):
             f.write(text.encode(encoding))
 
 
-def read(path):
-    with open(path, encoding="utf-8", errors="replace") as f:
+def read(path, encoding="utf-8"):
+    with open(path, encoding=encoding, errors="replace") as f:
         return f.read()
 
 
@@ -188,6 +188,8 @@ def run_problem(problem, only, pypy):
     tests_dir = os.path.join(sol_dir, "tests")
     spec = json.load(open(os.path.join(tests_dir, "tests.json"), encoding="utf-8"))
     judging = spec.get("judging", "tokens")
+    # the encoding of the inputs and outputs the solutions see; stored files are UTF-8
+    encoding = spec.get("input_encoding", "utf-8")
     cases = [c["name"] for c in spec["cases"]]
     base = os.path.join(WORK, problem)
     inputs = os.path.join(base, "inputs")
@@ -223,7 +225,8 @@ def run_problem(problem, only, pypy):
             print("%s: reference solution failed\n%s" % (problem, err[-2000:]))
             return False
         for n in generated:
-            shutil.copy(os.path.join(ref_out, n + ".out"), expected)
+            with open(os.path.join(expected, n + ".out"), "w", encoding="utf-8", newline="") as f:
+                f.write(read(os.path.join(ref_out, n + ".out"), encoding))
 
     solutions = sorted(
         f for f in os.listdir(sol_dir) if os.path.splitext(f)[1] in IMAGES and only in f
@@ -257,7 +260,7 @@ def run_problem(problem, only, pypy):
             elif judging == "checker":
                 reason = None if verdicts[n][0] == 0 else verdicts[n][1] or "rejected"
             elif same(
-                read(os.path.join(out, n + ".out")),
+                read(os.path.join(out, n + ".out"), encoding),
                 read(os.path.join(expected, n + ".out")),
                 judging,
             ):
