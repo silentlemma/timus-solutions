@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1093_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a hit 4.243 from the centre of a target of radius 4.25" },
+    { "name": "02", "note": "a crossing just outside a target of radius 4.24 is a miss" },
+    { "name": "03", "note": "a crossing exactly on the rim of a horizontal target is a miss" },
+    { "name": "04", "note": "a ten-thousandth inside the edge" },
+    { "name": "05", "note": "through the plane on the way up, into the target on the way down" },
+    { "name": "06", "note": "the plane is behind the dart" },
+    { "name": "07", "note": "the top of the flight touches the target plane at the centre" },
+    { "name": "08", "note": "the whole flight lies in the plane and passes the centre: it never enters from a side" },
+    { "name": "09", "note": "the whole flight lies in the plane and passes beside the target" },
+    { "name": "10", "note": "the largest numbers and a tiny target" },
+    { "name": "big1", "generator": "1 2", "note": "a throw aimed near the edge that hits" },
+    { "name": "big2", "generator": "2 2", "note": "a throw aimed near the edge that misses" },
+    { "name": "big3", "generator": "3 1", "note": "a throw aimed inside a tilted target" },
+    { "name": "11", "note": "a vertical target with a mixed normal is hit using only horizontal y velocity" },
+    { "name": "12", "note": "a path parallel to a nearby vertical plane misses even inside the radius sphere" },
+    { "name": "13", "note": "a saved small random throw has no real intersections with an oblique target plane" },
+    { "name": "14", "note": "both quadratic roots are negative although a past crossing passes through the centre" },
+    { "name": "15", "note": "only the ascending crossing hits a target with a large reversed normal" },
+    { "name": "16", "note": "starting on the plane outside the disk must not hide the later returning hit" },
+    { "name": "17", "note": "the smallest positive radius and horizontal speed still allow an exact centre hit" },
+    { "name": "18", "note": "maximum radius and signed coordinate limits give a centre hit at time two" },
+    { "name": "19", "generator": "1093 0", "note": "an unconstrained random throw crosses the tilted plane in the future outside the disk" },
+    { "name": "20", "generator": "1094 3", "note": "a random horizontal target is missed on ascent and hit on descent" }
+  ]
+}
