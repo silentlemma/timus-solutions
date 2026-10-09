@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1071_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "base 3: 11201 without its middle digits gives 121" },
+    { "name": "02", "note": "the smallest pair without a solution" },
+    { "name": "03", "note": "the largest x and y = 1: base 2" },
+    { "name": "04", "note": "the largest x and y = x - 1: no solution" },
+    { "name": "05", "note": "y is the high digit of a two-digit x" },
+    { "name": "06", "note": "y is the low digit of a two-digit x in a very large base" },
+    { "name": "07", "note": "the last base in which x still has three digits" },
+    { "name": "08", "note": "the first base in which x has two digits" },
+    { "name": "09", "note": "plain decimal: 737177 without 3, 1 and 7 gives 7777" },
+    { "name": "big1", "generator": "6 1000000 1", "note": "y made by crossing out digits of x in a large base" },
+    { "name": "big2", "generator": "5 1000000 0", "note": "a random pair with a large answer" },
+    { "name": "big3", "generator": "2 1000000 0", "note": "a random pair without a solution" }
+  ]
+}

@@ -75,3 +75,4 @@
 | 1068 | [The sum of all integers between 1 and N](1068/) | math | C++, Go, Python, Java, Rust |
 | 1069 | [Rebuilding a tree from its Prüfer code](1069/) | trees | C++, Go, Python, Java, Rust |
 | 1070 | [The time zone shift between two airports from a round trip](1070/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1071 | [The smallest base in which crossing out digits turns x into y](1071/) | math | C++, Go, Python, Java, Rust |
