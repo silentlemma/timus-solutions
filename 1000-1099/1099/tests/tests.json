@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1099_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three guards who all get along: one pair" },
+    { "name": "02", "note": "a single guard" },
+    { "name": "03", "note": "four guards and no pairs" },
+    { "name": "04", "note": "a path of four, the middle pair listed first" },
+    { "name": "05", "note": "a five-cycle with stems: the augmenting path needs a blossom" },
+    { "name": "06", "note": "repeated pairs in both orders" },
+    { "name": "07", "note": "a star: only one pair" },
+    { "name": "08", "note": "two triangles joined by one pair" },
+    { "name": "big1", "generator": "1 222 0 50", "note": "a dense graph of 222 guards with about half of all pairs" },
+    { "name": "big2", "generator": "2 222 1 0", "note": "an independent set joined to a clique: many guards fired" },
+    { "name": "big3", "generator": "3 222 2 0", "note": "a chain of triangles" },
+    { "name": "09", "note": "two guards with only self-pairs must both remain unscheduled" },
+    { "name": "10", "note": "one allowed pair uses labels 1 and 222 among otherwise isolated guards" },
+    { "name": "11", "note": "three disconnected odd cliques each leave one guard unmatched plus an isolate" },
+    { "name": "12", "note": "a 222-vertex path needs an augmenting path through every guard" },
+    { "name": "13", "note": "seeded sparse graph needs two augmentations beyond the initial greedy pairs" },
+    { "name": "14", "generator": "1099 222 0 100", "note": "all 24531 possible pairs at the 222-guard limit allow a perfect matching" },
+    { "name": "15", "generator": "20261023 17 0 15", "note": "seeded odd-order sparse graph exercises irregular adjacency and exposed guards" }
+  ]
+}
