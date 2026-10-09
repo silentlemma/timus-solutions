@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1088_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the paths part at the first stone" },
+    { "name": "02", "note": "no roads at all: both at the first stone" },
+    { "name": "03", "note": "both stones are the first stone" },
+    { "name": "04", "note": "the two outermost piers, just enough hours" },
+    { "name": "05", "note": "the two outermost piers, one hour short" },
+    { "name": "06", "note": "both at the same pier of the deepest tree" },
+    { "name": "07", "note": "both at the first stone of the deepest tree" },
+    { "name": "08", "note": "neighbouring piers, Alyosha nearer the sea" },
+    { "name": "09", "note": "neighbouring piers, Ilya nearer the sea" },
+    { "name": "10", "note": "from the last pier all the way back to the first stone, one hour short" },
+    { "name": "big1", "generator": "1 0", "note": "a random journey" },
+    { "name": "big2", "generator": "4 0", "note": "a random journey" },
+    { "name": "big3", "generator": "5 30", "note": "a random journey in the deepest tree" }
+  ]
+}
