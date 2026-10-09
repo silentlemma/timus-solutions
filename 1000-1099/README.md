@@ -101,3 +101,4 @@
 | 1094 | [A one-line display with a wrapping cursor](1094/) | simulation | C++, Go, Python, Java, Rust |
 | 1095 | [Rearranging digits to get a multiple of 7](1095/) | number_theory | C++, Go, Python, Java, Rust |
 | 1096 | [The fewest exchanges of two-sided route plates](1096/) | bfs, graphs | C++, Go, Python, Java, Rust |
+| 1097 | [Placing a square park so that it disturbs the least important owners](1097/) | bruteforce | C++, Go, Python, Java, Rust |

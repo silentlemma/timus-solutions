@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1097_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the park takes plots of influence 2 and 3" },
+    { "name": "02", "example": true, "note": "a jury plot in the middle: impossible" },
+    { "name": "03", "note": "free land is enough" },
+    { "name": "04", "note": "the park covers the whole country" },
+    { "name": "05", "note": "the whole country with a jury plot in a corner" },
+    { "name": "06", "note": "the park only touches the plots along their sides" },
+    { "name": "07", "note": "the largest country with a park of one square" },
+    { "name": "08", "note": "the best place takes one plot of influence 3 and several of influence 2" },
+    { "name": "big1", "generator": "1 10000 3000 100 3000 10", "note": "a hundred plots in the largest country" },
+    { "name": "big2", "generator": "2 40 12 100 6 10", "note": "a crowded small country" },
+    { "name": "big3", "generator": "3 10000 9000 100 2000 0", "note": "a park nearly as large as the country" },
+    { "name": "09", "note": "the smallest country with no occupied plots" },
+    { "name": "10", "note": "the only unit of land has the minimum allowed influence" },
+    { "name": "11", "note": "a unit park on completely occupied land must accept influence 100" },
+    { "name": "12", "note": "three jury quadrants leave only the last legal position on both axes" },
+    { "name": "13", "note": "a jury ring leaves one exact interior park touching all four sides" },
+    { "name": "14", "note": "minimizing the maximum influence chooses a larger sum of influences" },
+    { "name": "15", "note": "four separated jury plots jointly block every park but none does alone" },
+    { "name": "16", "note": "all 100 plots tile the country and only four interior owners may be displaced" },
+    { "name": "17", "note": "random packing makes a plot larger than the park unavoidable" },
+    { "name": "18", "note": "random near-country-size park has a unique optimum with several tied influential owners" },
+    { "name": "19", "generator": "109719 10000 10000 100 1000 0", "note": "maximum park side and plot count force every randomly packed owner to be considered" },
+    { "name": "20", "generator": "109720 20 3 100 4 75", "note": "random jury-heavy packing tests small parks between forbidden plots" },
+    { "name": "21", "generator": "109721 10 2 100 1 0", "note": "random fully occupied unit grid tests the minimum of all two-by-two maxima" }
+  ]
+}
