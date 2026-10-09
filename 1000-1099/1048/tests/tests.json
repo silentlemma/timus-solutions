@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1048_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two four-digit numbers" },
+    { "name": "02", "example": true, "note": "a carry through two digits" },
+    { "name": "03", "note": "a single digit" },
+    { "name": "04", "note": "leading zeros are printed" },
+    { "name": "05", "note": "a carry through thirty digits" },
+    { "name": "06", "note": "all digits sum to 9: no carry at all" },
+    { "name": "07", "note": "a single digit, the largest sum without a carry" },
+    { "name": "big1", "generator": "1 1000000 random", "note": "the longest numbers, random digits" },
+    { "name": "big2", "generator": "2 1000000 carry", "note": "one carry through a million digits" },
+    { "name": "big3", "generator": "3 1000000 zeros", "note": "the longest numbers, mostly zeros" }
+  ]
+}

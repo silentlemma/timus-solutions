@@ -52,3 +52,4 @@
 | 1045 | [A token game on a tree with burned vertices](1045/) | games, trees | C++, Go, Python, Java, Rust |
 | 1046 | [Restoring a polygon from the apexes of its side triangles](1046/) | geometry | C++, Go, Python, Java, Rust |
 | 1047 | [The first unknown term of a second-order recurrence](1047/) | math | C++, Go, Python, Java, Rust |
+| 1048 | [Adding two numbers of a million digits](1048/) | implementation | C++, Go, Python, Java, Rust |
