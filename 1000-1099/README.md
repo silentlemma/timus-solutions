@@ -79,3 +79,4 @@
 | 1072 | [The shortest route between two computers through IP subnets](1072/) | bfs, graphs | C++, Go, Python, Java, Rust |
 | 1073 | [The fewest square plots that cost exactly N](1073/) | number_theory | C++, Go, Python, Java, Rust |
 | 1074 | [Rewriting a real number with exactly N digits after the point](1074/) | parsing | C++, Go, Python, Java, Rust |
+| 1075 | [The shortest thread around a fixed ball](1075/) | geometry | C++, Go, Python, Java, Rust |

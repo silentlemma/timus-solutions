@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.011",
+  "reference": "1075_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the thread bends around the ball" },
+    { "name": "02", "note": "the ball is far from the segment: a straight thread" },
+    { "name": "03", "note": "C halfway between A and B, both just outside the ball" },
+    { "name": "04", "note": "A and B on one ray from C: straight" },
+    { "name": "05", "note": "the segment touches the ball at one point" },
+    { "name": "06", "note": "opposite corners of the cube and the largest ball" },
+    { "name": "07", "note": "A and B are the same point" },
+    { "name": "08", "note": "a short bend around a ball barely inside the corner" },
+    { "name": "09", "note": "a tiny ball close to a long segment that misses it" },
+    { "name": "big1", "generator": "1 0", "note": "random points" },
+    { "name": "big2", "generator": "2 1", "note": "the ball near the segment" },
+    { "name": "big3", "generator": "3 2", "note": "A, C and B on one line" }
+  ]
+}
