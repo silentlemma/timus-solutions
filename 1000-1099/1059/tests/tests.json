@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1059_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a linear polynomial" },
+    { "name": "02", "example": true, "note": "a cubic polynomial" },
+    { "name": "03", "note": "a square polynomial" },
+    { "name": "04", "note": "degree 10" },
+    { "name": "05", "note": "the largest degree" },
+    { "name": "06", "note": "degree 999" },
+    { "name": "07", "note": "degree 100" }
+  ]
+}
