@@ -13,3 +13,4 @@
 | 1106 | [Splitting a graph so that every vertex has a neighbour on the other side](1106/) | bfs | C++, Go, Python, Java, Rust |
 | 1107 | [Separating multisets that differ by one item](1107/) | math | C++, Go, Python, Java, Rust |
 | 1108 | [Unit fractions that leave the smallest positive remainder](1108/) | math | C++, Go, Python, Java, Rust |
+| 1109 | [The fewest edges touching every vertex of a bipartite graph](1109/) | matching | C++, Go, Python, Java, Rust |
