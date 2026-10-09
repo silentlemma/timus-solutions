@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1085_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three friends on a line of three routes" },
+    { "name": "02", "note": "two parts of the city with no route between them" },
+    { "name": "03", "note": "one friend without a pass stays at the own stop" },
+    { "name": "04", "note": "one friend with a pass: the smallest reachable stop" },
+    { "name": "05", "note": "a friend with less than one ticket's price cannot ride" },
+    { "name": "06", "note": "money for exactly two tickets" },
+    { "name": "07", "note": "a friend at a stop on no route" },
+    { "name": "08", "note": "one route through all hundred stops" },
+    { "name": "09", "note": "a pass holder far away rides for free" },
+    { "name": "10", "note": "a small random city" },
+    { "name": "big1", "generator": "1 100 100 100 100 1000 20", "note": "long routes and rich friends" },
+    { "name": "big2", "generator": "4 100 100 20 100 12 0", "note": "money for three tickets at most, no passes" },
+    { "name": "big3", "generator": "2 100 40 8 100 40 10", "note": "a sparse network where not everyone can meet" }
+  ]
+}
