@@ -1,0 +1,17 @@
+{
+  "judging": "float:0.011",
+  "reference": "1046_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "right angles: the triangle is recovered exactly" },
+    { "name": "02", "example": true, "note": "a square with rounded apexes: the vertices come out within 0.01" },
+    { "name": "03", "note": "a random small triangle, checked by solving the linear system" },
+    { "name": "04", "note": "a random quadrilateral, checked by solving the linear system" },
+    { "name": "05", "note": "seven vertices with large angles, checked by solving the linear system" },
+    { "name": "06", "note": "ten vertices, every subset of angles checked" },
+    { "name": "07", "note": "small angles: far apexes" },
+    { "name": "big1", "generator": "1 50 25 small", "note": "the most vertices" },
+    { "name": "big2", "generator": "2 50 15 small", "note": "the most vertices on a smaller polygon" },
+    { "name": "big3", "generator": "3 12 40 any", "note": "twelve vertices with large angles" },
+    { "name": "big4", "generator": "4 30 30 small", "note": "thirty vertices" }
+  ]
+}
