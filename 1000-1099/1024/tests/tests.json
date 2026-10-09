@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "01", "example": true, "note": "cycles of lengths 3 and 2: order 6" },
+    { "name": "02", "example": true, "note": "a single element" },
+    { "name": "03", "note": "the identity: order 1" },
+    { "name": "04", "note": "one cycle through all 1000 elements" },
+    { "name": "05", "note": "shared factors and repeated cycle lengths with an order of 334639305" },
+    { "name": "06", "note": "cycles of lengths 4 and 6: their lcm, not their product" },
+    { "name": "07", "note": "five hundred swaps" },
+    { "name": "08", "note": "prime cycle lengths 2 to 11" },
+    { "name": "09", "note": "the smallest nonidentity permutation at N = 2" },
+    { "name": "10", "note": "interleaved cycles of lengths 64 down to 2 retain the largest power of two" },
+    { "name": "11", "note": "a redundant 384-cycle makes multiplication before gcd division exceed unsigned 32 bits" },
+    { "name": "12", "note": "the 997 fixed points precede a three-cycle containing the last index at N = 1000" },
+    { "name": "13", "note": "seed 1024 random sample: mixed cycles of lengths 2, 9, 10 and 15 share factors" },
+    { "name": "14", "note": "seed 2026 random sample at N = 1000: a 792-cycle coexists with three shorter cycles and a fixed point" }
+  ]
+}
