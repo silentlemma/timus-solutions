@@ -57,3 +57,4 @@
 | 1050 | [Turning straight quotes into TeX quotes](1050/) | parsing | C++, Go, Python, Java, Rust |
 | 1051 | [Peg solitaire on an infinite grid](1051/) | games, math | C++, Go, Python, Java, Rust |
 | 1052 | [The most points on one line](1052/) | geometry | C++, Go, Python, Java, Rust |
+| 1053 | [Cutting pieces until one remains](1053/) | number_theory | C++, Go, Python, Java, Rust |

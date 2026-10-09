@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1053_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three pieces end with length 1" },
+    { "name": "02", "example": true, "note": "the common divisor 6 survives every cut" },
+    { "name": "03", "note": "a single piece: its own length" },
+    { "name": "04", "note": "two equal pieces of the largest length" },
+    { "name": "05", "note": "two large primes: length 1" },
+    { "name": "06", "note": "multiples of 1234567" },
+    { "name": "07", "note": "pieces of length 1 next to a huge one" },
+    { "name": "big1", "generator": "1 1000 0", "note": "the most pieces, random lengths" },
+    { "name": "big2", "generator": "2 1000 65536", "note": "the most pieces, all multiples of 2^16" },
+    { "name": "big3", "generator": "3 1000 999983", "note": "the most pieces, all multiples of a prime" }
+  ]
+}
