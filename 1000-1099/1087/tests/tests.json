@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1087_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "moves 1, 3 and 4 from seventeen stones" },
+    { "name": "02", "note": "one stone: the first player has to take it" },
+    { "name": "03", "note": "two stones, moves of 1: the first player leaves the last one" },
+    { "name": "04", "note": "moves 1 to 3, five stones: a losing start" },
+    { "name": "05", "note": "moves 1 to 3, six stones" },
+    { "name": "06", "note": "ten thousand stones taken one at a time" },
+    { "name": "07", "note": "taking the whole pile at once loses" },
+    { "name": "08", "note": "repeated move sizes" },
+    { "name": "09", "note": "moves 1 to 50 and the largest pile" },
+    { "name": "big1", "generator": "3 10000 50 100", "note": "a random game with small moves and a losing start" },
+    { "name": "big2", "generator": "2 10000 50 10000", "note": "a random game with large moves" },
+    { "name": "big3", "generator": "5 9999 3 12", "note": "three random moves and a losing start" }
+  ]
+}
