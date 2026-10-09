@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1026_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "repeated values count separately" },
+    { "name": "02", "example": true, "note": "a single element" },
+    { "name": "03", "note": "all elements equal" },
+    { "name": "04", "note": "all values from 5000 down to 1" },
+    { "name": "05", "note": "repeated queries" },
+    { "name": "big1", "generator": "1 100000 5000 100", "note": "the largest database" },
+    { "name": "big2", "generator": "2 100000 3 100", "note": "the largest database of three values" }
+  ]
+}
