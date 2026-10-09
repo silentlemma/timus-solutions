@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1055_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a coefficient with two distinct prime factors" },
+    { "name": "02", "example": true, "note": "repeated prime powers counted as distinct primes only once" },
+    { "name": "03", "note": "the smallest input: C(2, 1) = 2" },
+    { "name": "04", "note": "the largest total with all but one item chosen" },
+    { "name": "05", "note": "a single item chosen from a prime total" },
+    { "name": "06", "note": "the largest middle binomial coefficient" },
+    { "name": "07", "note": "a prime N" },
+    { "name": "08", "note": "a power of two split in halves" },
+    { "name": "09", "note": "a central coefficient for a moderately large composite total" },
+    { "name": "10", "note": "a power of three, checked by factoring the exact binomial coefficient" },
+    { "name": "big1", "generator": "1 50000", "note": "an odd total with an even selection well below half" },
+    { "name": "big2", "generator": "2 50000", "note": "an even total with about a tenth of the items selected" },
+    { "name": "big3", "generator": "3 100", "note": "a random small pair" }
+  ]
+}
