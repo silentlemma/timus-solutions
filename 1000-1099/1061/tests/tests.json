@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1061_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "no 53 free buffers in a row" },
+    { "name": "02", "example": true, "note": "the cheapest window of ten" },
+    { "name": "03", "note": "the window is the whole array" },
+    { "name": "04", "note": "fewer buffers than K" },
+    { "name": "05", "note": "a single locked buffer" },
+    { "name": "06", "note": "all windows cost the same: the first one" },
+    { "name": "07", "note": "every window touches a locked buffer" },
+    { "name": "08", "note": "K = 1: the free buffer at the end" },
+    { "name": "09", "note": "random buffers, checked window by window" },
+    { "name": "10", "note": "random buffers with small values, checked window by window" },
+    { "name": "big1", "generator": "1 100000 10000 0 9", "note": "the largest input, no locks" },
+    { "name": "big2", "generator": "2 100000 10000 1 9", "note": "the largest input, 1% locked: no free window of 10000" },
+    { "name": "big3", "generator": "3 100000 100 5 9", "note": "the most buffers, short windows" },
+    { "name": "big4", "generator": "4 100000 7 30 1", "note": "many locks and values 0 and 1: many ties" },
+    { "name": "big5", "generator": "5 99999 10000 0 0", "note": "all buffers free and empty: the answer is 1" }
+  ]
+}
