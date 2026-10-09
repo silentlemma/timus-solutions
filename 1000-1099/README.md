@@ -60,3 +60,4 @@
 | 1053 | [Cutting pieces until one remains](1053/) | number_theory | C++, Go, Python, Java, Rust |
 | 1054 | [The step number of a Tower of Hanoi position](1054/) | math | C++, Go, Python, Java, Rust |
 | 1055 | [The number of prime divisors of a binomial coefficient](1055/) | number_theory | C++, Go, Python, Java, Rust |
+| 1056 | [The centers of a tree](1056/) | bfs, trees | C++, Go, Python, Java, Rust |
