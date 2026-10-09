@@ -1,0 +1,30 @@
+{
+  "judging": "lines",
+  "input_encoding": "latin-1",
+  "reference": "1074_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "truncation, a lost minus sign and two broken lines" },
+    { "name": "02", "note": "broken lines: empty, spaces, 5., a lone sign, e without digits, 1.e5, #1" },
+    { "name": "03", "note": "signs, leading zeros, N = 0, -0 and -.5" },
+    { "name": "04", "note": "exponents: long, with leading zeros, huge with a zero mantissa, far below zero" },
+    { "name": "05", "note": "truncation instead of rounding; minus signs that survive and vanish" },
+    { "name": "06", "note": "answers of exactly 200 characters" },
+    { "name": "07", "note": "characters above 127: letters with accents, a non-breaking space, superscript digits" },
+    { "name": "08", "note": "lines of 100 characters with N up to 100" },
+    { "name": "big1", "generator": "1 400", "note": "random decimal forms and exponent shifts mixed with malformed numeric strings" },
+    { "name": "big2", "generator": "2 400", "note": "leading zeros and suppression of minus signs after truncation, alongside invalid number syntax" },
+    { "name": "big3", "generator": "3 1000", "note": "exact fractional digits and rejection of non-ASCII characters across a broad random sample" },
+    { "name": "09", "note": "exact decimal digits beyond binary floating-point precision, including shifted large integers" },
+    { "name": "10", "note": "reject host-language numeric extensions: NaN, infinity, underscores, hex and type suffixes" },
+    { "name": "11", "note": "long leading-zero mantissas whose significant suffix crosses the point after exponent shifts" },
+    { "name": "12", "note": "maximum-length numbers with explicitly signed zero exponents preserve their nonzero mantissas" },
+    { "name": "13", "note": "maximum-length numbers with zero mantissas stay unsigned despite enormous signed exponents" },
+    { "name": "14", "note": "every allowed nongrammar byte is rejected at the start, inside the fraction and inside the exponent" },
+    { "name": "15", "note": "maximum-length malformed numbers have unfinished decimals or exponents and repeated exponent signs" },
+    { "name": "16", "note": "stress-selected small random numbers cover sparse fractions and signed exponent interactions" },
+    { "name": "17", "generator": "precision 1074", "note": "one random 100-character decimal at all 101 precisions checks each truncation boundary" },
+    { "name": "18", "generator": "cancel 1074 300", "note": "seeded 100-character numbers shift across the first and last significant digits" },
+    { "name": "19", "generator": "suffix 1074 200", "note": "invalid final bytes after huge exponents must be read before processing the next pair" },
+    { "name": "20", "generator": "empty", "note": "an immediate terminator produces no output lines" }
+  ]
+}
