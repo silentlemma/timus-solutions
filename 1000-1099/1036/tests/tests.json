@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1036_dp.py",
+  "cases": [
+    { "name": "01", "example": true, "note": "four tickets of four digits" },
+    { "name": "02", "example": true, "note": "each half sums to 3: 10 ways, 100 tickets" },
+    { "name": "03", "note": "the smallest input: only 00" },
+    { "name": "04", "note": "only 99" },
+    { "name": "05", "note": "half the sum is more than 9 · N: no tickets" },
+    { "name": "06", "note": "an odd sum: no tickets" },
+    { "name": "07", "note": "the largest N, sum 0: only the zero ticket" },
+    { "name": "08", "note": "the largest N, all nines" },
+    { "name": "09", "note": "just above the largest possible sum" },
+    { "name": "10", "note": "the largest sum in the input" },
+    { "name": "11", "note": "the largest answer, 97 digits; checked by inclusion-exclusion" },
+    { "name": "12", "note": "an odd sum on the largest N" },
+    { "name": "13", "note": "71 digits; checked by inclusion-exclusion" },
+    { "name": "14", "note": "95 digits; checked by inclusion-exclusion" }
+  ]
+}
