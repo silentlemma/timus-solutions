@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1080_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of three countries" },
+    { "name": "02", "note": "a single country" },
+    { "name": "03", "note": "a triangle cannot be coloured" },
+    { "name": "04", "note": "a cycle of four" },
+    { "name": "05", "note": "a star around the first country" },
+    { "name": "06", "note": "an odd cycle through 97 countries" },
+    { "name": "07", "note": "a path through 98 countries" },
+    { "name": "08", "note": "the complete bipartite map on 3 + 3 countries" },
+    { "name": "big1", "generator": "1 98 300 0", "note": "a random two-coloured map" },
+    { "name": "big2", "generator": "2 98 300 1", "note": "a random map with one border inside a colour" },
+    { "name": "big3", "generator": "3 98 97 0", "note": "a random tree" }
+  ]
+}
