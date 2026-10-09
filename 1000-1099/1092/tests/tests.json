@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1092_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 3 by 3 table with seven plus signs" },
+    { "name": "02", "note": "no plus signs: nothing to do" },
+    { "name": "03", "note": "all plus signs: every row and column odd" },
+    { "name": "04", "note": "the largest table without plus signs" },
+    { "name": "05", "note": "a single plus sign" },
+    { "name": "06", "note": "the main diagonal: one transversal clears it" },
+    { "name": "07", "note": "the other diagonal of the largest table" },
+    { "name": "08", "note": "a 2 by 2 block of plus signs" },
+    { "name": "big1", "generator": "1 20 100", "note": "the largest table full of plus signs" },
+    { "name": "big2", "generator": "2 20 50", "note": "the largest random table" },
+    { "name": "big3", "generator": "3 7 90", "note": "a mostly plus random table" },
+    { "name": "09", "note": "all columns odd but only one row odd on the smallest table" },
+    { "name": "10", "note": "all rows odd but only one column odd on the smallest table" },
+    { "name": "11", "note": "exactly 2N plus signs in distinct rows and one column at N=20" },
+    { "name": "12", "note": "exactly 2N plus signs in distinct columns and one row at N=20" },
+    { "name": "13", "note": "seeded random table with five odd rows and one odd column" },
+    { "name": "14", "note": "seeded random table with one odd row and five odd columns" },
+    { "name": "15", "note": "a rectangle touches both the last row and the last column" },
+    { "name": "16", "note": "an asymmetric transversal checks the column-for-each-row convention" },
+    { "name": "17", "note": "one missing off-diagonal plus leaves 2N odd rows and 2N odd columns" },
+    { "name": "18", "generator": "109218 20 5", "note": "largest sparse random table still needs operations" },
+    { "name": "19", "generator": "109219 10 25", "note": "an intermediate-size random table with 97 plus signs" },
+    { "name": "20", "generator": "109220 20 99", "note": "largest nearly full random table with isolated minus signs" }
+  ]
+}
