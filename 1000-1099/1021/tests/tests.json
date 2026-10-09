@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1021_two_pointers.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the pair is at the ends of the lists" },
+    { "name": "02", "example": true, "note": "no pair" },
+    { "name": "03", "note": "one number each, the largest value in the first list" },
+    { "name": "04", "note": "the extreme values do not sum to the target" },
+    { "name": "05", "note": "repeated values" },
+    { "name": "06", "note": "the extreme values in both lists, a pair in the middle" },
+    { "name": "07", "note": "all sums fall just short of the target" },
+    { "name": "big1", "generator": "1 50000 50000 32768 1", "note": "the longest lists with a pair" },
+    { "name": "big2", "generator": "2 50000 50000 32768 0", "note": "the longest lists without a pair" },
+    { "name": "big3", "generator": "3 50000 1 100 2", "note": "a long first list and a single number" },
+    { "name": "big4", "generator": "4 1 50000 32768 1", "note": "a single number and a long second list" }
+  ]
+}
