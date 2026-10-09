@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.011",
+  "reference": "1075_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the thread bends around the ball" },
+    { "name": "02", "note": "the ball is far from the segment: a straight thread" },
+    { "name": "03", "note": "a ball almost reaches symmetric endpoints on opposite sides of its center" },
+    { "name": "04", "note": "endpoints on the same ray from the center need a straight thread" },
+    { "name": "05", "note": "the segment touches the ball at one point" },
+    { "name": "06", "note": "opposite cube corners require a detour around a centered ball of radius 1000" },
+    { "name": "07", "note": "coincident endpoints give a thread of zero length" },
+    { "name": "08", "note": "perpendicular endpoint vectors require a short arc around the ball" },
+    { "name": "09", "note": "a tiny ball close to a long segment that misses it" },
+    { "name": "big1", "generator": "1 0", "note": "unequal endpoint distances still allow a straight path past a large ball" },
+    { "name": "big2", "generator": "2 1", "note": "a ball near one endpoint clears the segment despite its proximity to the line" },
+    { "name": "big3", "generator": "3 2", "note": "nearly opposite but noncollinear endpoint vectors force a bend near the ball surface" },
+    { "name": "10", "note": "nearly parallel translated vectors have cross product magnitude one" },
+    { "name": "11", "note": "nearly antiparallel vectors with unit cross product require a long arc" },
+    { "name": "12", "note": "the infinite line cuts the ball but both intersections are beyond an endpoint" },
+    { "name": "13", "note": "both endpoint squared distances exceed the radius squared by only one" },
+    { "name": "14", "note": "a unit ball separates collinear endpoints with distances two and 1998" },
+    { "name": "15", "note": "a shallow penetration changes the rounded answer from the straight length" },
+    { "name": "16", "note": "a spatial bend uses translated components of 2000 and large cross products" },
+    { "name": "17", "note": "a retained small random spatial bend has obtuse unequal endpoint vectors" },
+    { "name": "18", "note": "the largest feasible integer radius for distinct endpoints within the coordinate cube" },
+    { "name": "big4", "generator": "1075 0", "note": "seeded obtuse spatial endpoints have a clear interior projection" },
+    { "name": "big5", "generator": "5 1", "note": "seeded near-segment ball forces a bend close to the shorter endpoint" }
+  ]
+}
