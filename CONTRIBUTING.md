@@ -121,11 +121,11 @@ only, and extend the list here when a new one is needed.
 
 `adhoc`, `astar`, `backtracking`, `bfs`, `bidirectional`, `binary_search`,
 `bitmask`, `bruteforce`, `combinatorics`, `constructive`, `dfs`, `dijkstra`,
-`dp`, `dsu`, `flow`, `games`, `geometry`, `graphs`, `greedy`, `hashing`,
-`implementation`, `interactive`, `math`, `matching`, `matrix`, `meet_in_middle`,
-`number_theory`, `parsing`, `prefix_sums`, `probability`, `segment_tree`,
-`shortest_paths`, `simulation`, `sorting`, `sqrt_decomposition`, `strings`,
-`suffix_structures`, `ternary_search`, `trees`, `two_pointers`.
+`dp`, `dsu`, `fenwick`, `flow`, `games`, `geometry`, `graphs`, `greedy`,
+`hashing`, `implementation`, `interactive`, `math`, `matching`, `matrix`,
+`meet_in_middle`, `number_theory`, `parsing`, `prefix_sums`, `probability`,
+`segment_tree`, `shortest_paths`, `simulation`, `sorting`, `sqrt_decomposition`,
+`strings`, `suffix_structures`, `ternary_search`, `trees`, `two_pointers`.
 
 ### Verdicts
 

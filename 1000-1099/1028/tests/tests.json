@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1028_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six stars with levels 0 to 3" },
+    { "name": "02", "example": true, "note": "a single star at the largest coordinates" },
+    { "name": "03", "note": "a diagonal: levels 0 to N - 1" },
+    { "name": "04", "note": "one row: a star counts the stars to its left" },
+    { "name": "05", "note": "one column: a star counts the stars below it" },
+    { "name": "06", "note": "an anti-diagonal: every level is 0" },
+    { "name": "07", "note": "1500 random stars on a small grid, checked by brute force" },
+    { "name": "08", "note": "the corners of the coordinate range" },
+    { "name": "big1", "generator": "1 15000 32000", "note": "the largest number of stars" },
+    { "name": "big2", "generator": "2 15000 200", "note": "the largest number of stars on a dense grid" }
+  ]
+}
