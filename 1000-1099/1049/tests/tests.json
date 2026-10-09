@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1049_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the product 36 has 9 divisors" },
+    { "name": "02", "example": true, "note": "all ones: the single divisor 1" },
+    { "name": "03", "note": "48 has 10 divisors: the last digit is 0" },
+    { "name": "04", "note": "ten times 10000: (40 + 1)^2 divisors" },
+    { "name": "05", "note": "ten different large primes: 2^10 divisors" },
+    { "name": "06", "note": "the same prime ten times" },
+    { "name": "07", "note": "the largest powers of 2 and 3" },
+    { "name": "08", "note": "random numbers, checked on the exact product" },
+    { "name": "09", "note": "random numbers, checked on the exact product" },
+    { "name": "10", "note": "random small numbers, checked on the exact product" },
+    { "name": "big1", "generator": "1 random", "note": "random numbers" },
+    { "name": "big2", "generator": "2 primes", "note": "random primes, some repeated" },
+    { "name": "big3", "generator": "3 powers", "note": "random powers of 2 and 3" },
+    { "name": "big4", "generator": "4 small", "note": "random small numbers" }
+  ]
+}
