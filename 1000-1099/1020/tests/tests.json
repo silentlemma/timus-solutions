@@ -1,0 +1,12 @@
+{
+  "judging": "float:0.01",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 3-4-5 triangle" },
+    { "name": "02", "example": true, "note": "one nail: the thread is its circle" },
+    { "name": "03", "note": "two nails: the thread goes there and back" },
+    { "name": "04", "note": "16 nails on a circle, coordinates with many decimals" },
+    { "name": "05", "note": "zero radius, clockwise order" },
+    { "name": "06", "note": "the extreme coordinates, a rotated square" },
+    { "name": "07", "note": "fractional radius and coordinates" }
+  ]
+}
