@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1035_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three groups of stitches; one of them needs two threads" },
+    { "name": "02", "example": true, "note": "a line of three front stitches with one back stitch in the middle" },
+    { "name": "03", "note": "no stitches at all: no thread" },
+    { "name": "04", "note": "both diagonals on both sides of one cell: two separate groups" },
+    { "name": "05", "note": "front stitches only: every stitch needs its own thread" },
+    { "name": "06", "note": "a back-heavy rectangle with two components needing two and five threads" },
+    { "name": "07", "note": "equal stitch counts on both sides split into three components" },
+    { "name": "08", "note": "matching crosses and backslashes on the bottom row leave two unbalanced components" },
+    { "name": "big1", "generator": "0 200 200 0 0 X", "note": "the largest grid, crosses everywhere on both sides: 2 threads" },
+    { "name": "big2", "generator": "0 200 200 0 100 X", "note": "the largest grid, crosses on the front only: 80000 threads" },
+    { "name": "big3", "generator": "1 200 200 30 30", "note": "the largest grid, dense random pattern" },
+    { "name": "big4", "generator": "2 200 200 70 70", "note": "the largest grid, sparse random pattern" },
+    { "name": "big5", "generator": "3 200 200 0 50", "note": "the largest grid, a full front and a half-empty back" },
+    { "name": "big6", "generator": "4 1 200 50 50", "note": "a single row of cells" },
+    { "name": "big7", "generator": "5 200 1 50 50", "note": "a single column of cells" },
+    { "name": "09", "note": "one back stitch on the smallest sheet" },
+    { "name": "10", "note": "opposite diagonals cross inside a cell but share no grid vertex" },
+    { "name": "11", "note": "a four-edge alternating diamond is one closed thread" },
+    { "name": "12", "note": "a balanced two-edge loop joins an unbalanced four-arm junction" },
+    { "name": "13", "note": "equal front and back stitch totals still leave unmatched ends at four leaves" },
+    { "name": "14", "note": "maximum-width zigzag alternates sides through all 200 cells" },
+    { "name": "15", "note": "maximum-height zigzag has one same-side join that forces a second thread" },
+    { "name": "16", "generator": "1035 3 4 80 65", "note": "seeded sparse rectangle has a three-stitch trail alternating back-front-back" },
+    { "name": "17", "generator": "2026 4 3 55 85", "note": "seeded narrow pattern has several crosses and a nearly empty back" }
+  ]
+}
