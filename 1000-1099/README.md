@@ -39,3 +39,4 @@
 | 1032 | [Choosing numbers whose sum is a multiple of N](1032/) | prefix_sums, math | C++, Go, Python, Java, Rust |
 | 1033 | [The visible wall area of a maze](1033/) | bfs, dfs | C++, Go, Python, Java, Rust |
 | 1034 | [Moving three queens between peaceful positions](1034/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1035 | [The fewest threads for a two-sided stitch pattern](1035/) | graphs, dsu | C++, Go, Python, Java, Rust |
