@@ -1,0 +1,17 @@
+{
+  "judging": "lines",
+  "reference": "1069_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six vertices" },
+    { "name": "02", "note": "the smallest tree: two vertices" },
+    { "name": "03", "note": "a star around the last vertex" },
+    { "name": "04", "note": "a path 1 - 2 - ... - N" },
+    { "name": "05", "note": "a star around the first vertex" },
+    { "name": "06", "note": "numbers spread over lines with extra spaces" },
+    { "name": "07", "note": "a caterpillar: every inner vertex holds a second leaf" },
+    { "name": "08", "note": "a small random tree, checked by encoding it again" },
+    { "name": "big1", "generator": "1 7500 0", "note": "a random tree of the largest size" },
+    { "name": "big2", "generator": "2 7500 1", "note": "a path of the largest size, numbered at random" },
+    { "name": "big3", "generator": "3 7500 2", "note": "twenty hubs with many leaves each" }
+  ]
+}
