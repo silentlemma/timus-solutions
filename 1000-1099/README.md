@@ -93,3 +93,4 @@
 | 1086 | [The n-th prime number](1086/) | number_theory | C++, Go, Python, Java, Rust |
 | 1087 | [A take-away game where taking the last stone loses](1087/) | games | C++, Go, Python, Java, Rust |
 | 1088 | [The distance between two forks in a binary tree of roads](1088/) | trees | C++, Go, Python, Java, Rust |
+| 1089 | [Fixing one-letter typos with a dictionary](1089/) | strings | C++, Go, Python, Java, Rust |
