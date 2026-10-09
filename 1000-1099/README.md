@@ -47,3 +47,4 @@
 | 1040 | [Numbering the edges so that every vertex sees coprime numbers](1040/) | dfs, constructive | C++, Go, Python, Java, Rust |
 | 1041 | [The cheapest basis from a set of vectors](1041/) | math, greedy | C++, Go, Python, Java, Rust |
 | 1042 | [Toggling every switch an odd number of times](1042/) | math | C++, Go, Python, Java, Rust |
+| 1043 | [The integer bounding box of a circular arc](1043/) | geometry | C++, Go, Python, Java, Rust |
