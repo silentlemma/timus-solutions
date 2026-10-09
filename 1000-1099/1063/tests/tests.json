@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1063_dijkstra.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the set already forms a chain" },
+    { "name": "02", "example": true, "note": "two cheap dominoes join the groups without changing degree parity" },
+    { "name": "03", "note": "six doubles: six separate groups to join" },
+    { "name": "04", "note": "two doubles joined by one domino" },
+    { "name": "05", "note": "a hundred equal doubles: already a chain" },
+    { "name": "06", "note": "a group of 5 and 6 and a separate double" },
+    { "name": "07", "note": "three separate groups" },
+    { "name": "08", "note": "three isolated double groups and an odd edge need three connecting dominoes" },
+    { "name": "09", "note": "two even pairs and one odd pair need connections that preserve at most two odd faces" },
+    { "name": "10", "note": "a connected set with two odd faces needs no additions despite unused faces" },
+    { "name": "big1", "generator": "1 100 random", "note": "maximum size connected set with four odd faces needs one parity repair" },
+    { "name": "big2", "generator": "2 100 doubles", "note": "mostly doubles at maximum size already form a connected set with two odd faces" },
+    { "name": "big3", "generator": "3 100 odd", "note": "pairs summing to seven form three separate groups with four odd faces at maximum size" },
+    { "name": "big4", "generator": "4 100 few", "note": "only faces one and three appear in a maximum size set that already forms a circuit" },
+    { "name": "11", "note": "minimum size open chain leaves three faces unused" },
+    { "name": "12", "note": "two disjoint non-doubles join at their cheapest odd faces" },
+    { "name": "13", "note": "four odd faces in one star leave the expensive endpoints unpaired" },
+    { "name": "14", "note": "six odd faces in a connected star need two parity repairs" },
+    { "name": "15", "note": "a cycle on high faces needs no added dominoes or face 1" },
+    { "name": "16", "note": "a hundred non-doubles form two even groups requiring one bridge" },
+    { "name": "17", "note": "three disjoint pairs with odd multiplicities need connections that remove four odd faces" },
+    { "name": "18", "note": "random loops and four odd faces need both a bridge to face 6 and a parity repair" },
+    { "name": "19", "generator": "125 6 random", "note": "random odd edge beside a four-odd component needs a bridge and another repair" },
+    { "name": "20", "generator": "1186 6 random", "note": "random four-odd component and two isolated doubles require three added dominoes" }
+  ]
+}
