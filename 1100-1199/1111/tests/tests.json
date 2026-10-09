@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1111_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two unit squares" },
+    { "name": "02", "note": "a single square" },
+    { "name": "03", "note": "squares shrunk to points, four of them at distance 5" },
+    { "name": "04", "note": "turned squares with P on a corner or a side" },
+    { "name": "05", "note": "P inside or on every square: all ties" },
+    { "name": "06", "note": "coordinates at the limits, sums past 32 bits" },
+    { "name": "07", "note": "one square given by both diagonals in both directions" },
+    { "name": "08", "note": "the largest squares, P on a corner" },
+    { "name": "big1", "generator": "1 50 9998 0", "note": "50 random squares" },
+    { "name": "big2", "generator": "2 50 9998 1", "note": "50 squares copied by the grid symmetries at P" },
+    { "name": "big3", "generator": "3 50 30 1", "note": "50 small symmetric squares, many ties" },
+    { "name": "big4", "generator": "4 50 9998 2", "note": "points, squares around P and random squares" }
+  ]
+}
