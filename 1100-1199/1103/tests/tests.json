@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1103_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven pencils from the statement" },
+    { "name": "02", "note": "three pencils: the circle through all of them" },
+    { "name": "03", "note": "five pencils, one of them far below the rest" },
+    { "name": "04", "note": "coordinates at the limits, products beyond 64 bits" },
+    { "name": "05", "note": "301 random pencils" },
+    { "name": "big1", "generator": "1 4999 100000000", "note": "4999 pencils over the full range" },
+    { "name": "big2", "generator": "2 4999 20000000", "note": "4999 pencils, a fifth of the range" },
+    { "name": "big3", "generator": "3 4999 99999999", "note": "4999 more pencils over the full range" }
+  ]
+}
