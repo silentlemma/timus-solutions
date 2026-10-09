@@ -1,0 +1,25 @@
+{
+  "judging": "float:0.011",
+  "reference": "1066_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight lamps; the fifth one touches the ground" },
+    { "name": "02", "example": true, "note": "a long garland ends high above the ground" },
+    { "name": "03", "note": "three lamps: the last one can touch the ground" },
+    { "name": "04", "note": "three lamps, the highest first lamp" },
+    { "name": "05", "note": "the most lamps, the lowest first lamp" },
+    { "name": "06", "note": "the most lamps, the highest first lamp" },
+    { "name": "07", "note": "four lamps: again the last one on the ground" },
+    { "name": "08", "note": "a hundred lamps, checked with exact fractions" },
+    { "name": "09", "note": "the lowest point near the far end, checked with exact fractions" },
+    { "name": "big1", "generator": "1 1000 1000", "note": "a high first lamp with an interior ground contact" },
+    { "name": "big2", "generator": "2 1000 1000", "note": "a long garland rising far above its low first lamp" },
+    { "name": "big3", "generator": "3 30 1000", "note": "a short random garland" },
+    { "name": "10", "note": "two adjacent inner lamps touch the ground at the optimum" },
+    { "name": "11", "note": "maximum length with a fractional height just above a change in the ground-touching lamp" },
+    { "name": "12", "note": "a tiny positive endpoint height of exactly 0.025 tests rounding near zero" },
+    { "name": "13", "note": "a perfect-square first height gives a symmetric garland with its middle lamp at zero" },
+    { "name": "14", "note": "retained random stress case with a repeating fractional optimum and unequal end heights" },
+    { "name": "15", "generator": "5 5 11", "note": "seeded random five-lamp garland has the smallest lamp count allowing a positive optimum" },
+    { "name": "16", "generator": "244 33 1000", "note": "seeded random garland has the largest lamp count that can still end on the ground" }
+  ]
+}
