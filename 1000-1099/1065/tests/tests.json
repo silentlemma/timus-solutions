@@ -1,0 +1,19 @@
+{
+  "judging": "float:0.011",
+  "reference": "1065_dp_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "no monuments: the shortest triangle with an area" },
+    { "name": "02", "example": true, "note": "two monuments force a longer border" },
+    { "name": "03", "note": "a triangle stays as it is" },
+    { "name": "04", "note": "a monument in the middle of a square: the square stays" },
+    { "name": "05", "note": "collinear towers: a triangle of three towers on one side has no area" },
+    { "name": "06", "note": "a monument next to a corner of the largest square" },
+    { "name": "07", "note": "random towers on a circle, checked over all subsets" },
+    { "name": "08", "note": "a rectangle with towers on its sides, checked over all subsets" },
+    { "name": "09", "note": "a rectangle without monuments, checked over all subsets" },
+    { "name": "big1", "generator": "1 50 1000 ring", "note": "the most towers and monuments" },
+    { "name": "big2", "generator": "2 50 3 ring", "note": "the most towers, a few monuments" },
+    { "name": "big3", "generator": "3 50 0 ring", "note": "the most towers, no monuments" },
+    { "name": "big4", "generator": "4 48 1000 box", "note": "a rectangle of 48 towers and many monuments" }
+  ]
+}
