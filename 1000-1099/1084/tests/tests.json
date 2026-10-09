@@ -1,0 +1,21 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1084_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the rope reaches past the sides but not the corners" },
+    { "name": "02", "note": "a short rope: the whole circle" },
+    { "name": "03", "note": "the rope reaches the corners: the whole garden" },
+    { "name": "04", "note": "the circle touches the sides" },
+    { "name": "05", "note": "a tiny circle in a large garden" },
+    { "name": "06", "note": "a tiny garden and a long rope" },
+    { "name": "07", "note": "both at the largest" },
+    { "name": "08", "note": "just short of the corners" },
+    { "name": "09", "note": "the smallest garden and rope" },
+    { "name": "10", "note": "a small partial case" },
+    { "name": "11", "note": "just past the corners" },
+    { "name": "12", "note": "seven by seven with rope five: past the corners" },
+    { "name": "big1", "generator": "1 100", "note": "a random garden" },
+    { "name": "big2", "generator": "2 100", "note": "a random garden" },
+    { "name": "big3", "generator": "3 100", "note": "a random garden" }
+  ]
+}
