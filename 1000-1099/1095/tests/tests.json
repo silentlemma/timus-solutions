@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1095_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two numbers" },
+    { "name": "02", "note": "only the four key digits" },
+    { "name": "03", "note": "many zeros, which must not lead the answer" },
+    { "name": "04", "note": "twenty digits with repeated key digits" },
+    { "name": "05", "note": "all 24 orders of 1, 2, 3, 4" },
+    { "name": "06", "note": "one extra digit with every remainder modulo 7" },
+    { "name": "big1", "generator": "1 10000 20", "note": "ten thousand random numbers" },
+    { "name": "big2", "generator": "2 10000 20", "note": "ten thousand random numbers" },
+    { "name": "big3", "generator": "3 100 8", "note": "short random numbers" }
+  ]
+}
