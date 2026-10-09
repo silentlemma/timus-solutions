@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1073_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three squares: 324 + 16 + 4" },
+    { "name": "02", "note": "the smallest N, a square" },
+    { "name": "03", "note": "two squares: 1 + 1" },
+    { "name": "04", "note": "seven needs four squares" },
+    { "name": "05", "note": "4 · 7 also needs four" },
+    { "name": "06", "note": "a perfect square" },
+    { "name": "07", "note": "two squares in two ways: 1 + 49 and 25 + 25" },
+    { "name": "08", "note": "the largest N of the form 8b + 7" },
+    { "name": "09", "note": "the largest N" },
+    { "name": "10", "note": "4 · 14999: four squares after dividing by 4" },
+    { "name": "big1", "generator": "1 60000", "note": "a random N" },
+    { "name": "big2", "generator": "2 60000", "note": "a random N" },
+    { "name": "big3", "generator": "3 60000", "note": "a random N" }
+  ]
+}
