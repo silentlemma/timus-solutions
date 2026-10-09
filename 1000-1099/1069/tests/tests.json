@@ -1,0 +1,24 @@
+{
+  "judging": "lines",
+  "reference": "1069_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six vertices" },
+    { "name": "02", "note": "the smallest tree: two vertices" },
+    { "name": "03", "note": "a star around the last vertex" },
+    { "name": "04", "note": "a path 1 - 2 - ... - N" },
+    { "name": "05", "note": "a star around the first vertex" },
+    { "name": "06", "note": "numbers spread over lines with extra spaces" },
+    { "name": "07", "note": "a caterpillar with leaves attached along its spine" },
+    { "name": "08", "note": "a small random tree, checked by encoding it again" },
+    { "name": "big1", "generator": "1 7500 0", "note": "a random tree of the largest size" },
+    { "name": "big2", "generator": "2 7500 1", "note": "a path of the largest size, numbered at random" },
+    { "name": "big3", "generator": "3 7500 2", "note": "twenty hubs with many leaves each" },
+    { "name": "09", "note": "a descending path repeatedly exposes a smaller leaf ahead of N" },
+    { "name": "10", "note": "the last vertex occurs early and repeatedly but must survive until the last edge" },
+    { "name": "11", "note": "alternating two low hubs postpones both hubs until their final occurrences" },
+    { "name": "12", "note": "a stress-found tree requires sorting several adjacency lists after leaf-priority jumps" },
+    { "name": "13", "generator": "1069 7500 3", "note": "a maximum-size star concentrates almost all output neighbours on one line" },
+    { "name": "14", "generator": "1070 7500 4", "note": "a maximum-size balanced binary tree releases leaves at many levels" },
+    { "name": "15", "generator": "1071 7500 5", "note": "a maximum-size uniform random code exercises broadly distributed vertex frequencies" }
+  ]
+}
