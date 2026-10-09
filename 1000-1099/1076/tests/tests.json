@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1076_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four containers" },
+    { "name": "02", "note": "one container: nothing moves" },
+    { "name": "03", "note": "no trash at all" },
+    { "name": "04", "note": "taking the largest amount first is wrong" },
+    { "name": "05", "note": "all amounts equal" },
+    { "name": "06", "note": "already sorted along the diagonal" },
+    { "name": "07", "note": "already sorted along the other diagonal" },
+    { "name": "08", "note": "seven containers, checked against all assignments" },
+    { "name": "09", "note": "seven containers with small amounts and many ties" },
+    { "name": "big1", "generator": "1 150 100 0", "note": "the largest random input" },
+    { "name": "big2", "generator": "2 150 100 1", "note": "amounts 99 and 100 only" },
+    { "name": "big3", "generator": "3 150 100 2", "note": "a shuffled multiplication table" }
+  ]
+}

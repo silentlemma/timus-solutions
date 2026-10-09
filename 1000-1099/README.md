@@ -80,3 +80,4 @@
 | 1073 | [The fewest square plots that cost exactly N](1073/) | number_theory | C++, Go, Python, Java, Rust |
 | 1074 | [Rewriting a real number with exactly N digits after the point](1074/) | parsing | C++, Go, Python, Java, Rust |
 | 1075 | [The shortest thread around a fixed ball](1075/) | geometry | C++, Go, Python, Java, Rust |
+| 1076 | [Sorting trash into containers with the least moving](1076/) | matching | C++, Go, Python, Java, Rust |
