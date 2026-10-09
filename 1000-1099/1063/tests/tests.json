@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1063_dijkstra.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the set already forms a chain" },
+    { "name": "02", "example": true, "note": "two cheap dominoes join the groups and fix the odd faces" },
+    { "name": "03", "note": "six doubles: six separate groups to join" },
+    { "name": "04", "note": "two doubles joined by one domino" },
+    { "name": "05", "note": "a hundred equal doubles: already a chain" },
+    { "name": "06", "note": "a group of 5 and 6 and a separate double" },
+    { "name": "07", "note": "three separate groups" },
+    { "name": "08", "note": "mostly doubles, checked against all small sets of extra dominoes" },
+    { "name": "09", "note": "many odd faces, checked against all small sets of extra dominoes" },
+    { "name": "10", "note": "faces from a small set, checked against all small sets of extra dominoes" },
+    { "name": "big1", "generator": "1 100 random", "note": "the most dominoes, random faces" },
+    { "name": "big2", "generator": "2 100 doubles", "note": "the most dominoes, mostly doubles" },
+    { "name": "big3", "generator": "3 100 odd", "note": "the most dominoes, pairs adding up to 7" },
+    { "name": "big4", "generator": "4 100 few", "note": "the most dominoes on a few faces" }
+  ]
+}
