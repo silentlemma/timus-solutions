@@ -45,3 +45,4 @@
 | 1038 | [Counting capitalisation errors](1038/) | implementation | C++, Go, Python, Java, Rust |
 | 1039 | [A guest list without direct bosses](1039/) | dp, trees | C++, Go, Python, Java, Rust |
 | 1040 | [Numbering the edges so that every vertex sees coprime numbers](1040/) | dfs, constructive | C++, Go, Python, Java, Rust |
+| 1041 | [The cheapest basis from a set of vectors](1041/) | math, greedy | C++, Go, Python, Java, Rust |
