@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "cases": [
+    { "name": "02", "example": true, "note": "8: the divisor 4 gives L = 3" },
+    { "name": "10", "example": true, "note": "35: the divisor 5 gives L = 4" },
+    { "name": "01", "note": "the smallest K" },
+    { "name": "03", "note": "the largest K" },
+    { "name": "04", "note": "the largest prime: L = K - 1" },
+    { "name": "05", "note": "twice a large prime: the divisor K / 2" },
+    { "name": "06", "note": "4: the only divisor above 2 is K itself" },
+    { "name": "07", "note": "the square of a prime" },
+    { "name": "08", "note": "6: the divisor 3 gives L = 2" },
+    { "name": "09", "note": "a power of two" }
+  ]
+}
