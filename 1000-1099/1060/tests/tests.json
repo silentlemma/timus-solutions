@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1060_bruteforce_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a position that cannot become one colour" },
+    { "name": "02", "example": true, "note": "four moves" },
+    { "name": "03", "note": "all white already" },
+    { "name": "04", "note": "all black already" },
+    { "name": "05", "note": "one move from all white" },
+    { "name": "06", "note": "one move at the corner from all black" },
+    { "name": "07", "note": "one of the hardest positions: six moves" },
+    { "name": "08", "note": "another of the hardest positions" },
+    { "name": "09", "note": "a random unreachable position" },
+    { "name": "10", "note": "a random reachable position, checked by a search over all positions" },
+    { "name": "11", "note": "a random reachable position, checked by a search over all positions" },
+    { "name": "12", "note": "a random position, checked by a search over all positions" }
+  ]
+}
