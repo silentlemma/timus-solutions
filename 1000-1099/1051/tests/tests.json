@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1051_games_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a side divisible by 3: two stones remain" },
+    { "name": "02", "example": true, "note": "a single row of seven: four stones remain" },
+    { "name": "03", "note": "a single stone" },
+    { "name": "04", "note": "a 2 x 2 square clears to one stone" },
+    { "name": "05", "note": "the longest column" },
+    { "name": "06", "note": "the longest row of odd length" },
+    { "name": "07", "note": "3 x 3, checked by exhaustive search" },
+    { "name": "08", "note": "2 x 7, checked by exhaustive search" },
+    { "name": "09", "note": "4 x 4, checked by exhaustive search" },
+    { "name": "10", "note": "the largest square, no side divisible by 3" },
+    { "name": "11", "note": "the largest board with a side divisible by 3" },
+    { "name": "12", "note": "2 x 6, checked by exhaustive search" },
+    { "name": "13", "note": "two stones in a row" }
+  ]
+}
