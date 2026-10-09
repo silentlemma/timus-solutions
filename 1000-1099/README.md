@@ -74,3 +74,4 @@
 | 1067 | [A folder tree rebuilt from full paths](1067/) | trees, sorting | C++, Go, Python, Java, Rust |
 | 1068 | [The sum of all integers between 1 and N](1068/) | math | C++, Go, Python, Java, Rust |
 | 1069 | [Rebuilding a tree from its Prüfer code](1069/) | trees | C++, Go, Python, Java, Rust |
+| 1070 | [The time zone shift between two airports from a round trip](1070/) | bruteforce | C++, Go, Python, Java, Rust |

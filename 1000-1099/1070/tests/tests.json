@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1070_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first flight lands after midnight" },
+    { "name": "02", "note": "both airports in one time zone" },
+    { "name": "03", "note": "the largest shift, six-hour and 5:50 flights" },
+    { "name": "04", "note": "the largest shift the other way; the first flight lands on the clock before it leaves" },
+    { "name": "05", "note": "the return flight lands on the clock before it leaves" },
+    { "name": "06", "note": "the durations differ by exactly ten minutes" },
+    { "name": "07", "note": "a flight leaves at 00.00 and another lands at 23.59" },
+    { "name": "08", "note": "a random pair of flights" },
+    { "name": "big1", "generator": "1", "note": "a random pair of flights" },
+    { "name": "big2", "generator": "2 5", "note": "a random pair of flights with the largest shift" },
+    { "name": "big3", "generator": "3 0", "note": "a random pair of flights in one time zone" }
+  ]
+}
