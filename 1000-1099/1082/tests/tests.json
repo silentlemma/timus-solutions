@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1082_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three numbers" },
+    { "name": "02", "note": "N = 1: the program counts nothing" },
+    { "name": "03", "note": "N = 2" },
+    { "name": "04", "note": "the largest N" },
+    { "name": "05", "note": "N = 500" },
+    { "name": "06", "note": "N = 4" },
+    { "name": "07", "note": "N = 999" },
+    { "name": "big1", "generator": "1 1000", "note": "a random N" },
+    { "name": "big2", "generator": "2 1000", "note": "a random N" },
+    { "name": "big3", "generator": "3 30", "note": "a random small N" }
+  ]
+}
