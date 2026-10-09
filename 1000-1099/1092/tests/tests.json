@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1092_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 3 by 3 table with six plus signs" },
+    { "name": "02", "note": "no plus signs: nothing to do" },
+    { "name": "03", "note": "all plus signs: every row and column odd" },
+    { "name": "04", "note": "the largest table without plus signs" },
+    { "name": "05", "note": "a single plus sign" },
+    { "name": "06", "note": "the main diagonal: one transversal clears it" },
+    { "name": "07", "note": "the other diagonal of the largest table" },
+    { "name": "08", "note": "a 2 by 2 block of plus signs" },
+    { "name": "big1", "generator": "1 20 100", "note": "the largest table full of plus signs" },
+    { "name": "big2", "generator": "2 20 50", "note": "the largest random table" },
+    { "name": "big3", "generator": "3 7 90", "note": "a mostly plus random table" }
+  ]
+}
