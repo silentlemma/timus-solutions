@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1102_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six lines, two of them dialogues" },
+    { "name": "02", "note": "every one- and two-word dialogue and tricky near misses" },
+    { "name": "03", "note": "every three-word dialogue" },
+    { "name": "04", "note": "three hundred random lines mixing valid dialogues with corrupted strings" },
+    { "name": "big1", "generator": "1 1 4000000 0", "note": "one dialogue of almost four million letters" },
+    { "name": "big2", "generator": "2 1000 4000000 50", "note": "a thousand long lines including both valid dialogues and corrupted strings" },
+    { "name": "big3", "generator": "3 1 3999999 100", "note": "one long line spoiled by one letter" },
+    { "name": "05", "note": "a run of shortest words ends with an unfinished in at the end of input" },
+    { "name": "06", "note": "word fragments on adjacent lines must not join, and valid lines reset parsing state" },
+    { "name": "07", "note": "long repeated outputon and inputon traps with zero, one or two trailing e letters" },
+    { "name": "08", "generator": "shortest", "note": "exactly four million letters forming two million shortest words" },
+    { "name": "09", "generator": "bad-prefix", "note": "an invalid first letter before a valid suffix fills the entire letter budget" },
+    { "name": "10", "generator": "boundary 1102 500", "note": "a thousand lines pairing random dialogues with transpositions across word boundaries" }
+  ]
+}
