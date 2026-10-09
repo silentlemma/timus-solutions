@@ -30,3 +30,4 @@
 | 1023 | [Choosing the move limit that lets the second player win](1023/) | games, number_theory | C++, Go, Python, Java, Rust |
 | 1024 | [The order of a permutation](1024/) | math | C++, Go, Python, Java, Rust |
 | 1025 | [The fewest supporters to win a two-level majority vote](1025/) | greedy, sorting | C++, Go, Python, Java, Rust |
+| 1026 | [The k-th smallest element of a database](1026/) | sorting, prefix_sums | C++, Go, Python, Java, Rust |
