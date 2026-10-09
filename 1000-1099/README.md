@@ -55,3 +55,4 @@
 | 1048 | [Adding two numbers of a million digits](1048/) | implementation | C++, Go, Python, Java, Rust |
 | 1049 | [The last digit of the number of divisors of a product](1049/) | number_theory | C++, Go, Python, Java, Rust |
 | 1050 | [Turning straight quotes into TeX quotes](1050/) | parsing | C++, Go, Python, Java, Rust |
+| 1051 | [Peg solitaire on an infinite grid](1051/) | games, math | C++, Go, Python, Java, Rust |

@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1051_games_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a side divisible by 3: two stones remain" },
+    { "name": "02", "example": true, "note": "a single row of seven: four stones remain" },
+    { "name": "03", "note": "a single stone" },
+    { "name": "04", "note": "a 2 x 2 square clears to one stone" },
+    { "name": "05", "note": "the longest column" },
+    { "name": "06", "note": "the longest row of odd length" },
+    { "name": "07", "note": "both square dimensions divisible by three force two survivors" },
+    { "name": "08", "note": "an odd-length two-row rectangle reduces to one stone" },
+    { "name": "09", "note": "a square with sides one modulo three reduces to one stone" },
+    { "name": "10", "note": "the largest square, no side divisible by 3" },
+    { "name": "11", "note": "the largest board with a side divisible by 3" },
+    { "name": "12", "note": "divisibility by three forces two survivors even in a two-row board" },
+    { "name": "13", "note": "two stones in a row" },
+    { "name": "14", "note": "a six-stone row needs three survivors despite its length being divisible by three" },
+    { "name": "15", "note": "the 2 x 4 pitfall with the longer dimension given first" },
+    { "name": "16", "note": "the smallest two-dimensional multiple-of-three board with the divisible side first" },
+    { "name": "17", "note": "an odd column needs upward rounding when the unit dimension is second" },
+    { "name": "18", "generator": "small 16", "note": "seeded random 2 x 5 rectangle with both dimensions two modulo three" },
+    { "name": "19", "generator": "small 23", "note": "seeded random 5 x 3 rectangle has odd area and only the second side divisible by three" }
+  ]
+}
