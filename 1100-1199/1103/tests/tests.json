@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1103_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven pencils from the statement" },
+    { "name": "02", "note": "three pencils: the circle through all of them" },
+    { "name": "03", "note": "five pencils, one of them far below the rest" },
+    { "name": "04", "note": "coordinates at the limits, products beyond 64 bits" },
+    { "name": "05", "note": "random scatter of 301 pencils" },
+    { "name": "big1", "generator": "1 4999 100000000", "note": "near-maximum pencil count with coordinates across the full range" },
+    { "name": "big2", "generator": "2 4999 20000000", "note": "large random set confined to one fifth of the coordinate range" },
+    { "name": "big3", "generator": "3 4999 99999999", "note": "exact angle comparisons on another full-range random set" },
+    { "name": "06", "note": "three almost collinear pencils at large coordinates, with doubled area one" },
+    { "name": "07", "note": "two lowest pencils given rightmost first, requiring the leftmost tie break" },
+    { "name": "08", "note": "the first candidate is interior, while the required hull neighbour lies on a vertical edge" },
+    { "name": "09", "note": "candidate angles on both sides of a right angle, including an exact right angle" },
+    { "name": "10", "note": "the middle angles differ exactly but round to the same floating point value" },
+    { "name": "11", "note": "all candidate angles are obtuse, so every cotangent is negative" },
+    { "name": "12", "note": "a random triangular hull enclosing twelve interior pencils" },
+    { "name": "13", "note": "seven pencils close to one large circle, with none exactly concyclic in fours" },
+    { "name": "14", "generator": "parabola 1103 4999", "note": "pencils on a thin convex parabola, shuffled instead of hull order" },
+    { "name": "15", "generator": "grid 1103 31 25", "note": "random pencils on a compact integer grid, rejecting all geometric degeneracies" }
+  ]
+}
