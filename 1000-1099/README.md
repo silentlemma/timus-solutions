@@ -78,3 +78,4 @@
 | 1071 | [The smallest base in which crossing out digits turns x into y](1071/) | math | C++, Go, Python, Java, Rust |
 | 1072 | [The shortest route between two computers through IP subnets](1072/) | bfs, graphs | C++, Go, Python, Java, Rust |
 | 1073 | [The fewest square plots that cost exactly N](1073/) | number_theory | C++, Go, Python, Java, Rust |
+| 1074 | [Rewriting a real number with exactly N digits after the point](1074/) | parsing | C++, Go, Python, Java, Rust |
