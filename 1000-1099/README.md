@@ -66,3 +66,4 @@
 | 1059 | [The shortest postfix program for a polynomial](1059/) | math | C++, Go, Python, Java, Rust |
 | 1060 | [The fewest flips to make a 4 × 4 board one colour](1060/) | bruteforce, bitmask | C++, Go, Python, Java, Rust |
 | 1061 | [The cheapest window of free buffers](1061/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 1062 | [Who can win a triathlon with suitable stage lengths](1062/) | geometry | C++, Go, Python, Java, Rust |

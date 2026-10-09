@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1062_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "nine athletes, five of them can win" },
+    { "name": "02", "example": true, "note": "two identical athletes can never finish alone; the third wins on a long last stage" },
+    { "name": "03", "note": "a single athlete always wins" },
+    { "name": "04", "note": "the third athlete's times are exactly the average of the other two: never alone first" },
+    { "name": "05", "note": "an athlete slower on every stage" },
+    { "name": "06", "note": "equal on two stages, slower on one: still never first" },
+    { "name": "07", "note": "speeds among divisors of 60, checked with exact fractions" },
+    { "name": "08", "note": "nearly equal speeds, checked with exact fractions" },
+    { "name": "09", "note": "speeds adding up to a constant: many winners, checked with exact fractions" },
+    { "name": "10", "note": "inverse speeds just below the midpoint of two rivals: a thin strip of wins" },
+    { "name": "11", "note": "inverse speeds just above the rivals' midpoint prevent the first athlete from winning" },
+    { "name": "big1", "generator": "1 100 random", "note": "the most athletes, random speeds" },
+    { "name": "big2", "generator": "2 100 close", "note": "the most athletes, nearly equal speeds" },
+    { "name": "big3", "generator": "3 100 divisors", "note": "the most athletes, many exact ties" },
+    { "name": "big4", "generator": "4 100 front", "note": "the most athletes, many possible winners" },
+    { "name": "12", "note": "two incomparable athletes at speed bounds 1 and 10000 can each win" },
+    { "name": "13", "note": "a balanced athlete wins without being fastest on any individual stage" },
+    { "name": "14", "note": "three cyclic rivals leave the balanced athlete only a tie at equal stage lengths" },
+    { "name": "15", "note": "an extreme specialist wins only in a narrow corner where both other lengths are tiny" },
+    { "name": "16", "note": "near-limit cyclic rivals enclose a small interior winning region for the balanced athlete" },
+    { "name": "17", "note": "seeded small random race has a non-dominated athlete excluded by the combined rivals" },
+    { "name": "18", "note": "seeded small random race mixes separated duplicate contenders with two unique winners" },
+    { "name": "19", "generator": "106219 100 twins", "note": "maximum field of shuffled duplicate pairs has no possible sole winner" },
+    { "name": "20", "generator": "106220 100 flat", "note": "maximum field shares the minimum third-stage speed, leaving two-dimensional tradeoffs" }
+  ]
+}
