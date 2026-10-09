@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1032_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one number is already a multiple of N" },
+    { "name": "02", "example": true, "note": "N = 1: any number is a multiple" },
+    { "name": "03", "note": "all equal ones: all of them are needed" },
+    { "name": "04", "note": "equal numbers that are not multiples of N" },
+    { "name": "05", "note": "100 random numbers" },
+    { "name": "06", "note": "a longer block of consecutive numbers" },
+    { "name": "big1", "generator": "1 10000 15000", "note": "the largest N" },
+    { "name": "big2", "generator": "2 10000 1", "note": "the largest N, all numbers 1: all of them are needed" },
+    { "name": "big3", "generator": "3 9999 2", "note": "ones and twos" }
+  ]
+}
