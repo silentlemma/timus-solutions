@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1029_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the cheap offices zigzag through the building" },
+    { "name": "02", "example": true, "note": "one office" },
+    { "name": "03", "note": "one floor: the cheapest office alone" },
+    { "name": "04", "note": "one room per floor" },
+    { "name": "05", "note": "a cheap start that leads to expensive floors" },
+    { "name": "06", "note": "random small fees with many ties" },
+    { "name": "07", "note": "100 floors of equal fees: the total stays within 10^9" },
+    { "name": "big1", "generator": "1 100 500 10000000", "note": "the largest building" },
+    { "name": "big2", "generator": "2 100 500 3", "note": "the largest building with tiny fees" }
+  ]
+}
