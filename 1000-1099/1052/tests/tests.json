@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1052_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five points on a steep line" },
+    { "name": "02", "example": true, "note": "three points not on one line" },
+    { "name": "03", "note": "all 200 points on one line" },
+    { "name": "04", "note": "a vertical and a horizontal line sharing a point" },
+    { "name": "05", "note": "a line with a negative slope and far points" },
+    { "name": "06", "note": "a 14 x 14 grid; its diagonal is extended by two far points" },
+    { "name": "07", "note": "points on both sides of the anchor give opposite directions" },
+    { "name": "08", "note": "random small set, checked over all pairs and points" },
+    { "name": "09", "note": "random set with planted lines, checked over all pairs and points" },
+    { "name": "big1", "generator": "1 200 5 40", "note": "the most points, several long lines" },
+    { "name": "big2", "generator": "2 200 0 0", "note": "the most points, all random" },
+    { "name": "big3", "generator": "3 200 30 8", "note": "many short lines" },
+    { "name": "big4", "generator": "4 200 1 200", "note": "one dominant line" }
+  ]
+}
