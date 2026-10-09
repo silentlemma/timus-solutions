@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1043_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short arc; its top lies between grid lines" },
+    { "name": "02", "example": true, "note": "a half circle: only the top extreme is on the arc" },
+    { "name": "03", "note": "the other half of the same circle" },
+    { "name": "04", "note": "a large arc with three extremes" },
+    { "name": "05", "note": "a small arc around a non-integer center" },
+    { "name": "06", "note": "a tiny circle with a non-integer center" },
+    { "name": "07", "note": "three quarters of the largest circle: the largest answer" },
+    { "name": "08", "note": "integer points of a circle with integer extremes" },
+    { "name": "09", "note": "an extreme within 1e-7 of an integer" },
+    { "name": "10", "note": "an extreme within 4e-6 of an integer on a large circle" },
+    { "name": "11", "note": "a random large arc" },
+    { "name": "12", "note": "a random small arc" },
+    { "name": "13", "note": "a half-integer center with an extreme exactly on a grid line" },
+    { "name": "14", "note": "the same circle, the extreme on the left" },
+    { "name": "big1", "generator": "1 near 1000", "note": "the triple closest to a rounding error among many" },
+    { "name": "big2", "generator": "2 lattice 625", "note": "a large circle through integer points" },
+    { "name": "big3", "generator": "3 random 1000", "note": "a random arc" },
+    { "name": "big4", "generator": "4 near 200", "note": "a near-integer extreme on a smaller circle" }
+  ]
+}
