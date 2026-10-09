@@ -70,3 +70,4 @@
 | 1063 | [The cheapest extra dominoes for a chain](1063/) | dijkstra | C++, Go, Python, Java, Rust |
 | 1064 | [Array lengths for which a binary search ends at a given step](1064/) | simulation | C++, Go, Python, Java, Rust |
 | 1065 | [The shortest sub-polygon that keeps given points inside](1065/) | dp, geometry | C++, Go, Python, Java, Rust |
+| 1066 | [The lowest end of a sagging garland](1066/) | math | C++, Go, Python, Java, Rust |

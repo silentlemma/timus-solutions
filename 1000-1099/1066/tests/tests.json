@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.011",
+  "reference": "1066_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight lamps; the fifth one touches the ground" },
+    { "name": "02", "example": true, "note": "a long garland ends high above the ground" },
+    { "name": "03", "note": "three lamps: the last one can touch the ground" },
+    { "name": "04", "note": "three lamps, the highest first lamp" },
+    { "name": "05", "note": "the most lamps, the lowest first lamp" },
+    { "name": "06", "note": "the most lamps, the highest first lamp" },
+    { "name": "07", "note": "four lamps: again the last one on the ground" },
+    { "name": "08", "note": "a hundred lamps, checked with exact fractions" },
+    { "name": "09", "note": "the lowest point near the far end, checked with exact fractions" },
+    { "name": "big1", "generator": "1 1000 1000", "note": "a random garland" },
+    { "name": "big2", "generator": "2 1000 1000", "note": "a random garland" },
+    { "name": "big3", "generator": "3 30 1000", "note": "a short random garland" }
+  ]
+}
