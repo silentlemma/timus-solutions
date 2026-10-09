@@ -89,3 +89,4 @@
 | 1082 | [Input that makes a quicksort count a given number of steps](1082/) | constructive | C++, Go, Python, Java, Rust |
 | 1083 | [A factorial with k exclamation marks](1083/) | math | C++, Go, Python, Java, Rust |
 | 1084 | [The part of a square garden a tethered goat can reach](1084/) | geometry | C++, Go, Python, Java, Rust |
+| 1085 | [The cheapest tram stop for a group of friends to meet](1085/) | bfs, graphs | C++, Go, Python, Java, Rust |
