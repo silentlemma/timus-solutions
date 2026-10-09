@@ -1,0 +1,30 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1058_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a rectangle: the cut across the long side" },
+    { "name": "02", "example": true, "note": "a square turned by 45 degrees: a cut parallel to a side" },
+    { "name": "03", "note": "a near-regular hexagon with a cut between opposite horizontal sides" },
+    { "name": "04", "note": "a long thin rectangle" },
+    { "name": "05", "note": "a house-shaped pentagon" },
+    { "name": "06", "note": "a nearly circular polygon at the 50-vertex limit" },
+    { "name": "07", "note": "a thin oblique polygon with 50 closely spaced ellipse vertices" },
+    { "name": "08", "note": "an elongated irregular heptagon with no axis-aligned edges" },
+    { "name": "09", "note": "a heptagon listed clockwise, checking orientation reversal" },
+    { "name": "10", "note": "a triangle with extra collinear vertices, checking unchanged geometry" },
+    { "name": "big1", "generator": "1 50 95 60", "note": "an ellipse-based polygon with the maximum number of vertices" },
+    { "name": "big2", "generator": "2 4 90 30", "note": "a random quadrilateral" },
+    { "name": "big3", "generator": "3 50 98 0.5", "note": "an extremely flat polygon" },
+    { "name": "big4", "generator": "4 12 80 79", "note": "twelve points near a circle" },
+    { "name": "11", "note": "the full coordinate square, with the maximum possible answer of 200" },
+    { "name": "12", "note": "a one-thousandth square next to the upper coordinate limits" },
+    { "name": "13", "note": "a skew parallelogram with collinear vertices at the shortest cut endpoints" },
+    { "name": "14", "note": "a scalene quadrilateral whose optimum is neither vertex-ended nor perpendicular to an edge" },
+    { "name": "15", "note": "a full-span diamond with a minimum cut just under 0.002" },
+    { "name": "16", "note": "an almost triangular quadrilateral with a tiny diagonal bevel" },
+    { "name": "17", "note": "a parabolic chain of 49 vertices closed by a distant apex" },
+    { "name": "18", "note": "a tiny irregular octagon near the upper coordinate bounds" },
+    { "name": "big5", "generator": "1058 5 88 6", "note": "seeded five-vertex eccentric polygon with highly uneven angular gaps" },
+    { "name": "big6", "generator": "21058 49 70 40", "note": "an odd number of vertices on a tilted ellipse, just below the size limit" }
+  ]
+}
