@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1101_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five forks and two switches in a 3 by 3 field" },
+    { "name": "02", "note": "no forks: straight to the right edge" },
+    { "name": "03", "note": "FALSE everywhere: left turns only" },
+    { "name": "04", "note": "parentheses right after NOT and OR, registers switched on the way" },
+    { "name": "05", "note": "doubled parentheses and constants" },
+    { "name": "06", "note": "a small random field" },
+    { "name": "big1", "generator": "1 100 100 100 6 5", "note": "the largest field, five registers" },
+    { "name": "big2", "generator": "2 100 100 100 4 26", "note": "the largest field, all registers" },
+    { "name": "big3", "generator": "3 100 100 100 3 2", "note": "the largest field, two registers" }
+  ]
+}

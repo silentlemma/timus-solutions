@@ -1,0 +1,9 @@
+NOT((A OR NOT B) AND (A OR B)) OR NOT (A AND NOT B OR TRUE)
+1 5 2
+1 0
+1 1
+1 -1
+-1 -1
+-1 1
+0 1 A
+-1 0 D
