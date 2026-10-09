@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1079_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two queries" },
+    { "name": "02", "note": "the smallest n" },
+    { "name": "03", "note": "ten small queries" },
+    { "name": "04", "note": "the largest n" },
+    { "name": "05", "note": "queries around the record positions, in no order" },
+    { "name": "06", "note": "pairs of n on both sides of a new maximum" },
+    { "name": "big1", "generator": "1 10", "note": "ten random queries" },
+    { "name": "big2", "generator": "2 10", "note": "ten random queries" },
+    { "name": "big3", "generator": "3 3", "note": "three random queries" }
+  ]
+}

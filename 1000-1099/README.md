@@ -83,3 +83,4 @@
 | 1076 | [Sorting trash into containers with the least moving](1076/) | matching | C++, Go, Python, Java, Rust |
 | 1077 | [The most tours that each own a road](1077/) | bfs, graphs | C++, Go, Python, Java, Rust |
 | 1078 | [The longest chain of segments nested one inside the next](1078/) | dp | C++, Go, Python, Java, Rust |
+| 1079 | [The largest term of Stern's sequence up to n](1079/) | dp | C++, Go, Python, Java, Rust |
