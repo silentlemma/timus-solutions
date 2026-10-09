@@ -24,3 +24,4 @@
 | 1017 | [Counting staircases: partitions into distinct parts](1017/) | dp | C++, Go, Python, Java, Rust |
 | 1018 | [Keeping the most valuable connected branches of a binary tree](1018/) | dp, trees | C++, Go, Python, Java, Rust |
 | 1019 | [The longest white interval after repaintings of a line](1019/) | sorting, dsu | C++, Go, Python, Java, Rust |
+| 1020 | [The length of a thread around round nails](1020/) | geometry | C++, Go, Python, Java, Rust |
