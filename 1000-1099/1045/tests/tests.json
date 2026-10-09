@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1045_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a winning move to a leaf" },
+    { "name": "02", "example": true, "note": "a path started at its end: the first player loses" },
+    { "name": "03", "note": "a single airport: no move at all" },
+    { "name": "04", "note": "two airports" },
+    { "name": "05", "note": "a star with 20 flights from the start" },
+    { "name": "06", "note": "two winning moves: the smaller number, not the first listed" },
+    { "name": "07", "note": "random small tree, checked by a search over destroyed sets" },
+    { "name": "08", "note": "random small tree, checked by a search over destroyed sets" },
+    { "name": "09", "note": "a small caterpillar, checked by a search over destroyed sets" },
+    { "name": "big1", "generator": "1 1000 path end", "note": "a path of 1000 airports from its end: an odd number of moves" },
+    { "name": "big2", "generator": "2 999 path end", "note": "a path of 999 airports from its end" },
+    { "name": "big3", "generator": "3 1000 path middle", "note": "a path of 1000 airports from the middle" },
+    { "name": "big4", "generator": "4 1000 random 500", "note": "a random tree" },
+    { "name": "big5", "generator": "5 1000 deep 1", "note": "a deep narrow tree" },
+    { "name": "big6", "generator": "6 1000 caterpillar end", "note": "a caterpillar from its end" }
+  ]
+}
