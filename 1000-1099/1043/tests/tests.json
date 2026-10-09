@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1043_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short arc; its top lies between grid lines" },
+    { "name": "02", "example": true, "note": "an upper semicircle with endpoints at the left and right extrema" },
+    { "name": "03", "note": "a lower semicircle with a negative bottom bound" },
+    { "name": "04", "note": "a large arc with three extremes" },
+    { "name": "05", "note": "a major arc containing all four extrema of a circle with a fractional center" },
+    { "name": "06", "note": "a tiny circle with a non-integer center" },
+    { "name": "07", "note": "a three-quarter arc attaining the maximum bounding area of four million" },
+    { "name": "08", "note": "integer points of a circle with integer extremes" },
+    { "name": "09", "note": "an extreme within 1e-7 of an integer" },
+    { "name": "10", "note": "an extreme within 4e-6 of an integer on a large circle" },
+    { "name": "11", "note": "an arc whose right and top extrema extend the endpoint bounds" },
+    { "name": "12", "note": "a major arc on a small circle whose top lies just above an integer" },
+    { "name": "13", "note": "a half-integer center with an extreme exactly on a grid line" },
+    { "name": "14", "note": "the same circle, the extreme on the left" },
+    { "name": "big1", "generator": "1 near 1000", "note": "a top extreme just above a grid line on an arc containing all four extrema" },
+    { "name": "big2", "generator": "2 lattice 625", "note": "a large circle through integer points" },
+    { "name": "big3", "generator": "3 random 1000", "note": "a major arc with four irrational extrema setting every rectangle bound" },
+    { "name": "big4", "generator": "4 near 200", "note": "a near-integer extreme on a smaller circle" },
+    { "name": "15", "note": "the minimum area of two, on a unit-radius semicircle" },
+    { "name": "16", "note": "a monotone arc whose bounds all come from its endpoints" },
+    { "name": "17", "note": "a center at the square corner and a radius of 2000, with only the arc inside" },
+    { "name": "18", "note": "a triangle of area one half with a distant center and a very shallow arc" },
+    { "name": "19", "note": "a slanted diameter with two irrational extrema rounding outward" },
+    { "name": "big5", "generator": "21 random 6", "note": "a random horizontal chord away from the center, with only the bottom extreme on the arc" }
+  ]
+}
