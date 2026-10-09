@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1083_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "9!! = 9 · 7 · 5 · 3 · 1" },
+    { "name": "02", "note": "10!!! = 10 · 7 · 4 · 1" },
+    { "name": "03", "note": "the smallest input" },
+    { "name": "04", "note": "the ordinary factorial of 10" },
+    { "name": "05", "note": "twenty marks after 5: a single factor" },
+    { "name": "06", "note": "k equal to n: a single factor" },
+    { "name": "07", "note": "6 with five marks ends at 6 mod 5 = 1" },
+    { "name": "08", "note": "8 with four marks ends at k = 4" },
+    { "name": "09", "note": "7!!! = 7 · 4 · 1" },
+    { "name": "big1", "generator": "1", "note": "a random query" },
+    { "name": "big2", "generator": "2", "note": "a random query" },
+    { "name": "big3", "generator": "3", "note": "a random query" }
+  ]
+}
