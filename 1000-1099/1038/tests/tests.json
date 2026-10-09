@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1038_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a lowercase sentence start and two capitals inside a word" },
+    { "name": "02", "example": true, "note": "sentences ending with each of . ? !" },
+    { "name": "03", "note": "no letters at all" },
+    { "name": "04", "note": "words right after digits: a digit is not a letter" },
+    { "name": "05", "note": "one-letter sentences glued to the punctuation" },
+    { "name": "06", "note": "a word of capitals: every capital after the first is an error" },
+    { "name": "07", "note": "a line break or a tab splits a word" },
+    { "name": "08", "note": "leading blank lines, no errors" },
+    { "name": "09", "note": "random small text, checked with regular expressions" },
+    { "name": "10", "note": "random small text with many capitals, checked with regular expressions" },
+    { "name": "big1", "generator": "1 10000 20", "note": "the longest text" },
+    { "name": "big2", "generator": "2 10000 50", "note": "the longest text, half of the letters capital" },
+    { "name": "big3", "generator": "3 10000 0", "note": "the longest text, no capitals" },
+    { "name": "big4", "generator": "4 10000 100", "note": "the longest text, only capitals" }
+  ]
+}
