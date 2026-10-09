@@ -1,0 +1,30 @@
+{
+  "judging": "float:0.011",
+  "reference": "1046_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "right angles: the triangle is recovered exactly" },
+    { "name": "02", "example": true, "note": "a square with rounded apexes: the vertices come out within 0.01" },
+    { "name": "03", "note": "a small triangle combines two acute apex angles with an obtuse one" },
+    { "name": "04", "note": "mixed apex angles reconstruct an irregular quadrilateral" },
+    { "name": "05", "note": "mixed acute and obtuse rotations reconstruct a seven-sided polygon" },
+    { "name": "06", "note": "ten rotations total more than two full turns" },
+    { "name": "07", "note": "small angles: far apexes" },
+    { "name": "big1", "generator": "1 50 25 small", "note": "the maximum vertex count with apex angles below 7.2 degrees" },
+    { "name": "big2", "generator": "2 50 15 small", "note": "small apex angles reconstruct a polygon about 30 units across" },
+    { "name": "big3", "generator": "3 12 40 any", "note": "twelve vertices with large angles" },
+    { "name": "big4", "generator": "4 30 30 small", "note": "thirty successive rotations have a total below 360 degrees" },
+    { "name": "08", "note": "apex coordinates reach both -100 and 100 on each axis" },
+    { "name": "09", "note": "tiny 0.01-degree apex angles restore a polygon only one hundredth wide" },
+    { "name": "10", "note": "nearly flat 179.99-degree angles place the apexes almost at the side midpoints" },
+    { "name": "11", "note": "the angles total 359.99 degrees, just below a forbidden full turn" },
+    { "name": "12", "note": "the angles total 360.01 degrees, just above a forbidden full turn" },
+    { "name": "13", "note": "a very thin triangle has a 0.02-wide base and height 49.99" },
+    { "name": "14", "note": "rounded apexes produce tiny negative coordinates that print as zero" },
+    { "name": "15", "note": "a concave polygon has outward triangles along both sides of its notch" },
+    { "name": "16", "note": "fifty equal angles total 359.50 degrees on a nearly regular polygon" },
+    { "name": "17", "note": "eight obtuse turns exceed three full rotations in a case retained from stress" },
+    { "name": "18", "generator": "1046 20 20 thin", "note": "twenty vertices on a 100-to-1 ellipse test rounding along nearly straight sides" },
+    { "name": "19", "generator": "1057 11 1 any", "note": "a proper angle subset misses 360 degrees by 0.01 while the full sum is far away" },
+    { "name": "20", "generator": "1059 50 25 flat", "note": "fifty nearly flat triangles have a total angle of 8999.50 degrees" }
+  ]
+}
