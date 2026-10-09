@@ -31,3 +31,4 @@
 | 1024 | [The order of a permutation](1024/) | math | C++, Go, Python, Java, Rust |
 | 1025 | [The fewest supporters to win a two-level majority vote](1025/) | greedy, sorting | C++, Go, Python, Java, Rust |
 | 1026 | [The k-th smallest element of a database](1026/) | sorting, prefix_sums | C++, Go, Python, Java, Rust |
+| 1027 | [Checking brackets and comments in a toy language](1027/) | parsing | C++, Go, Python, Java, Rust |
