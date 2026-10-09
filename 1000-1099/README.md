@@ -44,3 +44,4 @@
 | 1037 | [Memory blocks that expire](1037/) | simulation | C++, Go, Python, Java, Rust |
 | 1038 | [Counting capitalisation errors](1038/) | implementation | C++, Go, Python, Java, Rust |
 | 1039 | [A guest list without direct bosses](1039/) | dp, trees | C++, Go, Python, Java, Rust |
+| 1040 | [Numbering the edges so that every vertex sees coprime numbers](1040/) | dfs, constructive | C++, Go, Python, Java, Rust |
