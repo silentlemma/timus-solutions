@@ -9,3 +9,4 @@
 | 1102 | [Splitting a line into the words of a strange dialogue](1102/) | strings | C++, Go, Python, Java, Rust |
 | 1103 | [A circle through three pencils that splits the rest in half](1103/) | geometry | C++, Go, Python, Java, Rust |
 | 1104 | [The smallest base in which a number is divisible by the base minus one](1104/) | number_theory | C++, Go, Python, Java, Rust |
+| 1105 | [Choosing intervals so that exactly one covers two thirds of the time](1105/) | greedy | C++, Go, Python, Java, Rust |
