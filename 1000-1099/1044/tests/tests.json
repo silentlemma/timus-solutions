@@ -1,0 +1,10 @@
+{
+  "judging": "tokens",
+  "reference": "1044_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four digits" },
+    { "name": "02", "example": true, "note": "two digits: the ten tickets 00, 11, ..., 99" },
+    { "name": "03", "note": "six digits, checked by counting all tickets" },
+    { "name": "04", "note": "eight digits, the largest input; checked by inclusion-exclusion" }
+  ]
+}
