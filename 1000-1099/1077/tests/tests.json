@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1077_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven roads, five cities: three tours" },
+    { "name": "02", "note": "one city, no roads" },
+    { "name": "03", "note": "a tree has no tours" },
+    { "name": "04", "note": "a triangle: one tour" },
+    { "name": "05", "note": "all ten roads between five cities: six tours" },
+    { "name": "06", "note": "two separate cycles and a lone city" },
+    { "name": "07", "note": "one ring through all two hundred cities" },
+    { "name": "08", "note": "a small random map" },
+    { "name": "09", "note": "six cities without roads" },
+    { "name": "big1", "generator": "1 200 2000 0", "note": "two thousand random roads" },
+    { "name": "big2", "generator": "2 200 0 1", "note": "every pair of the two hundred cities: 19 701 tours" },
+    { "name": "big3", "generator": "3 200 600 2", "note": "three separate groups of cities" }
+  ]
+}
