@@ -41,3 +41,4 @@
 | 1034 | [Moving three queens between peaceful positions](1034/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1035 | [The fewest threads for a two-sided stitch pattern](1035/) | graphs, dsu | C++, Go, Python, Java, Rust |
 | 1036 | [Balanced tickets with a given digit sum](1036/) | dp | C++, Go, Python, Java, Rust |
+| 1037 | [Memory blocks that expire](1037/) | simulation | C++, Go, Python, Java, Rust |

@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1037_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "allocations, accesses, expiry and reuse of the smallest free blocks" },
+    { "name": "02", "example": true, "note": "an access extends the lifetime; a block expires exactly 600 seconds after its last request" },
+    { "name": "03", "note": "accesses to blocks that were never taken" },
+    { "name": "04", "note": "several blocks expire at the same moment and are reused in order" },
+    { "name": "05", "note": "times near the largest value 65000" },
+    { "name": "06", "note": "renewals keep the first block busy while other blocks expire and are reused" },
+    { "name": "07", "note": "expired block four is reused before block one becomes free" },
+    { "name": "08", "note": "failed accesses precede the first allocation and later allocations reuse expired blocks" },
+    { "name": "big1", "generator": "1 80000 1 50", "note": "the most requests, slowly growing time" },
+    { "name": "big2", "generator": "2 80000 1 60 1", "note": "all 30000 blocks taken at time 0, then most expire together" },
+    { "name": "big3", "generator": "3 80000 10 30", "note": "mostly accesses, blocks expire and get reused" },
+    { "name": "big4", "generator": "4 80000 2000 50", "note": "large initial time steps, followed by many requests at time 65000" },
+    { "name": "big5", "generator": "5 80000 0 100", "note": "all requests at time 0: every block gets taken" },
+    { "name": "09", "note": "one allocation at time zero is the minimum nonempty input" },
+    { "name": "10", "note": "equal expiry entries for two blocks release each only once amid same-time accesses and allocations" },
+    { "name": "11", "note": "blocks expire in descending number order but allocations must reuse them in ascending order before fresh blocks" },
+    { "name": "12", "note": "renewing one block at intervals of at most 599 seconds keeps it alive through time 65000 and expiry beyond 65535" },
+    { "name": "13", "note": "seeded random trace targets exact expiry and adjacent seconds with repeated renewals and failed accesses" },
+    { "name": "14", "generator": "renewals 80000", "note": "maximum requests build a large stale expiry batch for one renewed block before eventual release and reuse" }
+  ]
+}
