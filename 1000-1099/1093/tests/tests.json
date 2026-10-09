@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1093_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a hit 4.243 from the centre of a target of radius 4.25" },
+    { "name": "02", "note": "the same throw at a target of radius 4.24" },
+    { "name": "03", "note": "exactly on the edge of a target on the ground: a miss" },
+    { "name": "04", "note": "a ten-thousandth inside the edge" },
+    { "name": "05", "note": "through the plane on the way up, into the target on the way down" },
+    { "name": "06", "note": "the plane is behind the dart" },
+    { "name": "07", "note": "the top of the flight touches the target plane at the centre" },
+    { "name": "08", "note": "the whole flight lies in the plane and passes the centre: it never enters from a side" },
+    { "name": "09", "note": "the whole flight lies in the plane and passes beside the target" },
+    { "name": "10", "note": "the largest numbers and a tiny target" },
+    { "name": "big1", "generator": "1 2", "note": "a throw aimed near the edge that hits" },
+    { "name": "big2", "generator": "2 2", "note": "a throw aimed near the edge that misses" },
+    { "name": "big3", "generator": "3 1", "note": "a throw aimed inside a tilted target" }
+  ]
+}
