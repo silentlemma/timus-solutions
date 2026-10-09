@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1100_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "ties keep their input order" },
+    { "name": "02", "note": "two teams with the same score" },
+    { "name": "03", "note": "scores 0 and 100 and the largest ID" },
+    { "name": "04", "note": "scores in increasing order: fully reversed" },
+    { "name": "05", "note": "scores already in decreasing order" },
+    { "name": "06", "note": "two hundred teams with four scores, checked by the bubble sort itself" },
+    { "name": "big1", "generator": "1 150000 100", "note": "the largest table" },
+    { "name": "big2", "generator": "2 150000 2", "note": "the largest table with three scores" },
+    { "name": "big3", "generator": "3 1000 100", "note": "a thousand teams" }
+  ]
+}
