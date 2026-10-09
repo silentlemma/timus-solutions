@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1040_dfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a cycle of three airports with two branches" },
+    { "name": "02", "example": true, "note": "the smallest network: one flight" },
+    { "name": "03", "note": "a triangle" },
+    { "name": "04", "note": "a star: one airport has all the flights" },
+    { "name": "05", "note": "all flights among four airports: the even numbers must not meet at one airport" },
+    { "name": "06", "note": "a path of 50 airports" },
+    { "name": "07", "note": "a star of 50 airports" },
+    { "name": "08", "note": "all 1225 flights among 50 airports" },
+    { "name": "09", "note": "a random small network" },
+    { "name": "big1", "generator": "1 50 100 random", "note": "a sparse random network" },
+    { "name": "big2", "generator": "2 50 600 random", "note": "a dense random network" },
+    { "name": "big3", "generator": "3 50 60 path", "note": "a long path with a few extra flights" },
+    { "name": "big4", "generator": "4 50 300 star", "note": "a star with extra flights" }
+  ]
+}
