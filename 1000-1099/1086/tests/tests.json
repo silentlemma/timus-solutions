@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1086_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four small queries" },
+    { "name": "02", "note": "the first prime is 2, not 1" },
+    { "name": "03", "note": "the maximum index returns 163 841" },
+    { "name": "04", "note": "the first twenty primes" },
+    { "name": "05", "note": "repeated queries in no order" },
+    { "name": "big1", "generator": "1 0 15000 1", "note": "every n from 15 000 down to 1" },
+    { "name": "big2", "generator": "2 1000 15000 0", "note": "a thousand random queries" },
+    { "name": "big3", "generator": "3 10 100 0", "note": "ten small random queries" },
+    { "name": "06", "note": "primes immediately before and after prime squares must skip the squares" },
+    { "name": "07", "note": "consecutive indices across the largest prime gap within the allowed range" },
+    { "name": "08", "note": "prime values cross the signed and unsigned 16-bit boundaries" },
+    { "name": "09", "generator": "1086 4096 15000 2", "note": "seeded random queries concentrated in the highest thousand indices" },
+    { "name": "10", "generator": "1086 150000 15000 3", "note": "ten ascending cycles with a query count above the statement limit" }
+  ]
+}
