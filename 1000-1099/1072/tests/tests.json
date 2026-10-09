@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1072_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four computers through three subnets" },
+    { "name": "02", "note": "two computers in different subnets: no path" },
+    { "name": "03", "note": "different masks with equal IP AND mask values" },
+    { "name": "04", "note": "an address inside the other range, but the AND values differ" },
+    { "name": "05", "note": "mask 0.0.0.0 joins every interface that has it" },
+    { "name": "06", "note": "mask 255.255.255.255 joins only equal addresses; the path goes backwards" },
+    { "name": "07", "note": "a chain of thirty computers numbered at random" },
+    { "name": "08", "note": "two shortest paths of equal length" },
+    { "name": "09", "note": "five interfaces in one subnet" },
+    { "name": "10", "note": "a small random network" },
+    { "name": "big1", "generator": "4 90 150 0", "note": "a random network of the largest size, five computers apart" },
+    { "name": "big2", "generator": "2 90 91 3", "note": "a chain through all ninety computers" },
+    { "name": "big3", "generator": "3 90 40 2", "note": "two halves without a common subnet" }
+  ]
+}
