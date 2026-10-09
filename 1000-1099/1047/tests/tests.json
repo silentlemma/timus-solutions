@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1047_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a single unknown element" },
+    { "name": "02", "example": true, "note": "the squares 0, 1, 4, 9 with every c equal to 1" },
+    { "name": "03", "note": "the extreme values of a" },
+    { "name": "04", "note": "all c equal to zero: the elements form an arithmetic progression" },
+    { "name": "05", "note": "a negative answer between -1 and 0" },
+    { "name": "06", "note": "small negative and positive values" },
+    { "name": "07", "note": "a random sequence with small steps, checked by running the recurrence" },
+    { "name": "08", "note": "a random sequence with large jumps, checked by running the recurrence" },
+    { "name": "big1", "generator": "1 3000 400000 200000", "note": "the longest sequence, large jumps" },
+    { "name": "big2", "generator": "2 3000 50 200000", "note": "the longest sequence, a smooth walk" },
+    { "name": "big3", "generator": "3 3000 3 300", "note": "the longest sequence of small values" }
+  ]
+}
