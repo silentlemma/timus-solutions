@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1091_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eleven sets of three numbers up to 10" },
+    { "name": "02", "note": "last year's exam: no set at all" },
+    { "name": "03", "note": "1 and 2 have no common divisor" },
+    { "name": "04", "note": "all fifty numbers" },
+    { "name": "05", "note": "pairs up to 50" },
+    { "name": "06", "note": "more than the capacity: 10000" },
+    { "name": "07", "note": "only the even numbers up to 50" },
+    { "name": "08", "note": "only the even numbers up to 48" },
+    { "name": "09", "note": "all three numbers up to 3" },
+    { "name": "10", "note": "four numbers up to 20, checked by listing all sets" },
+    { "name": "11", "note": "just above the capacity" },
+    { "name": "12", "note": "just below the capacity" },
+    { "name": "big1", "generator": "1", "note": "a random query" },
+    { "name": "big2", "generator": "2", "note": "a random query" },
+    { "name": "big3", "generator": "3", "note": "a random query" }
+  ]
+}
