@@ -1,0 +1,13 @@
+{
+  "judging": "float:0.01",
+  "cases": [
+    { "name": "01", "example": true, "note": "an iceberg about 53 miles away: danger" },
+    { "name": "02", "example": true, "note": "an iceberg far away" },
+    { "name": "03", "note": "the iceberg at the ship's position" },
+    { "name": "04", "note": "from pole to pole: half of the great circle" },
+    { "name": "05", "note": "across the 180th meridian, east and west longitudes" },
+    { "name": "06", "note": "just below 100 miles: 99.99 and danger" },
+    { "name": "07", "note": "99.995 miles: printed as 100.00, so no danger" },
+    { "name": "08", "note": "antipodal points across the equator" }
+  ]
+}
