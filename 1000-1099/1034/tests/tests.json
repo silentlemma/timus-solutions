@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1034_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the smallest board has no reachable position after moving exactly three queens" },
+    { "name": "02", "example": true, "note": "four reachable positions from nine queens" },
+    { "name": "03", "note": "six queens with no valid three-queen cycle" },
+    { "name": "04", "note": "two reachable positions, one in each cycle direction" },
+    { "name": "05", "note": "six reachable positions split evenly between the two cycle directions" },
+    { "name": "06", "note": "a ten-queen position where every three-queen cycle is blocked" },
+    { "name": "07", "note": "the largest board with thirty-seven reachable positions" },
+    { "name": "big1", "generator": "1 50", "note": "the largest board, a random position" },
+    { "name": "big2", "generator": "2 50", "note": "the largest board, another random position" },
+    { "name": "big3", "generator": "3 37", "note": "a random position on an odd board" },
+    { "name": "08", "note": "a corner queen on the smallest odd board with no three-queen move" },
+    { "name": "09", "note": "the smallest board with a reachable position, found only by a reverse cycle" },
+    { "name": "10", "note": "a peaceful two-queen swap exists but no three-queen move may be counted" },
+    { "name": "11", "note": "a cycle clears the stationary queens but its new queens attack each other" },
+    { "name": "12", "note": "three distinct destinations with unequal contributions from the two cycle directions" },
+    { "name": "13", "note": "the only valid triple uses the first row, last row and the queen in the last column" },
+    { "name": "14", "note": "the largest board in a structured even-then-odd arrangement with shuffled coordinate lines" },
+    { "name": "15", "generator": "103415 13", "note": "seeded random position on a medium prime-sized board" },
+    { "name": "16", "generator": "103416 49", "note": "seeded random position on the largest odd board just below the size limit" }
+  ]
+}
