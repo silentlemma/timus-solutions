@@ -76,3 +76,4 @@
 | 1069 | [Rebuilding a tree from its Prüfer code](1069/) | trees | C++, Go, Python, Java, Rust |
 | 1070 | [The time zone shift between two airports from a round trip](1070/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1071 | [The smallest base in which crossing out digits turns x into y](1071/) | math | C++, Go, Python, Java, Rust |
+| 1072 | [The shortest route between two computers through IP subnets](1072/) | bfs, graphs | C++, Go, Python, Java, Rust |

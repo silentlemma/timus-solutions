@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1072_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four computers through three subnets" },
+    { "name": "02", "note": "two computers in different subnets: no path" },
+    { "name": "03", "note": "different masks with equal IP AND mask values" },
+    { "name": "04", "note": "an address inside the other range, but the AND values differ" },
+    { "name": "05", "note": "mask 0.0.0.0 joins every interface that has it" },
+    { "name": "06", "note": "mask 255.255.255.255 joins only equal addresses; the path goes backwards" },
+    { "name": "07", "note": "a chain of thirty computers numbered at random" },
+    { "name": "08", "note": "two shortest paths of equal length" },
+    { "name": "09", "note": "five interfaces in one subnet" },
+    { "name": "10", "note": "a small random network" },
+    { "name": "big1", "generator": "4 90 150 0", "note": "a random network of the largest size, five computers apart" },
+    { "name": "big2", "generator": "2 90 91 3", "note": "a chain through all ninety computers" },
+    { "name": "big3", "generator": "3 90 40 2", "note": "two halves without a common subnet" },
+    { "name": "11", "note": "identical endpoints need a single computer even when it is isolated" },
+    { "name": "12", "note": "slash-31 boundary pairs and slash-1 routing across high unsigned addresses" },
+    { "name": "13", "note": "zero subnet values match across slash-0, slash-1 and slash-32 masks without acting as a wildcard" },
+    { "name": "14", "note": "seeded random cyclic network where the first DFS route is longer than the shortest route" },
+    { "name": "big4", "generator": "1072 90 361 4", "note": "all ninety computers have five interfaces and share only their fifth subnet for a direct route" }
+  ]
+}
