@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1067_trees_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three top folders, a deep chain under one of them" },
+    { "name": "02", "note": "a single folder" },
+    { "name": "03", "note": "names with characters on both sides of the backslash in the code table" },
+    { "name": "04", "note": "forty levels of one-letter names" },
+    { "name": "05", "note": "the same names in different places; parents never listed" },
+    { "name": "06", "note": "eight-character names made of special characters" },
+    { "name": "07", "note": "a path and all its prefixes, listed in reverse order" },
+    { "name": "08", "note": "a small random list, checked with sorted tuples of names" },
+    { "name": "big1", "generator": "1 500 30 1 3 6", "note": "a wide random tree" },
+    { "name": "big2", "generator": "2 500 20 8 8 8", "note": "long names" },
+    { "name": "big3", "generator": "3 500 3 1 1 40", "note": "deep paths of one-letter names" }
+  ]
+}
