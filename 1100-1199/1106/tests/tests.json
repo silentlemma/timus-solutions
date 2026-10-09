@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1106_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven members in two groups" },
+    { "name": "02", "note": "two friends" },
+    { "name": "03", "note": "a triangle: an odd cycle still splits" },
+    { "name": "04", "note": "a star: the centre alone against all leaves" },
+    { "name": "05", "note": "two pairs and a triangle, separate" },
+    { "name": "06", "note": "five members who are all friends" },
+    { "name": "07", "note": "three pairs listed from the outside in" },
+    { "name": "big1", "generator": "1 100 0", "note": "100 members with random friendships" },
+    { "name": "big2", "generator": "2 99 1", "note": "99 members in pairs and one triple" },
+    { "name": "big3", "generator": "3 100 2", "note": "100 members in stars" },
+    { "name": "big4", "generator": "4 100 3", "note": "100 members on one path" }
+  ]
+}
