@@ -35,3 +35,4 @@
 | 1028 | [Counting points below and to the left of each point](1028/) | fenwick, segment_tree | C++, Go, Python, Java, Rust |
 | 1029 | [The cheapest walk up a building of offices](1029/) | dp, dijkstra | C++, Go, Python, Java, Rust |
 | 1030 | [The great-circle distance between a ship and an iceberg](1030/) | geometry, parsing | C++, Go, Python, Java, Rust |
+| 1031 | [The cheapest set of railway tickets with three fare bands](1031/) | dp, two_pointers | C++, Go, Python, Java, Rust |

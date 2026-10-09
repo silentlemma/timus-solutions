@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1031_dp_two_pointers.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two tickets of different kinds" },
+    { "name": "02", "example": true, "note": "two stations, given in reverse order" },
+    { "name": "03", "note": "cheap short tickets beat the expensive long one" },
+    { "name": "04", "note": "the largest distances and prices" },
+    { "name": "05", "note": "the journey from the last station to the first" },
+    { "name": "06", "note": "300 stations, checked by the quadratic dynamic programming" },
+    { "name": "big1", "generator": "1 10000 1000000 100000", "note": "the largest number of stations" },
+    { "name": "big2", "generator": "2 10000 30 100000", "note": "many stations within a short ticket" }
+  ]
+}
