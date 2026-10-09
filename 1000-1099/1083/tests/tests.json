@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1083_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "odd double factorial ending at one" },
+    { "name": "02", "note": "triple factorial of ten with four positive factors" },
+    { "name": "03", "note": "the smallest input" },
+    { "name": "04", "note": "the ordinary factorial of 10" },
+    { "name": "05", "note": "twenty marks after 5: a single factor" },
+    { "name": "06", "note": "k equal to n: a single factor" },
+    { "name": "07", "note": "a step one below the starting value leaves one as the final factor" },
+    { "name": "08", "note": "an exact multiple of the step ends at the step itself" },
+    { "name": "09", "note": "three factors with a nonzero remainder" },
+    { "name": "big1", "generator": "1", "note": "a mark count far above three leaves the starting value unchanged" },
+    { "name": "big2", "generator": "2", "note": "the smallest starting value remains one with three marks" },
+    { "name": "big3", "generator": "3", "note": "nineteen marks reduce the product to a single factor of four" }
+  ]
+}
