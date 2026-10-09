@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1062_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "nine athletes, five of them can win" },
+    { "name": "02", "example": true, "note": "two identical athletes can never finish alone; the third wins on a long last stage" },
+    { "name": "03", "note": "a single athlete always wins" },
+    { "name": "04", "note": "the third athlete's times are exactly the average of the other two: never alone first" },
+    { "name": "05", "note": "an athlete slower on every stage" },
+    { "name": "06", "note": "equal on two stages, slower on one: still never first" },
+    { "name": "07", "note": "speeds among divisors of 60, checked with exact fractions" },
+    { "name": "08", "note": "nearly equal speeds, checked with exact fractions" },
+    { "name": "09", "note": "speeds adding up to a constant: many winners, checked with exact fractions" },
+    { "name": "10", "note": "inverse speeds just below the midpoint of two rivals: a thin strip of wins" },
+    { "name": "11", "note": "the same just above the midpoint: no win, checked with exact fractions" },
+    { "name": "big1", "generator": "1 100 random", "note": "the most athletes, random speeds" },
+    { "name": "big2", "generator": "2 100 close", "note": "the most athletes, nearly equal speeds" },
+    { "name": "big3", "generator": "3 100 divisors", "note": "the most athletes, many exact ties" },
+    { "name": "big4", "generator": "4 100 front", "note": "the most athletes, many possible winners" }
+  ]
+}
