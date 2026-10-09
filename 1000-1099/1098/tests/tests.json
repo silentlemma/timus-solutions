@@ -1,0 +1,16 @@
+{
+  "judging": "lines",
+  "reference": "1098_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a question of 108 characters in two lines" },
+    { "name": "02", "example": true, "note": "a space is left: No" },
+    { "name": "03", "example": true, "note": "an exclamation mark is left: No comments" },
+    { "name": "04", "note": "a single question mark" },
+    { "name": "05", "note": "a single space" },
+    { "name": "06", "note": "a single letter" },
+    { "name": "07", "note": "spaces at the ends of lines, an empty line and a tab count as characters" },
+    { "name": "big1", "generator": "1 29000 80 1", "note": "the longest question, a question mark is left" },
+    { "name": "big2", "generator": "2 29000 80 2", "note": "the longest question, a space is left" },
+    { "name": "big3", "generator": "3 29000 200 0", "note": "a long random question" }
+  ]
+}
