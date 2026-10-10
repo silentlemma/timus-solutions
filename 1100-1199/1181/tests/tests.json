@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1181_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven vertices" },
+    { "name": "02", "note": "a square with a single R" },
+    { "name": "03", "note": "a square with a single G and a single B" },
+    { "name": "04", "note": "RGB twice, no color alone" },
+    { "name": "05", "note": "a pentagon with one B" },
+    { "name": "06", "note": "R and G alternating with one B, a fan from it" },
+    { "name": "big1", "generator": "1 1000 0", "note": "a thousand random colors" },
+    { "name": "big2", "generator": "2 1000 1", "note": "one color met once among a thousand" },
+    { "name": "big3", "generator": "3 1000 2", "note": "two colors alternating with a few of the third" },
+    { "name": "big4", "generator": "4 1000 3", "note": "RGB repeated" },
+    { "name": "big5", "generator": "5 999 2", "note": "an odd polygon of mostly two colors" }
+  ]
+}
