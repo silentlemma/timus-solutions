@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "input_encoding": "latin-1",
+  "reference": "1177_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "%, _, sets, ranges, negation and doubled quotes" },
+    { "name": "02", "note": "empty strings, unclosed and reversed sets, - and ] inside sets" },
+    { "name": "03", "note": "bytes above 127 in strings and ranges" },
+    { "name": "big1", "generator": "1 1000 100 0", "note": "a thousand random patterns over two letters" },
+    { "name": "big2", "generator": "2 1000 100 1", "note": "patterns that nearly copy the string" },
+    { "name": "big3", "generator": "3 1000 100 2", "note": "quotes, ^, -, brackets and high bytes everywhere" },
+    { "name": "big4", "generator": "4 1000 8 0", "note": "short strings, where matches are common" },
+    { "name": "big5", "generator": "5 1000 12 2", "note": "short strings with all kinds of symbols" }
+  ]
+}

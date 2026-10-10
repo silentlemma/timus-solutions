@@ -1,0 +1,13 @@
+12
+'' like ''
+'' like '%'
+'' like '_'
+'a' like ''
+'abc' like '%%%'
+'abc' like 'a[bc'
+'b' like '[c-a]'
+'b' like '[^c-a]'
+'a]' like '[a-]]'
+'-' like '[a-]'
+'%' like '[%-%]'
+'x''y' like '%''%'
