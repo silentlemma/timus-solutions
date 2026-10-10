@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1144_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "ten boxes for three generals" },
+    { "name": "02", "note": "one box, one general" },
+    { "name": "03", "note": "one box each: the gap is fixed" },
+    { "name": "04", "note": "a perfect split exists" },
+    { "name": "05", "note": "two large boxes and four small ones" },
+    { "name": "big1", "generator": "1 10000 1000 1 0", "note": "the most boxes and generals" },
+    { "name": "big2", "generator": "2 10000 2 1 0", "note": "two generals" },
+    { "name": "big3", "generator": "3 2000 1000 20 0", "note": "an average of two boxes per general with varied values" },
+    { "name": "big4", "generator": "4 1500 999 354 0", "note": "about one and a half boxes per general" },
+    { "name": "big5", "generator": "5 10000 997 1 1", "note": "small values" },
+    { "name": "big6", "generator": "6 10000 300 813 2", "note": "all values equal" },
+    { "name": "big7", "generator": "7 10000 1000 1 3", "note": "values from 900 to 1000" },
+    { "name": "big8", "generator": "8 3000 1000 2 0", "note": "a tight gap bound with three boxes per general on average" },
+    { "name": "big9", "generator": "9 60 7 1 0", "note": "a few boxes per general" },
+    { "name": "06", "note": "pairwise improvements stall above a feasible gap of three" },
+    { "name": "07", "note": "an unavoidable rich singleton must keep its only box" },
+    { "name": "08", "note": "a single swap repairs the largest-first imbalance" },
+    { "name": "09", "note": "an exact pooled split improves a two-way local optimum" },
+    { "name": "10", "note": "seeded four-way redistribution with a nondivisible total" },
+    { "name": "11", "note": "minimum box values leave one extra box after equal counts" },
+    { "name": "12", "generator": "992 10000 1 1 2", "note": "maximum total gold of ten million goes to one general" },
+    { "name": "13", "generator": "1144 1000 999 523 2", "note": "one extra box among 999 generals forces exactly one doubled share" },
+    { "name": "14", "generator": "100 11 4 66 0", "note": "successive swaps and a pooled split balance eleven distinct values" }
+  ]
+}

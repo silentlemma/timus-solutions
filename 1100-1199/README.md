@@ -48,3 +48,4 @@
 | 1141 | [Decrypting small RSA messages by factoring the modulus](1141/) | number_theory | C++, Go, Python, Java, Rust |
 | 1142 | [Counting the orderings with ties of N objects](1142/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1143 | [The shortest path through all vertices of a convex polygon](1143/) | dp | C++, Go, Python, Java, Rust |
+| 1144 | [Sharing boxes of gold among generals as evenly as possible](1144/) | greedy | C++, Go, Python, Java, Rust |
