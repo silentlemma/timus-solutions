@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1160_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four hubs, one long connection to avoid" },
+    { "name": "02", "note": "two hubs and the longest possible cable" },
+    { "name": "03", "note": "a triangle where one long cable is still needed" },
+    { "name": "04", "note": "a path: every cable is needed" },
+    { "name": "05", "note": "all lengths equal" },
+    { "name": "big1", "generator": "1 1000 15000 0", "note": "the largest network, random lengths" },
+    { "name": "big2", "generator": "2 1000 15000 1", "note": "all lengths equal" },
+    { "name": "big3", "generator": "3 1000 15000 2", "note": "lengths from 1 to 5, many ties" },
+    { "name": "big4", "generator": "4 1000 15000 3", "note": "one hub reachable only by the longest cable" },
+    { "name": "big5", "generator": "5 1000 999 0", "note": "a tree: every cable is needed" }
+  ]
+}
