@@ -1,0 +1,86 @@
+Targeted survey - Same table name
+Z90 Other  question?
+ * Star
+ A Letter
+Z9Z Shared question name
+ @ First
+ 2 Second
+ . Third
+
+       Z9Z:@ Z9Z:2 Z9Z:. TOTAL
+ Z90:*     2     1     0     3
+         66%   34%    0%  100%
+        100%   50%    0%   50%
+ Z90:A     0     1     2     3
+          0%   33%   67%  100%
+          0%   50%  100%   50%
+ TOTAL     2     2     2     6
+         33%   33%   34%  100%
+        100%  100%  100%  100%
+
+Targeted survey - Same table name
+000 Shared question name
+ . Dot
+ @ At
+ * Star
+9ZZ Digits and letters
+ 2 Digit
+ A Letter
+ @ At
+
+       9ZZ:2 9ZZ:A 9ZZ:@ TOTAL
+ 000:.     1     1     0     2
+         50%   50%    0%  100%
+         50%   50%    0%   33%
+ 000:@     0     0     2     2
+          0%    0%  100%  100%
+          0%    0%  100%   33%
+ 000:*     1     1     0     2
+         50%   50%    0%  100%
+         50%   50%    0%   34%
+ TOTAL     2     2     2     6
+         33%   33%   34%  100%
+        100%  100%  100%  100%
+
+Targeted survey - Reversed pair
+Z9Z Shared question name
+ @ First
+ 2 Second
+ . Third
+Z90 Other  question?
+ * Star
+ A Letter
+
+       Z90:* Z90:A TOTAL
+ Z9Z:@     2     0     2
+        100%    0%  100%
+         66%    0%   33%
+ Z9Z:2     1     1     2
+         50%   50%  100%
+         34%   33%   33%
+ Z9Z:.     0     2     2
+          0%  100%  100%
+          0%   67%   34%
+ TOTAL     3     3     6
+         50%   50%  100%
+        100%  100%  100%
+
+Targeted survey - Repeated pair
+Z90 Other  question?
+ * Star
+ A Letter
+Z9Z Shared question name
+ @ First
+ 2 Second
+ . Third
+
+       Z9Z:@ Z9Z:2 Z9Z:. TOTAL
+ Z90:*     2     1     0     3
+         66%   34%    0%  100%
+        100%   50%    0%   50%
+ Z90:A     0     1     2     3
+          0%   33%   67%  100%
+          0%   50%  100%   50%
+ TOTAL     2     2     2     6
+         33%   33%   34%  100%
+        100%  100%  100%  100%

@@ -1,0 +1,29 @@
+Targeted survey
+Z9Z Shared question name
+ @ First
+ 2 Second
+ . Third
+000 Shared question name
+ . Dot
+ @ At
+ * Star
+Z90 Other  question?
+ * Star
+ A Letter
+9ZZ Digits and letters
+ 2 Digit
+ A Letter
+ @ At
+#
+@@*@
+..A2
+2*AA
+@**2
+.@A@
+2.*A
+#
+Z90 Z9Z Same table name
+000 9ZZ Same table name
+Z9Z Z90 Reversed pair
+Z90 Z9Z Repeated pair
+#

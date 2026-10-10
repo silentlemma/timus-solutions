@@ -1,0 +1,82 @@
+Targeted survey
+ROW Row choices
+ A Choice A
+ B Choice B
+ C Choice C
+ D Choice D
+ E Choice E
+ F Choice F
+ G Choice G
+ H Choice H
+ I Choice I
+ J Choice J
+COL Column choices
+ 0 Choice 0
+ 1 Choice 1
+ 2 Choice 2
+ 3 Choice 3
+ 4 Choice 4
+ 5 Choice 5
+ 6 Choice 6
+ 7 Choice 7
+ 8 Choice 8
+ 9 Choice 9
+#
+A0
+B1
+B1
+C2
+C2
+C2
+D3
+D3
+D3
+D3
+E4
+E4
+E4
+E4
+E4
+F5
+F5
+F5
+F5
+F5
+F5
+G6
+G6
+G6
+G6
+G6
+G6
+G6
+H7
+H7
+H7
+H7
+H7
+H7
+H7
+H7
+I8
+I8
+I8
+I8
+I8
+I8
+I8
+I8
+I8
+J9
+J9
+J9
+J9
+J9
+J9
+J9
+J9
+J9
+J9
+#
+ROW COL Forward table
+#

@@ -1,0 +1,23 @@
+Targeted survey
+ROW Row choices
+ A Choice A
+ B Choice B
+COL Column choices
+ 0 Choice 0
+ 1 Choice 1
+ 2 Choice 2
+#
+A1
+A2
+A2
+B0
+B0
+B0
+B0
+B2
+B2
+B2
+#
+ROW COL Forward table
+COL ROW Transposed table
+#

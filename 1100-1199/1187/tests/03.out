@@ -1,0 +1,18 @@
+Targeted survey - Forward table
+ROW Row choices
+ A Choice A
+ B Choice B
+COL Column choices
+ 0 Choice 0
+ 1 Choice 1
+
+       COL:0 COL:1 TOTAL
+ ROW:A     1     1     2
+         50%   50%  100%
+         50%   50%   50%
+ ROW:B     1     1     2
+         50%   50%  100%
+         50%   50%   50%
+ TOTAL     2     2     4
+         50%   50%  100%
+        100%  100%  100%

@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1187_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cross tables of a phone survey" },
+    { "name": "big1", "generator": "1 5 100 3 0", "note": "five questions, a hundred people" },
+    { "name": "big2", "generator": "2 100 100 100 0", "note": "a hundred questions and a hundred tables" },
+    { "name": "big3", "generator": "3 10 1000 20 1", "note": "most people give the same answers, many empty rows" },
+    { "name": "big4", "generator": "4 2 5000 2 2", "note": "maximum respondents fill two-choice tables with large counts" },
+    { "name": "big5", "generator": "5 3 7 10 0", "note": "seven respondents leave unused choices and fractional totals across repeated pairs" },
+    { "name": "big6", "generator": "6 4 3 6 1", "note": "three people and many zero totals" },
+    { "name": "02", "note": "one respondent and two choices, with an unused row and column" },
+    { "name": "03", "note": "balanced two-by-two table has exact halves and no undefined percents" },
+    { "name": "04", "note": "equal thirds in both directions require one of three tied cells to round up" },
+    { "name": "05", "note": "six equal shares require four round-ups rather than a single correction" },
+    { "name": "06", "note": "seven equal column shares sum to 98 when rounded independently" },
+    { "name": "07", "note": "eight exact 12.5 percent shares must split their half ties to total 100" },
+    { "name": "08", "note": "asymmetric interior zeros have defined percents and transpose correctly" },
+    { "name": "09", "note": "unequal row and column margins need separate rounding in the totals" },
+    { "name": "10", "note": "unsorted codes and punctuation answers retain order across nonadjacent and repeated pairs" },
+    { "name": "11", "note": "maximum name lengths preserve internal double spaces and embedded hash characters" },
+    { "name": "12", "note": "ten choices per question form an unequal diagonal with all margins nonzero" },
+    { "name": "13", "note": "an empty row against four nonempty columns distinguishes zero percents from dashes" },
+    { "name": "14", "note": "repeated rectangular tables exercise tied rounding choices across rows, columns and totals" },
+    { "name": "15", "generator": "118715 100 100 100 3", "note": "maximum survey definition and output use ten choices and full-length names everywhere" },
+    { "name": "16", "generator": "118716 2 5000 2 4", "note": "maximum respondents include nine rare answers below one percent beside a near-100 percent majority" },
+    { "name": "17", "generator": "118717 17 587 31 0", "note": "seeded random survey near the answer limit has a prime respondent count and varied table dimensions" }
+  ]
+}

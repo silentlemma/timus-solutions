@@ -1,0 +1,47 @@
+Targeted survey - Forward table
+ROW Row choices
+ A Choice A
+ B Choice B
+COL Column choices
+ 0 Choice 0
+ 1 Choice 1
+ 2 Choice 2
+ 3 Choice 3
+
+       COL:0 COL:1 COL:2 COL:3 TOTAL
+ ROW:A     0     0     0     0     0
+           -     -     -     -     -
+          0%    0%    0%    0%    0%
+ ROW:B     1     2     3     4    10
+         10%   20%   30%   40%  100%
+        100%  100%  100%  100%  100%
+ TOTAL     1     2     3     4    10
+         10%   20%   30%   40%  100%
+        100%  100%  100%  100%  100%
+
+Targeted survey - Transposed table
+COL Column choices
+ 0 Choice 0
+ 1 Choice 1
+ 2 Choice 2
+ 3 Choice 3
+ROW Row choices
+ A Choice A
+ B Choice B
+
+       ROW:A ROW:B TOTAL
+ COL:0     0     1     1
+          0%  100%  100%
+           -   10%   10%
+ COL:1     0     2     2
+          0%  100%  100%
+           -   20%   20%
+ COL:2     0     3     3
+          0%  100%  100%
+           -   30%   30%
+ COL:3     0     4     4
+          0%  100%  100%
+           -   40%   40%
+ TOTAL     0    10    10
+          0%  100%  100%
+           -  100%  100%
