@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1113_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "1000 km with 500 litres at a time" },
+    { "name": "02", "note": "two kilometres with one litre at a time" },
+    { "name": "03", "note": "an exact integer that floating point rounds up one too far" },
+    { "name": "04", "note": "another exact integer of the same kind" },
+    { "name": "05", "note": "one kilometre more than a load" },
+    { "name": "06", "note": "the longest trip at the largest ratio, about 3000 loads" },
+    { "name": "07", "note": "the same with a capacity of 6399" },
+    { "name": "08", "note": "a capacity of one litre for five kilometres" },
+    { "name": "09", "note": "the stretches end exactly at the start" },
+    { "name": "10", "note": "the largest capacity, one kilometre short" },
+    { "name": "11", "note": "a capacity divisible by 3 and 7, five times shorter than the trip" },
+    { "name": "12", "note": "a trip of exactly five loads in length" },
+    { "name": "big1", "generator": "1 0", "note": "a random trip" },
+    { "name": "big2", "generator": "14 1", "note": "a capacity divisible by 945, three trips long" },
+    { "name": "big3", "generator": "3 2", "note": "the longest trip for a random capacity" },
+    { "name": "big4", "generator": "7 1", "note": "another capacity divisible by 945" }
+  ]
+}
