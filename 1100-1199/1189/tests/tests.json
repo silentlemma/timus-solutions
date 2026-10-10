@@ -1,0 +1,16 @@
+{
+  "judging": "lines",
+  "reference": "1189_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five pairs for 302, one with a leading zero" },
+    { "name": "02", "note": "the smallest N: 10 + 0" },
+    { "name": "03", "note": "11 = 10 + 1" },
+    { "name": "04", "note": "12 = 11 + 1, found by striking either digit" },
+    { "name": "05", "note": "the largest N with many pairs" },
+    { "name": "06", "note": "nine nines" },
+    { "name": "07", "note": "123456789" },
+    { "name": "08", "note": "a power of ten" },
+    { "name": "09", "note": "no pair at all" },
+    { "name": "10", "note": "no pair for a four-digit N" }
+  ]
+}
