@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "1166_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a run of skips ending with a queen, a joker in between" },
+    { "name": "02", "note": "a single joker on a queen with an announced suit" },
+    { "name": "03", "note": "two cards that would give the opponent a move" },
+    { "name": "04", "note": "the only card does not cover the face-up one" },
+    { "name": "05", "note": "a six, then a queen that announces a suit" },
+    { "name": "06", "note": "the announced suit, not the queen's own, decides" },
+    { "name": "07", "note": "no card covers the seven of hearts" },
+    { "name": "08", "note": "a joker bridges a spade and a heart" },
+    { "name": "09", "note": "the king of spades starts, then everything is stuck" },
+    { "name": "10", "note": "a joker on the table standing for an eight" },
+    { "name": "11", "note": "all thirteen turn-skipping cards" },
+    { "name": "12", "note": "all thirteen and both jokers on a queen joker" },
+    { "name": "13", "note": "the only way in is the card that must come just before the last" },
+    { "name": "14", "note": "an eight on the table that nothing covers" },
+    { "name": "gen1", "generator": "3 5 0 1", "note": "five skips and one other card" },
+    { "name": "gen2", "generator": "4 8 1 1", "note": "eight skips, a joker and one other card" },
+    { "name": "gen3", "generator": "5 4 0 0", "note": "four skips only" },
+    { "name": "gen4", "generator": "6 10 2 0", "note": "ten skips and both jokers" },
+    { "name": "gen5", "generator": "7 3 0 2", "note": "two cards that give a move" },
+    { "name": "gen6", "generator": "8 13 0 1", "note": "all skips and one other card" },
+    { "name": "gen7", "generator": "9 6 1 0", "note": "six skips and a joker" },
+    { "name": "gen8", "generator": "10 2 0 1", "note": "two skips and one other card" }
+  ]
+}
