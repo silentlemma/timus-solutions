@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1171_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a rich room on each level, one step apart" },
+    { "name": "02", "note": "one level, the start is the best place to stop" },
+    { "name": "03", "note": "one level, a short walk to rich rooms" },
+    { "name": "04", "note": "one door far away on a rich level above a poor one" },
+    { "name": "05", "note": "going down at once into a rich room" },
+    { "name": "big1", "generator": "1 16 30 0", "note": "sixteen levels, random food, many doors" },
+    { "name": "big2", "generator": "2 16 0 0", "note": "one door per level" },
+    { "name": "big3", "generator": "3 16 50 1", "note": "nearly equal food everywhere" },
+    { "name": "big4", "generator": "4 16 20 2", "note": "a few rich rooms among poor ones" },
+    { "name": "big5", "generator": "5 1 0 0", "note": "a single level" },
+    { "name": "big6", "generator": "6 8 100 2", "note": "a door in every room" },
+    { "name": "big7", "generator": "7 16 100 0", "note": "doors everywhere, random food" }
+  ]
+}
