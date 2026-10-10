@@ -1,0 +1,17 @@
+{
+  "judging": "lines",
+  "reference": "1195_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "noughts threaten two lines at once" },
+    { "name": "02", "example": true, "note": "every threat can be blocked" },
+    { "name": "03", "example": true, "note": "crosses complete a column at once" },
+    { "name": "04", "note": "nobody can force a line" },
+    { "name": "05", "note": "crosses win on the bottom row" },
+    { "name": "06", "note": "crosses must block and noughts still win" },
+    { "name": "07", "note": "the empty row is on top" },
+    { "name": "gen1", "generator": "1", "note": "a random position" },
+    { "name": "gen2", "generator": "2", "note": "a random position" },
+    { "name": "gen3", "generator": "3", "note": "a random position" },
+    { "name": "gen4", "generator": "4", "note": "a random position" }
+  ]
+}
