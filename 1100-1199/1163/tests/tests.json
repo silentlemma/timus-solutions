@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1163_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the starting rows facing each other" },
+    { "name": "02", "note": "two columns at opposite edges" },
+    { "name": "03", "note": "the two diagonals crossing in the middle" },
+    { "name": "04", "note": "tight clusters in opposite corners, draughts 0.9 apart" },
+    { "name": "05", "note": "red square in the centre surrounded by white" },
+    { "name": "white1", "generator": "10 0", "note": "random position where white wins" },
+    { "name": "white2", "generator": "26 0", "note": "white wins with all its draughts outside the central 4 by 4 square" },
+    { "name": "white3", "generator": "27 1", "note": "cell centres, white wins" },
+    { "name": "white4", "generator": "21 2", "note": "one cluster per colour, white wins" },
+    { "name": "white5", "generator": "21 3", "note": "draughts along the edges, white wins" },
+    { "name": "red1", "generator": "1 0", "note": "random position" },
+    { "name": "red2", "generator": "2 1", "note": "random cell centres" },
+    { "name": "red3", "generator": "3 2", "note": "one cluster per colour" },
+    { "name": "red4", "generator": "4 3", "note": "draughts along the edges" },
+    { "name": "06", "note": "checkerboard colours on a dense grid with spacing only 0.0000001 above touching" },
+    { "name": "07", "note": "simultaneous tangencies on staggered rails are necessary for red to win" },
+    { "name": "08", "note": "allowing friendly collateral changes the winner from white to red" },
+    { "name": "09", "note": "mixed colour groups lie near all four corners, with draughts touching the board edges" },
+    { "name": "10", "note": "colours alternate along both opposite boundary rows, with targets ahead and behind" },
+    { "name": "11", "note": "moving both outer rails 0.00001 away breaks simultaneous tangencies and lets white win" },
+    { "name": "12", "generator": "1163 4", "note": "seeded jitter changes narrow shooting gaps in a nearly touching mixed colour grid" },
+    { "name": "13", "generator": "196 5", "note": "white needs tangent-only hits to defeat red on shuffled rails" },
+    { "name": "14", "generator": "1163 6", "note": "a perturbed circular ring offers many chords through mixed colour draughts" }
+  ]
+}

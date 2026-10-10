@@ -67,3 +67,4 @@
 | 1160 | [Connecting all hubs so that the longest cable is as short as possible](1160/) | dsu | C++, Go, Python, Java, Rust |
 | 1161 | [The lightest result of merging creatures by twice the geometric mean](1161/) | greedy | C++, Go, Python, Java, Rust |
 | 1162 | [Can a chain of currency exchanges with commissions increase the money](1162/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1163 | [Who wins a game of flicking draughts off the board](1163/) | games | C++, Go, Python, Java, Rust |
