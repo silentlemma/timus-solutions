@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1197_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a corner, the centre and near an edge" },
+    { "name": "02", "note": "all 64 squares" },
+    { "name": "03", "note": "the opposite corner" },
+    { "name": "04", "note": "the corner a8: two jumps" },
+    { "name": "05", "note": "the corner h1: two jumps" },
+    { "name": "06", "note": "one square for each count 2, 3, 4, 6 and 8" },
+    { "name": "07", "note": "the whole first rank" },
+    { "name": "08", "note": "the whole a-file" },
+    { "name": "09", "note": "the squares diagonal to the corners: four jumps each" },
+    { "name": "10", "note": "the same centre square 64 times" },
+    { "name": "11", "note": "all 64 squares in random order" },
+    { "name": "12", "note": "40 random squares, all on one line" }
+  ]
+}
