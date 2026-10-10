@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1145_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small tree of corridors" },
+    { "name": "02", "note": "free cells on the border of the maze" },
+    { "name": "03", "note": "two free cells" },
+    { "name": "04", "note": "a path through the middle row" },
+    { "name": "05", "note": "a cross" },
+    { "name": "big1", "generator": "1 820 820 0", "note": "the largest maze, a randomly grown tree" },
+    { "name": "big2", "generator": "2 820 820 1", "note": "a perfect maze on the odd cells" },
+    { "name": "big3", "generator": "3 820 820 2", "note": "one snake through the whole maze: the longest thread" },
+    { "name": "big4", "generator": "4 820 820 3", "note": "a comb of long teeth" },
+    { "name": "big5", "generator": "5 3 820 2", "note": "a narrow maze" }
+  ]
+}
