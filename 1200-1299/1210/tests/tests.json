@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1210_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three levels, the best route earns a credit" },
+    { "name": "02", "note": "one level, one planet, the dearest link" },
+    { "name": "03", "note": "one level with a choice, the most generous spirit" },
+    { "name": "big1", "generator": "1 29 30 100 1", "note": "every link present on the largest map" },
+    { "name": "big2", "generator": "2 29 30 20 1", "note": "a sparse largest map" },
+    { "name": "big3", "generator": "3 29 30 20 2", "note": "unreachable planets with the most generous links onwards" },
+    { "name": "big4", "generator": "4 29 1 100 1", "note": "one planet per level" }
+  ]
+}
