@@ -85,3 +85,4 @@
 | 1178 | [Pairing up cities with straight roads that do not cross](1178/) | geometry | C++, Go, Python, Java, Rust |
 | 1179 | [The base in which a text contains the most numbers](1179/) | strings | C++, Go, Python, Java, Rust |
 | 1180 | [Who wins when stones are taken in powers of two](1180/) | games | C++, Go, Python, Java, Rust |
+| 1181 | [Cutting a three-colored polygon into rainbow triangles](1181/) | constructive | C++, Go, Python, Java, Rust |
