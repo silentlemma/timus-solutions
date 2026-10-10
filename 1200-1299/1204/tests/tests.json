@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1204_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "small products and a large one" },
+    { "name": "02", "note": "2 times 5" },
+    { "name": "03", "note": "2 times a huge prime, and two primes just above 31600" },
+    { "name": "big1", "generator": "1 1000 1", "note": "1000 random products" },
+    { "name": "big2", "generator": "2 1000 2", "note": "a tiny prime times a huge one" },
+    { "name": "big3", "generator": "3 1000 3", "note": "both primes close to the square root, the slowest to factor" }
+  ]
+}
