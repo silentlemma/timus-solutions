@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1132_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five queries with and without roots" },
+    { "name": "02", "note": "modulus 2: the only root is 1" },
+    { "name": "03", "note": "modulus 3" },
+    { "name": "04", "note": "a larger than the modulus" },
+    { "name": "05", "note": "moduli with n - 1 divisible by a high power of two" },
+    { "name": "06", "note": "the largest prime modulus" },
+    { "name": "big1", "generator": "1 100000 0", "note": "the most queries, random primes" },
+    { "name": "big2", "generator": "2 100000 1", "note": "primes with n - 1 divisible by 2^8, mostly residues" },
+    { "name": "big3", "generator": "3 100000 2", "note": "small primes with large a" },
+    { "name": "big4", "generator": "4 100000 3", "note": "the largest prime, residues only" },
+    { "name": "07", "note": "one query with adjacent roots at the largest prime" },
+    { "name": "08", "note": "all nonzero values modulo 97 exercise every square class" },
+    { "name": "09", "note": "a equals n - 1 for primes in all four odd classes modulo 8" },
+    { "name": "10", "note": "the first non-residue exceeds 5 and rejected queries precede roots" },
+    { "name": "11", "note": "the same a changes answer across cached primes with modulus 2 interleaved" },
+    { "name": "12", "note": "seeded small random queries mix maximum a with repeated moduli" },
+    { "name": "big5", "generator": "5 32748 4", "note": "every nonzero value at the largest prime, including every non-residue" },
+    { "name": "big6", "generator": "6 100000 5", "note": "the most queries, all without roots at large primes congruent to 3 modulo 4" }
+  ]
+}

@@ -36,3 +36,4 @@
 | 1129 | [Painting doors green on one side and orange on the other so that every room is balanced](1129/) | graphs | C++, Go, Python, Java, Rust |
 | 1130 | [Choosing a direction for each vector so that the walk ends within √2·L of the start](1130/) | geometry, greedy | C++, Go, Python, Java, Rust |
 | 1131 | [Copying a program to N computers with K cables, one copy per cable per hour](1131/) | math | C++, Go, Python, Java, Rust |
+| 1132 | [All square roots of a modulo a prime n, for up to 100000 queries](1132/) | number_theory | C++, Go, Python, Java, Rust |
