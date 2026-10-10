@@ -38,3 +38,4 @@
 | 1131 | [Copying a program to N computers with K cables, one copy per cable per hour](1131/) | math | C++, Go, Python, Java, Rust |
 | 1132 | [All square roots of a modulo a prime n, for up to 100000 queries](1132/) | number_theory | C++, Go, Python, Java, Rust |
 | 1133 | [Finding a term of a Fibonacci-like sequence from two other terms](1133/) | number_theory | C++, Go, Python, Java, Rust |
+| 1134 | [Checking whether numbers read from cards showing k − 1 and k are possible](1134/) | greedy | C++, Go, Python, Java, Rust |

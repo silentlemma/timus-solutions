@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1134_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four readings, too many twos for the cards 2 and 3" },
+    { "name": "02", "note": "one card read as 0" },
+    { "name": "03", "note": "0 read twice: only card 1 shows it" },
+    { "name": "04", "note": "1 read twice: cards 1 and 2 both show it" },
+    { "name": "05", "note": "1 read three times with three cards" },
+    { "name": "06", "note": "every card read at its smaller number" },
+    { "name": "07", "note": "every card read at its larger number" },
+    { "name": "08", "note": "the largest number twice: only card n shows it" },
+    { "name": "big1", "generator": "1 1000 1000 0", "note": "random numbers on all cards" },
+    { "name": "big2", "generator": "2 1000 1000 1", "note": "a real reading of all cards" },
+    { "name": "big3", "generator": "3 1000 1000 2", "note": "a real reading with one number moved by one" },
+    { "name": "big4", "generator": "4 1000 1000 3", "note": "the larger numbers of all cards, card 1 at 0" },
+    { "name": "big5", "generator": "5 1000 1000 4", "note": "one card short for the numbers up to a repeated one" },
+    { "name": "big6", "generator": "6 1000 400 1", "note": "a real reading of some of the cards" }
+  ]
+}
