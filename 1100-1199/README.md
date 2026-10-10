@@ -30,3 +30,4 @@
 | 1123 | [The smallest palindrome not below a long number](1123/) | strings | C++, Go, Python, Java, Rust |
 | 1124 | [Sorting coloured pieces back into their boxes with the fewest hand moves](1124/) | dsu | C++, Go, Python, Java, Rust |
 | 1125 | [Undoing colour flips at integer distances on a grid](1125/) | bitmask | C++, Go, Python, Java, Rust |
+| 1126 | [The maximum of every window of M consecutive readings](1126/) | two_pointers | C++, Go, Python, Java, Rust |
