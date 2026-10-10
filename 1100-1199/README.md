@@ -23,3 +23,4 @@
 | 1116 | [Cutting one piecewise-constant function by the domain of another](1116/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1117 | [Walking an in-order numbered binary tree from one number to another](1117/) | math | C++, Go, Python, Java, Rust |
 | 1118 | [The number with the smallest sum of proper divisors per unit](1118/) | number_theory | C++, Go, Python, Java, Rust |
+| 1119 | [The shortest walk across a grid with some diagonal shortcuts](1119/) | dp | C++, Go, Python, Java, Rust |

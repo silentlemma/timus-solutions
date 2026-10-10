@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1119_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three diagonal blocks, two of them in a chain" },
+    { "name": "02", "note": "one block without a diagonal" },
+    { "name": "03", "note": "one block with a diagonal" },
+    { "name": "04", "note": "the largest grid, no diagonals" },
+    { "name": "05", "note": "a full chain along the main diagonal" },
+    { "name": "06", "note": "a two by two square of diagonals: only two can chain" },
+    { "name": "07", "note": "the same block listed three times" },
+    { "name": "08", "note": "blocks in one row cannot chain" },
+    { "name": "big1", "generator": "1 1000 1000 100 0", "note": "100 random blocks in the largest grid" },
+    { "name": "big2", "generator": "2 1000 700 100 1", "note": "100 blocks near the diagonal" },
+    { "name": "big3", "generator": "3 900 1000 100 2", "note": "100 blocks on the first row and column" }
+  ]
+}
