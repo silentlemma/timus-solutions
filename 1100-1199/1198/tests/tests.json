@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1198_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a group of three that reaches everyone" },
+    { "name": "02", "note": "a single senator with an empty file" },
+    { "name": "03", "note": "two senators who know nothing about each other" },
+    { "name": "04", "note": "a cycle, so everyone is dangerous" },
+    { "name": "05", "note": "two separate groups with no way in, repeated and self entries" },
+    { "name": "06", "note": "one senator holding files on both others" },
+    { "name": "big1", "generator": "1 2000 1 1 0", "note": "everyone has a file on everyone else" },
+    { "name": "big2", "generator": "2 2000 2 30 50", "note": "dense groups led by a single first group" },
+    { "name": "big3", "generator": "3 2000 3 30 50", "note": "the same with a second group nobody reaches" },
+    { "name": "big4", "generator": "4 2000 4 1 0", "note": "one long cycle through everyone" },
+    { "name": "big5", "generator": "5 2000 5 1 3", "note": "a sparse random graph" },
+    { "name": "big6", "generator": "6 2000 2 1000 2", "note": "many small groups" }
+  ]
+}
