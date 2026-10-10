@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1171_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample balances a detour to rich rooms against the extra travel days" },
+    { "name": "02", "note": "one level, the start is the best place to stop" },
+    { "name": "03", "note": "one level, a short walk to rich rooms" },
+    { "name": "04", "note": "one door far away on a rich level above a poor one" },
+    { "name": "05", "note": "going down at once into a rich room" },
+    { "name": "big1", "generator": "1 16 30 0", "note": "sixteen levels, random food, many doors" },
+    { "name": "big2", "generator": "2 16 0 0", "note": "a single exit on each upper level constrains the descent" },
+    { "name": "big3", "generator": "3 16 50 1", "note": "nearly equal food everywhere" },
+    { "name": "big4", "generator": "4 16 20 2", "note": "a few rich rooms among poor ones" },
+    { "name": "big5", "generator": "5 1 0 0", "note": "a single level" },
+    { "name": "big6", "generator": "6 8 100 2", "note": "every upper-level room has a door, with a few rich rooms among poor ones" },
+    { "name": "big7", "generator": "7 16 100 0", "note": "random food across sixteen levels with all upper-level doors open" },
+    { "name": "06", "note": "minimum food everywhere, interior start and many equally optimal stopping points" },
+    { "name": "07", "note": "sixteen all-255 levels with every possible door, attaining the absolute ratio ceiling" },
+    { "name": "08", "note": "fifteen rich floors require Hamiltonian detours before a poor last floor, giving 240 moves" },
+    { "name": "09", "note": "the only exit is the starting room, so a profitable-looking circuit would illegally revisit it" },
+    { "name": "10", "note": "a distant top-floor door beats the door at the start because the next two landing rooms are rich" },
+    { "name": "11", "note": "the best walk first lowers its average by crossing a poor room to reach a rich block" },
+    { "name": "12", "note": "a bottom-right start needs two west moves and the three-room ratio rounds up to 169.6667" },
+    { "name": "13", "note": "near-equal food values from 127 to 129 with a single upper-level exit" },
+    { "name": "14", "note": "sixteen levels with alternating opposite-corner exits force long poor crossings before the final reward" },
+    { "name": "15", "generator": "117115 2 100 1", "note": "food from one to three with every upper-level door available" },
+    { "name": "16", "generator": "117116 3 0 0", "note": "seeded three-floor station couples two single-door crossings with an unrestricted last-floor endpoint" }
+  ]
+}
