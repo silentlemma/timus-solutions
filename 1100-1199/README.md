@@ -42,3 +42,4 @@
 | 1135 | [Counting the turns of recruits facing each other until the row is stable](1135/) | math | C++, Go, Python, Java, Rust |
 | 1136 | [Turning the left-right-root order of a search tree into the right-left-root order](1136/) | trees | C++, Go, Python, Java, Rust |
 | 1137 | [Joining cyclic bus routes into one route over every segment](1137/) | graphs | C++, Go, Python, Java, Rust |
+| 1138 | [The longest run of jobs where every raise is a whole number of percent](1138/) | dp | C++, Go, Python, Java, Rust |
