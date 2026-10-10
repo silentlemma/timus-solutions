@@ -1,0 +1,24 @@
+{
+  "judging": "lines",
+  "reference": "1186_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven right sides for one left side" },
+    { "name": "02", "note": "multipliers with zeros, before and after elements" },
+    { "name": "03", "note": "brackets four levels deep" },
+    { "name": "04", "note": "cobalt differs from separate carbon and oxygen atoms" },
+    { "name": "05", "note": "a total of exactly 10000" },
+    { "name": "big1", "generator": "1 10 3", "note": "helium, sodium and oxygen compared with reordered and altered totals" },
+    { "name": "big2", "generator": "2 10 0", "note": "no brackets at all" },
+    { "name": "big3", "generator": "3 10 1", "note": "one level of brackets" },
+    { "name": "big4", "generator": "4 10 2", "note": "nitrogen counts combined across nested groups and adjacent symbols" },
+    { "name": "big5", "generator": "5 1 3", "note": "a single right side" },
+    { "name": "06", "note": "shortest formula and minimum N, with one unchanged atom" },
+    { "name": "07", "note": "omitted multipliers on nested and adjacent groups all mean one" },
+    { "name": "08", "note": "term coefficients and group multipliers stop at their own boundaries" },
+    { "name": "09", "note": "distinct symbols at both alphabet ends, including nonstandard two-letter names" },
+    { "name": "10", "note": "maximum nesting of 49 brackets in a 100-character formula" },
+    { "name": "11", "note": "maximum input size, with 63 distinct symbols and ten 100-character right sides" },
+    { "name": "12", "note": "seeded stress case with sibling groups and a wrong side preserving the total atom count" },
+    { "name": "big6", "generator": "1186 10 4", "note": "seeded random formulas with a nested product giving 9802 nitrogen atoms" }
+  ]
+}
