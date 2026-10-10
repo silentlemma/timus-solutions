@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1180_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight stones, taking two leaves six" },
+    { "name": "02", "note": "one stone" },
+    { "name": "03", "note": "two stones, taken at once" },
+    { "name": "04", "note": "three stones, the second player wins" },
+    { "name": "05", "note": "four stones" },
+    { "name": "06", "note": "a multiple of three" },
+    { "name": "07", "note": "one more than a multiple of three" },
+    { "name": "08", "note": "a pile of 250 nines divisible by three" },
+    { "name": "09", "note": "largest allowed pile, ten to the power 250" },
+    { "name": "10", "note": "a 250-digit pile requiring a smallest move of two" },
+    { "name": "11", "note": "pile beyond unsigned 64-bit range requiring a smallest move of two" },
+    { "name": "12", "note": "three isolated ones in 250 digits, where missing the middle digit changes the winner" },
+    { "name": "13", "generator": "random 1180 250", "note": "seeded random 250-digit pile with mixed digits rather than a repeated pattern" }
+  ]
+}
