@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1125_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 6 by 6 field" },
+    { "name": "02", "note": "an empty field" },
+    { "name": "03", "note": "three rows of no cells" },
+    { "name": "04", "note": "one cell visited an even number of times, near the limit" },
+    { "name": "05", "note": "one cell visited an odd number of times" },
+    { "name": "06", "note": "a visit flips its whole row" },
+    { "name": "07", "note": "a corner visit flips the row, the column and the cell at distance 5 by (3, 4)" },
+    { "name": "big1", "generator": "1 50 50 2000000000 50", "note": "the largest field, half the cells visited" },
+    { "name": "big2", "generator": "2 50 50 1 5", "note": "the largest field, a few single visits" },
+    { "name": "big3", "generator": "3 50 37 3 100", "note": "every cell visited up to three times" },
+    { "name": "big4", "generator": "4 1 50 9 30", "note": "a single row" }
+  ]
+}
