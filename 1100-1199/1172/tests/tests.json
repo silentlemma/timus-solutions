@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1172_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cities on each island" },
+    { "name": "02", "note": "one city per island, a single triangle" },
+    { "name": "03", "note": "three cities per island" },
+    { "name": "04", "note": "four cities per island" },
+    { "name": "05", "note": "five cities per island" },
+    { "name": "06", "note": "ten cities per island" },
+    { "name": "07", "note": "seventeen cities per island" },
+    { "name": "08", "note": "twenty-five cities per island" },
+    { "name": "09", "note": "one below the limit" },
+    { "name": "10", "note": "thirty cities per island, the largest answer" }
+  ]
+}
