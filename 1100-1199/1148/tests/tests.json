@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1148_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "ten towers of five levels" },
+    { "name": "02", "note": "one level" },
+    { "name": "03", "note": "the lowest level alone needs more bricks than there are: no towers" },
+    { "name": "04", "note": "plenty of bricks, two levels" },
+    { "name": "05", "note": "a level of one brick cannot shrink" },
+    { "name": "06", "note": "the brick limit cuts off one tower" },
+    { "name": "big1", "generator": "1 32767 60 10 300 0", "note": "the highest towers with bricks to spare" },
+    { "name": "big2", "generator": "2 1000 60 10 300 0", "note": "the highest towers with a tight brick limit" },
+    { "name": "big3", "generator": "3 400 60 1 300 0", "note": "a narrow start and a tight limit" },
+    { "name": "big4", "generator": "4 2000 60 10 4 1", "note": "the first and last towers" },
+    { "name": "big5", "generator": "5 1500 60 7 300 2", "note": "numbers near powers of two" },
+    { "name": "big6", "generator": "6 650 37 4 300 0", "note": "a middle height" }
+  ]
+}
