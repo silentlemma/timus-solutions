@@ -47,3 +47,4 @@
 | 1140 | [The shortest way back to the centre of a hexagonal grid after a walk](1140/) | geometry | C++, Go, Python, Java, Rust |
 | 1141 | [Decrypting small RSA messages by factoring the modulus](1141/) | number_theory | C++, Go, Python, Java, Rust |
 | 1142 | [Counting the orderings with ties of N objects](1142/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1143 | [The shortest path through all vertices of a convex polygon](1143/) | dp | C++, Go, Python, Java, Rust |

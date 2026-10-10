@@ -1,0 +1,16 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1143_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a long thin quadrilateral" },
+    { "name": "02", "note": "a single camp: no path" },
+    { "name": "03", "note": "two camps" },
+    { "name": "04", "note": "a right triangle: skip the hypotenuse" },
+    { "name": "05", "note": "a unit square" },
+    { "name": "06", "note": "a flat hexagon where going around is not best" },
+    { "name": "big1", "generator": "1 200 0", "note": "the most camps on a circle" },
+    { "name": "big2", "generator": "2 200 1", "note": "a long thin ellipse" },
+    { "name": "big3", "generator": "3 200 2", "note": "a regular polygon" },
+    { "name": "big4", "generator": "4 200 3", "note": "most camps crowded on a short arc" }
+  ]
+}
