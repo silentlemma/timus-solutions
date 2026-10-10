@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1193_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the third student waits and is 15 minutes late" },
+    { "name": "02", "example": true, "note": "everyone is in time" },
+    { "name": "03", "note": "ready at once, answering one minute, deadline at 0" },
+    { "name": "04", "note": "the latest student with the longest answer" },
+    { "name": "05", "note": "a queue that grows, the middle student is the latest" },
+    { "name": "big1", "generator": "1 40 0", "note": "forty students, loose deadlines" },
+    { "name": "big2", "generator": "2 40 1", "note": "deadlines right after preparation" },
+    { "name": "big3", "generator": "3 40 2", "note": "everyone ready within 40 minutes" },
+    { "name": "big4", "generator": "4 1 0", "note": "a single student" }
+  ]
+}
