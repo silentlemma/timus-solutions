@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1196_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a repeated known year counts twice" },
+    { "name": "02", "note": "nothing in common" },
+    { "name": "03", "note": "repeats on both sides" },
+    { "name": "04", "note": "the largest year" },
+    { "name": "big1", "generator": "1 15000 1000000 1000000000", "note": "the largest lists, years up to 10^9" },
+    { "name": "big2", "generator": "2 15000 1000000 20000", "note": "many matches among few distinct years" },
+    { "name": "big3", "generator": "3 1 1000000 2", "note": "one known year and two possible ones" },
+    { "name": "05", "note": "one entry in each list, both at the smallest positive year" },
+    { "name": "06", "note": "descending queries hit both search endpoints and miss inside gaps and outside the range" },
+    { "name": "07", "note": "several unequal teacher duplicate runs count repeated student entries only once each" },
+    { "name": "random1", "generator": "1196 17 53 37", "note": "small seeded random lists mix collisions, repeated queries, and missing years" },
+    { "name": "big4", "generator": "last 15000", "note": "the largest distinct teacher list near the year limit with one query at its final entry" },
+    { "name": "big5", "generator": "all-hit 15000 1000000", "note": "a million guaranteed matches in descending cycles reach the largest possible answer" }
+  ]
+}
