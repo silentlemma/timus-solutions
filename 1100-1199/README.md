@@ -27,3 +27,4 @@
 | 1120 | [The longest run of consecutive positive integers with a given sum](1120/) | math | C++, Go, Python, Java, Rust |
 | 1121 | [The types of the nearest branches on a street grid](1121/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1122 | [The fewest moves that turn a 4 × 4 board to one colour](1122/) | bitmask | C++, Go, Python, Java, Rust |
+| 1123 | [The smallest palindrome not below a long number](1123/) | strings | C++, Go, Python, Java, Rust |
