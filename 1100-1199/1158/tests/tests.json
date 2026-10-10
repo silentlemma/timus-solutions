@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "input_encoding": "latin-1",
+  "reference": "1158_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three letters, three forbidden words" },
+    { "name": "02", "note": "one letter, one-letter sentences, nothing forbidden" },
+    { "name": "03", "note": "the only letter is forbidden" },
+    { "name": "04", "note": "ab and ba forbidden: only constant sentences remain" },
+    { "name": "05", "note": "letters above 127" },
+    { "name": "06", "note": "the same word twice and overlapping words" },
+    { "name": "big1", "generator": "1 50 50 0 0", "note": "nothing forbidden: 50^50 sentences" },
+    { "name": "big2", "generator": "2 50 50 10 3", "note": "ten words of length ten" },
+    { "name": "big3", "generator": "3 50 50 10 2", "note": "several single letters forbidden" },
+    { "name": "big4", "generator": "4 10 50 10 1", "note": "words over two letters that overlap" },
+    { "name": "big5", "generator": "5 2 50 10 0", "note": "two letters, random words" }
+  ]
+}

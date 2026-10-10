@@ -62,3 +62,4 @@
 | 1155 | [Clearing particles from the corners of a cube by pairs](1155/) | constructive | C++, Go, Python, Java, Rust |
 | 1156 | [Splitting 2N problems into two rounds with similar problems apart](1156/) | graphs | C++, Go, Python, Java, Rust |
 | 1157 | [The fewest tiles that make N rectangles, with M rectangles K tiles earlier](1157/) | number_theory | C++, Go, Python, Java, Rust |
+| 1158 | [Counting the sentences of length M that avoid every forbidden word](1158/) | strings | C++, Go, Python, Java, Rust |
