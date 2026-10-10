@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1128_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight children, a triangle with a common enemy" },
+    { "name": "02", "note": "one child: the smaller group is empty" },
+    { "name": "03", "note": "four children who all quarrel: two and two" },
+    { "name": "04", "note": "nobody quarrels" },
+    { "name": "05", "note": "a chain of quarrels" },
+    { "name": "06", "note": "a triangle: one child alone" },
+    { "name": "big1", "generator": "1 7163 0", "note": "the most children, random quarrels" },
+    { "name": "big2", "generator": "2 7163 1", "note": "groups of four who all quarrel" },
+    { "name": "big3", "generator": "3 7163 2", "note": "long chains with extra quarrels" },
+    { "name": "big4", "generator": "4 7162 0", "note": "an even number of children" }
+  ]
+}

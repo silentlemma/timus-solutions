@@ -32,3 +32,4 @@
 | 1125 | [Undoing colour flips at integer distances on a grid](1125/) | bitmask | C++, Go, Python, Java, Rust |
 | 1126 | [The maximum of every window of M consecutive readings](1126/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1127 | [The tallest tower of cubes whose four sides are each one colour](1127/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1128 | [Splitting a graph of degree three so that each vertex has at most one neighbour on its side](1128/) | greedy | C++, Go, Python, Java, Rust |
