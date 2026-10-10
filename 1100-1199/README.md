@@ -90,3 +90,4 @@
 | 1183 | [The shortest regular bracket sequence containing a given one](1183/) | dp | C++, Go, Python, Java, Rust |
 | 1184 | [The longest equal pieces that K cables can be cut into](1184/) | binary_search | C++, Go, Python, Java, Rust |
 | 1185 | [The shortest wall that keeps a set distance from a polygonal castle](1185/) | geometry | C++, Go, Python, Java, Rust |
+| 1186 | [Do two chemical formulas contain the same atoms?](1186/) | strings | C++, Go, Python, Java, Rust |
