@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1117_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "from 1 to 5: two days" },
+    { "name": "02", "note": "from 2 to 4: one day, as in the statement" },
+    { "name": "03", "note": "the sender has the larger number" },
+    { "name": "04", "note": "the same person" },
+    { "name": "05", "note": "a leaf and its parent: no days" },
+    { "name": "06", "note": "the whole range: the largest answer, just under 2^31" },
+    { "name": "07", "note": "from the largest number down to the root of a full tree" },
+    { "name": "08", "note": "the root to itself" },
+    { "name": "09", "note": "across a high node" },
+    { "name": "10", "note": "two large arbitrary numbers" },
+    { "name": "11", "note": "the two largest numbers" },
+    { "name": "12", "note": "between two nodes just below the root" }
+  ]
+}
