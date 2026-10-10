@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1129_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five rooms with odd and even numbers of doors" },
+    { "name": "02", "note": "one room without doors" },
+    { "name": "03", "note": "three doors between the same two rooms" },
+    { "name": "04", "note": "a hall with four doors to four rooms" },
+    { "name": "05", "note": "one door and two rooms without doors" },
+    { "name": "big1", "generator": "1 100 2000 0", "note": "100 rooms, 2000 random doors" },
+    { "name": "big2", "generator": "2 100 2000 1", "note": "doors repeated between a few pairs of rooms" },
+    { "name": "big3", "generator": "3 100 300 2", "note": "a ring of rooms with chords" },
+    { "name": "big4", "generator": "4 99 999 0", "note": "an odd number of doors" }
+  ]
+}
