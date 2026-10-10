@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1130_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four vectors, one of them zero" },
+    { "name": "02", "note": "one zero vector with L = 0" },
+    { "name": "03", "note": "two orthogonal vectors of length L: the end is exactly sqrt(2) L away" },
+    { "name": "04", "note": "three vectors about 120 degrees apart" },
+    { "name": "05", "note": "unit vectors, mostly the same one" },
+    { "name": "06", "note": "vectors with negative coordinates" },
+    { "name": "big1", "generator": "1 10000 100 0", "note": "the most vectors, random in the disk" },
+    { "name": "big2", "generator": "2 10000 100 1", "note": "vectors near the rim" },
+    { "name": "big3", "generator": "3 10000 100 2", "note": "vectors near three directions 120 degrees apart" },
+    { "name": "big4", "generator": "4 9999 100 3", "note": "copies of a few vectors and zero vectors" },
+    { "name": "07", "note": "one nonzero vector at maximum L needs no merge" },
+    { "name": "08", "note": "two almost parallel long vectors require opposite signs" },
+    { "name": "09", "note": "two obtuse nonopposite vectors require equal signs" },
+    { "name": "10", "note": "a sum on the L boundary is merged and its whole subtree is flipped" },
+    { "name": "11", "note": "random five-vector walk defeats choosing each sign by the current endpoint" },
+    { "name": "12", "generator": "1130 10000 0 0", "note": "maximum N with L zero builds a full forest of zero vectors" },
+    { "name": "13", "note": "maximum N of identical oblique length-L vectors tests deep sign propagation" },
+    { "name": "14", "generator": "1131 9999 1 0", "note": "odd large random walk at minimum positive L mixes all unit directions and zeros" }
+  ]
+}
