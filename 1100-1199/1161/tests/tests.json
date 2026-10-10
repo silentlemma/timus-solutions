@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.011",
+  "reference": "1161_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two stripies" },
+    { "name": "02", "example": true, "note": "three stripies: the light one last" },
+    { "name": "03", "note": "a single stripie" },
+    { "name": "04", "note": "four stripies of weight 1" },
+    { "name": "05", "note": "a hundred of the heaviest" },
+    { "name": "06", "note": "heavy and light alternating" },
+    { "name": "big1", "generator": "1 100 10000", "note": "a hundred random weights" },
+    { "name": "big2", "generator": "2 100 3", "note": "a hundred small weights" },
+    { "name": "big3", "generator": "3 57 10000", "note": "unsorted weights spanning most of the allowed range" },
+    { "name": "07", "note": "one merge between the minimum and maximum weights" },
+    { "name": "08", "note": "three distinct near-maximum weights with a nonintegral answer" },
+    { "name": "09", "note": "ascending weights grow fourfold and require an unbalanced merge tree" },
+    { "name": "10", "note": "maximum N with a single minimum-weight outlier among maximum weights" },
+    { "name": "11", "generator": "1161 8 10000", "note": "eight seeded random weights checked by exhaustive final partitions" }
+  ]
+}

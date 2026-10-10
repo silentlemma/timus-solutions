@@ -65,3 +65,4 @@
 | 1158 | [Counting the sentences of length M that avoid every forbidden word](1158/) | strings | C++, Go, Python, Java, Rust |
 | 1159 | [The largest area a fence of given blocks can enclose](1159/) | geometry | C++, Go, Python, Java, Rust |
 | 1160 | [Connecting all hubs so that the longest cable is as short as possible](1160/) | dsu | C++, Go, Python, Java, Rust |
+| 1161 | [The lightest result of merging creatures by twice the geometric mean](1161/) | greedy | C++, Go, Python, Java, Rust |
