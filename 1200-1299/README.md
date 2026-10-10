@@ -15,3 +15,4 @@
 | 1208 | [The most legendary teams without a shared member](1208/) | bitmask | C++, Go, Python, Java, Rust |
 | 1209 | [Digits of 1, 10, 100, 1000 written in a row](1209/) | math | C++, Go, Python, Java, Rust |
 | 1210 | [The cheapest climb through levels of planets](1210/) | dp | C++, Go, Python, Java, Rust |
+| 1211 | [Accusations without a ring and with one confession](1211/) | graphs | C++, Go, Python, Java, Rust |
