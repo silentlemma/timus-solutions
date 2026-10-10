@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1204_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "small products and a large one" },
+    { "name": "02", "note": "two times five" },
+    { "name": "03", "note": "two times a huge prime, and two primes just above 31600" },
+    { "name": "big1", "generator": "1 1000 1", "note": "one thousand random products" },
+    { "name": "big2", "generator": "2 1000 2", "note": "a tiny prime times a huge one" },
+    { "name": "big3", "generator": "3 1000 3", "note": "both primes close to the square root, the slowest to factor" },
+    { "name": "04", "note": "every odd product of distinct primes up to 500 except the example, covering small inverse patterns" },
+    { "name": "05", "note": "larger factors congruent to plus or minus one modulo the smaller factor require opposite root orderings" },
+    { "name": "06", "note": "twin prime factors at four scales give closely spaced nontrivial roots" },
+    { "name": "07", "note": "the eight largest odd valid moduli below the strict one billion bound" },
+    { "name": "08", "note": "prime pairs with seventeen Euclidean divisions exercise long modular inverse calculations" },
+    { "name": "09", "generator": "1204 1000 4", "note": "maximum batch length with shuffled repeated small and large moduli checks independent answers" },
+    { "name": "10", "generator": "1204 1000 5", "note": "seeded random products of primes at most 311 allow exhaustive checking of every residue" }
+  ]
+}

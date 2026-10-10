@@ -8,3 +8,4 @@
 | 1201 | [A month calendar with one date in brackets](1201/) | implementation | C++, Go, Python, Java, Rust |
 | 1202 | [The shortest walk through a chain of rectangles](1202/) | greedy | C++, Go, Python, Java, Rust |
 | 1203 | [The most talks one person can attend](1203/) | greedy | C++, Go, Python, Java, Rust |
+| 1204 | [Idempotents modulo a product of two primes](1204/) | number_theory | C++, Go, Python, Java, Rust |
