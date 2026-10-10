@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1152_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven balconies" },
+    { "name": "02", "note": "three balconies: one volley, no damage" },
+    { "name": "03", "note": "four balconies: one monster survives the first volley" },
+    { "name": "04", "note": "two large groups opposite each other" },
+    { "name": "05", "note": "twenty full balconies" },
+    { "name": "06", "note": "counts 1 to 20 around the circle" },
+    { "name": "07", "note": "five single monsters" },
+    { "name": "big1", "generator": "1 20 0", "note": "the most balconies, random counts" },
+    { "name": "big2", "generator": "2 20 1", "note": "large groups four apart" },
+    { "name": "big3", "generator": "3 20 2", "note": "counts growing around the circle" },
+    { "name": "big4", "generator": "4 19 0", "note": "an odd number of balconies" }
+  ]
+}
