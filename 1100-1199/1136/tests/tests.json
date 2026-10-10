@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1136_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the parliament from the statement" },
+    { "name": "02", "note": "a single member with the largest number" },
+    { "name": "03", "note": "a chairman with one member in each wing, numbers on one line" },
+    { "name": "04", "note": "only right wings: the chairman entered first with the smallest number" },
+    { "name": "05", "note": "only left wings" },
+    { "name": "06", "note": "several numbers on a line" },
+    { "name": "big1", "generator": "1 3000 0", "note": "the most members in random entry order" },
+    { "name": "big2", "generator": "2 3000 1", "note": "one long right wing" },
+    { "name": "big3", "generator": "3 3000 2", "note": "one long left wing" },
+    { "name": "big4", "generator": "4 3000 3", "note": "a zigzag of depth 3000" },
+    { "name": "big5", "generator": "5 3000 4", "note": "a balanced tree" }
+  ]
+}
