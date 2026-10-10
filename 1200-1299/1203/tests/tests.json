@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1203_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "talks touching at their ends cannot both be attended" },
+    { "name": "02", "note": "one talk over the whole day" },
+    { "name": "03", "note": "one talk starts the minute the other ends" },
+    { "name": "04", "note": "a one-minute gap is enough" },
+    { "name": "05", "note": "the same talk three times" },
+    { "name": "06", "note": "a long talk covering several short ones" },
+    { "name": "big1", "generator": "1 100000 30000 50", "note": "the most talks, short ones" },
+    { "name": "big2", "generator": "2 100000 30000 30000", "note": "the most talks, of any length" },
+    { "name": "big3", "generator": "3 100000 30000 1", "note": "one-minute talks" },
+    { "name": "07", "note": "equal finish times keep the latest start regardless of input order" },
+    { "name": "08", "note": "the shortest talk blocks two mutually compatible longer talks" },
+    { "name": "09", "note": "equal starts compete near the upper bound and the optimal chain ends at minute 30000" },
+    { "name": "10", "generator": "chain 1203 100000 30000", "note": "maximum talk count with a shuffled full-day chain achieving the largest possible answer" }
+  ]
+}
