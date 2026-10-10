@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1156_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four problems, three similar pairs" },
+    { "name": "02", "note": "two problems, no pairs" },
+    { "name": "03", "note": "two problems that are similar" },
+    { "name": "04", "note": "a problem similar to itself" },
+    { "name": "05", "note": "a triangle of similar problems: impossible" },
+    { "name": "06", "note": "one problem similar to three others, which fill the other round" },
+    { "name": "07", "note": "the same pair given twice" },
+    { "name": "08", "note": "the most problems, no pairs" },
+    { "name": "big1", "generator": "1 50 100 0", "note": "the most pairs across a hidden split" },
+    { "name": "big2", "generator": "2 50 100 1", "note": "random pairs" },
+    { "name": "big3", "generator": "3 50 60 2", "note": "one problem similar to sixty others" },
+    { "name": "big4", "generator": "4 50 100 3", "note": "stars of different sizes" },
+    { "name": "big5", "generator": "5 50 40 0", "note": "fewer pairs: many separate components" }
+  ]
+}

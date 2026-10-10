@@ -60,3 +60,4 @@
 | 1153 | [Recovering N from the sum 1 + 2 + … + N with up to 600 digits](1153/) | math | C++, Go, Python, Java, Rust |
 | 1154 | [The best moment of the day for a battle of elemental mages](1154/) | math | C++, Go, Python, Java, Rust |
 | 1155 | [Clearing particles from the corners of a cube by pairs](1155/) | constructive | C++, Go, Python, Java, Rust |
+| 1156 | [Splitting 2N problems into two rounds with similar problems apart](1156/) | graphs | C++, Go, Python, Java, Rust |
