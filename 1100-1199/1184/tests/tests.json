@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1184_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cables, eleven pieces of two metres" },
+    { "name": "02", "note": "one cable, one piece" },
+    { "name": "03", "note": "more pieces than centimetres, the answer is 0.00" },
+    { "name": "04", "note": "one very long cable and one short one" },
+    { "name": "05", "note": "a centimetre more lets one cable give two pieces" },
+    { "name": "big1", "generator": "1 10000 10000 10000000", "note": "ten thousand cables up to 100 km" },
+    { "name": "big2", "generator": "2 10000 1 10000000", "note": "a single piece, the longest cable decides" },
+    { "name": "big3", "generator": "3 10000 10000 150", "note": "short cables, many pieces" },
+    { "name": "big4", "generator": "4 1 10000 10000000", "note": "one cable cut into ten thousand pieces" }
+  ]
+}
