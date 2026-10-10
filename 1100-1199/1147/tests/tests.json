@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1147_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three rectangles over each other" },
+    { "name": "02", "note": "one rectangle covers the whole sheet: no white" },
+    { "name": "03", "note": "a white rectangle on top counts as white" },
+    { "name": "04", "note": "one colour in two places, the largest colour on top" },
+    { "name": "05", "note": "a sheet covered twice: only the top colour" },
+    { "name": "big1", "generator": "1 10000 10000 1000 2500 0", "note": "the most rectangles at random" },
+    { "name": "big2", "generator": "2 10000 10000 1000 2500 1", "note": "strips across the whole sheet" },
+    { "name": "big3", "generator": "3 10000 10000 1000 30 2", "note": "nested rectangles" },
+    { "name": "big4", "generator": "4 10000 10000 1000 2500 3", "note": "many small rectangles" },
+    { "name": "big5", "generator": "5 1 10000 1000 5 0", "note": "a sheet one unit wide" },
+    { "name": "06", "note": "no rectangles on the largest sheet leaves area 100000000 white" },
+    { "name": "07", "note": "four edge-touching tiles jointly hide a lower colour without overlapping" },
+    { "name": "08", "note": "unequal coordinate gaps and unit slivers at the largest sheet borders" },
+    { "name": "09", "note": "white erasures merge with the bare sheet while later paint splits them" },
+    { "name": "10", "note": "seeded unit-grid stress case has five white components and one surviving square of colour 2" },
+    { "name": "11", "note": "a thousand visible colours appear in reverse painting order and must be sorted" },
+    { "name": "big6", "generator": "1147 10000 10000 1000 2500 4", "note": "a thousand narrow crossing bars leave hundreds of thousands of visible grid cells" },
+    { "name": "big7", "generator": "1147 31 23 80 4 0", "note": "dense random overlap repeatedly reuses four colours including white" }
+  ]
+}
