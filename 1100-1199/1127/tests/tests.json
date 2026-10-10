@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1127_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cubes, three of them fit" },
+    { "name": "02", "note": "two equal cubes" },
+    { "name": "03", "note": "two cubes with no common side ring" },
+    { "name": "04", "note": "a cube and its mirror image: turned upside down it fits" },
+    { "name": "05", "note": "the same sides, different tops and bottoms" },
+    { "name": "06", "note": "cubes that fit only after turning" },
+    { "name": "big1", "generator": "1 1000 0", "note": "a thousand randomly painted cubes" },
+    { "name": "big2", "generator": "2 1000 1", "note": "rotated copies of three cubes at the maximum size" },
+    { "name": "big3", "generator": "3 1000 2", "note": "a thousand turned copies of a cube and its mirror image" },
+    { "name": "big4", "generator": "5 7 1", "note": "two incompatible groups tie for the tallest tower" },
+    { "name": "07", "note": "the same six colours with incompatible opposite face pairs" },
+    { "name": "08", "note": "every pair of cubes fits, but all three have no common side ring" },
+    { "name": "09", "note": "a thousand distinct cube descriptions; the winning 300 span 15 palettes and exclude the first cube" }
+  ]
+}
