@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1138_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 2, 4, 5, 8, 10" },
+    { "name": "02", "note": "n = s: one job" },
+    { "name": "03", "note": "the first salary already above n" },
+    { "name": "04", "note": "the widest range, from 1" },
+    { "name": "05", "note": "the widest range, from 2" },
+    { "name": "06", "note": "no raise fits below n" },
+    { "name": "07", "note": "from half of n" },
+    { "name": "08", "note": "a first salary coprime to 100" },
+    { "name": "09", "note": "a prime n" },
+    { "name": "10", "note": "the smallest input" },
+    { "name": "11", "note": "up to 100 from 1" },
+    { "name": "12", "note": "n = s at the top" }
+  ]
+}
