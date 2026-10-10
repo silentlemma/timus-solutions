@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1208_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven teams, four can play" },
+    { "name": "02", "note": "a single team" },
+    { "name": "03", "note": "three teams clashing in a ring" },
+    { "name": "04", "note": "the longest name shared by two teams" },
+    { "name": "big1", "generator": "1 18 1000", "note": "18 teams from a large pool, few clashes" },
+    { "name": "big2", "generator": "2 18 30", "note": "18 teams from 30 programmers" },
+    { "name": "big3", "generator": "3 18 10", "note": "18 teams from 10 programmers" },
+    { "name": "big4", "generator": "4 18 54", "note": "18 teams from 54 programmers" }
+  ]
+}
