@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1142_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two and three objects" },
+    { "name": "02", "note": "every N from 2 to 10" },
+    { "name": "03", "note": "only the largest N" },
+    { "name": "04", "note": "repeated values in any order" },
+    { "name": "05", "note": "a batch of 500 queries cycles through all allowed sizes" },
+    { "name": "06", "note": "the sentinel alone produces no answer tokens" },
+    { "name": "07", "note": "a single query at the minimum allowed N" },
+    { "name": "08", "note": "four objects require counting partial ties as well as strict orders" },
+    { "name": "09", "note": "spaces and tabs surround one query per line and the sentinel" },
+    { "name": "10", "note": "all query sizes decrease from the maximum to the minimum" },
+    { "name": "11", "note": "every ordered pair of query sizes checks transitions between answers" },
+    { "name": "12", "generator": "1142 random 4096", "note": "seeded random queries break the existing cyclic input pattern" },
+    { "name": "13", "generator": "271828 runs 32768", "note": "long constant runs test repeated output across many changing blocks" }
+  ]
+}
