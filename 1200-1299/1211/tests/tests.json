@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1211_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "trees, a ring and a two-child ring" },
+    { "name": "02", "note": "one child confessing, one accusing itself, two confessors, a pair, a chain" },
+    { "name": "big1", "generator": "1 16 25000", "note": "the largest tests of every kind" },
+    { "name": "big2", "generator": "2 16 25000", "note": "the largest tests of every kind" },
+    { "name": "small", "generator": "3 16 7", "note": "small tests of every kind" }
+  ]
+}
