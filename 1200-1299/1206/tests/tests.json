@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1206_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two-digit numbers" },
+    { "name": "02", "note": "three-digit numbers, checked by brute force" },
+    { "name": "03", "note": "ten digits, still within 64 bits" },
+    { "name": "04", "note": "49 digits" },
+    { "name": "05", "note": "the largest K" },
+    { "name": "06", "note": "the first K beyond 64 bits" }
+  ]
+}
