@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1179_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a B splits the digits in base 11" },
+    { "name": "02", "note": "an empty text, the smallest base wins with no numbers" },
+    { "name": "03", "note": "binary digits, the smallest base already counts everything" },
+    { "name": "04", "note": "only base 36 can read Z" },
+    { "name": "05", "note": "digits that split differently in each base" },
+    { "name": "06", "note": "only spaces and line breaks" },
+    { "name": "big1", "generator": "1 1000000 36 10", "note": "a megabyte of all kinds of digits" },
+    { "name": "big2", "generator": "2 1000000 10 0", "note": "decimal digits with breaks only at line ends" },
+    { "name": "big3", "generator": "3 1000000 2 50", "note": "binary digits and many spaces" },
+    { "name": "big4", "generator": "4 1000000 20 3", "note": "twenty kinds of digits" }
+  ]
+}
