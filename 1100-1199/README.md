@@ -17,3 +17,4 @@
 | 1110 | [All residues whose N-th power gives a remainder Y](1110/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1111 | [Sorting squares by their distance to a point](1111/) | geometry | C++, Go, Python, Java, Rust |
 | 1112 | [Keeping the most segments with no common inner point](1112/) | greedy | C++, Go, Python, Java, Rust |
+| 1113 | [The least fuel for a one-way trip with fuel depots](1113/) | math | C++, Go, Python, Java, Rust |
