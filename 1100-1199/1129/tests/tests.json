@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1129_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five rooms with odd and even numbers of doors" },
+    { "name": "02", "note": "one room without doors" },
+    { "name": "03", "note": "three doors between the same two rooms" },
+    { "name": "04", "note": "a hall with four doors to four rooms" },
+    { "name": "05", "note": "one door and two rooms without doors" },
+    { "name": "big1", "generator": "1 100 2000 0", "note": "random placement of 2000 doors among 100 rooms" },
+    { "name": "big2", "generator": "2 100 2000 1", "note": "doors repeated between a few pairs of rooms" },
+    { "name": "big3", "generator": "3 100 300 2", "note": "a ring of rooms with chords" },
+    { "name": "big4", "generator": "4 99 999 0", "note": "an odd number of doors" },
+    { "name": "06", "note": "disconnected triangle and square with empty rooms before, between and after them" },
+    { "name": "07", "note": "mixed even and odd parallel-door counts to several neighbours in the same room" },
+    { "name": "08", "note": "a path of 100 rooms with the only odd-degree rooms at opposite ends" },
+    { "name": "big5", "generator": "1129 100 4950 3", "note": "complete graph on 100 rooms, all 4950 distinct doors and every room of odd degree" }
+  ]
+}
