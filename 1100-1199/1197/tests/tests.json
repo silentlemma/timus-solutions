@@ -1,0 +1,9 @@
+{
+  "judging": "tokens",
+  "reference": "1197_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a corner, the centre and near an edge" },
+    { "name": "02", "note": "all 64 squares" },
+    { "name": "03", "note": "the opposite corner" }
+  ]
+}
