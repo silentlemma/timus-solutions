@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1120_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "14 = 2 + 3 + 4 + 5" },
+    { "name": "02", "note": "the smallest sum" },
+    { "name": "03", "note": "2: only a single number" },
+    { "name": "04", "note": "3 = 1 + 2" },
+    { "name": "05", "note": "the largest sum" },
+    { "name": "06", "note": "a triangular number" },
+    { "name": "07", "note": "an odd sum near the limit" },
+    { "name": "08", "note": "a power of two: only a single number" },
+    { "name": "09", "note": "15: several runs, the longest from 1" },
+    { "name": "10", "note": "1000" },
+    { "name": "11", "note": "a large sum with a long run" },
+    { "name": "12", "note": "100 = 9 + ... + 16" },
+    { "name": "13", "note": "the largest triangular number below 10^9: the longest possible run" }
+  ]
+}
