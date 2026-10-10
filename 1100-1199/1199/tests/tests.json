@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1199_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "around the top of a single table" },
+    { "name": "02", "note": "mouse and cheese both already safe beside the same table" },
+    { "name": "03", "note": "the furniture is out of the way, so the path is straight" },
+    { "name": "04", "note": "corners listed out of order, the mouse starting close to a table" },
+    { "name": "05", "note": "three pieces in a row" },
+    { "name": "big1", "generator": "1 1 100 10 3", "note": "a grid of 100 pieces" },
+    { "name": "big2", "generator": "2 2 100 10 1.5", "note": "a row of 100 pieces the path visits one after another" },
+    { "name": "big3", "generator": "3 3 100 10 1000", "note": "a grid near the edge of the coordinate range" },
+    { "name": "big4", "generator": "4 4 100 10 60", "note": "pieces scattered at random, corners shuffled" },
+    { "name": "big5", "generator": "5 1 100 10 0.85", "note": "a tight grid with narrow gaps" },
+    { "name": "big6", "generator": "6 4 100 3 25", "note": "scattered triangles" },
+    { "name": "big7", "generator": "7 5 100 10 0.85", "note": "a tight grid with the mouse and the cheese far apart" }
+  ]
+}
