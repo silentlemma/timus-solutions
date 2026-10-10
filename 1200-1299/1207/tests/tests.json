@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1207_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the corners of a square" },
+    { "name": "02", "note": "two points share the lowest height" },
+    { "name": "03", "note": "coordinates at the ends of the range" },
+    { "name": "big1", "generator": "1 10000 1", "note": "10000 points on a curve mod a prime" },
+    { "name": "big2", "generator": "2 10000 2", "note": "the same turned a quarter and mirrored" },
+    { "name": "small1", "generator": "3 8 3", "note": "random small points" },
+    { "name": "small2", "generator": "4 12 3", "note": "random small points" }
+  ]
+}
