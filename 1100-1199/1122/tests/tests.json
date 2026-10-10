@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1122_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diagonal pattern that cannot clear the board" },
+    { "name": "02", "note": "already all black: no moves" },
+    { "name": "03", "note": "the classic cross pattern, one move" },
+    { "name": "04", "note": "an empty pattern and an odd board: impossible" },
+    { "name": "05", "note": "a pattern of the centre only on a chessboard: eight moves" },
+    { "name": "06", "note": "a corner-only pattern cannot reach the last row and column" },
+    { "name": "big1", "generator": "11 1 random", "note": "a random pattern, a solvable board" },
+    { "name": "big2", "generator": "12 1 010111010", "note": "the cross pattern, a solvable board" },
+    { "name": "big3", "generator": "13 0 random", "note": "a random pattern and a random board" },
+    { "name": "big4", "generator": "14 1 111111111", "note": "the full 3 by 3 pattern" },
+    { "name": "big5", "generator": "15 1 101010101", "note": "corners and centre" }
+  ]
+}
