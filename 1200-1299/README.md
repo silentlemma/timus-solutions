@@ -10,3 +10,4 @@
 | 1203 | [The most talks one person can attend](1203/) | greedy | C++, Go, Python, Java, Rust |
 | 1204 | [Idempotents modulo a product of two primes](1204/) | number_theory | C++, Go, Python, Java, Rust |
 | 1205 | [The fastest way across town on foot and by subway](1205/) | graphs | C++, Go, Python, Java, Rust |
+| 1206 | [Pairs of numbers whose digit sums add up](1206/) | combinatorics | C++, Go, Python, Java, Rust |

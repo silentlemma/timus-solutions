@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1206_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two-digit numbers" },
+    { "name": "02", "note": "three-digit numbers, checked by brute force" },
+    { "name": "03", "note": "ten digits, still within 64 bits" },
+    { "name": "04", "note": "near-maximum digit length" },
+    { "name": "05", "note": "the largest K" },
+    { "name": "06", "note": "the first K beyond 64 bits" },
+    { "name": "07", "note": "last answer that fits in a signed 32-bit integer" },
+    { "name": "08", "note": "first answer that exceeds unsigned 32-bit arithmetic" },
+    { "name": "09", "note": "just below signed 64-bit overflow" },
+    { "name": "10", "note": "largest result within signed 128-bit arithmetic" },
+    { "name": "11", "note": "overflow even with unsigned 128-bit arithmetic" },
+    { "name": "12", "generator": "random 1206 13 21", "note": "seeded random intermediate length, checking exact digits beyond floating-point precision" },
+    { "name": "13", "generator": "random 1207 24 48", "note": "seeded random upper-range length, checking a long decimal result away from the endpoint" }
+  ]
+}
