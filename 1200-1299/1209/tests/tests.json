@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1209_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a few early positions" },
+    { "name": "02", "note": "the first positions, the last one and around the last 1 in range" },
+    { "name": "big1", "generator": "1 65535 1", "note": "the most positions, anywhere" },
+    { "name": "big2", "generator": "2 65535 2", "note": "positions next to the ones" },
+    { "name": "big3", "generator": "3 65535 3", "note": "every position from 1 to 65535" }
+  ]
+}
