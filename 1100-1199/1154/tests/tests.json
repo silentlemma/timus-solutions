@@ -1,0 +1,17 @@
+{
+  "judging": "lines",
+  "reference": "1154_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one Air mage against three Water mages" },
+    { "name": "02", "example": true, "note": "a Fire mage more on the dark side: no win" },
+    { "name": "03", "note": "the best moment at midnight" },
+    { "name": "04", "note": "the same army on both sides" },
+    { "name": "05", "note": "the best moment between two moments of other elements" },
+    { "name": "06", "note": "a strong moment one second before midnight" },
+    { "name": "big1", "generator": "1 1000 600 0", "note": "a large light army, random moments" },
+    { "name": "big2", "generator": "2 1000 999 1", "note": "moments at the ends of the day" },
+    { "name": "big3", "generator": "3 1000 1000 2", "note": "the same mages on both sides" },
+    { "name": "big4", "generator": "4 900 700 3", "note": "round times and powers" },
+    { "name": "big5", "generator": "5 1000 1 0", "note": "a thousand mages against one" }
+  ]
+}
