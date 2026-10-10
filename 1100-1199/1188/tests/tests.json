@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1188_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the tome already fits" },
+    { "name": "02", "example": true, "note": "a peg moves and three inches are cut" },
+    { "name": "03", "note": "a full-width tome, the shelf above must go" },
+    { "name": "04", "note": "a short shelf just above can slide aside" },
+    { "name": "05", "note": "the smallest niche" },
+    { "name": "06", "note": "the tome must sit off-centre on its shelf" },
+    { "name": "big1", "generator": "1 1000 1000 100 0", "note": "a hundred shelves, a small tome" },
+    { "name": "big2", "generator": "2 1000 1000 100 1", "note": "a wide tome over many shelves" },
+    { "name": "big3", "generator": "3 1000 1000 100 2", "note": "a tall tome" },
+    { "name": "big4", "generator": "4 1000 120 100 2", "note": "shelves packed closely" },
+    { "name": "big5", "generator": "5 30 25 20 1", "note": "a narrow niche with a wide tome" },
+    { "name": "big6", "generator": "6 12 15 10 0", "note": "a small random bookcase" }
+  ]
+}
