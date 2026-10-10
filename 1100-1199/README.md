@@ -49,3 +49,4 @@
 | 1142 | [Counting the orderings with ties of N objects](1142/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1143 | [The shortest path through all vertices of a convex polygon](1143/) | dp | C++, Go, Python, Java, Rust |
 | 1144 | [Sharing boxes of gold among generals as evenly as possible](1144/) | greedy | C++, Go, Python, Java, Rust |
+| 1145 | [The longest path between two cells of a tree-shaped maze](1145/) | bfs | C++, Go, Python, Java, Rust |
