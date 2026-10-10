@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1205_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "walk to a far station, ride three links, walk to B" },
+    { "name": "02", "note": "equal speeds, so walking straight is best" },
+    { "name": "03", "note": "no links at all" },
+    { "name": "04", "note": "a slightly faster subway still pays off" },
+    { "name": "05", "note": "the slowest walk and the fastest train" },
+    { "name": "big1", "generator": "1 200 400 10000 1", "note": "the largest city with random speeds" },
+    { "name": "big2", "generator": "2 200 400 1000 2", "note": "a subway barely faster than walking" },
+    { "name": "big3", "generator": "3 200 400 1000 3", "note": "equal speeds" },
+    { "name": "big4", "generator": "4 196 400 14 4", "note": "stations on a small grid with random links" },
+    { "name": "06", "note": "two walking transfers connect three separate subway lines" },
+    { "name": "07", "note": "identical start and destination require zero time and no stations" },
+    { "name": "08", "note": "a remote fast subway cannot improve a short fractional-coordinate walk" },
+    { "name": "09", "note": "the optimal route visits all 200 stations in descending index order" }
+  ]
+}
