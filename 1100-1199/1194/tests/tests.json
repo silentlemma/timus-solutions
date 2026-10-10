@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1194_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three single hobbits, split in two steps" },
+    { "name": "big1", "generator": "1 20000 10000 2", "note": "only couples, split in halves" },
+    { "name": "big2", "generator": "2 20000 0 5", "note": "only single hobbits" },
+    { "name": "big3", "generator": "3 20000 5000 20", "note": "wide splits with some couples" },
+    { "name": "big4", "generator": "4 3 1 2", "note": "one couple and one single hobbit" },
+    { "name": "big5", "generator": "5 1000 300 3", "note": "a medium party" }
+  ]
+}
