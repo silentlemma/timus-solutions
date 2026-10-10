@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1194_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three single hobbits, split in two steps" },
+    { "name": "big1", "generator": "1 20000 10000 2", "note": "only couples separated by binary splits" },
+    { "name": "big2", "generator": "2 20000 0 5", "note": "only single hobbits" },
+    { "name": "big3", "generator": "3 20000 5000 20", "note": "wide splits with some couples" },
+    { "name": "big4", "generator": "4 3 1 2", "note": "one couple and one single hobbit" },
+    { "name": "big5", "generator": "5 1000 300 3", "note": "a medium party" },
+    { "name": "02", "note": "smallest party consisting of two married couples" },
+    { "name": "03", "note": "odd party with the maximum number of couples and one single" },
+    { "name": "04", "note": "one size-two group splits into singles while another stays married" },
+    { "name": "05", "note": "nonsequential group IDs with interleaved branch descriptions" },
+    { "name": "06", "generator": "chain 20000 1", "note": "maximum party in a nearly deepest binary chain with one couple" },
+    { "name": "07", "generator": "1194 19999 9999 7", "note": "seeded random odd party near the size limit with all but one hobbit married" },
+    { "name": "08", "generator": "star 20000 0", "note": "maximum fanout sends twenty thousand singles home in one split" }
+  ]
+}
