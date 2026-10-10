@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1180_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight stones, taking two leaves six" },
+    { "name": "02", "note": "one stone" },
+    { "name": "03", "note": "two stones, taken at once" },
+    { "name": "04", "note": "three stones, the second player wins" },
+    { "name": "05", "note": "four stones" },
+    { "name": "06", "note": "a multiple of three" },
+    { "name": "07", "note": "one more than a multiple of three" },
+    { "name": "08", "note": "250 nines, a multiple of three" },
+    { "name": "09", "note": "10 to the power 250, the largest pile" },
+    { "name": "10", "note": "250 digits, two more than a multiple of three" }
+  ]
+}
