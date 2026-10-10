@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1163_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the starting rows facing each other" },
+    { "name": "02", "note": "two columns at opposite edges" },
+    { "name": "03", "note": "the two diagonals crossing in the middle" },
+    { "name": "04", "note": "tight clusters in opposite corners, draughts 0.9 apart" },
+    { "name": "05", "note": "red square in the centre surrounded by white" },
+    { "name": "white1", "generator": "10 0", "note": "random position where white wins" },
+    { "name": "white2", "generator": "26 0", "note": "another random position where white wins" },
+    { "name": "white3", "generator": "27 1", "note": "cell centres, white wins" },
+    { "name": "white4", "generator": "21 2", "note": "one cluster per colour, white wins" },
+    { "name": "white5", "generator": "21 3", "note": "draughts along the edges, white wins" },
+    { "name": "red1", "generator": "1 0", "note": "random position" },
+    { "name": "red2", "generator": "2 1", "note": "random cell centres" },
+    { "name": "red3", "generator": "3 2", "note": "one cluster per colour" },
+    { "name": "red4", "generator": "4 3", "note": "draughts along the edges" }
+  ]
+}
