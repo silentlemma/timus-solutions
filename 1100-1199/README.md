@@ -80,3 +80,4 @@
 | 1173 | [A closed walk through all points with no crossing segments](1173/) | geometry | C++, Go, Python, Java, Rust |
 | 1174 | [The position of a permutation in the adjacent-swap order](1174/) | math | C++, Go, Python, Java, Rust |
 | 1175 | [Where a two-term recurrence starts repeating, and its period](1175/) | math | C++, Go, Python, Java, Rust |
+| 1176 | [Laying every missing one-way channel in one round trip](1176/) | graphs | C++, Go, Python, Java, Rust |

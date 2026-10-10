@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1176_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two loops through the base" },
+    { "name": "02", "note": "a single planet, nothing to lay" },
+    { "name": "03", "note": "two planets with no channels at all" },
+    { "name": "04", "note": "every channel already exists" },
+    { "name": "05", "note": "one loop of three missing channels" },
+    { "name": "06", "note": "the base on a side loop of the circuit" },
+    { "name": "big1", "generator": "1 1000 32000 30", "note": "a thousand planets, 32000 missing channels" },
+    { "name": "big2", "generator": "2 1000 32000 2", "note": "missing channels in opposite pairs only" },
+    { "name": "big3", "generator": "3 200 32000 200", "note": "long loops on 200 planets" },
+    { "name": "big4", "generator": "4 1000 50 5", "note": "a few short loops among a thousand planets" },
+    { "name": "big5", "generator": "5 180 32000 4", "note": "nearly every channel missing on 180 planets" }
+  ]
+}
