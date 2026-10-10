@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1155_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six duons in four chambers" },
+    { "name": "02", "example": true, "note": "the two sides of the cube differ: impossible" },
+    { "name": "03", "note": "no duons at all: no operations" },
+    { "name": "04", "note": "a hundred duons in each of two opposite corners" },
+    { "name": "05", "note": "a hundred duons everywhere" },
+    { "name": "06", "note": "all duons on one side: impossible" },
+    { "name": "07", "note": "one duon in each of two opposite corners" },
+    { "name": "08", "note": "the sides differ by one" },
+    { "name": "09", "note": "the other diagonal" },
+    { "name": "big1", "generator": "1 0", "note": "random counts with even sides" },
+    { "name": "big2", "generator": "2 0", "note": "random counts with even sides" },
+    { "name": "big3", "generator": "3 1", "note": "random counts, sides not evened" },
+    { "name": "big4", "generator": "4 2", "note": "opposite corners only" }
+  ]
+}
