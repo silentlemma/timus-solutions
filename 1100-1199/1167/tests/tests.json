@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1167_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "six horses in three stables" },
+    { "name": "02", "note": "one horse, one stable" },
+    { "name": "03", "note": "everything in one stable" },
+    { "name": "04", "note": "one horse per stable" },
+    { "name": "05", "note": "two runs of one colour split between them" },
+    { "name": "06", "note": "only white horses" },
+    { "name": "07", "note": "alternating colours in two stables" },
+    { "name": "big1", "generator": "1 500 250 0", "note": "random colours, half as many stables" },
+    { "name": "big2", "generator": "2 500 1 0", "note": "one stable for all" },
+    { "name": "big3", "generator": "3 500 500 2", "note": "a stable for every horse" },
+    { "name": "big4", "generator": "4 500 37 1", "note": "few black horses" },
+    { "name": "big5", "generator": "5 500 120 2", "note": "alternating colours" },
+    { "name": "big6", "generator": "6 500 8 3", "note": "runs of one colour, fewer stables than runs" },
+    { "name": "big7", "generator": "7 500 3 0", "note": "three stables" }
+  ]
+}
