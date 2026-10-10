@@ -24,3 +24,4 @@
 | 1117 | [Walking an in-order numbered binary tree from one number to another](1117/) | math | C++, Go, Python, Java, Rust |
 | 1118 | [The number with the smallest sum of proper divisors per unit](1118/) | number_theory | C++, Go, Python, Java, Rust |
 | 1119 | [The shortest walk across a grid with some diagonal shortcuts](1119/) | dp | C++, Go, Python, Java, Rust |
+| 1120 | [The longest run of consecutive positive integers with a given sum](1120/) | math | C++, Go, Python, Java, Rust |
