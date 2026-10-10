@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1126_two_pointers.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a window of three over ten readings" },
+    { "name": "02", "note": "exactly one window" },
+    { "name": "03", "note": "rising readings: the newest is the maximum" },
+    { "name": "04", "note": "falling readings: the oldest is the maximum" },
+    { "name": "05", "note": "a single peak leaves the window" },
+    { "name": "06", "note": "equal readings" },
+    { "name": "big1", "generator": "1 14000 25000 0", "note": "the widest window over the most readings" },
+    { "name": "big2", "generator": "2 2 25000 2", "note": "the narrowest window, falling readings" },
+    { "name": "big3", "generator": "3 300 25000 3", "note": "calm stretches and short storms" },
+    { "name": "big4", "generator": "4 14000 14000 1", "note": "the widest window over exactly as many readings: one window" }
+  ]
+}
