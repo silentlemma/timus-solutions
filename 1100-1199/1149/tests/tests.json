@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1149_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample expression with both alternating signs" },
+    { "name": "02", "note": "minimum size with a single sine" },
+    { "name": "03", "note": "two sine blocks with an inner minus sign" },
+    { "name": "04", "note": "even nesting depth ending with an inner minus sign" },
+    { "name": "05", "note": "odd nesting depth ending with an inner plus sign" },
+    { "name": "06", "note": "transition from single-digit to two-digit numbers" },
+    { "name": "07", "note": "first three-digit sine argument and outer addend" },
+    { "name": "big1", "generator": "199", "note": "one below the maximum nesting depth" },
+    { "name": "big2", "generator": "200", "note": "maximum size and longest expression" },
+    { "name": "08", "note": "largest expression containing only single-digit numbers" },
+    { "name": "09", "note": "just below the first three-digit sine argument and addend" },
+    { "name": "10", "note": "three-digit arguments with a minus after 99 and a plus after 100" },
+    { "name": "11", "generator": "random 1149", "note": "interior size with mixed two-digit and three-digit arguments" }
+  ]
+}
