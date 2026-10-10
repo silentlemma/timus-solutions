@@ -18,3 +18,4 @@
 | 1111 | [Sorting squares by their distance to a point](1111/) | geometry | C++, Go, Python, Java, Rust |
 | 1112 | [Keeping the most segments with no common inner point](1112/) | greedy | C++, Go, Python, Java, Rust |
 | 1113 | [The least fuel for a one-way trip with fuel depots](1113/) | math | C++, Go, Python, Java, Rust |
+| 1114 | [Placing up to A and B identical balls of two colours into N boxes](1114/) | combinatorics | C++, Go, Python, Java, Rust |

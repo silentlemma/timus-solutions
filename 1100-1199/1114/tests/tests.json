@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1114_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two boxes, one ball of each colour" },
+    { "name": "02", "note": "no balls at all: one way" },
+    { "name": "03", "note": "the largest case: the count passes 2^63" },
+    { "name": "04", "note": "twenty boxes and no balls" },
+    { "name": "05", "note": "one box: 16 choices per colour" },
+    { "name": "06", "note": "only red balls" },
+    { "name": "07", "note": "a small mixed case" },
+    { "name": "08", "note": "nineteen boxes, all balls: just under 2^63" },
+    { "name": "09", "note": "twenty boxes, one red ball fewer" },
+    { "name": "10", "note": "ten boxes" },
+    { "name": "11", "note": "many red balls, one blue" },
+    { "name": "12", "note": "seventeen boxes, uneven counts" }
+  ]
+}
