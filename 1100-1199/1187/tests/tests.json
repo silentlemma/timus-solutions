@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1187_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cross tables of a phone survey" },
+    { "name": "big1", "generator": "1 5 100 3 0", "note": "five questions, a hundred people" },
+    { "name": "big2", "generator": "2 100 100 100 0", "note": "a hundred questions and a hundred tables" },
+    { "name": "big3", "generator": "3 10 1000 20 1", "note": "most people give the same answers, many empty rows" },
+    { "name": "big4", "generator": "4 2 5000 2 2", "note": "two yes-or-no questions, five thousand people" },
+    { "name": "big5", "generator": "5 3 7 10 0", "note": "seven people, where rounding matters most" },
+    { "name": "big6", "generator": "6 4 3 6 1", "note": "three people and many zero totals" }
+  ]
+}
