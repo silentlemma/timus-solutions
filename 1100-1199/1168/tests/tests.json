@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1168_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three stations around a small map" },
+    { "name": "02", "note": "a station with radius 0 reaches nothing" },
+    { "name": "03", "note": "the receiver has to rise to the station's height" },
+    { "name": "04", "note": "a whole radius, the boundary counts" },
+    { "name": "05", "note": "a radius just below a whole number" },
+    { "name": "06", "note": "the ground is already too high" },
+    { "name": "big1", "generator": "1 50 50 1000 32000 100000 3", "note": "a thousand stations, large random radii over high ground" },
+    { "name": "big2", "generator": "2 50 50 1000 10 100000 3", "note": "a thousand stations reaching far over low ground" },
+    { "name": "big3", "generator": "3 50 50 30 20 75 1", "note": "radii next to whole numbers" },
+    { "name": "big4", "generator": "4 50 50 5 10 60 3", "note": "a few stations with medium reach" },
+    { "name": "big5", "generator": "5 50 50 2499 5 200 3", "note": "a single free square under 2499 stations" },
+    { "name": "big7", "generator": "22 20 20 4 3 30 2", "note": "whole radii, boundaries hit exactly" },
+    { "name": "big6", "generator": "6 40 30 200 3 75 1", "note": "a rectangle with many stations" },
+    { "name": "07", "note": "an occupied one-square map leaves no receiver placement even with maximum broadcast reach" },
+    { "name": "08", "note": "two stations at different heights share exactly one integer receiver altitude" },
+    { "name": "09", "note": "horizontal coverage overlaps but the stations permit disjoint vertical intervals" },
+    { "name": "10", "note": "maximum grid, station count, altitude and radius give 100000 heights per free square" },
+    { "name": "11", "generator": "1168053 4 3 4 6 7 1", "note": "seeded small map where different stations set lower and upper bounds above ground" }
+  ]
+}
