@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1135_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: seven turns in three seconds" },
+    { "name": "02", "note": "one recruit" },
+    { "name": "03", "note": "one pair facing each other" },
+    { "name": "04", "note": "two recruits back to back" },
+    { "name": "05", "note": "the row spread over short lines, one of them empty" },
+    { "name": "06", "note": "everybody facing right" },
+    { "name": "big1", "generator": "1 30000 0", "note": "the most recruits, random" },
+    { "name": "big2", "generator": "2 30000 1", "note": "all facing right before all facing left: the most turns" },
+    { "name": "big3", "generator": "3 30000 2", "note": "already stable" },
+    { "name": "big4", "generator": "4 29999 3", "note": "alternating, odd length" },
+    { "name": "big5", "generator": "5 30000 4", "note": "random lines of random length" }
+  ]
+}
