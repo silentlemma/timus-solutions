@@ -88,3 +88,4 @@
 | 1181 | [Cutting a three-colored polygon into rainbow triangles](1181/) | constructive | C++, Go, Python, Java, Rust |
 | 1182 | [Two teams of mutual acquaintances, as equal as possible](1182/) | graphs | C++, Go, Python, Java, Rust |
 | 1183 | [The shortest regular bracket sequence containing a given one](1183/) | dp | C++, Go, Python, Java, Rust |
+| 1184 | [The longest equal pieces that K cables can be cut into](1184/) | binary_search | C++, Go, Python, Java, Rust |

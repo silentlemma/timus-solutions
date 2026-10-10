@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1184_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cables, eleven pieces of two metres" },
+    { "name": "02", "note": "one cable, one piece" },
+    { "name": "03", "note": "more pieces than centimetres, the answer is 0.00" },
+    { "name": "04", "note": "one very long cable and one short one" },
+    { "name": "05", "note": "one extra centimetre cannot increase the optimal one-metre length" },
+    { "name": "big1", "generator": "1 10000 10000 10000000", "note": "ten thousand cables up to 100 km" },
+    { "name": "big2", "generator": "2 10000 1 10000000", "note": "a single piece, the longest cable decides" },
+    { "name": "big3", "generator": "3 10000 10000 150", "note": "short cables, many pieces" },
+    { "name": "big4", "generator": "4 1 10000 10000000", "note": "one cable cut into ten thousand pieces" },
+    { "name": "06", "note": "the minimum cable yields exactly one hundred one-centimetre pieces" },
+    { "name": "07", "note": "exact cuts at 1.13 metres require preserving decimal cents when parsing" },
+    { "name": "08", "generator": "equal 10000 10000 10000000", "note": "every cable is 100 km, attaining the maximum answer and total stock length" },
+    { "name": "09", "generator": "1184 17 997 803", "note": "a small seeded stock needs many cuts per cable and leaves unrelated remainders" }
+  ]
+}
