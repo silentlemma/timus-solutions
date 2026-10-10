@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1132_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five queries with and without roots" },
+    { "name": "02", "note": "modulus 2: the only root is 1" },
+    { "name": "03", "note": "modulus 3" },
+    { "name": "04", "note": "a larger than the modulus" },
+    { "name": "05", "note": "moduli with n - 1 divisible by a high power of two" },
+    { "name": "06", "note": "the largest prime modulus" },
+    { "name": "big1", "generator": "1 100000 0", "note": "the most queries, random primes" },
+    { "name": "big2", "generator": "2 100000 1", "note": "primes with n - 1 divisible by 2^8, mostly residues" },
+    { "name": "big3", "generator": "3 100000 2", "note": "small primes with large a" },
+    { "name": "big4", "generator": "4 100000 3", "note": "the largest prime, residues only" }
+  ]
+}
