@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1112_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three segments, the middle one removed" },
+    { "name": "02", "note": "a single segment over the whole range" },
+    { "name": "03", "note": "a chain of segments touching end to end: all stay" },
+    { "name": "04", "note": "a long segment repeated three times and two short ones inside" },
+    { "name": "05", "note": "nested segments: only one can stay" },
+    { "name": "06", "note": "the earliest start is not the best choice" },
+    { "name": "07", "note": "a repeated segment and its neighbour" },
+    { "name": "big1", "generator": "1 99 999 0", "note": "99 random segments" },
+    { "name": "big2", "generator": "2 99 999 1", "note": "99 short segments, many touching" },
+    { "name": "big3", "generator": "3 99 20 2", "note": "a few segments repeated many times" },
+    { "name": "big4", "generator": "4 99 999 3", "note": "99 nested segments" }
+  ]
+}
