@@ -100,3 +100,4 @@
 | 1193 | [How much earlier must an oral exam start for everyone to finish in time?](1193/) | greedy | C++, Go, Python, Java, Rust |
 | 1194 | [How many handshakes when a party splits up on the way home](1194/) | math | C++, Go, Python, Java, Rust |
 | 1195 | [Who wins an unfinished game of noughts and crosses](1195/) | games | C++, Go, Python, Java, Rust |
+| 1196 | [How many dates on a student's list the teacher also has](1196/) | binary_search | C++, Go, Python, Java, Rust |
