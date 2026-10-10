@@ -41,3 +41,4 @@
 | 1134 | [Checking whether numbers read from cards showing k − 1 and k are possible](1134/) | greedy | C++, Go, Python, Java, Rust |
 | 1135 | [Counting the turns of recruits facing each other until the row is stable](1135/) | math | C++, Go, Python, Java, Rust |
 | 1136 | [Turning the left-right-root order of a search tree into the right-left-root order](1136/) | trees | C++, Go, Python, Java, Rust |
+| 1137 | [Joining cyclic bus routes into one route over every segment](1137/) | graphs | C++, Go, Python, Java, Rust |
