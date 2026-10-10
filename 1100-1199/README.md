@@ -76,3 +76,4 @@
 | 1169 | [A connected network with exactly K critical pairs of computers](1169/) | constructive | C++, Go, Python, Java, Rust |
 | 1170 | [The fastest straight walk of length L through zones of different speed](1170/) | geometry | C++, Go, Python, Java, Rust |
 | 1171 | [The trip down a space station with the best food per day](1171/) | dp | C++, Go, Python, Java, Rust |
+| 1172 | [Counting round trips through three islands by ship only](1172/) | combinatorics | C++, Go, Python, Java, Rust |

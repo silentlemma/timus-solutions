@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1172_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cities on each island" },
+    { "name": "02", "note": "one city per island, a single triangle" },
+    { "name": "03", "note": "small tour count checked by enumerating every city order" },
+    { "name": "04", "note": "city permutations producing a six-digit answer" },
+    { "name": "05", "note": "last trip count within the signed 32-bit range" },
+    { "name": "06", "note": "multi-limb arithmetic with ten cities per island" },
+    { "name": "07", "note": "output split into seven base-10^9 limbs" },
+    { "name": "08", "note": "large factorial products for twenty-five-city islands" },
+    { "name": "09", "note": "one below the limit" },
+    { "name": "10", "note": "thirty cities per island, the largest answer" },
+    { "name": "11", "note": "six cities per island, first answer beyond 32 bits, checked by exhaustive search" },
+    { "name": "12", "note": "eight cities per island, last answer that fits a signed 64-bit integer" },
+    { "name": "13", "note": "nine cities per island, first answer that exceeds a signed 64-bit integer" },
+    { "name": "14", "note": "final input before signed 128-bit overflow" },
+    { "name": "15", "note": "signed 128-bit overflow in the trip count" },
+    { "name": "16", "note": "twenty-one cities per island, first island factorial that exceeds 64 bits" },
+    { "name": "17", "generator": "random 9 11 24", "note": "seeded middle-size case with a leading zero inside a nine-digit output limb" },
+    { "name": "18", "generator": "random 5 22 28", "note": "seeded large case whose answer first reaches one hundred decimal digits" }
+  ]
+}
