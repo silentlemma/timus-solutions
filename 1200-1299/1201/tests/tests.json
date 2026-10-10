@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1201_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a two-digit date in the middle" },
+    { "name": "02", "example": true, "note": "a one-digit date in the first column" },
+    { "name": "03", "note": "the first day of the range, six columns" },
+    { "name": "04", "note": "the last day of the range, in the last column" },
+    { "name": "05", "note": "29 February of a leap century year" },
+    { "name": "06", "note": "February of a century year that is not leap" },
+    { "name": "07", "note": "a February of exactly four columns" },
+    { "name": "08", "note": "the 31st alone in a sixth column" },
+    { "name": "09", "note": "a one-digit date in a later column" },
+    { "name": "rand1", "generator": "1", "note": "a random date" },
+    { "name": "rand2", "generator": "2", "note": "a random date" },
+    { "name": "rand3", "generator": "3", "note": "a random date" },
+    { "name": "rand4", "generator": "4", "note": "a random date" }
+  ]
+}
