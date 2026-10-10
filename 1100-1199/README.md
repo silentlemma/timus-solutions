@@ -78,3 +78,4 @@
 | 1171 | [The trip down a space station with the best food per day](1171/) | dp | C++, Go, Python, Java, Rust |
 | 1172 | [Counting round trips through three islands by ship only](1172/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1173 | [A closed walk through all points with no crossing segments](1173/) | geometry | C++, Go, Python, Java, Rust |
+| 1174 | [The position of a permutation in the adjacent-swap order](1174/) | math | C++, Go, Python, Java, Rust |

@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1174_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a permutation of four in the middle of the list" },
+    { "name": "02", "note": "a single element" },
+    { "name": "03", "note": "three elements" },
+    { "name": "04", "note": "the last of the 120 permutations of five" },
+    { "name": "05", "note": "the second permutation of four" },
+    { "name": "06", "note": "six elements reversed" },
+    { "name": "big1", "generator": "1 100 0", "note": "a random permutation of a hundred" },
+    { "name": "big2", "generator": "2 100 1", "note": "the identity of a hundred, the first one" },
+    { "name": "big3", "generator": "3 100 2", "note": "a hundred reversed" },
+    { "name": "big4", "generator": "4 100 3", "note": "the identity with one adjacent pair swapped" },
+    { "name": "big5", "generator": "5 57 0", "note": "a random permutation of 57" }
+  ]
+}
