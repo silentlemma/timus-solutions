@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1118_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "no prime in range: a square of a prime wins" },
+    { "name": "02", "note": "the number 1 alone" },
+    { "name": "03", "note": "the whole range: 1 wins" },
+    { "name": "04", "note": "from 2 up: the largest prime below a million" },
+    { "name": "05", "note": "a single composite number" },
+    { "name": "06", "note": "the top of the range after the last prime" },
+    { "name": "07", "note": "the longest prime gap below a million, 113 composites" },
+    { "name": "08", "note": "the first gap of 34" },
+    { "name": "09", "note": "8 to 10: no prime" },
+    { "name": "10", "note": "14 to 16: no prime" },
+    { "name": "11", "note": "a single prime" },
+    { "name": "12", "note": "a perfect number alone" }
+  ]
+}
