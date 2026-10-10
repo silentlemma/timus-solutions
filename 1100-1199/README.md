@@ -44,3 +44,4 @@
 | 1137 | [Joining cyclic bus routes into one route over every segment](1137/) | graphs | C++, Go, Python, Java, Rust |
 | 1138 | [The longest run of jobs where every raise is a whole number of percent](1138/) | dp | C++, Go, Python, Java, Rust |
 | 1139 | [Counting the blocks a diagonal flight passes over in a grid of streets](1139/) | number_theory | C++, Go, Python, Java, Rust |
+| 1140 | [The shortest way back to the centre of a hexagonal grid after a walk](1140/) | geometry | C++, Go, Python, Java, Rust |

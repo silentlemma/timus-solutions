@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1140_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four segments, back in two" },
+    { "name": "02", "note": "one segment along X" },
+    { "name": "03", "note": "back at the centre: no segments" },
+    { "name": "04", "note": "X and Z in opposite directions: Y does not help" },
+    { "name": "05", "note": "the farthest cell along Y" },
+    { "name": "06", "note": "X and Z the same way: part of the way back along Y" },
+    { "name": "07", "note": "Z one way and X the other" },
+    { "name": "big1", "generator": "1 32000 0", "note": "the most segments, random" },
+    { "name": "big2", "generator": "2 32000 1", "note": "a long walk that ends at the centre" },
+    { "name": "big3", "generator": "3 32000 2", "note": "a long walk that ends 100 along Y" },
+    { "name": "big4", "generator": "4 32000 3", "note": "a long walk that ends at (50, -50)" }
+  ]
+}
