@@ -5,3 +5,4 @@
 | # | Problem | Tags | Languages |
 |---|---------|------|-----------|
 | 1200 | [How many horns and hooves to make](1200/) | math | C++, Go, Python, Java, Rust |
+| 1201 | [A month calendar with one date in brackets](1201/) | implementation | C++, Go, Python, Java, Rust |
