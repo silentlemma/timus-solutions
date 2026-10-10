@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1185_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a castle with a notch, which the wall skips" },
+    { "name": "02", "note": "a small triangle and a wall one foot away" },
+    { "name": "03", "note": "the largest square with the largest distance" },
+    { "name": "04", "note": "a square with a vertex in the middle of a side" },
+    { "name": "big1", "generator": "1 1000 1000 0", "note": "a thousand-vertex star-shaped castle" },
+    { "name": "big2", "generator": "2 1000 1 1", "note": "a thousand vertices on a circle" },
+    { "name": "big3", "generator": "3 1000 500 2", "note": "vertices along the sides of a rectangle" },
+    { "name": "big4", "generator": "4 3 7 0", "note": "a random triangle" }
+  ]
+}
