@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1139_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four avenues and three streets" },
+    { "name": "02", "example": true, "note": "a square grid: the diagonal passes through a corner" },
+    { "name": "03", "note": "a single block" },
+    { "name": "04", "note": "one column of blocks, the longest" },
+    { "name": "05", "note": "one row of blocks, the longest" },
+    { "name": "06", "note": "the largest square grid" },
+    { "name": "07", "note": "the largest grid with coprime sides: the most blocks" },
+    { "name": "08", "note": "sides with gcd 10000" },
+    { "name": "09", "note": "a small grid whose block sides share a factor of five" },
+    { "name": "10", "note": "a tall grid with 999 internal corner crossings" },
+    { "name": "11", "note": "two columns with an odd near-limit height, passing just beside the middle corner" },
+    { "name": "12", "note": "consecutive Fibonacci block sides require a long Euclidean gcd chain" },
+    { "name": "13", "generator": "1139 multiple", "note": "seeded random integer slope: every internal column boundary is a corner" },
+    { "name": "14", "generator": "2026 near-square", "note": "seeded random large near-square with exactly one internal corner crossing" }
+  ]
+}
