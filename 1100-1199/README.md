@@ -101,3 +101,4 @@
 | 1194 | [How many handshakes when a party splits up on the way home](1194/) | math | C++, Go, Python, Java, Rust |
 | 1195 | [Who wins an unfinished game of noughts and crosses](1195/) | games | C++, Go, Python, Java, Rust |
 | 1196 | [How many dates on a student's list the teacher also has](1196/) | binary_search | C++, Go, Python, Java, Rust |
+| 1197 | [How many squares a lone knight attacks](1197/) | implementation | C++, Go, Python, Java, Rust |
