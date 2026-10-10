@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1170_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "across a faster square on the diagonal" },
+    { "name": "02", "note": "two long fast strips, the best is along a corner of one" },
+    { "name": "03", "note": "a slow square that is easy to avoid" },
+    { "name": "04", "note": "a slow square shielding two fast ones" },
+    { "name": "05", "note": "a zone as slow as the desert" },
+    { "name": "06", "note": "two equally good fast zones" },
+    { "name": "big1", "generator": "1 500 900 0", "note": "500 zones with random delays" },
+    { "name": "big2", "generator": "2 500 900 2", "note": "500 zones, mostly faster than the desert" },
+    { "name": "big3", "generator": "3 300 100 1", "note": "only slower zones, the desert wins" },
+    { "name": "big4", "generator": "4 20 1000 2", "note": "a few large zones" },
+    { "name": "big5", "generator": "5 500 60 2", "note": "many small zones close to the origin" },
+    { "name": "big6", "generator": "6 1 20000 2", "note": "one zone as large as allowed" }
+  ]
+}
