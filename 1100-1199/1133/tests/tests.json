@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1133_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: F(3) = 5, F(-1) = 4, find F(5)" },
+    { "name": "02", "note": "the zero sequence across the whole index range" },
+    { "name": "03", "note": "two neighbouring terms given" },
+    { "name": "04", "note": "far back from 1, 1: the most negative answer reachable from Fibonacci numbers" },
+    { "name": "05", "note": "n equals one of the given indices" },
+    { "name": "06", "note": "terms of size exactly 2e9" },
+    { "name": "07", "note": "the larger index given first, n between them" },
+    { "name": "08", "note": "indices near the lower end" },
+    { "name": "big1", "generator": "1 0", "note": "random small start, random indices in the window" },
+    { "name": "big2", "generator": "2 1", "note": "the Fibonacci numbers: the widest nonzero window" },
+    { "name": "big3", "generator": "3 2", "note": "the zero sequence with far indices" },
+    { "name": "big4", "generator": "4 3", "note": "n outside the two given indices" }
+  ]
+}
