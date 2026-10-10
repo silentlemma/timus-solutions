@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1146_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the 4 by 4 example" },
+    { "name": "02", "note": "one negative number" },
+    { "name": "03", "note": "one positive number" },
+    { "name": "04", "note": "all negative: the largest single number" },
+    { "name": "05", "note": "N on the same line as the numbers" },
+    { "name": "06", "note": "four corners cut off by a cross of large negatives" },
+    { "name": "big1", "generator": "1 100 0", "note": "the largest array, random values" },
+    { "name": "big2", "generator": "2 100 1", "note": "all negative" },
+    { "name": "big3", "generator": "3 100 2", "note": "all positive: the whole array" },
+    { "name": "big4", "generator": "4 100 3", "note": "mostly negative with rare large values, ragged lines" }
+  ]
+}
