@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1123_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the mirror is too small: the middle grows" },
+    { "name": "02", "note": "zero" },
+    { "name": "03", "note": "one digit" },
+    { "name": "04", "note": "10 becomes 11" },
+    { "name": "05", "note": "already a palindrome of nines" },
+    { "name": "06", "note": "1999 becomes 2002: the carry crosses the middle" },
+    { "name": "07", "note": "an odd palindrome" },
+    { "name": "08", "note": "another odd palindrome" },
+    { "name": "09", "note": "an even length, the left half grows" },
+    { "name": "10", "note": "1099 becomes 1111" },
+    { "name": "big1", "generator": "1 2001 0", "note": "2001 random digits" },
+    { "name": "big2", "generator": "2 2001 1", "note": "a carry through 117 nines" },
+    { "name": "big3", "generator": "3 2000 1", "note": "an even length with a long carry" },
+    { "name": "big4", "generator": "4 2001 2", "note": "2001 digits, already a palindrome" },
+    { "name": "big5", "generator": "5 1999 1", "note": "a carry through 311 nines" }
+  ]
+}
