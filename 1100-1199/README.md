@@ -92,3 +92,4 @@
 | 1185 | [The shortest wall that keeps a set distance from a polygonal castle](1185/) | geometry | C++, Go, Python, Java, Rust |
 | 1186 | [Do two chemical formulas contain the same atoms?](1186/) | strings | C++, Go, Python, Java, Rust |
 | 1187 | [Survey cross tables with percents that add up to 100](1187/) | strings | C++, Go, Python, Java, Rust |
+| 1188 | [Rearranging bookcase shelves to fit one big tome](1188/) | geometry | C++, Go, Python, Java, Rust |
