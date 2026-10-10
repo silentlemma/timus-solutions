@@ -19,7 +19,7 @@ For every problem there is:
 | Range | Problems |
 |-------|----------|
 | [1000–1099](1000-1099/) | 100 problems |
-| [1100–1199](1100-1199/) | 99 problems |
+| [1100–1199](1100-1199/) | 100 problems |
 <!-- index:end -->
 
 Each folder `1000-1099/1005/` holds the write-ups (`README.md`,

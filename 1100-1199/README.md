@@ -103,3 +103,4 @@
 | 1196 | [How many dates on a student's list the teacher also has](1196/) | binary_search | C++, Go, Python, Java, Rust |
 | 1197 | [How many squares a lone knight attacks](1197/) | implementation | C++, Go, Python, Java, Rust |
 | 1198 | [Which senators can pass a law on their own](1198/) | graphs | C++, Go, Python, Java, Rust |
+| 1199 | [The least exposed way for a mouse to reach the cheese](1199/) | geometry | C++, Go, Python, Java, Rust |
