@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1170_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "across a faster square on the diagonal" },
+    { "name": "02", "note": "two long fast strips, the best is along a corner of one" },
+    { "name": "03", "note": "a distant neutral square leaves every direction equally good" },
+    { "name": "04", "note": "a slow square shielding two fast ones" },
+    { "name": "05", "note": "a zone as slow as the desert" },
+    { "name": "06", "note": "two equally good fast zones" },
+    { "name": "big1", "generator": "1 500 900 0", "note": "maximum rectangle count with both faster and slower zones" },
+    { "name": "big2", "generator": "2 500 900 2", "note": "mostly faster zones on a wide grid at maximum rectangle count" },
+    { "name": "big3", "generator": "3 300 100 1", "note": "only slower zones, the desert wins" },
+    { "name": "big4", "generator": "4 20 1000 2", "note": "a few large zones" },
+    { "name": "big5", "generator": "5 500 60 2", "note": "many small zones close to the origin" },
+    { "name": "big6", "generator": "6 1 20000 2", "note": "a narrow fast rectangle far from the origin" },
+    { "name": "07", "note": "minimum desert delay; rounded tangency to a slow zone must not spoil the empty route" },
+    { "name": "08", "note": "unit fast zone with maximum delay contrast and the smallest integer reach past it" },
+    { "name": "09", "note": "nearly horizontal optimum in a unit-height zone at maximum reachable x" },
+    { "name": "10", "note": "nearly vertical optimum in a unit-width zone with reach just beyond its top" },
+    { "name": "11", "note": "separated fast and slow zones share all four corner rays in unreduced fractions" },
+    { "name": "12", "note": "distinct corner slopes differ by about one part in four hundred million" },
+    { "name": "13", "note": "seeded small layout mixes neutral and extreme-delay zones with several competing rays" },
+    { "name": "14", "note": "fast savings and slow penalties cancel exactly for every direction" },
+    { "name": "15", "note": "aligned fast squares at maximum desert delay require event sums beyond 32 bits" },
+    { "name": "16", "note": "seven small zones in a compact grid with one slower outlier" },
+    { "name": "17", "note": "large-coordinate rectangles split evenly between faster and slower terrain" }
+  ]
+}
