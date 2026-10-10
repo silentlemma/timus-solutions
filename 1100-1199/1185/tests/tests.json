@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1185_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a castle with a notch, which the wall skips" },
+    { "name": "02", "note": "a small triangle and a wall one foot away" },
+    { "name": "03", "note": "the largest square with the largest distance" },
+    { "name": "04", "note": "a square with a vertex in the middle of a side" },
+    { "name": "big1", "generator": "1 1000 1000 0", "note": "a thousand-vertex star-shaped castle" },
+    { "name": "big2", "generator": "2 1000 1 1", "note": "a thousand vertices sampled from a circle and rounded to integers" },
+    { "name": "big3", "generator": "3 1000 500 2", "note": "vertices along the sides of a rectangle" },
+    { "name": "big4", "generator": "4 3 7 0", "note": "a random triangle" },
+    { "name": "05", "note": "a triangle of area one half with almost collinear vertices near opposite coordinate limits" },
+    { "name": "06", "note": "collinear points on all four slanted sides, starting in the middle of a side" },
+    { "name": "07", "note": "an irregular convex pentagon whose wall length is just below a half-foot rounding boundary" },
+    { "name": "08", "note": "several deep inward teeth with a wall length just above a half-foot rounding boundary" },
+    { "name": "09", "generator": "1185 37 333 0", "note": "a seeded medium-sized concave castle with an asymmetric hull and mixed-sign coordinates" }
+  ]
+}
