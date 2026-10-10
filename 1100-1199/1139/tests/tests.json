@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1139_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four avenues and three streets" },
+    { "name": "02", "example": true, "note": "a square grid: the diagonal passes through a corner" },
+    { "name": "03", "note": "a single block" },
+    { "name": "04", "note": "one column of blocks, the longest" },
+    { "name": "05", "note": "one row of blocks, the longest" },
+    { "name": "06", "note": "the largest square grid" },
+    { "name": "07", "note": "the largest grid with coprime sides: the most blocks" },
+    { "name": "08", "note": "sides with gcd 10000" },
+    { "name": "09", "note": "a small grid with coprime sides" },
+    { "name": "10", "note": "sides with gcd 1000" }
+  ]
+}
