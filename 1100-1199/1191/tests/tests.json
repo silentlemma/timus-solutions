@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1191_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the gap only shrinks to 3, never below an interval" },
+    { "name": "02", "example": true, "note": "the gap drops below 13 on the third tram" },
+    { "name": "03", "note": "a one-minute lead and trams every two minutes" },
+    { "name": "04", "note": "trams every minute keep any gap" },
+    { "name": "05", "note": "99 trams every minute" },
+    { "name": "06", "note": "the last tram rarely comes, the thief may wait for it" },
+    { "name": "07", "note": "the gap equals the interval, then one longer" },
+    { "name": "big1", "generator": "1 99 99", "note": "99 random intervals" },
+    { "name": "big2", "generator": "2 99 10", "note": "short intervals that keep most of the gap" },
+    { "name": "big3", "generator": "3 1 99", "note": "a single tram" }
+  ]
+}
