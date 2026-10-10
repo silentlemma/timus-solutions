@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1150_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "pages 1 to 12" },
+    { "name": "02", "note": "a single page" },
+    { "name": "03", "note": "one-digit pages only: no zeros" },
+    { "name": "04", "note": "the first zero" },
+    { "name": "05", "note": "a power of ten" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "07", "note": "10^8: zeros right after the leading one" },
+    { "name": "08", "note": "every digit once in N" },
+    { "name": "09", "note": "1000" },
+    { "name": "10", "note": "a run of nines after a zero" },
+    { "name": "11", "note": "trailing zeros in N" },
+    { "name": "12", "note": "alternating fives and zeros" }
+  ]
+}
