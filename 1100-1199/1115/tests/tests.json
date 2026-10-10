@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1115_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five ships in two rows" },
+    { "name": "02", "note": "one ship per row" },
+    { "name": "03", "note": "two equal rows, the first filling tried is the wrong one" },
+    { "name": "04", "note": "equal ships in equal rows" },
+    { "name": "05", "note": "every ship has a different length" },
+    { "name": "06", "note": "three long ships and many short ones" },
+    { "name": "big1", "generator": "1 99 9 100 0", "note": "99 random ships in 9 rows" },
+    { "name": "big2", "generator": "2 99 9 12 1", "note": "99 ships of nearly equal length" },
+    { "name": "big3", "generator": "3 99 9 100 2", "note": "99 mostly equal ships" },
+    { "name": "big4", "generator": "4 99 2 100 1", "note": "99 ships in two rows" },
+    { "name": "big5", "generator": "5 60 7 30 1", "note": "60 ships of nearly equal length in 7 rows" }
+  ]
+}
