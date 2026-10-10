@@ -99,3 +99,4 @@
 | 1192 | [How far a bouncing ball travels in a dream](1192/) | math | C++, Go, Python, Java, Rust |
 | 1193 | [How much earlier must an oral exam start for everyone to finish in time?](1193/) | greedy | C++, Go, Python, Java, Rust |
 | 1194 | [How many handshakes when a party splits up on the way home](1194/) | math | C++, Go, Python, Java, Rust |
+| 1195 | [Who wins an unfinished game of noughts and crosses](1195/) | games | C++, Go, Python, Java, Rust |
