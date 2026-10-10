@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1157_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sixteen tiles make three rectangles, 15 make two" },
+    { "name": "02", "note": "one rectangle before and after: 1 and 2 tiles" },
+    { "name": "03", "note": "fifty rectangles are never possible below 10001" },
+    { "name": "04", "note": "the gift is 9999 tiles, so the answer must be 10000" },
+    { "name": "05", "note": "no consecutive tile counts both make 32 rectangles" },
+    { "name": "06", "note": "the most rectangles, 32, after a prime" },
+    { "name": "07", "note": "two rectangles before and after a gift of two" },
+    { "name": "08", "note": "sixteen rectangles before, a prime after" },
+    { "name": "09", "note": "no L within the limit" },
+    { "name": "10", "note": "a prime after a gift of four" },
+    { "name": "11", "note": "both 16 and 36 are squares, so each square rectangle counts once" },
+    { "name": "12", "note": "maximum gift leaves only 10000, whose earlier one tile fails M" },
+    { "name": "13", "generator": "1033 0", "note": "seeded random feasible counts with a large gap; the first answer precedes the sampled witness" }
+  ]
+}
