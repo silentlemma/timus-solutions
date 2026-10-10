@@ -83,3 +83,4 @@
 | 1176 | [Laying every missing one-way channel in one round trip](1176/) | graphs | C++, Go, Python, Java, Rust |
 | 1177 | [Matching strings against SQL like patterns](1177/) | strings | C++, Go, Python, Java, Rust |
 | 1178 | [Pairing up cities with straight roads that do not cross](1178/) | geometry | C++, Go, Python, Java, Rust |
+| 1179 | [The base in which a text contains the most numbers](1179/) | strings | C++, Go, Python, Java, Rust |
