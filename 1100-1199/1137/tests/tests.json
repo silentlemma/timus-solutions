@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1137_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three routes from the statement" },
+    { "name": "02", "note": "one route between two stops" },
+    { "name": "03", "note": "one route crossing itself" },
+    { "name": "04", "note": "two routes sharing one stop" },
+    { "name": "05", "note": "a chain of three short routes: the walk has to splice in loops" },
+    { "name": "06", "note": "the largest stop number" },
+    { "name": "big1", "generator": "1 100 200 1000 0", "note": "the most routes and stops, random" },
+    { "name": "big2", "generator": "2 100 200 1000 2", "note": "long routes chained one after another" },
+    { "name": "big3", "generator": "3 100 12 1000 1", "note": "short loops through few stops each" },
+    { "name": "big4", "generator": "4 100 200 300 0", "note": "the most segments over 300 stops: many crossings" }
+  ]
+}
