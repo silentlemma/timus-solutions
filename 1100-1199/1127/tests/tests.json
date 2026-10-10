@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1127_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cubes, three of them fit" },
+    { "name": "02", "note": "two equal cubes" },
+    { "name": "03", "note": "two cubes with no common side ring" },
+    { "name": "04", "note": "a cube and its mirror image: turned upside down it fits" },
+    { "name": "05", "note": "the same sides, different tops and bottoms" },
+    { "name": "06", "note": "cubes that fit only after turning" },
+    { "name": "big1", "generator": "1 1000 0", "note": "1000 randomly painted cubes" },
+    { "name": "big2", "generator": "2 1000 1", "note": "1000 turned copies of three cubes" },
+    { "name": "big3", "generator": "3 1000 2", "note": "1000 turned copies of a cube and its mirror image" },
+    { "name": "big4", "generator": "5 7 1", "note": "seven turned copies of three cubes" }
+  ]
+}
