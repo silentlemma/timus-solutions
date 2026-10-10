@@ -55,3 +55,4 @@
 | 1148 | [The K-th tower in lexicographic order with levels differing by one brick](1148/) | dp | C++, Go, Python, Java, Rust |
 | 1149 | [Writing out a nested expression of sines](1149/) | strings | C++, Go, Python, Java, Rust |
 | 1150 | [How many times each digit appears in the page numbers from 1 to N](1150/) | math | C++, Go, Python, Java, Rust |
+| 1151 | [Locating radio beacons from distances in the maximum metric](1151/) | geometry | C++, Go, Python, Java, Rust |
