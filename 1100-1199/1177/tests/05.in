@@ -1,0 +1,6 @@
+5
+'a' like '[]'
+'a' like '[^]'
+']' like '[]]'
+'x]' like '[]]'
+'a' like '[^]a]'

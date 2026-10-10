@@ -1,0 +1,7 @@
+6
+'É' like '[À-Ý]'
+'é' like '[À-Ý]'
+'ÿ' like '[^a-z]'
+'aÿb' like 'a_b'
+'Ab' like '[a-z]b'
+'zz' like '[x-z][^x-y]'

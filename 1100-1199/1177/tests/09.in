@@ -1,0 +1,6 @@
+5
+'abc' like 'a[bc'
+'a[bc' like 'a[bc'
+'abc' like 'abc['
+'' like '['
+'[' like '['

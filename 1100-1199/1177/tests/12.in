@@ -1,0 +1,6 @@
+5
+'a b' like 'a_b'
+'a b' like 'a b'
+' ' like '[ ]'
+'  ' like '%_%'
+'a' like ' a'

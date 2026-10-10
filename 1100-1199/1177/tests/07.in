@@ -1,0 +1,5 @@
+4
+'b' like '[c-a]'
+'a' like '[c-a]'
+'b' like '[^c-a]'
+'a' like '[a-a]'

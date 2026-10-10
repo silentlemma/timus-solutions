@@ -1,0 +1,7 @@
+6
+'' like ''
+'' like '%'
+'' like '%%%'
+'' like '_'
+'a' like ''
+'a' like '%%a%%'

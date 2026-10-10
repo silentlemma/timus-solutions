@@ -1,0 +1,9 @@
+8
+'-' like '[a-]'
+'-' like '[-a]'
+'b' like '[-a]'
+'b' like '[a-c]'
+'-' like '[a-c]'
+'e' like '[a-c-e]'
+'-' like '[a-c-e]'
+'d' like '[a-c-e]'

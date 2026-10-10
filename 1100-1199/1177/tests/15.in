@@ -1,0 +1,6 @@
+5
+'abcabcabc' like '%abc'
+'abcabd' like '%abc%'
+'aaaa' like '%a%a%a%a%a%'
+'mississippi' like '%ss%ss%'
+'mississippi' like '%ss%ss%ss%'
