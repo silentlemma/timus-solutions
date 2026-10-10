@@ -93,3 +93,4 @@
 | 1186 | [Do two chemical formulas contain the same atoms?](1186/) | strings | C++, Go, Python, Java, Rust |
 | 1187 | [Survey cross tables with percents that add up to 100](1187/) | strings | C++, Go, Python, Java, Rust |
 | 1188 | [Rearranging bookcase shelves to fit one big tome](1188/) | geometry | C++, Go, Python, Java, Rust |
+| 1189 | [Pairs X + Y = N where Y is X with one digit struck out](1189/) | math | C++, Go, Python, Java, Rust |

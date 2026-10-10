@@ -1,0 +1,24 @@
+{
+  "judging": "lines",
+  "reference": "1189_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five pairs for 302, one with a leading zero" },
+    { "name": "02", "note": "the smallest N: 10 + 0" },
+    { "name": "03", "note": "deleting the trailing zero from 10" },
+    { "name": "04", "note": "deduplicating the pair obtained by deleting either digit of 11" },
+    { "name": "05", "note": "the largest N with many pairs" },
+    { "name": "06", "note": "nine nines" },
+    { "name": "07", "note": "ascending digits in the sum with a single valid pair" },
+    { "name": "08", "note": "a power of ten" },
+    { "name": "09", "note": "no pair at all" },
+    { "name": "10", "note": "no pair for a four-digit N" },
+    { "name": "11", "note": "two-digit and three-digit X coexist at 99 + 9" },
+    { "name": "12", "note": "reject a remainder of ten while retaining two valid pairs" },
+    { "name": "13", "note": "random small case: three deletions of 444 give one pair among distinct answers" },
+    { "name": "14", "note": "random small case: nonzero Y needs two leading zeros in 1001 + 001" },
+    { "name": "15", "note": "just below the upper limit, suffixes of nines cross decimal carries" },
+    { "name": "16", "note": "seventeen sorted pairs include the nonzero Y padded as 00000001" },
+    { "name": "17", "note": "seeded uniform nine-digit N exercises many distinct interior deletions" },
+    { "name": "18", "note": "seeded eight-digit X with its fifth digit deleted guarantees an interior match" }
+  ]
+}
