@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1210_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three levels, the best route earns a credit" },
+    { "name": "02", "note": "one level, one planet, the dearest link" },
+    { "name": "03", "note": "one level with a choice, the most generous spirit" },
+    { "name": "big1", "generator": "1 29 30 100 1", "note": "every link present between levels of varying widths" },
+    { "name": "big2", "generator": "2 29 30 20 1", "note": "sparse links across the maximum number of levels" },
+    { "name": "big3", "generator": "3 29 30 20 2", "note": "unreachable planets with the most generous links onwards" },
+    { "name": "big4", "generator": "4 29 1 100 1", "note": "one planet per level" },
+    { "name": "04", "note": "zero-cost links and tied routes through changing level widths" },
+    { "name": "05", "note": "the cheapest intermediate branch dies before the final level" },
+    { "name": "06", "note": "unsorted incoming links require comparing full route costs; the middle destination wins" },
+    { "name": "07", "note": "the maximum positive total follows planet 30 through alternating wide and narrow levels" },
+    { "name": "08", "generator": "0 29 30 100 3", "note": "all 29 levels have 30 planets and every link has the minimum cost" },
+    { "name": "09", "generator": "1210 9 5 55 4", "note": "seeded boundary-cost and zero-cost links repeatedly fan out and merge" }
+  ]
+}
