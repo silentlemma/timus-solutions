@@ -73,3 +73,4 @@
 | 1166 | [Can a player lay out the whole hand without letting the opponent move](1166/) | games | C++, Go, Python, Java, Rust |
 | 1167 | [Splitting a line of black and white horses into stables with the least unhappiness](1167/) | dp | C++, Go, Python, Java, Rust |
 | 1168 | [Counting the places where a receiver hears every radio station](1168/) | geometry | C++, Go, Python, Java, Rust |
+| 1169 | [A connected network with exactly K critical pairs of computers](1169/) | constructive | C++, Go, Python, Java, Rust |
