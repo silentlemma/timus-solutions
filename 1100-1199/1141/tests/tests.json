@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1141_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three small keys" },
+    { "name": "02", "note": "e = 1: the message is c itself" },
+    { "name": "03", "note": "c larger than n" },
+    { "name": "04", "note": "messages sharing a factor with n" },
+    { "name": "05", "note": "a large n and c = n - 1" },
+    { "name": "big1", "generator": "1 2000 0", "note": "the most queries, random keys" },
+    { "name": "big2", "generator": "2 2000 1", "note": "the largest n and exponents near phi" },
+    { "name": "big3", "generator": "3 2000 2", "note": "only primes up to 13" },
+    { "name": "big4", "generator": "4 2000 3", "note": "c above n and messages sharing a factor with n" }
+  ]
+}
