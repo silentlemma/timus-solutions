@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1173_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three friends on one side of the house" },
+    { "name": "02", "note": "two friends" },
+    { "name": "03", "note": "the house inside a nearly square quadrilateral of friends" },
+    { "name": "04", "note": "coordinates at the edges of the range" },
+    { "name": "05", "note": "friends along a gentle curve" },
+    { "name": "big1", "generator": "1 1000 0", "note": "a thousand friends scattered with the house" },
+    { "name": "big2", "generator": "2 1000 1", "note": "the house in the middle of the crowd" },
+    { "name": "big3", "generator": "3 1000 2", "note": "the house far to one side" },
+    { "name": "big4", "generator": "4 1000 3", "note": "friends near a circle around the house" },
+    { "name": "big5", "generator": "5 30 1", "note": "a small crowd around the house" },
+    { "name": "06", "note": "long nearly parallel rays with an exact cross product of one thousandth squared" },
+    { "name": "07", "note": "horizontal and vertical rays from a translated house with decimal coordinates" },
+    { "name": "08", "note": "a narrow fan straddles the angular sorting boundary and requires rotating the tour" },
+    { "name": "09", "note": "three outer friends enclose the house and three inner friends that must also be visited" },
+    { "name": "10", "note": "distinct negative coordinates less than one hundredth apart must not collapse to zero" },
+    { "name": "11", "note": "a thousand friends on a thin convex parabola with the house midway along its boundary" },
+    { "name": "12", "note": "seeded scattered sample with three interior points and crossing input order" },
+    { "name": "13", "note": "seeded ring sample with a crowded lower arc and shuffled friend ids" }
+  ]
+}
