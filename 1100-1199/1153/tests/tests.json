@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1153_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "28 is the sum up to 7" },
+    { "name": "02", "note": "N = 1" },
+    { "name": "03", "note": "N = 2" },
+    { "name": "04", "note": "N = 3" },
+    { "name": "05", "note": "N = 10" },
+    { "name": "06", "note": "N = 99" },
+    { "name": "07", "note": "N = 10^6" },
+    { "name": "08", "note": "N = 2^32 - 1, past 64-bit sums" },
+    { "name": "big1", "generator": "1 300 1", "note": "the largest N, 300 nines" },
+    { "name": "big2", "generator": "2 300 0", "note": "a random N with 300 digits" },
+    { "name": "big3", "generator": "3 300 2", "note": "N = 10^299" },
+    { "name": "big4", "generator": "4 151 0", "note": "a random N with 151 digits" },
+    { "name": "big5", "generator": "5 20 0", "note": "a random N with 20 digits" }
+  ]
+}
