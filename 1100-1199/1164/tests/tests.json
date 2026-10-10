@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1164_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two words over a grid of three letters" },
+    { "name": "02", "note": "one word covers the whole grid, nothing is left" },
+    { "name": "03", "note": "no words, every letter is left and sorted" },
+    { "name": "04", "note": "one letter everywhere, four words of one letter" },
+    { "name": "05", "note": "a snake through two rows and a single letter" },
+    { "name": "big1", "generator": "1 10 10 6 100 26", "note": "six long winding words" },
+    { "name": "big2", "generator": "2 10 10 40 3 2", "note": "forty short words over two letters" },
+    { "name": "big3", "generator": "3 10 10 5 30 26", "note": "five words, most cells left" },
+    { "name": "big4", "generator": "7 10 10 100 1 26", "note": "a hundred words of one letter fill the grid" },
+    { "name": "big5", "generator": "5 10 10 1 100 26", "note": "a single word" },
+    { "name": "big6", "generator": "6 7 9 15 4 3", "note": "a rectangular grid with three letters" }
+  ]
+}
