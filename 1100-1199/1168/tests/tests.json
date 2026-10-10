@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1168_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three stations around a small map" },
+    { "name": "02", "note": "a station with radius 0 reaches nothing" },
+    { "name": "03", "note": "the receiver has to rise to the station's height" },
+    { "name": "04", "note": "a whole radius, the boundary counts" },
+    { "name": "05", "note": "a radius just below a whole number" },
+    { "name": "06", "note": "the ground is already too high" },
+    { "name": "big1", "generator": "1 50 50 1000 32000 100000 3", "note": "a thousand stations, large random radii over high ground" },
+    { "name": "big2", "generator": "2 50 50 1000 10 100000 3", "note": "a thousand stations reaching far over a flat map" },
+    { "name": "big3", "generator": "3 50 50 30 20 75 1", "note": "radii next to whole numbers" },
+    { "name": "big4", "generator": "4 50 50 5 10 60 3", "note": "a few stations with medium reach" },
+    { "name": "big5", "generator": "5 50 50 2499 5 200 3", "note": "a single free square under 2499 stations" },
+    { "name": "big7", "generator": "22 20 20 4 3 30 2", "note": "whole radii, boundaries hit exactly" },
+    { "name": "big6", "generator": "6 40 30 200 3 75 1", "note": "a rectangle with many stations" }
+  ]
+}
