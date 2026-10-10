@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1192_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short throw with energy kept at 40% per bounce" },
+    { "name": "02", "note": "no speed at all" },
+    { "name": "03", "note": "the fastest throw at 45 degrees, losing almost nothing per bounce" },
+    { "name": "04", "note": "straight up: with the given pi the ball still drifts a little" },
+    { "name": "05", "note": "a throw along the ground" },
+    { "name": "06", "note": "a slow throw" },
+    { "name": "07", "note": "a fast throw at 30 degrees" },
+    { "name": "08", "note": "almost straight up, most energy lost at the first bounce" }
+  ]
+}
