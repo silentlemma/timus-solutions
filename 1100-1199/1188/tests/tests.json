@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1188_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the tome already fits" },
+    { "name": "02", "example": true, "note": "a peg moves and three inches are cut" },
+    { "name": "03", "note": "a full-width tome, the shelf above must go" },
+    { "name": "04", "note": "a short shelf just above can slide aside" },
+    { "name": "05", "note": "the smallest niche" },
+    { "name": "06", "note": "the tome must sit off-centre on its shelf" },
+    { "name": "big1", "generator": "1 1000 1000 100 0", "note": "a hundred shelves, a small tome" },
+    { "name": "big2", "generator": "2 1000 1000 100 1", "note": "a wide tome over many shelves" },
+    { "name": "big3", "generator": "3 1000 1000 100 2", "note": "a tall tome" },
+    { "name": "big4", "generator": "4 1000 120 100 2", "note": "shelves packed closely" },
+    { "name": "big5", "generator": "5 30 25 20 1", "note": "a narrow niche with a wide tome" },
+    { "name": "big6", "generator": "6 12 15 10 0", "note": "a small random bookcase" },
+    { "name": "07", "note": "a full-width shelf exactly at the tome top may remain untouched" },
+    { "name": "08", "note": "keeping both pegs takes priority over saving wood, with balance limiting the cut" },
+    { "name": "09", "note": "moving a carrying peg avoids changes to two obstructing shelves" },
+    { "name": "10", "note": "unsorted shelves and exact ceiling headroom require two different clearing costs" },
+    { "name": "11", "note": "planks and pegs on both vertical tome edges may touch without moving" },
+    { "name": "12", "note": "maximum niche dimensions and shelf count accumulate 98901 inches cut while preserving wall pegs" },
+    { "name": "13", "note": "seeded stress case combines a moved carrying peg with an eight-inch cut on fixed pegs" },
+    { "name": "14", "note": "seeded stress case mixes a one-inch plank with one-peg and zero-peg cuts" },
+    { "name": "15", "note": "seeded stress case chooses a higher carrying shelf instead of the lowest one" },
+    { "name": "16", "note": "a maximum-length plank one inch below the ceiling is stable with its midpoint exactly on a peg" },
+    { "name": "17", "generator": "107 12 15 12 1", "note": "seeded wide tome chooses the right wall and cuts two long planks to two inches" },
+    { "name": "18", "generator": "23 12 15 12 2", "note": "seeded ceiling-height tome combines four fixed-peg cuts and two moved-peg cuts" }
+  ]
+}
