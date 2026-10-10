@@ -58,3 +58,4 @@
 | 1151 | [Locating radio beacons from distances in the maximum metric](1151/) | geometry | C++, Go, Python, Java, Rust |
 | 1152 | [The least damage from monsters on balconies around a hall](1152/) | bitmask | C++, Go, Python, Java, Rust |
 | 1153 | [Recovering N from the sum 1 + 2 + … + N with up to 600 digits](1153/) | math | C++, Go, Python, Java, Rust |
+| 1154 | [The best moment of the day for a battle of elemental mages](1154/) | math | C++, Go, Python, Java, Rust |
