@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1131_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight computers, three cables" },
+    { "name": "02", "note": "one computer: nothing to copy" },
+    { "name": "03", "note": "one computer and many cables" },
+    { "name": "04", "note": "one cable: one computer per hour, the largest answer" },
+    { "name": "05", "note": "cables never run out: pure doubling" },
+    { "name": "06", "note": "two computers, one cable" },
+    { "name": "07", "note": "doubling reaches exactly the number of cables" },
+    { "name": "08", "note": "three cables and the most computers" },
+    { "name": "09", "note": "a power of two computers with as many cables" },
+    { "name": "10", "note": "one computer more than a power of two" },
+    { "name": "11", "note": "the last hour copies fewer than K" },
+    { "name": "12", "note": "more cables than computers" }
+  ]
+}
