@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1173_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three friends on one side of the house" },
+    { "name": "02", "note": "two friends" },
+    { "name": "03", "note": "the house inside a square of friends" },
+    { "name": "04", "note": "coordinates at the edges of the range" },
+    { "name": "05", "note": "friends along a gentle curve" },
+    { "name": "big1", "generator": "1 1000 0", "note": "a thousand friends scattered with the house" },
+    { "name": "big2", "generator": "2 1000 1", "note": "the house in the middle of the crowd" },
+    { "name": "big3", "generator": "3 1000 2", "note": "the house far to one side" },
+    { "name": "big4", "generator": "4 1000 3", "note": "friends near a circle around the house" },
+    { "name": "big5", "generator": "5 30 1", "note": "a small crowd around the house" }
+  ]
+}
