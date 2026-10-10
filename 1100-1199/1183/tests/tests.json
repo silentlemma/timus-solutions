@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1183_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four brackets, two to add" },
+    { "name": "02", "note": "an empty line" },
+    { "name": "03", "note": "a single closing bracket" },
+    { "name": "04", "note": "crossed pairs" },
+    { "name": "05", "note": "only opening brackets" },
+    { "name": "06", "note": "closings before openings" },
+    { "name": "07", "note": "already regular" },
+    { "name": "big1", "generator": "1 100 0", "note": "a hundred random brackets" },
+    { "name": "big2", "generator": "2 100 1", "note": "a regular sequence with gaps" },
+    { "name": "big3", "generator": "3 100 2", "note": "a hundred opening brackets" },
+    { "name": "big4", "generator": "4 100 3", "note": "crossed pairs repeated" }
+  ]
+}
