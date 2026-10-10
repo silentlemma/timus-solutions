@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1121_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 5 by 5 map with four branches" },
+    { "name": "02", "note": "one empty crossing" },
+    { "name": "03", "note": "one crossing with a branch of the highest type" },
+    { "name": "04", "note": "two branches twelve apart: the middle sees neither" },
+    { "name": "05", "note": "four corners at equal distance from the centre" },
+    { "name": "06", "note": "a branch exactly five and six streets away" },
+    { "name": "07", "note": "types 1 and 2 on both sides: 7, not 9" },
+    { "name": "big1", "generator": "1 150 150 20 11", "note": "the largest map, sparse branches" },
+    { "name": "big2", "generator": "2 150 150 300 11", "note": "the largest map, dense branches" },
+    { "name": "big3", "generator": "3 150 120 5 3", "note": "very sparse branches of three types" }
+  ]
+}
