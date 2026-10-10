@@ -29,3 +29,4 @@
 | 1122 | [The fewest moves that turn a 4 × 4 board to one colour](1122/) | bitmask | C++, Go, Python, Java, Rust |
 | 1123 | [The smallest palindrome not below a long number](1123/) | strings | C++, Go, Python, Java, Rust |
 | 1124 | [Sorting coloured pieces back into their boxes with the fewest hand moves](1124/) | dsu | C++, Go, Python, Java, Rust |
+| 1125 | [Undoing colour flips at integer distances on a grid](1125/) | bitmask | C++, Go, Python, Java, Rust |
