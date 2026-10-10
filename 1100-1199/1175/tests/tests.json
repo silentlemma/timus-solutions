@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1175_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short run into a cycle of three" },
+    { "name": "02", "note": "all zeros from the start" },
+    { "name": "03", "note": "two different terms, then a constant" },
+    { "name": "04", "note": "Fibonacci numbers modulo 31250, a cycle of 187500 pairs" },
+    { "name": "05", "note": "no subtraction ever, the constant comes at once" },
+    { "name": "06", "note": "a product that keeps the terms at one" },
+    { "name": "big1", "generator": "1 300 0", "note": "random coefficients" },
+    { "name": "big2", "generator": "2 49999 1", "note": "Fibonacci-like modulo 50000" },
+    { "name": "big3", "generator": "3 2000 2", "note": "a linear rule on the last term" },
+    { "name": "big4", "generator": "4 150 3", "note": "terms grow up to B1 before folding" },
+    { "name": "big5", "generator": "5 30000 2", "note": "a long linear cycle" }
+  ]
+}
