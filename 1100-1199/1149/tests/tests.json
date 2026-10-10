@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1149_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "N = 3" },
+    { "name": "02", "note": "N = 1: a single sine" },
+    { "name": "03", "note": "N = 2: the first plus sign" },
+    { "name": "04", "note": "N = 4" },
+    { "name": "05", "note": "N = 5" },
+    { "name": "06", "note": "N = 10: two-digit numbers" },
+    { "name": "07", "note": "N = 100: three-digit numbers" },
+    { "name": "big1", "generator": "199", "note": "N = 199" },
+    { "name": "big2", "generator": "200", "note": "N = 200, the longest expression" }
+  ]
+}
