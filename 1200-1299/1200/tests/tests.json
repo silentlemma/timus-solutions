@@ -1,0 +1,16 @@
+{
+  "judging": "lines",
+  "reference": "1200_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the quota cuts the free optimum" },
+    { "name": "02", "note": "several best plans; the fewest horns, then the fewest hooves" },
+    { "name": "03", "note": "both prices at -10000, so nothing is made" },
+    { "name": "04", "note": "both prices at 10000 and the largest quota" },
+    { "name": "05", "note": "a quota of one and a tie between making nothing and one horn" },
+    { "name": "06", "note": "a tiny loss on horns and hooves at their best" },
+    { "name": "big1", "generator": "1 10000 1", "note": "random prices" },
+    { "name": "big2", "generator": "2 10000 2", "note": "equal whole prices" },
+    { "name": "big3", "generator": "3 10000 3", "note": "prices of either sign near zero" },
+    { "name": "big4", "generator": "4 10000 4", "note": "prices at the ends of the range" }
+  ]
+}
