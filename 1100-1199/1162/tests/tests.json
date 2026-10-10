@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1162_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the commissions eat the gain" },
+    { "name": "02", "example": true, "note": "with more money the same loop gains" },
+    { "name": "03", "note": "there and back with a profit" },
+    { "name": "04", "note": "no money at all" },
+    { "name": "05", "note": "a loop through two points between the same currencies" },
+    { "name": "06", "note": "a loop where every step costs a commission" },
+    { "name": "07", "note": "the commission takes everything" },
+    { "name": "big1", "generator": "1 100 100 0", "note": "the most currencies and points, random rates" },
+    { "name": "big2", "generator": "2 100 100 1", "note": "rates near 1 with small commissions" },
+    { "name": "big3", "generator": "3 100 100 2", "note": "every exchange loses" },
+    { "name": "big4", "generator": "4 100 100 3", "note": "a chain with one slightly gaining step far away" },
+    { "name": "big5", "generator": "5 30 100 1", "note": "many points between few currencies" }
+  ]
+}
