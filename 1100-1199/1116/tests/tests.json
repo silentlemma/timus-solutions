@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1116_two_pointers.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three intervals, two of them cut" },
+    { "name": "02", "note": "the second function covers everything: nothing is left" },
+    { "name": "03", "note": "the second function misses the first entirely" },
+    { "name": "04", "note": "holes punched into one interval, at its ends too" },
+    { "name": "05", "note": "touching intervals, the middle one removed" },
+    { "name": "06", "note": "the widest interval with a one-cell hole" },
+    { "name": "07", "note": "the second function fills only the gaps" },
+    { "name": "big1", "generator": "1 15000 4000 0 4", "note": "15000 touching intervals against 4000: 11003 pieces left" },
+    { "name": "big2", "generator": "2 15000 15000 1 3", "note": "15000 short intervals with small gaps" },
+    { "name": "big3", "generator": "3 10000 3000 2 10", "note": "many intervals against fewer long ones" }
+  ]
+}
