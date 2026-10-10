@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.011",
+  "reference": "1159_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four blocks: a cyclic quadrilateral" },
+    { "name": "02", "note": "the longest block equals the others together: no fence" },
+    { "name": "03", "note": "the 3-4-5 triangle" },
+    { "name": "04", "note": "a unit square" },
+    { "name": "05", "note": "a long block with the centre of the circle outside" },
+    { "name": "06", "note": "a thin isosceles triangle" },
+    { "name": "07", "note": "a regular hundred-gon" },
+    { "name": "big1", "generator": "1 100 0", "note": "the most blocks, random lengths" },
+    { "name": "big2", "generator": "2 100 1", "note": "all blocks equal" },
+    { "name": "big3", "generator": "3 100 2", "note": "one block just shorter than all the others together" },
+    { "name": "big4", "generator": "4 60 3", "note": "one block longer than all the others together" },
+    { "name": "big5", "generator": "5 3 0", "note": "three random blocks" }
+  ]
+}
