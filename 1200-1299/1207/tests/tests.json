@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1207_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the corners of a square" },
+    { "name": "02", "note": "two points share the lowest height" },
+    { "name": "03", "note": "coordinates at the ends of the range" },
+    { "name": "big1", "generator": "1 10000 1", "note": "ten thousand points on a curve mod a prime" },
+    { "name": "big2", "generator": "2 10000 2", "note": "a modular curve rotated a quarter turn" },
+    { "name": "small1", "generator": "3 8 3", "note": "random small points" },
+    { "name": "small2", "generator": "4 12 3", "note": "random points with tied lowest and leftmost coordinates" },
+    { "name": "04", "note": "the rightmost lowest point is read before the leftmost one" },
+    { "name": "05", "note": "the last point is the lowest and its halving line is vertical" },
+    { "name": "06", "note": "minimum size with the first point strictly inside the other three" },
+    { "name": "07", "note": "the two rays around the angular median have determinant one" },
+    { "name": "08", "generator": "1207 10000 4", "note": "maximum size with sheared rays already in reverse angular order" },
+    { "name": "09", "generator": "1207 100 5", "note": "one hundred random points spanning the full coordinate range" }
+  ]
+}
