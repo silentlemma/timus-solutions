@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1208_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven teams, four can play" },
+    { "name": "02", "note": "a single team" },
+    { "name": "03", "note": "three teams clashing in a ring" },
+    { "name": "04", "note": "the longest name shared by two teams" },
+    { "name": "big1", "generator": "1 18 1000", "note": "a large pool leaves just one conflicting pair" },
+    { "name": "big2", "generator": "2 18 30", "note": "an isolated team among many overlapping teams" },
+    { "name": "big3", "generator": "3 18 10", "note": "dense conflicts in a pool of ten programmers" },
+    { "name": "big4", "generator": "4 18 54", "note": "partially overlapping teams with some pairs sharing two members" },
+    { "name": "05", "note": "maximum input length: 18 disjoint teams with 54 distinct 20-letter names" },
+    { "name": "06", "note": "one programmer appears in all 18 teams and in every name column" },
+    { "name": "07", "note": "skipping the first team allows all three mutually disjoint alternatives" },
+    { "name": "08", "note": "nine interleaved independent pairs each share two members across columns" },
+    { "name": "big5", "generator": "1209 11 18", "note": "seeded random 11-team instance from an intermediate pool of 18 programmers" }
+  ]
+}
