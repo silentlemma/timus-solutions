@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1211_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "trees, a ring and a two-child ring" },
+    { "name": "02", "note": "one child confessing, one accusing itself, two confessors, a pair, a chain" },
+    { "name": "big1", "generator": "1 16 25000", "note": "the largest tests of every kind" },
+    { "name": "big2", "generator": "2 16 25000", "note": "maximum-size inputs with chains, rings and missing or extra confessions" },
+    { "name": "small", "generator": "3 16 7", "note": "small tests of every kind" },
+    { "name": "03", "note": "several branches merge into paths already known to reach a high-index confessor" },
+    { "name": "04", "note": "a long tail enters a three-child ring while another component reaches the confessor" },
+    { "name": "05", "note": "a valid component is followed by a self-accusation at the final child" },
+    { "name": "06", "note": "sixteen alternating verdicts with changing sizes require state reset and complete input consumption" },
+    { "name": "07", "generator": "chain 25000", "note": "a maximum forward chain makes the first walk visit all 25000 children" },
+    { "name": "08", "generator": "tail-cycle 25000", "note": "a maximum forward tail closes a two-child ring just before the isolated confessor" },
+    { "name": "09", "generator": "stars 25000", "note": "a batch of 400000 statements in high-fan-in stars with boundary roots and single-node faults" },
+    { "name": "10", "generator": "comb 1211 16 1000", "note": "seeded relabelled combs alternate merged branches to a root and long cycles on the spine" }
+  ]
+}
