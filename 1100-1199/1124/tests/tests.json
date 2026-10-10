@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1124_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three boxes mixed up, one box in order" },
+    { "name": "02", "note": "everything in place: no moves" },
+    { "name": "03", "note": "one piece swapped between two boxes" },
+    { "name": "04", "note": "two separate swaps: one empty move between them" },
+    { "name": "05", "note": "a cycle through three boxes" },
+    { "name": "06", "note": "two boxes fully exchanged" },
+    { "name": "big1", "generator": "1 500 50 0", "note": "the largest mosaic fully shuffled" },
+    { "name": "big2", "generator": "2 500 50 1", "note": "many small separate groups" },
+    { "name": "big3", "generator": "3 500 50 2", "note": "a few random swaps" },
+    { "name": "big4", "generator": "4 499 2 1", "note": "small groups of boxes with two pieces each" }
+  ]
+}
