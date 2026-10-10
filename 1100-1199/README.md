@@ -95,3 +95,4 @@
 | 1188 | [Rearranging bookcase shelves to fit one big tome](1188/) | geometry | C++, Go, Python, Java, Rust |
 | 1189 | [Pairs X + Y = N where Y is X with one digit struck out](1189/) | math | C++, Go, Python, Java, Rust |
 | 1190 | [Can a chocolate label with a few percentages be honest?](1190/) | greedy | C++, Go, Python, Java, Rust |
+| 1191 | [Can a police officer catch a thief who keeps changing trams?](1191/) | math | C++, Go, Python, Java, Rust |
