@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1142_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two and three objects" },
+    { "name": "02", "note": "every N from 2 to 10" },
+    { "name": "03", "note": "only the largest N" },
+    { "name": "04", "note": "repeated values in any order" },
+    { "name": "05", "note": "500 queries" }
+  ]
+}
