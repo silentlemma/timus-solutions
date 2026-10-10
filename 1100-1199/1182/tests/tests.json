@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1182_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an odd cycle of strangers, no solution" },
+    { "name": "02", "example": true, "note": "three and two" },
+    { "name": "03", "note": "two persons who know nobody" },
+    { "name": "04", "note": "two persons who know each other, still split" },
+    { "name": "05", "note": "a person known one way only" },
+    { "name": "06", "note": "four friends, two and two" },
+    { "name": "07", "note": "three persons each knowing only the next, no solution" },
+    { "name": "big1", "generator": "1 100 5 0", "note": "a hundred persons in five conflict groups" },
+    { "name": "big2", "generator": "2 100 30 0", "note": "many small groups to balance" },
+    { "name": "big3", "generator": "3 100 1 0", "note": "one big group" },
+    { "name": "big4", "generator": "4 100 8 1", "note": "one extra conflict that may break the split" },
+    { "name": "big5", "generator": "5 100 1 2", "note": "conflicts only in disjoint pairs" },
+    { "name": "big6", "generator": "6 99 3 0", "note": "an odd number of persons" }
+  ]
+}
