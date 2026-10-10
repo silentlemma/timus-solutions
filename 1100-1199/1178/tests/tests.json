@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1178_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cities" },
+    { "name": "02", "note": "two pairs of cities sharing an x" },
+    { "name": "03", "note": "two cities at opposite corners of the range" },
+    { "name": "04", "note": "two cities with the same x among others" },
+    { "name": "big1", "generator": "1 10000 0", "note": "ten thousand cities on a parabola" },
+    { "name": "big2", "generator": "2 10000 1", "note": "ten thousand cities on a skewed conic" },
+    { "name": "big3", "generator": "3 10000 2", "note": "a sideways parabola, many x values shared by two cities" },
+    { "name": "big4", "generator": "4 2 1", "note": "two cities only" },
+    { "name": "05", "note": "four extreme corners with coordinate differences of two billion" },
+    { "name": "06", "note": "three interior cities nested inside an outer triangle" },
+    { "name": "07", "note": "almost collinear cities with an exact determinant of one" },
+    { "name": "08", "note": "cities on a circle with repeated y values and antipodal input pairs" },
+    { "name": "09", "generator": "1178 200 3", "note": "seeded random cloud throughout the coordinate range with interior cities" }
+  ]
+}
