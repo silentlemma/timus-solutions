@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1169_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a triangle and a block of four joined by a bridge" },
+    { "name": "02", "note": "a single computer and no connections" },
+    { "name": "03", "note": "two computers always form a critical pair" },
+    { "name": "04", "note": "two computers, one connection" },
+    { "name": "05", "note": "three computers, two critical pairs are impossible" },
+    { "name": "06", "note": "no critical pairs: one big cycle" },
+    { "name": "07", "note": "every pair critical: a tree" },
+    { "name": "08", "note": "one pair short of a tree, impossible" },
+    { "name": "09", "note": "one triangle, the rest a tree" },
+    { "name": "10", "note": "a triangle and a single computer" },
+    { "name": "11", "note": "half of the pairs critical" },
+    { "name": "12", "note": "a middle value for 57 computers" },
+    { "name": "13", "note": "a single critical pair among 99 computers, impossible" },
+    { "name": "14", "note": "few critical pairs that no split gives" },
+    { "name": "15", "note": "exactly half of the pairs of 73 computers" }
+  ]
+}
