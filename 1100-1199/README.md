@@ -51,3 +51,4 @@
 | 1144 | [Sharing boxes of gold among generals as evenly as possible](1144/) | greedy | C++, Go, Python, Java, Rust |
 | 1145 | [The longest path between two cells of a tree-shaped maze](1145/) | bfs | C++, Go, Python, Java, Rust |
 | 1146 | [The sub-rectangle with the largest sum in a square array](1146/) | dp | C++, Go, Python, Java, Rust |
+| 1147 | [The visible area of each colour after stacking rectangles on a sheet](1147/) | dsu | C++, Go, Python, Java, Rust |
