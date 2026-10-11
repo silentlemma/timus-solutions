@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1264_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the six lines of the statement" },
+    { "name": "02", "note": "an empty array: no lines at all" },
+    { "name": "03", "note": "an empty array with many values" },
+    { "name": "04", "note": "only the value 0: one line per element" },
+    { "name": "05", "note": "the largest N and M: 1600040000 lines" },
+    { "name": "06", "note": "one element, one value" },
+    { "name": "07", "note": "an ordinary case" },
+    { "name": "gen1", "generator": "1", "note": "random N and M" },
+    { "name": "gen2", "generator": "2", "note": "random N and M" },
+    { "name": "gen3", "generator": "3", "note": "random N and M" }
+  ]
+}
