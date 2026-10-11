@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1263_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three candidates, shares rounded both ways" },
+    { "name": "02", "note": "one candidate, one voter" },
+    { "name": "03", "note": "candidates with no votes print 0.00%" },
+    { "name": "04", "note": "the smallest and largest vote shares both round down at exact halfway ties" },
+    { "name": "05", "note": "a lone vote against an overwhelming majority gives a subpercent rounding tie" },
+    { "name": "06", "note": "the last of ten thousand candidates receives the only vote" },
+    { "name": "07", "note": "ten thousand votes split almost evenly with one extra vote for the first candidate" },
+    { "name": "08", "note": "one vote each, 14.29% apiece" },
+    { "name": "gen1", "generator": "1 1", "note": "thousands of random votes leave a few candidates without support" },
+    { "name": "gen2", "generator": "2 2", "note": "four candidates receive unequal shares that require rounding to two decimal places" },
+    { "name": "gen3", "generator": "3 1", "note": "a crowded ballot leaves hundreds of candidates with no votes" },
+    { "name": "gen4", "generator": "4 2", "note": "random votes across sixteen candidates produce exact half-percent increments" }
+  ]
+}

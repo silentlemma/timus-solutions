@@ -67,3 +67,4 @@
 | 1260 | [The fussy photographer](1260/) | dp | C++, Go, Python, Java, Rust |
 | 1261 | [Tips](1261/) | number_theory | C++, Go, Python, Java, Rust |
 | 1262 | [Pseudo-Roman number](1262/) | strings | C++, Go, Python, Java, Rust |
+| 1263 | [Elections](1263/) | implementation | C++, Go, Python, Java, Rust |
