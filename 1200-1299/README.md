@@ -50,3 +50,4 @@
 | 1243 | [What is left after seven dwarfs share](1243/) | math | C++, Go, Python, Java, Rust |
 | 1244 | [Which cards are missing from a deck, by weight](1244/) | dp | C++, Go, Python, Java, Rust |
 | 1245 | [Covering round stains with at most two pictures](1245/) | geometry | C++, Go, Python, Java, Rust |
+| 1246 | [Which way a polygon is run around](1246/) | geometry | C++, Go, Python, Java, Rust |
