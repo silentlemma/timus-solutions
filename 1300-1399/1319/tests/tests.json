@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1319_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the 3 by 3 table" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "the smallest table with a two-cell diagonal" },
+    { "name": "04", "note": "an even-sized table with diagonals growing to four cells" },
+    { "name": "05", "note": "the largest table, 100 by 100" },
+    { "name": "06", "note": "an odd-sized table with longer diagonals than the example" },
+    { "name": "07", "note": "all cell numbers still fit in two digits just below the three-digit threshold" },
+    { "name": "08", "note": "the first size whose bottom left cell reaches three digits" },
+    { "name": "09", "note": "the largest table with no four-digit cell numbers" },
+    { "name": "10", "note": "cell numbering crosses 1000" },
+    { "name": "11", "note": "the largest odd size just below the input limit" },
+    { "name": "12", "generator": "1319 1", "note": "seeded random intermediate size with an odd central diagonal" },
+    { "name": "13", "generator": "42 2", "note": "seeded random large even size with long diagonals" }
+  ]
+}
