@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1217_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four digits" },
+    { "name": "02", "note": "two digits" },
+    { "name": "03", "note": "six digits, checked by brute force" },
+    { "name": "04", "note": "twelve digits, beyond 32 bits" },
+    { "name": "05", "note": "eighteen digits, halves of odd length" },
+    { "name": "06", "note": "the longest tickets" }
+  ]
+}
