@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "1233_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a longer number moves K back" },
+    { "name": "02", "example": true, "note": "M below the place K always has" },
+    { "name": "03", "note": "K = 10^9, at its place for N = K" },
+    { "name": "04", "note": "K a power of ten never moves back" },
+    { "name": "05", "note": "K = 10, the smallest power of ten above 1" },
+    { "name": "06", "note": "the first longer number, 10^9, is the answer" },
+    { "name": "07", "note": "K = 1, M = 1" },
+    { "name": "08", "note": "K = 1 is always first" },
+    { "name": "09", "note": "the largest M, N longer than K" },
+    { "name": "10", "note": "K just above a power of ten lets few longer numbers in, so N has 18 digits" },
+    { "name": "11", "note": "K = 1 and the largest M" },
+    { "name": "12", "note": "M far below the place of K" },
+    { "name": "13", "note": "one longer number before K" },
+    { "name": "gen1", "generator": "1 1", "note": "random K and M" },
+    { "name": "gen2", "generator": "2 1", "note": "random K and M" },
+    { "name": "gen3", "generator": "3 2", "note": "M at or just after the place of K" },
+    { "name": "gen4", "generator": "4 2", "note": "M at or just after the place of K" },
+    { "name": "gen5", "generator": "5 2", "note": "M at or just after the place of K" },
+    { "name": "gen6", "generator": "6 3", "note": "a small K and a large M" },
+    { "name": "gen7", "generator": "7 3", "note": "a small K and a large M" }
+  ]
+}
