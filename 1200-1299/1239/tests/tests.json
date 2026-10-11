@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1239_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two ghosts the ray only touches" },
+    { "name": "02", "example": true, "note": "thirteen ghosts, five on one ray" },
+    { "name": "03", "note": "no ghosts" },
+    { "name": "04", "note": "one ghost as large as allowed" },
+    { "name": "05", "note": "coincident ghosts at the maximum ghost count" },
+    { "name": "06", "note": "collinear centres with different angular radii allow every ghost to be hit" },
+    { "name": "07", "note": "widely separated radius-one ghosts permit only a single hit" },
+    { "name": "08", "note": "the first example and a slightly thinner copy of ghost 1, which misses the touching point" },
+    { "name": "09", "note": "the first example and an exact scaled copy of ghost 1" },
+    { "name": "gen1", "generator": "1 100 1", "note": "small scattered ghosts have a triple overlap missed by all centre directions" },
+    { "name": "gen2", "generator": "2 100 2", "note": "crowded ghosts around one direction require searching beyond the centres for the best group" },
+    { "name": "gen3", "generator": "3 100 3", "note": "scaled and mirrored copies of a few ghosts" },
+    { "name": "gen4", "generator": "4 100 2", "note": "a dense cluster has a ray hitting eighty-three ghosts while centre directions hit at most eighty-two" },
+    { "name": "gen5", "generator": "5 100 3", "note": "scaled copies and coordinate permutations produce coincident caps with unequal multiplicities" },
+    { "name": "10", "note": "all centre coordinates and the radius at their minimum value" },
+    { "name": "11", "note": "disjoint balls whose angular caps overlap away from both centre directions" },
+    { "name": "12", "note": "three symmetric caps overlap pairwise but have no common ray" },
+    { "name": "13", "note": "three caps share a ray although every centre direction hits only one" },
+    { "name": "14", "note": "a narrow off-axis cap lies inside a broad cap with a separate distractor" },
+    { "name": "15", "note": "radius-one caps near coordinate 10000 require distinguishing three hits from four" },
+    { "name": "16", "note": "five competing groups of scaled ghosts require choosing a pair with the greatest combined weight" },
+    { "name": "17", "note": "seeded small stress case has five hits while centre directions find at most three" },
+    { "name": "gen6", "generator": "1403 12 1", "note": "twelve random caps have two separate overlapping pairs tied for the optimum" },
+    { "name": "gen7", "generator": "105 8 3", "note": "eight random scaled and mirrored caps have four hits missed by all centre directions" }
+  ]
+}
