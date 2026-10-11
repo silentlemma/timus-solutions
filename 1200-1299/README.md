@@ -63,3 +63,4 @@
 | 1256 | [The cemetery guard](1256/) | geometry | C++, Go, Python, Java, Rust |
 | 1257 | [Hyphenation](1257/) | implementation | C++, Go, Python, Java, Rust |
 | 1258 | [Billiards in an office](1258/) | geometry | C++, Go, Python, Java, Rust |
+| 1259 | [How to become a star](1259/) | math | C++, Go, Python, Java, Rust |
