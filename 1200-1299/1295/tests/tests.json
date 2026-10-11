@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1295_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "1 + 2 + 3 + 4 = 10" },
+    { "name": "02", "example": true, "note": "1 + 8 + 27 + 64 = 100" },
+    { "name": "03", "note": "an even n: exactly one zero" },
+    { "name": "04", "note": "n divisible by 4: no zero" },
+    { "name": "05", "note": "n = 5: two zeros although n leaves 1 mod 4" },
+    { "name": "06", "note": "n = 25: the same case one period later" },
+    { "name": "07", "note": "the largest n, divisible by 4" },
+    { "name": "08", "note": "a large n that leaves 3 mod 4" },
+    { "name": "09", "note": "a large n that leaves 1 mod 4 but not 5 mod 20" },
+    { "name": "10", "note": "n = 7: 1 + 128 + 2187 + 16384 = 18700" },
+    { "name": "gen1", "generator": "1", "note": "a random n" },
+    { "name": "gen2", "generator": "2", "note": "a random n" },
+    { "name": "gen3", "generator": "3", "note": "a random n" }
+  ]
+}
