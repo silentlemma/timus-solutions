@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1227_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path too short" },
+    { "name": "02", "example": true, "note": "a triangle to drive round" },
+    { "name": "gen1", "generator": "1 100 0 1 0", "note": "a forest whose longest route is exactly S" },
+    { "name": "gen2", "generator": "2 100 0 1 1", "note": "a forest one short of S" },
+    { "name": "gen3", "generator": "3 100 0 2 1000000", "note": "a forest with one road closing a cycle" },
+    { "name": "gen4", "generator": "4 100 0 3 1000000", "note": "a forest with a loop at one city" },
+    { "name": "gen5", "generator": "5 100 0 4 1000000", "note": "a forest with a second road between two cities" },
+    { "name": "gen6", "generator": "6 1 0 1 1", "note": "a single city and no road" },
+    { "name": "gen7", "generator": "7 30 0 1 -1", "note": "a small forest with room to spare" }
+  ]
+}
