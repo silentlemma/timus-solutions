@@ -1,0 +1,23 @@
+{
+  "judging": "exact",
+  "reference": "1304_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a point in the centre leaves half the cube" },
+    { "name": "02", "note": "a point in a corner takes nothing away" },
+    { "name": "03", "note": "a point on a face takes nothing away" },
+    { "name": "04", "note": "a tiny box: the volume rounds to 0.00" },
+    { "name": "05", "note": "four points on the diagonal" },
+    { "name": "06", "note": "the largest box: 999970000.2999..., rounded up" },
+    { "name": "07", "note": "a volume of exactly 0.005 rounds up to 0.01" },
+    { "name": "08", "note": "two points that limit different directions" },
+    { "name": "09", "note": "a point above the box, outside A, limits nothing" },
+    { "name": "10", "note": "a point beyond the box in x, outside A, is no face for G" },
+    { "name": "gen1", "generator": "1 1", "note": "a small box with a few points" },
+    { "name": "gen2", "generator": "2 2", "note": "50 random points" },
+    { "name": "gen3", "generator": "3 3", "note": "many points on the faces" },
+    { "name": "gen4", "generator": "4 4", "note": "50 points near the diagonal" },
+    { "name": "gen5", "generator": "5 2", "note": "50 random points" },
+    { "name": "gen6", "generator": "6 5", "note": "50 points up to 1000, many outside a smaller box" },
+    { "name": "gen7", "generator": "7 5", "note": "50 points up to 1000, many outside a smaller box" }
+  ]
+}

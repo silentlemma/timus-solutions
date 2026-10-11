@@ -8,3 +8,4 @@
 | 1301 | [Cube in Labyrinth](1301/) | bfs | C++, Go, Python, Java, Rust |
 | 1302 | [Delta-wave](1302/) | math | C++, Go, Python, Java, Rust |
 | 1303 | [Minimal Coverage](1303/) | greedy | C++, Go, Python, Java, Rust |
+| 1304 | [Parallelepiped](1304/) | bruteforce | C++, Go, Python, Java, Rust |
