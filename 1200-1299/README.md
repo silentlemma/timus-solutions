@@ -72,3 +72,4 @@
 | 1265 | [Mirror](1265/) | geometry | C++, Go, Python, Java, Rust |
 | 1266 | [Kirchhoff's law](1266/) | math | C++, Go, Python, Java, Rust |
 | 1267 | [Yekaterinburg subway](1267/) | dp | C++, Go, Python, Java, Rust |
+| 1268 | [Little Chu](1268/) | number_theory | C++, Go, Python, Java, Rust |
