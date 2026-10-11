@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1239_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two ghosts the ray only touches" },
+    { "name": "02", "example": true, "note": "thirteen ghosts, five on one ray" },
+    { "name": "03", "note": "no ghosts" },
+    { "name": "04", "note": "one ghost as large as allowed" },
+    { "name": "05", "note": "100 identical ghosts" },
+    { "name": "06", "note": "100 ghosts centred on one line from the gun" },
+    { "name": "07", "note": "100 small ghosts far apart" },
+    { "name": "08", "note": "the first example and a slightly thinner copy of ghost 1, which misses the touching point" },
+    { "name": "09", "note": "the first example and an exact scaled copy of ghost 1" },
+    { "name": "gen1", "generator": "1 100 1", "note": "100 small ghosts anywhere" },
+    { "name": "gen2", "generator": "2 100 2", "note": "100 large ghosts around one direction" },
+    { "name": "gen3", "generator": "3 100 3", "note": "scaled and mirrored copies of a few ghosts" },
+    { "name": "gen4", "generator": "4 100 2", "note": "100 large ghosts around one direction" },
+    { "name": "gen5", "generator": "5 100 3", "note": "scaled and mirrored copies of a few ghosts" }
+  ]
+}
