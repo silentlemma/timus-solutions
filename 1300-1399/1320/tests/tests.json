@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1320_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a triangle with a tail: four edges in one component" },
+    { "name": "02", "example": true, "note": "a triangle and a separate edge: two odd components" },
+    { "name": "03", "note": "a path of two edges" },
+    { "name": "04", "note": "two separate edges" },
+    { "name": "05", "note": "a star of four edges" },
+    { "name": "06", "note": "two separate triangles, six edges in all" },
+    { "name": "07", "note": "two triangles sharing a vertex" },
+    { "name": "08", "note": "the largest vertex number" },
+    { "name": "gen1", "generator": "1 1", "note": "the maximum number of randomly chosen edges" },
+    { "name": "gen2", "generator": "2 2", "note": "components with even edge counts" },
+    { "name": "gen3", "generator": "3 3", "note": "one component of 1050 edges" },
+    { "name": "gen4", "generator": "4 4", "note": "two components made odd" },
+    { "name": "gen5", "generator": "5 2", "note": "twenty disconnected components that each allow edge pairing" }
+  ]
+}
