@@ -1,0 +1,30 @@
+{
+  "judging": "float:0.01",
+  "reference": "1281_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a tributary joins the third river" },
+    { "name": "02", "example": true, "note": "the same map without the tributary" },
+    { "name": "03", "note": "a straight river: area zero" },
+    { "name": "04", "note": "a river around the whole map" },
+    { "name": "05", "note": "a tributary of a tributary" },
+    { "name": "06", "note": "two separate rivers, the second larger" },
+    { "name": "07", "note": "fractional coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "one system, one decimal place" },
+    { "name": "gen2", "generator": "2 2", "note": "a single tributary joins the middle of a three-point main river" },
+    { "name": "gen3", "generator": "3 3", "note": "long rivers without tributaries" },
+    { "name": "gen4", "generator": "4 2", "note": "a shuffled river system with four direct tributaries and three side streams" },
+    { "name": "gen5", "generator": "5 2", "note": "three separate systems with both direct and nested tributaries" },
+    { "name": "gen6", "generator": "6 3", "note": "a long winding river and a short separate river are evaluated independently" },
+    { "name": "08", "note": "an exact half-cent area at the smallest coordinate step" },
+    { "name": "09", "note": "a concave river whose interior turns must be discarded from the hull" },
+    { "name": "10", "note": "two sibling tributaries on opposite sides enlarge a straight main river" },
+    { "name": "11", "note": "a tributary entirely inside the existing basin adds no area" },
+    { "name": "12", "note": "separate systems have overlapping convex basins but must not be merged" },
+    { "name": "13", "note": "a mouth one hundredth from an inner vertex is not a tributary" },
+    { "name": "14", "note": "a very thin positive basin near the upper coordinate boundary" },
+    { "name": "15", "note": "seeded small forest with shuffled roots, siblings, and a second-level tributary" },
+    { "name": "16", "generator": "1281 4", "note": "all 1000 points in one river with many exposed hull vertices" },
+    { "name": "17", "generator": "1281 5", "note": "maximum ten-river depth and 1000 total points in shuffled order" },
+    { "name": "18", "generator": "1281 6", "note": "nine distinct confluences with 1000 points and random meanders" }
+  ]
+}
