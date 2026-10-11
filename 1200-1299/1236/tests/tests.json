@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1236_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short text" },
+    { "name": "02", "note": "N = 1, a zero key" },
+    { "name": "03", "note": "N = 1, the key all ones" },
+    { "name": "gen1", "generator": "1 10000 1", "note": "the longest message, any bytes" },
+    { "name": "gen2", "generator": "2 10000 2", "note": "the longest message, letters and spaces" },
+    { "name": "gen3", "generator": "3 10000 3", "note": "key bytes below 16, printed with a leading zero" },
+    { "name": "gen4", "generator": "4 1 1", "note": "N = 1" },
+    { "name": "gen5", "generator": "5 37 2", "note": "a short text" }
+  ]
+}
