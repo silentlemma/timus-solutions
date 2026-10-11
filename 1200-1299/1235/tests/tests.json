@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1235_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "trees on the border of the field are allowed" },
+    { "name": "02", "note": "no trees: the shorter side of the park" },
+    { "name": "03", "note": "one tree in the middle" },
+    { "name": "04", "note": "trees only at the corners of the park" },
+    { "name": "05", "note": "a park one foot wide" },
+    { "name": "06", "note": "100 trees on the diagonal of the largest park" },
+    { "name": "07", "note": "a 10 x 10 grid of trees" },
+    { "name": "08", "note": "a park one foot high, trees on both long borders" },
+    { "name": "09", "note": "two trees near opposite corners" },
+    { "name": "gen1", "generator": "1 1", "note": "100 scattered trees in a large park" },
+    { "name": "gen2", "generator": "2 1", "note": "100 scattered trees in a large park" },
+    { "name": "gen3", "generator": "3 2", "note": "trees on a coarse grid, many equal squares" },
+    { "name": "gen4", "generator": "4 3", "note": "100 trees crowded into a small park" },
+    { "name": "gen5", "generator": "5 3", "note": "100 trees crowded into a small park" }
+  ]
+}
