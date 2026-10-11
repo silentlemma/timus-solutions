@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1250_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the outer sea: a ring and two islands inside it" },
+    { "name": "02", "example": true, "note": "the sea inside the ring" },
+    { "name": "03", "note": "several spaces in the first line, the point in a corner" },
+    { "name": "04", "note": "a map of one sea cell" },
+    { "name": "05", "note": "a lake inside an island that touches the border" },
+    { "name": "06", "note": "a ring with a lake: the lake's land counts too" },
+    { "name": "07", "note": "a lake with nothing inside" },
+    { "name": "08", "note": "land touching only at corners is separate islands" },
+    { "name": "gen1", "generator": "1 500 500 1", "note": "the largest map, random noise" },
+    { "name": "gen2", "generator": "2 500 500 2", "note": "the largest map, deeply nested rings" },
+    { "name": "gen3", "generator": "3 500 500 3", "note": "the largest map, small islands in open sea" },
+    { "name": "gen4", "generator": "4 500 1 1", "note": "one row" },
+    { "name": "gen5", "generator": "5 1 500 3", "note": "one column" },
+    { "name": "gen6", "generator": "6 499 333 2", "note": "nested rings in an uneven map" }
+  ]
+}
