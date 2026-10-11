@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1220_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two stacks" },
+    { "name": "02", "note": "the last stack and the largest value" },
+    { "name": "03", "note": "a push and no pops, so nothing to print" },
+    { "name": "big1", "generator": "1 100000 1000 1", "note": "random operations on all stacks" },
+    { "name": "big2", "generator": "2 100000 1000 2", "note": "all pushes, then all pops" },
+    { "name": "big3", "generator": "3 100000 1000 3", "note": "a few values in every stack" },
+    { "name": "big4", "generator": "4 100000 1 4", "note": "one deep stack" },
+    { "name": "big5", "generator": "5 100000 1000 2", "note": "many blocks in use at once across all stacks" },
+    { "name": "04", "note": "popping zero from the first stack in the shortest complete push-pop sequence" },
+    { "name": "05", "note": "crossing depths 9, 10, 11, 19, 20 and 21 while another stack reuses freed blocks" },
+    { "name": "06", "generator": "122006 100000 1000 5", "note": "fifty thousand empty-stack lifecycles must recycle blocks and print zero and maximum values" },
+    { "name": "07", "generator": "122007 100000 1000 6", "note": "a depth of 99999 on stack 1000 exceeds a 16-bit counter before the final pop" },
+    { "name": "08", "generator": "122008 100000 1000 7", "note": "random top-block recycling on all stacks must preserve older full blocks until the final drain" }
+  ]
+}
