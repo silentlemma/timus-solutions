@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1245_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two spots side by side and one above" },
+    { "name": "02", "note": "one tiny spot: the smallest picture" },
+    { "name": "03", "note": "one spot as large as allowed" },
+    { "name": "04", "note": "two pictures that touch along an edge" },
+    { "name": "05", "note": "spots overlap by a millimetre: one picture" },
+    { "name": "06", "note": "spots inside a larger spot" },
+    { "name": "07", "note": "four corners of the wall" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "1000 spots of any size" },
+    { "name": "gen2", "generator": "2 1000 2", "note": "1000 small spots in two clusters" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "two clusters side by side" },
+    { "name": "gen4", "generator": "4 1000 4", "note": "1000 spots along a line" },
+    { "name": "gen5", "generator": "5 7 2", "note": "seven small spots in two clusters" }
+  ]
+}
