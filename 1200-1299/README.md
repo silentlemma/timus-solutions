@@ -96,3 +96,4 @@
 | 1289 | [One-Way Ticket](1289/) | math | C++, Go, Python, Java, Rust |
 | 1290 | [Sabotage](1290/) | sorting | C++, Go, Python, Java, Rust |
 | 1291 | [Gear-wheels](1291/) | bfs | C++, Go, Python, Java, Rust |
+| 1292 | [Mars Space Stations](1292/) | math | C++, Go, Python, Java, Rust |

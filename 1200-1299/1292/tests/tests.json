@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1292_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "chains of three and six steps" },
+    { "name": "02", "note": "N = 2: a single step, from the smallest and the largest key" },
+    { "name": "03", "note": "the key 12558 needs exactly 14 steps to reach 153" },
+    { "name": "04", "note": "N = 33333: long chains must stop at 153" },
+    { "name": "05", "note": "153 maps to itself; a gap larger than the key" },
+    { "name": "gen1", "generator": "1 1", "note": "short chains, often cut before 153" },
+    { "name": "gen2", "generator": "2 2", "note": "any N and key" },
+    { "name": "gen3", "generator": "3 3", "note": "33333 queries with the slowest key" }
+  ]
+}
