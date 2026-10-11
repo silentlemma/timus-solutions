@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1287_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diagonal of S" },
+    { "name": "02", "example": true, "note": "equal runs of both letters" },
+    { "name": "03", "note": "a single cell" },
+    { "name": "04", "note": "all one letter" },
+    { "name": "05", "note": "the main diagonal of s against shorter S runs" },
+    { "name": "06", "note": "the other diagonal" },
+    { "name": "07", "note": "a run of S along the other diagonal beats a row of s" },
+    { "name": "08", "note": "a chessboard with one changed corner" },
+    { "name": "gen1", "generator": "1 1", "note": "random letters" },
+    { "name": "gen2", "generator": "2 1", "note": "random letters, 1400 a side" },
+    { "name": "gen3", "generator": "3 2", "note": "diagonal stripes" },
+    { "name": "gen4", "generator": "4 2", "note": "diagonal stripes, 1400 a side" },
+    { "name": "gen5", "generator": "5 3", "note": "blocks of one letter" },
+    { "name": "gen6", "generator": "6 4", "note": "one long line on the other diagonal" }
+  ]
+}
