@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1290_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three numbers come back sorted downwards" },
+    { "name": "02", "note": "an empty array prints nothing" },
+    { "name": "03", "note": "a single number" },
+    { "name": "04", "note": "all numbers equal" },
+    { "name": "05", "note": "an increasing array is reversed" },
+    { "name": "06", "note": "the smallest and largest values repeated" },
+    { "name": "gen1", "generator": "1 1", "note": "three distinct small values in mixed order" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 25000 numbers of any size" },
+    { "name": "gen3", "generator": "3 3", "note": "maximum length with many repeats" },
+    { "name": "gen4", "generator": "4 2", "note": "scattered duplicates survive sorting a broad range of values" },
+    { "name": "07", "note": "descending runs with unequal multiplicities and large gaps stay unchanged" },
+    { "name": "gen5", "generator": "5 4", "note": "maximum length filled with the maximum value stresses both counting passes" },
+    { "name": "gen6", "generator": "6 5", "note": "seeded shuffle of every allowed value exercises all counters exactly once" }
+  ]
+}

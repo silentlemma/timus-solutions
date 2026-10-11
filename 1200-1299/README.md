@@ -94,3 +94,4 @@
 | 1287 | [Canals on Mars](1287/) | dp | C++, Go, Python, Java, Rust |
 | 1288 | [Astrolocation](1288/) | simulation | C++, Go, Python, Java, Rust |
 | 1289 | [One-Way Ticket](1289/) | math | C++, Go, Python, Java, Rust |
+| 1290 | [Sabotage](1290/) | sorting | C++, Go, Python, Java, Rust |
