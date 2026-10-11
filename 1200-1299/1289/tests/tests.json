@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1289_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two digits: the ten numbers with equal digits" },
+    { "name": "02", "note": "no digits at all: the single compartment counts" },
+    { "name": "03", "note": "four digits: the first case of the general pattern" },
+    { "name": "04", "note": "six digits: one eight in the middle" },
+    { "name": "05", "note": "ten digits" },
+    { "name": "06", "note": "20000 digits: an answer of 20000 digits" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 20 digits" },
+    { "name": "gen2", "generator": "2 2", "note": "any even number of digits" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest, 200000 digits" }
+  ]
+}
