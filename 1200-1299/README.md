@@ -45,3 +45,4 @@
 | 1238 | [Folding a string with repeat counts](1238/) | dp | C++, Go, Python, Java, Rust |
 | 1239 | [One ray through as many spheres as possible](1239/) | geometry | C++, Go, Python, Java, Rust |
 | 1240 | [A mage against a pack of monsters](1240/) | games | C++, Go, Python, Java, Rust |
+| 1241 | [Counting triangles left by straight cuts](1241/) | geometry | C++, Go, Python, Java, Rust |
