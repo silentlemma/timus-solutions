@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1298_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "isolated centre prevents a tour on a three by three board" },
+    { "name": "02", "example": true, "note": "smallest board with a multi-square tour" },
+    { "name": "03", "note": "single square is already a complete tour" },
+    { "name": "04", "note": "no legal knight move on a two by two board" },
+    { "name": "05", "note": "exhausting every start on a four by four board finds no tour" },
+    { "name": "06", "note": "complete tour on a six by six board" },
+    { "name": "07", "note": "larger odd board with a 49-square tour" },
+    { "name": "08", "note": "full tour at the maximum board size" }
+  ]
+}
