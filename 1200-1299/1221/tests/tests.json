@@ -1,0 +1,19 @@
+{
+  "judging": "lines",
+  "reference": "1221_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a figure of size 5, then none" },
+    { "name": "02", "note": "rows without spaces, the smallest figure, tiny sheets, a broken corner" },
+    { "name": "big1", "generator": "1 10 100 1", "note": "ten random sheets of the largest size" },
+    { "name": "big2", "generator": "2 10 100 2", "note": "planted figures with a few cells flipped" },
+    { "name": "big3", "generator": "3 10 100 3", "note": "a figure of the largest possible size, intact or broken" },
+    { "name": "big4", "generator": "4 10 100 4", "note": "all-white and all-black sheets" },
+    { "name": "small", "generator": "5 30 7 2", "note": "many small sheets" },
+    { "name": "03", "note": "size-five figures touch each of the four corners of an even sheet" },
+    { "name": "04", "note": "a larger figure occurs after two smaller figures in scan order" },
+    { "name": "05", "note": "a small white diamond inside a much larger black area determines its own bounding square" },
+    { "name": "06", "note": "shifted white runs preserve row counts but invalidate the diamond" },
+    { "name": "07", "note": "a size-99 figure touches the bottom and right edges of a size-100 sheet" },
+    { "name": "08", "generator": "1221 82 11 5", "note": "an intact inset diamond and every single-cell mutation with seeded random surroundings" }
+  ]
+}
