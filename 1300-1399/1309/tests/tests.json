@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1309_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "fifty steps" },
+    { "name": "02", "note": "n = 0" },
+    { "name": "03", "note": "one step from 0" },
+    { "name": "04", "note": "the first n where a truncating % would give a negative value" },
+    { "name": "05", "note": "one step short of a full period" },
+    { "name": "06", "note": "exactly one period" },
+    { "name": "07", "note": "one step into the second period" },
+    { "name": "08", "note": "the largest n" },
+    { "name": "09", "note": "the largest n minus one" },
+    { "name": "10", "note": "six periods and a part" },
+    { "name": "gen1", "generator": "1 1", "note": "any n" },
+    { "name": "gen2", "generator": "2 2", "note": "n around a multiple of 9973" },
+    { "name": "gen3", "generator": "3 1", "note": "any n" }
+  ]
+}
