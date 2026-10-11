@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1300_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two equal jobs across four brackets, with spaces after the numbers" },
+    { "name": "02", "note": "a flat tax and one job: nothing more to pay" },
+    { "name": "03", "note": "two jobs of 100 each cross the 100 bracket together" },
+    { "name": "04", "note": "the regional bonus is taxed on its own scale" },
+    { "name": "05", "note": "a single job always gives 0.00" },
+    { "name": "06", "note": "amounts with one decimal and with none" },
+    { "name": "07", "note": "rates of 99 percent and the largest amounts: rounding gives -0.02" },
+    { "name": "08", "note": "a falling scale: the citizen gets 40.00 back" },
+    { "name": "gen1", "generator": "1 1", "note": "small scales and few jobs" },
+    { "name": "gen2", "generator": "2 2", "note": "a random scale and up to 30 jobs" },
+    { "name": "gen3", "generator": "3 3", "note": "20 brackets, 30 jobs, large amounts" },
+    { "name": "gen4", "generator": "4 2", "note": "a random scale and up to 30 jobs" },
+    { "name": "gen5", "generator": "5 1", "note": "small scales and few jobs" }
+  ]
+}
