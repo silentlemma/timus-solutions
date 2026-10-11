@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1288_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "front wall, back wall and one object" },
+    { "name": "02", "note": "no value of 35 or less before the high ones: no surface" },
+    { "name": "03", "note": "a high value before any low one is not the wall" },
+    { "name": "04", "note": "a high value too close to the front wall is an object, not the bottom" },
+    { "name": "05", "note": "no low value after the front wall: no bottom" },
+    { "name": "06", "note": "attenuation lifts 50 to exactly 95 at depth nine" },
+    { "name": "07", "note": "equal maxima: the first one counts; a zone past the end" },
+    { "name": "08", "note": "the bottom inside one zone, another zone beyond it" },
+    { "name": "gen1", "generator": "1 1", "note": "a late surface leaves one channel empty and the other with a final object" },
+    { "name": "gen2", "generator": "2 2", "note": "both zones lie beyond a delayed bottom with no attenuation" },
+    { "name": "gen3", "generator": "3 3", "note": "threshold-adjacent readings under strong correction leave both zones behind the bottom" },
+    { "name": "gen4", "generator": "4 1", "note": "corrected values stay below the bottom threshold while both zones start past the signal" },
+    { "name": "gen5", "generator": "5 2", "note": "an initial high reading is skipped before a valid surface and both zones are cut off by the bottom" },
+    { "name": "gen6", "generator": "6 3", "note": "a bottom at the minimum depth allows an amplified object in one zone and blocks the other" },
+    { "name": "09", "note": "minimum N with a low reading but no raw value reaching 95" },
+    { "name": "10", "note": "surface at the final reading using the exact raw thresholds 35 and 95" },
+    { "name": "11", "note": "raw low readings exceed 35 after correction and cannot justify a bottom" },
+    { "name": "12", "note": "unequal raw peaks tie after correction at the exact object level" },
+    { "name": "13", "note": "corrected values just below and above 95 must not be merged by a tolerance" },
+    { "name": "14", "note": "both zone endpoints are inclusive while larger adjacent peaks are outside" },
+    { "name": "15", "note": "seeded small signal with a corrected low of exactly 35 before a bottom at D" },
+    { "name": "16", "note": "maximum N and D with a late surface and one zone wholly beyond EOF" },
+    { "name": "gen7", "generator": "41933 2", "note": "maximum length random signal with a long bottom delay and amplified peaks" }
+  ]
+}
