@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1222_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five heads: 2 + 3" },
+    { "name": "02", "note": "a single head" },
+    { "name": "03", "note": "two heads in one eagle" },
+    { "name": "04", "note": "three heads in one eagle" },
+    { "name": "05", "note": "four heads: one eagle or 2 + 2" },
+    { "name": "06", "note": "a leftover 1 becomes 2 + 2" },
+    { "name": "07", "note": "a leftover 2" },
+    { "name": "08", "note": "the largest N, threes only" },
+    { "name": "09", "note": "the largest N with a leftover 2" },
+    { "name": "10", "note": "the largest N with a leftover 1" }
+  ]
+}
