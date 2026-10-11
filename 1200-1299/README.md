@@ -66,3 +66,4 @@
 | 1259 | [How to become a star](1259/) | math | C++, Go, Python, Java, Rust |
 | 1260 | [The fussy photographer](1260/) | dp | C++, Go, Python, Java, Rust |
 | 1261 | [Tips](1261/) | number_theory | C++, Go, Python, Java, Rust |
+| 1262 | [Pseudo-Roman number](1262/) | strings | C++, Go, Python, Java, Rust |
