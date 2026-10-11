@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1214_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an even sum, nothing to undo" },
+    { "name": "02", "note": "an odd sum, the numbers were swapped" },
+    { "name": "03", "note": "the same pair the other way round" },
+    { "name": "04", "note": "a negative number, the loop never ran" },
+    { "name": "05", "note": "a zero, the loop never ran" },
+    { "name": "06", "note": "the largest numbers with an odd sum" },
+    { "name": "07", "note": "the smallest numbers" },
+    { "name": "08", "note": "positive numbers with an even sum" },
+    { "name": "09", "note": "a zero second number" }
+  ]
+}
