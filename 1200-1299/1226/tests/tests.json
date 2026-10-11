@@ -1,0 +1,11 @@
+{
+  "judging": "exact",
+  "reference": "1226_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a paragraph with trailing spaces" },
+    { "name": "02", "note": "letters next to digits, underscores and brackets, an empty line" },
+    { "name": "03", "note": "no line break at the end" },
+    { "name": "big1", "generator": "1 1000 255", "note": "1000 lines of random printable text" },
+    { "name": "big2", "generator": "2 1000 5", "note": "many short lines" }
+  ]
+}

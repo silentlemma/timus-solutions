@@ -30,3 +30,4 @@
 | 1223 | [The fewest egg drops that find the critical floor](1223/) | dp | C++, Go, Python, Java, Rust |
 | 1224 | [Turns of a robot that sweeps a rectangle in a spiral](1224/) | math | C++, Go, Python, Java, Rust |
 | 1225 | [Rows of white, blue and red stripes](1225/) | dp | C++, Go, Python, Java, Rust |
+| 1226 | [Every word written backwards](1226/) | strings | C++, Go, Python, Java, Rust |
