@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1284_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three suits, two moves" },
+    { "name": "02", "note": "a single card" },
+    { "name": "03", "note": "one suit only: just a sorting" },
+    { "name": "04", "note": "already arranged, descending" },
+    { "name": "05", "note": "two suits interleaved" },
+    { "name": "06", "note": "one card per suit, colours already alternating" },
+    { "name": "07", "note": "all ten suits, two cards each" },
+    { "name": "08", "note": "two blue suits side by side must be split" },
+    { "name": "gen1", "generator": "1 1", "note": "a small hand" },
+    { "name": "gen2", "generator": "2 2", "note": "all ten suits" },
+    { "name": "gen3", "generator": "3 3", "note": "one more blue suit than yellow" },
+    { "name": "gen4", "generator": "4 2", "note": "all ten suits" },
+    { "name": "gen5", "generator": "5 1", "note": "a small hand" }
+  ]
+}
