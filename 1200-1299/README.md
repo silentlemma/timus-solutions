@@ -47,3 +47,4 @@
 | 1240 | [A mage against a pack of monsters](1240/) | games | C++, Go, Python, Java, Rust |
 | 1241 | [Counting triangles left by straight cuts](1241/) | geometry | C++, Go, Python, Java, Rust |
 | 1242 | [Suspects for a werewolf in a village of relatives](1242/) | graphs | C++, Go, Python, Java, Rust |
+| 1243 | [What is left after seven dwarfs share](1243/) | math | C++, Go, Python, Java, Rust |
