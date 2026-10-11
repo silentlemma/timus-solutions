@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1272_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two tunnel groups and a lone island" },
+    { "name": "02", "note": "one island, nothing to build" },
+    { "name": "03", "note": "no tunnels: a chain of bridges" },
+    { "name": "04", "note": "tunnels alone connect everything" },
+    { "name": "05", "note": "looping and repeated tunnels" },
+    { "name": "06", "note": "one tunnel, a bridge to the last island" },
+    { "name": "gen1", "generator": "1 1", "note": "random city" },
+    { "name": "gen2", "generator": "2 2", "note": "few tunnels" },
+    { "name": "gen3", "generator": "3 3", "note": "maximum islands and tunnels with self-loops" },
+    { "name": "gen4", "generator": "4 2", "note": "many islands remain untouched by tunnels" },
+    { "name": "07", "note": "two disjoint tunnel triangles with interleaved labels and two isolated islands" },
+    { "name": "gen5", "generator": "5 4", "note": "all three counts at their limits; a long tunnel chain leaves one bridge necessary" },
+    { "name": "gen6", "generator": "6 5", "note": "maximum answer with no tunnels and 12000 randomly ordered bridges on 10000 islands" }
+  ]
+}
