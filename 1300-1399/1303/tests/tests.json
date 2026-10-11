@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1303_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "nothing starts at or before 0 and reaches past it" },
+    { "name": "02", "example": true, "note": "a segment that only touches 0 is useless" },
+    { "name": "03", "note": "one segment covers everything" },
+    { "name": "04", "note": "segments that only touch at an end still join up" },
+    { "name": "05", "note": "the furthest-reaching choice at every step: 3 segments" },
+    { "name": "06", "note": "a gap between 4 and 5" },
+    { "name": "07", "note": "the same segment twice" },
+    { "name": "08", "note": "the first segment starts below 0" },
+    { "name": "09", "note": "a segment that ends at 0 leaves [0, 1] open" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short segments" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum segment count with many segments outside the target interval" },
+    { "name": "gen3", "generator": "3 3", "note": "all 5000 unit segments are needed despite duplicates" },
+    { "name": "gen4", "generator": "4 4", "note": "many segments around one gap" },
+    { "name": "gen5", "generator": "5 5", "note": "long segments sticking out of [0, M]" },
+    { "name": "gen6", "generator": "6 2", "note": "a long cover combines overlapping segments with exactly touching joins" }
+  ]
+}
