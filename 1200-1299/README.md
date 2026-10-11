@@ -100,3 +100,4 @@
 | 1293 | [Eniya](1293/) | math | C++, Go, Python, Java, Rust |
 | 1294 | [Mars Satellites](1294/) | geometry | C++, Go, Python, Java, Rust |
 | 1295 | [Crazy Notions](1295/) | number_theory | C++, Go, Python, Java, Rust |
+| 1296 | [Hyperjump](1296/) | dp | C++, Go, Python, Java, Rust |
