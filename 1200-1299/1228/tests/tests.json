@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1228_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a three-dimensional array" },
+    { "name": "02", "note": "a single dimension of the largest bound" },
+    { "name": "gen1", "generator": "1 20 1000", "note": "twenty dimensions with bounds as large as fit" },
+    { "name": "gen2", "generator": "2 20 1", "note": "twenty dimensions of two elements each" },
+    { "name": "gen3", "generator": "3 3 1000", "note": "three large dimensions" },
+    { "name": "gen4", "generator": "4 7 20", "note": "seven small dimensions" }
+  ]
+}
