@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1318_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two numbers, both orders give 22" },
+    { "name": "02", "note": "one number: only its xor with itself, which is 0" },
+    { "name": "03", "note": "equal numbers" },
+    { "name": "04", "note": "small numbers on both sides of powers of ten" },
+    { "name": "05", "note": "zero and the largest number" },
+    { "name": "06", "note": "a xor of exactly 10^38 and of 10^38 - 1" },
+    { "name": "07", "note": "single bits in each of the four words" },
+    { "name": "gen1", "generator": "1 1", "note": "5000 random numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "short numbers with many repeats" },
+    { "name": "gen3", "generator": "3 3", "note": "numbers sharing prefixes of random length" },
+    { "name": "gen4", "generator": "4 4", "note": "numbers close to powers of ten" },
+    { "name": "gen5", "generator": "5 5", "note": "halves taken from two small sets" }
+  ]
+}
