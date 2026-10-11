@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1261_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "balanced ternary gives both sums at once" },
+    { "name": "02", "note": "the smallest N: no tip from balanced ternary" },
+    { "name": "03", "note": "the largest N" },
+    { "name": "04", "note": "a power of 3" },
+    { "name": "05", "note": "all bills up to 3^14: the tip needs the next bill" },
+    { "name": "06", "note": "a bill of two trits paid with a one-trit tip" },
+    { "name": "07", "note": "one below a power of 3" },
+    { "name": "08", "note": "digits 1 and 1: the tip is the third bill" },
+    { "name": "09", "note": "a small power of 3" },
+    { "name": "10", "note": "a sum of the three smallest bills that still requires a positive tip" },
+    { "name": "gen1", "generator": "1 1", "note": "mixed ternary digits requiring carries at several positions" },
+    { "name": "gen2", "generator": "2 2", "note": "ternary digits 0 and 1 only" },
+    { "name": "gen3", "generator": "3 1", "note": "a leading ternary two requiring a larger bill for payment" },
+    { "name": "gen4", "generator": "4 2", "note": "six trailing ternary ones requiring the next denomination as a positive tip" }
+  ]
+}
