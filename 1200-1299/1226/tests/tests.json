@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1226_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a paragraph with trailing spaces" },
+    { "name": "02", "note": "letters next to digits, underscores and brackets, an empty line" },
+    { "name": "03", "note": "no line break at the end" },
+    { "name": "big1", "generator": "1 1000 255", "note": "a thousand lines of random printable text" },
+    { "name": "big2", "generator": "2 1000 5", "note": "many short lines" },
+    { "name": "04", "note": "a single empty line contains no words" },
+    { "name": "05", "note": "the shortest word whose reversal changes the text" },
+    { "name": "06", "note": "all printable nonletters remain unchanged in text without words" },
+    { "name": "07", "note": "one mixed-case word occupies all 255 character positions" },
+    { "name": "08", "note": "consecutive lines of letters must be reversed independently" },
+    { "name": "09", "note": "a full-width space-only line and uneven spaces around words and blank lines" },
+    { "name": "10", "note": "a full-width line alternates single-letter words and varied separators" },
+    { "name": "11", "generator": "fullwords 1226 1000 255", "note": "maximum total input filled with seeded random 255-letter words" }
+  ]
+}
