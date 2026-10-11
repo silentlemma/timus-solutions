@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1247_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "every segment fits" },
+    { "name": "02", "example": true, "note": "the segment 5 3 is too heavy" },
+    { "name": "03", "note": "one element" },
+    { "name": "04", "note": "a zero first makes the rest too heavy" },
+    { "name": "05", "note": "the whole sequence is the heaviest segment" },
+    { "name": "gen1", "generator": "1 30000 1 0", "note": "30000 values 0 to 2" },
+    { "name": "gen2", "generator": "2 30000 2 0", "note": "mostly ones with a few large values and zeros" },
+    { "name": "gen3", "generator": "3 30000 3 50", "note": "prefix sums kept in [0, 50]: YES" },
+    { "name": "gen4", "generator": "4 30000 3 30000", "note": "prefix sums kept in [0, 30000]: YES" },
+    { "name": "gen5", "generator": "5 30000 3 1", "note": "N = 1 with every prefix in [0, 1]: YES" },
+    { "name": "gen6", "generator": "6 10 1 0", "note": "ten values 0 to 2" }
+  ]
+}
