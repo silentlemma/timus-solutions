@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1283_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "half the gold goes in one year" },
+    { "name": "02", "example": true, "note": "one percent a year from 1000 down to 1" },
+    { "name": "03", "note": "already below the limit" },
+    { "name": "04", "note": "exactly at the limit" },
+    { "name": "05", "note": "300 times 0.81 is exactly 243, but not in floating point" },
+    { "name": "06", "note": "10000, 9900, 9801: logarithms round the wrong way" },
+    { "name": "07", "note": "the most years: the largest gold, limit 1, fee 1%" },
+    { "name": "08", "note": "one coin above the limit" },
+    { "name": "09", "note": "the largest fee" },
+    { "name": "10", "note": "one coin at a limit of one" },
+    { "name": "11", "note": "a billion against one less" },
+    { "name": "12", "note": "100, 50, 25: the limit reached exactly" },
+    { "name": "gen1", "generator": "1 1", "note": "any values" },
+    { "name": "gen2", "generator": "2 2", "note": "the limit reached exactly" },
+    { "name": "gen3", "generator": "3 1", "note": "any values" },
+    { "name": "gen4", "generator": "4 2", "note": "the limit reached exactly" }
+  ]
+}
