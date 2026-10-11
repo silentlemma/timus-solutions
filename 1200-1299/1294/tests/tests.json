@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1294_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an ordinary quadrilateral" },
+    { "name": "02", "note": "a symmetric trapezoid: CD can take many values" },
+    { "name": "03", "note": "equal distance products but different sums of squares rule out a quadrilateral" },
+    { "name": "04", "note": "the cosine would be 5.5: no quadrilateral" },
+    { "name": "05", "note": "the largest distances" },
+    { "name": "06", "note": "rounded distances of four points on a circle" },
+    { "name": "gen1", "generator": "1 1", "note": "four points on a random circle" },
+    { "name": "gen2", "generator": "2 1", "note": "rounded circle distances with BC as the longest known chord" },
+    { "name": "gen3", "generator": "3 2", "note": "a valid orbit with AC as the longest known chord" },
+    { "name": "gen4", "generator": "4 3", "note": "inconsistent triangle equations despite matching distance products" },
+    { "name": "gen5", "generator": "5 2", "note": "a short BC chord paired with a much longer BD diagonal" },
+    { "name": "07", "note": "zero chord forced by degenerate triangles cannot form an orbit" }
+  ]
+}
