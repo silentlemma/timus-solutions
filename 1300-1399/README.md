@@ -23,3 +23,4 @@
 | 1316 | [Electronic Auction](1316/) | fenwick | C++, Go, Python, Java, Rust |
 | 1317 | [Hail](1317/) | geometry | C++, Go, Python, Java, Rust |
 | 1318 | [Logarithm](1318/) | bitmask | C++, Go, Python, Java, Rust |
+| 1319 | [Hotel](1319/) | implementation | C++, Go, Python, Java, Rust |
