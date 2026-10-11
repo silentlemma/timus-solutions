@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1322_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "decoding abracadabra with repeated letters in the last column" },
+    { "name": "02", "note": "a single character" },
+    { "name": "03", "note": "two characters" },
+    { "name": "04", "note": "a periodic word given by the last of its equal rows" },
+    { "name": "05", "note": "capitals before the underscore before small letters" },
+    { "name": "06", "note": "mixed case and underscores" },
+    { "name": "07", "note": "a sentence" },
+    { "name": "08", "note": "one different character at the end" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum length random text using the full alphabet" },
+    { "name": "gen2", "generator": "2 2", "note": "a short word repeated" },
+    { "name": "gen3", "generator": "3 3", "note": "two letters" },
+    { "name": "gen4", "generator": "4 4", "note": "one character repeated" },
+    { "name": "gen5", "generator": "5 2", "note": "a repeated short word with an incomplete final repetition" }
+  ]
+}
