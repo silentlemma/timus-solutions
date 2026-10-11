@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1235_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "trees on the border of the field are allowed" },
+    { "name": "02", "note": "no trees: the shorter side of the park" },
+    { "name": "03", "note": "one tree in the middle" },
+    { "name": "04", "note": "trees only at the corners of the park" },
+    { "name": "05", "note": "a park one foot wide" },
+    { "name": "06", "note": "trees on the diagonal of the largest park" },
+    { "name": "07", "note": "a 10 x 10 grid of trees" },
+    { "name": "08", "note": "a park one foot high, trees on both long borders" },
+    { "name": "09", "note": "two trees near opposite corners" },
+    { "name": "gen1", "generator": "1 1", "note": "scattered trees in a tall park" },
+    { "name": "gen2", "generator": "2 1", "note": "a nearly square park filled with scattered trees" },
+    { "name": "gen3", "generator": "3 2", "note": "trees on a coarse grid, many equal squares" },
+    { "name": "gen4", "generator": "4 3", "note": "crowded trees leave a largest square against the top border" },
+    { "name": "gen5", "generator": "5 3", "note": "dense trees allow a largest square strictly inside the park" },
+    { "name": "10", "note": "unique interior optimum combines coordinates from different trees" },
+    { "name": "11", "note": "three trees leave only the northeast placement of a side-two square" },
+    { "name": "12", "note": "trees sharing one x coordinate split the largest park in half" },
+    { "name": "13", "note": "a seeded random cluster leaves a nearly full-size square in an asymmetric park" }
+  ]
+}
