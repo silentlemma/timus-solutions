@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1276_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the two trains of the statement's first story" },
+    { "name": "02", "example": true, "note": "the locomotive turned the other way: no train" },
+    { "name": "03", "note": "one carriage of each kind, three of them used" },
+    { "name": "04", "note": "a single carriage" },
+    { "name": "05", "note": "forty identical carriages: one train" },
+    { "name": "06", "note": "ten of each kind, all forty used" },
+    { "name": "07", "note": "ten of each kind, 39 used: the most trains for these carriages" },
+    { "name": "08", "note": "only one kind, which cannot follow itself" },
+    { "name": "09", "note": "only switching carriages, which must alternate" },
+    { "name": "gen1", "generator": "1 1", "note": "two-carriage train can use identical AA loops or a switching pair" },
+    { "name": "gen2", "generator": "2 2", "note": "mostly AA and BB" },
+    { "name": "gen3", "generator": "3 3", "note": "forty carriages, nearly all used" },
+    { "name": "gen4", "generator": "4 1", "note": "mixed stock with a single BA carriage limits return switches" },
+    { "name": "gen5", "generator": "5 3", "note": "leaving only one carriage unused cannot balance the switching types" },
+    { "name": "10", "note": "minimum stock: an AB carriage cannot be reversed to fit an AB locomotive" },
+    { "name": "11", "note": "disconnected AA and BB loops cannot form a two-carriage train" },
+    { "name": "12", "note": "all forty carriages used with no AA loops and twenty BB loops spread over repeated visits" },
+    { "name": "gen6", "generator": "1242 1", "note": "random short stock forces three switches and distributes one loop of each kind across matching runs" },
+    { "name": "gen7", "generator": "110 3", "note": "random full forty-carriage train needs one more AB than BA and a count above 32 bits" }
+  ]
+}
