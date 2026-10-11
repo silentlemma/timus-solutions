@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1268_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four small primes" },
+    { "name": "02", "note": "the smallest prime, 3" },
+    { "name": "03", "note": "the largest prime below 65536" },
+    { "name": "04", "note": "every prime from 3 to 65521" },
+    { "name": "05", "note": "6553 copies of the largest prime" },
+    { "name": "06", "note": "Fermat primes 17 and 257, where p - 1 is a power of two" },
+    { "name": "gen1", "generator": "1 1", "note": "random primes" },
+    { "name": "gen2", "generator": "2 2", "note": "primes with p - 1 divisible by 30" },
+    { "name": "gen3", "generator": "3 1", "note": "random primes" },
+    { "name": "gen4", "generator": "4 2", "note": "primes with p - 1 divisible by 30" }
+  ]
+}
