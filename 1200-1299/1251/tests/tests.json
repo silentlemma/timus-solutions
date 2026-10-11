@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1251_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small cemetery over two thousand days" },
+    { "name": "02", "note": "a grave frees on day 1001, not on day 1000" },
+    { "name": "03", "note": "a neighbour visit blocks reuse through day 1050" },
+    { "name": "04", "note": "visits to the freed and to the cremated change nothing" },
+    { "name": "gen1", "generator": "1 5 5 3000 3000", "note": "a small cemetery, many visits" },
+    { "name": "gen2", "generator": "2 100 100 10000 5000", "note": "a full event list on the largest grid with one arrival beyond the stated limit" },
+    { "name": "gen3", "generator": "3 1 1 10000 5000", "note": "one grave sends almost every client to cremation with an extra arrival beyond the limit" },
+    { "name": "gen4", "generator": "4 3 7 6000 9000", "note": "a narrow cemetery with more visits than arrivals" },
+    { "name": "gen5", "generator": "5 100 100 10000 0", "note": "the largest cemetery, no visits" },
+    { "name": "05", "note": "one arrival on the last allowed day in the smallest cemetery" },
+    { "name": "06", "note": "a late burial next door must not postpone an old grave" },
+    { "name": "07", "note": "a corner visit protects its diagonal neighbour as well as its sides" },
+    { "name": "08", "note": "a centre visit protects all eight neighbours until day 1101" },
+    { "name": "09", "note": "the last column does not wrap around to the first column" },
+    { "name": "10", "note": "the lowest free grave wins even when a higher grave was freed earlier" },
+    { "name": "11", "note": "a visit at the start of the release day cannot rescue the old client" },
+    { "name": "12", "note": "a visit on the last occupied day restarts the full thousand-day wait" },
+    { "name": "13", "note": "repeated visits leave obsolete release entries across several deadlines" },
+    { "name": "14", "note": "visiting former owners after reuse must not touch the new occupants" },
+    { "name": "15", "note": "retained random history mixes reused graves and live and ignored visits" },
+    { "name": "gen6", "generator": "burst", "note": "maximum arrivals and events with five thousand identical visits and a release-day rush" },
+    { "name": "gen7", "generator": "125107 100 1 600 1000", "note": "seeded random traffic along a maximum-height single column" },
+    { "name": "gen8", "generator": "125108 2 3 120 160", "note": "seeded random traffic in a tiny rectangle repeatedly reuses the same graves" }
+  ]
+}
