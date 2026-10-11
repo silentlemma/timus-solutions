@@ -49,3 +49,4 @@
 | 1242 | [Suspects for a werewolf in a village of relatives](1242/) | graphs | C++, Go, Python, Java, Rust |
 | 1243 | [What is left after seven dwarfs share](1243/) | math | C++, Go, Python, Java, Rust |
 | 1244 | [Which cards are missing from a deck, by weight](1244/) | dp | C++, Go, Python, Java, Rust |
+| 1245 | [Covering round stains with at most two pictures](1245/) | geometry | C++, Go, Python, Java, Rust |
