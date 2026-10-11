@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1218_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three possible winners beat each other in a ring" },
+    { "name": "02", "note": "a single Jedi" },
+    { "name": "03", "note": "three Jedi in a ring" },
+    { "name": "04", "note": "one Jedi stronger in everything" },
+    { "name": "big1", "generator": "1 200 1", "note": "random parameters for 200 Jedi" },
+    { "name": "big2", "generator": "2 200 2", "note": "matching rankings in all parameters for 200 Jedi" },
+    { "name": "big3", "generator": "3 200 3", "note": "nearly matching rankings for 200 Jedi" },
+    { "name": "05", "note": "two Jedi at both parameter bounds; two small advantages beat one huge deficit and preserve a 30-letter name" },
+    { "name": "06", "note": "the unique champion is not the maximum in any individual parameter" },
+    { "name": "07", "note": "a losing cyclic group must be excluded while the winning cycle stays in interleaved input order" },
+    { "name": "08", "note": "five equally matched Jedi each win exactly two direct matches; case-sensitive names keep input order" },
+    { "name": "09", "generator": "1218 200 5", "note": "maximum size with a 199-edge shortest win path, shuffled order and 30-letter names" },
+    { "name": "10", "generator": "8181218 10 4", "note": "a small seeded random tournament suitable for exhaustive elimination-schedule verification" }
+  ]
+}
