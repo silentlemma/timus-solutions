@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1212_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small board with two ships" },
+    { "name": "02", "note": "the largest empty board, a ship of four" },
+    { "name": "03", "note": "one cell, a ship of one counted once" },
+    { "name": "04", "note": "a single row" },
+    { "name": "05", "note": "a ship in the middle of a 3 x 3 board leaves no room" },
+    { "name": "06", "note": "ships in two opposite corners of the largest board" },
+    { "name": "07", "note": "two rows and a ship along the top" },
+    { "name": "big1", "generator": "1 30000 30000 30 2 1", "note": "thirty ships scattered over the largest board" },
+    { "name": "big2", "generator": "2 30000 30000 30 3 2", "note": "thirty ships against the edges" },
+    { "name": "big3", "generator": "3 30000 30000 30 4 3", "note": "thirty ships packed into the top rows" },
+    { "name": "big4", "generator": "4 30 30 30 1 1", "note": "a crowded small board, a ship of one" },
+    { "name": "big5", "generator": "5 12 9 30 3 1", "note": "as many ships as fit on a small board" },
+    { "name": "08", "note": "an empty board too short for either orientation of a four-cell ship" },
+    { "name": "09", "note": "a single column leaves exactly one three-cell placement above a vertical ship" },
+    { "name": "10", "note": "free stretches of K minus one, K and K plus one cells contribute zero, one and two places" },
+    { "name": "11", "note": "a retained random asymmetric board with all ship lengths and overlapping exclusion areas for K equal to one" },
+    { "name": "12", "generator": "121212 30000 30000 30 1 3", "note": "one-cell placements on the largest board with thirty ships sharing a narrow band" },
+    { "name": "13", "generator": "121213 6 11 10 2 2", "note": "seeded edge ships on a small nonsquare board leave interior and border placements for a two-cell ship" }
+  ]
+}
