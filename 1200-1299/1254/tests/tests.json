@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1254_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diagonal past a building's corner" },
+    { "name": "02", "note": "one cell, the bomb under John's feet" },
+    { "name": "03", "note": "a bomb walled off: skipped, then the start again" },
+    { "name": "04", "note": "a diagonal between two buildings touching at a corner, the slowest speed" },
+    { "name": "05", "note": "back and forth along a street, the fastest speed" },
+    { "name": "gen1", "generator": "1 75 75 1000 1", "note": "the largest open town, 1000 bombs" },
+    { "name": "gen2", "generator": "2 75 75 1000 2", "note": "the largest town with random buildings" },
+    { "name": "gen3", "generator": "3 75 75 1000 3", "note": "the largest winding street" },
+    { "name": "gen4", "generator": "4 75 1 1000 1", "note": "one row" },
+    { "name": "gen5", "generator": "5 1 75 1000 2", "note": "one column with buildings" },
+    { "name": "gen6", "generator": "6 20 30 1000 3", "note": "a smaller winding street" }
+  ]
+}
