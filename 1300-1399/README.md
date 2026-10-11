@@ -19,3 +19,4 @@
 | 1312 | [Tray](1312/) | geometry | C++, Go, Python, Java, Rust |
 | 1313 | [Some Words about Sport](1313/) | implementation | C++, Go, Python, Java, Rust |
 | 1314 | [Chase in Subway](1314/) | bfs | C++, Go, Python, Java, Rust |
+| 1315 | [MDPAR and MIIAR](1315/) | bfs | C++, Go, Python, Java, Rust |
