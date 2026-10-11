@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "1299_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "patrol: the back is 80 degrees off, so it turns left" },
+    { "name": "02", "example": true, "note": "attack: much stronger, the target 30 degrees off" },
+    { "name": "03", "example": true, "note": "guard: the target within 5 degrees" },
+    { "name": "04", "note": "guard with no enemies: STOP" },
+    { "name": "05", "note": "guard: exactly 5 degrees turns left" },
+    { "name": "06", "note": "guard: exactly -5 degrees turns right, energy below 100" },
+    { "name": "07", "note": "defence: 2 * 20 = 40 ammunition, so it retreats, aimed: fire" },
+    { "name": "08", "note": "defence retreating with the target 7 degrees off" },
+    { "name": "09", "note": "defence with 41 ammunition acts as a guard" },
+    { "name": "10", "note": "attack with equal strength retreats; a shot uses all 5 left" },
+    { "name": "11", "note": "attack advancing with the target 9 degrees off: fire" },
+    { "name": "12", "note": "attack with no robots on either side retreats" },
+    { "name": "13", "note": "patrol 20 degrees off goes straight ahead" },
+    { "name": "14", "note": "patrol 21 degrees off turns right" },
+    { "name": "15", "note": "patrol with the point straight behind" },
+    { "name": "16", "note": "patrol 20 degrees off with its back, no energy" },
+    { "name": "17", "note": "patrol 21 degrees off with its back turns right" },
+    { "name": "18", "note": "patrol meeting an enemy acts as the defence" },
+    { "name": "19", "note": "patrol 90 degrees off: front and back tie, the front is kept" },
+    { "name": "20", "note": "attack with no enemies advances" }
+  ]
+}

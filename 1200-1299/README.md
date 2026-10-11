@@ -103,3 +103,4 @@
 | 1296 | [Hyperjump](1296/) | dp | C++, Go, Python, Java, Rust |
 | 1297 | [Palindrome](1297/) | strings | C++, Go, Python, Java, Rust |
 | 1298 | [Knight](1298/) | backtracking | C++, Go, Python, Java, Rust |
+| 1299 | [Psylonians](1299/) | implementation | C++, Go, Python, Java, Rust |
