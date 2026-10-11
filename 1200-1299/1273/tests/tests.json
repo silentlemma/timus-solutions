@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1273_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one sleeper crosses the other two" },
+    { "name": "02", "note": "no sleepers" },
+    { "name": "03", "note": "one sleeper at the extreme coordinates" },
+    { "name": "04", "note": "100 parallel sleepers" },
+    { "name": "05", "note": "100 sleepers all crossing each other" },
+    { "name": "06", "note": "negative coordinates, given out of order" },
+    { "name": "gen1", "generator": "1 1", "note": "random sleepers" },
+    { "name": "gen2", "generator": "2 2", "note": "nearly straight with a few swaps" },
+    { "name": "gen3", "generator": "3 3", "note": "a dozen sleepers in a narrow range" },
+    { "name": "gen4", "generator": "4 1", "note": "random sleepers" }
+  ]
+}
