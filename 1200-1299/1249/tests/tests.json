@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1249_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an L of three cells" },
+    { "name": "02", "example": true, "note": "a cell and a square touching only at a corner" },
+    { "name": "gen1", "generator": "1 3000 3000 1", "note": "the largest image, rectangles with gaps between them" },
+    { "name": "gen2", "generator": "2 3000 3000 2", "note": "the largest image, a single dark cell joins two rectangles" },
+    { "name": "gen3", "generator": "3 3000 3000 3", "note": "the largest checkerboard" },
+    { "name": "gen4", "generator": "4 3000 3000 4", "note": "the largest image, all dark" },
+    { "name": "gen5", "generator": "5 300 300 5", "note": "random noise" },
+    { "name": "gen6", "generator": "6 1 3000 1", "note": "one row" },
+    { "name": "gen7", "generator": "7 3000 1 1", "note": "one column" },
+    { "name": "gen8", "generator": "8 200 300 2", "note": "separate rectangles and a pair joined by a one-cell bridge" },
+    { "name": "03", "note": "a minimum-size blank image has no dark regions" },
+    { "name": "04", "note": "a hollow frame is connected but does not fill its bounding box" },
+    { "name": "05", "note": "maximum width with the only bad window at the final pair of columns" },
+    { "name": "06", "note": "a single dark cell in a two-by-two window is a valid rectangle" }
+  ]
+}
