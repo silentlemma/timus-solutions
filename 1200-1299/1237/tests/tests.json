@@ -1,0 +1,22 @@
+{
+  "judging": "checker",
+  "reference": "1237_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a better plan exists" },
+    { "name": "02", "example": true, "note": "the improved plan of the first example is optimal" },
+    { "name": "03", "note": "one building and one shelter" },
+    { "name": "04", "note": "two crossed assignments" },
+    { "name": "05", "note": "only an empty nearer shelter helps" },
+    { "name": "06", "note": "everything at one point, every plan is optimal" },
+    { "name": "07", "note": "the largest coordinates and full shelters, crossed" },
+    { "name": "gen1", "generator": "1 100 100 1000 1", "note": "100 x 100, a random plan" },
+    { "name": "gen2", "generator": "2 100 100 1000 2", "note": "100 x 100, an optimal plan with spare room" },
+    { "name": "gen3", "generator": "3 100 100 1000 3", "note": "100 x 100, an optimal plan with one swap" },
+    { "name": "gen4", "generator": "4 100 100 1000 3", "note": "100 x 100, an optimal plan with one swap and spare room" },
+    { "name": "gen5", "generator": "5 100 1 1000 1", "note": "one shelter: the only plan" },
+    { "name": "gen6", "generator": "6 1 100 1000 1", "note": "one building and 100 shelters" },
+    { "name": "gen7", "generator": "7 50 50 5 3", "note": "a small area with many equal times" },
+    { "name": "gen8", "generator": "8 50 50 5 2", "note": "a small area, an optimal plan among many" },
+    { "name": "gen9", "generator": "9 100 100 1000 2", "note": "100 x 100, an optimal plan with full shelters" }
+  ]
+}
