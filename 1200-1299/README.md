@@ -75,3 +75,4 @@
 | 1268 | [Little Chu](1268/) | number_theory | C++, Go, Python, Java, Rust |
 | 1269 | [Obscenity filter](1269/) | strings | C++, Go, Python, Java, Rust |
 | 1270 | [Unicube](1270/) | matching | C++, Go, Python, Java, Rust |
+| 1271 | [Pilot](1271/) | geometry | C++, Go, Python, Java, Rust |
