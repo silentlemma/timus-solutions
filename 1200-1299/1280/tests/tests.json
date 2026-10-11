@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1280_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a correct plan" },
+    { "name": "02", "example": true, "note": "a plan that breaks two rules" },
+    { "name": "03", "note": "one subject, no rules" },
+    { "name": "04", "note": "a rule from a subject to itself" },
+    { "name": "05", "note": "rules in a cycle: no plan can be right" },
+    { "name": "06", "note": "no rules: any plan is right" },
+    { "name": "07", "note": "repeated rules" },
+    { "name": "gen1", "generator": "1 1", "note": "a plan in the hidden order" },
+    { "name": "gen2", "generator": "2 2", "note": "two subjects swapped" },
+    { "name": "gen3", "generator": "3 3", "note": "1000 subjects, 100000 rules, right" },
+    { "name": "gen4", "generator": "4 4", "note": "the last of 100000 rules broken" },
+    { "name": "gen5", "generator": "5 2", "note": "two subjects swapped" }
+  ]
+}
