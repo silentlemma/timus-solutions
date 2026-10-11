@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1267_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three stations, start in the middle" },
+    { "name": "02", "note": "one station: nothing to see" },
+    { "name": "03", "note": "two stations, start at the first" },
+    { "name": "04", "note": "two stations, start at the last" },
+    { "name": "05", "note": "stations at the same place" },
+    { "name": "06", "note": "a train every minute" },
+    { "name": "07", "note": "near-maximum gaps and the maximum period with a start at the last terminal" },
+    { "name": "08", "note": "sixteen stations one minute apart" },
+    { "name": "09", "note": "sixteen stations at one place" },
+    { "name": "gen1", "generator": "1 1", "note": "a gap longer than the train period on a short line with an interior start" },
+    { "name": "gen2", "generator": "2 2", "note": "long rides spanning several train periods on a full-size line" },
+    { "name": "gen3", "generator": "3 3", "note": "adjacent zero gaps mixed with long rides when starting at the last terminal" },
+    { "name": "gen4", "generator": "4 1", "note": "a full-size line with short rides and one zero gap" },
+    { "name": "gen5", "generator": "5 2", "note": "uneven long rides and different departure phases from the two terminals" },
+    { "name": "gen6", "generator": "6 3", "note": "long runs of zero gaps separated by large travel times" },
+    { "name": "10", "note": "two coincident terminals require a full maximal period before returning" },
+    { "name": "11", "note": "the return train leaves exactly one minute after arrival and can be caught" },
+    { "name": "12", "note": "a simultaneous return train is missed and forces a full period of waiting" },
+    { "name": "13", "note": "a random small route is shorter when an uninspected station is passed first" },
+    { "name": "14", "note": "a random interior start must choose the left train despite a later rightward detour" },
+    { "name": "15", "note": "all fifteen gaps and the period reach 100000 with synchronized train phases" },
+    { "name": "16", "generator": "12 1", "note": "random maximal station count with period one and departure offsets at both bounds" },
+    { "name": "17", "generator": "12 2", "note": "random long gaps from the first terminal with cumulative distances spanning many periods" }
+  ]
+}
