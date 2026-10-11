@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1306_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an even count: the mean of 4 and 5" },
+    { "name": "02", "note": "a single number" },
+    { "name": "03", "note": "0 and 2^31 - 1: the sum needs more than 32 bits" },
+    { "name": "04", "note": "twice 2^31 - 1: the sum overflows a 32-bit unsigned" },
+    { "name": "05", "note": "an odd count, unsorted" },
+    { "name": "06", "note": "repeated values around the middle" },
+    { "name": "07", "note": "a decreasing sequence" },
+    { "name": "08", "note": "two numbers: a half" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "250000 numbers of any size" },
+    { "name": "gen3", "generator": "3 3", "note": "249999 numbers with many repeats" },
+    { "name": "gen4", "generator": "4 4", "note": "250000 numbers in decreasing order" },
+    { "name": "gen5", "generator": "5 5", "note": "250000 numbers near 2^31 - 1" }
+  ]
+}
