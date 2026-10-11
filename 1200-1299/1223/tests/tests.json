@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1223_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one egg means floor by floor" },
+    { "name": "02", "note": "the extremes: one floor, many eggs, the classic two eggs" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "1000 random queries" },
+    { "name": "gen2", "generator": "2 31 2", "note": "every pair up to 31 eggs and 31 floors" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "few eggs and many floors" }
+  ]
+}
