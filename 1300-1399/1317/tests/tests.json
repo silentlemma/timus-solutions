@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1317_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diamond lot: three of five hailstones" },
+    { "name": "02", "note": "hailstones on the fence count as over the lot" },
+    { "name": "03", "note": "hailstones beyond the laser's range" },
+    { "name": "04", "note": "a triangle lot with the laser off centre" },
+    { "name": "05", "note": "the example lot listed clockwise" },
+    { "name": "06", "note": "a tall fence: d = 200 just misses at distance 2" },
+    { "name": "07", "note": "the same with d = 201 just reaches" },
+    { "name": "08", "note": "the largest lot and coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "a small lot" },
+    { "name": "gen2", "generator": "5 1", "note": "a small lot" },
+    { "name": "gen3", "generator": "2 2", "note": "hailstones around the limit of the range" },
+    { "name": "gen4", "generator": "3 3", "note": "100 hailstones anywhere" },
+    { "name": "gen5", "generator": "4 2", "note": "hailstones around the limit of the range" }
+  ]
+}
