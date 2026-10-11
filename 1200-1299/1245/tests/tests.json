@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1245_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two spots side by side and one above" },
+    { "name": "02", "note": "one tiny spot: the smallest picture" },
+    { "name": "03", "note": "one spot as large as allowed" },
+    { "name": "04", "note": "two pictures that touch along an edge" },
+    { "name": "05", "note": "spots overlap by a millimetre: one picture" },
+    { "name": "06", "note": "spots inside a larger spot" },
+    { "name": "07", "note": "small spots at the corners of a large square" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "widely varying radii and centres at maximum stain count" },
+    { "name": "gen2", "generator": "2 1000 2", "note": "small spots in overlapping clusters favour one picture" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "two clusters side by side" },
+    { "name": "gen4", "generator": "4 1000 4", "note": "aligned centres at maximum stain count" },
+    { "name": "gen5", "generator": "5 7 2", "note": "seven small spots in two clusters" },
+    { "name": "08", "note": "several tiny spots span 99 mm: one minimum-size picture beats two" },
+    { "name": "09", "note": "disjoint circles whose bounding squares overlap on both axes cannot use two pictures" },
+    { "name": "10", "note": "a wide earlier square blocks a cut that adjacent square edges appear to allow" },
+    { "name": "11", "note": "seeded irregular random spots need a horizontal split with negative square edges" },
+    { "name": "12", "note": "shuffled spots in two rows share left edges and need padding in both pictures" },
+    { "name": "13", "note": "maximum radii at opposite coordinate limits force a 29999 by 29999 picture" }
+  ]
+}
