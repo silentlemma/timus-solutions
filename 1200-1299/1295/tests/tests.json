@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1295_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the minimum exponent gives a sum of ten with one trailing zero" },
+    { "name": "02", "example": true, "note": "the cubic sum is one hundred with two trailing zeros" },
+    { "name": "03", "note": "an even n: exactly one zero" },
+    { "name": "04", "note": "the smallest exponent divisible by four produces no trailing zeros" },
+    { "name": "05", "note": "an exponent congruent to one modulo four can still give two trailing zeros" },
+    { "name": "06", "note": "the two-zero exception repeats after a full period of twenty" },
+    { "name": "07", "note": "the largest n, divisible by 4" },
+    { "name": "08", "note": "a large n that leaves 3 mod 4" },
+    { "name": "09", "note": "a large n that leaves 1 mod 4 but not 5 mod 20" },
+    { "name": "10", "note": "an odd exponent whose sum is 18700 and has two trailing zeros" },
+    { "name": "gen1", "generator": "1", "note": "an even exponent above the unsigned sixteen-bit range gives one trailing zero" },
+    { "name": "gen2", "generator": "2", "note": "a five-digit exponent ending in fifty produces exactly one trailing zero" },
+    { "name": "gen3", "generator": "3", "note": "a six-digit exponent congruent to two modulo twenty gives a sum ending in one zero" }
+  ]
+}
