@@ -26,3 +26,4 @@
 | 1219 | [A million letters with no letter, pair or triple too common](1219/) | constructive | C++, Go, Python, Java, Rust |
 | 1220 | [A thousand stacks in three quarters of a megabyte](1220/) | implementation | C++ |
 | 1221 | [The largest black square with a white diamond inside](1221/) | implementation | C++, Go, Python, Java, Rust |
+| 1222 | [The highest product of numbers with a given sum](1222/) | math | C++, Go, Python, Java, Rust |
