@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1244_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cards missing, one way" },
+    { "name": "02", "example": true, "note": "two ways to make the weight" },
+    { "name": "03", "example": true, "note": "the weight cannot be made" },
+    { "name": "04", "note": "two equal cards: either could be missing" },
+    { "name": "05", "note": "100 equal cards" },
+    { "name": "06", "note": "weights 1 to 100, only the lightest missing" },
+    { "name": "07", "note": "100 cards of 1000, a weight they cannot make" },
+    { "name": "08", "note": "weights 1 to 100, only the lightest left: 99 cards missing" },
+    { "name": "gen1", "generator": "1 100 1", "note": "100 random cards: many answers" },
+    { "name": "gen2", "generator": "2 100 2", "note": "100 cards, one lightest card missing" },
+    { "name": "gen3", "generator": "3 100 3", "note": "100 cards of three weights" },
+    { "name": "gen4", "generator": "4 2 2", "note": "two cards, the lighter missing" },
+    { "name": "gen5", "generator": "5 100 2", "note": "100 cards, one lightest card missing" },
+    { "name": "gen6", "generator": "6 7 3", "note": "seven cards of three weights" }
+  ]
+}
