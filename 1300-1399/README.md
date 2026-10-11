@@ -5,3 +5,4 @@
 | # | Problem | Tags | Languages |
 |---|---------|------|-----------|
 | 1300 | [Taxes](1300/) | binary_search | C++, Go, Python, Java, Rust |
+| 1301 | [Cube in Labyrinth](1301/) | bfs | C++, Go, Python, Java, Rust |
