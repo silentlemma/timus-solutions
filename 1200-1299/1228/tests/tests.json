@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1228_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a three-dimensional array" },
+    { "name": "02", "note": "a single dimension of the largest bound" },
+    { "name": "gen1", "generator": "1 20 1000", "note": "twenty dimensions with mixed bounds and a total above two billion" },
+    { "name": "gen2", "generator": "2 20 1", "note": "twenty dimensions of two elements each" },
+    { "name": "gen3", "generator": "3 3 1000", "note": "three large dimensions" },
+    { "name": "gen4", "generator": "4 7 20", "note": "seven small dimensions" },
+    { "name": "03", "note": "the smallest valid one-dimensional array has two elements" },
+    { "name": "04", "note": "all three upper bounds equal the maximum of 1000" },
+    { "name": "05", "note": "the maximum allowed total of 2147483646 and first multiplier of 1073741823" },
+    { "name": "06", "note": "twenty dimensions with nineteen minimum bounds and a final bound of 1000" },
+    { "name": "07", "note": "a maximum first bound recovered from the total with alternating small inner bounds" },
+    { "name": "08", "generator": "1228 2 1000", "note": "a seeded random rectangle with unequal side lengths" },
+    { "name": "09", "generator": "1229 15 3", "note": "fifteen seeded random dimensions mixing widths of two, three and four" }
+  ]
+}
