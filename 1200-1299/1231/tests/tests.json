@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1231_constructive.cpp",
+  "cases": [
+    { "name": "01", "note": "k = 2, the k of the sample in the statement" },
+    { "name": "02", "note": "k = 1, the last minus stays" },
+    { "name": "03", "note": "k = 3, the case named in the statement" },
+    { "name": "04", "note": "the largest k" },
+    { "name": "05", "note": "k = 199" },
+    { "name": "06", "note": "k = 7" },
+    { "name": "07", "note": "k = 100" },
+    { "name": "08", "note": "k = 13" },
+    { "name": "09", "note": "k = 64" }
+  ]
+}
