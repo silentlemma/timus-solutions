@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1275_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one odd cycle of three knights" },
+    { "name": "02", "note": "an odd cycle with an odd total: impossible" },
+    { "name": "03", "note": "an even cycle with many optimal plans" },
+    { "name": "04", "note": "an even cycle where the cheap way wraps around" },
+    { "name": "05", "note": "nothing to do" },
+    { "name": "06", "note": "two knights: carry everything away" },
+    { "name": "07", "note": "antipodal pairs independently need additions, removals or no visits" },
+    { "name": "08", "note": "three odd cycles, one of them impossible" },
+    { "name": "09", "note": "five knights, two apart: impossible" },
+    { "name": "gen1", "generator": "1 1", "note": "a small odd cycle needs both additions and removals" },
+    { "name": "gen2", "generator": "2 2", "note": "several long odd cycles must be solved independently" },
+    { "name": "gen3", "generator": "3 3", "note": "short even cycles need median choices that improve on zero" },
+    { "name": "gen4", "generator": "4 4", "note": "a backward three-knight cycle can be solved using removals alone" },
+    { "name": "gen5", "generator": "5 2", "note": "a single large odd cycle mixes positive and negative pair counts" },
+    { "name": "gen6", "generator": "6 3", "note": "a long even cycle has balanced alternating needs" },
+    { "name": "gen7", "generator": "7 2", "note": "three odd components require separate signed solutions" },
+    { "name": "gen8", "generator": "8 1", "note": "a backward odd cycle requires additions only" },
+    { "name": "10", "note": "empty neighbors must receive goblets before 1000 goblets can be removed" },
+    { "name": "11", "note": "opposite imbalances in separate even cycles cannot cancel despite the correct total" },
+    { "name": "12", "note": "backward wraparound steps require both visit signs despite an unchanged total" },
+    { "name": "13", "note": "the last antipodal pair has unequal needs although the total change is even" },
+    { "name": "gen9", "generator": "1275 5", "note": "the maximum table with backward neighboring steps requires exactly 30000 visits" },
+    { "name": "gen10", "generator": "1275 6", "note": "hundreds of triangular components combine additions and removals" }
+  ]
+}

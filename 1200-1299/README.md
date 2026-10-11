@@ -79,3 +79,4 @@
 | 1272 | [Non-Yekaterinburg subway](1272/) | dsu | C++, Go, Python, Java, Rust |
 | 1273 | [Sleepers](1273/) | dp | C++, Go, Python, Java, Rust |
 | 1274 | [Fractional arithmetic](1274/) | math | C++, Go, Python, Java, Rust |
+| 1275 | [Knights of the Round Table](1275/) | math | C++, Rust |
