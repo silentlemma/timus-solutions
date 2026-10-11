@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1224_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three rows, five columns" },
+    { "name": "02", "note": "a single cell, no turn" },
+    { "name": "03", "note": "one long row, no turn" },
+    { "name": "04", "note": "one long column, a single turn" },
+    { "name": "05", "note": "the largest square, beyond the signed 32-bit range" },
+    { "name": "06", "note": "more rows than columns" },
+    { "name": "07", "note": "a small square" },
+    { "name": "08", "note": "the largest sizes, rows fewer by one" },
+    { "name": "09", "note": "the largest sizes, columns fewer by one" },
+    { "name": "10", "note": "two rows and maximum width, finishing with a leftward sweep" },
+    { "name": "11", "note": "two columns and maximum height, finishing with an upward sweep" },
+    { "name": "12", "generator": "1224 1000 1", "note": "seeded random wide rectangle with an odd height, ending along the center row" },
+    { "name": "13", "generator": "1232 1000 1", "note": "seeded random tall rectangle with an odd width, ending along the center column" }
+  ]
+}
