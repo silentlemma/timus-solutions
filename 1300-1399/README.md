@@ -27,3 +27,4 @@
 | 1320 | [Graph Decomposition](1320/) | dsu | C++, Go, Python, Java, Rust |
 | 1321 | [Floor Indicator](1321/) | math | C++, Go, Python, Java, Rust |
 | 1322 | [Spy](1322/) | strings | C++, Go, Python, Java, Rust |
+| 1323 | [Classmates](1323/) | bitmask | C++, Go, Python, Java, Rust |
