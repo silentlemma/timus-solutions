@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1310_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the 214th of the triples summing to a multiple of 4" },
+    { "name": "02", "note": "one register, every sum divisible by 1" },
+    { "name": "03", "note": "one register: only the value 2 is even" },
+    { "name": "04", "note": "the last state for the largest L and M" },
+    { "name": "05", "note": "the first state for the largest L and M" },
+    { "name": "06", "note": "unit modulus: code 50^100 - 1 is the all-50 state" },
+    { "name": "07", "note": "values 1 and 2 only, a code in the middle" },
+    { "name": "08", "note": "two registers that must add up to 50 or 100" },
+    { "name": "09", "note": "the largest sizes, a 29-digit code" },
+    { "name": "gen1", "generator": "1 1", "note": "small L, M and K" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum length with a modulus just above the value range" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest sizes near the end of the list" },
+    { "name": "gen4", "generator": "4 2", "note": "seventeen possible register values with divisibility by 20" },
+    { "name": "gen5", "generator": "5 1", "note": "five registers with four choices each and sum divisible by 6" },
+    { "name": "10", "note": "a single allowed value leaves exactly one state at maximum length and modulus" },
+    { "name": "11", "note": "seeded small case crosses a prefix block with M below K and empty suffix blocks" },
+    { "name": "12", "note": "a 168-digit rank exactly starts an interior first-value block at all maximum sizes" },
+    { "name": "gen6", "generator": "31 1", "note": "seeded one-register case selects a later multiple of K among several valid values" }
+  ]
+}
