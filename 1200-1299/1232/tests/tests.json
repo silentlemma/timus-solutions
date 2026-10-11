@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "1232_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of three moves" },
+    { "name": "02", "note": "even the shallowest move goes below the surface" },
+    { "name": "03", "note": "a narrow cone and a low station" },
+    { "name": "04", "note": "a height exactly divisible by the move length allows a straight descent" },
+    { "name": "05", "note": "the greedy zigzag fails; two moves down the wall and a crossing land" },
+    { "name": "06", "note": "the minimum station height is too low for a move" },
+    { "name": "07", "note": "the narrowest cone and the maximum station height require a hundred moves" },
+    { "name": "08", "note": "the widest cone at the maximum station height" },
+    { "name": "09", "note": "one straight move" },
+    { "name": "10", "note": "just too low for one move" },
+    { "name": "11", "note": "just high enough for one move" },
+    { "name": "12", "note": "a cone too narrow to allow landing just above two move lengths" },
+    { "name": "13", "note": "a zigzag of a few moves" },
+    { "name": "14", "note": "one slanted move in a wide cone" },
+    { "name": "gen1", "generator": "1 1", "note": "a high station with short moves in a relatively narrow cone" },
+    { "name": "gen2", "generator": "2 1", "note": "a short descent with a nonintegral ratio of height to move length" },
+    { "name": "gen3", "generator": "3 2", "note": "a high station inside a narrow cone with intermediate move lengths" },
+    { "name": "gen4", "generator": "4 2", "note": "a nearly minimal cone angle with a height below thirteen move lengths" },
+    { "name": "gen5", "generator": "5 3", "note": "a wide cone with height barely above a multiple of the move length" },
+    { "name": "gen6", "generator": "6 3", "note": "long moves in a narrow cone with almost a full move of excess path length" },
+    { "name": "gen7", "generator": "7 3", "note": "a moderate cone angle with height just above thirteen move lengths" },
+    { "name": "15", "note": "input parameters split across lines" }
+  ]
+}
