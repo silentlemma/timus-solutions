@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "1231_constructive.cpp",
+  "cases": [
+    { "name": "01", "note": "k = 2, the k of the sample in the statement" },
+    { "name": "02", "note": "k = 1, the last minus stays" },
+    { "name": "03", "note": "k = 3, the case named in the statement" },
+    { "name": "04", "note": "the largest k" },
+    { "name": "05", "note": "prime step immediately below the maximum" },
+    { "name": "06", "note": "small prime step with an untouched first minus at n = 23" },
+    { "name": "07", "note": "step equal to half the upper bound" },
+    { "name": "08", "note": "two-digit prime step with an empty right sweep at n = 180" },
+    { "name": "09", "note": "step of 64 with a rightmost survivor at n = 152" },
+    { "name": "10", "note": "smallest composite step; n = 163 leaves the rightmost minus" },
+    { "name": "11", "note": "small odd step; n = 142 leaves the leftmost minus untouched" },
+    { "name": "12", "note": "step divisible by both 2 and 3; n = 128 returns to the first minus" },
+    { "name": "13", "note": "small power of two across circle sizes 7, 8 and 9" },
+    { "name": "14", "note": "step with several small divisors; n = 111 leaves no right sweep" },
+    { "name": "15", "note": "step divisible by every circle size from 1 through 6" },
+    { "name": "16", "note": "step just below 128; wraps repeatedly on short circles" },
+    { "name": "17", "note": "largest allowed power of two, including circle sizes 128 and 200" },
+    { "name": "18", "note": "step just above 128; n = 98 leaves the final minus" },
+    { "name": "19", "note": "large even step two below the limit; n = 169 ends at the right edge" },
+    { "name": "20", "generator": "random 1231 14 59", "note": "seeded lower-range step 38; interior survivor at n = 200" },
+    { "name": "21", "generator": "random 2026 65 126", "note": "seeded middle-range step 72; survivor just past the middle at n = 200" },
+    { "name": "22", "generator": "random 991 130 197", "note": "seeded upper-range step 148; n = 200 leaves only nine cells to its right" }
+  ]
+}
