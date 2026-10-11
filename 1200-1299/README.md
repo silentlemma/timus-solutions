@@ -88,3 +88,4 @@
 | 1281 | [River basin](1281/) | geometry | C++, Go, Python, Java, Rust |
 | 1282 | [Game tree](1282/) | games | C++, Go, Python, Java, Rust |
 | 1283 | [Dwarf](1283/) | math | C++, Go, Python, Java, Rust |
+| 1284 | [Space poker](1284/) | bruteforce | C++, Go, Python, Java, Rust |

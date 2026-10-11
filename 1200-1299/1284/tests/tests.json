@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1284_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three suits, two moves" },
+    { "name": "02", "note": "a single card" },
+    { "name": "03", "note": "one suit only: just a sorting" },
+    { "name": "04", "note": "already arranged, descending" },
+    { "name": "05", "note": "two suits interleaved" },
+    { "name": "06", "note": "one card per suit, colours already alternating" },
+    { "name": "07", "note": "all ten suits, two cards each" },
+    { "name": "08", "note": "two blue suits side by side must be split" },
+    { "name": "gen1", "generator": "1 1", "note": "a descending yellow suit surrounding a mixed-order blue block" },
+    { "name": "gen2", "generator": "2 2", "note": "uneven suit sizes in a full hand with more yellow cards than blue" },
+    { "name": "gen3", "generator": "3 3", "note": "one more blue suit than yellow" },
+    { "name": "gen4", "generator": "4 2", "note": "equal values in different blue suits among all ten suits" },
+    { "name": "gen5", "generator": "5 1", "note": "three singleton suits with adjacent blue cards need a colour alternation fix" },
+    { "name": "09", "note": "opposite sorting directions in two intact suit blocks require two moves" },
+    { "name": "10", "note": "twenty cards with nineteen blue cards and one yellow card are already ascending" },
+    { "name": "11", "note": "equal maximum values in all ten suits still require alternating colours" },
+    { "name": "12", "note": "three yellow suits must bookend the row despite sixteen of twenty cards being blue" },
+    { "name": "13", "note": "random nested yellow blocks around adjacent blue singletons need three moves" },
+    { "name": "14", "note": "random hand needs suit permutations opposite to numeric order to finish in one move" },
+    { "name": "15", "note": "two complete alternating rounds must merge repeated suits into single blocks" },
+    { "name": "16", "note": "maximum single yellow suit with five reversed groups needs fifteen moves" },
+    { "name": "gen6", "generator": "128406 4", "note": "seeded maximum hand in nine suits with five yellow suits and four blue suits" },
+    { "name": "gen7", "generator": "128407 5", "note": "seeded maximum two-suit hand sharing ten values including both value limits" }
+  ]
+}
