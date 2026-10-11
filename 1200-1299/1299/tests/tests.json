@@ -1,0 +1,31 @@
+{
+  "judging": "tokens",
+  "reference": "1299_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "patrol: the back is 80 degrees off, so it turns left" },
+    { "name": "02", "example": true, "note": "overwhelming attack strength advances toward a target thirty degrees off" },
+    { "name": "03", "example": true, "note": "guard: the target within 5 degrees" },
+    { "name": "04", "note": "guard with no enemies: STOP" },
+    { "name": "05", "note": "guard: exactly 5 degrees turns left" },
+    { "name": "06", "note": "guard: exactly -5 degrees turns right, energy below 100" },
+    { "name": "07", "note": "defence at the ammunition threshold fires at a target three degrees off" },
+    { "name": "08", "note": "defence retreating with the target 7 degrees off" },
+    { "name": "09", "note": "defence with 41 ammunition acts as a guard" },
+    { "name": "10", "note": "attack at exactly three times the enemy strength takes the retreat branch and fires all five remaining ammunition units" },
+    { "name": "11", "note": "attack advancing with the target 9 degrees off: fire" },
+    { "name": "12", "note": "attack with no robots on either side retreats" },
+    { "name": "13", "note": "patrol 20 degrees off goes straight ahead" },
+    { "name": "14", "note": "patrol 21 degrees off turns right" },
+    { "name": "15", "note": "patrol with the point straight behind" },
+    { "name": "16", "note": "patrol with a rearward course deviation of twenty degrees issues a backward command at zero energy" },
+    { "name": "17", "note": "patrol 21 degrees off with its back turns right" },
+    { "name": "18", "note": "patrol meeting an enemy acts as the defence" },
+    { "name": "19", "note": "patrol 90 degrees off: front and back tie, the front is kept" },
+    { "name": "20", "note": "attack with no enemies advances" },
+    { "name": "21", "note": "guard aimed at a zero-energy enemy still issues FIRE 0 with no resources" },
+    { "name": "22", "note": "attack one strength unit above the requirement advances at exactly -10 degrees" },
+    { "name": "23", "note": "maximum resources, counts and powers with the minimum target angle require retreat" },
+    { "name": "24", "note": "small random patrol at -90 degrees keeps the front in a tie and turns right" },
+    { "name": "25", "generator": "random 1848", "note": "patrol with thirty-three enemies and surplus ammunition fires using guard rules and ignores the route" }
+  ]
+}
