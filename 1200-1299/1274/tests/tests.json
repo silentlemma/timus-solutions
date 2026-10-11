@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1274_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "mixed number plus a reducible fraction" },
+    { "name": "02", "note": "the result is zero" },
+    { "name": "03", "note": "negative times negative" },
+    { "name": "04", "note": "division by a negative fraction gives an integer" },
+    { "name": "05", "note": "zero plus a negative integer" },
+    { "name": "06", "note": "the largest integer part minus almost the same" },
+    { "name": "07", "note": "the smallest fractions divided" },
+    { "name": "08", "note": "reducible fractions multiplied to one" },
+    { "name": "09", "note": "negative minus negative" },
+    { "name": "gen1", "generator": "1 1", "note": "random fractions" },
+    { "name": "gen2", "generator": "2 2", "note": "small reducible fractions" },
+    { "name": "gen3", "generator": "3 3", "note": "denominators near 30000" },
+    { "name": "gen4", "generator": "4 1", "note": "random fractions" },
+    { "name": "gen5", "generator": "5 2", "note": "small reducible fractions" },
+    { "name": "gen6", "generator": "6 3", "note": "denominators near 30000" }
+  ]
+}
