@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1270_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one cube turned a quarter about the left-right axis" },
+    { "name": "02", "note": "the demands are the cube's mirror image: no rotation fits" },
+    { "name": "03", "note": "more cells than cubes" },
+    { "name": "04", "note": "no demands at all" },
+    { "name": "05", "note": "the first cube taken must move to make room" },
+    { "name": "06", "note": "a colour no cube has" },
+    { "name": "07", "note": "two-coloured cubes in various turns" },
+    { "name": "08", "note": "a half turn about the vertical axis" },
+    { "name": "gen1", "generator": "1 1", "note": "built from the cubes, always solvable" },
+    { "name": "gen2", "generator": "2 2", "note": "random demands in three colours" },
+    { "name": "gen3", "generator": "3 3", "note": "two-colour demands leave the monochrome cube unusable" },
+    { "name": "gen4", "generator": "4 1", "note": "a lightly constrained cell must leave cube 7 for a forced cell" },
+    { "name": "gen5", "generator": "5 2", "note": "several three-colour cells have no compatible cube" },
+    { "name": "gen6", "generator": "6 3", "note": "a dense two-colour matching uses all thirty cubes" },
+    { "name": "09", "note": "thirty cells each fit 29 cubes, but the remaining cube is unusable" },
+    { "name": "10", "note": "the last cell forces a reassignment chain through all 30 cubes" },
+    { "name": "11", "note": "all 24 proper orientations are required by fully specified cells" },
+    { "name": "12", "note": "equal colour counts do not distinguish adjacent from opposite faces" },
+    { "name": "13", "note": "three specified faces at one corner already forbid a reflected orientation" },
+    { "name": "14", "note": "one monochrome cell can use only cube 30 with the maximum colour number" },
+    { "name": "15", "note": "seeded small random case violates Hall only on a proper subset of cells" },
+    { "name": "16", "note": "seeded small random case has one assignment despite a four-way choice" },
+    { "name": "gen7", "generator": "110 1", "note": "maximum-size random high-colour instance must use every cube" }
+  ]
+}
