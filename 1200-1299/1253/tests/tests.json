@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1253_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "nested references across lines" },
+    { "name": "02", "note": "two templates that refer to each other" },
+    { "name": "03", "note": "a cycle the first template never reaches" },
+    { "name": "06", "note": "a length far beyond the limit" },
+    { "name": "07", "note": "an empty template" },
+    { "name": "08", "note": "a digit right after a reference, spaces and an empty line" },
+    { "name": "gen1", "generator": "1 2 6 0", "note": "exactly 10^6 characters" },
+    { "name": "gen2", "generator": "2 2 6 1", "note": "one character too many" },
+    { "name": "gen3", "generator": "3 1 9 990", "note": "nine long random templates, too long in all" },
+    { "name": "gen4", "generator": "4 1 9 300", "note": "nine random templates" },
+    { "name": "gen5", "generator": "5 3 9 300", "note": "nine random templates and a cycle back to the first" },
+    { "name": "gen6", "generator": "6 1 1 1000", "note": "one template with nothing to expand" },
+    { "name": "gen7", "generator": "7 2 2 9", "note": "a short chain with letters added" },
+    { "name": "09", "note": "a self-reference with no literal text still never terminates" },
+    { "name": "10", "note": "a seeded small DAG reuses shared templates through backward references" },
+    { "name": "11", "note": "ten references per level vanish through nested empty templates" },
+    { "name": "12", "note": "all nine templates have 1000 characters and expand successfully in reverse order" },
+    { "name": "gen8", "generator": "1283 1 9 980", "note": "a large finite random expansion preserves internal line breaks below the output limit" }
+  ]
+}
