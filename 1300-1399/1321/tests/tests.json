@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1321_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "ten floors: from 2 to 10" },
+    { "name": "02", "note": "the smallest building, one digit" },
+    { "name": "03", "note": "the largest one-digit building" },
+    { "name": "04", "note": "first building where floors six through twelve give the shorter ride" },
+    { "name": "05", "note": "eleven floors still require the ride from floor two to floor ten" },
+    { "name": "06", "note": "upper end of the two-digit range beginning with one" },
+    { "name": "07", "note": "first building whose tens place needs blank, one and two" },
+    { "name": "08", "note": "last two-digit building before the upper-left tens segment is installed" },
+    { "name": "09", "note": "first building whose tens place needs the range from blank through four" },
+    { "name": "10", "note": "largest two-digit building retains the wider leading-place ride" },
+    { "name": "11", "note": "first three-digit building requires seventy-one spans" },
+    { "name": "12", "note": "reaching floor one hundred twenty reduces the ride to fifty-one spans" },
+    { "name": "13", "note": "first four-digit building scales the long leading-one ride to seven hundred one spans" },
+    { "name": "14", "note": "maximum allowed floor count exercises the widest leading-digit branch" },
+    { "name": "15", "note": "maximum-length floor count made entirely of ones uses the longer leading-one branch" },
+    { "name": "16", "note": "a leading three with only zeros below it checks a maximum-length sparse floor count" },
+    { "name": "17", "note": "last three-digit count before floor 120 enables the shorter ride" },
+    { "name": "18", "note": "last three-digit count before digit 2 appears on the leading place" },
+    { "name": "19", "note": "first three-digit count requiring blank, 1 and 2 on the leading place" },
+    { "name": "20", "note": "upper end of the three-digit range without an installed upper-left leading segment" },
+    { "name": "21", "note": "first three-digit count with the upper-left leading segment installed" },
+    { "name": "22", "generator": "1321 2", "note": "a maximum-length floor count beginning with twelve exercises the shorter leading-one branch" },
+    { "name": "23", "generator": "1321 1", "note": "seeded random five-digit building checks carries through several lower display places" }
+  ]
+}
