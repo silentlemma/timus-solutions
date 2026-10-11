@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1243_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "twelve digits" },
+    { "name": "02", "note": "one thing" },
+    { "name": "03", "note": "seven things divide evenly" },
+    { "name": "04", "note": "the 26 boots of the statement" },
+    { "name": "05", "note": "the largest N, 10^50" },
+    { "name": "06", "note": "fifty nines" },
+    { "name": "07", "note": "the largest multiple of 7 below 10^50" },
+    { "name": "gen1", "generator": "1 50", "note": "a random 50-digit number" },
+    { "name": "gen2", "generator": "2 50", "note": "a random 50-digit number" },
+    { "name": "gen3", "generator": "3 19", "note": "a random 19-digit number, near the 64-bit limit" },
+    { "name": "gen4", "generator": "4 20", "note": "a random 20-digit number, beyond 64 bits" }
+  ]
+}
