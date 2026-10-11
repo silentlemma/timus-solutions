@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1305_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diamond: only the slanted sides remain" },
+    { "name": "02", "note": "a single point" },
+    { "name": "03", "note": "the same point three times" },
+    { "name": "04", "note": "points on a horizontal line: a segment" },
+    { "name": "05", "note": "points on a 45 degree line: a segment" },
+    { "name": "06", "note": "a slope of 2 widens into a parallelogram" },
+    { "name": "07", "note": "the corners of the full grid: a square" },
+    { "name": "08", "note": "a triangle with other slopes grows into a pentagon" },
+    { "name": "09", "note": "a diamond with only slanted sides" },
+    { "name": "gen1", "generator": "1 1", "note": "a few points on a small grid" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 random points" },
+    { "name": "gen3", "generator": "3 3", "note": "points on one line" },
+    { "name": "gen4", "generator": "4 4", "note": "100000 copies of three points" },
+    { "name": "gen5", "generator": "5 5", "note": "points inside a diamond" },
+    { "name": "gen6", "generator": "6 3", "note": "points on one line" }
+  ]
+}

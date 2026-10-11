@@ -9,3 +9,4 @@
 | 1302 | [Delta-wave](1302/) | math | C++, Go, Python, Java, Rust |
 | 1303 | [Minimal Coverage](1303/) | greedy | C++, Go, Python, Java, Rust |
 | 1304 | [Parallelepiped](1304/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1305 | [Convex Hull](1305/) | geometry | C++, Go, Python, Java, Rust |
