@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1261_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "balanced ternary gives both sums at once" },
+    { "name": "02", "note": "the smallest N: no tip from balanced ternary" },
+    { "name": "03", "note": "the largest N" },
+    { "name": "04", "note": "a power of 3" },
+    { "name": "05", "note": "all bills up to 3^14: the tip needs the next bill" },
+    { "name": "06", "note": "N = 2: pay 3, tip 1" },
+    { "name": "07", "note": "one below a power of 3" },
+    { "name": "08", "note": "digits 1 and 1: the tip is the third bill" },
+    { "name": "09", "note": "a small power of 3" },
+    { "name": "10", "note": "digits 1, 1, 1" },
+    { "name": "gen1", "generator": "1 1", "note": "any N" },
+    { "name": "gen2", "generator": "2 2", "note": "ternary digits 0 and 1 only" },
+    { "name": "gen3", "generator": "3 1", "note": "any N" },
+    { "name": "gen4", "generator": "4 2", "note": "ternary digits 0 and 1 only" }
+  ]
+}
