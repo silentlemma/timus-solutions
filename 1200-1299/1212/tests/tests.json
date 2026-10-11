@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1212_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small board with two ships" },
+    { "name": "02", "note": "the largest empty board, a ship of four" },
+    { "name": "03", "note": "one cell, a ship of one counted once" },
+    { "name": "04", "note": "a single row" },
+    { "name": "05", "note": "a ship in the middle of a 3 x 3 board leaves no room" },
+    { "name": "06", "note": "ships in two opposite corners of the largest board" },
+    { "name": "07", "note": "two rows and a ship along the top" },
+    { "name": "big1", "generator": "1 30000 30000 30 2 1", "note": "30 ships scattered over the largest board" },
+    { "name": "big2", "generator": "2 30000 30000 30 3 2", "note": "30 ships against the edges" },
+    { "name": "big3", "generator": "3 30000 30000 30 4 3", "note": "30 ships packed into the top rows" },
+    { "name": "big4", "generator": "4 30 30 30 1 1", "note": "a crowded small board, a ship of one" },
+    { "name": "big5", "generator": "5 12 9 30 3 1", "note": "as many ships as fit on a small board" }
+  ]
+}
