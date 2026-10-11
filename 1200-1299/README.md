@@ -69,3 +69,4 @@
 | 1262 | [Pseudo-Roman number](1262/) | strings | C++, Go, Python, Java, Rust |
 | 1263 | [Elections](1263/) | implementation | C++, Go, Python, Java, Rust |
 | 1264 | [Workdays](1264/) | math | C++, Go, Python, Java, Rust |
+| 1265 | [Mirror](1265/) | geometry | C++, Go, Python, Java, Rust |

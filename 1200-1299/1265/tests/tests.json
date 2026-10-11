@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "1265_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diagonal mirror between the eye and the target" },
+    { "name": "02", "example": true, "note": "tiny coordinates over several lines: points on opposite sides" },
+    { "name": "03", "note": "the eye and the target on opposite sides of the mirror" },
+    { "name": "04", "note": "both in front of the mirror, but the reflection misses it" },
+    { "name": "05", "note": "the ray hits exactly the end of the mirror" },
+    { "name": "06", "note": "the eye moved by 10^-6: the ray passes just beyond the end" },
+    { "name": "07", "note": "the eye moved by 10^-6 the other way: just inside" },
+    { "name": "08", "note": "points 10^-6 from a long diagonal mirror" },
+    { "name": "09", "note": "a mirror 2 * 10^-6 long at the far edge" },
+    { "name": "10", "note": "all coordinates of order 10^-6" },
+    { "name": "11", "note": "the largest coordinates, a mirror along the top edge" },
+    { "name": "gen1", "generator": "1 1", "note": "random points with six decimals" },
+    { "name": "gen2", "generator": "2 2", "note": "small integers" },
+    { "name": "gen3", "generator": "3 3", "note": "a ray through the end of the mirror, maybe nudged" },
+    { "name": "gen4", "generator": "4 1", "note": "random points with six decimals" },
+    { "name": "gen5", "generator": "5 2", "note": "small integers" },
+    { "name": "gen6", "generator": "6 3", "note": "a ray through the end of the mirror, maybe nudged" },
+    { "name": "gen7", "generator": "7 3", "note": "a ray through the end of the mirror, maybe nudged" },
+    { "name": "gen8", "generator": "8 3", "note": "a ray through the end of the mirror, maybe nudged" },
+    { "name": "gen9", "generator": "9 2", "note": "small integers" }
+  ]
+}
