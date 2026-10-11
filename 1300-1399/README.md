@@ -14,3 +14,4 @@
 | 1307 | [Archiver](1307/) | strings | C++, Go, Python, Java, Rust |
 | 1308 | [Dean's Pyramid](1308/) | bfs | C++, Go, Python, Java, Rust |
 | 1309 | [Dispute](1309/) | math | C++, Go, Python, Java, Rust |
+| 1310 | [ACM Diagnostics](1310/) | dp | C++, Go, Python, Java, Rust |
