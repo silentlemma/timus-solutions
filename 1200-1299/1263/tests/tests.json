@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1263_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three candidates, shares rounded both ways" },
+    { "name": "02", "note": "one candidate, one voter" },
+    { "name": "03", "note": "candidates with no votes print 0.00%" },
+    { "name": "04", "note": "an exact tie 3.125, rounded to even" },
+    { "name": "05", "note": "an exact tie 0.625, rounded to even" },
+    { "name": "06", "note": "10000 candidates, one voter" },
+    { "name": "07", "note": "10000 voters split in thirds" },
+    { "name": "08", "note": "one vote each, 14.29% apiece" },
+    { "name": "gen1", "generator": "1 1", "note": "random election" },
+    { "name": "gen2", "generator": "2 2", "note": "M a product of 2s and 5s" },
+    { "name": "gen3", "generator": "3 1", "note": "random election" },
+    { "name": "gen4", "generator": "4 2", "note": "M a product of 2s and 5s" }
+  ]
+}
