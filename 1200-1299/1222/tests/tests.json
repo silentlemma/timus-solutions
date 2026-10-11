@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1222_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five heads: 2 + 3" },
+    { "name": "02", "note": "a single head" },
+    { "name": "03", "note": "two heads in one eagle" },
+    { "name": "04", "note": "three heads need no split" },
+    { "name": "05", "note": "four heads: one eagle or 2 + 2" },
+    { "name": "06", "note": "a leftover 1 becomes 2 + 2" },
+    { "name": "07", "note": "a leftover 2" },
+    { "name": "08", "note": "the largest N, threes only" },
+    { "name": "09", "note": "the largest N with a leftover 2" },
+    { "name": "10", "note": "using a four near the upper bound" },
+    { "name": "11", "note": "six heads: two threes first beat using only twos" },
+    { "name": "12", "note": "the first N whose optimal product exceeds unsigned 64 bits" },
+    { "name": "13", "generator": "random 1222 9 2997", "note": "seeded random interior N with a long decimal answer" }
+  ]
+}
