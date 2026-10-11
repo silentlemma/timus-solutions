@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1238_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "repeats of one and two letters" },
+    { "name": "02", "example": true, "note": "a repeat nested in a repeat" },
+    { "name": "03", "note": "a single letter" },
+    { "name": "04", "note": "a hundred equal letters: 100(A) and A99(A) are equally short" },
+    { "name": "05", "note": "a two-letter period repeated 50 times" },
+    { "name": "06", "note": "three levels of nesting" },
+    { "name": "07", "note": "the alphabet repeated and cut: the best repeat starts mid-word" },
+    { "name": "08", "note": "a hundred letters with nothing worth folding" },
+    { "name": "09", "note": "ten equal letters and one more: 10(A)B and A9(A)B tie" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred random letters A and B" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred random letters drawn from the full alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "a random nested folding unfolded" },
+    { "name": "gen4", "generator": "4 3", "note": "alternating BC and AC stretches followed by a long run of C" },
+    { "name": "gen5", "generator": "5 3", "note": "repeated ACAACACCCC blocks and a truncated final repeat" }
+  ]
+}
