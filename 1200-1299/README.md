@@ -74,3 +74,4 @@
 | 1267 | [Yekaterinburg subway](1267/) | dp | C++, Go, Python, Java, Rust |
 | 1268 | [Little Chu](1268/) | number_theory | C++, Go, Python, Java, Rust |
 | 1269 | [Obscenity filter](1269/) | strings | C++, Go, Python, Java, Rust |
+| 1270 | [Unicube](1270/) | matching | C++, Go, Python, Java, Rust |
