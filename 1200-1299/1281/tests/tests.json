@@ -1,0 +1,19 @@
+{
+  "judging": "float:0.01",
+  "reference": "1281_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a tributary joins the third river" },
+    { "name": "02", "example": true, "note": "the same map without the tributary" },
+    { "name": "03", "note": "a straight river: area zero" },
+    { "name": "04", "note": "a river around the whole map" },
+    { "name": "05", "note": "a tributary of a tributary" },
+    { "name": "06", "note": "two separate rivers, the second larger" },
+    { "name": "07", "note": "fractional coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "one system, one decimal place" },
+    { "name": "gen2", "generator": "2 2", "note": "several systems, two decimal places" },
+    { "name": "gen3", "generator": "3 3", "note": "long rivers without tributaries" },
+    { "name": "gen4", "generator": "4 2", "note": "several systems, two decimal places" },
+    { "name": "gen5", "generator": "5 2", "note": "several systems, two decimal places" },
+    { "name": "gen6", "generator": "6 3", "note": "long rivers without tributaries" }
+  ]
+}

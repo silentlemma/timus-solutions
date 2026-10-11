@@ -85,3 +85,4 @@
 | 1278 | ["… Connecting people"](1278/) | constructive | C++, Go, Python, Java, Rust |
 | 1279 | [Warehouse](1279/) | binary_search | C++, Go, Python, Java, Rust |
 | 1280 | [Topological sorting](1280/) | graphs | C++, Go, Python, Java, Rust |
+| 1281 | [River basin](1281/) | geometry | C++, Go, Python, Java, Rust |
