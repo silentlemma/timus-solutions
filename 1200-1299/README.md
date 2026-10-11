@@ -34,3 +34,4 @@
 | 1227 | [A rally route of a given length on one-way roads](1227/) | graphs | C++, Go, Python, Java, Rust |
 | 1228 | [The bounds of an array from its index multipliers](1228/) | math | C++, Go, Python, Java, Rust |
 | 1229 | [A second layer of bricks that never repeats the first](1229/) | constructive | C++, Go, Python, Java, Rust |
+| 1230 | [A program in a toy language that prints itself](1230/) | strings | C++, Go, Python, Java, Rust |
