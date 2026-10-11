@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1323_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the class from the statement: three minutes" },
+    { "name": "02", "note": "the leader alone: no minutes, no calls" },
+    { "name": "03", "note": "two people, the leader named last in the pair" },
+    { "name": "04", "note": "a path of ten with the leader in the middle" },
+    { "name": "05", "note": "everyone can call everyone: the news doubles each minute" },
+    { "name": "06", "note": "a star with the leader on a leaf" },
+    { "name": "07", "note": "pairs listed in both directions" },
+    { "name": "08", "note": "the busier branch has to be called first" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree" },
+    { "name": "gen2", "generator": "2 2", "note": "about half of the pairs" },
+    { "name": "gen3", "generator": "3 3", "note": "a tree with a few extra pairs" },
+    { "name": "gen4", "generator": "4 4", "note": "every pair, random names" },
+    { "name": "gen5", "generator": "5 1", "note": "a random tree" },
+    { "name": "gen6", "generator": "6 3", "note": "a tree with a few extra pairs" }
+  ]
+}
