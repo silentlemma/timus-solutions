@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1304_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a point in the centre leaves half the cube" },
+    { "name": "02", "note": "a point in a corner takes nothing away" },
+    { "name": "03", "note": "a point on a face takes nothing away" },
+    { "name": "04", "note": "a tiny box: the volume rounds to 0.00" },
+    { "name": "05", "note": "four points on the diagonal" },
+    { "name": "06", "note": "the largest box: 999970000.2999..., rounded up" },
+    { "name": "07", "note": "a volume of exactly 0.005 rounds up to 0.01" },
+    { "name": "08", "note": "two interior points leave the best box below the smaller z coordinate" },
+    { "name": "09", "note": "a point above the box, outside A, limits nothing" },
+    { "name": "10", "note": "an exterior point beyond the x boundary is ignored while an interior point still limits the box" },
+    { "name": "gen1", "generator": "1 1", "note": "a small box with a few points" },
+    { "name": "gen2", "generator": "2 2", "note": "fifty interior points exercise the sweep in a nearly cubic box" },
+    { "name": "gen3", "generator": "3 3", "note": "one point on each outer face is mixed with interior obstacles" },
+    { "name": "gen4", "generator": "4 4", "note": "nearly equal x, y and z coordinates keep the points ordered alike on all axes" },
+    { "name": "gen5", "generator": "5 2", "note": "unequal side lengths and scattered interior points exercise volume comparisons" },
+    { "name": "gen6", "generator": "6 5", "note": "a single interior obstacle remains after discarding forty-nine exterior points" },
+    { "name": "gen7", "generator": "7 5", "note": "all points lie outside A, so the full box remains available" },
+    { "name": "11", "note": "points on all six outer faces leave a central obstacle as the only volume constraint" },
+    { "name": "12", "note": "the minimum side of 0.01 with two opposite face points and nearly maximal other sides" },
+    { "name": "13", "note": "an interior point leaves volume 0.995 which rounds across the integer boundary to 1.00" },
+    { "name": "14", "note": "fifty points packed near the centre test large volumes with strongly clustered coordinates" },
+    { "name": "15", "note": "the largest empty box requires cuts in all three dimensions" },
+    { "name": "16", "note": "the optimal z gap has both ends at interior point coordinates" }
+  ]
+}
