@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1236_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a short text" },
+    { "name": "02", "note": "a single zero clear byte with a zero key" },
+    { "name": "03", "note": "a single letter with all key bits set" },
+    { "name": "gen1", "generator": "1 10000 1", "note": "the longest message, any bytes" },
+    { "name": "gen2", "generator": "2 10000 2", "note": "the longest message, letters and spaces" },
+    { "name": "gen3", "generator": "3 10000 3", "note": "key bytes below 16, printed with a leading zero" },
+    { "name": "gen4", "generator": "4 1 1", "note": "minimum length with two distinct nonzero key bytes" },
+    { "name": "gen5", "generator": "5 37 2", "note": "a short text, another seed and length" },
+    { "name": "04", "note": "a space encrypts to zero in both first positions" },
+    { "name": "05", "note": "both ciphertext lines are entirely zero" },
+    { "name": "06", "note": "all 256 key byte values in order with an all-space clear text" },
+    { "name": "07", "note": "zero clear bytes expose consecutive key bytes and the one-byte shift" },
+    { "name": "08", "note": "every key byte has its high bit set and clear bytes are all FF" },
+    { "name": "09", "note": "constant unequal ciphertext bytes make the recovered key alternate" },
+    { "name": "10", "note": "a constant key prefix changes only at the final recovered byte" },
+    { "name": "11", "note": "a small case with an interior FF key byte, final zero, and a clear space" },
+    { "name": "12", "note": "maximum length with alternating clear bytes and a single nonzero final key byte" },
+    { "name": "gen6", "generator": "1236006 9999 1", "note": "random bytes just below the length limit" }
+  ]
+}

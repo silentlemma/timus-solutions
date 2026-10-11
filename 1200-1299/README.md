@@ -40,3 +40,4 @@
 | 1233 | [Where a number stands in dictionary order](1233/) | math | C++, Go, Python, Java, Rust |
 | 1234 | [A brick through a hole in the floor](1234/) | geometry | C++, Go, Python, Java, Rust |
 | 1235 | [The largest square field between the trees](1235/) | geometry | C++, Go, Python, Java, Rust |
+| 1236 | [Recovering an XOR key from a shifted message](1236/) | math | C++, Go, Python, Java, Rust |
