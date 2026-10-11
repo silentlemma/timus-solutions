@@ -37,3 +37,4 @@
 | 1230 | [A program in a toy language that prints itself](1230/) | strings | C++, Go, Python, Java, Rust |
 | 1231 | [A Turing machine that plays a counting-out game](1231/) | constructive | C++, Go, Python, Java, Rust |
 | 1232 | [Landing a probe inside a cone](1232/) | geometry | C++, Go, Python, Java, Rust |
+| 1233 | [Where a number stands in dictionary order](1233/) | math | C++, Go, Python, Java, Rust |
