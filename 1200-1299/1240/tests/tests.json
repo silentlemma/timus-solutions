@@ -1,0 +1,32 @@
+{
+  "judging": "checker",
+  "reference": "1240_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two bolts" },
+    { "name": "02", "example": true, "note": "too little mana" },
+    { "name": "03", "example": true, "note": "a teleport back to the strong square" },
+    { "name": "04", "example": true, "note": "a heal in the middle" },
+    { "name": "05", "note": "teleporting to the far end revisits square nine, where bolts deal ten damage instead of one" },
+    { "name": "06", "note": "a hero with 2 hit points against the largest pack" },
+    { "name": "07", "note": "one square, one mana, one bolt is enough" },
+    { "name": "08", "note": "one mana is not enough" },
+    { "name": "09", "note": "growing bolts, not enough mana" },
+    { "name": "10", "note": "the largest pack, all bolts weakest: 50 damage is not enough" },
+    { "name": "gen1", "generator": "1 1", "note": "two bolts defeat five two-hit-point monsters before they reach the hero" },
+    { "name": "gen2", "generator": "2 2", "note": "a three-hit-point hero faces the largest pack with strong bolts on several interior squares" },
+    { "name": "gen3", "generator": "3 2", "note": "full-speed movement forces immediate contact with ten monsters and a nine-hit-point hero" },
+    { "name": "gen4", "generator": "4 2", "note": "a weak starting bolt and half-field movement leave little time to weaken the largest pack" },
+    { "name": "gen5", "generator": "5 3", "note": "monsters cross the whole field in one move" },
+    { "name": "gen6", "generator": "6 1", "note": "the opening bolt kills a lone five-hit-point monster before any movement" },
+    { "name": "gen7", "generator": "7 2", "note": "strong interior bolts and seven-point healing help a fragile hero fight the largest pack" },
+    { "name": "11", "note": "a partially wounded single monster still strikes; rounding down invents a victory" },
+    { "name": "12", "note": "a bolt removes a whole monster before its strike; the final mana wins at one HP" },
+    { "name": "13", "note": "the four-HP healing cap prevents building enough health to survive a second bolt" },
+    { "name": "14", "note": "speed N minus one makes the only strong square unreachable after teleporting" },
+    { "name": "15", "note": "maximum field, hero, mana, pack, speed, heal and bolts give a ten-cast victory" },
+    { "name": "16", "note": "seeded small battle needs two separate heals while wounded monsters strike on square one" },
+    { "name": "17", "note": "seeded battle requires both healing and interior teleports within exactly ten turns" },
+    { "name": "gen8", "generator": "11 1", "note": "seed 11: speed four crosses an eight-square field with uneven bolts and fifty mana" },
+    { "name": "gen9", "generator": "18 3", "note": "seed 18: immediate contact with six eight-HP monsters needs several heals as their count falls" }
+  ]
+}

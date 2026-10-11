@@ -44,3 +44,4 @@
 | 1237 | [Checking whether an evacuation plan is optimal](1237/) | graphs | C++, Go, Python, Java, Rust |
 | 1238 | [Folding a string with repeat counts](1238/) | dp | C++, Go, Python, Java, Rust |
 | 1239 | [One ray through as many spheres as possible](1239/) | geometry | C++, Go, Python, Java, Rust |
+| 1240 | [A mage against a pack of monsters](1240/) | games | C++, Go, Python, Java, Rust |
