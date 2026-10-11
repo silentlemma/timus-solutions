@@ -1,0 +1,7 @@
+{
+  "judging": "checker",
+  "reference": "1230_strings.cpp",
+  "cases": [
+    { "name": "01", "note": "there is no input; the printed program is run and must print itself" }
+  ]
+}
