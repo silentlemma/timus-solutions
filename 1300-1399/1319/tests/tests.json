@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1319_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the 3 by 3 table" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "2 by 2" },
+    { "name": "04", "note": "4 by 4" },
+    { "name": "05", "note": "the largest table, 100 by 100" }
+  ]
+}
