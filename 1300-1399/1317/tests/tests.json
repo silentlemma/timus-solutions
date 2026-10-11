@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1317_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a diamond lot: three of five hailstones" },
+    { "name": "02", "note": "hailstones on the fence count as over the lot" },
+    { "name": "03", "note": "hailstones beyond the laser's range" },
+    { "name": "04", "note": "a triangle lot with the laser off centre" },
+    { "name": "05", "note": "the example lot listed clockwise" },
+    { "name": "06", "note": "a tall fence: d = 200 just misses at distance 2" },
+    { "name": "07", "note": "the same with d = 201 just reaches" },
+    { "name": "08", "note": "ten vertices with landing points at the coordinate bounds" },
+    { "name": "gen1", "generator": "1 1", "note": "a small lot" },
+    { "name": "gen2", "generator": "5 1", "note": "a small heptagonal lot with eighteen nearby hailstones" },
+    { "name": "gen3", "generator": "2 2", "note": "hailstones around the limit of the range" },
+    { "name": "gen4", "generator": "3 3", "note": "one hundred hailstones scattered across the coordinate range" },
+    { "name": "gen5", "generator": "4 2", "note": "hailstones near the range limit with coordinates clipped at the bounds" },
+    { "name": "09", "note": "one hailstone at the laser in a tiny triangle with minimum fence height" },
+    { "name": "10", "note": "beams through rectangle corners exactly reach the sphere and nearby points straddle the boundary" },
+    { "name": "11", "note": "a laser one hundredth from an edge gives very different reach on opposite sides" },
+    { "name": "12", "note": "a seeded thin hexagon mixes shallow fence crossings and repeated landing points" },
+    { "name": "13", "note": "ten clockwise vertices and one hundred hailstones with height 100 and range 999.99" }
+  ]
+}
