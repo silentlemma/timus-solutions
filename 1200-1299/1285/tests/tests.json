@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.01",
+  "reference": "1285_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the drop is far from the straight line" },
+    { "name": "02", "note": "the drop centre right between the ships" },
+    { "name": "03", "note": "the straight line just touches the drop" },
+    { "name": "04", "note": "both ships at one point" },
+    { "name": "05", "note": "the straight line cuts the drop off centre" },
+    { "name": "06", "note": "the largest coordinates around a large drop" },
+    { "name": "07", "note": "opposite corners, the centre nearly on the line" },
+    { "name": "08", "note": "the line passes at distance 2.83 from a drop of radius 3" },
+    { "name": "gen1", "generator": "1 1", "note": "any points" },
+    { "name": "gen2", "generator": "2 2", "note": "a large drop between far ships" },
+    { "name": "gen3", "generator": "3 3", "note": "small coordinates" },
+    { "name": "gen4", "generator": "4 2", "note": "a large drop between far ships" },
+    { "name": "gen5", "generator": "5 1", "note": "any points" },
+    { "name": "gen6", "generator": "6 3", "note": "small coordinates" }
+  ]
+}
