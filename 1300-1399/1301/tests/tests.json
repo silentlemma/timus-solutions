@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1301_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two vertical walls and one horizontal force a detour" },
+    { "name": "02", "note": "the start is the goal: 0 moves" },
+    { "name": "03", "note": "a neighbour on an open 2 by 2 field takes 3 moves" },
+    { "name": "04", "note": "a corridor of length 2 cannot restore the top face at the goal" },
+    { "name": "05", "note": "the goal is walled off" },
+    { "name": "06", "note": "an open 10 by 10 field, corner to corner" },
+    { "name": "07", "note": "the start cell is closed on all four sides" },
+    { "name": "08", "note": "a closed corridor of length 3 with no turning room" },
+    { "name": "09", "note": "a corridor of length 4: rolling straight works" },
+    { "name": "gen1", "generator": "1 2", "note": "a top-row target reached by a detour around scattered walls" },
+    { "name": "gen2", "generator": "2 3", "note": "an open 10 by 10 field" },
+    { "name": "gen3", "generator": "3 4", "note": "a vertical barrier with one gap on the top row" },
+    { "name": "gen4", "generator": "4 1", "note": "diagonally adjacent cells on an open 2 by 3 field need 6 rolls" },
+    { "name": "gen5", "generator": "5 2", "note": "a 10 by 10 field with many walls" },
+    { "name": "10", "note": "a two-cell climb needs 12 rolls, revisiting the goal and other cells to restore the top face" },
+    { "name": "11", "note": "westward crossings of alternating vertical barriers on a 4 by 10 board with no h section" },
+    { "name": "12", "note": "a 10 by 10 serpentine corridor forces 96 rolls with no shortcut between rows" },
+    { "name": "gen6", "generator": "1660 2", "note": "a seeded dense maze has a four-move positional route but needs 26 rolls with the original top face" }
+  ]
+}
