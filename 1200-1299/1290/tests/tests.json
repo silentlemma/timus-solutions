@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1290_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three numbers come back sorted downwards" },
+    { "name": "02", "note": "an empty array prints nothing" },
+    { "name": "03", "note": "a single number" },
+    { "name": "04", "note": "all numbers equal" },
+    { "name": "05", "note": "an increasing array is reversed" },
+    { "name": "06", "note": "the smallest and largest values repeated" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small numbers with repeats" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 25000 numbers of any size" },
+    { "name": "gen3", "generator": "3 3", "note": "25000 numbers with many repeats" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 25000 numbers of any size" }
+  ]
+}
