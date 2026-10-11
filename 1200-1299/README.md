@@ -22,3 +22,4 @@
 | 1215 | [The smallest shell that still hits the target](1215/) | geometry | C++, Go, Python, Java, Rust |
 | 1216 | [Two pawns and a king: can White promote?](1216/) | games | C++, Go, Python, Java, Rust |
 | 1217 | [Tickets that are lucky both in Moscow and in St. Petersburg](1217/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1218 | [Which Jedi can win the tournament](1218/) | graphs | C++, Go, Python, Java, Rust |

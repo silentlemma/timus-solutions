@@ -1,0 +1,13 @@
+{
+  "judging": "exact",
+  "reference": "1218_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three possible winners beat each other in a ring" },
+    { "name": "02", "note": "a single Jedi" },
+    { "name": "03", "note": "three Jedi in a ring" },
+    { "name": "04", "note": "one Jedi stronger in everything" },
+    { "name": "big1", "generator": "1 200 1", "note": "200 Jedi with random parameters" },
+    { "name": "big2", "generator": "2 200 2", "note": "200 Jedi ranked alike in all parameters" },
+    { "name": "big3", "generator": "3 200 3", "note": "200 Jedi ranked nearly alike" }
+  ]
+}
