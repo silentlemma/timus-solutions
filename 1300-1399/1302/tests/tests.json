@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1302_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one row down and one strip over each way" },
+    { "name": "02", "note": "the same cell: 0" },
+    { "name": "03", "note": "cells 1 and 2 touch only at a corner: 2 steps" },
+    { "name": "04", "note": "the top cell and cell 10^9" },
+    { "name": "05", "note": "two neighbours in the last row" },
+    { "name": "06", "note": "4 ends a row and 5 starts the next: far apart" },
+    { "name": "07", "note": "the same near 10^9: 63244 steps between consecutive numbers" },
+    { "name": "08", "note": "the first cell can be the larger number" },
+    { "name": "09", "note": "the top cell and the one below it" },
+    { "name": "gen1", "generator": "1 1", "note": "any two cells" },
+    { "name": "gen2", "generator": "2 2", "note": "cells in nearby rows" },
+    { "name": "gen3", "generator": "3 3", "note": "cells at the ends of rows" },
+    { "name": "gen4", "generator": "4 1", "note": "any two cells" },
+    { "name": "gen5", "generator": "5 2", "note": "cells in nearby rows" }
+  ]
+}
