@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1293_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five panels of 2 by 3, both sides" },
+    { "name": "02", "note": "one panel of one square metre: 2" },
+    { "name": "03", "note": "the largest values: 2000000" },
+    { "name": "04", "note": "a long thin panel" },
+    { "name": "05", "note": "multiple panels with one side of unit length" },
+    { "name": "gen1", "generator": "1", "note": "rectangular panels with one side just below the maximum" },
+    { "name": "gen2", "generator": "2", "note": "a small batch of panels with consecutive side lengths" },
+    { "name": "gen3", "generator": "3", "note": "an odd panel count with two even side lengths" },
+    { "name": "06", "note": "one panel with both side lengths at their maximum" },
+    { "name": "07", "note": "maximum number of panels with one side at its minimum" },
+    { "name": "08", "note": "area just below the maximum possible total" },
+    { "name": "09", "note": "unequal interior side lengths and a non-round product" },
+    { "name": "10", "note": "maximum panel count with both side lengths small" }
+  ]
+}
