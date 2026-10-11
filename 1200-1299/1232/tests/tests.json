@@ -1,0 +1,27 @@
+{
+  "judging": "checker",
+  "reference": "1232_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of three moves" },
+    { "name": "02", "note": "even the steepest move goes below the surface" },
+    { "name": "03", "note": "a narrow cone and a low station" },
+    { "name": "04", "note": "h a multiple of d: straight down" },
+    { "name": "05", "note": "the greedy zigzag fails; two moves down the wall and a crossing land" },
+    { "name": "06", "note": "the smallest h, too low for a move" },
+    { "name": "07", "note": "the narrowest cone and the largest h, a hundred moves" },
+    { "name": "08", "note": "the widest cone and the largest h" },
+    { "name": "09", "note": "one straight move" },
+    { "name": "10", "note": "just too low for one move" },
+    { "name": "11", "note": "just high enough for one move" },
+    { "name": "12", "note": "an angle near test 05 where no landing is possible" },
+    { "name": "13", "note": "a zigzag of a few moves" },
+    { "name": "14", "note": "one slanted move in a wide cone" },
+    { "name": "gen1", "generator": "1 1", "note": "random h, d and alpha" },
+    { "name": "gen2", "generator": "2 1", "note": "random h, d and alpha" },
+    { "name": "gen3", "generator": "3 2", "note": "a narrow cone" },
+    { "name": "gen4", "generator": "4 2", "note": "a narrow cone" },
+    { "name": "gen5", "generator": "5 3", "note": "h just above a multiple of d" },
+    { "name": "gen6", "generator": "6 3", "note": "h just above a multiple of d" },
+    { "name": "gen7", "generator": "7 3", "note": "h just above a multiple of d" }
+  ]
+}
