@@ -12,3 +12,4 @@
 | 1305 | [Convex Hull](1305/) | geometry | C++, Go, Python, Java, Rust |
 | 1306 | [Sequence Median](1306/) | sorting | C++, Rust |
 | 1307 | [Archiver](1307/) | strings | C++, Go, Python, Java, Rust |
+| 1308 | [Dean's Pyramid](1308/) | bfs | C++, Go, Python, Java, Rust |
