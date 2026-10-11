@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1258_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "hits on all four walls" },
+    { "name": "02", "note": "no hits: the fourth line is missing" },
+    { "name": "03", "note": "only the front and back walls, starting with the back one" },
+    { "name": "04", "note": "only the side walls, starting with the left one" },
+    { "name": "05", "note": "one hit on the front wall, back to the start" },
+    { "name": "06", "note": "the first side hit is on the right wall" },
+    { "name": "07", "note": "the smallest room" },
+    { "name": "08", "note": "a thousand side wall hits across the largest room" },
+    { "name": "gen1", "generator": "1 1", "note": "small room, few hits" },
+    { "name": "gen2", "generator": "2 2", "note": "large room" },
+    { "name": "gen3", "generator": "3 3", "note": "small room, many hits" },
+    { "name": "gen4", "generator": "4 1", "note": "a short path touching every wall and ending with a front wall hit" },
+    { "name": "gen5", "generator": "5 2", "note": "a wide room with more side wall hits than front and back wall hits" },
+    { "name": "gen6", "generator": "6 3", "note": "a nearly square room with long runs between front and back walls" }
+  ]
+}
