@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1313_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the numbers already in diagonal order" },
+    { "name": "02", "note": "a single pixel" },
+    { "name": "03", "note": "two by two" },
+    { "name": "04", "note": "a row-by-row numbering read along the diagonals" },
+    { "name": "05", "note": "all pixels the same colour" },
+    { "name": "gen1", "generator": "1 1", "note": "a repeated colour on adjacent diagonals of a small odd-sized image" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest image" },
+    { "name": "gen3", "generator": "3 1", "note": "two repeated colours on separate diagonals of an even-sized image" },
+    { "name": "06", "note": "alternating minimum and maximum colours form constant-colour diagonals" },
+    { "name": "07", "note": "distinct perimeter pixels expose omitted or repeated diagonal endpoints" },
+    { "name": "08", "note": "distinct markers flank the longest diagonal and check the final corner" },
+    { "name": "09", "note": "maximum even size with alternating ascending and descending rows of every colour" },
+    { "name": "10", "generator": "1313 3", "note": "near-maximum odd size with sparse random pixels in a minimum-colour background" }
+  ]
+}
