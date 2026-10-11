@@ -59,3 +59,4 @@
 | 1252 | [Sorting stones by swaps K apart](1252/) | number_theory | C++, Go, Python, Java, Rust |
 | 1253 | [Expanding obituary templates](1253/) | strings | C++, Go, Python, Java, Rust |
 | 1254 | [Defusing bombs in order across a town](1254/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1255 | [Packing 1 × K coffins into a square](1255/) | math | C++, Go, Python, Java, Rust |
