@@ -17,3 +17,4 @@
 | 1210 | [The cheapest climb through levels of planets](1210/) | dp | C++, Go, Python, Java, Rust |
 | 1211 | [Accusations without a ring and with one confession](1211/) | graphs | C++, Go, Python, Java, Rust |
 | 1212 | [Places for one more ship in battleship](1212/) | geometry | C++, Go, Python, Java, Rust |
+| 1213 | [Fewest partitions to drive the cockroaches into the airlock](1213/) | graphs | C++, Go, Python, Java, Rust |
