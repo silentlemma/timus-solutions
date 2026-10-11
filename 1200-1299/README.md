@@ -102,3 +102,4 @@
 | 1295 | [Crazy Notions](1295/) | number_theory | C++, Go, Python, Java, Rust |
 | 1296 | [Hyperjump](1296/) | dp | C++, Go, Python, Java, Rust |
 | 1297 | [Palindrome](1297/) | strings | C++, Go, Python, Java, Rust |
+| 1298 | [Knight](1298/) | backtracking | C++, Go, Python, Java, Rust |
