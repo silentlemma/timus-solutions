@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1277_flow.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "both cuts cost more than K" },
+    { "name": "02", "example": true, "note": "two cheap stations make a cut" },
+    { "name": "03", "note": "museum and refuge on one planet" },
+    { "name": "04", "note": "the museum next to the refuge" },
+    { "name": "05", "note": "K equal to the cheapest cut" },
+    { "name": "06", "note": "K one less than the cheapest cut" },
+    { "name": "07", "note": "a path: the cheapest station on it" },
+    { "name": "08", "note": "100 stations, all channels but one: every other station needed" },
+    { "name": "09", "note": "the same with one policeman too few" },
+    { "name": "gen1", "generator": "1 1", "note": "a small galaxy" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 100 stations, few channels" },
+    { "name": "gen3", "generator": "3 3", "note": "up to 100 stations, many channels" },
+    { "name": "gen4", "generator": "4 4", "note": "a ladder between museum and refuge" },
+    { "name": "gen5", "generator": "5 2", "note": "up to 100 stations, few channels" },
+    { "name": "gen6", "generator": "6 4", "note": "a ladder between museum and refuge" },
+    { "name": "gen7", "generator": "7 3", "note": "up to 100 stations, many channels" }
+  ]
+}
