@@ -53,3 +53,4 @@
 | 1246 | [Which way a polygon is run around](1246/) | geometry | C++, Go, Python, Java, Rust |
 | 1247 | [No segment heavier than its length plus N](1247/) | dp | C++, Go, Python, Java, Rust |
 | 1248 | [Adding numbers to 19 significant digits](1248/) | math | C++, Go, Python, Java, Rust |
+| 1249 | [Are all dark regions rectangles?](1249/) | implementation | C++, Go, Python, Java, Rust |
