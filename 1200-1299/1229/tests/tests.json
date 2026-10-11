@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1229_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two rows of flat bricks" },
+    { "name": "02", "note": "the smallest field, standing bricks" },
+    { "name": "03", "note": "the smallest field, flat bricks" },
+    { "name": "gen1", "generator": "1 100 100 200000", "note": "the largest field, bricks flipped many times" },
+    { "name": "gen2", "generator": "2 100 100 0", "note": "the largest field, all flat" },
+    { "name": "gen3", "generator": "3 2 100 5000", "note": "two long rows" },
+    { "name": "gen4", "generator": "4 100 2 5000", "note": "two long columns" },
+    { "name": "gen5", "generator": "5 10 12 300", "note": "a small field" }
+  ]
+}
