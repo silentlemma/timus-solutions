@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1265_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "reflection at the first endpoint of a diagonal mirror" },
+    { "name": "02", "example": true, "note": "tiny coordinates over several lines: points on opposite sides" },
+    { "name": "03", "note": "points on the same side of a vertical mirror whose reflected ray passes above it" },
+    { "name": "04", "note": "both in front of the mirror, but the reflection misses it" },
+    { "name": "05", "note": "the ray hits exactly the end of the mirror" },
+    { "name": "06", "note": "the eye moved by 10^-6: the ray passes just beyond the end" },
+    { "name": "07", "note": "the eye moved by 10^-6 the other way: just inside" },
+    { "name": "08", "note": "points offset vertically by one millionth from a full diagonal mirror reflect at its midpoint" },
+    { "name": "09", "note": "a tiny oblique mirror near the lower coordinate bound misses the reflected ray from distant points" },
+    { "name": "10", "note": "all coordinates of order 10^-6" },
+    { "name": "11", "note": "the largest coordinates, a mirror along the top edge" },
+    { "name": "gen1", "generator": "1 1", "note": "six-decimal points on opposite sides of an oblique mirror are invisible" },
+    { "name": "gen2", "generator": "2 2", "note": "small integer points whose perpendicular feet both precede the first mirror endpoint" },
+    { "name": "gen3", "generator": "3 3", "note": "unequal viewing distances give an exact hit at the upper endpoint of a vertical mirror" },
+    { "name": "gen4", "generator": "4 1", "note": "six-decimal points on the same side reflect into the interior of a long oblique mirror" },
+    { "name": "gen5", "generator": "5 2", "note": "a short diagonal mirror with reversed direction misses a ray beyond its second endpoint" },
+    { "name": "gen6", "generator": "6 3", "note": "raising the target by one millionth moves the reflected hit just above a vertical mirror" },
+    { "name": "gen7", "generator": "7 3", "note": "moving the eye one millionth away from a vertical mirror pushes an endpoint hit outside" },
+    { "name": "gen8", "generator": "8 3", "note": "lowering the eye by one millionth brings an endpoint hit just inside a vertical mirror" },
+    { "name": "gen9", "generator": "9 2", "note": "small integer points with both perpendicular feet inside an oblique mirror are visible" },
+    { "name": "12", "note": "coincident eye and target reflect normally onto the interior of an oblique mirror" },
+    { "name": "13", "note": "the shortest possible mirror contains a hit halfway between its ends at extreme viewing distances" },
+    { "name": "14", "note": "a full diagonal mirror and far corner points exercise very large exact products with reversed endpoints" },
+    { "name": "15", "note": "a seeded oblique ray hits the interior although both perpendicular feet lie beyond opposite ends" }
+  ]
+}
