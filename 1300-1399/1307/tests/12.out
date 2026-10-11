@@ -1,0 +1,15 @@
+//CPP
+#include <cstdio>
+const char *d[] = {
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#",
+0};
+int main() {
+    const char *t[256] = {0};
+    t[33] = "The weather wondered, and the water was there. The mother waited, and the water was there. She wrote \"C:\\home\\letters\" in her book. The weather returned, and the night was there. She wrote \"C:\\home\\letters\" in her book. The mother listened, and the weather was there. The night waited, and the sister was there. She wrote \"C:\\home\\letters\" in her book.\n";
+    t[35] = "The weather wondered, and the water was there. The mother waited, and the water was there. She wrote \"C:\\home\\letters\" in her book. The weather returned, and the night was there. She wrote \"C:\\home\\letters\" in her \n";
+    for (int k = 0; d[k]; k++)
+        for (const char *p = d[k]; *p; p++)
+            if (t[(unsigned char)*p]) fputs(t[(unsigned char)*p], stdout);
+            else putchar(*p);
+    return 0;
+}

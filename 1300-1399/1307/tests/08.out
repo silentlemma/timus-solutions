@@ -1,0 +1,67 @@
+//CPP
+#include <cstdio>
+const char *d[] = {
+";I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+",
+"[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#P",
+"O+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#",
+"5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&",
+"0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM4",
+"28G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNB",
+"M428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#",
+"90_A;7QJWSUVRXYK$%;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_L;I21E#3$#PO+[#6]#*Z&0#5$0#:FNBM428G^D#@$C#90_A;7QJWSUVRXYK$\"\\\\\n",
+0};
+int main() {
+    const char *t[256] = {0};
+    t[35] = "the ";
+    t[36] = "and ";
+    t[37] = "\"\\\\\\\"\?\". ";
+    t[38] = "thought ";
+    t[42] = "window. ";
+    t[43] = "looked ";
+    t[48] = "of ";
+    t[49] = "rising ";
+    t[50] = "was ";
+    t[51] = "water, ";
+    t[52] = "There ";
+    t[53] = "house ";
+    t[54] = "light ";
+    t[55] = "manuscript ";
+    t[56] = "still ";
+    t[57] = "voice ";
+    t[58] = "years ";
+    t[59] = "The ";
+    t[64] = "door ";
+    t[65] = "friend.  ";
+    t[66] = "gone ";
+    t[67] = "hear ";
+    t[68] = "open ";
+    t[69] = "over ";
+    t[70] = "that ";
+    t[71] = "time ";
+    t[73] = "wind ";
+    t[74] = "\"\?\?= ";
+    t[75] = "\?\?-\" ";
+    t[76] = "friend. ";
+    t[77] = "by. ";
+    t[78] = "had ";
+    t[79] = "man ";
+    t[80] = "old ";
+    t[81] = "showed ";
+    t[82] = "\?\?! ";
+    t[83] = "\?\?' ";
+    t[85] = "\?\?( ";
+    t[86] = "\?\?) ";
+    t[87] = "\?\?/ ";
+    t[88] = "\?\?< ";
+    t[89] = "\?\?> ";
+    t[90] = "He ";
+    t[91] = "at ";
+    t[93] = "in ";
+    t[94] = "to ";
+    t[95] = "a ";
+    for (int k = 0; d[k]; k++)
+        for (const char *p = d[k]; *p; p++)
+            if (t[(unsigned char)*p]) fputs(t[(unsigned char)*p], stdout);
+            else putchar(*p);
+    return 0;
+}

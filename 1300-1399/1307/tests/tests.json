@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1307_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the short sample: no size rule below 20000 characters" },
+    { "name": "gen1", "generator": "1 1", "note": "short wrapped prose near the minimum input length" },
+    { "name": "gen2", "generator": "2 2", "note": "medium-length prose with blank lines between paragraphs" },
+    { "name": "gen3", "generator": "3 3", "note": "wrapped prose close to the maximum input length" },
+    { "name": "gen4", "generator": "4 4", "note": "dialogue with quotes, digits and question marks" },
+    { "name": "gen5", "generator": "5 5", "note": "odd symbols and backslashes in prose ending with a newline" },
+    { "name": "gen6", "generator": "6 1", "note": "repeated common words with possessives and character names in wrapped paragraphs" },
+    { "name": "02", "note": "exactly 20000 characters of prose on one line before the final newline" },
+    { "name": "03", "note": "a leading space and common pieces at both edges of a text just above minimum size" },
+    { "name": "04", "note": "indented prose with doubled interior spaces and spaces before line endings" },
+    { "name": "05", "note": "twenty-four lines of a thousand characters each with newlines to encode" },
+    { "name": "06", "note": "repeated prose split into shorter lines with twenty-five newlines to encode" },
+    { "name": "07", "note": "a 64 KiB single-line input requiring many data literals" },
+    { "name": "08", "note": "all nine C trigraph spellings beside adjacent quotes and backslashes" },
+    { "name": "09", "note": "every eligible punctuation code already occurs so uppercase codes are needed" },
+    { "name": "10", "note": "overlapping common pieces in there, mother, brother and weather" },
+    { "name": "11", "note": "quoted questions and Windows paths among repeated sentence blocks" },
+    { "name": "12", "note": "long prose lines with occasional breaks and quoted Windows paths" },
+    { "name": "13", "note": "uppercase narration at the minimum size still requires a shorter archive" },
+    { "name": "14", "generator": "130714 6", "note": "exactly 200000 characters of seeded wrapped prose" },
+    { "name": "15", "generator": "130715 7", "note": "maximum size in one line with frequent escaped annotations" },
+    { "name": "16", "generator": "130716 8", "note": "maximum size with short lines and dense blank-line separators" },
+    { "name": "17", "generator": "130717 9", "note": "random paragraph widths with an actual missing final newline" },
+    { "name": "18", "note": "period-free dialogue uses a period code for newlines without confusing literal text" }
+  ]
+}

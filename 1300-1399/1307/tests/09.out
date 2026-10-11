@@ -1,0 +1,16 @@
+//CPP
+#include <cstdio>
+const char *d[] = {
+"!################################################################################################$",
+0};
+int main() {
+    const char *t[256] = {0};
+    t[33] = "The printer marked \"!#$%&'()*+,-./0123456789:;<=>@[\\]^_`{|}~\" on the page.\n";
+    t[35] = "The wind was rising over the water, and the old man looked at the light in the window. He thought of the house and of the years that had gone by. There was still time to open the door and hear the voice of a friend. The printer marked \"!#$%&'()*+,-./0123456789:;<=>@[\\]^_`{|}~\" on the page.\n";
+    t[36] = "The wind was rising over the water, and the old man looked at the light in the window. He thought of the \n";
+    for (int k = 0; d[k]; k++)
+        for (const char *p = d[k]; *p; p++)
+            if (t[(unsigned char)*p]) fputs(t[(unsigned char)*p], stdout);
+            else putchar(*p);
+    return 0;
+}

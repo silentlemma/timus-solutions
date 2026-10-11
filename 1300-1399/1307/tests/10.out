@@ -1,0 +1,15 @@
+//CPP
+#include <cstdio>
+const char *d[] = {
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#",
+0};
+int main() {
+    const char *t[256] = {0};
+    t[33] = "There the other mother and her brother were gathering heather in the weather. The feather on the leather chair reminded her of their wandering together.\n";
+    t[35] = "There the other mother and her brother were gathering heather in the weather. The feather on the leather chair r\n";
+    for (int k = 0; d[k]; k++)
+        for (const char *p = d[k]; *p; p++)
+            if (t[(unsigned char)*p]) fputs(t[(unsigned char)*p], stdout);
+            else putchar(*p);
+    return 0;
+}
