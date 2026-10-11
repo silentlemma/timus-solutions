@@ -91,3 +91,4 @@
 | 1284 | [Space poker](1284/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1285 | [Thread in hyperspace](1285/) | geometry | C++, Go, Python, Java, Rust |
 | 1286 | [Starship from the VAZ plant](1286/) | number_theory | C++, Go, Python, Java, Rust |
+| 1287 | [Canals on Mars](1287/) | dp | C++, Go, Python, Java, Rust |
