@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1297_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "case matters: K and k differ" },
+    { "name": "02", "note": "a single letter" },
+    { "name": "03", "note": "no two equal letters: the first letter" },
+    { "name": "04", "note": "uppercase A and lowercase a are different letters" },
+    { "name": "05", "note": "two even palindromes of length 4: the left one" },
+    { "name": "06", "note": "two odd palindromes of length 3: the left one" },
+    { "name": "07", "note": "the entire input is an odd-length palindrome" },
+    { "name": "08", "note": "an even-length line of one letter" },
+    { "name": "09", "note": "alternating cases form a palindrome" },
+    { "name": "10", "note": "a mirror image that differs only in case" },
+    { "name": "gen1", "generator": "1 1", "note": "letters a and b" },
+    { "name": "gen2", "generator": "2 2", "note": "letters of both cases" },
+    { "name": "gen3", "generator": "3 3", "note": "a maximum-length line containing only one repeated letter" },
+    { "name": "gen4", "generator": "4 4", "note": "a long palindrome hidden in noise" },
+    { "name": "gen5", "generator": "5 4", "note": "a lowercase palindrome occurring after a long uppercase prefix" }
+  ]
+}
