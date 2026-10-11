@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1312_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two big plates and a small one in the gap" },
+    { "name": "02", "example": true, "note": "one unit too big for the gap" },
+    { "name": "03", "note": "a plate fills the square and the corners are too small" },
+    { "name": "04", "note": "the largest tray, two tiny plates in the corners" },
+    { "name": "05", "note": "three plates in a row, exactly" },
+    { "name": "06", "note": "a row that is one unit too short" },
+    { "name": "07", "note": "the same row along the other side" },
+    { "name": "08", "note": "a plate wider than the tray" },
+    { "name": "09", "note": "three quarter-size plates in a square" },
+    { "name": "10", "note": "corner gaps take radius 8 beside a filling plate" },
+    { "name": "11", "note": "but not radius 9" },
+    { "name": "12", "note": "two small plates stacked beside a big one" },
+    { "name": "gen1", "generator": "1 1", "note": "small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "numbers up to 10^6" },
+    { "name": "gen3", "generator": "3 3", "note": "a tray about three plates long" },
+    { "name": "gen4", "generator": "4 3", "note": "a tray about three plates long" },
+    { "name": "gen5", "generator": "5 2", "note": "numbers up to 10^6" },
+    { "name": "gen6", "generator": "7 3", "note": "a tray about three plates long" }
+  ]
+}
