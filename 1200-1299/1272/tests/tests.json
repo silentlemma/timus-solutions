@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1272_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two tunnel groups and a lone island" },
+    { "name": "02", "note": "one island, nothing to build" },
+    { "name": "03", "note": "no tunnels: a chain of bridges" },
+    { "name": "04", "note": "tunnels alone connect everything" },
+    { "name": "05", "note": "looping and repeated tunnels" },
+    { "name": "06", "note": "one tunnel, a bridge to the last island" },
+    { "name": "gen1", "generator": "1 1", "note": "random city" },
+    { "name": "gen2", "generator": "2 2", "note": "few tunnels" },
+    { "name": "gen3", "generator": "3 3", "note": "10000 islands, 12000 tunnels with loops" },
+    { "name": "gen4", "generator": "4 2", "note": "few tunnels" }
+  ]
+}
