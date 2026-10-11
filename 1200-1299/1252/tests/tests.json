@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1252_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "shifts of 2 and 4: K = 1" },
+    { "name": "02", "note": "one stone" },
+    { "name": "03", "note": "already in increasing order: K = N - 1" },
+    { "name": "04", "note": "already in decreasing order: K = N - 1" },
+    { "name": "05", "note": "two neighbours out of place: only K = 0" },
+    { "name": "06", "note": "two halves swapped: every stone moves three places" },
+    { "name": "gen1", "generator": "1 130000 0 1", "note": "130000 stones in random order" },
+    { "name": "gen2", "generator": "2 130000 7 1", "note": "shuffled within classes modulo 7" },
+    { "name": "gen3", "generator": "3 130000 1000 0", "note": "decreasing, shuffled within classes modulo 1000" },
+    { "name": "gen4", "generator": "4 130000 130000 1", "note": "130000 stones already sorted" },
+    { "name": "gen5", "generator": "5 130000 65000 0", "note": "decreasing, classes of two stones" },
+    { "name": "gen6", "generator": "6 10 3 1", "note": "ten stones, classes modulo 3" }
+  ]
+}
