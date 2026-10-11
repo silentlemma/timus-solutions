@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1315_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the air pocket helps, but the last stretch takes 6 moves" },
+    { "name": "02", "example": true, "note": "the final six-move swim succeeds when the breath limit is met exactly" },
+    { "name": "03", "note": "starting in the air pocket itself" },
+    { "name": "04", "note": "starting in the air pocket, one move short" },
+    { "name": "05", "note": "a single row: one move out" },
+    { "name": "06", "note": "a descent from trapped air and a climb up the flooded U bend use the full breath limit" },
+    { "name": "07", "note": "the caver runs out of breath on the final move out of the U bend" },
+    { "name": "08", "note": "a flooded shaft one move too long" },
+    { "name": "09", "note": "a flooded shaft just short enough" },
+    { "name": "gen1", "generator": "1 1", "note": "a surface start escapes immediately despite disconnected lower chambers" },
+    { "name": "gen2", "generator": "7 1", "note": "separated surface openings allow immediate escape with a two-move breath limit" },
+    { "name": "gen3", "generator": "2 2", "note": "a 500 x 500 random cave" },
+    { "name": "gen4", "generator": "3 3", "note": "frequent air pockets cannot compensate for a shaft longer than the breath limit" },
+    { "name": "gen5", "generator": "8 3", "note": "breathing pockets sustain a long corridor crossing before the final climb to the surface" },
+    { "name": "gen6", "generator": "4 4", "note": "a long winding flooded tunnel" },
+    { "name": "gen7", "generator": "5 5", "note": "an open cave, D just enough" },
+    { "name": "gen8", "generator": "6 5", "note": "an open cave, D one short" },
+    { "name": "10", "note": "five separate air pockets must be visited to cross the flooded corridor" },
+    { "name": "11", "note": "walking along a long dry gallery does not consume the swimming allowance" },
+    { "name": "12", "note": "open cells at the bottom and side walls are not exits" },
+    { "name": "13", "note": "a second surface opening provides the only exit within the breath limit" },
+    { "name": "14", "note": "a random cave has reachable air in a dead end but its six-move escape exceeds D" },
+    { "name": "gen9", "generator": "1 6", "note": "maximum dimensions and D, with a flooded detour requiring exactly 1000 moves" },
+    { "name": "gen10", "generator": "264 1", "note": "a seeded winding cave can be escaped although every route is longer than D" }
+  ]
+}
