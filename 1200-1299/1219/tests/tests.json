@@ -1,0 +1,7 @@
+{
+  "judging": "checker",
+  "reference": "1219_constructive.cpp",
+  "cases": [
+    { "name": "01", "generator": "0", "note": "there is no input; the one sequence is checked in full" }
+  ]
+}
