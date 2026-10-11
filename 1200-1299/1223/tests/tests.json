@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1223_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one egg means floor by floor" },
+    { "name": "02", "note": "the extremes: one floor, many eggs, the classic two eggs" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "a thousand random queries" },
+    { "name": "gen2", "generator": "2 31 2", "note": "every pair up to 31 eggs and 31 floors" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "few eggs and many floors" },
+    { "name": "03", "note": "one egg stays linear across large floor counts in mixed order" },
+    { "name": "04", "note": "two eggs just below, at, and above triangular drop limits" },
+    { "name": "05", "note": "three eggs at consecutive floor counts around cubic capacity limits" },
+    { "name": "06", "note": "four to eight eggs cross exact capacity boundaries with one extra floor" },
+    { "name": "07", "note": "egg counts around the cap and at 1000 agree across binary search boundaries" },
+    { "name": "08", "note": "floor counts of 999 and 1000 with every intermediate egg count from four to nine" },
+    { "name": "09", "generator": "122304 1000 4", "note": "maximum query batch with random intermediate egg counts and larger buildings" },
+    { "name": "10", "generator": "122305 1000 5", "note": "random repeated queries interleave scarce and plentiful eggs for the same buildings" }
+  ]
+}
