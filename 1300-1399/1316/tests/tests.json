@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1316_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "bids, a withdrawal and three sales: six pieces" },
+    { "name": "02", "note": "an empty log" },
+    { "name": "03", "note": "a sale with no bids at all" },
+    { "name": "04", "note": "a sale at the bid price succeeds, one cent higher does not" },
+    { "name": "05", "note": "the highest price and the largest sale" },
+    { "name": "06", "note": "a withdrawn bid buys nothing" },
+    { "name": "07", "note": "the same hundred bids buy at a thousand sales" },
+    { "name": "gen1", "generator": "1 1", "note": "a short log with few prices" },
+    { "name": "gen2", "generator": "2 2", "note": "interleaved bids, withdrawals and capped sales at varied prices" },
+    { "name": "gen3", "generator": "3 3", "note": "a handful of prices, large sales" },
+    { "name": "gen4", "generator": "4 4", "note": "prices with one decimal or none" },
+    { "name": "gen5", "generator": "5 5", "note": "more than 2^31 pieces sold in all" },
+    { "name": "gen6", "generator": "6 2", "note": "a long log mixing sales with no eligible bids and successful sales" },
+    { "name": "08", "note": "duplicate bids drain to zero and refill using equivalent price spellings" },
+    { "name": "09", "note": "sale thresholds between bid prices with supply both below and above demand" },
+    { "name": "10", "note": "binary floating point price traps at exact cents and the next cent" },
+    { "name": "11", "note": "earnings of 1.01 and no earnings from bids left at QUIT" },
+    { "name": "12", "note": "seeded random withdrawals repeatedly empty and reopen the book around sales" }
+  ]
+}
