@@ -98,3 +98,4 @@
 | 1291 | [Gear-wheels](1291/) | bfs | C++, Go, Python, Java, Rust |
 | 1292 | [Mars Space Stations](1292/) | math | C++, Go, Python, Java, Rust |
 | 1293 | [Eniya](1293/) | math | C++, Go, Python, Java, Rust |
+| 1294 | [Mars Satellites](1294/) | geometry | C++, Go, Python, Java, Rust |
