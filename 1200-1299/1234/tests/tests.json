@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1234_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the smallest face is too wide" },
+    { "name": "02", "example": true, "note": "the smallest face fits exactly" },
+    { "name": "03", "note": "a turned face touches all four sides of the hole" },
+    { "name": "04", "note": "another exact turned fit" },
+    { "name": "05", "note": "a turned face misses by a hair" },
+    { "name": "06", "note": "a turned face fits by a hair" },
+    { "name": "07", "note": "the largest cube, exactly the size of the hole" },
+    { "name": "08", "note": "the largest cube, a tenth too big" },
+    { "name": "09", "note": "the smallest cube and hole" },
+    { "name": "10", "note": "sides in any order" },
+    { "name": "11", "note": "every face is wider than the hole" },
+    { "name": "12", "note": "only a turned face fits, with room to spare" },
+    { "name": "13", "note": "a long thin face cannot turn enough" },
+    { "name": "gen1", "generator": "1 1", "note": "the shortest edges form a face that fits without turning" },
+    { "name": "gen2", "generator": "2 1", "note": "a hole larger than every brick edge allows a straight fit" },
+    { "name": "gen3", "generator": "3 2", "note": "only a turned fit can work" },
+    { "name": "gen4", "generator": "4 2", "note": "a face longer than the hole's diagonal cannot fit" },
+    { "name": "gen5", "generator": "5 2", "note": "two equal longest edges leave a face that cannot fit even when turned" },
+    { "name": "gen6", "generator": "6 2", "note": "a narrow hole leaves too little room to turn a long face" }
+  ]
+}
