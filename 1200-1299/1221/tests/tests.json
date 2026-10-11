@@ -1,0 +1,13 @@
+{
+  "judging": "lines",
+  "reference": "1221_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a figure of size 5, then none" },
+    { "name": "02", "note": "rows without spaces, the smallest figure, tiny sheets, a broken corner" },
+    { "name": "big1", "generator": "1 10 100 1", "note": "ten random sheets of the largest size" },
+    { "name": "big2", "generator": "2 10 100 2", "note": "planted figures with a few cells flipped" },
+    { "name": "big3", "generator": "3 10 100 3", "note": "a figure as large as the sheet, intact or broken" },
+    { "name": "big4", "generator": "4 10 100 4", "note": "all-white and all-black sheets" },
+    { "name": "small", "generator": "5 30 7 2", "note": "many small sheets" }
+  ]
+}
