@@ -1,0 +1,23 @@
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+
+const double KM = 1000; // input distances are in thousands of kilometres
+const int FIELDS = 4;
+
+int main() {
+    // a = AD, b = AC, c = BD, d = BC; A and B see the chord CD at the same
+    // inscribed angle t, so CD^2 = a^2 + b^2 - 2ab cos t = c^2 + d^2 - 2cd cos t
+    long long a = 0, b = 0, c = 0, d = 0;
+    if (scanf("%lld %lld %lld %lld", &a, &b, &c, &d) != FIELDS)
+        return 0;
+    long long den = a * b - c * d;
+    long long diff = a * a + b * b - c * c - d * d;
+    if (den == 0 || llabs(diff) > 2 * llabs(den)) {
+        puts("Impossible.");
+        return 0;
+    }
+    long long num = a * b * (c * c + d * d) - c * d * (a * a + b * b);
+    printf("Distance is %.0f km.\n", std::round(KM * std::sqrt((double)num / den)));
+    return 0;
+}
