@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1215_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an octagon, the nearest point on an edge" },
+    { "name": "02", "note": "a shot inside the target" },
+    { "name": "03", "note": "a shot on the boundary" },
+    { "name": "04", "note": "the farthest shot from the smallest target" },
+    { "name": "05", "note": "the nearest point is a corner" },
+    { "name": "06", "note": "straight below an edge" },
+    { "name": "gen1", "generator": "1 400 2000 1", "note": "a large hull, a shot anywhere" },
+    { "name": "gen2", "generator": "2 400 2000 2", "note": "a large hull, a shot inside" },
+    { "name": "gen3", "generator": "3 40 300 3", "note": "a shot at a corner" },
+    { "name": "gen4", "generator": "4 6 2000 1", "note": "a small hull, a shot anywhere" }
+  ]
+}
