@@ -86,3 +86,4 @@
 | 1279 | [Warehouse](1279/) | binary_search | C++, Go, Python, Java, Rust |
 | 1280 | [Topological sorting](1280/) | graphs | C++, Go, Python, Java, Rust |
 | 1281 | [River basin](1281/) | geometry | C++, Go, Python, Java, Rust |
+| 1282 | [Game tree](1282/) | games | C++, Go, Python, Java, Rust |
