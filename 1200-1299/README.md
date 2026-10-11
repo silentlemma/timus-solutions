@@ -83,3 +83,4 @@
 | 1276 | [Train](1276/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1277 | [Cops and thieves](1277/) | flow | C++, Go, Python, Java, Rust |
 | 1278 | ["… Connecting people"](1278/) | constructive | C++, Go, Python, Java, Rust |
+| 1279 | [Warehouse](1279/) | binary_search | C++, Go, Python, Java, Rust |

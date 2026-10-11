@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1279_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two sections reach 3, one 3 already" },
+    { "name": "02", "example": true, "note": "the statement's 3 x 3 warehouse" },
+    { "name": "03", "note": "one section and the largest lot" },
+    { "name": "04", "note": "equal sections, one container" },
+    { "name": "05", "note": "equal sections, five containers for six" },
+    { "name": "06", "note": "one low section, the rest far above" },
+    { "name": "07", "note": "the lot stops one short of the next level" },
+    { "name": "gen1", "generator": "1 1", "note": "a small grid rises above every initial stack with containers left over" },
+    { "name": "gen2", "generator": "2 2", "note": "eight rows of varied heights finish with an incomplete layer" },
+    { "name": "gen3", "generator": "3 3", "note": "equal heights with one tall section" },
+    { "name": "gen4", "generator": "4 2", "note": "a larger irregular grid rises above every original stack" },
+    { "name": "gen5", "generator": "5 1", "note": "a small grid reaches a repeated upper height exactly" },
+    { "name": "08", "note": "minimum dimensions, initial height, and arriving lot" },
+    { "name": "09", "note": "a full-width descending row merges exactly at the tallest initial stack" },
+    { "name": "10", "note": "a full-height column alternates extreme heights and completes another full layer" },
+    { "name": "11", "note": "seeded small irregular grid finishes among repeated upper heights with a remainder" },
+    { "name": "12", "note": "maximum grid, heights, and lot require wide feasibility sums" },
+    { "name": "13", "generator": "1279 4", "note": "maximum random grid and lot lift every original stack above the input height limit" },
+    { "name": "14", "generator": "1279 5", "note": "maximum random grid stops just below level 500 while taller stacks stay untouched" }
+  ]
+}
