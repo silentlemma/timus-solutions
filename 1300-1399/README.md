@@ -16,3 +16,4 @@
 | 1309 | [Dispute](1309/) | math | C++, Go, Python, Java, Rust |
 | 1310 | [ACM Diagnostics](1310/) | dp | C++, Go, Python, Java, Rust |
 | 1311 | [Stable Construction](1311/) | implementation | C++, Go, Python, Java, Rust |
+| 1312 | [Tray](1312/) | geometry | C++, Go, Python, Java, Rust |
