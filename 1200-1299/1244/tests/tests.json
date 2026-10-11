@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1244_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cards missing, one way" },
+    { "name": "02", "example": true, "note": "two ways to make the weight" },
+    { "name": "03", "example": true, "note": "the weight cannot be made" },
+    { "name": "04", "note": "two equal cards: either could be missing" },
+    { "name": "05", "note": "one missing card cannot be identified among a hundred equal cards" },
+    { "name": "06", "note": "weights 1 to 100, only the lightest missing" },
+    { "name": "07", "note": "target weight is not divisible by the common card weight" },
+    { "name": "08", "note": "weights 1 to 100, only the lightest left: 99 cards missing" },
+    { "name": "gen1", "generator": "1 100 1", "note": "random card weights allow many sets with the same remaining weight" },
+    { "name": "gen2", "generator": "2 100 2", "note": "unique missing card weighing less than half the heaviest card" },
+    { "name": "gen3", "generator": "3 100 3", "note": "repeated weights from three values give multiple missing sets" },
+    { "name": "gen4", "generator": "4 2 2", "note": "two cards, the lighter missing" },
+    { "name": "gen5", "generator": "5 100 2", "note": "unique reconstruction despite a gap of only two between the lightest weights" },
+    { "name": "gen6", "generator": "6 7 3", "note": "ambiguity when both lighter cards and any one of four equal cards are missing" }
+  ]
+}
