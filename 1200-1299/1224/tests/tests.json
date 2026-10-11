@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1224_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three rows, five columns" },
+    { "name": "02", "note": "a single cell, no turn" },
+    { "name": "03", "note": "one long row, no turn" },
+    { "name": "04", "note": "one long column, a single turn" },
+    { "name": "05", "note": "the largest square, beyond 32 bits" },
+    { "name": "06", "note": "more rows than columns" },
+    { "name": "07", "note": "a small square" },
+    { "name": "08", "note": "the largest sizes, rows fewer by one" },
+    { "name": "09", "note": "the largest sizes, columns fewer by one" }
+  ]
+}
