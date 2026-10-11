@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1307_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the short sample: no size rule below 20000 characters" },
+    { "name": "gen1", "generator": "1 1", "note": "about 20000 characters of prose" },
+    { "name": "gen2", "generator": "2 2", "note": "about 100000 characters" },
+    { "name": "gen3", "generator": "3 3", "note": "just under 200000 characters" },
+    { "name": "gen4", "generator": "4 4", "note": "dialogue with quotes, digits and question marks" },
+    { "name": "gen5", "generator": "5 5", "note": "odd symbols and backslashes, no final newline" },
+    { "name": "gen6", "generator": "6 1", "note": "about 20000 characters of prose" }
+  ]
+}
