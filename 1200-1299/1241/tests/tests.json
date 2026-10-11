@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1241_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four cuts of a square" },
+    { "name": "02", "example": true, "note": "six cuts of a 7 x 4 plate" },
+    { "name": "03", "note": "the largest plate, no cuts" },
+    { "name": "04", "note": "both diagonals of a unit square: four triangles" },
+    { "name": "05", "note": "one diagonal of a unit square" },
+    { "name": "06", "note": "a thin plate with one corner cut off" },
+    { "name": "07", "note": "two diagonals make three triangles" },
+    { "name": "gen1", "generator": "1 50 50 100", "note": "all 296 cuts of the largest plate" },
+    { "name": "gen2", "generator": "2 50 50 50", "note": "roughly half the available cuts on the largest plate" },
+    { "name": "gen3", "generator": "3 50 50 5", "note": "a few cuts of the largest plate" },
+    { "name": "gen4", "generator": "4 50 1 100", "note": "all cuts of a 50 x 1 strip" },
+    { "name": "gen5", "generator": "5 13 37 30", "note": "sparse cuts on a tall nonsquare plate" },
+    { "name": "08", "note": "minimum plate with no cuts has no triangular piece" },
+    { "name": "09", "note": "a complete axis-aligned grid contains only rectangular pieces" },
+    { "name": "10", "note": "parallel diagonals include negative and extreme positive line constants" },
+    { "name": "11", "note": "four separated corner triangles surround an octagonal piece" },
+    { "name": "12", "note": "a reversed diagonal makes two triangles of the largest possible area" },
+    { "name": "13", "note": "four concurrent cut directions form eight triangles sharing one interior vertex" },
+    { "name": "14", "note": "a diagonal through coarse grid vertices counts pieces rather than composite triangles" },
+    { "name": "15", "note": "half-integer diagonal intersections coexist with three cuts meeting at a grid point" },
+    { "name": "16", "note": "seeded sparse cuts mix triangles with polygons having at least six sides" },
+    { "name": "17", "note": "seeded small mixed-direction cuts leave pentagons among triangular pieces" },
+    { "name": "18", "generator": "1801 50 2 45", "note": "random cuts of a two-row strip exercise both interior and border intersections" },
+    { "name": "19", "generator": "1901 49 50 98", "note": "a nearly complete random cut set on a near-maximum nonsquare plate" }
+  ]
+}
