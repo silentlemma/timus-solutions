@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1268_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four small primes" },
+    { "name": "02", "note": "the smallest allowed prime, 3" },
+    { "name": "03", "note": "the largest prime below 65536" },
+    { "name": "04", "note": "every prime from 3 to 65521" },
+    { "name": "05", "note": "6553 copies of the largest prime" },
+    { "name": "06", "note": "two Fermat primes, 17 and 257, with p - 1 a power of two" },
+    { "name": "gen1", "generator": "1 1", "note": "random primes" },
+    { "name": "gen2", "generator": "2 2", "note": "primes with p - 1 divisible by 30" },
+    { "name": "gen3", "generator": "3 1", "note": "mixed prime sizes including the minimum allowed week length" },
+    { "name": "gen4", "generator": "4 2", "note": "repeated queries with 2, 3 and 5 among the factors of p - 1" },
+    { "name": "07", "note": "small random stress input with N = 41 rejecting short cycles before the largest root 35" },
+    { "name": "08", "note": "removal of repeated factors when N - 1 is twice a growing power of three" },
+    { "name": "09", "note": "safe primes leave a large prime factor after dividing N - 1 by two" },
+    { "name": "10", "note": "five or six distinct prime factors of N - 1 must all be checked" },
+    { "name": "11", "note": "long runs of rejected descending candidates, including twenty rejections for N = 409" },
+    { "name": "12", "note": "moduli straddle the signed 32-bit multiplication boundary and approach the upper limit" },
+    { "name": "13", "generator": "1268 3", "note": "6553 alternating random small and near-limit queries revisit sixteen separate cached answers" },
+    { "name": "14", "generator": "1268 4", "note": "a random sample of 32 small primes is queried again in a different shuffled order" }
+  ]
+}
