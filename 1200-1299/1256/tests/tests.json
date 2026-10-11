@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.002",
+  "reference": "1256_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "house and posts on one line, the near dog on the way" },
+    { "name": "02", "note": "one dog reaches the house" },
+    { "name": "03", "note": "both dogs reach the house" },
+    { "name": "04", "note": "both posts in one place" },
+    { "name": "05", "note": "the two dog circles overlap" },
+    { "name": "06", "note": "the house between the posts on one line" },
+    { "name": "07", "note": "the far dog behind the near one" },
+    { "name": "08", "note": "largest equilateral triangle, chain 1" },
+    { "name": "09", "note": "chain just short of the far post" },
+    { "name": "10", "note": "posts close together, chain larger than their distance" },
+    { "name": "11", "note": "fractional distances" },
+    { "name": "12", "note": "isosceles triangle with disjoint dog disks and the house off the post line" },
+    { "name": "gen1", "generator": "1 1", "note": "short chain" },
+    { "name": "gen2", "generator": "2 2", "note": "chain comparable to the distances" },
+    { "name": "gen3", "generator": "3 3", "note": "posts far apart" },
+    { "name": "gen4", "generator": "4 2", "note": "overlapping dog disks with unequal distances to the house" },
+    { "name": "gen5", "generator": "5 3", "note": "long chains with the house outside both disks and widely separated posts" },
+    { "name": "gen6", "generator": "6 1", "note": "house much closer to the second post with disjoint dog disks" },
+    { "name": "13", "note": "house at the first post, second post at the distance limit, shortest chain" },
+    { "name": "14", "note": "maximum chains reach the house exactly from both posts" },
+    { "name": "15", "note": "nearly flat fractional triangle with maximum post separation and long chains" },
+    { "name": "16", "note": "house equidistant from the posts outside externally tangent dog disks" },
+    { "name": "17", "note": "house just beyond the first disk in a nearly flat triangle" }
+  ]
+}
