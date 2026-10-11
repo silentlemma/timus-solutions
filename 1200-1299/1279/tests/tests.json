@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1279_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two sections reach 3, one 3 already" },
+    { "name": "02", "example": true, "note": "the statement's 3 x 3 warehouse" },
+    { "name": "03", "note": "one section and the largest lot" },
+    { "name": "04", "note": "equal sections, one container" },
+    { "name": "05", "note": "equal sections, five containers for six" },
+    { "name": "06", "note": "one low section, the rest far above" },
+    { "name": "07", "note": "the lot stops one short of the next level" },
+    { "name": "gen1", "generator": "1 1", "note": "a small warehouse" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 100 x 100 sections, K up to 10^7" },
+    { "name": "gen3", "generator": "3 3", "note": "equal heights with one tall section" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 100 x 100 sections, K up to 10^7" },
+    { "name": "gen5", "generator": "5 1", "note": "a small warehouse" }
+  ]
+}
