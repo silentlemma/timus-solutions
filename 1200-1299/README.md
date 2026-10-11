@@ -93,3 +93,4 @@
 | 1286 | [Starship from the VAZ plant](1286/) | number_theory | C++, Go, Python, Java, Rust |
 | 1287 | [Canals on Mars](1287/) | dp | C++, Go, Python, Java, Rust |
 | 1288 | [Astrolocation](1288/) | simulation | C++, Go, Python, Java, Rust |
+| 1289 | [One-Way Ticket](1289/) | math | C++, Go, Python, Java, Rust |
