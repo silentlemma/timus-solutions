@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1216_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the pawn races home on a 10 x 10 board" },
+    { "name": "02", "example": true, "note": "the king catches the pawn" },
+    { "name": "03", "note": "the black pawn waits to take the white pawn as it passes" },
+    { "name": "04", "note": "one step from promotion" },
+    { "name": "05", "note": "the king stands in front of the pawn" },
+    { "name": "06", "note": "the black pawn promotes too late" },
+    { "name": "07", "note": "the largest board, the king in the far corner" },
+    { "name": "08", "note": "the smallest board, pawns next to each other" },
+    { "name": "09", "note": "a race of two pawns" },
+    { "name": "gen1", "generator": "1 26 1", "note": "a random position on the largest board" },
+    { "name": "gen2", "generator": "2 26 2", "note": "the white pawn on its starting row" },
+    { "name": "gen3", "generator": "3 26 3", "note": "the king far from the white pawn" },
+    { "name": "gen4", "generator": "4 26 4", "note": "the black pawn about to promote" },
+    { "name": "gen5", "generator": "5 6 2", "note": "the smallest board" },
+    { "name": "gen6", "generator": "6 13 3", "note": "a middle board, the king far away" }
+  ]
+}

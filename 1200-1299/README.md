@@ -20,3 +20,4 @@
 | 1213 | [Fewest partitions to drive the cockroaches into the airlock](1213/) | graphs | C++, Go, Python, Java, Rust |
 | 1214 | [Undoing a strange procedure](1214/) | math | C++, Go, Python, Java, Rust |
 | 1215 | [The smallest shell that still hits the target](1215/) | geometry | C++, Go, Python, Java, Rust |
+| 1216 | [Two pawns and a king: can White promote?](1216/) | games | C++, Go, Python, Java, Rust |
