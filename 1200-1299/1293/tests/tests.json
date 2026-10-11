@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1293_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five panels of 2 by 3, both sides" },
+    { "name": "02", "note": "one panel of one square metre: 2" },
+    { "name": "03", "note": "the largest values: 2000000" },
+    { "name": "04", "note": "a long thin panel" },
+    { "name": "05", "note": "an ordinary case" },
+    { "name": "gen1", "generator": "1", "note": "random N, A and B" },
+    { "name": "gen2", "generator": "2", "note": "random N, A and B" },
+    { "name": "gen3", "generator": "3", "note": "random N, A and B" }
+  ]
+}
