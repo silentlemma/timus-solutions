@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1251_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small cemetery over two thousand days" },
+    { "name": "02", "note": "a grave frees on day 1001, not on day 1000" },
+    { "name": "03", "note": "a visit next door keeps a grave 100 days longer" },
+    { "name": "04", "note": "visits to the freed and to the cremated change nothing" },
+    { "name": "gen1", "generator": "1 5 5 3000 3000", "note": "a small cemetery, many visits" },
+    { "name": "gen2", "generator": "2 100 100 10000 5000", "note": "the largest cemetery and event list" },
+    { "name": "gen3", "generator": "3 1 1 10000 5000", "note": "one grave, most clients cremated" },
+    { "name": "gen4", "generator": "4 3 7 6000 9000", "note": "a narrow cemetery with more visits than arrivals" },
+    { "name": "gen5", "generator": "5 100 100 10000 0", "note": "the largest cemetery, no visits" }
+  ]
+}

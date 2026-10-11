@@ -55,3 +55,4 @@
 | 1248 | [Adding numbers to 19 significant digits](1248/) | math | C++, Go, Python, Java, Rust |
 | 1249 | [Are all dark regions rectangles?](1249/) | implementation | C++, Go, Python, Java, Rust |
 | 1250 | [Islands inside the sacred sea](1250/) | graphs | C++, Go, Python, Java, Rust |
+| 1251 | [A cemetery that frees forgotten graves](1251/) | simulation | C++, Go, Python, Java, Rust |
