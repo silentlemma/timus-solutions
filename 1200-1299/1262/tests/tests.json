@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1262_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample combines additive tens with subtractive hundreds and units" },
+    { "name": "02", "note": "the smallest N" },
+    { "name": "03", "note": "the largest N, 10^2003: one letter" },
+    { "name": "04", "note": "four written as a subtractive pair" },
+    { "name": "05", "note": "nine written in its shortest form" },
+    { "name": "06", "note": "eight requires four pseudo-Roman digits" },
+    { "name": "07", "note": "the largest answer from a number made entirely of eights" },
+    { "name": "08", "note": "every digit once" },
+    { "name": "09", "note": "subtractive notation at three consecutive decimal places" },
+    { "name": "10", "note": "zeros in the middle cost nothing" },
+    { "name": "gen1", "generator": "1 1", "note": "random digits" },
+    { "name": "gen2", "generator": "2 2", "note": "digits 4, 8 and 9" },
+    { "name": "gen3", "generator": "3 1", "note": "zeros among random decimal digits contribute no letters" },
+    { "name": "gen4", "generator": "4 2", "note": "subtractive pairs mixed with four-letter eights" }
+  ]
+}
