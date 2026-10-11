@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1308_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example with zero distance to four decimal places" },
+    { "name": "02", "note": "the start itself: no rolls" },
+    { "name": "03", "note": "the positive x axis at the maximum target radius" },
+    { "name": "04", "note": "the negative y axis at the distance limit" },
+    { "name": "05", "note": "a hair from the start" },
+    { "name": "06", "note": "a radius-limit target on the second-quadrant diagonal" },
+    { "name": "07", "note": "half a jump: the base never lands there" },
+    { "name": "08", "note": "one full jump away" },
+    { "name": "09", "note": "a boundary target sixty degrees below the positive x axis" },
+    { "name": "10", "note": "a point between lattice points" },
+    { "name": "gen1", "generator": "1 1", "note": "any point within 25" },
+    { "name": "gen2", "generator": "2 2", "note": "a point near the edge of the circle" },
+    { "name": "gen3", "generator": "3 3", "note": "a point close to the start" },
+    { "name": "gen4", "generator": "4 1", "note": "a first-quadrant interior target closest to a landing below and to its left" },
+    { "name": "gen5", "generator": "5 2", "note": "a target near the negative y axis and the radius limit" },
+    { "name": "11", "note": "a three-way nearest-centre tie includes the origin and both lattice orientations" },
+    { "name": "12", "note": "a mixed horizontal and vertical jump target is forbidden by the opposite-base-edge rule" },
+    { "name": "13", "note": "at radius 25 the nearest legal landing is outside the target circle" },
+    { "name": "14", "note": "a small offset from a distant landing whose shortest route takes 46 rolls" },
+    { "name": "15", "note": "a sparse region whose nearest landing lies on the negative x axis" },
+    { "name": "16", "note": "an off-axis target with a unique nearest landing above and to its left" },
+    { "name": "gen6", "generator": "11 2", "note": "a third-quadrant target near the radius limit with a nonzero minimum distance" },
+    { "name": "gen7", "generator": "10 3", "note": "a small-radius target where a three-roll landing beats staying at the origin" }
+  ]
+}
