@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1314_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a change of lines leaves four possible targets" },
+    { "name": "02", "note": "one bearing: every station could be the target" },
+    { "name": "03", "note": "the bearing reached the end of the only line" },
+    { "name": "04", "note": "stations 1 and 3 are not neighbours: nothing fits" },
+    { "name": "05", "note": "a detour is not a shortest path: only the stop itself fits" },
+    { "name": "06", "note": "a line that comes back on itself" },
+    { "name": "07", "note": "stations of another network are out of reach" },
+    { "name": "08", "note": "the largest station index" },
+    { "name": "09", "note": "a station that is not on any line: nothing fits" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short lines" },
+    { "name": "gen2", "generator": "2 2", "note": "many long lines with repeated stations" },
+    { "name": "gen3", "generator": "3 3", "note": "one long chain of lines" },
+    { "name": "gen4", "generator": "4 2", "note": "a shortest record through intersecting lines has no valid continuation" },
+    { "name": "gen5", "generator": "7 1", "note": "a recorded walk doubles back before reaching a junction" },
+    { "name": "10", "note": "seeded random network: tied shortest routes remain possible while lateral neighbours do not" },
+    { "name": "11", "note": "a recorded route with more transfers ties a route staying on one line in number of stops" },
+    { "name": "12", "note": "fifty lines of fifty stations share a hub and leave 49 whole arms as possible destinations" },
+    { "name": "13", "note": "the longest possible consistent record visits 2451 stations across all 50 lines" }
+  ]
+}
