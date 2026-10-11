@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1213_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven compartments with cycles" },
+    { "name": "02", "note": "only the airlock" },
+    { "name": "03", "note": "names differing only in letter case" },
+    { "name": "gen1", "generator": "1 30 0", "note": "thirty compartments in a tree" },
+    { "name": "gen2", "generator": "2 30 400", "note": "thirty compartments with many partitions" },
+    { "name": "gen3", "generator": "3 2 0", "note": "two compartments" },
+    { "name": "04", "note": "numeric names with leading zeros remain distinct" },
+    { "name": "05", "note": "all 435 partitions among 30 maximum-length names sharing 19 characters" },
+    { "name": "06", "note": "chain of 30 rooms listed backwards with alternating partition directions" },
+    { "name": "07", "note": "star with 29 leaves, the airlock at a leaf and one-character names" },
+    { "name": "08", "note": "two triangles joined by a single bridge away from the airlock" },
+    { "name": "09", "note": "room names containing the airlock name as a prefix or suffix" },
+    { "name": "10", "generator": "small 1213 8 10", "note": "seeded eight-room cyclic graph checked by exhaustive movement search" }
+  ]
+}
