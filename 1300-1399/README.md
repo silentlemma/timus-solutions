@@ -25,3 +25,4 @@
 | 1318 | [Logarithm](1318/) | bitmask | C++, Go, Python, Java, Rust |
 | 1319 | [Hotel](1319/) | implementation | C++, Go, Python, Java, Rust |
 | 1320 | [Graph Decomposition](1320/) | dsu | C++, Go, Python, Java, Rust |
+| 1321 | [Floor Indicator](1321/) | math | C++, Go, Python, Java, Rust |

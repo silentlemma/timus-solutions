@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1321_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "ten floors: from 2 to 10" },
+    { "name": "02", "note": "the smallest building, one digit" },
+    { "name": "03", "note": "the largest one-digit building" },
+    { "name": "04", "note": "12 floors: from 6 to 12" },
+    { "name": "05", "note": "11 floors: the second digit is 1" },
+    { "name": "06", "note": "19 floors" },
+    { "name": "07", "note": "20 floors: blank, 1, 2 on the tens" },
+    { "name": "08", "note": "39 floors" },
+    { "name": "09", "note": "40 floors: blank through 4 on the tens" },
+    { "name": "10", "note": "99 floors" },
+    { "name": "11", "note": "100 floors" },
+    { "name": "12", "note": "120 floors" },
+    { "name": "13", "note": "1000 floors" },
+    { "name": "14", "note": "999 nines" },
+    { "name": "15", "note": "999 ones" },
+    { "name": "16", "note": "3 and 998 zeros" }
+  ]
+}
