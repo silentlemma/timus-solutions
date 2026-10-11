@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1278_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four bells: two doublings" },
+    { "name": "02", "example": true, "note": "one bell: BELL&RET alone" },
+    { "name": "03", "note": "two bells" },
+    { "name": "04", "note": "three bells" },
+    { "name": "05", "note": "2^29: only doublings" },
+    { "name": "06", "note": "the largest K" },
+    { "name": "07", "note": "a K with many one bits" },
+    { "name": "08", "note": "two leading one bits and zeros" },
+    { "name": "09", "note": "seven: every step adds one" },
+    { "name": "10", "note": "thirteen" },
+    { "name": "gen1", "generator": "1 1", "note": "random K" },
+    { "name": "gen2", "generator": "2 2", "note": "many one bits" },
+    { "name": "gen3", "generator": "3 1", "note": "random K" },
+    { "name": "gen4", "generator": "4 2", "note": "many one bits" }
+  ]
+}
