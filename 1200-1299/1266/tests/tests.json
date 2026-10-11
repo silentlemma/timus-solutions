@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.01",
+  "reference": "1266_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a bridge circuit" },
+    { "name": "02", "note": "two nodes, one resistor" },
+    { "name": "03", "note": "three resistors in parallel" },
+    { "name": "04", "note": "twenty nodes in a chain, the largest resistance" },
+    { "name": "05", "note": "a dead end and an isolated node" },
+    { "name": "06", "note": "a piece of the circuit cut off from both ends" },
+    { "name": "07", "note": "a balanced bridge: no current through the middle" },
+    { "name": "08", "note": "every pair of 20 nodes joined by 1 ohm" },
+    { "name": "09", "note": "maximum resistor count spread across twenty nodes" },
+    { "name": "gen1", "generator": "1 1", "note": "many parallel resistors between every pair in a dense mesh" },
+    { "name": "gen2", "generator": "2 2", "note": "a triangle of parallel resistor bundles including a direct terminal branch" },
+    { "name": "gen3", "generator": "3 3", "note": "a disconnected triangle beside a fully connected terminal component" },
+    { "name": "gen4", "generator": "4 1", "note": "a complete mesh with uneven numbers of resistors per node pair" },
+    { "name": "gen5", "generator": "5 2", "note": "a chain backbone augmented with parallel resistors and cross-links" },
+    { "name": "gen6", "generator": "6 3", "note": "a dense circuit at the node limit with a separate cyclic component" },
+    { "name": "10", "note": "twenty nodes but only one reversed 1-ohm edge between the terminals" },
+    { "name": "11", "note": "a positive resistance that rounds to zero with 999 parallel unit resistors" },
+    { "name": "12", "note": "two unit-resistance cliques joined only by a 1000-ohm bottleneck" },
+    { "name": "13", "note": "a cyclic lobe attached at an internal articulation carries no current" },
+    { "name": "14", "note": "seeded small random mesh with multiple cycles and reversed endpoints" },
+    { "name": "15", "note": "seeded random circuit with an exact resistance just beside a half-cent boundary" },
+    { "name": "16", "note": "a twenty-node ladder with alternating rail resistances and varied rungs" },
+    { "name": "gen7", "generator": "10 1", "note": "sparse random twenty-node network with few alternate current paths" }
+  ]
+}

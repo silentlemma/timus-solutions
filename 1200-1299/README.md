@@ -70,3 +70,4 @@
 | 1263 | [Elections](1263/) | implementation | C++, Go, Python, Java, Rust |
 | 1264 | [Workdays](1264/) | math | C++, Go, Python, Java, Rust |
 | 1265 | [Mirror](1265/) | geometry | C++, Go, Python, Java, Rust |
+| 1266 | [Kirchhoff's law](1266/) | math | C++, Go, Python, Java, Rust |
