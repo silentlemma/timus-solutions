@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1262_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "MCMXXXIX" },
+    { "name": "02", "note": "the smallest N" },
+    { "name": "03", "note": "the largest N, 10^2003: one letter" },
+    { "name": "04", "note": "IV" },
+    { "name": "05", "note": "IX, not VIV" },
+    { "name": "06", "note": "VIII, the longest digit" },
+    { "name": "07", "note": "2003 eights: the largest answer" },
+    { "name": "08", "note": "every digit once" },
+    { "name": "09", "note": "3999" },
+    { "name": "10", "note": "zeros in the middle cost nothing" },
+    { "name": "gen1", "generator": "1 1", "note": "random digits" },
+    { "name": "gen2", "generator": "2 2", "note": "digits 4, 8 and 9" },
+    { "name": "gen3", "generator": "3 1", "note": "random digits" },
+    { "name": "gen4", "generator": "4 2", "note": "digits 4, 8 and 9" }
+  ]
+}
