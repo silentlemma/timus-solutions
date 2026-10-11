@@ -31,3 +31,4 @@
 | 1224 | [Turns of a robot that sweeps a rectangle in a spiral](1224/) | math | C++, Go, Python, Java, Rust |
 | 1225 | [Rows of white, blue and red stripes](1225/) | dp | C++, Go, Python, Java, Rust |
 | 1226 | [Every word written backwards](1226/) | strings | C++, Go, Python, Java, Rust |
+| 1227 | [A rally route of a given length on one-way roads](1227/) | graphs | C++, Go, Python, Java, Rust |
