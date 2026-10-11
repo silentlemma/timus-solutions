@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1300_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two equal payouts under a four-threshold scale with trailing spaces" },
+    { "name": "02", "note": "a flat tax and one job: nothing more to pay" },
+    { "name": "03", "note": "two jobs of 100 each cross the 100 bracket together" },
+    { "name": "04", "note": "the regional bonus is taxed separately using the same scale as salary" },
+    { "name": "05", "note": "a single job always gives 0.00" },
+    { "name": "06", "note": "amounts with one decimal and with none" },
+    { "name": "07", "note": "rates of 99 percent and the largest amounts: rounding gives -0.02" },
+    { "name": "08", "note": "a falling scale: the citizen gets 40.00 back" },
+    { "name": "gen1", "generator": "1 1", "note": "a single employer with a 32 percent bonus and a steep rate drop" },
+    { "name": "gen2", "generator": "2 2", "note": "a falling two-rate scale produces a refund across twenty-six employers" },
+    { "name": "gen3", "generator": "3 3", "note": "twenty thresholds and thirty employers with large mixed payouts" },
+    { "name": "gen4", "generator": "4 2", "note": "a 99 percent middle bracket and a 3 percent final rate with a large regional bonus" },
+    { "name": "gen5", "generator": "5 1", "note": "high tax rates and a 67 percent regional bonus for a single employer" },
+    { "name": "09", "note": "zero tax, no limits and 30 jobs each paying the minimum cent" },
+    { "name": "10", "note": "a one-cent payout has tied salaries whose largest choice changes the annual tax" },
+    { "name": "11", "note": "fractional cents from different brackets are combined before rounding tax" },
+    { "name": "12", "note": "a half-cent regional bonus must round up before its separate tax" },
+    { "name": "13", "note": "salaries one cent below, on and above a limit sum exactly to another limit" },
+    { "name": "14", "note": "the total regional bonus lands exactly on a limit while total salary exceeds it" },
+    { "name": "15", "note": "alternating zero and 99 percent rates with the largest allowed limit and thirty maximum payouts" },
+    { "name": "16", "note": "seeded small refund with repeated 94 percent brackets and several rate reversals" },
+    { "name": "17", "note": "seeded 91 percent bonus with a one-cent bracket between sharply falling and rising rates" },
+    { "name": "18", "note": "adjacent cent-wide brackets with a 99 percent bonus and thirty tiny mixed payouts" }
+  ]
+}
