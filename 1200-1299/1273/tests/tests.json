@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1273_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one sleeper crosses the other two" },
+    { "name": "02", "note": "no sleepers" },
+    { "name": "03", "note": "one sleeper at the extreme coordinates" },
+    { "name": "04", "note": "a hundred parallel sleepers" },
+    { "name": "05", "note": "a hundred sleepers all crossing each other" },
+    { "name": "06", "note": "negative coordinates, given out of order" },
+    { "name": "gen1", "generator": "1 1", "note": "random sleepers" },
+    { "name": "gen2", "generator": "2 2", "note": "nearly straight with a few swaps" },
+    { "name": "gen3", "generator": "3 3", "note": "three sleepers in a narrow range" },
+    { "name": "gen4", "generator": "4 1", "note": "mixed-sign random endpoints requiring many removals" },
+    { "name": "07", "note": "two sloped sleepers do not cross; zero occurs on opposite rails and input order is reversed" },
+    { "name": "08", "note": "three crossing pairs form a path, so two removals suffice despite several optimal choices" },
+    { "name": "09", "note": "seeded small case whose optimal kept subset ends before the last sleeper in left-end order" },
+    { "name": "10", "note": "seeded negative-only case whose best subset skips gaps rather than taking a contiguous run" },
+    { "name": "11", "note": "ten independent reversed blocks of ten sleepers require keeping one sleeper from each block" },
+    { "name": "12", "note": "two increasing blocks of fifty sleepers require discarding one whole block because every cross-block pair crosses" },
+    { "name": "gen5", "generator": "23 1", "note": "maximum K with 100 seeded random sleepers spread across the full coordinate range" },
+    { "name": "gen6", "generator": "6 3", "note": "twelve seeded random sleepers densely packed in the narrow coordinate range" }
+  ]
+}
