@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1248_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "numbers six orders apart" },
+    { "name": "02", "note": "the smallest number alone" },
+    { "name": "03", "note": "two terms below the upper bound round to twice the upper bound" },
+    { "name": "04", "note": "a tie at the 20th digit rounds up" },
+    { "name": "05", "note": "just under a tie at the 20th digit" },
+    { "name": "06", "note": "one number with all 19 digits" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "a thousand numbers over the whole range" },
+    { "name": "gen2", "generator": "2 1000 2", "note": "a thousand numbers across four adjacent exponents" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "tiny addends accumulate into the 17th significant digit of a large term" },
+    { "name": "07", "note": "the exact upper bound plus the lower bound spans 200 exponent steps" },
+    { "name": "08", "note": "rounding overflows all 19 retained nines into a larger exponent" },
+    { "name": "09", "note": "addition preserves significant input digits down to ten to the minus 118" },
+    { "name": "10", "note": "complementary fractions sum exactly to one and print the bare exponent zero" },
+    { "name": "11", "note": "rounding partial sums would incorrectly increment the last digit twice" },
+    { "name": "12", "note": "a thousand upper-bound terms produce the maximum possible total of ten to 103" },
+    { "name": "13", "note": "a retained random pair carries exactly through nine trailing nines without rounding" },
+    { "name": "gen4", "generator": "1248 1000 4", "note": "a thousand minimum values accumulate exactly to ten to the minus 97" },
+    { "name": "gen5", "generator": "1248 1000 5", "note": "random complementary pairs sum to exact powers across 200 consecutive exponents" }
+  ]
+}
