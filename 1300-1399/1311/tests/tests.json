@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1311_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "each stack's centre lies inside its contact" },
+    { "name": "02", "note": "a single brick on the ground" },
+    { "name": "03", "note": "the centre of mass exactly on the edge of the contact" },
+    { "name": "04", "note": "the centre of mass just inside the contact" },
+    { "name": "05", "note": "bricks that only touch at an end hold nothing" },
+    { "name": "06", "note": "an empty layer leaves the top brick hanging" },
+    { "name": "07", "note": "an empty top layer" },
+    { "name": "08", "note": "two bricks on one, both just inside" },
+    { "name": "09", "note": "nine small bricks keep an overhanging one in place" },
+    { "name": "10", "note": "eight small bricks are not enough" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small layers" },
+    { "name": "gen2", "generator": "11 1", "note": "a few small layers that stand" },
+    { "name": "gen3", "generator": "2 2", "note": "a tower of 10000 bricks" },
+    { "name": "gen4", "generator": "3 3", "note": "100 layers of 1000 bricks" },
+    { "name": "gen5", "generator": "4 4", "note": "the same with one brick missing" },
+    { "name": "gen6", "generator": "13 1", "note": "a few small layers that stand" }
+  ]
+}
