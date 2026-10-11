@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1217_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four digits" },
+    { "name": "02", "note": "the minimum ticket length" },
+    { "name": "03", "note": "six digits, checked by brute force" },
+    { "name": "04", "note": "twelve digits, answer exceeding signed 32 bits" },
+    { "name": "05", "note": "eighteen digits, halves of odd length" },
+    { "name": "06", "note": "the longest tickets" },
+    { "name": "07", "note": "eight digits, two positions in each half-parity group" },
+    { "name": "08", "note": "ten digits, last length whose answer fits signed 32 bits" },
+    { "name": "09", "note": "fourteen digits, odd half length with an answer requiring 64 bits" },
+    { "name": "10", "note": "sixteen digits, the largest equal-group case below the maximum length" }
+  ]
+}
