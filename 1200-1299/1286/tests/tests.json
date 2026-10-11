@@ -1,0 +1,23 @@
+{
+  "judging": "tokens",
+  "reference": "1286_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "steps 4 and 6 reach every even point" },
+    { "name": "02", "example": true, "note": "an odd target is out of reach" },
+    { "name": "03", "note": "no steps at all, already there" },
+    { "name": "04", "note": "no steps at all, elsewhere" },
+    { "name": "05", "note": "one step zero: moves along the axes by 3" },
+    { "name": "06", "note": "steps 1 and 1 keep the parity of x + y" },
+    { "name": "07", "note": "steps 1 and 1, an even difference" },
+    { "name": "08", "note": "a knight crossing the whole range" },
+    { "name": "09", "note": "the largest steps, both odd after dividing" },
+    { "name": "10", "note": "the largest steps, the wrong parity" },
+    { "name": "11", "note": "negative steps" },
+    { "name": "12", "note": "steps 6 and 10: odd after dividing by 2" },
+    { "name": "gen1", "generator": "1 1", "note": "any numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "steps with a common factor" },
+    { "name": "gen3", "generator": "3 3", "note": "both odd after dividing" },
+    { "name": "gen4", "generator": "4 2", "note": "steps with a common factor" },
+    { "name": "gen5", "generator": "5 3", "note": "both odd after dividing" }
+  ]
+}
