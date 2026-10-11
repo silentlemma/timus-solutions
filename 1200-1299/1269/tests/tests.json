@@ -1,0 +1,23 @@
+{
+  "judging": "tokens",
+  "reference": "1269_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the bad word inside a longer word" },
+    { "name": "02", "note": "a longer word starts earlier but ends later" },
+    { "name": "03", "note": "a word with a space; the match is on the third line" },
+    { "name": "04", "note": "no bad word: Passed" },
+    { "name": "05", "note": "a word longer than any line, and a word that is a whole line" },
+    { "name": "06", "note": "empty lines before and after the match" },
+    { "name": "07", "note": "a tab as the bad word" },
+    { "name": "08", "note": "repeated words and a one-letter word" },
+    { "name": "gen1", "generator": "1 1", "note": "two letters, many overlaps" },
+    { "name": "gen2", "generator": "2 2", "note": "printable characters with spaces" },
+    { "name": "gen3", "generator": "3 3", "note": "long words, a long text" },
+    { "name": "gen4", "generator": "4 4", "note": "forbidden words containing a letter absent from every text line" },
+    { "name": "gen5", "generator": "5 1", "note": "overlapping short words over a binary alphabet" },
+    { "name": "gen6", "generator": "6 3", "note": "the longest forbidden word appended to the last text line" },
+    { "name": "gen7", "generator": "7 5", "note": "a match at the very end of a 900 KB line" },
+    { "name": "gen8", "generator": "8 6", "note": "ten thousand ten-letter words with a match after a long prefix" },
+    { "name": "09", "note": "a carriage return inside the text counts toward the match position" }
+  ]
+}
