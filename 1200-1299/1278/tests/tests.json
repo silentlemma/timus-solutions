@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1278_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four bells: two doublings" },
+    { "name": "02", "example": true, "note": "one bell: BELL&RET alone" },
+    { "name": "03", "note": "two bells" },
+    { "name": "04", "note": "an increment after the first doubling" },
+    { "name": "05", "note": "a power of two using only doublings" },
+    { "name": "06", "note": "the largest K" },
+    { "name": "07", "note": "a K with many one bits" },
+    { "name": "08", "note": "two leading one bits and zeros" },
+    { "name": "09", "note": "seven: every step adds one" },
+    { "name": "10", "note": "a zero between the second and third one bits" },
+    { "name": "gen1", "generator": "1 1", "note": "random K" },
+    { "name": "gen2", "generator": "2 2", "note": "many one bits" },
+    { "name": "gen3", "generator": "3 1", "note": "a 28-bit value with twelve trailing zero bits" },
+    { "name": "gen4", "generator": "4 2", "note": "nine consecutive one bits" },
+    { "name": "11", "note": "ten bells: a small mixed-bit case ending in zero" },
+    { "name": "12", "note": "two one bits separated by 28 zeros" },
+    { "name": "13", "note": "alternating one and zero bits across the full 30-bit input" },
+    { "name": "14", "note": "a 30-bit K with 29 one bits requires the longest binary construction" },
+    { "name": "15", "generator": "1278 3", "note": "seeded unequal one-bit blocks with a long zero gap test command reversal" }
+  ]
+}
