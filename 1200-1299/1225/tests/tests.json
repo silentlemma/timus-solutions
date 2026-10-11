@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1225_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a single stripe" },
+    { "name": "02", "note": "two stripes, no blue possible" },
+    { "name": "03", "note": "three stripes, the first blue" },
+    { "name": "04", "note": "ten stripes" },
+    { "name": "05", "note": "the largest N, beyond signed 32-bit range" },
+    { "name": "06", "note": "four stripes exercise the first nontrivial continuation" },
+    { "name": "07", "note": "seven stripes check repeated valid color changes" },
+    { "name": "08", "note": "thirteen stripes check a mid-sized recurrence value" },
+    { "name": "09", "note": "twenty-two stripes check accumulated prefix counts" },
+    { "name": "10", "note": "thirty-seven stripes check a large answer" },
+    { "name": "11", "note": "forty-four stripes probe the upper input boundary" }
+  ]
+}
