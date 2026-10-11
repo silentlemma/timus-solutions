@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1270_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one cube turned a quarter about the left-right axis" },
+    { "name": "02", "note": "the demands are the cube's mirror image: no rotation fits" },
+    { "name": "03", "note": "more cells than cubes" },
+    { "name": "04", "note": "no demands at all" },
+    { "name": "05", "note": "the first cube taken must move to make room" },
+    { "name": "06", "note": "a colour no cube has" },
+    { "name": "07", "note": "two-coloured cubes in various turns" },
+    { "name": "08", "note": "a half turn about the vertical axis" },
+    { "name": "gen1", "generator": "1 1", "note": "built from the cubes, always solvable" },
+    { "name": "gen2", "generator": "2 2", "note": "random demands in three colours" },
+    { "name": "gen3", "generator": "3 3", "note": "30 two-coloured cubes for 30 cells" },
+    { "name": "gen4", "generator": "4 1", "note": "built from the cubes, always solvable" },
+    { "name": "gen5", "generator": "5 2", "note": "random demands in three colours" },
+    { "name": "gen6", "generator": "6 3", "note": "30 two-coloured cubes for 30 cells" }
+  ]
+}
