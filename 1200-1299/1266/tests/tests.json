@@ -1,0 +1,21 @@
+{
+  "judging": "float:0.01",
+  "reference": "1266_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a bridge circuit" },
+    { "name": "02", "note": "two nodes, one resistor" },
+    { "name": "03", "note": "three resistors in parallel" },
+    { "name": "04", "note": "twenty nodes in a chain, the largest resistance" },
+    { "name": "05", "note": "a dead end and an isolated node" },
+    { "name": "06", "note": "a piece of the circuit cut off from both ends" },
+    { "name": "07", "note": "a balanced bridge: no current through the middle" },
+    { "name": "08", "note": "every pair of 20 nodes joined by 1 ohm" },
+    { "name": "09", "note": "999 resistors on 20 nodes" },
+    { "name": "gen1", "generator": "1 1", "note": "random circuit" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain with parallel resistors" },
+    { "name": "gen3", "generator": "3 3", "note": "nodes cut off from both ends" },
+    { "name": "gen4", "generator": "4 1", "note": "random circuit" },
+    { "name": "gen5", "generator": "5 2", "note": "a chain with parallel resistors" },
+    { "name": "gen6", "generator": "6 3", "note": "nodes cut off from both ends" }
+  ]
+}
