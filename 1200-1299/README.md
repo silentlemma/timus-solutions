@@ -24,3 +24,4 @@
 | 1217 | [Tickets that are lucky both in Moscow and in St. Petersburg](1217/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1218 | [Which Jedi can win the tournament](1218/) | graphs | C++, Go, Python, Java, Rust |
 | 1219 | [A million letters with no letter, pair or triple too common](1219/) | constructive | C++, Go, Python, Java, Rust |
+| 1220 | [A thousand stacks in three quarters of a megabyte](1220/) | implementation | C++ |

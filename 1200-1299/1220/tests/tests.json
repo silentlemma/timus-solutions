@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1220_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two stacks" },
+    { "name": "02", "note": "the last stack and the largest value" },
+    { "name": "03", "note": "a push and no pops, so nothing to print" },
+    { "name": "big1", "generator": "1 100000 1000 1", "note": "random operations on all stacks" },
+    { "name": "big2", "generator": "2 100000 1000 2", "note": "all pushes, then all pops" },
+    { "name": "big3", "generator": "3 100000 1000 3", "note": "a few values in every stack" },
+    { "name": "big4", "generator": "4 100000 1 4", "note": "one deep stack" },
+    { "name": "big5", "generator": "5 100000 1000 2", "note": "the most blocks in use at once" }
+  ]
+}
