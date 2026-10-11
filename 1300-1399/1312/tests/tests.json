@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1312_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two big plates and a small one in the gap" },
+    { "name": "02", "example": true, "note": "one unit too big for the gap" },
+    { "name": "03", "note": "a plate fills the square and the corners are too small" },
+    { "name": "04", "note": "the largest tray, two tiny plates in the corners" },
+    { "name": "05", "note": "three plates in a row, exactly" },
+    { "name": "06", "note": "a row that is one unit too short" },
+    { "name": "07", "note": "three equal plates exactly fill a row along the second tray side" },
+    { "name": "08", "note": "a plate wider than the tray" },
+    { "name": "09", "note": "three equal plates fit at corners of the maximum square tray" },
+    { "name": "10", "note": "corner gaps take radius 8 beside a filling plate" },
+    { "name": "11", "note": "corner gaps reject radius 9 beside a radius-50 plate spanning the square" },
+    { "name": "12", "note": "two small plates stacked beside a big one" },
+    { "name": "gen1", "generator": "1 1", "note": "a small narrow tray rejects a plate whose diameter exceeds its shorter side" },
+    { "name": "gen2", "generator": "2 2", "note": "a large first plate leaves two corner gaps for smaller plates" },
+    { "name": "gen3", "generator": "3 3", "note": "staggered unequal plates fit when the first side is one unit shorter than the diameter sum" },
+    { "name": "gen4", "generator": "4 3", "note": "staggering fits unequal plates when the second side exactly matches the largest diameter" },
+    { "name": "gen5", "generator": "5 2", "note": "the largest plate comes last and fits across the tray from the other two" },
+    { "name": "gen6", "generator": "7 3", "note": "unequal plates fit with one unit of clearance across the largest diameter" },
+    { "name": "13", "note": "three equal plates fit only by staggering, with exact 6-8-10 tangencies" },
+    { "name": "14", "note": "each pair fits by itself but all three plates cannot fit together" },
+    { "name": "15", "note": "maximum tray sides with two large plates near their diagonal separation limit" },
+    { "name": "16", "note": "random stress witness with three distinct radii, the largest second, and a non-corner centre" },
+    { "name": "gen7", "generator": "9 1", "note": "seeded small feasible tray with unequal radii and height smaller than width" },
+    { "name": "gen8", "generator": "8 2", "note": "seeded large feasible tray with three different radii and generous corner clearance" }
+  ]
+}
