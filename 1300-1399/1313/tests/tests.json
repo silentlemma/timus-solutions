@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1313_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the numbers already in diagonal order" },
+    { "name": "02", "note": "a single pixel" },
+    { "name": "03", "note": "two by two" },
+    { "name": "04", "note": "a row-by-row numbering read along the diagonals" },
+    { "name": "05", "note": "all pixels the same colour" },
+    { "name": "gen1", "generator": "1 1", "note": "a small image" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest image" },
+    { "name": "gen3", "generator": "3 1", "note": "a small image" }
+  ]
+}
