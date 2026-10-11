@@ -29,3 +29,4 @@
 | 1222 | [The highest product of numbers with a given sum](1222/) | math | C++, Go, Python, Java, Rust |
 | 1223 | [The fewest egg drops that find the critical floor](1223/) | dp | C++, Go, Python, Java, Rust |
 | 1224 | [Turns of a robot that sweeps a rectangle in a spiral](1224/) | math | C++, Go, Python, Java, Rust |
+| 1225 | [Rows of white, blue and red stripes](1225/) | dp | C++, Go, Python, Java, Rust |
