@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.001",
+  "reference": "1271_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "around one ship" },
+    { "name": "02", "note": "no ships: a straight line" },
+    { "name": "03", "note": "the goal leaves the tanker partly outside the harbour" },
+    { "name": "04", "note": "the goal is the start" },
+    { "name": "05", "note": "a thin ship across the whole 10^8 harbour" },
+    { "name": "06", "note": "the same ship one unit shorter: a gap exactly as wide as the tanker" },
+    { "name": "07", "note": "a corridor exactly as wide as the tanker" },
+    { "name": "08", "note": "through the corridor, then a step aside" },
+    { "name": "09", "note": "the goal touches a ship" },
+    { "name": "gen1", "generator": "1 1", "note": "small harbour, few ships" },
+    { "name": "gen2", "generator": "2 2", "note": "40 ships in a 1000 x 1000 harbour" },
+    { "name": "gen3", "generator": "3 3", "note": "coordinates up to 10^8" },
+    { "name": "gen4", "generator": "4 4", "note": "a wall of ships with narrow gaps" },
+    { "name": "gen5", "generator": "6 2", "note": "40 ships in a 1000 x 1000 harbour" },
+    { "name": "gen6", "generator": "8 4", "note": "a wall of ships with narrow gaps" },
+    { "name": "gen7", "generator": "10 2", "note": "40 ships in a 1000 x 1000 harbour" },
+    { "name": "gen8", "generator": "12 4", "note": "a wall of ships with narrow gaps" },
+    { "name": "gen9", "generator": "13 1", "note": "small harbour, few ships" }
+  ]
+}
