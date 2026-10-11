@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1267_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three stations, start in the middle" },
+    { "name": "02", "note": "one station: nothing to see" },
+    { "name": "03", "note": "two stations, start at the first" },
+    { "name": "04", "note": "two stations, start at the last" },
+    { "name": "05", "note": "stations at the same place" },
+    { "name": "06", "note": "a train every minute" },
+    { "name": "07", "note": "sixteen stations, the longest gaps and period" },
+    { "name": "08", "note": "sixteen stations one minute apart" },
+    { "name": "09", "note": "sixteen stations at one place" },
+    { "name": "gen1", "generator": "1 1", "note": "short gaps" },
+    { "name": "gen2", "generator": "2 2", "note": "sixteen stations, long gaps" },
+    { "name": "gen3", "generator": "3 3", "note": "many zero gaps" },
+    { "name": "gen4", "generator": "4 1", "note": "sixteen stations, short gaps" },
+    { "name": "gen5", "generator": "5 2", "note": "long gaps" },
+    { "name": "gen6", "generator": "6 3", "note": "sixteen stations, many zero gaps" }
+  ]
+}
