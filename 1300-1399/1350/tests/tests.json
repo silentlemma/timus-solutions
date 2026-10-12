@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1350_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one student of each answer" },
+    { "name": "02", "note": "nothing in the meal: everyone is fine" },
+    { "name": "03", "note": "the meal is the whole menu" },
+    { "name": "04", "note": "names that differ only in case are different products" },
+    { "name": "05", "note": "every meal holds something dangerous" },
+    { "name": "gen1", "generator": "1 1", "note": "100 products and 100 students" },
+    { "name": "gen2", "generator": "2 2", "note": "a first student who fears almost everything" },
+    { "name": "gen3", "generator": "3 3", "note": "an empty meal" }
+  ]
+}
