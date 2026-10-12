@@ -56,3 +56,4 @@
 | 1349 | [Farm](1349/) | math | C++, Go, Python, Java, Rust |
 | 1350 | [Canteen](1350/) | implementation | C++, Go, Python, Java, Rust |
 | 1351 | [Good Gnusmas – Dead Gnusmas](1351/) | geometry | C++, Go, Python, Java, Rust |
+| 1352 | [Mersenne Primes](1352/) | number_theory | C++, Go, Python, Java, Rust |
