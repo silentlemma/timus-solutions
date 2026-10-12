@@ -28,3 +28,4 @@
 | 1321 | [Floor Indicator](1321/) | math | C++, Go, Python, Java, Rust |
 | 1322 | [Spy](1322/) | strings | C++, Go, Python, Java, Rust |
 | 1323 | [Classmates](1323/) | bitmask | C++, Go, Python, Java, Rust |
+| 1324 | [Extra Spaces](1324/) | greedy | C++, Go, Python, Java, Rust |

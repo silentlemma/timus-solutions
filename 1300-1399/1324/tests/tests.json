@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1324_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "22 spaces: four replacements reach 40" },
+    { "name": "02", "note": "single spaces only: nothing to replace" },
+    { "name": "03", "note": "one replacement of 2" },
+    { "name": "04", "note": "3 already needs two replacements" },
+    { "name": "05", "note": "the most that two replacements handle" },
+    { "name": "06", "note": "5: three replacements" },
+    { "name": "07", "note": "the most that three replacements handle" },
+    { "name": "08", "note": "11: four replacements" },
+    { "name": "09", "note": "the most that four replacements handle" },
+    { "name": "10", "note": "41: five replacements" },
+    { "name": "11", "note": "the most that five replacements handle" },
+    { "name": "12", "note": "461: six replacements" },
+    { "name": "13", "note": "the most that six replacements handle" },
+    { "name": "14", "note": "53591: seven replacements" },
+    { "name": "15", "note": "the largest L" }
+  ]
+}
