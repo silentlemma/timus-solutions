@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1351_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "points on the right border and on the circle count" },
+    { "name": "02", "note": "both borders, the opposite rays and points beyond the range" },
+    { "name": "03", "note": "a sector spanning the third quadrant with points on both borders" },
+    { "name": "04", "note": "a sector just under a half turn and the largest range" },
+    { "name": "05", "note": "a sector of a tiny angle" },
+    { "name": "06", "note": "a sector of zero width: both borders on one ray, the ray behind is out" },
+    { "name": "gen1", "generator": "1 1", "note": "a random sector and random points" },
+    { "name": "gen2", "generator": "2 2", "note": "points on the borders and near the circle" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest count with a wide sector" },
+    { "name": "07", "note": "minimum range and one point, with border vectors longer than the range" },
+    { "name": "08", "note": "a west-facing sector crossing the negative x axis at unit range" },
+    { "name": "09", "note": "unequally scaled coincident downward rays reject the positive axis and side neighbors" },
+    { "name": "10", "note": "non-axis Pythagorean circle points and their one-coordinate neighbors" },
+    { "name": "11", "note": "a determinant-one sector with no reachable integer point despite maximum range" },
+    { "name": "12", "note": "a lower nearly half-turn sector with determinant one and extreme coordinates" },
+    { "name": "13", "note": "a retained seeded small case with determinant-one borders and mixed angular and radial rejects" },
+    { "name": "gen4", "generator": "1351 4", "note": "maximum count mixing forward, backward and adjacent points on a large oblique zero-width ray" },
+    { "name": "gen5", "generator": "1351 5", "note": "maximum count and range with exact integer circle neighbors in a west-facing sector" }
+  ]
+}
