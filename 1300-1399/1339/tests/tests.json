@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1339_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one boy and one girl in love, the third pair free" },
+    { "name": "02", "note": "one boy, one girl, no likes" },
+    { "name": "03", "note": "one couple who like each other" },
+    { "name": "04", "note": "a path of three: the boy in love must get the girl he likes" },
+    { "name": "05", "note": "a cycle of four" },
+    { "name": "06", "note": "a four-child cycle and four isolated children" },
+    { "name": "07", "note": "only girls like someone" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum size with random likes" },
+    { "name": "gen2", "generator": "2 2", "note": "one cycle through all 500000 children" },
+    { "name": "gen3", "generator": "3 3", "note": "one path of odd length" },
+    { "name": "gen4", "generator": "4 4", "note": "no likes at all" },
+    { "name": "gen5", "generator": "5 5", "note": "only couples who like each other" },
+    { "name": "08", "note": "minimum size with a one-way boy-to-girl like" },
+    { "name": "09", "note": "a girl starts an even path and every boy must follow an incoming like" },
+    { "name": "10", "note": "seeded small random paths leave both boy and girl tails among isolated children" },
+    { "name": "11", "note": "separate cycles of six and eight children with shuffled labels" },
+    { "name": "12", "note": "seeded random mix of an even path, an odd path, a mutual couple and an isolated boy" },
+    { "name": "gen6", "generator": "1339 6", "note": "maximum size with 83333 odd paths in each direction and many free ends" }
+  ]
+}
