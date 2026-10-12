@@ -1,0 +1,17 @@
+{
+  "judging": "float:0.001",
+  "reference": "1341_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a start in the north: the device ends further east" },
+    { "name": "02", "note": "a start in the south: the device ends further west" },
+    { "name": "03", "note": "a start on the equator" },
+    { "name": "04", "note": "the end crosses the 180th meridian eastwards" },
+    { "name": "05", "note": "the end crosses the 180th meridian westwards" },
+    { "name": "06", "note": "a tiny square: almost no drift" },
+    { "name": "07", "note": "a start on the 180th meridian" },
+    { "name": "08", "note": "a drift so small that the longitude stays -179.999" },
+    { "name": "gen1", "generator": "1 1", "note": "a random start and side" },
+    { "name": "gen2", "generator": "2 2", "note": "a long side close to the pole" },
+    { "name": "gen3", "generator": "3 1", "note": "a random start and side" }
+  ]
+}

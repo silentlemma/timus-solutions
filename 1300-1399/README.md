@@ -45,3 +45,4 @@
 | 1338 | [Automobiles](1338/) | bfs | C++, Go, Python, Java, Rust |
 | 1339 | [Babies](1339/) | graphs | C++, Go, Python, Java, Rust |
 | 1340 | [Cucaracha](1340/) | geometry | C++, Go, Python, Java, Rust |
+| 1341 | [Device](1341/) | geometry | C++, Go, Python, Java, Rust |
