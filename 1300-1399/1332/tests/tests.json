@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1332_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two cities exactly at the edge of the reach" },
+    { "name": "02", "example": true, "note": "a reach of zero destroys one city" },
+    { "name": "03", "note": "cities larger than the blast: nothing" },
+    { "name": "04", "note": "one city as big as the blast" },
+    { "name": "05", "note": "two cities on the edge and one inside" },
+    { "name": "06", "note": "five cities on a circle of integer points of radius 5" },
+    { "name": "07", "note": "two cities far apart" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred cities over the whole field" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred cities close together" },
+    { "name": "gen3", "generator": "3 3", "note": "twelve cities exactly on the reach around one point" },
+    { "name": "gen4", "generator": "4 4", "note": "cities on a line" },
+    { "name": "gen5", "generator": "5 3", "note": "a translated circle has twelve integer boundary points amid scattered cities" },
+    { "name": "08", "note": "every pair fits within the reach but the acute triangle does not" },
+    { "name": "09", "note": "seeded stress triangle fits only with a nonintegral bomb center" },
+    { "name": "10", "note": "a hundred cities at coordinate limits form a grid with reach one and optimum five" },
+    { "name": "11", "note": "maximum reach has an exact diameter pair but the third city is just outside" },
+    { "name": "12", "note": "seeded six-city stress case has an optimal four-city subset and two outliers" },
+    { "name": "gen6", "generator": "1332 5", "note": "unequal random clusters far apart require choosing the larger cluster" },
+    { "name": "gen7", "generator": "1332 6", "note": "a hundred random cities on perpendicular arms compete for the same blast disc" }
+  ]
+}
