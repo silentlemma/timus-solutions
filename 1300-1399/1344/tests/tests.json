@@ -1,0 +1,31 @@
+{
+  "judging": "tokens",
+  "reference": "1344_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a movable pulley: twice the turnip" },
+    { "name": "02", "example": true, "note": "the tensions contradict each other" },
+    { "name": "03", "example": true, "note": "the free rope on a separate system" },
+    { "name": "04", "note": "a single fixed pulley" },
+    { "name": "05", "note": "two movable pulleys and a fixed one: a quarter" },
+    { "name": "06", "note": "two separate fixed pulleys" },
+    { "name": "gen1", "generator": "1 1", "note": "a chain with the free rope on the first axle" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain with the turnip on the first axle" },
+    { "name": "gen3", "generator": "3 3", "note": "the free rope on its own pair of pulleys" },
+    { "name": "gen4", "generator": "4 4", "note": "a chain of 31 movable pulleys" },
+    { "name": "07", "note": "one movable pulley gives the smallest reciprocal construction" },
+    { "name": "08", "note": "two first-type pulleys join a rope end to an axle" },
+    { "name": "09", "note": "an axle-to-axle connection cancels the factors of two" },
+    { "name": "10", "note": "a diamond has two consistent paths between the loaded pulleys" },
+    { "name": "11", "note": "an inconsistent cycle forces only the free component to zero" },
+    { "name": "12", "note": "an impossible turnip component overrides an independent free end" },
+    { "name": "13", "note": "an unloaded zero-tension cycle does not spoil a finite answer" },
+    { "name": "14", "note": "the exact mass 1/32 rounds a decimal halfway case to four places" },
+    { "name": "15", "note": "the exact mass 1/1024 rounds upward with a carry to 0.0010" },
+    { "name": "16", "note": "shuffled branches produce a mass of sixteen" },
+    { "name": "17", "note": "parallel ropes in the loaded component preserve a mass of one half" },
+    { "name": "gen5", "generator": "5 5", "note": "a maximum-size reciprocal chain gives a positive mass that rounds to zero" },
+    { "name": "gen6", "generator": "1 6 32 100", "note": "a maximum-size dense random system has incompatible tension cycles" },
+    { "name": "gen7", "generator": "3 6 32 15", "note": "a maximum-size sparse random system leaves the mass undetermined" },
+    { "name": "gen8", "generator": "1 7", "note": "a shuffled mixed-type path uses all 32 pulleys and gives a small positive mass" }
+  ]
+}
