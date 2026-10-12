@@ -40,3 +40,4 @@
 | 1333 | [Genie Bomber 2](1333/) | geometry | C++, Go, Python, Java, Rust |
 | 1334 | [Checkers](1334/) | simulation | C++, Go, Python, Java, Rust |
 | 1335 | [White Thesis](1335/) | math | C++, Go, Python, Java, Rust |
+| 1336 | [Problem of Ben Betsalel](1336/) | math | C++, Go, Python, Java, Rust |

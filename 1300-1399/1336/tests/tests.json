@@ -1,0 +1,12 @@
+{
+  "judging": "checker",
+  "reference": "1336_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "18 = 12^2 / 2^3" },
+    { "name": "02", "example": true, "note": "n = 1" },
+    { "name": "03", "note": "the largest n: m reaches 10^18" },
+    { "name": "04", "note": "a large prime" },
+    { "name": "05", "note": "n = 2" },
+    { "name": "06", "note": "a perfect power" }
+  ]
+}
