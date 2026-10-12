@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1335_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the smallest N" },
+    { "name": "02", "example": true, "note": "larger statement example" },
+    { "name": "03", "note": "smallest odd N" },
+    { "name": "04", "note": "the largest N" },
+    { "name": "05", "note": "an odd N near the top" },
+    { "name": "06", "note": "moderately large odd N" },
+    { "name": "07", "note": "smallest even N beyond the example, with a narrow interval" },
+    { "name": "08", "note": "last N for which every possible squared sum fits signed 32 bits" },
+    { "name": "09", "note": "first N whose interval permits squared sums exceeding signed 32 bits" },
+    { "name": "10", "note": "upper interval endpoint first reaches 65536" },
+    { "name": "11", "note": "lower interval endpoint first reaches 65536" },
+    { "name": "12", "note": "first N for which every distinct squared sum exceeds 2^53" },
+    { "name": "13", "generator": "1335 1", "note": "seeded random middle N below the 2^53 squared-sum boundary" },
+    { "name": "14", "generator": "1336 2", "note": "seeded random large N with squared sums above 2^53" }
+  ]
+}
