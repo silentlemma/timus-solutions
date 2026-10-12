@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1342_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a cheap factory used fully, the rest at the dear one" },
+    { "name": "02", "example": true, "note": "the factories make only 6 of 10 brooms" },
+    { "name": "03", "note": "one factory of one broom" },
+    { "name": "04", "note": "a factory getting cheaper wins only when it makes all its brooms" },
+    { "name": "05", "note": "rising prices: the cheap first brooms of two factories" },
+    { "name": "06", "note": "one factory far short of the order" },
+    { "name": "07", "note": "a falling and a rising factory with the same prices" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 factories with random prices" },
+    { "name": "gen2", "generator": "2 2", "note": "every factory getting cheaper" },
+    { "name": "gen3", "generator": "3 3", "note": "factories short of the order" },
+    { "name": "gen4", "generator": "4 4", "note": "prices of 0, 500 and 1000" }
+  ]
+}
