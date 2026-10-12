@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1330_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five readings, three questions" },
+    { "name": "02", "note": "one sensor at the lowest reading" },
+    { "name": "03", "note": "no questions at all" },
+    { "name": "04", "note": "only negative readings" },
+    { "name": "05", "note": "readings that cancel out, single-sensor queries inside and at the end" },
+    { "name": "gen1", "generator": "1 1", "note": "random readings with 10000 sensors and 100000 questions" },
+    { "name": "gen2", "generator": "2 2", "note": "every reading at the same extreme" },
+    { "name": "gen3", "generator": "3 3", "note": "long questions only" },
+    { "name": "06", "note": "all zero readings across full, interior and singleton intervals" },
+    { "name": "07", "note": "every inclusive interval of an irregular array in shuffled order" },
+    { "name": "08", "generator": "133008 6", "note": "maximum sensor count reaches the exact minimum sum of -100000000" },
+    { "name": "09", "generator": "133009 4", "note": "maximum question count visits every singleton ten times in shuffled order" },
+    { "name": "10", "generator": "133010 5", "note": "sparse random nonzero readings with query endpoints beside isolated values" }
+  ]
+}
