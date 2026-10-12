@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1329_dfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a root with nine children and one grandchild" },
+    { "name": "02", "note": "two milestones, both orders" },
+    { "name": "03", "note": "milestone 0 as the root, the tree given child first" },
+    { "name": "04", "note": "the largest number, 40000, as the root" },
+    { "name": "05", "note": "siblings and cousins are not ancestors" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree of 40000" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 40000" },
+    { "name": "gen3", "generator": "3 3", "note": "a star" },
+    { "name": "gen4", "generator": "4 4", "note": "a deep random tree" }
+  ]
+}

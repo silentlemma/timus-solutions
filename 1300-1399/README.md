@@ -33,3 +33,4 @@
 | 1326 | [Bottle Taps](1326/) | bitmask | C++, Go, Python, Java, Rust |
 | 1327 | [Fuses](1327/) | math | C++, Go, Python, Java, Rust |
 | 1328 | [Fireball](1328/) | geometry | C++, Go, Python, Java, Rust |
+| 1329 | [Galactic History](1329/) | dfs | C++, Go, Python, Java, Rust |
