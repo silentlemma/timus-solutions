@@ -38,3 +38,4 @@
 | 1331 | [Vladislava](1331/) | geometry | C++, Go, Python, Java, Rust |
 | 1332 | [Genie Bomber](1332/) | geometry | C++, Go, Python, Java, Rust |
 | 1333 | [Genie Bomber 2](1333/) | geometry | C++, Go, Python, Java, Rust |
+| 1334 | [Checkers](1334/) | simulation | C++, Go, Python, Java, Rust |
