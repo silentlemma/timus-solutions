@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1327_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "days 1, 3 and 5" },
+    { "name": "02", "example": true, "note": "from 100 to 200: the odd days 101 to 199" },
+    { "name": "03", "note": "a single odd day" },
+    { "name": "04", "note": "a single even day" },
+    { "name": "05", "note": "the whole range" },
+    { "name": "06", "note": "an odd day and an even day at the top" },
+    { "name": "07", "note": "both ends odd" },
+    { "name": "08", "note": "the smallest even-to-odd two-day interval counts its last day" },
+    { "name": "09", "note": "the shortest non-singleton interval with even endpoints has one odd day" },
+    { "name": "10", "note": "the maximum allowed day alone burns no fuse" },
+    { "name": "11", "note": "the longest interval with odd endpoints includes both day 1 and day 9999" },
+    { "name": "12", "generator": "1327 1", "note": "a seeded random interior interval starts even and ends odd" },
+    { "name": "13", "generator": "42 2", "note": "a seeded random three-digit interval excludes both even endpoints" },
+    { "name": "14", "generator": "2026 3", "note": "a seeded random short interval near the upper limit starts odd and ends even" }
+  ]
+}
