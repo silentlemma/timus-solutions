@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.01",
+  "reference": "1348_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the nearest point inside the bed, the far ends further" },
+    { "name": "02", "note": "a bed of a single point" },
+    { "name": "03", "note": "the goat on the bed with no rope" },
+    { "name": "04", "note": "the goat on the line of the bed, beyond one end" },
+    { "name": "05", "note": "a rope long enough for everything" },
+    { "name": "06", "note": "the largest coordinates" },
+    { "name": "07", "note": "a short rope reaching only the middle" },
+    { "name": "08", "note": "everything in one point" },
+    { "name": "gen1", "generator": "1 1", "note": "random points and rope" },
+    { "name": "gen2", "generator": "2 2", "note": "a long rope" },
+    { "name": "gen3", "generator": "3 3", "note": "the goat on the line beyond an end" },
+    { "name": "09", "note": "the smallest rope outside Java signed 64-bit input" },
+    { "name": "10", "note": "the first rope that overflows Python float conversion" },
+    { "name": "11", "note": "an overflowing Go rope scan must not become zero" }
+  ]
+}
