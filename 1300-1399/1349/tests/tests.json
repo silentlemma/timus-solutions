@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1349_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "n = 0: 1 + 1 is never 1" },
+    { "name": "02", "example": true, "note": "linear equation with the smallest three distinct positive integers" },
+    { "name": "03", "note": "n = 2: the smallest Pythagorean triple" },
+    { "name": "04", "note": "first exponent ruled out by Fermat's last theorem" },
+    { "name": "05", "note": "the largest n" },
+    { "name": "06", "note": "midrange even exponent with no solution" },
+    { "name": "07", "note": "n = 4: the first even exponent with no solution" },
+    { "name": "08", "note": "n = 5: powers of allowed bases can first exceed 32-bit integers" },
+    { "name": "09", "note": "n = 9: the last exponent whose powers all fit signed 64-bit integers" },
+    { "name": "10", "note": "n = 10: powers of allowed bases can first exceed 64-bit integers" },
+    { "name": "11", "note": "n = 31: the exponent immediately below 32" },
+    { "name": "12", "note": "n = 32: an exponent at a common integer shift boundary" },
+    { "name": "13", "note": "n = 99: the largest odd exponent and the upper limit's neighbor" },
+    { "name": "14", "generator": "1 1", "note": "a seeded random exponent drawn from the full input range" }
+  ]
+}
