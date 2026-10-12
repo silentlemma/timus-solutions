@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1328_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three bounces in a long room" },
+    { "name": "02", "note": "no bounces: straight at the target" },
+    { "name": "03", "note": "no bounces, the target down and to the left" },
+    { "name": "04", "note": "the target on the thrower's row: two shortest shots tie" },
+    { "name": "05", "note": "the target in the thrower's place: two shots tie, the smaller angle wins" },
+    { "name": "06", "note": "a shot into a corner counts as two bounces" },
+    { "name": "07", "note": "the largest room and ten bounces" },
+    { "name": "08", "note": "a 2 by 2 room: the diagonal crosses the target before the last bounce" },
+    { "name": "09", "note": "a narrow room, the target on the thrower's row" },
+    { "name": "gen1", "generator": "1 1", "note": "two side-wall bounces reach a target above and to the right" },
+    { "name": "gen2", "generator": "2 2", "note": "a central target in the smallest square has four equally short corner returns" },
+    { "name": "gen3", "generator": "3 3", "note": "ten top-and-bottom wall bounces in a long room require an initial shot down and to the left" },
+    { "name": "gen4", "generator": "4 4", "note": "coincident points in a rectangle return via the nearest corner" },
+    { "name": "gen5", "generator": "5 2", "note": "six bounces in a small rectangle pass through the target once before the last bounce" },
+    { "name": "gen6", "generator": "6 1", "note": "a target near the lower-left corner is reached after one bounce off each adjacent wall" },
+    { "name": "10", "note": "zero bounces with coincident points: the zero-length path chooses angle zero" },
+    { "name": "11", "note": "a straight vertical shot downward has zero horizontal displacement" },
+    { "name": "12", "note": "maximum horizontal separation and a one-unit drop give an angle just below 360" },
+    { "name": "13", "note": "four equally short one-wall returns tie across the zero-degree boundary" },
+    { "name": "14", "note": "minimum width and maximum height: ten side-wall bounces on a nearly vertical path" },
+    { "name": "15", "note": "nine bounces give an angle just above a rounding midpoint" },
+    { "name": "16", "note": "an oblique shot hits a corner and one ordinary wall for three bounces" },
+    { "name": "17", "note": "a horizontal shot passes the target three times before its last bounce" }
+  ]
+}
