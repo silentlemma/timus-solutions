@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1331_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an artifact on a pad" },
+    { "name": "02", "example": true, "note": "a quarter and an eighth of the equator" },
+    { "name": "03", "note": "the pad on the opposite side of the planet" },
+    { "name": "04", "note": "both at the north pole with different longitudes" },
+    { "name": "05", "note": "one degree across the date line" },
+    { "name": "06", "note": "cities on the Earth, one artifact at the south pole" },
+    { "name": "gen1", "generator": "1 1", "note": "random artifacts and pads, 5000 of each" },
+    { "name": "gen2", "generator": "2 2", "note": "pads near one pole, artifacts near the other" },
+    { "name": "gen3", "generator": "3 3", "note": "points around the date line" },
+    { "name": "gen4", "generator": "4 4", "note": "some pads exactly at artifacts" },
+    { "name": "07", "note": "tiny nonzero separations on both sides of the first two cent rounding thresholds" },
+    { "name": "08", "note": "spherical nearest pads differ from raw latitude and longitude proximity" },
+    { "name": "09", "note": "duplicate pads, equal nearest distances and changing winners in unsorted queries" },
+    { "name": "10", "note": "oblique antipodes and tiny offsets from the longest possible surface distance" },
+    { "name": "11", "note": "unit radius and a full meridian from the south pole to the north pole" },
+    { "name": "12", "note": "retained seeded stress case with five competing pads and a fractional radius" },
+    { "name": "13", "generator": "1344 5", "note": "a single pad serving 5000 random artifacts" },
+    { "name": "14", "generator": "1345 6", "note": "one artifact among 5000 pads has its unique nearest pad at the last input position" },
+    { "name": "15", "generator": "1346 7", "note": "maximum pair count with equatorial pads and random artifacts including near both poles" }
+  ]
+}
