@@ -1,0 +1,5 @@
+<span class=keyword>program</span> IdentifierEdges;
+<span class=keyword>var</span> begin1, end2, _if, if_, implementation2, string9: integer;
+<span class=keyword>begin</span>
+  begin1:=<span class=number>1</span>; end2:=<span class=number>2</span>; _if:=<span class=number>3</span>; if_:=<span class=number>4</span>; implementation2:=<span class=number>5</span>; string9:=<span class=number>6</span>;
+<span class=keyword>end</span>.

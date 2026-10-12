@@ -1,0 +1,8 @@
+<span class=keyword>Var</span> _end:real;
+<span class=keyword>BEGIn</span>
+writeln(<span class=string>'9Бa0<#&'</span>,<span class=string>#000126</span>,<span class=string>''</span>);
+writeln(<span class=string>''</span>,<span class=string>#000171</span>,<span class=string>''</span>);
+writeln(<span class=string>''</span>); <span class=comment>// '{ 62 #13 enD</span>
+
+_end:=-<span class=number>228.049</span>+(<span class=number>49</span>/<span class=number>2</span>);
+<span class=keyword>enD</span>.

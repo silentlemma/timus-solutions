@@ -1,0 +1,3 @@
+<span class=keyword>begin</span>
+  writeln(<span class=string>'<span class=number>1</span> & "x" < >'</span>, <span class=string>'<!-- -->'</span>);
+<span class=keyword>end</span>.

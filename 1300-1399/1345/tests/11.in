@@ -1,0 +1,5 @@
+program IdentifierEdges;
+var begin1, end2, _if, if_, implementation2, string9: integer;
+begin
+  begin1:=1; end2:=2; _if:=3; if_:=4; implementation2:=5; string9:=6;
+end.

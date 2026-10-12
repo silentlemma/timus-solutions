@@ -1,0 +1,8 @@
+Var _end:real;
+BEGIn
+writeln('9Бa0<#&',#000126,'');
+writeln('',#000171,'');
+writeln(''); // '{ 62 #13 enD
+
+_end:=-228.049+(49/2);
+enD.

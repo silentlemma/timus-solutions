@@ -1,0 +1,4 @@
+<span class=keyword>begin</span><span class=comment>{// 'begin #13
+}</span>writeln(<span class=string>'x'</span>);<span class=comment>// {'end #0</span>
+writeln(<span class=string>'y'</span>)<span class=comment>{// 'if #255
+}</span>;<span class=keyword>end</span>.

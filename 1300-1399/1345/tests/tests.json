@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "input_encoding": "cp1251",
+  "reference": "1345_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a keyword in mixed case and a string, no final line break" },
+    { "name": "02", "note": "a small program with a comment to the end of the line" },
+    { "name": "03", "note": "a brace comment ends at the first closing brace" },
+    { "name": "04", "note": "ranges, two points, a trailing point and leading zeros" },
+    { "name": "05", "note": "doubled apostrophes, character codes and comment marks inside strings" },
+    { "name": "06", "note": "non-ASCII Cyrillic text in a string and both comment styles" },
+    { "name": "07", "note": "thirty keywords beside identifiers with digits and underscores" },
+    { "name": "08", "note": "only a comment, no final line break" },
+    { "name": "09", "note": "comments on their own lines and a brace comment over two lines" },
+    { "name": "gen1", "generator": "1 1", "note": "mixed-case keywords, identifiers, numbers, strings and both comment styles near the size limit" },
+    { "name": "gen2", "generator": "2 2", "note": "strings containing Cyrillic letters" },
+    { "name": "gen3", "generator": "3 3", "note": "no final line break" },
+    { "name": "10", "note": "the minimal empty Pascal block" },
+    { "name": "11", "note": "keyword prefixes and suffixes remain whole identifiers" },
+    { "name": "12", "note": "empty strings and empty comments preserve tabs and blank lines" },
+    { "name": "13", "note": "opposite comment delimiters are masked and scanning resumes immediately" },
+    { "name": "14", "note": "literal HTML markup inside strings is copied without escaping or retagging" },
+    { "name": "15", "note": "unary signs stay outside zero-padded decimals and character codes" },
+    { "name": "16", "note": "stress-found transitions combine mixed case, byte text and masked delimiters" },
+    { "name": "17", "generator": "1345 4", "note": "exact size limit with one multiline brace comment swallowing token markers" },
+    { "name": "18", "generator": "1345 5", "note": "exact size limit with one quoted string containing punctuation and HTML markers" },
+    { "name": "19", "generator": "1345 6", "note": "exact size limit with dense short numbers and conditional keywords" },
+    { "name": "20", "generator": "1345 7", "note": "seeded random complete statements at the exact input size limit" }
+  ]
+}

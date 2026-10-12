@@ -1,0 +1,5 @@
+<span class=keyword>var</span> x: real;
+<span class=keyword>begin</span>
+  x:=-<span class=number>0.0</span>; x:=+<span class=number>00012.003400</span>; x:=<span class=number>1</span> / <span class=number>2</span>; x:=<span class=number>0.0000000001</span>;
+  writeln(<span class=string>#0</span>, <span class=string>#00065</span>, <span class=string>#255</span>, x);
+<span class=keyword>end</span>.

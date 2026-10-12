@@ -1,0 +1,4 @@
+begin{// 'begin #13
+}writeln('x');// {'end #0
+writeln('y'){// 'if #255
+};end.
