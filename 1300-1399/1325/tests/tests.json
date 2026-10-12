@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1325_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the flat from the statement: 8 cells, 4 changes" },
+    { "name": "02", "example": true, "note": "the fridge cannot be reached" },
+    { "name": "03", "note": "the computer and the fridge in one cell" },
+    { "name": "04", "note": "a flat of one dirty cell" },
+    { "name": "05", "note": "only a diagonal step connects them" },
+    { "name": "06", "note": "a longer clean detour beats two changes" },
+    { "name": "07", "note": "every way needs two changes" },
+    { "name": "08", "note": "a row that changes kind at every cell" },
+    { "name": "gen1", "generator": "1 1", "note": "random clean and dirty cells with a few walls" },
+    { "name": "gen2", "generator": "2 2", "note": "the kind changes every row" },
+    { "name": "gen3", "generator": "3 3", "note": "a long spiral corridor" },
+    { "name": "gen4", "generator": "4 4", "note": "a clean flat" },
+    { "name": "gen5", "generator": "5 5", "note": "a wall across the middle" },
+    { "name": "gen6", "generator": "6 6", "note": "blobs of dirt" },
+    { "name": "gen7", "generator": "7 7", "note": "an isolated fridge forces a search of all reachable cells" },
+    { "name": "09", "note": "a maximum-height single column traversed upward through three changes" },
+    { "name": "10", "note": "among one-change routes, an early clean entry improves a later five-cell route to three cells" },
+    { "name": "gen8", "generator": "8 8", "note": "a maximum checkerboard exposes each dirty seed repeatedly before the required change" },
+    { "name": "gen9", "generator": "9 9", "note": "a random two-row strip at maximum width forces diagonal crossings around walls" }
+  ]
+}
