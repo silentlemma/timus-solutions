@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1329_dfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a root with eight children and one grandchild" },
+    { "name": "02", "note": "two milestones, both orders" },
+    { "name": "03", "note": "milestone 0 as the root, the tree given child first" },
+    { "name": "04", "note": "the largest number, 40000, as the root" },
+    { "name": "05", "note": "siblings and cousins are not ancestors" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree of 40000" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 40000" },
+    { "name": "gen3", "generator": "3 3", "note": "a star" },
+    { "name": "gen4", "generator": "4 4", "note": "a deep random tree" },
+    { "name": "06", "note": "all ordered pairs with milestone zero branching inside the tree" },
+    { "name": "07", "note": "one query with milestone zero as a leaf and its immediate parent" },
+    { "name": "08", "note": "all ordered pairs on a child-first chain with nonmonotone labels" },
+    { "name": "09", "note": "a comb with side leaves beside nested subtrees at every depth" },
+    { "name": "10", "note": "all ordered pairs on a seeded irregular tree retained from small random stress" },
+    { "name": "gen5", "generator": "132905 5", "note": "maximum balanced binary tree with leaf pairs and ancestors in both orders" },
+    { "name": "gen6", "generator": "132906 6", "note": "maximum broom combining a deep handle and a wide leaf fan" },
+    { "name": "gen7", "generator": "132907 7", "note": "two long branches with distant ancestors and unrelated deep milestones" },
+    { "name": "gen8", "generator": "132908 8", "note": "maximum query count on only three milestones with repeated ordered pairs" }
+  ]
+}
