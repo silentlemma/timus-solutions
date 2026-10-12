@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1326_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a set of two caps and one cap bought alone" },
+    { "name": "02", "note": "nothing is wanted" },
+    { "name": "03", "note": "a set of one cap cheaper than the cap alone" },
+    { "name": "04", "note": "a set with caps that are not wanted is still cheapest" },
+    { "name": "05", "note": "no sets, every cap bought alone" },
+    { "name": "06", "note": "two sets that do not overlap beat the others" },
+    { "name": "07", "note": "a cheap set that does not hold the wanted cap is no use" },
+    { "name": "gen1", "generator": "1 1", "note": "random sets and prices" },
+    { "name": "gen2", "generator": "2 2", "note": "sets priced by size, few of them dominated" },
+    { "name": "gen3", "generator": "3 3", "note": "sets of two or three caps" },
+    { "name": "gen4", "generator": "4 4", "note": "a random list of wanted caps" },
+    { "name": "gen5", "generator": "5 5", "note": "no sets, all 20 caps wanted" },
+    { "name": "gen6", "generator": "6 2", "note": "all caps wanted with overlapping sets of eight to twelve caps" }
+  ]
+}
