@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.001",
+  "reference": "1341_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a start in the north: the device ends further east" },
+    { "name": "02", "note": "a start in the south: the device ends further west" },
+    { "name": "03", "note": "a start on the equator" },
+    { "name": "04", "note": "the end crosses the 180th meridian eastwards" },
+    { "name": "05", "note": "the end crosses the 180th meridian westwards" },
+    { "name": "06", "note": "a tiny square: almost no drift" },
+    { "name": "07", "note": "a start on the 180th meridian" },
+    { "name": "08", "note": "a drift so small that the longitude stays -179.999" },
+    { "name": "gen1", "generator": "1 1", "note": "a random start and side" },
+    { "name": "gen2", "generator": "2 2", "note": "a long side close to the pole" },
+    { "name": "gen3", "generator": "3 1", "note": "an equator crossing with westward drift past the prime meridian" },
+    { "name": "09", "note": "equally distant parallels on opposite sides of the equator cancel the longitude drift" },
+    { "name": "10", "note": "a southern start crosses the equator far enough to finish east of its start" },
+    { "name": "11", "note": "an eastward leg just below the North Pole winds around the Earth many times" },
+    { "name": "12", "note": "a westward leg near the South Pole needs normalization after hundreds of full turns" },
+    { "name": "13", "note": "both negative coordinates round to zero and must be printed without minus signs" },
+    { "name": "14", "note": "a side almost as long as a pole-to-pole meridian leaves both horizontal legs near poles" },
+    { "name": "gen4", "generator": "1341 3", "note": "a long equator crossing leaves residual drift between nearly symmetric parallels" }
+  ]
+}
