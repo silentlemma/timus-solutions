@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1347_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three bloggers, the input ends without a line break" },
+    { "name": "02", "note": "a blogger who mentions only oneself: three empty lists" },
+    { "name": "03", "note": "spaces and another tag inside a friend tag" },
+    { "name": "04", "note": "blogs on a single line" },
+    { "name": "05", "note": "mentions of people who have no blog" },
+    { "name": "06", "note": "names that differ only in case, sorted by character codes, and repeated mentions" },
+    { "name": "gen1", "generator": "1 1", "note": "100 bloggers with long blogs" },
+    { "name": "gen2", "generator": "2 2", "note": "people without blogs and self-mentions" },
+    { "name": "gen3", "generator": "3 3", "note": "tags inside friend tags and one-line blogs" }
+  ]
+}

@@ -51,3 +51,4 @@
 | 1344 | [Gigantic Turnip](1344/) | dsu | C++, Go, Python, Java, Rust |
 | 1345 | [HTML](1345/) | parsing | C++, Go, Python, Java, Rust |
 | 1346 | [Intervals of Monotonicity](1346/) | greedy | C++, Go, Python, Java, Rust |
+| 1347 | [Blog](1347/) | parsing | C++, Go, Python, Java, Rust |

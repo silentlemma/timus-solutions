@@ -1,0 +1,13 @@
+3
+bob
+<blog>
+<friend>Bob</friend> <friend>_x</friend> <friend>alice</friend>
+</blog>
+Bob
+<blog>
+<friend>bob</friend>
+</blog>
+alice
+<blog>
+<friend>bob</friend><friend>bob</friend><friend>bob</friend>
+</blog>
