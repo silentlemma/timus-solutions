@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.01",
+  "reference": "1333_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one bomb filling the inscribed circle" },
+    { "name": "02", "example": true, "note": "two overlapping bombs reaching outside the square" },
+    { "name": "03", "note": "no bombs at all" },
+    { "name": "04", "note": "one bomb over the whole square" },
+    { "name": "05", "note": "a quarter of a bomb from a corner" },
+    { "name": "06", "note": "bombs of radius 0" },
+    { "name": "07", "note": "the same bomb twice and one inside it" },
+    { "name": "08", "note": "four corner bombs that cover everything together" },
+    { "name": "gen1", "generator": "1 1", "note": "ten random bombs" },
+    { "name": "gen2", "generator": "2 2", "note": "ten small bombs" },
+    { "name": "gen3", "generator": "3 3", "note": "bombs on corners and edges" },
+    { "name": "gen4", "generator": "4 4", "note": "nested and repeated bombs" }
+  ]
+}
