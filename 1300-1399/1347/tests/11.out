@@ -1,0 +1,24 @@
+Center
+1: Amy, Bob, Ghost
+2: Amy, Dan
+3: Amy
+
+Amy
+1: Center
+2: Center
+3: Center
+
+Bob
+1: 
+2: Center
+3: 
+
+Dan
+1: Center, Eve
+2: Eve
+3: Eve
+
+Eve
+1: Dan
+2: Dan
+3: Dan

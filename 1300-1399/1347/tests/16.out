@@ -1,0 +1,39 @@
+aa
+1: A, AA, Aa, B, Ghost, Phantom, _, _a, a
+2: A, AA, Aa, _a, a
+3: A, AA, Aa, _a, a
+
+B
+1: AA, Aa, Ghost, Phantom, _a, a
+2: A, AA, _a, a, aa
+3: AA, _a, a
+
+_a
+1: A, Aa, B, _, a, aa
+2: A, AA, B, a, aa
+3: A, B, a, aa
+
+A
+1: Aa, B, Ghost, _, _a, aa
+2: AA, _a, a, aa
+3: _a, aa
+
+a
+1: A, AA, Aa, B, Phantom, _, _a, aa
+2: B, _, _a, aa
+3: B, _, _a, aa
+
+AA
+1: A, B, Ghost, _, _a, aa
+2: Aa, B, a, aa
+3: B, aa
+
+_
+1: Aa, Phantom, a
+2: A, AA, _a, a, aa
+3: a
+
+Aa
+1: AA, aa
+2: A, B, _, _a, a, aa
+3: aa

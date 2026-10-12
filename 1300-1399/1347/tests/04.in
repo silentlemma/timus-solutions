@@ -1,0 +1,5 @@
+2
+x
+<blog>one line <friend>y</friend></blog>
+y
+<blog><friend>x</friend></blog>

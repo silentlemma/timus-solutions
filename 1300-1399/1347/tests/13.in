@@ -1,0 +1,18 @@
+3
+Beta
+<blog>
+<friend>
+	<b>Al<i>ph</i>a</b> 
+</friend>
+<friend>
+ Gam<b>ma</b>
+</friend>
+</blog>
+Alpha
+<blog></blog>
+Z
+<blog>
+<friend>
+ Beta
+</friend>
+</blog>

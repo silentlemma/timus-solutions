@@ -1,0 +1,140 @@
+8
+aa
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>_a</friend>
+<friend>
+  <b>a</b>
+</friend>
+<friend> <b><i>Ghost</i></b> </friend>
+<friend> <b><i>AA</i></b> </friend>
+<friend> <b><i>A</i></b> </friend>
+<friend>Pha<b>ntom</b></friend>
+<friend>
+  <b>_</b>
+</friend>
+<friend>A<b>a</b></friend>
+<friend>Ghost</friend><friend>Ghost</friend><friend>Ghost</friend>
+<friend>
+  <b>B</b>
+</friend>
+<friend>
+  <b>Ghost</b>
+</friend>
+<friend>AA</friend><friend>AA</friend><friend>AA</friend>
+<friend>a</friend><friend>a</friend><friend>a</friend>
+</blog>
+B
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>
+  <b>Ghost</b>
+</friend>
+<friend>Phantom</friend>
+<friend>Aa</friend>
+<friend>a</friend><friend>a</friend><friend>a</friend>
+<friend>Aa</friend><friend>Aa</friend><friend>Aa</friend>
+<friend>
+  <b>AA</b>
+</friend>
+<friend>_<b>a</b></friend>
+<friend>_<b>a</b></friend>
+<friend> <b><i>a</i></b> </friend>
+<friend> <b><i>a</i></b> </friend>
+<friend>Phantom</friend>
+</blog>
+_a
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>a</friend>
+<friend>
+  <b>_</b>
+</friend>
+<friend> <b><i>Aa</i></b> </friend>
+<friend>B</friend>
+<friend>_</friend><friend>_</friend><friend>_</friend>
+<friend>A</friend><friend>A</friend><friend>A</friend>
+<friend>aa</friend>
+<friend>_<b>a</b></friend>
+<friend>
+  <b>a</b>
+</friend>
+<friend><b>A</b></friend>
+<friend>Aa</friend>
+</blog>
+A
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>_a</friend><friend>_a</friend><friend>_a</friend>
+<friend>
+  <b>A</b>
+</friend>
+<friend> <b><i>_a</i></b> </friend>
+<friend> <b><i>Aa</i></b> </friend>
+<friend>Gh<b>ost</b></friend>
+<friend>B</friend>
+<friend><b>_</b></friend>
+<friend> <b><i>Aa</i></b> </friend>
+<friend>aa</friend>
+</blog>
+a
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend><b>B</b></friend>
+<friend>aa</friend>
+<friend>A<b>a</b></friend>
+<friend>aa</friend>
+<friend>_a</friend><friend>_a</friend><friend>_a</friend>
+<friend>
+  <b>_</b>
+</friend>
+<friend>AA</friend><friend>AA</friend><friend>AA</friend>
+<friend>A</friend><friend>A</friend><friend>A</friend>
+<friend>B</friend><friend>B</friend><friend>B</friend>
+<friend>
+  <b>B</b>
+</friend>
+<friend> <b><i>Phantom</i></b> </friend>
+</blog>
+AA
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>
+  <b>_</b>
+</friend>
+<friend>aa</friend><friend>aa</friend><friend>aa</friend>
+<friend> <b><i>Ghost</i></b> </friend>
+<friend>_</friend><friend>_</friend><friend>_</friend>
+<friend> <b><i>Ghost</i></b> </friend>
+<friend>
+  <b>aa</b>
+</friend>
+<friend>
+  <b>AA</b>
+</friend>
+<friend><b>A</b></friend>
+<friend><b>B</b></friend>
+<friend>Ghost</friend>
+<friend>
+  <b>_a</b>
+</friend>
+</blog>
+_
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend> <b><i>Aa</i></b> </friend>
+<friend>a</friend>
+<friend>Phantom</friend><friend>Phantom</friend><friend>Phantom</friend>
+</blog>
+Aa
+<blog>
+plain A AA Ghost <friendship>Phantom</friendship>
+<friend>
+  <b>Aa</b>
+</friend>
+<friend>AA</friend><friend>AA</friend><friend>AA</friend>
+<friend>
+  <b>Aa</b>
+</friend>
+<friend> <b><i>aa</i></b> </friend>
+</blog>

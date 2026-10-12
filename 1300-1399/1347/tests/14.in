@@ -1,0 +1,12 @@
+3
+Reader
+<blog>
+<friendship>Ghost</friendship>
+<friends>Ghost</friends><befriend>Reader</befriend>
+Bob Ghost Reader
+<friend>Bob</friend>
+</blog>
+Bob
+<blog>Reader Ghost</blog>
+Ghost
+<blog>Reader Bob</blog>

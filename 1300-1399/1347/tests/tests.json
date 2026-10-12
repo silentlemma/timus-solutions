@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1347_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three bloggers, the input ends without a line break" },
+    { "name": "02", "note": "a blogger who mentions only oneself: three empty lists" },
+    { "name": "03", "note": "spaces and another tag inside a friend tag" },
+    { "name": "04", "note": "blogs on a single line" },
+    { "name": "05", "note": "mentions of people who have no blog" },
+    { "name": "06", "note": "names that differ only in case, sorted by character codes, and repeated mentions" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred bloggers with long blogs" },
+    { "name": "gen2", "generator": "2 2", "note": "people without blogs and self-mentions" },
+    { "name": "gen3", "generator": "3 3", "note": "tags inside friend tags and one-line blogs" },
+    { "name": "07", "note": "one underscore-named blogger with an empty blog and no mentions" },
+    { "name": "08", "note": "a directed three-cycle has readers but no mutual friends" },
+    { "name": "09", "note": "a sink listed last collects readers in character order without outgoing friends" },
+    { "name": "10", "note": "an outgoing star gives each leaf one reader and leaves its source unread" },
+    { "name": "11", "note": "mutual friends are a proper subset of both nonempty directed lists" },
+    { "name": "12", "note": "prefix-related names require whole-name lookup for reverse relationships" },
+    { "name": "13", "note": "multiline friend contents join nested formatting around fragments of a name" },
+    { "name": "14", "note": "plain names and tags with friend-like names do not create edges" },
+    { "name": "15", "note": "two disconnected mutual triangles and an isolated blogger keep their lists separate" },
+    { "name": "16", "note": "mixed reciprocal relationships with repeated and formatted mentions of people without blogs" },
+    { "name": "gen4", "generator": "1347 4", "note": "all 100 blogs reach both 1000 lines and 255 characters per line" },
+    { "name": "gen5", "generator": "1348 5", "note": "all 100 bloggers mention everybody so every non-self edge is mutual" },
+    { "name": "gen6", "generator": "1349 6", "note": "a 100-blog directed ring wraps to its first author on boundary-width lines" },
+    { "name": "gen7", "generator": "1350 7", "note": "multiline friend contents split names with formatting tags and include empty formatting tags" }
+  ]
+}

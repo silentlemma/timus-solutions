@@ -1,0 +1,7 @@
+2
+ann
+<blog>
+Hi <friend> <b>bob</b> </friend>!
+</blog>
+bob
+<blog> <friend>ann</friend> </blog>
