@@ -1,0 +1,30 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1340_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "half a turn around the right circle" },
+    { "name": "02", "note": "a radius of 0: a straight run" },
+    { "name": "03", "note": "the crumb straight ahead" },
+    { "name": "04", "note": "the crumb right behind" },
+    { "name": "05", "note": "the crumb under the cockroach" },
+    { "name": "06", "note": "the crumb inside the left circle near the start" },
+    { "name": "07", "note": "the crumb on the left circle" },
+    { "name": "08", "note": "opposite corner coordinates with the maximum turning radius" },
+    { "name": "09", "note": "an angle of 360 degrees" },
+    { "name": "gen1", "generator": "1 1", "note": "a target behind the start inside the right turning circle" },
+    { "name": "gen2", "generator": "2 2", "note": "the crumb close compared with the radius" },
+    { "name": "gen3", "generator": "3 3", "note": "an integer-rounded target just outside the right turning circle" },
+    { "name": "gen4", "generator": "4 4", "note": "fractional coordinates, heading and turning radius" },
+    { "name": "gen5", "generator": "5 2", "note": "an initial heading near 360 degrees with the target inside the left turning circle" },
+    { "name": "gen6", "generator": "6 2", "note": "a nearby target outside both turning circles" },
+    { "name": "10", "note": "coincident target with translated oblique heading exposes a spurious full turn" },
+    { "name": "11", "note": "target exactly at a turning-circle center with the maximum radius" },
+    { "name": "12", "note": "tiny positive radius and opposite corner coordinates with heading away from the target" },
+    { "name": "13", "note": "a quarter-circle turn followed by a twenty-unit tangent segment" },
+    { "name": "14", "note": "second-circle centers coalesce at the outer distance of three radii" },
+    { "name": "15", "note": "stress-found target behind inside the right disk needs an initial left turn" },
+    { "name": "16", "generator": "1340 5", "note": "seeded target just inside the rear part of a turning circle excludes its tangent path" },
+    { "name": "17", "generator": "1340 6", "note": "seeded small left correction crosses zero degrees from a nearly full-turn heading" },
+    { "name": "18", "note": "target just inside the forward circular arc requires a long detour rather than the boundary shortcut" }
+  ]
+}
