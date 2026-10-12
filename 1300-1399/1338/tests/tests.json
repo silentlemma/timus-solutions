@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1338_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two ways of the same length, the car turns south first" },
+    { "name": "02", "note": "no experiments at all" },
+    { "name": "03", "note": "a single control point" },
+    { "name": "04", "note": "points on separate roads do not count" },
+    { "name": "05", "note": "cars from both ends of a street" },
+    { "name": "06", "note": "opposite corners of a road ring resolve ties by the direction priority" },
+    { "name": "07", "note": "a road around a block" },
+    { "name": "gen1", "generator": "1 1", "note": "random roads with many points" },
+    { "name": "gen2", "generator": "2 2", "note": "a grid of streets with many ties" },
+    { "name": "gen3", "generator": "3 3", "note": "a long winding road" },
+    { "name": "gen4", "generator": "4 4", "note": "every road cell a control point" },
+    { "name": "08", "note": "minimum width and maximum height with endpoint targets and twenty experiments" },
+    { "name": "09", "note": "road cells across consecutive row boundaries must not wrap into neighbors" },
+    { "name": "10", "note": "diagonally touching control points have no connecting road" },
+    { "name": "11", "note": "four arrival sides and repeated central targets must reset counts between experiments" },
+    { "name": "12", "note": "north beats west when both moves start equally short routes" },
+    { "name": "13", "note": "west beats east on equal detours when vertical moves are blocked" },
+    { "name": "14", "note": "a shorter northern route takes precedence over an available southern detour" },
+    { "name": "15", "note": "seeded small dense roads require the turn preference again after the first move" },
+    { "name": "16", "note": "targets in separate road components with one, two or three control points" },
+    { "name": "gen5", "generator": "13385 5", "note": "all 250000 cells are points with corner targets and counts exceeding sixteen bits" },
+    { "name": "gen6", "generator": "13386 6", "note": "a maximum size winding chain densely filled with points defeats per-car route simulation" },
+    { "name": "gen7", "generator": "13387 7", "note": "seeded nonsquare random roads mix obstacles and control points over twenty targets" }
+  ]
+}
