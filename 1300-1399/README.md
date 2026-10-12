@@ -35,3 +35,4 @@
 | 1328 | [Fireball](1328/) | geometry | C++, Go, Python, Java, Rust |
 | 1329 | [Galactic History](1329/) | dfs | C++, Go, Python, Java, Rust |
 | 1330 | [Intervals](1330/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 1331 | [Vladislava](1331/) | geometry | C++, Go, Python, Java, Rust |

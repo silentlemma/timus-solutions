@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1331_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an artifact on a pad" },
+    { "name": "02", "example": true, "note": "a quarter and an eighth of the equator" },
+    { "name": "03", "note": "the pad on the opposite side of the planet" },
+    { "name": "04", "note": "both at the north pole with different longitudes" },
+    { "name": "05", "note": "one degree across the date line" },
+    { "name": "06", "note": "cities on the Earth, one artifact at the south pole" },
+    { "name": "gen1", "generator": "1 1", "note": "5000 random artifacts and pads" },
+    { "name": "gen2", "generator": "2 2", "note": "pads near one pole, artifacts near the other" },
+    { "name": "gen3", "generator": "3 3", "note": "points around the date line" },
+    { "name": "gen4", "generator": "4 4", "note": "some pads exactly at artifacts" }
+  ]
+}
