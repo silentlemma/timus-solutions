@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1336_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample with a smaller valid pair" },
+    { "name": "02", "example": true, "note": "minimum input with both outputs equal to one" },
+    { "name": "03", "note": "the largest n: m reaches 10^18" },
+    { "name": "04", "note": "a large prime" },
+    { "name": "05", "note": "smallest prime input" },
+    { "name": "06", "note": "a perfect power" },
+    { "name": "07", "note": "last n whose square fits in a signed 32-bit integer" },
+    { "name": "08", "note": "first n whose square exceeds a signed 32-bit integer" },
+    { "name": "09", "note": "largest perfect square within the input range permits k = 1" },
+    { "name": "10", "note": "one below the upper bound has a square not exactly representable in binary64" },
+    { "name": "11", "note": "a perfect cube that is not a square has odd prime exponents" },
+    { "name": "12", "note": "mixed prime exponents: 2 cubed, 3 squared, and a single factor 5" },
+    { "name": "13", "generator": "random 20261023 50000 500000000", "note": "seeded random interior input above the 32-bit squaring boundary" },
+    { "name": "14", "generator": "random 1336 500000000 999900000", "note": "seeded random input in the upper half of the range" }
+  ]
+}
