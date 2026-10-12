@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1352_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "thirteen queries from the middle of the list" },
+    { "name": "02", "note": "every number from 1 to 38 in order" },
+    { "name": "03", "note": "a single query for the first one" },
+    { "name": "04", "note": "the last one twice, the first one and the ones in the story" },
+    { "name": "05", "note": "every number from 38 down to 1" }
+  ]
+}
