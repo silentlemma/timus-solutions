@@ -1,0 +1,5 @@
+<span class=keyword>program</span> P;
+<span class=keyword>var</span> s: <span class=keyword>string</span>;
+<span class=keyword>begin</span>
+  s := <span class=string>'abc'</span>; <span class=comment>// note</span>
+<span class=keyword>end</span>.

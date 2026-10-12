@@ -1,0 +1,2 @@
+<span class=comment>{ comment with 'quote' and {inner}</span> after
+<span class=keyword>BEGIN</span> <span class=keyword>Begin</span> <span class=keyword>begin</span> <span class=keyword>bEgIn</span> <span class=keyword>END</span>

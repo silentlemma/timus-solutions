@@ -1,0 +1,3 @@
+<span class=keyword>Begin</span>
+  writeln(<span class=string>'Hello world!'</span>);
+<span class=keyword>end</span>.

@@ -1,0 +1,5 @@
+program P;
+var s: string;
+begin
+  s := 'abc'; // note
+end.

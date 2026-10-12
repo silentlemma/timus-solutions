@@ -49,3 +49,4 @@
 | 1342 | [Enterprise](1342/) | dp | C++, Go, Python, Java, Rust |
 | 1343 | [Fairy Tale](1343/) | number_theory | C++, Go, Python, Java, Rust |
 | 1344 | [Gigantic Turnip](1344/) | dsu | C++, Go, Python, Java, Rust |
+| 1345 | [HTML](1345/) | parsing | C++, Go, Python, Java, Rust |
