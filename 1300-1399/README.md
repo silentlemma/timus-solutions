@@ -43,3 +43,4 @@
 | 1336 | [Problem of Ben Betsalel](1336/) | math | C++, Go, Python, Java, Rust |
 | 1337 | [Bureaucracy](1337/) | graphs | C++, Go, Python, Java, Rust |
 | 1338 | [Automobiles](1338/) | bfs | C++, Go, Python, Java, Rust |
+| 1339 | [Babies](1339/) | graphs | C++, Go, Python, Java, Rust |

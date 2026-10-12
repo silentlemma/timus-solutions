@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1339_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one boy and one girl in love, the third pair free" },
+    { "name": "02", "note": "one boy, one girl, no likes" },
+    { "name": "03", "note": "one couple who like each other" },
+    { "name": "04", "note": "a path of three: the boy in love must get the girl he likes" },
+    { "name": "05", "note": "a cycle of four" },
+    { "name": "06", "note": "two separate paths" },
+    { "name": "07", "note": "only girls like someone" },
+    { "name": "gen1", "generator": "1 1", "note": "250000 couples, random likes" },
+    { "name": "gen2", "generator": "2 2", "note": "one cycle through all 500000 children" },
+    { "name": "gen3", "generator": "3 3", "note": "one path of odd length" },
+    { "name": "gen4", "generator": "4 4", "note": "no likes at all" },
+    { "name": "gen5", "generator": "5 5", "note": "only couples who like each other" }
+  ]
+}
