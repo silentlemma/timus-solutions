@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1330_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five readings, three questions" },
+    { "name": "02", "note": "one sensor at the lowest reading" },
+    { "name": "03", "note": "no questions at all" },
+    { "name": "04", "note": "only negative readings" },
+    { "name": "05", "note": "readings that cancel out, questions of one sensor at both ends" },
+    { "name": "gen1", "generator": "1 1", "note": "10000 random readings, 100000 questions" },
+    { "name": "gen2", "generator": "2 2", "note": "every reading at the same extreme" },
+    { "name": "gen3", "generator": "3 3", "note": "long questions only" }
+  ]
+}
