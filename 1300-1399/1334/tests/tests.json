@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1334_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the fifth move puts two colors side by side" },
+    { "name": "02", "note": "white below, black above: a draw" },
+    { "name": "03", "note": "a jump off the board does not count, the next move gives a real one" },
+    { "name": "04", "note": "black's first checker can be jumped at once" },
+    { "name": "05", "note": "the mover's own chance to jump also loses" },
+    { "name": "06", "note": "a hole left in white's rows until late" },
+    { "name": "07", "note": "lost on move 31, the last move that can lose" },
+    { "name": "gen1", "generator": "1 1", "note": "a random game" },
+    { "name": "gen2", "generator": "2 2", "note": "halves with a few squares swapped" },
+    { "name": "gen3", "generator": "3 3", "note": "halves with more squares swapped" },
+    { "name": "gen4", "generator": "4 2", "note": "reordered halves stay safe with b2 left until white's final placement" },
+    { "name": "08", "note": "occupied landing squares protect a mixed-color diagonal until a crossing diagonal opens" },
+    { "name": "09", "note": "three simultaneous captures are all backward for the capturing color" },
+    { "name": "10", "note": "both colors occur in every rank and file yet all 32 placements remain safe" },
+    { "name": "11", "note": "black can jump in all four directions while no white checker can jump the new checker" },
+    { "name": "12", "note": "black loses on move 30 and the next placement fills the only landing square" },
+    { "name": "gen5", "generator": "54 2", "note": "two seeded swaps per color expose reciprocal captures halfway through the game" },
+    { "name": "gen6", "generator": "57 3", "note": "six seeded swaps per color delay a single capture onto a3 until move 20" }
+  ]
+}
