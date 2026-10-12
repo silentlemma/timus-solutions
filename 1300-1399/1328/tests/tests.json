@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1328_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three bounces in a long room" },
+    { "name": "02", "note": "no bounces: straight at the target" },
+    { "name": "03", "note": "no bounces, the target down and to the left" },
+    { "name": "04", "note": "the target on the thrower's row: two shortest shots tie" },
+    { "name": "05", "note": "the target in the thrower's place: two shots tie, the smaller angle wins" },
+    { "name": "06", "note": "a shot into a corner counts as two bounces" },
+    { "name": "07", "note": "the largest room and ten bounces" },
+    { "name": "08", "note": "a 2 by 2 room: the diagonal crosses the target before the last bounce" },
+    { "name": "09", "note": "a narrow room, the target on the thrower's row" },
+    { "name": "gen1", "generator": "1 1", "note": "a random room" },
+    { "name": "gen2", "generator": "2 2", "note": "a small room" },
+    { "name": "gen3", "generator": "3 3", "note": "a long narrow room" },
+    { "name": "gen4", "generator": "4 4", "note": "the target in the thrower's place" },
+    { "name": "gen5", "generator": "5 2", "note": "a small room" },
+    { "name": "gen6", "generator": "6 1", "note": "a random room" }
+  ]
+}
