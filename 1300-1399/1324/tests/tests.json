@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1324_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample with 22 spaces and four replacements reaching 40" },
+    { "name": "02", "note": "single spaces only: nothing to replace" },
+    { "name": "03", "note": "one replacement of 2" },
+    { "name": "04", "note": "first length requiring two commands" },
+    { "name": "05", "note": "upper reach of a pair of commands" },
+    { "name": "06", "note": "crossing the two-command coverage limit" },
+    { "name": "07", "note": "ten spaces exactly at the three-command reach" },
+    { "name": "08", "note": "one space beyond the reach of three commands" },
+    { "name": "09", "note": "forty spaces covered by an optimal four-command plan" },
+    { "name": "10", "note": "smallest length that requires five commands" },
+    { "name": "11", "note": "five commands reaching their maximum coverage" },
+    { "name": "12", "note": "sixth command becomes necessary above 460 spaces" },
+    { "name": "13", "note": "last length covered before a seventh command is needed" },
+    { "name": "14", "note": "lower boundary of the seven-command range" },
+    { "name": "15", "note": "the largest L" },
+    { "name": "16", "note": "eight spaces: three binary passes suffice but miss the optimal reach of ten" },
+    { "name": "17", "note": "power-of-two length 256 needs five optimized commands instead of eight binary passes" },
+    { "name": "18", "note": "interior six-command case maximizing coverage beyond 31228 spaces" }
+  ]
+}
