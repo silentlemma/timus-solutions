@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1344_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a movable pulley: twice the turnip" },
+    { "name": "02", "example": true, "note": "the tensions contradict each other" },
+    { "name": "03", "example": true, "note": "the free rope on a separate system" },
+    { "name": "04", "note": "a single fixed pulley" },
+    { "name": "05", "note": "two movable pulleys and a fixed one: a quarter" },
+    { "name": "06", "note": "two separate fixed pulleys" },
+    { "name": "gen1", "generator": "1 1", "note": "a chain with the free rope on the first axle" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain with the turnip on the first axle" },
+    { "name": "gen3", "generator": "3 3", "note": "the free rope on its own pair of pulleys" },
+    { "name": "gen4", "generator": "4 4", "note": "a chain of 31 movable pulleys" }
+  ]
+}
