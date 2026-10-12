@@ -36,3 +36,4 @@
 | 1329 | [Galactic History](1329/) | dfs | C++, Go, Python, Java, Rust |
 | 1330 | [Intervals](1330/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 1331 | [Vladislava](1331/) | geometry | C++, Go, Python, Java, Rust |
+| 1332 | [Genie Bomber](1332/) | geometry | C++, Go, Python, Java, Rust |
