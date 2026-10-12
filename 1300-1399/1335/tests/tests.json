@@ -1,0 +1,12 @@
+{
+  "judging": "checker",
+  "reference": "1335_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the smallest N" },
+    { "name": "02", "example": true, "note": "N = 1000" },
+    { "name": "03", "note": "N = 3" },
+    { "name": "04", "note": "the largest N" },
+    { "name": "05", "note": "an odd N near the top" },
+    { "name": "06", "note": "N = 12345" }
+  ]
+}
