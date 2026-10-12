@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1352_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "thirteen queries from the middle of the list" },
+    { "name": "02", "note": "every number from 1 to 38 in order" },
+    { "name": "03", "note": "a single query for the first one" },
+    { "name": "04", "note": "the last one twice, the first one and the ones in the story" },
+    { "name": "05", "note": "every number from 38 down to 1" },
+    { "name": "06", "note": "one query for the second prime checks the index immediately after the lower bound" },
+    { "name": "07", "note": "alternating fourth and fifth entries skips the composite Mersenne number with exponent 11" },
+    { "name": "08", "note": "mixed ninth through twelfth entries distinguish numerical order from discovery order" },
+    { "name": "09", "note": "backtracking across three-digit and four-digit answers also distinguishes the close exponents 2203 and 2281" },
+    { "name": "10", "note": "repeating an interior query 127 times must produce 127 separate answers" },
+    { "name": "11", "generator": "1352 random 137", "note": "seeded unequal frequencies and arbitrary order among the first seventeen entries" },
+    { "name": "12", "generator": "2718 balanced 37", "note": "shuffled equal multiplicities preserve all 37 copies of each of seventeen indices" },
+    { "name": "13", "generator": "31415 runs 100000", "note": "a large batch changes answer at each boundary between ten-thousand-query constant runs" }
+  ]
+}
