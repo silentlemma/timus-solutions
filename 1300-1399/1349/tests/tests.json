@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1349_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "n = 0: 1 + 1 is never 1" },
+    { "name": "02", "example": true, "note": "n = 1" },
+    { "name": "03", "note": "n = 2: the smallest Pythagorean triple" },
+    { "name": "04", "note": "n = 3" },
+    { "name": "05", "note": "the largest n" },
+    { "name": "06", "note": "n = 50" }
+  ]
+}

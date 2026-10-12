@@ -53,3 +53,4 @@
 | 1346 | [Intervals of Monotonicity](1346/) | greedy | C++, Go, Python, Java, Rust |
 | 1347 | [Blog](1347/) | parsing | C++, Go, Python, Java, Rust |
 | 1348 | [Goat in the Garden 2](1348/) | geometry | C++, Go, Python, Java, Rust |
+| 1349 | [Farm](1349/) | math | C++, Go, Python, Java, Rust |
