@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1337_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the paper needed is in hand, the document comes next day" },
+    { "name": "02", "note": "everything wanted is already in hand: 0 days" },
+    { "name": "03", "note": "the wanted document lies on a cycle" },
+    { "name": "04", "note": "today is the official's day and counts: 0 days" },
+    { "name": "05", "note": "a chain where each next official sits a day earlier in the week" },
+    { "name": "06", "note": "a wanted document in hand needs nothing else" },
+    { "name": "07", "note": "a cycle broken by a paper in hand" },
+    { "name": "08", "note": "two branches joining; other orders of the same length are accepted" },
+    { "name": "09", "note": "two officials share a day: the one with a document waiting behind it goes first" },
+    { "name": "10", "note": "a week of one day: one document a day, the first one today" },
+    { "name": "11", "note": "taking the longest chain first is 2 days slower than the best order" },
+    { "name": "gen1", "generator": "1 1", "note": "100 officials with random papers needed" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 100 that loses almost a week at every step" },
+    { "name": "gen3", "generator": "3 3", "note": "a cycle through 100 documents" },
+    { "name": "gen4", "generator": "4 4", "note": "the same cycle broken by a paper in hand" },
+    { "name": "gen5", "generator": "21 5", "note": "100 officials sharing a short week" },
+    { "name": "gen6", "generator": "69 5", "note": "100 officials sharing a short week, a case that needs a strong bound" },
+    { "name": "gen7", "generator": "6 6", "note": "a few officials sharing days" }
+  ]
+}
