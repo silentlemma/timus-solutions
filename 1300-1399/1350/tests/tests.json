@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1350_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one student of each answer" },
+    { "name": "02", "note": "nothing in the meal: everyone is fine" },
+    { "name": "03", "note": "the meal is the whole menu" },
+    { "name": "04", "note": "names that differ only in case are different products" },
+    { "name": "05", "note": "every meal holds something dangerous" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum product and student counts" },
+    { "name": "gen2", "generator": "2 2", "note": "a first student who fears almost everything" },
+    { "name": "gen3", "generator": "3 3", "note": "an empty meal" },
+    { "name": "06", "note": "minimum menu and student counts with no possible ingredients" },
+    { "name": "07", "note": "exact harmless-product threshold with excluded dangers mixed in" },
+    { "name": "08", "note": "later students do not restrict the meal for subsequent students" },
+    { "name": "gen4", "generator": "135004 4", "note": "maximum nonempty input with 40-character common-prefix names and full danger lists" },
+    { "name": "gen5", "generator": "135005 5", "note": "seeded random danger subsets on a small menu with twenty possible meals" }
+  ]
+}
