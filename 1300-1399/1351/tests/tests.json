@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1351_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "points on the right border and on the circle count" },
+    { "name": "02", "note": "both borders, the opposite rays and points just out of range" },
+    { "name": "03", "note": "a sector in the third quadrant, points on both borders" },
+    { "name": "04", "note": "a sector just under a half turn and the largest range" },
+    { "name": "05", "note": "a sector of a tiny angle" },
+    { "name": "06", "note": "a sector of zero width: both borders on one ray, the ray behind is out" },
+    { "name": "gen1", "generator": "1 1", "note": "a random sector and random points" },
+    { "name": "gen2", "generator": "2 2", "note": "points on the borders and near the circle" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest count with a wide sector" }
+  ]
+}

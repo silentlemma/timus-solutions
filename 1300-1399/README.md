@@ -55,3 +55,4 @@
 | 1348 | [Goat in the Garden 2](1348/) | geometry | C++, Go, Python, Java, Rust |
 | 1349 | [Farm](1349/) | math | C++, Go, Python, Java, Rust |
 | 1350 | [Canteen](1350/) | implementation | C++, Go, Python, Java, Rust |
+| 1351 | [Good Gnusmas – Dead Gnusmas](1351/) | geometry | C++, Go, Python, Java, Rust |
