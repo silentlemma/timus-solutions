@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1343_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five digits given" },
+    { "name": "02", "note": "no digits given" },
+    { "name": "03", "note": "all twelve digits given, a prime" },
+    { "name": "04", "note": "ten zeros: the answer needs leading zeros" },
+    { "name": "05", "note": "eleven zeros" },
+    { "name": "06", "note": "one digit given" },
+    { "name": "07", "note": "a round prefix" },
+    { "name": "08", "note": "eleven digits given" },
+    { "name": "gen1", "generator": "1 1", "note": "a prefix of a random prime" },
+    { "name": "gen2", "generator": "2 2", "note": "a long prefix of a random prime" },
+    { "name": "gen3", "generator": "3 3", "note": "a prefix of a small prime, starting with zeros" },
+    { "name": "gen4", "generator": "4 2", "note": "a long prefix of a random prime" }
+  ]
+}
