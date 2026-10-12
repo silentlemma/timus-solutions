@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1338_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two ways of the same length, the car turns south first" },
+    { "name": "02", "note": "no experiments at all" },
+    { "name": "03", "note": "a single control point" },
+    { "name": "04", "note": "points on separate roads do not count" },
+    { "name": "05", "note": "cars from both ends of a street" },
+    { "name": "06", "note": "a ring: the far corner goes south first and arrives from the east" },
+    { "name": "07", "note": "a road around a block" },
+    { "name": "gen1", "generator": "1 1", "note": "random roads with many points" },
+    { "name": "gen2", "generator": "2 2", "note": "a grid of streets with many ties" },
+    { "name": "gen3", "generator": "3 3", "note": "a long winding road" },
+    { "name": "gen4", "generator": "4 4", "note": "every road cell a control point" }
+  ]
+}
