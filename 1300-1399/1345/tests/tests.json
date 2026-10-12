@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "input_encoding": "cp1251",
+  "reference": "1345_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a keyword in mixed case and a string, no final line break" },
+    { "name": "02", "note": "a small program with a comment to the end of the line" },
+    { "name": "03", "note": "a brace comment ends at the first closing brace" },
+    { "name": "04", "note": "ranges, two points, a trailing point and leading zeros" },
+    { "name": "05", "note": "doubled apostrophes, character codes and comment marks inside strings" },
+    { "name": "06", "note": "Cyrillic letters, bytes above 127, in a string and in comments" },
+    { "name": "07", "note": "every keyword, identifiers with digits and underscores" },
+    { "name": "08", "note": "only a comment, no final line break" },
+    { "name": "09", "note": "comments on their own lines and a brace comment over two lines" },
+    { "name": "gen1", "generator": "1 1", "note": "100000 characters of mixed tokens" },
+    { "name": "gen2", "generator": "2 2", "note": "Cyrillic letters inside strings" },
+    { "name": "gen3", "generator": "3 3", "note": "no final line break" }
+  ]
+}

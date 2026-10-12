@@ -1,0 +1,2 @@
+writeln(<span class=string>'Привет'</span>); <span class=comment>// комментарий</span>
+<span class=comment>{ текст }</span>
