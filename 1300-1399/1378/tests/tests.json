@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1378_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a square along the axes" },
+    { "name": "02", "note": "the smallest circle" },
+    { "name": "03", "note": "a square turned by 45 degrees" },
+    { "name": "04", "note": "a thin triangle" },
+    { "name": "05", "note": "half a square: a right isosceles triangle" },
+    { "name": "06", "note": "a clearly oval circle" },
+    { "name": "07", "note": "a square in a picture wider than high" },
+    { "name": "gen1", "generator": "1 1", "note": "a large circle" },
+    { "name": "gen2", "generator": "2 2", "note": "a slightly oval circle" },
+    { "name": "gen3", "generator": "3 3", "note": "a turned square" },
+    { "name": "gen4", "generator": "4 4", "note": "a triangle" },
+    { "name": "gen5", "generator": "5 5", "note": "a triangle with an angle under 15 degrees" },
+    { "name": "gen6", "generator": "6 6", "note": "a turned square across the largest picture" }
+  ]
+}
