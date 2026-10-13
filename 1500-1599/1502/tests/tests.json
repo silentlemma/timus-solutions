@@ -1,0 +1,13 @@
+{
+  "judging": "exact",
+  "reference": "1502_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "N = 1: tiles 0-0, 0-1 and 1-1" },
+    { "name": "03", "note": "the ordinary set, 168 dots" },
+    { "name": "04", "note": "the largest N: the answer needs 64 bits" },
+    { "name": "05", "note": "a large odd N" },
+    { "name": "gen1", "generator": "1", "note": "a random N" },
+    { "name": "gen2", "generator": "2", "note": "a random N" }
+  ]
+}
