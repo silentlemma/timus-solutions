@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1362_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the director has the slowest branch and Tanya calls it first" },
+    { "name": "02", "note": "a one-person agency" },
+    { "name": "03", "note": "a subordinate starts the news spreading up and back down" },
+    { "name": "04", "note": "a chain with Tanya in the middle" },
+    { "name": "gen1", "generator": "1 1", "note": "a random hierarchy of 100 000 employees" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 100 000 with Tanya in the middle" },
+    { "name": "gen3", "generator": "3 3", "note": "everyone directly below the director" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain ending in many leaves" },
+    { "name": "05", "note": "two employees, with the highest-numbered employee as director and source" },
+    { "name": "06", "note": "news passes upward across every edge from Tanya at the bottom of a chain" },
+    { "name": "07", "note": "the long branch is listed after two leaves but must be called first" },
+    { "name": "08", "note": "a chain and a star take equal time, so the second call determines completion" },
+    { "name": "09", "note": "an internal Tanya must call a slow subordinate branch before her boss" },
+    { "name": "10", "note": "seeded random hierarchy where deepest-branch-first calling is suboptimal" },
+    { "name": "11", "note": "seeded random hierarchy where largest-subtree-first calling is suboptimal" },
+    { "name": "gen5", "generator": "5 5", "note": "a binary tree of 100 000 employees, with Tanya as director" },
+    { "name": "gen6", "generator": "6 6", "note": "a hierarchy of 100 000 employees across 316 busy hubs, with Tanya below one hub" },
+    { "name": "gen7", "generator": "7 7", "note": "uniformly random earlier bosses and shuffled subordinate order for 100 000 employees" }
+  ]
+}
