@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1437_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1, 2, 3, 4, 6 and 7 litres" },
+    { "name": "02", "note": "a forum case: 1, 100 and 255" },
+    { "name": "03", "note": "no cans at all" },
+    { "name": "04", "note": "three one-litre cans" },
+    { "name": "05", "note": "three equal cans: only full ones count" },
+    { "name": "06", "note": "almost every volume up to 765" },
+    { "name": "07", "note": "an empty can and two coprime ones" },
+    { "name": "08", "note": "three close sizes" },
+    { "name": "09", "note": "the largest number of reachable states found" },
+    { "name": "10", "note": "a one-litre can with two large ones" },
+    { "name": "11", "note": "a single can" },
+    { "name": "12", "note": "sizes with a common factor and one odd" },
+    { "name": "13", "note": "multiples of 27" },
+    { "name": "14", "note": "three large neighbours" }
+  ]
+}
