@@ -1,0 +1,23 @@
+{
+  "judging": "exact",
+  "reference": "1432_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: halves for t, odd and even places for t + 1" },
+    { "name": "02", "note": "a forum case" },
+    { "name": "03", "note": "all zeros: 0000 is lucky, 0001 is not" },
+    { "name": "04", "note": "the last ticket: no pair" },
+    { "name": "05", "note": "no pair left before the last ticket" },
+    { "name": "06", "note": "a pair found after a carry" },
+    { "name": "07", "note": "one before the last ticket" },
+    { "name": "08", "note": "the current ticket and the next are already lucky" },
+    { "name": "09", "note": "six zeros" },
+    { "name": "10", "note": "a ticket ending in nines" },
+    { "name": "11", "note": "a pair a little later" },
+    { "name": "12", "note": "eight digits near the top" },
+    { "name": "gen1", "generator": "1 1", "note": "1500 random digits" },
+    { "name": "gen2", "generator": "2 2", "note": "1500 eights and nines" },
+    { "name": "gen3", "generator": "3 3", "note": "nines in the first half: no pair" },
+    { "name": "gen4", "generator": "4 4", "note": "alternating 9 and 0" },
+    { "name": "gen5", "generator": "5 5", "note": "zeros, then nines" }
+  ]
+}
