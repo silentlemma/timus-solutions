@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1491_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "a full-range royal gift combines with stronger overlapping gifts" },
+    { "name": "03", "note": "two knights with the largest gifts" },
+    { "name": "gen1", "generator": "1 1", "note": "random ranges at the maximum knight count" },
+    { "name": "gen2", "generator": "2 2", "note": "every gift to everyone: totals near 10^9" },
+    { "name": "gen3", "generator": "3 3", "note": "single-knight ranges" },
+    { "name": "gen4", "generator": "4 4", "note": "a few knights" },
+    { "name": "04", "note": "minimum N and gifts of one coin leave the last knight with zero" },
+    { "name": "05", "note": "only the king gives coins to the last knight" },
+    { "name": "06", "note": "adjacent disjoint blocks must not leak coins across their boundaries" },
+    { "name": "07", "note": "nested ranges build a peak on one knight and unwind on both sides" },
+    { "name": "08", "note": "crossing ranges in shuffled order share starts and ends around an untouched gap" },
+    { "name": "gen5", "generator": "149105 5", "note": "maximum N with repeated broad overlaps produces distinct plateaus" },
+    { "name": "gen6", "generator": "149106 6", "note": "maximum N with random short intervals exercises frequent starts and stops" }
+  ]
+}
