@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1470_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single sector, zero changes and removing everything" },
+    { "name": "03", "note": "faces, edges and corners of a 3 × 3 × 3 cube" },
+    { "name": "04", "note": "the far corners of the largest cube" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random cube" },
+    { "name": "gen2", "generator": "2 1", "note": "another small random cube" },
+    { "name": "gen3", "generator": "3 2", "note": "the largest cube with 100 000 random records" },
+    { "name": "gen4", "generator": "4 3", "note": "sums close to 2^31" },
+    { "name": "gen5", "generator": "5 4", "note": "the longest Fenwick walks over 100 000 records" },
+    { "name": "05", "note": "an interior sector surrounded by occupied neighbors on all sides" },
+    { "name": "06", "note": "thin slabs and axis lines across the 7/8 and 15/16 boundaries" },
+    { "name": "07", "note": "every possible box in a fully occupied 5 by 5 by 5 cube" },
+    { "name": "gen6", "generator": "1470 5", "note": "a sequence of 100 000 records with repeated removals and thin queries in a sparse size 127 cube" }
+  ]
+}
