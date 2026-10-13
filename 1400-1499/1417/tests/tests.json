@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.000011",
+  "reference": "1417_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "asymmetric payouts in the statement example" },
+    { "name": "02", "note": "no consolation prizes: equal chances" },
+    { "name": "03", "note": "two finger counts with a consolation prize in only one direction" },
+    { "name": "04", "note": "equal maximum consolation prizes give equal chances" },
+    { "name": "05", "note": "uneven prizes on three fingers" },
+    { "name": "gen1", "generator": "1 1", "note": "random consolation prizes spanning the full range at the size limit" },
+    { "name": "gen2", "generator": "2 2", "note": "binary consolation prizes at both allowed extremes" },
+    { "name": "gen3", "generator": "3 3", "note": "a single row paying maximum consolation prizes" },
+    { "name": "gen4", "generator": "4 4", "note": "consolation prizes increasing in steps with the player's finger count" },
+    { "name": "06", "note": "unequal consolation prizes of one and two at the smallest size" },
+    { "name": "07", "note": "a directed cycle has equal row sums despite unequal prizes" },
+    { "name": "08", "note": "a symmetric weighted path still needs unequal probabilities" },
+    { "name": "09", "note": "isolated, two-choice and three-choice blocks need different weights" },
+    { "name": "10", "note": "prizes depend only on the croupier column outside the diagonal" },
+    { "name": "11", "note": "upper triangular maximum consolation prizes create a chain of dependencies" },
+    { "name": "12", "note": "lower triangular consolation prizes cover every positive allowed value" },
+    { "name": "13", "note": "small prizes put a probability just above a five-decimal rounding boundary" },
+    { "name": "14", "note": "a row without consolation prizes still has positive off-diagonal entries in its column" },
+    { "name": "15", "note": "all but the last row pay maximum consolation prizes with 99 choices" },
+    { "name": "16", "generator": "1417 5", "note": "unequal groups of thirty and seventy choices have cross prizes of ten and one" },
+    { "name": "17", "generator": "1417 6", "note": "dense consolation prizes of nine and ten at maximum size" },
+    { "name": "18", "generator": "1417 7", "note": "sparse symmetric prizes have unequal weighted degrees at the size limit" },
+    { "name": "19", "generator": "1417 8", "note": "five positive consolation prizes per row form a directed band that wraps around" }
+  ]
+}
