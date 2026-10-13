@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1478_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example with a square and an asymmetric four-object layout" },
+    { "name": "02", "note": "one or two objects, equal gaps on a line, a rectangle and two triangles" },
+    { "name": "gen1", "generator": "1 1", "note": "random objects fill a single test at the maximum permitted size" },
+    { "name": "gen2", "generator": "2 2", "note": "a thousand five-object tests check tied distances in a small coordinate range" },
+    { "name": "gen3", "generator": "3 3", "note": "nested clusters of 629 objects" },
+    { "name": "gen4", "generator": "4 4", "note": "a 25 x 25 grid" },
+    { "name": "gen5", "generator": "5 5", "note": "forty small random tests vary object counts and coordinate ranges" },
+    { "name": "03", "note": "two competing squared distances near 100 million differ by exactly one" },
+    { "name": "04", "note": "four paired corner clusters use both coordinate extremes and the largest squared distance" },
+    { "name": "05", "note": "a deep hierarchy repeatedly absorbs one singleton and permits every base count" },
+    { "name": "06", "note": "three tied square clusters permit only counts 1, 3, 6, 9 and 12" },
+    { "name": "07", "note": "equal diagonal diameters and separation reject both apparent two-object bases" },
+    { "name": "08", "note": "a central object meets several already formed ring components at the same radius" },
+    { "name": "09", "note": "an invalid six-object chain must still contribute partitions through its three pair children" },
+    { "name": "10", "note": "two levels of branching square clusters require merging a whole base or summing child counts" },
+    { "name": "11", "note": "children with different noncontiguous count sets must be convolved together" },
+    { "name": "12", "note": "an asymmetric seven-object tie graph excludes base counts 2 and 5" },
+    { "name": "13", "note": "close clusters near opposite coordinate limits make three bases impossible" },
+    { "name": "14", "note": "thirteen five-object bases cross the 64-bit boundary while count 64 stays impossible" },
+    { "name": "gen6", "generator": "147806 6", "note": "tied pair clusters and a remote singleton exercise large dense count sets at maximum size" },
+    { "name": "gen7", "generator": "147807 7", "note": "mixed random and clustered tests reach both the total object and squared-size limits" },
+    { "name": "gen8", "generator": "147808 8", "note": "a 629-object two-row strip plus companions reaches the squared-size budget near the cubic limit" },
+    { "name": "gen9", "generator": "147809 9", "note": "seeded small compound clusters combine random spacing with tied pairs, triangles, squares and chains" }
+  ]
+}
