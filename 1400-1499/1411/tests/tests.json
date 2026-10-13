@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1411_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example size; any valid map is accepted" },
+    { "name": "02", "note": "a single island" },
+    { "name": "03", "note": "two columns force crossing diagonals at the top corners" },
+    { "name": "04", "note": "a three-column rectangle too short for a cubic map" },
+    { "name": "05", "note": "a three-row strip below the minimum feasible width" },
+    { "name": "06", "note": "an odd number of islands" },
+    { "name": "07", "note": "the narrowest strip of height 3" },
+    { "name": "08", "note": "the smallest feasible three-column strip requires transposition" },
+    { "name": "09", "note": "a single 4 by 4 block" },
+    { "name": "10", "note": "odd width requires swapping the dimensions and transposing the result" },
+    { "name": "11", "note": "a long strip of height 3" },
+    { "name": "12", "note": "a long strip of width 3" },
+    { "name": "13", "note": "odd width and a single row of blocks" },
+    { "name": "14", "note": "both dimensions at the upper bound exercise seams in both directions" },
+    { "name": "15", "note": "odd width at the largest size" },
+    { "name": "16", "note": "odd height at the largest size" },
+    { "name": "17", "note": "a single column of blocks" },
+    { "name": "18", "note": "odd width with a block row of height 6" },
+    { "name": "19", "note": "a single column of islands" },
+    { "name": "20", "note": "the square base block with six islands along each side" },
+    { "name": "21", "note": "height 3 with width 14: the widest strip block before a seam is needed" },
+    { "name": "22", "note": "width 4 with height 7: the tallest odd base block without gluing" },
+    { "name": "23", "generator": "random 37 7", "note": "seeded random 6 by 5 grid: the six-column base block with height five" }
+  ]
+}
