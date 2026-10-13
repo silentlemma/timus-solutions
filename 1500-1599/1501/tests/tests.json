@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1501_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a solvable deal with two leading black cards in the first pile" },
+    { "name": "02", "example": true, "note": "the second example: two red cards on top of both piles" },
+    { "name": "03", "note": "alternating colours" },
+    { "name": "04", "note": "one pile all red, the other all black" },
+    { "name": "05", "note": "an odd number of cards in each pile" },
+    { "name": "06", "note": "the colours in opposite order in the two piles" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum size deal with randomly shuffled colours" },
+    { "name": "gen2", "generator": "2 2", "note": "a solvable deal of 1000 + 1000 cards" },
+    { "name": "gen3", "generator": "3 3", "note": "alternating colours in both piles" },
+    { "name": "gen4", "generator": "4 4", "note": "red cards stacked on top of both piles" },
+    { "name": "gen5", "generator": "5 5", "note": "six cards per pile with two leading red cards in one pile and two leading black cards in the other" },
+    { "name": "gen6", "generator": "6 2", "note": "a solvable deal with black and red runs at the tops of the two piles" }
+  ]
+}
