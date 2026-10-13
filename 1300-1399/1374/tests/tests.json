@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1374_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the spades nobody else holds are never led into" },
+    { "name": "02", "note": "a declarer void in spades survives with kings in both clubs and hearts" },
+    { "name": "03", "note": "singleton spade eight and diamond seven remain safe beside long club and heart holdings" },
+    { "name": "04", "note": "five diamonds and a club ace are survivable when the declarer has no hearts" },
+    { "name": "05", "note": "a heart void permits a misere even with both the spade and club aces" },
+    { "name": "06", "note": "low cards: the misere stands" },
+    { "name": "07", "note": "all four sevens support a winning hand that also holds the club king and heart jack" },
+    { "name": "08", "note": "all four eights join the four sevens in a winning hand with four diamonds" },
+    { "name": "09", "note": "a spade king above low spades does not prevent a misere against the second player's lead" },
+    { "name": "10", "note": "a singleton spade seven and four low hearts survive the declarer's opening lead" },
+    { "name": "11", "note": "a low-card declarer with a club queen can still be caught when the third player leads" },
+    { "name": "12", "note": "three club honors do not save a declarer whose only card below ten is the spade eight" },
+    { "name": "13", "note": "a singleton diamond jack can be forced to win despite three low spades" },
+    { "name": "14", "note": "all four aces and only high cards force a loss on the declarer's opening lead" },
+    { "name": "15", "note": "a safe first club trick is followed by a forced club ace on the second trick" },
+    { "name": "16", "note": "the defender with all eight hearts retains the lead while two dangerous suits are discarded" },
+    { "name": "17", "note": "the same hands lose immediately when the other defender leads a low club" },
+    { "name": "18", "note": "all four tens in the declarer's hand exercise numeric rank order and suit following" },
+    { "name": "19", "note": "a random winning deal becomes losing if the direction of play is reversed" },
+    { "name": "20", "generator": "low 6 1", "note": "a seeded low-card hand still loses with an exposed heart ten" },
+    { "name": "21", "generator": "random 1374147 2", "note": "a seeded winning deal contains a declarer ace and king in different suits" },
+    { "name": "22", "generator": "random 1374056 1", "note": "a seeded three-suit hand has five hearts and a singleton club ten" },
+    { "name": "23", "generator": "low 4 2", "note": "a three-three-two-two suit split stays safe despite the missing diamond eight" }
+  ]
+}
