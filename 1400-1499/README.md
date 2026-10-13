@@ -78,3 +78,4 @@
 | 1471 | [Distance in the Tree](1471/) | trees | C++, Go, Python, Java, Rust |
 | 1472 | [Martian Army](1472/) | dp | C++, Go, Python, Java, Rust |
 | 1473 | [Farm 2](1473/) | geometry | C++, Go, Python, Java, Rust |
+| 1474 | [About Frogs](1474/) | constructive | C++, Go, Python, Java, Rust |
