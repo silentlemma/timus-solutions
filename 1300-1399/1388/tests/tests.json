@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1388_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four trees match, a fifth would need a mirror" },
+    { "name": "02", "example": true, "note": "any three trees match any three" },
+    { "name": "03", "note": "no trees at all" },
+    { "name": "04", "note": "trees on one bank only" },
+    { "name": "05", "note": "one tree on each bank" },
+    { "name": "06", "note": "two trees against five" },
+    { "name": "07", "note": "trees hidden behind others on the same ray" },
+    { "name": "08", "note": "the lower bank is the mirror image of the upper one" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum-size set of random trees" },
+    { "name": "gen2", "generator": "2 2", "note": "a bank and its sheared image: everything matches" },
+    { "name": "gen3", "generator": "3 3", "note": "an image that sends one direction to the river" },
+    { "name": "gen4", "generator": "4 4", "note": "many hidden trees sharing just three hundred directions" },
+    { "name": "gen5", "generator": "5 5", "note": "two rows in arithmetic progression" },
+    { "name": "gen6", "generator": "6 6", "note": "a long match in a narrow sector among random trees" },
+    { "name": "09", "note": "four extreme directions differ only at the last tree; exact large products give three" },
+    { "name": "10", "note": "six irregular directions match under a non-affine map with no split" },
+    { "name": "11", "note": "a retained random case starts its best six-tree run inside both banks" },
+    { "name": "12", "note": "a retained random row has an eight-tree match after interrupted shorter runs" },
+    { "name": "13", "note": "an extra visible tree inside a matching subsequence prevents skipping directions" },
+    { "name": "14", "note": "six tightly spaced rational directions near one match their negative reciprocals" },
+    { "name": "15", "note": "changing only the final direction cuts an otherwise full match from eight to seven" },
+    { "name": "16", "note": "two separate matching quadruples cannot be joined across incompatible middle trees" },
+    { "name": "gen7", "generator": "138807 7", "note": "a maximum-size input with four lower-bank trees matching an isolated upper-bank suffix" },
+    { "name": "gen8", "generator": "138808 8", "note": "seeded sparse integer rows create repeated local shapes with unequal ray multiplicities" }
+  ]
+}
