@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1467_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: N(N + 1) / 2" },
+    { "name": "02", "note": "k = 0: the sum is N" },
+    { "name": "03", "note": "the sum of squares" },
+    { "name": "04", "note": "the sum of cubes: zero linear and constant terms" },
+    { "name": "05", "note": "the first negative coefficient" },
+    { "name": "06", "note": "a negative quadratic term followed by two zero coefficients" },
+    { "name": "07", "note": "opposite unit coefficients inside the polynomial" },
+    { "name": "08", "note": "large alternating coefficients with several denominator reductions" },
+    { "name": "09", "note": "the largest odd exponent with both final coefficients zero" },
+    { "name": "10", "note": "the largest k" },
+    { "name": "11", "note": "a linear term with denominator 2730" },
+    { "name": "12", "note": "a positive quadratic term after a large negative quartic term" },
+    { "name": "13", "note": "k = 6: positive linear term 1/42 and a negative cubic term" },
+    { "name": "14", "note": "k = 7: positive quadratic term with both linear and constant terms zero" },
+    { "name": "15", "note": "k = 14: the linear coefficient becomes an improper fraction 7/6" },
+    { "name": "16", "note": "k = 16: large negative reduced numerator -3617 in the linear term" },
+    { "name": "17", "note": "k = 28: near-limit even exponent with leading denominator 29 and negative linear term" },
+    { "name": "18", "generator": "random 13", "note": "seeded random k = 8: composite leading denominator 9 and fraction cancellations" }
+  ]
+}

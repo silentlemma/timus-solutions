@@ -71,3 +71,4 @@
 | 1464 | [Light](1464/) | geometry | C++, Go, Python, Java, Rust |
 | 1465 | [Pawn Game](1465/) | games | C++, Go, Python, Java, Rust |
 | 1466 | [Magic Square](1466/) | backtracking | C++, Go, Python, Java, Rust |
+| 1467 | [Sum of Degrees](1467/) | math | C++, Go, Python, Java, Rust |
