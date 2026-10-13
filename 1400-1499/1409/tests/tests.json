@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1409_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single can shot by both" },
+    { "name": "03", "note": "ten cans, Harry shot only the last one" },
+    { "name": "04", "note": "ten cans, Larry shot only the last one" },
+    { "name": "05", "note": "ten cans split almost evenly" },
+    { "name": "06", "note": "equal counts" },
+    { "name": "07", "note": "two cans: Harry hit only the shared one" },
+    { "name": "08", "note": "two cans: Larry hit only the shared one" },
+    { "name": "09", "note": "ten cans, Harry shot more than half of them" },
+    { "name": "10", "note": "a six-to-five split uses all ten cans with Larry shooting fewer" },
+    { "name": "11", "note": "a strongly uneven split stays below the maximum total" },
+    { "name": "12", "note": "the same uneven split with the shooters reversed" },
+    { "name": "13", "note": "a full row with Harry shooting two cans and Larry shooting nine" }
+  ]
+}
