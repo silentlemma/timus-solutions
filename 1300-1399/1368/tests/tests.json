@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1368_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an L of three cells behind seven sections" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "two cells" },
+    { "name": "04", "note": "four cells: a square is no better than a T" },
+    { "name": "05", "note": "a diamond of radius 1" },
+    { "name": "06", "note": "a diamond of radius 2" },
+    { "name": "07", "note": "one cell past a diamond" },
+    { "name": "08", "note": "a hundred cells" },
+    { "name": "09", "note": "just under the largest area" },
+    { "name": "10", "note": "the largest area" },
+    { "name": "11", "note": "the first cell of a new layer" },
+    { "name": "12", "note": "the second cell of a new layer" },
+    { "name": "13", "note": "one cell past a diamond of radius 4" },
+    { "name": "14", "note": "half a million cells" }
+  ]
+}
