@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1412_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one umbrella loses water, one brings some in" },
+    { "name": "02", "note": "a forum case that fixes which side is W and which is L" },
+    { "name": "03", "note": "a forum case: everyone far away" },
+    { "name": "04", "note": "a forum case: an umbrella far above the field" },
+    { "name": "05", "note": "a forum case: an umbrella wholly over the field changes nothing" },
+    { "name": "06", "note": "an umbrella touching two sides from inside" },
+    { "name": "07", "note": "a field narrower than an umbrella" },
+    { "name": "08", "note": "an umbrella outside the field drops water onto it" },
+    { "name": "09", "note": "centres right on the border: half in, half out" },
+    { "name": "10", "note": "an umbrella near x = L on a field that is not square" },
+    { "name": "11", "note": "four umbrellas touching the field from outside" },
+    { "name": "12", "note": "a rim touching a 1 by 1 field at one point" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum-size field with a thousand people spread across the coordinate range" },
+    { "name": "gen2", "generator": "2 2", "note": "long three-metre-wide field with a thousand people near its long sides" },
+    { "name": "gen3", "generator": "3 3", "note": "a tiny field with umbrellas around it" },
+    { "name": "gen4", "generator": "4 4", "note": "people crowding the border lines" },
+    { "name": "13", "note": "minimum field with no umbrellas receives exactly its area" },
+    { "name": "14", "note": "one disk cuts adjacent edges while missing the corner post by a tiny margin" },
+    { "name": "15", "note": "equal opposite changes from reflected inside and outside umbrellas cancel" },
+    { "name": "16", "note": "an off-centre disk crosses both long sides of a unit-width field" },
+    { "name": "17", "note": "coordinate extremes and fractional boundary crossings on the maximum field" },
+    { "name": "18", "note": "seeded small case mixes asymmetric strip losses with outside gains and tangencies" },
+    { "name": "gen5", "generator": "1412 5", "note": "unit-width strip with a thousand crossings near tangency or at asymmetric offsets" }
+  ]
+}
