@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1362_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "Tanya calls the director first, whose branch is the slowest" },
+    { "name": "02", "note": "Tanya alone in the agency" },
+    { "name": "03", "note": "Tanya is a subordinate and the news goes up and back down" },
+    { "name": "04", "note": "a chain with Tanya in the middle" },
+    { "name": "gen1", "generator": "1 1", "note": "a random hierarchy of 100 000 employees" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 100 000 with Tanya in the middle" },
+    { "name": "gen3", "generator": "3 3", "note": "everyone directly below the director" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain ending in many leaves" }
+  ]
+}
