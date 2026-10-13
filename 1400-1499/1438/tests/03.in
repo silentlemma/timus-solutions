@@ -1,0 +1,11 @@
+i = 0
+j = 0
+loop1:
+   loop2:
+      j = j + 1
+   if j < i goto loop2
+   j = 0
+   i = i + 1
+if i < 100 goto loop1
+print i
+print j

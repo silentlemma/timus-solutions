@@ -1,0 +1,4 @@
+x = 3
+if x != 4 goto done
+print 0
+done: print x
