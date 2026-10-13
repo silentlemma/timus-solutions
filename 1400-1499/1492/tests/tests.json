@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1492_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the zero function" },
+    { "name": "02", "note": "f(x) = x is odd" },
+    { "name": "03", "note": "a constant is even" },
+    { "name": "04", "note": "a bend at x = 1 brings bends at x = -1 into both parts" },
+    { "name": "05", "note": "an even function: the odd part is a straight zero" },
+    { "name": "06", "note": "the largest coordinates, an even tent" },
+    { "name": "07", "note": "steep slopes of an odd function" },
+    { "name": "gen1", "generator": "1 1", "note": "30000 random vertices" },
+    { "name": "gen2", "generator": "2 2", "note": "breakpoints that mirror each other" },
+    { "name": "gen3", "generator": "3 3", "note": "an even function of 30000 vertices" },
+    { "name": "gen4", "generator": "4 4", "note": "an odd function of 30000 vertices" },
+    { "name": "gen5", "generator": "5 5", "note": "steep zigzags" },
+    { "name": "gen6", "generator": "6 6", "note": "a small function" }
+  ]
+}
