@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1364_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five graves back and three forward to the treasure" },
+    { "name": "02", "note": "no time at all: only Lara's own grave" },
+    { "name": "03", "note": "the whole tunnel is reachable from the entrance" },
+    { "name": "04", "note": "two rows: the tunnel turns at the far corner" },
+    { "name": "05", "note": "two columns" },
+    { "name": "06", "note": "no tunnel ahead of Lara at the treasure" },
+    { "name": "gen1", "generator": "1 1", "note": "a full 100 x 100 spiral, all of it reachable" },
+    { "name": "gen2", "generator": "2 2", "note": "a random cemetery and places" },
+    { "name": "gen3", "generator": "3 3", "note": "the treasure and Lara in the middle of a full spiral" },
+    { "name": "07", "note": "treasure at the entrance leaves a one-grave tunnel on the smallest grid" },
+    { "name": "08", "note": "time exactly equals the distance back to the entrance" },
+    { "name": "09", "note": "one second at the final turn into the single center grave of an odd square" },
+    { "name": "10", "note": "turning against dug graves into a final center strip of one row" },
+    { "name": "11", "note": "the final center strip is one column and continues downward" },
+    { "name": "12", "note": "seeded small case where adjacent dug graves need a long detour along the tunnel" },
+    { "name": "13", "note": "seeded small case reaching the treasure on the last allowed second" },
+    { "name": "14", "generator": "1364 4", "note": "large odd rectangle with thousands of reachable graves and neither end reached" },
+    { "name": "15", "generator": "1364 5", "note": "maximum square with Lara before a deep treasure that cuts off the forward time window" }
+  ]
+}
