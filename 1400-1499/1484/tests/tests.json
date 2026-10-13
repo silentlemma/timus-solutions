@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1484_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one vote cannot show 7.1" },
+    { "name": "03", "note": "the rating is already low enough" },
+    { "name": "04", "note": "a million tens down to 1.0" },
+    { "name": "05", "note": "down to the lowest rating" },
+    { "name": "06", "note": "X equals Y" },
+    { "name": "07", "note": "half a tenth rounds up" },
+    { "name": "08", "note": "a million ones" },
+    { "name": "09", "note": "one vote cannot show 9.9" },
+    { "name": "gen1", "generator": "1 1", "note": "random X, Y and N" },
+    { "name": "gen2", "generator": "2 1", "note": "random X, Y and N" },
+    { "name": "gen3", "generator": "3 2", "note": "a rating shown by real votes" },
+    { "name": "gen4", "generator": "4 2", "note": "a rating shown by real votes" },
+    { "name": "gen5", "generator": "5 3", "note": "a million real votes" }
+  ]
+}
