@@ -1,0 +1,31 @@
+{
+  "judging": "exact",
+  "reference": "1380_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a pawn cannot jump three squares" },
+    { "name": "02", "example": true, "note": "a short mate with the queen" },
+    { "name": "03", "example": true, "note": "the board is printed after the last move too" },
+    { "name": "04", "note": "a pawn on its second rank may step two squares" },
+    { "name": "05", "note": "a pawn cannot advance two squares from its first rank" },
+    { "name": "06", "note": "taking the only enemy piece, its king: a draw" },
+    { "name": "07", "note": "a king in check may not step back along the bishop's line" },
+    { "name": "08", "note": "a knight move to an empty square gives mate" },
+    { "name": "09", "note": "a bishop move leaves the opponent stalemated with pinned pieces" },
+    { "name": "10", "note": "two white kings: a guarded rook cannot be taken" },
+    { "name": "11", "note": "a second white king can capture the unguarded checking rook" },
+    { "name": "12", "note": "two kings in check at once: no move saves both" },
+    { "name": "13", "note": "a board ringed with white queens draws because black has no pieces" },
+    { "name": "gen1", "generator": "1 1", "note": "a random legal game of 60 moves" },
+    { "name": "gen2", "generator": "2 2", "note": "a random game with one move from the wrong square" },
+    { "name": "gen3", "generator": "3 3", "note": "a random position with two kings a side, ending in mate" },
+    { "name": "gen4", "generator": "5 3", "note": "one white king faces two black kings in a 60-move game" },
+    { "name": "14", "note": "castling is forbidden even with an empty path and safe king squares" },
+    { "name": "15", "note": "en passant is forbidden immediately after a black pawn double step" },
+    { "name": "16", "note": "pawns reach both last ranks without promotion before a sideways move is rejected" },
+    { "name": "17", "note": "a black pawn cannot double step over an occupied intermediate square" },
+    { "name": "18", "note": "an illegal pinned rook capture restores both the rook and its victim" },
+    { "name": "19", "note": "capturing the black king leaves its knight able to move" },
+    { "name": "20", "note": "a rook capture is blocked by a friendly pawn between the endpoints" },
+    { "name": "21", "generator": "1380 4", "note": "a full board without kings supports a 60-move knight game" }
+  ]
+}
