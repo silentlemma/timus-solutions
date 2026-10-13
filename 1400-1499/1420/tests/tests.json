@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1420_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: -2i and -3i" },
+    { "name": "02", "note": "equal dividend and divisor give the single quotient one" },
+    { "name": "03", "note": "a divisor one unit below the dividend in its real part yields three results" },
+    { "name": "04", "note": "division by zero: no remainder is shorter than zero" },
+    { "name": "05", "note": "zero divided by zero" },
+    { "name": "06", "note": "zero divided by 3 - 4i: only q = 0" },
+    { "name": "07", "note": "division by 1: the remainder must be 0" },
+    { "name": "08", "note": "a / b in the middle of a lattice square: four quotients" },
+    { "name": "09", "note": "a / b halfway between two integers" },
+    { "name": "10", "note": "both dividend components at the lower bound give a negative integer quotient" },
+    { "name": "11", "note": "large values with mixed signs" },
+    { "name": "12", "note": "negative nonintegral quotient components exercise floor division" },
+    { "name": "13", "note": "equal dividend and divisor magnitudes exclude the zero quotient" },
+    { "name": "14", "note": "large cancelling products put q = 1 exactly on the circle" },
+    { "name": "15", "note": "q = 1 is inside the circle by only two squared remainder units" },
+    { "name": "16", "note": "division by -i reaches quotient parts of magnitude one million" },
+    { "name": "17", "note": "a tiny negative imaginary quotient has floor minus one and two valid results" },
+    { "name": "18", "note": "four quotients surround a centre with both coordinates negative" },
+    { "name": "19", "note": "three quotients surround a centre with negative real and positive imaginary parts" },
+    { "name": "20", "note": "equal maximal divisor parts put q = 1 just outside the circle" },
+    { "name": "21", "generator": "142021 1", "note": "small positive components give three results around a nonintegral centre" },
+    { "name": "22", "generator": "142022 2", "note": "large mixed signs leave two quotients on the imaginary axis" },
+    { "name": "23", "generator": "142023 3", "note": "near-limit components with opposite dividend and divisor signs yield three results" }
+  ]
+}
