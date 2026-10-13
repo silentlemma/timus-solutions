@@ -55,3 +55,4 @@
 | 1448 | [Lighting in Hogwarts](1448/) | constructive | C++, Go, Python, Java, Rust |
 | 1449 | [Credit Operations 2](1449/) | matching | C++, Go, Python, Java, Rust |
 | 1450 | [Russian Pipelines](1450/) | dp | C++, Go, Python, Java, Rust |
+| 1451 | [Beerhouse Tale](1451/) | geometry | C++, Go, Python, Java, Rust |

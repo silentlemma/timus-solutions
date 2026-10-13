@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1451_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any point with the smallest total is accepted" },
+    { "name": "02", "note": "three houses on a line: the middle one" },
+    { "name": "03", "note": "a very wide corner at the first house" },
+    { "name": "04", "note": "an almost equilateral triangle: the centre" },
+    { "name": "05", "note": "a corner of almost exactly 120 degrees" },
+    { "name": "06", "note": "a right triangle" },
+    { "name": "07", "note": "the corners of the field" },
+    { "name": "08", "note": "almost on a line, the middle house first" },
+    { "name": "09", "note": "seven decimals everywhere" },
+    { "name": "10", "note": "a corner just under 120 degrees" },
+    { "name": "11", "note": "a corner just over 120 degrees" },
+    { "name": "12", "note": "a far house on the line of the other two" },
+    { "name": "13", "note": "a needle-thin triangle across the field" }
+  ]
+}
