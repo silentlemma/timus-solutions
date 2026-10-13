@@ -1,0 +1,115 @@
+# 1369. Cockroach Race
+
+[Timus 1369](https://acm.timus.ru/problem.aspx?space=1&num=1369) · difficulty 11966 · geometry
+
+Original problem by Den Raskovalov, from the Ninth Ural Team Student Programming Championship, Yekaterinburg, April 19–24, 2005.
+
+**English** · [Русский](README.ru.md) · [中文](README.zh.md) · [Español](README.es.md)
+
+## Task
+
+M cockroaches (M ≤ 100 000) and N sweets (N ≤ 10 000) stand on the
+plane, with real coordinates between −10 000 and 10 000; any two
+cockroaches, and any two sweets, are at least 0.001 apart. For every
+sweet print the numbers of the cockroaches nearest to it, in increasing
+order.
+
+Time limit: 2 seconds. Memory limit: 64 MB.
+
+## Input
+
+M and the cockroaches, then N and the sweets, one point per line.
+
+## Output
+
+N lines, the nearest cockroaches of each sweet.
+
+## Examples
+
+### Example 1
+
+Input:
+
+```
+4
+0 0
+1 0
+0 1
+1 2
+2
+0 0
+0 2
+```
+
+Output:
+
+```
+1
+3 4
+```
+
+## Solution
+
+"Nearest" has a tolerance that the statement does not mention: a
+cockroach counts when its squared distance is below the smallest one
+plus 2⁻²⁴. Coordinates can have more than 20 digits after the point,
+so doubles cannot tell such distances apart. Every coordinate is also
+kept exactly as an integer, the decimal times 10³⁰, and every final
+comparison is made on these integers.
+
+The cockroaches are joined into a graph: the Delaunay triangulation,
+built by divide and conquer on quad-edges, plus each cockroach's
+neighbours in the order by x and in the order by y. The orientation and
+in-circle tests are computed in doubles with a bound on their rounding
+error, and recomputed exactly when the result falls inside that bound.
+If all cockroaches lie on one line, the graph is the path along it.
+
+For a sweet, a walk starts at the closest of 1 024 cockroaches spread
+over the order by x (or at the previous answer) and moves to a closer
+neighbour while there is one: first with doubles, then exactly. On a
+Delaunay triangulation such a walk ends at the nearest cockroach. A
+search through the graph from there collects every cockroach within the
+tolerance, moving only through such cockroaches. `O(M log M + N · W)`
+for walks of W steps.
+
+Pitfalls:
+
+- the tolerance 2⁻²⁴ on squared distances: test 06 has distances equal
+  within it and just beyond it;
+- twelve cockroaches can be equally near (test 04);
+- cockroaches on one line make the triangulation degenerate (test 05);
+- N can be 0 (test 03).
+
+The answers match an exact brute force on all the small tests and on
+samples of the large ones. An independent accepted implementation
+agrees everywhere except five lines of the generated ring and circle
+tests, where the brute force sides with the solutions here.
+
+## Language notes
+
+- C++ and Rust keep the coordinates in 128-bit integers and the
+  products in a 512-bit integer of sixteen 32-bit limbs. Go keeps the
+  coordinates in 128 bits too and widens them only for exact steps, with
+  32-bit edge arrays: a first version holding 512-bit coordinates used
+  88 MB on the judge's test 9.
+- Java compares distances in doubles first and exactly only when they
+  are within the rounding error, and multiplies only the used limbs:
+  without that it took over 2 s on the judge's test 9.
+- Python runs under PyPy and keeps each exact coordinate as two 64-bit
+  halves in arrays, or one machine word when the values fit. It
+  triangulates by a sweep and leaves out the neighbours by y, which
+  changed no answer on the tests here. On the judge's test 15 it takes
+  just over 2 s, so it is kept marked TLE: it passes all the tests here
+  but is not claimed to fit the time limit on every test of the judge.
+  Earlier versions used 70 MB on test 9, or searched the whole hull
+  after each flip of a hull edge, which is quadratic on a circle.
+
+## Solutions
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
+|----------|----------|----------|------------|---------|------|--------|
+| [1369_geometry.cpp](1369_geometry.cpp) | G++ 13.2 x64 | geometry | O(M log M + N · W) | AC | 0.812 s | 33540 KB |
+| [1369_geometry.go](1369_geometry.go) | Go 1.14 x64 | geometry | O(M log M + N · W) | AC | 1.328 s | 40448 KB |
+| [1369_geometry.java](1369_geometry.java) | Java 1.8 | geometry | O(M log M + N · W) | AC | 1.781 s | 53152 KB |
+| [1369_geometry.py](1369_geometry.py) | PyPy 3.10 x64 | geometry | O(M log M + N · W) | TLE (test 15) | 2.031 s | 29864 KB |
+| [1369_geometry.rs](1369_geometry.rs) | Rust 1.75 x64 | geometry | O(M log M + N · W) | AC | 0.656 s | 39668 KB |

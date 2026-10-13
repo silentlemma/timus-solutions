@@ -73,3 +73,4 @@
 | 1366 | [Presents](1366/) | math | C++, Go, Python, Java, Rust |
 | 1367 | [Top Secret](1367/) | dsu | C++, Go, Python, Java, Rust |
 | 1368 | [Goat in the Garden 3](1368/) | geometry | C++, Go, Python, Java, Rust |
+| 1369 | [Cockroach Race](1369/) | geometry | C++, Go, Python, Java, Rust |
