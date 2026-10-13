@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1387_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three vertices: a path and a fork" },
+    { "name": "02", "example": true, "note": "five vertices" },
+    { "name": "03", "note": "one vertex and no arcs" },
+    { "name": "04", "note": "two vertices" },
+    { "name": "05", "note": "four vertices" },
+    { "name": "06", "note": "eight vertices: 115" },
+    { "name": "07", "note": "nine vertices" },
+    { "name": "08", "note": "twenty vertices" },
+    { "name": "09", "note": "33 vertices, past 32 bits" },
+    { "name": "10", "note": "47 vertices: fits 64 bits only without a sign" },
+    { "name": "11", "note": "the largest N, past 64 bits" }
+  ]
+}
