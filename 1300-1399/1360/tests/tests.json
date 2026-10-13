@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "1360_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a dot inside the square" },
+    { "name": "02", "note": "the corner (1, 1) with the smallest dot" },
+    { "name": "03", "note": "the corner (-1, -1) with the smallest dot" },
+    { "name": "04", "note": "the centre with the smallest dot" },
+    { "name": "05", "note": "a dot larger than the square" },
+    { "name": "06", "note": "near the left edge with a tiny dot" },
+    { "name": "07", "note": "a large dot inside the square" },
+    { "name": "08", "note": "the middle of the right side with the smallest dot" },
+    { "name": "09", "note": "the middle of the top side with the smallest dot" },
+    { "name": "10", "note": "the middle of the bottom side with the smallest dot" },
+    { "name": "11", "note": "the corner (-1, 1) with the smallest dot" },
+    { "name": "12", "note": "the corner (1, -1) with the smallest dot" },
+    { "name": "gen1", "generator": "1 1", "note": "a random dot of the smallest radius" },
+    { "name": "gen2", "generator": "2 1", "note": "another random dot of the smallest radius" },
+    { "name": "gen3", "generator": "3 2", "note": "a random dot of a log-uniform radius" },
+    { "name": "gen4", "generator": "4 2", "note": "another random dot of a log-uniform radius" },
+    { "name": "gen5", "generator": "5 3", "note": "a dot on a side of the square" },
+    { "name": "gen6", "generator": "6 4", "note": "x0 within 1e-6 of an end, where asin is steepest" },
+    { "name": "gen7", "generator": "7 4", "note": "x0 within 1e-6 of an end, another seed" },
+    { "name": "gen8", "generator": "8 5", "note": "y0 within 1e-6 of an end, where acos is steepest" },
+    { "name": "gen9", "generator": "9 6", "note": "a dot of radius 1 to 3 covering much of the square" },
+    { "name": "13", "note": "a finite radius beyond float64 range" }
+  ]
+}
