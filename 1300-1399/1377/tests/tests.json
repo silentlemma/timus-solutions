@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1377_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "found on the 9th and the 15th night" },
+    { "name": "02", "note": "the smallest cemetery" },
+    { "name": "03", "note": "the treasures given in the other order" },
+    { "name": "04", "note": "the first and the last grave of the largest cemetery" },
+    { "name": "05", "note": "the same in the other order" },
+    { "name": "06", "note": "two rows: the corner graves" },
+    { "name": "07", "note": "two columns: the whole first column apart" },
+    { "name": "08", "note": "the same row, dug on different laps" },
+    { "name": "09", "note": "neighbours in the middle, dug on consecutive nights" },
+    { "name": "10", "note": "a tall cemetery" }
+  ]
+}
