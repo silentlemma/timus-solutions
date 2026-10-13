@@ -1,0 +1,4 @@
+ifi = 10
+printer = 20
+gotoend = ifi + printer
+print gotoend

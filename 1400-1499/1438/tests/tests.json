@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1438_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: nested loops" },
+    { "name": "02", "example": true, "note": "the second example: an endless loop" },
+    { "name": "03", "note": "two labels on consecutive lines with no commands" },
+    { "name": "04", "note": "a skipped assignment is not listed" },
+    { "name": "05", "note": "print then end" },
+    { "name": "06", "note": "a conditional jump over a print" },
+    { "name": "07", "note": "keywords and labels in mixed letter case, bitwise operations" },
+    { "name": "08", "note": "lines with only spaces" },
+    { "name": "09", "note": "a label and a command on one line, jumped to forever" },
+    { "name": "10", "note": "variable names that start with keywords" },
+    { "name": "11", "note": "a label named like a keyword" },
+    { "name": "12", "note": "end is exactly the ten millionth command" },
+    { "name": "13", "note": "the loop is cut after ten million commands" },
+    { "name": "14", "note": "division and remainder with negative operands" },
+    { "name": "15", "note": "all six comparisons" },
+    { "name": "16", "note": "upper-case names come before lower-case ones" },
+    { "name": "17", "note": "the ten millionth command is the last line" },
+    { "name": "gen1", "generator": "1 1", "note": "2000 random lines in an endless loop" },
+    { "name": "gen2", "generator": "2 2", "note": "random lines with mixed case, extra spaces and label-only lines" }
+  ]
+}

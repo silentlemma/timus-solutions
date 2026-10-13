@@ -1,0 +1,10 @@
+value = 15
+        value = not value
+        value = value or 4
+        print value
+        value = 0
+loop:   
+        value = value - 1
+        Value = value % 6
+        ValueA = value % -6
+        goto loop

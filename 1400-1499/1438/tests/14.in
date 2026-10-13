@@ -1,0 +1,13 @@
+a = -7
+b = 2
+c = a / b
+print c
+c = a % b
+print c
+c = 7 % -2
+print c
+c = a % -2
+print c
+c = 7 / -2
+print c
+print -5

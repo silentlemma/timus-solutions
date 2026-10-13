@@ -42,3 +42,4 @@
 | 1435 | [Financial Error](1435/) | math | C++, Go, Python, Java, Rust |
 | 1436 | [Billboard](1436/) | geometry | C++, Go, Python, Java, Rust |
 | 1437 | [Gasoline Station](1437/) | bfs | C++, Go, Python, Java, Rust |
+| 1438 | [Time Limit Exceeded](1438/) | simulation | C++, Go, Python, Java, Rust |

@@ -1,0 +1,13 @@
+AA = 12
+BB = 10
+C = AA AnD BB
+D = AA Or BB
+E = AA XoR BB
+F = NoT AA
+PrInT C
+pRiNt D
+print E
+print F
+GoTo Fin
+print 0
+fin: EnD
