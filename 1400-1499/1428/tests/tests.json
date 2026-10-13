@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1428_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any right triple is accepted" },
+    { "name": "02", "note": "all ones" },
+    { "name": "03", "note": "C = 1: X and Y are 1" },
+    { "name": "04", "note": "the largest powers of two, 2^31" },
+    { "name": "05", "note": "A = B = 31, C = 32" },
+    { "name": "06", "note": "different A and B" },
+    { "name": "07", "note": "A = 3, B = 4, C = 25" },
+    { "name": "08", "note": "A = 32, C = 1" },
+    { "name": "09", "note": "A = 16, B = 8, C = 17" },
+    { "name": "10", "note": "A = 7, B = 14, C = 29" },
+    { "name": "11", "note": "A = 4, B = 6, C = 13" }
+  ]
+}
