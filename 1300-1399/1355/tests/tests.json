@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1355_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "no path, prime powers and equal numbers" },
+    { "name": "02", "note": "no tests at all" },
+    { "name": "03", "note": "the most prime factors: 10^9, 2^29 and a highly composite number" },
+    { "name": "04", "note": "b smaller than a or not a multiple of it" },
+    { "name": "05", "note": "large primes, a square of a prime and a product of two near 31 623" },
+    { "name": "06", "note": "twenty large primes, the slowest case for trial division" }
+  ]
+}

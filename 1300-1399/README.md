@@ -59,3 +59,4 @@
 | 1352 | [Mersenne Primes](1352/) | number_theory | C++, Go, Python, Java, Rust |
 | 1353 | [Milliard Vasya's Function](1353/) | dp | C++, Go, Python, Java, Rust |
 | 1354 | [Palindrome. Again Palindrome](1354/) | strings | C++, Go, Python, Java, Rust |
+| 1355 | [Bald Spot Revisited](1355/) | number_theory | C++, Go, Python, Java, Rust |
