@@ -93,3 +93,4 @@
 | 1386 | [Maze](1386/) | simulation | C++, Go, Python, Java, Rust |
 | 1387 | [Vasya's Dad](1387/) | math | C++, Go, Python, Java, Rust |
 | 1388 | [Photo](1388/) | geometry, strings | C++, Go, Python, Java, Rust |
+| 1389 | [Roadworks](1389/) | dp | C++, Go, Python, Java, Rust |
