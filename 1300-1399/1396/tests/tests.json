@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1396_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample queries at 5 and 10 check the stated maxima" },
+    { "name": "02", "note": "minimum positive bound includes the initial term" },
+    { "name": "03", "note": "small n around powers of two" },
+    { "name": "04", "note": "the largest n, 2^59 and its neighbour, and an alternating pattern" },
+    { "name": "gen1", "generator": "1 1", "note": "large random bounds fill the maximum query count" },
+    { "name": "gen2", "generator": "2 2", "note": "random sampling of bounds from 1 through 100000" },
+    { "name": "gen3", "generator": "3 3", "note": "alternating bit patterns and their neighbours" },
+    { "name": "gen4", "generator": "4 4", "note": "powers of two and their neighbours" },
+    { "name": "05", "note": "all-one index 15 has a smaller term than the earlier prefix maximum" },
+    { "name": "06", "note": "every n from 17 through 511 exhaustively exercises short binary endings" },
+    { "name": "07", "note": "random stress discoveries cover a record jump, a deep dip, and a tied peak" },
+    { "name": "08", "note": "inclusive bounds immediately before and after nonalternating medium record indices" },
+    { "name": "09", "note": "thousands of changing terms lie on the same long prefix-maximum plateau" },
+    { "name": "10", "note": "queries beyond the old 100000-term scan limit cross several later records" },
+    { "name": "11", "note": "sparse non-power prefixes have long zero runs and isolated low set bits" },
+    { "name": "12", "note": "long runs of ones and zeros replace the usual alternating binary patterns" },
+    { "name": "13", "note": "first record values exceeding signed and unsigned 32-bit output ranges" },
+    { "name": "14", "note": "adjacent queries at a record above 2^53 require exact integer input parsing" },
+    { "name": "15", "note": "successive 60-bit record boundaries exercise the deepest constrained prefixes" },
+    { "name": "16", "note": "carries across long one suffixes preserve the maximum at non-power boundaries" },
+    { "name": "17", "note": "mixed huge and tiny bounds with repeated queries check state reset" },
+    { "name": "18", "note": "sorted samples from the seeded generator check monotonic answers across large gaps" },
+    { "name": "19", "note": "maximum query count sweeps 10000 distinct small bounds in descending order" }
+  ]
+}
