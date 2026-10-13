@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1482_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a turn by 270 degrees" },
+    { "name": "02", "note": "the token already lies on the triangle" },
+    { "name": "03", "note": "a reflected scalene triangle cannot be reached despite matching side lengths" },
+    { "name": "04", "note": "a triangle of another size" },
+    { "name": "05", "note": "a small Pythagorean angle with a distant centre" },
+    { "name": "06", "note": "a half turn about a vertex" },
+    { "name": "07", "note": "a quarter turn of a right isosceles triangle" },
+    { "name": "08", "note": "the same triangle with its vertices listed in another order" },
+    { "name": "09", "note": "the largest coordinates, a half turn" },
+    { "name": "gen1", "generator": "1 1", "note": "a half turn about a centre with a half-integer x coordinate and shuffled vertices" },
+    { "name": "gen2", "generator": "2 2", "note": "a Pythagorean rotation whose centre has a repeating fractional x coordinate" },
+    { "name": "gen3", "generator": "3 3", "note": "unrelated triangles with no matching squared side lengths" },
+    { "name": "gen4", "generator": "4 4", "note": "only a shift" },
+    { "name": "gen5", "generator": "5 5", "note": "a turned isosceles triangle" },
+    { "name": "gen6", "generator": "6 2", "note": "a small clockwise turn of a right isosceles triangle about a distant centre" },
+    { "name": "gen7", "generator": "7 3", "note": "a reflected scalene triangle with shuffled vertices remains unreachable" },
+    { "name": "gen8", "generator": "8 1", "note": "a counterclockwise quarter turn about a centre with two half-integer coordinates" },
+    { "name": "10", "note": "a minimum-area triangle translated by positive 3999 in x and negative 3999 in y" },
+    { "name": "11", "note": "doubled area one with long diagonal edges and a half-integer quarter-turn centre" },
+    { "name": "12", "note": "two squared side lengths agree but the third length prevents congruence" },
+    { "name": "13", "note": "two shared vertices exchange places in a half turn about their midpoint" },
+    { "name": "14", "note": "an oblique rotation has a centre with a repeating fractional coordinate" },
+    { "name": "15", "note": "a reflected non-right isosceles triangle is reachable by swapping equal sides" },
+    { "name": "gen9", "generator": "1482 6", "note": "an oblique clockwise turn fixes the vertex at the upper coordinate bounds" }
+  ]
+}
