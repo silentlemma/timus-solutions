@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1466_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: an empty 4 by 4 square" },
+    { "name": "03", "note": "n = 1, nothing given" },
+    { "name": "04", "note": "n = 1, the corner given" },
+    { "name": "05", "note": "an empty 9 by 9 square" },
+    { "name": "06", "note": "the corner holds a number other than 0" },
+    { "name": "07", "note": "a whole magic square" },
+    { "name": "08", "note": "20 cells of a magic square" },
+    { "name": "09", "note": "a valid sudoku that breaks the swap rule" },
+    { "name": "10", "note": "the same number twice in one row of a block" },
+    { "name": "11", "note": "a 4 by 4 square with one wrong number" },
+    { "name": "12", "note": "40 cells of a magic square" },
+    { "name": "13", "note": "40 cells with one wrong number" },
+    { "name": "14", "note": "0 in the middle of the middle block" },
+    { "name": "15", "note": "0 again in the first row" }
+  ]
+}
