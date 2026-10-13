@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1367_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five secrets: the relation is not transitive" },
+    { "name": "02", "note": "a gap below the end of a wall joins two secrets" },
+    { "name": "03", "note": "the same gap closed by a cross" },
+    { "name": "04", "note": "a corridor under a long wall" },
+    { "name": "05", "note": "the corridor closed in the middle" },
+    { "name": "06", "note": "a row of secrets under a long wall: all joined" },
+    { "name": "07", "note": "a row of secrets between crosses: only neighbours" },
+    { "name": "08", "note": "a single secret" },
+    { "name": "09", "note": "no secrets at all" },
+    { "name": "10", "note": "five secrets at the corners and centre are all joined through open cells" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum-area picture mixes horizontal and vertical walls, crosses and open cells" },
+    { "name": "gen2", "generator": "2 2", "note": "open ground: everything joined" },
+    { "name": "gen3", "generator": "3 3", "note": "a cross-filled picture with 103 secrets includes horizontal and diagonal contact" },
+    { "name": "gen4", "generator": "4 4", "note": "rooms with random holes" },
+    { "name": "11", "note": "one-row picture with unequal groups exposes right-to-left numbering" },
+    { "name": "12", "note": "all 100 secrets packed together have only local eight-neighbour contact" },
+    { "name": "13", "note": "a vertical wall reaches both picture edges so agents cannot detour outside" },
+    { "name": "14", "note": "nested closed rectangles separate the exterior, annulus and inner room" },
+    { "name": "15", "note": "one central secret touches four disjoint quadrants without joining them" },
+    { "name": "16", "note": "seeded small mixed walls combine an isolated secret with nontransitive links" },
+    { "name": "17", "generator": "1367 5", "note": "maximum-height single column with 100 secrets and random separators" },
+    { "name": "18", "generator": "1367 6", "note": "maximum-area mixed-wall picture has no secrets and an empty answer" },
+    { "name": "19", "generator": "1367 7", "note": "random-sized closed rooms meet at 100 secret junctions including the boundary" }
+  ]
+}
