@@ -61,3 +61,4 @@
 | 1454 | [Rectangles 2](1454/) | backtracking | C++, Go, Python, Java, Rust |
 | 1455 | [Freedom of Speech](1455/) | shortest_paths | C++, Go, Python, Java, Rust |
 | 1456 | [Jedi Riddle 2](1456/) | number_theory | C++, Go, Python, Java, Rust |
+| 1457 | [Heating Main](1457/) | math | C++, Go, Python, Java, Rust |
