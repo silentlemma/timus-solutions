@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1358_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of three computers" },
+    { "name": "02", "note": "a single computer and no wires" },
+    { "name": "03", "note": "two computers" },
+    { "name": "04", "note": "a small star around computer 3" },
+    { "name": "05", "note": "a path that does not start at computer 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree of 1000 computers" },
+    { "name": "gen2", "generator": "2 2", "note": "a path of 1000 computers: the deepest tree" },
+    { "name": "gen3", "generator": "3 3", "note": "a star of 1000 computers" },
+    { "name": "gen4", "generator": "4 4", "note": "a caterpillar" },
+    { "name": "gen5", "generator": "5 5", "note": "a nearly complete binary tree" }
+  ]
+}
