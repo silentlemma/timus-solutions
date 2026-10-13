@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1459_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one cycle walked both ways" },
+    { "name": "02", "note": "the smallest board" },
+    { "name": "03", "note": "an odd number of fields: no tour" },
+    { "name": "04", "note": "a short three-row board has two cycles and four directed tours" },
+    { "name": "05", "note": "six undirected cycles are counted in both directions" },
+    { "name": "06", "note": "maximum width on a short even board" },
+    { "name": "07", "note": "two rows: a single cycle however long" },
+    { "name": "08", "note": "three rows and an odd length" },
+    { "name": "09", "note": "three rows, the longest board" },
+    { "name": "10", "note": "modular matrix powering over the longest four-row board" },
+    { "name": "11", "note": "the largest permitted board combines maximum width and length" },
+    { "name": "12", "note": "five rows and an odd length" },
+    { "name": "13", "note": "five rows, a long even board" },
+    { "name": "14", "note": "an odd board length still permits tours when the width is even" },
+    { "name": "15", "note": "a two-column board has only the perimeter cycle" },
+    { "name": "16", "note": "swapping the dimensions of the short three-row case preserves the count" },
+    { "name": "17", "note": "a spanning cycle must cover the five-by-four board without disjoint loops" },
+    { "name": "18", "note": "three by sixty: the first three-row count exceeding the modulus" },
+    { "name": "19", "note": "four by twenty-four: the first four-row count requiring reduction modulo one billion" },
+    { "name": "20", "note": "maximum width with M minus one containing twenty-nine consecutive set bits" },
+    { "name": "21", "note": "four rows with M minus one equal to a single high power of two" },
+    { "name": "22", "generator": "even 1459 3 60 1000000000", "note": "seeded random three-row even length exercises mixed bits in a large exponent" },
+    { "name": "23", "generator": "even 23 5 22 200", "note": "a moderately long board at maximum width undergoes repeated modular reductions" }
+  ]
+}
