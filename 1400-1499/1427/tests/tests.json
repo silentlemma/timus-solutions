@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1427_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a forum case: one character per message" },
+    { "name": "03", "note": "a forum case: digits break the long messages" },
+    { "name": "04", "note": "the text starts with spaces" },
+    { "name": "05", "note": "N equals M" },
+    { "name": "06", "note": "only digits: N characters a message" },
+    { "name": "07", "note": "a single long message" },
+    { "name": "08", "note": "a text of one character" },
+    { "name": "09", "note": "quotes split the letter runs" },
+    { "name": "10", "note": "the text ends with spaces" },
+    { "name": "gen1", "generator": "1 1", "note": "100 000 letters and spaces, rare punctuation" },
+    { "name": "gen2", "generator": "2 2", "note": "every allowed character at random" },
+    { "name": "gen3", "generator": "3 3", "note": "letters only with M 10 000" },
+    { "name": "gen4", "generator": "4 4", "note": "punctuation every few letters" }
+  ]
+}
