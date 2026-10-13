@@ -89,3 +89,4 @@
 | 1382 | [Game with Cards](1382/) | graphs | C++, Go, Python, Java, Rust |
 | 1383 | [Flower-garden Designs](1383/) | geometry | C++, Go, Python, Java, Rust |
 | 1384 | [Goat in the Garden 4](1384/) | geometry | C++, Go, Python, Java, Rust |
+| 1385 | [Interesting Number](1385/) | math | C++, Go, Python, Java, Rust |

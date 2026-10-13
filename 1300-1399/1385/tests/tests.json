@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1385_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two digits: 14 numbers" },
+    { "name": "02", "note": "four digits, before 8 can divide the power of ten" },
+    { "name": "03", "note": "six digits, the first case with all five ratios" },
+    { "name": "04", "note": "eight digits: one more zero" },
+    { "name": "05", "note": "the largest N, an answer of 10 001 digits" }
+  ]
+}
