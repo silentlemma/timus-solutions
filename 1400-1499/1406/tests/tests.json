@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1406_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "113: the tens digit grows" },
+    { "name": "02", "example": true, "note": "0050: leading zeros stay" },
+    { "name": "03", "note": "a forum case: 901000" },
+    { "name": "04", "note": "a forum case with a leading zero" },
+    { "name": "05", "note": "a single 9: no next number" },
+    { "name": "06", "note": "zero: no other number has digit sum 0" },
+    { "name": "07", "note": "1000 is the largest four-digit number of sum 1" },
+    { "name": "08", "note": "a forum case with a long run of nines" },
+    { "name": "09", "note": "all zeros" },
+    { "name": "gen1", "generator": "1 1", "note": "2 000 random digits" },
+    { "name": "gen2", "generator": "2 2", "note": "a run of 1 995 nines" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest number of its sum: -1" },
+    { "name": "gen4", "generator": "4 4", "note": "a single 1 near the end of 2 000 digits" }
+  ]
+}
