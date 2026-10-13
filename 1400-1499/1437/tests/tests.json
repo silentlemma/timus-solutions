@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1437_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1, 2, 3, 4, 6 and 7 litres" },
+    { "name": "02", "note": "a one-litre can makes every volume up to the total capacity reachable" },
+    { "name": "03", "note": "all three capacities are zero" },
+    { "name": "04", "note": "three one-litre cans" },
+    { "name": "05", "note": "three equal cans: only full ones count" },
+    { "name": "06", "note": "almost every volume up to 765" },
+    { "name": "07", "note": "an empty can and two coprime ones" },
+    { "name": "08", "note": "three close sizes" },
+    { "name": "09", "note": "many reachable states with three distinct large capacities" },
+    { "name": "10", "note": "a one-litre can with two large ones" },
+    { "name": "11", "note": "a single can" },
+    { "name": "12", "note": "an odd capacity one litre above twice the other positive capacity" },
+    { "name": "13", "note": "multiples of 27" },
+    { "name": "14", "note": "three large neighbours" },
+    { "name": "15", "note": "seeded small case with two equal cans, partial loads and gaps" },
+    { "name": "16", "note": "overall gcd is one although every pair shares a factor" },
+    { "name": "17", "note": "seeded distinct positive sizes with gcd one cannot make 18 or 23" },
+    { "name": "18", "note": "zero in the middle and the smallest and largest positive capacities" }
+  ]
+}
