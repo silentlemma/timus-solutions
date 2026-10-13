@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.0000011",
+  "reference": "1436_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: 45 degrees from (300, 0)" },
+    { "name": "02", "example": true, "note": "the second example: the billboard crosses the road" },
+    { "name": "03", "example": true, "note": "the third example: a long billboard just above the road" },
+    { "name": "04", "example": true, "note": "the fourth example: an end on the road" },
+    { "name": "05", "note": "a forum case: crossing from far below" },
+    { "name": "06", "note": "a vertical billboard on the road: a forum note gives pi / 2" },
+    { "name": "07", "note": "a vertical billboard above the road" },
+    { "name": "08", "note": "a forum case: the best spot is beyond both ends" },
+    { "name": "09", "note": "the same below the road" },
+    { "name": "10", "note": "a billboard lying on the road" },
+    { "name": "11", "note": "the extreme corners" },
+    { "name": "12", "note": "a short level billboard high up" },
+    { "name": "13", "note": "a long slanted billboard close to the road" },
+    { "name": "14", "note": "a vertical billboard below the road" }
+  ]
+}
