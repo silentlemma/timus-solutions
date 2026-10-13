@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1455_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any ambiguous text is accepted" },
+    { "name": "02", "note": "a single word can never be ambiguous" },
+    { "name": "03", "note": "two words of 99 and 100 letters a" },
+    { "name": "04", "note": "a and aa" },
+    { "name": "05", "note": "a, ab and bb: a code that can be read uniquely" },
+    { "name": "06", "note": "a, ab and ba" },
+    { "name": "07", "note": "ab, ba, aba and bab" },
+    { "name": "08", "note": "100 words of one letter repeated" },
+    { "name": "09", "note": "ab and ba" },
+    { "name": "gen1", "generator": "1 100 100 2 1", "note": "100 random words over two letters" },
+    { "name": "gen2", "generator": "2 100 100 26 1", "note": "100 random words over the whole alphabet" },
+    { "name": "gen3", "generator": "3 100 7 2 1", "note": "100 short words over two letters" },
+    { "name": "gen4", "generator": "4 100 0 0 2", "note": "the prefix code a^i b" },
+    { "name": "gen5", "generator": "5 100 0 0 3", "note": "the suffix code b a^i" },
+    { "name": "gen6", "generator": "6 100 30 3 1", "note": "100 random words over three letters" }
+  ]
+}

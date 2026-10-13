@@ -59,3 +59,4 @@
 | 1452 | [Pascal vs. C++](1452/) | hashing | C++, Go, Python, Java, Rust |
 | 1453 | [Queen](1453/) | math | C++, Go, Python, Java, Rust |
 | 1454 | [Rectangles 2](1454/) | backtracking | C++, Go, Python, Java, Rust |
+| 1455 | [Freedom of Speech](1455/) | shortest_paths | C++, Go, Python, Java, Rust |
