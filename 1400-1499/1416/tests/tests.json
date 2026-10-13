@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1416_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the second set may cost the same" },
+    { "name": "02", "example": true, "note": "the second example: a tree has no second set" },
+    { "name": "03", "note": "two planets, one link" },
+    { "name": "04", "note": "zero costs" },
+    { "name": "05", "note": "the second set costs strictly more" },
+    { "name": "06", "note": "a zero-cost link replaces a costly one" },
+    { "name": "07", "note": "two equal heaviest edges on a cycle" },
+    { "name": "gen1", "generator": "1 1", "note": "the complete graph on 500 planets" },
+    { "name": "gen2", "generator": "2 2", "note": "a tree on 500 planets" },
+    { "name": "gen3", "generator": "3 3", "note": "the complete graph with equal costs" },
+    { "name": "gen4", "generator": "4 4", "note": "a sparse graph with many equal costs" }
+  ]
+}
