@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1497_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the white piece slides up" },
+    { "name": "02", "example": true, "note": "the second example: the pieces lock" },
+    { "name": "03", "note": "a black cell in the middle cannot leave" },
+    { "name": "04", "note": "a staircase cut slides apart" },
+    { "name": "05", "note": "a white pocket under a black hook" },
+    { "name": "06", "note": "a single black cell in the corner" },
+    { "name": "07", "note": "a black hook over a white cell" },
+    { "name": "gen1", "generator": "1 1", "note": "a staircase across 1000 x 1000" },
+    { "name": "gen2", "generator": "2 2", "note": "a black blob in the middle" },
+    { "name": "gen3", "generator": "3 3", "note": "a black comb rising from the bottom" },
+    { "name": "gen4", "generator": "4 4", "note": "the comb with one hooked tooth" },
+    { "name": "gen5", "generator": "5 5", "note": "a small random cut" },
+    { "name": "gen6", "generator": "6 5", "note": "a small random cut" }
+  ]
+}
