@@ -1,0 +1,29 @@
+{
+  "judging": "lines",
+  "reference": "1369_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example with an exact match and a two-way tie" },
+    { "name": "02", "note": "one cockroach: every answer is 1" },
+    { "name": "03", "note": "no sweets: no output" },
+    { "name": "04", "note": "twelve cockroaches on one circle around a sweet" },
+    { "name": "05", "note": "collinear cockroaches with off-line queries and midpoint ties" },
+    { "name": "06", "note": "squared distances within and outside the tolerance using coordinates with 21 decimal places" },
+    { "name": "07", "note": "a small lattice with ties of two and four" },
+    { "name": "gen1", "generator": "1 1", "note": "a few points with small integer coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "a large lattice with many ties" },
+    { "name": "gen3", "generator": "3 3", "note": "circular arrangement of 100 000 cockroaches with sweets near the centre" },
+    { "name": "gen4", "generator": "4 4", "note": "maximum counts of uniformly scattered cockroaches and sweets" },
+    { "name": "gen5", "generator": "5 5", "note": "rings of almost equal distances, 21 digits after the point" },
+    { "name": "gen6", "generator": "6 6", "note": "all cockroaches on one line" },
+    { "name": "gen7", "generator": "7 7", "note": "sweets packed in a tiny square" },
+    { "name": "08", "note": "the strict tolerance cutoff with query coordinates one decimal unit to either side" },
+    { "name": "09", "note": "minimum spacing of 0.001 near the maximum coordinates, including sweets at that spacing" },
+    { "name": "10", "note": "almost collinear diagonal points with perturbations of 10^-24 and distant queries on both sides of the line" },
+    { "name": "11", "note": "thirty-six exact ties on a shifted circle and queries across the angular wrap" },
+    { "name": "12", "note": "tolerance membership is measured from the global minimum rather than chained through near ties" },
+    { "name": "13", "note": "all four coordinate extremes and tiny distance differences at squared distances near 200 million" },
+    { "name": "14", "note": "seeded random minimum-gap clusters with sweets alternating between far-separated groups" },
+    { "name": "gen8", "generator": "136908 8", "note": "maximum cockroach count on two narrow diagonal rails with isolated outliers" },
+    { "name": "gen9", "generator": "136909 9", "note": "maximum sweet count near the sloping bisectors of an extremely thin triangle" }
+  ]
+}
