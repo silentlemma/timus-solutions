@@ -16,3 +16,4 @@
 | 1409 | [Two Gangsters](1409/) | math | C++, Go, Python, Java, Rust |
 | 1410 | [Crack](1410/) | dp | C++, Go, Python, Java, Rust |
 | 1411 | [40 Islands Knights](1411/) | constructive | C++, Go, Python, Java, Rust |
+| 1412 | [Autumn Tide](1412/) | geometry | C++, Go, Python, Java, Rust |
