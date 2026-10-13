@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1503_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a double root 1" },
+    { "name": "02", "note": "a quintuple root at one" },
+    { "name": "03", "note": "two irrational double roots symmetric about zero" },
+    { "name": "04", "note": "x^4 + 1 has no real roots, so the output is empty" },
+    { "name": "05", "note": "degree 1 with a fractional root" },
+    { "name": "06", "note": "a squared quadratic with irrational roots after removing a simple integer root" },
+    { "name": "07", "note": "a fractional double root and a negative triple root" },
+    { "name": "08", "note": "x^5 - x^4, a quadruple root 0" },
+    { "name": "09", "note": "five simple irrational roots" },
+    { "name": "10", "note": "the largest coefficients" },
+    { "name": "gen1", "generator": "1 1", "note": "random coefficients of degree 5" },
+    { "name": "gen2", "generator": "2 2", "note": "a negative quadruple root and a positive fractional simple root" },
+    { "name": "gen3", "generator": "3 3", "note": "irrational double roots of opposite signs beside a simple root at minus one" },
+    { "name": "gen4", "generator": "4 4", "note": "quadratics with irrational and with no real roots times a linear factor" },
+    { "name": "gen5", "generator": "5 5", "note": "small coefficients of a random degree" },
+    { "name": "gen6", "generator": "6 2", "note": "a positive quadruple root and a negative simple root" },
+    { "name": "gen7", "generator": "7 3", "note": "a simple integer root to the right of two irrational double roots" },
+    { "name": "11", "note": "x^2 - 100x + 1 has widely separated roots and cancellation in the smaller root" },
+    { "name": "12", "note": "five zero roots with a negative coefficient at the magnitude limit" },
+    { "name": "13", "note": "irrational double roots of a nonmonic squared quadratic with negative leading coefficient" },
+    { "name": "14", "note": "x^5 - 2 has one irrational root and a quadruple derivative root at a nonzero function value" },
+    { "name": "15", "note": "seeded stress cubic with the rational root 1/2 between two positive irrational roots" },
+    { "name": "16", "note": "a repeated complex quadratic remaining after the only real root is removed" }
+  ]
+}
