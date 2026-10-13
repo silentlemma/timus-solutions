@@ -76,3 +76,4 @@
 | 1469 | [No Smoking!](1469/) | geometry | C++, Go, Python, Java, Rust |
 | 1470 | [UFOs](1470/) | fenwick | C++, Go, Python, Java, Rust |
 | 1471 | [Distance in the Tree](1471/) | trees | C++, Go, Python, Java, Rust |
+| 1472 | [Martian Army](1472/) | dp | C++, Go, Python, Java, Rust |
