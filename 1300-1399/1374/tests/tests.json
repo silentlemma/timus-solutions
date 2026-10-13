@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1374_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the spades nobody else holds are never led into" },
+    { "name": "02", "note": "a hard deal from the problem's discussion board" },
+    { "name": "03", "note": "a hard deal from the problem's discussion board" },
+    { "name": "04", "note": "a hard deal from the problem's discussion board" },
+    { "name": "05", "note": "a hard deal from the problem's discussion board" },
+    { "name": "06", "note": "low cards: the misere stands" },
+    { "name": "07", "note": "a deal the misere survives" },
+    { "name": "08", "note": "a deal the misere survives" },
+    { "name": "09", "note": "a deal the misere survives" },
+    { "name": "10", "note": "a deal the misere survives" },
+    { "name": "11", "note": "a deal where the opponents catch the misere" },
+    { "name": "12", "note": "a deal where the opponents catch the misere" },
+    { "name": "13", "note": "a deal where the opponents catch the misere" }
+  ]
+}
