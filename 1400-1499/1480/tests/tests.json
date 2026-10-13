@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1480_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "N = 3" },
+    { "name": "03", "note": "N = 4" },
+    { "name": "04", "note": "N = 5" },
+    { "name": "05", "note": "N = 9" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "07", "note": "the largest odd N" },
+    { "name": "gen1", "generator": "6", "note": "N = 6" },
+    { "name": "gen2", "generator": "17", "note": "N = 17" },
+    { "name": "gen3", "generator": "30", "note": "N = 30" }
+  ]
+}

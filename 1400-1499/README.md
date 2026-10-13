@@ -84,3 +84,4 @@
 | 1477 | [Airplanes](1477/) | geometry | C++, Go, Python, Java, Rust |
 | 1478 | [Spy Satellites](1478/) | dsu | C++, Go, Python, Java, Rust |
 | 1479 | [Scheduled Checking](1479/) | bitmask | C++, Go, Python, Java, Rust |
+| 1480 | [Coupons](1480/) | constructive | C++, Go, Python, Java, Rust |
