@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1456_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 7, 9, 3, 1" },
+    { "name": "02", "note": "a common factor: the remainders never reach 1" },
+    { "name": "03", "note": "the smallest modulus with an answer" },
+    { "name": "04", "note": "order two at the maximum modulus with A = N - 1" },
+    { "name": "05", "note": "base two modulo a large prime" },
+    { "name": "06", "note": "large order modulo the maximum power of ten" },
+    { "name": "07", "note": "short cycle modulo a large odd composite" },
+    { "name": "08", "note": "even inputs with the maximum modulus and no solution" },
+    { "name": "09", "note": "order two for a base other than minus one" },
+    { "name": "10", "note": "minus one modulo a large prime" },
+    { "name": "11", "note": "large numbers with a common factor" },
+    { "name": "12", "note": "base five modulo a power of two" },
+    { "name": "13", "note": "primitive root of a large prime with order N - 1" },
+    { "name": "14", "note": "large prime square near the limit: a base congruent to 1 modulo its prime has order 31607" },
+    { "name": "15", "note": "full odd-prime-power order modulo 3^18, requiring hundreds of millions of steps to simulate" },
+    { "name": "16", "note": "seeded small Carmichael modulus: reduce phi 320 repeatedly to the minimal order 16" },
+    { "name": "17", "note": "seeded product of distinct primes: component orders 12 and 16 combine to 48, not their product" },
+    { "name": "18", "generator": "coprime 1456 900000000 1000000000", "note": "seeded random coprime pair near the upper modulus limit with mixed prime factors" }
+  ]
+}
