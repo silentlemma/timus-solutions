@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1473_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "an animal at the origin" },
+    { "name": "03", "note": "a camel and a sheep on the same ray" },
+    { "name": "04", "note": "a single camel on an axis" },
+    { "name": "05", "note": "only sheep, two on one ray" },
+    { "name": "06", "note": "camel, sheep, camel: three runs need three experts" },
+    { "name": "07", "note": "two kinds on almost the same direction, and both axes" },
+    { "name": "08", "note": "six runs near both axes" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small animals" },
+    { "name": "gen2", "generator": "2 2", "note": "10 000 different random rays" },
+    { "name": "gen3", "generator": "3 3", "note": "10 000 animals on seven rays" },
+    { "name": "gen4", "generator": "4 4", "note": "kinds alternate on 10 000 rays" },
+    { "name": "gen5", "generator": "5 5", "note": "one animal of the wrong kind on a used ray" }
+  ]
+}
