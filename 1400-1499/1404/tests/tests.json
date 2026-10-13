@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1404_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "statement example decrypts to secret" },
+    { "name": "02", "note": "single zero-valued plaintext letter" },
+    { "name": "03", "note": "the letter z" },
+    { "name": "04", "note": "the letter f has plaintext code five" },
+    { "name": "05", "note": "the alphabet" },
+    { "name": "06", "note": "maximum length random plaintext" },
+    { "name": "07", "note": "maximum length repetition of the letter z" },
+    { "name": "08", "note": "a short word" },
+    { "name": "09", "note": "smallest ciphertext letter needs a negative first difference" },
+    { "name": "10", "note": "maximum length constant ciphertext decodes to all zero-valued letters" },
+    { "name": "11", "note": "odd length alternating ciphertext extremes exercise differences of plus and minus 25" },
+    { "name": "12", "note": "ascending ciphertext alphabet gives unit differences after the initial shift" },
+    { "name": "13", "generator": "1404 runs 99", "note": "seeded random ciphertext runs mix equal neighbors with jumps across the alphabet" }
+  ]
+}
