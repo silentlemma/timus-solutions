@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.00011",
+  "reference": "1442_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the slit touches the base: nothing is lost" },
+    { "name": "03", "note": "the largest cone, the slit next to the centre" },
+    { "name": "04", "note": "the smallest cone, the slit at its edge" },
+    { "name": "05", "note": "a flat cone, the slit near the edge" },
+    { "name": "06", "note": "the largest cone untouched" },
+    { "name": "07", "note": "a tall narrow cone" },
+    { "name": "08", "note": "the largest cone, the slit halfway" },
+    { "name": "09", "note": "a flat cone, the slit next to the centre" },
+    { "name": "10", "note": "the slit far beyond the base" },
+    { "name": "11", "note": "the slit one centimetre inside the base" },
+    { "name": "12", "note": "a small steep cone" }
+  ]
+}
