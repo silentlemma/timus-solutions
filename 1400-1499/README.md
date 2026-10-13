@@ -9,3 +9,4 @@
 | 1402 | [Cocktails](1402/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1403 | [Courier](1403/) | greedy | C++, Go, Python, Java, Rust |
 | 1404 | [Easy to Hack!](1404/) | implementation | C++, Go, Python, Java, Rust |
+| 1405 | [Goat in the Garden 5](1405/) | geometry | C++, Go, Python, Java, Rust |

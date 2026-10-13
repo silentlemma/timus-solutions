@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1405_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight trees" },
+    { "name": "02", "note": "two trees far apart: both ropes stop at 50 meters" },
+    { "name": "03", "note": "a forum case: a rope may not be shorter than 1 meter" },
+    { "name": "04", "note": "a forum case on a line" },
+    { "name": "05", "note": "two trees 2 meters apart: both ropes exactly 1 meter" },
+    { "name": "06", "note": "trees too close to their neighbours cannot take a goat" },
+    { "name": "gen1", "generator": "1 1", "note": "random trees at the maximum count" },
+    { "name": "gen2", "generator": "2 2", "note": "a crowd of trees and three far away" },
+    { "name": "gen3", "generator": "3 3", "note": "a grid with 3 meters between neighbours" },
+    { "name": "gen4", "generator": "4 4", "note": "pairs of trees exactly 1 meter apart" },
+    { "name": "07", "note": "diagonal separation barely exceeds two metres despite a horizontal gap below two" },
+    { "name": "08", "note": "a 51.01 metre gap uses one full 50 metre rope and a 1.01 metre rope" },
+    { "name": "09", "note": "a 3 by 4 rectangle needs a diagonal pair with unequal ropes of lengths 3 and 2" },
+    { "name": "10", "note": "at the coordinate bounds the two largest individual limits cannot be used together" },
+    { "name": "11", "note": "a retained random line garden where the farthest usable trees are not the best pair" },
+    { "name": "gen5", "generator": "140505 5", "note": "small random planar garden with irrational nearest distances and all trees usable" },
+    { "name": "gen6", "generator": "140506 6", "note": "jittered grid at the maximum count with many competing nearly equal nearest-tree limits" },
+    { "name": "gen7", "generator": "140507 7", "note": "random centimetre gaps on a line mix usable trees with forbidden neighbours" }
+  ]
+}
