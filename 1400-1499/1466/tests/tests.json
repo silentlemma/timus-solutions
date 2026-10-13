@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1466_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four clues from the first example admit no magic completion" },
+    { "name": "02", "example": true, "note": "the second example: an empty 4 by 4 square" },
+    { "name": "03", "note": "an empty one-cell square" },
+    { "name": "04", "note": "the only cell is explicitly filled with zero" },
+    { "name": "05", "note": "an empty 9 by 9 square" },
+    { "name": "06", "note": "the corner holds a number other than 0" },
+    { "name": "07", "note": "a whole magic square" },
+    { "name": "08", "note": "twenty shuffled clues preserve a known magic completion" },
+    { "name": "09", "note": "a valid sudoku that breaks the swap rule" },
+    { "name": "10", "note": "the same number twice in one row of a block" },
+    { "name": "11", "note": "a 4 by 4 square with one wrong number" },
+    { "name": "12", "note": "forty clues leave a magic completion" },
+    { "name": "13", "note": "changing one clue in the completable forty-clue square makes it impossible" },
+    { "name": "14", "note": "zero in the center of the central block is compatible with the zero corner" },
+    { "name": "15", "note": "zero elsewhere in the first row conflicts with the required zero corner" },
+    { "name": "16", "note": "all 16 cells of a valid 4 by 4 magic square" },
+    { "name": "17", "note": "equal clues in one block row use incompatible column offsets" },
+    { "name": "18", "note": "equal clues in one block column use incompatible row offsets" },
+    { "name": "19", "note": "different nonzero labels are forced onto the same 4 by 4 position pattern" },
+    { "name": "20", "note": "an omitted zero corner is forced by the other eighty clues listed in reverse row order" },
+    { "name": "21", "note": "three clues have no immediate conflict after swaps but no joint completion" },
+    { "name": "22", "note": "a single largest value at the largest row and column leaves a completion" },
+    { "name": "23", "generator": "bands 146623", "note": "seeded sparse clues choose one cell in every block with permuted labels" },
+    { "name": "24", "generator": "symbol 146624", "note": "all nine occurrences of the largest label constrain every block at once" }
+  ]
+}
