@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1439_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single room" },
+    { "name": "03", "note": "the first room destroyed five times" },
+    { "name": "04", "note": "the last rooms destroyed one by one" },
+    { "name": "05", "note": "a billion rooms, the first and the last destroyed" },
+    { "name": "06", "note": "no room destroyed" },
+    { "name": "07", "note": "ten thousand rooms destroyed at the same door" },
+    { "name": "08", "note": "neighbouring rooms destroyed" },
+    { "name": "gen1", "generator": "1 1000000000 100000 10000 1", "note": "the largest sizes, random doors" },
+    { "name": "gen2", "generator": "2 20000 100000 10000 1", "note": "half of the rooms destroyed" },
+    { "name": "gen3", "generator": "3 1000000000 100000 10000 2", "note": "always the first room destroyed" },
+    { "name": "gen4", "generator": "4 30000 100000 10000 3", "note": "always the last room destroyed" }
+  ]
+}
