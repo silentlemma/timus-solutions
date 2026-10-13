@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "input_encoding": "latin-1",
+  "reference": "1423_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: abracadabra after 9 shifts" },
+    { "name": "02", "note": "the same letters in another order: -1" },
+    { "name": "03", "note": "a single character" },
+    { "name": "04", "note": "a periodic string: 0 and 2 are both right" },
+    { "name": "05", "note": "characters above 127, including ones some readers treat as spaces" },
+    { "name": "06", "note": "one b among a's" },
+    { "name": "07", "note": "the b is missing: -1" },
+    { "name": "08", "note": "all characters equal" },
+    { "name": "09", "note": "one shift" },
+    { "name": "gen1", "generator": "1 1", "note": "250 000 random a's and b's" },
+    { "name": "gen2", "generator": "2 2", "note": "250 000 a's and one b" },
+    { "name": "gen3", "generator": "3 3", "note": "250 000 characters from 128 to 255" },
+    { "name": "gen4", "generator": "4 4", "note": "a rotation with one character changed" }
+  ]
+}
