@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1487_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example distinguishes a common winner from an undefeated team" },
+    { "name": "02", "note": "no matches yet: every team plays better than every other" },
+    { "name": "03", "note": "a win chain requires indirect ancestors and still gives YES against the undefeated team" },
+    { "name": "04", "note": "a shared ancestor connects two win chains and makes cross-branch answers negative" },
+    { "name": "gen1", "generator": "1 1", "note": "partial results with several undefeated leaders and mostly overlapping ancestor sets" },
+    { "name": "gen2", "generator": "2 2", "note": "every match played" },
+    { "name": "gen3", "generator": "3 3", "note": "only a few matches played" },
+    { "name": "gen4", "generator": "4 4", "note": "repeated queries in a five-team championship with multiple undefeated leaders" },
+    { "name": "gen5", "generator": "5 1", "note": "dense partial results with two undefeated leaders and almost all answers negative" },
+    { "name": "05", "note": "minimum N and one query, with the only winner numbered last" },
+    { "name": "06", "note": "two undefeated leaders share a loser that also beats another team" },
+    { "name": "07", "note": "three isolated single-match groups have no common winner across defeats" },
+    { "name": "08", "note": "three loser pairs share different winners, with no winner above all three" },
+    { "name": "09", "note": "seven undefeated teams beat one team but every distinct query is YES" },
+    { "name": "10", "note": "an isolated team is queried both ways against two branching components" },
+    { "name": "11", "note": "common winners at team numbers 64, 65, 128 and 129 cross bitset word borders" },
+    { "name": "12", "note": "overlapping ancestor sets beside isolated teams" },
+    { "name": "13", "note": "isolated teams and a loser reached by both a win chain and unrelated winners" },
+    { "name": "14", "note": "nested ancestor sets and incomparable branches beneath two undefeated leaders" },
+    { "name": "gen6", "generator": "6 5", "note": "maximum N and Q with an entirely empty table and answers all YES" },
+    { "name": "gen7", "generator": "7 6", "note": "maximum N and Q with two wins by team 1000, probing the last bitset word" },
+    { "name": "gen8", "generator": "8 7", "note": "four shuffled dense three-level components at maximum N and Q" },
+    { "name": "gen9", "generator": "9 8", "note": "maximum N and Q with random overlapping three-level transitive winner sets" }
+  ]
+}
