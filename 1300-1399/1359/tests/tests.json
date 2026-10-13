@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.001",
+  "reference": "1359_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two metres left and two down" },
+    { "name": "02", "note": "a single board at 45 degrees" },
+    { "name": "03", "note": "almost a vertical drop" },
+    { "name": "04", "note": "a long slope that falls only one metre" },
+    { "name": "05", "note": "the largest construction" },
+    { "name": "06", "note": "wider than deep" },
+    { "name": "07", "note": "deeper than wide" },
+    { "name": "08", "note": "a medium construction" },
+    { "name": "09", "note": "one uninterrupted board beats adding a joint at the intermediate depth" },
+    { "name": "10", "note": "a short two-row descent starts vertically before a diagonal finish" },
+    { "name": "11", "note": "a two-board optimum skips the first depth and keeps its speed at the joint" },
+    { "name": "12", "note": "three boards with progressively flatter inclinations beat a single diagonal" },
+    { "name": "13", "note": "maximum width with only one possible joint depth" },
+    { "name": "14", "note": "two horizontal metres are spread across multiple boards at maximum depth" },
+    { "name": "15", "note": "maximum depth and the penultimate width exercise the final row and column bounds" },
+    { "name": "16", "generator": "1359 1", "note": "seeded wide and shallow descent at maximum width with several usable depths" },
+    { "name": "17", "generator": "1360 2", "note": "seeded narrow and deep rectangle with unequal dimensions" },
+    { "name": "18", "generator": "1361 3", "note": "seeded near-limit rectangle exercises many competing chains" }
+  ]
+}
