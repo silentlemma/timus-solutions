@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1434_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a route ridden backwards" },
+    { "name": "02", "note": "B is on no route: -1" },
+    { "name": "03", "note": "one ride, against the order of the route" },
+    { "name": "04", "note": "two routes that never meet: -1" },
+    { "name": "05", "note": "a chain of three rides" },
+    { "name": "06", "note": "a direct route beats a chain" },
+    { "name": "07", "note": "a route visiting one stop twice" },
+    { "name": "08", "note": "two rides via either of two paths" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 random routes" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 1000 rides" },
+    { "name": "gen3", "generator": "3 3", "note": "two halves with no link: -1" },
+    { "name": "gen4", "generator": "4 4", "note": "one route through all 100 000 stops" }
+  ]
+}
