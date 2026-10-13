@@ -1,0 +1,15 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1397_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a square and a thin quadrangle" },
+    { "name": "02", "note": "one point each: nobody scores" },
+    { "name": "03", "note": "six points on a line" },
+    { "name": "04", "note": "all points in one place" },
+    { "name": "05", "note": "far corners, then two equal points" },
+    { "name": "gen1", "generator": "1 1", "note": "ten games of 1 000 random points" },
+    { "name": "gen2", "generator": "2 2", "note": "sixty small games" },
+    { "name": "gen3", "generator": "3 3", "note": "points on a circle" },
+    { "name": "gen4", "generator": "4 4", "note": "three tight clusters" }
+  ]
+}
