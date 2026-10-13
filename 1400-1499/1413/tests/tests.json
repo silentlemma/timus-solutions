@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.0000000002",
+  "reference": "1413_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: everything after the first 0 is ignored" },
+    { "name": "02", "note": "0 at once: the jumper never moves" },
+    { "name": "03", "note": "only samples of soil" },
+    { "name": "04", "note": "one diagonal jump of one metre" },
+    { "name": "05", "note": "a 0 in the middle stops the record" },
+    { "name": "06", "note": "a single jump north-west" },
+    { "name": "07", "note": "every key once ends at the start" },
+    { "name": "08", "note": "four diagonals that cancel" },
+    { "name": "09", "note": "straight and diagonal jumps together" },
+    { "name": "10", "note": "negative coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "a million random jumps" },
+    { "name": "gen2", "generator": "2 2", "note": "a million keys with a 0 near the end" },
+    { "name": "gen3", "generator": "3 3", "note": "a million jumps north-east" },
+    { "name": "gen4", "generator": "4 4", "note": "a million jumps that come back near the start" }
+  ]
+}
