@@ -20,3 +20,4 @@
 | 1413 | [Mars Jumper](1413/) | simulation | C++, Go, Python, Java, Rust |
 | 1414 | [Astronomical Database](1414/) | sorting, binary_search | C++, Go, Python, Java, Rust |
 | 1415 | [Mobile Life](1415/) | geometry, simulation | C++, Go, Python, Java, Rust |
+| 1416 | [Confidential](1416/) | graphs | C++, Go, Python, Java, Rust |
