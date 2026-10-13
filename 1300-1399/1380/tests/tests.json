@@ -1,0 +1,23 @@
+{
+  "judging": "exact",
+  "reference": "1380_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a pawn cannot jump three squares" },
+    { "name": "02", "example": true, "note": "a short mate with the queen" },
+    { "name": "03", "example": true, "note": "the board is printed after the last move too" },
+    { "name": "04", "note": "a pawn on its second rank may step two squares" },
+    { "name": "05", "note": "a pawn on the first rank may not" },
+    { "name": "06", "note": "taking the only enemy piece, its king: a draw" },
+    { "name": "07", "note": "a king in check may not step back along the bishop's line" },
+    { "name": "08", "note": "a knight's capture gives mate" },
+    { "name": "09", "note": "the only move left leaves no move at all" },
+    { "name": "10", "note": "two white kings: a guarded rook cannot be taken" },
+    { "name": "11", "note": "the same rook unguarded can be taken: only check" },
+    { "name": "12", "note": "two kings in check at once: no move saves both" },
+    { "name": "13", "note": "queens all around the edge" },
+    { "name": "gen1", "generator": "1 1", "note": "a random legal game of 60 moves" },
+    { "name": "gen2", "generator": "2 2", "note": "a random game with one move from the wrong square" },
+    { "name": "gen3", "generator": "3 3", "note": "a random position with two kings a side, ending in mate" },
+    { "name": "gen4", "generator": "5 3", "note": "a random position with two kings a side" }
+  ]
+}
