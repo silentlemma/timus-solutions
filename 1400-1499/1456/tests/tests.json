@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1456_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 7, 9, 3, 1" },
+    { "name": "02", "note": "a common factor: the remainders never reach 1" },
+    { "name": "03", "note": "the smallest modulus with an answer" },
+    { "name": "04", "note": "A = N - 1 has order 2" },
+    { "name": "05", "note": "2 modulo a large prime" },
+    { "name": "06", "note": "3 modulo 10^9" },
+    { "name": "07", "note": "10 modulo 999999999" },
+    { "name": "08", "note": "2 modulo 10^9: a common factor" },
+    { "name": "09", "note": "6 modulo 35" },
+    { "name": "10", "note": "A = N - 1 for a large prime" },
+    { "name": "11", "note": "large numbers with a common factor" },
+    { "name": "12", "note": "5 modulo a power of two" },
+    { "name": "13", "note": "2 is a primitive root of a large prime: the order is N - 1" }
+  ]
+}
