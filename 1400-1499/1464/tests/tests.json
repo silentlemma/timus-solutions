@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.005",
+  "reference": "1464_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: an L-shaped room" },
+    { "name": "02", "note": "a square lit from the centre" },
+    { "name": "03", "note": "the lamp next to a corner of a large triangle" },
+    { "name": "04", "note": "a U-shaped room, the arms hidden" },
+    { "name": "05", "note": "a notch right above the lamp, seen edge-on" },
+    { "name": "06", "note": "the whole field, fully lit" },
+    { "name": "07", "note": "a staircase room with corners in line with the lamp" },
+    { "name": "gen1", "generator": "6 50000 1", "note": "a spiky star of 50 000 corners, the lamp off centre" },
+    { "name": "gen2", "generator": "7 50000 2", "note": "a comb of 12 499 teeth" },
+    { "name": "gen3", "generator": "8 50000 3", "note": "a star on whole coordinates, many corners in line with the lamp" },
+    { "name": "gen4", "generator": "1 50 1", "note": "a small spiky star" },
+    { "name": "gen5", "generator": "13 8 3", "note": "a small star on whole coordinates" }
+  ]
+}
