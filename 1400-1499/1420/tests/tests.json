@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1420_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: -2i and -3i" },
+    { "name": "02", "note": "a forum case: a divided by itself" },
+    { "name": "03", "note": "a forum case near the largest values" },
+    { "name": "04", "note": "division by zero: no remainder is shorter than zero" },
+    { "name": "05", "note": "zero divided by zero" },
+    { "name": "06", "note": "zero divided by 3 - 4i: only q = 0" },
+    { "name": "07", "note": "division by 1: the remainder must be 0" },
+    { "name": "08", "note": "a / b in the middle of a lattice square: four quotients" },
+    { "name": "09", "note": "a / b halfway between two integers" },
+    { "name": "10", "note": "the smallest dividend" },
+    { "name": "11", "note": "large values with mixed signs" },
+    { "name": "12", "note": "a small case with a negative divisor" }
+  ]
+}
