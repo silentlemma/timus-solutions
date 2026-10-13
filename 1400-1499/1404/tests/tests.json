@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1404_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "secret" },
+    { "name": "02", "note": "the letter a: the first difference wraps below zero" },
+    { "name": "03", "note": "the letter z" },
+    { "name": "04", "note": "f, whose code is 0" },
+    { "name": "05", "note": "the alphabet" },
+    { "name": "06", "note": "100 random letters" },
+    { "name": "07", "note": "100 letters z" },
+    { "name": "08", "note": "a short word" }
+  ]
+}
