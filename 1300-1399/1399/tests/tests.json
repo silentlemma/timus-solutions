@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1399_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven clients, ten items, a truck for five" },
+    { "name": "02", "note": "one client, one item" },
+    { "name": "03", "note": "one client's items do not fit into one trip" },
+    { "name": "04", "note": "every item fills the truck" },
+    { "name": "05", "note": "a star: clients far apart, everything fits at once" },
+    { "name": "gen1", "generator": "1 1", "note": "20 clients, a truck for 150" },
+    { "name": "gen2", "generator": "2 2", "note": "a truck for about a third of the load" },
+    { "name": "gen3", "generator": "3 3", "note": "a truck for everything: one tour of all clients" },
+    { "name": "gen4", "generator": "4 4", "note": "heavy items for clients close together" },
+    { "name": "gen5", "generator": "5 5", "note": "random distances instead of points" },
+    { "name": "gen6", "generator": "6 6", "note": "three clients whose items need several trips each" }
+  ]
+}
