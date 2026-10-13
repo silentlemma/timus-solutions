@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1498_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the demon is out of reach: no strike" },
+    { "name": "03", "note": "the knight starts next to the demon" },
+    { "name": "04", "note": "the largest field with plenty of steps" },
+    { "name": "05", "note": "one step is not enough to get near" },
+    { "name": "06", "note": "a run along a single row" },
+    { "name": "07", "note": "the demon in the middle of a 3 x 3 field" },
+    { "name": "08", "note": "the demon blocks the straight run, the next column is free" },
+    { "name": "gen1", "generator": "1 1", "note": "a random field" },
+    { "name": "gen2", "generator": "2 2", "note": "few steps" },
+    { "name": "gen3", "generator": "3 3", "note": "the demon in a corner" },
+    { "name": "gen4", "generator": "4 4", "note": "a single row" },
+    { "name": "gen5", "generator": "5 1", "note": "a random field" }
+  ]
+}
