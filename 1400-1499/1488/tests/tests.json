@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1488_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the official example checks wins, a loss, a draw and forbidden sleeve cards" },
+    { "name": "02", "note": "ace wraparound is rejected while ordinary straights, three threes, pairs, draws and sleeve conflicts are checked" },
+    { "name": "gen1", "generator": "1 1", "note": "full deck deals exercise hand ranking and legal replacements across 1000 games" },
+    { "name": "gen2", "generator": "2 2", "note": "pairs, triples and draws are checked in 1000 deals restricted to three ranks" },
+    { "name": "gen3", "generator": "3 3", "note": "random sleeve cards mix with copies of either player's cards in 1000 games" },
+    { "name": "03", "note": "keeping the dealt royal straight flush is the only winning choice" },
+    { "name": "04", "note": "both sleeve cards are required for a straight flush that beats a higher straight" },
+    { "name": "05", "note": "only the second sleeve card can make the winning pair of kings" },
+    { "name": "06", "note": "a possible win takes priority over a possible draw in either sleeve order" },
+    { "name": "07", "note": "high card hands with equal ace and king compare the third rank or draw" },
+    { "name": "08", "note": "the second highest card decides before the smaller third card" },
+    { "name": "09", "note": "ace high flushes compare second and third ranks and ignore suit on a tie" },
+    { "name": "10", "note": "ordinary triples compare their rank including aces against kings" },
+    { "name": "11", "note": "the lowest straight flush beats three aces" },
+    { "name": "12", "note": "three deuces beat an ace high straight" },
+    { "name": "13", "note": "the lowest straight beats an ace high flush" },
+    { "name": "14", "note": "a low flush beats a pair of aces" },
+    { "name": "15", "note": "all card orders compare the pair rank before an ace kicker" },
+    { "name": "16", "note": "both sleeve cards are needed to turn a high card loss into a winning spade flush" },
+    { "name": "gen4", "generator": "148804 4", "note": "random flush deals check rank tie breaks and suit completion in 1000 games" },
+    { "name": "gen5", "generator": "148805 5", "note": "straight endpoints and straight flush upgrades are covered by 1000 random deals" },
+    { "name": "gen6", "generator": "148806 6", "note": "all 2704 ordered sleeve pairs are tried against a straight flush and two threes" },
+    { "name": "gen7", "generator": "148807 7", "note": "long input processing is checked with 20000 games mixing full deck, restricted ranks, flushes and straights" }
+  ]
+}
