@@ -5,3 +5,4 @@
 | # | Problem | Tags | Languages |
 |---|---------|------|-----------|
 | 1400 | [Cellular Characters](1400/) | graphs | C++, Go, Python, Java, Rust |
+| 1401 | [Gamers](1401/) | constructive | C++, Go, Python, Java, Rust |
