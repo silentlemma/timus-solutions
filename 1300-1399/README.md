@@ -100,3 +100,4 @@
 | 1393 | [Average Common Prefix](1393/) | strings | C++, Go, Python, Java, Rust |
 | 1394 | [Ships. Version 2](1394/) | backtracking | C++, Go, Java, Rust |
 | 1395 | [Pascal vs. C++. Version 2](1395/) | hashing | C++, Rust |
+| 1396 | [Maximum. Version 2](1396/) | math | C++, Go, Python, Java, Rust |
