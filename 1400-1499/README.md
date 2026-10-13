@@ -49,3 +49,4 @@
 | 1442 | [Floo Powder](1442/) | geometry | C++, Go, Python, Java, Rust |
 | 1443 | [Rails](1443/) | math | C++, Go, Python, Java, Rust |
 | 1444 | [Elephpotamus](1444/) | geometry | C++, Go, Python, Java, Rust |
+| 1445 | [Christmas gifts](1445/) | math | C++, Go, Python, Java, Rust |
