@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1452_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any longest progression is accepted" },
+    { "name": "02", "note": "two equal values: one element" },
+    { "name": "03", "note": "two values far apart" },
+    { "name": "04", "note": "all values equal" },
+    { "name": "05", "note": "powers of two: no three in progression" },
+    { "name": "06", "note": "a progression with a step of 1 among others" },
+    { "name": "07", "note": "the largest values with a repeat" },
+    { "name": "gen1", "generator": "1 2000 1", "note": "two thousand random values" },
+    { "name": "gen2", "generator": "2 2000 2", "note": "a hidden progression of 500 members" },
+    { "name": "gen3", "generator": "3 2000 3", "note": "one progression through all 2000 values" },
+    { "name": "gen4", "generator": "4 2000 4", "note": "values from 0 to 50 with many repeats" },
+    { "name": "08", "note": "three terms with an exact midpoint near the upper value limit" },
+    { "name": "09", "note": "several isolated extrema surround an internal seven-term progression" },
+    { "name": "10", "note": "a missing middle term breaks step 10 but leaves a longer step 20 answer" },
+    { "name": "11", "note": "a long interleaved progression beats a shorter consecutive sorted run" },
+    { "name": "12", "note": "maximum N with 1999 zeroes and one upper-bound value" },
+    { "name": "13", "note": "seeded small random case has tied optima with different steps and shared values" },
+    { "name": "gen5", "generator": "5 2000 5", "note": "maximum distinct count with the middle of a boundary-spanning progression missing" }
+  ]
+}
