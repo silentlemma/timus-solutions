@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1386_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 2 x 3 field, four commands" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "every command leads to one cell" },
+    { "name": "04", "note": "nobody moves: all cells in order" },
+    { "name": "05", "note": "a small room with two walls" },
+    { "name": "06", "note": "a quarter turn, a row swap and one merge" },
+    { "name": "gen1", "generator": "1 1", "note": "a torus of shifts: all 10 000 cells stay possible" },
+    { "name": "gen2", "generator": "2 2", "note": "a 100 x 100 maze with walls" },
+    { "name": "gen3", "generator": "3 3", "note": "random permutations, nothing merges" },
+    { "name": "gen4", "generator": "4 4", "note": "maps merging one pair each: the set shrinks slowly" },
+    { "name": "gen5", "generator": "5 5", "note": "random maps" },
+    { "name": "07", "note": "a single row of 100 cells and two noncommuting commands" },
+    { "name": "08", "note": "a single column of 100 cells keeps moving after all starts merge" },
+    { "name": "09", "note": "one command reaches sparse border cells listed in row-first order" },
+    { "name": "10", "note": "the seventeenth command first merges cells after four repeated blocks" },
+    { "name": "11", "note": "a seeded 4 x 5 random maze where each of the last three commands changes the answer" },
+    { "name": "gen6", "generator": "138606 6", "note": "all 10000 cells survive 3999 commands before a final projection to 257 cells" },
+    { "name": "gen7", "generator": "138607 7", "note": "a sequence of 3999 random commands leaves a survivor in each of 2500 separate tiles" }
+  ]
+}
