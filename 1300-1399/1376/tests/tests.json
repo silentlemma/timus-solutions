@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1376_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; other orders of the same rolls are as good" },
+    { "name": "02", "note": "two rolls cannot improve the distance, so staying on the base wins the tie" },
+    { "name": "03", "note": "the flattest pyramid, the point on a diagonal" },
+    { "name": "04", "note": "a tall pyramid ending almost on the point" },
+    { "name": "05", "note": "a far diagonal target using the entire roll budget" },
+    { "name": "06", "note": "the point on an axis with an odd N" },
+    { "name": "gen1", "generator": "1 1", "note": "a random pyramid, point and N" },
+    { "name": "gen2", "generator": "2 2", "note": "the full roll budget on a tall pyramid with a first-quadrant target" },
+    { "name": "gen3", "generator": "3 3", "note": "an oblique target in the second quadrant with a near-minimum edge ratio" },
+    { "name": "gen4", "generator": "4 4", "note": "a near-maximum edge ratio on a small pyramid with a northwest target" },
+    { "name": "gen5", "generator": "5 5", "note": "a small N" },
+    { "name": "gen6", "generator": "6 6", "note": "the point on an axis" },
+    { "name": "07", "note": "both edges at their minimum and the first budget that permits progress" },
+    { "name": "08", "note": "maximum base edge and minimum lateral-to-base ratio with four rolls" },
+    { "name": "09", "note": "maximum lateral edge and a ratio just below its upper limit" },
+    { "name": "10", "note": "six rolls allowed but the symmetric closest ending takes only five" },
+    { "name": "11", "note": "maximum edge ratio and an oblique target exactly at the minimum radius" },
+    { "name": "12", "note": "retained random case whose optimum returns to the base between two trips" },
+    { "name": "13", "note": "minimum base edge and maximum ratio with all 32 rolls toward negative x" },
+    { "name": "gen7", "generator": "7 7", "note": "seeded nine-roll pyramid with a signed 3:4 target at the exact radius boundary" },
+    { "name": "gen8", "generator": "8 8", "note": "both edges maximal with 32 rolls and an oblique third-quadrant target" },
+    { "name": "gen9", "generator": "9 9", "note": "minimum edge ratio with an odd roll budget and a distant target near negative x" },
+    { "name": "gen10", "generator": "10 10", "note": "minimum lateral edge and twelve rolls toward a target barely off negative y" }
+  ]
+}
