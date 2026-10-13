@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1462_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 8 bars, 2 safes" },
+    { "name": "02", "note": "the next even index after the minimum" },
+    { "name": "03", "note": "an odd index just above the sample" },
+    { "name": "04", "note": "a three-digit answer from a short recurrence" },
+    { "name": "05", "note": "beyond 32-bit integers" },
+    { "name": "06", "note": "the last Lucas number below 2^64" },
+    { "name": "07", "note": "the first one beyond 2^64" },
+    { "name": "08", "note": "a 209-digit answer requiring multiple limbs" },
+    { "name": "09", "note": "the largest N: 14630 digits" },
+    { "name": "10", "note": "an odd large N" },
+    { "name": "11", "note": "a middle-sized N" },
+    { "name": "12", "note": "the first answer above 2^53 is odd and loses double precision" },
+    { "name": "13", "note": "the last answer that fits in a signed 64-bit integer" },
+    { "name": "14", "note": "the lower 18-digit limb needs a leading zero when printed" },
+    { "name": "15", "note": "the last answer within Python's default 4300-digit printing limit" },
+    { "name": "16", "note": "the first answer exceeding Python's default printing limit" },
+    { "name": "17", "generator": "random 1462 100 999", "note": "seeded random N with several 18-digit limbs" },
+    { "name": "18", "generator": "random 20261023 20000 69998", "note": "seeded random interior N producing thousands of decimal digits" }
+  ]
+}

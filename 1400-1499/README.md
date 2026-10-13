@@ -66,3 +66,4 @@
 | 1459 | [Archer's Travel](1459/) | dp | C++, Go, Python, Java, Rust |
 | 1460 | [Wires](1460/) | geometry | C++, Go, Python, Java, Rust |
 | 1461 | [Christmas Garland](1461/) | greedy | C++, Go, Python, Java, Rust |
+| 1462 | [Uncle Scrooge's Gold](1462/) | math | C++, Go, Python, Java, Rust |
