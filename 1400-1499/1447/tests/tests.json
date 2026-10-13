@@ -1,0 +1,25 @@
+{
+  "judging": "float:0.00000001",
+  "reference": "1447_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a costlier tree gives a lower cost per metre" },
+    { "name": "02", "example": true, "note": "a short link with the highest individual ratio belongs to the optimal tree" },
+    { "name": "03", "note": "two branches, one link" },
+    { "name": "04", "note": "long cheap links beat short dear ones" },
+    { "name": "05", "note": "a tree: every link is needed" },
+    { "name": "06", "note": "all links alike" },
+    { "name": "07", "note": "the smallest ratio" },
+    { "name": "gen1", "generator": "1 1000 499500 1", "note": "a complete network of 1000 branches" },
+    { "name": "gen2", "generator": "2 1000 499500 2", "note": "costs almost proportional to lengths" },
+    { "name": "gen3", "generator": "3 1000 499500 3", "note": "small values with many ties" },
+    { "name": "gen4", "generator": "4 1000 999 1", "note": "a tree joining 1000 branches" },
+    { "name": "gen5", "generator": "5 1000 5000 2", "note": "a sparse network" },
+    { "name": "08", "note": "unit lengths and near-maximum costs give a large half-integer ratio" },
+    { "name": "09", "note": "sorting links by their individual cost per metre chooses the wrong tree" },
+    { "name": "10", "note": "a costly mandatory bridge makes longer trees preferable inside both triangles" },
+    { "name": "11", "note": "different lengths and costs proportional by seven make every spanning tree optimal" },
+    { "name": "12", "note": "a seeded stress case has nearly equal costs and lengths but the cheapest tree loses" },
+    { "name": "13", "note": "a seeded mixed graph defeats choosing the spanning tree with greatest total length" },
+    { "name": "gen6", "generator": "1447 1000 1000 1", "note": "maximum branch count with one cycle forces all bridges and leaves only one edge to omit" }
+  ]
+}
