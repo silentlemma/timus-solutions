@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1448_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any even enough row is accepted" },
+    { "name": "02", "note": "one lamp, all dark" },
+    { "name": "03", "note": "one lamp, full brightness" },
+    { "name": "04", "note": "one lamp at half brightness" },
+    { "name": "05", "note": "every lamp on" },
+    { "name": "06", "note": "exactly one period of 100 lamps" },
+    { "name": "07", "note": "three lamps at 67 percent" },
+    { "name": "gen1", "generator": "1000000 0", "note": "a million lamps, all off" },
+    { "name": "gen2", "generator": "1000000 100", "note": "a million lamps, all on" },
+    { "name": "gen3", "generator": "1000000 33", "note": "a million lamps at 33 percent" },
+    { "name": "gen4", "generator": "1000000 1", "note": "one lamp in a hundred" },
+    { "name": "gen5", "generator": "1000000 99", "note": "all but one lamp in a hundred" },
+    { "name": "gen6", "generator": "999999 50", "note": "every second lamp, an odd count" },
+    { "name": "gen7", "generator": "1000000 61", "note": "a ratio with a long pattern" },
+    { "name": "08", "note": "99 lamps at 3 percent, where an all-dark row exceeds the tolerance" },
+    { "name": "09", "note": "101 lamps at 97 percent, crossing the 100-lamp boundary with sparse dark lamps" },
+    { "name": "10", "note": "183 lamps at 75 percent, ending three lamps into a four-lamp cycle" },
+    { "name": "gen8", "generator": "random 1451", "note": "seeded random long corridor with a partial final 100-lamp block" }
+  ]
+}
