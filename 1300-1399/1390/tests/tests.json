@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.000001",
+  "reference": "1390_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "walls built one by one around the origin" },
+    { "name": "02", "note": "walls and no shots: empty output" },
+    { "name": "03", "note": "shots and no walls" },
+    { "name": "04", "note": "hits at the very ends of walls" },
+    { "name": "05", "note": "a wall across the positive x axis" },
+    { "name": "06", "note": "a nearer wall built later wins, a farther one does not" },
+    { "name": "07", "note": "one direction at different speeds" },
+    { "name": "08", "note": "large flight times and a fast diagonal shot at a nearby wall" },
+    { "name": "gen1", "generator": "1 1", "note": "a batch of 24 999 random walls followed by 25 000 shots" },
+    { "name": "gen2", "generator": "2 2", "note": "walls and shots mixed" },
+    { "name": "gen3", "generator": "3 3", "note": "squares around the origin from the outside in" },
+    { "name": "gen4", "generator": "4 4", "note": "repeated shots in 200 directions at different speeds" },
+    { "name": "gen5", "generator": "5 5", "note": "wall ends on shot directions" },
+    { "name": "gen6", "generator": "6 6", "note": "short walls far from the origin" },
+    { "name": "09", "note": "crossing walls exchange which is nearest, with an exact tie at their intersection" },
+    { "name": "10", "note": "a wall straddles the negative x axis, including both endpoints and nearby misses" },
+    { "name": "11", "note": "determinant-one walls near the origin require exact signs and very small hit times" },
+    { "name": "12", "note": "parallel shots, intersections outside the segment, and intersections behind the bullet" },
+    { "name": "13", "note": "overlapping and disjoint pieces of one supporting line leave a gap until it is filled" },
+    { "name": "14", "note": "a single shot direction with irrelevant wall arcs before and between successful updates" },
+    { "name": "15", "note": "seeded small random events with early misses followed by endpoint hits in opposite quadrants" },
+    { "name": "gen7", "generator": "139007 7", "note": "three progressively nearer vertical walls interleaved with 49 997 random shots" },
+    { "name": "gen8", "generator": "139008 8", "note": "a single final diagonal shot after 49 999 random walls" }
+  ]
+}

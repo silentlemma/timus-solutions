@@ -1,0 +1,17 @@
+wall 6 1 6 4
+shot 6 0
+shot 6 2
+shot 6 5
+wall 6 7 6 3
+shot 6 0
+shot 6 2
+shot 6 5
+shot 6 8
+wall 6 -3 6 -1
+shot 6 -2
+shot 6 0
+wall 6 -1 6 1
+shot 6 0
+shot 6 1
+shot 6 -1
+end
