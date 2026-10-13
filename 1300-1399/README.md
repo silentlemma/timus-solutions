@@ -70,3 +70,4 @@
 | 1363 | [Halftones](1363/) | greedy | C++, Go, Python, Java, Rust |
 | 1364 | [LaraKiller](1364/) | simulation | C++, Go, Python, Java, Rust |
 | 1365 | [Testing Calculator](1365/) | parsing | C++, Go, Python, Java, Rust |
+| 1366 | [Presents](1366/) | math | C++, Go, Python, Java, Rust |
