@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1454_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample arrangement forms a 7 by 7 square" },
+    { "name": "02", "note": "a pinwheel around a unit square" },
+    { "name": "03", "note": "five unit squares in a row" },
+    { "name": "04", "note": "prime total area forces a unit-width strip that cannot hold the 3 by 3 square" },
+    { "name": "05", "note": "five largest squares in a row" },
+    { "name": "06", "note": "a large pinwheel" },
+    { "name": "07", "note": "dominoes in both orientations" },
+    { "name": "08", "note": "four 3 by 3 squares and a unit square" },
+    { "name": "09", "note": "two near-limit rectangles cannot fit together in any candidate box" },
+    { "name": "10", "note": "three squares and two bars" },
+    { "name": "11", "note": "rotation allows two pairs of bars to surround a square in a 5 by 7 pinwheel" },
+    { "name": "12", "note": "a pinwheel with the wrong centre" },
+    { "name": "13", "note": "the 9 by 9 square is wider than every candidate box" },
+    { "name": "14", "note": "a pinwheel of thin strips around a 998 by 998 square" },
+    { "name": "15", "note": "two 3 by 3 and three 2 by 2 squares tile a 5 by 6 rectangle" },
+    { "name": "16", "note": "an asymmetric pinwheel with five distinct shapes and a rectangular centre" },
+    { "name": "17", "note": "total area 25 is a square but four 2 by 2 squares cannot surround a 3 by 3 square" },
+    { "name": "18", "note": "unequal unit-width bars at the side limit form a strip of length 4990" },
+    { "name": "19", "note": "each piece fits a 3 by 10 box, but only a 5 by 6 box can be tiled" },
+    { "name": "20", "note": "each piece fits inside 7 by 9 and the total area matches, but no tiling exists" },
+    { "name": "21", "note": "backtracking is needed after the first legal placements" },
+    { "name": "22", "note": "near-limit pieces are too wide for every candidate box despite composite total area" },
+    { "name": "23", "note": "a 1000 by 1000 square is tiled by a full-height panel and four smaller panels" }
+  ]
+}
