@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1361_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "A reaches the meeting point on the second lap" },
+    { "name": "02", "note": "both start at the same crossroad" },
+    { "name": "03", "note": "B stays on a loop that A passes after one minute" },
+    { "name": "04", "note": "two crossroads swapped every minute: never" },
+    { "name": "05", "note": "a meeting after fourteen minutes in a small city" },
+    { "name": "gen1", "generator": "6 1", "note": "random roads in 100 000 crossroads" },
+    { "name": "gen2", "generator": "2 2", "note": "cycles of 49 999 and 50 001: a meeting past 2^31" },
+    { "name": "gen3", "generator": "3 3", "note": "two cycles of 50 000 entered out of step: never" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain walked at different speeds" }
+  ]
+}
