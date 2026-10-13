@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1376_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; other orders of the same rolls are as good" },
+    { "name": "02", "note": "N = 2 is too few to come closer: no rolls" },
+    { "name": "03", "note": "the flattest pyramid, the point on a diagonal" },
+    { "name": "04", "note": "a tall pyramid ending almost on the point" },
+    { "name": "05", "note": "a point far beyond reach: all 32 rolls straight at it" },
+    { "name": "06", "note": "the point on an axis with an odd N" },
+    { "name": "gen1", "generator": "1 1", "note": "a random pyramid, point and N" },
+    { "name": "gen2", "generator": "2 2", "note": "N = 32" },
+    { "name": "gen3", "generator": "3 3", "note": "the flattest pyramid, N = 32" },
+    { "name": "gen4", "generator": "4 4", "note": "the tallest pyramid, N = 32" },
+    { "name": "gen5", "generator": "5 5", "note": "a small N" },
+    { "name": "gen6", "generator": "6 6", "note": "the point on an axis" }
+  ]
+}

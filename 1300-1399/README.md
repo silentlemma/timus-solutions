@@ -80,3 +80,4 @@
 | 1373 | [Pictura ex Machina](1373/) | geometry | C++, Go, Python, Java, Rust |
 | 1374 | [Misere](1374/) | games | C++, Go, Python, Java, Rust |
 | 1375 | [Bill Clevers](1375/) | number_theory | C++, Go, Python, Java, Rust |
+| 1376 | [Dean's Pyramid 2](1376/) | backtracking | C++, Go, Python, Java, Rust |
