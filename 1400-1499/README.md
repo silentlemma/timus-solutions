@@ -39,3 +39,4 @@
 | 1432 | [Twofold Luck](1432/) | greedy | C++, Go, Python, Java, Rust |
 | 1433 | [Diamonds](1433/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1434 | [Buses in Vasyuki](1434/) | bfs | C++, Go, Python, Java, Rust |
+| 1435 | [Financial Error](1435/) | math | C++, Go, Python, Java, Rust |

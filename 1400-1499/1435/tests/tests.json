@@ -1,0 +1,22 @@
+{
+  "judging": "exact",
+  "reference": "1435_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 26 was 62" },
+    { "name": "02", "note": "a forum case: 90 cannot come from 09" },
+    { "name": "03", "note": "a forum case: the swap is in the middle" },
+    { "name": "04", "note": "a forum case: the correct number is above 32 bits" },
+    { "name": "05", "note": "a forum case: one digit cannot be swapped" },
+    { "name": "06", "note": "10 cannot come from 01" },
+    { "name": "07", "note": "a forum case: the report itself is not changed" },
+    { "name": "08", "note": "the sums agree" },
+    { "name": "09", "note": "zeros only" },
+    { "name": "10", "note": "two records fit: the first is reported" },
+    { "name": "11", "note": "the last two digits of the largest record" },
+    { "name": "12", "note": "the last two digits, with a zero coming last" },
+    { "name": "gen1", "generator": "1 1", "note": "200 000 records, one swap near the end" },
+    { "name": "gen2", "generator": "2 2", "note": "100 000 records fit the swap: the first is reported" },
+    { "name": "gen3", "generator": "3 3", "note": "a difference no swap explains" },
+    { "name": "gen4", "generator": "4 4", "note": "200 000 records that add up" }
+  ]
+}
