@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1422_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single fly" },
+    { "name": "03", "note": "a forum case: three flies at one point and one more" },
+    { "name": "04", "note": "a forum case: four flies on one axis around the origin" },
+    { "name": "05", "note": "all flies at one point" },
+    { "name": "06", "note": "the farthest corners of the cube" },
+    { "name": "07", "note": "a line with unequal steps" },
+    { "name": "08", "note": "two flies" },
+    { "name": "gen1", "generator": "1 1", "note": "2000 random flies" },
+    { "name": "gen2", "generator": "2 2", "note": "1500 flies on one long line" },
+    { "name": "gen3", "generator": "3 3", "note": "a small cube full of lines" },
+    { "name": "gen4", "generator": "4 4", "note": "1000 flies at one point" }
+  ]
+}
