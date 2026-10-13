@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1408_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three variables, like terms to merge" },
+    { "name": "02", "note": "a forum case: fifty ones times fifty ones" },
+    { "name": "03", "note": "multiplied by 0: the polynomial 0" },
+    { "name": "04", "note": "a difference of squares: the middle terms cancel" },
+    { "name": "05", "note": "a negative constant" },
+    { "name": "06", "note": "a zero coefficient and a first power written out" },
+    { "name": "07", "note": "spaces inside powers, a power 0 and a zero term" },
+    { "name": "08", "note": "the constant -1" },
+    { "name": "09", "note": "a square with a constant" },
+    { "name": "10", "note": "a forum case: 484 terms ordered by degree and by a" },
+    { "name": "11", "note": "a polynomial that is 0 before multiplying" },
+    { "name": "12", "note": "leading zeros, repeated variables and spaces inside numbers" },
+    { "name": "13", "note": "all 26 letters in one term" }
+  ]
+}
