@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1441_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six odd rooms, three trails" },
+    { "name": "02", "note": "two rooms and one tunnel" },
+    { "name": "03", "note": "a cycle: one closed trail" },
+    { "name": "04", "note": "a star with five leaves" },
+    { "name": "05", "note": "two triangles sharing a room" },
+    { "name": "06", "note": "the complete graph on four rooms: all degrees odd" },
+    { "name": "07", "note": "the complete graph on five rooms: all degrees even" },
+    { "name": "08", "note": "a path" },
+    { "name": "09", "note": "two triangles joined by a tunnel" },
+    { "name": "gen1", "generator": "1 20000 20000 1", "note": "a random tree with extra tunnels, the largest sizes" },
+    { "name": "gen2", "generator": "2 20000 20000 2", "note": "one cycle through 20 000 rooms" },
+    { "name": "gen3", "generator": "3 20000 20000 3", "note": "a star: almost every room is odd" },
+    { "name": "gen4", "generator": "4 200 19900 1", "note": "the complete graph on 200 rooms" },
+    { "name": "gen5", "generator": "5 1000 1500 1", "note": "a sparse random graph" }
+  ]
+}
