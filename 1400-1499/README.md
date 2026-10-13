@@ -57,3 +57,4 @@
 | 1450 | [Russian Pipelines](1450/) | dp | C++, Go, Python, Java, Rust |
 | 1451 | [Beerhouse Tale](1451/) | geometry | C++, Go, Python, Java, Rust |
 | 1452 | [Pascal vs. C++](1452/) | hashing | C++, Go, Python, Java, Rust |
+| 1453 | [Queen](1453/) | math | C++, Go, Python, Java, Rust |

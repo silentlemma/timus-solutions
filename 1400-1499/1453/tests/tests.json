@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1453_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six rook moves and two bishop moves" },
+    { "name": "02", "note": "one dimension: the bishop adds nothing" },
+    { "name": "03", "note": "a corner of the smallest board" },
+    { "name": "04", "note": "the centre of a 3 by 3 board" },
+    { "name": "05", "note": "ten thousand dimensions of size two" },
+    { "name": "06", "note": "the centre of the largest board: a number of about 3000 digits" },
+    { "name": "07", "note": "a corner of the largest board: a single diagonal" },
+    { "name": "08", "note": "one coordinate at the edge" },
+    { "name": "gen1", "generator": "1 10000 100000 1", "note": "random coordinates" },
+    { "name": "gen2", "generator": "2 9999 99999 2", "note": "the exact centre of an odd board" },
+    { "name": "gen3", "generator": "3 10000 100000 3", "note": "coordinates near the centre" },
+    { "name": "gen4", "generator": "4 50 1000 3", "note": "a small board near the centre" },
+    { "name": "09", "note": "one dimension of minimum size at the upper endpoint: count the other cell once" },
+    { "name": "10", "note": "retained random case with repeated direction thresholds and a final one-direction tail" },
+    { "name": "11", "note": "two dimensions near opposite edges of the largest board leave a long single-direction diagonal tail" },
+    { "name": "gen5", "generator": "1453 10000 3 1", "note": "maximum dimensions on a size-three board with random mixtures of edges and centres" },
+    { "name": "gen6", "generator": "1454 10000 20000 4", "note": "ten thousand distinct edge distances change the direction count at every step" },
+    { "name": "gen7", "generator": "1455 10000 100000 5", "note": "maximum dimensions and side length with one central coordinate limiting all edge coordinates" }
+  ]
+}
