@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1443_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three short pieces share one rail" },
+    { "name": "02", "note": "the rail divides the road: no cutting" },
+    { "name": "03", "note": "a road shorter than a rail, ten pieces per rail" },
+    { "name": "04", "note": "one rail per line" },
+    { "name": "05", "note": "the road a tenth of a millimetre longer than a rail" },
+    { "name": "06", "note": "the largest number of rails" },
+    { "name": "07", "note": "two short pieces per rail, an odd number of lines" },
+    { "name": "08", "note": "a single short line" },
+    { "name": "09", "note": "lengths with fewer than four decimals" },
+    { "name": "10", "note": "trailing zeros after the point" },
+    { "name": "11", "note": "the road a tenth of a millimetre shorter than a rail" },
+    { "name": "12", "note": "a remainder just over half a rail prevents sharing" },
+    { "name": "13", "note": "general lengths, all lines" },
+    { "name": "14", "note": "exact division with four decimal places" },
+    { "name": "15", "note": "three offcuts exactly fill a rail after two full rails per line" },
+    { "name": "16", "note": "one decimal tick above the three-piece packing threshold needs a fourth rail" },
+    { "name": "17", "note": "maximum rail length and minimum line length let all eighteen lines share one rail" },
+    { "name": "18", "note": "seeded random fractional lengths pack four offcuts together with one left over" }
+  ]
+}
