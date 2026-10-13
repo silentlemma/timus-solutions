@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1477_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the six axis directions" },
+    { "name": "02", "note": "a single airplane" },
+    { "name": "03", "note": "two opposite airplanes: no plane through two directions" },
+    { "name": "04", "note": "eight directions on one great circle" },
+    { "name": "05", "note": "the eight corners of a cube" },
+    { "name": "06", "note": "two opposite airplanes on the edge of the best half" },
+    { "name": "07", "note": "a mixed small case" },
+    { "name": "gen1", "generator": "1 1", "note": "150 random directions" },
+    { "name": "gen2", "generator": "2 2", "note": "150 directions with small coordinates, many coplanar" },
+    { "name": "gen3", "generator": "3 3", "note": "most directions on one great circle" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random case" },
+    { "name": "gen5", "generator": "5 5", "note": "two narrow opposite cones" }
+  ]
+}

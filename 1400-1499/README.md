@@ -81,3 +81,4 @@
 | 1474 | [About Frogs](1474/) | constructive | C++, Go, Python, Java, Rust |
 | 1475 | [Ryaba Hen](1475/) | math | C++, Go, Python, Java, Rust |
 | 1476 | [Lunar Code](1476/) | dp | C++, Go, Python, Java, Rust |
+| 1477 | [Airplanes](1477/) | geometry | C++, Go, Python, Java, Rust |
