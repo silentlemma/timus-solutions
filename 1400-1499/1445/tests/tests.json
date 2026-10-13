@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1445_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one friend" },
+    { "name": "03", "note": "one company of 500: every gift is prepared" },
+    { "name": "04", "note": "a big company and a small one" },
+    { "name": "05", "note": "two equal companies alternate" },
+    { "name": "06", "note": "the biggest company equals the others plus one" },
+    { "name": "07", "note": "the biggest company two more than the others" },
+    { "name": "08", "note": "the largest input: 500 companies of 500" },
+    { "name": "09", "note": "one big company and many single friends" },
+    { "name": "10", "note": "a single friend beside a company of 500" },
+    { "name": "11", "note": "single friends only" },
+    { "name": "12", "note": "two tied largest companies with an odd total and a third company" },
+    { "name": "13", "note": "an interior dominant company with three singleton companies and mixed whitespace" },
+    { "name": "14", "note": "a company of 500 equals the sum of two unequal companies" },
+    { "name": "15", "note": "every allowed company size once, with total above 16 bits" },
+    { "name": "16", "generator": "random 144516 37 1 500", "note": "seeded random companies across the full size range" },
+    { "name": "17", "generator": "dominant 144517 12 500", "note": "a size-500 company dominates eleven randomly sized smaller companies" },
+    { "name": "18", "generator": "random 144518 500 480 500", "note": "maximum company count with random sizes close to the upper limit" }
+  ]
+}
