@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1419_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a real map" },
+    { "name": "02", "example": true, "note": "the second example: corner islands with two bridges" },
+    { "name": "03", "note": "a forum case: two halves joined by a single bridge" },
+    { "name": "04", "note": "a forum case: an island with five bridges" },
+    { "name": "05", "note": "a single island" },
+    { "name": "06", "note": "a - where only | fits" },
+    { "name": "07", "note": "two separate cubic maps side by side" },
+    { "name": "08", "note": "a real 50 by 50 map" },
+    { "name": "09", "note": "a real 49 by 50 map" },
+    { "name": "10", "note": "a real 50 by 3 map" }
+  ]
+}

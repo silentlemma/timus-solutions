@@ -23,3 +23,4 @@
 | 1416 | [Confidential](1416/) | graphs | C++, Go, Python, Java, Rust |
 | 1417 | [Space Poker](1417/) | math | C++, Go, Python, Java, Rust |
 | 1418 | [Military Story](1418/) | geometry | C++, Go, Python, Java, Rust |
+| 1419 | [Maps of the Island Worlds](1419/) | graphs | C++, Go, Python, Java, Rust |
