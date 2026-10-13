@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1467_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: N(N + 1) / 2" },
+    { "name": "02", "note": "k = 0: the sum is N" },
+    { "name": "03", "note": "the sum of squares" },
+    { "name": "04", "note": "the sum of cubes: zero coefficients inside" },
+    { "name": "05", "note": "k = 4" },
+    { "name": "06", "note": "k = 5" },
+    { "name": "07", "note": "k = 10" },
+    { "name": "08", "note": "k = 20" },
+    { "name": "09", "note": "k = 29" },
+    { "name": "10", "note": "the largest k" },
+    { "name": "11", "note": "k = 12" },
+    { "name": "12", "note": "k = 27" }
+  ]
+}
