@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.00011",
+  "reference": "1460_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one extra point, then two" },
+    { "name": "02", "note": "pins on a line, squares, crosses, thin rectangles and pins inside triangles" },
+    { "name": "gen1", "generator": "1 200 1", "note": "uniform random pins across the full coordinate range" },
+    { "name": "gen2", "generator": "2 200 2", "note": "pins near the board diagonals with independently varying distances from the origin" },
+    { "name": "gen3", "generator": "3 200 3", "note": "nearly horizontal configurations with vertical coordinates limited to minus one, zero and one" },
+    { "name": "gen4", "generator": "4 5 1", "note": "a small integer grid exercises equal distances and competing tree shapes" },
+    { "name": "03", "note": "one scalene convex set at the minimum batch size, needing two junctions" },
+    { "name": "04", "note": "a fourth pin on a triangle edge near either endpoint or at its midpoint" },
+    { "name": "05", "note": "three collinear pins and an off-line pin before, above and beyond them" },
+    { "name": "06", "note": "integer perturbations put a terminal angle on either side of 120 degrees" },
+    { "name": "07", "note": "an interior pin crosses the Fermat height and changes the active junction" },
+    { "name": "08", "note": "unit-scale pairs at opposite board corners joined by a very long trunk" },
+    { "name": "09", "note": "widely spaced pins almost collinear on a slanted line across the board" },
+    { "name": "10", "note": "asymmetric kites range from a tiny fourth arm to two interior junctions" },
+    { "name": "11", "note": "all 24 input orders of an irregular quadrilateral must give the same answer" },
+    { "name": "12", "note": "rotations and reflections of a triangle with an interior pin check symmetry invariance" },
+    { "name": "13", "note": "a stress-discovered noncollinear set needs no extra junction at all" },
+    { "name": "14", "note": "saved small random sets distinguish one-junction and two-junction optima" },
+    { "name": "15", "note": "a full batch alternates tiny and board-scale coordinates to check case isolation" },
+    { "name": "16", "generator": "146016 200 4", "note": "random acute triangles with a strictly interior fourth pin" },
+    { "name": "17", "generator": "146017 200 5", "note": "random skew parallelograms with slanted nonperpendicular sides" },
+    { "name": "18", "generator": "146018 200 6", "note": "random trapezoids combine a unit top edge with a broad base" },
+    { "name": "19", "generator": "146019 200 7", "note": "one pin on each board edge checks extreme coordinates and shuffled input order" }
+  ]
+}
