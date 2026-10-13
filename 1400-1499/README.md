@@ -17,3 +17,4 @@
 | 1410 | [Crack](1410/) | dp | C++, Go, Python, Java, Rust |
 | 1411 | [40 Islands Knights](1411/) | constructive | C++, Go, Python, Java, Rust |
 | 1412 | [Autumn Tide](1412/) | geometry | C++, Go, Python, Java, Rust |
+| 1413 | [Mars Jumper](1413/) | simulation | C++, Go, Python, Java, Rust |
