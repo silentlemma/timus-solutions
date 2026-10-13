@@ -102,3 +102,4 @@
 | 1395 | [Pascal vs. C++. Version 2](1395/) | hashing | C++, Rust |
 | 1396 | [Maximum. Version 2](1396/) | math | C++, Go, Python, Java, Rust |
 | 1397 | [Points Game](1397/) | geometry, games, greedy | C++, Go, Python, Java, Rust |
+| 1398 | [Bishop and Pawn](1398/) | games | C++, Go, Python, Java, Rust |
