@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1424_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any best set of people is accepted" },
+    { "name": "02", "note": "nobody waits" },
+    { "name": "03", "note": "one seat and nested trips: the shortest wins" },
+    { "name": "04", "note": "five people want the same trip, two seats" },
+    { "name": "05", "note": "a seat freed at a stop can be taken at that stop" },
+    { "name": "06", "note": "more seats than people" },
+    { "name": "gen1", "generator": "1 1", "note": "50 000 random trips, 1000 seats" },
+    { "name": "gen2", "generator": "2 2", "note": "short trips and one seat" },
+    { "name": "gen3", "generator": "3 3", "note": "everyone rides the whole way" },
+    { "name": "gen4", "generator": "4 4", "note": "nested trips around the middle" }
+  ]
+}
