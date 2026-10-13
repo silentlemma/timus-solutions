@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1483_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one draw" },
+    { "name": "02", "note": "a single team is both first and last with 0 points" },
+    { "name": "03", "note": "three teams: each can win once" },
+    { "name": "04", "note": "four teams: an odd number of games each" },
+    { "name": "05", "note": "the largest odd N" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "gen1", "generator": "1", "note": "an even field with a half-integer upper bound for the last-place score" },
+    { "name": "gen2", "generator": "2", "note": "a large odd field allowing equal scores without draws" },
+    { "name": "07", "note": "five teams: every team needs two wins to maximise the last-place score" },
+    { "name": "08", "note": "six teams: dividing the game count before multiplying by three loses a point" },
+    { "name": "09", "note": "a field of 667 teams with a last-place maximum of exactly 999 points" },
+    { "name": "gen3", "generator": "3277", "note": "seeded even N at the first four-digit last-place maximum" },
+    { "name": "gen4", "generator": "3887", "note": "seeded odd N just above 256 teams, with a first-place minimum of 256" }
+  ]
+}
