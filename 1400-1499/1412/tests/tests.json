@@ -1,0 +1,22 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1412_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one umbrella loses water, one brings some in" },
+    { "name": "02", "note": "a forum case that fixes which side is W and which is L" },
+    { "name": "03", "note": "a forum case: everyone far away" },
+    { "name": "04", "note": "a forum case: an umbrella far above the field" },
+    { "name": "05", "note": "a forum case: an umbrella wholly over the field changes nothing" },
+    { "name": "06", "note": "an umbrella touching two sides from inside" },
+    { "name": "07", "note": "a field narrower than an umbrella" },
+    { "name": "08", "note": "an umbrella outside the field drops water onto it" },
+    { "name": "09", "note": "centres right on the border: half in, half out" },
+    { "name": "10", "note": "an umbrella near x = L on a field that is not square" },
+    { "name": "11", "note": "four umbrellas touching the field from outside" },
+    { "name": "12", "note": "a rim touching a 1 by 1 field at one point" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 people on the largest field" },
+    { "name": "gen2", "generator": "2 2", "note": "1000 people along a 3 by 10 000 field" },
+    { "name": "gen3", "generator": "3 3", "note": "a tiny field with umbrellas around it" },
+    { "name": "gen4", "generator": "4 4", "note": "people crowding the border lines" }
+  ]
+}
