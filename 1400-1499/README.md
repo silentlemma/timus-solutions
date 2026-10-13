@@ -74,3 +74,4 @@
 | 1467 | [Sum of Degrees](1467/) | math | C++, Go, Python, Java, Rust |
 | 1468 | [Fraction](1468/) | math | C++, Go, Python, Java, Rust |
 | 1469 | [No Smoking!](1469/) | geometry | C++, Go, Python, Java, Rust |
+| 1470 | [UFOs](1470/) | fenwick | C++, Go, Python, Java, Rust |
