@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1446_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one student per house, in reverse order" },
+    { "name": "03", "note": "names equal to house names and a double space inside a name" },
+    { "name": "04", "note": "long names with spaces or hyphens and a 200-character name" },
+    { "name": "gen1", "generator": "1 1000 200", "note": "varied name lengths in a roster of 1000 students" },
+    { "name": "gen2", "generator": "2 1000 3", "note": "short names of up to three characters in a full roster" },
+    { "name": "05", "note": "three interleaved rounds retain ceremony order rather than sorting names" },
+    { "name": "06", "note": "identical names within and across houses must retain every occurrence" },
+    { "name": "07", "note": "names differing only in letter case remain distinct and unchanged" },
+    { "name": "08", "note": "leading spaces and boundary hyphens in names are preserved exactly" },
+    { "name": "09", "note": "one house receives 997 students before the other three houses appear" },
+    { "name": "10", "generator": "full 1446", "note": "maximum roster with every name exactly 200 characters and balanced houses" },
+    { "name": "11", "generator": "1446 17 1", "note": "small seeded random roster with exclusively one-letter names" }
+  ]
+}
