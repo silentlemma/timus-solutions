@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1429_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the leftover dough counts too" },
+    { "name": "02", "note": "no cuts: the whole dough" },
+    { "name": "03", "note": "a forum case: one cut" },
+    { "name": "04", "note": "a forum case: two circles touching outside" },
+    { "name": "05", "note": "a forum case: a small circle crossing a big one near its edge" },
+    { "name": "06", "note": "a forum case: the same cut twice" },
+    { "name": "07", "note": "a forum case: three circles through one point" },
+    { "name": "08", "note": "a forum case: a small circle touching a big one inside" },
+    { "name": "09", "note": "rings around one centre, one cut repeated" },
+    { "name": "10", "note": "a chain of circles touching each other" },
+    { "name": "11", "note": "the largest circles at the corners" },
+    { "name": "gen1", "generator": "1 1", "note": "500 large circles crossing everywhere" },
+    { "name": "gen2", "generator": "2 2", "note": "500 small circles, mostly apart" },
+    { "name": "gen3", "generator": "3 3", "note": "rings around a few centres" },
+    { "name": "gen4", "generator": "4 4", "note": "circles all passing through the origin" }
+  ]
+}
