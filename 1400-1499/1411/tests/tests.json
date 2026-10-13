@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1411_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example size; any valid map is accepted" },
+    { "name": "02", "note": "a single island" },
+    { "name": "03", "note": "two columns: the corner islands cannot get three bridges" },
+    { "name": "04", "note": "3 by 4: no cubic map at all" },
+    { "name": "05", "note": "6 by 3: no map, though 8 by 3 has one" },
+    { "name": "06", "note": "an odd number of islands" },
+    { "name": "07", "note": "the narrowest strip of height 3" },
+    { "name": "08", "note": "the same strip turned, from the forum" },
+    { "name": "09", "note": "a single 4 by 4 block" },
+    { "name": "10", "note": "odd width: the map is built turned" },
+    { "name": "11", "note": "a long strip of height 3" },
+    { "name": "12", "note": "a long strip of width 3" },
+    { "name": "13", "note": "odd width and a single row of blocks" },
+    { "name": "14", "note": "the largest map, from the forum" },
+    { "name": "15", "note": "odd width at the largest size" },
+    { "name": "16", "note": "odd height at the largest size" },
+    { "name": "17", "note": "a single column of blocks" },
+    { "name": "18", "note": "odd width with a block row of height 6" },
+    { "name": "19", "note": "a single column of islands" },
+    { "name": "20", "note": "a single 6 by 6 block" }
+  ]
+}
