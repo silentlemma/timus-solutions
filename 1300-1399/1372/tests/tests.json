@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1372_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one engine turning the station about the pole" },
+    { "name": "02", "note": "two engines that cancel: no thrust needed" },
+    { "name": "03", "note": "an engine on the north pole" },
+    { "name": "04", "note": "engines pushing straight out: no torque" },
+    { "name": "05", "note": "minimum engine thrust acts tangentially at the equator" },
+    { "name": "06", "note": "nine engines at random" },
+    { "name": "07", "note": "a torque along the diagonal" },
+    { "name": "08", "note": "nine identical tangential pushes reach the maximum combined thrust" },
+    { "name": "09", "note": "a direction whose longitude rounds to 360" },
+    { "name": "10", "note": "a tiny thrust that prints as zero at eight decimals" },
+    { "name": "11", "note": "opposite forces at opposite places form a couple with twice the thrust" },
+    { "name": "12", "note": "opposed tangential pushes cancel at one mast leaving an oblique push" },
+    { "name": "13", "note": "a push thirty degrees from the radius needs half the original thrust" },
+    { "name": "14", "note": "three groups of three engines cancel without opposite torque pairs" },
+    { "name": "15", "note": "strong opposite torques leave a small tilted nonzero remainder" },
+    { "name": "16", "note": "a nearly radial push still needs a small positive corrective thrust" },
+    { "name": "17", "note": "nearly antiparallel vectors straddle the longitude seam near both poles" },
+    { "name": "18", "note": "nine engines mix inward and outward radial pushes with unequal signed torques" },
+    { "name": "19", "note": "a random eight-engine station has unit thrust and maximum decoy mass" },
+    { "name": "20", "note": "longitude 360 is accepted at the south pole and for an equatorial push" },
+    { "name": "21", "generator": "137221 poles", "note": "nine random engines cluster near both poles at maximum radius and thrust" },
+    { "name": "22", "generator": "137222 radial", "note": "random inward and outward almost radial pushes leave competing tiny torques" },
+    { "name": "23", "generator": "137223 pairs", "note": "shuffled cancelling pairs leave a single unpaired engine to balance" }
+  ]
+}
