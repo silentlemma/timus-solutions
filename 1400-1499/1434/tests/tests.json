@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1434_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a route ridden backwards" },
+    { "name": "02", "note": "destination lies on no route: -1" },
+    { "name": "03", "note": "one ride, against the order of the route" },
+    { "name": "04", "note": "two routes that never meet: -1" },
+    { "name": "05", "note": "a chain of three rides" },
+    { "name": "06", "note": "a direct route beats a chain" },
+    { "name": "07", "note": "a route visiting one stop twice" },
+    { "name": "08", "note": "a direct ride beats a three-ride detour" },
+    { "name": "gen1", "generator": "1 1", "note": "one thousand random routes" },
+    { "name": "gen2", "generator": "2 2", "note": "a transfer at every link of a thousand-route chain" },
+    { "name": "gen3", "generator": "3 3", "note": "two halves with no link: -1" },
+    { "name": "gen4", "generator": "4 4", "note": "one route through all 100 000 stops" },
+    { "name": "09", "note": "minimum route count and distinct-stop city: only B has a singleton bus" },
+    { "name": "10", "note": "a cyclic detour listed first must lose to a later three-ride branch" },
+    { "name": "11", "note": "sparse large stop labels and transfers at both 100000 and 1" },
+    { "name": "12", "note": "random seed 136: six necessary rides among singleton, duplicate and looping routes" },
+    { "name": "gen5", "generator": "1434 5", "note": "exactly 200000 route numbers with dense overlaps before two compulsory transfers" },
+    { "name": "gen6", "generator": "1434 6", "note": "random adjacent-layer routes require eight rides despite many overlapping alternatives" }
+  ]
+}
