@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1354_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a two-letter word" },
+    { "name": "02", "example": true, "note": "only the last letter is a palindromic tail" },
+    { "name": "03", "example": true, "note": "a long palindromic tail of mixed case" },
+    { "name": "04", "note": "a single letter is doubled" },
+    { "name": "05", "note": "a palindrome still needs a non-empty addition" },
+    { "name": "06", "note": "one letter repeated gets one more" },
+    { "name": "07", "note": "letters differ by case" },
+    { "name": "08", "note": "a palindrome with a palindromic half" },
+    { "name": "09", "note": "alternating case" },
+    { "name": "gen1", "generator": "1 1", "note": "10 000 random letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a long palindrome after a short start" },
+    { "name": "gen3", "generator": "3 3", "note": "10 000 copies of one letter" },
+    { "name": "gen4", "generator": "4 4", "note": "long blocks of one letter split by others" }
+  ]
+}
