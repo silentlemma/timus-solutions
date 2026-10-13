@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1468_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "whole numbers, the largest values, base 36 and simple periods" },
+    { "name": "03", "note": "periods of almost 10 000 digits" },
+    { "name": "gen1", "generator": "1 1", "note": "100 random tests" },
+    { "name": "gen2", "generator": "2 2", "note": "100 tests with large prime denominators" },
+    { "name": "gen3", "generator": "3 3", "note": "100 tests with whole or finite results" }
+  ]
+}
