@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1495_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: no such number ends in 0 or 5" },
+    { "name": "02", "example": true, "note": "the smallest multiple of eight using only ones and twos" },
+    { "name": "03", "note": "the smallest divisor accepts a single one" },
+    { "name": "04", "note": "a single two is the smallest even answer" },
+    { "name": "05", "note": "the answer has exactly 30 digits" },
+    { "name": "06", "note": "a power of two requiring an eighteen-digit answer" },
+    { "name": "07", "note": "a multiple of ten cannot divide a number ending in one or two" },
+    { "name": "08", "note": "a large prime" },
+    { "name": "09", "note": "the largest N, divisible by 10" },
+    { "name": "10", "note": "the smallest answer divisible by three uses both allowed digits" },
+    { "name": "gen1", "generator": "1", "note": "an even multiple of three with no factor of five" },
+    { "name": "gen2", "generator": "2", "note": "a large even divisor coprime to five" },
+    { "name": "gen3", "generator": "3", "note": "a divisor divisible by four but not by three or five" }
+  ]
+}
