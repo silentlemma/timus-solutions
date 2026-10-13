@@ -65,3 +65,4 @@
 | 1358 | [Cables](1358/) | graphs | C++, Go, Python, Java, Rust |
 | 1359 | [Construction](1359/) | dp | C++, Go, Python, Java, Rust |
 | 1360 | [Philosophical Dispute](1360/) | math | C++, Go, Python, Java, Rust |
+| 1361 | [Spaceology vs. Chronistics](1361/) | graphs | C++, Go, Python, Java, Rust |
