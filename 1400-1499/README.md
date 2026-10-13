@@ -88,3 +88,4 @@
 | 1481 | [Winning Chances](1481/) | greedy | C++, Go, Python, Java, Rust |
 | 1482 | [Triangle Game](1482/) | geometry | C++, Go, Python, Java, Rust |
 | 1483 | [Table Football](1483/) | math | C++, Go, Python, Java, Rust |
+| 1484 | [Film Rating](1484/) | math | C++, Go, Python, Java, Rust |
