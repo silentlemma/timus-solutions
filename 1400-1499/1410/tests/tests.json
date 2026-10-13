@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1410_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: You come long" },
+    { "name": "02", "note": "the phrase spans several lines" },
+    { "name": "03", "note": "only separators: no words at all" },
+    { "name": "04", "note": "apostrophes split words, as in a forum case" },
+    { "name": "05", "note": "a forum case with runs of = between words" },
+    { "name": "06", "note": "an empty line" },
+    { "name": "07", "note": "a single long word" },
+    { "name": "08", "note": "the longest word loses to its two neighbours" },
+    { "name": "09", "note": "short words between long ones" },
+    { "name": "10", "note": "a single letter" },
+    { "name": "gen1", "generator": "1 1", "note": "10 000 words on many lines" },
+    { "name": "gen2", "generator": "2 2", "note": "5 000 words of 100 letters" },
+    { "name": "gen3", "generator": "3 3", "note": "lengths rise and fall" },
+    { "name": "gen4", "generator": "4 4", "note": "long separator runs and CRLF" }
+  ]
+}
