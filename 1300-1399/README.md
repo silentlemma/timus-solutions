@@ -57,3 +57,4 @@
 | 1350 | [Canteen](1350/) | implementation | C++, Go, Python, Java, Rust |
 | 1351 | [Good Gnusmas – Dead Gnusmas](1351/) | geometry | C++, Go, Python, Java, Rust |
 | 1352 | [Mersenne Primes](1352/) | number_theory | C++, Go, Python, Java, Rust |
+| 1353 | [Milliard Vasya's Function](1353/) | dp | C++, Go, Python, Java, Rust |

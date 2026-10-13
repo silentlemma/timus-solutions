@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1353_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the nine powers of ten below 10^9 and 10^9 itself" },
+    { "name": "02", "note": "the largest sum: only 999 999 999" },
+    { "name": "03", "note": "the most common sum" },
+    { "name": "04", "note": "a small sum, with no extra count for 10^9" },
+    { "name": "05", "note": "a sum above the middle" },
+    { "name": "06", "note": "the largest sum a single digit can take" },
+    { "name": "07", "note": "the first sum where the limit of 9 per digit matters" },
+    { "name": "08", "note": "the mirror of the most common sum" },
+    { "name": "09", "note": "one digit short of all nines" }
+  ]
+}
