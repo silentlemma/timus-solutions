@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1502_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest N: tiles 0-0, 0-1 and 1-1" },
+    { "name": "03", "note": "the ordinary set, 168 dots" },
+    { "name": "04", "note": "the largest N: the answer needs 64 bits" },
+    { "name": "05", "note": "a large odd N" },
+    { "name": "gen1", "generator": "1", "note": "a random N" },
+    { "name": "gen2", "generator": "2", "note": "a three-digit N with a total below one billion" },
+    { "name": "06", "note": "leading and trailing whitespace around a small odd N" },
+    { "name": "07", "note": "the first total that single-precision floating point cannot represent exactly" },
+    { "name": "08", "note": "the product before division first exceeds signed 32 bits while the answer still fits" },
+    { "name": "09", "note": "the largest N whose total still fits in a signed 32-bit integer" },
+    { "name": "10", "note": "the first total above the signed 32-bit limit" },
+    { "name": "11", "note": "the first total above the unsigned 32-bit limit" }
+  ]
+}
