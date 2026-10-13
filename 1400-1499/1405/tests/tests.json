@@ -1,0 +1,16 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1405_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "eight trees" },
+    { "name": "02", "note": "two trees far apart: both ropes stop at 50 meters" },
+    { "name": "03", "note": "a forum case: a rope may not be shorter than 1 meter" },
+    { "name": "04", "note": "a forum case on a line" },
+    { "name": "05", "note": "two trees 2 meters apart: both ropes exactly 1 meter" },
+    { "name": "06", "note": "trees too close to their neighbours cannot take a goat" },
+    { "name": "gen1", "generator": "1 1", "note": "1 000 random trees" },
+    { "name": "gen2", "generator": "2 2", "note": "a crowd of trees and three far away" },
+    { "name": "gen3", "generator": "3 3", "note": "a grid with 3 meters between neighbours" },
+    { "name": "gen4", "generator": "4 4", "note": "pairs of trees exactly 1 meter apart" }
+  ]
+}
