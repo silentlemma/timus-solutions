@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1363_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the format example, smaller than the limits allow" },
+    { "name": "gen1", "generator": "1 1", "note": "300 x 300 random noise" },
+    { "name": "gen2", "generator": "2 2", "note": "a grey that breaks rounding every row from the left" },
+    { "name": "gen3", "generator": "3 3", "note": "a smooth gradient" },
+    { "name": "gen4", "generator": "4 4", "note": "random grey rectangles" },
+    { "name": "gen5", "generator": "5 5", "note": "the smallest picture, one grey per row" },
+    { "name": "gen6", "generator": "6 6", "note": "a tall picture of middle grey" }
+  ]
+}

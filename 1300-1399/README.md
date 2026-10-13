@@ -67,3 +67,4 @@
 | 1360 | [Philosophical Dispute](1360/) | math | C++, Go, Python, Java, Rust |
 | 1361 | [Spaceology vs. Chronistics](1361/) | graphs | C++, Go, Python, Java, Rust |
 | 1362 | [Classmates 2](1362/) | dp | C++, Go, Python, Java, Rust |
+| 1363 | [Halftones](1363/) | greedy | C++, Go, Python, Java, Rust |
