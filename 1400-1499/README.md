@@ -22,3 +22,4 @@
 | 1415 | [Mobile Life](1415/) | geometry, simulation | C++, Go, Python, Java, Rust |
 | 1416 | [Confidential](1416/) | graphs | C++, Go, Python, Java, Rust |
 | 1417 | [Space Poker](1417/) | math | C++, Go, Python, Java, Rust |
+| 1418 | [Military Story](1418/) | geometry | C++, Go, Python, Java, Rust |

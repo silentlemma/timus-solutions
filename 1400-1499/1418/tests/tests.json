@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1418_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one fence through all four posts" },
+    { "name": "02", "note": "three posts on a line: no fence" },
+    { "name": "03", "note": "a triangle" },
+    { "name": "04", "note": "a square and one post inside" },
+    { "name": "05", "note": "a triangle inside a square" },
+    { "name": "06", "note": "a 4 by 4 grid: two rings" },
+    { "name": "07", "note": "a 5 by 5 grid: the centre post is left over" },
+    { "name": "08", "note": "a line of posts inside a triangle makes no fence" },
+    { "name": "09", "note": "a post in the middle of a hull edge cannot support an inner fence" },
+    { "name": "10", "note": "three nested triangles" },
+    { "name": "gen1", "generator": "1 1", "note": "the maximum count of 4000 random posts" },
+    { "name": "gen2", "generator": "2 2", "note": "deep nesting with 1333 triangles" },
+    { "name": "gen3", "generator": "3 3", "note": "a 63 by 63 grid" },
+    { "name": "gen4", "generator": "4 4", "note": "a line remains inside 498 nested squares" },
+    { "name": "11", "note": "a determinant of magnitude one across the full coordinate range gives positive area" },
+    { "name": "12", "note": "two posts left after peeling two squares cannot form a third fence" },
+    { "name": "13", "note": "midpoints on sloping edges must disappear on each of three diamond layers" },
+    { "name": "14", "note": "two side-by-side triangular clusters cannot count as two nested fences" },
+    { "name": "15", "note": "unevenly spaced posts on the vertical coordinate limit have zero area" },
+    { "name": "16", "note": "a seeded irregular lattice sample leaves a five-post inner hull" },
+    { "name": "17", "note": "a seeded sheared cluster near 10000 has two tightly spaced layers" },
+    { "name": "gen5", "generator": "1418 5", "note": "only one hull layer forms from 4000 posts on opposite rectangle sides" },
+    { "name": "gen6", "generator": "271828 6", "note": "a thin band of 4000 random posts on five diagonals creates two layers and a collinear remainder" }
+  ]
+}
