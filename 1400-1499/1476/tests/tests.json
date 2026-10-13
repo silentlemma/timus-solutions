@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1476_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one column" },
+    { "name": "02", "example": true, "note": "the second example excludes the all-row rise across a single gap" },
+    { "name": "03", "note": "every matrix is valid at the maximum dimensions and rise cap" },
+    { "name": "04", "note": "the largest matrix with K = 0" },
+    { "name": "05", "note": "one row: the zeros may never turn into ones" },
+    { "name": "06", "note": "a single column with the maximum number of rows has no constraints" },
+    { "name": "07", "note": "half the rows may rise at each gap of the largest matrix" },
+    { "name": "08", "note": "a rectangular matrix with a cap below half the row count" },
+    { "name": "09", "note": "at most one row may rise per gap across the maximum column count" },
+    { "name": "gen1", "generator": "1", "note": "many nine-bit columns with only one rise permitted per gap" },
+    { "name": "gen2", "generator": "2", "note": "four independent nonincreasing rows over six columns" },
+    { "name": "gen3", "generator": "3", "note": "sixteen-row columns limit simultaneous rises to a quarter of the rows" },
+    { "name": "10", "note": "minimum dimensions and K: both single bits count" },
+    { "name": "11", "note": "one row with rises allowed at every one of the 39 gaps" },
+    { "name": "12", "note": "shortest constrained rows allow 10 but forbid 01" },
+    { "name": "13", "note": "the rise budget is separate for each adjacent column pair" },
+    { "name": "14", "note": "all-row rises in the two adjacent gaps are mutually exclusive" },
+    { "name": "15", "note": "one gap over 40 rows: choose at most one 01 row, exceeding 64 bits" },
+    { "name": "16", "note": "one gap with a half-row cap exercises the inclusive binomial tail" },
+    { "name": "17", "note": "maximum dimensions with overlapping exclusions just below K = M" },
+    { "name": "18", "note": "long thin matrix allows repeated rises but never two in the same gap" },
+    { "name": "19", "note": "multiple column patterns sharing a one count under a two-rise cap" },
+    { "name": "20", "generator": "359", "note": "seeded six-row 33-column matrix with an intermediate rise cap" },
+    { "name": "21", "generator": "144", "note": "seeded 29-row three-column matrix with two interacting rise counts" }
+  ]
+}
