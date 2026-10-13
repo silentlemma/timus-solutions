@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1481_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single weight" },
+    { "name": "03", "note": "the left pan wins all 50 steps" },
+    { "name": "04", "note": "the winner changes at every step" },
+    { "name": "05", "note": "three close weights: always loading the lighter pan fails" },
+    { "name": "06", "note": "one very heavy weight" },
+    { "name": "gen1", "generator": "1 1", "note": "nine shuffled weights with both isolated winners and two-step runs" },
+    { "name": "gen2", "generator": "2 2", "note": "a change at every step" },
+    { "name": "gen3", "generator": "3 3", "note": "no change at all" },
+    { "name": "gen4", "generator": "4 4", "note": "close weights" },
+    { "name": "07", "note": "two adjacent maximum weights must reverse the winner without a tie" },
+    { "name": "08", "note": "two weights at opposite range limits keep the right pan heavier" },
+    { "name": "09", "note": "a last-step reversal when one weight equals the sum of the other two" },
+    { "name": "10", "note": "two equal-length winner runs with an even number of close weights" },
+    { "name": "11", "note": "two direction changes separated by a single opposite result" },
+    { "name": "12", "note": "powers of two with mixed runs and shuffled input order" },
+    { "name": "13", "note": "all 50 largest allowed weights give a total above 16-bit signed range" },
+    { "name": "14", "note": "the only winner change occurs at the final step after 48 repeats" },
+    { "name": "15", "note": "the only winner change occurs at the second step before 48 repeats" },
+    { "name": "16", "note": "alternating winners with 49 close weights and a final repeated winner" },
+    { "name": "17", "note": "seeded small random case mixes five reversals with two repeats" },
+    { "name": "gen5", "generator": "148105 5", "note": "maximum-size low and high weight clusters with two-step winner runs" },
+    { "name": "gen6", "generator": "148106 6", "note": "maximum-size random weights with winner runs growing from one to nine steps before a truncated final run" }
+  ]
+}
