@@ -83,3 +83,4 @@
 | 1376 | [Dean's Pyramid 2](1376/) | backtracking | C++, Go, Python, Java, Rust |
 | 1377 | [Lara Croft](1377/) | simulation | C++, Go, Python, Java, Rust |
 | 1378 | [Artificial Intelligence](1378/) | geometry | C++, Go, Python, Java, Rust |
+| 1379 | [Cups Transportation](1379/) | graphs | C++, Go, Python, Java, Rust |
