@@ -91,3 +91,4 @@
 | 1384 | [Goat in the Garden 4](1384/) | geometry | C++, Go, Python, Java, Rust |
 | 1385 | [Interesting Number](1385/) | math | C++, Go, Python, Java, Rust |
 | 1386 | [Maze](1386/) | simulation | C++, Go, Python, Java, Rust |
+| 1387 | [Vasya's Dad](1387/) | math | C++, Go, Python, Java, Rust |
