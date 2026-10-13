@@ -19,3 +19,4 @@
 | 1412 | [Autumn Tide](1412/) | geometry | C++, Go, Python, Java, Rust |
 | 1413 | [Mars Jumper](1413/) | simulation | C++, Go, Python, Java, Rust |
 | 1414 | [Astronomical Database](1414/) | sorting, binary_search | C++, Go, Python, Java, Rust |
+| 1415 | [Mobile Life](1415/) | geometry, simulation | C++, Go, Python, Java, Rust |

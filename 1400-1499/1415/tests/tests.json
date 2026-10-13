@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1415_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: red in Znaika, then Romashka" },
+    { "name": "02", "note": "a forum case: one station regained after red is only a signal change" },
+    { "name": "03", "note": "a forum case: switching back and forth between two stations" },
+    { "name": "04", "note": "a forum case: three stations reach the red circle at once, the smallest name wins" },
+    { "name": "05", "note": "power on in orange, then red and a switch" },
+    { "name": "06", "note": "power on in red with no station in reach" },
+    { "name": "07", "note": "zero-length segments" },
+    { "name": "08", "note": "equal power at power on: the smaller name" },
+    { "name": "09", "note": "names compare by bytes: B before a" },
+    { "name": "10", "note": "the phone keeps a weak cell until it goes red" },
+    { "name": "gen1", "generator": "1 1", "note": "a thousand-segment route through 100 stations spread across the town" },
+    { "name": "gen2", "generator": "2 2", "note": "densely packed stations with radii from 1 to 10" },
+    { "name": "gen3", "generator": "3 3", "note": "simultaneous recovery of 30 stations sharing the same red-circle boundary" },
+    { "name": "gen4", "generator": "4 4", "note": "zero-length segments and driving back and forth" },
+    { "name": "11", "note": "maximum radius and opposite coordinate corners on a single diagonal segment" },
+    { "name": "12", "note": "a shallow chord just inside the red circle briefly regains orange without tangency" },
+    { "name": "13", "note": "a distant large-radius station beats the nearest station at power on" },
+    { "name": "14", "note": "the strongest cell at the red crossing differs from the strongest later on the segment" },
+    { "name": "15", "note": "equal power with unequal radii and a 49-character name preceding its 50-character extension" },
+    { "name": "16", "note": "seeded small route visits three cells and hands over directly from red to indigo" },
+    { "name": "17", "note": "seeded search route crosses several separated reception intervals before a new cell is available" },
+    { "name": "gen5", "generator": "1415 5", "note": "wide cells keep reception non-red across 1000 random segments and inner-band crossings" },
+    { "name": "gen6", "generator": "1415 6", "note": "long segments cross a chain of 100 overlapping cells in both directions" }
+  ]
+}
