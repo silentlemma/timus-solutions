@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1392_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two balls that only touch" },
+    { "name": "02", "example": true, "note": "a touching pair and an overlapping pair" },
+    { "name": "03", "example": true, "note": "balls at the corner of the space" },
+    { "name": "04", "note": "a chain given out of order" },
+    { "name": "05", "note": "balls inside a larger one, one touching it from inside" },
+    { "name": "06", "note": "four balls that only touch" },
+    { "name": "07", "note": "a single planet" },
+    { "name": "08", "note": "two balls just out of reach" },
+    { "name": "09", "note": "a ball one unit short of two large ones" },
+    { "name": "gen1", "generator": "1 1", "note": "1 000 scattered balls" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of 1 000 balls in shuffled order" },
+    { "name": "gen3", "generator": "3 3", "note": "clusters of small balls" },
+    { "name": "gen4", "generator": "4 4", "note": "every ball overlaps every other" },
+    { "name": "gen5", "generator": "5 5", "note": "a lattice of touching balls, 20 of them grown" }
+  ]
+}
