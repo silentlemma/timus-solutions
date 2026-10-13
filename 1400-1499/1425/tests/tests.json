@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1425_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: every cell of a 3 by 3 by 3 board" },
+    { "name": "02", "note": "a forum case: one dimension, two cells: only back home" },
+    { "name": "03", "note": "a forum case: one dimension, four cells" },
+    { "name": "04", "note": "a forum case on a 6 by 6 board" },
+    { "name": "05", "note": "a forum case in three dimensions" },
+    { "name": "06", "note": "a forum case: five dimensions from a corner" },
+    { "name": "07", "note": "a forum case: five dimensions from the centre, the largest answer" },
+    { "name": "08", "note": "a forum case: four dimensions from a corner" },
+    { "name": "09", "note": "one dimension, three cells" },
+    { "name": "10", "note": "a 2 by 2 board" },
+    { "name": "11", "note": "five dimensions with two cells each" },
+    { "name": "12", "note": "five dimensions from an uneven cell" },
+    { "name": "13", "note": "one long dimension" },
+    { "name": "14", "note": "a 100 by 100 board near the middle" }
+  ]
+}
