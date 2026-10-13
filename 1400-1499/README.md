@@ -99,3 +99,4 @@
 | 1492 | [Vasya's Dad 2](1492/) | math | C++, Go, Python, Java, Rust |
 | 1493 | [One Step from Happiness](1493/) | implementation | C++, Go, Python, Java, Rust |
 | 1494 | [Monobilliards](1494/) | simulation | C++, Go, Python, Java, Rust |
+| 1495 | [One-two, One-two 2](1495/) | bfs | C++, Go, Python, Java, Rust |
