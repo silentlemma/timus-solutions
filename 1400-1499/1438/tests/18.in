@@ -1,0 +1,31 @@
+low = -2147483648
+high = 2147483647
+print low
+print high
+x = not high
+print x
+x = not low
+print x
+x = low xor high
+print x
+x = low and high
+print x
+x = low or high
+print x
+x = low / high
+print x
+x = low % high
+print x
+x = high % low
+print x
+x = low / low
+print x
+x = low % low
+print x
+x = high - high
+print x
+x = low + high
+print x
+x = low * 0
+print x
+end

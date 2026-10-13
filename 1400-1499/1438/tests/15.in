@@ -1,0 +1,14 @@
+x = 5
+if x == 5 goto a
+print 1
+a: if x >= 5 goto b
+print 2
+b: if x > 4 goto c
+print 3
+c: if x <= 5 goto d
+print 4
+d: if x < 6 goto e
+print 5
+e: if x != 5 goto f
+print 6
+f: print 7

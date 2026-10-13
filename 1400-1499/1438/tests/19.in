@@ -1,0 +1,52 @@
+a = -3974
+b = 751
+divisor = -29
+x = 0
+y = 1
+z = -1
+x = 502 - y
+if 502 <= y goto skipA
+print x
+skipA:
+x = z - 723
+if z == 723 goto skipB
+print x
+skipB:
+y = 11
+if 11 >= x goto skipC
+print y
+skipC:
+y = -255 % divisor
+if -255 < divisor goto skipD
+print y
+skipD:
+x = z / divisor
+if z <= divisor goto skipE
+print x
+skipE:
+z = y xor y
+if y >= y goto skipF
+print z
+skipF:
+x = not y
+if y < z goto skipG
+print x
+skipG:
+y = 471
+if 471 <= y goto skipH
+print y
+skipH:
+z = not x
+if x == -702 goto skipI
+print z
+skipI:
+again: divisor = 0 - b
+r = a % divisor
+a = b
+b = r
+if b != 0 goto AGAIN
+print a
+print x
+print y
+print z
+end

@@ -1,0 +1,7 @@
+i = 0
+loop: i = i + 1
+if i < 4999999 goto loop
+after:
+print i
+late = 1
+end
