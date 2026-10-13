@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1485_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example combines reciprocal and one-sided claims" },
+    { "name": "02", "example": true, "note": "the second example: no tournament fits" },
+    { "name": "03", "note": "a single team" },
+    { "name": "04", "note": "nobody said anything" },
+    { "name": "05", "note": "every captain claims to have scored nothing" },
+    { "name": "06", "note": "a chain of statements" },
+    { "name": "07", "note": "two captains who both claim no points: at least one of them lies" },
+    { "name": "gen1", "generator": "1 1", "note": "a three-team matrix links positive and negative claims through one captain" },
+    { "name": "gen2", "generator": "2 2", "note": "dense reports cover nearly every opponent at the maximum team count" },
+    { "name": "gen3", "generator": "3 3", "note": "partially reported results remain consistent with both truth statuses present" },
+    { "name": "gen4", "generator": "4 4", "note": "sparse statements leave most captains without reciprocal constraints" },
+    { "name": "gen5", "generator": "5 3", "note": "dense consistent reports require both honest and dishonest captains" },
+    { "name": "gen6", "generator": "6 1", "note": "a single one-sided claim leaves both captain statuses unrestricted" },
+    { "name": "08", "note": "one captain mixes positive and negative claims while all opponents stay silent" },
+    { "name": "09", "note": "unanimous positive claims force draws among at least three truthful teams" },
+    { "name": "10", "note": "a fully reported tournament fixes every captain's truth status" },
+    { "name": "11", "note": "seven mutually reported matches form a contradiction repaired by removing any one match" },
+    { "name": "12", "note": "disconnected triangles force opposite captain statuses beside a completely silent team" },
+    { "name": "13", "note": "maximum size has two dense isolated groups with opposite majority truth statuses" },
+    { "name": "14", "note": "all 9900 claims describe a strict ranking at the maximum number of teams" },
+    { "name": "15", "note": "opposite forced endpoints contradict only after propagation along a 95-match chain" },
+    { "name": "16", "generator": "25 1", "note": "one captain remains free while the other six truth statuses are fixed" },
+    { "name": "17", "note": "a three-team cyclic rivalry permits either common truth status but forbids every draw" },
+    { "name": "18", "note": "a reciprocal star places the only highly connected captain at index 100 with mixed claims" }
+  ]
+}
