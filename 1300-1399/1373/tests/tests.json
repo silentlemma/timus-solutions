@@ -1,0 +1,24 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1373_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four strokes, corners on both sides" },
+    { "name": "02", "note": "no strokes at all" },
+    { "name": "03", "note": "a stroke of length zero" },
+    { "name": "04", "note": "a short stroke: the corner is half a unit up" },
+    { "name": "05", "note": "a stroke going down: the corner is to the right" },
+    { "name": "06", "note": "corners outside the range of the input" },
+    { "name": "07", "note": "the longest diagonal stroke" },
+    { "name": "08", "note": "slanted strokes" },
+    { "name": "gen1", "generator": "1 1", "note": "one hundred thousand random strokes" },
+    { "name": "gen2", "generator": "2 2", "note": "many strokes near the origin" },
+    { "name": "gen3", "generator": "3 3", "note": "endpoints one unit apart with corners on half units" },
+    { "name": "09", "note": "separated zero-length strokes span the full x range but have zero height" },
+    { "name": "10", "note": "positive translated strokes give half-unit width and height without including the origin" },
+    { "name": "11", "note": "reversing an oblique stroke puts its second corner on the opposite side" },
+    { "name": "12", "note": "negative and positive half-unit corner extrema must not be truncated toward zero" },
+    { "name": "13", "note": "seeded small random strokes end with an isolated zero-length point that expands the frame" },
+    { "name": "14", "note": "seeded mixed directions have unequal half-unit dimensions enlarged by corners on both axes" },
+    { "name": "15", "generator": "1373 4", "note": "interior point strokes come first and the last four strokes set all frame extrema" }
+  ]
+}
