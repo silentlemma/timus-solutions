@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1418_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one fence through all four posts" },
+    { "name": "02", "note": "three posts on a line: no fence" },
+    { "name": "03", "note": "a triangle" },
+    { "name": "04", "note": "a square and one post inside" },
+    { "name": "05", "note": "a triangle inside a square" },
+    { "name": "06", "note": "a 4 by 4 grid: two rings" },
+    { "name": "07", "note": "a 5 by 5 grid: the centre post is left over" },
+    { "name": "08", "note": "a line of posts inside a triangle makes no fence" },
+    { "name": "09", "note": "a post in the middle of a hull edge must be on the outer fence" },
+    { "name": "10", "note": "three nested triangles" },
+    { "name": "gen1", "generator": "1 1", "note": "4000 random posts" },
+    { "name": "gen2", "generator": "2 2", "note": "1333 nested triangles" },
+    { "name": "gen3", "generator": "3 3", "note": "a 63 by 63 grid" },
+    { "name": "gen4", "generator": "4 4", "note": "498 nested squares and a line inside" }
+  ]
+}
