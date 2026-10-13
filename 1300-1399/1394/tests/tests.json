@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1394_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five ships in two rows" },
+    { "name": "02", "note": "one ship per row" },
+    { "name": "03", "note": "a forum fleet with 13 lengths and one very long row" },
+    { "name": "04", "note": "a forum fleet of long ships with a few short ones" },
+    { "name": "05", "note": "two equal rows admit different fillings using repeated length-three ships" },
+    { "name": "06", "note": "three kinds of ships, one of each in every row" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum-size fleet of varied lengths spread across nine rows" },
+    { "name": "gen2", "generator": "2 2", "note": "long ships from 88 to 100 in a fleet of ninety-nine ships" },
+    { "name": "gen3", "generator": "3 3", "note": "mostly equal ships" },
+    { "name": "gen4", "generator": "4 4", "note": "long ships with short ones fixing the remainders" },
+    { "name": "gen5", "generator": "5 5", "note": "a few lengths repeated, one very long row" },
+    { "name": "gen6", "generator": "6 6", "note": "a two-row partition of ninety-nine varied ship lengths" },
+    { "name": "gen7", "generator": "7 7", "note": "multiples of ten with one nonmultiple required in each row" },
+    { "name": "gen8", "generator": "8 8", "note": "even ships with one odd ship per row" },
+    { "name": "07", "note": "minimum fleet and two nonempty rows, all lengths one" },
+    { "name": "08", "note": "maximum total length 9900 in nine unequal rows, all ships length 100" },
+    { "name": "09", "note": "largest possible row 9800 beside a row of length one" },
+    { "name": "10", "note": "unit ships require widely varying ship counts per row" },
+    { "name": "11", "note": "ten ships in nine unsorted rows, exactly one row combines two ships" },
+    { "name": "12", "note": "one odd unit ship is reserved for the only odd row of a random even fleet" },
+    { "name": "13", "note": "random repeated lengths require different mixtures in unequal rows" },
+    { "name": "gen9", "generator": "1394 9", "note": "nine equal rows force complementary pairs despite shuffled duplicate ships" },
+    { "name": "gen10", "generator": "1394 10", "note": "random lengths 76 to 100 force exactly three ships in each of five rows" }
+  ]
+}
