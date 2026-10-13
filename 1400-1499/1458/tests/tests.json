@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1458_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample ground becomes all B in two commands" },
+    { "name": "02", "note": "everyone already stands alike" },
+    { "name": "03", "note": "everyone stands the other way: still nothing to do" },
+    { "name": "04", "note": "one soldier differs on the smallest ground" },
+    { "name": "05", "note": "a 2 by 2 chessboard" },
+    { "name": "06", "note": "striped rows" },
+    { "name": "07", "note": "one soldier differs: a whole cross of commands" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "a random ground of 1000 by 1000" },
+    { "name": "gen2", "generator": "2 1000 2", "note": "one soldier differs on the largest ground" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "a maximum chessboard needs exactly half the cells commanded" },
+    { "name": "gen4", "generator": "4 998 4", "note": "few soldiers differ" },
+    { "name": "08", "note": "a cross touching the last row needs only its intersection commanded" },
+    { "name": "09", "note": "two commands in the last column cancel their shared column and reach all B" },
+    { "name": "10", "note": "four rectangle corners have even row and column counts on a 6 by 6 ground" },
+    { "name": "11", "note": "a random asymmetric ground with mixed parities is shorter to make all B" },
+    { "name": "12", "note": "a random tie with mixed row and column parities permits either target" },
+    { "name": "gen5", "generator": "5 1000 5", "note": "only the last column is B at maximum N and the shorter answer uses that column" },
+    { "name": "gen6", "generator": "1458 1000 6", "note": "maximum random ground with even B counts in every row and column" }
+  ]
+}
