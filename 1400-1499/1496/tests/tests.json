@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1496_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no submissions" },
+    { "name": "03", "note": "a single submission" },
+    { "name": "04", "note": "names of digits: 0 and 00 are different teams" },
+    { "name": "05", "note": "every team submitted once" },
+    { "name": "06", "note": "names of 30 characters that differ in length" },
+    { "name": "gen1", "generator": "1 1", "note": "100 submissions from a few teams" },
+    { "name": "gen2", "generator": "2 2", "note": "100 submissions from many teams" },
+    { "name": "gen3", "generator": "3 3", "note": "names of 30 characters" },
+    { "name": "gen4", "generator": "4 4", "note": "at most one submission" }
+  ]
+}
