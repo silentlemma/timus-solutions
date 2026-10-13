@@ -1,0 +1,14 @@
+{
+  "judging": "float:0.0000011",
+  "reference": "1457_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single point at the start" },
+    { "name": "03", "note": "a single point at the far end" },
+    { "name": "04", "note": "a thousand points at the far end" },
+    { "name": "05", "note": "a mean of 1/128, exactly halfway between two six-digit values" },
+    { "name": "06", "note": "the two ends of the main" },
+    { "name": "07", "note": "a repeating decimal" },
+    { "name": "08", "note": "a thousand random points" }
+  ]
+}
