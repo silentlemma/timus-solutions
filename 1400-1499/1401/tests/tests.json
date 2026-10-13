@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1401_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 4 by 4 board without its corner" },
+    { "name": "02", "note": "a 2 by 2 board: a single piece" },
+    { "name": "03", "note": "a 2 by 2 board without the other corner" },
+    { "name": "04", "note": "an 8 by 8 board without a cell near the middle" },
+    { "name": "05", "note": "a 16 by 16 board without the bottom left cell" },
+    { "name": "gen1", "generator": "1 1", "note": "512 by 512 without the top right cell" },
+    { "name": "gen2", "generator": "2 2", "note": "512 by 512 without a cell in the middle" },
+    { "name": "gen3", "generator": "3 3", "note": "512 by 512 without a random cell" },
+    { "name": "gen4", "generator": "4 4", "note": "512 by 512 without the bottom left cell" }
+  ]
+}
