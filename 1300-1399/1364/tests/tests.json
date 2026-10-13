@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1364_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five graves back and three forward to the treasure" },
+    { "name": "02", "note": "no time at all: only Lara's own grave" },
+    { "name": "03", "note": "Lara at the entrance with all the time: the whole tunnel" },
+    { "name": "04", "note": "two rows: the tunnel turns at the far corner" },
+    { "name": "05", "note": "two columns" },
+    { "name": "06", "note": "Lara at the treasure, nothing ahead" },
+    { "name": "gen1", "generator": "1 1", "note": "a full 100 x 100 spiral, all of it reachable" },
+    { "name": "gen2", "generator": "2 2", "note": "a random cemetery and places" },
+    { "name": "gen3", "generator": "3 3", "note": "Lara at the treasure in the middle of a full spiral" }
+  ]
+}
