@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1504_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any seat nearest to the 200-gram piece" },
+    { "name": "02", "note": "the heaviest piece's cell touches the edge at the single point (5, 0)" },
+    { "name": "03", "note": "two pieces on a table of radius 1" },
+    { "name": "04", "note": "the heaviest piece lies on the edge itself" },
+    { "name": "05", "note": "the heaviest piece is boxed in at the centre" },
+    { "name": "06", "note": "all pieces weigh the same" },
+    { "name": "07", "note": "a heavy central cell that falls 0.02995 short of the table edge" },
+    { "name": "gen1", "generator": "1 1", "note": "a thousand scattered pieces with random weights on a radius-100 table" },
+    { "name": "gen2", "generator": "2 2", "note": "heavier interior pieces surrounded by lighter neighbours in a dense random layout" },
+    { "name": "gen3", "generator": "3 3", "note": "a lattice of pieces heavier towards the centre" },
+    { "name": "gen4", "generator": "4 4", "note": "a few pieces with integer coordinates" },
+    { "name": "gen5", "generator": "5 5", "note": "a maximum-weight central piece enclosed by lighter pieces rounded just inside the rim" },
+    { "name": "gen6", "generator": "6 2", "note": "a dense radial weight gradient whose maximum lies just right of the centre" },
+    { "name": "gen7", "generator": "7 4", "note": "three vertically collinear pieces with the heaviest between the other two" },
+    { "name": "08", "note": "two opposite diameter endpoints with minimum and maximum weights at radius 100" },
+    { "name": "09", "note": "distinct pieces only 0.00001 apart in each coordinate on a radius-1 table" },
+    { "name": "10", "note": "the central maximum has a very narrow winning arc around the oblique direction (3, 4)" },
+    { "name": "11", "note": "three equal maximum weights but only the last of them has a cell reaching the edge" },
+    { "name": "12", "note": "seeded random integer layout where both heavier pieces are trapped and only weight 1 is attainable" },
+    { "name": "13", "note": "the central maximum remains reachable when every other piece is strictly to its right" },
+    { "name": "14", "note": "five pieces tie at the unique optimal seat (3, 4), with weights differing by one" },
+    { "name": "15", "note": "seeded random decimal cluster with an enclosed maximum and an asymmetric exposed runner-up" },
+    { "name": "gen8", "generator": "1504 6", "note": "a collinear set of a thousand pieces on a radius-1 table with a reachable central maximum" }
+  ]
+}
