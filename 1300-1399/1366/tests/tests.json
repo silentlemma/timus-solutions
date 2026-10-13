@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1366_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three children: two cycles" },
+    { "name": "02", "note": "a single child cannot swap at all" },
+    { "name": "03", "note": "two children swap" },
+    { "name": "04", "note": "disjoint swaps as well as a single four-cycle" },
+    { "name": "05", "note": "seven-digit result that still fits in one limb" },
+    { "name": "06", "note": "the first count beyond 64-bit integers" },
+    { "name": "07", "note": "a hundred children" },
+    { "name": "08", "note": "an odd count near the limit" },
+    { "name": "09", "note": "the largest kindergarten: 2568 digits" },
+    { "name": "10", "note": "five children: five-cycles and disjoint two- and three-cycles" },
+    { "name": "11", "note": "first count exceeding signed 32-bit range and one nine-digit limb" },
+    { "name": "12", "note": "first count exceeding unsigned 32-bit range, with a padded low limb" },
+    { "name": "13", "note": "first count not exactly representable by a double-precision float" },
+    { "name": "14", "note": "last count fitting signed 64-bit integers, just before test 06" },
+    { "name": "15", "note": "four nine-digit limbs with two leading zeros in an interior limb" },
+    { "name": "16", "note": "first derangement count exceeding the largest finite double" },
+    { "name": "17", "generator": "1366 random 101 500", "note": "seeded random middle-sized count with a partial top limb" },
+    { "name": "18", "generator": "2026 random 501 998", "note": "seeded random upper-half odd count with over a thousand digits" }
+  ]
+}
