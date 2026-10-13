@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1428_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any right triple is accepted" },
+    { "name": "02", "note": "all ones" },
+    { "name": "03", "note": "unit C makes X and Y equal to one" },
+    { "name": "04", "note": "the largest powers of two, 2^31" },
+    { "name": "05", "note": "equal exponents one below the largest C" },
+    { "name": "06", "note": "different A and B" },
+    { "name": "07", "note": "coprime exponents with quotients eight and six" },
+    { "name": "08", "note": "maximum A with unit B and C" },
+    { "name": "09", "note": "one quotient is one and the other is two" },
+    { "name": "10", "note": "a doubled exponent gives bases sixteen and four" },
+    { "name": "11", "note": "a shared factor in the exponents gives bases eight and four" },
+    { "name": "12", "note": "smallest C above one, with an unequal-summand stored answer" },
+    { "name": "13", "note": "maximum C with only X reaching 2^31 and Y equal to two" },
+    { "name": "14", "note": "unit B gives a large Y while A = C - 1 gives X equal to two" },
+    { "name": "15", "note": "equal interior exponents with an odd quotient (C - 1) / A = 3" },
+    { "name": "16", "note": "smallest distinct non-unit coprime exponents, checked by exhaustive search" },
+    { "name": "17", "generator": "2026 1", "note": "seeded composite C with unequal non-unit divisors and widely separated bases" },
+    { "name": "18", "generator": "77 2", "note": "seeded prime C with a large common factor in the two non-unit exponents" }
+  ]
+}
