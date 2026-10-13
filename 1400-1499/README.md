@@ -13,3 +13,4 @@
 | 1406 | [Next Number](1406/) | greedy | C++, Go, Python, Java, Rust |
 | 1407 | [One-two, One-two](1407/) | constructive | C++, Go, Python, Java, Rust |
 | 1408 | [Polynomial Multiplication](1408/) | parsing | C++, Go, Python, Java, Rust |
+| 1409 | [Two Gangsters](1409/) | math | C++, Go, Python, Java, Rust |
