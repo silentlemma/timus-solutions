@@ -14,3 +14,4 @@
 | 1407 | [One-two, One-two](1407/) | constructive | C++, Go, Python, Java, Rust |
 | 1408 | [Polynomial Multiplication](1408/) | parsing | C++, Go, Python, Java, Rust |
 | 1409 | [Two Gangsters](1409/) | math | C++, Go, Python, Java, Rust |
+| 1410 | [Crack](1410/) | dp | C++, Go, Python, Java, Rust |
