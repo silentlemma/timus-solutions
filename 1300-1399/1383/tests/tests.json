@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1383_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "triangles, points on a line and two larger sets" },
+    { "name": "02", "note": "single points, repeated or not" },
+    { "name": "03", "note": "points on a line, read either way, with repeats" },
+    { "name": "04", "note": "a quadrangle, its half turn and its mirror image" },
+    { "name": "05", "note": "squares with a point in the middle or off it" },
+    { "name": "06", "note": "maximum-area triangles at coordinate bounds and a repeated vertex" },
+    { "name": "gen1", "generator": "1 1", "note": "ten thousand small projects and affine images of both orientations" },
+    { "name": "gen2", "generator": "2 2", "note": "a quarter-turn invariant design at the total point limit" },
+    { "name": "gen3", "generator": "3 3", "note": "designs of one hundred points paired with affine images of either orientation" },
+    { "name": "07", "note": "one project containing one point at opposite coordinate bounds" },
+    { "name": "08", "note": "two distinct locations are classified by both multiplicities" },
+    { "name": "09", "note": "vertical and sloping lines retain both unequal interior ratios" },
+    { "name": "10", "note": "an interior point with three different barycentric weights detects orientation" },
+    { "name": "11", "note": "collinear hull-edge points keep their edge assignments and distances" },
+    { "name": "12", "note": "all-hull duplicate counts must match cyclically rather than as a multiset" },
+    { "name": "13", "note": "a set with an affine reflection symmetry can share a class with its mirror" },
+    { "name": "14", "note": "equivalent integer projects can require a noninteger affine scale factor" },
+    { "name": "15", "note": "a determinant-one frame near the coordinate limit requires exact cancellation" },
+    { "name": "16", "note": "equal centroids leave symmetric hull frames tied for asymmetric interiors" },
+    { "name": "17", "note": "repeated planar supports, shears, mirrors and a one-point mutation" },
+    { "name": "18", "generator": "138318 4", "note": "two 100 000-point lines force comparison at the total point limit" },
+    { "name": "19", "generator": "138319 5", "note": "both size limits together with mixed affine ranks and unequal triangle weights" },
+    { "name": "20", "generator": "138320 6", "note": "sixty-vertex random convex hulls exercise every-point-on-hull orientation handling" }
+  ]
+}
