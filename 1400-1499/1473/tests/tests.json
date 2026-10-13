@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1473_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample separates a camel and a sheep on the two axes with one expert" },
+    { "name": "02", "note": "an animal at the origin" },
+    { "name": "03", "note": "a camel and a sheep on the same ray" },
+    { "name": "04", "note": "a single camel on an axis" },
+    { "name": "05", "note": "only sheep, two on one ray" },
+    { "name": "06", "note": "camel, sheep, camel: three runs need three experts" },
+    { "name": "07", "note": "two kinds on almost the same direction, and both axes" },
+    { "name": "08", "note": "six runs near both axes" },
+    { "name": "gen1", "generator": "1 1", "note": "two sheep directions followed by a camel direction need one expert" },
+    { "name": "gen2", "generator": "2 2", "note": "distinct random rays at the maximum herd size" },
+    { "name": "gen3", "generator": "3 3", "note": "many animals share seven consistently labelled rays" },
+    { "name": "gen4", "generator": "4 4", "note": "kinds alternate on 10 000 rays" },
+    { "name": "gen5", "generator": "5 5", "note": "one animal of the wrong kind on a used ray" },
+    { "name": "09", "note": "one interior sheep with both coordinates at the upper bound" },
+    { "name": "10", "note": "a camel between two heavily populated sheep rays still needs three experts" },
+    { "name": "11", "note": "random four-ray herd needs three experts after sorting by direction" },
+    { "name": "12", "note": "random five-run herd needs five experts rather than four" },
+    { "name": "13", "note": "conflicting labels on the vertical axis at different distances" },
+    { "name": "14", "note": "seven alternating rays with adjacent cross products of magnitude one" },
+    { "name": "15", "note": "random mixed herd has several distinct rays but only one separating boundary" },
+    { "name": "gen6", "generator": "147306 6", "note": "all camels share one interior ray and need one expert" },
+    { "name": "gen7", "generator": "147307 7", "note": "an odd number of alternating runs with a duplicate needs a constant extra expert" },
+    { "name": "gen8", "generator": "147308 8", "note": "camels above the diagonal and sheep on or below it are separated by one expert" }
+  ]
+}
