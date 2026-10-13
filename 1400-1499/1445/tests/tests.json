@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1445_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one friend" },
+    { "name": "03", "note": "one company of 500: every gift is prepared" },
+    { "name": "04", "note": "a big company and a small one" },
+    { "name": "05", "note": "two equal companies alternate" },
+    { "name": "06", "note": "the biggest company equals the others plus one" },
+    { "name": "07", "note": "the biggest company two more than the others" },
+    { "name": "08", "note": "the largest input: 500 companies of 500" },
+    { "name": "09", "note": "one big company and many single friends" },
+    { "name": "10", "note": "a single friend beside a company of 500" },
+    { "name": "11", "note": "single friends only" }
+  ]
+}
