@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1432_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: halves for t, odd and even places for t + 1" },
+    { "name": "02", "note": "places luck followed by halves luck after a six-digit start" },
+    { "name": "03", "note": "all zeros: 0000 is lucky, 0001 is not" },
+    { "name": "04", "note": "the last ticket: no pair" },
+    { "name": "05", "note": "no pair left before the last ticket" },
+    { "name": "06", "note": "a pair found after a carry" },
+    { "name": "07", "note": "no wrapping past the final four-digit ticket" },
+    { "name": "08", "note": "the current ticket and the next are already lucky" },
+    { "name": "09", "note": "leading zeros retained in the earliest six-digit pair" },
+    { "name": "10", "note": "search crosses a carry through four trailing nines" },
+    { "name": "11", "note": "a lucky current ticket whose successor is not lucky" },
+    { "name": "12", "note": "no pair remaining above an eight-digit start ending in two nines" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum-length random input with both initial balances positive" },
+    { "name": "gen2", "generator": "2 2", "note": "a mix of eights and nines whose answer carries through 83 trailing nines" },
+    { "name": "gen3", "generator": "3 3", "note": "nines in the first half: no pair" },
+    { "name": "gen4", "generator": "4 4", "note": "alternating nines and zeros with equal half sums but unequal position sums" },
+    { "name": "gen5", "generator": "5 5", "note": "opposite extremes in the two halves with equality only by positions" },
+    { "name": "13", "note": "start at the second ticket of a lucky pair and find the next pair" },
+    { "name": "14", "note": "the last possible six-digit pair is still accepted at its first ticket" },
+    { "name": "15", "note": "the earliest answer carries through three trailing nines and keeps leading zeros" },
+    { "name": "16", "note": "seeded random six-digit start with places luck followed by halves luck" },
+    { "name": "17", "note": "an odd half length in a 1498-digit input with a fixed prefix and seeded suffix" },
+    { "name": "18", "note": "maximum length with an immediate answer carrying through 749 trailing nines" }
+  ]
+}
