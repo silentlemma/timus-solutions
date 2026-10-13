@@ -1,0 +1,19 @@
+{
+  "judging": "float:0.000001",
+  "reference": "1489_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the straight-line distance between centres of adjacent side faces" },
+    { "name": "02", "note": "two points of the net that are glued into one" },
+    { "name": "03", "note": "the centres of opposite faces of the largest cube" },
+    { "name": "04", "note": "the outer edges of the two side flaps" },
+    { "name": "05", "note": "the two ends of the net meet at one point" },
+    { "name": "06", "note": "a flat box, points on two side faces" },
+    { "name": "07", "note": "a box one unit high" },
+    { "name": "gen1", "generator": "1 1", "note": "random sizes and points" },
+    { "name": "gen2", "generator": "2 2", "note": "points on edges and corners of faces" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest box" },
+    { "name": "gen4", "generator": "4 4", "note": "a tiny box" },
+    { "name": "gen5", "generator": "5 2", "note": "opposite corners of the left face reached from the lid and floor" },
+    { "name": "gen6", "generator": "6 1", "note": "interior points on the lid and floor of a box with unequal dimensions" }
+  ]
+}
