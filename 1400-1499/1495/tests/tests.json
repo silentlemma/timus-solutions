@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1495_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: no such number ends in 0 or 5" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "N = 1" },
+    { "name": "04", "note": "N = 2: a single 2" },
+    { "name": "05", "note": "the answer has exactly 30 digits" },
+    { "name": "06", "note": "2^19: an answer of 18 digits" },
+    { "name": "07", "note": "N = 10" },
+    { "name": "08", "note": "a large prime" },
+    { "name": "09", "note": "the largest N, divisible by 10" },
+    { "name": "10", "note": "N = 3" },
+    { "name": "gen1", "generator": "1", "note": "a random N" },
+    { "name": "gen2", "generator": "2", "note": "a random N" },
+    { "name": "gen3", "generator": "3", "note": "a random N" }
+  ]
+}
