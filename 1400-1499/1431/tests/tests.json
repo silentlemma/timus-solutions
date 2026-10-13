@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1431_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 14 joins 13 or 15" },
+    { "name": "02", "note": "a single type" },
+    { "name": "03", "note": "a forum case: no counts one apart" },
+    { "name": "04", "note": "a forum case: a chain 4, 5, 6, 7, 7" },
+    { "name": "05", "note": "1 and 2 share a row" },
+    { "name": "06", "note": "equal counts cannot alternate symmetrically" },
+    { "name": "07", "note": "1 2 3 4: two pairs, not 2 with 3" },
+    { "name": "08", "note": "three 3s between a 2 and two 4s" },
+    { "name": "09", "note": "all counts from 1 to 18" },
+    { "name": "10", "note": "nine 29s and nine 30s" },
+    { "name": "11", "note": "counts two apart" },
+    { "name": "12", "note": "pairs along a chain with repeats" }
+  ]
+}
