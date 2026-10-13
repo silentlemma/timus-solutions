@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1395_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "3, 5, 7, 9 out of six numbers with a repeat" },
+    { "name": "02", "note": "one value repeated: a single element" },
+    { "name": "03", "note": "two numbers far apart" },
+    { "name": "04", "note": "every value twice, each counted once" },
+    { "name": "05", "note": "values at the upper limit of 10^9" },
+    { "name": "06", "note": "progressions of three, and 10, 20, 30, 40 of four" },
+    { "name": "gen1", "generator": "1 1", "note": "10 000 random numbers up to 10^9" },
+    { "name": "gen2", "generator": "2 2", "note": "1 .. 10000: everything at once" },
+    { "name": "gen3", "generator": "3 3", "note": "10 000 random numbers up to 20 000" },
+    { "name": "gen4", "generator": "4 4", "note": "a mix of progressions" },
+    { "name": "gen5", "generator": "5 5", "note": "a progression of 5 000 ending at 10^9 among random numbers" },
+    { "name": "gen6", "generator": "6 6", "note": "only 100 distinct values" },
+    { "name": "gen7", "generator": "7 7", "note": "10 000 random numbers up to 10^5" },
+    { "name": "gen8", "generator": "8 8", "note": "no three-term progression at all" }
+  ]
+}
