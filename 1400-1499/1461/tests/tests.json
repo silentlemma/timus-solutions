@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1461_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the only garland of length 2" },
+    { "name": "03", "note": "a horizontal link replaces a dip to the ground" },
+    { "name": "04", "note": "the last garland of length 4" },
+    { "name": "05", "note": "a horizontal link becomes a rise" },
+    { "name": "06", "note": "the last garland of length 8" },
+    { "name": "07", "note": "a long flat garland" },
+    { "name": "08", "note": "a change deep inside" },
+    { "name": "09", "note": "an odd length with small arches" },
+    { "name": "gen1", "generator": "1 100000 1", "note": "a random garland of the largest length" },
+    { "name": "gen2", "generator": "2 100000 2", "note": "the last garland of even length" },
+    { "name": "gen3", "generator": "3 99999 2", "note": "the last garland of odd length" },
+    { "name": "gen4", "generator": "4 100000 3", "note": "a garland that stays low" },
+    { "name": "gen5", "generator": "5 99999 4", "note": "a garland that climbs high" }
+  ]
+}
