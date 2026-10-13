@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1391_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a maze with cycles of 4 and of 6 or 8 cells" },
+    { "name": "02", "note": "a single cell: no move at all" },
+    { "name": "03", "note": "a 2 x 2 room: a cycle of 4 through the entrance" },
+    { "name": "04", "note": "a ring of 12 cells through the entrance" },
+    { "name": "05", "note": "a ring of 16 cells: only length 17 dies" },
+    { "name": "06", "note": "a ring of 18 cells, against the promise: ignored, as the judge does" },
+    { "name": "07", "note": "three holes in a column: cycles of 8, 12 and 16" },
+    { "name": "08", "note": "a single row: no way to turn" },
+    { "name": "gen1", "generator": "1 1", "note": "a perfect maze of 300 x 30 without cycles" },
+    { "name": "gen2", "generator": "2 2", "note": "a perfect maze with rings and blocks" },
+    { "name": "gen3", "generator": "3 3", "note": "random cells, three in five free" },
+    { "name": "gen4", "generator": "4 4", "note": "random cells, nine in ten free, long cycles cut" },
+    { "name": "gen5", "generator": "5 5", "note": "a corridor of 3 300 cells to a ring of 16" },
+    { "name": "gen6", "generator": "6 6", "note": "a perfect maze with many 2 x 2 blocks" }
+  ]
+}
