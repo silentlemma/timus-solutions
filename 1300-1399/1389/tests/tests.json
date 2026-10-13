@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1389_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of four cities" },
+    { "name": "02", "note": "two cities, the road written backwards" },
+    { "name": "03", "note": "a star: one road only" },
+    { "name": "04", "note": "a star with two longer arms" },
+    { "name": "05", "note": "a path whose roads are not in order" },
+    { "name": "06", "note": "a fork at the end of a path" },
+    { "name": "07", "note": "a binary tree with shuffled roads, every city but one used" },
+    { "name": "gen1", "generator": "1 1", "note": "a path of 100 000 cities in order: no recursion" },
+    { "name": "gen2", "generator": "2 2", "note": "a path with shuffled names and roads" },
+    { "name": "gen3", "generator": "3 3", "note": "a star of 100 000 cities" },
+    { "name": "gen4", "generator": "4 4", "note": "a random tree" },
+    { "name": "gen5", "generator": "5 5", "note": "a complete binary tree" },
+    { "name": "gen6", "generator": "6 6", "note": "a broom: a long path ending in a star" }
+  ]
+}
