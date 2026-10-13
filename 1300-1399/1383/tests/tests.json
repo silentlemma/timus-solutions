@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1383_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "triangles, points on a line and two larger sets" },
+    { "name": "02", "note": "single points, repeated or not" },
+    { "name": "03", "note": "points on a line, read either way, with repeats" },
+    { "name": "04", "note": "a quadrangle, its half turn and its mirror image" },
+    { "name": "05", "note": "squares with a point in the middle or off it" },
+    { "name": "06", "note": "the largest triangles" },
+    { "name": "gen1", "generator": "1 1", "note": "10 000 small projects and their images" },
+    { "name": "gen2", "generator": "2 2", "note": "200 000 points kept by a quarter turn" },
+    { "name": "gen3", "generator": "3 3", "note": "pairs of twins of 100 points" }
+  ]
+}
