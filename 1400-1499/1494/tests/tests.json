@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1494_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two balls removed in reverse order" },
+    { "name": "02", "example": true, "note": "ball 1 blocked by ball 2 after ball 3 is removed" },
+    { "name": "03", "note": "a single ball" },
+    { "name": "04", "note": "a small real game" },
+    { "name": "05", "note": "the order 3, 4, 1, 2 leaves ball 1 buried under 2" },
+    { "name": "gen1", "generator": "1 1", "note": "a real game of 100000 balls" },
+    { "name": "gen2", "generator": "2 2", "note": "a random order" },
+    { "name": "gen3", "generator": "3 3", "note": "a real game with two balls swapped" },
+    { "name": "gen4", "generator": "4 4", "note": "all balls taken out at the end" },
+    { "name": "gen5", "generator": "5 5", "note": "every ball taken out at once" },
+    { "name": "gen6", "generator": "6 6", "note": "a small game" },
+    { "name": "06", "note": "new pushes after multiple pops while ball 1 stays in the pocket" },
+    { "name": "07", "note": "the pocket empties between four consecutive reversed pairs" },
+    { "name": "gen7", "generator": "7 7", "note": "a game of 100000 balls with a random valid prefix and the first failure at removal 99999" }
+  ]
+}
