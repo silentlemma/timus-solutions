@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1440_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: too few days" },
+    { "name": "02", "example": true, "note": "the second example: the counts jump over the range" },
+    { "name": "03", "example": true, "note": "the third example: any fitting set of days is accepted" },
+    { "name": "04", "note": "the match on September 2 leaves no day for training" },
+    { "name": "05", "note": "200 trainings cannot fit before Christmas" },
+    { "name": "06", "note": "every day from September 2 to December 23" },
+    { "name": "07", "note": "a single training day" },
+    { "name": "08", "note": "the widest range" },
+    { "name": "09", "note": "only one set of five days fits" },
+    { "name": "10", "note": "only one set of three days fits" },
+    { "name": "11", "note": "the match on October 1, one weekday gets an extra day" },
+    { "name": "12", "note": "four weeks exactly: no odd count" },
+    { "name": "13", "note": "the match on November 1 needs every day" }
+  ]
+}
