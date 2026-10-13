@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1397_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a square and a thin quadrangle" },
+    { "name": "02", "note": "one point each: nobody scores" },
+    { "name": "03", "note": "six points on a line" },
+    { "name": "04", "note": "all points in one place" },
+    { "name": "05", "note": "far corners, then two equal points" },
+    { "name": "gen1", "generator": "1 1", "note": "ten games of 1 000 random points" },
+    { "name": "gen2", "generator": "2 2", "note": "sixty small games" },
+    { "name": "gen3", "generator": "3 3", "note": "points rounded to integer coordinates near a circle" },
+    { "name": "gen4", "generator": "4 4", "note": "three tight clusters" },
+    { "name": "06", "note": "one interior point in a right triangle; Euclidean distances and the half factor" },
+    { "name": "07", "note": "equal distance totals mixed with distinct totals in a six-point game" },
+    { "name": "08", "note": "three occupied sites with multiplicities 3, 3 and 2" },
+    { "name": "09", "note": "unsorted collinear points with highly unequal gaps and negative coordinates" },
+    { "name": "10", "note": "a positive difference below 0.0005 rounds to zero" },
+    { "name": "11", "note": "differences immediately below and above a three-decimal rounding midpoint" },
+    { "name": "12", "note": "shuffled antipodal pairs cancel irrational distances to a nonnegative zero" },
+    { "name": "13", "note": "reversal, translation, rotation and integer scaling of the same game" },
+    { "name": "14", "note": "changing game sizes and intervening zero scores with a minimal game at EOF" },
+    { "name": "15", "note": "eight distinct lattice points with several equal pair distances" },
+    { "name": "16", "note": "stress-selected thin quadrangle with large horizontal and unit vertical gaps" },
+    { "name": "17", "note": "stress-selected trapezoid has an integral advantage despite irrational pair lengths" },
+    { "name": "18", "generator": "1397 5", "note": "seeded tiny lattice games combine duplicate points and frequent distance ties" },
+    { "name": "19", "generator": "1397 6", "note": "ten maximal games with two perpendicular outliers among 998 coincident points" }
+  ]
+}
