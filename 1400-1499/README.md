@@ -89,3 +89,4 @@
 | 1482 | [Triangle Game](1482/) | geometry | C++, Go, Python, Java, Rust |
 | 1483 | [Table Football](1483/) | math | C++, Go, Python, Java, Rust |
 | 1484 | [Film Rating](1484/) | math | C++, Go, Python, Java, Rust |
+| 1485 | [Football and Lie](1485/) | graphs | C++, Go, Python, Java, Rust |
