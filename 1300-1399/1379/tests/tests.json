@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1379_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a longer way with stronger roads" },
+    { "name": "02", "example": true, "note": "the factory is the venue" },
+    { "name": "03", "note": "exactly a day on the road" },
+    { "name": "04", "note": "the strong way is a minute too long" },
+    { "name": "05", "note": "the fast way is the weaker one" },
+    { "name": "06", "note": "a road that holds just the empty truck" },
+    { "name": "07", "note": "roads that take no time at all" },
+    { "name": "gen1", "generator": "1 1", "note": "a complete graph of short roads" },
+    { "name": "gen2", "generator": "2 2", "note": "a short chain among day-long roads with varying weight limits" },
+    { "name": "gen3", "generator": "3 3", "note": "a sparse random graph" },
+    { "name": "08", "note": "maximum junction count with no roads" },
+    { "name": "09", "note": "every road is too weak even for the empty truck, including a zero limit" },
+    { "name": "10", "note": "the weight limit permits exactly one cup" },
+    { "name": "11", "note": "the only route exceeds a day and there is no fallback" },
+    { "name": "12", "note": "a faster weaker prefix to an intermediate junction is needed to arrive in time" },
+    { "name": "13", "note": "a zero-time cycle carries an improved load between equal-time arrivals" },
+    { "name": "14", "note": "seeded small graph with a 299 gram payload bottleneck and misleading detours" },
+    { "name": "15", "generator": "1379 4", "note": "all 500 junctions lie on a shuffled day-long chain with an interior bottleneck" },
+    { "name": "16", "generator": "1379 5", "note": "seeded near-empty road limits mixed with zero and day-long travel times" }
+  ]
+}
