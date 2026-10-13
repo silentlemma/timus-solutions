@@ -67,3 +67,4 @@
 | 1460 | [Wires](1460/) | geometry | C++, Go, Python, Java, Rust |
 | 1461 | [Christmas Garland](1461/) | greedy | C++, Go, Python, Java, Rust |
 | 1462 | [Uncle Scrooge's Gold](1462/) | math | C++, Go, Python, Java, Rust |
+| 1463 | [Happiness to People!](1463/) | dp | C++, Go, Python, Java, Rust |
