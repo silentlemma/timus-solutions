@@ -33,3 +33,4 @@
 | 1426 | [Rectangles](1426/) | geometry | C++, Go, Python, Java, Rust |
 | 1427 | [SMS](1427/) | greedy | C++, Go, Python, Java, Rust |
 | 1428 | [Jedi Riddle](1428/) | math | C++, Go, Python, Java, Rust |
+| 1429 | [Biscuits](1429/) | geometry | C++, Go, Python, Java, Rust |
