@@ -1,0 +1,11 @@
+{
+  "judging": "checker",
+  "reference": "1356_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one, two and three primes" },
+    { "name": "02", "note": "even numbers near 10^9 whose smallest split needs a large prime" },
+    { "name": "03", "note": "the smallest cases, 10^9 and the largest prime below it" },
+    { "name": "04", "note": "no tests at all" },
+    { "name": "05", "note": "twenty odd numbers near 10^9 that need three primes" }
+  ]
+}
