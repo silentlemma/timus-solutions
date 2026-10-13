@@ -1,0 +1,14 @@
+{
+  "judging": "float:0.001",
+  "reference": "1359_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two metres left and two down" },
+    { "name": "02", "note": "a single board at 45 degrees" },
+    { "name": "03", "note": "almost a vertical drop" },
+    { "name": "04", "note": "a long slope that falls only one metre" },
+    { "name": "05", "note": "the largest construction" },
+    { "name": "06", "note": "wider than deep" },
+    { "name": "07", "note": "deeper than wide" },
+    { "name": "08", "note": "a medium construction" }
+  ]
+}
