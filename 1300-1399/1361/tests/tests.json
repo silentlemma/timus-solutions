@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1361_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first meeting occurs on the second lap of the leftmost-road cycle" },
+    { "name": "02", "note": "both start at the same crossroad" },
+    { "name": "03", "note": "a self-loop lets one driver meet the other after one minute" },
+    { "name": "04", "note": "the drivers swap crossroads every minute without meeting" },
+    { "name": "05", "note": "a meeting after fourteen minutes in a small city" },
+    { "name": "gen1", "generator": "6 1", "note": "random roads in 100 000 crossroads" },
+    { "name": "gen2", "generator": "2 2", "note": "coprime cycle lengths delay the first meeting beyond the signed 32-bit range" },
+    { "name": "gen3", "generator": "3 3", "note": "equal-length cycles share only one crossroad and reach it one minute out of phase" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain sends one driver through every crossroad and the other through alternate crossroads" },
+    { "name": "06", "note": "both walks meet in their tails before taking different exits" },
+    { "name": "07", "note": "a shared transient crossroad is passed at different minutes" },
+    { "name": "08", "note": "a transient visit matches the other driver's cycle residue but precedes cycle entry" },
+    { "name": "09", "note": "a driver's third visit to a cycle crossroad coincides with the other driver's only visit" },
+    { "name": "10", "note": "cycles of lengths four and six have incompatible arrival parity" },
+    { "name": "11", "note": "cycles of lengths four and six have compatible residues despite a common divisor" },
+    { "name": "12", "note": "one cycle length divides the other and the meeting uses the longer period" },
+    { "name": "13", "note": "the least modular meeting must advance a whole common period past a long tail" },
+    { "name": "14", "note": "a seeded random transient visit misses an already active cycle by one minute" },
+    { "name": "15", "note": "seeded random cycles share several crossroads and a higher-numbered one meets first" },
+    { "name": "gen5", "generator": "1361 5", "note": "maximum city has two long disjoint tails ending at different self-loops" },
+    { "name": "gen6", "generator": "1361 6", "note": "maximum city has equally long tails meeting just before the common sink" },
+    { "name": "gen7", "generator": "1361 7", "note": "randomly ordered complete road lists require consuming every middle road" },
+    { "name": "gen8", "generator": "2026 8", "note": "independent random successor permutations produce overlapping cycles without tails" }
+  ]
+}
