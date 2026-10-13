@@ -1,0 +1,12 @@
+wall 2 0 0 2
+shot 1 0
+shot 0 1
+shot 1 1
+shot 1 -1
+shot -1 1
+wall -1 1 1 1
+shot 1 1
+shot 0 5
+shot -1 1
+shot -2 1
+end

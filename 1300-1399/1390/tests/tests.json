@@ -1,0 +1,20 @@
+{
+  "judging": "float:0.000001",
+  "reference": "1390_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "walls built one by one around the origin" },
+    { "name": "02", "note": "walls and no shots: empty output" },
+    { "name": "03", "note": "shots and no walls" },
+    { "name": "04", "note": "hits at the very ends of walls" },
+    { "name": "05", "note": "a wall across the positive x axis" },
+    { "name": "06", "note": "a nearer wall built later wins, a farther one does not" },
+    { "name": "07", "note": "one direction at different speeds" },
+    { "name": "08", "note": "the largest and smallest times" },
+    { "name": "gen1", "generator": "1 1", "note": "25 000 random walls, then 25 000 shots" },
+    { "name": "gen2", "generator": "2 2", "note": "walls and shots mixed" },
+    { "name": "gen3", "generator": "3 3", "note": "squares around the origin from the outside in" },
+    { "name": "gen4", "generator": "4 4", "note": "200 directions at different speeds" },
+    { "name": "gen5", "generator": "5 5", "note": "wall ends on shot directions" },
+    { "name": "gen6", "generator": "6 6", "note": "short walls far from the origin" }
+  ]
+}

@@ -94,3 +94,4 @@
 | 1387 | [Vasya's Dad](1387/) | math | C++, Go, Python, Java, Rust |
 | 1388 | [Photo](1388/) | geometry, strings | C++, Go, Python, Java, Rust |
 | 1389 | [Roadworks](1389/) | dp | C++, Go, Python, Java, Rust |
+| 1390 | [Shots at Walls](1390/) | geometry | C++, Go, Python, Java, Rust |

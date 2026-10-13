@@ -1,0 +1,9 @@
+wall -10 5 10 5
+shot 0 1
+wall -10 2 10 2
+shot 0 1
+wall -10 3 10 3
+shot 0 1
+shot 1 1
+shot 3 1
+end
