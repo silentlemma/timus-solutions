@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1385_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two digits: 14 numbers" },
+    { "name": "02", "note": "four digits, before 8 can divide the power of ten" },
+    { "name": "03", "note": "six digits, the first case with all five ratios" },
+    { "name": "04", "note": "eight digits: one more zero" },
+    { "name": "05", "note": "the largest N, an answer of 10 001 digits" },
+    { "name": "06", "note": "first N whose answer exceeds a signed 32-bit integer" },
+    { "name": "07", "note": "signed 64-bit overflow begins at this N" },
+    { "name": "08", "note": "first N whose answer exceeds even an unsigned 64-bit integer" },
+    { "name": "09", "note": "an answer of 4301 digits crosses the default Python integer conversion limit" },
+    { "name": "10", "note": "one below the maximum N checks the exact long-output length" },
+    { "name": "11", "generator": "138511 small", "note": "seeded random two-digit N checks a short arbitrary zero suffix" },
+    { "name": "12", "generator": "138512 medium", "note": "seeded random three-digit N checks output beyond fixed precision" },
+    { "name": "13", "generator": "138513 large", "note": "seeded random interior N checks several thousand output digits" }
+  ]
+}
