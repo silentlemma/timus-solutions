@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1465_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: the first player loses" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "a single file" },
+    { "name": "05", "note": "two files" },
+    { "name": "06", "note": "another losing size for White" },
+    { "name": "07", "note": "14 files" },
+    { "name": "08", "note": "34 files, the length of the period" },
+    { "name": "09", "note": "85 files, well inside the repeating part" },
+    { "name": "10", "note": "86 files" },
+    { "name": "11", "note": "120 files" },
+    { "name": "12", "note": "the largest board" },
+    { "name": "13", "note": "a billion minus one" },
+    { "name": "14", "note": "a billion minus two" },
+    { "name": "15", "note": "a large board" },
+    { "name": "16", "note": "52 files" },
+    { "name": "17", "note": "48 files: White wins, unlike 14 files one period earlier" },
+    { "name": "18", "note": "68 files: White wins, unlike 34 files" }
+  ]
+}
