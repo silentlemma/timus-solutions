@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1433_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a turn moves the faces round" },
+    { "name": "02", "note": "the same order" },
+    { "name": "03", "note": "four colours, two swapped: mirror images" },
+    { "name": "04", "note": "four colours turned by three faces" },
+    { "name": "05", "note": "two and two: always equal" },
+    { "name": "06", "note": "one colour" },
+    { "name": "07", "note": "three and one: always equal" },
+    { "name": "08", "note": "two of one colour and two others: always equal" },
+    { "name": "09", "note": "four colours, two swaps: equal" },
+    { "name": "10", "note": "different colours used" },
+    { "name": "11", "note": "four colours, one swap: different" },
+    { "name": "12", "note": "two and two in another order" }
+  ]
+}
