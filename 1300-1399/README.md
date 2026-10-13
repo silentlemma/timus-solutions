@@ -63,3 +63,4 @@
 | 1356 | [Something Easier](1356/) | number_theory | C++, Go, Python, Java, Rust |
 | 1357 | [Teakettle 1.0 for Dummies](1357/) | simulation | C++, Go, Python, Java, Rust |
 | 1358 | [Cables](1358/) | graphs | C++, Go, Python, Java, Rust |
+| 1359 | [Construction](1359/) | dp | C++, Go, Python, Java, Rust |
