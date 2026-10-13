@@ -1,0 +1,17 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1373_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four strokes, corners on both sides" },
+    { "name": "02", "note": "no strokes at all" },
+    { "name": "03", "note": "a stroke of length zero" },
+    { "name": "04", "note": "a short stroke: the corner is half a unit up" },
+    { "name": "05", "note": "a stroke going down: the corner is to the right" },
+    { "name": "06", "note": "corners outside the range of the input" },
+    { "name": "07", "note": "the longest diagonal stroke" },
+    { "name": "08", "note": "slanted strokes" },
+    { "name": "gen1", "generator": "1 1", "note": "100 000 random strokes" },
+    { "name": "gen2", "generator": "2 2", "note": "many strokes near the origin" },
+    { "name": "gen3", "generator": "3 3", "note": "unit strokes with corners on half units" }
+  ]
+}
