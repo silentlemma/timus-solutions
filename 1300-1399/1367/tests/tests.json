@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1367_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five secrets: the relation is not transitive" },
+    { "name": "02", "note": "a gap below the end of a wall joins two secrets" },
+    { "name": "03", "note": "the same gap closed by a cross" },
+    { "name": "04", "note": "a corridor under a long wall" },
+    { "name": "05", "note": "the corridor closed in the middle" },
+    { "name": "06", "note": "a row of secrets under a long wall: all joined" },
+    { "name": "07", "note": "a row of secrets between crosses: only neighbours" },
+    { "name": "08", "note": "a single secret" },
+    { "name": "09", "note": "no secrets at all" },
+    { "name": "10", "note": "secrets touching only at corners" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 x 1000 random walls" },
+    { "name": "gen2", "generator": "2 2", "note": "open ground: everything joined" },
+    { "name": "gen3", "generator": "3 3", "note": "crosses everywhere" },
+    { "name": "gen4", "generator": "4 4", "note": "rooms with random holes" }
+  ]
+}

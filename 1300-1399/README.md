@@ -71,3 +71,4 @@
 | 1364 | [LaraKiller](1364/) | simulation | C++, Go, Python, Java, Rust |
 | 1365 | [Testing Calculator](1365/) | parsing | C++, Go, Python, Java, Rust |
 | 1366 | [Presents](1366/) | math | C++, Go, Python, Java, Rust |
+| 1367 | [Top Secret](1367/) | dsu | C++, Go, Python, Java, Rust |
