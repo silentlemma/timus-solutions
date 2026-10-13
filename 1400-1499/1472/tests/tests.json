@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1472_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the general and one private" },
+    { "name": "03", "note": "a cheap link deep in a chain and free links" },
+    { "name": "04", "note": "cutting below the general's two commanders beats both incoming link prices" },
+    { "name": "gen1", "generator": "1 1", "note": "a tree of 100 000 soldiers with random commanders" },
+    { "name": "gen2", "generator": "2 2", "note": "one chain of 100 000" },
+    { "name": "gen3", "generator": "3 3", "note": "everyone under the general at the highest price" },
+    { "name": "gen4", "generator": "4 4", "note": "deep, narrow trees" },
+    { "name": "gen5", "generator": "5 5", "note": "mostly zero or tiny prices" },
+    { "name": "05", "note": "all prices are zero in a branched tree, so the entire bill is zero" },
+    { "name": "06", "note": "positive ties between cutting above or below commanders at multiple depths" },
+    { "name": "07", "note": "interleaved subtree labels and an expensive direct private alongside nested cuts" },
+    { "name": "08", "note": "a free internal link shields expensive descendants but leaves other root branches payable" },
+    { "name": "09", "note": "seeded small random tree with mixed zero and high prices and a bill above one link price" },
+    { "name": "gen6", "generator": "147206 6", "note": "a complete binary tree of 100000 soldiers with positive random prices" },
+    { "name": "gen7", "generator": "147207 7", "note": "a 50000-soldier handle ending in 50000 randomly priced privates" },
+    { "name": "gen8", "generator": "147208 8", "note": "root links to 2000 commanders compete with random sums of leaf prices" },
+    { "name": "gen9", "generator": "147209 9", "note": "maximum-size random tree biased toward the general with every link strictly positive" }
+  ]
+}
