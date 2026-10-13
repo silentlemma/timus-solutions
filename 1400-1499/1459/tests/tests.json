@@ -1,0 +1,22 @@
+{
+  "judging": "exact",
+  "reference": "1459_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one cycle walked both ways" },
+    { "name": "02", "note": "the smallest board" },
+    { "name": "03", "note": "an odd number of fields: no tour" },
+    { "name": "04", "note": "3 by 4" },
+    { "name": "05", "note": "4 by 4: six cycles" },
+    { "name": "06", "note": "5 by 6" },
+    { "name": "07", "note": "two rows: a single cycle however long" },
+    { "name": "08", "note": "three rows and an odd length" },
+    { "name": "09", "note": "three rows, the longest board" },
+    { "name": "10", "note": "four rows, the longest board" },
+    { "name": "11", "note": "five rows, the longest board" },
+    { "name": "12", "note": "five rows and an odd length" },
+    { "name": "13", "note": "five rows, a long even board" },
+    { "name": "14", "note": "4 by 7" },
+    { "name": "15", "note": "five by two" },
+    { "name": "16", "note": "four by three" }
+  ]
+}
