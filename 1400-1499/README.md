@@ -86,3 +86,4 @@
 | 1479 | [Scheduled Checking](1479/) | bitmask | C++, Go, Python, Java, Rust |
 | 1480 | [Coupons](1480/) | constructive | C++, Go, Python, Java, Rust |
 | 1481 | [Winning Chances](1481/) | greedy | C++, Go, Python, Java, Rust |
+| 1482 | [Triangle Game](1482/) | geometry | C++, Go, Python, Java, Rust |
