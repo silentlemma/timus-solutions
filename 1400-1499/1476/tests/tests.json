@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1476_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one column" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "K = M: every one of the 2^1600 matrices" },
+    { "name": "04", "note": "the largest matrix with K = 0" },
+    { "name": "05", "note": "one row: the zeros may never turn into ones" },
+    { "name": "06", "note": "one column of 40" },
+    { "name": "07", "note": "the largest matrix with K = 20" },
+    { "name": "08", "note": "a middle case" },
+    { "name": "09", "note": "the largest matrix with K = 1" },
+    { "name": "gen1", "generator": "1", "note": "random M, N and K" },
+    { "name": "gen2", "generator": "2", "note": "random M, N and K" },
+    { "name": "gen3", "generator": "3", "note": "random M, N and K" }
+  ]
+}
