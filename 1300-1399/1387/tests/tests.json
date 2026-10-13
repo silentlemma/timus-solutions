@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1387_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three vertices: a path and a fork" },
+    { "name": "02", "example": true, "note": "second statement example with nine distinct rooted trees" },
+    { "name": "03", "note": "one vertex and no arcs" },
+    { "name": "04", "note": "the single rooted edge at the smallest nontrivial size" },
+    { "name": "05", "note": "the two rootings of a path and the two rootings of a star" },
+    { "name": "06", "note": "the eight-vertex count of 115 distinct rooted trees" },
+    { "name": "07", "note": "unordered branch multisets with nine total vertices" },
+    { "name": "08", "note": "a medium-sized count that still fits signed 32 bits" },
+    { "name": "09", "note": "a larger count exceeding unsigned 32-bit range" },
+    { "name": "10", "note": "an answer requiring all 64 bits of an unsigned integer" },
+    { "name": "11", "note": "the largest N, past 64 bits" },
+    { "name": "12", "note": "six vertices: repeated identical child subtrees must be unordered" },
+    { "name": "13", "note": "seven vertices: multiple nonisomorphic branches of the same size" },
+    { "name": "14", "note": "the transition to ten vertices, with 719 distinct rooted trees" },
+    { "name": "15", "note": "the signed 32-bit answer boundary just before overflow" },
+    { "name": "16", "note": "first answer exceeding both signed and unsigned 32 bits" },
+    { "name": "17", "note": "last recurrence numerator fitting signed 64 bits" },
+    { "name": "18", "note": "first recurrence numerator exceeding signed 64 bits" },
+    { "name": "19", "note": "first recurrence numerator exceeding unsigned 64 bits" },
+    { "name": "20", "note": "last answer fitting signed 64 bits" },
+    { "name": "21", "note": "first answer exceeding unsigned 64 bits" },
+    { "name": "22", "note": "one below the maximum N checks the penultimate recurrence step" },
+    { "name": "23", "generator": "2026 1", "note": "seeded medium case N=12 with mixed branch-size partitions" },
+    { "name": "24", "generator": "1387 2", "note": "seeded large case N=40 retains exact arithmetic beyond floating-point precision" }
+  ]
+}
