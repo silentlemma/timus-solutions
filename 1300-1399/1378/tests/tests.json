@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1378_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a square along the axes" },
+    { "name": "02", "note": "a circle with the minimum diameter" },
+    { "name": "03", "note": "a square turned by 45 degrees" },
+    { "name": "04", "note": "a thin triangle" },
+    { "name": "05", "note": "half a square: a right isosceles triangle" },
+    { "name": "06", "note": "a clearly oval circle" },
+    { "name": "07", "note": "a square in a picture wider than high" },
+    { "name": "gen1", "generator": "1 1", "note": "an off-centre circle on a wide canvas" },
+    { "name": "gen2", "generator": "2 2", "note": "a slightly oval circle" },
+    { "name": "gen3", "generator": "3 3", "note": "a turned square" },
+    { "name": "gen4", "generator": "4 4", "note": "an oblique triangle with a wide bounding box" },
+    { "name": "gen5", "generator": "5 5", "note": "a triangle with an angle under 15 degrees" },
+    { "name": "gen6", "generator": "6 6", "note": "a turned square across the largest picture" },
+    { "name": "08", "note": "minimum canvas entirely filled, with no background pixels" },
+    { "name": "09", "note": "circle touches all four borders of the minimum canvas" },
+    { "name": "10", "note": "maximum height and minimum width, square after 968 empty rows" },
+    { "name": "11", "note": "a square rotated by about one degree" },
+    { "name": "12", "note": "right scalene triangle with a 10.08 degree angle and a horizontal top edge" },
+    { "name": "13", "note": "a nearly equilateral triangle with no horizontal side" },
+    { "name": "gen7", "generator": "1378 7", "note": "maximum diameter circle touching every edge of a 1000 by 1000 canvas" },
+    { "name": "gen8", "generator": "1378 8", "note": "one million foreground pixels forming a square with no empty row" },
+    { "name": "gen9", "generator": "1378 9", "note": "right triangle spans the maximum width and height with a diagonal boundary" },
+    { "name": "gen10", "generator": "1378 10", "note": "seeded obtuse triangle with an apex angle above 120 degrees" }
+  ]
+}
