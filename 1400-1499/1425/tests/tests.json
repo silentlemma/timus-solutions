@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1425_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: every cell of a 3 by 3 by 3 board" },
+    { "name": "02", "note": "a two-cell line permits only a return to the starting cell" },
+    { "name": "03", "note": "an endpoint start on a four-cell line can reach both endpoints in two moves" },
+    { "name": "04", "note": "a start on the edge of a six-by-six board still reaches every square" },
+    { "name": "05", "note": "an interior three-dimensional start leaves some cells unreachable" },
+    { "name": "06", "note": "a corner start on the largest five-dimensional board limits diagonal directions" },
+    { "name": "07", "note": "a central start on the largest board produces 858180 distinct destinations" },
+    { "name": "08", "note": "a four-dimensional corner position with one hundred cells per side" },
+    { "name": "09", "note": "the shortest line where two moves can end away from the start" },
+    { "name": "10", "note": "a 2 by 2 board" },
+    { "name": "11", "note": "five dimensions with two cells each" },
+    { "name": "12", "note": "opposite boundary coordinates mixed with unequal interior coordinates" },
+    { "name": "13", "note": "one long dimension" },
+    { "name": "14", "note": "a 100 by 100 board near the middle" },
+    { "name": "15", "note": "four binary coordinates: exactly two moves exclude neighbors and the antipode" },
+    { "name": "16", "note": "five-dimensional center where every bishop move has length one" },
+    { "name": "17", "note": "a small three-dimensional corner still leaves cells unreachable in two moves" },
+    { "name": "18", "note": "opposite faces constrain bishop directions while interior coordinates allow rays of length one or two" },
+    { "name": "19", "note": "all five coordinate values appear once in a five-dimensional position" },
+    { "name": "20", "note": "the largest odd side has an exact center and symmetric maximal diagonals" },
+    { "name": "21", "note": "a maximal four-dimensional board with exactly one coordinate on a face" },
+    { "name": "22", "generator": "random 1425 3 100", "note": "a seeded random position on a maximal three-dimensional board" },
+    { "name": "23", "generator": "random 2026 5 9", "note": "a seeded random five-dimensional board just above the eight-pass partition size" }
+  ]
+}
