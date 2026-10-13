@@ -7,3 +7,4 @@
 | 1500 | [Pass Licenses](1500/) | bitmask | C++, Go, Python, Java, Rust |
 | 1501 | [Sense of Beauty](1501/) | dp | C++, Go, Python, Java, Rust |
 | 1502 | [Domino Dots](1502/) | math | C++, Go, Python, Java, Rust |
+| 1503 | [Polynomial](1503/) | math | C++, Go, Python, Java, Rust |
