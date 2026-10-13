@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1414_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example, with real spaces for the dots" },
+    { "name": "02", "note": "the base starts with sun" },
+    { "name": "03", "note": "a name added several times is listed once" },
+    { "name": "04", "note": "26 matches: only the first 20 in dictionary order" },
+    { "name": "05", "note": "a forum case: only names with the prefix" },
+    { "name": "06", "note": "prefixes that match nothing" },
+    { "name": "07", "note": "digits sort before letters" },
+    { "name": "08", "note": "names and prefixes of the full 20 characters" },
+    { "name": "gen1", "generator": "1 1", "note": "short names over three letters" },
+    { "name": "gen2", "generator": "2 2", "note": "9 000 long names, then 1 000 queries" },
+    { "name": "gen3", "generator": "3 3", "note": "letters and digits with many repeats" }
+  ]
+}
