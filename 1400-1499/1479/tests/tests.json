@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1479_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one triangle" },
+    { "name": "02", "note": "a tree: no routes, no rows" },
+    { "name": "03", "note": "no roads at all" },
+    { "name": "04", "note": "one ring of 14 stops: the route length decides" },
+    { "name": "05", "note": "four stops all joined: seven routes, six through each stop" },
+    { "name": "06", "note": "14 stops all joined: about 8.5 * 10^9 routes through a stop" },
+    { "name": "07", "note": "two triangles sharing a stop" },
+    { "name": "gen1", "generator": "1 1", "note": "a random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "a dense graph" },
+    { "name": "gen3", "generator": "3 3", "note": "a sparse graph" },
+    { "name": "gen4", "generator": "4 4", "note": "a ring with three chords" }
+  ]
+}
