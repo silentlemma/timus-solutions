@@ -1,0 +1,23 @@
+Power on. CELL_ID:Big, SIGNAL_LEVEL:RED
+Cell changed. CELL_ID:tA, SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:BLUE
+Signal changed. SIGNAL_LEVEL:INDIGO
+Signal changed. SIGNAL_LEVEL:VIOLET
+Signal changed. SIGNAL_LEVEL:INDIGO
+Signal changed. SIGNAL_LEVEL:BLUE
+Signal changed. SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:RED
+Cell changed. CELL_ID:tA2, SIGNAL_LEVEL:VIOLET
+Signal changed. SIGNAL_LEVEL:INDIGO
+Signal changed. SIGNAL_LEVEL:BLUE
+Signal changed. SIGNAL_LEVEL:GREEN
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:RED
+Cell changed. CELL_ID:A_Small, SIGNAL_LEVEL:ORANGE
+Signal changed. SIGNAL_LEVEL:YELLOW
+Signal changed. SIGNAL_LEVEL:ORANGE
