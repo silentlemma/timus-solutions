@@ -45,3 +45,4 @@
 | 1438 | [Time Limit Exceeded](1438/) | simulation | C++, Go, Python, Java, Rust |
 | 1439 | [Battle with You-Know-Who](1439/) | binary_search | C++, Go, Python, Java, Rust |
 | 1440 | [Training Schedule](1440/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1441 | [From the History of Gringotts Bank](1441/) | graphs | C++, Go, Python, Java, Rust |
