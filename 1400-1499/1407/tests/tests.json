@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1407_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "12 is divisible by 4" },
+    { "name": "02", "note": "N = 1: the single digit 2" },
+    { "name": "03", "note": "N = 3" },
+    { "name": "04", "note": "N = 5" },
+    { "name": "05", "note": "N = 10" },
+    { "name": "06", "note": "N = 33: past 32 bits" },
+    { "name": "07", "note": "N = 64: past 64 bits" },
+    { "name": "08", "note": "N = 99" },
+    { "name": "09", "note": "the largest N" }
+  ]
+}
