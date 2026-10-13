@@ -76,3 +76,4 @@
 | 1369 | [Cockroach Race](1369/) | geometry | C++, Go, Python, Java, Rust |
 | 1370 | [Magician](1370/) | implementation | C++, Go, Python, Java, Rust |
 | 1371 | [Cargo Agency](1371/) | dp | C++, Go, Python, Java, Rust |
+| 1372 | [Death Star](1372/) | geometry | C++, Go, Python, Java, Rust |
