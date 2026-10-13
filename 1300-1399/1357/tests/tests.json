@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1357_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three students share one portion of boiling" },
+    { "name": "02", "note": "ten students in ten seconds: a full kettle and a queue" },
+    { "name": "03", "note": "a student wakes exactly when the water boils and starts a new kettle" },
+    { "name": "04", "note": "the water boils after midnight" },
+    { "name": "05", "note": "a fraction of a second is rounded up, not to the nearest" },
+    { "name": "06", "note": "no students at all" },
+    { "name": "07", "note": "a waiting student and a newcomer share the next kettle" },
+    { "name": "gen1", "generator": "1 1", "note": "500 random moments of the day" },
+    { "name": "gen2", "generator": "2 2", "note": "500 students in the last ten minutes of the day" },
+    { "name": "gen3", "generator": "3 3", "note": "gaps around the boiling time of a portion" }
+  ]
+}
