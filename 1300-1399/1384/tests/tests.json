@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.011",
+  "reference": "1384_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a right isosceles triangle" },
+    { "name": "02", "note": "three inward notches constrain the circle around the centre" },
+    { "name": "03", "note": "a plus sign: the circle touches four inner corners" },
+    { "name": "04", "note": "a trapezoidal notch cut into the bottom side" },
+    { "name": "05", "note": "the largest square" },
+    { "name": "06", "note": "a very thin triangle" },
+    { "name": "07", "note": "a triangle with all three sides bent inwards, 22 inner corners" },
+    { "name": "08", "note": "a comb with five slots" },
+    { "name": "09", "note": "two rooms joined by a thin corridor, the larger on the right" },
+    { "name": "10", "note": "a spiral whose largest circle sits at a bend in a corridor of width 100" },
+    { "name": "11", "note": "a star with twelve spikes" },
+    { "name": "12", "note": "vertices in the middle of sides and a notch from above" },
+    { "name": "13", "note": "a unit right triangle with the smallest integer bounding box" },
+    { "name": "14", "note": "area one half with nearly parallel long sides, so the radius rounds to zero" },
+    { "name": "15", "note": "an oblique rectangle with opposite parallel sides and a whole segment of optimal centres" },
+    { "name": "16", "note": "an irregular convex pentagon with unequal sloping sides and coordinates at both bounds" },
+    { "name": "17", "note": "unequal corridor widths make the bend radius barely exceed half the wider arm" },
+    { "name": "18", "note": "two triangular bays make the best circle touch the bottom and two reflex tips" },
+    { "name": "19", "note": "a seeded small stress polygon folds into several narrow lobes with a radius below one" },
+    { "name": "20", "note": "a seeded stress notch has two reflex tips on a line through a nonadjacent vertex" },
+    { "name": "21", "generator": "1384 1", "note": "an irregular radial polygon at the vertex limit with uneven angles and unequal bay depths" },
+    { "name": "22", "generator": "2026 2", "note": "a strictly convex polygon at the vertex limit sampled irregularly from an integer parabola" },
+    { "name": "23", "generator": "73 3", "note": "opposing random jagged chains use all 25 vertices and span the coordinate bounds" }
+  ]
+}
