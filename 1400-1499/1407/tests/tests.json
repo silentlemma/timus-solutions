@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1407_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "example with 12 divisible by 4" },
+    { "name": "02", "note": "minimum exponent gives the single digit 2" },
+    { "name": "03", "note": "three-digit answer divisible by eight" },
+    { "name": "04", "note": "leading pair of twos for divisibility by 32" },
+    { "name": "05", "note": "ten-digit construction fits in unsigned 32 bits" },
+    { "name": "06", "note": "exponent beyond the 32-bit shift boundary" },
+    { "name": "07", "note": "divisor just beyond unsigned 64-bit range" },
+    { "name": "08", "note": "exponent just below the upper limit" },
+    { "name": "09", "note": "the largest N" },
+    { "name": "10", "note": "shorter valid suffix still extended to four digits" },
+    { "name": "11", "note": "answer just beyond the unsigned 64-bit boundary" },
+    { "name": "12", "note": "first N-digit answer exceeding unsigned 128-bit range" },
+    { "name": "13", "generator": "1407 1", "note": "seeded random exponent 46 away from word-size boundaries" }
+  ]
+}

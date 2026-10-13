@@ -11,3 +11,4 @@
 | 1404 | [Easy to Hack!](1404/) | implementation | C++, Go, Python, Java, Rust |
 | 1405 | [Goat in the Garden 5](1405/) | geometry | C++, Go, Python, Java, Rust |
 | 1406 | [Next Number](1406/) | greedy | C++, Go, Python, Java, Rust |
+| 1407 | [One-two, One-two](1407/) | constructive | C++, Go, Python, Java, Rust |
