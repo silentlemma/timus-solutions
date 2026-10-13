@@ -1,0 +1,13 @@
+{
+  "judging": "exact",
+  "reference": "1402_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three drinks: 6 pairs and 6 triples" },
+    { "name": "02", "note": "one drink: no cocktail" },
+    { "name": "03", "note": "two drinks in either order" },
+    { "name": "04", "note": "four drinks" },
+    { "name": "05", "note": "ten drinks" },
+    { "name": "06", "note": "twenty drinks: still within signed 64 bits" },
+    { "name": "07", "note": "the largest N, past 64 bits" }
+  ]
+}
