@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1490_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest radius: the four tiles around the centre" },
+    { "name": "04", "note": "radius 5: corners such as (3, 4) lie on the circle" },
+    { "name": "05", "note": "radius 65: many corners on the circle" },
+    { "name": "06", "note": "radius 1105: even more corners on the circle" },
+    { "name": "07", "note": "the largest radius: the answer needs 64 bits" },
+    { "name": "08", "note": "a large odd radius" },
+    { "name": "gen1", "generator": "1", "note": "a random radius" },
+    { "name": "gen2", "generator": "2", "note": "a random radius" }
+  ]
+}
