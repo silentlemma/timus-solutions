@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1475_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "bounces exactly on the lowest point, and one off it either way" },
+    { "name": "03", "note": "the smallest and largest H, l and h" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 tests with H and l of random lengths" },
+    { "name": "gen2", "generator": "2 2", "note": "1000 tests with H and l near 10^100" },
+    { "name": "gen3", "generator": "3 3", "note": "1000 tests on the edge of the last bounce" }
+  ]
+}
