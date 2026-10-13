@@ -96,3 +96,4 @@
 | 1389 | [Roadworks](1389/) | dp | C++, Go, Python, Java, Rust |
 | 1390 | [Shots at Walls](1390/) | geometry | C++, Go, Python, Java, Rust |
 | 1391 | [Snake](1391/) | graphs | C++, Go, Python, Java, Rust |
+| 1392 | [Dreaming of Stars](1392/) | graphs | C++, Go, Python, Java, Rust |
