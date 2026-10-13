@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1419_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a real map" },
+    { "name": "02", "example": true, "note": "the second example: corner islands with two bridges" },
+    { "name": "03", "note": "a forum case: two halves joined by a single bridge" },
+    { "name": "04", "note": "a forum case: an island with five bridges" },
+    { "name": "05", "note": "a single island" },
+    { "name": "06", "note": "a - where only | fits" },
+    { "name": "07", "note": "two separate cubic maps side by side" },
+    { "name": "08", "note": "maximum square map with every island of degree three" },
+    { "name": "09", "note": "valid rectangle with an odd number of island columns" },
+    { "name": "10", "note": "three rows of islands joined into a long valid strip" },
+    { "name": "11", "note": "maximum-width single row, so no island can have three bridges" },
+    { "name": "12", "note": "maximum-height single column tests vertical-only input" },
+    { "name": "13", "note": "a compact valid cubic map on sixteen islands" },
+    { "name": "14", "note": "reversing one diagonal keeps the bridge count but changes endpoint degrees" },
+    { "name": "15", "note": "a stray | in an empty diagonal gap of an otherwise valid cubic map" },
+    { "name": "16", "note": "a valid asymmetric map with leading spaces on an interior row" },
+    { "name": "17", "generator": "141917 cubic 50 50", "note": "maximum size with randomly reflected tiles linked by pairs of bridges" },
+    { "name": "18", "generator": "141918 missing 50 50", "note": "maximum size with only the final two islands losing a bridge" },
+    { "name": "19", "generator": "141919 random 49 50", "note": "dense random rectangular picture with legal bridge positions" }
+  ]
+}
