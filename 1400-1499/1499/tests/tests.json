@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1499_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample pentagon with one diagonal already cut" },
+    { "name": "02", "note": "a triangle needs no cuts" },
+    { "name": "03", "note": "a square already cut" },
+    { "name": "04", "note": "a hexagon with no cuts yet" },
+    { "name": "05", "note": "several cuts closing at one vertex" },
+    { "name": "06", "note": "cuts given with the larger vertex first" },
+    { "name": "gen1", "generator": "1 1", "note": "a maximum-size polygon with a random subset of triangulation diagonals" },
+    { "name": "gen2", "generator": "2 2", "note": "an uncut polygon at the vertex limit" },
+    { "name": "gen3", "generator": "3 3", "note": "a complete triangulation at the vertex limit" },
+    { "name": "gen4", "generator": "4 4", "note": "a random subset of diagonals radiating from vertex one" },
+    { "name": "gen5", "generator": "5 5", "note": "a fully triangulated heptagon needs no additional cuts" },
+    { "name": "gen6", "generator": "6 5", "note": "an uncut square needs one diagonal" },
+    { "name": "07", "note": "a diameter splits a hexagon into two quadrilaterals that both need cuts" },
+    { "name": "08", "note": "five clipped ears leave a central pentagon to triangulate" },
+    { "name": "09", "note": "three separate quadrilateral pockets leave a central hexagon" },
+    { "name": "10", "note": "nested cuts with distinct endpoints leave successive quadrilateral strips" },
+    { "name": "11", "note": "a completed central triangle borders three unfinished pentagons" },
+    { "name": "12", "note": "an interior fan pivot has cuts to both smaller and larger vertices" },
+    { "name": "13", "note": "seeded random branching dissection with several unfinished faces" },
+    { "name": "14", "note": "seeded random near-triangulation with two missing cuts" },
+    { "name": "gen7", "generator": "1499 6", "note": "deeply nested cuts with distinct endpoints at the vertex limit" },
+    { "name": "gen8", "generator": "1499 7", "note": "an alternating ear triangulation at the vertex limit with one diagonal missing" },
+    { "name": "gen9", "generator": "1499 8", "note": "a sparse set of 100 random ear-removal diagonals in a maximum-size polygon" }
+  ]
+}
