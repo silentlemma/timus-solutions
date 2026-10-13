@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1366_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three children: two cycles" },
+    { "name": "02", "note": "a single child cannot swap at all" },
+    { "name": "03", "note": "two children swap" },
+    { "name": "04", "note": "four children" },
+    { "name": "05", "note": "ten children" },
+    { "name": "06", "note": "the first count beyond 64-bit integers" },
+    { "name": "07", "note": "a hundred children" },
+    { "name": "08", "note": "an odd count near the limit" },
+    { "name": "09", "note": "the largest kindergarten: 2568 digits" }
+  ]
+}
