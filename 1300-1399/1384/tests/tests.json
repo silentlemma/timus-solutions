@@ -1,0 +1,18 @@
+{
+  "judging": "float:0.011",
+  "reference": "1384_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a right isosceles triangle" },
+    { "name": "02", "note": "a forum shape with three notches" },
+    { "name": "03", "note": "a plus sign: the circle touches four inner corners" },
+    { "name": "04", "note": "a forum shape with a notch in the bottom side" },
+    { "name": "05", "note": "the largest square" },
+    { "name": "06", "note": "a very thin triangle" },
+    { "name": "07", "note": "a triangle with all three sides bent inwards, 22 inner corners" },
+    { "name": "08", "note": "a comb with five slots" },
+    { "name": "09", "note": "two rooms joined by a thin corridor, the larger on the right" },
+    { "name": "10", "note": "a spiral of corridors 100 wide, best at a turn" },
+    { "name": "11", "note": "a star with twelve spikes" },
+    { "name": "12", "note": "vertices in the middle of sides and a notch from above" }
+  ]
+}
