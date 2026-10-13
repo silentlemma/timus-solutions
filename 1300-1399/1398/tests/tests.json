@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1398_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the bishop catches the new queen" },
+    { "name": "02", "note": "a draw: the bishop blocks a pawn it can never take" },
+    { "name": "03", "note": "a draw next to the corner" },
+    { "name": "04", "note": "a draw on the other side of the board" },
+    { "name": "05", "note": "the fourth and last draw" },
+    { "name": "06", "note": "black wins: the queen stands on the other colour" },
+    { "name": "07", "note": "black wins: the bishop is too far behind" },
+    { "name": "08", "note": "the bishop takes the pawn at once" },
+    { "name": "09", "note": "a pawn still on rank 7" },
+    { "name": "10", "note": "the bishop right in front of the pawn has to move away" },
+    { "name": "11", "note": "the long diagonal reaches the promotion square" },
+    { "name": "12", "note": "the bishop next to the pawn takes it" }
+  ]
+}
