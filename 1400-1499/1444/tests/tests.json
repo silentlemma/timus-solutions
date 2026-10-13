@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1444_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any order that does not cross itself" },
+    { "name": "02", "note": "three pumpkins" },
+    { "name": "03", "note": "pumpkins on both sides along one line and one off it: a gap of exactly half a turn" },
+    { "name": "04", "note": "the first pumpkin in a corner of the field" },
+    { "name": "05", "note": "the first pumpkin in the middle of a 3 by 3 square" },
+    { "name": "06", "note": "the first pumpkin in the middle of a 5 by 5 square: two pumpkins on most rays" },
+    { "name": "07", "note": "a diagonal through the first pumpkin and one pumpkin off it" },
+    { "name": "08", "note": "all other pumpkins on one line" },
+    { "name": "09", "note": "three directions with two of them opposite" },
+    { "name": "gen1", "generator": "1 30000 1", "note": "30 000 scattered pumpkins" },
+    { "name": "gen2", "generator": "2 30000 2", "note": "a full lattice square around the first pumpkin" },
+    { "name": "gen3", "generator": "3 30000 3", "note": "the first pumpkin in the corner of the field" },
+    { "name": "gen4", "generator": "4 30000 4", "note": "the first pumpkin in the corner of a lattice square" }
+  ]
+}
