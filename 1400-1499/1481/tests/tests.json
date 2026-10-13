@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1481_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single weight" },
+    { "name": "03", "note": "the left pan wins all 50 steps" },
+    { "name": "04", "note": "the winner changes at every step" },
+    { "name": "05", "note": "three close weights: always loading the lighter pan fails" },
+    { "name": "06", "note": "one very heavy weight" },
+    { "name": "gen1", "generator": "1 1", "note": "random" },
+    { "name": "gen2", "generator": "2 2", "note": "a change at every step" },
+    { "name": "gen3", "generator": "3 3", "note": "no change at all" },
+    { "name": "gen4", "generator": "4 4", "note": "close weights" }
+  ]
+}
