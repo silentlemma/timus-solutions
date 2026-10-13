@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1388_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four trees match, a fifth would need a mirror" },
+    { "name": "02", "example": true, "note": "any three trees match any three" },
+    { "name": "03", "note": "no trees at all" },
+    { "name": "04", "note": "trees on one bank only" },
+    { "name": "05", "note": "one tree on each bank" },
+    { "name": "06", "note": "two trees against five" },
+    { "name": "07", "note": "trees hidden behind others on the same ray" },
+    { "name": "08", "note": "the lower bank is the mirror image of the upper one" },
+    { "name": "gen1", "generator": "1 1", "note": "100 000 random trees" },
+    { "name": "gen2", "generator": "2 2", "note": "a bank and its sheared image: everything matches" },
+    { "name": "gen3", "generator": "3 3", "note": "an image that sends one direction to the river" },
+    { "name": "gen4", "generator": "4 4", "note": "300 directions, most trees hidden" },
+    { "name": "gen5", "generator": "5 5", "note": "two rows in arithmetic progression" },
+    { "name": "gen6", "generator": "6 6", "note": "a long match in a narrow sector among random trees" }
+  ]
+}
