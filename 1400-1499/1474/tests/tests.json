@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1474_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two frogs of each colour" },
+    { "name": "03", "note": "odd run pattern with fifteen moves" },
+    { "name": "04", "note": "seven-move runs on a board spanning two-digit indices" },
+    { "name": "05", "note": "three-digit move count and two-digit hummock indices" },
+    { "name": "gen1", "generator": "100", "note": "five-digit move count with runs reaching one hundred moves" },
+    { "name": "gen2", "generator": "250", "note": "large even board with 63000 moves" },
+    { "name": "gen3", "generator": "498", "note": "size just below the maximum" },
+    { "name": "gen4", "generator": "499", "note": "the largest N: 249 999 moves" },
+    { "name": "06", "note": "small even board with repeated central runs" },
+    { "name": "07", "note": "first board with a two-digit hummock index" },
+    { "name": "08", "note": "last size with a two-digit move count of 99" },
+    { "name": "gen5", "generator": "10", "note": "first size requiring a three-digit move count" },
+    { "name": "gen6", "generator": "180", "note": "largest size whose move count fits a signed 16-bit integer" },
+    { "name": "gen7", "generator": "255", "note": "exactly 65535 moves at the unsigned 16-bit limit" },
+    { "name": "gen8", "generator": "256", "note": "move count exceeding 16 bits with hummock indices reaching 512" },
+    { "name": "gen9", "generator": "random 1474 25 179", "note": "seeded random odd size between the stored small boards and N = 180" },
+    { "name": "gen10", "generator": "random 20261022 257 497", "note": "seeded random large board with a six-digit move count below the maximum" }
+  ]
+}
