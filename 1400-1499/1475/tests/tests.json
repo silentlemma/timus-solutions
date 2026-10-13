@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1475_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example with one bounce for two different drop heights" },
+    { "name": "02", "note": "bounces exactly on the lowest point, and one off it either way" },
+    { "name": "03", "note": "the smallest and largest H, l and h" },
+    { "name": "gen1", "generator": "1 1", "note": "random roof dimensions spanning one to one hundred decimal digits" },
+    { "name": "gen2", "generator": "2 2", "note": "near-maximum roof dimensions with both coordinates close to 10^100" },
+    { "name": "gen3", "generator": "3 3", "note": "symmetric roofs with the height at or one unit off an exact bottom bounce" },
+    { "name": "04", "note": "one nontrivial roof with the minimum test count" },
+    { "name": "05", "note": "varying the drop from one to ten on a fixed roof gives decreasing counts with plateaus" },
+    { "name": "06", "note": "bottom bounces on four asymmetric rational slopes" },
+    { "name": "07", "note": "increasing roof height first decreases and then increases the answer" },
+    { "name": "08", "note": "consecutive horizontal lengths cross several bounce thresholds" },
+    { "name": "09", "note": "scaling both roof dimensions and the drop preserves the answer" },
+    { "name": "10", "note": "swapping height and horizontal length must change the answer" },
+    { "name": "11", "note": "nonintegral squared-distance quotients retain small and large remainders" },
+    { "name": "12", "note": "operand carries cross 32-bit limbs and wider binary boundaries" },
+    { "name": "13", "note": "answer formatting crosses decimal powers and nine-digit chunks" },
+    { "name": "14", "note": "bounce counts immediately below, at and above powers of two up to 2^330" },
+    { "name": "15", "note": "sparse huge integers keep isolated low and middle decimal digits" },
+    { "name": "16", "note": "long runs of nines exercise dense multiplication carries" },
+    { "name": "17", "note": "small roofs with varied slopes and drops, including single-bounce cases" },
+    { "name": "gen4", "generator": "147504 4", "note": "nearly flat roofs with unit height and bounce counts of 99 or 100 digits" },
+    { "name": "gen5", "generator": "147505 5", "note": "extremely steep roofs with unit horizontal length and hundred-digit heights" },
+    { "name": "gen6", "generator": "147506 6", "note": "asymmetric slopes with horizontal lengths just below, at and above a bottom bounce" }
+  ]
+}
