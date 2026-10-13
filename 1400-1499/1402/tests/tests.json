@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1402_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three drinks: 6 pairs and 6 triples" },
+    { "name": "02", "note": "one drink: no cocktail" },
+    { "name": "03", "note": "two drinks in either order" },
+    { "name": "04", "note": "sums ordered pairs, triples and four-drink permutations" },
+    { "name": "05", "note": "a multi-million total that still fits in a signed 32-bit integer" },
+    { "name": "06", "note": "twenty drinks: still within signed 64 bits" },
+    { "name": "07", "note": "the largest N, past 64 bits" },
+    { "name": "08", "note": "twelve drinks: the last total fitting a signed 32-bit integer" },
+    { "name": "09", "note": "thirteen drinks: the first total exceeding even unsigned 32 bits" },
+    { "name": "10", "note": "seventeen drinks: the last total below the double-precision consecutive-integer limit" },
+    { "name": "11", "note": "eighteen drinks: the first total above the double-precision consecutive-integer limit" },
+    { "name": "12", "generator": "random 1402 5 9", "note": "seeded small interior count with cocktail lengths from two through nine" },
+    { "name": "13", "generator": "random 2026 14 16", "note": "seeded middle-range count between the 32-bit and floating-point integer boundaries" }
+  ]
+}
