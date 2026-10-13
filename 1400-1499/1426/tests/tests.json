@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1426_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid rectangle is accepted" },
+    { "name": "02", "note": "all four points at one place" },
+    { "name": "03", "note": "a point inside the triangle of the others: -" },
+    { "name": "04", "note": "four points on a line" },
+    { "name": "05", "note": "points at the edges and the corners of the inner square" },
+    { "name": "06", "note": "a point inside, and a point on an edge of the hull" },
+    { "name": "07", "note": "repeated points" },
+    { "name": "08", "note": "an axis rectangle, a tilted square and a tilted quadrilateral" },
+    { "name": "gen1", "generator": "1 1", "note": "random points on the whole canvas" },
+    { "name": "gen2", "generator": "2 2", "note": "random points on a small grid" },
+    { "name": "gen3", "generator": "3 3", "note": "points on tilted rectangles" },
+    { "name": "gen4", "generator": "4 4", "note": "corners of the inner square" }
+  ]
+}
