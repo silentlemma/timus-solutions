@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1375_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "1 modulo 3" },
+    { "name": "02", "note": "the smallest prime, k = 0" },
+    { "name": "03", "note": "the smallest prime, k = 1" },
+    { "name": "04", "note": "zero modulo 3" },
+    { "name": "05", "note": "2 modulo 3: two nonzero squares" },
+    { "name": "06", "note": "the largest prime below 10^6 and k = p - 1" },
+    { "name": "07", "note": "zero modulo a large prime" },
+    { "name": "08", "note": "a large prime that is 3 modulo 4" },
+    { "name": "09", "note": "3 modulo 7, not a square itself" },
+    { "name": "10", "note": "6 modulo 7, not a square itself" },
+    { "name": "11", "note": "zero modulo a prime that is 1 modulo 4" },
+    { "name": "12", "note": "a large prime that is 1 modulo 4" }
+  ]
+}

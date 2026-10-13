@@ -79,3 +79,4 @@
 | 1372 | [Death Star](1372/) | geometry | C++, Go, Python, Java, Rust |
 | 1373 | [Pictura ex Machina](1373/) | geometry | C++, Go, Python, Java, Rust |
 | 1374 | [Misere](1374/) | games | C++, Go, Python, Java, Rust |
+| 1375 | [Bill Clevers](1375/) | number_theory | C++, Go, Python, Java, Rust |
