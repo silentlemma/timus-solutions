@@ -7,3 +7,4 @@
 | 1400 | [Cellular Characters](1400/) | graphs | C++, Go, Python, Java, Rust |
 | 1401 | [Gamers](1401/) | constructive | C++, Go, Python, Java, Rust |
 | 1402 | [Cocktails](1402/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1403 | [Courier](1403/) | greedy | C++, Go, Python, Java, Rust |

@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1403_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "four orders, one left out" },
+    { "name": "02", "note": "a forum case: the second day goes to the larger reward" },
+    { "name": "03", "note": "a forum case where every order fits" },
+    { "name": "04", "note": "a forum case with pairs of orders on the same deadlines" },
+    { "name": "05", "note": "a single order" },
+    { "name": "06", "note": "deadlines much larger than N, including the maximum 100 000" },
+    { "name": "07", "note": "all due on day 1: only the largest reward" },
+    { "name": "gen1", "generator": "1 1", "note": "1 000 random orders" },
+    { "name": "gen2", "generator": "2 2", "note": "time enough for every order" },
+    { "name": "gen3", "generator": "3 3", "note": "1 000 orders due within 50 days" },
+    { "name": "gen4", "generator": "4 4", "note": "equal rewards, deadlines short or much larger than N" }
+  ]
+}
