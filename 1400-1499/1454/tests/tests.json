@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1454_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a pinwheel around a unit square" },
+    { "name": "03", "note": "five unit squares in a row" },
+    { "name": "04", "note": "a prime area: no rectangle fits" },
+    { "name": "05", "note": "five largest squares in a row" },
+    { "name": "06", "note": "a large pinwheel" },
+    { "name": "07", "note": "dominoes in both orientations" },
+    { "name": "08", "note": "four 3 by 3 squares and a unit square" },
+    { "name": "09", "note": "large strips that almost close a square" },
+    { "name": "10", "note": "three squares and two bars" },
+    { "name": "11", "note": "a staircase of pieces" },
+    { "name": "12", "note": "a pinwheel with the wrong centre" },
+    { "name": "13", "note": "pieces of very different sizes" },
+    { "name": "14", "note": "a pinwheel of thin strips around a 998 by 998 square" }
+  ]
+}
