@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1483_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one draw" },
+    { "name": "02", "note": "a single team is both first and last with 0 points" },
+    { "name": "03", "note": "three teams: each can win once" },
+    { "name": "04", "note": "four teams: an odd number of games each" },
+    { "name": "05", "note": "the largest odd N" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "gen1", "generator": "1", "note": "a random N" },
+    { "name": "gen2", "generator": "2", "note": "a random N" }
+  ]
+}
