@@ -100,3 +100,4 @@
 | 1493 | [One Step from Happiness](1493/) | implementation | C++, Go, Python, Java, Rust |
 | 1494 | [Monobilliards](1494/) | simulation | C++, Go, Python, Java, Rust |
 | 1495 | [One-two, One-two 2](1495/) | bfs | C++, Go, Python, Java, Rust |
+| 1496 | [Spammer](1496/) | implementation | C++, Go, Python, Java, Rust |
