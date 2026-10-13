@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1360_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a dot inside the square" },
+    { "name": "02", "note": "the corner (1, 1) with the smallest dot" },
+    { "name": "03", "note": "the corner (-1, -1) with the smallest dot" },
+    { "name": "04", "note": "the centre with the smallest dot" },
+    { "name": "05", "note": "a dot larger than the square" },
+    { "name": "06", "note": "near the left edge with a tiny dot" },
+    { "name": "07", "note": "a large dot inside the square" }
+  ]
+}
