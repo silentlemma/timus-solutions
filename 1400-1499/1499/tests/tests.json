@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1499_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a triangle needs no cuts" },
+    { "name": "03", "note": "a square already cut" },
+    { "name": "04", "note": "a hexagon with no cuts yet" },
+    { "name": "05", "note": "several cuts closing at one vertex" },
+    { "name": "06", "note": "cuts given with the larger vertex first" },
+    { "name": "gen1", "generator": "1 1", "note": "50000 vertices, half the cuts given" },
+    { "name": "gen2", "generator": "2 2", "note": "50000 vertices, no cuts given" },
+    { "name": "gen3", "generator": "3 3", "note": "50000 vertices, every cut given" },
+    { "name": "gen4", "generator": "4 4", "note": "a fan from vertex 1, half given" },
+    { "name": "gen5", "generator": "5 5", "note": "a small polygon" },
+    { "name": "gen6", "generator": "6 5", "note": "a small polygon" }
+  ]
+}
