@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1477_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the six axis directions" },
+    { "name": "02", "note": "a single airplane" },
+    { "name": "03", "note": "opposite rays with unequal lengths allow only one visible airplane" },
+    { "name": "04", "note": "eight directions on one great circle" },
+    { "name": "05", "note": "the eight corners of a cube" },
+    { "name": "06", "note": "three axis directions and one opposite ray allow three visible airplanes" },
+    { "name": "07", "note": "five directions without antipodal pairs still require one exclusion" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum-size sample of random directions" },
+    { "name": "gen2", "generator": "2 2", "note": "dense small-coordinate directions with many shared planes" },
+    { "name": "gen3", "generator": "3 3", "note": "most directions on one great circle" },
+    { "name": "gen4", "generator": "4 4", "note": "four small-coordinate directions all fit in one open hemisphere" },
+    { "name": "gen5", "generator": "5 5", "note": "two narrow opposite cones" },
+    { "name": "08", "note": "two nearly opposite limit-size vectors are both visible" },
+    { "name": "09", "note": "three oblique coplanar rays surround the origin without an antipodal pair" },
+    { "name": "10", "note": "an asymmetric tetrahedron encloses the origin, forcing one exclusion" },
+    { "name": "11", "note": "six coplanar rays almost span a semicircle but all remain visible" },
+    { "name": "12", "note": "a determinant of one leaves a very narrow viewing region for all four rays" },
+    { "name": "13", "note": "a stress sample attains the bound from two antipodal pairs and four unpaired rays" },
+    { "name": "14", "note": "a random ten-point lattice sample needs two exclusions without any antipodal pair" },
+    { "name": "15", "note": "a random eight-point sample needs another exclusion beyond its single antipodal pair" },
+    { "name": "gen6", "generator": "147706 6", "note": "directions on a tilted affine plane all fit in one narrow open hemisphere" },
+    { "name": "gen7", "generator": "147707 7", "note": "oblique antipodal pairs with unequal vector lengths attain the exact half bound" },
+    { "name": "gen8", "generator": "147708 8", "note": "random directions lie just to either side of a tilted great circle" }
+  ]
+}
