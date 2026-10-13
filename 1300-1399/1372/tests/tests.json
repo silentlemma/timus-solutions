@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1372_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one engine turning the station about the pole" },
+    { "name": "02", "note": "two engines that cancel: no thrust needed" },
+    { "name": "03", "note": "an engine on the north pole" },
+    { "name": "04", "note": "engines pushing straight out: no torque" },
+    { "name": "05", "note": "the smallest station and thrust" },
+    { "name": "06", "note": "nine engines at random" },
+    { "name": "07", "note": "a torque along the diagonal" },
+    { "name": "08", "note": "nine strongest engines side by side" },
+    { "name": "09", "note": "a direction whose longitude rounds to 360" }
+  ]
+}
