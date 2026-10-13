@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1474_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two frogs of each colour" },
+    { "name": "03", "note": "three frogs of each colour" },
+    { "name": "04", "note": "seven frogs of each colour" },
+    { "name": "05", "note": "24 frogs of each colour" },
+    { "name": "gen1", "generator": "100", "note": "100 frogs of each colour" },
+    { "name": "gen2", "generator": "250", "note": "250 frogs of each colour" },
+    { "name": "gen3", "generator": "498", "note": "498 frogs of each colour" },
+    { "name": "gen4", "generator": "499", "note": "the largest N: 249 999 moves" }
+  ]
+}
