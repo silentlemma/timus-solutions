@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1421_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid matrix is accepted" },
+    { "name": "02", "note": "no credits at all" },
+    { "name": "03", "note": "a row larger than 100 per bank" },
+    { "name": "04", "note": "a row that the small column cannot help" },
+    { "name": "05", "note": "one column takes everything" },
+    { "name": "06", "note": "every row and column fits alone, but two rows together do not" },
+    { "name": "07", "note": "a full row of 100s" },
+    { "name": "08", "note": "the largest sums are impossible for two banks" },
+    { "name": "gen1", "generator": "1 1", "note": "sums of a random 100 by 100 matrix" },
+    { "name": "gen2", "generator": "2 2", "note": "sums of a nearly full matrix" },
+    { "name": "gen3", "generator": "3 3", "note": "one unit too many in a full row" },
+    { "name": "gen4", "generator": "4 4", "note": "all credits 100" }
+  ]
+}
