@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1469_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two crossing cigarettes" },
+    { "name": "02", "example": true, "note": "the second example: none meet" },
+    { "name": "03", "note": "a single cigarette" },
+    { "name": "04", "note": "one cigarette ends on another" },
+    { "name": "05", "note": "two cigarettes on one line touch at an end" },
+    { "name": "06", "note": "two cigarettes on one line with a gap" },
+    { "name": "07", "note": "two upright cigarettes overlap" },
+    { "name": "08", "note": "parallel slanted cigarettes" },
+    { "name": "09", "note": "the two diagonals of the whole table" },
+    { "name": "10", "note": "close but apart" },
+    { "name": "11", "note": "an upright cigarette between two horizontal ones" },
+    { "name": "12", "note": "one cigarette lies inside another" },
+    { "name": "gen1", "generator": "1 50000 1", "note": "long disjoint cigarettes and one touching an end" },
+    { "name": "gen2", "generator": "2 50000 2", "note": "fifty thousand long disjoint cigarettes" },
+    { "name": "gen3", "generator": "3 50000 3", "note": "long random cigarettes" },
+    { "name": "gen4", "generator": "4 50000 4", "note": "a fan meeting at one point" },
+    { "name": "13", "note": "removing a short blocker exposes the only crossing pair as sweep neighbours" },
+    { "name": "14", "note": "near-coincident parallel segments at coordinate limits stay apart by a determinant of one" },
+    { "name": "15", "note": "seeded sparse random segments have overlapping bounding boxes but no shared points" }
+  ]
+}
