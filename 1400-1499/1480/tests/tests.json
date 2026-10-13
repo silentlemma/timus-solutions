@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1480_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "smallest odd board" },
+    { "name": "03", "note": "smallest even board beyond the example" },
+    { "name": "04", "note": "odd board with thirteen cells of one colour" },
+    { "name": "05", "note": "largest single-digit side" },
+    { "name": "06", "note": "the largest N" },
+    { "name": "07", "note": "the largest odd N" },
+    { "name": "gen1", "generator": "6", "note": "even board with three cells of each colour per row" },
+    { "name": "gen2", "generator": "17", "note": "odd board with 289 distinct labels" },
+    { "name": "gen3", "generator": "30", "note": "even board just below the four-digit label threshold" },
+    { "name": "08", "note": "small odd board with unequal colour counts" },
+    { "name": "09", "note": "even power-of-two side with alternating row starts" },
+    { "name": "10", "note": "first board whose labels reach three digits" },
+    { "name": "11", "note": "odd rounding just after the labels cross 100" },
+    { "name": "12", "note": "first board whose labels reach four digits" },
+    { "name": "13", "note": "near-limit even board below the maximum cases" },
+    { "name": "14", "generator": "random 0 13 29", "note": "middle-sized odd board with one extra high label" },
+    { "name": "15", "generator": "random 1 34 47", "note": "large interior even board with equal colour counts" }
+  ]
+}
