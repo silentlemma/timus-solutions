@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1375_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one modulo three" },
+    { "name": "02", "note": "the smallest prime, k = 0" },
+    { "name": "03", "note": "nonzero target for the smallest prime" },
+    { "name": "04", "note": "zero modulo 3" },
+    { "name": "05", "note": "two nonzero squares needed modulo three" },
+    { "name": "06", "note": "the largest prime below 10^6 and k = p - 1" },
+    { "name": "07", "note": "zero modulo a large prime" },
+    { "name": "08", "note": "a large prime that is 3 modulo 4" },
+    { "name": "09", "note": "a nonsquare target represented by one and three modulo seven" },
+    { "name": "10", "note": "zero and one both fail as first coordinates modulo seven" },
+    { "name": "11", "note": "zero modulo a prime that is 1 modulo 4" },
+    { "name": "12", "note": "a square target modulo a large prime congruent to one modulo four" },
+    { "name": "13", "note": "negative k - x squared must wrap: the first pair is 5 and 6 modulo 37" },
+    { "name": "14", "note": "all trial first coordinates from 0 through 9 fail modulo 229" },
+    { "name": "15", "note": "a square residue whose smallest square root is 50000, so its square exceeds signed 32 bits" },
+    { "name": "16", "note": "minus one is a nonzero square modulo the Fermat prime 65537" },
+    { "name": "17", "generator": "random 1375 46000 50000 1", "note": "seeded interior residue near the signed 32-bit squaring threshold" },
+    { "name": "18", "generator": "random 2026 990000 999983 3", "note": "seeded interior residue with a random prime near the input limit" }
+  ]
+}
