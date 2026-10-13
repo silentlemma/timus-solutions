@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1462_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 8 bars, 2 safes" },
+    { "name": "02", "note": "N = 4" },
+    { "name": "03", "note": "N = 5" },
+    { "name": "04", "note": "N = 10" },
+    { "name": "05", "note": "beyond 32-bit integers" },
+    { "name": "06", "note": "the last Lucas number below 2^64" },
+    { "name": "07", "note": "the first one beyond 2^64" },
+    { "name": "08", "note": "N = 1000: 209 digits" },
+    { "name": "09", "note": "the largest N: 14630 digits" },
+    { "name": "10", "note": "an odd large N" },
+    { "name": "11", "note": "a middle-sized N" }
+  ]
+}
