@@ -64,3 +64,4 @@
 | 1457 | [Heating Main](1457/) | math | C++, Go, Python, Java, Rust |
 | 1458 | [War Games](1458/) | constructive | C++, Go, Python, Java, Rust |
 | 1459 | [Archer's Travel](1459/) | dp | C++, Go, Python, Java, Rust |
+| 1460 | [Wires](1460/) | geometry | C++, Go, Python, Java, Rust |

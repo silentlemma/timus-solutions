@@ -1,0 +1,12 @@
+{
+  "judging": "float:0.00011",
+  "reference": "1460_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one extra point, then two" },
+    { "name": "02", "note": "pins on a line, squares, crosses, thin rectangles and pins inside triangles" },
+    { "name": "gen1", "generator": "1 200 1", "note": "100 random sets over the whole board" },
+    { "name": "gen2", "generator": "2 200 2", "note": "100 sets near the corners of squares" },
+    { "name": "gen3", "generator": "3 200 3", "note": "100 sets near a line" },
+    { "name": "gen4", "generator": "4 5 1", "note": "100 sets on a small grid with many ties" }
+  ]
+}
