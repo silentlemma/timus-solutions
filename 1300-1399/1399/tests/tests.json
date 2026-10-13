@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1399_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "seven clients, ten items, a truck for five" },
+    { "name": "02", "note": "one client, one item" },
+    { "name": "03", "note": "one client's items do not fit into one trip" },
+    { "name": "04", "note": "every item fills the truck" },
+    { "name": "05", "note": "a star: clients far apart, everything fits at once" },
+    { "name": "gen1", "generator": "1 1", "note": "twenty clients and fifty items with a small truck" },
+    { "name": "gen2", "generator": "2 2", "note": "a truck for about a third of the load" },
+    { "name": "gen3", "generator": "3 3", "note": "all goods fit in one trip despite an unused client" },
+    { "name": "gen4", "generator": "4 4", "note": "heavy items for clients close together" },
+    { "name": "gen5", "generator": "5 5", "note": "random distances instead of points" },
+    { "name": "gen6", "generator": "6 6", "note": "three clients whose items need several trips each" },
+    { "name": "06", "note": "minimum capacity and unit weights force 50 trips with maximum distances" },
+    { "name": "07", "note": "maximum capacity splits 50 maximum-weight items along a line into unequal tours" },
+    { "name": "08", "note": "only clients 18 and 20 have items, leaving most matrix vertices unused" },
+    { "name": "09", "note": "an exactly full truck visits collinear clients whose labels are out of route order" },
+    { "name": "10", "note": "two exactly full trips require repacking a greedy item order across distant groups" },
+    { "name": "11", "note": "one unit over capacity makes a separate visit to the nearest client cheapest" },
+    { "name": "12", "note": "indivisible items require three trips although their total fits two truckloads" },
+    { "name": "13", "note": "one client's light items must join different heavy clients to avoid an extra tour" },
+    { "name": "14", "note": "random metric optimum fills one truck and isolates a nearby client's other item" },
+    { "name": "15", "note": "random metric optimum leaves slack in both trips to preserve client grouping" },
+    { "name": "gen7", "generator": "1399 7", "note": "random closed metric combines repeated deliveries with a tight capacity" },
+    { "name": "gen8", "generator": "1399 8", "note": "random tree branches test shared route edges across several capacity-limited trips" }
+  ]
+}
