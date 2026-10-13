@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1493_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a lucky predecessor without a carry or borrow" },
+    { "name": "02", "example": true, "note": "a carry over one trailing nine leaves neither neighbour lucky" },
+    { "name": "03", "example": true, "note": "the third example: a leading zero" },
+    { "name": "04", "note": "the smallest valid ticket has a lucky predecessor" },
+    { "name": "05", "note": "the next ticket is 999999" },
+    { "name": "06", "note": "a borrow across the middle leaves only the next ticket lucky" },
+    { "name": "07", "note": "neither neighbour is lucky" },
+    { "name": "08", "note": "a carry through the middle that does not help" },
+    { "name": "09", "note": "a borrow makes the left half zero while the next ticket is lucky" },
+    { "name": "gen1", "generator": "1", "note": "a lucky predecessor despite a carry in the successor" },
+    { "name": "gen2", "generator": "2", "note": "decrementing the final digit balances the halves" },
+    { "name": "gen3", "generator": "3", "note": "incrementing the final digit produces a lucky successor" },
+    { "name": "10", "note": "a carry over two trailing nines within the last half cannot make it lucky" },
+    { "name": "11", "note": "a borrow over two trailing zeros within the last half cannot make it lucky" },
+    { "name": "12", "note": "only the previous ticket is lucky when the next carries across the middle" }
+  ]
+}
