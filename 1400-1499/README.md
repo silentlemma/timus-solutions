@@ -69,3 +69,4 @@
 | 1462 | [Uncle Scrooge's Gold](1462/) | math | C++, Go, Python, Java, Rust |
 | 1463 | [Happiness to People!](1463/) | dp | C++, Go, Python, Java, Rust |
 | 1464 | [Light](1464/) | geometry | C++, Go, Python, Java, Rust |
+| 1465 | [Pawn Game](1465/) | games | C++, Go, Python, Java, Rust |
