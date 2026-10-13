@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1450_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the route 6, 3, 1, 4" },
+    { "name": "02", "note": "no pipelines at all" },
+    { "name": "03", "note": "the only pipeline points the wrong way" },
+    { "name": "04", "note": "a single pipeline from S to F" },
+    { "name": "05", "note": "two routes of equal length, one richer" },
+    { "name": "06", "note": "F can reach S, but not the other way" },
+    { "name": "07", "note": "the longest route beats the direct pipeline" },
+    { "name": "08", "note": "a chain through all 500 stations" },
+    { "name": "gen1", "generator": "1 500 124750 3", "note": "every possible pipeline" },
+    { "name": "gen2", "generator": "2 500 20000 1", "note": "a random network, S early and F late" },
+    { "name": "gen3", "generator": "3 500 2000 2", "note": "a sparse network with random S and F" },
+    { "name": "gen4", "generator": "4 500 600 1", "note": "a very sparse network, S early and F late" }
+  ]
+}
