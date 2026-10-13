@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1455_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any ambiguous text is accepted" },
+    { "name": "02", "note": "a single word can never be ambiguous" },
+    { "name": "03", "note": "two near-maximum unary words become ambiguous when concatenated in opposite orders" },
+    { "name": "04", "note": "one word is also two copies of a shorter word" },
+    { "name": "05", "note": "a, ab and bb: a code that can be read uniquely" },
+    { "name": "06", "note": "overlapping two-letter words produce an ambiguity with a one-letter word" },
+    { "name": "07", "note": "alternating words allow different splits across word boundaries" },
+    { "name": "08", "note": "a full unary dictionary permits both single-word and repeated-letter parses" },
+    { "name": "09", "note": "equal-length words remain uniquely decodable despite overlap" },
+    { "name": "gen1", "generator": "1 100 100 2 1", "note": "binary words of widely varying lengths create competing prefix matches" },
+    { "name": "gen2", "generator": "2 100 100 26 1", "note": "a full-alphabet dictionary with varied word lengths remains prefix-free" },
+    { "name": "gen3", "generator": "3 100 7 2 1", "note": "both binary letters and all two-letter words allow immediate ambiguity in a dense short dictionary" },
+    { "name": "gen4", "generator": "4 100 0 0 2", "note": "a prefix-free dictionary with a shared final letter has no ambiguity" },
+    { "name": "gen5", "generator": "5 100 0 0 3", "note": "a suffix-free dictionary may have many prefix pairs without ambiguity" },
+    { "name": "gen6", "generator": "6 100 30 3 1", "note": "all three one-letter words let longer dictionary words split entirely into individual letters" },
+    { "name": "10", "note": "a random uniquely decodable code with both prefix and suffix pairs and a reachable cycle" },
+    { "name": "11", "note": "a random delayed ambiguity whose shortest text has 16 letters and unequal numbers of words" },
+    { "name": "12", "note": "a 100-letter word also splits into 100 one-letter words covering the whole alphabet" },
+    { "name": "13", "note": "long shared prefixes consume 99 one-letter words before both branches reach a dead end" },
+    { "name": "14", "note": "an alternating chain of 100 words has its first ambiguous text at 4950 letters" },
+    { "name": "15", "note": "a random ambiguity reuses a one-letter word at opposite ends of its two parses" },
+    { "name": "gen7", "generator": "1455 100 100 26 4", "note": "maximum total dictionary length with 100 distinct random words of exactly 100 letters" },
+    { "name": "gen8", "generator": "1455 100 10 2 5", "note": "a dense random binary dictionary of 8 to 10 letter words without short shortcuts" }
+  ]
+}
