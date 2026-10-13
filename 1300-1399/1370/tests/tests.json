@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1370_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the window wraps around the wheel" },
+    { "name": "02", "note": "the shortest wheel and one click" },
+    { "name": "03", "note": "a full turn brings the window back: leading zeros" },
+    { "name": "04", "note": "the longest wheel and the most clicks" },
+    { "name": "05", "note": "many full turns of a short wheel" },
+    { "name": "06", "note": "a window starting with zeros" },
+    { "name": "07", "note": "a window across the end of a long wheel" },
+    { "name": "08", "note": "zero clicks leave the initial window on the shortest wheel" },
+    { "name": "09", "note": "the window ends exactly at the final digit without wrapping" },
+    { "name": "10", "note": "starting at the final digit wraps nine digits on the shortest wheel" },
+    { "name": "11", "note": "an entirely zero wheel must still print ten digits" },
+    { "name": "12", "generator": "random 137012 257 128", "note": "seeded random digits with the window strictly inside a medium wheel" },
+    { "name": "13", "generator": "random 137013 997 32767", "note": "maximum clicks on a seeded random wheel whose length is prime and near the limit" }
+  ]
+}
