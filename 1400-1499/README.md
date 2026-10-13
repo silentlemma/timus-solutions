@@ -37,3 +37,4 @@
 | 1430 | [Crime and Punishment](1430/) | number_theory | C++, Go, Python, Java, Rust |
 | 1431 | [Diplomas](1431/) | greedy | C++, Go, Python, Java, Rust |
 | 1432 | [Twofold Luck](1432/) | greedy | C++, Go, Python, Java, Rust |
+| 1433 | [Diamonds](1433/) | bruteforce | C++, Go, Python, Java, Rust |
