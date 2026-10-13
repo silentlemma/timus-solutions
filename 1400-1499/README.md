@@ -91,3 +91,4 @@
 | 1484 | [Film Rating](1484/) | math | C++, Go, Python, Java, Rust |
 | 1485 | [Football and Lie](1485/) | graphs | C++, Go, Python, Java, Rust |
 | 1486 | [Equal Squares](1486/) | hashing | C++, Go, Python, Java, Rust |
+| 1487 | [Chinese Football](1487/) | graphs | C++, Go, Python, Java, Rust |
