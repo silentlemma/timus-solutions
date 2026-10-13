@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1400_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five characters in rows of three" },
+    { "name": "02", "note": "a single character" },
+    { "name": "03", "note": "one row: only left and right move" },
+    { "name": "04", "note": "one column" },
+    { "name": "05", "note": "a forum case with a short last row" },
+    { "name": "06", "note": "a forum case with 46 columns, more than the statement allows" },
+    { "name": "07", "note": "a mean of exactly 1.625, printed as 1.62 like printf does" },
+    { "name": "08", "note": "the largest table, 20 columns" },
+    { "name": "09", "note": "a single column with 256 characters" },
+    { "name": "10", "note": "a full square of 16 by 16" },
+    { "name": "11", "note": "ten full rows of 20 characters" },
+    { "name": "12", "note": "the table from the statement" },
+    { "name": "13", "note": "two cells: left and right reach the same neighbor" },
+    { "name": "14", "note": "one cell below a 20-column row; its vertical edge duplicates the wraparound" },
+    { "name": "15", "note": "two 20-column rows with only the bottom right cell missing" },
+    { "name": "16", "note": "a tall table with 256 cells in two columns and vertical shortcuts" },
+    { "name": "17", "generator": "random 13 3 32", "note": "seeded small table with a unique best start in the middle row" },
+    { "name": "18", "generator": "random 0 128 256", "note": "seeded large uneven table with a two-cell final row" }
+  ]
+}
