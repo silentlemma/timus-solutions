@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1449_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "statement example with multiple optimal bribe distributions" },
+    { "name": "02", "note": "no credits at all" },
+    { "name": "03", "note": "two large credits on the diagonal" },
+    { "name": "04", "note": "all credits equal" },
+    { "name": "05", "note": "a single credit" },
+    { "name": "06", "note": "credits that grow along rows and columns" },
+    { "name": "07", "note": "one bank lends to every firm" },
+    { "name": "gen1", "generator": "1 100 1", "note": "maximum-size random matrix with credits up to a million" },
+    { "name": "gen2", "generator": "2 100 2", "note": "credits that split exactly into row and column parts" },
+    { "name": "gen3", "generator": "3 100 3", "note": "credits of 0 and 1" },
+    { "name": "gen4", "generator": "4 7 1", "note": "a small random matrix" },
+    { "name": "08", "note": "two off-diagonal credits beat the single largest credit" },
+    { "name": "09", "note": "near the credit ceiling the two matching totals differ by one" },
+    { "name": "10", "note": "one active firm has unequal credits at every bank" },
+    { "name": "11", "note": "zero rows and columns surround a nonzero core" },
+    { "name": "12", "note": "three firms share only two banks so unit credits have a Hall deficit" },
+    { "name": "13", "note": "the last firm forces reassignment through a five-firm alternating chain" },
+    { "name": "14", "note": "two groups of tied tight credits allow several optimal matchings" },
+    { "name": "15", "note": "asymmetric credits where neither the diagonal nor the sum of row maxima is optimal" },
+    { "name": "16", "note": "credits at zero, one, a million minus one and a million" },
+    { "name": "17", "generator": "144917 100 4", "note": "maximum size with dense near-million credits and many equal slacks" },
+    { "name": "18", "generator": "144918 100 5", "note": "a lower triangle of maximum credits forces the diagonal despite tied row maxima" },
+    { "name": "19", "generator": "144919 100 6", "note": "a random planted tight matching coexists with slack credits and both value limits" }
+  ]
+}
