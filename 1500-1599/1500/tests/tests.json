@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1500_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "either category on the first segment needs category 2 to reach work" },
+    { "name": "02", "note": "one road from home to work" },
+    { "name": "03", "note": "three roads of different categories join the same crossings" },
+    { "name": "04", "note": "the short way needs two permits, the long one only one" },
+    { "name": "05", "note": "a road of its own category beats a longer route" },
+    { "name": "gen1", "generator": "1 1", "note": "a random street plan" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain that needs all 20 categories" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain with random extra roads" },
+    { "name": "gen4", "generator": "4 4", "note": "a small plan" },
+    { "name": "gen5", "generator": "5 3", "note": "categories 0 and 13 connect home to work through crossings 17 and 8" },
+    { "name": "gen6", "generator": "6 1", "note": "cycles and parallel categories still require two permits" },
+    { "name": "06", "note": "minimum K on a 29-road reversed chain through all 30 crossings" },
+    { "name": "07", "note": "high-half categories 10 and 19 reach work via crossing 29 amid disconnected distractions" },
+    { "name": "08", "note": "categories 9 and 10 are reused across the mask split and beat three low categories" },
+    { "name": "09", "note": "a costlier prefix at a merge reuses its permits on the suffix and wins globally" },
+    { "name": "10", "note": "seeded cyclic graph has three indispensable permits and a distracting detour" },
+    { "name": "gen7", "generator": "1500 5", "note": "maximum 8700 distinct roads with every category on every crossing pair" },
+    { "name": "gen8", "generator": "1501 6", "note": "random dense layers offer many routes but force four distinct category cuts" }
+  ]
+}
