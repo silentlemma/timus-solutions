@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1426_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid rectangle is accepted" },
+    { "name": "02", "note": "all four points at one place" },
+    { "name": "03", "note": "a point strictly inside the triangle formed by the other three makes a rectangle impossible" },
+    { "name": "04", "note": "four points on a line" },
+    { "name": "05", "note": "edge midpoints and corners of the input square include a box reaching the canvas boundary" },
+    { "name": "06", "note": "an interior point is impossible, while a point on a triangle edge permits a rectangle" },
+    { "name": "07", "note": "repeated points" },
+    { "name": "08", "note": "an axis-aligned rectangle, a tilted square and a tilted quadrilateral" },
+    { "name": "gen1", "generator": "1 1", "note": "random coordinates across the full input square include feasible and impossible paintings" },
+    { "name": "gen2", "generator": "2 2", "note": "random points on a small grid" },
+    { "name": "gen3", "generator": "3 3", "note": "rounded samples from rectangle sides include repeated points and impossible paintings" },
+    { "name": "gen4", "generator": "4 4", "note": "corners of the inner square" },
+    { "name": "09", "note": "unit-size triangles at both coordinate extremes with three distinct points" },
+    { "name": "10", "note": "unsorted horizontal and vertical lines on all four input boundaries need positive width" },
+    { "name": "11", "note": "four points strictly inside different sides of a rotated rectangle" },
+    { "name": "12", "note": "move one point by one unit from outside to on to inside a long hull edge" },
+    { "name": "13", "note": "a quadrilateral needs the final point-pair direction after the first five candidates fail" },
+    { "name": "14", "note": "all 24 input orders of a nonrectangular quadrilateral give valid constructions" },
+    { "name": "15", "note": "almost horizontal and almost vertical edges with large coordinates and unit gaps" },
+    { "name": "16", "note": "small point sets alternate between impossible and feasible paintings" },
+    { "name": "gen5", "generator": "142605 5", "note": "shuffled unit-area parallelograms test precision for narrow bounding rectangles" },
+    { "name": "gen6", "generator": "142606 6", "note": "thin triangles containing a strictly interior point must all be rejected" },
+    { "name": "gen7", "generator": "142607 7", "note": "four distinct points on shifted parabolas form convex quadrilaterals" },
+    { "name": "17", "note": "coordinate rounding in an extremely thin unit-area parallelogram needs a tolerant angle check" }
+  ]
+}
