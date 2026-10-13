@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1446_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one student per house, in reverse order" },
+    { "name": "03", "note": "names equal to house names and a double space inside a name" },
+    { "name": "04", "note": "names of 200 characters with spaces and hyphens" },
+    { "name": "gen1", "generator": "1 1000 200", "note": "1000 students with long names" },
+    { "name": "gen2", "generator": "2 1000 3", "note": "1000 students with short names" }
+  ]
+}

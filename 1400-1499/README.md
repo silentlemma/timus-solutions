@@ -50,3 +50,4 @@
 | 1443 | [Rails](1443/) | math | C++, Go, Python, Java, Rust |
 | 1444 | [Elephpotamus](1444/) | geometry | C++, Go, Python, Java, Rust |
 | 1445 | [Christmas gifts](1445/) | math | C++, Go, Python, Java, Rust |
+| 1446 | [Sorting Hat](1446/) | implementation | C++, Go, Python, Java, Rust |
