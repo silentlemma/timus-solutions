@@ -25,3 +25,4 @@
 | 1418 | [Military Story](1418/) | geometry | C++, Go, Python, Java, Rust |
 | 1419 | [Maps of the Island Worlds](1419/) | graphs | C++, Go, Python, Java, Rust |
 | 1420 | [Integer-Valued Complex Division](1420/) | math | C++, Go, Python, Java, Rust |
+| 1421 | [Credit Operations](1421/) | greedy | C++, Go, Python, Java, Rust |
