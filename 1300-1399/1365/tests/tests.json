@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1365_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: glued brackets" },
+    { "name": "02", "note": "the samples from the statement text: a sum, plain gluing, one operation" },
+    { "name": "03", "note": "empty expressions and missing operands, including standalone separators" },
+    { "name": "04", "note": "integer division, division by zero and a single argument" },
+    { "name": "05", "note": "a ';' outside an operation glues the whole rest" },
+    { "name": "06", "note": "leading zeros vanish when the glued string is read as a number" },
+    { "name": "07", "note": "values up to 10^9" },
+    { "name": "gen1", "generator": "1 1", "note": "nested arithmetic and concatenation in one thousand generated expressions" },
+    { "name": "gen2", "generator": "2 2", "note": "an inserted allowed character perturbs expression structure and termination" },
+    { "name": "gen3", "generator": "3 3", "note": "short arbitrary strings mix digits, operators, brackets and separators" },
+    { "name": "gen4", "generator": "4 4", "note": "twelve small operands under addition, multiplication or division" },
+    { "name": "08", "note": "a nested unbracketed operation owns later separators until its scope ends" },
+    { "name": "09", "note": "computed operation results glue into one argument before the enclosing fold" },
+    { "name": "10", "note": "leading repeated and trailing empty arguments contribute one to a fold" },
+    { "name": "11", "note": "an extra closing bracket discards a nonempty suffix after a computed value" },
+    { "name": "12", "note": "missing closing brackets preserve the values of matching completed scopes" },
+    { "name": "13", "note": "zero-valued suffixes normalize at each outside separator before further gluing" },
+    { "name": "14", "note": "glued multi-digit operands reach the value limit without exceeding it" },
+    { "name": "15", "note": "maximum-length lines with deep brackets and chains of unary operations" },
+    { "name": "16", "note": "maximum-length flat operations with explicit operands or empty arguments" },
+    { "name": "17", "note": "seeded small regressions combine nested operators with empty terms and early termination" },
+    { "name": "18", "note": "maximum-length sums combine a zero-padded quotient with a product" },
+    { "name": "19", "note": "expression numbering across a long batch with internal and final blank lines" }
+  ]
+}
