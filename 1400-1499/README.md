@@ -102,3 +102,4 @@
 | 1495 | [One-two, One-two 2](1495/) | bfs | C++, Go, Python, Java, Rust |
 | 1496 | [Spammer](1496/) | implementation | C++, Go, Python, Java, Rust |
 | 1497 | [Cutting a Square](1497/) | implementation | C++, Go, Python, Java, Rust |
+| 1498 | [Stroke at Full Speed](1498/) | bfs | C++, Go, Python, Java, Rust |
