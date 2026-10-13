@@ -95,3 +95,4 @@
 | 1488 | [ACM Poker](1488/) | implementation | C++, Go, Python, Java, Rust |
 | 1489 | [Points on a Parallelepiped](1489/) | geometry | C++, Go, Python, Java, Rust |
 | 1490 | [Fire Circle](1490/) | math | C++, Go, Python, Java, Rust |
+| 1491 | [Unreal Story](1491/) | prefix_sums | C++, Go, Python, Java, Rust |
