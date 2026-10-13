@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1377_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "found on the 9th and the 15th night" },
+    { "name": "02", "note": "the smallest cemetery" },
+    { "name": "03", "note": "the treasures given in the other order" },
+    { "name": "04", "note": "the first and the last grave of the largest cemetery" },
+    { "name": "05", "note": "the last grave listed before the first in the largest cemetery" },
+    { "name": "06", "note": "two rows: the corner graves" },
+    { "name": "07", "note": "opposite ends of the first column in a two-column cemetery" },
+    { "name": "08", "note": "both ends of the final horizontal strip" },
+    { "name": "09", "note": "neighbours in the middle, dug on consecutive nights" },
+    { "name": "10", "note": "a tall cemetery" },
+    { "name": "11", "note": "an odd square ends at a single central grave after the innermost right turn" },
+    { "name": "12", "note": "finds straddle the transition from the outer left edge to the next lap" },
+    { "name": "13", "generator": "random 1377 100 99", "note": "seeded random graves in a maximum-height rectangle with unequal sides" }
+  ]
+}
