@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1430_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 2 * 8 + 1 * 5 = 21" },
+    { "name": "02", "note": "the smallest numbers" },
+    { "name": "03", "note": "one item takes all the money" },
+    { "name": "04", "note": "7 cannot be made from 3 and 5" },
+    { "name": "05", "note": "the same with the prices swapped" },
+    { "name": "06", "note": "a price of 1 spends everything" },
+    { "name": "07", "note": "prices near the square root of N" },
+    { "name": "08", "note": "two primes near the square root of N" },
+    { "name": "09", "note": "a common divisor: only even sums" },
+    { "name": "10", "note": "two large primes" },
+    { "name": "11", "note": "equal prices" },
+    { "name": "12", "note": "both prices above N: buy nothing" }
+  ]
+}
