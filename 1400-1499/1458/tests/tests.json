@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1458_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any shortest list of commands is accepted" },
+    { "name": "02", "note": "everyone already stands alike" },
+    { "name": "03", "note": "everyone stands the other way: still nothing to do" },
+    { "name": "04", "note": "one soldier differs on the smallest ground" },
+    { "name": "05", "note": "a 2 by 2 chessboard" },
+    { "name": "06", "note": "striped rows" },
+    { "name": "07", "note": "one soldier differs: a whole cross of commands" },
+    { "name": "gen1", "generator": "1 1000 1", "note": "a random ground of 1000 by 1000" },
+    { "name": "gen2", "generator": "2 1000 2", "note": "one soldier differs on the largest ground" },
+    { "name": "gen3", "generator": "3 1000 3", "note": "a 1000 by 1000 chessboard" },
+    { "name": "gen4", "generator": "4 998 4", "note": "few soldiers differ" }
+  ]
+}
