@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1356_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one, two and three primes" },
+    { "name": "02", "note": "even numbers near 10^9 whose smallest split needs a large prime" },
+    { "name": "03", "note": "the smallest cases, 10^9 and the largest prime below it" },
+    { "name": "04", "note": "no tests at all" },
+    { "name": "05", "note": "twenty odd numbers near 10^9 that need three primes" },
+    { "name": "06", "note": "twenty primes across several magnitudes must each stay a single term" },
+    { "name": "07", "note": "odd composites across the range whose optimal pair must include 2" },
+    { "name": "08", "note": "primality checks reject Carmichael numbers, pseudoprimes and large prime squares" },
+    { "name": "09", "note": "repeated transitions between one, two and three terms preserve query order" },
+    { "name": "10", "note": "one odd query inside a 282-wide prime gap forces a long downward search" },
+    { "name": "11", "generator": "small 1356", "note": "seeded small random values exercise dense prime and composite cases" },
+    { "name": "12", "generator": "wide 13560", "note": "twenty seeded random values span the full permitted numeric range" },
+    { "name": "13", "generator": "window 135602", "note": "a seeded consecutive window checks adjacent values with changing parity and primality" }
+  ]
+}
