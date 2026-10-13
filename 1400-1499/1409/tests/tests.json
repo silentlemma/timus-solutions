@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1409_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single can shot by both" },
+    { "name": "03", "note": "ten cans, Harry shot only the last one" },
+    { "name": "04", "note": "ten cans, Larry shot only the last one" },
+    { "name": "05", "note": "ten cans split almost evenly" },
+    { "name": "06", "note": "equal counts" }
+  ]
+}
