@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1440_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: too few days" },
+    { "name": "02", "example": true, "note": "the second example: the counts jump over the range" },
+    { "name": "03", "example": true, "note": "the third example: any fitting set of days is accepted" },
+    { "name": "04", "note": "the match on September 2 leaves no day for training" },
+    { "name": "05", "note": "two hundred trainings cannot fit before Christmas" },
+    { "name": "06", "note": "every day from September 2 to December 23" },
+    { "name": "07", "note": "a single training day" },
+    { "name": "08", "note": "the widest range" },
+    { "name": "09", "note": "only one set of five days fits" },
+    { "name": "10", "note": "only one set of three days fits" },
+    { "name": "11", "note": "the match on October 1, one weekday gets an extra day" },
+    { "name": "12", "note": "four weeks exactly: no odd count" },
+    { "name": "13", "note": "the match on November 1 needs every day" },
+    { "name": "14", "note": "a short calendar allows one weekday occurring twice or two occurring once" },
+    { "name": "15", "note": "one training above the maximum of 113 is already impossible" },
+    { "name": "16", "note": "the last day of November needs one 12-count and one 13-count weekday" },
+    { "name": "17", "note": "after November only one weekday occurs 12 times so a total of 24 is impossible" },
+    { "name": "18", "note": "a match on October 31 requires three 9-count weekdays and one 8-count weekday" },
+    { "name": "19", "generator": "144481 random", "note": "seeded random bounds admit a schedule only at the inclusive upper bound" },
+    { "name": "20", "generator": "144020 feasible", "note": "seeded random late calendar has eleven complete weeks and needs three weekdays" }
+  ]
+}

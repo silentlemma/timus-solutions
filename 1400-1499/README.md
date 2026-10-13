@@ -44,3 +44,4 @@
 | 1437 | [Gasoline Station](1437/) | bfs | C++, Go, Python, Java, Rust |
 | 1438 | [Time Limit Exceeded](1438/) | simulation | C++, Go, Python, Java, Rust |
 | 1439 | [Battle with You-Know-Who](1439/) | binary_search | C++, Go, Python, Java, Rust |
+| 1440 | [Training Schedule](1440/) | bruteforce | C++, Go, Python, Java, Rust |
