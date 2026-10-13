@@ -52,3 +52,4 @@
 | 1445 | [Christmas gifts](1445/) | math | C++, Go, Python, Java, Rust |
 | 1446 | [Sorting Hat](1446/) | implementation | C++, Go, Python, Java, Rust |
 | 1447 | [Portkey Network](1447/) | graphs | C++, Go, Python, Java, Rust |
+| 1448 | [Lighting in Hogwarts](1448/) | constructive | C++, Go, Python, Java, Rust |
