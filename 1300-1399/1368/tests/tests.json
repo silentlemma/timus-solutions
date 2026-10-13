@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1368_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an L of three cells behind seven sections" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "two cells" },
+    { "name": "04", "note": "four cells: a square is no better than a T" },
+    { "name": "05", "note": "a diamond of radius 1" },
+    { "name": "06", "note": "a complete outer layer around the five-cell diamond" },
+    { "name": "07", "note": "one cell past a diamond" },
+    { "name": "08", "note": "a hundred cells" },
+    { "name": "09", "note": "just under the largest area" },
+    { "name": "10", "note": "the largest area" },
+    { "name": "11", "note": "the first cell of a new layer" },
+    { "name": "12", "note": "seven cells require ten sections and trimming below the row cap" },
+    { "name": "13", "note": "an odd fence size immediately after completing the radius-four diamond" },
+    { "name": "14", "note": "half a million cells" },
+    { "name": "15", "note": "eight cells fill the largest region enclosed by ten sections" },
+    { "name": "16", "note": "nine cells combine an odd fence size with a trimmed diagonal corner" },
+    { "name": "17", "note": "one cell removed from a radius-two diamond keeps twelve sections" },
+    { "name": "18", "note": "the largest complete diamond allowed by the area limit" },
+    { "name": "19", "note": "the exact capacity of a 2830-section fence near the upper limit" },
+    { "name": "20", "note": "one cell beyond that capacity forces the fence to grow to 2831" },
+    { "name": "21", "generator": "136821 1", "note": "seeded small area exercises a partial layer away from diamond sizes" },
+    { "name": "22", "generator": "136822 2", "note": "seeded medium area requires trimming a nonmaximal diagonal rectangle" },
+    { "name": "23", "generator": "136823 3", "note": "seeded large area checks construction and cyclic order on a long fence" }
+  ]
+}
