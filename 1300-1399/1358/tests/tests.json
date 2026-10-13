@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1358_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a path of three computers" },
+    { "name": "02", "note": "a single computer and no wires" },
+    { "name": "03", "note": "two computers" },
+    { "name": "04", "note": "a small star around computer 3" },
+    { "name": "05", "note": "a path that does not start at computer 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree of 1000 computers" },
+    { "name": "gen2", "generator": "2 2", "note": "a path of 1000 computers rooted at an internal vertex" },
+    { "name": "gen3", "generator": "3 3", "note": "a star of 1000 computers" },
+    { "name": "gen4", "generator": "4 4", "note": "a caterpillar" },
+    { "name": "gen5", "generator": "5 5", "note": "a nearly complete binary tree" },
+    { "name": "06", "note": "two sibling subtrees with interleaved vertex labels and shuffled cables" },
+    { "name": "07", "note": "unequal sibling subtrees mix long chains, branching, and an immediate leaf" },
+    { "name": "08", "note": "two adjacent high-degree hubs with computer 1 attached as a leaf" },
+    { "name": "09", "note": "a complete ternary tree rooted from an internal child of computer 40" },
+    { "name": "10", "note": "a random Prufer tree retained from stress testing, with a leaf root and depth 18" },
+    { "name": "11", "note": "a random recursive tree retained from stress testing, with several branching hubs" },
+    { "name": "gen6", "generator": "135806 6", "note": "a 1000-computer tree with a 900-edge handle and 99 leaves at its deepest hub" },
+    { "name": "gen7", "generator": "135807 7", "note": "nine 111-edge arms sharing computer 1" },
+    { "name": "gen8", "generator": "135808 8", "note": "a 1000-computer path rooted at an endpoint reaches the full depth of 999" }
+  ]
+}
