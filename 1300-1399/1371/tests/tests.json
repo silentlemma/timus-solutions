@@ -1,0 +1,14 @@
+{
+  "judging": "float:0.0001",
+  "reference": "1371_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small star" },
+    { "name": "02", "note": "two branches" },
+    { "name": "03", "note": "free deliveries" },
+    { "name": "04", "note": "a dear and a cheap edge" },
+    { "name": "gen1", "generator": "1 1", "note": "a random tree of 50 000 branches" },
+    { "name": "gen2", "generator": "2 2", "note": "a path of the dearest edges: the sum needs 64 bits" },
+    { "name": "gen3", "generator": "3 3", "note": "a star" },
+    { "name": "gen4", "generator": "4 4", "note": "edges in random order and direction" }
+  ]
+}
