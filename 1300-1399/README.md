@@ -98,3 +98,4 @@
 | 1391 | [Snake](1391/) | graphs | C++, Go, Python, Java, Rust |
 | 1392 | [Dreaming of Stars](1392/) | graphs | C++, Go, Python, Java, Rust |
 | 1393 | [Average Common Prefix](1393/) | strings | C++, Go, Python, Java, Rust |
+| 1394 | [Ships. Version 2](1394/) | backtracking | C++, Go, Java, Rust |
