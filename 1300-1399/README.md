@@ -64,3 +64,4 @@
 | 1357 | [Teakettle 1.0 for Dummies](1357/) | simulation | C++, Go, Python, Java, Rust |
 | 1358 | [Cables](1358/) | graphs | C++, Go, Python, Java, Rust |
 | 1359 | [Construction](1359/) | dp | C++, Go, Python, Java, Rust |
+| 1360 | [Philosophical Dispute](1360/) | math | C++, Go, Python, Java, Rust |
