@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1379_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a longer way with stronger roads" },
+    { "name": "02", "example": true, "note": "the factory is the venue" },
+    { "name": "03", "note": "exactly a day on the road" },
+    { "name": "04", "note": "the strong way is a minute too long" },
+    { "name": "05", "note": "the fast way is the weaker one" },
+    { "name": "06", "note": "a road that holds just the empty truck" },
+    { "name": "07", "note": "roads that take no time at all" },
+    { "name": "gen1", "generator": "1 1", "note": "a complete graph of short roads" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain inside day-long roads: every search scans all roads" },
+    { "name": "gen3", "generator": "3 3", "note": "a sparse random graph" }
+  ]
+}
