@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1386_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a 2 x 3 field, four commands" },
+    { "name": "02", "note": "a single cell" },
+    { "name": "03", "note": "every command leads to one cell" },
+    { "name": "04", "note": "nobody moves: all cells in order" },
+    { "name": "05", "note": "a small room with two walls" },
+    { "name": "06", "note": "a quarter turn, a row swap and one merge" },
+    { "name": "gen1", "generator": "1 1", "note": "a torus of shifts: all 10 000 cells stay possible" },
+    { "name": "gen2", "generator": "2 2", "note": "a 100 x 100 maze with walls" },
+    { "name": "gen3", "generator": "3 3", "note": "random permutations, nothing merges" },
+    { "name": "gen4", "generator": "4 4", "note": "permutations merging one pair each: the set shrinks slowly" },
+    { "name": "gen5", "generator": "5 5", "note": "random maps" }
+  ]
+}
