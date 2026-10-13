@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1451_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: any point with the smallest total is accepted" },
+    { "name": "02", "note": "three houses on a line: the middle one" },
+    { "name": "03", "note": "a very wide corner at the first house" },
+    { "name": "04", "note": "an almost equilateral triangle: the centre" },
+    { "name": "05", "note": "a corner of almost exactly 120 degrees" },
+    { "name": "06", "note": "a right triangle" },
+    { "name": "07", "note": "the corners of the field" },
+    { "name": "08", "note": "almost on a line, the middle house first" },
+    { "name": "09", "note": "seven decimals everywhere" },
+    { "name": "10", "note": "a corner just under 120 degrees" },
+    { "name": "11", "note": "a corner just over 120 degrees" },
+    { "name": "12", "note": "a far house on the line of the other two" },
+    { "name": "13", "note": "a needle-thin triangle across the field" },
+    { "name": "14", "note": "two houses only 0.0000001 apart at the lower boundary and a far diagonal house" },
+    { "name": "15", "note": "a nondegenerate submillimeter triangle next to the upper coordinate boundary" },
+    { "name": "16", "note": "seeded small stress case with a 135-degree corner at the second house" },
+    { "name": "17", "generator": "random 1484", "note": "seeded large clockwise scalene triangle with an interior minimum" },
+    { "name": "18", "generator": "near120 1451", "note": "seeded rotated unequal arms with a large-scale corner just below 120 degrees" }
+  ]
+}
