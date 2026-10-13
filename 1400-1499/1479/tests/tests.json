@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1479_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one triangle" },
+    { "name": "02", "note": "a tree: no routes, no rows" },
+    { "name": "03", "note": "no roads at all" },
+    { "name": "04", "note": "one ring of 14 stops: the route length decides" },
+    { "name": "05", "note": "four stops all joined: seven routes, six through each stop" },
+    { "name": "06", "note": "a complete graph on fourteen stops needs 64-bit counts for routes through a stop" },
+    { "name": "07", "note": "two triangles sharing a stop" },
+    { "name": "gen1", "generator": "1 1", "note": "a cyclic component, a separate road and isolated stops leave the longest route decisive" },
+    { "name": "gen2", "generator": "2 2", "note": "a dense graph with routes of every allowed length and unequal stop loads" },
+    { "name": "gen3", "generator": "3 3", "note": "a sparse graph with an isolated stop and a busiest stop load exceeding the longest route" },
+    { "name": "gen4", "generator": "4 4", "note": "a fourteen-stop ring with two chords still needs fourteen rows" },
+    { "name": "08", "note": "minimum stop count with one road and an isolated stop; no two-stop route" },
+    { "name": "09", "note": "triangles sharing a road also form a four-stop cycle, longer than the stop load" },
+    { "name": "10", "note": "complete bipartite graph with parts 2 and 12: 66 four-stop routes share both hubs" },
+    { "name": "11", "note": "complete bipartite graph with parts 3 and 11: count both four- and six-stop routes" },
+    { "name": "12", "note": "disconnected clique, pentagon and isolated stops use the maximum component demand" },
+    { "name": "13", "note": "a bridge between two cliques cannot belong to any route" },
+    { "name": "14", "note": "two cliques share stop 7: its twelve routes dominate without crossing the articulation" },
+    { "name": "15", "note": "the only cycle uses stops 12 to 14 while all eleven lower stops are isolated" },
+    { "name": "16", "note": "three paths of lengths 2, 3 and 4 give cycles of lengths 5, 6 and 7, never 8" },
+    { "name": "17", "note": "a 13-stop rim and central stop 14 give 156 hub routes plus the separate rim route" },
+    { "name": "18", "note": "seeded stress case with routes of every length from 3 to 6 and equal busiest load and length" },
+    { "name": "19", "generator": "1479 5", "note": "seeded balanced bipartite graph with missing roads and unequal stop loads" }
+  ]
+}
