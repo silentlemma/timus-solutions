@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1381_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "downward moves into empty flats preserve the total population" },
+    { "name": "02", "example": true, "note": "three full flats in a row lose the middle one" },
+    { "name": "03", "note": "no cockroaches at all" },
+    { "name": "04", "note": "the largest of three neighbours: only growth" },
+    { "name": "05", "note": "the smallest of three neighbours: only loss" },
+    { "name": "06", "note": "the exclusive or of the two neighbours: both" },
+    { "name": "07", "note": "the sum of three neighbours modulo 4: both" },
+    { "name": "08", "note": "every flat copies the one above: a shift keeps the total" },
+    { "name": "gen1", "generator": "1 1", "note": "a random rule for 31 values" },
+    { "name": "gen2", "generator": "2 2", "note": "a shift for 31 values" },
+    { "name": "gen3", "generator": "3 3", "note": "the larger of a flat and the one above" },
+    { "name": "gen4", "generator": "4 4", "note": "the smaller of a flat and the one below" },
+    { "name": "gen5", "generator": "5 5", "note": "the rounded down mean of three flats" },
+    { "name": "09", "note": "every occupied flat dies, including an isolated one" },
+    { "name": "10", "note": "each flat keeps its own population regardless of either neighbour" },
+    { "name": "11", "note": "capacity-limited transfers change individual flats but conserve the total" },
+    { "name": "12", "note": "births at both empty boundaries beat isolated deaths but not a long occupied block" },
+    { "name": "13", "note": "uniform interiors remain unchanged but mixed patterns permit both growth and loss" },
+    { "name": "14", "note": "one asymmetric loss in a conservative transfer rule tests the three table indices" },
+    { "name": "15", "note": "alternating twos and threes must repeat long enough to outweigh boundary births" },
+    { "name": "16", "generator": "16 6", "note": "largest table copies the flat below except for one extra birth" },
+    { "name": "17", "generator": "17 7", "note": "largest table has a losing period-three pattern while all period-one and period-two interiors cannot lose" },
+    { "name": "18", "generator": "1381 8", "note": "maximum table with seeded random conservative transfers and many nonzero local changes" },
+    { "name": "19", "generator": "2026 9", "note": "seeded random gains added to copies of the flat above allow growth without loss" }
+  ]
+}
