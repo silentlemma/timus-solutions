@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1449_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no credits at all" },
+    { "name": "03", "note": "two large credits on the diagonal" },
+    { "name": "04", "note": "all credits equal" },
+    { "name": "05", "note": "a single credit" },
+    { "name": "06", "note": "credits that grow along rows and columns" },
+    { "name": "07", "note": "one bank lends to every firm" },
+    { "name": "gen1", "generator": "1 100 1", "note": "100 by 100 random credits up to a million" },
+    { "name": "gen2", "generator": "2 100 2", "note": "credits that split exactly into row and column parts" },
+    { "name": "gen3", "generator": "3 100 3", "note": "credits of 0 and 1" },
+    { "name": "gen4", "generator": "4 7 1", "note": "a small random matrix" }
+  ]
+}
