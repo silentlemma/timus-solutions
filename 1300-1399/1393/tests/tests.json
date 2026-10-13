@@ -1,0 +1,21 @@
+{
+  "judging": "float:0.0011",
+  "reference": "1393_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "MISSISSIPPI" },
+    { "name": "02", "note": "one letter: equal shifts share all n letters" },
+    { "name": "03", "note": "a word repeated twice" },
+    { "name": "04", "note": "a forum string with a single A" },
+    { "name": "05", "note": "the shortest string, both shifts equal" },
+    { "name": "06", "note": "two different letters" },
+    { "name": "07", "note": "a palindrome" },
+    { "name": "08", "note": "two letters alternating" },
+    { "name": "gen1", "generator": "1 1", "note": "250 000 random letters" },
+    { "name": "gen2", "generator": "2 2", "note": "250 000 equal letters: a sum of 6.25 * 10^10" },
+    { "name": "gen3", "generator": "3 3", "note": "one letter but the last: the most doubling steps" },
+    { "name": "gen4", "generator": "4 4", "note": "a Fibonacci word" },
+    { "name": "gen5", "generator": "5 5", "note": "a word of 7 letters, not a whole number of times" },
+    { "name": "gen6", "generator": "6 6", "note": "two random letters" },
+    { "name": "gen7", "generator": "7 7", "note": "a random half written twice" }
+  ]
+}
