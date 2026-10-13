@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1382_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "official example with a unique mixture of first and second truths" },
+    { "name": "gen1", "generator": "1 1 2", "note": "minimum-size swap permits either uniform truth choice" },
+    { "name": "gen2", "generator": "2 1 7", "note": "a few friends, truths picked at random" },
+    { "name": "gen3", "generator": "3 1 1000", "note": "maximum-size random deal with mixed truth choices" },
+    { "name": "gen4", "generator": "4 2 1000", "note": "most friends tell the truth about themselves" },
+    { "name": "gen5", "generator": "5 3 1000", "note": "most friends tell the truth about someone else" },
+    { "name": "gen6", "generator": "6 4 1000", "note": "many friends claim the same card" },
+    { "name": "02", "note": "three friends are forced to tell the truth only about themselves" },
+    { "name": "03", "note": "a three-person cycle forces every second statement to be true" },
+    { "name": "04", "note": "two independent swaps allow four different consistent truth patterns" },
+    { "name": "05", "note": "an odd cycle permits either uniform truth choice but no mixture" },
+    { "name": "06", "note": "disconnected components force opposite truth choices" },
+    { "name": "07", "note": "a small random deal uniquely forces exactly two self-truths" },
+    { "name": "08", "note": "two consistent answers both require mixed truth choices" },
+    { "name": "09", "note": "two equally crowded cards force a unique deal" },
+    { "name": "10", "note": "equal numbers in all three fields keep people separate from cards" },
+    { "name": "11", "note": "branching references feed into a cycle rather than forming a permutation" },
+    { "name": "12", "note": "a maximum-size single cycle creates a long dependency with two valid answers" },
+    { "name": "13", "note": "all other friends name one person with distinct cards" },
+    { "name": "14", "note": "a thousand claims name the same card and force all second statements true" },
+    { "name": "15", "note": "large person and card conflict groups occur together in different statements" },
+    { "name": "16", "note": "a card mentioned only once forces truth backwards through every friend" },
+    { "name": "17", "note": "an irregular mix of person and card conflicts in a medium random deal" }
+  ]
+}
