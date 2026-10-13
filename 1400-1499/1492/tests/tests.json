@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1492_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the zero function" },
+    { "name": "02", "note": "f(x) = x is odd" },
+    { "name": "03", "note": "a constant is even" },
+    { "name": "04", "note": "a bend at x = 1 brings bends at x = -1 into both parts" },
+    { "name": "05", "note": "an even function: the odd part is a straight zero" },
+    { "name": "06", "note": "the largest coordinates, an even tent" },
+    { "name": "07", "note": "steep slopes of an odd function" },
+    { "name": "gen1", "generator": "1 1", "note": "the maximum vertex count with random heights" },
+    { "name": "gen2", "generator": "2 2", "note": "breakpoints that mirror each other" },
+    { "name": "gen3", "generator": "3 3", "note": "an even function of 30000 vertices" },
+    { "name": "gen4", "generator": "4 4", "note": "an odd function of 30000 vertices" },
+    { "name": "gen5", "generator": "5 5", "note": "steep zigzags" },
+    { "name": "gen6", "generator": "6 6", "note": "asymmetric spacing on a short domain adds four reflected vertices" },
+    { "name": "08", "note": "the shortest integer domain with a central bend and extreme endpoint heights" },
+    { "name": "09", "note": "a single segment across the widest domain has nonzero even and odd parts" },
+    { "name": "10", "note": "several negative interior vertices require positive mirror vertices with fractional heights" },
+    { "name": "11", "note": "different mirrored bends cancel in each part although neither part is zero" },
+    { "name": "12", "note": "adjacent slopes 1/14999 and 1/15000 produce tiny genuine bends near mirror vertices" },
+    { "name": "13", "note": "asymmetric horizontal plateaus split into short flat and sloping intervals" },
+    { "name": "14", "note": "seeded small random input with an origin bend and cancellation at another mirrored pair" },
+    { "name": "15", "note": "seeded small random input with interleaved mirrors and many nonintegral interpolations" },
+    { "name": "gen7", "generator": "149207 7", "note": "a maximal tilted zigzag reduces to two vertices in a nonzero linear odd part" },
+    { "name": "gen8", "generator": "149208 8", "note": "interior vertices on the nonpositive half nearly double both output lists" }
+  ]
+}

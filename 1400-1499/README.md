@@ -96,3 +96,4 @@
 | 1489 | [Points on a Parallelepiped](1489/) | geometry | C++, Go, Python, Java, Rust |
 | 1490 | [Fire Circle](1490/) | math | C++, Go, Python, Java, Rust |
 | 1491 | [Unreal Story](1491/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 1492 | [Vasya's Dad 2](1492/) | math | C++, Go, Python, Java, Rust |
