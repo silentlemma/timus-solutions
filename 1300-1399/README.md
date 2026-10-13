@@ -85,3 +85,4 @@
 | 1378 | [Artificial Intelligence](1378/) | geometry | C++, Go, Python, Java, Rust |
 | 1379 | [Cups Transportation](1379/) | graphs | C++, Go, Python, Java, Rust |
 | 1380 | [Ostap's Chess](1380/) | implementation | C++, Go, Python, Java, Rust |
+| 1381 | [Cockroaches in the Building](1381/) | graphs | C++, Go, Python, Java, Rust |
