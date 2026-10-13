@@ -31,3 +31,4 @@
 | 1424 | [Minibus](1424/) | greedy | C++, Go, Python, Java, Rust |
 | 1425 | [Queen 2](1425/) | hashing | C++, Go, Python, Java, Rust |
 | 1426 | [Rectangles](1426/) | geometry | C++, Go, Python, Java, Rust |
+| 1427 | [SMS](1427/) | greedy | C++, Go, Python, Java, Rust |
