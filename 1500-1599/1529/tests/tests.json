@@ -1,0 +1,22 @@
+{
+  "judging": "exact",
+  "reference": "1529_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: Bob wins" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one dimension, odd length" },
+    { "name": "04", "note": "one dimension, even length" },
+    { "name": "05", "note": "an edge of 1: any cut empties the box" },
+    { "name": "06", "note": "the 6 x 5 rectangle from the statement" },
+    { "name": "07", "note": "99 x 99, the slowest shape" },
+    { "name": "08", "note": "eight edges of 2" },
+    { "name": "09", "note": "9 x 9 x 9 x 9" },
+    { "name": "10", "note": "one dimension of 9999" },
+    { "name": "gen1", "generator": "1 1", "note": "two edges" },
+    { "name": "gen2", "generator": "2 2", "note": "three to five edges" },
+    { "name": "gen3", "generator": "3 3", "note": "up to eight short edges" },
+    { "name": "gen4", "generator": "4 4", "note": "a small box" },
+    { "name": "gen5", "generator": "5 5", "note": "nearly equal edges" },
+    { "name": "gen6", "generator": "6 5", "note": "nearly equal edges" }
+  ]
+}
