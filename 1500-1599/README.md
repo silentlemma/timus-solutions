@@ -42,3 +42,4 @@
 | 1535 | [The Hobbit or There and Back Again](1535/) | constructive | C++, Go, Python, Java, Rust |
 | 1536 | [Delights of Pipe-weed](1536/) | dp | C++, Go, Python, Java, Rust |
 | 1537 | [Ents](1537/) | dp | C++, Go, Python, Java, Rust |
+| 1538 | [Towers of Guard](1538/) | geometry | C++, Go, Python, Java, Rust |

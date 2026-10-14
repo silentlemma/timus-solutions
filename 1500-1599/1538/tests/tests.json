@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1538_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "statement example with six hills in convex position" },
+    { "name": "02", "note": "five hills already in convex position" },
+    { "name": "03", "note": "five hills, two inside the triangle of the others: no" },
+    { "name": "04", "note": "eight hills without a convex pentagon" },
+    { "name": "05", "note": "the eight hills of test 04 and one more: nine always hold one" },
+    { "name": "06", "note": "the hills of test 02 listed clockwise" },
+    { "name": "07", "note": "coordinates of 10^8: products need 64 bits" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum-size set from a modular parabola over a large prime" },
+    { "name": "gen2", "generator": "2 2", "note": "dense selection from a modular parabola over a small prime" },
+    { "name": "gen3", "generator": "3 3", "note": "six hills with positive x coordinates and a pentagonal hull" },
+    { "name": "gen4", "generator": "4 3", "note": "two hills sharing the largest x coordinate on a pentagonal hull" },
+    { "name": "gen5", "generator": "5 3", "note": "seven hills with two interior points and a pentagonal hull" },
+    { "name": "gen6", "generator": "6 4", "note": "nine hills in a small box" },
+    { "name": "gen7", "generator": "7 5", "note": "maximum-size convex set on a sideways parabola" },
+    { "name": "08", "note": "five hills with a quadrilateral hull and one interior point give no pentagon" },
+    { "name": "09", "note": "a triangle encloses a convex pentagon that an outer-hull-only search misses" },
+    { "name": "10", "note": "the only pentagon among six hills excludes hill 1 and requires hill 6" },
+    { "name": "11", "note": "seven hills have a quadrilateral hull but no convex five-point subset" },
+    { "name": "12", "note": "eight hills have exactly one pentagon using hills 4 through 8" },
+    { "name": "13", "note": "unit cross products survive cancellation of large integer products in a convex pentagon" },
+    { "name": "14", "note": "equal y coordinates and a star-shaped input order require a counterclockwise cycle" },
+    { "name": "15", "note": "nearly parallel large-coordinate rays leave two hills inside a triangle with no pentagon" },
+    { "name": "gen8", "generator": "1538 6", "note": "maximum-size set of negative hills on a sheared parabola reaching -100000000" }
+  ]
+}
