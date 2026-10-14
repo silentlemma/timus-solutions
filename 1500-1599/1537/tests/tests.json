@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1537_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nobody knows a single word" },
+    { "name": "03", "note": "only the first ent knows two words" },
+    { "name": "04", "note": "P = 1" },
+    { "name": "05", "note": "the 150 words of the story" },
+    { "name": "06", "note": "the largest K" },
+    { "name": "07", "note": "the largest odd K, with a prime P" },
+    { "name": "08", "note": "three words: one ent, P = 2" },
+    { "name": "09", "note": "K = 64, a power of two" },
+    { "name": "gen1", "generator": "1 1", "note": "random K and P" },
+    { "name": "gen2", "generator": "2 2", "note": "K near 10^7, P near 10^9: sums above 32 bits" },
+    { "name": "gen3", "generator": "3 3", "note": "small K and P" }
+  ]
+}
