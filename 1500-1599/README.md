@@ -61,3 +61,4 @@
 | 1554 | [Multiplicative Functions](1554/) | number_theory | C++, Go, Python, Java, Rust |
 | 1555 | [Find the Treasure!](1555/) | games | C++, Go, Java, Rust |
 | 1556 | [Multishot in the Secret Cow Level](1556/) | geometry | C++, Go, Python, Java, Rust |
+| 1557 | [Network Attack](1557/) | graphs | C++, Go, Python, Java, Rust |
