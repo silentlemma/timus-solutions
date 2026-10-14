@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1528_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n at least p, so p divides n!" },
+    { "name": "03", "note": "the largest n with p close to 2 * 10^9" },
+    { "name": "04", "note": "n = 1 and p = 2" },
+    { "name": "05", "note": "a prime p just above n: Wilson's theorem gives 10006! = -1" },
+    { "name": "gen1", "generator": "1 1", "note": "5000 cases with large n and p" },
+    { "name": "gen2", "generator": "2 2", "note": "5000 random cases" },
+    { "name": "gen3", "generator": "3 3", "note": "5000 cases with n at least p" }
+  ]
+}

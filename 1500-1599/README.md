@@ -32,3 +32,4 @@
 | 1525 | [Path](1525/) | implementation | C++, Go, Python, Java, Rust |
 | 1526 | [Martian Plates](1526/) | dp | C++, Go, Python, Java, Rust |
 | 1527 | [Bad Roads](1527/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1528 | [Sequence](1528/) | math | C++, Go, Python, Java, Rust |
