@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1617_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only one diameter has four pairs" },
+    { "name": "02", "note": "a single pair equips no car" },
+    { "name": "03", "note": "eight pairs of one size equip two cars" },
+    { "name": "04", "note": "seven pairs each of the smallest and largest diameters: a car each, three pairs left over" },
+    { "name": "gen1", "generator": "1 1", "note": "150 pairs over all diameters" },
+    { "name": "gen2", "generator": "2 2", "note": "150 pairs over a few diameters" },
+    { "name": "gen3", "generator": "3 3", "note": "a small random test" }
+  ]
+}

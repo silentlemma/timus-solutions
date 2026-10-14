@@ -21,3 +21,4 @@
 | 1614 | [National Project “Trams”](1614/) | constructive | C++, Go, Python, Java, Rust |
 | 1615 | [Tram Solitaire](1615/) | math | C++, Go, Python, Java, Rust |
 | 1616 | [Square Country 4](1616/) | geometry | C++, Go, Python, Java, Rust |
+| 1617 | [Flat Spots](1617/) | implementation | C++, Go, Python, Java, Rust |
