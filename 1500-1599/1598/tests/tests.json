@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1598_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid signature is accepted" },
+    { "name": "02", "note": "a 6-bit q and a 12-bit p" },
+    { "name": "03", "note": "a 6-bit q and an 11-bit p" },
+    { "name": "04", "note": "a 36-bit q with p only three bits longer" },
+    { "name": "05", "note": "a 36-bit q and a 60-bit p" },
+    { "name": "06", "note": "a 16-bit q and a 19-bit p" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "a 36-bit q and a 39-bit p" },
+    { "name": "gen3", "generator": "3 3", "note": "random sizes" },
+    { "name": "gen4", "generator": "4 4", "note": "small sizes" }
+  ]
+}
