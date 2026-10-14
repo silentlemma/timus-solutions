@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1608_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "all one-digit tickets and the first two-digit ticket" },
+    { "name": "02", "example": true, "note": "an interval spanning three-digit and four-digit tickets" },
+    { "name": "03", "note": "a single one-digit ticket" },
+    { "name": "04", "note": "a two-digit ticket with equal digits" },
+    { "name": "05", "note": "the whole range up to 10^18" },
+    { "name": "06", "note": "the maximum ticket has matching inner zeros" },
+    { "name": "07", "note": "the two largest tickets" },
+    { "name": "08", "note": "the middle digit of an odd length is free" },
+    { "name": "09", "note": "all two-digit tickets" },
+    { "name": "10", "note": "a long range of nine-digit tickets" },
+    { "name": "11", "note": "a hundred 18-digit tickets with zeros inside" },
+    { "name": "12", "note": "a random interval crossing from two digits to three digits" },
+    { "name": "13", "note": "both lucky endpoints count despite an unlucky ticket between them" },
+    { "name": "14", "note": "a single lucky 18-digit ticket with every mirrored pair different" },
+    { "name": "15", "note": "all 17-digit tickets require a free middle digit and a 64-bit count" },
+    { "name": "16", "note": "a random four-digit interval mixes lucky tickets and equal inner pairs" },
+    { "name": "17", "note": "only the innermost mirrored pair matches in an 18-digit ticket" },
+    { "name": "18", "generator": "1608 random", "note": "seeded arbitrary endpoints over the full allowed input range" },
+    { "name": "19", "generator": "2008 lucky-window", "note": "a short random interval around a lucky 18-digit ticket checks close large bounds" }
+  ]
+}
