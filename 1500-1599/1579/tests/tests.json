@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1579_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; other trips are accepted too" },
+    { "name": "02", "note": "one coat" },
+    { "name": "03", "note": "four equal coats with R = 0: four trips" },
+    { "name": "04", "note": "sizes exactly R apart do not stack" },
+    { "name": "05", "note": "the largest R: every coat alone" },
+    { "name": "gen1", "generator": "1 1", "note": "100000 random sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "many equal sizes with R = 0" },
+    { "name": "gen3", "generator": "3 3", "note": "sizes in steps of R" },
+    { "name": "gen4", "generator": "4 4", "note": "a few coats" },
+    { "name": "gen5", "generator": "5 4", "note": "a few coats" }
+  ]
+}
