@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1599_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example checks winding minus two, a track hit and zero winding" },
+    { "name": "02", "note": "a counterclockwise triangle: inside, outside, a joint and a track" },
+    { "name": "03", "note": "a clockwise square: -1 inside" },
+    { "name": "04", "note": "a square driven around twice" },
+    { "name": "05", "note": "a figure eight: +1 in one loop, -1 in the other, EDGE at the crossing" },
+    { "name": "06", "note": "a route that turns back on itself" },
+    { "name": "07", "note": "coordinates of 10^9: products near the 64-bit limit" },
+    { "name": "08", "note": "the ray from the point runs along a horizontal track and through joints" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum-size random route and query set exercise all twenty-five million track checks" },
+    { "name": "gen2", "generator": "2 2", "note": "a single counterclockwise lap with central queries and points on tracks" },
+    { "name": "gen3", "generator": "3 3", "note": "coordinate-limit square with both boundary and interior joints and queries" },
+    { "name": "gen4", "generator": "4 4", "note": "a small route with points on its joints and tracks" },
+    { "name": "gen5", "generator": "5 5", "note": "retracing every track cancels all winding contributions for off-track queries" },
+    { "name": "09", "note": "all three joints coincide; only the isolated joint is EDGE" },
+    { "name": "10", "note": "an unordered collinear route distinguishes covered intervals from line extensions" },
+    { "name": "11", "note": "a single query beside an almost collinear triangle has determinant minus one" },
+    { "name": "12", "note": "the implicit last-to-first track contains an interior point but not its extensions" },
+    { "name": "13", "note": "a retraced interior spur and a zero-length track remain EDGE inside a nonzero loop" },
+    { "name": "14", "note": "oppositely oriented nested loops create a zero-winding hole and a retraced bridge" },
+    { "name": "15", "note": "a pentagram has winding two in its centre and EDGE at non-joint intersections" },
+    { "name": "16", "note": "a retained random crossing route mixes winding minus three, plus one and track hits" },
+    { "name": "gen6", "generator": "1599 6", "note": "maximum sizes on a dense star with winding magnitude 2499 and a repeated closing joint" },
+    { "name": "gen7", "generator": "1599 7", "note": "maximum sizes on a comb with thousands of equal-height joints and tangent query rows" }
+  ]
+}
