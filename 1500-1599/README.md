@@ -85,3 +85,4 @@
 | 1578 | [Mammoth Hunt](1578/) | greedy | C++, Go, Python, Java, Rust |
 | 1579 | [Coat Transportation](1579/) | greedy | C++, Go, Python, Java, Rust |
 | 1580 | [Dean's Debts](1580/) | graphs | C++, Go, Python, Java, Rust |
+| 1581 | [Teamwork](1581/) | implementation | C++, Go, Python, Java, Rust |
