@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1570_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two pasta cost the same as a lasagna but give fewer dishes" },
+    { "name": "02", "note": "one dish of the smallest satiety for one friend: ten plates" },
+    { "name": "03", "note": "two hundred small plates are cheaper than two large ones" },
+    { "name": "04", "note": "satiety written without a point; two dishes beat two plates of one" },
+    { "name": "05", "note": "equal-cost orders favour two different dishes over one" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum menu size and company size" },
+    { "name": "gen2", "generator": "2 2", "note": "every dish costs the same per person: many orders tie" },
+    { "name": "gen3", "generator": "3 3", "note": "dishes too small to feed one person" },
+    { "name": "gen4", "generator": "4 4", "note": "a small menu" },
+    { "name": "gen5", "generator": "5 4", "note": "one cheap high-satiety dish makes every alternative more expensive" },
+    { "name": "06", "note": "three 0.333 plates fall short by one thousandth; an exact mixed order wins the cost tie" },
+    { "name": "07", "note": "a cheaper overshooting order takes priority over a more varied exact order" },
+    { "name": "08", "note": "the best price per satiety alone loses to a combination that avoids an extra large plate" },
+    { "name": "09", "note": "maximum menu and company, minimum satiety and maximum prices: cost two million and all 100 names used" },
+    { "name": "10", "note": "one minimum-price dish of maximum satiety feeds the smallest company with a single plate" },
+    { "name": "11", "note": "retained random cost tie reconstructs a varied order containing both single and repeated dishes" },
+    { "name": "12", "generator": "205 4", "note": "seeded menu needs two middle dishes together and excludes the first and last dishes" },
+    { "name": "13", "generator": "229 4", "note": "seeded menu needs three 0.999 plates for two people and skips four larger dishes" }
+  ]
+}
