@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1609_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other patterns of two tiles are accepted" },
+    { "name": "02", "example": true, "note": "the second example forces a two-row board with two horizontal tiles" },
+    { "name": "03", "note": "a single domino already fills the smallest valid board uniquely" },
+    { "name": "04", "note": "one prelaid tile resolves the two possible tilings of the smallest square" },
+    { "name": "05", "note": "a 1 by 10 strip: no tile" },
+    { "name": "06", "note": "a vertical strip requires transposing the empty starting pattern" },
+    { "name": "07", "note": "a long two-row board needs three tiles despite its small height" },
+    { "name": "08", "note": "transposing the two-row pattern preserves its three-tile optimum" },
+    { "name": "09", "note": "adding a third row reduces the optimum compared with the equally wide two-row board" },
+    { "name": "10", "note": "a diagonal of three horizontal tiles forces the six-row square" },
+    { "name": "11", "note": "an odd-height board uses the transposed four-row pattern" },
+    { "name": "12", "note": "a four-row board with odd width needs three prelaid tiles" },
+    { "name": "13", "note": "a near-square board of maximum width can be forced with four tiles" },
+    { "name": "14", "note": "transposition handles a near-square board of maximum height" },
+    { "name": "15", "note": "the largest board: five tiles" },
+    { "name": "16", "note": "the smallest non-square board with multiple tilings needs one prelaid tile" },
+    { "name": "17", "note": "a central horizontal tile forces the last even-width two-row board with a one-tile optimum" },
+    { "name": "18", "note": "the maximum width still leaves a two-row board with a three-tile optimum" },
+    { "name": "19", "note": "a single horizontal tile forces a completion spanning three rows" },
+    { "name": "20", "note": "a start mixing horizontal and vertical tiles forces the three-row board" },
+    { "name": "21", "note": "an odd height close to the width still needs only two tiles" },
+    { "name": "22", "note": "the next larger even square raises the optimum from three tiles to four" },
+    { "name": "23", "note": "extending a four-row board from seven to nine columns raises the optimum to four" },
+    { "name": "24", "note": "a transposed four-tile pattern handles maximum height with even width" }
+  ]
+}
