@@ -62,3 +62,4 @@
 | 1555 | [Find the Treasure!](1555/) | games | C++, Go, Python, Java, Rust |
 | 1556 | [Multishot in the Secret Cow Level](1556/) | geometry | C++, Go, Python, Java, Rust |
 | 1557 | [Network Attack](1557/) | graphs | C++, Go, Python, Java, Rust |
+| 1558 | [Periodical Numbers](1558/) | math | C++, Go, Python, Java, Rust |

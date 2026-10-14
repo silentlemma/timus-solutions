@@ -1,0 +1,26 @@
+{
+  "judging": "exact",
+  "reference": "1558_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three-digit periods add without carrying or shortening" },
+    { "name": "02", "note": "doubling a repeating five leaves a one-digit tail" },
+    { "name": "03", "note": "doubling a repeating nine leaves eight as the non-periodic tail" },
+    { "name": "04", "note": "a sum of exactly 1000 per block" },
+    { "name": "05", "note": "a period of nine digits that shrinks to three" },
+    { "name": "06", "note": "adding two zero periods produces a zero period" },
+    { "name": "07", "note": "the largest blocks: the period shrinks to one digit" },
+    { "name": "08", "note": "a sum of nines without a carry" },
+    { "name": "09", "note": "the tail shrinks to one digit" },
+    { "name": "10", "note": "leading zeros stay in the period" },
+    { "name": "11", "note": "the tail is shorter than the period" },
+    { "name": "12", "note": "doubling five hundred produces a three-digit period and a zero tail" },
+    { "name": "gen1", "generator": "1 1", "note": "a carry rotates a three-digit period above a one-digit tail" },
+    { "name": "gen2", "generator": "9 3", "note": "eight-digit blocks reach a power of ten and leave a single zero tail" },
+    { "name": "gen3", "generator": "13 3", "note": "complementary five-digit blocks reduce to a single repeating nine" },
+    { "name": "gen4", "generator": "16 2", "note": "digits 0 and 9: the period turns and takes part of the tail" },
+    { "name": "gen5", "generator": "17 2", "note": "a carry across nine-digit blocks leaves a single zero in the tail" },
+    { "name": "gen6", "generator": "5 4", "note": "a carry from five-digit blocks preserves a full-length period" },
+    { "name": "gen7", "generator": "7 4", "note": "periods made of a repeated shorter block" },
+    { "name": "gen8", "generator": "8 1", "note": "a leading zero in one addend is absorbed into a four-digit sum without a carry" }
+  ]
+}
