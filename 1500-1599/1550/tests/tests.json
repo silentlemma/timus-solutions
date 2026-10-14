@@ -1,0 +1,16 @@
+{
+  "judging": "float:0.001",
+  "reference": "1550_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "whole numbers without a decimal point, the hole on an axis" },
+    { "name": "03", "note": "the hole over another face" },
+    { "name": "04", "note": "the largest pyramid: a volume of 3 * 10^11" },
+    { "name": "05", "note": "a hole close to the base edge" },
+    { "name": "06", "note": "a hole close to a lateral edge" },
+    { "name": "gen1", "generator": "1 1", "note": "random sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "a hole almost touching an edge" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest pyramid" },
+    { "name": "gen4", "generator": "4 4", "note": "small numbers" }
+  ]
+}
