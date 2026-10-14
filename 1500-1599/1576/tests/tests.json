@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1576_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "six seconds are free, seven cost a minute; a whole minute stays one" },
+    { "name": "04", "note": "the longest calls and the highest prices" },
+    { "name": "05", "note": "only free calls" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 calls of any length" },
+    { "name": "gen2", "generator": "2 2", "note": "calls near the six second and minute marks" },
+    { "name": "gen3", "generator": "3 3", "note": "a few calls" },
+    { "name": "gen4", "generator": "4 2", "note": "calls near the six second and minute marks" }
+  ]
+}
