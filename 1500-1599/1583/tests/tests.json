@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1583_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no holes: the twentieth cut would fall at exactly one metre" },
+    { "name": "03", "note": "one hole almost as wide as the bar" },
+    { "name": "04", "note": "a small hole in the last piece" },
+    { "name": "05", "note": "two holes side by side and one near the end" },
+    { "name": "gen1", "generator": "1 1", "note": "scattered small holes remove enough cheese to leave eighteen cuts" },
+    { "name": "gen2", "generator": "2 2", "note": "a single off-centre hole affects cuts in the latter half of the bar" },
+    { "name": "gen3", "generator": "3 3", "note": "moderate holes spread along the bar still allow nineteen cuts" },
+    { "name": "gen4", "generator": "4 4", "note": "a few random holes" },
+    { "name": "gen5", "generator": "5 2", "note": "five large holes remove more than a kilogram of cheese" },
+    { "name": "06", "note": "a near-maximal hole delays the very first cut" },
+    { "name": "07", "note": "the first nominal cut bisects a sphere" },
+    { "name": "08", "note": "a sphere begins exactly at the first cut plane" },
+    { "name": "09", "note": "a sphere ends exactly at the first nominal cut plane" },
+    { "name": "10", "note": "separate submicrometre delays round down independently at consecutive cuts" },
+    { "name": "11", "note": "a complete small hole delays a cut just below half a micrometre" },
+    { "name": "12", "note": "a complete small hole delays a cut just above half a micrometre" },
+    { "name": "13", "note": "seeded stress bar mixes unsorted holes near the start and end faces" },
+    { "name": "14", "note": "ten almost touching large spheres remove over half the cheese and leave nine cuts" },
+    { "name": "15", "note": "a near-maximal hole at the far end leaves ten centimetres lighter than one piece" },
+    { "name": "16", "generator": "158316 5", "note": "dense layers of mixed-radius holes reduce the number of full pieces" },
+    { "name": "17", "generator": "158317 6", "note": "tiny holes lie one ten-thousandth centimetre from side faces" },
+    { "name": "18", "generator": "158318 7", "note": "a transverse sheet of holes has overlapping axial ranges" }
+  ]
+}
