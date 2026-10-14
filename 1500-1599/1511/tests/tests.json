@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1511_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nonzero leading digits force C to become 2" },
+    { "name": "03", "note": "a three-digit result is impossible for two one-digit addends" },
+    { "name": "04", "note": "a result shorter than either addend is impossible" },
+    { "name": "05", "note": "already correct" },
+    { "name": "06", "note": "a carry is required to form the two-digit result" },
+    { "name": "gen1", "generator": "1 1", "note": "three random numbers of 1000 digits" },
+    { "name": "gen2", "generator": "2 2", "note": "two 999-digit addends with a 1000-digit result" },
+    { "name": "gen3", "generator": "3 3", "note": "a 1000-digit addend cannot fit a 999-digit result" },
+    { "name": "gen4", "generator": "4 4", "note": "small numbers" },
+    { "name": "gen5", "generator": "5 5", "note": "a correct sum with a few digits of C spoiled" },
+    { "name": "gen6", "generator": "6 2", "note": "unequal addend lengths still require a carry into the result's extra digit" },
+    { "name": "gen7", "generator": "7 4", "note": "a four-digit result requires increasing the sum of 118 and 25" },
+    { "name": "07", "note": "creating a units carry is cheaper than fixing each column without a carry" },
+    { "name": "08", "note": "two cheap digit edits beat one expensive replacement with unequal operand lengths" },
+    { "name": "09", "note": "maximum 1000-digit values require suppressing the final overflow carry" },
+    { "name": "10", "note": "a fine of 7000 accumulates across all 1000 digit positions" },
+    { "name": "11", "note": "a one-digit operand sends a carry through 999 nines into a 1000-digit result" }
+  ]
+}
