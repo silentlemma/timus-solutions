@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1548_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a cross takes two crossing rectangles" },
+    { "name": "02", "example": true, "note": "separate black runs in one row must be covered independently" },
+    { "name": "03", "note": "a white picture: no rectangles" },
+    { "name": "04", "note": "an all-black 50 by 50 picture: one rectangle" },
+    { "name": "05", "note": "two overlapping squares beat any partition" },
+    { "name": "06", "note": "one row of separate pixels" },
+    { "name": "07", "note": "a rounded blob" },
+    { "name": "08", "note": "a staircase" },
+    { "name": "gen1", "generator": "1 1", "note": "random runs on 50 by 50" },
+    { "name": "gen2", "generator": "2 2", "note": "columns randomly reuse six vertical run shapes" },
+    { "name": "gen3", "generator": "3 3", "note": "nested runs like hills" },
+    { "name": "gen4", "generator": "4 4", "note": "a sparse picture of short runs" },
+    { "name": "09", "note": "the minimum dimensions with one black pixel" },
+    { "name": "10", "note": "one column at maximum height with a black run between white margins" },
+    { "name": "11", "note": "only the bottom-right pixel is black at the maximum row and column indices" },
+    { "name": "12", "note": "diagonally touching pixels cannot share a rectangle" },
+    { "name": "13", "note": "a full-width spine crosses 25 tall teeth and needs an extra overlapping rectangle" },
+    { "name": "14", "note": "alternating disjoint half-height columns force 50 rectangles on a maximum-size picture" },
+    { "name": "15", "note": "two complex components separated by empty rows and columns have additive minima" },
+    { "name": "16", "note": "a thin sliding ribbon has advancing upper and lower boundaries with no common row" },
+    { "name": "17", "note": "an irregular small picture needs interval endpoint shifts for a six-rectangle cover" },
+    { "name": "18", "note": "identical adjacent columns form a separate block beside a bent component" },
+    { "name": "gen5", "generator": "154805 5", "note": "random equal-height runs at maximum size prevent strict nesting of neighboring columns" },
+    { "name": "gen6", "generator": "154806 6", "note": "random maximum-size runs share a middle row but have independently varying upper and lower ends" }
+  ]
+}
