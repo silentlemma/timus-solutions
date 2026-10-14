@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1563_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one shop" },
+    { "name": "03", "note": "names with spaces: a doubled space makes another name" },
+    { "name": "04", "note": "the same shop five times" },
+    { "name": "05", "note": "names that are prefixes of each other" },
+    { "name": "gen1", "generator": "1 1", "note": "one thousand names from a pool of fifty" },
+    { "name": "gen2", "generator": "2 2", "note": "one thousand different names" },
+    { "name": "gen3", "generator": "3 3", "note": "names that differ only in their spaces" },
+    { "name": "06", "note": "leading and trailing spaces are significant parts of a shop name" },
+    { "name": "07", "note": "thirty-character names differ at the first, middle, or final character" },
+    { "name": "08", "note": "names made entirely of spaces are nonempty and may repeat" },
+    { "name": "gen4", "generator": "1563 4", "note": "maximum input size with long common prefixes and randomly distributed repeats" },
+    { "name": "gen5", "generator": "1563 5", "note": "the only repeat is the final shop revisiting the first after 998 distinct shops" }
+  ]
+}
