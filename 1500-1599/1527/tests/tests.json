@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1527_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "parallel toll roads with equal time favor the lower clearance" },
+    { "name": "02", "example": true, "note": "the second example: no way within both limits" },
+    { "name": "03", "note": "zero-time roads: the lower route wins" },
+    { "name": "04", "note": "no money for the toll road, so the higher free route" },
+    { "name": "05", "note": "the free low route is too slow, two tolls fit the budget" },
+    { "name": "06", "note": "the finish cannot be reached" },
+    { "name": "07", "note": "height 0 and a zero time limit" },
+    { "name": "08", "note": "a budget of 10^6 and a route paying three tolls" },
+    { "name": "gen1", "generator": "1 1", "note": "a dense network with a tight time limit" },
+    { "name": "gen2", "generator": "2 2", "note": "a zero toll budget amid free and paid roads" },
+    { "name": "gen3", "generator": "3 3", "note": "free roads taking no time" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random network" },
+    { "name": "gen5", "generator": "5 5", "note": "no road enters the finish" },
+    { "name": "gen6", "generator": "6 1", "note": "a detour needs less clearance than either direct road" },
+    { "name": "09", "note": "one city: the empty route needs zero clearance despite a positive-height loop" },
+    { "name": "10", "note": "the slower free arrival at a merge preserves the toll needed to finish" },
+    { "name": "11", "note": "zero-cost cycles and parallel roads require a finite route using the free edge" },
+    { "name": "12", "note": "a 99-road route uses every city, the exact toll and time limits, and maximum clearance" },
+    { "name": "13", "note": "seeded random graph with parallel alternatives and an interior optimal clearance" }
+  ]
+}
