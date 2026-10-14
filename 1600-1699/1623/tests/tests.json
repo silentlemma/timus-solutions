@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1623_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example alternates copied inner-house roads with explicit connections" },
+    { "name": "02", "example": true, "note": "the second example: two separate cycles" },
+    { "name": "03", "note": "the input door is the output door" },
+    { "name": "04", "note": "the shortest path is two houses deep: 6 after one round, 5 after two" },
+    { "name": "05", "note": "no inner houses: an ordinary path" },
+    { "name": "06", "note": "no roads at all" },
+    { "name": "gen1", "generator": "1 1", "note": "random roads, the doors farthest apart" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum door and child counts with a shorter route revealed by refinement" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain alternates copied roads with transitions between sibling houses" },
+    { "name": "gen4", "generator": "4 4", "note": "an explicit three-road path joins the outer doors through one child" },
+    { "name": "gen5", "generator": "5 3", "note": "a chain stays in one child for several steps before crossing to another" },
+    { "name": "gen6", "generator": "6 2", "note": "many roads still leave the queried exit door isolated" },
+    { "name": "07", "note": "minimum door count and one road listed opposite to the query direction" },
+    { "name": "08", "note": "both endpoints have roads but recursive self-dependence gives no finite path" },
+    { "name": "09", "note": "turning at the same door of house five costs no extra distance" },
+    { "name": "10", "note": "a sibling road joins two child traversals that both use the copied outer road" },
+    { "name": "11", "note": "a finite route appears only after descending through nine nested houses" },
+    { "name": "12", "note": "nine levels double the child traversal and give distance 2045 on sixty visible doors" },
+    { "name": "13", "note": "seeded random sibling cycles require a path through two nested levels" },
+    { "name": "14", "note": "a reverse query follows a 91-road corridor through all five children with unused copied entry ports" },
+    { "name": "15", "note": "seeded sparse random roads have no route until three nested levels are available" },
+    { "name": "16", "note": "equal door numbers in different child instances must not be merged" },
+    { "name": "gen7", "generator": "1623 5", "note": "maximum door and child counts with all 7140 distinct legal roads" },
+    { "name": "gen8", "generator": "1623 6", "note": "dense parity components keep opposite endpoints disconnected despite roads at every door" }
+  ]
+}
