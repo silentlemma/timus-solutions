@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1613_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one city" },
+    { "name": "03", "note": "every city with the same count" },
+    { "name": "04", "note": "the count occurs just outside the range on either side" },
+    { "name": "05", "note": "the largest count" },
+    { "name": "gen1", "generator": "1 1", "note": "69999 cities with a few distinct counts" },
+    { "name": "gen2", "generator": "2 2", "note": "69999 cities with counts up to 10^9 - 1" },
+    { "name": "gen3", "generator": "3 3", "note": "69999 cities with one count" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random test" }
+  ]
+}

@@ -17,3 +17,4 @@
 | 1610 | [Cacti Are in Fashion](1610/) | games | C++, Go, Python, Java, Rust |
 | 1611 | [Decimation](1611/) | dp | C++, Go, Python, Java, Rust |
 | 1612 | [Tram Forum](1612/) | strings | C++, Go, Python, Java, Rust |
+| 1613 | [For Fans of Statistics](1613/) | binary_search | C++, Go, Python, Java, Rust |
