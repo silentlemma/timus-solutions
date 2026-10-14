@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1544_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example merges the European region in one request" },
+    { "name": "02", "note": "a single computer: nothing to do" },
+    { "name": "03", "note": "all on one protocol already" },
+    { "name": "04", "note": "a path of five alternating protocols: two switches from the middle" },
+    { "name": "05", "note": "two adjacent centres tie on an even alternating path" },
+    { "name": "06", "note": "the best region to switch is a Japanese one" },
+    { "name": "07", "note": "a cycle of six alternating protocols" },
+    { "name": "gen1", "generator": "1 1", "note": "a network of 50 computers with extra links contracts to seven regions" },
+    { "name": "gen2", "generator": "2 2", "note": "a path of 50 alternating protocols" },
+    { "name": "gen3", "generator": "3 3", "note": "a Japanese pair forms the central region of a four-computer network" },
+    { "name": "gen4", "generator": "4 4", "note": "a dense network" },
+    { "name": "gen5", "generator": "5 5", "note": "alternating protocols around a 50-computer cycle require 25 requests" },
+    { "name": "gen6", "generator": "6 3", "note": "a European region touches two separate Japanese regions and can absorb both at once" },
+    { "name": "08", "note": "the smallest mixed network: two computers joined by one link" },
+    { "name": "09", "note": "five protocol runs on a path must be merged before measuring distances" },
+    { "name": "10", "note": "a three-armed tree whose unique optimal centre is computer 9" },
+    { "name": "11", "note": "an alternating cube has radius three despite diameter three" },
+    { "name": "12", "note": "a seeded eight-computer bipartite graph with intersecting cycles needs three requests" },
+    { "name": "13", "note": "all 1225 links on 50 computers collapse to two monochromatic regions" },
+    { "name": "14", "note": "a complete bipartite network keeps all 50 initial regions and needs two requests" },
+    { "name": "15", "note": "a 42-computer protocol run moves the optimal centre far from the physical path midpoint" },
+    { "name": "gen7", "generator": "10 3", "note": "a seeded random network contracts to a four-cycle with two pendant regions" },
+    { "name": "gen8", "generator": "27 3", "note": "a seeded random tree contracts to a branching region with one extended arm" }
+  ]
+}

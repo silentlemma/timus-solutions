@@ -48,3 +48,4 @@
 | 1541 | [Chase](1541/) | backtracking | C++, Go, Python, Java, Rust |
 | 1542 | [Autocompletion](1542/) | sorting | C++, Go, Python, Java, Rust |
 | 1543 | [Dance Revolution](1543/) | simulation | C++, Go, Python, Java, Rust |
+| 1544 | [Classmates 3](1544/) | graphs | C++, Go, Python, Java, Rust |
