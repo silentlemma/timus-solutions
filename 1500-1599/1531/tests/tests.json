@@ -1,0 +1,32 @@
+{
+  "judging": "exact",
+  "reference": "1531_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the square itself" },
+    { "name": "02", "example": true, "note": "the smallest even zone consists of four polygons" },
+    { "name": "03", "example": true, "note": "the first odd zone after the square starts the paired increments" },
+    { "name": "04", "example": true, "note": "the second even zone repeats the initial increment of four" },
+    { "name": "05", "note": "the first doubled increment raises the count from twelve to twenty" },
+    { "name": "06", "note": "n = 2000: a number of over 300 digits" },
+    { "name": "07", "note": "the largest odd input exercises a 302-digit result" },
+    { "name": "08", "note": "an odd zone in the geometric prefix gives 380 polygons" },
+    { "name": "gen1", "generator": "1", "note": "an even-zone result preserves isolated zeros between nonzero decimal digits" },
+    { "name": "gen2", "generator": "2", "note": "a large even zone produces a 296-digit decimal result" },
+    { "name": "gen3", "generator": "3", "note": "subtracting four from a large power of two needs no decimal borrow" },
+    { "name": "09", "note": "zone 6 repeats the increment from zone 5 rather than doubling it" },
+    { "name": "10", "note": "zone 7 doubles the increment after the first repeated pair" },
+    { "name": "11", "note": "zone 8 finishes the next equal-increment pair" },
+    { "name": "12", "note": "zone 16 completes the geometric prefix and crosses 1000 polygons" },
+    { "name": "13", "note": "zone 17 is the first zone beyond the 16-zone prefix in the write-up" },
+    { "name": "14", "note": "last answer that fits a signed 32-bit integer" },
+    { "name": "15", "note": "first answer above signed 32-bit range and an odd-branch decimal borrow" },
+    { "name": "16", "note": "first answer above unsigned 32-bit range" },
+    { "name": "17", "note": "first answer that binary64 floating point cannot represent exactly" },
+    { "name": "18", "note": "the even zone immediately before signed 64-bit overflow" },
+    { "name": "19", "note": "first answer above signed 64-bit range" },
+    { "name": "20", "note": "the odd formula first crosses the unsigned 64-bit ceiling" },
+    { "name": "21", "generator": "7", "note": "seeded even zone 664 gives a 101-digit answer ending in zero" },
+    { "name": "22", "generator": "625", "note": "seeded even zone 838 has four consecutive nines in its 127-digit answer" },
+    { "name": "23", "generator": "1422", "note": "seeded odd zone 437 has four consecutive internal zeros" }
+  ]
+}
