@@ -91,3 +91,4 @@
 | 1584 | [Pharaohs’ Secrets](1584/) | matching | C++, Go, Python, Java, Rust |
 | 1585 | [Penguins](1585/) | implementation | C++, Go, Python, Java, Rust |
 | 1586 | [Threeprime Numbers](1586/) | dp | C++, Go, Python, Java, Rust |
+| 1587 | [Flying Pig](1587/) | greedy | C++, Go, Python, Java, Rust |
