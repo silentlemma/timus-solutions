@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1548_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a cross takes two crossing rectangles" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a white picture: no rectangles" },
+    { "name": "04", "note": "an all-black 50 by 50 picture: one rectangle" },
+    { "name": "05", "note": "two overlapping squares beat any partition" },
+    { "name": "06", "note": "one row of separate pixels" },
+    { "name": "07", "note": "a rounded blob" },
+    { "name": "08", "note": "a staircase" },
+    { "name": "gen1", "generator": "1 1", "note": "random runs on 50 by 50" },
+    { "name": "gen2", "generator": "2 2", "note": "a few bands of equal runs" },
+    { "name": "gen3", "generator": "3 3", "note": "nested runs like hills" },
+    { "name": "gen4", "generator": "4 4", "note": "a sparse picture of short runs" }
+  ]
+}

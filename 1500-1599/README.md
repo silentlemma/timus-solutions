@@ -52,3 +52,4 @@
 | 1545 | [Hieroglyphs](1545/) | implementation | C++, Go, Python, Java, Rust |
 | 1546 | [Japanese Sorting](1546/) | sorting | C++, Go, Python, Java, Rust |
 | 1547 | [Password Search](1547/) | math | C++, Go, Python, Java, Rust |
+| 1548 | [Sakura and Statistics](1548/) | greedy | C++, Go, Python, Java, Rust |
