@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1569_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a star around node 2" },
+    { "name": "02", "note": "two nodes" },
+    { "name": "03", "note": "a ring of six: every tree is a path" },
+    { "name": "04", "note": "all channels among five nodes: a star" },
+    { "name": "05", "note": "two triangles joined by a channel: the middle is that channel" },
+    { "name": "06", "note": "a ring of seven" },
+    { "name": "gen1", "generator": "1 1", "note": "all 4950 channels among 100 nodes" },
+    { "name": "gen2", "generator": "2 2", "note": "a random plan on 100 nodes" },
+    { "name": "gen3", "generator": "3 3", "note": "a long path with a few shortcuts" },
+    { "name": "gen4", "generator": "4 4", "note": "two dense halves joined by one channel" },
+    { "name": "gen5", "generator": "5 5", "note": "a small plan" },
+    { "name": "gen6", "generator": "6 5", "note": "a small plan" }
+  ]
+}
