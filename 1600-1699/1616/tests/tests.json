@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1616_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a turn by 45 degrees" },
+    { "name": "02", "note": "no turn: every cell keeps its owner" },
+    { "name": "03", "note": "a quarter turn: the map turns by a right angle" },
+    { "name": "04", "note": "sixteen owners of one cell each at 30 degrees" },
+    { "name": "05", "note": "a frame around a block at a fractional angle" },
+    { "name": "gen1", "generator": "1 1", "note": "a random map and angle" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest map with a few block owners" },
+    { "name": "gen3", "generator": "3 3", "note": "an angle of 0 or 90 degrees" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest map, every cell owned" },
+    { "name": "gen5", "generator": "5 5", "note": "a small map at a round angle" },
+    { "name": "gen6", "generator": "6 1", "note": "a random map and angle" },
+    { "name": "gen7", "generator": "7 5", "note": "a small map at a round angle" }
+  ]
+}
