@@ -79,3 +79,4 @@
 | 1572 | [Yekaterinozavodsk Great Well](1572/) | geometry | C++, Go, Python, Java, Rust |
 | 1573 | [Alchemy](1573/) | math | C++, Go, Python, Java, Rust |
 | 1574 | [Mathematicians and Brackets](1574/) | strings | C++, Go, Python, Java, Rust |
+| 1575 | [Yekaterinburg Subway 2](1575/) | bfs | C++, Go, Python, Java, Rust |
