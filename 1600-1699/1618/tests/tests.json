@@ -1,0 +1,31 @@
+{
+  "judging": "tokens",
+  "reference": "1618_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two empty arrays, shared or not" },
+    { "name": "02", "example": true, "note": "the second example: a chain has one configuration" },
+    { "name": "03", "example": true, "note": "a shared singleton parent and a shared empty child give different configurations" },
+    { "name": "04", "note": "a single empty array" },
+    { "name": "05", "note": "five empty arrays: the Bell number 52" },
+    { "name": "gen1", "generator": "1 1", "note": "three branching levels test repeated internal widths and sharing across sibling arrays" },
+    { "name": "gen2", "generator": "2 2", "note": "one binary branch between singleton chains tests where its two paths can merge" },
+    { "name": "gen3", "generator": "3 3", "note": "a wide leaf-only level checks Bell counting for 221 references" },
+    { "name": "gen4", "generator": "4 4", "note": "nine binary dimensions reach the maximum leaf product" },
+    { "name": "gen5", "generator": "5 5", "note": "a wide root followed by singleton chains nearly fills the input limit" },
+    { "name": "06", "note": "a chain of 100 singleton dimensions reaches the depth limit with one configuration" },
+    { "name": "07", "note": "nine empty arrays give the first Bell number exceeding the modulus" },
+    { "name": "08", "note": "two rows of width two allow sharing both within and across distinct rows" },
+    { "name": "09", "note": "two ternary rows distinguish sharing a parent from sharing only children" },
+    { "name": "10", "note": "reversing the row count and width preserves six leaves but changes the sharing choices" },
+    { "name": "11", "note": "a singleton level between binary branches tests forced sharing of descendants" },
+    { "name": "12", "note": "three binary levels require consistent sharing through every level" },
+    { "name": "13", "note": "branching only at dimension 100 leaves just two empty arrays free to share" },
+    { "name": "14", "note": "two paths through 99 singleton levels can first merge at any depth" },
+    { "name": "15", "note": "a flat array of 511 empty children exercises the product just below the maximum" },
+    { "name": "16", "note": "sixteen rows of prime width 31 exercise large unequal widths and modular accumulation" },
+    { "name": "17", "note": "singleton levels between and after branching add sharing choices constrained by parent identities" },
+    { "name": "gen6", "generator": "1618 6", "note": "a shape with 100 dimensions and product 512 reaches exactly the 100000 character limit" },
+    { "name": "gen7", "generator": "1618 1", "note": "seeded irregular widths have product 432 and include singleton levels" },
+    { "name": "gen8", "generator": "1618 2", "note": "seeded adjacent widths two and four sit between long singleton chains" }
+  ]
+}
