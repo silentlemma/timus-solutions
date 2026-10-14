@@ -100,3 +100,4 @@
 | 1593 | [Square Country. Version 2](1593/) | math | C++, Go, Python, Java, Rust |
 | 1594 | [Aztec Treasure](1594/) | math | C++, Go, Python, Java, Rust |
 | 1595 | [Perfect Sequence](1595/) | constructive | C++, Go, Python, Java, Rust |
+| 1596 | [Nightmare Knight](1596/) | constructive | C++, Go, Python, Java, Rust |
