@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1549_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: three turns cannot close a loop" },
+    { "name": "03", "note": "four turns alone: a 2 x 2 square" },
+    { "name": "04", "note": "eight turns without straights do not fit, four do" },
+    { "name": "05", "note": "twelve turns without straights: the smallest staircase" },
+    { "name": "06", "note": "1000 turns without straights" },
+    { "name": "07", "note": "everything: 2000 pieces" },
+    { "name": "08", "note": "six turns need two straights" },
+    { "name": "09", "note": "a long thin ring" },
+    { "name": "10", "note": "three turns and nothing else" },
+    { "name": "11", "note": "an odd number of straights: one stays unused" },
+    { "name": "12", "note": "one straight is useless, eleven turns give only four" },
+    { "name": "gen1", "generator": "1 1", "note": "random S and T" },
+    { "name": "gen2", "generator": "2 2", "note": "S and T up to 20" },
+    { "name": "gen3", "generator": "3 3", "note": "at most one straight" },
+    { "name": "gen4", "generator": "4 4", "note": "T leaves 2 modulo 4" },
+    { "name": "gen5", "generator": "5 3", "note": "at most one straight" },
+    { "name": "gen6", "generator": "6 4", "note": "T leaves 2 modulo 4" }
+  ]
+}
