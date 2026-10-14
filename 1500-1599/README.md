@@ -30,3 +30,4 @@
 | 1523 | [K-inversions](1523/) | fenwick | C++, Go, Python, Java, Rust |
 | 1524 | [Men in Black](1524/) | simulation | C++, Go, Python, Java, Rust |
 | 1525 | [Path](1525/) | implementation | C++, Go, Python, Java, Rust |
+| 1526 | [Martian Plates](1526/) | dp | C++, Go, Python, Java, Rust |

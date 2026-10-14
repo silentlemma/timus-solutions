@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1526_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "sample with one directed ban between two dish kinds" },
+    { "name": "02", "example": true, "note": "sample with two independent directed bans among ten kinds" },
+    { "name": "03", "note": "one dish, no pairs: a Catalan number modulo p" },
+    { "name": "04", "note": "ten dishes, each forbidden over itself: every set of dishes comes up" },
+    { "name": "05", "note": "one dish forbidden over itself: plates never stack" },
+    { "name": "06", "note": "parity of unrestricted three-kind schedules modulo two" },
+    { "name": "07", "note": "a repeated pair" },
+    { "name": "08", "note": "dish 1 forbids 2 and 3 over it: read the other way, the answer is 101" },
+    { "name": "gen1", "generator": "1 1", "note": "overlapping bans from one kind and repeated pairs at maximum dinner length" },
+    { "name": "gen2", "generator": "2 2", "note": "every dish forbidden over itself" },
+    { "name": "gen3", "generator": "3 3", "note": "several kinds forbid kind ten while kind one forbids kind eight" },
+    { "name": "gen4", "generator": "4 4", "note": "a single serving leaves no opportunity for bans to affect the count" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum pair count includes duplicate bans and self-bans" },
+    { "name": "gen6", "generator": "6 1", "note": "a single self-ban and one directed ban leave most kinds unrestricted at maximum length" },
+    { "name": "09", "note": "all minimum parameters: exactly one bring and one removal" },
+    { "name": "10", "note": "all 100 distinct pairs at maximum dinner length: only alternating brings and removals" },
+    { "name": "11", "note": "ten unrestricted kinds at maximum length: Catalan shapes with independently chosen labels" },
+    { "name": "12", "note": "a directed three-kind cycle has no globally valid ordering of dish kinds" },
+    { "name": "13", "note": "bans are not transitive: dish 3 may be brought directly over dish 1" },
+    { "name": "14", "note": "stress-found four-kind mixture permits repeated live kinds while two kinds forbid themselves" },
+    { "name": "15", "note": "one kind forbids every kind above it and must always be a leaf plate" },
+    { "name": "16", "note": "mutually banning groups can change only after the stack becomes empty" },
+    { "name": "gen7", "generator": "9 4", "note": "seeded short ten-kind dinner with sparse bans involving both endpoint labels" },
+    { "name": "gen8", "generator": "53 4", "note": "seeded eight-kind dinner combines reciprocal bans and unrestricted sink kinds" }
+  ]
+}
