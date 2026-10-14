@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1591_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest n: the only triangle lies on the circle" },
+    { "name": "04", "note": "n = 6: three long diagonals meet at the centre and still count" },
+    { "name": "05", "note": "n = 7" },
+    { "name": "06", "note": "n = 12, with many chords through one point" },
+    { "name": "07", "note": "n = 30" },
+    { "name": "08", "note": "n = 100" },
+    { "name": "09", "note": "n = 1000" },
+    { "name": "10", "note": "n = 1999" },
+    { "name": "11", "note": "the largest n: the answer needs 64 bits" }
+  ]
+}
