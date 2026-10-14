@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1557_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample triangle with three unordered disconnecting pairs" },
+    { "name": "02", "note": "one server and no channels" },
+    { "name": "03", "note": "one server with self-loops only" },
+    { "name": "04", "note": "a path: every channel is a bridge" },
+    { "name": "05", "note": "two servers joined by two channels" },
+    { "name": "06", "note": "two triangles sharing a server: pairs from one triangle only" },
+    { "name": "07", "note": "a ring with a doubled channel and a self-loop" },
+    { "name": "08", "note": "a single channel: two different channels are needed" },
+    { "name": "gen1", "generator": "1 1", "note": "a dense random network: no way to win" },
+    { "name": "gen2", "generator": "2 2", "note": "a long ring where only pairs of undoubled channels disconnect the network" },
+    { "name": "gen3", "generator": "3 3", "note": "a tree and self-loops: C(M, 2) needs 64 bits" },
+    { "name": "gen4", "generator": "4 4", "note": "rings connected by bridges with some channels doubled inside the rings" },
+    { "name": "gen5", "generator": "5 5", "note": "a branching tree where every pair of channels disconnects the network" },
+    { "name": "gen6", "generator": "6 5", "note": "three parallel channels and a self-loop at each of the two servers resist any attack" },
+    { "name": "gen7", "generator": "7 5", "note": "a pendant bridge alongside loops and parallel channels with an additional non-bridge cut pair" },
+    { "name": "gen8", "generator": "8 4", "note": "a doubled link between rings creates an additional two-channel cut" },
+    { "name": "09", "note": "a bridge paired with a self-loop is the only possible attack" },
+    { "name": "10", "note": "three internally disjoint paths of lengths 2, 3 and 4: cuts stay within a path" },
+    { "name": "11", "note": "two complete four-server blocks joined by exactly two channels: a cut without degree-two servers" },
+    { "name": "12", "note": "two bridges and four other cut pairs alongside parallel channels and a self-loop" },
+    { "name": "13", "note": "adjacent bundles of two, three and two channels: only complete two-channel bundles cut" },
+    { "name": "gen9", "generator": "1557 6", "note": "maximum servers and channels with one bridge among parallel bundles of at least three" },
+    { "name": "gen10", "generator": "1557 7", "note": "maximum channels with 1999 path edges forming one cut class and 98001 parallel alternatives" }
+  ]
+}
