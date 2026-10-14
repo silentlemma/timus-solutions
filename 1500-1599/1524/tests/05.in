@@ -1,0 +1,14 @@
+2
+Al 0.5 0.5 0.4 0.4 0.5 A
+Bo 0.5 0.5 0.2 0.25 0.5 B
+0
+0
+2
+0.4 0.4 20 10 bug
+0.55 0 20 10 slug
+600 20 100 0.99
+4
+10 quest kill 10 bug
+20 quest talk 10 0.4 20
+30 quest kill 10 slug
+40 quest findout 10 0.4 20

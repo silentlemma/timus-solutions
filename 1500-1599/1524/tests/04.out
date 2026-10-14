@@ -1,0 +1,14 @@
+0000:00:01    Agent A started quest 1 using car c4.
+0000:00:02    Agent B started quest 2 using car c5.
+0000:00:03    Agent C started quest 3 using car c3.
+0000:00:04    Agent D started quest 4 using car c2.
+0000:00:05    Agent E started quest 5 using car c1.
+0000:01:45    Car c1 was broken.
+0000:03:24    Car c2 was broken.
+0000:05:03    Car c3 was broken.
+0000:06:41    Car c4 was broken.
+0000:06:41    Agent A finished quest 1.
+0000:06:42    Agent B finished quest 2.
+0000:13:23    Agent C finished quest 3.
+0000:20:04    Agent D finished quest 4.
+0001:02:45    Agent E finished quest 5.

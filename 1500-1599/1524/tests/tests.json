@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1524_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a car breaks on the way back" },
+    { "name": "02", "note": "letters of newcomers: the nearest free one, the smaller on a tie, a name starting with a digit" },
+    { "name": "03", "note": "a pair that is faster than any single agent, and a later quest that starts first" },
+    { "name": "04", "note": "cars that break on the way there, on arrival, on the way back, on return, and one that does not" },
+    { "name": "05", "note": "requirements met exactly, and a pair whose joint experience is enough" },
+    { "name": "06", "note": "a car only when it is faster, the smaller id among equal cars, a car the agent may not drive" },
+    { "name": "07", "note": "an agent who tires, and a newcomer who gets the freed letter" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random agency" },
+    { "name": "gen2", "generator": "2 2", "note": "26 agents, 50 cars and 2000 events" },
+    { "name": "gen3", "generator": "3 3", "note": "cars that break often" },
+    { "name": "gen4", "generator": "4 4", "note": "agents that tire soon and newcomers" },
+    { "name": "gen5", "generator": "5 5", "note": "demanding quests for pairs" }
+  ]
+}
