@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.000001",
+  "reference": "1520_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: four factories around the centre" },
+    { "name": "02", "note": "one factory in the centre: the radius is R" },
+    { "name": "03", "note": "one factory on the border: the radius is 2R" },
+    { "name": "04", "note": "two factories: the bisector meets the border" },
+    { "name": "05", "note": "one point repeated three times" },
+    { "name": "06", "note": "the centre and four border points" },
+    { "name": "07", "note": "unit disk with a factory in the centre and one on the border" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum factory count at the largest disk radius" },
+    { "name": "gen2", "generator": "2 2", "note": "factories near a circle of half the radius" },
+    { "name": "gen3", "generator": "3 3", "note": "a single factory" },
+    { "name": "gen4", "generator": "4 4", "note": "factories crowded on one side" },
+    { "name": "gen5", "generator": "5 5", "note": "a few points repeated many times" },
+    { "name": "gen6", "generator": "6 6", "note": "an off-centre factory in a small disk" },
+    { "name": "gen7", "generator": "7 7", "note": "factories on a lattice" },
+    { "name": "gen8", "generator": "8 1", "note": "scattered factories include sites very near the disk boundary" },
+    { "name": "08", "note": "four cocircular border sites leave the largest empty circle at the centre" },
+    { "name": "09", "note": "almost collinear triangle has its circumcenter far outside the disk" },
+    { "name": "10", "note": "unequal off-axis sites give an oblique bisector away from the origin" },
+    { "name": "11", "note": "three-site circumcenter lies exactly on the disk boundary" },
+    { "name": "12", "note": "seeded stress case has a noncentral interior maximum rather than a border maximum" },
+    { "name": "13", "note": "unit-separated sites near the largest coordinate need accurate antipode distances" },
+    { "name": "14", "note": "maximum number of distinct collinear sites with parallel bisectors and no triangle circumcenters" },
+    { "name": "gen9", "generator": "9 6", "note": "five seeded random factories create unequal border arcs and competing bisectors" }
+  ]
+}
