@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1604_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any best order is accepted" },
+    { "name": "02", "note": "a single sign" },
+    { "name": "03", "note": "one kind only: every neighbour is equal" },
+    { "name": "04", "note": "one kind needs the others between its signs" },
+    { "name": "05", "note": "one kind too common: two equal neighbours cannot be avoided" },
+    { "name": "06", "note": "three kinds of two signs each" },
+    { "name": "07", "note": "the common kind is not the first one" },
+    { "name": "gen1", "generator": "1 1", "note": "random counts, nearly 10000 signs" },
+    { "name": "gen2", "generator": "2 2", "note": "one kind with more than half of the signs" },
+    { "name": "gen3", "generator": "3 3", "note": "10000 kinds of one sign each" },
+    { "name": "gen4", "generator": "4 4", "note": "one kind with exactly half of the signs" },
+    { "name": "gen5", "generator": "5 5", "note": "four kinds with similar counts" }
+  ]
+}
