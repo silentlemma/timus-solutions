@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1554_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the inverse of 1 everywhere is the Moebius function" },
+    { "name": "02", "note": "the minimum size with only F(1)" },
+    { "name": "03", "note": "the identity function with inverse n times the Moebius function" },
+    { "name": "04", "note": "the Liouville function, -1 written as 2006: the inverse is |Moebius|" },
+    { "name": "05", "note": "the unit function is its own inverse" },
+    { "name": "gen1", "generator": "1 1", "note": "the maximum size with F equal to 1 everywhere" },
+    { "name": "gen2", "generator": "2 2", "note": "the identity function across the full input range" },
+    { "name": "gen3", "generator": "3 3", "note": "a random multiplicative F" },
+    { "name": "gen4", "generator": "4 4", "note": "a small N" },
+    { "name": "gen5", "generator": "5 3", "note": "random prime power values including zero at the maximum size" },
+    { "name": "06", "note": "the shortest nontrivial input has F(2) = 2006, whose inverse value is 1" },
+    { "name": "07", "note": "a zero value at 2 does not force zero values at 4 and 8" },
+    { "name": "08", "note": "nonzero residues 9 and 223 annihilate each other at mixed prime products" },
+    { "name": "09", "note": "repeated values of 2006 at powers of 2 require every proper divisor term" },
+    { "name": "10", "note": "the divisor-count function needs cancellation at squares and mixed prime powers" },
+    { "name": "11", "note": "a retained random stress input ends at 7 squared and mixes zeros with nonzero higher powers" },
+    { "name": "12", "note": "the maximum size with seeded random zero divisors and boundary residues at prime powers" },
+    { "name": "13", "note": "zero values at primes and seeded random higher powers through the maximum size, including 97 squared" }
+  ]
+}
