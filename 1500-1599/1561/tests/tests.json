@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1561_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no queries, no output" },
+    { "name": "03", "note": "nothing eaten cannot take a day: a contradiction at once" },
+    { "name": "04", "note": "seven barrels take whole weeks, which says nothing about one" },
+    { "name": "05", "note": "an answer before the contradiction and none after it" },
+    { "name": "06", "note": "a million barrels: 10^6 leaves 1 modulo 7" },
+    { "name": "07", "note": "three facts about pairs of sorts pin every sort down" },
+    { "name": "gen1", "generator": "1 1", "note": "400 sorts with dense Learn and Eat queries" },
+    { "name": "gen2", "generator": "2 2", "note": "250 sorts learned one at a time" },
+    { "name": "gen3", "generator": "3 3", "note": "few sorts, true facts only" },
+    { "name": "gen4", "generator": "4 4", "note": "few sorts, a false fact near the end" },
+    { "name": "gen5", "generator": "5 4", "note": "few sorts, a false fact near the end" },
+    { "name": "gen6", "generator": "6 1", "note": "400 sorts with dense Learn and Eat queries" }
+  ]
+}
