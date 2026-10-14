@@ -74,3 +74,4 @@
 | 1567 | [SMS-spam](1567/) | implementation | C++, Go, Python, Java, Rust |
 | 1568 | [Train Car Sorting](1568/) | constructive | C++, Go, Python, Java, Rust |
 | 1569 | [Networking the “Iset”](1569/) | bfs | C++, Go, Python, Java, Rust |
+| 1570 | [Eating High](1570/) | dp | C++, Go, Python, Java, Rust |
