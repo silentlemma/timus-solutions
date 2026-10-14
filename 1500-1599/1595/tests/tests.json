@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1595_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid sequence is accepted" },
+    { "name": "02", "note": "the minimum input with a single required number" },
+    { "name": "03", "note": "two required numbers with distinct extra terms" },
+    { "name": "04", "note": "a short even input with eight constructed terms" },
+    { "name": "05", "note": "a short odd input with interleaved extra terms" },
+    { "name": "06", "note": "the input just before the first repeated extra candidate" },
+    { "name": "07", "note": "a three-digit input producing two hundred terms" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest N: 500000 terms" },
+    { "name": "gen2", "generator": "2 2", "note": "a random large N" },
+    { "name": "gen3", "generator": "3 3", "note": "a random N up to 1000" },
+    { "name": "08", "note": "the first repeated extra candidate must be skipped" },
+    { "name": "09", "note": "the constructed prefix sum is just below signed 32-bit overflow" },
+    { "name": "10", "note": "the constructed prefix sum exceeds signed 32-bit range" },
+    { "name": "11", "generator": "4096 4", "note": "an exactly full output chunk leaves an empty final buffer" },
+    { "name": "12", "generator": "4097 4", "note": "one pair remains after the first output chunk" },
+    { "name": "13", "generator": "23171 4", "note": "the consecutive-position product first exceeds signed 32-bit range" },
+    { "name": "14", "generator": "249999 4", "note": "the largest odd N, immediately below the maximum even input" },
+    { "name": "15", "generator": "31713 2", "note": "seeded random N = 65539 crosses the 16-bit size boundary" }
+  ]
+}
