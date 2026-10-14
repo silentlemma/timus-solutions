@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1594_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one cell: no tiling" },
+    { "name": "03", "note": "one domino" },
+    { "name": "04", "note": "2 by 3: three tilings" },
+    { "name": "05", "note": "a 1 by 100 strip: one tiling" },
+    { "name": "06", "note": "a 2 by 100 strip: a Fibonacci number modulo 10^9 + 7" },
+    { "name": "07", "note": "an odd number of cells: no tiling" },
+    { "name": "08", "note": "the chessboard: 12988816 tilings" },
+    { "name": "09", "note": "the largest box" },
+    { "name": "10", "note": "99 by 100" },
+    { "name": "11", "note": "37 by 64" },
+    { "name": "12", "note": "a 100 by 1 strip, length first" }
+  ]
+}
