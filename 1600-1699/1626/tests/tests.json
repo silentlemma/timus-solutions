@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1626_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the polygon itself is the triangle" },
+    { "name": "02", "example": true, "note": "the second example: both diagonals of the rectangle cross S" },
+    { "name": "03", "note": "a notch vertex lies on two would-be diagonals" },
+    { "name": "04", "note": "a vertical segment beside the left wall of a notched polygon" },
+    { "name": "gen1", "generator": "1 1", "note": "a star polygon of up to 40 vertices" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-size star polygon surrounds a segment crossing both coordinate axes" },
+    { "name": "gen3", "generator": "3 3", "note": "a dense star polygon contains a segment with both endpoints above the origin on opposite sides of the vertical axis" },
+    { "name": "gen4", "generator": "4 4", "note": "a convex lattice polygon" },
+    { "name": "gen5", "generator": "5 5", "note": "a short segment crosses the vertical axis below the center of a star polygon" },
+    { "name": "gen6", "generator": "6 6", "note": "a small convex polygon and a long segment" },
+    { "name": "gen7", "generator": "1 6", "note": "a small convex polygon and a long segment, impossible" },
+    { "name": "gen8", "generator": "8 2", "note": "a nearly horizontal segment above the origin in a maximum-size star polygon" },
+    { "name": "05", "note": "a clockwise triangle only two units high has a long interior lattice segment" },
+    { "name": "06", "note": "coordinates reach both signed limits and S is one unit from the left wall" },
+    { "name": "07", "note": "one endpoint of S touches the only triangulation diagonal of a concave quadrilateral" },
+    { "name": "08", "note": "a long segment fits an L-shaped corridor but cannot fit a single triangulation face" },
+    { "name": "09", "note": "a U-shaped bay invalidates enclosing triangles while two empty triangles remain" },
+    { "name": "10", "note": "three nonconsecutive vertices share a ray and block larger candidate sides" },
+    { "name": "11", "note": "a concave octagon has exactly one valid triangle and it is not a polygon ear" },
+    { "name": "12", "note": "a clockwise concave polygon has six enclosing triangles all occupied by other vertices" },
+    { "name": "13", "note": "clockwise concave input needs original vertex indices after orientation reversal" },
+    { "name": "14", "note": "a comb with 800 vertices and 399 narrow teeth places S one unit from a vertical wall" },
+    { "name": "15", "note": "nearly parallel rays at maximum coordinates have a cross product of one" },
+    { "name": "gen9", "generator": "222 4", "note": "exactly 800 strictly convex lattice vertices exercise dense diagonal visibility" }
+  ]
+}
