@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1594_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one cell: no tiling" },
+    { "name": "03", "note": "one domino" },
+    { "name": "04", "note": "a two-row board with three tilings" },
+    { "name": "05", "note": "a 1 by 100 strip: one tiling" },
+    { "name": "06", "note": "a 2 by 100 strip: a Fibonacci number modulo 10^9 + 7" },
+    { "name": "07", "note": "an odd number of cells: no tiling" },
+    { "name": "08", "note": "the chessboard: 12988816 tilings" },
+    { "name": "09", "note": "both dimensions reach the upper bound with the largest Sylvester matrix" },
+    { "name": "10", "note": "an odd side just below the limit paired with the maximum even side" },
+    { "name": "11", "note": "an odd short side and an even long side give polynomial degrees of opposite parity" },
+    { "name": "12", "note": "a 100 by 1 strip, length first" },
+    { "name": "13", "note": "the smallest tileable square has two perpendicular tilings" },
+    { "name": "14", "note": "two odd polynomial degrees expose an incorrect resultant sign" },
+    { "name": "15", "note": "a three-row strip reaches the maximum even width" },
+    { "name": "16", "note": "an even short side and a long odd side retain the zero-root factor" },
+    { "name": "17", "note": "an odd one-cell-wide strip leaves an uncovered end cell" },
+    { "name": "18", "note": "a square with odd polynomial degree needs both sign handling and modular reduction" },
+    { "name": "19", "note": "unequal even sides have a tiling count larger than 64-bit integers" },
+    { "name": "20", "generator": "random 159410 5 9 20 40", "note": "seeded random short even side and medium odd side" },
+    { "name": "21", "generator": "random 159402 10 12 80 100", "note": "seeded random ten-row strip with a long odd side and large coefficients" },
+    { "name": "22", "generator": "random 159403 60 100 6 10", "note": "a long even first dimension and a short odd second dimension test argument order" },
+    { "name": "23", "generator": "random 159408 11 14 11 14", "note": "seeded random nearly square board with an odd first dimension" }
+  ]
+}
