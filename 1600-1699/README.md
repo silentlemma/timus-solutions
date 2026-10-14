@@ -29,3 +29,4 @@
 | 1622 | [Endspiel](1622/) | backtracking | C++, Go, Python, Java, Rust |
 | 1623 | [Fractal Labyrinth](1623/) | shortest_paths | C++, Go, Python, Java, Rust |
 | 1624 | [Go out of here!](1624/) | implementation | C++, Go, Python, Java, Rust |
+| 1625 | [Hankel Matrix](1625/) | math | C++, Go, Python, Java, Rust |
