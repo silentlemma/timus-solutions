@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1567_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one press" },
+    { "name": "03", "note": "z is second on its key, which holds only two letters" },
+    { "name": "04", "note": "the punctuation key" },
+    { "name": "05", "note": "every space costs one press, two spaces two" },
+    { "name": "06", "note": "words with commas, points and exclamation marks" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 characters of words and punctuation" },
+    { "name": "gen2", "generator": "2 2", "note": "1000 characters of z and !" },
+    { "name": "gen3", "generator": "3 3", "note": "a short slogan" },
+    { "name": "gen4", "generator": "4 3", "note": "a short slogan" }
+  ]
+}
