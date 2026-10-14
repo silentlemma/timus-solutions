@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1602_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a short building: walking all the way wins" },
+    { "name": "03", "note": "a very slow walker: waiting at the top is best" },
+    { "name": "04", "note": "the lift is near the bottom, but its stop still makes walking faster" },
+    { "name": "05", "note": "walking down beats waiting for the lift" },
+    { "name": "06", "note": "a few floors down, then the lift" },
+    { "name": "07", "note": "the largest building with almost equal speeds" },
+    { "name": "08", "note": "two decimals in both speeds" },
+    { "name": "09", "note": "floors 3 and 4 take exactly the same time: the one with less walking wins" }
+  ]
+}
