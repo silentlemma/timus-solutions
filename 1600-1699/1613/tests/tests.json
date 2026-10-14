@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1613_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one city" },
+    { "name": "03", "note": "every city with the same count" },
+    { "name": "04", "note": "the count occurs just outside the range on either side" },
+    { "name": "05", "note": "the largest count" },
+    { "name": "gen1", "generator": "1 1", "note": "a few distinct counts across 69999 cities" },
+    { "name": "gen2", "generator": "2 2", "note": "counts up to 10^9 - 1 across 69999 cities" },
+    { "name": "gen3", "generator": "3 3", "note": "one count shared by 69999 cities" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random test" },
+    { "name": "06", "note": "descending distinct counts preserve city positions and include both query endpoints" },
+    { "name": "07", "note": "the minimum query count with a match at the last of two cities" },
+    { "name": "08", "note": "all queries miss values below, between, and above the stored count groups" },
+    { "name": "gen5", "generator": "1613 5", "note": "every interval and candidate count on a random small array, with shuffled query order" }
+  ]
+}
