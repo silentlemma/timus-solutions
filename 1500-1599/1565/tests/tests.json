@@ -1,0 +1,19 @@
+{
+  "judging": "float:0.00001",
+  "reference": "1565_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: C does best shooting into the air" },
+    { "name": "02", "note": "B never hits" },
+    { "name": "03", "note": "B never misses either, so A shoots B first" },
+    { "name": "04", "note": "C never misses, so A shoots C first" },
+    { "name": "05", "note": "B never hits and C never misses" },
+    { "name": "06", "note": "a strong B and a weak C" },
+    { "name": "07", "note": "two very weak shooters" },
+    { "name": "08", "note": "accuracy 1 written without a point" },
+    { "name": "gen1", "generator": "1 1", "note": "three decimals" },
+    { "name": "gen2", "generator": "2 2", "note": "one decimal" },
+    { "name": "gen3", "generator": "3 3", "note": "six decimals, B and C close" },
+    { "name": "gen4", "generator": "4 1", "note": "three decimals" },
+    { "name": "gen5", "generator": "5 3", "note": "six decimals, B and C close" }
+  ]
+}
