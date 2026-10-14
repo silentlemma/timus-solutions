@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1584_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one swap, two carries" },
+    { "name": "02", "note": "the smallest grid, one kind" },
+    { "name": "03", "note": "two kinds side by side: half of each group must change" },
+    { "name": "04", "note": "already symmetric" },
+    { "name": "05", "note": "a chessboard of two columns" },
+    { "name": "gen1", "generator": "1 1", "note": "20 by 20 with many kinds" },
+    { "name": "gen2", "generator": "2 2", "note": "a symmetric 20 by 20 grid with a few statues swapped" },
+    { "name": "gen3", "generator": "3 3", "note": "20 by 20 with three kinds" },
+    { "name": "gen4", "generator": "4 4", "note": "a small grid" },
+    { "name": "gen5", "generator": "5 1", "note": "20 by 20 with many kinds" }
+  ]
+}
