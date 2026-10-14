@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1533_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two hobbits with one known comparison" },
+    { "name": "02", "example": true, "note": "the second example: nobody was weighed" },
+    { "name": "03", "note": "a transitive comparison from 1 to 3 through 2" },
+    { "name": "04", "note": "the middle layer beats the lightest and the heaviest hobbits" },
+    { "name": "05", "note": "a chain of 100 weighed neighbour by neighbour" },
+    { "name": "06", "note": "a 10 by 10 grid order: the antidiagonal" },
+    { "name": "07", "note": "a chain through 2 makes 4 heavier than 1" },
+    { "name": "gen1", "generator": "1 1", "note": "random weighings of 100 hobbits" },
+    { "name": "gen2", "generator": "2 2", "note": "every pair weighed" },
+    { "name": "gen3", "generator": "3 3", "note": "no weighings" },
+    { "name": "gen4", "generator": "4 4", "note": "a few hobbits" },
+    { "name": "gen5", "generator": "5 5", "note": "neighbouring layers weighed" },
+    { "name": "gen6", "generator": "6 6", "note": "only close weights compared" },
+    { "name": "08", "note": "overlapping comparisons require reassigning an earlier match" },
+    { "name": "09", "note": "separate forks need opposite ends in the answer, together with an isolated hobbit" },
+    { "name": "10", "note": "one comparison between labels 100 and 1 leaves a maximum group of 99" },
+    { "name": "11", "note": "dense two-level crown has paired incomparable vertices and tied maximum sides" },
+    { "name": "12", "note": "four-dimensional subset lattice infers comparability through many converging paths" },
+    { "name": "13", "generator": "65 4", "note": "connected random order has a wider group than any depth layer, sources or sinks" }
+  ]
+}
