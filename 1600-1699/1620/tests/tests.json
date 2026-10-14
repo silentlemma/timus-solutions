@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1620_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one bulb flipped nine times ends off" },
+    { "name": "02", "example": true, "note": "the second example gives a noninteger expectation after three flips" },
+    { "name": "03", "note": "two bulbs: every flip makes the expectation 1" },
+    { "name": "04", "note": "no flips at all" },
+    { "name": "05", "note": "one bulb on, flipped an even number of times" },
+    { "name": "gen1", "generator": "1 1", "note": "a large even house starts below balance and produces a denominator beyond the printing limit" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum bulb and flip counts produce a numerator and denominator with over eight thousand digits" },
+    { "name": "gen3", "generator": "3 3", "note": "an even lit count in a power-of-two house permits extra cancellation of the denominator" },
+    { "name": "gen4", "generator": "4 4", "note": "four initially dark bulbs approach the fixed point from below after nine flips" },
+    { "name": "gen5", "generator": "5 3", "note": "an odd lit count just above balance leaves a large power of two in the reduced denominator" },
+    { "name": "06", "note": "an initially dark single bulb becomes lit after an odd number of flips" },
+    { "name": "07", "note": "zero flips with two lit bulbs exercises the zero base to the zeroth power" },
+    { "name": "08", "note": "half the bulbs lit at both size limits keeps an integer expectation" },
+    { "name": "09", "note": "largest odd n just below half retains a fraction beyond 4300 digits" },
+    { "name": "10", "note": "one flip from an empty nontrivial house lights exactly one bulb" },
+    { "name": "11", "note": "two flips from all lit allow the same bulb to be selected twice" },
+    { "name": "12", "note": "an even n with factors two and three needs partial denominator cancellation" },
+    { "name": "13", "note": "a shared factor of nine cancels only part of an odd prime power denominator" },
+    { "name": "14", "note": "all bulbs lit at maximal n lose exactly one after a single flip" },
+    { "name": "15", "note": "a random brute-checked odd house approaches a half-integer without reaching it" },
+    { "name": "gen6", "generator": "162006 5", "note": "random nearly maximal odd n starts empty and uses the maximum flips" },
+    { "name": "gen7", "generator": "162007 6", "note": "random nearly maximal odd n starts fully lit and uses the maximum flips" },
+    { "name": "gen8", "generator": "162008 7", "note": "random odd n built from small prime powers shares a factor with the lit count" },
+    { "name": "gen9", "generator": "162009 8", "note": "random large even n starts one bulb away from the balanced fixed point" }
+  ]
+}
