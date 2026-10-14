@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1578_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any acute order is accepted" },
+    { "name": "02", "example": true, "note": "the second example: points on a line, turning back counts as 0 degrees" },
+    { "name": "03", "note": "three points on a line" },
+    { "name": "04", "note": "corners of the largest square" },
+    { "name": "05", "note": "a small square and a point outside" },
+    { "name": "gen1", "generator": "1 1", "note": "2002 random points" },
+    { "name": "gen2", "generator": "2 2", "note": "2002 points on one line" },
+    { "name": "gen3", "generator": "3 3", "note": "a dense grid" },
+    { "name": "gen4", "generator": "4 4", "note": "points on a circle" },
+    { "name": "gen5", "generator": "5 5", "note": "a few points" }
+  ]
+}
