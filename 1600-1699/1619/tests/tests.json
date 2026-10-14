@@ -1,0 +1,12 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1619_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every pair of sums up to 6, checked against all orders" },
+    { "name": "03", "note": "the largest sums, equal sums and zeros" },
+    { "name": "gen1", "generator": "1 1", "note": "2004 cases with random sums" },
+    { "name": "gen2", "generator": "2 2", "note": "2004 cases with nearly equal sums" },
+    { "name": "gen3", "generator": "3 3", "note": "a few small cases" }
+  ]
+}
