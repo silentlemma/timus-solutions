@@ -1,0 +1,22 @@
+{
+  "judging": "exact",
+  "reference": "1566_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the longest sides coincide" },
+    { "name": "02", "example": true, "note": "the second example: the card is longer than any segment inside" },
+    { "name": "03", "note": "the same triangle: touching everywhere counts" },
+    { "name": "04", "note": "a larger copy" },
+    { "name": "05", "note": "a needle of length 999 is too wide at its end to reach a corner" },
+    { "name": "06", "note": "one millimetre too long" },
+    { "name": "07", "note": "a very flat obtuse envelope and card" },
+    { "name": "08", "note": "an isosceles card in an equilateral envelope" },
+    { "name": "gen1", "generator": "2 3", "note": "an obtuse envelope" },
+    { "name": "gen2", "generator": "6 3", "note": "an obtuse envelope" },
+    { "name": "gen3", "generator": "11 4", "note": "small sides" },
+    { "name": "gen4", "generator": "3 4", "note": "small sides" },
+    { "name": "gen5", "generator": "5 2", "note": "a slightly shrunk envelope with shuffled sides" },
+    { "name": "gen6", "generator": "20 1", "note": "random triangles" },
+    { "name": "gen7", "generator": "8 1", "note": "random triangles" },
+    { "name": "gen8", "generator": "9 2", "note": "a slightly shrunk envelope with shuffled sides" }
+  ]
+}
