@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1535_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two cities: one round trip" },
+    { "name": "03", "note": "three cities: both directions cost the same" },
+    { "name": "04", "note": "five cities: the cheapest trip is not 1, 5, 2, 4, 3" },
+    { "name": "05", "note": "ten cities: one city is left where the two sides meet" },
+    { "name": "06", "note": "nine cities: the two sides meet without a city left" },
+    { "name": "gen1", "generator": "1 1", "note": "a random N" },
+    { "name": "gen2", "generator": "2 2", "note": "a small N" },
+    { "name": "gen3", "generator": "3 3", "note": "an even N near 50000" },
+    { "name": "gen4", "generator": "4 4", "note": "an odd N near 50000" },
+    { "name": "gen5", "generator": "5 5", "note": "the largest N, even" },
+    { "name": "gen6", "generator": "6 6", "note": "the largest odd N" }
+  ]
+}

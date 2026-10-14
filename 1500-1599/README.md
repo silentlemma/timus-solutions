@@ -39,3 +39,4 @@
 | 1532 | [Lost in Translation](1532/) | hashing | C++, Go, Python, Java, Rust |
 | 1533 | [Fat Hobbits](1533/) | matching | C++, Go, Python, Java, Rust |
 | 1534 | [Football in Gondor](1534/) | math | C++, Go, Python, Java, Rust |
+| 1535 | [The Hobbit or There and Back Again](1535/) | constructive | C++, Go, Python, Java, Rust |
