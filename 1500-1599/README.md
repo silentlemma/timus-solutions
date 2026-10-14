@@ -23,3 +23,4 @@
 | 1516 | [Nostalgia](1516/) | backtracking | C++, Go, Python, Java, Rust |
 | 1517 | [Freedom of Choice](1517/) | suffix_structures | C++, Go, Python, Java, Rust |
 | 1518 | [Jedi Riddle 3](1518/) | math | C++, Go, Python, Java, Rust |
+| 1519 | [Formula 1](1519/) | dp | C++, Go, Python, Java, Rust |
