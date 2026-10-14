@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1563_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one shop" },
+    { "name": "03", "note": "names with spaces: a doubled space makes another name" },
+    { "name": "04", "note": "the same shop five times" },
+    { "name": "05", "note": "names that are prefixes of each other" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 names from a pool of 50" },
+    { "name": "gen2", "generator": "2 2", "note": "1000 different names" },
+    { "name": "gen3", "generator": "3 3", "note": "names that differ only in their spaces" }
+  ]
+}
