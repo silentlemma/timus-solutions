@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1519_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two tracks around the holes" },
+    { "name": "02", "example": true, "note": "the second example: an empty 4 x 4 field" },
+    { "name": "03", "note": "an empty 12 x 12 field, the largest count" },
+    { "name": "04", "note": "a 2 x 2 field: one track" },
+    { "name": "05", "note": "a 3 x 3 field: an odd number of cells, no track" },
+    { "name": "06", "note": "a 12 x 12 field with one corner hole: 143 cells, no track" },
+    { "name": "07", "note": "a 2 x 12 strip: one track" },
+    { "name": "08", "note": "four separate free areas: no track" },
+    { "name": "09", "note": "holes in the last corner, so the loop closes before the last row ends" },
+    { "name": "gen1", "generator": "1 1", "note": "a 12 x 12 field with a few 2 x 2 holes" },
+    { "name": "gen2", "generator": "2 2", "note": "a random even size with 2 x 2 holes" },
+    { "name": "gen3", "generator": "3 3", "note": "an interior 2 x 2 hole in a 12 x 12 field" },
+    { "name": "gen4", "generator": "4 4", "note": "scattered single holes" },
+    { "name": "gen5", "generator": "5 2", "note": "a 10 x 6 field with two separated 2 x 2 holes" },
+    { "name": "gen6", "generator": "6 3", "note": "a 2 x 2 hole at the upper right corner of a 12 x 12 field" },
+    { "name": "10", "note": "fourteen connected free cells with minimum degree two but unequal chessboard colours" },
+    { "name": "11", "note": "two cyclic rooms joined by a bridge: connected and colour-balanced but no track" },
+    { "name": "12", "note": "a forced perimeter loop around a 10 x 10 hole on a maximum-size board" },
+    { "name": "13", "note": "a 5 x 4 board with separated single holes and two tracks" }
+  ]
+}
