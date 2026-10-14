@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1540_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: Saruman wins" },
+    { "name": "03", "note": "a single ring" },
+    { "name": "04", "note": "two equal chains cancel" },
+    { "name": "05", "note": "equal rings: one move removes them all, the first ring is named" },
+    { "name": "06", "note": "a chain that splits into two equal pieces" },
+    { "name": "07", "note": "no winning move in chain 1, ring 1 of chain 2 wins" },
+    { "name": "08", "note": "two rings with the winning content: the first is named" },
+    { "name": "gen1", "generator": "1 1", "note": "50 chains of 100 random rings" },
+    { "name": "gen2", "generator": "2 2", "note": "contents from 1 to 3" },
+    { "name": "gen3", "generator": "3 3", "note": "a few short chains" },
+    { "name": "gen4", "generator": "4 4", "note": "increasing chains: deeply nested pieces" },
+    { "name": "gen5", "generator": "5 5", "note": "one chain of 100" },
+    { "name": "gen6", "generator": "6 6", "note": "50 equal zigzag chains" },
+    { "name": "gen7", "generator": "7 3", "note": "a few short chains" }
+  ]
+}
