@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1615_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a six-card deck whose winning probability is just above one half" },
+    { "name": "03", "note": "a power-of-two rank count whose winning probability falls below one half" },
+    { "name": "04", "note": "a small odd rank count requiring division of both fraction terms by two" },
+    { "name": "05", "note": "n = 6, where 52/132 reduces to 13/33" },
+    { "name": "gen1", "generator": "1 1", "note": "an interior prime rank count with a seven-digit reduced denominator" },
+    { "name": "gen2", "generator": "2 2", "note": "a generated repeat of the five-rank reduction case" },
+    { "name": "gen3", "generator": "3 3", "note": "the maximum rank count and largest unreduced denominator" },
+    { "name": "06", "note": "a fourteen-card deck with a composite reduced numerator" },
+    { "name": "07", "note": "a power-of-two deck size with an odd prime reduced numerator" },
+    { "name": "08", "note": "ten ranks reduce by four to a power-of-two numerator" },
+    { "name": "09", "note": "fourteen ranks require division by four and leave an odd numerator" },
+    { "name": "10", "note": "seventeen ranks produce a perfect-square reduced numerator" },
+    { "name": "11", "note": "twenty-five ranks produce a perfect-square reduced denominator" },
+    { "name": "12", "note": "an unreduced denominator just below the sixteen-bit unsigned limit" },
+    { "name": "13", "note": "the first rank count whose unreduced denominator exceeds 65535" },
+    { "name": "14", "note": "a large power-of-two rank count with a nine-digit reduced denominator" },
+    { "name": "15", "note": "the largest input requiring reduction by four" },
+    { "name": "16", "note": "the largest odd input, immediately below the maximum" },
+    { "name": "17", "generator": "28 2", "note": "an odd square rank count giving a prime reduced numerator" },
+    { "name": "18", "generator": "95 2", "note": "seeded draw at the upper endpoint of the small generator range" },
+    { "name": "19", "generator": "42 1", "note": "seeded full-range sample in the lower interior requiring reduction by four" },
+    { "name": "20", "generator": "1615 1", "note": "seeded full-range sample whose reduced numerator exceeds single-precision integer accuracy" }
+  ]
+}
