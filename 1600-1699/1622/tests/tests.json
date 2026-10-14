@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1622_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the last peg in the centre" },
+    { "name": "02", "example": true, "note": "the second example: next to the centre is impossible" },
+    { "name": "03", "note": "the bottom edge, D1" },
+    { "name": "04", "note": "the right edge, G4" },
+    { "name": "05", "note": "the top edge, D7" },
+    { "name": "06", "note": "the left edge, A4" },
+    { "name": "07", "note": "a cell of an arm off the middle line is impossible" },
+    { "name": "08", "note": "a cell of the central square is impossible" },
+    { "name": "gen1", "generator": "1 1", "note": "a random cell" },
+    { "name": "gen2", "generator": "2 1", "note": "a random cell" },
+    { "name": "gen3", "generator": "3 2", "note": "a random reachable cell" }
+  ]
+}
