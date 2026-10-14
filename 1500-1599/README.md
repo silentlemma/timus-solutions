@@ -26,3 +26,4 @@
 | 1519 | [Formula 1](1519/) | dp | C++, Go, Python, Java, Rust |
 | 1520 | [Empire Strikes Back](1520/) | geometry | C++, Go, Python, Java, Rust |
 | 1521 | [War Games 2](1521/) | fenwick | C++, Go, Python, Java, Rust |
+| 1522 | [Factory](1522/) | greedy | C++, Go, Python, Java, Rust |
