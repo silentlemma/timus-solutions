@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1542_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "queries without a match give empty blocks, first and last" },
+    { "name": "03", "note": "equal counts go alphabetically, a before ab" },
+    { "name": "04", "note": "twelve matches: only ten are shown" },
+    { "name": "05", "note": "a query equal to a word, one longer than any word" },
+    { "name": "06", "note": "words and queries of 15 letters" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred thousand words over a to d, 15000 prefixes" },
+    { "name": "gen2", "generator": "2 2", "note": "counts from 1 to 3: many ties" },
+    { "name": "gen3", "generator": "3 3", "note": "a few short words" },
+    { "name": "gen4", "generator": "4 4", "note": "queries that mostly match nothing" },
+    { "name": "gen5", "generator": "5 5", "note": "words of 15 letters" },
+    { "name": "gen6", "generator": "6 3", "note": "single-letter queries cover words starting with a or b" },
+    { "name": "07", "note": "one word and one query at the minimum sizes, using z and the maximum frequency" },
+    { "name": "08", "note": "a fifteen-way tie crosses the tenth-place cutoff in reverse alphabetical input order" },
+    { "name": "09", "note": "narrow queries recover words excluded from the parent top ten, with repeated queries in mixed order" },
+    { "name": "10", "note": "seeded random words contain query text internally as well as at the start, so substring matches must be rejected" },
+    { "name": "gen7", "generator": "1542 6", "note": "a hundred thousand length-15 words share eleven letters, with 15000 repeated queries and large suggestion output" },
+    { "name": "gen8", "generator": "1542 7", "note": "seeded random families span the full alphabet and have exactly nine, ten, or eleven matches" }
+  ]
+}
