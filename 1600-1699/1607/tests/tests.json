@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1607_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "initial offer above the driver's asking price is accepted" },
+    { "name": "03", "note": "equal first prices" },
+    { "name": "04", "note": "a raise past the driver's asking price settles at that price" },
+    { "name": "05", "note": "the driver's cut jumps past Petya's price: Petya's price" },
+    { "name": "06", "note": "steps of 1 from 1 and 10000: the longest haggle" },
+    { "name": "07", "note": "the driver's cut lands exactly on Petya's price" },
+    { "name": "08", "note": "the largest offer against the smallest price" },
+    { "name": "09", "note": "the third raise lands exactly on the driver's current price" },
+    { "name": "10", "note": "a one-unit gap at the upper price limit with both steps maximal" },
+    { "name": "11", "generator": "15 random", "note": "seeded random unequal steps require several rounds before acceptance" },
+    { "name": "12", "generator": "1607 slow-petya", "note": "a long seeded haggle with unit raises and larger driver cuts" },
+    { "name": "13", "generator": "1608 slow-driver", "note": "a long seeded haggle with unit cuts and larger Petya raises" }
+  ]
+}
