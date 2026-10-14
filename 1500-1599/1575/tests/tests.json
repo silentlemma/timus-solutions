@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "1575_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "ends of different lines, the circle line, two neighbours" },
+    { "name": "03", "note": "one question" },
+    { "name": "gen1", "generator": "1 1", "note": "every ordered pair of the 70 stations" },
+    { "name": "gen2", "generator": "2 2", "note": "4900 random pairs" },
+    { "name": "gen3", "generator": "3 3", "note": "a few random pairs" }
+  ]
+}
