@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1526_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one dish, no pairs: a Catalan number modulo p" },
+    { "name": "04", "note": "ten dishes, each forbidden over itself: every set of dishes comes up" },
+    { "name": "05", "note": "one dish forbidden over itself: plates never stack" },
+    { "name": "06", "note": "p = 2" },
+    { "name": "07", "note": "a repeated pair" },
+    { "name": "08", "note": "dish 1 forbids 2 and 3 over it: read the other way, the answer is 101" },
+    { "name": "gen1", "generator": "1 1", "note": "ten dishes, random pairs, t = 200" },
+    { "name": "gen2", "generator": "2 2", "note": "every dish forbidden over itself" },
+    { "name": "gen3", "generator": "3 3", "note": "a random size" },
+    { "name": "gen4", "generator": "4 4", "note": "a short dinner" },
+    { "name": "gen5", "generator": "5 5", "note": "100 random pairs" },
+    { "name": "gen6", "generator": "6 1", "note": "ten dishes, random pairs, t = 200" }
+  ]
+}
