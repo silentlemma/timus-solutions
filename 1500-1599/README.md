@@ -98,3 +98,4 @@
 | 1591 | [Abstract Thinking](1591/) | math | C++, Go, Python, Java, Rust |
 | 1592 | [Chinese Clocks](1592/) | math | C++, Go, Python, Java, Rust |
 | 1593 | [Square Country. Version 2](1593/) | math | C++, Go, Python, Java, Rust |
+| 1594 | [Aztec Treasure](1594/) | math | C++, Go, Python, Java, Rust |
