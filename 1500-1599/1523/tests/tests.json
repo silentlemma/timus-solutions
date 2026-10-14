@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1523_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a leading maximum forms inversions with both following elements" },
+    { "name": "02", "example": true, "note": "the second example: a decreasing permutation" },
+    { "name": "03", "note": "a singleton permutation has no decreasing pair" },
+    { "name": "04", "note": "k larger than n" },
+    { "name": "05", "note": "an increasing permutation has no inversions" },
+    { "name": "06", "note": "a small mixed permutation" },
+    { "name": "gen1", "generator": "1 1", "note": "a random permutation of 20000 with a random k" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-length decreasing permutation checks reduction modulo one billion for ten-element subsequences" },
+    { "name": "gen3", "generator": "3 3", "note": "a maximum-length increasing permutation has no decreasing subsequence of length five" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random permutation" },
+    { "name": "gen5", "generator": "5 5", "note": "decreasing with a few swaps, k = 10" },
+    { "name": "gen6", "generator": "6 1", "note": "counting decreasing triples in a shuffled permutation at the maximum size" }
+  ]
+}
