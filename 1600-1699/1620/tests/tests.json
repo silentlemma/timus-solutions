@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1620_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one bulb flipped nine times ends off" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "two bulbs: every flip makes the expectation 1" },
+    { "name": "04", "note": "no flips at all" },
+    { "name": "05", "note": "one bulb on, flipped an even number of times" },
+    { "name": "gen1", "generator": "1 1", "note": "random n, m and k" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest n and k: an answer of about 9000 digits" },
+    { "name": "gen3", "generator": "3 3", "note": "n a power of two, so most factors cancel" },
+    { "name": "gen4", "generator": "4 4", "note": "small values" },
+    { "name": "gen5", "generator": "5 3", "note": "n a power of two, so most factors cancel" }
+  ]
+}
