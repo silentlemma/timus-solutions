@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1573_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one reagent" },
+    { "name": "03", "note": "two reagents, listed out of order" },
+    { "name": "04", "note": "the largest bags: a million ways" },
+    { "name": "05", "note": "one reagent of each color: one way" },
+    { "name": "gen1", "generator": "1", "note": "red alone is selected from three unequal bags" },
+    { "name": "gen2", "generator": "2", "note": "blue and red are multiplied while yellow is omitted" },
+    { "name": "gen3", "generator": "3", "note": "the largest bag is the only color in the recipe" },
+    { "name": "06", "note": "blue alone uses its maximum bag size and ignores the other bags" },
+    { "name": "07", "note": "yellow alone has one choice despite two unused maximum bags" },
+    { "name": "08", "note": "two maximum bags give ten thousand choices with Yellow omitted" },
+    { "name": "09", "note": "red and yellow are combined while the largest blue bag is unused" },
+    { "name": "10", "note": "all three colors mix a unit bag with sizes just below and at the upper limit" }
+  ]
+}

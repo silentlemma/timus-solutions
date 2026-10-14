@@ -77,3 +77,4 @@
 | 1570 | [Eating High](1570/) | dp | C++, Go, Python, Java, Rust |
 | 1571 | [Interpreters](1571/) | constructive | C++, Go, Python, Java, Rust |
 | 1572 | [Yekaterinozavodsk Great Well](1572/) | geometry | C++, Go, Python, Java, Rust |
+| 1573 | [Alchemy](1573/) | math | C++, Go, Python, Java, Rust |
