@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1509_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two dots fit both 0-2 and 1-1" },
+    { "name": "02", "note": "a single dot" },
+    { "name": "03", "note": "two dots 0.8 apart: 1-1 would need L below 1" },
+    { "name": "04", "note": "two dots 80 apart: 0-2 would need L above 100" },
+    { "name": "05", "note": "a 6-6 domino with L = 100" },
+    { "name": "06", "note": "three dots in a row, a turned 0-3 domino" },
+    { "name": "07", "note": "a mirrored 2-4 domino" },
+    { "name": "08", "note": "a 5-5 domino with L = 1" },
+    { "name": "09", "note": "a 3-3 domino turned by 30 degrees" },
+    { "name": "10", "note": "a 1-2 domino turned by 200 degrees" },
+    { "name": "gen1", "generator": "1 1", "note": "a singleton beside four corner dots after rotation and rounding" },
+    { "name": "gen2", "generator": "2 2", "note": "a rotated 6-6 domino close to the minimum size" },
+    { "name": "gen3", "generator": "3 3", "note": "a 1-4 domino near the maximum size with negative coordinates" },
+    { "name": "gen4", "generator": "4 4", "note": "a rotated pair farther apart than any valid 0-2 domino allows" },
+    { "name": "gen5", "generator": "5 5", "note": "a square with six dots" },
+    { "name": "gen6", "generator": "6 4", "note": "two widely separated dots at negative x coordinates leave only the 1-1 reading" },
+    { "name": "gen7", "generator": "7 1", "note": "a mirrored 1-2 domino with shuffled dots and negative x coordinates" },
+    { "name": "gen8", "generator": "8 2", "note": "a near-minimum 1-2 domino rounded to four decimals after rotation" },
+    { "name": "11", "note": "two dots exactly one unit apart include the lower size bound for 1-1" },
+    { "name": "12", "note": "two dots with squared distance 5000 include the upper size bound for 0-2" },
+    { "name": "13", "note": "four corners of one square with a blank half and coordinates at both limits" },
+    { "name": "14", "note": "a shuffled 5-6 domino at L = 1 distinguishes a centre dot from the six-dot side middles" },
+    { "name": "gen9", "generator": "72 1", "note": "random turned 0-6 domino has all six dots on one half and no centre dot" }
+  ]
+}
