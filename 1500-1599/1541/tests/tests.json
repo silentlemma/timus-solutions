@@ -1,0 +1,22 @@
+{
+  "judging": "checker",
+  "reference": "1541_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "three hours: thirteen legs from 1 up" },
+    { "name": "03", "note": "one hour: one leg at speed 1" },
+    { "name": "04", "note": "a single unit fraction" },
+    { "name": "05", "note": "more than an hour, four legs" },
+    { "name": "06", "note": "4/47, slow for a plain search" },
+    { "name": "07", "note": "49/50 needs speeds up to 46200" },
+    { "name": "08", "note": "50/17, close to three hours" },
+    { "name": "09", "note": "35/18, the slowest for the search here" },
+    { "name": "10", "note": "43/31, also slow" },
+    { "name": "11", "note": "13/34, also slow" },
+    { "name": "gen1", "generator": "1 1", "note": "a random fraction" },
+    { "name": "gen2", "generator": "2 2", "note": "a fraction above 2.5" },
+    { "name": "gen3", "generator": "3 3", "note": "M and N up to 10" },
+    { "name": "gen4", "generator": "4 1", "note": "a random fraction" },
+    { "name": "gen5", "generator": "5 2", "note": "a fraction above 2.5" }
+  ]
+}
