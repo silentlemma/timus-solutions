@@ -31,3 +31,4 @@
 | 1524 | [Men in Black](1524/) | simulation | C++, Go, Python, Java, Rust |
 | 1525 | [Path](1525/) | implementation | C++, Go, Python, Java, Rust |
 | 1526 | [Martian Plates](1526/) | dp | C++, Go, Python, Java, Rust |
+| 1527 | [Bad Roads](1527/) | shortest_paths | C++, Go, Python, Java, Rust |
