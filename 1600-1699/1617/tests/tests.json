@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1617_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only one diameter has four pairs" },
+    { "name": "02", "note": "a single pair equips no car" },
+    { "name": "03", "note": "eight pairs of one size equip two cars" },
+    { "name": "04", "note": "seven pairs each of the smallest and largest diameters: a car each, three pairs left over" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum inventory spread over many diameters" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum inventory of one diameter leaves two pairs unused" },
+    { "name": "gen3", "generator": "3 3", "note": "two pairs at each of four adjacent diameters equip no cars" },
+    { "name": "05", "note": "three equal pairs are one short of equipping the first car" },
+    { "name": "06", "note": "exactly four pairs at diameter 700 equip the first car" },
+    { "name": "07", "note": "four adjacent diameters interleaved in four rounds each equip a car" },
+    { "name": "08", "note": "all 150 pairs at diameter 600 attain the maximum answer of 37 cars" },
+    { "name": "09", "note": "fifty triplets equip no cars despite the maximum inventory of 150 pairs" },
+    { "name": "10", "generator": "1617 4", "note": "seeded shuffled counts 1 through 16 cover every remainder around several car thresholds" }
+  ]
+}
