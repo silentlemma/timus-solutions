@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1517_suffix_structures.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a shared phrase lies inside both speeches with different surrounding text" },
+    { "name": "02", "note": "one equal letter" },
+    { "name": "03", "note": "nothing in common: an empty speech" },
+    { "name": "04", "note": "one speech reversed: only single letters match" },
+    { "name": "05", "note": "the second speech is a rotation of the first" },
+    { "name": "06", "note": "a long run of one letter on both sides" },
+    { "name": "gen1", "generator": "1 1", "note": "full length speeches of random uppercase letters" },
+    { "name": "gen2", "generator": "2 2", "note": "full length speeches drawn from just two letters" },
+    { "name": "gen3", "generator": "3 3", "note": "a long piece of the first speech copied into the second" },
+    { "name": "gen4", "generator": "4 4", "note": "one letter repeated: the whole speech" },
+    { "name": "gen5", "generator": "5 5", "note": "no common letter at full size" },
+    { "name": "gen6", "generator": "6 6", "note": "small speeches of A and B" },
+    { "name": "gen7", "generator": "7 3", "note": "a copied block occurs later in the second speech than in the first" }
+  ]
+}
