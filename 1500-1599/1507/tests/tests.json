@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1507_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a single cycle through 50 rows: no power of A is positive, but B is" },
+    { "name": "04", "note": "two cycles joined one way only" },
+    { "name": "05", "note": "a zero matrix" },
+    { "name": "06", "note": "every entry 100" },
+    { "name": "07", "note": "two rows that swap" },
+    { "name": "08", "note": "a row nothing leads out of" },
+    { "name": "gen1", "generator": "1 1", "note": "a sparse random matrix" },
+    { "name": "gen2", "generator": "2 2", "note": "a random strongly connected graph" },
+    { "name": "gen3", "generator": "3 3", "note": "a random graph with one column cleared" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random matrix" },
+    { "name": "gen5", "generator": "5 5", "note": "a periodic strongly connected graph" },
+    { "name": "gen6", "generator": "6 5", "note": "a periodic strongly connected graph" },
+    { "name": "gen7", "generator": "7 2", "note": "a random strongly connected graph" }
+  ]
+}
