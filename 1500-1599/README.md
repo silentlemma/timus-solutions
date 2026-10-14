@@ -45,3 +45,4 @@
 | 1538 | [Towers of Guard](1538/) | geometry | C++, Go, Python, Java, Rust |
 | 1539 | [Intelligence Data](1539/) | number_theory | C++, Go, Python, Java, Rust |
 | 1540 | [Battle for the Ring](1540/) | games | C++, Go, Python, Java, Rust |
+| 1541 | [Chase](1541/) | backtracking | C++, Go, Python, Java, Rust |

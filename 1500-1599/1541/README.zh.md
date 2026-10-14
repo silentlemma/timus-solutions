@@ -1,0 +1,77 @@
+# 1541. 追击
+
+[Timus 1541](https://acm.timus.ru/problem.aspx?space=1&num=1541) · 难度 2122 · backtracking
+
+原题作者 Alexander Ipatov，出自 2007 年 3 月 3 日第八届乌拉尔国立大学个人公开赛。
+
+[English](README.md) · [Русский](README.ru.md) · **中文** · [Español](README.es.md)
+
+## 任务
+
+几位朋友跑了 K 里格（K < 20），第 i 里格的速度为整数 Vi 里格每小时，每一段都比前一段慢
+（i > j 时 Vi < Vj），且都不超过 100000。追击用了 M/N 小时，M 与 N 互素，1 ≤ M, N ≤ 50，
+M/N ≤ 3。求 K 和各速度，若不存在则输出 -1。任何答案都可以。
+
+时间限制：1 秒。内存限制：64 MB。
+
+## 输入
+
+M 和 N。
+
+## 输出
+
+K，然后是 V1 … VK。
+
+## 样例
+
+### 样例 1
+
+输入:
+
+```
+2 3
+```
+
+输出:
+
+```
+2
+6 2
+```
+
+## 解法
+
+时间为 1/V1 + … + 1/VK，所以要把 M/N 写成少于 20 个分母不超过 10⁵ 的不同单位分数之和，
+并按分母从大到小列出。
+
+对分数个数做迭代加深搜索，分母按递增顺序选取。若还剩 p/q 要用至多 `left` 个分母大于
+`last` 的分数凑出，则下一个分母 d 满足：
+
+- d > last 且 1/d ≤ p/q，即 d ≥ ⌈q/p⌉；
+- `left` 个不超过 1/d 的分数必须凑够 p/q，即 d ≤ left·q/p；
+- 从 d 开始的 `left` 个分数的最大可能和（用前缀和取调和级数的一段）必须不小于 p/q，选 d
+  之前和选 d 之后的剩余部分都要满足。
+
+余数保存为既约分数，其分子和分母保持在 2⁶¹ 以下，使 64 位语言不会溢出；会超出这一范围
+的分支直接跳过，且各语言跳过的分支相同，所以五种语言搜索的是同一棵树。
+
+对全部 1291 个合法输入都运行过：每个都有答案，最多 13 个分数（M/N 接近 3 时几乎需要所有
+小分母），最大分母小于 10⁵，最慢的输入在 Python 中约 0.3 秒。答案都用分数精确验证过。
+
+注意事项：
+
+- 速度要按递减顺序输出，与搜索顺序相反（所有测试）；
+- 3/1 需要 1, 1/2, …, 1/10 再加三个分数（测试 02）；
+- 答案可以只有一个分数，甚至是 1/1（测试 03、04）；
+- 没有上述界限时，分母的乘积会超出 64 位；
+- 答案可能不止一个，所以测试使用检查器（所有测试）。
+
+## 解答
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
+|----|----|----|-----|------|----|----|
+| [1541_backtracking.cpp](1541_backtracking.cpp) | G++ 13.2 x64 | backtracking | exponential | AC | 0.015 s | 968 KB |
+| [1541_backtracking.go](1541_backtracking.go) | Go 1.14 x64 | backtracking | exponential | AC | 0.031 s | 1876 KB |
+| [1541_backtracking.java](1541_backtracking.java) | Java 1.8 | backtracking | exponential | AC | 0.125 s | 2896 KB |
+| [1541_backtracking.py](1541_backtracking.py) | Python 3.12 x64 | backtracking | exponential | AC | 0.156 s | 4552 KB |
+| [1541_backtracking.rs](1541_backtracking.rs) | Rust 1.75 x64 | backtracking | exponential | AC | 0.031 s | 1016 KB |
