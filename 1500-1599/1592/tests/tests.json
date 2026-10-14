@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1592_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one clock at 12 o'clock" },
+    { "name": "03", "note": "two clocks six hours apart: a tie, the earlier time after 12 o'clock wins" },
+    { "name": "04", "note": "one second before 12 o'clock and 12 o'clock itself" },
+    { "name": "05", "note": "a tie between 6 and 12 o'clock: 12 o'clock comes first" },
+    { "name": "06", "note": "repeated times" },
+    { "name": "07", "note": "four clocks a quarter of the dial apart: a four-way tie" },
+    { "name": "08", "note": "times just before and at one o'clock" },
+    { "name": "gen1", "generator": "1 1", "note": "random times for the maximum number of clocks" },
+    { "name": "gen2", "generator": "2 2", "note": "a full batch clustered close to 12 o'clock on both sides" },
+    { "name": "gen3", "generator": "3 3", "note": "the maximum number of clocks on a few distinct times" },
+    { "name": "gen4", "generator": "4 4", "note": "a few random clocks" },
+    { "name": "09", "note": "seven thousand identical clocks at 11:59:59 require zero winding at the upper time bound" },
+    { "name": "10", "note": "one second short of half a cycle gives a unique later target rather than a tie" },
+    { "name": "11", "note": "seeded stress case where the optimum is neither the most frequent time nor the median" },
+    { "name": "12", "note": "seeded stress case where winding after the largest empty arc is not optimal" },
+    { "name": "13", "note": "a cluster crossing 12 o'clock with an optimum just after it" },
+    { "name": "14", "note": "unequal multiplicities and unequal gaps create a three-way tie at nonzero seconds" }
+  ]
+}
