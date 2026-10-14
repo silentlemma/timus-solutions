@@ -68,3 +68,4 @@
 | 1561 | [Winnie the Pooh](1561/) | math | C++, Go, Python, Java, Rust |
 | 1562 | [GM-pineapple](1562/) | geometry | C++, Go, Python, Java, Rust |
 | 1563 | [Bayan](1563/) | hashing | C++, Go, Python, Java, Rust |
+| 1564 | [Counting Ones](1564/) | binary_search | C++, Go, Python, Java, Rust |

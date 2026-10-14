@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1564_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "all ones on floor 11 counted together" },
+    { "name": "02", "example": true, "note": "the second example: floor 11 adds two ones at once" },
+    { "name": "03", "note": "the first one, on floor 1" },
+    { "name": "04", "note": "the second one, on floor 10" },
+    { "name": "05", "note": "the largest count, 10^18" },
+    { "name": "06", "note": "one below the largest count" },
+    { "name": "07", "note": "a count reached on floor 19" },
+    { "name": "08", "note": "one short of the total on floor 111...1: a lie" },
+    { "name": "gen1", "generator": "1 1", "note": "a random count" },
+    { "name": "gen2", "generator": "2 2", "note": "one short of the total at a floor with many ones" },
+    { "name": "gen3", "generator": "3 3", "note": "the total at a random floor" },
+    { "name": "gen4", "generator": "4 1", "note": "an impossible count skipped by a floor containing two ones" },
+    { "name": "gen5", "generator": "5 2", "note": "a count one below the end of a nine-one jump" },
+    { "name": "gen6", "generator": "6 3", "note": "an attainable large count with the final one in the units place" },
+    { "name": "09", "note": "the total before floor 1000 is first reached at 991, before a plateau" },
+    { "name": "10", "note": "the exact total at floor 11111 must accept all its ones together" },
+    { "name": "11", "note": "a count in the middle of floor 14111's four-one jump is impossible" },
+    { "name": "12", "note": "the exact total at floor 10^17, with seventeen trailing zeros" },
+    { "name": "13", "note": "the count exceeds signed 32 bits while its floor still fits" }
+  ]
+}
