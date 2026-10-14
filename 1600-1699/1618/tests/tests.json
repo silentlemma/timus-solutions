@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1618_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two empty arrays, shared or not" },
+    { "name": "02", "example": true, "note": "the second example: a chain has one configuration" },
+    { "name": "03", "example": true, "note": "the third example: three configurations" },
+    { "name": "04", "note": "a single empty array" },
+    { "name": "05", "note": "five empty arrays: the Bell number 52" },
+    { "name": "gen1", "generator": "1 1", "note": "random sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "a long chain of ones with a few larger sizes" },
+    { "name": "gen3", "generator": "3 3", "note": "one wide level" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest product over several levels" },
+    { "name": "gen5", "generator": "5 5", "note": "512 arrays under as many levels of one as fit" }
+  ]
+}
