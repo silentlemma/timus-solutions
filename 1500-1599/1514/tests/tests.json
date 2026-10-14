@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1514_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two triangles tie" },
+    { "name": "02", "note": "three trees in a row, a flat triangle" },
+    { "name": "03", "note": "three trees in one place: perimeter 0" },
+    { "name": "04", "note": "two trees in one place and one beside them" },
+    { "name": "05", "note": "three corners of the largest square" },
+    { "name": "06", "note": "trees on one line, out of order" },
+    { "name": "gen1", "generator": "1 1", "note": "the maximum number of trees spread across the coordinate range" },
+    { "name": "gen2", "generator": "2 2", "note": "a vertical line with fifty thousand distinct trees" },
+    { "name": "gen3", "generator": "3 3", "note": "a horizontal line along the lower coordinate bound" },
+    { "name": "gen4", "generator": "4 4", "note": "distinct trees crowded into a 301 by 301 square" },
+    { "name": "gen5", "generator": "5 5", "note": "trees on a coarse lattice with repeats" },
+    { "name": "gen6", "generator": "6 6", "note": "seven scattered trees handled entirely by the base case" },
+    { "name": "gen7", "generator": "7 7", "note": "eight locations shared by fifty thousand trees give a zero perimeter" },
+    { "name": "gen8", "generator": "8 1", "note": "scattered distinct trees near all four coordinate bounds" },
+    { "name": "07", "note": "smallest positive perimeter for three distinct integer points" },
+    { "name": "08", "note": "nine trees force the unique optimum across the first recursive split" },
+    { "name": "09", "note": "the only coincident triple straddles the median among seventeen trees" },
+    { "name": "10", "note": "the unique closest pair belongs to no optimal triangle" },
+    { "name": "11", "note": "a triangle of area one half spans the coordinate limits with a large irrational perimeter" },
+    { "name": "12", "note": "an oblique collinear optimum separated by other trees in both coordinate orders" },
+    { "name": "gen9", "generator": "151409 8", "note": "duplicate pairs on a lattice allow repeated vertices but no zero perimeter" },
+    { "name": "gen10", "generator": "151410 9", "note": "two offset vertical columns require a nonflat optimum crossing the median" },
+    { "name": "gen11", "generator": "151411 10", "note": "sixty-four distinct scattered trees exercise several recursive levels" }
+  ]
+}
