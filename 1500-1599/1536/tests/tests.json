@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1536_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example repairs the final digit in two moves" },
+    { "name": "02", "example": true, "note": "the second example has no repair within one move" },
+    { "name": "03", "note": "the sum from the picture, already true, with K = 0" },
+    { "name": "04", "note": "a false sum and K = 0" },
+    { "name": "05", "note": "moving the plus and reusing its horizontal bar allows a seventeen-move repair" },
+    { "name": "06", "note": "impossible: 9 moves would do only with a leading zero" },
+    { "name": "07", "note": "impossible with K = 4: dropping sticks would take 3 moves, keeping all of them takes 5" },
+    { "name": "08", "note": "zero addends and a zero result with no moves allowed" },
+    { "name": "09", "note": "all eights: too many sticks for any true sum" },
+    { "name": "10", "note": "the longest true sum and K = 0" },
+    { "name": "gen1", "generator": "1 1", "note": "two-digit addends paired with an eight-digit result" },
+    { "name": "gen2", "generator": "2 2", "note": "unequal operand lengths with a three-digit result and five moves available" },
+    { "name": "gen3", "generator": "3 3", "note": "eight-digit addends whose actual sum exceeds the permitted result length" },
+    { "name": "gen4", "generator": "4 4", "note": "a wrong units digit in a four-digit result with only one move available" },
+    { "name": "gen5", "generator": "5 5", "note": "one repeated digit" },
+    { "name": "gen6", "generator": "6 3", "note": "large addends with a corrupted eight-digit result and a generous move budget" },
+    { "name": "gen7", "generator": "7 4", "note": "a three-digit result differing from the true sum in two positions" },
+    { "name": "11", "note": "minimum stick inventory cannot form any true five-cell sum even with K = 100" },
+    { "name": "12", "note": "exactly two moves turn the slashed one into seven and produce a carry" },
+    { "name": "13", "note": "the only reachable true sum moves the equals sign one cell to the left" },
+    { "name": "14", "note": "maximum character count with a one-stick repair and seven consecutive carries" },
+    { "name": "15", "note": "largest allowed operand plus a one-digit zero needs no moves despite a positive budget" },
+    { "name": "16", "note": "random small repair whose reachable sums all require a zero addend" },
+    { "name": "gen8", "generator": "33 4", "note": "a trailing zero in an addend and a corrupted three-digit result with ten moves available" }
+  ]
+}
