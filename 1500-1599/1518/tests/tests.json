@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1518_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one key with shift 1: the key stays the same" },
+    { "name": "03", "note": "one key with shift 0: every later key is 0" },
+    { "name": "04", "note": "every shift 0" },
+    { "name": "05", "note": "distant Fibonacci numbers modulo 2^28 - 1" },
+    { "name": "06", "note": "modulo 2" },
+    { "name": "07", "note": "the first computed key at X = N + 1, reduced modulo Y" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum order with random keys and shifts" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum order with every shift 1" },
+    { "name": "gen3", "generator": "3 3", "note": "a small N" },
+    { "name": "gen4", "generator": "4 4", "note": "a single shift of 1" },
+    { "name": "gen5", "generator": "5 5", "note": "maximal index and modulus with every shift 1" },
+    { "name": "gen6", "generator": "6 1", "note": "a recurrence of maximum order with both endpoint shifts active" },
+    { "name": "08", "note": "zero initial keys stay zero with dense shifts at maximal N, X and Y" },
+    { "name": "09", "note": "keys above the modulus and asymmetric shifts after a full window rollover" },
+    { "name": "10", "note": "only the oldest key contributes: period 100 and maximal X select the correct phase" },
+    { "name": "11", "note": "seeded stress case with even lags: zero odd terms must not affect the nonzero even subsequence" },
+    { "name": "gen7", "generator": "1518 6", "note": "random order-100 recurrence with a small composite modulus and repeated window rollovers" }
+  ]
+}
