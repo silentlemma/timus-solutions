@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1545_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "matching entries mixed with a different prefix" },
+    { "name": "02", "note": "no hieroglyph starts with the letter: empty output" },
+    { "name": "03", "note": "a repeated entry is listed twice" },
+    { "name": "04", "note": "a single entry" },
+    { "name": "05", "note": "the letter appears only in second places" },
+    { "name": "gen1", "generator": "1 1", "note": "a thousand random pairs" },
+    { "name": "gen2", "generator": "2 2", "note": "a thousand pairs of a and b: many repeats" },
+    { "name": "gen3", "generator": "3 3", "note": "a few pairs" },
+    { "name": "gen4", "generator": "4 4", "note": "a letter that starts no pair" },
+    { "name": "06", "note": "all 676 distinct pairs in reverse order, querying the first alphabet letter" },
+    { "name": "07", "note": "maximum dictionary and output sizes: all 1000 entries are zz and must be printed" },
+    { "name": "08", "note": "only the final entry matches z after 999 pairs containing z only in second place" },
+    { "name": "09", "note": "matching entries occupy three separated runs, including mm and reversed-pair distractors" }
+  ]
+}
