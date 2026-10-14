@@ -14,3 +14,4 @@
 | 1507 | [Difficult Decision](1507/) | math | C++, Go, Python, Java, Rust |
 | 1508 | [Japanese Puzzle](1508/) | dp | C++, Go, Python, Java, Rust |
 | 1509 | [Domino Recognition](1509/) | geometry | C++, Go, Python, Java, Rust |
+| 1510 | [Order](1510/) | greedy | C++, Go, Python, Java, Rust |
