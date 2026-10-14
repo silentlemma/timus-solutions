@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1531_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the square itself" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "example": true, "note": "the fourth example" },
+    { "name": "05", "note": "zone 5" },
+    { "name": "06", "note": "n = 2000: a number of over 300 digits" },
+    { "name": "07", "note": "n = 1999, odd" },
+    { "name": "08", "note": "zone 13, the last one checked by building the zones" },
+    { "name": "gen1", "generator": "1", "note": "a random n" },
+    { "name": "gen2", "generator": "2", "note": "a random n" },
+    { "name": "gen3", "generator": "3", "note": "a random n" }
+  ]
+}
