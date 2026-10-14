@@ -1,0 +1,29 @@
+{
+  "judging": "float:0.00001",
+  "reference": "1565_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: C does best shooting into the air" },
+    { "name": "02", "note": "a powerless B with zero survival probability" },
+    { "name": "03", "note": "a second perfect shooter targeted by A" },
+    { "name": "04", "note": "a perfect C targeted by A before B" },
+    { "name": "05", "note": "a powerless B facing two perfect shooters" },
+    { "name": "06", "note": "a strong B and a weak C" },
+    { "name": "07", "note": "two very weak shooters" },
+    { "name": "08", "note": "accuracy 1 written without a point" },
+    { "name": "gen1", "generator": "1 1", "note": "three-decimal accuracies where B fires into the air while all three live" },
+    { "name": "gen2", "generator": "2 2", "note": "two perfect shooters leave an accurate C the best survival chance" },
+    { "name": "gen3", "generator": "3 3", "note": "nearby low accuracies make B attack A in either turn order" },
+    { "name": "gen4", "generator": "4 1", "note": "both imperfect shooters attack A despite their unequal accuracies" },
+    { "name": "gen5", "generator": "5 3", "note": "close accuracies above one half make weaker B wait while all three live" },
+    { "name": "09", "note": "a tiny strict preference for the air must not be rounded to a tie" },
+    { "name": "10", "note": "a powerless C must not gain a win when dead shooters are skipped" },
+    { "name": "11", "note": "both opponents almost never miss and A has a tiny survival chance" },
+    { "name": "12", "note": "opposite interior probability limits with B almost unable to hit" },
+    { "name": "13", "note": "an exact tie makes C attack A when A shoots next" },
+    { "name": "14", "note": "just below the tie C attacks A in only one circular order" },
+    { "name": "15", "note": "just above the tie C strictly prefers the air in both orders" },
+    { "name": "16", "note": "the weaker shooter attacks A on the exact tie before B's turn" },
+    { "name": "17", "note": "stress-found case where C waits if B shoots next but attacks if A shoots next" },
+    { "name": "gen6", "generator": "6 1", "note": "seeded random high accuracies with the weaker B surviving most often" }
+  ]
+}
