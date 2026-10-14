@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1532_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single word" },
+    { "name": "03", "note": "two substitutions, a swap of neighbours and a swap inside a word" },
+    { "name": "04", "note": "all word pairs are more than two edits apart" },
+    { "name": "05", "note": "rests shared, but deleted letters in different gaps" },
+    { "name": "06", "note": "a deletion and a substitution in the same word" },
+    { "name": "07", "note": "lengths two apart and three apart" },
+    { "name": "08", "note": "runs of a cover every allowed length alongside a close long pair and an isolated word" },
+    { "name": "gen1", "generator": "1 1", "note": "a full list of random words spans all allowed lengths" },
+    { "name": "gen2", "generator": "2 2", "note": "random words are mixed with mutations of earlier entries" },
+    { "name": "gen3", "generator": "3 3", "note": "maximum-length words over a two-letter alphabet create dense matches" },
+    { "name": "gen4", "generator": "4 4", "note": "four-letter words check matches between entries of equal length" },
+    { "name": "gen5", "generator": "5 5", "note": "short words over three letters mix single-letter entries and repeated letters" },
+    { "name": "gen6", "generator": "6 6", "note": "words grown by insertions" },
+    { "name": "gen7", "generator": "7 7", "note": "unrelated maximum-length random words leave the answer empty" },
+    { "name": "09", "note": "one maximum-length periodic word must not match its own repeated deletion rests" },
+    { "name": "10", "note": "all 676 two-letter words share the empty rest; a long isolated word stays out" },
+    { "name": "11", "note": "maximum-length words distinguish two and three suffix changes and edits at both ends" },
+    { "name": "12", "note": "two insertions before, after or across a 13-letter word reach length 15" },
+    { "name": "13", "note": "two deletions in one gap versus one there and one at the end require three edits" },
+    { "name": "14", "note": "a one-letter cyclic shift costs two edits despite every aligned letter changing" },
+    { "name": "15", "note": "seeded small mutations mix repeated letters, close pairs and isolated words" },
+    { "name": "gen8", "generator": "1532 8", "note": "shared twelve-letter prefixes force long-key comparisons and an answer over 64 KB" }
+  ]
+}
