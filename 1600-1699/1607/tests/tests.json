@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1607_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "Petya offers more than the driver asks: Petya's price" },
+    { "name": "03", "note": "equal first prices" },
+    { "name": "04", "note": "Petya's raise jumps past the driver's price: the driver's price" },
+    { "name": "05", "note": "the driver's cut jumps past Petya's price: Petya's price" },
+    { "name": "06", "note": "steps of 1 from 1 and 10000: the longest haggle" },
+    { "name": "07", "note": "the driver's cut lands exactly on Petya's price" },
+    { "name": "08", "note": "the largest offer against the smallest price" }
+  ]
+}
