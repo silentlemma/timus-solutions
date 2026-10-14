@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1534_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example: more matches than goals" },
+    { "name": "04", "example": true, "note": "the fourth example: a single match" },
+    { "name": "05", "note": "one goalless draw" },
+    { "name": "06", "note": "all limits: the maximum needs 64 bits" },
+    { "name": "07", "note": "nothing scored: every match can be lost" },
+    { "name": "08", "note": "a single match won by a huge margin" },
+    { "name": "09", "note": "1:1 in a single match is a draw" },
+    { "name": "10", "note": "no goals conceded: at least one win" },
+    { "name": "11", "note": "more conceded than scored: two wins and a loss at best" },
+    { "name": "gen1", "generator": "1 1", "note": "random values up to 10^9" },
+    { "name": "gen2", "generator": "2 2", "note": "values up to 10" },
+    { "name": "gen3", "generator": "3 3", "note": "more matches than goals" },
+    { "name": "gen4", "generator": "4 4", "note": "as many goals scored as conceded" }
+  ]
+}
