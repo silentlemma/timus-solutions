@@ -36,3 +36,4 @@
 | 1529 | [Game of Squares](1529/) | games | C++, Go, Python, Java, Rust |
 | 1530 | [Ones and Zeroes](1530/) | greedy | C++, Go, Python, Java, Rust |
 | 1531 | [Zones on a Plane](1531/) | math | C++, Go, Python, Java, Rust |
+| 1532 | [Lost in Translation](1532/) | hashing | C++, Go, Python, Java, Rust |
