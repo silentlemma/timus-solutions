@@ -1,0 +1,18 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1621_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: x^4 + 16, whose integral is pi / (8 sqrt 2)" },
+    { "name": "02", "note": "(x^2 + 1)(x^2 + 4), whose integral is pi / 6" },
+    { "name": "03", "note": "a negative leading coefficient makes the integral negative" },
+    { "name": "04", "note": "roots 999 +- i, close to the real axis far from the origin" },
+    { "name": "05", "note": "10^6 x^4 + 1: the mass sits near zero" },
+    { "name": "06", "note": "x^4 + 10^6: the mass is spread wide" },
+    { "name": "gen1", "generator": "1 1", "note": "a product of two random quadratics" },
+    { "name": "gen2", "generator": "2 2", "note": "a pair of roots near the real axis" },
+    { "name": "gen3", "generator": "3 3", "note": "an extreme coefficient" },
+    { "name": "gen4", "generator": "4 4", "note": "a negated product" },
+    { "name": "gen5", "generator": "5 2", "note": "a pair of roots near the real axis" },
+    { "name": "gen6", "generator": "6 1", "note": "a product of two random quadratics" }
+  ]
+}
