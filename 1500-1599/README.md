@@ -11,3 +11,4 @@
 | 1504 | [Good Manners](1504/) | geometry | C++, Go, Python, Java, Rust |
 | 1505 | [Oil Transfer](1505/) | graphs | C++, Go, Python, Java, Rust |
 | 1506 | [Columns of Numbers](1506/) | implementation | C++, Go, Python, Java, Rust |
+| 1507 | [Difficult Decision](1507/) | math | C++, Go, Python, Java, Rust |

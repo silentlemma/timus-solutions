@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1507_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a zero diagonal entry filled by longer walks" },
+    { "name": "02", "example": true, "note": "a vertex with a self-loop that cannot reach the other vertices" },
+    { "name": "03", "note": "a single cycle through 50 rows: no power of A is positive, but B is" },
+    { "name": "04", "note": "two cycles joined one way only" },
+    { "name": "05", "note": "a zero matrix" },
+    { "name": "06", "note": "every entry 100" },
+    { "name": "07", "note": "two rows that swap" },
+    { "name": "08", "note": "a row nothing leads out of" },
+    { "name": "gen1", "generator": "1 1", "note": "a sparse random matrix" },
+    { "name": "gen2", "generator": "2 2", "note": "a random strongly connected graph" },
+    { "name": "gen3", "generator": "3 3", "note": "a random graph with one column cleared" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random matrix" },
+    { "name": "gen5", "generator": "5 5", "note": "a strongly connected graph whose powers become positive" },
+    { "name": "gen6", "generator": "6 5", "note": "a periodic strongly connected graph" },
+    { "name": "gen7", "generator": "7 2", "note": "self-loops mixed with a cycle through every vertex" },
+    { "name": "09", "note": "minimum size with only self-loops: positive diagonal but unreachable off-diagonal entries" },
+    { "name": "10", "note": "maximum size with two interleaved dense components and no zero row or column" },
+    { "name": "11", "note": "cycles of lengths 49 and 50 share a long path, delaying positive powers until near the lower exponent bound" },
+    { "name": "gen8", "generator": "24 4", "note": "small weighted random graph that is strongly connected without a Hamiltonian cycle" }
+  ]
+}
