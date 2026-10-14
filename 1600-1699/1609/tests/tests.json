@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1609_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other patterns of two tiles are accepted" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "1 by 2: the board tiles in one way, no tile is needed" },
+    { "name": "04", "note": "2 by 2: one tile" },
+    { "name": "05", "note": "a 1 by 10 strip: no tile" },
+    { "name": "06", "note": "a 10 by 1 strip: no tile" },
+    { "name": "07", "note": "2 by 8: three tiles" },
+    { "name": "08", "note": "8 by 2: the same board standing up" },
+    { "name": "09", "note": "3 by 8 needs fewer tiles than 2 by 8" },
+    { "name": "10", "note": "6 by 6: three tiles along a diagonal" },
+    { "name": "11", "note": "7 by 4" },
+    { "name": "12", "note": "4 by 7" },
+    { "name": "13", "note": "9 by 10" },
+    { "name": "14", "note": "10 by 9" },
+    { "name": "15", "note": "the largest board: five tiles" }
+  ]
+}
