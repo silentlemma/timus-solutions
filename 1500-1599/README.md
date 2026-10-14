@@ -64,3 +64,4 @@
 | 1557 | [Network Attack](1557/) | graphs | C++, Go, Python, Java, Rust |
 | 1558 | [Periodical Numbers](1558/) | math | C++, Go, Python, Java, Rust |
 | 1559 | [TruCoders Linguistics](1559/) | parsing | C++, Go, Python, Java, Rust |
+| 1560 | [Elementary Symmetric Functions](1560/) | fenwick | C++, Go, Python, Java, Rust |
