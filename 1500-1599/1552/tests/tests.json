@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1552_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 97 pluses and a dot" },
+    { "name": "02", "note": "z: counting up is shorter than wrapping down" },
+    { "name": "03", "note": "a repeated letter is printed again for one dot" },
+    { "name": "04", "note": "a then z: 25 more on the same cell beats a fresh cell" },
+    { "name": "05", "note": "fifty letters climbing through the alphabet" },
+    { "name": "06", "note": "a and z alternating: two cells" },
+    { "name": "07", "note": "fifty scattered letters" },
+    { "name": "08", "note": "far-apart letters mixed: three cells, one left of the start" },
+    { "name": "gen1", "generator": "1 1", "note": "fifty random letters" },
+    { "name": "gen2", "generator": "2 2", "note": "fifty letters from a small alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "a few letters" },
+    { "name": "gen4", "generator": "4 4", "note": "letters cycling through the alphabet" },
+    { "name": "gen5", "generator": "5 5", "note": "a, z, n and m mixed" },
+    { "name": "gen6", "generator": "6 1", "note": "random letters with repeated returns to z" },
+    { "name": "09", "note": "fifty letters descending to a and climbing back, changing the update direction" },
+    { "name": "10", "note": "one-cell updates and investing in a second cell have equal optimal lengths" },
+    { "name": "11", "note": "seeded short case preserves a while sharing another cell between y and z" },
+    { "name": "gen7", "generator": "336 2", "note": "fifty seeded x and y letters stay on one cell because a fresh cell is too costly" }
+  ]
+}
