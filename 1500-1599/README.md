@@ -50,3 +50,4 @@
 | 1543 | [Dance Revolution](1543/) | simulation | C++, Go, Python, Java, Rust |
 | 1544 | [Classmates 3](1544/) | graphs | C++, Go, Python, Java, Rust |
 | 1545 | [Hieroglyphs](1545/) | implementation | C++, Go, Python, Java, Rust |
+| 1546 | [Japanese Sorting](1546/) | sorting | C++, Go, Python, Java, Rust |
