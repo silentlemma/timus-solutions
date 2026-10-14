@@ -14,3 +14,4 @@
 | 1607 | [Taxi](1607/) | implementation | C++, Go, Python, Java, Rust |
 | 1608 | [Lucky Tickets 2008](1608/) | math | C++, Go, Python, Java, Rust |
 | 1609 | [Tram Tiles](1609/) | constructive | C++, Go, Python, Java, Rust |
+| 1610 | [Cacti Are in Fashion](1610/) | games | C++, Go, Python, Java, Rust |
