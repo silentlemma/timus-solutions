@@ -1,0 +1,31 @@
+{
+  "judging": "tokens",
+  "reference": "1624_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: both scouts known after two reports" },
+    { "name": "02", "example": true, "note": "the second example: walls only, never enough data" },
+    { "name": "03", "example": true, "note": "the third example: a move through a known wall" },
+    { "name": "04", "note": "one scout reports a wall and then a door at the same place" },
+    { "name": "05", "note": "two successful eastward moves cannot fit inside a two-cell horizontal corridor" },
+    { "name": "06", "note": "a scout reports a wall where it earlier walked through a door" },
+    { "name": "07", "note": "a two by two prison and too few reports" },
+    { "name": "gen1", "generator": "1 1", "note": "a small prison, up to 300 reports" },
+    { "name": "gen2", "generator": "2 2", "note": "a stationary scout reports only walls throughout a maximum-length transcript" },
+    { "name": "gen3", "generator": "3 3", "note": "a small prison with one flipped report" },
+    { "name": "gen4", "generator": "4 4", "note": "a corridor of 150 cells" },
+    { "name": "gen5", "generator": "5 5", "note": "a maximum-length transcript with one report flipped in the second half" },
+    { "name": "gen6", "generator": "6 1", "note": "backtracking in a five-cell horizontal corridor eventually locates both scouts" },
+    { "name": "gen7", "generator": "7 2", "note": "a fully truthful maximum-length transcript localizes both scouts in a thirty by five prison" },
+    { "name": "08", "note": "minimum report count and an impossible move across the unit width" },
+    { "name": "09", "note": "one scout spans both dimensions while the other still has several positions" },
+    { "name": "10", "note": "both scouts occupy the same cell and retrace the same door together" },
+    { "name": "11", "note": "a failed reverse crossing contradicts the first scout's successful eastward move" },
+    { "name": "12", "note": "a failed final move resolves two remaining placements through shared wall evidence" },
+    { "name": "13", "note": "a contradiction after a complete loop overrides the earlier localization at step four" },
+    { "name": "14", "note": "maximum height reached by negative displacements and consistent reverse traversal" },
+    { "name": "15", "note": "a random transcript locates a stationary scout on the other scout's odd report" },
+    { "name": "16", "generator": "162406 6", "note": "localization waits until the final report in a vertical corridor with the maximum report count" },
+    { "name": "17", "generator": "162407 7", "note": "a full shared snake walk covers the maximum-area prison before seeded random moves" },
+    { "name": "18", "generator": "162408 8", "note": "early localization followed by a flipped report at the maximum step number" }
+  ]
+}
