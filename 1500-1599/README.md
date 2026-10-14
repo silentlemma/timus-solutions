@@ -73,3 +73,4 @@
 | 1566 | [Triangular Postcards](1566/) | geometry | C++, Go, Python, Java, Rust |
 | 1567 | [SMS-spam](1567/) | implementation | C++, Go, Python, Java, Rust |
 | 1568 | [Train Car Sorting](1568/) | constructive | C++, Go, Python, Java, Rust |
+| 1569 | [Networking the “Iset”](1569/) | bfs | C++, Go, Python, Java, Rust |
