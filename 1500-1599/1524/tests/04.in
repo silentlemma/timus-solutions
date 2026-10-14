@@ -1,0 +1,26 @@
+5
+A1 0.5 0.1 0.5 0.5 0.5 A
+B1 0.5 0.1 0.5 0.5 0.5 B
+C1 0.5 0.1 0.5 0.5 0.5 C
+D1 0.5 0.1 0.5 0.5 0.5 D
+E1 0.5 0.1 0.5 0.5 0.5 E
+5
+0 50 short
+0 100 exact
+0 150 middle
+0 200 double
+0 500 long
+5
+short 0 c1
+exact 0 c2
+middle 0 c3
+double 0 c4
+long 0 c5
+0
+1000 10 10 0.99
+5
+1 quest run 100
+2 quest run 100
+3 quest run 100
+4 quest run 100
+5 quest run 100

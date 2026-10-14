@@ -1,0 +1,10 @@
+0000:00:10    Agent A started quest 1.
+0000:01:10    Agent A killed monster bug.
+0000:01:30    Agent A finished quest 1.
+0000:01:30    Agent A and agent B started quest 2.
+0000:02:44    Agent A and agent B finished quest 2.
+0000:02:44    Agent A and agent B started quest 3.
+0000:03:30    Agent A and agent B killed monster slug.
+0000:03:49    Agent A and agent B finished quest 3.
+0000:03:49    Agent A and agent B started quest 4.
+0000:05:05    Agent A and agent B finished quest 4.

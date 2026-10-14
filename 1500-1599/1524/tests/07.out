@@ -1,0 +1,9 @@
+0000:00:10    Agent A and agent B started quest 1.
+0000:00:13    New agent Cy got a letter C.
+0000:00:13    Agent C started quest 2.
+0000:01:16    Agent C finished quest 2.
+0000:01:16    Agent C has tired.
+0000:03:20    New agent Cyd got a letter C.
+0000:03:20    Agent C started quest 3.
+0000:03:57    Agent A and agent B finished quest 1.
+0000:04:00    Agent C finished quest 3.
