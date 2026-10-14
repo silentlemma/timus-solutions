@@ -44,3 +44,4 @@
 | 1537 | [Ents](1537/) | dp | C++, Go, Python, Java, Rust |
 | 1538 | [Towers of Guard](1538/) | geometry | C++, Go, Python, Java, Rust |
 | 1539 | [Intelligence Data](1539/) | number_theory | C++, Go, Python, Java, Rust |
+| 1540 | [Battle for the Ring](1540/) | games | C++, Go, Python, Java, Rust |
