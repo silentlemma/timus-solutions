@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1615_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "three ranks, checked against all deals" },
+    { "name": "03", "note": "four ranks, checked against all deals" },
+    { "name": "04", "note": "five ranks, checked against all deals" },
+    { "name": "05", "note": "n = 6, where 52/132 reduces to 13/33" },
+    { "name": "gen1", "generator": "1 1", "note": "a random n" },
+    { "name": "gen2", "generator": "2 2", "note": "a random small n" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest n" }
+  ]
+}
