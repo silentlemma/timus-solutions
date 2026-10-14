@@ -28,3 +28,4 @@
 | 1621 | [Definite Integral](1621/) | math | C++, Go, Python, Java, Rust |
 | 1622 | [Endspiel](1622/) | backtracking | C++, Go, Python, Java, Rust |
 | 1623 | [Fractal Labyrinth](1623/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1624 | [Go out of here!](1624/) | implementation | C++, Go, Python, Java, Rust |
