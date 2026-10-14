@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1515_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single note of 1" },
+    { "name": "03", "note": "no note of 1: the answer is 1" },
+    { "name": "04", "note": "the powers of two below 10^6" },
+    { "name": "05", "note": "the notes 1 to 100: the answer exceeds every note" },
+    { "name": "06", "note": "100 notes close to 10^6" },
+    { "name": "07", "note": "the notes 1 and 3 leave 2 out" },
+    { "name": "gen1", "generator": "1 1", "note": "100 random notes" },
+    { "name": "gen2", "generator": "2 2", "note": "slowly growing notes with a long run of sums" },
+    { "name": "gen3", "generator": "3 3", "note": "a few small notes" },
+    { "name": "gen4", "generator": "4 2", "note": "slowly growing notes with a long run of sums" }
+  ]
+}
