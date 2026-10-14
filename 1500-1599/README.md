@@ -70,3 +70,4 @@
 | 1563 | [Bayan](1563/) | hashing | C++, Go, Python, Java, Rust |
 | 1564 | [Counting Ones](1564/) | binary_search | C++, Go, Python, Java, Rust |
 | 1565 | [The Duel for Three](1565/) | games | C++, Go, Python, Java, Rust |
+| 1566 | [Triangular Postcards](1566/) | geometry | C++, Go, Python, Java, Rust |
