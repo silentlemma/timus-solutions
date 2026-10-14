@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1605_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 0.666015625" },
+    { "name": "02", "note": "x_2 = 0.5: no six" },
+    { "name": "03", "note": "smallest allowed odd index has no leading sixes" },
+    { "name": "04", "note": "x_4 = 0.625, below 2/3" },
+    { "name": "05", "note": "x_5 = 0.6875, above 2/3" },
+    { "name": "06", "note": "the largest n" },
+    { "name": "07", "note": "the largest odd n" },
+    { "name": "08", "note": "n log10(2) just above an integer" },
+    { "name": "09", "note": "n log10(2) just below an integer" },
+    { "name": "10", "note": "the odd n right after it uses the same power" },
+    { "name": "11", "note": "n = 7 still has only one six although 2^7 has three decimal digits" },
+    { "name": "12", "note": "n = 8 is the first term with two leading sixes" },
+    { "name": "13", "note": "n = 54 puts the gap to 2/3 below double precision near that value" },
+    { "name": "14", "note": "n = 57 needs the odd correction after floating recurrence has stalled" },
+    { "name": "15", "note": "n = 100 requires thirty sixes and an exact denominator beyond 64 bits" },
+    { "name": "16", "note": "n = 334 is the first term whose answer has three digits" },
+    { "name": "17", "generator": "1605 1", "note": "seeded random even index in the middle range gives thousands of sixes" },
+    { "name": "18", "generator": "42 2", "note": "seeded random odd index in the upper half exercises a long prefix from above" }
+  ]
+}
