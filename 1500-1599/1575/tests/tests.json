@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1575_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "ends of different lines, the circle line, two neighbours" },
+    { "name": "03", "note": "one question" },
+    { "name": "gen1", "generator": "1 1", "note": "every ordered pair of the 70 stations" },
+    { "name": "gen2", "generator": "2 2", "note": "random station pairs at the maximum query count" },
+    { "name": "gen3", "generator": "3 3", "note": "a few random pairs" },
+    { "name": "04", "note": "minimum query count and a zero-minute trip at a terminus" },
+    { "name": "05", "note": "the City-Uralskaya ring closure in both directions and on longer trips" },
+    { "name": "06", "note": "ring journeys shortened by routes through the central lines" },
+    { "name": "07", "note": "all directed transfers between the eight neighbours of the four-line hub" },
+    { "name": "08", "note": "all directed transfers between the six neighbours of Teatralnaya" },
+    { "name": "09", "note": "split transfer symbols at Gagarinskaya, Geologicheskaya and Botanicheskaya" },
+    { "name": "10", "note": "the two underscore spelling exceptions and station names containing digits" },
+    { "name": "11", "note": "trips along one line become shorter by changing lines and returning" },
+    { "name": "12", "note": "both diameter pairs and their reverses require fourteen minutes" },
+    { "name": "13", "note": "retained random stress batch with ten distinct distances including the diameter" },
+    { "name": "14", "generator": "157514 4", "note": "one source reused for 4900 queries with random destinations and repeated answers" },
+    { "name": "15", "generator": "157515 5", "note": "maximum query count and input bytes using only the longest station names" }
+  ]
+}
