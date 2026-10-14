@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1626_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the polygon itself is the triangle" },
+    { "name": "02", "example": true, "note": "the second example: both diagonals of the rectangle cross S" },
+    { "name": "03", "note": "a notch vertex lies on two would-be diagonals" },
+    { "name": "04", "note": "the same polygon, the segment by the left wall" },
+    { "name": "gen1", "generator": "1 1", "note": "a star polygon of up to 40 vertices" },
+    { "name": "gen2", "generator": "2 2", "note": "800 vertices and a short segment" },
+    { "name": "gen3", "generator": "3 3", "note": "800 vertices and a long segment" },
+    { "name": "gen4", "generator": "4 4", "note": "a convex lattice polygon" },
+    { "name": "gen5", "generator": "5 5", "note": "a star polygon of up to 12 vertices" },
+    { "name": "gen6", "generator": "6 6", "note": "a small convex polygon and a long segment" },
+    { "name": "gen7", "generator": "1 6", "note": "a small convex polygon and a long segment, impossible" },
+    { "name": "gen8", "generator": "8 2", "note": "800 vertices and a short segment" }
+  ]
+}
