@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1616_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a turn by 45 degrees" },
+    { "name": "02", "note": "no turn: every cell keeps its owner" },
+    { "name": "03", "note": "a quarter turn: the map turns by a right angle" },
+    { "name": "04", "note": "sixteen owners of one cell each at 30 degrees" },
+    { "name": "05", "note": "a frame around a block at a fractional angle" },
+    { "name": "gen1", "generator": "1 1", "note": "three owners and state land intermix at a fractional rotation angle" },
+    { "name": "gen2", "generator": "2 2", "note": "a wide rectangular estate surrounded by state land turns through nearly a right angle" },
+    { "name": "gen3", "generator": "3 3", "note": "two isolated owners keep their cells when the angle is zero" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest map, every cell owned" },
+    { "name": "gen5", "generator": "5 5", "note": "all twenty-six owner letters mix with state land at 45 degrees" },
+    { "name": "gen6", "generator": "6 1", "note": "sparse scattered cells from many owners turn on a large map" },
+    { "name": "gen7", "generator": "7 5", "note": "two owners share a small mostly empty map at 30 degrees" },
+    { "name": "06", "note": "minimum map with no private land at a fractional angle" },
+    { "name": "07", "note": "one owner gains cells only after areas from adjacent source cells are added" },
+    { "name": "08", "note": "an isolated cell at the origin loses every destination cell after turning" },
+    { "name": "09", "note": "four solid ownership quadrants produce exact half-area ties along diagonal borders" },
+    { "name": "10", "note": "maximum solid estate reaches the rotated outer boundary and fills its interior" },
+    { "name": "11", "note": "four isolated owners at the extreme input corners exercise all coordinate signs" },
+    { "name": "12", "note": "a tiny positive angle preserves an asymmetric map despite thin overlaps at grid edges" },
+    { "name": "13", "note": "an angle just below 90 rotates an asymmetric alphabet without spurious edge ownership" },
+    { "name": "14", "note": "fragmented estates gain four cells by combining overlap areas from the same owner" },
+    { "name": "15", "generator": "1616 6", "note": "maximum map of full-width ownership stripes checks area accumulation" },
+    { "name": "16", "generator": "2718 7", "note": "maximum sparse random map at 45 degrees tests isolated owners among state land" }
+  ]
+}
