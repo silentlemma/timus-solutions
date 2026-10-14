@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1544_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single computer: nothing to do" },
+    { "name": "03", "note": "all on one protocol already" },
+    { "name": "04", "note": "a path of five alternating protocols: two switches from the middle" },
+    { "name": "05", "note": "a path of four alternating protocols" },
+    { "name": "06", "note": "the best region to switch is a Japanese one" },
+    { "name": "07", "note": "a cycle of six alternating protocols" },
+    { "name": "gen1", "generator": "1 1", "note": "50 computers, a tree and extra links" },
+    { "name": "gen2", "generator": "2 2", "note": "a path of 50 alternating protocols" },
+    { "name": "gen3", "generator": "3 3", "note": "up to 10 computers" },
+    { "name": "gen4", "generator": "4 4", "note": "a dense network" },
+    { "name": "gen5", "generator": "5 5", "note": "a cycle of 50 alternating protocols" },
+    { "name": "gen6", "generator": "6 3", "note": "up to 10 computers" }
+  ]
+}
