@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1580_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a triangle fixes all three debts" },
+    { "name": "02", "example": true, "note": "the second example: a star has no odd cycle" },
+    { "name": "03", "note": "half roubles" },
+    { "name": "04", "note": "negative half roubles" },
+    { "name": "05", "note": "one component fixed, the other without an odd cycle" },
+    { "name": "06", "note": "two odd cycles give different debts: contradictory claims" },
+    { "name": "07", "note": "two students, one claim" },
+    { "name": "gen1", "generator": "1 1", "note": "1000 students and 100000 true claims" },
+    { "name": "gen2", "generator": "2 2", "note": "the same with one false claim" },
+    { "name": "gen3", "generator": "3 3", "note": "claims only between odd and even students: no odd cycle" },
+    { "name": "gen4", "generator": "4 4", "note": "one odd ring through everyone" },
+    { "name": "gen5", "generator": "5 5", "note": "a few students" },
+    { "name": "gen6", "generator": "6 5", "note": "a few students" }
+  ]
+}
