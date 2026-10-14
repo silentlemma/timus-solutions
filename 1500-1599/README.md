@@ -76,3 +76,4 @@
 | 1569 | [Networking the “Iset”](1569/) | bfs | C++, Go, Python, Java, Rust |
 | 1570 | [Eating High](1570/) | dp | C++, Go, Python, Java, Rust |
 | 1571 | [Interpreters](1571/) | constructive | C++, Go, Python, Java, Rust |
+| 1572 | [Yekaterinozavodsk Great Well](1572/) | geometry | C++, Go, Python, Java, Rust |

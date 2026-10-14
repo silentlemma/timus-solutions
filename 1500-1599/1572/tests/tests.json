@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "1572_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a square of side 10 just passes a circle of diameter 10" },
+    { "name": "03", "note": "a triangular well: covers that touch exactly still pass" },
+    { "name": "04", "note": "the smallest well" },
+    { "name": "05", "note": "the largest covers and the smallest well: none passes" },
+    { "name": "06", "note": "triangles of every size into a square of side 10: up to side 16" },
+    { "name": "gen1", "generator": "1", "note": "random covers" },
+    { "name": "gen2", "generator": "2", "note": "random covers" },
+    { "name": "gen3", "generator": "3", "note": "random covers" },
+    { "name": "gen4", "generator": "4", "note": "random covers" }
+  ]
+}
