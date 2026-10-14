@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1518_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "N = 1 with the shift 1: the key stays the same" },
+    { "name": "03", "note": "N = 1 with the shift 0: every later key is 0" },
+    { "name": "04", "note": "every shift 0" },
+    { "name": "05", "note": "Fibonacci numbers far out, modulo 2^28 - 1" },
+    { "name": "06", "note": "modulo 2" },
+    { "name": "07", "note": "X = N + 1, the first computed key, reduced modulo Y" },
+    { "name": "gen1", "generator": "1 1", "note": "N = 100 with random keys and shifts" },
+    { "name": "gen2", "generator": "2 2", "note": "N = 100 with every shift 1" },
+    { "name": "gen3", "generator": "3 3", "note": "a small N" },
+    { "name": "gen4", "generator": "4 4", "note": "a single shift of 1" },
+    { "name": "gen5", "generator": "5 5", "note": "X = 2^28 - 1, Y = 2^28 - 1, every shift 1" },
+    { "name": "gen6", "generator": "6 1", "note": "N = 100 with random keys and shifts" }
+  ]
+}
