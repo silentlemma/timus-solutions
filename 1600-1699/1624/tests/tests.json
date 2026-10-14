@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1624_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: both scouts known after two reports" },
+    { "name": "02", "example": true, "note": "the second example: walls only, never enough data" },
+    { "name": "03", "example": true, "note": "the third example: a move through a known wall" },
+    { "name": "04", "note": "one scout reports a wall and then a door at the same place" },
+    { "name": "05", "note": "a scout walks farther than the prison is wide" },
+    { "name": "06", "note": "a scout reports a wall where it earlier walked through a door" },
+    { "name": "07", "note": "a two by two prison and too few reports" },
+    { "name": "gen1", "generator": "1 1", "note": "a small prison, up to 300 reports" },
+    { "name": "gen2", "generator": "2 2", "note": "150 cells and 10^5 reports" },
+    { "name": "gen3", "generator": "3 3", "note": "a small prison with one flipped report" },
+    { "name": "gen4", "generator": "4 4", "note": "a corridor of 150 cells" },
+    { "name": "gen5", "generator": "5 5", "note": "10^5 reports, one flipped in the second half" },
+    { "name": "gen6", "generator": "6 1", "note": "a small prison, up to 300 reports" },
+    { "name": "gen7", "generator": "7 2", "note": "150 cells and 10^5 reports" }
+  ]
+}
