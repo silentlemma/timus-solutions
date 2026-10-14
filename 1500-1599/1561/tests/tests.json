@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1561_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "statement example with unknown, determined and contradictory answers" },
+    { "name": "02", "note": "no queries, no output" },
+    { "name": "03", "note": "nothing eaten cannot take a day: a contradiction at once" },
+    { "name": "04", "note": "seven barrels take whole weeks, which says nothing about one" },
+    { "name": "05", "note": "answers before a contradiction remain valid while all later meals report it" },
+    { "name": "06", "note": "million-barrel residues, including a count just above the stated bound" },
+    { "name": "07", "note": "three facts about pairs of sorts pin every sort down" },
+    { "name": "gen1", "generator": "1 1", "note": "dense meals among many unknown sorts remain undetermined" },
+    { "name": "gen2", "generator": "2 2", "note": "individual sorts learned in order gradually determine mixed meals" },
+    { "name": "gen3", "generator": "3 3", "note": "few sorts, true facts only" },
+    { "name": "gen4", "generator": "4 4", "note": "few sorts, a false fact near the end" },
+    { "name": "gen5", "generator": "5 4", "note": "empty meals also report a contradiction after a late false fact" },
+    { "name": "gen6", "generator": "6 1", "note": "a final dense meal remains unknown despite more facts than meal queries" },
+    { "name": "08", "note": "without any facts, empty meals are known on all seven weekdays" },
+    { "name": "09", "note": "a learned whole-week duration is valid for positive barrel counts" },
+    { "name": "10", "note": "a pivot of two followed by consistent redundant facts with coefficients three through six" },
+    { "name": "11", "note": "pivots arrive in descending column order and later reduction must visit them in order" },
+    { "name": "12", "note": "scalar multiples of a known combination are determined while an altered combination and individual sorts are not" },
+    { "name": "13", "note": "new sorts remain unknown while shorter stored rows still determine meals of earlier sorts" },
+    { "name": "14", "note": "a contradiction appears only after combining distinct facts and survives adding and learning a new sort" },
+    { "name": "15", "note": "retained random stress stream with four growing sorts and all three answer classes" },
+    { "name": "gen7", "generator": "156107 5", "note": "maximum query count with one meal spanning every previously added sort" },
+    { "name": "gen8", "generator": "156108 6", "note": "reverse-order nonunit pivots fix dense meals whose durations exceed signed 32-bit range" }
+  ]
+}
