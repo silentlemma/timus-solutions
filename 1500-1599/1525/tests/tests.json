@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "1525_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a single cell" },
+    { "name": "02", "example": true, "note": "one move on each axis forces all starts into the same corner" },
+    { "name": "03", "example": true, "note": "mixed moves leave several possible final coordinates on every axis" },
+    { "name": "04", "note": "the largest room: the count needs 64 bits" },
+    { "name": "05", "note": "no instructions: every cell" },
+    { "name": "06", "note": "runs into both walls of one axis" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest room, random moves" },
+    { "name": "gen2", "generator": "2 2", "note": "a random room, random moves" },
+    { "name": "gen3", "generator": "3 3", "note": "long runs of one move" },
+    { "name": "gen4", "generator": "4 4", "note": "a small room" },
+    { "name": "gen5", "generator": "5 1", "note": "random moves with negative net displacement on all three axes" },
+    { "name": "07", "note": "one backward move in an asymmetric box leaves width and height untouched" },
+    { "name": "08", "note": "width-one box ignores lateral moves while height and length shrink independently" },
+    { "name": "09", "note": "closed walks crossing both sides of the origin shrink each axis by its full excursion span" },
+    { "name": "10", "note": "sixty thousand alternating lateral moves merge only one layer and preserve an untouched depth of two" }
+  ]
+}
