@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1625_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a single 1" },
+    { "name": "02", "example": true, "note": "the second example; any valid matrix is accepted" },
+    { "name": "03", "example": true, "note": "a three-row matrix with a non-Catalan sample answer" },
+    { "name": "04", "note": "size 4" },
+    { "name": "05", "note": "the largest size: numbers of 116 digits" },
+    { "name": "gen1", "generator": "1 1", "note": "a random size" },
+    { "name": "gen2", "generator": "2 2", "note": "a size near 100" },
+    { "name": "gen3", "generator": "3 1", "note": "a random size producing four-limb Catalan values" },
+    { "name": "06", "note": "smallest uncovered size; nine terms and exact small determinants" },
+    { "name": "07", "note": "last size whose Catalan output fits in one base-billion limb" },
+    { "name": "08", "note": "first two-limb Catalan terms and 32-bit overflow" },
+    { "name": "09", "note": "first Catalan terms beyond exact double-precision integers" },
+    { "name": "10", "note": "first Catalan term beyond signed 64-bit range" },
+    { "name": "11", "note": "first Catalan term beyond unsigned 64-bit range" },
+    { "name": "12", "note": "last size before the Catalan output reaches 100 decimal digits" },
+    { "name": "13", "note": "first 100-digit Catalan term and its leading determinant" },
+    { "name": "14", "note": "one below maximum size; exactly 197 output terms" },
+    { "name": "15", "generator": "5 1", "note": "seeded size 80; 92-digit output spans eleven base-billion limbs" },
+    { "name": "16", "generator": "7 1", "note": "seeded size 42; 47-digit output exercises a sixth limb" },
+    { "name": "17", "generator": "9 1", "note": "a middle-sized matrix with 119 terms and 68-digit Catalan values" }
+  ]
+}
