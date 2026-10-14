@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1582_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "equal odds above three give a guaranteed profit" },
+    { "name": "02", "example": true, "note": "unequal decimal odds give a payout below the total stake" },
+    { "name": "03", "note": "the smallest odds" },
+    { "name": "04", "note": "the largest odds" },
+    { "name": "05", "note": "a payout of exactly 1000" },
+    { "name": "06", "note": "one tiny odd dominates" },
+    { "name": "07", "note": "integer odds with a whole payout" },
+    { "name": "08", "note": "a payout of exactly 1562.5, held exactly in floating point, rounds up to 1563" },
+    { "name": "09", "note": "odds below 1" },
+    { "name": "gen1", "generator": "1 1", "note": "random odds with two decimals" },
+    { "name": "gen2", "generator": "2 2", "note": "large odds at one decimal precision with the middle outcome least favorable" },
+    { "name": "gen3", "generator": "3 3", "note": "one outcome with near-minimum odds dominates two moderate alternatives" },
+    { "name": "gen4", "generator": "4 1", "note": "distinct decimal odds with the last outcome requiring the largest bet" },
+    { "name": "10", "note": "an exact payout of 7.5 rounds up despite binary floating point error" }
+  ]
+}
