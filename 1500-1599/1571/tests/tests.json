@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1571_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three teams talk through english" },
+    { "name": "02", "note": "one team needs nobody" },
+    { "name": "03", "note": "two teams of one language talk directly" },
+    { "name": "04", "note": "two teams need one interpreter" },
+    { "name": "05", "note": "two russian-speaking teams prevent private talks with the german-speaking team" },
+    { "name": "06", "note": "a team speaks english, so the middle language is another one of at most ten letters" },
+    { "name": "07", "note": "one-letter languages" },
+    { "name": "08", "note": "english, every one-letter language and aa are taken" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum team count with all languages distinct" },
+    { "name": "gen2", "generator": "2 2", "note": "english among otherwise distinct languages at the team limit" },
+    { "name": "gen3", "generator": "3 3", "note": "one repeated language among a hundred teams" },
+    { "name": "gen4", "generator": "4 4", "note": "two distinct languages of lengths two and five" },
+    { "name": "gen5", "generator": "5 4", "note": "a few teams" },
+    { "name": "09", "note": "maximum input size: 100 ten-letter names sharing an eight-letter prefix" },
+    { "name": "10", "note": "all teams speak english, so no pair can avoid an eavesdropper" },
+    { "name": "11", "note": "all hub candidates through cu are occupied, crossing two-letter prefix boundaries" },
+    { "name": "12", "note": "two distinct languages with a strict prefix and lengths one and ten need a direct interpreter" },
+    { "name": "13", "note": "seeded random small input has two separated duplicate groups and a third language" }
+  ]
+}
