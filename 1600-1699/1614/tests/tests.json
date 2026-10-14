@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1614_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid set of routes is accepted" },
+    { "name": "02", "note": "one route between the only two stops" },
+    { "name": "03", "note": "two routes of four stops" },
+    { "name": "gen1", "generator": "1 1", "note": "a random n" },
+    { "name": "gen2", "generator": "2 2", "note": "a random even n" },
+    { "name": "gen3", "generator": "3 3", "note": "a random odd n" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest n" },
+    { "name": "gen5", "generator": "5 5", "note": "the largest odd n" },
+    { "name": "04", "note": "the smallest uncovered even n, with eight stops" },
+    { "name": "05", "note": "the first n whose stop labels need two digits" },
+    { "name": "06", "note": "a small odd prime with fourteen stops and repeated modular wraparound" },
+    { "name": "07", "note": "a power of two with more than nine routes" },
+    { "name": "08", "note": "the last n for which every stop label has at most two digits" },
+    { "name": "09", "note": "the first n with a three-digit stop label" },
+    { "name": "10", "note": "stop labels crossing the signed eight-bit boundary with 128 stops" },
+    { "name": "11", "generator": "115 1", "note": "a seeded random interior value, n = 37" },
+    { "name": "12", "generator": "211 1", "note": "a seeded random value in the upper half, n = 73" },
+    { "name": "13", "generator": "95 2", "note": "n = 98, the even value immediately below the two existing maxima" }
+  ]
+}
