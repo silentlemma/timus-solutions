@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1625_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a single 1" },
+    { "name": "02", "example": true, "note": "the second example; any valid matrix is accepted" },
+    { "name": "03", "example": true, "note": "the third example; any valid matrix is accepted" },
+    { "name": "04", "note": "size 4" },
+    { "name": "05", "note": "the largest size: numbers of 117 digits" },
+    { "name": "gen1", "generator": "1 1", "note": "a random size" },
+    { "name": "gen2", "generator": "2 2", "note": "a size near 100" },
+    { "name": "gen3", "generator": "3 1", "note": "a random size" }
+  ]
+}
