@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1602_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a short building: walking all the way wins" },
+    { "name": "03", "note": "a very slow walker: waiting at the top is best" },
+    { "name": "04", "note": "the lift is near the bottom, but walking all the way is still faster" },
+    { "name": "05", "note": "walking down beats waiting for the lift" },
+    { "name": "06", "note": "one floor down, then the lift" },
+    { "name": "07", "note": "the largest building with almost equal speeds" },
+    { "name": "08", "note": "two decimals in both speeds" },
+    { "name": "09", "note": "floors 3 and 4 take exactly the same time: the one with less walking wins" },
+    { "name": "10", "note": "the smallest building: walking and taking the lift from floor 2 tie" },
+    { "name": "11", "note": "the best floor is reached exactly when the mandatory stop ends" },
+    { "name": "12", "note": "both speeds are at their smallest valid hundredths in a 99-floor building" },
+    { "name": "13", "note": "floor 2 is uniquely best and saves less than a second over walking" },
+    { "name": "14", "note": "floor 25 beats floor 24 by only one hundredth of a second" },
+    { "name": "15", "note": "a random stress sample: the best call comes just after the lift finishes its stop" },
+    { "name": "16", "generator": "4 random", "note": "a seeded random case: the optimal call precedes the lift reaching the first floor" },
+    { "name": "17", "generator": "2 fast-lift", "note": "maximum n and k with a fast lift require walking down to a middle floor" },
+    { "name": "18", "generator": "1 near-double", "note": "walking still wins just above twice the lift travel time because of boarding" }
+  ]
+}
