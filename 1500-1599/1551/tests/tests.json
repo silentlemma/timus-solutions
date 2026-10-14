@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1551_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three from Tokyo" },
+    { "name": "02", "note": "two wrestlers from one prefecture" },
+    { "name": "03", "note": "two wrestlers from two prefectures" },
+    { "name": "04", "note": "1024 wrestlers from one prefecture" },
+    { "name": "05", "note": "1024 prefectures" },
+    { "name": "06", "note": "the largest prefecture has exactly 4 of 16" },
+    { "name": "07", "note": "five of 16 need three unsafe rounds" },
+    { "name": "08", "note": "prefectures differ in letter case" },
+    { "name": "gen1", "generator": "1 1", "note": "N = 10, up to 40 prefectures" },
+    { "name": "gen2", "generator": "2 2", "note": "a random N, few prefectures" },
+    { "name": "gen3", "generator": "3 3", "note": "a largest prefecture of a power of two" },
+    { "name": "gen4", "generator": "4 4", "note": "names of 30 letters" }
+  ]
+}
