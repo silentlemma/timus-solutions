@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1525_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a single cell" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "the largest room: the count needs 64 bits" },
+    { "name": "05", "note": "no instructions: every cell" },
+    { "name": "06", "note": "runs into both walls of one axis" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest room, random moves" },
+    { "name": "gen2", "generator": "2 2", "note": "a random room, random moves" },
+    { "name": "gen3", "generator": "3 3", "note": "long runs of one move" },
+    { "name": "gen4", "generator": "4 4", "note": "a small room" },
+    { "name": "gen5", "generator": "5 1", "note": "the largest room, random moves" }
+  ]
+}
