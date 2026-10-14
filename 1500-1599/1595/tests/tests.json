@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1595_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid sequence is accepted" },
+    { "name": "02", "note": "N = 1" },
+    { "name": "03", "note": "N = 2" },
+    { "name": "04", "note": "N = 4" },
+    { "name": "05", "note": "N = 5" },
+    { "name": "06", "note": "N = 10" },
+    { "name": "07", "note": "N = 100" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest N: 500000 terms" },
+    { "name": "gen2", "generator": "2 2", "note": "a random large N" },
+    { "name": "gen3", "generator": "3 3", "note": "a random N up to 1000" }
+  ]
+}
