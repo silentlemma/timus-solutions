@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1622_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the last peg in the centre" },
+    { "name": "02", "example": true, "note": "the second example: next to the centre is impossible" },
+    { "name": "03", "note": "the bottom edge, D1" },
+    { "name": "04", "note": "the right edge, G4" },
+    { "name": "05", "note": "the top edge, D7" },
+    { "name": "06", "note": "the left edge, A4" },
+    { "name": "07", "note": "a cell of an arm off the middle line is impossible" },
+    { "name": "08", "note": "a cell of the central square is impossible" },
+    { "name": "gen1", "generator": "1 1", "note": "a generated C3 target fails both coordinate residues inside the central square" },
+    { "name": "gen2", "generator": "2 1", "note": "a generated C2 target lies off the vertical axis in the lower arm" },
+    { "name": "gen3", "generator": "3 2", "note": "a generated D1 target requires a half-turn of the solution found for D7" },
+    { "name": "09", "note": "a target at E4 is one column after the centre and fails only the column residue" },
+    { "name": "10", "note": "a target at C4 is one column before the centre and exercises a negative column offset" },
+    { "name": "11", "note": "a target at D5 is one row after the centre and fails only the row residue" },
+    { "name": "12", "note": "a target at D2 lies two rows before the centre on the vertical axis" },
+    { "name": "13", "note": "a target at D6 lies two rows after the centre just inside the far arm tip" },
+    { "name": "14", "note": "a target at E1 is in the last valid column of row 1 beside a removed corner" },
+    { "name": "15", "note": "a target at E7 combines the maximum row with the last valid column of its cap" },
+    { "name": "16", "note": "a target at C7 is in the first valid column of row 7 at the opposite cap corner" },
+    { "name": "17", "note": "a target at A3 combines the minimum column with the first row of the horizontal arm" },
+    { "name": "18", "note": "a target at G5 combines the maximum column with the last row of the horizontal arm" },
+    { "name": "19", "generator": "8 1", "note": "seed 8 selects B4 inside the left arm with a two-column offset" },
+    { "name": "20", "generator": "23 1", "note": "seed 23 selects F4 inside the right arm with a two-column offset" },
+    { "name": "21", "generator": "26 1", "note": "seed 26 selects G3 at the first row of the right outer edge" }
+  ]
+}
