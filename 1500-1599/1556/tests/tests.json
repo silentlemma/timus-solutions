@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1556_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one cow: only one of two arrows can reach it" },
+    { "name": "03", "note": "two rows of seven cows, P = 100: each arrow stops after five" },
+    { "name": "04", "note": "a ring of cows, P = 0: every arrow hits once" },
+    { "name": "05", "note": "one small cow at the far corner of the square" },
+    { "name": "06", "note": "a row of cows along the x axis: their intervals wrap past 2 pi" },
+    { "name": "gen1", "generator": "1 1", "note": "maximum cow count scattered over the coordinate square" },
+    { "name": "gen2", "generator": "2 2", "note": "dense lattice of 50000 cows surrounding Vasya" },
+    { "name": "gen3", "generator": "3 3", "note": "several arrows can hit the same cow in a nearby pair" },
+    { "name": "gen4", "generator": "4 3", "note": "separated cows allow only one of five arrows to hit" },
+    { "name": "gen5", "generator": "5 3", "note": "one offset cow can be hit by two neighbouring arrows" },
+    { "name": "gen6", "generator": "6 4", "note": "about 5000 cows in rows along rays from Vasya" },
+    { "name": "gen7", "generator": "7 5", "note": "certain piercing among 50000 scattered cows" },
+    { "name": "gen8", "generator": "8 6", "note": "largest radius and arrow count on a lattice of 50000 cows" },
+    { "name": "07", "note": "one disc just clear of Vasya is hit by all 16 arrows" },
+    { "name": "08", "note": "opposite radial chains distinguish forward rays from infinite lines" },
+    { "name": "09", "note": "two opposite-side tangencies on one arrow give an isolated optimum" },
+    { "name": "10", "note": "five thin rows distinguish arctangent offsets from equally spaced angles" },
+    { "name": "11", "note": "pierce probability of 1 percent favours two first hits over six cows on one ray" },
+    { "name": "12", "note": "radius 2 with tiny positive gaps and fractional translation near a corner" },
+    { "name": "13", "note": "unequal ray counts test fractional expected gains at 17 percent pierce probability" },
+    { "name": "14", "generator": "1556 3", "note": "seeded asymmetric scatter with seven arrows and P = 78" },
+    { "name": "15", "generator": "1556 7", "note": "corner shot among 50000 minimum-radius cows attains the 16-arrow P = 99 bound" }
+  ]
+}
