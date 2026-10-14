@@ -16,3 +16,4 @@
 | 1509 | [Domino Recognition](1509/) | geometry | C++, Go, Python, Java, Rust |
 | 1510 | [Order](1510/) | greedy | C++, Go, Python, Java, Rust |
 | 1511 | [Fiscal Operations](1511/) | dp | C++, Go, Python, Java, Rust |
+| 1512 | [Zinium](1512/) | constructive | C++, Go, Python, Java, Rust |
