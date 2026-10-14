@@ -71,3 +71,4 @@
 | 1564 | [Counting Ones](1564/) | binary_search | C++, Go, Python, Java, Rust |
 | 1565 | [The Duel for Three](1565/) | games | C++, Go, Python, Java, Rust |
 | 1566 | [Triangular Postcards](1566/) | geometry | C++, Go, Python, Java, Rust |
+| 1567 | [SMS-spam](1567/) | implementation | C++, Go, Python, Java, Rust |

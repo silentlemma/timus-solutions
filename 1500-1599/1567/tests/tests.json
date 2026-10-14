@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1567_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one press" },
+    { "name": "03", "note": "z is second on its key, which holds only two letters" },
+    { "name": "04", "note": "the punctuation key" },
+    { "name": "05", "note": "every space costs one press, two spaces two" },
+    { "name": "06", "note": "words with commas, points and exclamation marks" },
+    { "name": "gen1", "generator": "1 1", "note": "a 1000-character slogan of words and punctuation" },
+    { "name": "gen2", "generator": "2 2", "note": "a 1000-character mix of z and !" },
+    { "name": "gen3", "generator": "3 3", "note": "a short slogan" },
+    { "name": "gen4", "generator": "4 3", "note": "two short words separated by a space" },
+    { "name": "07", "note": "the complete alphabet checks every letter and all key boundaries" },
+    { "name": "08", "note": "a single space is a valid slogan and must not be trimmed away" },
+    { "name": "09", "note": "one thousand three-press letters reach the maximum price of 3000" }
+  ]
+}
