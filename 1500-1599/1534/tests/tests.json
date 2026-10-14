@@ -1,0 +1,27 @@
+{
+  "judging": "exact",
+  "reference": "1534_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a win and a draw maximize points while a win and a loss minimize them" },
+    { "name": "02", "example": true, "note": "a two-goal surplus allows winning both matches" },
+    { "name": "03", "example": true, "note": "the third example: more matches than goals" },
+    { "name": "04", "example": true, "note": "the fourth example: a single match" },
+    { "name": "05", "note": "one goalless draw" },
+    { "name": "06", "note": "all limits: the maximum needs 64 bits" },
+    { "name": "07", "note": "nothing scored: every match can be lost" },
+    { "name": "08", "note": "a single match won by a huge margin" },
+    { "name": "09", "note": "a single match with one goal for each team is a draw" },
+    { "name": "10", "note": "no goals conceded: at least one win" },
+    { "name": "11", "note": "more conceded than scored: two wins and a loss at best" },
+    { "name": "gen1", "generator": "1 1", "note": "random values up to 10^9" },
+    { "name": "gen2", "generator": "2 2", "note": "values up to 10" },
+    { "name": "gen3", "generator": "3 3", "note": "more matches than goals" },
+    { "name": "gen4", "generator": "4 4", "note": "as many goals scored as conceded" },
+    { "name": "12", "note": "a billion goalless draws force identical point bounds" },
+    { "name": "13", "note": "one match lost by one goal despite both goal totals near the limit" },
+    { "name": "14", "note": "exactly three billion points are possible with a clean sheet in every match" },
+    { "name": "15", "note": "two draws minimize points while a win and loss maximize them for totals 1:1" },
+    { "name": "16", "generator": "331 2", "note": "seeded small case with goal surplus N minus one favors wins and a draw over a loss" },
+    { "name": "17", "generator": "499 2", "note": "seeded one-goal deficit makes one loss cheaper than mixing wins and losses" }
+  ]
+}
