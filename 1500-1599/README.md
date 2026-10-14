@@ -95,3 +95,4 @@
 | 1588 | [Jamaica](1588/) | geometry | C++, Go, Python, Java, Rust |
 | 1589 | [Sokoban](1589/) | bidirectional | C++, Go, Python, Java, Rust |
 | 1590 | [Bacon's Cipher](1590/) | strings | C++, Go, Python, Java, Rust |
+| 1591 | [Abstract Thinking](1591/) | math | C++, Go, Python, Java, Rust |
