@@ -1,0 +1,18 @@
+0000:00:01    Agent A started quest 1 using car Oldcar.
+0000:00:02    Agent C started quest 2.
+0000:00:03    Agent B started quest 3.
+0000:00:05    Agent A killed monster Retirebug.
+0000:00:07    MIB bought a car of class Spare.
+0000:00:07    Car Oldcar was broken.
+0000:00:07    Agent C killed monster Quickbug.
+0000:00:07    Agent A finished quest 1.
+0000:00:07    Agent B finished quest 3.
+0000:00:07    Agent A has tired.
+0000:00:07    Agent B started quest 4.
+0000:00:09    New agent Alpha got a letter A.
+0000:00:10    Agent C finished quest 2.
+0000:00:10    Agent A started quest 5.
+0000:00:11    Agent B finished quest 4.
+0000:00:12    Agent B started quest 6.
+0000:00:14    Agent A finished quest 5.
+0000:00:16    Agent B finished quest 6.

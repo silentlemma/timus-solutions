@@ -1,0 +1,22 @@
+3
+Able 0.50 0.10 0.50 0.20 0.50 A
+Baker 0.50 0.50 0.10 0.10 0.50 B
+Charlie 0.50 0.40 0.60 0.10 0.50 C
+2
+0 2 Fragile
+0.90 100 Spare
+1
+Fragile 0 Oldcar
+2
+0.20 0.50 1 100 Retirebug
+0 0.60 1 1 Quickbug
+1000 10 100 0.99
+8
+1 quest kill 1 Retirebug
+2 quest kill 1 Quickbug
+3 quest run 1
+5 quest run 1
+7 newcar Spare 0 Newcar
+9 newagent Alpha 0.50 0.50 0.50 0.10 0.50
+10 quest run 1
+12 quest run 1

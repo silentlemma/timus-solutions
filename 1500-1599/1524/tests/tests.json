@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1524_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a car breaks on the way back" },
+    { "name": "02", "note": "letters of newcomers: the nearest free one, the smaller on a tie, a name starting with a digit" },
+    { "name": "03", "note": "a pair that is faster than any single agent, and a later quest that starts first" },
+    { "name": "04", "note": "cars that break on the way there, on arrival, on the way back, on return, and one that does not" },
+    { "name": "05", "note": "requirements met exactly, and a pair whose joint experience is enough" },
+    { "name": "06", "note": "the smaller id breaks a tie between usable cars while a stricter car class stays unavailable" },
+    { "name": "07", "note": "an agent who tires, and a newcomer who gets the freed letter" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random agency" },
+    { "name": "gen2", "generator": "2 2", "note": "an agency with 26 agents, 50 cars and 2000 quest arrivals" },
+    { "name": "gen3", "generator": "3 3", "note": "cars that break often" },
+    { "name": "gen4", "generator": "4 4", "note": "agents that tire soon and newcomers" },
+    { "name": "gen5", "generator": "5 5", "note": "demanding quests for pairs" },
+    { "name": "08", "note": "minimum positive traits and unit distances and work times with zero quest requirements" },
+    { "name": "09", "note": "half-minute driving, walking after a breakdown and killing are each rounded separately" },
+    { "name": "10", "note": "investigation and negotiation growth unlock successively harder waiting quests" },
+    { "name": "11", "note": "unequal partners improve their own traits after a shared kill and only one later retires" },
+    { "name": "12", "note": "mileage accumulates across trips and driving practice unlocks a stricter car class" },
+    { "name": "13", "note": "a purchase, breakdown, kill, two alphabetically ordered finishes, retirement and restart share a minute" },
+    { "name": "14", "note": "an empty agency holds exactly 50 waiting quests before its first agent arrives" },
+    { "name": "15", "note": "all 26 letters become occupied and ten-character car ids use case-sensitive ordering" },
+    { "name": "16", "note": "million-valued parameters and the latest arrival time produce a quest ending on day 9999" },
+    { "name": "17", "note": "complementary partners share a car and both car classes are reused across mixed quests" },
+    { "name": "18", "generator": "1524 6", "note": "full type and monster catalogs, each monster kind hunted once and exhausted car purchases among 2000 events" },
+    { "name": "19", "generator": "60 7", "note": "seeded short mixed quests reserve a shared car for a pair while other agents drain the growing queue" }
+  ]
+}

@@ -1,0 +1,27 @@
+4
+Person0 0.49 0.82 0.59 0.33 0.63 A
+Person1 0.16 0.62 0.76 0.50 0.73 B
+Person2 0.44 0.15 0.33 0.71 0.62 C
+Person3 0.35 0.58 0.41 0.22 0.40 D
+2
+0.04 68 TypeA
+0.43 185 TypeB
+2
+TypeB 0 Vehicle0
+TypeA 0 Vehicle1
+2
+0 0 1 2 BugA
+0.20 0.20 7 5 BugB
+1000 100 1000 0.99
+11
+8 quest run 14
+23 quest run 14
+28 quest findout 20 0 22
+34 quest run 18
+40 quest run 13
+60 quest talk 20 0 20
+76 quest talk 18 0 5
+97 quest run 7
+123 quest findout 12 0 16
+151 quest talk 10 0 8
+160 quest kill 11 BugA

@@ -1,0 +1,15 @@
+2
+Archer 0.20 0.30 0.60 0.40 0.90 A
+Buddy 0.80 0.60 0.40 0.60 0.20 B
+1
+0.85 6 Shared
+1
+Shared 0 Lasttrip
+2
+0.70 0.70 5 10 Pairbug
+0.60 0.40 4 10 Solobug
+1000 20 100 0.67
+3
+1 quest kill 3 Pairbug
+2 quest kill 1 Solobug
+30 newagent Bob 0.50 0.50 0.50 0.10 0.50

@@ -28,3 +28,4 @@
 | 1521 | [War Games 2](1521/) | fenwick | C++, Go, Python, Java, Rust |
 | 1522 | [Factory](1522/) | greedy | C++, Go, Python, Java, Rust |
 | 1523 | [K-inversions](1523/) | fenwick | C++, Go, Python, Java, Rust |
+| 1524 | [Men in Black](1524/) | simulation | C++, Go, Python, Java, Rust |
