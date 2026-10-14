@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1578_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any acute order is accepted" },
+    { "name": "02", "example": true, "note": "the second example: points on a line, turning back counts as 0 degrees" },
+    { "name": "03", "note": "three points on a line" },
+    { "name": "04", "note": "three corners of the largest square and its center" },
+    { "name": "05", "note": "a small square and a point outside" },
+    { "name": "gen1", "generator": "1 1", "note": "a set of 2002 random points" },
+    { "name": "gen2", "generator": "2 2", "note": "a rounded sloping line with 2002 points" },
+    { "name": "gen3", "generator": "3 3", "note": "a dense grid" },
+    { "name": "gen4", "generator": "4 4", "note": "points near a circle after coordinate rounding" },
+    { "name": "gen5", "generator": "5 5", "note": "a few points" },
+    { "name": "06", "note": "minimum N with an acute triangle; every vertex can be the turn" },
+    { "name": "07", "note": "minimum N with a right triangle; a turn of exactly 90 degrees is forbidden" },
+    { "name": "08", "note": "large nearly perpendicular vectors have dot product one, so the turn is still acute" },
+    { "name": "09", "note": "a central start has eight equally distant choices, with shared x and y coordinates" },
+    { "name": "10", "note": "small random stress case with nearby points at four extreme corners" },
+    { "name": "11", "note": "small random stress case in a thin strip with collinear, right and obtuse triples" },
+    { "name": "12", "generator": "157812 6", "note": "maximum N on an exact diagonal line requires repeated zero-degree reversals" },
+    { "name": "13", "generator": "157813 7", "note": "maximum N split between two random tight clusters at opposite coordinate limits" },
+    { "name": "14", "generator": "157814 8", "note": "one fewer turn than maximum with random points on both extreme horizontal borders" }
+  ]
+}
