@@ -103,3 +103,4 @@
 | 1596 | [Nightmare Knight](1596/) | constructive | C++, Go, Python, Java, Rust |
 | 1597 | [Chernobyl’ Eagle on a Roof. Version 2](1597/) | binary_search | C++, Go, Python, Java, Rust |
 | 1598 | [Attack on DSA](1598/) | math | C++, Go, Python, Java, Rust |
+| 1599 | [Winding Number](1599/) | geometry | C++, Go, Python, Java, Rust |
