@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1513_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "five words with at most two consecutive lemons" },
+    { "name": "02", "note": "one word, no lemon allowed" },
+    { "name": "03", "note": "one word, one lemon allowed" },
+    { "name": "04", "note": "maximum length with every replacement pattern allowed" },
+    { "name": "05", "note": "only bananas when lemons are forbidden" },
+    { "name": "06", "note": "no two lemons in a row, a Fibonacci number" },
+    { "name": "07", "note": "lemon run limit equal to half the maximum text length" },
+    { "name": "gen1", "generator": "1 1", "note": "a run limit of 258 across 2202 words" },
+    { "name": "gen2", "generator": "2 2", "note": "isolated lemons in a generated maximum length text" },
+    { "name": "gen3", "generator": "3 3", "note": "small N" },
+    { "name": "gen4", "generator": "4 1", "note": "intermediate length with repeated subtraction of forbidden lemon runs" },
+    { "name": "gen5", "generator": "5 2", "note": "runs of up to five lemons in the longest permitted text" }
+  ]
+}
