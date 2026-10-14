@@ -15,3 +15,4 @@
 | 1608 | [Lucky Tickets 2008](1608/) | math | C++, Go, Python, Java, Rust |
 | 1609 | [Tram Tiles](1609/) | constructive | C++, Go, Python, Java, Rust |
 | 1610 | [Cacti Are in Fashion](1610/) | games | C++, Go, Python, Java, Rust |
+| 1611 | [Decimation](1611/) | dp | C++, Go, Python, Java, Rust |
