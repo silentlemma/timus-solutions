@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1559_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example concatenates two binary unions" },
+    { "name": "02", "note": "a starred letter produces infinitely many words" },
+    { "name": "03", "note": "a starred empty set contains only the empty word" },
+    { "name": "04", "note": "an empty factor after a starred letter makes the concatenation empty" },
+    { "name": "05", "note": "stars over sets with only the empty word" },
+    { "name": "06", "note": "an empty alternative next to a starred letter" },
+    { "name": "07", "note": "two stars in a row" },
+    { "name": "08", "note": "a starred union killed by 0, then one more word" },
+    { "name": "09", "note": "the empty set alone" },
+    { "name": "10", "note": "a single letter" },
+    { "name": "11", "note": "nested stars of 0 before a letter" },
+    { "name": "12", "note": "an empty starred branch leaves a finite union followed by an optional letter" },
+    { "name": "gen1", "generator": "1 1", "note": "a starred letter inside deeply nested parentheses gives an infinite language" },
+    { "name": "gen2", "generator": "2 2", "note": "deep parentheses around the empty word followed by two letters give one word" },
+    { "name": "gen3", "generator": "3 3", "note": "a random expression whose stars are harmless" },
+    { "name": "gen4", "generator": "4 3", "note": "a long concatenation becomes empty despite many nested stars and unions" },
+    { "name": "gen5", "generator": "5 4", "note": "a random expression with letters under stars" },
+    { "name": "gen6", "generator": "6 4", "note": "an infinite union mixes starred letter groups with alternatives for the empty word" },
+    { "name": "gen7", "generator": "7 5", "note": "binary choices at every position give exponentially many words within the learning limit" },
+    { "name": "13", "note": "a left zero kills infinite inner stars, then an outer star restores the empty word" },
+    { "name": "14", "note": "an outer star over a finite language containing empty and non-empty words" },
+    { "name": "15", "note": "a maximum-length wide union retains its first infinite branch after many empty branches" },
+    { "name": "16", "note": "a single 10000-letter word exercises the maximum flat concatenation" }
+  ]
+}
