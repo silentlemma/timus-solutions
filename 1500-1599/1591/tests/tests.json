@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1591_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest n: the only triangle lies on the circle" },
+    { "name": "04", "note": "n = 6: three long diagonals meet at the centre and still count" },
+    { "name": "05", "note": "an odd polygon with all three endpoint patterns present" },
+    { "name": "06", "note": "n = 12, with many chords through one point" },
+    { "name": "07", "note": "a larger even polygon exercises concurrent diameters" },
+    { "name": "08", "note": "a three-digit point count with an answer below the signed 32-bit limit" },
+    { "name": "09", "note": "a large polygon whose answer remains exactly representable by a double" },
+    { "name": "10", "note": "the largest odd point count, just below the input limit" },
+    { "name": "11", "note": "the largest n: the answer needs 64 bits" },
+    { "name": "12", "note": "n = 105: the last answer that fits a signed 32-bit integer" },
+    { "name": "13", "note": "n = 106: the first answer that overflows a signed 32-bit integer" },
+    { "name": "14", "note": "n = 119: the first answer that exceeds an unsigned 32-bit integer" },
+    { "name": "15", "note": "n = 1365: the first answer that cannot be represented exactly by a double" },
+    { "name": "16", "note": "n = 9: a brute-force stress sample just after two-interior-corner triples outnumber one-interior-corner triples" },
+    { "name": "17", "generator": "1591 1", "note": "a seeded random middle-sized polygon checks the relative weights of all three endpoint patterns" },
+    { "name": "18", "generator": "1591 2", "note": "a seeded random large odd polygon has no diameters and still counts three-way crossings" },
+    { "name": "19", "generator": "1591 3", "note": "a seeded random large even polygon combines many concurrent diameters with an answer above 2^53" }
+  ]
+}
