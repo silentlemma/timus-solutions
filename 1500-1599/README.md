@@ -94,3 +94,4 @@
 | 1587 | [Flying Pig](1587/) | greedy | C++, Go, Python, Java, Rust |
 | 1588 | [Jamaica](1588/) | geometry | C++, Go, Python, Java, Rust |
 | 1589 | [Sokoban](1589/) | bidirectional | C++, Go, Python, Java, Rust |
+| 1590 | [Bacon's Cipher](1590/) | strings | C++, Go, Python, Java, Rust |
