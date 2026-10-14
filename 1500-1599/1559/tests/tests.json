@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1559_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a*: infinitely many words" },
+    { "name": "03", "note": "0*: only the empty word" },
+    { "name": "04", "note": "a*0: an empty set kills the star" },
+    { "name": "05", "note": "stars over sets with only the empty word" },
+    { "name": "06", "note": "an empty alternative next to a starred letter" },
+    { "name": "07", "note": "two stars in a row" },
+    { "name": "08", "note": "a starred union killed by 0, then one more word" },
+    { "name": "09", "note": "the empty set alone" },
+    { "name": "10", "note": "a single letter" },
+    { "name": "11", "note": "nested stars of 0 before a letter" },
+    { "name": "12", "note": "a* killed inside a union" },
+    { "name": "gen1", "generator": "1 1", "note": "a starred letter inside 4998 brackets" },
+    { "name": "gen2", "generator": "2 2", "note": "0* inside 4998 brackets, then two letters" },
+    { "name": "gen3", "generator": "3 3", "note": "a random expression whose stars are harmless" },
+    { "name": "gen4", "generator": "4 3", "note": "a random expression whose stars are harmless" },
+    { "name": "gen5", "generator": "5 4", "note": "a random expression with letters under stars" },
+    { "name": "gen6", "generator": "6 4", "note": "a random expression with letters under stars" },
+    { "name": "gen7", "generator": "7 5", "note": "2000 choices of two letters: 2^2000 words is still few" }
+  ]
+}
