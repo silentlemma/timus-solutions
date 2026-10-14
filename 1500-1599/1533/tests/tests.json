@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1533_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: nobody was weighed" },
+    { "name": "03", "note": "1 outweighs 3 only through 2" },
+    { "name": "04", "note": "the middle layer beats the lightest and the heaviest hobbits" },
+    { "name": "05", "note": "a chain of 100 weighed neighbour by neighbour" },
+    { "name": "06", "note": "a 10 by 10 grid order: the antidiagonal" },
+    { "name": "07", "note": "a chain through 2 makes 4 heavier than 1" },
+    { "name": "gen1", "generator": "1 1", "note": "random weighings of 100 hobbits" },
+    { "name": "gen2", "generator": "2 2", "note": "every pair weighed" },
+    { "name": "gen3", "generator": "3 3", "note": "no weighings" },
+    { "name": "gen4", "generator": "4 4", "note": "a few hobbits" },
+    { "name": "gen5", "generator": "5 5", "note": "neighbouring layers weighed" },
+    { "name": "gen6", "generator": "6 6", "note": "only close weights compared" }
+  ]
+}
