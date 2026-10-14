@@ -66,3 +66,4 @@
 | 1559 | [TruCoders Linguistics](1559/) | parsing | C++, Go, Python, Java, Rust |
 | 1560 | [Elementary Symmetric Functions](1560/) | fenwick | C++, Go, Python, Java, Rust |
 | 1561 | [Winnie the Pooh](1561/) | math | C++, Go, Python, Java, Rust |
+| 1562 | [GM-pineapple](1562/) | geometry | C++, Go, Python, Java, Rust |
