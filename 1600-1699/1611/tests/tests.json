@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1611_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; one friend in front is just as good" },
+    { "name": "02", "example": true, "note": "the second example: friends cannot help" },
+    { "name": "03", "note": "a single conductor and no friends" },
+    { "name": "04", "note": "no friends: the good conductors at 10 and 20 are fined" },
+    { "name": "05", "note": "one friend in front moves every good conductor off a tenth place" },
+    { "name": "06", "note": "ten good conductors: someone at place 10 is fined either way" },
+    { "name": "07", "note": "one friend is enough, a second would not help" },
+    { "name": "08", "note": "a friend would make the line long enough to reach place 20" },
+    { "name": "gen1", "generator": "1 1", "note": "10000 random conductors and 50 friends" },
+    { "name": "gen2", "generator": "2 2", "note": "10000 good conductors" },
+    { "name": "gen3", "generator": "3 3", "note": "good conductors exactly at the tenth places" },
+    { "name": "gen4", "generator": "4 4", "note": "a few friends for many good conductors" },
+    { "name": "gen5", "generator": "5 5", "note": "a short line" }
+  ]
+}
