@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1606_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other lists of four flags are accepted" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a single flag" },
+    { "name": "04", "note": "two flags, listed bottom first" },
+    { "name": "05", "note": "x grows all the way down: at most two flags can be touched" },
+    { "name": "06", "note": "a perfect zigzag: every flag" },
+    { "name": "07", "note": "one turn: up to the peak, then down" },
+    { "name": "gen1", "generator": "1 1", "note": "a random set of 50000 flags" },
+    { "name": "gen2", "generator": "2 2", "note": "a perfect zigzag of 50000 flags" },
+    { "name": "gen3", "generator": "3 3", "note": "x grows with every flag down the slope" },
+    { "name": "gen4", "generator": "4 4", "note": "long runs in each direction" },
+    { "name": "gen5", "generator": "5 5", "note": "a few flags" },
+    { "name": "08", "note": "collinear flags falling leftward across both coordinate limits; passing through is not a turn" },
+    { "name": "09", "note": "the smallest valley: a leftward first step and a turn at x = 1" },
+    { "name": "10", "note": "a single rightward step between long falling runs; preserve both adjacent turns" },
+    { "name": "11", "note": "seeded dense coordinates with twelve optimal lists and replaceable endpoints" },
+    { "name": "12", "note": "seeded coordinate clusters near both limits with the global minimum and maximum inside the descent" },
+    { "name": "gen6", "generator": "1606 6", "note": "a zigzag of 50000 flags with its final turn removed; the optimum is 49999" },
+    { "name": "gen7", "generator": "1607 7", "note": "a collinear middle run among 50000 flags with turns at the second and penultimate flags" }
+  ]
+}
