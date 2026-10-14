@@ -90,3 +90,4 @@
 | 1583 | [Cheese](1583/) | binary_search | C++, Go, Python, Java, Rust |
 | 1584 | [Pharaohs’ Secrets](1584/) | matching | C++, Go, Python, Java, Rust |
 | 1585 | [Penguins](1585/) | implementation | C++, Go, Python, Java, Rust |
+| 1586 | [Threeprime Numbers](1586/) | dp | C++, Go, Python, Java, Rust |

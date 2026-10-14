@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1586_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n = 3: the 143 three-digit primes" },
+    { "name": "03", "note": "two successive extensions of each starting prime" },
+    { "name": "04", "note": "longest length checked by exhaustive enumeration" },
+    { "name": "05", "note": "short count after several overlapping prime windows" },
+    { "name": "06", "note": "n = 100: the count wraps modulo 10^9 + 9" },
+    { "name": "07", "note": "length just below the upper bound" },
+    { "name": "08", "note": "the largest n" },
+    { "name": "09", "note": "n = 28: the last exact count below the modulus" },
+    { "name": "10", "note": "n = 29: the first count requiring reduction modulo 10^9 + 9" },
+    { "name": "11", "note": "n = 30: the unreduced count first exceeds signed 32-bit range" },
+    { "name": "12", "generator": "1586 1", "note": "seeded random intermediate length, away from the short cases and limits" },
+    { "name": "13", "generator": "1586 2", "note": "seeded random length in the upper half of the range, below the maximum cases" }
+  ]
+}
