@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1603_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the whole grid as a snake, both ways, and a missing letter" },
+    { "name": "03", "note": "no diagonal steps and no cell used twice" },
+    { "name": "04", "note": "all letters but one equal: the full path, one letter too many, no reuse of the lone b at both ends" },
+    { "name": "05", "note": "a chessboard of two letters" },
+    { "name": "06", "note": "a single repeated letter" },
+    { "name": "07", "note": "a 16-letter path between two cells of the same colour cannot exist" },
+    { "name": "gen1", "generator": "1 1", "note": "two letters, words read along paths and some changed" },
+    { "name": "gen2", "generator": "2 2", "note": "one odd letter and long words ending in it" },
+    { "name": "gen3", "generator": "3 3", "note": "pieces of a snake through the whole grid" },
+    { "name": "gen4", "generator": "4 4", "note": "random grid and short random words" }
+  ]
+}
