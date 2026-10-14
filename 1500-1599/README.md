@@ -83,3 +83,4 @@
 | 1576 | [Telephone Tariffs](1576/) | implementation | C++, Go, Python, Java, Rust |
 | 1577 | [E-mail](1577/) | dp | C++, Go, Python, Java, Rust |
 | 1578 | [Mammoth Hunt](1578/) | greedy | C++, Go, Python, Java, Rust |
+| 1579 | [Coat Transportation](1579/) | greedy | C++, Go, Python, Java, Rust |
