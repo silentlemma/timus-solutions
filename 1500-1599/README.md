@@ -55,3 +55,4 @@
 | 1548 | [Sakura and Statistics](1548/) | greedy | C++, Go, Python, Java, Rust |
 | 1549 | [Another Japanese Puzzle](1549/) | constructive | C++, Go, Python, Java, Rust |
 | 1550 | [Dean's Pyramid 3](1550/) | geometry | C++, Go, Python, Java, Rust |
+| 1551 | [Sumo Tournament](1551/) | math | C++, Go, Python, Java, Rust |
