@@ -27,3 +27,4 @@
 | 1620 | [Clever House](1620/) | probability | C++, Go, Python, Java, Rust |
 | 1621 | [Definite Integral](1621/) | math | C++, Go, Python, Java, Rust |
 | 1622 | [Endspiel](1622/) | backtracking | C++, Go, Python, Java, Rust |
+| 1623 | [Fractal Labyrinth](1623/) | shortest_paths | C++, Go, Python, Java, Rust |

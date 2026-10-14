@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1623_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: each other step goes through the inner house" },
+    { "name": "02", "example": true, "note": "the second example: two separate cycles" },
+    { "name": "03", "note": "the input door is the output door" },
+    { "name": "04", "note": "the shortest path is two houses deep: 6 after one round, 5 after two" },
+    { "name": "05", "note": "no inner houses: an ordinary path" },
+    { "name": "06", "note": "no roads at all" },
+    { "name": "gen1", "generator": "1 1", "note": "random roads, the doors farthest apart" },
+    { "name": "gen2", "generator": "2 2", "note": "20 doors, five inner houses, many roads" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain through inner houses like the first example" },
+    { "name": "gen4", "generator": "4 4", "note": "a small random labyrinth" },
+    { "name": "gen5", "generator": "5 3", "note": "a chain through inner houses like the first example" },
+    { "name": "gen6", "generator": "6 2", "note": "20 doors, five inner houses, many roads" }
+  ]
+}
