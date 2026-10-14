@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1596_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any closed tour is accepted" },
+    { "name": "02", "example": true, "note": "the second example: both sides odd, no tour" },
+    { "name": "03", "note": "the smallest board: one block" },
+    { "name": "04", "note": "8 by 8: one block" },
+    { "name": "05", "note": "an odd number of rows" },
+    { "name": "06", "note": "an odd number of columns" },
+    { "name": "07", "note": "12 by 13: blocks joined both ways" },
+    { "name": "08", "note": "both sides odd and large: no tour" },
+    { "name": "09", "note": "13 by 20" },
+    { "name": "10", "note": "21 by 14" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest board" },
+    { "name": "gen2", "generator": "2 2", "note": "999 rows and 1000 columns" },
+    { "name": "gen3", "generator": "3 3", "note": "1000 rows and 997 columns" },
+    { "name": "gen4", "generator": "4 4", "note": "a strip six cells wide" },
+    { "name": "gen5", "generator": "5 5", "note": "random sides" }
+  ]
+}
