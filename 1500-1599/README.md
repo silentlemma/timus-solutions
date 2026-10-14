@@ -63,3 +63,4 @@
 | 1556 | [Multishot in the Secret Cow Level](1556/) | geometry | C++, Go, Python, Java, Rust |
 | 1557 | [Network Attack](1557/) | graphs | C++, Go, Python, Java, Rust |
 | 1558 | [Periodical Numbers](1558/) | math | C++, Go, Python, Java, Rust |
+| 1559 | [TruCoders Linguistics](1559/) | parsing | C++, Go, Python, Java, Rust |
