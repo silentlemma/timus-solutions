@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1506_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: seven numbers in three columns" },
+    { "name": "02", "note": "a single number" },
+    { "name": "03", "note": "a single row with mixed-width numbers including zero" },
+    { "name": "04", "note": "a single column with one-, two-, and three-digit values" },
+    { "name": "05", "note": "the maximum input size with a partially filled final column" },
+    { "name": "06", "note": "the last column holds a single number, so the lower rows are shorter" },
+    { "name": "gen1", "generator": "1 1", "note": "three full columns of mixed two- and three-digit numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "three-digit values at the maximum input size with a shorter final column" },
+    { "name": "gen3", "generator": "3 3", "note": "a wide single row of two- and three-digit values" },
+    { "name": "gen4", "generator": "4 4", "note": "a tall single column with mixed number widths" },
+    { "name": "gen5", "generator": "5 1", "note": "four equal-height columns including repeated values" }
+  ]
+}
