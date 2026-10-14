@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1549_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example leaves one of the five straights unused" },
+    { "name": "02", "example": true, "note": "the second example: three turns cannot close a loop" },
+    { "name": "03", "note": "four turns alone: a 2 x 2 square" },
+    { "name": "04", "note": "a single straight cannot make eight turns usable, so only four turns are used" },
+    { "name": "05", "note": "twelve turns without straights: the smallest staircase" },
+    { "name": "06", "note": "maximum turn inventory forms a loop without straights" },
+    { "name": "07", "note": "maximum inventories allow all 2000 pieces to be used" },
+    { "name": "08", "note": "six turns need two straights" },
+    { "name": "09", "note": "a long thin ring" },
+    { "name": "10", "note": "three turns and nothing else" },
+    { "name": "11", "note": "an odd number of straights: one stays unused" },
+    { "name": "12", "note": "one straight is useless, eleven turns give only four" },
+    { "name": "gen1", "generator": "1 1", "note": "odd straight inventory with many turns leaves one straight unused" },
+    { "name": "gen2", "generator": "2 2", "note": "too few turns prevent a loop even with a spare straight" },
+    { "name": "gen3", "generator": "3 3", "note": "turn-only inventory two above a multiple of four leaves two turns unused" },
+    { "name": "gen4", "generator": "4 4", "note": "an odd straight count still allows a notched loop using every turn" },
+    { "name": "gen5", "generator": "5 3", "note": "one unusable straight and an odd turn count leave an all-turn staircase" },
+    { "name": "gen6", "generator": "6 4", "note": "an even straight count and a turn count congruent to two modulo four use the entire inventory" },
+    { "name": "13", "note": "empty inventory outside the statement bounds cannot form a loop" },
+    { "name": "14", "note": "maximum straights with no turns still cannot form a loop" },
+    { "name": "15", "note": "only two straights with maximum turns must use all 1002 pieces" },
+    { "name": "16", "note": "near-maximum turns and only two straights fill both bump rows of a notched box" },
+    { "name": "17", "note": "both inventories just below the maximum leave one piece of each type unused" },
+    { "name": "18", "note": "two straights make all eight turns usable" }
+  ]
+}
