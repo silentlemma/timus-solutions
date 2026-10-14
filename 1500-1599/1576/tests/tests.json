@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1576_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "six seconds are free, seven cost a minute; a whole minute stays one" },
+    { "name": "04", "note": "the longest calls and the highest prices" },
+    { "name": "05", "note": "only free calls" },
+    { "name": "gen1", "generator": "1 1", "note": "a thousand calls of any length" },
+    { "name": "gen2", "generator": "2 2", "note": "calls near the six second and minute marks" },
+    { "name": "gen3", "generator": "3 3", "note": "a few calls" },
+    { "name": "gen4", "generator": "4 2", "note": "free, whole-minute and partial-minute calls" },
+    { "name": "06", "note": "separate rounding of four half-minute calls exactly exhausts the allowance" },
+    { "name": "07", "note": "two calls ending in six seconds exceed the allowance by one paid minute" },
+    { "name": "08", "note": "a thousand longest calls at maximum prices and minimum allowance maximize both bills" },
+    { "name": "gen5", "generator": "1576 4", "note": "random short and free calls leave exactly one included minute unused" },
+    { "name": "gen6", "generator": "1577 5", "note": "a thousand random positive whole-minute calls must never round to an extra minute" }
+  ]
+}
