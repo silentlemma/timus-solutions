@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1621_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: x^4 + 16, whose integral is pi / (8 sqrt 2)" },
+    { "name": "02", "note": "two even quadratic factors give the known integral pi / 6" },
+    { "name": "03", "note": "a negative leading coefficient makes the integral negative" },
+    { "name": "04", "note": "roots 999 +- i, close to the real axis far from the origin" },
+    { "name": "05", "note": "a dominant quartic coefficient concentrates the integral near zero" },
+    { "name": "06", "note": "a large constant term spreads the integral across a wider range" },
+    { "name": "gen1", "generator": "1 1", "note": "a product of two random quadratics" },
+    { "name": "gen2", "generator": "2 2", "note": "a pair of roots near the real axis" },
+    { "name": "gen3", "generator": "3 3", "note": "an extreme coefficient" },
+    { "name": "gen4", "generator": "4 4", "note": "a negated product" },
+    { "name": "gen5", "generator": "5 2", "note": "a distant root pair at 129 plus or minus i accompanies roots near the origin" },
+    { "name": "gen6", "generator": "6 1", "note": "two conjugate root pairs lie entirely in the left half-plane" },
+    { "name": "07", "note": "small coefficients with a linear term but no quadratic or cubic term" },
+    { "name": "08", "note": "a negative quadratic coefficient gives two symmetric minima without real roots" },
+    { "name": "09", "note": "distinct complex root pairs are very close to repeated roots" },
+    { "name": "10", "note": "two narrow peaks at opposite distant locations must both be integrated" },
+    { "name": "11", "note": "a translated fourth-power minimum causes cancellation in polynomial evaluation" },
+    { "name": "12", "note": "every coefficient reaches an absolute bound, with alternating signs" },
+    { "name": "13", "note": "narrow and broad root pairs coexist with widths differing by about a thousand" },
+    { "name": "14", "note": "a quadratic discriminant of minus three puts roots less than a millionth from the real axis just left of zero" },
+    { "name": "15", "note": "seeded stress case with a zero linear coefficient and a nonzero cubic coefficient" },
+    { "name": "gen7", "generator": "7 5", "note": "random square-plus-one quartic with two off-center peaks and nonzero odd coefficients" },
+    { "name": "gen8", "generator": "9 5", "note": "negative random square-plus-one quartic whose quadratic has no real zeros" }
+  ]
+}

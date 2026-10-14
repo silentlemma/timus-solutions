@@ -25,3 +25,4 @@
 | 1618 | [Arrays Printing](1618/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1619 | [Big Brother](1619/) | math | C++, Go, Python, Java, Rust |
 | 1620 | [Clever House](1620/) | probability, math | C++, Go, Python, Java, Rust |
+| 1621 | [Definite Integral](1621/) | math | C++, Go, Python, Java, Rust |
