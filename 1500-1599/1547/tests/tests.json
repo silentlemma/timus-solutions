@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1547_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one processor, one letter" },
+    { "name": "03", "note": "one password per processor gives 26 singleton ranges such as a-a" },
+    { "name": "04", "note": "the largest N and M: 71-digit counts" },
+    { "name": "05", "note": "equal shares of 26 passwords across 27 processors" },
+    { "name": "06", "note": "one processor takes everything up to fifty z's" },
+    { "name": "07", "note": "uneven split: the first processors take one more" },
+    { "name": "08", "note": "two letters for 50 processors" },
+    { "name": "gen1", "generator": "1 1", "note": "ten-letter limit with 26 larger shares followed by eleven smaller ones" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum password length with an uneven four-way split" },
+    { "name": "gen3", "generator": "3 3", "note": "single-letter passwords give two processors four candidates and six processors three" },
+    { "name": "gen4", "generator": "4 1", "note": "seventeen-letter limit with extra work for the first two processors" },
+    { "name": "09", "note": "a pair of letters followed by 24 singleton ranges" },
+    { "name": "10", "note": "equal shares keep z and aa together across the password-length boundary" },
+    { "name": "11", "note": "remainder M minus one: only the last of 37 processors gets the smaller share" },
+    { "name": "12", "note": "first password count beyond the unsigned 64-bit range" },
+    { "name": "13", "generator": "3188 1", "note": "seeded random split at N = 13, the last length whose count fits in 64 bits" },
+    { "name": "14", "generator": "88 2", "note": "equal shares at maximum length end with fifty copies of each letter" }
+  ]
+}
