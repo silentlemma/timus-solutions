@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1543_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "four dance points out of six are below 80 percent, earning level B" },
+    { "name": "03", "note": "a Boo first: the points dip below zero, so no level bonus" },
+    { "name": "04", "note": "all Perfect: AAA" },
+    { "name": "05", "note": "only Perfect and Great steps earn the AA bonus" },
+    { "name": "06", "note": "presses at exactly 40 % and 70 % of the period, a wrong key, a silent step" },
+    { "name": "07", "note": "presses in empty beats are ignored, a wrong first press is a Miss" },
+    { "name": "08", "note": "a Boo resets the combo before two final Perfect steps" },
+    { "name": "gen1", "generator": "1 1", "note": "a random song and player" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest Hard song" },
+    { "name": "gen3", "generator": "3 3", "note": "a ten-second song" },
+    { "name": "gen4", "generator": "4 4", "note": "a player who hits most steps early" },
+    { "name": "gen5", "generator": "5 5", "note": "a player who often presses wrong keys" },
+    { "name": "gen6", "generator": "6 1", "note": "a Hard chart with frequent wrong first presses and unplayed steps" },
+    { "name": "09", "note": "a single step in the final beat of a shortest song with an empty press log" },
+    { "name": "10", "note": "exactly 80 percent dance points earns the A bonus" },
+    { "name": "11", "note": "one dance point below 80 percent earns B rather than A" },
+    { "name": "12", "note": "exactly 64 percent dance points earns the B bonus" },
+    { "name": "13", "note": "one dance point below 64 percent earns C rather than B" },
+    { "name": "14", "note": "exactly half the maximum dance points earns the C bonus" },
+    { "name": "15", "note": "one dance point below half earns D while points remain nonnegative" },
+    { "name": "16", "note": "dance points return to zero after two Misses while empty beats preserve combos" },
+    { "name": "gen7", "generator": "7 6", "note": "a longest Hard song with all steps Perfect and ignored wrong presses between beat starts" }
+  ]
+}
