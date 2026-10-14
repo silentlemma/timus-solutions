@@ -23,3 +23,4 @@
 | 1616 | [Square Country 4](1616/) | geometry | C++, Go, Python, Java, Rust |
 | 1617 | [Flat Spots](1617/) | implementation | C++, Go, Python, Java, Rust |
 | 1618 | [Arrays Printing](1618/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1619 | [Big Brother](1619/) | math | C++, Go, Python, Java, Rust |
