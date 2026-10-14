@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1512_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: N = 8, any valid placement" },
+    { "name": "02", "note": "the smallest board, N = 4" },
+    { "name": "03", "note": "odd board, N = 5" },
+    { "name": "04", "note": "even board divisible by six" },
+    { "name": "05", "note": "remainder 2 modulo 6, N = 14" },
+    { "name": "06", "note": "remainder 3 modulo 6, N = 9" },
+    { "name": "gen1", "generator": "1 1", "note": "a random N" },
+    { "name": "gen2", "generator": "2 2", "note": "a random N with remainder 2 modulo 6" },
+    { "name": "gen3", "generator": "3 3", "note": "a random N with remainder 3 modulo 6" },
+    { "name": "gen4", "generator": "4 1", "note": "a random odd board with an even core divisible by six" },
+    { "name": "gen5", "generator": "0 4", "note": "the largest board, N = 100000" },
+    { "name": "gen6", "generator": "1 4", "note": "odd size with remainder 3 modulo 6, N = 99999" },
+    { "name": "gen7", "generator": "2 4", "note": "near-maximum size with remainder 2 modulo 6, N = 99998" },
+    { "name": "07", "note": "the smallest odd board whose even core is divisible by six, N = 7" },
+    { "name": "08", "note": "the first larger odd board with an even core of remainder four, N = 11" },
+    { "name": "gen8", "generator": "3 4", "note": "the largest odd board with remainder one modulo six, N = 99997" },
+    { "name": "gen9", "generator": "4 4", "note": "the largest board divisible by six, N = 99996" },
+    { "name": "gen10", "generator": "5 4", "note": "the largest odd board with remainder five modulo six, N = 99995" }
+  ]
+}
