@@ -97,3 +97,4 @@
 | 1590 | [Bacon's Cipher](1590/) | strings | C++, Go, Python, Java, Rust |
 | 1591 | [Abstract Thinking](1591/) | math | C++, Go, Python, Java, Rust |
 | 1592 | [Chinese Clocks](1592/) | math | C++, Go, Python, Java, Rust |
+| 1593 | [Square Country. Version 2](1593/) | math | C++, Go, Python, Java, Rust |
