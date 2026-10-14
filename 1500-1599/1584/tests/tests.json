@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1584_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one swap, two carries" },
+    { "name": "02", "note": "the smallest grid, one kind" },
+    { "name": "03", "note": "two kinds side by side: half of each group must change" },
+    { "name": "04", "note": "already symmetric" },
+    { "name": "05", "note": "a chessboard of two columns" },
+    { "name": "gen1", "generator": "1 1", "note": "five kinds with unequal inventories on a maximum grid" },
+    { "name": "gen2", "generator": "2 2", "note": "a symmetric 20 by 20 grid with a few statues swapped" },
+    { "name": "gen3", "generator": "3 3", "note": "three kinds spread across a 20 by 20 grid" },
+    { "name": "gen4", "generator": "4 4", "note": "a single kind occupying two mirror groups" },
+    { "name": "gen5", "generator": "5 1", "note": "twenty kinds with no pure mirror groups and mostly four distinct letters per group" },
+    { "name": "06", "note": "three misplaced statues form a cycle, requiring an odd number of carries" },
+    { "name": "07", "note": "taking a before b on tied groups makes a greedy assignment cost eight carries instead of six" },
+    { "name": "08", "note": "the same kind leads in every group, but its quota covers only half of them" },
+    { "name": "09", "note": "minimum height and maximum width with ten kinds, each occurring exactly four times" },
+    { "name": "10", "note": "maximum height and minimum width with three-to-one groups and unchanged pure groups" },
+    { "name": "11", "note": "every row is palindromic but mirrored rows use disjoint kinds" },
+    { "name": "12", "note": "every column is palindromic, with a mixture of pure and split mirror groups" },
+    { "name": "13", "note": "maximum grid with four different kinds in every group reaches 300 carries" },
+    { "name": "14", "note": "four rare z statues among 396 a statues, dispersed across different groups" },
+    { "name": "15", "note": "a small grid with four kinds and unequal group quotas" },
+    { "name": "16", "note": "maximum grid entirely filled with the last alphabet letter requires no carries" },
+    { "name": "gen6", "generator": "158406 5", "note": "a shuffled maximum grid containing all 26 kinds with unequal inventories" },
+    { "name": "gen7", "generator": "158407 6", "note": "an 18 by 14 rectangle with seven kinds and 63 mirror groups" }
+  ]
+}
