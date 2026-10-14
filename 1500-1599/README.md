@@ -21,3 +21,4 @@
 | 1514 | [National Park](1514/) | geometry | C++, Go, Python, Java, Rust |
 | 1515 | [Cashmaster](1515/) | greedy | C++, Go, Python, Java, Rust |
 | 1516 | [Nostalgia](1516/) | backtracking | C++, Go, Python, Java, Rust |
+| 1517 | [Freedom of Choice](1517/) | suffix_structures | C++, Go, Python, Java, Rust |
