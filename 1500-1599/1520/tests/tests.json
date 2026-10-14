@@ -1,0 +1,21 @@
+{
+  "judging": "float:0.000001",
+  "reference": "1520_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: four factories around the centre" },
+    { "name": "02", "note": "one factory in the centre: the radius is R" },
+    { "name": "03", "note": "one factory on the border: the radius is 2R" },
+    { "name": "04", "note": "two factories: the bisector meets the border" },
+    { "name": "05", "note": "one point repeated three times" },
+    { "name": "06", "note": "the centre and four border points" },
+    { "name": "07", "note": "R = 1 with a factory in the centre and one on the border" },
+    { "name": "gen1", "generator": "1 1", "note": "300 random factories, R = 1000" },
+    { "name": "gen2", "generator": "2 2", "note": "factories near a circle of half the radius" },
+    { "name": "gen3", "generator": "3 3", "note": "a single factory" },
+    { "name": "gen4", "generator": "4 4", "note": "factories crowded on one side" },
+    { "name": "gen5", "generator": "5 5", "note": "a few points repeated many times" },
+    { "name": "gen6", "generator": "6 6", "note": "a few factories in a small disk" },
+    { "name": "gen7", "generator": "7 7", "note": "factories on a lattice" },
+    { "name": "gen8", "generator": "8 1", "note": "300 random factories, R = 1000" }
+  ]
+}
