@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1598_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid signature is accepted" },
+    { "name": "02", "note": "a 6-bit q and a 12-bit p" },
+    { "name": "03", "note": "a hash equal to the subgroup order" },
+    { "name": "04", "note": "a 36-bit q with p only three bits longer" },
+    { "name": "05", "note": "wide modular products at the maximum parameter sizes" },
+    { "name": "06", "note": "a medium subgroup with a modulus only three bits wider" },
+    { "name": "gen1", "generator": "1 1", "note": "the largest sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-size subgroup with the minimum bit-length gap" },
+    { "name": "gen3", "generator": "3 3", "note": "a relatively small subgroup inside a much wider modulus" },
+    { "name": "gen4", "generator": "4 4", "note": "a small key whose secret is two" },
+    { "name": "07", "note": "the smallest subgroup with a secret of one" },
+    { "name": "08", "note": "the first nonce has nonzero r but zero s" },
+    { "name": "09", "note": "two consecutive nonces give r = 0" },
+    { "name": "10", "note": "two zero-r retries followed by two zero-s retries" },
+    { "name": "11", "note": "three consecutive nonzero-r nonces give s = 0" },
+    { "name": "12", "note": "secret equals the first giant-step boundary with maximal hash" },
+    { "name": "13", "note": "secret is the last baby step before a giant step" },
+    { "name": "14", "note": "largest allowed prime q with a 60-bit p and secret q - 1" },
+    { "name": "15", "note": "q and the secret cross the unsigned 32-bit boundary" },
+    { "name": "16", "note": "lowest 36-bit prime with a secret on the final giant-step boundary" },
+    { "name": "17", "generator": "3435 3", "note": "random minimum-size subgroup inside a 60-bit modulus" },
+    { "name": "18", "generator": "51 3", "note": "random 18-bit subgroup with a 53-bit modulus" },
+    { "name": "19", "generator": "52 3", "note": "random 20-bit subgroup with a hash larger than q" }
+  ]
+}
