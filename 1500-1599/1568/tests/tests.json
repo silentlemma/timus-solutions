@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1568_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other gluings are accepted too" },
+    { "name": "02", "example": true, "note": "the second example has five runs and needs three gluings" },
+    { "name": "03", "note": "one car: no gluing at all" },
+    { "name": "04", "note": "already in order" },
+    { "name": "05", "note": "nine cars reversed: nine runs need four gluings" },
+    { "name": "06", "note": "two halves swapped: one gluing" },
+    { "name": "gen1", "generator": "1 1", "note": "random order at the size limit exercises many short runs" },
+    { "name": "gen2", "generator": "2 2", "note": "fully reversed train at the size limit needs fourteen gluings" },
+    { "name": "gen3", "generator": "3 3", "note": "exactly 2^13 runs: 13 gluings" },
+    { "name": "gen4", "generator": "4 4", "note": "crossing the power-of-two boundary with 8193 runs needs fourteen gluings" },
+    { "name": "gen5", "generator": "5 5", "note": "ten shuffled cars form eight runs, including one three-car run" },
+    { "name": "07", "note": "the smallest unsorted train needs exactly one gluing" },
+    { "name": "08", "note": "one interior adjacent inversion with both ends already fixed" },
+    { "name": "09", "note": "one descent in the train still gives four inverse-position runs" },
+    { "name": "10", "note": "unequal runs with train tokens separated by tabs and line breaks" },
+    { "name": "11", "note": "only the extreme cars are exchanged around a long ordered middle" },
+    { "name": "12", "note": "four runs fit exactly in two gluings despite three local swaps" },
+    { "name": "13", "note": "three reversed blocks create five runs and require a third gluing" },
+    { "name": "14", "note": "seeded small random train mixes five singleton runs with one two-car run" },
+    { "name": "15", "note": "seeded small random train has a long interleaved middle run and short outer runs" },
+    { "name": "16", "generator": "16 6", "note": "maximum-size sorted train prints one full order and zero gluings" },
+    { "name": "17", "generator": "17 7", "note": "maximum-size interleaved halves have thousands of descents but need one gluing" },
+    { "name": "18", "generator": "18 8", "note": "maximum-size odd-then-even train has one descent but needs thirteen stable gluings" },
+    { "name": "19", "generator": "1568 9", "note": "shuffled train of 37 cars forms twenty runs and needs five gluings" }
+  ]
+}
