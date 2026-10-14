@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1589_bidirectional.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one box pushed along a corridor" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "every box already on a goal: an empty plan" },
+    { "name": "04", "note": "ragged rows with spaces outside the walls, the player starting on a goal" },
+    { "name": "05", "note": "a box on a goal walled off from the player" },
+    { "name": "06", "note": "three boxes in a cramped room, many pushes" },
+    { "name": "07", "note": "four boxes among inner walls" },
+    { "name": "08", "note": "five boxes in narrow corridors" },
+    { "name": "gen1", "generator": "1 1", "note": "a small room with one or two boxes" },
+    { "name": "gen2", "generator": "2 2", "note": "an 8 by 8 room with five boxes" },
+    { "name": "gen3", "generator": "3 3", "note": "a narrow room full of inner walls" },
+    { "name": "gen4", "generator": "4 4", "note": "an open 8 by 8 room with six boxes" },
+    { "name": "gen5", "generator": "5 5", "note": "a room of random size" },
+    { "name": "gen6", "generator": "6 6", "note": "an 8 by 8 room crowded with boxes" },
+    { "name": "gen7", "generator": "7 7", "note": "many inner walls and up to eight boxes" }
+  ]
+}
