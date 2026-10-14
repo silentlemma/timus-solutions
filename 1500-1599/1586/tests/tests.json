@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "1586_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n = 3: the 143 three-digit primes" },
+    { "name": "03", "note": "n = 5" },
+    { "name": "04", "note": "n = 6" },
+    { "name": "05", "note": "n = 7" },
+    { "name": "06", "note": "n = 100: the count wraps modulo 10^9 + 9" },
+    { "name": "07", "note": "n = 9999" },
+    { "name": "08", "note": "the largest n" }
+  ]
+}
