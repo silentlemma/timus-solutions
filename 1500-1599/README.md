@@ -89,3 +89,4 @@
 | 1582 | [Bookmakers](1582/) | math | C++, Go, Python, Java, Rust |
 | 1583 | [Cheese](1583/) | binary_search | C++, Go, Python, Java, Rust |
 | 1584 | [Pharaohs’ Secrets](1584/) | matching | C++, Go, Python, Java, Rust |
+| 1585 | [Penguins](1585/) | implementation | C++, Go, Python, Java, Rust |
