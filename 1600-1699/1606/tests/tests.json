@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1606_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other lists of four flags are accepted" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a single flag" },
+    { "name": "04", "note": "two flags, listed bottom first" },
+    { "name": "05", "note": "x grows all the way down: only the first and the last flag" },
+    { "name": "06", "note": "a perfect zigzag: every flag" },
+    { "name": "07", "note": "one turn: up to the peak, then down" },
+    { "name": "gen1", "generator": "1 1", "note": "50000 random flags" },
+    { "name": "gen2", "generator": "2 2", "note": "50000 flags in a perfect zigzag" },
+    { "name": "gen3", "generator": "3 3", "note": "x grows with every flag down the slope" },
+    { "name": "gen4", "generator": "4 4", "note": "long runs in each direction" },
+    { "name": "gen5", "generator": "5 5", "note": "a few flags" }
+  ]
+}
