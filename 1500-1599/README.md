@@ -57,3 +57,4 @@
 | 1550 | [Dean's Pyramid 3](1550/) | geometry | C++, Go, Python, Java, Rust |
 | 1551 | [Sumo Tournament](1551/) | math | C++, Go, Python, Java, Rust |
 | 1552 | [Brainfuck](1552/) | dp | C++, Go, Python, Java, Rust |
+| 1553 | [Caves and Tunnels](1553/) | trees | C++, Go, Python, Java, Rust |
