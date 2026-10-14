@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1568_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; other gluings are accepted too" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one car: no gluing at all" },
+    { "name": "04", "note": "already in order" },
+    { "name": "05", "note": "nine cars reversed: nine runs need four gluings" },
+    { "name": "06", "note": "two halves swapped: one gluing" },
+    { "name": "gen1", "generator": "1 1", "note": "10000 cars in random order" },
+    { "name": "gen2", "generator": "2 2", "note": "10000 cars reversed: 14 gluings" },
+    { "name": "gen3", "generator": "3 3", "note": "exactly 2^13 runs: 13 gluings" },
+    { "name": "gen4", "generator": "4 4", "note": "one run more: 14 gluings" },
+    { "name": "gen5", "generator": "5 5", "note": "a few cars" }
+  ]
+}
