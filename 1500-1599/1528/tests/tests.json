@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1528_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n at least p, so p divides n!" },
+    { "name": "03", "note": "the largest n with p close to 2 * 10^9" },
+    { "name": "04", "note": "n = 1 and p = 2" },
+    { "name": "05", "note": "a prime p just above n: Wilson's theorem gives 10006! = -1 modulo 10007" },
+    { "name": "gen1", "generator": "1 1", "note": "large n and p across 5000 cases" },
+    { "name": "gen2", "generator": "2 2", "note": "random pairs of n and p across 5000 cases" },
+    { "name": "gen3", "generator": "3 3", "note": "n at least p in all 5000 cases" },
+    { "name": "06", "note": "small sequence values before modular reduction is needed" },
+    { "name": "07", "note": "composite prime powers become divisors of n! even while n is below p" },
+    { "name": "08", "note": "moduli one below, equal to, and one above exact factorial values" },
+    { "name": "09", "note": "nonmonotone queries around multiples of 100 including the final block" },
+    { "name": "gen4", "generator": "1528 4", "note": "reused n values with changing small, nearby, and large moduli across 5000 random queries" }
+  ]
+}
