@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1508_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "overlapping placements force black cells and a trailing empty cell" },
+    { "name": "02", "example": true, "note": "the second example: no groups but a known black cell" },
+    { "name": "03", "note": "one cell and one group" },
+    { "name": "04", "note": "one known black cell and no groups" },
+    { "name": "05", "note": "mandatory separators leave a unique placement for three equal runs" },
+    { "name": "06", "note": "a long group whose middle is black wherever it goes" },
+    { "name": "07", "note": "no groups: every cell is empty" },
+    { "name": "08", "note": "a known black cell that either group can hold" },
+    { "name": "09", "note": "three known black cells but only two groups of one" },
+    { "name": "gen1", "generator": "1 1", "note": "dense revealed information determines every hidden cell in a sparse line" },
+    { "name": "gen2", "generator": "2 2", "note": "one spare cell leaves shifting run boundaries and forced black interiors" },
+    { "name": "gen3", "generator": "3 3", "note": "scattered fixed cells constrain numerous short runs without determining the whole line" },
+    { "name": "gen4", "generator": "4 4", "note": "a known empty cell forces the run into the only two-cell chamber" },
+    { "name": "gen5", "generator": "5 5", "note": "singleton groups cannot fill every cell because separators also need space" },
+    { "name": "gen6", "generator": "6 6", "note": "no groups in 400 unknown cells" },
+    { "name": "gen7", "generator": "7 1", "note": "partially revealed runs allow deductions while some cells remain ambiguous" },
+    { "name": "gen8", "generator": "8 2", "note": "runs and mandatory separators exactly fill an unknown line" },
+    { "name": "10", "note": "a run of length 400 occupies both boundaries with no outer separators" },
+    { "name": "11", "note": "two hundred singleton groups in 400 cells leave one spare cell and no forced colors" },
+    { "name": "12", "note": "a known empty barrier splits enough free cells into spans too short for the run" },
+    { "name": "13", "note": "unequal clues must stay in order and leave the short leading chamber empty" },
+    { "name": "14", "note": "black cells at both ends anchor unequal runs and force a long empty middle" },
+    { "name": "gen9", "generator": "20 4", "note": "seeded small random clues force later runs while two placements of the first remain" },
+    { "name": "gen10", "generator": "135 4", "note": "seeded small random input leaves a black cell assigned to either of two unequal runs" }
+  ]
+}
