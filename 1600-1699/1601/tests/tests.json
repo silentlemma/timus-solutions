@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1601_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "commas, dashes and colons do not end a sentence" },
+    { "name": "03", "note": "marks right next to letters" },
+    { "name": "04", "note": "a sentence across several lines" },
+    { "name": "05", "note": "several marks in a row" },
+    { "name": "06", "note": "empty lines and spaces before the first word" },
+    { "name": "07", "note": "a single letter" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 10000 characters of words and sentences" },
+    { "name": "gen2", "generator": "2 2", "note": "marks right after every word" },
+    { "name": "gen3", "generator": "3 3", "note": "one long sentence over many lines" },
+    { "name": "gen4", "generator": "4 4", "note": "a short message" }
+  ]
+}
