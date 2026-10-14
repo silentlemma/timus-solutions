@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1505_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: pushing one more unit through the free pipe 2 -> 3" },
+    { "name": "02", "note": "a single station, which is N itself" },
+    { "name": "03", "note": "flow only circles between two stations, so there is no well" },
+    { "name": "04", "note": "the free route pushes back the flow of pipe 2 -> 3" },
+    { "name": "05", "note": "every pipe is full, but enlarging them costs nothing" },
+    { "name": "06", "note": "two wells offer different upgrade prices on their direct pipes to the sink" },
+    { "name": "gen1", "generator": "1 1", "note": "a near-limit network mixes full and spare pipes and admits a free reverse-flow route" },
+    { "name": "gen2", "generator": "2 2", "note": "a large network with no flow, so no well" },
+    { "name": "gen3", "generator": "3 3", "note": "a large network with every pipe full and costly but a few" },
+    { "name": "gen4", "generator": "4 4", "note": "spare capacity along a three-station chain avoids every positive upgrade price" },
+    { "name": "gen5", "generator": "5 5", "note": "a chain of full pipes at maximum upgrade price makes the total cost exceed 32 bits" },
+    { "name": "gen6", "generator": "6 3", "note": "zero-cost augmentation combines reverse flow with a free upgrade despite every pipe being full" },
+    { "name": "gen7", "generator": "7 4", "note": "two wells share a four-station network with empty zero-capacity pipes and a free sink route" },
+    { "name": "07", "note": "two distinct stations and no pipes at all" },
+    { "name": "08", "note": "maximum initial capacity and flow must grow to 10001 at maximum unit price" },
+    { "name": "09", "note": "two initially empty zero-capacity pipes form the cheapest paid shortcut" },
+    { "name": "10", "note": "equal total prices on two full branches with different individual prices" },
+    { "name": "11", "note": "the only free augmentation reverses two consecutive occupied pipes" },
+    { "name": "12", "note": "a disconnected free circulation cannot supply the separate costly well route" },
+    { "name": "13", "note": "seeded small graph uses the reverse of an antiparallel pipe instead of its costly mate" },
+    { "name": "14", "note": "seeded cyclic graph has three wells competing through zero-price and spare pipes" },
+    { "name": "15", "generator": "1505 6", "note": "exactly 100000 pipes at 10000 stations with maximum-flow circulations and ten paid exits" },
+    { "name": "16", "generator": "1505 7", "note": "seeded medium network mixes overlapping directed cycles with ten producing paths" }
+  ]
+}

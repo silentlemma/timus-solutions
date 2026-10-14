@@ -9,3 +9,4 @@
 | 1502 | [Domino Dots](1502/) | math | C++, Go, Python, Java, Rust |
 | 1503 | [Polynomial](1503/) | math | C++, Go, Python, Java, Rust |
 | 1504 | [Good Manners](1504/) | geometry | C++, Go, Python, Java, Rust |
+| 1505 | [Oil Transfer](1505/) | graphs | C++, Go, Python, Java, Rust |
