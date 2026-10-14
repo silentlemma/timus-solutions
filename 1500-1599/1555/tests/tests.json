@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1555_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the first player takes the chest and leaves" },
+    { "name": "02", "example": true, "note": "the second example: the best a doomed player can do is to shoot down" },
+    { "name": "03", "note": "nobody can force anything: a draw" },
+    { "name": "04", "note": "a shot along a free line wins at once" },
+    { "name": "05", "note": "a win by walking in three turns" },
+    { "name": "06", "note": "the first move is a shot that clears the way" },
+    { "name": "07", "note": "a longer win of seven turns" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board with a few walls" },
+    { "name": "gen2", "generator": "2 2", "note": "a 6 x 6 board with 30 walls" },
+    { "name": "gen3", "generator": "3 3", "note": "a 6 x 6 board without walls" },
+    { "name": "gen4", "generator": "4 4", "note": "a 6 x 6 board walled only on the border" },
+    { "name": "gen5", "generator": "5 5", "note": "the chest next to the second player" }
+  ]
+}
