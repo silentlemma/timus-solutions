@@ -19,3 +19,4 @@
 | 1612 | [Tram Forum](1612/) | strings | C++, Go, Python, Java, Rust |
 | 1613 | [For Fans of Statistics](1613/) | binary_search | C++, Go, Python, Java, Rust |
 | 1614 | [National Project “Trams”](1614/) | constructive | C++, Go, Python, Java, Rust |
+| 1615 | [Tram Solitaire](1615/) | math | C++, Go, Python, Java, Rust |
