@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1669_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the positive sample contains all six orders of three letters" },
+    { "name": "02", "example": true, "note": "the negative sample misses bac and cab" },
+    { "name": "03", "note": "one letter" },
+    { "name": "04", "note": "two letters in a word too short for both orders" },
+    { "name": "05", "note": "two letters, aba holds both orders" },
+    { "name": "06", "note": "the zigzag over 17 letters, universal, every subset is checked" },
+    { "name": "07", "note": "the same zigzag with one letter removed" },
+    { "name": "08", "note": "a maximum-length word passes all subsets of the first seventeen letters before failing on rb" },
+    { "name": "09", "note": "the full alphabet needs more than the allowed three hundred positions" },
+    { "name": "10", "note": "a maximum-length random word on twenty-four letters fails on an early subset" },
+    { "name": "gen1", "generator": "1 1", "note": "a short random word" },
+    { "name": "gen2", "generator": "2 2", "note": "an intact eight-letter zigzag contains every order" },
+    { "name": "gen3", "generator": "3 3", "note": "fifty shuffled six-letter blocks contain all seven hundred twenty orders" },
+    { "name": "gen4", "generator": "4 4", "note": "a long random word over many letters" },
+    { "name": "gen5", "generator": "5 2", "note": "deleting an internal j from the seventeen-letter zigzag makes the full set fail" },
+    { "name": "gen6", "generator": "6 3", "note": "twenty shuffled passes over fifteen letters remain universal" },
+    { "name": "11", "note": "one-letter alphabet at the maximum word length" },
+    { "name": "12", "note": "equal letter counts at maximum length still leave no b before any a" },
+    { "name": "13", "note": "all 24 orders fit in a tight 12-letter word without a zigzag" },
+    { "name": "14", "note": "random stress sample contains exactly 23 of the 24 orders, missing bcda" },
+    { "name": "15", "note": "five sorted passes contain every five-letter order but miss fedcba" },
+    { "name": "16", "note": "maximum alphabet and highest allowed letter in a one-character word" },
+    { "name": "gen7", "generator": "1669 5", "note": "a maximum-length universal word has just one occurrence of the thirteenth letter" },
+    { "name": "gen8", "generator": "163 1", "note": "seeded five-letter random word with uneven frequencies still contains all 120 orders" }
+  ]
+}
