@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1696_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 26 of the 27 payments are allowed" },
+    { "name": "02", "note": "one robot, one salary: rust in month 2" },
+    { "name": "03", "note": "one robot: every salary works" },
+    { "name": "04", "note": "the largest n and k" },
+    { "name": "05", "note": "the largest n and k with two months a year" },
+    { "name": "06", "note": "two robots: no triple, all k^2 payments" },
+    { "name": "07", "note": "a single salary value: one payment" },
+    { "name": "08", "note": "the last month of the year after 26 distinct payments" },
+    { "name": "09", "note": "medium sizes" },
+    { "name": "10", "note": "a count divisible by thirteen wraps to the first month" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum robot and salary counts with a generated year length" },
+    { "name": "gen3", "generator": "3 3", "note": "a small p" },
+    { "name": "11", "note": "maximum length with two salary values: all 2^1000 payments are allowed" },
+    { "name": "12", "note": "three ranks at the salary limit exclude exactly one payment per three distinct values" },
+    { "name": "13", "note": "a forbidden triple can skip a rank; equal salaries still remain legal" },
+    { "name": "14", "note": "seeded six-rank case reduces the exact count modulo a power of two" },
+    { "name": "15", "generator": "68 1", "note": "seeded eight-rank case with six salaries and a square composite year length" }
+  ]
+}
