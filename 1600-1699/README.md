@@ -37,3 +37,4 @@
 | 1630 | [Talisman](1630/) | graphs | C++, Go, Python, Java, Rust |
 | 1631 | [Drunk King 2](1631/) | math | C++, Go, Python, Java, Rust |
 | 1632 | [Lasers](1632/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1633 | [Hippogriffs](1633/) | math | C++, Go, Python, Java, Rust |
