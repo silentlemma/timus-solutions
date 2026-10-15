@@ -85,3 +85,4 @@
 | 1678 | [Space Poker 3](1678/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1679 | [Scrooge's Tower](1679/) | geometry | C++, Go, Python, Java, Rust |
 | 1680 | [The First Nonqualifying](1680/) | strings | C++, Go, Python, Java, Rust |
+| 1681 | [Brother Bear's Garden](1681/) | geometry | C++, Go, Python, Java, Rust |
