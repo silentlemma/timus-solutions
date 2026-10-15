@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1726_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two members in one house" },
+    { "name": "03", "note": "two members in opposite corners" },
+    { "name": "04", "note": "a square: the average 16/6 rounds down to 2" },
+    { "name": "gen1", "generator": "1 1", "note": "a few houses on a small map" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 houses anywhere" },
+    { "name": "gen3", "generator": "3 3", "note": "100000 houses in two far corners: the largest sums" },
+    { "name": "gen4", "generator": "4 4", "note": "100000 members in one house" },
+    { "name": "gen5", "generator": "5 1", "note": "a few houses on a small map" }
+  ]
+}
