@@ -50,3 +50,4 @@
 | 1643 | [Attack of the Dark Fortress](1643/) | bfs | C++, Go, Python, Java, Rust |
 | 1644 | [A Whole Lot of Walnuts](1644/) | implementation | C++, Go, Python, Java, Rust |
 | 1645 | [Ski Race](1645/) | fenwick | C++, Go, Python, Java, Rust |
+| 1646 | [Godzilla Strikes Back!](1646/) | strings | C++, Go, Python, Java, Rust |
