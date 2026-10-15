@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1683_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any shortest sequence is accepted" },
+    { "name": "02", "note": "n = 1: no folds at all" },
+    { "name": "03", "note": "n = 2: one fold" },
+    { "name": "04", "note": "n = 3: the first fold may take only 1 cm" },
+    { "name": "05", "note": "the largest n" },
+    { "name": "06", "note": "a power of two: exact halves" },
+    { "name": "07", "note": "a power of two plus one needs one fold more" },
+    { "name": "08", "note": "n = 5" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n" },
+    { "name": "gen2", "generator": "2 2", "note": "a large n" },
+    { "name": "gen3", "generator": "3 3", "note": "a power of two or one more" },
+    { "name": "gen4", "generator": "4 2", "note": "a large n" }
+  ]
+}
