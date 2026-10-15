@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1642_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the exit behind, an obstacle ahead" },
+    { "name": "02", "example": true, "note": "the second example: an obstacle before the exit" },
+    { "name": "03", "note": "one obstacle behind, the exit ahead" },
+    { "name": "04", "note": "the farthest exit and obstacle" },
+    { "name": "05", "note": "the longest detour, to -1000 and back" },
+    { "name": "06", "note": "an obstacle ahead, nearer than the exit" },
+    { "name": "gen1", "generator": "1 1", "note": "a short line" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 100 obstacles" },
+    { "name": "gen3", "generator": "3 3", "note": "an exit that can be reached" },
+    { "name": "gen4", "generator": "4 3", "note": "a reachable negative exit with a detour to the nearest positive obstacle" },
+    { "name": "gen5", "generator": "5 1", "note": "several obstacles between the start and the exit at 10" },
+    { "name": "07", "note": "exit at -1 with unsorted near and far obstacles on both sides" },
+    { "name": "08", "note": "a hundred obstacles all behind the farthest positive exit, nearest obstacle last" },
+    { "name": "09", "note": "obstacles at -1 and 1 form the shortest trap with the exit at -1000" }
+  ]
+}
