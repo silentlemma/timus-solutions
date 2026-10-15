@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1627_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: four ways to join a square" },
+    { "name": "02", "example": true, "note": "the second example: the bedrooms only touch at corners" },
+    { "name": "03", "note": "a single bedroom: one way, with no doors" },
+    { "name": "04", "note": "a ring of eight rooms: drop any one of its eight doors" },
+    { "name": "05", "note": "a single row: one way" },
+    { "name": "06", "note": "the full 9 x 9 house: the count taken modulo 10^9" },
+    { "name": "07", "note": "one bedroom among pantries" },
+    { "name": "gen1", "generator": "1 1", "note": "a random house with a few pantries" },
+    { "name": "gen2", "generator": "2 2", "note": "the full 9 x 9 house" },
+    { "name": "gen3", "generator": "3 3", "note": "many pantries, often splitting the bedrooms" },
+    { "name": "gen4", "generator": "4 4", "note": "a single row or column" },
+    { "name": "gen5", "generator": "5 1", "note": "a random house with a few pantries" },
+    { "name": "gen6", "generator": "6 3", "note": "many pantries" }
+  ]
+}
