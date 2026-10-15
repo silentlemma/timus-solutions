@@ -24,3 +24,4 @@
 | 1717 | [Eligibility Rules](1717/) | segment_tree | C++, Go, Python, Java, Rust |
 | 1718 | [Rejudge](1718/) | implementation | C++, Go, Python, Java, Rust |
 | 1719 | [Kill the Shaitan-Boss](1719/) | geometry | C++, Go, Python, Java, Rust |
+| 1720 | [Summit Online Judge](1720/) | math | C++, Go, Python, Java, Rust |
