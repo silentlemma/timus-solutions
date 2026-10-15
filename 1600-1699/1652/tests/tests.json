@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1652_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample combines domestic debt transfers with purchases from foreign creditors" },
+    { "name": "02", "note": "no contracts at all" },
+    { "name": "03", "note": "two banks lending to each other" },
+    { "name": "04", "note": "the only debt is owed by the one bank rich enough to buy it" },
+    { "name": "05", "note": "a bank in a singleton country cannot benefit from two domestic contracts elsewhere" },
+    { "name": "06", "note": "selling the affordable debt lets its creditor keep the debt that exceeds every bank's cash" },
+    { "name": "gen1", "generator": "1 1", "note": "domestic creditors keep unaffordable debts without buying them" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum bank and contract counts in a single country" },
+    { "name": "gen3", "generator": "3 3", "note": "rich banks and few debts" },
+    { "name": "gen4", "generator": "4 4", "note": "poor banks and expensive debts" },
+    { "name": "gen5", "generator": "5 5", "note": "every bank lends exactly once" },
+    { "name": "gen6", "generator": "6 6", "note": "all contracts are owed by just three banks" },
+    { "name": "gen7", "generator": "7 7", "note": "ten lenders and few affordable debts" },
+    { "name": "gen8", "generator": "8 7", "note": "few cheap contracts let additional banks qualify alongside the ten original lenders" },
+    { "name": "07", "note": "a zero-price debt held abroad can be bought by a penniless domestic bank" },
+    { "name": "08", "note": "funds at the billion-unit limit cover a debt that one unit less cannot buy" },
+    { "name": "09", "note": "selling a foreign debt cannot finance a later domestic purchase" },
+    { "name": "10", "note": "identical contracts remain distinct assets rather than one merged debt" },
+    { "name": "11", "note": "two previous holders must move to alternative debts along an augmenting chain" },
+    { "name": "12", "note": "all 100 countries have one bank, so even free foreign debts cannot help" },
+    { "name": "13", "note": "a thousand penniless banks share ten thousand free contracts, leaving the sole debtor ineligible" },
+    { "name": "14", "note": "seeded random market with independent country totals of zero, two, and three" },
+    { "name": "15", "note": "seeded random market saturating four domestic banks while two singleton countries contribute nothing" }
+  ]
+}
