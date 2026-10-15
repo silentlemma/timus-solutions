@@ -82,3 +82,4 @@
 | 1675 | [Lunar Code 2](1675/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1676 | [Mortal Kombat](1676/) | matching | C++, Go, Python, Java, Rust |
 | 1677 | [Monkey at the Keyboard](1677/) | strings | C++, Go, Python, Java, Rust |
+| 1678 | [Space Poker 3](1678/) | combinatorics | C++, Go, Python, Java, Rust |

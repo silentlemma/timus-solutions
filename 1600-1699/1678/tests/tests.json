@@ -1,0 +1,30 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1678_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "distinct private ranks with a pair as the only combination and no common cards shown" },
+    { "name": "02", "example": true, "note": "seven distinct ranks versus a more valuable four of a kind with all common cards shown" },
+    { "name": "03", "note": "the largest hands, 100 combinations, nothing shown" },
+    { "name": "04", "note": "every common card shown and no combination reachable" },
+    { "name": "05", "note": "ten distinct ranks against pairs and threes" },
+    { "name": "06", "note": "the smallest hands with the only combination nearly certain" },
+    { "name": "gen1", "generator": "1 1", "note": "small hands and few combinations" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum private and common card counts with one opponent and nothing shown" },
+    { "name": "gen3", "generator": "3 3", "note": "a shown pair and two singletons leave one common card hidden" },
+    { "name": "gen4", "generator": "4 4", "note": "combinations of one rank only" },
+    { "name": "gen5", "generator": "5 2", "note": "five rivals share a fully hidden table while the private hand starts with two pairs" },
+    { "name": "gen6", "generator": "6 3", "note": "three distinct shown ranks leave two common cards hidden" },
+    { "name": "07", "note": "a single-card combination is held by everyone, so every deal ties" },
+    { "name": "08", "note": "the shown pair forces a top-combination tie despite our private triple" },
+    { "name": "09", "note": "unsorted demands fit two triples because required counts are lower bounds" },
+    { "name": "10", "note": "one triple cannot supply two distinct pair ranks while a lower pair can win" },
+    { "name": "11", "note": "the declared order makes two distinct ranks more valuable than a triple" },
+    { "name": "12", "note": "all nine rivals must be strictly below our pair, including no tied pair" },
+    { "name": "13", "note": "two hidden common cards jointly change our score and both rivals' chances" },
+    { "name": "14", "note": "a maximum-size hand holds all thirteen distinct ranks with two extra cards" },
+    { "name": "15", "note": "maximum players, cards and 100 combinations, with the winning rule last" },
+    { "name": "16", "note": "a seeded stress case needs the hidden card to introduce a third rank for the two-plus-one-plus-one pattern" },
+    { "name": "gen7", "generator": "7 1", "note": "seeded small random deal where hidden cards can unlock triples or four of a kind" },
+    { "name": "gen8", "generator": "9 1", "note": "seeded four-card random hand with an expensive four-plus-one rank pattern" }
+  ]
+}
