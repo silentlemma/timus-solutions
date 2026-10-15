@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1692_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid set of flags is accepted" },
+    { "name": "02", "note": "the fewest colors: three flags" },
+    { "name": "03", "note": "n = 6 = 4 * 3 / 2: four flags use every color" },
+    { "name": "04", "note": "n = 7: a color is left over" },
+    { "name": "05", "note": "the most colors: 45 flags" },
+    { "name": "06", "note": "n = 990 = 45 * 44 / 2 exactly" },
+    { "name": "07", "note": "n = 989: one color short of 45 flags" },
+    { "name": "08", "note": "n = 5" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n" },
+    { "name": "gen2", "generator": "2 2", "note": "any n" },
+    { "name": "gen3", "generator": "3 3", "note": "n at a triangular number or just below" },
+    { "name": "gen4", "generator": "4 3", "note": "n at a triangular number or just below" }
+  ]
+}
