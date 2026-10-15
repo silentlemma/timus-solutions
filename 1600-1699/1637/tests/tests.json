@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1637_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a translation, two reflections" },
+    { "name": "02", "note": "the piece already lies on the triangle" },
+    { "name": "03", "note": "the same place with the corners listed in another order" },
+    { "name": "04", "note": "one reflection through a corner that stays put" },
+    { "name": "05", "note": "a glide reflection of a scalene triangle needs three" },
+    { "name": "06", "note": "a piece of another size" },
+    { "name": "07", "note": "a glide of an isosceles triangle is also a half turn: two" },
+    { "name": "08", "note": "coordinates at the limits; a single mirror fits" },
+    { "name": "gen1", "generator": "1 1", "note": "a random lattice isometry" },
+    { "name": "gen2", "generator": "2 2", "note": "a single reflection" },
+    { "name": "gen3", "generator": "3 3", "note": "a glide reflection" },
+    { "name": "gen4", "generator": "4 4", "note": "a rotation and a translation" },
+    { "name": "gen5", "generator": "5 5", "note": "one coordinate off: impossible" },
+    { "name": "gen6", "generator": "6 6", "note": "an isosceles right triangle" },
+    { "name": "gen7", "generator": "7 6", "note": "an isosceles right triangle" }
+  ]
+}
