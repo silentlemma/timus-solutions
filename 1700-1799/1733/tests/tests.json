@@ -1,0 +1,20 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1733_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the disk sticks out on the far side: around two corners" },
+    { "name": "03", "note": "the disk centered on a corner of the book" },
+    { "name": "04", "note": "the disk sticks out in the middle of every side" },
+    { "name": "05", "note": "the mouse on the line of a side, the disk reached at its touching point" },
+    { "name": "06", "note": "the largest book and a tiny disk at the opposite corner" },
+    { "name": "07", "note": "a disk seen straight on the near side, but shorter around a corner to the far side" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "coordinates up to 1000" },
+    { "name": "gen3", "generator": "3 3", "note": "a book with sides along the axes" },
+    { "name": "gen4", "generator": "4 4", "note": "the disk centered on a corner" },
+    { "name": "gen5", "generator": "5 5", "note": "the mouse behind the book" },
+    { "name": "gen6", "generator": "6 5", "note": "the mouse behind the book" },
+    { "name": "gen7", "generator": "7 1", "note": "small coordinates" }
+  ]
+}
