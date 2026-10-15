@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1735_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "twenty bags with just enough bars" },
+    { "name": "03", "note": "twenty bags with one bar too few" },
+    { "name": "04", "note": "three bags of three bars: NO" },
+    { "name": "05", "note": "three bags of four bars: 1, 2, 4 or the like" },
+    { "name": "06", "note": "ten bags with plenty of bars" },
+    { "name": "07", "note": "capacity below the ten-bag construction with the heaviest metal weights" },
+    { "name": "08", "note": "exact capacity for nine bags with a four-kilogram weight gap" },
+    { "name": "gen1", "generator": "1", "note": "seven bags with capacity 45 and a five-kilogram weight gap" },
+    { "name": "gen2", "generator": "2", "note": "four bags with distinct counts available but no valid weighing" },
+    { "name": "gen3", "generator": "3", "note": "one spare bar for ten bags with adjacent metal weights" },
+    { "name": "gen4", "generator": "4", "note": "a seven-kilogram metal weight gap cannot overcome insufficient capacity" },
+    { "name": "09", "note": "minimum capacity: a zero count cannot rescue three one-bar bags" },
+    { "name": "10", "note": "maximum bag count and capacity with the two heaviest metals" },
+    { "name": "11", "note": "four bags just below feasibility, proved by exhaustive search" },
+    { "name": "12", "note": "first compact construction that beats powers of two" },
+    { "name": "13", "note": "five bags: distinct counts alone do not prevent subset collisions" },
+    { "name": "14", "note": "six bags one below the exhaustively verified minimum" },
+    { "name": "15", "note": "enough distinct counts but too few possible total weights for twenty bags" },
+    { "name": "16", "note": "capacity exactly equal to the largest count of a binary construction" },
+    { "name": "gen5", "generator": "6", "note": "seeded five-bag case at exact capacity with adjacent metal weights" },
+    { "name": "gen6", "generator": "14", "note": "seeded six-bag case with one spare bar and maximum gold weight" },
+    { "name": "gen7", "generator": "54", "note": "seeded seven-bag tight construction distinguishes all 128 subsets" }
+  ]
+}
