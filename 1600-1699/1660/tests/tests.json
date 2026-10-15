@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1660_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six circles close the ring exactly" },
+    { "name": "02", "note": "concentric circles with the thinnest ring, hundreds of circles" },
+    { "name": "03", "note": "a crescent as thin as the integers allow" },
+    { "name": "04", "note": "a tiny inner circle next to the outer one" },
+    { "name": "05", "note": "a ring that closes exactly although the centres differ" },
+    { "name": "06", "note": "only two circles fit, so they touch" },
+    { "name": "07", "note": "a ring that only just fails to close" },
+    { "name": "gen1", "generator": "1 1", "note": "moderately offset circles leave a positive gap after eight insertions" },
+    { "name": "gen2", "generator": "2 2", "note": "a concentric four-circle chain stops short of closure" },
+    { "name": "gen3", "generator": "3 3", "note": "a unit minimum clearance accommodates twenty-one circles" },
+    { "name": "gen4", "generator": "4 4", "note": "a small eccentric ring fits three circles without closing" },
+    { "name": "gen5", "generator": "5 1", "note": "a large offset leaves unit clearance and a long chain" },
+    { "name": "gen6", "generator": "6 3", "note": "a nearly closed ninety-five-circle chain in a thin eccentric ring" },
+    { "name": "08", "note": "smallest legal outer radius, with a positive gap" },
+    { "name": "09", "note": "three circles still fit just below the concentric two-circle threshold" },
+    { "name": "10", "note": "an eccentric chain of exactly three circles closes with zero gap" },
+    { "name": "11", "note": "maximum outer radius with three circles at a large offset" },
+    { "name": "12", "note": "one more unit of offset than case 11 permits a fourth circle" },
+    { "name": "13", "note": "random stress case one unit beyond the exactly closed six-circle configuration" },
+    { "name": "14", "note": "a nearly concentric maximum-size ring has a large positive gap" },
+    { "name": "15", "note": "random stress case whose five-circle chain leaves a gap larger than the inner radius" },
+    { "name": "16", "generator": "53 1", "note": "seeded general case with seven circles and a moderate eccentricity" },
+    { "name": "17", "generator": "39 4", "note": "seeded small case with ten circles and a nonzero terminal gap" }
+  ]
+}

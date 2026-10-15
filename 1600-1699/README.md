@@ -64,3 +64,4 @@
 | 1657 | [Cube Snake](1657/) | backtracking | C++, Go, Python, Java, Rust |
 | 1658 | [Sum of Digits](1658/) | dp | C++, Go, Python, Java, Rust |
 | 1659 | [Regular Triangles](1659/) | geometry | C++, Go, Python, Java, Rust |
+| 1660 | [The Island of Bad Luck](1660/) | geometry | C++, Go, Python, Java, Rust |
