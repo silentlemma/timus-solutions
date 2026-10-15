@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "1647_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a right isosceles triangle" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "an isosceles triangle as large as allowed" },
+    { "name": "04", "note": "a very flat triangle" },
+    { "name": "05", "note": "the 3-4-5 right triangle" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "coordinates up to 2000" },
+    { "name": "gen3", "generator": "3 3", "note": "a long thin triangle" },
+    { "name": "gen4", "generator": "4 2", "note": "coordinates up to 2000" }
+  ]
+}
