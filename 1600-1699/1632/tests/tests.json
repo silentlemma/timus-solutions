@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1632_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: four lasers around a square, each above the next" },
+    { "name": "02", "note": "a single laser and no pairs" },
+    { "name": "03", "note": "a rising laser crossed by a flat one that must pass above it" },
+    { "name": "gen1", "generator": "1 1", "note": "a few lasers and some of their crossings" },
+    { "name": "gen2", "generator": "2 2", "note": "100 lasers and every crossing on the rays" },
+    { "name": "gen3", "generator": "3 3", "note": "steep lasers with heights close together" },
+    { "name": "gen4", "generator": "4 4", "note": "heights piled up along the lasers" },
+    { "name": "gen5", "generator": "5 5", "note": "every crossing of the full lines, 10000 pairs" },
+    { "name": "gen6", "generator": "6 1", "note": "a few lasers and some of their crossings" },
+    { "name": "gen7", "generator": "7 3", "note": "steep lasers with heights close together" },
+    { "name": "gen8", "generator": "8 5", "note": "every crossing of the full lines, 10000 pairs" }
+  ]
+}
