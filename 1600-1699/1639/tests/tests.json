@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1639_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: seven breaks" },
+    { "name": "02", "example": true, "note": "the second example: two breaks" },
+    { "name": "03", "note": "a single piece: no move at all" },
+    { "name": "04", "note": "the largest bar, an even number of pieces" },
+    { "name": "05", "note": "both sides odd" },
+    { "name": "06", "note": "one break wins at once" },
+    { "name": "gen1", "generator": "1", "note": "a random bar" },
+    { "name": "gen2", "generator": "2", "note": "unequal even sides give an odd number of breaks" },
+    { "name": "gen3", "generator": "3", "note": "a larger even-by-even bar is a first-player win" },
+    { "name": "07", "note": "a single row at the maximum length needs an odd number of breaks" },
+    { "name": "08", "note": "a long odd single column needs an even number of breaks" },
+    { "name": "09", "note": "near-maximum mixed dimensions win with only the second side even" },
+    { "name": "10", "note": "the smallest mixed-parity rectangle allows breaks in both directions" },
+    { "name": "gen4", "generator": "5", "note": "a seeded interior rectangle has only its first side even" }
+  ]
+}
