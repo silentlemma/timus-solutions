@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1676_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: no assignment at all" },
+    { "name": "03", "note": "one monster, one fighter who wins" },
+    { "name": "04", "note": "one monster nobody beats" },
+    { "name": "05", "note": "two monsters swap two fighters, a third fighter useless" },
+    { "name": "06", "note": "two separate pairs of choices" },
+    { "name": "07", "note": "a staircase where everything is forced" },
+    { "name": "gen1", "generator": "1 1", "note": "small and random" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum dimensions with sparse random winning pairs" },
+    { "name": "gen3", "generator": "3 3", "note": "a shuffled staircase" },
+    { "name": "gen4", "generator": "4 4", "note": "one to three winning fighters per monster at maximum dimensions" },
+    { "name": "gen5", "generator": "5 5", "note": "closed groups of fighters" },
+    { "name": "gen6", "generator": "6 2", "note": "dense random choices with many spare fighters" },
+    { "name": "gen7", "generator": "7 1", "note": "overlapping choices with one spare fighter" },
+    { "name": "08", "note": "one monster at maximum width, only fighter 1500 wins" },
+    { "name": "09", "note": "four-way alternating cycle needs a full rotation with no spare fighter" },
+    { "name": "10", "note": "two exchange cycles joined by a one-way winning edge that cannot be used" },
+    { "name": "11", "note": "five-monster exchange chain reaches a spare fighter, with a useless column" },
+    { "name": "12", "note": "a spare fighter helps one component but cannot release a tight pair through an incoming edge" },
+    { "name": "13", "note": "three monsters share only two fighters although every row and column is nonempty" },
+    { "name": "14", "note": "seeded irregular graph has six forbidden winning edges despite every monster having alternatives" },
+    { "name": "15", "generator": "1676 6", "note": "maximum 300 x 1500 complete graph, every first fight can be extended" },
+    { "name": "16", "generator": "1676 7", "note": "maximum shuffled 300-monster chain can move all the way to one spare fighter" },
+    { "name": "17", "generator": "1676 8", "note": "maximum seeded graph hides 30 monsters behind 29 fighters without empty rows or columns" }
+  ]
+}
