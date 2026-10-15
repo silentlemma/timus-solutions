@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1687_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any largest set of boxes is accepted" },
+    { "name": "02", "note": "no box holds a wanted coin: nothing is bought" },
+    { "name": "03", "note": "three boxes for three coins though a matching covers only two" },
+    { "name": "04", "note": "boxes without wanted coins are left out" },
+    { "name": "05", "note": "one wanted coin in every box: one box" },
+    { "name": "gen1", "generator": "1 1", "note": "small random boxes" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes" },
+    { "name": "gen3", "generator": "3 3", "note": "more useful boxes than coverable coins" },
+    { "name": "gen4", "generator": "4 4", "note": "boxes holding many coins" },
+    { "name": "gen5", "generator": "5 5", "note": "wanted coins missing from every box" },
+    { "name": "gen6", "generator": "6 3", "note": "more useful boxes than coverable coins" }
+  ]
+}
