@@ -33,3 +33,4 @@
 | 1726 | [Visits](1726/) | sorting | C++, Go, Python, Java, Rust |
 | 1727 | [Znaika's Magic Numbers](1727/) | greedy | C++, Go, Python, Java, Rust |
 | 1728 | [Curse on Team.GOV](1728/) | implementation | C++, Go, Python, Java, Rust |
+| 1729 | [Dead Man's Chest](1729/) | geometry | C++, Go, Python, Java, Rust |
