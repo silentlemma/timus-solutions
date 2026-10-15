@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "1685_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one character" },
+    { "name": "04", "note": "two characters: the middle is the first one" },
+    { "name": "05", "note": "double spaces inside the text" },
+    { "name": "06", "note": "punctuation of several kinds" },
+    { "name": "gen1", "generator": "1 1", "note": "a short text" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest text" },
+    { "name": "gen3", "generator": "3 3", "note": "spaces at both ends of the text" },
+    { "name": "gen4", "generator": "4 4", "note": "runs of one letter" },
+    { "name": "gen5", "generator": "5 3", "note": "spaces at both ends of the text" }
+  ]
+}
