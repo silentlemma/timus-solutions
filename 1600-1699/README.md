@@ -62,3 +62,4 @@
 | 1655 | [Somali Pirates](1655/) | dp | C++, Go, Python, Java, Rust |
 | 1656 | [Far Away Kingdom's Army](1656/) | constructive | C++, Go, Python, Java, Rust |
 | 1657 | [Cube Snake](1657/) | backtracking | C++, Go, Python, Java, Rust |
+| 1658 | [Sum of Digits](1658/) | dp | C++, Go, Python, Java, Rust |

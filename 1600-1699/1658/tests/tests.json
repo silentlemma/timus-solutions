@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1658_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the edges: a single 1, a hundred nines, one more than that, the largest input, a hundred ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a few queries from real numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "ten thousand queries from numbers of up to 100 digits" },
+    { "name": "gen3", "generator": "3 3", "note": "ten thousand queries anywhere in the range" },
+    { "name": "gen4", "generator": "4 2", "note": "single-digit sums mixed with sums from long random numbers" },
+    { "name": "03", "note": "one query with equal-length alternatives 144 and 225; choose the smaller number" },
+    { "name": "04", "note": "minimize length before lexicographic order, then reconstruct nontrivial digit mixtures" },
+    { "name": "05", "note": "impossible inequalities and values just beyond the digit-sum and square-sum table bounds" },
+    { "name": "06", "note": "parity mismatches and unattainable interior pairs interleaved with reachable neighbors" },
+    { "name": "07", "note": "mixed digits need 99, 100, or 101 positions, plus near-maximum sums with eights and nines" },
+    { "name": "08", "note": "minimum lengths around 255 and 512 must not wrap the byte table or its sentinel" },
+    { "name": "gen5", "generator": "1658 4", "note": "distinct seeded random pairs concentrated on small sums and interior gaps" }
+  ]
+}
