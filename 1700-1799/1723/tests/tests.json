@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1723_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single letter" },
+    { "name": "03", "note": "aba is strong too, but a single a is stronger" },
+    { "name": "04", "note": "the most frequent letter comes later" },
+    { "name": "05", "note": "u and e tie" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 50 letters over a few letters" },
+    { "name": "gen2", "generator": "2 2", "note": "50 letters over the whole alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "one letter repeated 50 times" }
+  ]
+}
