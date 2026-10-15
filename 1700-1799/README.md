@@ -20,3 +20,4 @@
 | 1713 | [Key Substrings](1713/) | strings | C++, Go, Python, Java, Rust |
 | 1714 | [Mnemonics and Palindromes 2](1714/) | constructive | C++, Go, Python, Java, Rust |
 | 1715 | [Another Ball Killer](1715/) | simulation | C++, Go, Python, Java, Rust |
+| 1716 | [Alternative Solution](1716/) | probability | C++, Go, Python, Java, Rust |
