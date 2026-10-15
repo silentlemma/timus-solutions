@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1710_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the angle at A is obtuse" },
+    { "name": "02", "example": true, "note": "the second example: a second triangle exists" },
+    { "name": "03", "note": "a right angle at C: the circle touches the line AC" },
+    { "name": "04", "note": "the angle at A is obtuse" },
+    { "name": "05", "note": "the largest coordinates" },
+    { "name": "06", "note": "the largest coordinates, a second triangle" },
+    { "name": "07", "note": "AB . AC = |AC|^2 exactly: the other point is C itself" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "the full range" },
+    { "name": "gen3", "generator": "3 3", "note": "near the touching case" },
+    { "name": "gen4", "generator": "4 2", "note": "the full range" }
+  ]
+}
