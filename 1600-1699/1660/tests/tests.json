@@ -1,0 +1,19 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1660_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six circles close the ring exactly" },
+    { "name": "02", "note": "concentric circles with the thinnest ring, hundreds of circles" },
+    { "name": "03", "note": "a crescent as thin as the integers allow" },
+    { "name": "04", "note": "a tiny inner circle next to the outer one" },
+    { "name": "05", "note": "a ring that closes exactly although the centres differ" },
+    { "name": "06", "note": "only two circles fit, so they touch" },
+    { "name": "07", "note": "a ring that only just fails to close" },
+    { "name": "gen1", "generator": "1 1", "note": "any valid circles" },
+    { "name": "gen2", "generator": "2 2", "note": "concentric circles" },
+    { "name": "gen3", "generator": "3 3", "note": "the thinnest ring for random R and d" },
+    { "name": "gen4", "generator": "4 4", "note": "small numbers" },
+    { "name": "gen5", "generator": "5 1", "note": "any valid circles" },
+    { "name": "gen6", "generator": "6 3", "note": "the thinnest ring for random R and d" }
+  ]
+}
