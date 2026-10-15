@@ -22,3 +22,4 @@
 | 1715 | [Another Ball Killer](1715/) | simulation | C++, Go, Python, Java, Rust |
 | 1716 | [Alternative Solution](1716/) | probability | C++, Go, Python, Java, Rust |
 | 1717 | [Eligibility Rules](1717/) | segment_tree | C++, Go, Python, Java, Rust |
+| 1718 | [Rejudge](1718/) | implementation | C++, Go, Python, Java, Rust |
