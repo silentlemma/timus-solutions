@@ -1,0 +1,14 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1631_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 49 moves, 15 of them diagonal" },
+    { "name": "02", "note": "the largest board" },
+    { "name": "03", "note": "the narrowest and the longest side" },
+    { "name": "04", "note": "the same board turned" },
+    { "name": "05", "note": "different small sides" },
+    { "name": "gen1", "generator": "1", "note": "random odd sides" },
+    { "name": "gen2", "generator": "2", "note": "random odd sides" },
+    { "name": "gen3", "generator": "3", "note": "random odd sides" }
+  ]
+}
