@@ -35,3 +35,4 @@
 | 1628 | [White Streaks](1628/) | implementation | C++, Go, Python, Java, Rust |
 | 1629 | [Trip](1629/) | simulation | C++, Go, Python, Java, Rust |
 | 1630 | [Talisman](1630/) | graphs | C++, Go, Python, Java, Rust |
+| 1631 | [Drunk King 2](1631/) | math | C++, Go, Python, Java, Rust |
