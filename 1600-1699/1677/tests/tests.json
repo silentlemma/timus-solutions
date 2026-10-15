@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "1677_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "equal adjacent letters add a one-letter border contribution" },
+    { "name": "02", "example": true, "note": "distinct adjacent letters leave only the full-word contribution" },
+    { "name": "03", "note": "one-letter alphabet: the time is the length" },
+    { "name": "04", "note": "borders of lengths 2, 5 and 8" },
+    { "name": "05", "note": "maximum repeated word over 26 letters gives a 42450-digit answer" },
+    { "name": "06", "note": "ab repeated, every even length a border" },
+    { "name": "gen1", "generator": "1 1", "note": "a short word" },
+    { "name": "gen2", "generator": "2 2", "note": "a long random word" },
+    { "name": "gen3", "generator": "3 3", "note": "a repeated short pattern" },
+    { "name": "gen4", "generator": "4 4", "note": "one letter repeated" },
+    { "name": "gen5", "generator": "5 3", "note": "an incomplete final repetition leaves borders spaced three letters apart" },
+    { "name": "gen6", "generator": "6 1", "note": "a short borderless word with the full alphabet available" },
+    { "name": "07", "note": "minimum alphabet and minimum word length: one second" },
+    { "name": "08", "note": "one last-alphabet letter: unused letters still affect the probability" },
+    { "name": "09", "note": "every allowed letter exactly once, with no proper border" },
+    { "name": "10", "note": "one-letter border adds two beyond 2^64, exposing overflow and rounding" },
+    { "name": "11", "note": "decimal alphabet gives zero-filled blocks between the full word and its border" },
+    { "name": "12", "note": "seeded small word with unequal gaps between successive nested borders" },
+    { "name": "13", "note": "seeded internal prefix repetition must not be counted as a suffix border" },
+    { "name": "14", "note": "maximum word loses every partial match on its final letter" },
+    { "name": "15", "note": "length 29999 has only a one-letter proper border and a huge exact answer" },
+    { "name": "16", "generator": "6 2", "note": "maximum random word over all 26 letters has no proper border" },
+    { "name": "17", "generator": "60 2", "note": "maximum random word over ten letters exercises long decimal zero runs" },
+    { "name": "18", "note": "maximum word with a deterministic alphabet takes exactly 30000 seconds" }
+  ]
+}
