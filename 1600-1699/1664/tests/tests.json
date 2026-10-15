@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1664_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nearly parallel source pipes with an exact cross product of one in magnitude" },
+    { "name": "03", "note": "two stations and one pipe, given from the sink to the source" },
+    { "name": "04", "note": "a separate triangle inside a face and a dangling branch, both with no flow" },
+    { "name": "gen1", "generator": "1 1", "note": "a small grid" },
+    { "name": "gen2", "generator": "2 2", "note": "about 10000 stations" },
+    { "name": "gen3", "generator": "3 3", "note": "a long thin strip across the whole coordinate range" },
+    { "name": "gen4", "generator": "4 4", "note": "a medium grid with large capacities" },
+    { "name": "gen5", "generator": "5 1", "note": "a sparse grid whose central station has eight incident pipes" },
+    { "name": "gen6", "generator": "6 4", "note": "large capacities in a grid with shuffled and reversed pipe descriptions" },
+    { "name": "gen7", "generator": "7 5", "note": "about 10000 stations in a full triangulated grid, nearly 30000 pipes" },
+    { "name": "05", "note": "collinear stations with opposite rays and a unit internal bottleneck" },
+    { "name": "06", "note": "two cyclic blocks joined by a bridge that is the unique minimum cut" },
+    { "name": "07", "note": "the only source to sink route must carry positive flow towards smaller x" },
+    { "name": "08", "note": "an interior station has pipes on all four coordinate axes" },
+    { "name": "09", "note": "a direct terminal pipe and two equal bypasses give several equal minimum cuts" },
+    { "name": "10", "note": "nearly indistinguishable southwest rays at a transit station have cross product one" },
+    { "name": "11", "note": "a tempting augmenting route must be cancelled to obtain both units of flow" },
+    { "name": "12", "note": "a retained random planar graph has a two-unit cut amid large unused capacities" },
+    { "name": "13", "note": "a retained random planar graph combines unit pipes and flow above one pipe capacity" },
+    { "name": "gen8", "generator": "1664 6", "note": "exactly 10000 stations on a zigzag tree with shuffled reversed pipes" },
+    { "name": "gen9", "generator": "1664 7", "note": "twenty independent maximum-capacity routes attain the allowed flow limit of two billion" },
+    { "name": "gen10", "generator": "1664 8", "note": "a seeded convex polygon fan has a station of degree 159 and mixed capacities" }
+  ]
+}
