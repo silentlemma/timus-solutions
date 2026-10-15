@@ -88,3 +88,4 @@
 | 1681 | [Brother Bear's Garden](1681/) | geometry | C++, Go, Python, Java, Rust |
 | 1682 | [Crazy Professor](1682/) | dsu | C++, Go, Python, Java, Rust |
 | 1683 | [Fridge](1683/) | greedy | C++, Go, Python, Java, Rust |
+| 1684 | [Jack's Last Word](1684/) | strings | C++, Go, Python, Java, Rust |
