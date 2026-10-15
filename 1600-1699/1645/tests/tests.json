@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1645_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single skier" },
+    { "name": "03", "note": "finishing in the starting order: nothing is decided" },
+    { "name": "04", "note": "finishing in reverse order: every place is known" },
+    { "name": "gen1", "generator": "1 1", "note": "a few skiers" },
+    { "name": "gen2", "generator": "2 2", "note": "a field of 2000 skiers in random order" },
+    { "name": "gen3", "generator": "3 3", "note": "a field of 2000 skiers almost in the starting order" },
+    { "name": "gen4", "generator": "4 1", "note": "the last starter finishes first in a mixed four-skier order" },
+    { "name": "05", "note": "the first starter finishes last while all later starters remain in order" },
+    { "name": "06", "note": "alternating late and early starters gives both forced faster and forced slower opponents" },
+    { "name": "07", "note": "a reversed middle group has constrained ranks while the two endpoint starters stay unrestricted" },
+    { "name": "08", "note": "exchanging only the endpoint starters among 2000 skiers fixes the extreme ranks" },
+    { "name": "gen5", "generator": "1645 4", "note": "a field of 2000 skiers with random overtakes inside ordered blocks and no overtakes between blocks" }
+  ]
+}
