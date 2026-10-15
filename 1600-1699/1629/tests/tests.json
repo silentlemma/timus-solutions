@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1629_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a departure exactly at the arrival time" },
+    { "name": "03", "note": "two cities, no delay and an instant flight" },
+    { "name": "04", "note": "the largest delay and flight time push arrival to the start of the fourth day" },
+    { "name": "05", "note": "the midnight flight is missed by a few minutes, forcing a wait until the next midnight" },
+    { "name": "06", "note": "yesterday's late flight does not count: the delayed 23:00 leaves at 25:00" },
+    { "name": "gen1", "generator": "1 1", "note": "a short random route" },
+    { "name": "gen2", "generator": "2 2", "note": "all 100 cities with near-maximum delays and flight times" },
+    { "name": "gen3", "generator": "3 3", "note": "flights around midnight" },
+    { "name": "gen4", "generator": "4 1", "note": "another short random route" },
+    { "name": "gen5", "generator": "5 3", "note": "more flights around midnight" },
+    { "name": "07", "note": "ten unsorted departures with the earliest in the middle of the list" },
+    { "name": "08", "note": "connections one minute before and after arrival reject just-missed departures" },
+    { "name": "09", "note": "zero-duration transfers all catch the same midnight with different delays" },
+    { "name": "10", "note": "today's delayed evening flight beats tomorrow's scheduled morning flight" },
+    { "name": "11", "note": "seeded small route with three long waits and near-day and tiny delays" },
+    { "name": "12", "note": "seeded multi-day route ends with a zero-duration flight selected from four departures" },
+    { "name": "gen6", "generator": "162906 4", "note": "maximum 990 schedule entries with distinct unsorted random departure times" },
+    { "name": "gen7", "generator": "162907 5", "note": "maximum trip length with 1439-minute flights and every later connection missed by one minute" }
+  ]
+}
