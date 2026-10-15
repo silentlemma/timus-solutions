@@ -32,3 +32,4 @@
 | 1725 | [Sold Out!](1725/) | math | C++, Go, Python, Java, Rust |
 | 1726 | [Visits](1726/) | sorting | C++, Go, Python, Java, Rust |
 | 1727 | [Znaika's Magic Numbers](1727/) | greedy | C++, Go, Python, Java, Rust |
+| 1728 | [Curse on Team.GOV](1728/) | implementation | C++, Go, Python, Java, Rust |
