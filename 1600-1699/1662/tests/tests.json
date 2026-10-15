@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1662_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a unit square with several valid stake positions" },
+    { "name": "02", "example": true, "note": "the second example: no place for the stake" },
+    { "name": "03", "note": "the only place is where the three circles of radius R meet" },
+    { "name": "04", "note": "the only place is exactly r from an edge and exactly R from a vertex" },
+    { "name": "05", "note": "fifty vertices, a place exists" },
+    { "name": "06", "note": "fifty vertices, the kid's rope is far too long" },
+    { "name": "gen1", "generator": "1 1", "note": "a small seven-vertex bed with a four-unit kid rope" },
+    { "name": "gen2", "generator": "2 2", "note": "a densely sampled circular bed with thirty-nine vertices" },
+    { "name": "gen3", "generator": "3 3", "note": "an irregular quadrilateral with the goat rope shorter than its diameter" },
+    { "name": "gen4", "generator": "4 4", "note": "a large kid clearance makes a nine-vertex bed infeasible" },
+    { "name": "gen5", "generator": "5 2", "note": "a clockwise circular bed with unevenly spaced vertices" },
+    { "name": "gen6", "generator": "6 1", "note": "a compact pentagon with a horizontal bottom edge" },
+    { "name": "gen7", "generator": "7 4", "note": "a wide nine-vertex bed permits a stake with a short kid rope" },
+    { "name": "gen8", "generator": "8 3", "note": "a scalene triangle with the minimum kid rope length" },
+    { "name": "07", "note": "minimum vertex count and both minimum rope lengths" },
+    { "name": "08", "note": "a diameter of exactly twice R pins the stake to the bed boundary" },
+    { "name": "09", "note": "all coordinate extremes and a diagonal too long for the goat" },
+    { "name": "10", "note": "the longest kid rope still permits a stake beside a tiny bed" },
+    { "name": "11", "note": "an area-one triangle with almost parallel oblique edges" },
+    { "name": "12", "note": "the goat discs overlap but no point clears the short rectangular bed" },
+    { "name": "13", "note": "fifty vertices on an uneven parabolic chain touching the coordinate limit" },
+    { "name": "14", "note": "a clockwise seven-vertex bed with little slack after rounding the stake coordinates" },
+    { "name": "gen9", "generator": "9 1", "note": "a pentagon with unit kid rope and a goat rope shorter than its diameter" },
+    { "name": "gen10", "generator": "99 4", "note": "a nine-vertex bed remains unreachable even with a two-unit kid rope" }
+  ]
+}
