@@ -1,0 +1,24 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1716_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one test with NO: it fails" },
+    { "name": "03", "note": "one test with YES: it passes" },
+    { "name": "04", "note": "all NO answers at maximum n: only the first test fails" },
+    { "name": "05", "note": "all YES answers at maximum n: nothing fails" },
+    { "name": "06", "note": "equal YES and NO counts at maximum n" },
+    { "name": "07", "note": "a near-maximum test count with an unbalanced split" },
+    { "name": "gen1", "generator": "1 1", "note": "small n" },
+    { "name": "gen2", "generator": "2 2", "note": "a YES share below one tenth gives a fractional expectation" },
+    { "name": "gen3", "generator": "3 2", "note": "a YES majority gives a repeating decimal expectation" },
+    { "name": "08", "note": "the smallest mixed input has a fractional expectation" },
+    { "name": "09", "note": "reversing the example's YES and NO counts changes the first-test contribution" },
+    { "name": "10", "note": "an odd near-balanced split has an exactly integral expectation" },
+    { "name": "11", "note": "maximum n with exactly one YES just above the lower size bound" },
+    { "name": "12", "note": "maximum n with exactly one NO just below the upper size bound" },
+    { "name": "13", "note": "a prime denominator from small random stress requires rounding a repeating decimal" },
+    { "name": "14", "generator": "1716 2", "note": "seeded two-digit n with a YES minority and a repeating fractional result" },
+    { "name": "15", "generator": "917 2", "note": "seeded large input with fewer than two percent NO answers" }
+  ]
+}
