@@ -42,3 +42,4 @@
 | 1635 | [Mnemonics and Palindromes](1635/) | dp | C++, Go, Python, Java, Rust |
 | 1636 | [Penalty Time](1636/) | implementation | C++, Go, Python, Java, Rust |
 | 1637 | [Triangle Game 2](1637/) | geometry | C++, Go, Python, Java, Rust |
+| 1638 | [Bookworm](1638/) | math | C++, Go, Python, Java, Rust |

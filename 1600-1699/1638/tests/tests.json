@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1638_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only the two covers between volumes 1 and 2" },
+    { "name": "02", "note": "backwards from volume 2 to volume 1: both volumes' pages too" },
+    { "name": "03", "note": "the first and the last page of one volume" },
+    { "name": "04", "note": "from the first volume to the hundredth" },
+    { "name": "05", "note": "the longest path, from the hundredth volume back to the first" },
+    { "name": "06", "note": "a few volumes in between" },
+    { "name": "gen1", "generator": "1", "note": "random sizes and volumes" },
+    { "name": "gen2", "generator": "2", "note": "random sizes and volumes" },
+    { "name": "gen3", "generator": "3", "note": "random sizes and volumes" }
+  ]
+}
