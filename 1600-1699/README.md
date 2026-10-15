@@ -67,3 +67,4 @@
 | 1660 | [The Island of Bad Luck](1660/) | geometry | C++, Go, Python, Java, Rust |
 | 1661 | [Dodecahedron](1661/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1662 | [Goat in the Garden 6](1662/) | geometry | C++, Go, Python, Java, Rust |
+| 1663 | [The Hobbit or There and Back Again 2](1663/) | dp | C++, Go, Python, Java, Rust |
