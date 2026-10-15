@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1690_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid army is accepted" },
+    { "name": "02", "note": "n = 1: any single candidate" },
+    { "name": "03", "note": "negative coordinates: parities of negative numbers" },
+    { "name": "04", "note": "only two parity classes present" },
+    { "name": "gen1", "generator": "1 1", "note": "a small army" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest army over the whole square" },
+    { "name": "gen3", "generator": "3 3", "note": "the four parity classes as even as possible" },
+    { "name": "gen4", "generator": "4 4", "note": "houses crowded in a small square" }
+  ]
+}
