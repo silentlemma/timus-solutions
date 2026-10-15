@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1705_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every n from 1 to 100" },
+    { "name": "03", "note": "the largest n and a few small ones" },
+    { "name": "04", "note": "n next to squares s^2 and products s(s + 1)" },
+    { "name": "gen1", "generator": "1 1", "note": "small n" },
+    { "name": "gen2", "generator": "2 2", "note": "30000 random n up to 10^18" },
+    { "name": "gen3", "generator": "3 3", "note": "30000 n near squares" }
+  ]
+}
