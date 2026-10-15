@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1659_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; the statement's own answer there is deliberately wrong" },
+    { "name": "02", "note": "the shortest side 10, clockwise, one side vertical" },
+    { "name": "03", "note": "a large triangle with vertices on the box edge" },
+    { "name": "gen1", "generator": "1 1", "note": "a random triangle in the box" },
+    { "name": "gen2", "generator": "2 2", "note": "a random triangle with side 10" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest triangle around the origin" },
+    { "name": "gen4", "generator": "4 4", "note": "a small triangle near a corner" },
+    { "name": "gen5", "generator": "5 1", "note": "a random triangle in the box" }
+  ]
+}
