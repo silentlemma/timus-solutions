@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1711_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a feasible eleven-problem set in a nontrivial order" },
+    { "name": "02", "example": true, "note": "the second example: impossible" },
+    { "name": "03", "note": "a single problem" },
+    { "name": "04", "note": "the least fitting name keeps the way open" },
+    { "name": "05", "note": "two problems, the second takes its middle name" },
+    { "name": "gen1", "generator": "1 1", "note": "short names of different lengths in reverse problem order" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum problem count with an impossible shuffled order" },
+    { "name": "gen3", "generator": "3 3", "note": "a shuffled order constructed to admit an increasing chain" },
+    { "name": "gen4", "generator": "4 4", "note": "long names with a common prefix" },
+    { "name": "gen5", "generator": "5 3", "note": "single-letter names mixed with longer alternatives in a feasible full-size set" },
+    { "name": "06", "note": "a forced proper prefix followed by names whose length order is wrong" },
+    { "name": "07", "note": "a four-cycle permutation must not be interpreted as its inverse" },
+    { "name": "08", "note": "maximum-size set with 48 distinct 20-letter names in reverse problem order" },
+    { "name": "09", "note": "one-letter names with every partial choice blocked only at the last problem" }
+  ]
+}
