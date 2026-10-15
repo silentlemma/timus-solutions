@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1732_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a word cannot be split" },
+    { "name": "03", "note": "two words cut out of one, with a letter erased between" },
+    { "name": "04", "note": "no room for the erased letter between two words" },
+    { "name": "05", "note": "letters are case sensitive" },
+    { "name": "06", "note": "a whole word erased" },
+    { "name": "gen1", "generator": "1 1", "note": "a short saying over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a long saying with a target cut out of it" },
+    { "name": "gen3", "generator": "3 3", "note": "one word of 100000 a's: naive search is quadratic" },
+    { "name": "gen4", "generator": "4 4", "note": "a long saying, the target fails at the very end" },
+    { "name": "gen5", "generator": "5 5", "note": "50000 one-letter words" },
+    { "name": "gen6", "generator": "6 1", "note": "a short saying over two letters" }
+  ]
+}
