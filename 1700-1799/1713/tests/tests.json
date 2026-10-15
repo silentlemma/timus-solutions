@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1713_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a key of length one in every command" },
+    { "name": "03", "note": "only long keys" },
+    { "name": "gen1", "generator": "1 1", "note": "disjoint alphabets give one-letter keys in two short commands" },
+    { "name": "gen2", "generator": "2 2", "note": "binary commands at both the count and length limits" },
+    { "name": "gen3", "generator": "3 3", "note": "random commands over three letters" },
+    { "name": "gen4", "generator": "4 4", "note": "near copies of one long command" },
+    { "name": "gen5", "generator": "5 1", "note": "a few short commands over two letters" },
+    { "name": "04", "note": "two commands at the minimum and maximum lengths using a and z" },
+    { "name": "05", "note": "a length-100 whole-command key alongside two-letter keys at opposite ends" },
+    { "name": "06", "note": "shortest keys occur repeatedly inside their own commands" },
+    { "name": "07", "note": "reversed interiors have several equally short valid keys" },
+    { "name": "08", "note": "the shortest key is strictly internal while its prefix and suffix occur elsewhere" },
+    { "name": "09", "note": "a key also appears across the boundary between two different commands" },
+    { "name": "10", "note": "seeded random mixed lengths require keys of lengths two through four" },
+    { "name": "11", "note": "seeded random binary overlaps mix whole-command and internal longer keys" },
+    { "name": "12", "generator": "171312 5", "note": "maximum total input with all 26 letters and shuffled command order" },
+    { "name": "13", "generator": "171313 6", "note": "a thousand periodic commands force long keys while ignoring repeated occurrences" }
+  ]
+}
