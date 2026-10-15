@@ -24,7 +24,7 @@ For every problem there is:
 | [1300–1399](1300-1399/) | 100 problems |
 | [1400–1499](1400-1499/) | 100 problems |
 | [1500–1599](1500-1599/) | 100 problems |
-| [1600–1699](1600-1699/) | 66 problems |
+| [1600–1699](1600-1699/) | 67 problems |
 <!-- index:end -->
 
 Each folder `1000-1099/1005/` holds the write-ups (`README.md`,
