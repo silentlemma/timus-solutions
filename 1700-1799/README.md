@@ -11,3 +11,4 @@
 | 1704 | [Demodulation](1704/) | math | C++, Go, Python, Java, Rust |
 | 1705 | [Gangster Hares](1705/) | math | C++, Go, Python, Java, Rust |
 | 1706 | [Cipher Message 2](1706/) | strings | C++, Go, Python, Java, Rust |
+| 1707 | [Hypnotoad's Secret](1707/) | fenwick | C++, Go, Python, Java, Rust |
