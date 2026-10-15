@@ -40,3 +40,4 @@
 | 1633 | [Hippogriffs](1633/) | math | C++, Go, Python, Java, Rust |
 | 1634 | [Spider Mite](1634/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1635 | [Mnemonics and Palindromes](1635/) | dp | C++, Go, Python, Java, Rust |
+| 1636 | [Penalty Time](1636/) | implementation | C++, Go, Python, Java, Rust |

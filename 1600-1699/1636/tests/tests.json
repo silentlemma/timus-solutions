@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1636_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: ZZZ stays behind even without the attempts" },
+    { "name": "02", "example": true, "note": "the second example: 420 penalty minutes cost the first place" },
+    { "name": "03", "note": "a tie without the attempts still loses on the name" },
+    { "name": "04", "note": "one minute less without the attempts wins" },
+    { "name": "05", "note": "equal times and no rejected attempts" },
+    { "name": "gen1", "generator": "1", "note": "rejections spread across six problems cost ZZZ first place" },
+    { "name": "gen2", "generator": "2", "note": "two counts of three and a count of two produce a one-minute win" },
+    { "name": "gen3", "generator": "3", "note": "mixed counts remove 280 penalty minutes and reverse the ranking" },
+    { "name": "gen4", "generator": "4", "note": "removing all penalties still leaves ZZZ one minute behind" },
+    { "name": "06", "note": "both times at the minimum; one rejection changes the winner" },
+    { "name": "07", "note": "concentrating 107 rejections on one problem still cannot overcome the maximum time gap" },
+    { "name": "08", "note": "all ten counts must contribute; omitting any one changes the winner" },
+    { "name": "09", "note": "the maximum time gap with no rejected attempts cannot be reduced" },
+    { "name": "gen5", "generator": "large 1636", "note": "seeded random distribution of many rejections with mixed counts" }
+  ]
+}
