@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1702_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no cars at all" },
+    { "name": "03", "note": "1000 cars everywhere, one car a minute" },
+    { "name": "04", "note": "1000 cars everywhere and fast flows: one minute each suffices" },
+    { "name": "05", "note": "heavy flows needing three or four minutes each" },
+    { "name": "06", "note": "two flows that cross each other, 2 and 11" },
+    { "name": "07", "note": "ten cars everywhere, one car a minute" },
+    { "name": "gen1", "generator": "1 1", "note": "small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest numbers" },
+    { "name": "gen3", "generator": "3 3", "note": "heavy flows at slow speeds" },
+    { "name": "gen4", "generator": "4 4", "note": "all flows equal" },
+    { "name": "gen5", "generator": "5 3", "note": "heavy flows at slow speeds" }
+  ]
+}
