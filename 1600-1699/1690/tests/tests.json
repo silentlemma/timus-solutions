@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1690_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid army is accepted" },
+    { "name": "02", "note": "n = 1: any single candidate" },
+    { "name": "03", "note": "negative coordinates: parities of negative numbers" },
+    { "name": "04", "note": "only two parity classes present" },
+    { "name": "gen1", "generator": "1 1", "note": "a small army" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest army over the whole square" },
+    { "name": "gen3", "generator": "3 3", "note": "the four parity classes as even as possible" },
+    { "name": "gen4", "generator": "4 4", "note": "houses crowded in a small square" },
+    { "name": "05", "note": "all houses on the vertical axis, including adjacent incompatible neighbors" },
+    { "name": "06", "note": "a horizontal row at y = 10000 with x starting at -10000" },
+    { "name": "07", "note": "multiples of three allow an army spanning all four parity classes" },
+    { "name": "08", "note": "equal parity of x plus y does not imply mutual respect" },
+    { "name": "09", "note": "only the odd-odd class reaches n and it appears entirely after the first nine houses" },
+    { "name": "10", "note": "opposite corners give coordinate differences of 20000, mixed with adjacent boundary points" },
+    { "name": "11", "note": "seeded stress sample with every x and every y distinct and non-collinear houses" },
+    { "name": "gen5", "generator": "169005 5", "note": "n = 5000 with every house in the negative even-x odd-y class" },
+    { "name": "gen6", "generator": "169006 6", "note": "all 25000 distinct houses scattered along the four edges of the coordinate square" },
+    { "name": "gen7", "generator": "169007 7", "note": "n = 4999 on y = x plus or minus one, where neighboring diagonal houses can be incompatible" }
+  ]
+}
