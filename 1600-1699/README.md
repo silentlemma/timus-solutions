@@ -55,3 +55,4 @@
 | 1648 | [Yachts](1648/) | greedy | C++, Go, Python, Java, Rust |
 | 1649 | [Abstractionism to the People](1649/) | backtracking | C++, Go, Python, Java, Rust |
 | 1650 | [Billionaires](1650/) | segment_tree | C++, Go, Python, Java, Rust |
+| 1651 | [Shortest Subchain](1651/) | dp | C++, Go, Python, Java, Rust |
