@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1674_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example with a tour on an even rectangular board" },
+    { "name": "02", "example": true, "note": "the second example: 5 x 5 has no tour" },
+    { "name": "03", "note": "a 2 x 2 board is the only board with a side below 4 that has a tour" },
+    { "name": "04", "note": "a side of 3: no tour" },
+    { "name": "05", "note": "a single strip on the smallest board with both sides at least 4" },
+    { "name": "06", "note": "a strip with odd width on a 4 x 5 board" },
+    { "name": "07", "note": "an odd 9 x 9 square built from the exceptional 5 x 9 base" },
+    { "name": "08", "note": "a 2 x 3 board has no tour" },
+    { "name": "09", "note": "a 5 x 6 board uses the smallest stored base" },
+    { "name": "10", "note": "an odd 7 x 7 square uses a stored base without adding strips" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "a large board" },
+    { "name": "gen3", "generator": "3 3", "note": "a side below 4" },
+    { "name": "gen4", "generator": "4 4", "note": "both sides of the form 4k + 1" },
+    { "name": "gen5", "generator": "5 5", "note": "one side of 4" },
+    { "name": "gen6", "generator": "6 2", "note": "a large board grows from the 5 x 6 base in both directions" },
+    { "name": "gen7", "generator": "7 4", "note": "repeated joins in both directions from the exceptional odd base" },
+    { "name": "11", "note": "a 9 x 5 board requires the transposed exceptional base without extending either side" },
+    { "name": "12", "note": "an even 6 x 6 square uses its base without adding strips" },
+    { "name": "13", "note": "a 7 x 6 board transposes the unequal base with neither side congruent to 1 modulo 4" },
+    { "name": "14", "note": "a 500 x 2 board has no tour at the maximum height and minimum width" },
+    { "name": "gen8", "generator": "8 6", "note": "the 500 x 500 square reaches both dimension limits and the maximum picture size" },
+    { "name": "gen9", "generator": "9 7", "note": "the 497 x 497 square is the largest requiring the exceptional odd base and repeated joins in both directions" },
+    { "name": "gen10", "generator": "499 1", "note": "seeded small random board selects the 5 x 7 base with unequal odd sides" }
+  ]
+}
