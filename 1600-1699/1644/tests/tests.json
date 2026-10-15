@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1644_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: mixed records with a gap between hungry and satisfied amounts" },
+    { "name": "02", "example": true, "note": "the second example: satisfied with less than a hungry amount" },
+    { "name": "03", "note": "no records: only ten walnuts are sure" },
+    { "name": "04", "note": "hungry after nine" },
+    { "name": "05", "note": "satisfied with three" },
+    { "name": "06", "note": "the same amount both hungry and satisfied" },
+    { "name": "gen1", "generator": "1 1", "note": "consistent records" },
+    { "name": "gen2", "generator": "2 2", "note": "a lone hungry record at the smallest allowed amount" },
+    { "name": "gen3", "generator": "3 3", "note": "mixed observations pin the satisfaction threshold between adjacent amounts" },
+    { "name": "gen4", "generator": "4 2", "note": "repeated satisfaction at six contradicts hunger after eight" },
+    { "name": "07", "note": "only satisfied records, with the smallest amount in the middle" },
+    { "name": "08", "note": "adjacent eight-hungry and nine-satisfied bounds, listed in reverse order" },
+    { "name": "09", "generator": "744 3", "note": "exactly 100 seeded random records spanning all seven allowed amounts" },
+    { "name": "10", "note": "the 100th record creates a strict contradiction after 99 consistent observations" }
+  ]
+}
