@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "1689_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "shuffled worm positions with the first safe placement inside the trough" },
+    { "name": "02", "example": true, "note": "the second example: touching a worm does not hurt it" },
+    { "name": "03", "note": "the barbell fills the trough: one position only" },
+    { "name": "04", "note": "a long worm under both plates is hurt once, so 0 ties with 4" },
+    { "name": "05", "note": "the barbell fits exactly between two worms" },
+    { "name": "06", "note": "a worm as long as the trough" },
+    { "name": "gen1", "generator": "1 1", "note": "a short trough" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes with short worms" },
+    { "name": "gen3", "generator": "3 3", "note": "long worms and a wide barbell" },
+    { "name": "gen4", "generator": "4 4", "note": "worms packed end to end" },
+    { "name": "gen5", "generator": "5 5", "note": "plates separated by a one-unit gap" },
+    { "name": "gen6", "generator": "6 2", "note": "three-unit worms packed end to end with a one-unit gap at the right boundary" },
+    { "name": "07", "note": "the smallest trough with two placements has its only safe placement at the right boundary" },
+    { "name": "08", "note": "one worm fits exactly inside the shaft while touching both plates" },
+    { "name": "09", "note": "plates with no gap must move away from both end worms to reach the unique minimum" },
+    { "name": "10", "note": "separated optimal placements all hurt one worm and the earliest is strictly inside the trough" },
+    { "name": "11", "note": "counting a worm under both plates twice skips the first optimal placement at a nonzero position" },
+    { "name": "gen7", "generator": "1689 6", "note": "a maximal trough with almost 100000 worms has its only empty two-unit gap at the far right" },
+    { "name": "gen8", "generator": "1689 7", "note": "random slack gaps and shuffled worms longer than the narrow shaft with an odd wide barbell" }
+  ]
+}

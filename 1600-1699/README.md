@@ -93,3 +93,4 @@
 | 1686 | [Photovoltaic Spaceship](1686/) | geometry | C++, Go, Python, Java, Rust |
 | 1687 | [Numismatics for Fun](1687/) | greedy | C++, Go, Python, Java, Rust |
 | 1688 | [Team.GOV!](1688/) | implementation | C++, Go, Python, Java, Rust |
+| 1689 | [Fisherman and Barbell](1689/) | prefix_sums | C++, Go, Python, Java, Rust |
