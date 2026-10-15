@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1640_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one demon in a far corner" },
+    { "name": "04", "note": "three demons already on one circle around the start" },
+    { "name": "gen1", "generator": "1 1", "note": "a few demons nearby" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred demons over the field" },
+    { "name": "gen3", "generator": "3 3", "note": "demons in all four corners" },
+    { "name": "gen4", "generator": "4 1", "note": "a few demons nearby" }
+  ]
+}
