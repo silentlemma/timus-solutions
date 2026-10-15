@@ -52,3 +52,4 @@
 | 1645 | [Ski Race](1645/) | fenwick | C++, Go, Python, Java, Rust |
 | 1646 | [Godzilla Strikes Back!](1646/) | strings | C++, Go, Python, Java, Rust |
 | 1647 | [Divide an Island!](1647/) | geometry | C++, Go, Python, Java, Rust |
+| 1648 | [Yachts](1648/) | greedy | C++, Go, Python, Java, Rust |
