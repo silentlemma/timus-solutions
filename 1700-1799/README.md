@@ -10,3 +10,4 @@
 | 1703 | [Robotic Arm](1703/) | geometry | C++, Go, Python, Java, Rust |
 | 1704 | [Demodulation](1704/) | math | C++, Go, Python, Java, Rust |
 | 1705 | [Gangster Hares](1705/) | math | C++, Go, Python, Java, Rust |
+| 1706 | [Cipher Message 2](1706/) | strings | C++, Go, Python, Java, Rust |
