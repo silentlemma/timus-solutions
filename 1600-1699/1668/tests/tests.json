@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-4",
+  "reference": "1668_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: an exact solution exists" },
+    { "name": "02", "note": "all engines dead, so all energies are 0" },
+    { "name": "03", "note": "two equal engines and their opposite share the load" },
+    { "name": "04", "note": "one engine, one coordinate" },
+    { "name": "05", "note": "three engines along one line: the shortest of many exact answers" },
+    { "name": "06", "note": "one engine in three dimensions: a projection" },
+    { "name": "gen1", "generator": "1 1", "note": "a small underdetermined system checks load sharing while leaving a dead engine unused" },
+    { "name": "gen2", "generator": "2 2", "note": "a dense square system at both dimension limits checks an exact solution with mixed signs" },
+    { "name": "gen3", "generator": "3 3", "note": "many engines drawn from a three dimensional span check a low rank least squares fit" },
+    { "name": "gen4", "generator": "4 4", "note": "an overdetermined system checks projection onto a narrow thrust space" },
+    { "name": "gen5", "generator": "5 5", "note": "opposite and repeated engines share the load for an unreachable target" },
+    { "name": "gen6", "generator": "6 2", "note": "a full rank matrix spanning the coefficient limits checks accuracy for a dense mixed sign target" },
+    { "name": "gen7", "generator": "7 3", "note": "dependent engines spanning seven directions require projection before minimum energy sharing" },
+    { "name": "gen8", "generator": "8 4", "note": "an underdetermined system reaches every target while minimizing energy across many engines" },
+    { "name": "07", "note": "a zero target requires zero energy despite nonzero engines and a nontrivial kernel" },
+    { "name": "08", "note": "a nonzero target orthogonal to every engine has zero optimal thrust" },
+    { "name": "09", "note": "an unreachable target with rank two needs both projection and minimum energy sharing" },
+    { "name": "10", "note": "nearly parallel independent engines with determinant minus one require large opposite energies" },
+    { "name": "11", "note": "leading zero coordinates and dependent columns delay a pivot while isolated dead engines stay zero" },
+    { "name": "12", "note": "at 100 coordinates a negative energy of magnitude below 0.000005 rounds to unsigned zero" },
+    { "name": "13", "note": "one coordinate and the maximum engine count check proportional energy sharing, dead engines and coefficient limits" },
+    { "name": "14", "note": "a full rank tridiagonal system at both dimension limits checks large energies from opposing target halves" },
+    { "name": "15", "generator": "1668 1", "note": "a dense full rank system with small mixed sign coefficients produces fractional energies" }
+  ]
+}
