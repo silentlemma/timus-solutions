@@ -47,3 +47,4 @@
 | 1640 | [Circle of Winter](1640/) | geometry | C++, Go, Python, Java, Rust |
 | 1641 | [Duties](1641/) | constructive | C++, Go, Python, Java, Rust |
 | 1642 | [1D Maze](1642/) | implementation | C++, Go, Python, Java, Rust |
+| 1643 | [Attack of the Dark Fortress](1643/) | bfs | C++, Go, Python, Java, Rust |
