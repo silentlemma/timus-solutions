@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1630_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a triangle" },
+    { "name": "02", "example": true, "note": "the second example: a triangle with a pendant ball" },
+    { "name": "03", "note": "a single ball" },
+    { "name": "04", "note": "a square cycle: opposite corners would coincide" },
+    { "name": "05", "note": "five balls all joined: a simplex needs four dimensions" },
+    { "name": "06", "note": "a tetrahedron, a path of four and an isolated ball" },
+    { "name": "07", "note": "a star with three rays" },
+    { "name": "08", "note": "a tetrahedron with one rod missing" },
+    { "name": "09", "note": "a hexagon cycle" },
+    { "name": "gen1", "generator": "1 1", "note": "small paths and cliques, some with a defect" },
+    { "name": "gen2", "generator": "2 1", "note": "small paths and cliques, some with a defect" },
+    { "name": "gen3", "generator": "3 2", "note": "a small random graph" },
+    { "name": "gen4", "generator": "3 3", "note": "a path through all 100 balls" },
+    { "name": "gen5", "generator": "4 3", "note": "25 tetrahedra" },
+    { "name": "gen6", "generator": "5 3", "note": "a dense random graph on 100 balls" },
+    { "name": "gen7", "generator": "7 1", "note": "small paths and cliques, some with a defect" }
+  ]
+}
