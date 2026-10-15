@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1733_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the disk sticks out on the far side: around two corners" },
+    { "name": "03", "note": "the disk centered on a corner of the book" },
+    { "name": "04", "note": "the disk sticks out in the middle of every side" },
+    { "name": "05", "note": "the mouse on the line of a side, the disk reached at its touching point" },
+    { "name": "06", "note": "the largest book and a tiny disk at the opposite corner" },
+    { "name": "07", "note": "a disk seen straight on the near side, but shorter around a corner to the far side" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "coordinates up to 1000" },
+    { "name": "gen3", "generator": "3 3", "note": "a book with sides along the axes" },
+    { "name": "gen4", "generator": "4 4", "note": "the disk centered on a corner" },
+    { "name": "gen5", "generator": "5 5", "note": "the mouse behind the book" },
+    { "name": "gen6", "generator": "6 5", "note": "a disk protruding from three sides with the mouse below the book" },
+    { "name": "gen7", "generator": "7 1", "note": "a unit disk centered on the right edge of an axis-aligned book" },
+    { "name": "08", "note": "two internal side tangencies must be skipped in favor of the left cap" },
+    { "name": "09", "note": "unit book and minimum radius with an exposed arc ending exactly at a corner" },
+    { "name": "10", "note": "coordinate extremes on a long diagonal book only sqrt(2) units thick" },
+    { "name": "11", "note": "maximum radius covers every corner while the mouse is barely outside the disk" },
+    { "name": "12", "note": "disk center in the interior of a tilted edge reached after one corner" },
+    { "name": "13", "note": "random rotated book with the mouse exactly on an extended side and a visible arc" },
+    { "name": "14", "note": "random tilted strip with two covered corners and a detour through an uncovered corner" },
+    { "name": "gen8", "generator": "173301 2", "note": "random shallow cap barely crossing a tilted side" },
+    { "name": "gen9", "generator": "173362 2", "note": "random large rotated book with a two-corner detour ending on an exposed chord" }
+  ]
+}
