@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1673_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: no N has totient 3" },
+    { "name": "03", "note": "the minimum K, where N = 1 already works" },
+    { "name": "04", "note": "the smallest nontrivial totient, first attained at N = 3" },
+    { "name": "05", "note": "the K up to 2 * 10^9 with the most divisors, 1536" },
+    { "name": "06", "note": "the maximum K, whose answer is above 2^31" },
+    { "name": "07", "note": "a large K that is no totient" },
+    { "name": "08", "note": "the smallest even number that is no totient, 14" },
+    { "name": "gen1", "generator": "1 1", "note": "a large odd K that cannot be a totient" },
+    { "name": "gen2", "generator": "2 2", "note": "a K with many small prime factors" },
+    { "name": "gen3", "generator": "3 3", "note": "the totient of a random N" },
+    { "name": "gen4", "generator": "4 4", "note": "a small K" },
+    { "name": "gen5", "generator": "5 2", "note": "an even K divisible by every prime up to thirteen" },
+    { "name": "gen6", "generator": "6 3", "note": "an attainable totient with a large prime factor" },
+    { "name": "09", "note": "an odd prime power N = 3^4 minimizes N for totient 54" },
+    { "name": "10", "note": "many preimages of totient 48, with the odd product 5 * 13 as the minimum" },
+    { "name": "11", "note": "largest allowed power of two K; combine four Fermat primes instead of taking a power of two N" },
+    { "name": "12", "note": "a composite K + 1 = 1373653 despite passing strong primality tests to bases 2 and 3" },
+    { "name": "13", "generator": "12 4", "note": "a small K with prime K + 1, which attains the absolute lower bound for N" }
+  ]
+}
