@@ -1,0 +1,24 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1631_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 49 moves, 15 of them diagonal" },
+    { "name": "02", "note": "the largest board" },
+    { "name": "03", "note": "the narrowest and the longest side" },
+    { "name": "04", "note": "the same board turned" },
+    { "name": "05", "note": "different small sides" },
+    { "name": "gen1", "generator": "1", "note": "an elongated rectangle with a relatively small first dimension" },
+    { "name": "gen2", "generator": "2", "note": "large unequal sides near the upper bound" },
+    { "name": "gen3", "generator": "3", "note": "a medium rectangle with an area above the signed 16-bit limit" },
+    { "name": "06", "note": "the smallest nonsquare board, with a tab separating the dimensions" },
+    { "name": "07", "note": "the first square above the minimum, with both sides equal to 1 modulo 4" },
+    { "name": "08", "note": "a long thin board with 441 squares, paired with the square in case 09" },
+    { "name": "09", "note": "the same 441 squares as case 08 but fewer diagonal moves" },
+    { "name": "10", "note": "a near-square board whose area just exceeds the signed 16-bit limit" },
+    { "name": "11", "note": "sides straddling 256 and an area of exactly 65535" },
+    { "name": "12", "note": "the largest nonsquare board, two squares short along one side" },
+    { "name": "13", "note": "the small stress input with the largest observed floating-point error" },
+    { "name": "gen4", "generator": "157", "note": "a seeded interior rectangle whose exact length is just above an integer" },
+    { "name": "gen5", "generator": "664", "note": "a seeded large rectangle whose fractional length is just above one half" }
+  ]
+}
