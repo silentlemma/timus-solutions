@@ -1,0 +1,13 @@
+{
+  "judging": "exact",
+  "reference": "1700_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "repeated associations are printed once" },
+    { "name": "03", "note": "an object named twice in a set, and sorting" },
+    { "name": "04", "note": "pairs share a word, all three share none" },
+    { "name": "gen1", "generator": "1 1", "note": "a few objects, a small vocabulary" },
+    { "name": "gen2", "generator": "2 2", "note": "the most objects and sets" },
+    { "name": "gen3", "generator": "3 3", "note": "repeated associations and objects without any" }
+  ]
+}
