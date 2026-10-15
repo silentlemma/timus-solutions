@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1702_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no cars at all" },
+    { "name": "03", "note": "maximum queues with minimum discharge rates" },
+    { "name": "04", "note": "maximum queues emptied by a single green minute per flow" },
+    { "name": "05", "note": "large queues with unequal clearing times from three to nine minutes" },
+    { "name": "06", "note": "two flows that cross each other, 2 and 11" },
+    { "name": "07", "note": "ten cars everywhere, one car a minute" },
+    { "name": "gen1", "generator": "1 1", "note": "small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "large queues with widely varying discharge rates" },
+    { "name": "gen3", "generator": "3 3", "note": "heavy flows at slow speeds" },
+    { "name": "gen4", "generator": "4 4", "note": "all flows equal" },
+    { "name": "gen5", "generator": "5 3", "note": "uneven slow rates make every flow need at least seven minutes to empty" },
+    { "name": "08", "note": "a lone last-numbered flow still has 990 cars after ten green minutes" },
+    { "name": "09", "note": "three flows from one approach can share exactly ten green minutes" },
+    { "name": "10", "note": "three flows merging into the east exit share time with unequal rounded needs" },
+    { "name": "11", "note": "opposing straight flows can run together for the entire ten minutes" },
+    { "name": "12", "note": "four left turns alternate opposite pairs while adjacent turns conflict" },
+    { "name": "13", "note": "four mutually conflicting flows fail despite total demand below forty" },
+    { "name": "14", "note": "four right turns simultaneously drain maximum queues at the ten-minute border" },
+    { "name": "15", "note": "stress sample with a conflicting triangle and an extra compatible straight flow" },
+    { "name": "16", "note": "stress sample where asymmetric rates on a conflict path leave exactly one car" },
+    { "name": "gen6", "generator": "170205 5", "note": "seeded sparse slow queues mixed with empty flows at unrelated rates" },
+    { "name": "gen7", "generator": "170206 6", "note": "seeded dense queues around exact rate multiples exercise ceiling boundaries" }
+  ]
+}
