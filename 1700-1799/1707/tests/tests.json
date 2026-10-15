@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1707_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n = 1: the hash of 21 ones and a single one" },
+    { "name": "03", "note": "negative steps and wrapping around" },
+    { "name": "gen1", "generator": "1 1", "note": "a small grid, short and long experiments" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest counts on a 60 x 60 grid" },
+    { "name": "gen4", "generator": "4 4", "note": "few slow laws and thin rectangles" },
+    { "name": "gen5", "generator": "5 4", "note": "few slow laws and thin rectangles" }
+  ]
+}
