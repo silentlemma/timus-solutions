@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1722_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest city that fits both buildings" },
+    { "name": "03", "note": "the new building touches the city border and almost the old one" },
+    { "name": "04", "note": "two small buildings in the middle of a large city" },
+    { "name": "05", "note": "large buildings on a diagonal" },
+    { "name": "gen1", "generator": "1 1", "note": "a small city" },
+    { "name": "gen2", "generator": "2 2", "note": "any sizes up to 1000" },
+    { "name": "gen3", "generator": "3 3", "note": "the new building nearly touches the city border" },
+    { "name": "gen4", "generator": "4 4", "note": "the buildings almost touch" },
+    { "name": "gen5", "generator": "5 5", "note": "radii that differ by one: a narrow shadow" },
+    { "name": "06", "note": "the minimum city with diagonal centers and a gap smaller than one" },
+    { "name": "07", "note": "the maximum new radius with squared center distance only one above touching" },
+    { "name": "08", "note": "the largest feasible deck radius with the new center on the negative y axis" },
+    { "name": "09", "note": "the smallest new building at the farthest legal positive x coordinate" },
+    { "name": "10", "note": "large radii differing by one with exact city contact on the positive y axis" },
+    { "name": "11", "note": "a strongly widening shadow whose large hidden footprint is far from the city border" },
+    { "name": "12", "note": "a small city with a blocker five times the deck radius in the lower right quadrant" },
+    { "name": "13", "note": "a retained random small case with a nonunit deck and unequal positive coordinates" },
+    { "name": "gen6", "generator": "172211 1", "note": "a seeded small city where the new building occupies almost half the city radius" },
+    { "name": "gen7", "generator": "172207 2", "note": "a seeded interior placement with almost equal positive center coordinates" },
+    { "name": "gen8", "generator": "172213 3", "note": "a seeded near-border placement with a large deck in the first quadrant" },
+    { "name": "gen9", "generator": "172214 4", "note": "seeded almost-touching buildings with the center one unit off the vertical axis" },
+    { "name": "gen10", "generator": "172215 5", "note": "seeded nearly equal radii at wide separation and a shallow negative angle" }
+  ]
+}
