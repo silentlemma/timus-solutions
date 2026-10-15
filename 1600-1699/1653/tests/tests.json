@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1653_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a tetrahedron swinging between two directions" },
+    { "name": "02", "note": "an attack from straight above: the first gun already aims there" },
+    { "name": "03", "note": "the same attack twice: the second needs no turn" },
+    { "name": "04", "note": "three spatial icosahedron attacks include a close choice of the nearest gun" },
+    { "name": "05", "note": "three different dodecahedron directions check orientation updates between attacks" },
+    { "name": "gen1", "generator": "1 1", "note": "two cube attacks choose different guns in succession" },
+    { "name": "gen2", "generator": "2 2", "note": "widely varying directions exercise all six octahedron guns at the attack limit" },
+    { "name": "gen3", "generator": "3 3", "note": "a dodecahedron revisits three directions with consecutive repeats that require no new turn" },
+    { "name": "gen4", "generator": "4 3", "note": "an icosahedron switches between two guns while three attack directions recur" },
+    { "name": "gen5", "generator": "5 2", "note": "random tetrahedron attacks exercise all four guns and large turns" },
+    { "name": "gen6", "generator": "6 1", "note": "five spatially varied cube attacks initially keep selecting the same gun" },
+    { "name": "gen7", "generator": "7 3", "note": "three recurring octahedron directions mix zero turns with changes of the nearest gun" },
+    { "name": "gen8", "generator": "8 2", "note": "spatially scattered dodecahedron attacks repeatedly change the nearest gun" },
+    { "name": "gen9", "generator": "9 3", "note": "three recurring icosahedron directions include close choices between neighbouring guns" },
+    { "name": "gen10", "generator": "10 2", "note": "tetrahedron turns of very different sizes accumulate to more than ten full revolutions" },
+    { "name": "06", "note": "one attack near the south pole selects a lower tetrahedron gun and needs a nearly maximal turn" },
+    { "name": "07", "note": "all six octahedron guns are attacked in turn without any rotation" },
+    { "name": "08", "note": "successive near ties choose different octahedron guns after the first rotation" },
+    { "name": "09", "note": "returning to the first direction after a spatial loop keeps the accumulated cube orientation" },
+    { "name": "10", "note": "an initially aligned dodecahedron gun follows ninety-nine tiny direction changes" },
+    { "name": "11", "note": "an icosahedron follows a closed spatial path whose total turning exceeds two full revolutions" },
+    { "name": "12", "note": "a seeded octahedron sequence combines a rounded scale change with opposite and repeated rays before later spatial turns" },
+    { "name": "13", "note": "a seeded random dodecahedron sequence has a narrow nearest-gun margin after earlier rotations" }
+  ]
+}
