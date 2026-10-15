@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1710_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the angle at A is obtuse" },
+    { "name": "02", "example": true, "note": "the second example: a second triangle exists" },
+    { "name": "03", "note": "a right angle at C: the circle touches the line AC" },
+    { "name": "04", "note": "the angle at A is obtuse" },
+    { "name": "05", "note": "the largest coordinates" },
+    { "name": "06", "note": "the largest coordinates, a second triangle" },
+    { "name": "07", "note": "exact tangency: the other point is C itself" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "the full range" },
+    { "name": "gen3", "generator": "3 3", "note": "near the touching case" },
+    { "name": "gen4", "generator": "4 2", "note": "acute angle at A with a shorter alternate side AC" },
+    { "name": "08", "note": "unit-length legs and an exactly right angle at A" },
+    { "name": "09", "note": "equal sides AB and BC with acute A: the second intersection is A and is invalid" },
+    { "name": "10", "note": "large AC with the second ray parameter's numerator equal to minus one" },
+    { "name": "11", "note": "large AC with the second ray parameter just above zero and fractional output" },
+    { "name": "12", "note": "random isosceles triangle with AC equal to BC and obtuse C still has a counterexample" },
+    { "name": "13", "note": "unit AC and maximal diagonal AB require an alternate vertex beyond the input bounds" },
+    { "name": "14", "generator": "171014 4", "note": "seeded translated right angle at B with AB longer than BC" },
+    { "name": "15", "generator": "171015 5", "note": "seeded almost collinear triangle with the minimum nonzero lattice area" }
+  ]
+}
