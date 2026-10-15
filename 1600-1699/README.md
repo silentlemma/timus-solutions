@@ -33,3 +33,4 @@
 | 1626 | [Interfering Segment](1626/) | geometry | C++, Go, Python, Java, Rust |
 | 1627 | [Join](1627/) | math | C++, Go, Python, Java, Rust |
 | 1628 | [White Streaks](1628/) | implementation | C++, Go, Python, Java, Rust |
+| 1629 | [Trip](1629/) | simulation | C++, Go, Python, Java, Rust |
