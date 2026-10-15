@@ -28,3 +28,4 @@
 | 1721 | [Two Sides of the Same Coin](1721/) | matching | C++, Go, Python, Java, Rust |
 | 1722 | [Observation Deck](1722/) | geometry | C++, Go, Python, Java, Rust |
 | 1723 | [Sandro's Book](1723/) | strings | C++, Go, Python, Java, Rust |
+| 1724 | [Origin of Man Clarified](1724/) | strings | C++, Go, Python, Java, Rust |
