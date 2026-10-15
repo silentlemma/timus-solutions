@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1693_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: Loyd's 18 parts; any optimal cutting is accepted" },
+    { "name": "02", "note": "n = 1: one part" },
+    { "name": "03", "note": "n = 2: two single cells and a domino" },
+    { "name": "04", "note": "n = 3" },
+    { "name": "05", "note": "the largest board: 163 parts" },
+    { "name": "06", "note": "n = 29" },
+    { "name": "07", "note": "n = 13" },
+    { "name": "08", "note": "n = 4" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "any board" },
+    { "name": "gen3", "generator": "3 2", "note": "any board" }
+  ]
+}
