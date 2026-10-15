@@ -1,0 +1,30 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1681_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a triangle with k = n - 1: the ropes are the fence, everything is saved" },
+    { "name": "04", "note": "a square with its diagonals: nothing is saved" },
+    { "name": "05", "note": "a pentagram: the star tips touch the fence only at a vertex and are saved" },
+    { "name": "06", "note": "n = 300 with k = n / 2: all ropes pass near the centre" },
+    { "name": "07", "note": "n = 300 with k = 2" },
+    { "name": "08", "note": "n = 300 with k = n - 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a small pentagon whose ropes follow the fence in the reverse direction" },
+    { "name": "gen2", "generator": "2 2", "note": "a large polygon near a circle" },
+    { "name": "gen3", "generator": "3 3", "note": "a large polygon with k close to n / 2" },
+    { "name": "gen4", "generator": "4 4", "note": "a long thin polygon" },
+    { "name": "gen5", "generator": "5 5", "note": "k = 1 or k = n - 1" },
+    { "name": "gen6", "generator": "6 2", "note": "a near-circular polygon with four-sided reachable regions" },
+    { "name": "gen7", "generator": "7 6", "note": "the hull of random points" },
+    { "name": "gen8", "generator": "8 6", "note": "an irregular hull with k = n - 2, exercising complementary rope directions" },
+    { "name": "09", "note": "a triangle of area one half at the coordinate limit with k = 1" },
+    { "name": "10", "note": "a pentagon with an almost straight turn of determinant one and a saved ratio just below 0.0001" },
+    { "name": "11", "note": "an asymmetric hexagon with k = n / 2: the three distinct ropes enclose a triangle" },
+    { "name": "12", "note": "an eight-post polygon of width four spanning both x limits with k = 3 and parallel ropes" },
+    { "name": "13", "note": "a random stress case with k greater than n / 2 and a five-sided reachable region" },
+    { "name": "14", "note": "n = 300 on two sheared parabolic chains with very uneven spacing and k = 101" },
+    { "name": "gen9", "generator": "9 1", "note": "a seeded ten-post ellipse with k = 3 and four-sided reachable regions" },
+    { "name": "gen10", "generator": "14 6", "note": "a seventeen-post random hull with k = 8: almost opposite ropes without central symmetry" }
+  ]
+}
