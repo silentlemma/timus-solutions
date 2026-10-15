@@ -35,3 +35,4 @@
 | 1728 | [Curse on Team.GOV](1728/) | implementation | C++, Go, Python, Java, Rust |
 | 1729 | [Dead Man's Chest](1729/) | geometry | C++, Go, Python, Java, Rust |
 | 1730 | [ManBearPig](1730/) | constructive | C++, Go, Python, Java, Rust |
+| 1731 | [Dill](1731/) | constructive | C++, Go, Python, Java, Rust |
