@@ -76,3 +76,4 @@
 | 1669 | [Universal Word](1669/) | bitmask | C++, Go, Python, Java, Rust |
 | 1670 | [Asterisk](1670/) | constructive | C++, Go, Python, Java, Rust |
 | 1671 | [Anansi's Cobweb](1671/) | dsu | C++, Go, Python, Java, Rust |
+| 1672 | [Droid Flies](1672/) | geometry | C++, Go, Python, Java, Rust |
