@@ -58,3 +58,4 @@
 | 1651 | [Shortest Subchain](1651/) | dp | C++, Go, Python, Java, Rust |
 | 1652 | [Banking Crisis](1652/) | matching | C++, Go, Python, Java, Rust |
 | 1653 | [Death Conveyor](1653/) | geometry | C++, Go, Python, Java, Rust |
+| 1654 | [Cipher Message](1654/) | implementation | C++, Go, Python, Java, Rust |

@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1654_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one pair: nothing is left" },
+    { "name": "03", "note": "a single letter" },
+    { "name": "04", "note": "nested pairs cancel completely" },
+    { "name": "05", "note": "a palindrome of odd length without pairs stays" },
+    { "name": "06", "note": "three equal letters leave one" },
+    { "name": "gen1", "generator": "1 1", "note": "a short text with pairs" },
+    { "name": "gen2", "generator": "2 2", "note": "200000 letters, half of them inserted" },
+    { "name": "gen3", "generator": "3 3", "note": "200000 letters that cancel completely" },
+    { "name": "gen4", "generator": "4 1", "note": "a short text with pairs" }
+  ]
+}
