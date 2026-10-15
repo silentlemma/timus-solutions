@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1698_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1, 5 and 6" },
+    { "name": "02", "note": "n = 2: 25 and 76 join" },
+    { "name": "03", "note": "n = 3: 625 and 376" },
+    { "name": "04", "note": "n = 4: 0625 has a leading zero, only 9376 counts" },
+    { "name": "05", "note": "the largest n" },
+    { "name": "06", "note": "n = 1999" },
+    { "name": "07", "note": "n = 10" },
+    { "name": "08", "note": "n = 5: 90625 and 09376, one of them has a leading zero" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n" },
+    { "name": "gen2", "generator": "2 2", "note": "any n" },
+    { "name": "gen3", "generator": "3 2", "note": "any n" }
+  ]
+}
