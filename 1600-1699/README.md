@@ -69,3 +69,4 @@
 | 1662 | [Goat in the Garden 6](1662/) | geometry | C++, Go, Python, Java, Rust |
 | 1663 | [The Hobbit or There and Back Again 2](1663/) | dp | C++, Go, Python, Java, Rust |
 | 1664 | [Pipeline Transportation](1664/) | graphs | C++, Go, Python, Java, Rust |
+| 1665 | [Dean's Financial Pyramid](1665/) | number_theory | C++, Go, Python, Java, Rust |
