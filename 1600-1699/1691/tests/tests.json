@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1691_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "t cannot be reached from s: F(N) = 0" },
+    { "name": "04", "note": "s = t with a loop: one path of every length" },
+    { "name": "05", "note": "a loop and a 2-cycle through s: exponential growth" },
+    { "name": "06", "note": "three simple cycles in a row: N^2" },
+    { "name": "07", "note": "a component with two cycles that cannot reach t is ignored" },
+    { "name": "08", "note": "one cycle on the way: bounded" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "a chain of simple cycles" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain of cycles with one extra arc" },
+    { "name": "gen4", "generator": "4 4", "note": "a large random sparse graph" },
+    { "name": "gen5", "generator": "5 5", "note": "a long path, the cycle off it" },
+    { "name": "gen6", "generator": "6 6", "note": "cycles in parallel branches" },
+    { "name": "gen7", "generator": "7 2", "note": "a chain of simple cycles" }
+  ]
+}
