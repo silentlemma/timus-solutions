@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1651_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single edge" },
+    { "name": "03", "note": "a closed chain shrinks to one vertex" },
+    { "name": "04", "note": "a detour through 1 and 2 is skipped" },
+    { "name": "05", "note": "the jump to the end comes after two loops" },
+    { "name": "06", "note": "vertex 10000 visited three times" },
+    { "name": "gen1", "generator": "1 1", "note": "a short random walk" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 vertices over 30 labels" },
+    { "name": "gen3", "generator": "3 3", "note": "100000 vertices over 10000 labels" },
+    { "name": "gen4", "generator": "4 4", "note": "a long walk that ends where it starts" },
+    { "name": "gen5", "generator": "5 1", "note": "a short random walk" }
+  ]
+}
