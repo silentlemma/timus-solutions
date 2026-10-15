@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "1712_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a random grille" },
+    { "name": "03", "note": "only the letters a and A" },
+    { "name": "04", "note": "the windows fill the top left quarter" },
+    { "name": "gen1", "generator": "4 1", "note": "a random grille" },
+    { "name": "gen2", "generator": "5 2", "note": "only the letters a and A" },
+    { "name": "gen3", "generator": "6 1", "note": "a random grille" }
+  ]
+}
