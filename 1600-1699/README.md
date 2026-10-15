@@ -99,3 +99,4 @@
 | 1692 | [Flags for Provinces](1692/) | constructive | C++, Go, Python, Java, Rust |
 | 1693 | [Loyd's Problem](1693/) | constructive | C++, Go, Python, Java, Rust |
 | 1694 | [Killer Words](1694/) | backtracking | C++, Go, Python, Java, Rust |
+| 1695 | [Work for Robots](1695/) | backtracking | C++, Go, Python, Java, Rust |
