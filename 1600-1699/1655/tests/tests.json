@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1655_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: either way round takes 12 minutes" },
+    { "name": "02", "example": true, "note": "the second example: the ships come too fast" },
+    { "name": "03", "note": "one ship straight ahead, at one mile already" },
+    { "name": "04", "note": "one ship ahead and one on each side" },
+    { "name": "05", "note": "a ship behind that arrives almost at once" },
+    { "name": "06", "note": "two ships around north, on either side of the gun" },
+    { "name": "gen1", "generator": "1 1", "note": "a few ships" },
+    { "name": "gen2", "generator": "2 2", "note": "500 ships far away" },
+    { "name": "gen3", "generator": "3 3", "note": "500 ships that are barely reachable" },
+    { "name": "gen4", "generator": "4 4", "note": "500 ships, one straight ahead" },
+    { "name": "gen5", "generator": "5 1", "note": "a few ships" },
+    { "name": "gen6", "generator": "6 3", "note": "500 ships that are barely reachable" }
+  ]
+}
