@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1694_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the largest case: 18 letters, squares, length 22" },
+    { "name": "03", "note": "one letter: only aa" },
+    { "name": "04", "note": "two letters and cubes" },
+    { "name": "05", "note": "fifth powers" },
+    { "name": "06", "note": "three letters and cubes up to length 9" },
+    { "name": "07", "note": "n < k: no word at all" },
+    { "name": "08", "note": "two letters and squares: only aa, bb, abab, baba" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "binary squares with room only for single-letter roots" },
+    { "name": "gen3", "generator": "3 3", "note": "squares of the longest words" },
+    { "name": "gen4", "generator": "4 2", "note": "fourth powers at the minimum possible word length" },
+    { "name": "09", "note": "n equals k at the largest exponent: the whole fifth power is allowed" },
+    { "name": "10", "note": "one below the first two-letter fourth power, so only single-letter roots fit" },
+    { "name": "11", "note": "exactly includes the first two-letter fourth powers" },
+    { "name": "12", "note": "a rejected root 010 must still extend to the valid square of 0102" },
+    { "name": "13", "note": "the largest odd square limit with a ternary alphabet and roots up to length ten" },
+    { "name": "14", "note": "maximum alphabet and length for fourth powers with repeated-letter roots" },
+    { "name": "15", "note": "binary fifth powers reach root length four and require checks across copy boundaries" },
+    { "name": "16", "note": "ternary cubes include roots of length six with several repeated letters" },
+    { "name": "17", "generator": "7 2", "note": "seeded cubes with eleven letters and a length limit just above twelve" },
+    { "name": "18", "generator": "15 2", "note": "seeded squares with seven letters and an odd limit that permits length-eight roots" },
+    { "name": "19", "generator": "16 2", "note": "seeded fifth powers with twelve letters and roots up to length three" }
+  ]
+}
