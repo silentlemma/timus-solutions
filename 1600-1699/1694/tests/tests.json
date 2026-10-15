@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1694_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the largest case: 18 letters, squares, length 22" },
+    { "name": "03", "note": "one letter: only aa" },
+    { "name": "04", "note": "two letters and cubes" },
+    { "name": "05", "note": "fifth powers" },
+    { "name": "06", "note": "three letters and cubes up to length 9" },
+    { "name": "07", "note": "n < k: no word at all" },
+    { "name": "08", "note": "two letters and squares: only aa, bb, abab, baba" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "any values" },
+    { "name": "gen3", "generator": "3 3", "note": "squares of the longest words" },
+    { "name": "gen4", "generator": "4 2", "note": "any values" }
+  ]
+}
