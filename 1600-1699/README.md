@@ -72,3 +72,4 @@
 | 1665 | [Dean's Financial Pyramid](1665/) | number_theory | C++, Go, Python, Java, Rust |
 | 1666 | [Vasya Ferrari](1666/) | math | C++, Go, Python, Java, Rust |
 | 1667 | [Square Country 3](1667/) | constructive | C++, Go, Python, Java, Rust |
+| 1668 | [Death Star 2](1668/) | math | C++, Go, Python, Java, Rust |

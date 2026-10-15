@@ -1,0 +1,20 @@
+{
+  "judging": "float:1e-4",
+  "reference": "1668_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: an exact solution exists" },
+    { "name": "02", "note": "all engines dead, so all energies are 0" },
+    { "name": "03", "note": "two equal engines and their opposite share the load" },
+    { "name": "04", "note": "one engine, one coordinate" },
+    { "name": "05", "note": "three engines along one line: the shortest of many exact answers" },
+    { "name": "06", "note": "one engine in three dimensions: a projection" },
+    { "name": "gen1", "generator": "1 1", "note": "small, often dependent" },
+    { "name": "gen2", "generator": "2 2", "note": "100 x 100 random" },
+    { "name": "gen3", "generator": "3 3", "note": "large but of low rank" },
+    { "name": "gen4", "generator": "4 4", "note": "large rectangular" },
+    { "name": "gen5", "generator": "5 5", "note": "repeated, opposite and zero engines" },
+    { "name": "gen6", "generator": "6 2", "note": "100 x 100 random" },
+    { "name": "gen7", "generator": "7 3", "note": "large but of low rank" },
+    { "name": "gen8", "generator": "8 4", "note": "large rectangular" }
+  ]
+}
