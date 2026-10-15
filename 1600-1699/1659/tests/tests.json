@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1659_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; the statement's own answer there is deliberately wrong" },
+    { "name": "02", "note": "the shortest side 10, clockwise, one side vertical" },
+    { "name": "03", "note": "a large triangle with vertices on the box edge" },
+    { "name": "gen1", "generator": "1 1", "note": "a random triangle in the box" },
+    { "name": "gen2", "generator": "2 2", "note": "a random triangle with side 10" },
+    { "name": "gen3", "generator": "3 3", "note": "an origin-centred triangle with circumradius 100" },
+    { "name": "gen4", "generator": "4 4", "note": "a small triangle near a corner" },
+    { "name": "gen5", "generator": "5 1", "note": "a random triangle with all three vertices in the positive quadrant" },
+    { "name": "04", "note": "the maximum possible side in the square, with all four box edges touched" },
+    { "name": "05", "note": "a vertex at the origin and a horizontal side just above the minimum length" },
+    { "name": "06", "note": "a long top edge at y = 100 makes valid outer points exceed the input box" },
+    { "name": "07", "note": "a minimum-size triangle at the upper-right corner touches two coordinate limits" },
+    { "name": "08", "note": "all-negative fractional coordinates and oblique sides require a noninteger centre" },
+    { "name": "09", "note": "reflection across the x axis with the centre shifted away from the origin" },
+    { "name": "10", "note": "a retained random short triangle has an almost-zero centre after cancellation" },
+    { "name": "11", "note": "a retained random oblique triangle is clockwise and entirely in the positive quadrant" },
+    { "name": "gen6", "generator": "6 5", "note": "random rotation and translation nearly fill the square beyond side length 200" },
+    { "name": "gen7", "generator": "7 6", "note": "a random short triangle has a nonzero vertex within 1e-8 of the origin" }
+  ]
+}
