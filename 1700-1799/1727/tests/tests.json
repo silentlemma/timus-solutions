@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1727_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest n" },
+    { "name": "03", "note": "the largest n: over 3000 numbers" },
+    { "name": "04", "note": "n = 45, the digits of 99999 alone" },
+    { "name": "05", "note": "n = 2: one number with digit sum 2" },
+    { "name": "gen1", "generator": "1 1", "note": "n up to 100" },
+    { "name": "gen2", "generator": "2 2", "note": "any n" },
+    { "name": "gen3", "generator": "3 2", "note": "any n" }
+  ]
+}
