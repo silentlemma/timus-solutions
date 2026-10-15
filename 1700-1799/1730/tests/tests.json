@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1730_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example mixing one half with two quarters" },
+    { "name": "02", "example": true, "note": "the second example: a pure animal" },
+    { "name": "03", "example": true, "note": "the third example: thirds cannot come out" },
+    { "name": "04", "note": "unreduced shares that reduce to halves" },
+    { "name": "05", "note": "a share of 1/1024 needs ten generations" },
+    { "name": "06", "note": "a share of 3/6 is fine, 1/6 is not" },
+    { "name": "gen1", "generator": "1 1", "note": "power-of-two shares, written unreduced" },
+    { "name": "gen2", "generator": "2 2", "note": "a pure animal represented by the unreduced share 1372/1372" },
+    { "name": "gen3", "generator": "3 3", "note": "ten animals, nine of them 1/1024" },
+    { "name": "gen4", "generator": "4 4", "note": "a single animal" },
+    { "name": "gen5", "generator": "5 1", "note": "ten unequal dyadic shares written with different unreduced denominators" },
+    { "name": "gen6", "generator": "6 2", "note": "a common denominator of 1226 leaves all ten shares nonbinary after reduction" },
+    { "name": "07", "note": "pure animal with a 200-character name and the maximal fraction 1500/1500" },
+    { "name": "08", "note": "ten animals and a 200-character creature name with shares spanning ten generations" },
+    { "name": "09", "note": "the smallest allowed share 1/1500 makes a nearly pure creature impossible" },
+    { "name": "10", "note": "prefix-related names and two shares of 3/8 require repeated animal ancestors" },
+    { "name": "11", "note": "different large unreduced denominators cancel odd factors to eighths and quarters" },
+    { "name": "12", "note": "eight equal shares form a complete three-generation pedigree" },
+    { "name": "13", "note": "seeded random ten-animal mixture with uneven multiplicities at denominator 1024" },
+    { "name": "14", "note": "seeded random unreduced shares hide nonbinary denominators after eight dyadic shares" }
+  ]
+}
