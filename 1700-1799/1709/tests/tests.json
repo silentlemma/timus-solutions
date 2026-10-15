@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1709_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two flights cancelled, one added" },
+    { "name": "02", "note": "two airports, no flight: one is added" },
+    { "name": "03", "note": "two airports, one flight: nothing to do" },
+    { "name": "04", "note": "all 4950 flights, 4851 cancelled at 10^6 each: the sum needs 64 bits" },
+    { "name": "05", "note": "an empty network of 100 airports requiring 99 new flights" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "a nearly complete graph whose cancellation cost exceeds 32 bits" },
+    { "name": "gen3", "generator": "3 3", "note": "dense groups with no flights between them" },
+    { "name": "gen4", "generator": "4 4", "note": "a random forest" },
+    { "name": "gen5", "generator": "5 2", "note": "a connected graph with many cycles and cheaper additions than cancellations" },
+    { "name": "06", "note": "a single path through 100 airports: all 99 flights must remain and the cost is zero" },
+    { "name": "07", "note": "exactly n-1 old flights but three components, including isolated airport 1; both prices are 1" },
+    { "name": "08", "note": "two triangles joined by a bridge: preserve the bridge and cancel one flight in each cycle" }
+  ]
+}
