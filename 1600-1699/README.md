@@ -100,3 +100,4 @@
 | 1693 | [Loyd's Problem](1693/) | constructive | C++, Go, Python, Java, Rust |
 | 1694 | [Killer Words](1694/) | backtracking | C++, Go, Python, Java, Rust |
 | 1695 | [Work for Robots](1695/) | backtracking | C++, Go, Python, Java, Rust |
+| 1696 | [Salary for Robots](1696/) | dp | C++, Go, Python, Java, Rust |
