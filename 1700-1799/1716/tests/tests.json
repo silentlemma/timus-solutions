@@ -1,0 +1,16 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1716_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one test with NO: it fails" },
+    { "name": "03", "note": "one test with YES: it passes" },
+    { "name": "04", "note": "5000 answers NO: only the first test fails" },
+    { "name": "05", "note": "5000 answers YES: nothing fails" },
+    { "name": "06", "note": "2500 of each" },
+    { "name": "07", "note": "n = 4999, s = 12345" },
+    { "name": "gen1", "generator": "1 1", "note": "small n" },
+    { "name": "gen2", "generator": "2 2", "note": "n up to 5000" },
+    { "name": "gen3", "generator": "3 2", "note": "n up to 5000" }
+  ]
+}
