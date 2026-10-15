@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1675_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one cell, no empty row or column: just 1" },
+    { "name": "04", "note": "one cell, empty" },
+    { "name": "05", "note": "an empty row but no empty column is impossible" },
+    { "name": "06", "note": "all rows and columns empty: the zero matrix" },
+    { "name": "07", "note": "all rows empty but some column not: impossible" },
+    { "name": "08", "note": "the largest board, nothing empty" },
+    { "name": "09", "note": "the largest board with one row and one column left" },
+    { "name": "10", "note": "a single column of 100000 rows" },
+    { "name": "gen1", "generator": "1 1", "note": "small sizes" },
+    { "name": "gen2", "generator": "2 2", "note": "large sizes" },
+    { "name": "gen3", "generator": "3 3", "note": "K = M or L = N" },
+    { "name": "gen4", "generator": "4 4", "note": "a thin board" },
+    { "name": "gen5", "generator": "5 2", "note": "large sizes" },
+    { "name": "gen6", "generator": "6 1", "note": "small sizes" }
+  ]
+}
