@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1703_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid elbow is accepted" },
+    { "name": "02", "example": true, "note": "the second example: the bend would be acute" },
+    { "name": "03", "note": "an obtuse bend" },
+    { "name": "04", "note": "a straight arm: the rail exactly a + b away" },
+    { "name": "05", "note": "a slanted rail" },
+    { "name": "06", "note": "the largest values" },
+    { "name": "07", "note": "the rail one unit beyond reach" },
+    { "name": "08", "note": "the rail too close: the bend would be acute" },
+    { "name": "gen1", "generator": "1 1", "note": "random small values" },
+    { "name": "gen2", "generator": "2 2", "note": "random values" },
+    { "name": "gen3", "generator": "3 3", "note": "a right angle at the elbow" },
+    { "name": "gen4", "generator": "4 4", "note": "a straight arm" },
+    { "name": "gen5", "generator": "5 5", "note": "just outside a limit" },
+    { "name": "gen6", "generator": "6 1", "note": "random small values" }
+  ]
+}
