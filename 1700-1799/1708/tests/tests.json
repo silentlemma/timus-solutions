@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1708_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: base 4" },
+    { "name": "02", "note": "base 2: only 1*" },
+    { "name": "03", "note": "base 3" },
+    { "name": "04", "note": "base 10" },
+    { "name": "05", "note": "base 23, the largest answer under 64 KB" },
+    { "name": "gen1", "generator": "1 24", "note": "base 24" },
+    { "name": "gen2", "generator": "1 28", "note": "base 28" },
+    { "name": "gen3", "generator": "1 32", "note": "base 32" },
+    { "name": "gen4", "generator": "1 35", "note": "base 35" },
+    { "name": "gen5", "generator": "1 36", "note": "base 36, the largest answer" }
+  ]
+}
