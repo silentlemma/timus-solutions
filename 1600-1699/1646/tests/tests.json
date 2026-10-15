@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1646_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "overlapping matches in the first example" },
+    { "name": "02", "example": true, "note": "the second example: the letter never appears" },
+    { "name": "03", "note": "the pattern is longer than the result" },
+    { "name": "04", "note": "a single A doubled a hundred times: 2^100 occurrences, taken modulo" },
+    { "name": "05", "note": "overlapping occurrences across the seams" },
+    { "name": "06", "note": "the result is the pattern itself, split between two samples" },
+    { "name": "gen1", "generator": "1 1", "note": "a few days over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a one-letter pattern over a hundred mostly doubling days" },
+    { "name": "gen3", "generator": "3 3", "note": "a long pattern over four letters" },
+    { "name": "gen4", "generator": "4 4", "note": "a one-letter pattern" },
+    { "name": "gen5", "generator": "5 2", "note": "seam matches of a three-letter pattern during mostly doubling growth" },
+    { "name": "07", "note": "one day with ten-letter seeds: internal matches and a new seam match" },
+    { "name": "08", "note": "prepending and appending different samples preserves concatenation order" },
+    { "name": "09", "note": "one-letter building blocks retain an eight-letter pattern through many short joins" },
+    { "name": "10", "note": "a 100-letter periodic pattern and ten-letter seeds through all 100 days" },
+    { "name": "11", "note": "the final day selects old seeds and discards an exponentially large matching sample" },
+    { "name": "12", "note": "a 100-letter near match stays absent from an enormous alternating sample" },
+    { "name": "13", "note": "seeded small random history creates matches at two different ancestral seams" },
+    { "name": "gen6", "generator": "1646 5", "note": "random 100-day ancestry with a guaranteed 100-letter pattern occurrence" }
+  ]
+}
