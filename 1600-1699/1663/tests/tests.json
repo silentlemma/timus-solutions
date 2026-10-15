@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1663_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "statement example with four distinct populations" },
+    { "name": "02", "note": "two towns, only one tour" },
+    { "name": "03", "note": "three towns close both paths without intermediate transitions" },
+    { "name": "04", "note": "a thousand towns of the same size" },
+    { "name": "05", "note": "a thousand towns of all sizes from 1 to 1000" },
+    { "name": "06", "note": "a thousand towns given from the largest down" },
+    { "name": "gen1", "generator": "1 1", "note": "four towns mixing single-digit and three-digit populations" },
+    { "name": "gen2", "generator": "2 2", "note": "a full-size random input whose smallest population is two" },
+    { "name": "gen3", "generator": "3 3", "note": "three repeated population sizes with two sharing the same toll multiplier" },
+    { "name": "gen4", "generator": "4 4", "note": "large populations producing toll multipliers one, two and three" },
+    { "name": "gen5", "generator": "5 1", "note": "eleven towns with repeated small populations and larger outliers" },
+    { "name": "gen6", "generator": "6 2", "note": "random maximum-size input containing both population limits" },
+    { "name": "07", "note": "an interior starting population and unequal costs for reversed tours" },
+    { "name": "08", "note": "distinct populations all have toll one, so every tour ties" },
+    { "name": "09", "note": "the toll drops from two to one immediately above population 500" },
+    { "name": "10", "note": "population 333 still has toll three while 334 has toll two" },
+    { "name": "11", "note": "exact divisors 125 and 250 and their neighbors mixed with both extremes" },
+    { "name": "12", "note": "interleaved duplicate populations with town one inside a tied middle group" },
+    { "name": "13", "note": "a random case where the cheapest open path gives a worse closed tour" },
+    { "name": "14", "note": "a random tied minimum at town one where cheapest-next-town greedy fails" },
+    { "name": "15", "note": "maximum town count with alternating population extremes requiring grouping" },
+    { "name": "gen7", "generator": "1663 5", "note": "nine distinct random populations around several quotient boundaries" },
+    { "name": "gen8", "generator": "1663 6", "note": "maximum size with shuffled 500 and 501, each extra crossing pair costs one" }
+  ]
+}
