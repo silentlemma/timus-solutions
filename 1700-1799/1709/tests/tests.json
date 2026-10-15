@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1709_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one flight cancelled, one added" },
+    { "name": "02", "note": "two airports, no flight: one is added" },
+    { "name": "03", "note": "two airports, one flight: nothing to do" },
+    { "name": "04", "note": "all 4950 flights, 4851 cancelled at 10^6 each: the sum needs 64 bits" },
+    { "name": "05", "note": "100 airports, no flights: 99 added" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "100 airports, random density" },
+    { "name": "gen3", "generator": "3 3", "note": "dense groups with no flights between them" },
+    { "name": "gen4", "generator": "4 4", "note": "a random forest" },
+    { "name": "gen5", "generator": "5 2", "note": "100 airports, random density" }
+  ]
+}
