@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1638_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only the two covers between volumes 1 and 2" },
+    { "name": "02", "note": "backwards from volume 2 to volume 1: both volumes' pages too" },
+    { "name": "03", "note": "the first and the last page of one volume" },
+    { "name": "04", "note": "from the first volume to the hundredth" },
+    { "name": "05", "note": "the longest path, from the hundredth volume back to the first" },
+    { "name": "06", "note": "a few volumes in between" },
+    { "name": "gen1", "generator": "1", "note": "long backward path from volume 98 to volume 9" },
+    { "name": "gen2", "generator": "2", "note": "forward path through thirty-five intervening volumes" },
+    { "name": "gen3", "generator": "3", "note": "backward travel with covers more than twice as thick as the pages" },
+    { "name": "07", "note": "minimum pages inside volume 100 despite maximum cover thickness" },
+    { "name": "08", "note": "full shelf forward with maximum pages and minimum covers" },
+    { "name": "09", "note": "backward across one middle volume with covers thicker than pages" },
+    { "name": "gen4", "generator": "57", "note": "seeded forward path across exactly one middle volume" }
+  ]
+}
