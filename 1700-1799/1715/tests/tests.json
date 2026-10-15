@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1715_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single ball: no figure, 0 points" },
+    { "name": "03", "note": "a checkerboard: no figure at all" },
+    { "name": "04", "note": "one row of one colour: one move of 5 balls" },
+    { "name": "05", "note": "a vertical blue pair surrounded by isolated balls" },
+    { "name": "06", "note": "a top-row yellow pair with no further moves after gravity" },
+    { "name": "gen1", "generator": "1 1", "note": "a solid two-row red board removed in one move" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-size random board with all five colours" },
+    { "name": "gen3", "generator": "3 3", "note": "a maximum-size board using only green and yellow" },
+    { "name": "gen4", "generator": "4 4", "note": "a full-size board of vertical pairs in alternating colours" },
+    { "name": "gen5", "generator": "5 2", "note": "blue has the largest initial figure on a full-size five-colour board" },
+    { "name": "07", "note": "maximum-width row: removing inner runs joins outer colours across empty columns" },
+    { "name": "08", "note": "maximum-height column: short removable runs among isolated balls preserve vertical order" },
+    { "name": "09", "note": "all 2500 balls in one figure give the maximum score of 6247500" },
+    { "name": "10", "note": "equal-size bent figures: use the leftmost ball on the lowest row of each figure" },
+    { "name": "11", "note": "equal-size figures on the same lowest row: taking the leftmost prevents a larger later merge" },
+    { "name": "12", "note": "removing the main-colour middle pair must retry the newly joined non-main pair" },
+    { "name": "gen6", "generator": "832 1", "note": "seeded six-by-six board with all five colours and unequal scores for the main colours" }
+  ]
+}
