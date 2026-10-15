@@ -1,0 +1,27 @@
+26
+[Team_(A)] WA 7
+[Team_(A)]_1 AC
+[Team_(A)]_2 CE
+A12345678901234567890123456789 ML 6
+A12345678901234567890123456788 TL 7
+[Team_(A)] AC
+[Team_(A)]_1 TL 6
+[Team_(A)]_2 WA 5
+A12345678901234567890123456789 WA 1
+A12345678901234567890123456788 CE
+[Team_(A)] ML 6
+[Team_(A)]_1 CE
+(Team)[A]_3 ML 7
+(Team)[A]_3 TL 7
+(Team)[A]_3 WA 7
+(Team)[A]_4 WA 6
+(Team)[A]_4 AC
+(Team)[A]_4 TL 5
+(Team)[A]_5 TL 7
+(Team)[A]_5 WA 6
+(Team)[A]_5 AC
+(Team)[A]_6 AC
+(Team)[A]_6 ML 6
+(Team)[A]_6 CE
+(Team)[A]_7 CE
+(Team)[A]_7 ML 1

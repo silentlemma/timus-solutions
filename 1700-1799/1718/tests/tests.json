@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1718_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nothing can change: CE and early failures" },
+    { "name": "03", "note": "failures on test 7 always change, AC may" },
+    { "name": "04", "note": "a single accepted solution" },
+    { "name": "gen1", "generator": "1 1", "note": "a few solutions of a few authors" },
+    { "name": "gen2", "generator": "2 2", "note": "long author names and mixed verdicts at the submission limit" },
+    { "name": "gen3", "generator": "3 2", "note": "repeated authors with both forced and optional verdict changes" },
+    { "name": "05", "note": "one failure on the removed test can keep its verdict" },
+    { "name": "06", "note": "every old verdict with a distinct author checks all failure kinds and test numbers" },
+    { "name": "07", "note": "distinct authors failing old test 7 reach the maximum of 1000 letters" },
+    { "name": "08", "note": "optional changes in 1000 submissions by one author still allow zero letters and at most one" },
+    { "name": "09", "note": "interleaved repeated authors with similar punctuation and 30-character names keep separate letter counts" },
+    { "name": "gen4", "generator": "1718 3", "note": "shuffled random verdicts for 1000 distinct authors cover forced, optional, and unchanged groups" }
+  ]
+}
