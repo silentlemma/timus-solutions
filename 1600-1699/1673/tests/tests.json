@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1673_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: no N has totient 3" },
+    { "name": "03", "note": "K = 1, where N = 1 already works" },
+    { "name": "04", "note": "K = 2" },
+    { "name": "05", "note": "the K up to 2 * 10^9 with the most divisors, 1536" },
+    { "name": "06", "note": "K = 2 * 10^9, whose answer is above 2^31" },
+    { "name": "07", "note": "a large K that is no totient" },
+    { "name": "08", "note": "14, the smallest even number that is no totient" },
+    { "name": "gen1", "generator": "1 1", "note": "any K" },
+    { "name": "gen2", "generator": "2 2", "note": "a K with many small prime factors" },
+    { "name": "gen3", "generator": "3 3", "note": "the totient of a random N" },
+    { "name": "gen4", "generator": "4 4", "note": "a small K" },
+    { "name": "gen5", "generator": "5 2", "note": "a K with many small prime factors" },
+    { "name": "gen6", "generator": "6 3", "note": "the totient of a random N" }
+  ]
+}
