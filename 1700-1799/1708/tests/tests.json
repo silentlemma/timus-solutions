@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1708_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: base 4" },
+    { "name": "02", "note": "base 2: only 1*" },
+    { "name": "03", "note": "base 3: both nonzero digits can repeat freely" },
+    { "name": "04", "note": "base 10: decimal patterns include finite and starred forms" },
+    { "name": "05", "note": "base 23, the largest answer under 64 KB" },
+    { "name": "gen1", "generator": "1 24", "note": "base 24: output crosses the 64 KB boundary" },
+    { "name": "gen2", "generator": "1 28", "note": "base 28: adjacent starred letters Q and R at the alphabet limit" },
+    { "name": "gen3", "generator": "1 32", "note": "base 32: long fixed prefixes coexist with starred suffixes" },
+    { "name": "gen4", "generator": "1 35", "note": "base 35: upper alphabet ends at Y before the maximum base" },
+    { "name": "gen5", "generator": "1 36", "note": "base 36, the largest answer" },
+    { "name": "06", "note": "base 5: fixed repeated 2s precede a pair of starred digits" },
+    { "name": "07", "note": "base 6: first isolated finite pattern alongside one-star patterns" },
+    { "name": "08", "note": "base 7: overlapping forbidden multisets over six digits" },
+    { "name": "09", "note": "base 8: octal patterns with both finite and unbounded parts" },
+    { "name": "10", "note": "base 9: final alphabet strictly below decimal" },
+    { "name": "11", "note": "base 11: first alphabet containing the letter A" },
+    { "name": "12", "note": "base 12: highest adjacent starred pair consists of letters A and B" },
+    { "name": "13", "note": "base 13: an added C removes previously least digit multisets" },
+    { "name": "14", "note": "base 14: interleaved finite patterns and starred suffixes" },
+    { "name": "15", "note": "base 15: repeated high letters must remain in string order" },
+    { "name": "16", "note": "base 16: full hexadecimal alphabet through F" },
+    { "name": "17", "note": "base 17: first digit G beyond hexadecimal" },
+    { "name": "18", "generator": "random 74 2 36", "note": "seeded base 34: large alphabet through X and output above 64 KB" }
+  ]
+}
