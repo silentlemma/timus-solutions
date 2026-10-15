@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1727_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest n" },
+    { "name": "03", "note": "the largest n: over 3000 numbers" },
+    { "name": "04", "note": "n = 45, the digits of 99999 alone" },
+    { "name": "05", "note": "n = 2: one number with digit sum 2" },
+    { "name": "gen1", "generator": "1 1", "note": "n up to 100" },
+    { "name": "gen2", "generator": "2 2", "note": "a moderate total requiring hundreds of distinct numbers" },
+    { "name": "gen3", "generator": "3 2", "note": "a five-digit target that exercises a longer construction" },
+    { "name": "06", "note": "n = 44: just below the maximum digit sum, so 99999 must be skipped" },
+    { "name": "07", "note": "n = 46: the first total that cannot fit in a single number" },
+    { "name": "08", "note": "n = 90: two copies of 99999 are forbidden, so at least three numbers are needed" },
+    { "name": "09", "note": "n = 405: the top ten numbers exhaust the total exactly at a decimal boundary" },
+    { "name": "10", "note": "n = 406: a remainder of one after the top ten numbers requires skipping to a sparse digit sum" }
+  ]
+}
