@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1712_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a random grille" },
+    { "name": "03", "note": "only the letters a and A" },
+    { "name": "04", "note": "the windows fill the top left quarter" },
+    { "name": "gen1", "generator": "4 1", "note": "three windows in the second row and one in the bottom left corner" },
+    { "name": "gen2", "generator": "5 2", "note": "the three rightmost cells of the top row are windows above a sheet of a and A" },
+    { "name": "gen3", "generator": "6 1", "note": "an empty second row and two windows in the third row" },
+    { "name": "05", "note": "three windows in the first row require a new reading order after turning" },
+    { "name": "06", "note": "one window in every row with distinct uppercase letters separates row and column order" },
+    { "name": "07", "note": "a uniform sheet must still produce exactly sixteen copies of Z" },
+    { "name": "08", "note": "no starting windows in the first row and a distinct letter group for each turn" },
+    { "name": "09", "generator": "12 1", "note": "seeded random sheet with sixteen distinct mixed-case letters exposes every cell permutation" },
+    { "name": "10", "generator": "3945 2", "note": "seeded random sheet with one uppercase A among fifteen lowercase letters checks its exact position" }
+  ]
+}
