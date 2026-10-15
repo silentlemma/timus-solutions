@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1732_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "whole words erased and the final word shortened" },
+    { "name": "02", "example": true, "note": "adjacent retained fragments cannot become separate words" },
+    { "name": "03", "note": "two words cut out of one, with a letter erased between" },
+    { "name": "04", "note": "no room for the erased letter between two words" },
+    { "name": "05", "note": "letters are case sensitive" },
+    { "name": "06", "note": "a whole word erased" },
+    { "name": "gen1", "generator": "1 1", "note": "a short saying over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a long saying with a target cut out of it" },
+    { "name": "gen3", "generator": "3 3", "note": "one word of 100000 a's: naive search is quadratic" },
+    { "name": "gen4", "generator": "4 4", "note": "a long saying, the target fails at the very end" },
+    { "name": "gen5", "generator": "5 5", "note": "a source of 50000 one-letter words" },
+    { "name": "gen6", "generator": "6 1", "note": "a shortened first word and an erased middle word before a retained final word" },
+    { "name": "07", "note": "minimum one-letter sayings with no matching letter" },
+    { "name": "08", "note": "a wanted word cannot join letters across an original space" },
+    { "name": "09", "note": "erasing an interior letter cannot concatenate a subsequence into one word" },
+    { "name": "10", "note": "repeated wanted words require the earliest occurrence to leave room for the rest" },
+    { "name": "11", "note": "all wanted words exist but their order cannot be reversed" },
+    { "name": "12", "note": "seeded stress case trims both ends and squeezes several erased letters into one space" },
+    { "name": "gen7", "generator": "1732 6", "note": "both sayings reach 100000 characters after one interior letter of a mixed-case random word becomes a space" }
+  ]
+}

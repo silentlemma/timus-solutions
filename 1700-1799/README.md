@@ -36,3 +36,4 @@
 | 1729 | [Dead Man's Chest](1729/) | geometry | C++, Go, Python, Java, Rust |
 | 1730 | [ManBearPig](1730/) | constructive | C++, Go, Python, Java, Rust |
 | 1731 | [Dill](1731/) | constructive | C++, Go, Python, Java, Rust |
+| 1732 | [Ministry of Truth](1732/) | strings | C++, Go, Python, Java, Rust |
