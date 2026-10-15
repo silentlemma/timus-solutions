@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1720_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "x = y: only multiples of 3" },
+    { "name": "03", "note": "x = y = 1: every size up to 10^18" },
+    { "name": "04", "note": "x = y = 10^18" },
+    { "name": "05", "note": "x and y just below 10^18" },
+    { "name": "06", "note": "a gap of 10 joins after about 10^5 contests" },
+    { "name": "07", "note": "l = r, inside a gap" },
+    { "name": "08", "note": "the whole range below x" },
+    { "name": "gen1", "generator": "1 1", "note": "small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "numbers up to 10^18" },
+    { "name": "gen3", "generator": "3 3", "note": "y close to large x" },
+    { "name": "gen4", "generator": "4 4", "note": "x = y" }
+  ]
+}
