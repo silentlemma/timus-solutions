@@ -45,3 +45,4 @@
 | 1638 | [Bookworm](1638/) | math | C++, Go, Python, Java, Rust |
 | 1639 | [Chocolate 2](1639/) | games | C++, Go, Python, Java, Rust |
 | 1640 | [Circle of Winter](1640/) | geometry | C++, Go, Python, Java, Rust |
+| 1641 | [Duties](1641/) | constructive | C++, Go, Python, Java, Rust |
