@@ -1,0 +1,22 @@
+{
+  "judging": "checker",
+  "reference": "1714_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three palindromes" },
+    { "name": "02", "note": "n = 1" },
+    { "name": "03", "note": "n = 2: ab, two palindromes" },
+    { "name": "04", "note": "n = 8, a special length" },
+    { "name": "05", "note": "n = 11, a special length" },
+    { "name": "06", "note": "n = 14, the first length with the long tail" },
+    { "name": "07", "note": "n = 1000" },
+    { "name": "08", "note": "n = 999" },
+    { "name": "09", "note": "n = 998" },
+    { "name": "10", "note": "n = 997" },
+    { "name": "11", "note": "n = 996" },
+    { "name": "12", "note": "n = 995" },
+    { "name": "13", "note": "n = 17" },
+    { "name": "gen1", "generator": "1 1", "note": "a random short length" },
+    { "name": "gen2", "generator": "2 2", "note": "a random long length" },
+    { "name": "gen3", "generator": "3 1", "note": "a random short length" }
+  ]
+}
