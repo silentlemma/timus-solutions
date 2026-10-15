@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1686_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the largest tetrahedron and ten very bright stars" },
+    { "name": "03", "note": "the unit corner: each star lights one face and grazes two others" },
+    { "name": "04", "note": "two opposite stars" },
+    { "name": "05", "note": "a flat tetrahedron of height 1" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "large coordinates and a star with positive components" },
+    { "name": "gen3", "generator": "3 3", "note": "a flat tetrahedron" },
+    { "name": "gen4", "generator": "4 4", "note": "six stars along the axes" },
+    { "name": "gen5", "generator": "5 2", "note": "an oblique star with negative x and y components" },
+    { "name": "06", "note": "one zero-intensity star gives zero power" },
+    { "name": "07", "note": "minimum positive power from a tiny tetrahedron translated to the coordinate limit" },
+    { "name": "08", "note": "scrambled asymmetric vertices entirely in negative coordinates require outward normals" },
+    { "name": "09", "note": "a random small tetrahedron has a quadrilateral silhouette with all four vertices exposed" },
+    { "name": "10", "note": "a random small tetrahedron projects one vertex strictly inside the other three" },
+    { "name": "11", "note": "an oblique star lies exactly in the plane of a slanted face" },
+    { "name": "12", "note": "three directions cross a grazing boundary with face dot products minus one, zero, and one" },
+    { "name": "13", "note": "a long narrow diagonal tetrahedron is viewed almost along its longest edge" },
+    { "name": "14", "note": "ten bright diagonal stars make the total power exceed signed 32-bit range" },
+    { "name": "15", "note": "opposite directions with unequal intensities must add rather than cancel" },
+    { "name": "16", "generator": "168616 5", "note": "ten distinct nearly parallel stars preserve their separate contributions" },
+    { "name": "17", "generator": "168617 6", "note": "large random geometry is illuminated by ten stars with components at most one" },
+    { "name": "18", "generator": "168618 7", "note": "large oblique faces enclose determinant-one volume with a shuffled vertex order" }
+  ]
+}
