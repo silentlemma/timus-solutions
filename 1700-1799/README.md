@@ -40,3 +40,4 @@
 | 1733 | [Forgotten Technology](1733/) | geometry | C++, Go, Python, Java, Rust |
 | 1734 | [Endgame Database](1734/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1735 | [Theft of the Century](1735/) | constructive | C++, Go, Python, Java, Rust |
+| 1736 | [Chinese Hockey](1736/) | greedy | C++, Go, Python, Java, Rust |
