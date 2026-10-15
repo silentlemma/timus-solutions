@@ -65,3 +65,4 @@
 | 1658 | [Sum of Digits](1658/) | dp | C++, Go, Python, Java, Rust |
 | 1659 | [Regular Triangles](1659/) | geometry | C++, Go, Python, Java, Rust |
 | 1660 | [The Island of Bad Luck](1660/) | geometry | C++, Go, Python, Java, Rust |
+| 1661 | [Dodecahedron](1661/) | combinatorics | C++, Go, Python, Java, Rust |
