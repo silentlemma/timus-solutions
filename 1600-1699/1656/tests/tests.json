@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1656_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nine soldiers of one height" },
+    { "name": "03", "note": "the largest square with heights spread over the range" },
+    { "name": "gen1", "generator": "1 1", "note": "a random odd size" },
+    { "name": "gen2", "generator": "2 2", "note": "a 9 x 9 square of three heights" },
+    { "name": "gen3", "generator": "3 3", "note": "25 different heights" },
+    { "name": "gen4", "generator": "4 1", "note": "a random odd size" }
+  ]
+}
