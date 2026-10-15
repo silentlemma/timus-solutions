@@ -103,3 +103,4 @@
 | 1696 | [Salary for Robots](1696/) | dp | C++, Go, Python, Java, Rust |
 | 1697 | [Sniper Shot](1697/) | geometry | C++, Go, Python, Java, Rust |
 | 1698 | [Square Country 5](1698/) | number_theory | C++, Go, Python, Java, Rust |
+| 1699 | [Turning Turtles](1699/) | trees | C++, Go, Python, Java, Rust |

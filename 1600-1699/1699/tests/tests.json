@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1699_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one cell: the route stays put" },
+    { "name": "03", "note": "an inverted U: two turns around the top" },
+    { "name": "04", "note": "a cross: straight through the middle, or one turn" },
+    { "name": "05", "note": "a staircase: every step turns" },
+    { "name": "06", "note": "a comb: teeth hanging from a spine" },
+    { "name": "gen1", "generator": "1 1", "note": "a small field" },
+    { "name": "gen2", "generator": "2 2", "note": "a large square field" },
+    { "name": "gen3", "generator": "3 3", "note": "one fully open row of 100000 cells" },
+    { "name": "gen4", "generator": "4 4", "note": "a long winding snake, a deep tree" },
+    { "name": "gen5", "generator": "5 5", "note": "many short branches" },
+    { "name": "gen6", "generator": "6 1", "note": "a compact tree with four branch junctions" },
+    { "name": "07", "note": "two adjacent open cells after empty rows: zero turns and self queries away from the root" },
+    { "name": "08", "note": "all ordered pairs on a branched tree with a bent shared stem and internal query endpoints" },
+    { "name": "09", "note": "seeded stress sample with ten branch junctions, eleven-turn routes and a closed top-left cell" },
+    { "name": "10", "note": "nested spiral detours between aligned cells and queries immediately around corners" },
+    { "name": "gen7", "generator": "1699 6", "note": "maximum height and depth: one query traverses a fully open column of 100000 cells" },
+    { "name": "gen8", "generator": "1699 7", "note": "guaranteed two-column zigzag with 50000 queries, large turn counts and power-of-two depth borders" }
+  ]
+}
