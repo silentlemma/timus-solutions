@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1723_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single letter" },
+    { "name": "03", "note": "aba is strong too, but a single a is stronger" },
+    { "name": "04", "note": "the most frequent letter comes later" },
+    { "name": "05", "note": "u and e tie" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 50 letters over a few letters" },
+    { "name": "gen2", "generator": "2 2", "note": "fifty letters over the whole alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "one letter repeated 50 times" },
+    { "name": "06", "note": "all 26 letters are distinct, so the entire word is a strongest spell" },
+    { "name": "07", "note": "fifty alternating alphabet endpoints allow a two-letter spell to tie for strongest" },
+    { "name": "08", "note": "seven isolated occurrences beat a run of five equal letters" },
+    { "name": "09", "note": "at length 50 a letter appearing only three times near the end wins" },
+    { "name": "10", "generator": "1723 4", "note": "close counts of 17, 16 and 16 in 49 shuffled letters with no majority" }
+  ]
+}
