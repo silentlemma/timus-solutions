@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1684_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any split into prefixes is accepted" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one letter, the word itself" },
+    { "name": "04", "note": "one letter that does not start the word" },
+    { "name": "05", "note": "a prefix of length 1 at the end" },
+    { "name": "06", "note": "taking the longest piece first fails: aab cannot follow aa" },
+    { "name": "07", "note": "the whole word several times, then a shorter prefix" },
+    { "name": "gen1", "generator": "1 1", "note": "short words over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest words cut from prefixes" },
+    { "name": "gen3", "generator": "3 3", "note": "the same with one letter changed" },
+    { "name": "gen4", "generator": "4 4", "note": "periodic words" },
+    { "name": "gen5", "generator": "5 5", "note": "random long words" },
+    { "name": "gen6", "generator": "6 2", "note": "the longest words cut from prefixes" },
+    { "name": "gen7", "generator": "7 4", "note": "periodic words" }
+  ]
+}
