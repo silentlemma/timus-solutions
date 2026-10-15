@@ -1,0 +1,23 @@
+{
+  "judging": "checker",
+  "reference": "1674_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: 5 x 5 has no tour" },
+    { "name": "03", "note": "2 x 2, the one board with a side below 4 that has a tour" },
+    { "name": "04", "note": "a side of 3: no tour" },
+    { "name": "05", "note": "4 x 4, a single strip" },
+    { "name": "06", "note": "4 x 5" },
+    { "name": "07", "note": "9 x 9, both sides of the form 4k + 1, built from 5 x 9" },
+    { "name": "08", "note": "2 x 3: no tour" },
+    { "name": "09", "note": "5 x 6, a base board" },
+    { "name": "10", "note": "7 x 7, a base board" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "a large board" },
+    { "name": "gen3", "generator": "3 3", "note": "a side below 4" },
+    { "name": "gen4", "generator": "4 4", "note": "both sides of the form 4k + 1" },
+    { "name": "gen5", "generator": "5 5", "note": "one side of 4" },
+    { "name": "gen6", "generator": "6 2", "note": "a large board" },
+    { "name": "gen7", "generator": "7 4", "note": "both sides of the form 4k + 1" }
+  ]
+}
