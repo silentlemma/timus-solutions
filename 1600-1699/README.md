@@ -54,3 +54,4 @@
 | 1647 | [Divide an Island!](1647/) | geometry | C++, Go, Python, Java, Rust |
 | 1648 | [Yachts](1648/) | greedy | C++, Go, Python, Java, Rust |
 | 1649 | [Abstractionism to the People](1649/) | backtracking | C++, Go, Python, Java, Rust |
+| 1650 | [Billionaires](1650/) | segment_tree | C++, Go, Python, Java, Rust |
