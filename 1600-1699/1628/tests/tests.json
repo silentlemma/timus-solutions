@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1628_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "mixed row and column streaks in the first example" },
+    { "name": "02", "example": true, "note": "the second example: a single column" },
+    { "name": "03", "note": "one white day is one streak" },
+    { "name": "04", "note": "one black day, no streaks" },
+    { "name": "05", "note": "five white days each closed on all sides" },
+    { "name": "06", "note": "the largest calendar with no black days" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random calendar" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest calendar with 60000 black days" },
+    { "name": "gen3", "generator": "3 3", "note": "a dense small calendar with many single white days" },
+    { "name": "gen4", "generator": "4 4", "note": "a single white cell between black runs in one row" },
+    { "name": "gen5", "generator": "5 3", "note": "another dense small calendar" },
+    { "name": "07", "note": "intersecting white runs suppress singletons that can extend in only one direction" },
+    { "name": "08", "generator": "1628 5", "note": "all 60000 allowed black cells fill a rectangular calendar with no white streaks" },
+    { "name": "09", "generator": "1628 6", "note": "a maximum-length single row has random runs, a singleton at the left border and a pair at the right border" }
+  ]
+}
