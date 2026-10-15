@@ -1,0 +1,31 @@
+{
+  "judging": "checker",
+  "reference": "1666_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: x^4" },
+    { "name": "02", "example": true, "note": "the second example: two quadratics" },
+    { "name": "03", "example": true, "note": "the third example: irreducible" },
+    { "name": "04", "note": "two roots and an irreducible quadratic" },
+    { "name": "05", "note": "a fourfold root" },
+    { "name": "06", "note": "a squared quadratic, so both constant terms are equal" },
+    { "name": "07", "note": "a root of 20000 after three roots at 0" },
+    { "name": "08", "note": "a root at 0 and an irreducible cubic" },
+    { "name": "09", "note": "roots 0 and -1 and an irreducible quadratic" },
+    { "name": "10", "note": "large coefficients, irreducible" },
+    { "name": "11", "note": "x^4 + 4 splits into two quadratics without roots" },
+    { "name": "12", "note": "x^4 + 20000 does not split" },
+    { "name": "gen1", "generator": "1 1", "note": "random coefficients" },
+    { "name": "gen2", "generator": "2 2", "note": "two quadratics" },
+    { "name": "gen3", "generator": "3 3", "note": "four linear factors" },
+    { "name": "gen4", "generator": "4 4", "note": "two linear factors and a quadratic" },
+    { "name": "gen5", "generator": "5 5", "note": "a squared quadratic" },
+    { "name": "gen6", "generator": "6 2", "note": "irreducible quadratics with opposite constant signs" },
+    { "name": "13", "note": "all four coefficients at the lower limit, with no integer factorization" },
+    { "name": "14", "note": "minimum constant term splits into quadratics with opposite constant signs and no integer roots" },
+    { "name": "15", "note": "distinct quadratics with equal negative constants" },
+    { "name": "16", "note": "a nonzero root leaves a cubic after two coefficients cancel" },
+    { "name": "17", "note": "equal-constant candidates have negative or nonsquare discriminants, so x^4+1 stays irreducible" },
+    { "name": "18", "generator": "9 3", "note": "four distinct nonzero roots of mixed signs and a large negative constant" },
+    { "name": "19", "generator": "10 2", "note": "random irreducible quadratics with opposite linear signs and large coefficient cancellation" }
+  ]
+}
