@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1671_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a knot with no threads at all" },
+    { "name": "03", "note": "three threads between the same two knots" },
+    { "name": "04", "note": "a chain cut from the end" },
+    { "name": "gen1", "generator": "1 1", "note": "a small web with repeated threads" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 random threads, all cut" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain of 100000 knots cut in random order" },
+    { "name": "gen4", "generator": "4 4", "note": "a star of 100000 knots" },
+    { "name": "gen5", "generator": "5 5", "note": "a dense web on few knots" },
+    { "name": "gen6", "generator": "6 1", "note": "a small web with repeated threads" }
+  ]
+}
