@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1655_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: either way round takes 12 minutes" },
+    { "name": "02", "example": true, "note": "the second example: the ships come too fast" },
+    { "name": "03", "note": "one ship straight ahead, at one mile already" },
+    { "name": "04", "note": "one ship ahead and one on each side" },
+    { "name": "05", "note": "a ship behind that arrives almost at once" },
+    { "name": "06", "note": "two ships around north, on either side of the gun" },
+    { "name": "gen1", "generator": "1 1", "note": "two ships on opposite sides of the start favor a clockwise sweep" },
+    { "name": "gen2", "generator": "2 2", "note": "a full fleet with varied distances includes a ship that cannot be reached in time" },
+    { "name": "gen3", "generator": "3 3", "note": "a full fleet between fifty and two hundred miles has generous shooting deadlines" },
+    { "name": "gen4", "generator": "4 4", "note": "a full fleet includes a ship aligned with the initial gun direction" },
+    { "name": "gen5", "generator": "5 1", "note": "a five-ship fleet favors a clockwise sweep across north" },
+    { "name": "gen6", "generator": "6 3", "note": "a fast gun can clear a full fleet with every ship initially at least fifty miles away" },
+    { "name": "07", "note": "an antipodal ship is hit exactly at its deadline at minimum gun speed" },
+    { "name": "08", "note": "a ship already at one mile cannot be saved even a thousandth of a degree off axis" },
+    { "name": "09", "note": "the optimal order in a random fleet shoots a farther ship before the nearest ship" },
+    { "name": "10", "note": "tight deadlines force a reversal whose travel crosses the start" },
+    { "name": "11", "note": "all five random ships are individually reachable but no joint shooting order exists" },
+    { "name": "12", "note": "the fastest order for a random three-ship fleet needs two direction reversals" },
+    { "name": "13", "note": "just beyond the antipode the shorter turn is counterclockwise and needs decimal rounding" },
+    { "name": "gen7", "generator": "71 5", "note": "equally spaced bearings cover the full circle with 500 ships at the slowest gun speed" },
+    { "name": "gen8", "generator": "81 6", "note": "fast ships crowd a two-degree arc across the antipode in a fleet of 500" },
+    { "name": "gen9", "generator": "91 7", "note": "one off-axis zero-deadline ship makes an otherwise relaxed 500-ship fleet impossible" },
+    { "name": "gen10", "generator": "101 8", "note": "seven seeded random bearings have deadlines close to direct travel times" },
+    { "name": "gen11", "generator": "111 9", "note": "shuffled input lists 500 ships with successive exact deadlines along a semicircle" }
+  ]
+}
