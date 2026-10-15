@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1717_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two teams, both unhappy: both must still come" },
+    { "name": "03", "note": "two teams with equal age and contests" },
+    { "name": "04", "note": "a few teams on a small grid" },
+    { "name": "05", "note": "three happy teams at the oldest age beat a wider age range" },
+    { "name": "gen1", "generator": "1 1", "note": "one happy team needs an unhappy companion on a tiny grid" },
+    { "name": "gen2", "generator": "2 2", "note": "distinct random ages and contests at the maximum team count" },
+    { "name": "gen3", "generator": "3 3", "note": "mixed positive and negative weights on a 41 x 41 grid of coordinates" },
+    { "name": "gen4", "generator": "4 4", "note": "only two happy teams among 1500 teams with distinct coordinates" },
+    { "name": "gen5", "generator": "5 2", "note": "more unhappy than happy teams with all ages and contests distinct" },
+    { "name": "06", "note": "minimum team count forces opposite extreme weights to cancel" },
+    { "name": "07", "note": "a late unhappy team at the same age invalidates a tempting partial batch" },
+    { "name": "08", "note": "a shared contests value needs an interior age interval spanning a negative weight" },
+    { "name": "09", "note": "all four coordinate-limit corners contribute a total above signed 32 bits" },
+    { "name": "10", "note": "the winning age band leaves five empty contests coordinates inside its range" },
+    { "name": "11", "note": "winning bounds exclude unhappy teams just one unit outside near the upper limits" },
+    { "name": "12", "note": "all satisfactions are zero with both coincident and separated teams" },
+    { "name": "13", "note": "seeded stress case where two happy teams force a third team and a negative optimum" },
+    { "name": "14", "note": "seeded stress case where a zero-sum coincident group supplies extra admitted teams" },
+    { "name": "15", "generator": "1717 5", "note": "all 1500 positive diagonal points reach the maximum total of 1500000000000" },
+    { "name": "16", "generator": "1717 6", "note": "coincident maximally unhappy teams force a total of minus 1500000000000" },
+    { "name": "17", "generator": "1717 7", "note": "a single age groups 1500 teams with distinct random contests and signed random weights" },
+    { "name": "18", "generator": "1717 8", "note": "one contests value groups 1500 distinct ages with random extreme and zero weights" }
+  ]
+}
