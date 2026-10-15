@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1658_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the edges: a single 1, a hundred nines, one more than that, the largest input, a hundred ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a few queries from real numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "10000 queries from numbers of up to 100 digits" },
+    { "name": "gen3", "generator": "3 3", "note": "10000 queries anywhere in the range" },
+    { "name": "gen4", "generator": "4 2", "note": "10000 queries from numbers of up to 100 digits" }
+  ]
+}
