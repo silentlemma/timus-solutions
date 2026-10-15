@@ -18,3 +18,4 @@
 | 1711 | [Code Names](1711/) | greedy | C++, Go, Python, Java, Rust |
 | 1712 | [Cipher Grille](1712/) | implementation | C++, Go, Python, Java, Rust |
 | 1713 | [Key Substrings](1713/) | strings | C++, Go, Python, Java, Rust |
+| 1714 | [Mnemonics and Palindromes 2](1714/) | constructive | C++, Go, Python, Java, Rust |
