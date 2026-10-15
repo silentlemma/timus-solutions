@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1714_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three palindromes" },
+    { "name": "02", "note": "the minimum length, a single palindrome" },
+    { "name": "03", "note": "n = 2: ab, two palindromes" },
+    { "name": "04", "note": "the exceptional length eight, before the long tail fits" },
+    { "name": "05", "note": "the special length eleven, where the repeated block falls short" },
+    { "name": "06", "note": "n = 14, the first length with the long tail" },
+    { "name": "07", "note": "the maximum length, ending in the five-letter tail" },
+    { "name": "08", "note": "a near-limit word with the four-letter tail" },
+    { "name": "09", "note": "the largest length using the long tail" },
+    { "name": "10", "note": "the two-letter tail after many repeated blocks" },
+    { "name": "11", "note": "a long multiple of six with the one-letter tail" },
+    { "name": "12", "note": "the largest length requiring no tail" },
+    { "name": "13", "note": "two full blocks with an empty tail" },
+    { "name": "gen1", "generator": "1 1", "note": "a random short length" },
+    { "name": "gen2", "generator": "2 2", "note": "a random long length" },
+    { "name": "gen3", "generator": "3 1", "note": "a short generated length with a block and the five-letter tail" },
+    { "name": "14", "note": "the shortest odd length with optimum two, rather than a single palindrome" },
+    { "name": "15", "note": "the last length handled entirely by the short prefix rule" },
+    { "name": "16", "note": "the two-letter tail before the exceptional length eight" },
+    { "name": "17", "note": "the five-letter tail before the exceptional length eleven" },
+    { "name": "18", "note": "the first ordinary length after eleven, with one full block and a one-letter tail" },
+    { "name": "19", "note": "one full block followed by the two-letter tail just before the long-tail boundary" },
+    { "name": "20", "generator": "60 1", "note": "seeded random length twenty: the second long tail and optimum eight" }
+  ]
+}
