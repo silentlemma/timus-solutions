@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "1688_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the sample with departure on the fourth visit" },
+    { "name": "02", "example": true, "note": "the sample with total savings below the fee" },
+    { "name": "03", "note": "no visits at all" },
+    { "name": "04", "note": "a share equal to the fee is not enough" },
+    { "name": "05", "note": "free after the first visit" },
+    { "name": "06", "note": "the largest fee met exactly by the largest total: 6 * 10^9 needs 64 bits" },
+    { "name": "07", "note": "the same with a fee one smaller: free on the last visit" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small bills" },
+    { "name": "gen2", "generator": "2 2", "note": "the maximum number of large bills against the largest fee" },
+    { "name": "gen3", "generator": "3 3", "note": "large bills exceed three times the fee partway through the visits" },
+    { "name": "gen4", "generator": "4 4", "note": "free on the last visit" },
+    { "name": "08", "note": "unit bills accumulate fractional shares, reach equality, then leave on visit four despite later bills" },
+    { "name": "09", "note": "one maximum bill leaves the total one unit short of three times the fee" },
+    { "name": "10", "generator": "1688 5", "note": "three thousand seeded bills meet a threshold just above the signed 32-bit limit, then exceed it by one before the end" }
+  ]
+}
