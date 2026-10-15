@@ -1,0 +1,25 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1633_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a full-rank matrix with unequal coefficients" },
+    { "name": "02", "example": true, "note": "the second example: a matrix of rank one" },
+    { "name": "03", "note": "the zero elixir" },
+    { "name": "04", "note": "all parameters at the maximum" },
+    { "name": "05", "note": "a scalar matrix: both singular values equal" },
+    { "name": "06", "note": "almost a scalar matrix, where the textbook formula cancels" },
+    { "name": "07", "note": "almost a scaled swap of the two lengths" },
+    { "name": "gen1", "generator": "1 1", "note": "small parameters" },
+    { "name": "gen2", "generator": "2 2", "note": "large parameters" },
+    { "name": "gen3", "generator": "3 3", "note": "nearly a multiple of an orthogonal matrix" },
+    { "name": "gen4", "generator": "4 4", "note": "a matrix of rank one" },
+    { "name": "gen5", "generator": "5 3", "note": "a nearly scalar matrix with both off-diagonal coefficients positive" },
+    { "name": "08", "note": "the minimum positive stretch with only one unit coefficient" },
+    { "name": "09", "note": "a zero output row with maximum stretch five attained between the coordinate axes" },
+    { "name": "10", "note": "unequal diagonal stretches select the larger coordinate axis" },
+    { "name": "11", "note": "a minimal full-rank matrix with negative determinant and irrational quality" },
+    { "name": "12", "note": "maximum-scale dense coefficients one unit away from rank one" },
+    { "name": "13", "note": "a large shear whose stretch greatly exceeds both matrix eigenvalues" },
+    { "name": "14", "note": "equal column lengths but unequal row lengths" }
+  ]
+}
