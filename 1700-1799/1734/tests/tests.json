@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1734_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest board full to the limit" },
+    { "name": "03", "note": "the largest board with two pieces" },
+    { "name": "04", "note": "the largest board with the most pieces" },
+    { "name": "05", "note": "a 6 x 6 board with nine pieces" },
+    { "name": "06", "note": "k equal to the number of edge squares" },
+    { "name": "07", "note": "k just past the number of edge squares" },
+    { "name": "08", "note": "a 6 x 6 board with four pieces, checked by listing" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "a large board with most of its allowed pieces" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest board, k near its upper end" },
+    { "name": "gen4", "generator": "4 2", "note": "a medium board with about one third of the allowed pieces" },
+    { "name": "09", "note": "the only intermediate piece count on the smallest board" },
+    { "name": "10", "note": "k reaches the single-colour promotion-row cutoff n/2" },
+    { "name": "11", "note": "k first exceeds the single-colour promotion-row cutoff n/2" },
+    { "name": "12", "note": "the first piece count on a 6 x 6 board whose exact answer exceeds the modulus" },
+    { "name": "13", "note": "subtracting the two monochrome residues gives a value below minus the modulus" },
+    { "name": "14", "note": "four pieces on the largest board give an exact count beyond 64 bits" },
+    { "name": "15", "note": "k is one below the combined capacity of the two edge rows" },
+    { "name": "16", "note": "one piece below the global upper limit" },
+    { "name": "17", "generator": "30 1", "note": "seeded small board with a final residue below one percent of the modulus" },
+    { "name": "18", "generator": "636 2", "note": "seeded sparse board with k below one promotion row capacity" },
+    { "name": "19", "generator": "31176 2", "note": "seeded large board with k near half of its allowed maximum" }
+  ]
+}
