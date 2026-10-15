@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1640_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an irregular group with two demons tied for the greatest distance from the origin" },
+    { "name": "02", "example": true, "note": "two demons on different axes at the same distance from the origin" },
+    { "name": "03", "note": "one demon in a far corner" },
+    { "name": "04", "note": "three demons already on one circle around the start" },
+    { "name": "gen1", "generator": "1 1", "note": "a few demons nearby" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred demons over the field" },
+    { "name": "gen3", "generator": "3 3", "note": "demons in all four corners" },
+    { "name": "gen4", "generator": "4 1", "note": "nearby demons split between the first and third quadrants" },
+    { "name": "05", "note": "a single demon at the minimum nonzero lattice distance" },
+    { "name": "06", "note": "the unique smallest enclosing circle has a demon at its centre" },
+    { "name": "07", "note": "the farthest demon comes first and its squared distance wins by only one" },
+    { "name": "08", "note": "a full hundred-point grid with the unique farthest demon in the last record" },
+    { "name": "gen5", "generator": "1640 4", "note": "a hundred random collinear demons all on the upper coordinate limit" },
+    { "name": "gen6", "generator": "1640 5", "note": "a hundred random demons at nearly equal radii in a thin annulus" }
+  ]
+}
