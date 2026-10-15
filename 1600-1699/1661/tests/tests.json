@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1661_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two rods of one colour" },
+    { "name": "02", "note": "all rods of one colour" },
+    { "name": "03", "note": "thirty colours, the largest answer, 30!/60" },
+    { "name": "04", "note": "five colours, six rods each, so vertex turns fix colourings" },
+    { "name": "05", "note": "three colours, ten rods each, so face turns fix colourings" },
+    { "name": "06", "note": "two colours, fifteen rods each" },
+    { "name": "07", "note": "fifteen colour pairs allow half-turns but no face or vertex turns" },
+    { "name": "gen1", "generator": "1 1", "note": "many singleton colours prevent all nonidentity rotations" },
+    { "name": "gen2", "generator": "2 2", "note": "a shuffled balanced pair of colours checks that rod order is irrelevant" },
+    { "name": "gen3", "generator": "3 3", "note": "a six-rod colour mixed with eight three-rod colours permits vertex turns" },
+    { "name": "gen4", "generator": "4 4", "note": "thirteen colours with exactly two odd counts exercise distinct fixed-edge colours" },
+    { "name": "gen5", "generator": "5 3", "note": "three equal groups of ten allow face turns and half-turns" },
+    { "name": "gen6", "generator": "6 2", "note": "two unequal even colour classes allow matching colours on the fixed edges" },
+    { "name": "08", "note": "one exceptional rod, using colour labels 1 and 30" },
+    { "name": "09", "note": "three identical minority rods allow vertex rotations" },
+    { "name": "10", "note": "two distinct singleton colours use the ordered fixed edges" },
+    { "name": "11", "note": "four odd counts exclude every nonidentity rotation" },
+    { "name": "12", "note": "unequal counts 24, 3, 3 combine vertex and half-turn contributions" },
+    { "name": "13", "note": "counts 20, 5, 5 combine face turns with distinct fixed-edge colours" },
+    { "name": "14", "note": "counts 26, 2, 2 let the fixed edges exhaust a small colour class" },
+    { "name": "15", "note": "twenty-nine colours with one repeated give a near-maximum answer above 64 bits" },
+    { "name": "gen7", "generator": "7 3", "note": "six colours with five rods each permit face turns but exclude half-turns" },
+    { "name": "gen8", "generator": "9 2", "note": "random unequal counts 6, 11, 13 exercise two odd colour classes" }
+  ]
+}
