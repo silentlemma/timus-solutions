@@ -6,3 +6,4 @@
 |---|---------|------|-----------|
 | 1700 | [Awakening](1700/) | implementation | C++, Go, Python, Java, Rust |
 | 1701 | [Ostap and Partners](1701/) | dsu | C++, Go, Python, Java, Rust |
+| 1702 | [Crossroad](1702/) | backtracking | C++, Go, Python, Java, Rust |
