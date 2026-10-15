@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1728_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a fresh candidate wins over previously used lineups" },
+    { "name": "02", "example": true, "note": "the only candidate has played both with and without Efremov" },
+    { "name": "03", "note": "a pair played without Lyosha does not keep him away; a tie" },
+    { "name": "04", "note": "a weaker candidate wins because Lyosha comes along" },
+    { "name": "05", "note": "the only candidate plays without Lyosha" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams and candidates, small ratings" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum numbers of tournaments and candidates" },
+    { "name": "gen3", "generator": "3 3", "note": "every candidate has played both with and without Efremov, forcing failure" },
+    { "name": "gen4", "generator": "4 4", "note": "equal ratings" },
+    { "name": "gen5", "generator": "5 1", "note": "all candidates are new despite several historical pairs" },
+    { "name": "06", "note": "minimum n, m and ratings with only Kantorov in the history" },
+    { "name": "07", "note": "maximum strength 1998; the old Efremov and Kantorov pair is irrelevant" },
+    { "name": "08", "note": "a pair and a full team tie despite different candidate ratings" },
+    { "name": "09", "note": "the highest-rated candidate is disqualified and the weakest is eligible" },
+    { "name": "10", "note": "prefix-related surnames denote different candidates and historical teams" },
+    { "name": "11", "note": "repeated identical triples do not imply that the remaining pair has played" },
+    { "name": "12", "note": "seeded small case: the best pair beats the best full team by one point" },
+    { "name": "13", "generator": "1728 5", "note": "all candidates lose Efremov but keep a previously unseen pair" },
+    { "name": "14", "generator": "1729 6", "note": "only the last, weakest candidate survives after all others are blocked" }
+  ]
+}
