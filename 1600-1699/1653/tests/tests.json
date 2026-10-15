@@ -1,0 +1,21 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1653_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a tetrahedron swinging between two directions" },
+    { "name": "02", "note": "an attack from straight above: the first gun already aims there" },
+    { "name": "03", "note": "the same attack twice: the second needs no turn" },
+    { "name": "04", "note": "an icosahedron, three attacks" },
+    { "name": "05", "note": "a dodecahedron, three attacks" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random attacks" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred random attacks" },
+    { "name": "gen3", "generator": "3 3", "note": "a hundred attacks from three directions" },
+    { "name": "gen4", "generator": "4 3", "note": "a hundred attacks from three directions" },
+    { "name": "gen5", "generator": "5 2", "note": "a hundred random attacks" },
+    { "name": "gen6", "generator": "6 1", "note": "a few random attacks" },
+    { "name": "gen7", "generator": "7 3", "note": "a hundred attacks from three directions" },
+    { "name": "gen8", "generator": "8 2", "note": "a hundred random attacks" },
+    { "name": "gen9", "generator": "9 3", "note": "a hundred attacks from three directions" },
+    { "name": "gen10", "generator": "10 2", "note": "a hundred random attacks" }
+  ]
+}
