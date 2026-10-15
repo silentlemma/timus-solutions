@@ -48,3 +48,4 @@
 | 1641 | [Duties](1641/) | constructive | C++, Go, Python, Java, Rust |
 | 1642 | [1D Maze](1642/) | implementation | C++, Go, Python, Java, Rust |
 | 1643 | [Attack of the Dark Fortress](1643/) | bfs | C++, Go, Python, Java, Rust |
+| 1644 | [A Whole Lot of Walnuts](1644/) | implementation | C++, Go, Python, Java, Rust |
