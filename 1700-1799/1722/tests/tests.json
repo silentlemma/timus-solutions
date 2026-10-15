@@ -1,0 +1,16 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1722_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest city that fits both buildings" },
+    { "name": "03", "note": "the new building touches the city border and almost the old one" },
+    { "name": "04", "note": "two small buildings in the middle of a large city" },
+    { "name": "05", "note": "large buildings on a diagonal" },
+    { "name": "gen1", "generator": "1 1", "note": "a small city" },
+    { "name": "gen2", "generator": "2 2", "note": "any sizes up to 1000" },
+    { "name": "gen3", "generator": "3 3", "note": "the new building touches the city border" },
+    { "name": "gen4", "generator": "4 4", "note": "the buildings almost touch" },
+    { "name": "gen5", "generator": "5 5", "note": "radii that differ by one: a narrow shadow" }
+  ]
+}

@@ -26,3 +26,4 @@
 | 1719 | [Kill the Shaitan-Boss](1719/) | geometry | C++, Go, Python, Java, Rust |
 | 1720 | [Summit Online Judge](1720/) | math | C++, Go, Python, Java, Rust |
 | 1721 | [Two Sides of the Same Coin](1721/) | matching | C++, Go, Python, Java, Rust |
+| 1722 | [Observation Deck](1722/) | geometry | C++, Go, Python, Java, Rust |
