@@ -97,3 +97,4 @@
 | 1690 | [Army of Mages](1690/) | constructive | C++, Go, Python, Java, Rust |
 | 1691 | [Algorithm Complexity](1691/) | graphs | C++, Go, Python, Java, Rust |
 | 1692 | [Flags for Provinces](1692/) | constructive | C++, Go, Python, Java, Rust |
+| 1693 | [Loyd's Problem](1693/) | constructive | C++, Go, Python, Java, Rust |

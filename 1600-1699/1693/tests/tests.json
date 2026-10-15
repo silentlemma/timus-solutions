@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1693_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: Loyd's 18 parts; any optimal cutting is accepted" },
+    { "name": "02", "note": "n = 1: one part" },
+    { "name": "03", "note": "n = 2: two single cells and a domino" },
+    { "name": "04", "note": "a three-by-three board with four distinct parts" },
+    { "name": "05", "note": "the largest board: 163 parts" },
+    { "name": "06", "note": "the largest odd board with 153 parts" },
+    { "name": "07", "note": "an odd board whose optimum exceeds the alphabet size" },
+    { "name": "08", "note": "an exact fit of the seven coloured pieces of area at most three" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "an even board near the upper size limit" },
+    { "name": "gen3", "generator": "3 2", "note": "an eighteen-part optimum on a generated eight-by-eight board" },
+    { "name": "09", "generator": "1 2", "note": "n = 5: the first odd board needing tetrominoes, with one spare cell" },
+    { "name": "10", "generator": "18 2", "note": "n = 6: the twelve smallest coloured pieces use all 36 cells exactly" },
+    { "name": "11", "generator": "15 2", "note": "n = 7: the last size below the area needed for all tetromino types" },
+    { "name": "12", "generator": "13 2", "note": "n = 9: five pentominoes fit after the smaller pieces with no spare area" },
+    { "name": "13", "generator": "60 2", "note": "n = 10: four spare cells cannot increase the optimum beyond 25 parts" },
+    { "name": "14", "generator": "7 2", "note": "n = 11: thirty parts force letters to be reused by disconnected regions" },
+    { "name": "15", "generator": "16 2", "note": "n = 12: a middle pentomino packing must distinguish reflected coloured pieces" },
+    { "name": "16", "generator": "9 2", "note": "n = 15: the largest board whose smallest-area bound needs no hexominoes" },
+    { "name": "17", "generator": "12 2", "note": "n = 16: the first board exceeding the full pentomino inventory" },
+    { "name": "18", "generator": "17 2", "note": "n = 17: five spare cells are just short of buying another hexomino" },
+    { "name": "19", "generator": "6 2", "note": "n = 26: a large even board with 126 parts and two spare cells" },
+    { "name": "20", "generator": "78 2", "note": "n = 27: a large odd board with 135 parts and only one spare cell" }
+  ]
+}
