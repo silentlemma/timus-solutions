@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "1632_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example's three comparisons form a chain around a square" },
+    { "name": "02", "note": "a single laser and no pairs" },
+    { "name": "03", "note": "a rising laser crossed by a flat one that must pass above it" },
+    { "name": "gen1", "generator": "1 1", "note": "three unconstrained beams with different planar directions" },
+    { "name": "gen2", "generator": "2 2", "note": "all forward ray crossings connect a hundred beams, including a large cyclic component" },
+    { "name": "gen3", "generator": "3 3", "note": "one negative lift leaves two of four steep beams unconstrained" },
+    { "name": "gen4", "generator": "4 4", "note": "a large acyclic comparison graph has a zero lift among positive and negative lifts" },
+    { "name": "gen5", "generator": "5 5", "note": "every crossing of the full lines, 10000 pairs" },
+    { "name": "gen6", "generator": "6 1", "note": "an acyclic graph combines positive and negative lifts without isolated beams" },
+    { "name": "gen7", "generator": "7 3", "note": "steep beams with mixed vertical directions and no comparisons" },
+    { "name": "gen8", "generator": "8 5", "note": "every pair of beams is compared, with duplicates filling the pair limit" },
+    { "name": "04", "note": "determinant minus one forces a gap above 1980000 and heights of both signs" },
+    { "name": "05", "note": "a hundred unconstrained lasers have parallel projections in distinct vertical planes" },
+    { "name": "06", "note": "a shuffled 99-edge chain of flat lasers requires 100 distinct tight-edge levels" },
+    { "name": "07", "note": "a well-separated directed cycle is feasible because its crossings are different points" },
+    { "name": "08", "note": "a cyclic component, a separate tight pair, and isolated beams include unconstrained parallel directions" },
+    { "name": "09", "note": "a required crossing lies behind the second starting point and has determinant 19801" },
+    { "name": "10", "note": "unequal branches of a tight diamond require the longest level at their shared endpoint" },
+    { "name": "11", "note": "all three lifts are negative so equal zero starting heights already satisfy every comparison" },
+    { "name": "12", "note": "a strongly connected set of eight beams mixes positive and negative rational lifts" },
+    { "name": "13", "generator": "163214 6", "note": "a total order of flat beams exercises dense tight branches with duplicates filling ten thousand comparisons" },
+    { "name": "14", "generator": "163215 7", "note": "forty-five independent crossing pairs and ten isolated beams test many disconnected components" }
+  ]
+}
