@@ -29,3 +29,4 @@
 | 1722 | [Observation Deck](1722/) | geometry | C++, Go, Python, Java, Rust |
 | 1723 | [Sandro's Book](1723/) | strings | C++, Go, Python, Java, Rust |
 | 1724 | [Origin of Man Clarified](1724/) | strings | C++, Go, Python, Java, Rust |
+| 1725 | [Sold Out!](1725/) | math | C++, Go, Python, Java, Rust |

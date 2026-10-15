@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1725_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two seats: nobody can trip" },
+    { "name": "03", "note": "two seats, Vasya on the right" },
+    { "name": "04", "note": "the longest row, Vasya at the left end" },
+    { "name": "05", "note": "the longest row, Vasya just left of the middle" },
+    { "name": "06", "note": "the longest row, Vasya just right of the middle" },
+    { "name": "07", "note": "four seats, Vasya in the middle: nobody trips" },
+    { "name": "08", "note": "six seats, one trip" },
+    { "name": "09", "note": "the longest row, Vasya at the right end" },
+    { "name": "gen1", "generator": "1", "note": "a random row and seat" },
+    { "name": "gen2", "generator": "2", "note": "a random row and seat" },
+    { "name": "gen3", "generator": "3", "note": "a random row and seat" }
+  ]
+}
