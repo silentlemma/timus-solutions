@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1735_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "twenty bags with just enough bars" },
+    { "name": "03", "note": "twenty bags with one bar too few" },
+    { "name": "04", "note": "three bags of three bars: NO" },
+    { "name": "05", "note": "three bags of four bars: 1, 2, 4 or the like" },
+    { "name": "06", "note": "ten bags with plenty of bars" },
+    { "name": "07", "note": "ten bags with one bar too few" },
+    { "name": "08", "note": "nine bags with just enough bars" },
+    { "name": "gen1", "generator": "1", "note": "k near the bound" },
+    { "name": "gen2", "generator": "2", "note": "k near the bound" },
+    { "name": "gen3", "generator": "3", "note": "k near the bound" },
+    { "name": "gen4", "generator": "4", "note": "k near the bound" }
+  ]
+}
