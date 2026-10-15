@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1724_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single letter is never human" },
+    { "name": "03", "note": "concatenations, and cC the wrong way round" },
+    { "name": "04", "note": "nested pairs and pieces that cut a pair" },
+    { "name": "gen1", "generator": "1 1", "note": "every substring of a short string" },
+    { "name": "gen2", "generator": "2 2", "note": "a random string of 100000 letters" },
+    { "name": "gen3", "generator": "3 3", "note": "a balanced string, mostly balanced pieces asked" },
+    { "name": "gen4", "generator": "4 4", "note": "deep nesting of 50000 matching pairs" },
+    { "name": "gen5", "generator": "5 5", "note": "a balanced string with a few letters changed" },
+    { "name": "gen6", "generator": "6 3", "note": "nested and concatenated human pieces mixed with arbitrary ranges" },
+    { "name": "05", "note": "all sixteen opener and closer type combinations" },
+    { "name": "06", "note": "equal letter counts with crossed order versus correctly nested counterparts" },
+    { "name": "07", "note": "identical stack contents recreated after dipping below a query start" },
+    { "name": "08", "note": "a mismatched close blocks old openers while later balanced islands remain valid" },
+    { "name": "09", "note": "seeded mutated grammar string with all eight letters and an intact long human piece" },
+    { "name": "gen7", "generator": "172406 6", "note": "maximum length and query count with only unmatched opening letters" },
+    { "name": "gen8", "generator": "172407 7", "note": "maximum length with a new invalid-stack boundary at every closing letter" },
+    { "name": "gen9", "generator": "172408 8", "note": "maximum queries repeatedly span almost all of a flat random paired string" }
+  ]
+}
