@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1684_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any split into prefixes is accepted" },
+    { "name": "02", "example": true, "note": "a matching first letter followed by an impossible continuation" },
+    { "name": "03", "note": "one letter, the word itself" },
+    { "name": "04", "note": "one letter that does not start the word" },
+    { "name": "05", "note": "a prefix of length 1 at the end" },
+    { "name": "06", "note": "the longest initial prefix leaves an impossible suffix, while a shorter first piece allows a split" },
+    { "name": "07", "note": "the whole word several times, then a shorter prefix" },
+    { "name": "gen1", "generator": "1 1", "note": "short words over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest words cut from prefixes" },
+    { "name": "gen3", "generator": "3 3", "note": "a single letter mutation in a long concatenation of short prefixes" },
+    { "name": "gen4", "generator": "4 4", "note": "alternating words with opposite starting letters prevent any prefix split" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum length random words with different first letters reject immediately" },
+    { "name": "gen6", "generator": "6 2", "note": "maximum length target assembled from prefixes of up to three letters" },
+    { "name": "gen7", "generator": "7 4", "note": "a shifted repeating aba pattern starts with the wrong letter and prevents a split" }
+  ]
+}
