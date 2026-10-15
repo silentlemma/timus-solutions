@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1734_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest board full to the limit" },
+    { "name": "03", "note": "the largest board with two pieces" },
+    { "name": "04", "note": "the largest board with the most pieces" },
+    { "name": "05", "note": "a 6 x 6 board with nine pieces" },
+    { "name": "06", "note": "k equal to the number of edge squares" },
+    { "name": "07", "note": "k just past the number of edge squares" },
+    { "name": "08", "note": "a 6 x 6 board with four pieces, checked by listing" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "any board and k" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest board, k near its upper end" },
+    { "name": "gen4", "generator": "4 2", "note": "any board and k" }
+  ]
+}
