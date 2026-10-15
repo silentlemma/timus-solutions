@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1719_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "both lines pass through the start: no walking" },
+    { "name": "03", "note": "one split gives parallel lines, another split is shorter" },
+    { "name": "04", "note": "the largest coordinates" },
+    { "name": "05", "note": "two nearly parallel lines far away" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "the full range" },
+    { "name": "gen3", "generator": "3 3", "note": "nearly parallel lines far away" },
+    { "name": "gen4", "generator": "4 1", "note": "small coordinates with a vertical pair" },
+    { "name": "06", "note": "a boss at the origin still requires a positive walk" },
+    { "name": "07", "note": "perpendicular winning lines intersect away from the origin" },
+    { "name": "08", "note": "parallel winning lines are shot from outside both boss segments" },
+    { "name": "09", "note": "both optimal shot orders meet at a nonintegral intersection" },
+    { "name": "10", "note": "the unique optimum shoots the last input pair first" },
+    { "name": "11", "note": "nearly perpendicular directions have integer dot product minus one" },
+    { "name": "12", "note": "a unit-area lattice parallelogram has long almost parallel sides" },
+    { "name": "13", "note": "a positive answer near one ten-thousandth must not round to zero" },
+    { "name": "14", "note": "a width-20000 height-one trapezoid favors the second pairing" },
+    { "name": "15", "note": "three widely spaced bosses have signed double area one" },
+    { "name": "16", "note": "only the third pairing and its forward order attain the optimum" },
+    { "name": "17", "generator": "1719 4", "note": "seeded tight cluster near the positive coordinate limits" },
+    { "name": "18", "generator": "1719 5", "note": "seeded triangle with one boss strictly inside at its centroid" },
+    { "name": "19", "generator": "1719 6", "note": "seeded convex parabola with unequal chord slopes" }
+  ]
+}
