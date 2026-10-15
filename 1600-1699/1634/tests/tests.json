@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1634_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1.5 on average" },
+    { "name": "02", "note": "one tree, exactly one spraying" },
+    { "name": "03", "note": "the expectation is 21.994, just below an integer" },
+    { "name": "04", "note": "the expectation is 66.005, just above an integer" },
+    { "name": "05", "note": "the expectation is 342.980" },
+    { "name": "06", "note": "the expectation is 986.908" },
+    { "name": "07", "note": "the largest number of trees" },
+    { "name": "gen1", "generator": "1", "note": "a random number of trees" },
+    { "name": "gen2", "generator": "2", "note": "a random number of trees" },
+    { "name": "gen3", "generator": "3", "note": "a random number of trees" }
+  ]
+}
