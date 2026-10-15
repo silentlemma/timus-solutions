@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1682_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "k = 1: every number is joined to every other, a triangle at 3" },
+    { "name": "03", "note": "a triangle mixing two residue classes" },
+    { "name": "04", "note": "the largest k" },
+    { "name": "05", "note": "a large prime" },
+    { "name": "06", "note": "a power of two, many square roots of 0" },
+    { "name": "07", "note": "an odd modulus just below the upper bound" },
+    { "name": "08", "note": "a small even composite with a cycle in the second period" },
+    { "name": "gen1", "generator": "1 1", "note": "a small k" },
+    { "name": "gen2", "generator": "2 2", "note": "a large k" },
+    { "name": "gen3", "generator": "3 3", "note": "a multiple of a large prime power" },
+    { "name": "gen4", "generator": "4 2", "note": "an odd multiple of three with a cycle before any residue repeats" },
+    { "name": "gen5", "generator": "5 3", "note": "the generator reaching the upper bound" },
+    { "name": "09", "note": "k = 7: a mutual edge between different residues must not close a false cycle at 5" },
+    { "name": "10", "note": "k = 23: the first cycle has ten vertices, all before the modulus is reached" },
+    { "name": "11", "note": "k = 29: three distinct residues form a triangle at 13, before half a period" },
+    { "name": "12", "note": "k = 313 squared: the largest prime square, with a cycle before a full residue period" },
+    { "name": "13", "generator": "15 1", "note": "seeded k = 27: an odd cube with a six-vertex first cycle at 23" }
+  ]
+}
