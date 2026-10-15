@@ -1,0 +1,12 @@
+5
+first: amber blue coral dune ember frost
+second: amber blue coral dune ember
+third: amber blue coral dune frost
+fourth: amber blue dune ember frost
+fifth: amber coral dune ember frost
+5
+first second third fourth fifth
+first fifth
+fifth fourth third second first
+first second third
+first fifth

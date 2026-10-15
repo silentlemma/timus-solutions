@@ -1,0 +1,12 @@
+4
+void:
+left: amber blue
+right: blue coral
+full: amber blue coral
+6
+void left right
+left void right
+left right void
+left right
+full left
+full right

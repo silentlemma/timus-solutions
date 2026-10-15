@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "1700_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "repeated associations are printed once" },
+    { "name": "03", "note": "an object named twice in a set, and sorting" },
+    { "name": "04", "note": "pairs share a word, all three share none" },
+    { "name": "gen1", "generator": "1 1", "note": "a few objects, a small vocabulary" },
+    { "name": "gen2", "generator": "2 2", "note": "the most objects and sets" },
+    { "name": "gen3", "generator": "3 3", "note": "repeated associations and objects without any" },
+    { "name": "05", "note": "minimum object and group counts with both association lists empty" },
+    { "name": "06", "note": "an empty list at each group position followed by nonempty independent queries" },
+    { "name": "07", "note": "alphabetical order when words are prefixes of other words" },
+    { "name": "08", "note": "a 247-letter association fills both definition lines to 250 characters" },
+    { "name": "09", "note": "object names of 246 letters differing only at the end and 250-character groups" },
+    { "name": "10", "note": "groups of 125 members with the restrictive object last and first at the line limit" },
+    { "name": "11", "note": "successive objects each remove candidates and later queries reuse the full lists" },
+    { "name": "12", "note": "random seed 98 mixes empty, singleton and larger answers and repeats a query" },
+    { "name": "gen4", "generator": "170004 4", "note": "maximum object and group counts with identical 250-character lists and large answers" },
+    { "name": "gen5", "generator": "170005 5", "note": "each distinct group member removes one word, including all 26 removing everything" },
+    { "name": "gen6", "generator": "170006 6", "note": "random families give large local intersections, one global word, or no common word" }
+  ]
+}
