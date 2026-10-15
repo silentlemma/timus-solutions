@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1637_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a translation, two reflections" },
+    { "name": "02", "note": "the piece already lies on the triangle" },
+    { "name": "03", "note": "the same place with the corners listed in another order" },
+    { "name": "04", "note": "one reflection through a corner that stays put" },
+    { "name": "05", "note": "a glide reflection of a scalene triangle needs three" },
+    { "name": "06", "note": "a piece of another size" },
+    { "name": "07", "note": "a glide of an isosceles triangle is also a half turn: two" },
+    { "name": "08", "note": "coordinates at the limits; a single mirror fits" },
+    { "name": "gen1", "generator": "1 1", "note": "a random lattice isometry" },
+    { "name": "gen2", "generator": "2 2", "note": "a single reflection" },
+    { "name": "gen3", "generator": "3 3", "note": "a glide reflection" },
+    { "name": "gen4", "generator": "4 4", "note": "a scalene translation with the corners cyclically reordered" },
+    { "name": "gen5", "generator": "5 5", "note": "one coordinate off: impossible" },
+    { "name": "gen6", "generator": "6 6", "note": "an isosceles right triangle" },
+    { "name": "gen7", "generator": "7 6", "note": "shuffled corners of an isosceles right triangle reflected across a vertical line" },
+    { "name": "09", "note": "a collinear piece cannot cover a nondegenerate target" },
+    { "name": "10", "note": "two matching sides and equal area do not imply congruence" },
+    { "name": "11", "note": "the mirror contains two corners and only the third corner moves" },
+    { "name": "12", "note": "minimum nonzero lattice area with edges spanning the coordinate limits" },
+    { "name": "13", "note": "an oblique mirror away from the origin needs products beyond 32 bits" },
+    { "name": "14", "note": "a random isosceles translation becomes one reflection by swapping the base corners" },
+    { "name": "gen8", "generator": "1637 7", "note": "a random rational rotation whose angle is not a multiple of ninety degrees" },
+    { "name": "gen9", "generator": "1638 8", "note": "a random oblique glide with both normal and tangential translation components" }
+  ]
+}
