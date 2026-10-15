@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1645_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single skier" },
+    { "name": "03", "note": "finishing in the starting order: nothing is decided" },
+    { "name": "04", "note": "finishing in reverse order: every place is known" },
+    { "name": "gen1", "generator": "1 1", "note": "a few skiers" },
+    { "name": "gen2", "generator": "2 2", "note": "2000 skiers in random order" },
+    { "name": "gen3", "generator": "3 3", "note": "2000 skiers almost in the starting order" },
+    { "name": "gen4", "generator": "4 1", "note": "a few skiers" }
+  ]
+}
