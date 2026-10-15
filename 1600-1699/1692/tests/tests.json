@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1692_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any valid set of flags is accepted" },
+    { "name": "02", "note": "the fewest colors: three flags" },
+    { "name": "03", "note": "n = 6 = 4 * 3 / 2: four flags use every color" },
+    { "name": "04", "note": "n = 7: a color is left over" },
+    { "name": "05", "note": "the most colors: 45 flags" },
+    { "name": "06", "note": "exactly enough colors for all pairs of 45 flags" },
+    { "name": "07", "note": "n = 989: one color short of 45 flags" },
+    { "name": "08", "note": "two spare colors cannot increase the maximum of three flags" },
+    { "name": "gen1", "generator": "1 1", "note": "a small color budget allows four flags with one color unused" },
+    { "name": "gen2", "generator": "2 2", "note": "a large color budget that still falls short of 45 flags" },
+    { "name": "gen3", "generator": "3 3", "note": "all colors are needed to support eighteen flags" },
+    { "name": "gen4", "generator": "4 3", "note": "one color below the threshold for eighteen flags" }
+  ]
+}
