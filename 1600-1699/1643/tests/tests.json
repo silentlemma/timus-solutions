@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1643_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: teleports on both sides" },
+    { "name": "02", "example": true, "note": "the second example: one army is walled in" },
+    { "name": "03", "note": "everything in one row, side by side" },
+    { "name": "04", "note": "the way to the fortress leads past a starting point" },
+    { "name": "05", "note": "one army can leave its corner only by teleport" },
+    { "name": "06", "note": "the fortress itself separates the armies" },
+    { "name": "07", "note": "the joined army teleports next to the fortress" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random map" },
+    { "name": "gen2", "generator": "2 2", "note": "a 100 by 100 map" },
+    { "name": "gen3", "generator": "3 3", "note": "a maze of long corridors" },
+    { "name": "gen4", "generator": "4 2", "note": "a maximum size map with four repeated teleport groups among mostly open cells" },
+    { "name": "gen5", "generator": "5 1", "note": "two singleton teleports provide no shortcut around walls on a small map" },
+    { "name": "08", "note": "only diagonal steps connect the three occupied cells across blocked corners" },
+    { "name": "09", "note": "a 100 by 1 corridor with odd army separation requires waiting before joining" },
+    { "name": "10", "note": "a 1 by 100 map requires a chain through all 26 teleport letters" },
+    { "name": "11", "note": "the armies can meet but the fortress is in a separate component" },
+    { "name": "12", "note": "a seeded random map mixes three repeated teleport groups with singleton letters and walls" },
+    { "name": "13", "note": "a 100 by 100 map with 9997 copies of one teleport letter stresses group expansion" },
+    { "name": "14", "note": "maximum size seeded teleport islands require a later meeting to beat the earliest meeting" }
+  ]
+}
