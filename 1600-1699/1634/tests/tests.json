@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1634_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1.5 on average" },
+    { "name": "02", "note": "one tree, exactly one spraying" },
+    { "name": "03", "note": "the expectation is 21.994, just below an integer" },
+    { "name": "04", "note": "the expectation is 66.005, just above an integer" },
+    { "name": "05", "note": "truncation of a large expectation just below the next integer" },
+    { "name": "06", "note": "near-maximum input with an expected order just under one thousand" },
+    { "name": "07", "note": "the largest number of trees" },
+    { "name": "gen1", "generator": "1", "note": "integer part equal to the tree count despite larger possible orders" },
+    { "name": "gen2", "generator": "2", "note": "four trees allow either a four-cycle or two disjoint swaps" },
+    { "name": "gen3", "generator": "3", "note": "power-of-two cycle lengths must merge without multiplying repeated factors" },
+    { "name": "08", "note": "all six permutations give an exact expectation of 13/6" },
+    { "name": "09", "note": "first size with a permutation order larger than the number of trees" },
+    { "name": "10", "note": "cycles of lengths two and four share a factor in their lcm" },
+    { "name": "11", "note": "coprime cycles of lengths three and four give order twelve" },
+    { "name": "12", "note": "four identical two-cycles require the cycle multiplicity factorial" },
+    { "name": "13", "note": "first size allowing three pairwise coprime nontrivial cycles" },
+    { "name": "14", "note": "cycles of lengths three, four and five give order sixty" },
+    { "name": "15", "note": "four coprime cycle lengths three, four, five and seven give order 420" },
+    { "name": "16", "note": "first size whose expected order has a three-digit integer part" },
+    { "name": "17", "note": "first size allowing a cycle with the prime power 32" },
+    { "name": "18", "note": "large composite size permits both two 24-cycles and three 16-cycles" },
+    { "name": "19", "generator": "5", "note": "seeded random upper-middle size exercises many cycle partitions" },
+    { "name": "20", "generator": "19", "note": "seeded random large size mixes long cycles with repeated short cycles" }
+  ]
+}
