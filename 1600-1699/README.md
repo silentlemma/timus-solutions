@@ -90,3 +90,4 @@
 | 1683 | [Fridge](1683/) | greedy | C++, Go, Python, Java, Rust |
 | 1684 | [Jack's Last Word](1684/) | strings | C++, Go, Python, Java, Rust |
 | 1685 | [Orthography](1685/) | strings | C++, Go, Python, Java, Rust |
+| 1686 | [Photovoltaic Spaceship](1686/) | geometry | C++, Go, Python, Java, Rust |
