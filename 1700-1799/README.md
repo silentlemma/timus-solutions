@@ -15,3 +15,4 @@
 | 1708 | [Sum of Digits 2](1708/) | math | C++, Go, Python, Java, Rust |
 | 1709 | [Penguin-Avia](1709/) | dsu | C++, Go, Python, Java, Rust |
 | 1710 | [Boris, You Are Wrong!](1710/) | geometry | C++, Go, Python, Java, Rust |
+| 1711 | [Code Names](1711/) | greedy | C++, Go, Python, Java, Rust |
