@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "1731_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest case" },
+    { "name": "03", "note": "the largest case" },
+    { "name": "04", "note": "many first boxes, two second ones" },
+    { "name": "05", "note": "two first boxes, many second ones" },
+    { "name": "gen1", "generator": "1", "note": "random sizes" },
+    { "name": "gen2", "generator": "2", "note": "random sizes" },
+    { "name": "gen3", "generator": "3", "note": "random sizes" }
+  ]
+}
