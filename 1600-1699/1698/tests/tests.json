@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1698_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1, 5 and 6" },
+    { "name": "02", "note": "n = 2: 25 and 76 join" },
+    { "name": "03", "note": "both three-digit endings are valid new candidates" },
+    { "name": "04", "note": "n = 4: 0625 has a leading zero, only 9376 counts" },
+    { "name": "05", "note": "the largest n" },
+    { "name": "06", "note": "the length just below the upper bound" },
+    { "name": "07", "note": "cumulative counting across ten digit lengths" },
+    { "name": "08", "note": "n = 5: 90625 and 09376, one of them has a leading zero" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n" },
+    { "name": "gen2", "generator": "2 2", "note": "a long generated prefix close to the maximum length" },
+    { "name": "gen3", "generator": "3 2", "note": "a generated length of several hundred digits" },
+    { "name": "09", "note": "both branches regain a nonzero leading digit after lengths 4 and 5" },
+    { "name": "10", "note": "twenty-digit arithmetic exceeds 64 bits and the 6-ending branch starts with zero" },
+    { "name": "11", "note": "four consecutive lengths exclude one branch with the excluded branch switching" },
+    { "name": "12", "note": "the four-length run of exclusions ends and two new numbers must be counted" },
+    { "name": "13", "note": "three successive leading zeros in the 5-ending branch must not discard its suffix" },
+    { "name": "14", "generator": "5 2", "note": "seeded random n = 1276 exercises a long prefix beyond one thousand digits" },
+    { "name": "15", "generator": "17 2", "note": "seeded random n = 1070 checks accumulated counts at a separate long prefix" }
+  ]
+}
