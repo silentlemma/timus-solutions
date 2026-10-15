@@ -79,3 +79,4 @@
 | 1672 | [Droid Flies](1672/) | geometry | C++, Go, Python, Java, Rust |
 | 1673 | [Admission to Exam](1673/) | number_theory | C++, Go, Python, Java, Rust |
 | 1674 | [Drunk King](1674/) | constructive | C++, Go, Python, Java, Rust |
+| 1675 | [Lunar Code 2](1675/) | combinatorics | C++, Go, Python, Java, Rust |
