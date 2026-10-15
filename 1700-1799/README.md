@@ -25,3 +25,4 @@
 | 1718 | [Rejudge](1718/) | implementation | C++, Go, Python, Java, Rust |
 | 1719 | [Kill the Shaitan-Boss](1719/) | geometry | C++, Go, Python, Java, Rust |
 | 1720 | [Summit Online Judge](1720/) | math | C++, Go, Python, Java, Rust |
+| 1721 | [Two Sides of the Same Coin](1721/) | matching | C++, Go, Python, Java, Rust |
