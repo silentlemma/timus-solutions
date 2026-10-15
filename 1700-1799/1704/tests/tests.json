@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "1704_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: !" },
+    { "name": "02", "note": "one letter without noise, samples reaching 0 and 1" },
+    { "name": "03", "note": "spaces, punctuation and digits with noise" },
+    { "name": "04", "note": "one letter with a long period: t = 625" },
+    { "name": "05", "note": "all samples on one line" },
+    { "name": "gen1", "generator": "1 1", "note": "a short text" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest text with t = 5" },
+    { "name": "gen3", "generator": "3 3", "note": "a long period" },
+    { "name": "gen4", "generator": "4 4", "note": "strong noise" }
+  ]
+}
