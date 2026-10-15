@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "1704_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: !" },
+    { "name": "02", "note": "one letter without noise, with samples near 0 and 1" },
+    { "name": "03", "note": "spaces, punctuation and digits with noise" },
+    { "name": "04", "note": "one letter with a long period: t = 625" },
+    { "name": "05", "note": "all samples on one line" },
+    { "name": "gen1", "generator": "1 1", "note": "a short text" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest text with t = 5" },
+    { "name": "gen3", "generator": "3 3", "note": "a long period" },
+    { "name": "gen4", "generator": "4 4", "note": "strong noise" },
+    { "name": "06", "note": "minimum input decoding a single space, with only bit five set" },
+    { "name": "07", "note": "six consecutive one bits and exact sample endpoints 0 and 1 at t = 8" },
+    { "name": "08", "note": "alternating bit patterns in adjacent bytes expose reversed bit order" },
+    { "name": "09", "note": "the unknown baseline jumps between low and high values at every bit" },
+    { "name": "10", "note": "adjacent bits have amplitudes differing by a factor of twenty thousand" },
+    { "name": "11", "note": "signals only one five-decimal unit high must survive input rounding" },
+    { "name": "12", "note": "tabs and blank lines split the header, bit blocks, and character blocks" },
+    { "name": "13", "note": "every ASCII punctuation character including backslash, braces, and underscore" },
+    { "name": "14", "note": "decoded text retains leading, repeated internal, and trailing spaces" },
+    { "name": "15", "note": "noisy bits at the minimum period with changing levels and amplitudes" },
+    { "name": "16", "generator": "170416 5", "note": "maximum t = 1000 with a separate level and gain for every bit" },
+    { "name": "17", "generator": "170417 6", "note": "prime t = 997 near the upper bound avoids quarter-period sample indices" },
+    { "name": "18", "generator": "170418 7", "note": "maximum n = 10000 at t = 25 with random printable text and varying gains" },
+    { "name": "19", "generator": "170419 8", "note": "near-maximum input at t = 6 with structured noise at the competing frequency" }
+  ]
+}
