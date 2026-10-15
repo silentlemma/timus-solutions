@@ -1,0 +1,27 @@
+{
+  "judging": "checker",
+  "reference": "1647_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a right isosceles triangle" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "an isosceles triangle as large as allowed" },
+    { "name": "04", "note": "a very flat triangle" },
+    { "name": "05", "note": "the 3-4-5 right triangle" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "coordinates up to 2000" },
+    { "name": "gen3", "generator": "3 3", "note": "a long thin triangle" },
+    { "name": "gen4", "generator": "4 2", "note": "a scalene triangle entirely to the left of the y-axis" },
+    { "name": "06", "note": "the smallest possible lattice triangle has area one half" },
+    { "name": "07", "note": "a narrow slanted triangle spans almost the full coordinate range" },
+    { "name": "08", "note": "a tiny scalene triangle near the upper coordinate limit tests cancellation" },
+    { "name": "09", "note": "three corners of the bounding square attain the maximum possible area" },
+    { "name": "10", "note": "an oblique symmetry chord joins the last vertex to the opposite midpoint" },
+    { "name": "11", "note": "a counterclockwise scalene triangle begins with a vertical side" },
+    { "name": "12", "note": "a unit coast edge lies beside two much longer oblique sides" },
+    { "name": "13", "note": "a retained random stress case is clockwise and entirely in the negative quadrant" },
+    { "name": "gen5", "generator": "1647 4", "note": "a seeded nearly equilateral triangle exercises competing dividing chords" },
+    { "name": "gen6", "generator": "1647 5", "note": "a seeded almost right angle has a dot product of only one unit in magnitude" },
+    { "name": "14", "note": "a sliver of a triangle: an end of the chord lies within the tolerance of two sides" },
+    { "name": "15", "note": "another sliver, with a corner at the edge of the coordinate range" }
+  ]
+}
