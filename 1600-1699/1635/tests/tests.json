@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1635_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: no letter repeats" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example: the whole name is a palindrome" },
+    { "name": "04", "note": "a single letter" },
+    { "name": "05", "note": "a palindrome made of palindromes" },
+    { "name": "06", "note": "a greedy longest first piece loses: aba ab is worse than a baab" },
+    { "name": "gen1", "generator": "1 1", "note": "a short word over three letters" },
+    { "name": "gen2", "generator": "2 2", "note": "4000 letters over two" },
+    { "name": "gen3", "generator": "3 3", "note": "4000 copies of one letter" },
+    { "name": "gen4", "generator": "4 4", "note": "4000 letters over 26" },
+    { "name": "gen5", "generator": "5 5", "note": "palindromes glued together" },
+    { "name": "gen6", "generator": "6 1", "note": "a short word over three letters" }
+  ]
+}
