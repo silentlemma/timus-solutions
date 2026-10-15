@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1657_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a foldable example with mixed straight and turning cubes" },
+    { "name": "02", "example": true, "note": "the second example: no folding" },
+    { "name": "03", "note": "a straight stick of 27 cubes" },
+    { "name": "04", "note": "every inner cube turns" },
+    { "name": "05", "note": "a mostly alternating palindrome with two pairs of consecutive turns" },
+    { "name": "gen1", "generator": "1 1", "note": "a foldable snake with three inner straights and a long turn run after the second cube" },
+    { "name": "gen2", "generator": "2 1", "note": "a generated folding with irregularly spaced straights and straight cubes next to both endpoints" },
+    { "name": "gen3", "generator": "3 2", "note": "a random snake whose run of four inner straights near the tail exceeds the cube width" },
+    { "name": "gen4", "generator": "4 2", "note": "an early block of four consecutive straights prevents this random snake from folding" },
+    { "name": "gen5", "generator": "5 3", "note": "replacing an inner straight with a turn preserves a folding despite a long initial turn run" },
+    { "name": "gen6", "generator": "6 3", "note": "a turn added near the middle still permits folding with only isolated inner straights" },
+    { "name": "06", "note": "three serpentine layers with full-width rows and a palindromic snake" },
+    { "name": "07", "note": "an out-of-spec turning first endpoint is ignored while the second cube stays straight" },
+    { "name": "08", "note": "a straight penultimate cube still folds when an out-of-spec final turn is ignored" },
+    { "name": "09", "note": "one straight inner cube at the centre of the string is still impossible" },
+    { "name": "10", "note": "a folding with 23 inner turns and straight cubes only next to the endpoints" },
+    { "name": "11", "note": "a four-cube straight segment at the tail exceeds the cube width" },
+    { "name": "12", "note": "three turns between successive straights form an impossible periodic snake" },
+    { "name": "13", "note": "five turns between successive straights admit a folding" },
+    { "name": "14", "note": "an impossible arrangement of 23 turns with straight inner cubes at positions 8 and 20" },
+    { "name": "15", "note": "stress regression with four separated straights and long turn runs has no folding" },
+    { "name": "16", "generator": "149 1", "note": "seeded Hamiltonian folding with only 15 turns and ten straight inner cubes" },
+    { "name": "17", "generator": "288 2", "note": "an unconstrained random snake happens to fold despite its irregular straight spacing" },
+    { "name": "18", "generator": "13 3", "note": "changing the penultimate cube of a random folding destroys feasibility without adjacent inner straights" }
+  ]
+}
