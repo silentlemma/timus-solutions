@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1701_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid salaries are accepted" },
+    { "name": "02", "example": true, "note": "the second example: a contradiction inside a set" },
+    { "name": "03", "example": true, "note": "the third example: a salary below zero" },
+    { "name": "04", "note": "only Vasily, compared with himself" },
+    { "name": "05", "note": "a claim that Vasily earns 5 more than himself" },
+    { "name": "06", "note": "the largest differences going round a cycle" },
+    { "name": "07", "note": "a set joined to Vasily's" },
+    { "name": "08", "note": "two employees with equal salaries" },
+    { "name": "gen1", "generator": "1 1", "note": "consistent comparisons with reversals and zero self-comparisons" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes, all consistent" },
+    { "name": "gen3", "generator": "3 3", "note": "a long chain pushed below zero by the last statement" },
+    { "name": "gen4", "generator": "4 4", "note": "adjacent-employee comparisons in random order with repeated edges" },
+    { "name": "gen5", "generator": "5 5", "note": "self-statements and contradictions" },
+    { "name": "gen6", "generator": "6 1", "note": "a repeated comparison changes the required salary by one" },
+    { "name": "09", "note": "the first statement forces a negative salary at the maximum difference" },
+    { "name": "10", "note": "separate unanchored components have internal minima, tied minima and an isolated employee" },
+    { "name": "11", "note": "a larger free component joins Vasily through non-root employees with its minimum exactly zero" },
+    { "name": "12", "note": "random stress case with reversed duplicates and the first contradiction before a later self-error" },
+    { "name": "gen7", "generator": "7 6", "note": "maximum-step chain anchored last reaches salary 999980000 with both input signs" },
+    { "name": "gen8", "generator": "8 7", "note": "maximum employee count and one statement leave almost all salaries unconstrained" }
+  ]
+}
