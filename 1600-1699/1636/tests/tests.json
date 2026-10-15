@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1636_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: ZZZ stays behind even without the attempts" },
+    { "name": "02", "example": true, "note": "the second example: 420 penalty minutes cost the first place" },
+    { "name": "03", "note": "a tie without the attempts still loses on the name" },
+    { "name": "04", "note": "one minute less without the attempts wins" },
+    { "name": "05", "note": "equal times and no rejected attempts" },
+    { "name": "gen1", "generator": "1", "note": "clean time near the winner's" },
+    { "name": "gen2", "generator": "2", "note": "clean time near the winner's" },
+    { "name": "gen3", "generator": "3", "note": "clean time near the winner's" },
+    { "name": "gen4", "generator": "4", "note": "clean time near the winner's" }
+  ]
+}
