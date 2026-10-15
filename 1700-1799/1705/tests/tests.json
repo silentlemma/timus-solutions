@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1705_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every n from 1 to 100" },
+    { "name": "03", "note": "the largest n and a few small ones" },
+    { "name": "04", "note": "n next to squares s^2 and products s(s + 1)" },
+    { "name": "gen1", "generator": "1 1", "note": "small n" },
+    { "name": "gen2", "generator": "2 2", "note": "random values up to 10^18 at the maximum query count" },
+    { "name": "gen3", "generator": "3 3", "note": "values near squares and products of consecutive integers" },
+    { "name": "05", "note": "one query just beyond the exhaustive small-n range" },
+    { "name": "06", "note": "the remainder equals the share exactly or falls one cabbage short" },
+    { "name": "07", "note": "consecutive n make the least gang size decrease and then jump upward" },
+    { "name": "08", "note": "interior square intervals need gang sizes far above the integer square root" },
+    { "name": "09", "note": "values straddle signed and unsigned 32-bit input limits" },
+    { "name": "10", "note": "adjacent n require different answers beyond floating-point integer precision" },
+    { "name": "11", "note": "retained random stress values have tight remainders and large answer offsets" },
+    { "name": "12", "generator": "170512 4", "note": "all final 30000 legal n shuffled to expose rounding near the upper limit" },
+    { "name": "13", "generator": "170513 5", "note": "random triples straddle the x(x + 1) threshold in the first quotient case" },
+    { "name": "14", "generator": "170514 6", "note": "random triples straddle the exact square threshold in the second quotient case" },
+    { "name": "15", "generator": "170515 7", "note": "maximum query count alternates tiny searches with large interior values" }
+  ]
+}
