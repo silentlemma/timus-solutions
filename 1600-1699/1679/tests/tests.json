@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1679_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "points at distance exactly R / sqrt(2), the midpoints of sides" },
+    { "name": "03", "note": "every pair of points of the disc with R = 3" },
+    { "name": "04", "note": "exhaustive lattice-point pairs at the two smallest radii" },
+    { "name": "05", "note": "the largest R: vertices, the centre and a near miss on a turned square" },
+    { "name": "gen1", "generator": "1 1", "note": "random points, nearly always NO" },
+    { "name": "gen2", "generator": "2 2", "note": "points on the square with vertices on the axes" },
+    { "name": "gen3", "generator": "3 3", "note": "points on squares with integer vertices" },
+    { "name": "gen4", "generator": "4 4", "note": "a point and its turn by a multiple of 90 degrees" },
+    { "name": "gen5", "generator": "5 5", "note": "near misses" },
+    { "name": "gen6", "generator": "6 6", "note": "a mix of point configurations at small radii" },
+    { "name": "06", "note": "minimum T with a repeated outer point whose square orientations are irrational" },
+    { "name": "07", "note": "doubled squared distance differs from the squared radius by exactly one in both directions" },
+    { "name": "08", "note": "distinct lattice vertices on one circle must be separated by whole quarter-turns" },
+    { "name": "09", "note": "unequal collinear radii cannot share the boundary even when both points are eligible" },
+    { "name": "10", "note": "same opposite and adjacent edges of a square with nonintegral rational vertices" },
+    { "name": "11", "note": "seeded stress pairs preserve their answers under swapping reflection and quarter-turns" },
+    { "name": "gen7", "generator": "1679 7", "note": "a thousand large rational-square pairs and one-coordinate perturbations at the two largest radii" }
+  ]
+}
