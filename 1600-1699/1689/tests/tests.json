@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "1689_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: touching a worm does not hurt it" },
+    { "name": "03", "note": "the barbell fills the trough: one position only" },
+    { "name": "04", "note": "a long worm under both plates is hurt once, so 0 ties with 4" },
+    { "name": "05", "note": "the barbell fits exactly between two worms" },
+    { "name": "06", "note": "a worm as long as the trough" },
+    { "name": "gen1", "generator": "1 1", "note": "a short trough" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes with short worms" },
+    { "name": "gen3", "generator": "3 3", "note": "long worms and a wide barbell" },
+    { "name": "gen4", "generator": "4 4", "note": "worms packed end to end" },
+    { "name": "gen5", "generator": "5 5", "note": "plates meeting in the middle" },
+    { "name": "gen6", "generator": "6 2", "note": "the largest sizes with short worms" }
+  ]
+}
