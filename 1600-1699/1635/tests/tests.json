@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1635_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: no letter repeats" },
+    { "name": "02", "example": true, "note": "an odd run and an even run separated by a single letter" },
+    { "name": "03", "example": true, "note": "the third example: the whole name is a palindrome" },
+    { "name": "04", "note": "a single letter" },
+    { "name": "05", "note": "a palindrome made of palindromes" },
+    { "name": "06", "note": "a greedy longest first piece loses: aba a b is worse than a baab" },
+    { "name": "gen1", "generator": "1 1", "note": "a short word over three letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-length string over a two-letter alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "one letter repeated 4000 times" },
+    { "name": "gen4", "generator": "4 4", "note": "all 26 letters in a string at the length limit" },
+    { "name": "gen5", "generator": "5 5", "note": "palindromes glued together" },
+    { "name": "gen6", "generator": "6 1", "note": "mixed double and triple letter runs in a short string" },
+    { "name": "07", "note": "two equal letters form the shortest even palindrome" },
+    { "name": "08", "note": "cycling abc for 4000 letters forces the maximum count of 4000 singleton pieces" },
+    { "name": "09", "note": "a string of 4000 alternating letters has only odd palindromes and many optimal two-piece splits" }
+  ]
+}
