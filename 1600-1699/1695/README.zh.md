@@ -1,0 +1,74 @@
+# 1695. 机器人的工作
+
+[Timus 1695](https://acm.timus.ru/problem.aspx?space=1&num=1695) · 难度 2913 · backtracking
+
+原题作者 Mikhail Kolodyazhniy，由 Alex Samsonov 准备，出自 2009 年 2 月彼得罗扎沃茨克冬季集训的 Ural SU Contest。
+
+[English](README.md) · [Русский](README.ru.md) · **中文** · [Español](README.es.md)
+
+## 任务
+
+每天都有一组两两是朋友的非空机器人去上班，且组不能重复。给出 n 个机器人的友谊图，求第一次没有新组可派的那一天。
+
+## 输入
+
+n（1 ≤ n ≤ 50），然后是 n × n 的 0/1 友谊矩阵，对称且对角线为 0。
+
+## 输出
+
+那一天的编号。
+
+## 样例
+
+### 样例 1
+
+输入：
+
+```
+6
+011100
+101100
+110100
+111000
+000001
+000010
+```
+
+输出：
+
+```
+19
+```
+
+## 解法
+
+一个工作组是友谊图的团，也就是“非朋友”图的独立集。每个非空组占一天，所以答案是非空团数加一，
+也就是把空集也算上时“非朋友”图的独立集个数。
+
+对顶点集 M 递归计算独立集个数：
+
+- 若 M 分成几个连通部分，把各部分的个数相乘；
+- 若 M 中任意两点都是敌人，独立集只有空集和 |M| 个单点：|M| + 1；
+- 若没有顶点有两个以上的敌人，M 是路或环，个数是斐波那契型：路为 P(s) = P(s − 1) + P(s − 2)，环为 P(s − 1) + P(s − 3)；
+- 否则取一个敌人最多（至少三个）的顶点 v：count(M) = count(M − v) + count(M − v − v 的敌人)。
+
+只在度至少为三的顶点上分支使递归规模很小，按顶点掩码记忆化又去掉了重复的子问题。
+所有机器人都是朋友时答案达到 2⁵⁰，可以放进 64 位整数。
+
+注意事项：
+
+- 空组不算工作日，但生锈那天比组数多一，所以把空集算进去正好得到答案；
+- 全是朋友时为 2⁵⁰（测试 03），互不为友时为 n + 1（测试 04）；
+- 敌人构成的环需要单独的公式（测试 07）。
+
+答案与小图上对所有子集的计数一致，也与一个独立的已通过实现在 50 个机器人的随机、稀疏和正则图上一致。
+
+## 解答
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
+|----|----|----|-----|------|----|----|
+| [1695_backtracking.cpp](1695_backtracking.cpp) | G++ 13.2 x64 | backtracking | exponential, small in practice | AC | 0.031 s | 956 KB |
+| [1695_backtracking.go](1695_backtracking.go) | Go 1.14 x64 | backtracking | exponential, small in practice | AC | 0.031 s | 2632 KB |
+| [1695_backtracking.java](1695_backtracking.java) | Java 1.8 | backtracking | exponential, small in practice | AC | 0.140 s | 4824 KB |
+| [1695_backtracking.py](1695_backtracking.py) | Python 3.12 x64 | backtracking | exponential, small in practice | AC | 0.265 s | 3316 KB |
+| [1695_backtracking.rs](1695_backtracking.rs) | Rust 1.75 x64 | backtracking | exponential, small in practice | AC | 0.046 s | 1488 KB |
