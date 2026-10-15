@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1650_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one billionaire who never moves" },
+    { "name": "03", "note": "two equal cities all the time: nobody leads, empty output" },
+    { "name": "04", "note": "a tie broken by a move" },
+    { "name": "05", "note": "names differ only in case and sort as ABC...abc" },
+    { "name": "gen1", "generator": "1 1", "note": "a poorer traveler joins the richest city without changing the leader" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum population and duration with city totals beyond 32-bit range" },
+    { "name": "gen3", "generator": "3 3", "note": "two equal fortunes chasing each other" },
+    { "name": "gen4", "generator": "4 1", "note": "equal fortunes remain tied while one billionaire visits new cities" },
+    { "name": "gen5", "generator": "5 2", "note": "frequent moves among a fixed pool of cities with changing leaders" },
+    { "name": "06", "note": "minimum two-day trip: the old and new cities each lead once, with 20-letter names and unit fortune" },
+    { "name": "07", "note": "same-day three-city cycles preserve ties; one-unit transfers create and remove strict leaders" },
+    { "name": "08", "generator": "1650 4", "note": "exact maximum population and trips, 50001 cities, and initial total wealth of 10^15" }
+  ]
+}

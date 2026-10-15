@@ -1,0 +1,17 @@
+6
+Alice A 100000000000
+Bob A 1
+Carol B 100000000000
+Dave B 1
+Eve C 100000000000
+Frank C 1
+10 9
+1 Bob B
+1 Dave C
+1 Frank A
+3 Alice B
+3 Carol C
+3 Eve A
+5 Bob A
+6 Frank B
+8 Dave B
