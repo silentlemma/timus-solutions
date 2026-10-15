@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1701_dsu.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid salaries are accepted" },
+    { "name": "02", "example": true, "note": "the second example: a contradiction inside a set" },
+    { "name": "03", "example": true, "note": "the third example: a salary below zero" },
+    { "name": "04", "note": "only Vasily, compared with himself" },
+    { "name": "05", "note": "Vasily earning 5 more than himself" },
+    { "name": "06", "note": "the largest differences going round a cycle" },
+    { "name": "07", "note": "two sets joined to Vasily's" },
+    { "name": "08", "note": "two employees with equal salaries" },
+    { "name": "gen1", "generator": "1 1", "note": "a few employees, maybe an error" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest sizes, all consistent" },
+    { "name": "gen3", "generator": "3 3", "note": "a long chain pushed below zero by the last statement" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain in random order" },
+    { "name": "gen5", "generator": "5 5", "note": "self-statements and contradictions" },
+    { "name": "gen6", "generator": "6 1", "note": "a few employees, maybe an error" }
+  ]
+}
