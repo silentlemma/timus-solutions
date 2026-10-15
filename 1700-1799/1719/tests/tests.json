@@ -1,0 +1,15 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1719_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "both lines pass through the start: no walking" },
+    { "name": "03", "note": "one split gives parallel lines, another split is shorter" },
+    { "name": "04", "note": "the largest coordinates" },
+    { "name": "05", "note": "two nearly parallel lines far away" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "the full range" },
+    { "name": "gen3", "generator": "3 3", "note": "nearly parallel lines far away" },
+    { "name": "gen4", "generator": "4 1", "note": "small coordinates" }
+  ]
+}
