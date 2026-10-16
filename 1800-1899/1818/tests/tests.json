@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1818_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "two fishermen throwing nothing: the residue is 0, so n^n" },
+    { "name": "04", "note": "two fishermen, one throw" },
+    { "name": "05", "note": "ten fishermen throwing nothing" },
+    { "name": "06", "note": "the most fishermen throwing nothing: 2000^2000" },
+    { "name": "07", "note": "the most fishermen, every throw n - 1" },
+    { "name": "08", "note": "an odd count with ascending throws from zero" },
+    { "name": "09", "note": "five fishermen with falling throws" },
+    { "name": "gen1", "generator": "1 1", "note": "a random count" },
+    { "name": "gen2", "generator": "2 2", "note": "the most fishermen" },
+    { "name": "gen3", "generator": "3 3", "note": "the most fishermen, extreme throws" },
+    { "name": "10", "note": "the remaining two-fisherman order: only the second fisherman throws a fish" },
+    { "name": "11", "note": "a final nonzero throw after zero throws at an even digit position" },
+    { "name": "12", "note": "a final unit throw at an odd digit position requires the negative sign" },
+    { "name": "13", "note": "a retained random five-fisherman case mixes four throw values and division carries" },
+    { "name": "14", "note": "a retained random composite-sized case crosses both throw extremes with repeated middle values" },
+    { "name": "15", "note": "equal unit throws produce a nonzero answer beyond 32-bit arithmetic" },
+    { "name": "16", "note": "the greatest residue modulo 16^16 is exactly one below 2^64" },
+    { "name": "17", "note": "at the maximum count only the final fisherman forces a 6603-digit catch" },
+    { "name": "18", "note": "alternating minimum and maximum throws tie every correction to its parity" },
+    { "name": "19", "note": "at the maximum count the catch is exhausted by the second fisherman and the answer stays small" },
+    { "name": "20", "generator": "993 1", "note": "seeded random throws for 127 fishermen exercise a moderate prime count" },
+    { "name": "21", "generator": "3340 1", "note": "seeded random throws for 1024 fishermen exercise a large power-of-two count" }
+  ]
+}
