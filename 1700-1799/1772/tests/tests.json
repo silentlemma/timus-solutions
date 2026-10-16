@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1772_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no fallen robots" },
+    { "name": "03", "note": "the start lane blocked, one step aside" },
+    { "name": "04", "note": "another lane blocked" },
+    { "name": "05", "note": "widening blocks around the start" },
+    { "name": "06", "note": "all lanes but the last, then all but the first" },
+    { "name": "07", "note": "100 000 lanes, only the last one free" },
+    { "name": "08", "note": "two blocks the start lane slips between, then a wide one" },
+    { "name": "gen1", "generator": "1 1", "note": "a few lanes and robots" },
+    { "name": "gen2", "generator": "2 1", "note": "a few lanes and robots" },
+    { "name": "gen3", "generator": "3 2", "note": "100 000 lanes and random blocks" },
+    { "name": "gen4", "generator": "4 3", "note": "blocks forcing the far edge in turn: a total near 10^10" },
+    { "name": "gen5", "generator": "5 4", "note": "100 000 lanes and short blocks" }
+  ]
+}
