@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1785_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "several for a count inside its range" },
+    { "name": "02", "example": true, "note": "lots for forty monsters" },
+    { "name": "03", "note": "the smallest number" },
+    { "name": "04", "note": "the last few" },
+    { "name": "05", "note": "the first several" },
+    { "name": "06", "note": "the last zounds" },
+    { "name": "07", "note": "the first legion" },
+    { "name": "08", "note": "the largest number" },
+    { "name": "gen1", "generator": "1 1", "note": "the transition from pack to lots" },
+    { "name": "gen2", "generator": "2 1", "note": "five monsters cross from few to several" },
+    { "name": "gen3", "generator": "3 1", "note": "horde begins at fifty monsters" },
+    { "name": "gen4", "generator": "4 2", "note": "swarm for a count near its upper limit" },
+    { "name": "gen5", "generator": "5 2", "note": "legion for a count above one thousand" }
+  ]
+}
