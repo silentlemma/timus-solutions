@@ -83,3 +83,4 @@
 | 1776 | [Anniversary Firework](1776/) | dp | C++, Go, Python, Java, Rust |
 | 1777 | [Anindilyakwa](1777/) | simulation | C++, Go, Python, Java, Rust |
 | 1778 | [Chinese Hockey 2](1778/) | greedy | C++, Go, Python, Java, Rust |
+| 1779 | [The Great Team](1779/) | constructive | C++, Go, Python, Java, Rust |

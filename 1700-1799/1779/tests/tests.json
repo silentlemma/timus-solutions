@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1779_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest students" },
+    { "name": "03", "note": "five students" },
+    { "name": "04", "note": "six students" },
+    { "name": "05", "note": "seven students" },
+    { "name": "06", "note": "thirty students" },
+    { "name": "gen1", "generator": "1 1", "note": "a few students" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 200 students" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 200 students" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 200 students" }
+  ]
+}
