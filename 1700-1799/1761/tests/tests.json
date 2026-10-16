@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1761_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a five-number concatenation containing a palindrome of length five" },
+    { "name": "02", "example": true, "note": "a small input where the general length formula does not yet apply" },
+    { "name": "03", "note": "the smallest input produces a single-bit palindrome" },
+    { "name": "04", "note": "the first two numbers produce a palindrome of length two" },
+    { "name": "05", "note": "the entire concatenation through three forms a five-bit palindrome" },
+    { "name": "06", "note": "a three-digit all-ones bound extends the longest palindrome to seven" },
+    { "name": "07", "note": "the six-digit bound just below the threshold retains the shorter palindrome" },
+    { "name": "08", "note": "the six-digit threshold first permits a palindrome of length sixteen" },
+    { "name": "09", "note": "the lower palindrome length persists immediately before the seven-digit threshold" },
+    { "name": "10", "note": "the seven-digit threshold raises the palindrome length to nineteen" },
+    { "name": "11", "note": "an all-ones six-digit bound keeps the longer palindrome length through the end of its range" },
+    { "name": "gen1", "generator": "1 1", "note": "a seven-digit value still below the next palindrome length increase" },
+    { "name": "gen2", "generator": "2 1", "note": "a small value near the end of the five-digit range" },
+    { "name": "gen3", "generator": "3 2", "note": "a random bound with a zero between its first two ones still reaches the longer palindrome length" },
+    { "name": "gen4", "generator": "4 2", "note": "a random binary value whose early second one triggers the longer palindrome" },
+    { "name": "gen5", "generator": "5 3", "note": "a million-digit bound ending in two ones and a zero stays just below the palindrome threshold" },
+    { "name": "gen6", "generator": "9 3", "note": "the longer palindrome becomes available at the threshold with a million input digits" },
+    { "name": "gen7", "generator": "7 4", "note": "a million random digits with two leading ones exercise the longer palindrome formula at scale" }
+  ]
+}
