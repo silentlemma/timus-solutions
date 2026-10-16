@@ -1,0 +1,23 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1822_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "nested vassal requirements limit the feasible share to half" },
+    { "name": "02", "note": "the king alone: any share works" },
+    { "name": "03", "note": "one vassal ready exactly in time" },
+    { "name": "04", "note": "one vassal a day late: only 0" },
+    { "name": "05", "note": "no days at all and no time" },
+    { "name": "06", "note": "three vassals, two in time: 2/3" },
+    { "name": "07", "note": "a chain too slow for any positive share" },
+    { "name": "08", "note": "a suzerain with a larger number than its vassals" },
+    { "name": "09", "note": "the maximum deadline allows the only vassal to finish gathering" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random kingdom" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest random kingdom" },
+    { "name": "gen3", "generator": "3 3", "note": "a broom: a chain of 5000 and a fan" },
+    { "name": "gen4", "generator": "4 4", "note": "many direct royal vassals with small households of their own" },
+    { "name": "gen5", "generator": "5 5", "note": "a very deep tree with occasional branching" },
+    { "name": "gen6", "generator": "6 2", "note": "a large random tree with a deadline shorter than the slowest individual gathering time" },
+    { "name": "gen7", "generator": "7 4", "note": "a deadline longer than any individual gathering time but shorter than some household totals" },
+    { "name": "10", "note": "minimum kingdom exposes Java decimal-comma output under a Russian locale" }
+  ]
+}
