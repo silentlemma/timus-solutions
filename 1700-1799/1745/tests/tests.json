@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1745_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: all three words" },
+    { "name": "03", "note": "a single word that closes first: nothing can be built" },
+    { "name": "04", "note": "the closing word must go after the opening one" },
+    { "name": "05", "note": "one closing word too many" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 6 short words" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum word count and total length with random ten-bracket words" },
+    { "name": "gen3", "generator": "3 3", "note": "ordering deep and shallow closing words in a large mix of three word shapes" },
+    { "name": "gen4", "generator": "4 4", "note": "ten long words" },
+    { "name": "gen5", "generator": "5 1", "note": "separate opening and closing words allow optimal answers with different word counts" },
+    { "name": "gen6", "generator": "6 3", "note": "length maximization keeps as many long closing words as the opening balance permits" },
+    { "name": "06", "note": "one maximally long nested word reaches depth 5000 at the minimum word count" },
+    { "name": "07", "note": "identical balanced words must each be used once at both input limits" },
+    { "name": "08", "note": "a neutral word can need depth one while another needs an unavailable depth two" },
+    { "name": "09", "note": "positive-balance words must build depth in order of increasing initial dip" },
+    { "name": "10", "note": "one long word beats two shorter words with the same combined balance" },
+    { "name": "11", "note": "both opening and closing words exist but their balances cannot sum to zero" },
+    { "name": "12", "note": "seeded stress case: a positive bridge unlocks a long closer while deep dips are skipped" },
+    { "name": "13", "generator": "1745 5", "note": "eight unequal shuffled pieces of a random balanced sequence use all 10000 brackets" }
+  ]
+}

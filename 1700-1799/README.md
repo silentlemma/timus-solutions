@@ -49,3 +49,4 @@
 | 1742 | [Team building](1742/) | graphs | C++, Go, Python, Java, Rust |
 | 1743 | [Domino Sorting](1743/) | greedy | C++, Go, Python, Java, Rust |
 | 1744 | [The Captain's Squad](1744/) | constructive | C++, Go, Python, Java, Rust |
+| 1745 | [Yet Another Answer](1745/) | dp | C++, Go, Python, Java, Rust |
