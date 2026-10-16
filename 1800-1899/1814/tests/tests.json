@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1814_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 1, 3/2, 7/5, 17/12" },
+    { "name": "02", "note": "order 0 is the whole part" },
+    { "name": "03", "note": "the square root of 3 to order 10^9" },
+    { "name": "04", "note": "the largest x and k" },
+    { "name": "05", "note": "a large prime x, a long period" },
+    { "name": "06", "note": "the square root of 61, with famously large terms" },
+    { "name": "07", "note": "x just below a square, order 1" },
+    { "name": "08", "note": "x just below a square, a large order" },
+    { "name": "09", "note": "the square root of 13, a period of five" },
+    { "name": "gen1", "generator": "1 1", "note": "small x and k" },
+    { "name": "gen2", "generator": "2 2", "note": "any x and k" },
+    { "name": "gen3", "generator": "3 3", "note": "x just below a square" },
+    { "name": "gen4", "generator": "4 2", "note": "any x and k" }
+  ]
+}
