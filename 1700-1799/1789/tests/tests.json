@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1789_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the middle pedestal twice" },
+    { "name": "02", "note": "the fewest pedestals, where the middle sweep is empty" },
+    { "name": "03", "note": "smallest row with distinct start and turnaround pedestals" },
+    { "name": "04", "note": "odd row with a central pedestal between the sweep endpoints" },
+    { "name": "05", "note": "even row with four interior pedestals" },
+    { "name": "06", "note": "an odd number of many pedestals" },
+    { "name": "07", "note": "the most pedestals" },
+    { "name": "08", "note": "the last one-digit n, with an odd interior sweep length" },
+    { "name": "09", "note": "the first two-digit n, with an even interior sweep length" },
+    { "name": "10", "note": "possibility tracking beyond a 32-bit mask" },
+    { "name": "11", "note": "largest even row below the maximum" },
+    { "name": "12", "generator": "1789 1", "note": "seeded random even size in 14..30 catches repeating a sweep without changing parity" },
+    { "name": "13", "generator": "1789 2", "note": "seeded random odd size in 65..95 exercises a long return sweep below the largest cases" }
+  ]
+}
