@@ -61,3 +61,4 @@
 | 1754 | [Explosion in a Pyramid](1754/) | geometry | C++, Go, Python, Java, Rust |
 | 1755 | [Cake](1755/) | greedy | C++, Go, Python, Java, Rust |
 | 1756 | [One and a Half Diggers](1756/) | math | C++, Go, Python, Java, Rust |
+| 1757 | [Gold Bars](1757/) | binary_search | C++, Go, Python, Java, Rust |
