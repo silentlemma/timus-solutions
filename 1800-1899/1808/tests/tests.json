@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1808_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: water bends both rays towards each other" },
+    { "name": "02", "example": true, "note": "the second example: a weaker bend, the rays miss" },
+    { "name": "03", "note": "two looks along one diameter from opposite sides" },
+    { "name": "04", "note": "the largest planet and index, both looks along a diameter" },
+    { "name": "05", "note": "two perpendicular diameters" },
+    { "name": "06", "note": "an index of 1 and two parallel chords" },
+    { "name": "07", "note": "two mirror looks from one side that do not meet" },
+    { "name": "gen1", "generator": "1 1", "note": "a small planet" },
+    { "name": "gen2", "generator": "2 2", "note": "oblique views cross inside a large planet" },
+    { "name": "gen3", "generator": "3 3", "note": "a large index" },
+    { "name": "gen4", "generator": "4 4", "note": "an index close to 1" },
+    { "name": "gen5", "generator": "5 5", "note": "chords that miss" },
+    { "name": "gen6", "generator": "6 5", "note": "refracted lines meet behind both entry points" },
+    { "name": "08", "note": "without refraction, two oblique chords cross away from the centre" },
+    { "name": "09", "note": "nonparallel sight lines intersect outside the disk" },
+    { "name": "10", "note": "straight chords share only their far shore endpoint" },
+    { "name": "11", "note": "collinear oblique views from the same side with unequal vector lengths" },
+    { "name": "12", "note": "different refracted rays enter at the same shore point and then separate" },
+    { "name": "13", "note": "an off-axis straight crossing lies about 0.000603 inside the shore" },
+    { "name": "14", "note": "a nearly tangent view bends weakly and meets a diameter about 0.000281 inside" },
+    { "name": "15", "note": "seeded random asymmetric views cross without refraction but miss after bending" },
+    { "name": "16", "note": "seeded random views on a unit planet meet only after weak refraction" },
+    { "name": "17", "generator": "1808 6", "note": "maximum radius with index 1.01 and oblique crossing views from opposite sides" },
+    { "name": "18", "generator": "1808 7", "note": "two nearly tangent views at coordinate limits on the smallest planet with index 100" }
+  ]
+}
