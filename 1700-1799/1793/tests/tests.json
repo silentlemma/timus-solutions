@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1793_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: plenty of room" },
+    { "name": "02", "example": true, "note": "the second example: a plate wider than the tray at the border top" },
+    { "name": "03", "note": "the plates touch exactly along the diagonal" },
+    { "name": "04", "note": "one unit narrower, and the plates overlap" },
+    { "name": "05", "note": "low borders let wide plates hang over a narrow tray" },
+    { "name": "06", "note": "the same plates with borders as high as the plates" },
+    { "name": "07", "note": "the largest plates do not fit at all" },
+    { "name": "08", "note": "the lowest borders and the tallest plates" },
+    { "name": "09", "note": "the plates fit alone but not together" },
+    { "name": "gen1", "generator": "1 1", "note": "any tray with plates up to half its width" },
+    { "name": "gen2", "generator": "2 2", "note": "a tray too narrow even for the plate bottoms" },
+    { "name": "gen3", "generator": "3 3", "note": "very different top radii still allow exact diagonal contact" },
+    { "name": "gen4", "generator": "4 3", "note": "similar top radii fit exactly along the tray diagonal" },
+    { "name": "gen5", "generator": "5 2", "note": "identical small plates fit together beneath taller borders" }
+  ]
+}
