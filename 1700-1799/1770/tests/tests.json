@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1770_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: one board seen both ways is impossible" },
+    { "name": "03", "note": "two crossroads, nothing seen" },
+    { "name": "04", "note": "two crossroads, a board seen one way" },
+    { "name": "05", "note": "a chain of boards from crossroad 1 to 3" },
+    { "name": "06", "note": "a triangle seen once every way: impossible" },
+    { "name": "07", "note": "two crossroads joined freely, both with a board to the third" },
+    { "name": "08", "note": "a star of boards seen only leaving the centre" },
+    { "name": "09", "note": "two boards in a row where no direct road fits" },
+    { "name": "gen1", "generator": "1 1", "note": "the table of a small random map" },
+    { "name": "gen2", "generator": "2 1", "note": "the table of a small random map" },
+    { "name": "gen3", "generator": "3 2", "note": "a small random table" },
+    { "name": "gen4", "generator": "7 2", "note": "a small random table" },
+    { "name": "gen5", "generator": "5 3", "note": "the table of a random map of 300 crossroads" },
+    { "name": "gen6", "generator": "6 4", "note": "the same with one entry changed" }
+  ]
+}
