@@ -64,3 +64,4 @@
 | 1757 | [Gold Bars](1757/) | binary_search | C++, Go, Python, Java, Rust |
 | 1758 | [Bald Spot Revisited 2](1758/) | backtracking | C++, Go, Python, Java, Rust |
 | 1759 | [Long-Livers](1759/) | implementation | C++, Go, Python, Java, Rust |
+| 1760 | [Infernal Work](1760/) | math | C++, Go, Python, Java, Rust |
