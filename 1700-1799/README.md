@@ -80,3 +80,4 @@
 | 1773 | [Metro to Every Home](1773/) | constructive | C++, Go, Python, Java, Rust |
 | 1774 | [Barber of the Army of Mages](1774/) | matching | C++, Go, Python, Java, Rust |
 | 1775 | [Space Bowling](1775/) | geometry | C++, Go, Python, Java, Rust |
+| 1776 | [Anniversary Firework](1776/) | dp | C++, Go, Python, Java, Rust |
