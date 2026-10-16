@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "1743_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one nested chain" },
+    { "name": "02", "example": true, "note": "the second example: two chains meeting at 5" },
+    { "name": "03", "example": true, "note": "the third example: two separate ranges" },
+    { "name": "04", "note": "one double domino" },
+    { "name": "05", "note": "two ranges touching at a single number" },
+    { "name": "06", "note": "a big range around two separate small ones" },
+    { "name": "07", "note": "three equal dominoes" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 8 small dominoes" },
+    { "name": "gen2", "generator": "2 2", "note": "two nested families of 100000 dominoes with a valid layout" },
+    { "name": "gen3", "generator": "3 3", "note": "the same with one range off to the side" },
+    { "name": "gen4", "generator": "4 4", "note": "random endpoints on 100000 dominoes" },
+    { "name": "gen5", "generator": "5 1", "note": "two nested chains with disjoint innermost ranges" },
+    { "name": "gen6", "generator": "6 1", "note": "a zero double disjoint from the other domino" },
+    { "name": "08", "note": "one non-double domino spanning both allowed endpoint limits" },
+    { "name": "09", "note": "equal low endpoints need descending high ties, including a zero double and unequal multiplicities" },
+    { "name": "10", "note": "random overlapping ranges share a point but require three nested chains" },
+    { "name": "11", "note": "random valid mixed orientations with a double and repeated nested pieces" },
+    { "name": "gen7", "generator": "1743 5", "note": "a shuffled chain of 100000 strictly nested ranges ending in a central double" },
+    { "name": "gen8", "generator": "1744 6", "note": "a crossing range meeting the innermost endpoint of 99999 nested ranges" },
+    { "name": "gen9", "generator": "1745 7", "note": "a valid prefix of 99997 outer ranges before a three-range crossing obstruction" }
+  ]
+}
