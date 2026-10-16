@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1763_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six sectors, where the jumps both ways land together" },
+    { "name": "02", "note": "seven sectors, the first term of the recurrence" },
+    { "name": "03", "note": "eight sectors" },
+    { "name": "04", "note": "nine sectors: fewer ways than for eight" },
+    { "name": "05", "note": "last initial value, for twenty-five sectors" },
+    { "name": "06", "note": "first recurrence step after the initial values" },
+    { "name": "07", "note": "a hundred sectors, well beyond the initial recurrence terms" },
+    { "name": "08", "note": "the upper boundary of the search data at two hundred sectors" },
+    { "name": "09", "note": "the most sectors" },
+    { "name": "10", "note": "one sector fewer than the most" },
+    { "name": "gen1", "generator": "1 1", "note": "an even table with forty sectors, beyond the initial recurrence values" },
+    { "name": "gen2", "generator": "2 1", "note": "a generated table selecting an initial recurrence value" },
+    { "name": "gen3", "generator": "3 2", "note": "a large odd table with twenty-one set bits in the exponent" },
+    { "name": "gen4", "generator": "4 2", "note": "a large table whose exponent has two trailing zero bits" },
+    { "name": "11", "note": "ten sectors: reject disconnected unions of shorter even cycles" },
+    { "name": "12", "note": "twelve sectors: length-three jumps alone form three separate cycles" },
+    { "name": "13", "note": "n minus seven is 31, exercising every bit of the exponent" },
+    { "name": "14", "note": "n minus seven is 32, exercising a single higher exponent bit" },
+    { "name": "15", "note": "last table whose exact count is below the modulus" },
+    { "name": "16", "note": "first table whose exact count must be reduced modulo 1000000009" },
+    { "name": "17", "note": "first exact count above signed 32-bit range and three times the modulus" },
+    { "name": "gen5", "generator": "5 1", "note": "seeded odd table with 165 sectors, independently counted without a recurrence" },
+    { "name": "gen6", "generator": "6 1", "note": "seeded even table with 152 sectors, whose exact count exceeds 64 bits" }
+  ]
+}
