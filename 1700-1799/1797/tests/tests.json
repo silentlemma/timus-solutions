@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1797_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 7 and 11 cannot be made" },
+    { "name": "02", "note": "every size, a single size, and nothing in a tiny range" },
+    { "name": "03", "note": "sizes with a Frobenius number near 10^18, two huge sizes, a shared factor" },
+    { "name": "04", "note": "one size a multiple of the other, equal sizes, a range of two" },
+    { "name": "05", "note": "one size of 1, and two sizes whose gaps are many" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred small cases" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred cases up to 10^18" },
+    { "name": "gen3", "generator": "3 3", "note": "a hundred cases with a large common factor" },
+    { "name": "gen4", "generator": "4 4", "note": "a hundred cases with ones, equal sizes and intervals ending at 10^18" },
+    { "name": "gen5", "generator": "5 2", "note": "unequal contest sizes with both empty and nonempty intervals" },
+    { "name": "06", "note": "the first positive size is included exactly and the empty selection never counts" },
+    { "name": "07", "note": "random singleton mixed sums and isolated gaps retained from direct-DP stress" },
+    { "name": "08", "note": "the last impossible coprime size and the consecutive reachable tail" },
+    { "name": "09", "note": "several contest combinations for an LCM count as only one size" },
+    { "name": "10", "note": "round interval endpoints inward to common-factor multiples including empty intervals" },
+    { "name": "11", "note": "swapping unequal contest sizes preserves answers even when one size exceeds the range" },
+    { "name": "12", "note": "two or three huge contests fit exactly at the upper limit or exceed it by one" },
+    { "name": "13", "note": "billion-sized consecutive denominations across their final gap and subtraction of large prefix counts" },
+    { "name": "14", "note": "a huge second denomination adds isolated sizes to a small-denomination tail near 10^18" },
+    { "name": "15", "note": "large Fibonacci denominations force deep Euclidean reductions around their last gap" },
+    { "name": "16", "note": "a hundred changing maximum-scale singleton queries alternate zero and one to expose state leaks" },
+    { "name": "gen6", "generator": "1797 5", "note": "random narrow windows include or miss constructed sums of large coprime sizes" },
+    { "name": "gen7", "generator": "271828 6", "note": "random scaled small systems exercise common-factor rounding at large nonmultiple endpoints" }
+  ]
+}
