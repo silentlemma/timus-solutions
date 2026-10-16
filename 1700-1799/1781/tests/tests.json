@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1781_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one swap" },
+    { "name": "02", "example": true, "note": "the second example: two contests need each other's rooms" },
+    { "name": "03", "note": "two rooms, no use at all" },
+    { "name": "04", "note": "two rooms in the right order already" },
+    { "name": "05", "note": "two rooms in the wrong order" },
+    { "name": "06", "note": "two contests using each other's rooms" },
+    { "name": "07", "note": "already upper triangular" },
+    { "name": "08", "note": "lower triangular: reversed by one swap" },
+    { "name": "09", "note": "a cycle through four rooms" },
+    { "name": "gen1", "generator": "1 1", "note": "a few rooms" },
+    { "name": "gen2", "generator": "2 1", "note": "a few rooms" },
+    { "name": "gen3", "generator": "3 2", "note": "100 rooms, sparse use" },
+    { "name": "gen4", "generator": "4 3", "note": "100 rooms, dense use" },
+    { "name": "gen5", "generator": "5 4", "note": "100 rooms with one cycle" }
+  ]
+}
