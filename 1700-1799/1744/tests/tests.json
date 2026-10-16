@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1744_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: every triple once" },
+    { "name": "03", "note": "the largest company" },
+    { "name": "04", "note": "seven soldiers" },
+    { "name": "05", "note": "nine soldiers: 3 divides n" },
+    { "name": "gen1", "generator": "1", "note": "a random odd n" },
+    { "name": "gen2", "generator": "2", "note": "a generated square of three" },
+    { "name": "gen3", "generator": "3", "note": "a composite divisible by both three and eleven" },
+    { "name": "06", "note": "eleven soldiers: the first uncovered prime with n congruent to 5 modulo 6" },
+    { "name": "07", "note": "thirteen soldiers: a larger prime one above a multiple of six" },
+    { "name": "08", "note": "fifteen soldiers: the smallest company with two distinct odd prime factors" },
+    { "name": "09", "note": "seventeen soldiers: the first valid size above the 16-soldier boundary" },
+    { "name": "10", "note": "twenty-one soldiers: repeated teams with a factor of seven" },
+    { "name": "11", "note": "twenty-five soldiers: an odd prime square coprime to three" },
+    { "name": "12", "note": "twenty-seven soldiers: a cube of three with repeated teams" },
+    { "name": "13", "note": "thirty-one soldiers: the last valid size below 32" },
+    { "name": "14", "note": "thirty-five soldiers: distinct factors five and seven without a factor of three" },
+    { "name": "15", "note": "forty-nine soldiers: a square of seven with many noncoprime offsets" },
+    { "name": "16", "note": "eighty-one soldiers: the largest power of three in range" },
+    { "name": "17", "note": "ninety-seven soldiers: the largest prime and the next valid size below the maximum" },
+    { "name": "18", "generator": "25", "note": "seeded fifty-one soldiers: a multiple of three just above fifty" },
+    { "name": "19", "generator": "12", "note": "seeded sixty-three soldiers: repeated teams just below 64" },
+    { "name": "20", "generator": "50", "note": "seeded sixty-five soldiers: the first valid size above 64" },
+    { "name": "21", "generator": "20", "note": "seeded ninety-five soldiers: a large composite two valid sizes below the limit" }
+  ]
+}
