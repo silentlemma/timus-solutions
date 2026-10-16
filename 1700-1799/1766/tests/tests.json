@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1766_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example, whose printed answer is too rough on purpose" },
+    { "name": "02", "note": "all counts at the maximum give the same distribution as all ones" },
+    { "name": "03", "note": "a chessboard of 1 and 1000" },
+    { "name": "04", "note": "one cell of 1000 at d6 among ones" },
+    { "name": "05", "note": "counts 1 to 64 row by row" },
+    { "name": "06", "note": "one corner of 1000 among ones" },
+    { "name": "gen1", "generator": "1 1", "note": "counts from 1 to 1000" },
+    { "name": "gen2", "generator": "2 1", "note": "an irregular mix of small and large counts checks probability normalization" },
+    { "name": "gen3", "generator": "3 2", "note": "small counts of one, two and three check weighting without extreme contrasts" },
+    { "name": "gen4", "generator": "4 3", "note": "counts of 1 and 1000 only" },
+    { "name": "gen5", "generator": "5 4", "note": "one cell of 1000 among ones" },
+    { "name": "07", "note": "spaced heavy cells have no heavy neighbor, so low cells retain substantial mass" },
+    { "name": "08", "note": "two side-adjacent heavy cells concentrate probability along one interior edge" },
+    { "name": "09", "note": "two heavy cells touching only at a corner require diagonal transitions" },
+    { "name": "10", "note": "unequal heavy corners stay nonadjacent across board boundaries and preserve row order" },
+    { "name": "11", "note": "a heavy outer rim exercises corner and side degrees against a light interior" },
+    { "name": "12", "note": "unequal distant heavy blocks separated by ones expose slow convergence from a start cell" },
+    { "name": "13", "note": "a full heavy diagonal forms a chain connected through corner moves" },
+    { "name": "14", "note": "alternating heavy and light ranks distinguish horizontal from vertical neighbors" },
+    { "name": "15", "note": "one light corner in an otherwise maximal board checks exclusion of the current cell" },
+    { "name": "16", "note": "seeded counts from 997 to 1000 test rounding on a nonuniform board near the upper limit" },
+    { "name": "17", "note": "seeded counts drawn from powers of two and 1000 mix many probability scales down to the minimum count" },
+    { "name": "18", "note": "a seeded asymmetric random rim tests all boundary positions with a unit interior" }
+  ]
+}
