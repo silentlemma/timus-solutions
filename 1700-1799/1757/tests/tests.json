@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1757_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a feasible blend of bars with different finenesses" },
+    { "name": "02", "example": true, "note": "the second example: no gold to mix in" },
+    { "name": "03", "note": "one bar that is exactly the order" },
+    { "name": "04", "note": "not enough metal in the store" },
+    { "name": "05", "note": "pure alloy without gold, taken from the bars without gold" },
+    { "name": "06", "note": "all of two bars, half gold on average" },
+    { "name": "07", "note": "pure gold from the two pure bars only" },
+    { "name": "08", "note": "pure gold asked, but there is too little of it" },
+    { "name": "gen1", "generator": "1 1", "note": "target fineness below both available bars" },
+    { "name": "gen2", "generator": "9 1", "note": "a feasible interior blend from four bars" },
+    { "name": "gen3", "generator": "3 2", "note": "a large feasible order close to the richest mix" },
+    { "name": "gen4", "generator": "4 2", "note": "a light order from a large store with widely varying finenesses" },
+    { "name": "gen5", "generator": "2 3", "note": "a thousand heavy bars and an order for almost all their weight" },
+    { "name": "gen6", "generator": "6 4", "note": "smallest integer fineness above the poorest mix" },
+    { "name": "gen7", "generator": "7 5", "note": "the fineness just past the edge" },
+    { "name": "09", "note": "minimum order weight taken as a fraction of one maximum-weight bar" },
+    { "name": "10", "note": "using the entire store forces its average even when the target lies between bar finenesses" },
+    { "name": "11", "note": "exact poorest feasible mix requires cutting a boundary bar and restoring input order" },
+    { "name": "12", "note": "richest possible mix misses the gold target by only one thousandth of a gram" },
+    { "name": "13", "note": "repeated intermediate fineness creates a flat interval of valid sliding windows" },
+    { "name": "14", "note": "low target fineness with long fractional contributions" },
+    { "name": "15", "generator": "1757 6", "note": "maximum order and total mass require all 1000 maximum-weight bars" },
+    { "name": "16", "generator": "1758 7", "note": "one gram below maximum total mass needs a fractional discard at fineness 500" },
+    { "name": "17", "generator": "1759 8", "note": "shuffled unit-weight bars hit the exact richest endpoint by omitting fineness zero" }
+  ]
+}
