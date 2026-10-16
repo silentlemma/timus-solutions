@@ -1,0 +1,23 @@
+{
+  "judging": "tokens",
+  "reference": "1791_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: three buses in three minutes" },
+    { "name": "02", "example": true, "note": "the second example: the third bus is a minute short" },
+    { "name": "03", "note": "two buses that both must enter at once" },
+    { "name": "04", "note": "the bus with a spare minute waits" },
+    { "name": "05", "note": "a hurried bus stuck behind an earlier one on its side" },
+    { "name": "06", "note": "the patient bus lets two hurried ones go first" },
+    { "name": "07", "note": "long pauses between buses" },
+    { "name": "08", "note": "the largest times" },
+    { "name": "09", "note": "six buses at once, the slower side last" },
+    { "name": "10", "note": "six buses at once, one minute too few" },
+    { "name": "gen1", "generator": "1 1", "note": "a few buses with any times" },
+    { "name": "gen2", "generator": "2 2", "note": "many buses around a working plan" },
+    { "name": "gen3", "generator": "3 3", "note": "a full plan with one bus a minute short" },
+    { "name": "gen4", "generator": "4 4", "note": "many buses with random times" },
+    { "name": "gen5", "generator": "5 5", "note": "the largest plan at the largest times" },
+    { "name": "gen6", "generator": "14 4", "note": "many buses with random times" },
+    { "name": "gen7", "generator": "17 3", "note": "a full plan with one bus a minute short" }
+  ]
+}
