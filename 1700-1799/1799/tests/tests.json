@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1799_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: two equal edges baaa count twice" },
+    { "name": "03", "note": "the shortest strings, where suffix ends vanish in the compression" },
+    { "name": "04", "note": "distinct letters, a square, and mississippi" },
+    { "name": "05", "note": "the whole alphabet both ways and a periodic string" },
+    { "name": "06", "note": "a Fibonacci word and a long run before one other letter" },
+    { "name": "gen1", "generator": "1 1", "note": "hundreds of short strings over two or three letters" },
+    { "name": "gen2", "generator": "1 2", "note": "one random string of 100000 letters" },
+    { "name": "gen3", "generator": "4 2", "note": "a full-length three-letter string with many overlapping repeats" },
+    { "name": "gen4", "generator": "1 3", "note": "a long repetitive string" },
+    { "name": "gen5", "generator": "2 3", "note": "a maximum-length unary string compresses to a single edge" },
+    { "name": "gen6", "generator": "3 3", "note": "a single repeated letter gives one distinct substring for each length" },
+    { "name": "gen7", "generator": "1 4", "note": "strings of a few hundred letters" },
+    { "name": "gen8", "generator": "1 5", "note": "the maximum number of single-letter strings" },
+    { "name": "07", "note": "suffix endings inside paths between nested branches are compressed away" },
+    { "name": "08", "note": "compressed labels with unary tails recur below different prefix contexts" },
+    { "name": "09", "note": "overlapping repeats inside compressed labels reduce their distinct substring counts" },
+    { "name": "10", "note": "one defect at different positions splits an otherwise repeated nonunary period" },
+    { "name": "11", "note": "nested palindromes and asymmetric reversal pairs change suffix branching" },
+    { "name": "12", "note": "random stress survivors with broad root branching and long compressed labels" },
+    { "name": "gen9", "generator": "1799 6", "note": "two runs fill the length limit and produce a sum above signed 32 bits" },
+    { "name": "gen10", "generator": "1799 7", "note": "a unique central separator produces a sum above unsigned 32 bits" },
+    { "name": "gen11", "generator": "1799 8", "note": "a near-limit string between tiny strings checks per-string state reset" },
+    { "name": "gen12", "generator": "1799 9", "note": "seeded wider-alphabet blocks share tails and reverse or shift their repeats" }
+  ]
+}
