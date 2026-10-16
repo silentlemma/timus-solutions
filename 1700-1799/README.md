@@ -44,3 +44,4 @@
 | 1737 | [Mnemonics and Palindromes 3](1737/) | strings | C++, Go, Python, Java, Rust |
 | 1738 | [Computer Security](1738/) | implementation | C++, Go, Python, Java, Rust |
 | 1739 | [Faryuks](1739/) | bitmask | C++, Go, Python, Java, Rust |
+| 1740 | [Deer is Better!](1740/) | math | C++, Go, Python, Java, Rust |
