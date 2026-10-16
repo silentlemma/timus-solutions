@@ -56,3 +56,4 @@
 | 1749 | [Periodic Sum](1749/) | matrix | C++, Go, Python, Java, Rust |
 | 1750 | [Pakhom and the Gully](1750/) | geometry | C++, Go, Python, Java, Rust |
 | 1751 | [Improbability Theory](1751/) | graphs | C++, Go, Python, Java, Rust |
+| 1752 | [Tree 2](1752/) | graphs | C++, Go, Python, Java, Rust |
