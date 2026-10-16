@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1802_backtracking.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: the parts cannot meet" },
+    { "name": "03", "note": "the smallest cube filled by one part" },
+    { "name": "04", "note": "a cube of side 2 cut into six parts" },
+    { "name": "05", "note": "a cube of side 4 with one cell moved to another part" },
+    { "name": "06", "note": "a cube of side 3 with one cell moved to another part" },
+    { "name": "gen1", "generator": "1 1", "note": "a small cube" },
+    { "name": "gen2", "generator": "2 2", "note": "a large cube" },
+    { "name": "gen3", "generator": "3 2", "note": "a large cube" },
+    { "name": "gen4", "generator": "4 3", "note": "a small cube with a moved cell" },
+    { "name": "gen5", "generator": "5 4", "note": "a large cube with a moved cell" },
+    { "name": "gen6", "generator": "6 5", "note": "one part fills the cube" }
+  ]
+}
