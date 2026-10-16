@@ -1,0 +1,13 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1817_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest horses" },
+    { "name": "03", "note": "three horses" },
+    { "name": "04", "note": "five horses" },
+    { "name": "05", "note": "ten horses" },
+    { "name": "06", "note": "nineteen horses" },
+    { "name": "07", "note": "the most horses" }
+  ]
+}
