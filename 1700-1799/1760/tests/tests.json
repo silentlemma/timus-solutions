@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1760_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "misaligned page breaks in the first example give four qualifying pairs" },
+    { "name": "02", "example": true, "note": "the second example: every page of Vasily lies inside one of Petr" },
+    { "name": "03", "note": "one sleeper" },
+    { "name": "04", "note": "all sleepers on one page for Vasily and one per page for Petr: every pair counts" },
+    { "name": "05", "note": "one sleeper per page for Vasily: no pairs at all" },
+    { "name": "06", "note": "a page turn for Petr only before the last sleeper" },
+    { "name": "07", "note": "coprime page sizes near the square root of n" },
+    { "name": "08", "note": "both have everything on one page" },
+    { "name": "09", "note": "shorter pages for Petr with boundaries out of step with Vasily's" },
+    { "name": "10", "note": "small coprime pages over 25 000 000 sleepers" },
+    { "name": "gen1", "generator": "1 1", "note": "two sleepers per first-notebook page with one pair crossing a second-notebook boundary" },
+    { "name": "gen2", "generator": "2 1", "note": "a long first page split by many short second pages, followed by a singleton" },
+    { "name": "gen3", "generator": "3 2", "note": "one second-notebook boundary splits the first page of the first notebook" },
+    { "name": "gen4", "generator": "4 2", "note": "several large first-notebook pages cut by shorter second-notebook pages" },
+    { "name": "gen5", "generator": "5 3", "note": "page sizes near the square root of n" },
+    { "name": "gen6", "generator": "6 4", "note": "page sizes with a large common divisor" },
+    { "name": "11", "note": "consecutive page sizes near the limit make the LCM exceed 32 bits" },
+    { "name": "12", "note": "equal page sizes over many pages cancel every pair, including a partial final page" },
+    { "name": "13", "note": "seeded random case with complete periods and a split partial page in the remainder" }
+  ]
+}
