@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1767_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a one by one overlap, both rising the same way" },
+    { "name": "02", "note": "the two diagonals of one square: only one side is shared" },
+    { "name": "03", "note": "two walks along one line" },
+    { "name": "04", "note": "boxes that do not meet" },
+    { "name": "05", "note": "all four places at one point" },
+    { "name": "06", "note": "the same walk across the largest box" },
+    { "name": "07", "note": "crossing diagonals of the largest box" },
+    { "name": "08", "note": "one rising and one falling walk in a tall overlap" },
+    { "name": "09", "note": "boxes touching at a corner" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "2 1", "note": "small coordinates" },
+    { "name": "gen3", "generator": "3 2", "note": "large coordinates" },
+    { "name": "gen4", "generator": "4 2", "note": "large coordinates" },
+    { "name": "gen5", "generator": "5 3", "note": "corners of one shared box" }
+  ]
+}
