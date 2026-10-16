@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1801_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example separates teams from the same party" },
+    { "name": "02", "example": true, "note": "the second example: one party fills a pot" },
+    { "name": "03", "note": "a single team" },
+    { "name": "04", "note": "one pot whose teams all belong to one party" },
+    { "name": "05", "note": "one group with two teams of a party" },
+    { "name": "06", "note": "reversed party order across two pots" },
+    { "name": "07", "note": "every party at its limit of three teams" },
+    { "name": "gen1", "generator": "1 1", "note": "small pots and few parties" },
+    { "name": "gen2", "generator": "2 1", "note": "a ten-letter team name in a single-team draw" },
+    { "name": "gen3", "generator": "3 2", "note": "a full draw of 100 pots with parties of at most 100 teams" },
+    { "name": "gen4", "generator": "4 3", "note": "every party at its limit" },
+    { "name": "gen5", "generator": "5 4", "note": "one party with one team too many" },
+    { "name": "gen6", "generator": "6 5", "note": "many small parties" },
+    { "name": "08", "note": "one group and 100 pots with distinct parties" },
+    { "name": "09", "note": "one pot with 100 distinct parties forming 100 groups" },
+    { "name": "10", "note": "the final team makes a party overfull although each pot has distinct parties" },
+    { "name": "11", "note": "five homogeneous pots form separate components of parallel edges" },
+    { "name": "12", "note": "seeded small draw defeats first fit with both saturated and unsaturated parties" },
+    { "name": "13", "note": "seeded small draw has two oversized parties" },
+    { "name": "14", "note": "prefix-related team names and ten-letter names shared with parties" },
+    { "name": "gen7", "generator": "180106 6", "note": "distinct parties for all 10000 teams maximize the party table" },
+    { "name": "gen8", "generator": "180107 7", "note": "a cycle of 100 two-team pots links all saturated parties" },
+    { "name": "gen9", "generator": "180108 8", "note": "two 100-team pots share a party split 99 to 1 at its limit" },
+    { "name": "gen10", "generator": "180109 9", "note": "random rectangular draw mixes 32 saturated parties with many smaller parties" }
+  ]
+}
