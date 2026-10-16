@@ -1,0 +1,30 @@
+{
+  "judging": "float:1e-3",
+  "reference": "1751_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: one cycle of three" },
+    { "name": "03", "note": "a single hypothesis is always checked" },
+    { "name": "04", "note": "a chain: the base is checked first, the rest only if it holds" },
+    { "name": "05", "note": "two independent hypotheses at the extreme probabilities" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 6 hypotheses with random links" },
+    { "name": "gen2", "generator": "2 2", "note": "sparse links among 500 hypotheses" },
+    { "name": "gen3", "generator": "3 3", "note": "a single cycle connects all 500 hypotheses" },
+    { "name": "gen4", "generator": "4 4", "note": "a chain of small cycles" },
+    { "name": "gen5", "generator": "5 5", "note": "dense links among 500 hypotheses" },
+    { "name": "gen6", "generator": "6 1", "note": "an acyclic dependency chain with a redundant shortcut" },
+    { "name": "06", "note": "cycle order differs from sorting by either checking time or probability" },
+    { "name": "07", "note": "unequal cycle members have exactly equal time to failure ratios" },
+    { "name": "08", "note": "a diamond and a direct shortcut must count their common base only once" },
+    { "name": "09", "note": "two disconnected cycles and an isolated hypothesis all contribute" },
+    { "name": "10", "note": "a costly cycle is skipped when either of its two external bases fails" },
+    { "name": "11", "note": "two cycles share a rare dependency chain" },
+    { "name": "12", "note": "a shuffled DAG with redundant edges and extreme probabilities" },
+    { "name": "gen7", "generator": "7 6", "note": "all 500 independent maximum-time checks attain the largest possible answer" },
+    { "name": "gen8", "generator": "8 7", "note": "a depth-500 chain with near-one probabilities keeps distant contributions significant" },
+    { "name": "gen9", "generator": "9 8", "note": "seeded random layers have many overlapping prerequisite sets" },
+    { "name": "gen10", "generator": "10 9", "note": "all 124750 forward edges preserve 500 distinct dependency groups" },
+    { "name": "gen11", "generator": "11 10", "note": "all 249500 allowed non-self edges collapse into one group" },
+    { "name": "gen12", "generator": "12 11", "note": "a 500-member expensive cycle almost always requires every check" }
+  ]
+}
