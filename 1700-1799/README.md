@@ -50,3 +50,4 @@
 | 1743 | [Domino Sorting](1743/) | greedy | C++, Go, Python, Java, Rust |
 | 1744 | [The Captain's Squad](1744/) | constructive | C++, Go, Python, Java, Rust |
 | 1745 | [Yet Another Answer](1745/) | dp | C++, Go, Python, Java, Rust |
+| 1746 | [Hyperrook](1746/) | matrix | C++, Go, Python, Java, Rust |
