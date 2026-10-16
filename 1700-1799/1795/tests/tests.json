@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1795_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: two husbands call home once each" },
+    { "name": "02", "note": "one husband buys and leaves" },
+    { "name": "03", "note": "a product the shop does not sell" },
+    { "name": "04", "note": "the last husband calls and lets Mark forward" },
+    { "name": "05", "note": "after the call the rest is still there" },
+    { "name": "06", "note": "after the call the rest is gone" },
+    { "name": "07", "note": "repeated calls as single-unit buyers gradually exhaust the bread" },
+    { "name": "08", "note": "the first husband takes everything, the rest find nothing" },
+    { "name": "gen1", "generator": "1 1", "note": "a few products and customers" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 1000 products and customers" },
+    { "name": "gen3", "generator": "3 3", "note": "one stock, rare buyers of everything" },
+    { "name": "gen4", "generator": "4 2", "note": "requests for unavailable products among purchases from a large inventory" },
+    { "name": "gen5", "generator": "5 3", "note": "single-unit purchases change the stock while husbands call about larger requests" }
+  ]
+}
