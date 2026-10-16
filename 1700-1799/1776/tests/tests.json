@@ -1,0 +1,24 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1776_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: five rockets" },
+    { "name": "02", "note": "three rockets: one more volley after the first" },
+    { "name": "03", "note": "four rockets: always two more volleys" },
+    { "name": "04", "note": "six rockets" },
+    { "name": "05", "note": "five inner rockets allow simultaneous launches" },
+    { "name": "06", "note": "eight inner rockets need at least four further volleys" },
+    { "name": "07", "note": "a hundred rockets to check the accumulated probability tail" },
+    { "name": "08", "note": "just below a power-of-two total rocket count" },
+    { "name": "09", "note": "one rocket below the input limit" },
+    { "name": "10", "note": "the most rockets" },
+    { "name": "gen1", "generator": "1 1", "note": "a few rockets" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 400 rockets" },
+    { "name": "gen3", "generator": "3 2", "note": "a generated three-digit rocket count" },
+    { "name": "11", "note": "nine rockets: both sub-stretches can have random finishing times" },
+    { "name": "12", "note": "fifteen inner rockets can finish in exactly four volleys only when perfectly balanced" },
+    { "name": "13", "note": "sixteen inner rockets cannot finish within four volleys" },
+    { "name": "14", "note": "a power-of-two inner stretch of 256 rockets exercises the long probability tail" },
+    { "name": "15", "generator": "1776 2", "note": "seeded random upper-range input with 320 rockets" }
+  ]
+}
