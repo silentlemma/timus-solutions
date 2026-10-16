@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1747_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two possible routes at the minimum city count" },
+    { "name": "02", "example": true, "note": "thirty routes with three noncapital cities" },
+    { "name": "03", "note": "the largest n, a prime modulus" },
+    { "name": "04", "note": "modulus 1" },
+    { "name": "05", "note": "the smallest n, modulus 1" },
+    { "name": "06", "note": "an even modulus" },
+    { "name": "07", "note": "the largest n, the modulus 10^9" },
+    { "name": "08", "note": "a small prime modulus" },
+    { "name": "gen1", "generator": "1 1", "note": "a random n and modulus" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest n, a modulus of small primes" },
+    { "name": "gen3", "generator": "3 3", "note": "a small n" },
+    { "name": "gen4", "generator": "4 1", "note": "a power of two times a large odd prime at an intermediate city count" },
+    { "name": "09", "note": "the smallest nontrivial modulus divides both routes at minimum n" },
+    { "name": "10", "note": "the modulus equals the exact route count, requiring a zero remainder" },
+    { "name": "11", "note": "all routes fit below the modulus and reversed routes count separately" },
+    { "name": "12", "note": "an odd prime power leaves a nonzero remainder despite noninvertible factorials" },
+    { "name": "13", "note": "a large even modulus gives a nonzero remainder after route counts wrap" },
+    { "name": "14", "note": "exhaustive small-word counting with several modular reductions" },
+    { "name": "15", "note": "the coefficient first exceeds a signed 32-bit integer" },
+    { "name": "16", "note": "one below maximum n with an even modulus and products exceeding 64 bits" },
+    { "name": "17", "note": "factorials cross the prime modulus although the answer remains nonzero" },
+    { "name": "gen5", "generator": "5 3", "note": "seeded odd composite with a factor of 3 and two larger prime factors" },
+    { "name": "gen6", "generator": "9 3", "note": "seeded modulus divisible by 4 with a large prime factor and a nonzero answer" },
+    { "name": "gen7", "generator": "16 3", "note": "seeded mixed composite containing 25 and several distinct odd prime factors" }
+  ]
+}
