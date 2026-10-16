@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1762_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a reflected walk with one crossing" },
+    { "name": "02", "example": true, "note": "a two-row hall with a single wall bounce" },
+    { "name": "03", "note": "the smallest hall: one step to the opposite corner" },
+    { "name": "04", "note": "the largest square hall: one diagonal" },
+    { "name": "05", "note": "the largest hall with coprime sides less one" },
+    { "name": "06", "note": "a corridor two tiles wide" },
+    { "name": "07", "note": "a 3 by 3 hall" },
+    { "name": "08", "note": "a hall with one crossing" },
+    { "name": "09", "note": "a prime side and the largest side" },
+    { "name": "10", "note": "sides less one sharing a factor of 4" },
+    { "name": "gen1", "generator": "1 1", "note": "coprime spans with equally many odd and even crossings" },
+    { "name": "gen2", "generator": "2 1", "note": "a small square hall following one diagonal" },
+    { "name": "gen3", "generator": "3 2", "note": "an even common scale in a large rectangular hall" },
+    { "name": "gen4", "generator": "4 2", "note": "large coprime spans producing many crossings" },
+    { "name": "gen5", "generator": "5 3", "note": "sides less one with a large common divisor" },
+    { "name": "11", "note": "maximum length with a three-tile width and repeated self-crossings" },
+    { "name": "12", "note": "one below maximum length ends a three-tile-wide walk without crossings" },
+    { "name": "13", "note": "an odd three-to-one span ratio reaches the opposite corner after two bounces" },
+    { "name": "14", "note": "stress sample with an even common scale and both reduced spans odd" },
+    { "name": "15", "note": "stress sample with an odd common scale and both crossing parities present" },
+    { "name": "gen6", "generator": "11 1", "note": "seeded small coprime hall with many revisits and wall bounces" },
+    { "name": "gen7", "generator": "15 3", "note": "seeded slender hall with reduced spans 2 and 67 and a large scale" },
+    { "name": "gen8", "generator": "16 3", "note": "seeded large near-square hall with consecutive reduced spans 61 and 62" },
+    { "name": "gen9", "generator": "17 3", "note": "seeded large hall with odd common scale 25659 and mixed reduced parity" }
+  ]
+}
