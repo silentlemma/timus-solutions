@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1813_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every m from 2 to 60, checked by trying all pairs" },
+    { "name": "03", "note": "a large prime, powers of 2, a square of a prime and smooth numbers" },
+    { "name": "gen1", "generator": "1 1", "note": "any m" },
+    { "name": "gen2", "generator": "2 2", "note": "products of small primes" },
+    { "name": "gen3", "generator": "3 3", "note": "large primes and their squares" },
+    { "name": "04", "note": "odd prime powers give integer averages across several exponents" },
+    { "name": "05", "note": "exactly one factor of two must not trigger the multiple-of-four rule" },
+    { "name": "06", "note": "exactly two factors of two require the additional multiplier restriction" },
+    { "name": "07", "note": "changing factor exponents while keeping the same distinct prime factors" },
+    { "name": "08", "note": "squarefree composites with many distinct factors still allow only a equal to one" },
+    { "name": "09", "note": "squares of composite odd bases require removing every repeated prime factor" },
+    { "name": "10", "note": "a large prime cofactor remains after a repeated small factor is removed" },
+    { "name": "11", "note": "exact trial-division square boundaries contrasted with both neighboring values" },
+    { "name": "12", "note": "near-limit moduli with high prime multiplicities give averages close to half a billion" },
+    { "name": "13", "note": "consecutive values immediately below the largest legal modulus change factor structure" },
+    { "name": "14", "note": "the full 100-line input alternates repeated small and large moduli to check state resets" },
+    { "name": "15", "note": "odd composites with several repeated prime factors give integer pair averages" },
+    { "name": "16", "note": "a single modulus must be read to EOF without being mistaken for a test count" },
+    { "name": "17", "note": "a hundred small random moduli retained from exhaustive pair stress checks preserve order and duplicates" },
+    { "name": "18", "generator": "1813 4", "note": "a hundred distinct random moduli in a narrow strip below the strict upper bound" },
+    { "name": "19", "generator": "1813 5", "note": "random triples around prime squares near the maximum trial divisor" },
+    { "name": "20", "generator": "1813 6", "note": "a hundred distinct products of two different large primes stress long unsuccessful factor searches" }
+  ]
+}
