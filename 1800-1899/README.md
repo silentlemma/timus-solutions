@@ -5,3 +5,4 @@
 | # | Problem | Tags | Languages |
 |---|---------|------|-----------|
 | 1800 | [Murphy's Law](1800/) | math | C++, Go, Python, Java, Rust |
+| 1801 | [The Revolution Cup](1801/) | graphs | C++, Go, Python, Java, Rust |
