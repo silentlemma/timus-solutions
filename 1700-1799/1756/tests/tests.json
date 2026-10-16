@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "1756_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one and a half diggers make two" },
+    { "name": "02", "note": "one digger, one day" },
+    { "name": "03", "note": "the largest work in a single day" },
+    { "name": "04", "note": "a single digger-day over 10000 days" },
+    { "name": "05", "note": "work that divides evenly" },
+    { "name": "06", "note": "one extra digger on one day" },
+    { "name": "07", "note": "extra diggers on two days" },
+    { "name": "gen1", "generator": "1 1", "note": "small random numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "random numbers" },
+    { "name": "gen3", "generator": "3 3", "note": "all numbers near the limit" }
+  ]
+}
