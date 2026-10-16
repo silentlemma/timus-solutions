@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1763_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: six sectors, where the jumps both ways land together" },
+    { "name": "02", "note": "seven sectors, the first term of the recurrence" },
+    { "name": "03", "note": "eight sectors" },
+    { "name": "04", "note": "nine sectors: fewer ways than for eight" },
+    { "name": "05", "note": "25 sectors, the last of the first terms" },
+    { "name": "06", "note": "26 sectors, the first one the recurrence gives" },
+    { "name": "07", "note": "100 sectors, as counted by the search" },
+    { "name": "08", "note": "200 sectors, as counted by the search" },
+    { "name": "09", "note": "the most sectors" },
+    { "name": "10", "note": "one sector fewer than the most" },
+    { "name": "gen1", "generator": "1 1", "note": "6 to 200 sectors" },
+    { "name": "gen2", "generator": "2 1", "note": "6 to 200 sectors" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 10^9 sectors" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 10^9 sectors" }
+  ]
+}
