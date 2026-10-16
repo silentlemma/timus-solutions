@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-9",
+  "reference": "1815_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "coinciding cities, cities on a line, a flat triangle and the corners of the range" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates: cities often coincide or line up" },
+    { "name": "gen2", "generator": "2 2", "note": "any coordinates and costs" },
+    { "name": "gen3", "generator": "3 3", "note": "equal costs: the classic Fermat point" },
+    { "name": "gen4", "generator": "4 4", "note": "one cost far above the others" },
+    { "name": "03", "note": "coincident weights tie the remote weight, giving a whole optimal segment" },
+    { "name": "04", "note": "moving the combined coincident weight one unit across the remote weight" },
+    { "name": "05", "note": "the collinear weighted median has a smaller price than either endpoint" },
+    { "name": "06", "note": "three distinct collinear cities have an optimal interval between two cities" },
+    { "name": "07", "note": "exact city-optimum boundary with nonperpendicular rational directions" },
+    { "name": "08", "note": "one-unit price changes enter and leave an interior optimum near a city" },
+    { "name": "09", "note": "equal-price integer triangles immediately on opposite sides of 120 degrees" },
+    { "name": "10", "note": "nearly degenerate price triangles cross strict equality and dominance" },
+    { "name": "11", "note": "a price of one against two prices of 1000 still gives an interior optimum" },
+    { "name": "12", "note": "long integer edges enclose the minimum positive half-unit area" },
+    { "name": "13", "note": "three square corners with maximum prices attain the largest cost scale" },
+    { "name": "14", "note": "minimum case count with unequal forces balanced at an exact interior point" },
+    { "name": "15", "note": "reflections rotations translations and all labels preserve a scalene interior cost" },
+    { "name": "16", "note": "six seeded small random cases retain interior optima with disparate prices" },
+    { "name": "17", "generator": "181517 5 10000", "note": "maximum case count of primitive thin triangles with varied prices and labels" },
+    { "name": "18", "generator": "181518 6 257", "note": "seeded varied-size 3:4:5 force equilibria give known interior optima" },
+    { "name": "19", "generator": "181519 7 503", "note": "seeded Pythagorean directions fuzz exact and adjacent city boundaries" }
+  ]
+}
