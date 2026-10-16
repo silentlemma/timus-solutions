@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1800_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "butter side down just before the first quarter turn" },
+    { "name": "02", "example": true, "note": "bread side down just after the first quarter turn" },
+    { "name": "03", "note": "the smallest values" },
+    { "name": "04", "note": "the largest values" },
+    { "name": "05", "note": "a long toast held just above the floor" },
+    { "name": "06", "note": "the first touch while the low end sinks, butter side down" },
+    { "name": "07", "note": "a touch with the bread side down while the end sinks" },
+    { "name": "08", "note": "the first touch while the low end sinks, bread side down after several turns" },
+    { "name": "09", "note": "a short toast dropped from high up, fast spin" },
+    { "name": "gen1", "generator": "1 1", "note": "a short toast spinning rapidly from a height well above its length" },
+    { "name": "gen2", "generator": "2 2", "note": "a toast at least twice the height" },
+    { "name": "gen3", "generator": "3 3", "note": "a fast spin from high up" },
+    { "name": "gen4", "generator": "4 4", "note": "a slow spin" },
+    { "name": "gen5", "generator": "5 1", "note": "early contact for a rapidly spinning toast longer than twice its drop height" }
+  ]
+}
