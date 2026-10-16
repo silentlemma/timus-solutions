@@ -1,0 +1,20 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1823_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no gas: zero pressure" },
+    { "name": "03", "note": "pressure, lines in another order" },
+    { "name": "04", "note": "the largest amount of gas" },
+    { "name": "05", "note": "zero pressure: zero gas" },
+    { "name": "06", "note": "volume with no pressure and no gas: undefined" },
+    { "name": "07", "note": "volume with gas but no pressure: error" },
+    { "name": "08", "note": "volume with pressure but no gas: error" },
+    { "name": "09", "note": "a plain volume" },
+    { "name": "10", "note": "temperature with no pressure and no gas: undefined" },
+    { "name": "11", "note": "temperature with pressure but no gas: error" },
+    { "name": "12", "note": "temperature with gas but no pressure: error" },
+    { "name": "13", "note": "the largest volume" },
+    { "name": "14", "note": "the smallest temperature" }
+  ]
+}
