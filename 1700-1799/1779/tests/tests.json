@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1779_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest students" },
+    { "name": "03", "note": "small odd graph repeats degree two" },
+    { "name": "04", "note": "even midpoint gives the central students the same degree" },
+    { "name": "05", "note": "odd student count requires excluding self-friendships above the midpoint" },
+    { "name": "06", "note": "moderate even graph produces hundreds of friendship pairs" },
+    { "name": "gen1", "generator": "1 1", "note": "a few students" },
+    { "name": "gen2", "generator": "2 2", "note": "generated odd graph checks the middle-degree transition" },
+    { "name": "gen3", "generator": "3 2", "note": "moderate odd graph checks increasing degrees after the midpoint" },
+    { "name": "gen4", "generator": "4 2", "note": "friendship endpoint bounds at a generated odd size" },
+    { "name": "07", "note": "vertex indices cross the signed eight-bit boundary at 128 students" },
+    { "name": "08", "note": "the largest odd student count exercises the middle-degree boundary" },
+    { "name": "09", "note": "the maximum student count stresses dense graph output and endpoint bounds" }
+  ]
+}
