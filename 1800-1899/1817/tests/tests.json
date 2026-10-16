@@ -1,0 +1,25 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1817_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest horses" },
+    { "name": "03", "note": "three horses give a one-second wait when only one horse is free" },
+    { "name": "04", "note": "five horses distinguish adjacent and separated pairs of riders" },
+    { "name": "05", "note": "half occupancy on ten horses gives an expected wait of 0.9536 seconds" },
+    { "name": "06", "note": "one below the horse limit ends with an exact nine-second wait" },
+    { "name": "07", "note": "the most horses" },
+    { "name": "08", "note": "six horses: two riders wait 5/12 on average, not the uniform-subset value 2/5" },
+    { "name": "09", "note": "seven horses: three riders have unequal probabilities of separated and clustered seatings" },
+    { "name": "10", "note": "eight horses: binary fractions at half occupancy and a final wait of 3.5 seconds" },
+    { "name": "11", "note": "nine horses: recurring decimal expectations on both sides of half occupancy" },
+    { "name": "12", "note": "eleven horses: odd midpoint occupancy after five and six riders" },
+    { "name": "13", "note": "twelve horses: six riders can form several separate occupied runs" },
+    { "name": "14", "note": "thirteen horses: weighted cluster histories with three free horses left" },
+    { "name": "15", "note": "fourteen horses: the final two waits cover two free seats and then one" },
+    { "name": "16", "note": "fifteen horses: dense occupancy ends at an exact seven-second wait" },
+    { "name": "17", "note": "sixteen horses: longer binary fractions exercise decimal output rounding" },
+    { "name": "18", "note": "seventeen horses: long recurring fractions near full occupancy" },
+    { "name": "19", "note": "eighteen horses require eighteen distinct expectation lines" }
+  ]
+}
