@@ -95,3 +95,4 @@
 | 1788 | [On the Benefits of Umbrellas](1788/) | greedy | C++, Go, Python, Java, Rust |
 | 1789 | [Searching for the Dodecahedron](1789/) | constructive | C++, Go, Python, Java, Rust |
 | 1790 | [Searching for the Truth](1790/) | simulation | C++, Go, Python, Java, Rust |
+| 1791 | [Uncle Styopa and Buses](1791/) | greedy | C++, Go, Python, Java, Rust |
