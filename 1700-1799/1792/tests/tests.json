@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1792_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the fourth disk was changed" },
+    { "name": "02", "example": true, "note": "the second example: already a code word" },
+    { "name": "03", "note": "all zeros, a code word" },
+    { "name": "04", "note": "the first disk changed" },
+    { "name": "05", "note": "the last petal changed" },
+    { "name": "06", "note": "the fourth disk, which lies under every petal, changed" },
+    { "name": "07", "note": "the third disk changed" },
+    { "name": "08", "note": "the second disk changed" },
+    { "name": "09", "note": "the third petal changed" },
+    { "name": "gen1", "generator": "1", "note": "any seven bits" },
+    { "name": "gen2", "generator": "2", "note": "any seven bits" },
+    { "name": "gen3", "generator": "3", "note": "any seven bits" }
+  ]
+}
