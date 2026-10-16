@@ -1,0 +1,12 @@
+{
+  "judging": "tokens",
+  "reference": "1813_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every m from 2 to 60, checked by trying all pairs" },
+    { "name": "03", "note": "a large prime, powers of 2, a square of a prime and smooth numbers" },
+    { "name": "gen1", "generator": "1 1", "note": "any m" },
+    { "name": "gen2", "generator": "2 2", "note": "products of small primes" },
+    { "name": "gen3", "generator": "3 3", "note": "large primes and their squares" }
+  ]
+}

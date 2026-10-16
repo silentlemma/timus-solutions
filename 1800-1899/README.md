@@ -17,3 +17,4 @@
 | 1810 | [Antiequations](1810/) | math | C++, Go, Python, Java, Rust |
 | 1811 | [Dual-SIM Phone](1811/) | binary_search | C++, Go, Python, Java, Rust |
 | 1812 | [The Island of Bad Luck 2](1812/) | math | C++, Go, Python, Java, Rust |
+| 1813 | [Random Shuffler](1813/) | number_theory | C++, Go, Python, Java, Rust |
