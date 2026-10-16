@@ -20,3 +20,4 @@
 | 1813 | [Random Shuffler](1813/) | number_theory | C++, Go, Python, Java, Rust |
 | 1814 | [Continued Fraction](1814/) | math | C++, Go, Python, Java, Rust |
 | 1815 | [Farm in San Andreas](1815/) | geometry | C++, Go, Python, Java, Rust |
+| 1816 | [Troubles with Pollard](1816/) | number_theory | C++, Go, Python, Java, Rust |

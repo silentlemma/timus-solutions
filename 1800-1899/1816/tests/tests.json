@@ -1,0 +1,21 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1816_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a power of 2" },
+    { "name": "03", "note": "a prime: no gcd at all" },
+    { "name": "04", "note": "the square of a prime" },
+    { "name": "05", "note": "two different primes" },
+    { "name": "06", "note": "the number below 10^9 with the most divisors" },
+    { "name": "07", "note": "a large prime" },
+    { "name": "08", "note": "2^29" },
+    { "name": "09", "note": "the square of a large prime" },
+    { "name": "10", "note": "a large number with a few factors" },
+    { "name": "11", "note": "10^9" },
+    { "name": "gen1", "generator": "1 1", "note": "any n" },
+    { "name": "gen2", "generator": "2 2", "note": "many divisors" },
+    { "name": "gen3", "generator": "3 3", "note": "a prime power" },
+    { "name": "gen4", "generator": "4 2", "note": "many divisors" }
+  ]
+}
