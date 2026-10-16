@@ -59,3 +59,4 @@
 | 1752 | [Tree 2](1752/) | graphs | C++, Go, Python, Java, Rust |
 | 1753 | [Bookshelf](1753/) | geometry | C++, Go, Python, Java, Rust |
 | 1754 | [Explosion in a Pyramid](1754/) | geometry | C++, Go, Python, Java, Rust |
+| 1755 | [Cake](1755/) | greedy | C++, Go, Python, Java, Rust |

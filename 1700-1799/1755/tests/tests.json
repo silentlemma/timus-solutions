@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1755_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a tie that Malysh settles" },
+    { "name": "02", "note": "an empty cake" },
+    { "name": "03", "note": "nothing valued by Karlsson, so Malysh can take everything" },
+    { "name": "04", "note": "the same tastes: half of the worth at most" },
+    { "name": "05", "note": "only biscuit for Malysh, only chocolate for Karlsson" },
+    { "name": "06", "note": "only biscuit, liked by both" },
+    { "name": "07", "note": "opposite tastes, the largest numbers" },
+    { "name": "08", "note": "biscuit is free for Karlsson's taste, chocolate is not" },
+    { "name": "gen1", "generator": "1 1", "note": "small random numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "random numbers" },
+    { "name": "gen3", "generator": "3 3", "note": "random numbers with zeros" },
+    { "name": "gen4", "generator": "4 3", "note": "zero value to Malysh despite positive values to Karlsson" },
+    { "name": "gen5", "generator": "5 4", "note": "tastes that agree up to a factor" },
+    { "name": "09", "note": "unit amounts with an exact tie at the pure sponge cake corner" },
+    { "name": "10", "note": "maximum amounts and preference cross products differing by only one" },
+    { "name": "11", "note": "no sponge cake for Karlsson to value, so all chocolate can be kept" },
+    { "name": "12", "note": "random small cake where all valued sponge cake fits and chocolate has zero worth" },
+    { "name": "gen6", "generator": "14 2", "note": "seeded random cake with odd total Karlsson worth and a recurring fraction" }
+  ]
+}
