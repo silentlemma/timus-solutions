@@ -24,3 +24,4 @@
 | 1817 | [Merry-go-round](1817/) | probability | C++, Go, Python, Java, Rust |
 | 1818 | [Fair Fishermen](1818/) | number_theory | C++, Go, Python, Java, Rust |
 | 1819 | [Professional Approach](1819/) | graphs | C++, Go, Python, Java, Rust |
+| 1820 | [Ural Steaks](1820/) | math | C++, Go, Python, Java, Rust |
