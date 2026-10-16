@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1738_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two employees with pins that differ everywhere" },
+    { "name": "03", "note": "eleven employees: 1 is like 10 and 11 by an inserted digit" },
+    { "name": "04", "note": "a hundred employees" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 200 employees" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum employee count with randomly assigned pins" },
+    { "name": "gen3", "generator": "3 3", "note": "all possible pins in shuffled order" },
+    { "name": "gen4", "generator": "4 4", "note": "a random number of employees" },
+    { "name": "gen5", "generator": "5 4", "note": "large random pin assignment across five-digit employee numbers" },
+    { "name": "05", "note": "minimum n with four changed bits confined to one hex position" },
+    { "name": "06", "note": "nine one-digit labels form a complete graph with pin distance exactly two" },
+    { "name": "07", "note": "all sixteen hex digits in one pin position across the 9 to 10 label boundary" },
+    { "name": "08", "note": "decimal pins through 111 expose repeated-digit insertion duplicates" },
+    { "name": "09", "note": "labels through 1001 exercise internal zero deletions and forbidden leading zeros" },
+    { "name": "10", "note": "seeded random palindromic pins allow only even Hamming distances" },
+    { "name": "11", "note": "reversed-bit pins for 9999 labels, just before five-digit insertions" },
+    { "name": "12", "generator": "1738 5", "note": "maximum n with ordered pins including 0000 and ffff and large pair counts" },
+    { "name": "13", "generator": "1738 6", "note": "label 10000 has four equivalent zero deletions" }
+  ]
+}
