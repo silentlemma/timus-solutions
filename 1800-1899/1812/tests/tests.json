@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1812_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: 15 is no square" },
+    { "name": "03", "note": "no rounds, the first circle" },
+    { "name": "04", "note": "no rounds, the second circle, nonsquare product" },
+    { "name": "05", "note": "equal radii, the middle circle after 30 rounds" },
+    { "name": "06", "note": "the circle next to the last after 30 rounds" },
+    { "name": "07", "note": "a circle deep in the Stern sequence, large sums" },
+    { "name": "08", "note": "an irrational pair after 30 rounds" },
+    { "name": "09", "note": "the middle circle, ratio 1 to 4" },
+    { "name": "gen1", "generator": "1 1", "note": "radii with a square ratio" },
+    { "name": "gen2", "generator": "2 2", "note": "any radii" },
+    { "name": "gen3", "generator": "3 3", "note": "equal radii with a large denominator after 30 rounds" },
+    { "name": "gen4", "generator": "4 3", "note": "unequal radii in ratio nine to one at a deep interior position" },
+    { "name": "10", "note": "minimum-radius left endpoint stays rational after 30 rounds despite a nonsquare product" },
+    { "name": "11", "note": "largest legal index selects the maximum-radius right endpoint with a nonsquare product" },
+    { "name": "12", "note": "unequal nonsquare radii share a square-free factor and give a rational inserted radius" },
+    { "name": "13", "note": "unequal radii give an integer inserted radius after nontrivial fraction reduction" },
+    { "name": "14", "note": "an off-centre circle from round two keeps its radius through 28 further rounds" },
+    { "name": "15", "note": "the product of near-limit radii is exactly one below a square and remains irrational" },
+    { "name": "16", "note": "the maximum square ratio between legal radii requires square root 31" },
+    { "name": "17", "note": "random small case with a larger left radius and a new circle near the right end" },
+    { "name": "18", "note": "random equal prime radii at an off-centre newly inserted circle" },
+    { "name": "gen5", "generator": "8 1", "note": "seeded four-round case with nonsquare radii in ratio nine to sixteen" },
+    { "name": "gen6", "generator": "5 2", "note": "seeded irrational pair with a newly inserted interior circle after 23 rounds" }
+  ]
+}
