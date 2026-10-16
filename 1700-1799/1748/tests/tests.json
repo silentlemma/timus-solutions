@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1748_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "upper bound and the last record holder below it" },
+    { "name": "03", "note": "small numbers: 2 and 3 tie at two divisors" },
+    { "name": "gen1", "generator": "1 1", "note": "random large queries in arbitrary order" },
+    { "name": "gen2", "generator": "2 2", "note": "random queries below one million" },
+    { "name": "gen3", "generator": "3 3", "note": "around record holders" },
+    { "name": "gen4", "generator": "4 3", "note": "queries immediately before and at divisor-count records" },
+    { "name": "gen5", "generator": "5 1", "note": "large bounds on both sides of the final divisor-count record" },
+    { "name": "04", "note": "a single query at the minimum bound has only the divisor one" },
+    { "name": "05", "note": "ties between larger composite numbers must keep the earliest record" },
+    { "name": "06", "note": "the maximum query count repeatedly jumps from near 10^18 to small bounds" },
+    { "name": "07", "note": "integer width boundaries and a record above 2^53 expose narrowing and float rounding" },
+    { "name": "gen6", "generator": "1748 4", "note": "seeded random bit lengths mix tiny and huge queries in one batch" }
+  ]
+}
