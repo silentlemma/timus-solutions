@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1766_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example, whose printed answer is too rough on purpose" },
+    { "name": "02", "note": "1000 in every cell: the same shape as all ones" },
+    { "name": "03", "note": "a chessboard of 1 and 1000" },
+    { "name": "04", "note": "one cell of 1000 at d6 among ones" },
+    { "name": "05", "note": "counts 1 to 64 row by row" },
+    { "name": "06", "note": "one corner of 1000 among ones" },
+    { "name": "gen1", "generator": "1 1", "note": "counts from 1 to 1000" },
+    { "name": "gen2", "generator": "2 1", "note": "counts from 1 to 1000" },
+    { "name": "gen3", "generator": "3 2", "note": "counts from 1 to 3" },
+    { "name": "gen4", "generator": "4 3", "note": "counts of 1 and 1000 only" },
+    { "name": "gen5", "generator": "5 4", "note": "one cell of 1000 among ones" }
+  ]
+}
