@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1810_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: one more antiequation" },
+    { "name": "03", "note": "a zero left side cannot differ from zero" },
+    { "name": "04", "note": "every variable must avoid 0: 2^30 solutions" },
+    { "name": "05", "note": "empty left sides with right sides 0, 1, 2" },
+    { "name": "06", "note": "x != 0 and 2x != 0 say the same" },
+    { "name": "07", "note": "one variable avoiding every value" },
+    { "name": "gen1", "generator": "1 1", "note": "a few antiequations and variables" },
+    { "name": "gen2", "generator": "2 2", "note": "a 30-by-30 system with arbitrary coefficients" },
+    { "name": "gen3", "generator": "3 3", "note": "thirty rows spanning a few dimensions" },
+    { "name": "gen4", "generator": "4 4", "note": "copies and multiples of a few rows" },
+    { "name": "gen5", "generator": "5 5", "note": "thirty rows over few variables" },
+    { "name": "08", "note": "minimum dimensions with a vacuous antiequation: all three values work" },
+    { "name": "09", "note": "maximum answer 3^30: every row is harmless and every variable is free" },
+    { "name": "10", "note": "one dense row at maximum width with coefficient 2 and a nonzero forbidden value" },
+    { "name": "11", "note": "proportional dense rows exclude different residues and leave 3^29 assignments" },
+    { "name": "12", "note": "leading and trailing unused columns, a late coefficient-2 pivot, and a harmless zero row" },
+    { "name": "13", "note": "four nonproportional rows cover every assignment without any impossible zero row" },
+    { "name": "14", "note": "a sum-dependent row with a nonzero right side removes exactly one of four candidates" },
+    { "name": "15", "note": "pairs of forbidden residues force exactly one assignment through an invertible dense system" },
+    { "name": "16", "note": "seeded sparse random 5-by-4 system with eleven surviving assignments" },
+    { "name": "17", "note": "seeded planted random 10-by-6 system with ten survivors and mixed right sides" },
+    { "name": "gen6", "generator": "181006 6", "note": "maximum dimensions with shuffled satisfiable dependent blocks of three variables" },
+    { "name": "gen7", "generator": "181007 7", "note": "maximum dimensions with a randomly relabelled cycle and one global row dependency" }
+  ]
+}
