@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1765_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a triangle with a blade missing" },
+    { "name": "03", "note": "six blades, one missing: its opposite goes too" },
+    { "name": "04", "note": "six blades, two neighbours missing" },
+    { "name": "05", "note": "six blades, a triangle missing: the other triangle balances" },
+    { "name": "06", "note": "a prime number of blades: nothing balances" },
+    { "name": "07", "note": "maximum blade count with one blade missing" },
+    { "name": "08", "note": "twice a prime, an opposite pair missing" },
+    { "name": "09", "note": "neighbouring broken blades affect two separate groups" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 60 blades" },
+    { "name": "gen2", "generator": "2 1", "note": "only two blades survive on an odd turbine" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 20 000 blades, a few missing" },
+    { "name": "gen4", "generator": "4 2", "note": "three damaged heptagons require eighteen further removals" },
+    { "name": "gen5", "generator": "5 3", "note": "up to 20 000 blades, many missing" },
+    { "name": "gen6", "generator": "6 4", "note": "a prime power of blades, a few missing" },
+    { "name": "10", "note": "minimum n and maximum k leave a single unbalanced blade" },
+    { "name": "11", "note": "odd prime power keeps one triangle and discards isolated survivors" },
+    { "name": "12", "note": "half the blades survive but every diameter is broken" },
+    { "name": "13", "note": "two whole pentagons beat the available intersecting triangles" },
+    { "name": "14", "note": "repeated prime factors mix intact, empty, impossible and competing groups" },
+    { "name": "15", "note": "four unmatched blades must be removed from repeated-factor groups" },
+    { "name": "gen7", "generator": "7 5", "note": "maximum n and k produce the largest broken-blade list" },
+    { "name": "gen8", "generator": "8 6", "note": "dense random damage on the largest power of two requires opposite partners" },
+    { "name": "gen9", "generator": "12 1", "note": "random odd repeated-factor grids with 45 blades and moderate damage" }
+  ]
+}

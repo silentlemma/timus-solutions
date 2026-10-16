@@ -69,3 +69,4 @@
 | 1762 | [Search for a Hiding-Place](1762/) | math | C++, Go, Python, Java, Rust |
 | 1763 | [Expert Flea](1763/) | math | C++, Go, Python, Java, Rust |
 | 1764 | [Transsib](1764/) | math | C++, Go, Python, Java, Rust |
+| 1765 | [Error 404](1765/) | number_theory | C++, Go, Python, Java, Rust |
