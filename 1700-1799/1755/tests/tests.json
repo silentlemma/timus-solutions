@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1755_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a tie that Malysh settles" },
+    { "name": "02", "note": "an empty cake" },
+    { "name": "03", "note": "Karlsson likes nothing, so Malysh can take everything" },
+    { "name": "04", "note": "the same tastes: half of the worth at most" },
+    { "name": "05", "note": "Malysh likes only biscuit, Karlsson only chocolate" },
+    { "name": "06", "note": "only biscuit, liked by both" },
+    { "name": "07", "note": "opposite tastes, the largest numbers" },
+    { "name": "08", "note": "biscuit is free for Karlsson's taste, chocolate is not" },
+    { "name": "gen1", "generator": "1 1", "note": "small random numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "random numbers" },
+    { "name": "gen3", "generator": "3 3", "note": "random numbers with zeros" },
+    { "name": "gen4", "generator": "4 3", "note": "random numbers with zeros" },
+    { "name": "gen5", "generator": "5 4", "note": "tastes that agree up to a factor" }
+  ]
+}
