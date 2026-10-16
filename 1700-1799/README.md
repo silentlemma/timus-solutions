@@ -48,3 +48,4 @@
 | 1741 | [Communication Fiend](1741/) | dp | C++, Go, Python, Java, Rust |
 | 1742 | [Team building](1742/) | graphs | C++, Go, Python, Java, Rust |
 | 1743 | [Domino Sorting](1743/) | greedy | C++, Go, Python, Java, Rust |
+| 1744 | [The Captain's Squad](1744/) | constructive | C++, Go, Python, Java, Rust |
