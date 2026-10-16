@@ -76,3 +76,4 @@
 | 1769 | [Old Ural Legend](1769/) | strings | C++, Go, Python, Java, Rust |
 | 1770 | [The Party of Ural Champions](1770/) | graphs | C++, Go, Python, Java, Rust |
 | 1771 | [A Deputy's Morning](1771/) | implementation | C++, Go, Python, Java, Rust |
+| 1772 | [Ski-Trails for Robots](1772/) | segment_tree | C++, Go, Python, Java, Rust |
