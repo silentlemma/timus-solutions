@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "1789_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the middle pedestal twice" },
+    { "name": "02", "note": "the fewest pedestals, where the middle sweep is empty" },
+    { "name": "03", "note": "four pedestals" },
+    { "name": "04", "note": "five pedestals" },
+    { "name": "05", "note": "six pedestals" },
+    { "name": "06", "note": "an odd number of many pedestals" },
+    { "name": "07", "note": "the most pedestals" }
+  ]
+}
