@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1787_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the jam clears" },
+    { "name": "02", "example": true, "note": "the second example: one big wave" },
+    { "name": "03", "note": "one empty minute" },
+    { "name": "04", "note": "one minute of a hundred cars" },
+    { "name": "05", "note": "a wave that shrinks for a few minutes, then more cars" },
+    { "name": "06", "note": "a wave that has not cleared by the end" },
+    { "name": "07", "note": "the largest jam" },
+    { "name": "08", "note": "the light keeps up with the largest flow" },
+    { "name": "gen1", "generator": "1 1", "note": "any counts" },
+    { "name": "gen2", "generator": "2 2", "note": "counts around k" },
+    { "name": "gen3", "generator": "3 2", "note": "counts around k" },
+    { "name": "gen4", "generator": "4 1", "note": "any counts" }
+  ]
+}
