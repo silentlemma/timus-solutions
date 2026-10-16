@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1797_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: 7 and 11 cannot be made" },
+    { "name": "02", "note": "every size, a single size, and nothing in a tiny range" },
+    { "name": "03", "note": "sizes with a Frobenius number near 10^18, two huge sizes, a shared factor" },
+    { "name": "04", "note": "one size a multiple of the other, equal sizes, a range of two" },
+    { "name": "05", "note": "one size of 1, and two sizes whose gaps are many" },
+    { "name": "gen1", "generator": "1 1", "note": "a hundred small cases" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred cases up to 10^18" },
+    { "name": "gen3", "generator": "3 3", "note": "a hundred cases with a large common factor" },
+    { "name": "gen4", "generator": "4 4", "note": "a hundred cases with ones, equal sizes and the largest ranges" },
+    { "name": "gen5", "generator": "5 2", "note": "a hundred cases up to 10^18" }
+  ]
+}
