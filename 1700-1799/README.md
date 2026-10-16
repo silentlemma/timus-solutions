@@ -92,3 +92,4 @@
 | 1785 | [Lost in Localization](1785/) | implementation | C++, Go, Python, Java, Rust |
 | 1786 | [Sandro's Biography](1786/) | strings | C++, Go, Python, Java, Rust |
 | 1787 | [Turn for MEGA](1787/) | simulation | C++, Go, Python, Java, Rust |
+| 1788 | [On the Benefits of Umbrellas](1788/) | greedy | C++, Go, Python, Java, Rust |

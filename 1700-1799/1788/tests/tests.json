@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1788_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one pair is best" },
+    { "name": "02", "note": "one girl and one boy" },
+    { "name": "03", "note": "more girls than boys" },
+    { "name": "04", "note": "calm boys, one sensitive girl" },
+    { "name": "05", "note": "calm girls, but every boy can walk one" },
+    { "name": "06", "note": "the largest group, everyone paired" },
+    { "name": "07", "note": "the largest group of calm boys" },
+    { "name": "08", "note": "one girl and many sensitive boys: better nobody walks" },
+    { "name": "gen1", "generator": "1 1", "note": "any group" },
+    { "name": "gen2", "generator": "2 2", "note": "a small group" },
+    { "name": "gen3", "generator": "3 3", "note": "sensitive girls, calm boys" },
+    { "name": "gen4", "generator": "4 1", "note": "any group" }
+  ]
+}
