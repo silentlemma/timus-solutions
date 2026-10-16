@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1749_matrix.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "modulus 1" },
+    { "name": "03", "note": "one digit repeated 10^9 times" },
+    { "name": "04", "note": "a zero inside: 1010" },
+    { "name": "05", "note": "twelve nines repeated almost 10^9 times, a prime modulus" },
+    { "name": "gen1", "generator": "1 1", "note": "a short number repeated a few times" },
+    { "name": "gen2", "generator": "2 2", "note": "a 100000-digit number repeated up to 10^9 times" },
+    { "name": "gen3", "generator": "3 3", "note": "a 1 followed by 99999 zeros" },
+    { "name": "gen4", "generator": "4 4", "note": "a 100000-digit number with a power-of-ten modulus" },
+    { "name": "gen5", "generator": "5 1", "note": "six copies of a five-digit number" },
+    { "name": "06", "note": "minimum positive p and k with a nontrivial modulus" },
+    { "name": "07", "note": "one copy containing every digit, with the maximum modulus" },
+    { "name": "08", "note": "long internal zero run and adjacent ones across the copy boundary" },
+    { "name": "09", "note": "three trailing zeros and a modulus with only factors of five" },
+    { "name": "10", "note": "modulo nine, where geometric-series division needs special care" },
+    { "name": "11", "note": "a single high bit in k and a block whose decimal power is one modulo eleven" },
+    { "name": "12", "note": "all lower 29 exponent bits set, with an odd-length zero-containing block" },
+    { "name": "13", "note": "stress case: a block divisible by sixteen still has a nonzero substring sum" },
+    { "name": "14", "note": "stress case: zero-heavy blocks yield the largest residue modulo twenty-five" },
+    { "name": "15", "note": "stress case: substrings cancel modulo eleven although the block is nonzero" },
+    { "name": "gen6", "generator": "1749 5", "note": "largest possible p, all 100000 digits nine, without repetition" },
+    { "name": "gen7", "generator": "1749 6", "note": "two maximum-length alternating blocks modulo a large power of two" },
+    { "name": "gen8", "generator": "1749 7", "note": "seeded zero-heavy 99999-digit block repeated three times modulo 125" }
+  ]
+}
