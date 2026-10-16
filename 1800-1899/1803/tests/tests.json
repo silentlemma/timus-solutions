@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1803_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest rifles in binary" },
+    { "name": "03", "note": "the fewest rifles in base 10" },
+    { "name": "04", "note": "a middle count in base 7" },
+    { "name": "gen1", "generator": "1 1", "note": "a few hundred rifles" },
+    { "name": "gen2", "generator": "2 2", "note": "binary digit sums reorder several thousand rifles" },
+    { "name": "gen3", "generator": "3 3", "note": "the most rifles" },
+    { "name": "gen4", "generator": "2 4", "note": "the most rifles in binary, the longest numbers" },
+    { "name": "gen5", "generator": "3 4", "note": "the most rifles in base 3" },
+    { "name": "gen6", "generator": "10 4", "note": "decimal digit sums at the maximum rifle count" },
+    { "name": "gen7", "generator": "9 4", "note": "base 9 digit sums preserve index order within ties at the maximum count" },
+    { "name": "05", "note": "the first ternary carry puts rifle 4 in the one-note tie before rifle 3" },
+    { "name": "06", "note": "base 6 prices cross both signed and unsigned 64-bit limits at rifles 93 and 94" },
+    { "name": "07", "note": "a retained stress case carries across six trailing ternary twos in F(326)" },
+    { "name": "gen8", "generator": "4 4", "note": "maximum count in base 4 checks two-bit digit weights rather than binary popcount" },
+    { "name": "gen9", "generator": "8 4", "note": "maximum count in base 8 exercises three-bit digits and the largest even base below 10" },
+    { "name": "gen10", "generator": "16 1", "note": "seeded base 7 sample mixes ties between one-, two-, and three-digit rifle numbers" },
+    { "name": "gen11", "generator": "17 1", "note": "seeded decimal sample reaches 45-digit prices and note counts fall when prices gain a digit" }
+  ]
+}
