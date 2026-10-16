@@ -68,3 +68,4 @@
 | 1761 | [Binary Palindrome](1761/) | strings | C++, Go, Python, Java, Rust |
 | 1762 | [Search for a Hiding-Place](1762/) | math | C++, Go, Python, Java, Rust |
 | 1763 | [Expert Flea](1763/) | math | C++, Go, Python, Java, Rust |
+| 1764 | [Transsib](1764/) | math | C++, Go, Python, Java, Rust |
