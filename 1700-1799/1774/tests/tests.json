@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1774_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: four shaves, three minutes, one at a time" },
+    { "name": "03", "note": "one mage staying exactly two minutes" },
+    { "name": "04", "note": "two mages one after the other" },
+    { "name": "05", "note": "two mages overlapping by one minute: too many shaves" },
+    { "name": "06", "note": "a patient mage fills the gaps around two short visits" },
+    { "name": "07", "note": "the latest arrival and the longest stay" },
+    { "name": "08", "note": "two mages sharing three minutes, one at a time: too few" },
+    { "name": "gen1", "generator": "1 1", "note": "a few mages" },
+    { "name": "gen2", "generator": "2 1", "note": "one mage has four available minutes with unit capacity" },
+    { "name": "gen3", "generator": "3 2", "note": "maximum mage count with random windows and insufficient total capacity" },
+    { "name": "gen4", "generator": "5 2", "note": "varied overlapping stays are feasible with five shaves per minute" },
+    { "name": "gen5", "generator": "5 3", "note": "a shared window leaves room for only 198 of the required 200 shaves" },
+    { "name": "gen6", "generator": "6 3", "note": "identical stays become feasible at the minimum sufficient per-minute capacity" },
+    { "name": "gen7", "generator": "7 4", "note": "widely spread arrivals and long stays with one shave per minute" },
+    { "name": "09", "note": "total capacity is sufficient but one mage has only one distinct free minute" },
+    { "name": "10", "note": "seeded random overlapping windows require reassigning earlier shaves at capacity two" },
+    { "name": "11", "note": "maximum n and k with mixed minimum and maximum stays and both arrival bounds" },
+    { "name": "12", "note": "reverse-ordered tight chain of 100 windows creates 200 distinct boundaries" }
+  ]
+}
