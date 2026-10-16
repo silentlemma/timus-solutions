@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1808_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: water bends both rays towards each other" },
+    { "name": "02", "example": true, "note": "the second example: a weaker bend, the rays miss" },
+    { "name": "03", "note": "two looks along one diameter from opposite sides" },
+    { "name": "04", "note": "the largest planet and index, both looks along a diameter" },
+    { "name": "05", "note": "two perpendicular diameters" },
+    { "name": "06", "note": "an index of 1 and two parallel chords" },
+    { "name": "07", "note": "two mirror looks from one side that do not meet" },
+    { "name": "gen1", "generator": "1 1", "note": "a small planet" },
+    { "name": "gen2", "generator": "2 2", "note": "any values" },
+    { "name": "gen3", "generator": "3 3", "note": "a large index" },
+    { "name": "gen4", "generator": "4 4", "note": "an index close to 1" },
+    { "name": "gen5", "generator": "5 5", "note": "chords that miss" },
+    { "name": "gen6", "generator": "6 5", "note": "chords that miss" }
+  ]
+}
