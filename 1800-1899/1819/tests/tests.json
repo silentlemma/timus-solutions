@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1819_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single road" },
+    { "name": "03", "note": "a triangle: only two disjoint paths" },
+    { "name": "04", "note": "K4: every pair has three paths" },
+    { "name": "05", "note": "two K4 joined by three roads, and a crossroad of degree 2" },
+    { "name": "06", "note": "two K4 joined by two roads: a cut pair between them" },
+    { "name": "07", "note": "a ring of three K4: the joining roads form one class of cut pairs" },
+    { "name": "08", "note": "two separate K4" },
+    { "name": "09", "note": "an isolated crossroad" },
+    { "name": "10", "note": "three paths of length 2 between two crossroads" },
+    { "name": "gen1", "generator": "1 1", "note": "a random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest wheel, every answer Yes" },
+    { "name": "gen3", "generator": "3 3", "note": "a ring of K4 blocks joined by single roads" },
+    { "name": "gen4", "generator": "4 4", "note": "a path of 50000 crossroads" },
+    { "name": "gen5", "generator": "5 5", "note": "a random tree with extra roads" },
+    { "name": "gen6", "generator": "6 6", "note": "many small pieces" },
+    { "name": "gen7", "generator": "7 5", "note": "a random tree with extra roads" },
+    { "name": "gen8", "generator": "8 1", "note": "a random graph" }
+  ]
+}
