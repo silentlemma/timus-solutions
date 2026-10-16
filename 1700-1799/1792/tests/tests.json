@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1792_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the fourth disk was changed" },
+    { "name": "02", "example": true, "note": "the second example: already a code word" },
+    { "name": "03", "note": "all zeros, a code word" },
+    { "name": "04", "note": "a lone one in the first disk must be cleared to recover the all-zero word" },
+    { "name": "05", "note": "an isolated parity bit is cleared while all four disks remain zero" },
+    { "name": "06", "note": "the fourth disk, which lies under every petal, changed" },
+    { "name": "07", "note": "clearing the third disk leaves the first disk, fourth disk and first petal set" },
+    { "name": "08", "note": "the second disk must be cleared while the third disk and two petals stay set" },
+    { "name": "09", "note": "the final petal must be set when the first, second and fourth disks are one" },
+    { "name": "gen1", "generator": "1", "note": "a set final petal must be cleared when only the third disk is set" },
+    { "name": "gen2", "generator": "2", "note": "the first petal must be set to match a lone set fourth disk" },
+    { "name": "gen3", "generator": "3", "note": "a valid word with the last two disks and final petal set stays unchanged" }
+  ]
+}
