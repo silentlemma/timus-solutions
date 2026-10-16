@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1785_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest number" },
+    { "name": "04", "note": "the last few" },
+    { "name": "05", "note": "the first several" },
+    { "name": "06", "note": "the last zounds" },
+    { "name": "07", "note": "the first legion" },
+    { "name": "08", "note": "the largest number" },
+    { "name": "gen1", "generator": "1 1", "note": "the edge of a range" },
+    { "name": "gen2", "generator": "2 1", "note": "the edge of a range" },
+    { "name": "gen3", "generator": "3 1", "note": "the edge of a range" },
+    { "name": "gen4", "generator": "4 2", "note": "any number" },
+    { "name": "gen5", "generator": "5 2", "note": "any number" }
+  ]
+}
