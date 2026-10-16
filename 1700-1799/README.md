@@ -90,3 +90,4 @@
 | 1783 | [Nuclear Arms Race](1783/) | simulation | C++, Go, Python, Java, Rust |
 | 1784 | [Rounders](1784/) | greedy | C++, Go, Python, Java, Rust |
 | 1785 | [Lost in Localization](1785/) | implementation | C++, Go, Python, Java, Rust |
+| 1786 | [Sandro's Biography](1786/) | strings | C++, Go, Python, Java, Rust |
