@@ -85,3 +85,4 @@
 | 1778 | [Chinese Hockey 2](1778/) | greedy | C++, Go, Python, Java, Rust |
 | 1779 | [The Great Team](1779/) | constructive | C++, Go, Python, Java, Rust |
 | 1780 | [Gray Code](1780/) | dp | C++, Go, Python, Java, Rust |
+| 1781 | [Clean Code](1781/) | graphs | C++, Go, Python, Java, Rust |
