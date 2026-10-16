@@ -52,3 +52,4 @@
 | 1745 | [Yet Another Answer](1745/) | dp | C++, Go, Python, Java, Rust |
 | 1746 | [Hyperrook](1746/) | matrix | C++, Go, Python, Java, Rust |
 | 1747 | [Kingdom Inspection](1747/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1748 | [The Most Complex Number](1748/) | number_theory | C++, Go, Python, Java, Rust |
