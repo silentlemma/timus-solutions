@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1798_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example, the picture of the statement" },
+    { "name": "03", "note": "the smallest circle: four slabs" },
+    { "name": "04", "note": "radius 3" },
+    { "name": "05", "note": "radius 5 passes through the corners (3, 4) and (4, 3)" },
+    { "name": "06", "note": "radius 25 passes through several corners" },
+    { "name": "07", "note": "the largest radius" },
+    { "name": "08", "note": "one less than the largest radius" },
+    { "name": "09", "note": "a large prime radius" },
+    { "name": "10", "note": "radius 65, a hypotenuse of four triples" },
+    { "name": "gen1", "generator": "1 1", "note": "a radius up to 3000" },
+    { "name": "gen2", "generator": "2 2", "note": "a radius up to 10^9" },
+    { "name": "gen3", "generator": "3 3", "note": "a radius close to 10^9" },
+    { "name": "gen4", "generator": "4 4", "note": "a multiple of a hypotenuse" },
+    { "name": "gen5", "generator": "5 4", "note": "a multiple of a hypotenuse" }
+  ]
+}
