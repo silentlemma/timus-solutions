@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1754_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: one unit short" },
+    { "name": "03", "note": "an upright wall exactly within reach" },
+    { "name": "04", "note": "an upright wall one unit out of reach" },
+    { "name": "05", "note": "not even enough mana to fly up" },
+    { "name": "06", "note": "the floor one unit below and plenty of mana" },
+    { "name": "gen1", "generator": "1 1", "note": "a random small pyramid" },
+    { "name": "gen2", "generator": "4 1", "note": "a small pyramid with the nearest wall beyond the remaining mana" },
+    { "name": "gen3", "generator": "2 2", "note": "a random large pyramid" },
+    { "name": "gen4", "generator": "4 2", "note": "exact floor contact in a pyramid with large coordinates" },
+    { "name": "gen5", "generator": "5 3", "note": "upright walls at whole distances" },
+    { "name": "gen6", "generator": "3 3", "note": "an inclined wall out of reach despite integer distances to the upright walls" },
+    { "name": "07", "note": "zero radius after rising to the greatest possible interior height" },
+    { "name": "08", "note": "the floor is uniquely closest and exactly exhausts the mana" },
+    { "name": "09", "note": "exact contact with an inclined wall whose normal has length five after scaling" },
+    { "name": "10", "note": "an inclined wall lies about four millionths beyond the available unit radius" },
+    { "name": "11", "note": "extreme coordinates make a wall numerator squared exceed signed 64 bits" },
+    { "name": "12", "note": "seeded small oblique pyramid with an exterior apex projection and the closing wall closest" },
+    { "name": "13", "generator": "1754 4", "note": "seeded thin pyramid at the minimum height with shuffled base corners" }
+  ]
+}
