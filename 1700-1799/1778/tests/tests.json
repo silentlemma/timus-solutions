@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1778_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "every bus exactly two fans: the bus is known" },
+    { "name": "03", "note": "the last fan said to be in the first of two buses" },
+    { "name": "04", "note": "one answer leaves both buses open" },
+    { "name": "05", "note": "fan 1 is always in bus 1" },
+    { "name": "06", "note": "fan 1 said to be in bus 2: impossible" },
+    { "name": "07", "note": "the first fan assigned to the final bus contradicts fan order" },
+    { "name": "08", "note": "one fan per bus" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small buses" },
+    { "name": "gen2", "generator": "2 1", "note": "two single-fan buses leave the target in the second bus" },
+    { "name": "gen3", "generator": "3 2", "note": "many shuffled reports across large buses pin down the target" },
+    { "name": "gen4", "generator": "4 3", "note": "one changed answer contradicts the remaining dense reports" },
+    { "name": "gen5", "generator": "5 4", "note": "only four reports leave three adjacent buses possible" },
+    { "name": "09", "note": "minimum n and m with the target as the last fan" },
+    { "name": "10", "note": "n = m*a forces every bus to its minimum despite a < b" },
+    { "name": "11", "note": "n = m*b puts the target on the final seat of an interior bus" },
+    { "name": "12", "note": "interior reports reverse the required order of fan numbers" },
+    { "name": "13", "note": "two reports in one bus span more than its maximum capacity" },
+    { "name": "14", "note": "a skipped bus cannot hold its minimum between two reported fans" },
+    { "name": "15", "note": "shuffled reports on both sides leave exactly buses 3 and 4" },
+    { "name": "gen6", "generator": "1778 5", "note": "maximum n, m and s with b = n and m*b exceeding 32 bits" },
+    { "name": "gen7", "generator": "1778 6", "note": "all 50 000 buses are possible, producing the longest answer" },
+    { "name": "gen8", "generator": "1778 7", "note": "exactly 100 000 fans in random size-2-to-6 buses with n-1 shuffled reports" }
+  ]
+}
