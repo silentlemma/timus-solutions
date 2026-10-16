@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1784_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one swap of two piles" },
+    { "name": "02", "note": "every pile already of one suit" },
+    { "name": "03", "note": "two piles trading suits at every rank" },
+    { "name": "04", "note": "all four suits turning round at every rank" },
+    { "name": "05", "note": "a swap under the top card only" },
+    { "name": "06", "note": "a swap above the bottom card only" },
+    { "name": "07", "note": "two separate swaps at the same rank" },
+    { "name": "gen1", "generator": "1 1", "note": "any deal" },
+    { "name": "gen2", "generator": "2 1", "note": "any deal" },
+    { "name": "gen3", "generator": "3 2", "note": "a few shuffles along the piles" },
+    { "name": "gen4", "generator": "4 3", "note": "suits turning round at some ranks" }
+  ]
+}
