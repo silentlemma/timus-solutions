@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1806_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a route combining digit changes and swaps with prefix-dependent costs" },
+    { "name": "02", "example": true, "note": "the second example: no way" },
+    { "name": "03", "note": "a direct change of the first digit" },
+    { "name": "04", "note": "a swap of two digits, then a swap at the front" },
+    { "name": "05", "note": "a change of the last digit, the cheapest step" },
+    { "name": "gen1", "generator": "1 1", "note": "a few fighters over few digits" },
+    { "name": "gen2", "generator": "2 1", "note": "two disconnected telegraphs using only zeros and ones" },
+    { "name": "gen3", "generator": "3 2", "note": "many neighbours among 50000 fighters" },
+    { "name": "gen4", "generator": "4 3", "note": "arbitrary numbers for 50000 fighters" },
+    { "name": "gen5", "generator": "5 4", "note": "a long chain of changes" },
+    { "name": "gen6", "generator": "6 5", "note": "many neighbours, Chapaev out of reach" },
+    { "name": "06", "note": "two telegraphs swap the first and last digits at maximum cost, preserving leading zeros" },
+    { "name": "07", "note": "a three-step route costs 10002 while the two-step route costs 20000" },
+    { "name": "08", "note": "unit costs give 24 fastest routes among repeated high digits, with equal-digit swaps ignored" }
+  ]
+}
