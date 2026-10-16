@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1741_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: pirated and cracked updates beat a direct licensed update" },
+    { "name": "02", "example": true, "note": "the second example: version 3 is out of reach" },
+    { "name": "03", "note": "a licensed update cannot follow a pirated one" },
+    { "name": "04", "note": "a cracked update can follow a pirated one" },
+    { "name": "05", "note": "the cheap pirated way is a dead end for licensed updates" },
+    { "name": "gen1", "generator": "1 1", "note": "a few versions and updates" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum version and update counts with random forward jumps" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain of 9999 largest updates: about 10^10" },
+    { "name": "gen4", "generator": "4 4", "note": "many updates between nearby versions" },
+    { "name": "gen5", "generator": "5 1", "note": "parallel pirated updates on the cheapest route" },
+    { "name": "gen6", "generator": "6 1", "note": "pirated final updates beat routes that keep the client licensed" },
+    { "name": "06", "note": "minimum n, m and size with a single pirated update reaching the target" },
+    { "name": "07", "note": "cracked updates preserve the license along a reversed-order path with parallel updates" },
+    { "name": "08", "note": "maximum version number and size but no update leaves the starting version" }
+  ]
+}
