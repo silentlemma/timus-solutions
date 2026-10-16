@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1761_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "n = 1" },
+    { "name": "04", "note": "n = 2" },
+    { "name": "05", "note": "n = 3: 11011 is a palindrome" },
+    { "name": "06", "note": "n = 7" },
+    { "name": "07", "note": "n = 38, one short of 2^5 + 7" },
+    { "name": "08", "note": "n = 39 = 2^5 + 7: the longer palindrome appears" },
+    { "name": "09", "note": "n = 70, one short of 2^6 + 7" },
+    { "name": "10", "note": "n = 71 = 2^6 + 7" },
+    { "name": "11", "note": "n = 63, all ones" },
+    { "name": "gen1", "generator": "1 1", "note": "n up to 300" },
+    { "name": "gen2", "generator": "2 1", "note": "n up to 300" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 1000 random digits" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 1000 random digits" },
+    { "name": "gen5", "generator": "5 3", "note": "a million and one digits, n = 2^(k-1) + 6" },
+    { "name": "gen6", "generator": "9 3", "note": "a million and one digits, n = 2^(k-1) + 7" },
+    { "name": "gen7", "generator": "7 4", "note": "a million and one random digits" }
+  ]
+}
