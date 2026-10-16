@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1769_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "all positive single digits and 10 occur but 11 is missing" },
+    { "name": "02", "note": "a single zero: 1 is missing" },
+    { "name": "03", "note": "a single one: 2 is missing" },
+    { "name": "04", "note": "all digits but zero: 10 is missing" },
+    { "name": "05", "note": "all digits in falling order" },
+    { "name": "06", "note": "zeros only" },
+    { "name": "07", "note": "ones only" },
+    { "name": "08", "note": "the numbers 1 to 99 written in a row" },
+    { "name": "gen1", "generator": "1 1", "note": "a short digit sequence containing 1 but missing 2" },
+    { "name": "gen2", "generator": "2 1", "note": "a leading zero and repeated digits cover every single digit but not 10" },
+    { "name": "gen3", "generator": "3 2", "note": "a maximum length line of random digits" },
+    { "name": "gen4", "generator": "4 3", "note": "consecutive numbers up to 100 000 digits" },
+    { "name": "gen5", "generator": "5 4", "note": "a maximum length line repeating a single digit" }
+  ]
+}

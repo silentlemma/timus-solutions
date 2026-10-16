@@ -73,3 +73,4 @@
 | 1766 | [Humpty Dumpty](1766/) | math | C++, Go, Python, Java, Rust |
 | 1767 | [The House of Doctor Dee](1767/) | geometry | C++, Go, Python, Java, Rust |
 | 1768 | [Circular Strings](1768/) | geometry | C++, Go, Python, Java, Rust |
+| 1769 | [Old Ural Legend](1769/) | strings | C++, Go, Python, Java, Rust |
