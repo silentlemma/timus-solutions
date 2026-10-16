@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1805_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the first grille of side 4" },
+    { "name": "03", "note": "the last of the 256 grilles of side 4" },
+    { "name": "04", "note": "the first grille of side 10" },
+    { "name": "05", "note": "the largest k with side 10" },
+    { "name": "06", "note": "the last grille of side 6" },
+    { "name": "07", "note": "side 8, a middle k" },
+    { "name": "08", "note": "the last grille of side 10, 4^25" },
+    { "name": "gen1", "generator": "1 1", "note": "any side and k" },
+    { "name": "gen2", "generator": "2 2", "note": "k near the number of grilles" },
+    { "name": "gen3", "generator": "3 3", "note": "a small k" },
+    { "name": "gen4", "generator": "4 1", "note": "any side and k" }
+  ]
+}
