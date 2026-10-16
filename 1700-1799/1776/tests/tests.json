@@ -1,0 +1,19 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1776_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: five rockets" },
+    { "name": "02", "note": "three rockets: one more volley after the first" },
+    { "name": "03", "note": "four rockets: always two more volleys" },
+    { "name": "04", "note": "six rockets" },
+    { "name": "05", "note": "seven rockets" },
+    { "name": "06", "note": "ten rockets" },
+    { "name": "07", "note": "100 rockets" },
+    { "name": "08", "note": "255 rockets" },
+    { "name": "09", "note": "399 rockets" },
+    { "name": "10", "note": "the most rockets" },
+    { "name": "gen1", "generator": "1 1", "note": "a few rockets" },
+    { "name": "gen2", "generator": "2 2", "note": "up to 400 rockets" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 400 rockets" }
+  ]
+}
