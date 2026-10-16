@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "1780_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the final code bit uniquely fixes the erased middle bit of k" },
+    { "name": "02", "example": true, "note": "the second example: two readings" },
+    { "name": "03", "example": true, "note": "the third example: the code does not match" },
+    { "name": "04", "note": "one digit, both rubbed out" },
+    { "name": "05", "note": "one digit, both 1" },
+    { "name": "06", "note": "one digit, k = 1 but code 0" },
+    { "name": "07", "note": "the code fixes k completely" },
+    { "name": "08", "note": "k fixes the code completely" },
+    { "name": "09", "note": "everything rubbed out" },
+    { "name": "10", "note": "rubbed-out digits alternating between the two lines" },
+    { "name": "gen1", "generator": "1 1", "note": "three erased digits in each line leave all eight readings possible" },
+    { "name": "gen2", "generator": "2 1", "note": "a known zero bit matches its unchanged Gray code" },
+    { "name": "gen3", "generator": "3 2", "note": "an intact code fixes erased k digits across 100 000 positions" },
+    { "name": "gen4", "generator": "4 3", "note": "matching erasures in both lines leave ambiguity across 100 000 digits" },
+    { "name": "gen5", "generator": "5 4", "note": "one changed code digit contradicts a fully known k of 100 000 digits" },
+    { "name": "11", "note": "restore leading zeros and mixed erased runs from a random small paper" },
+    { "name": "12", "note": "an internal erased segment stays ambiguous despite fixed bits on both sides" },
+    { "name": "13", "note": "known code transitions contradict distant k anchors across seven erased bits" },
+    { "name": "gen6", "generator": "1780 5", "note": "a final k anchor forces backward recovery through random code transitions in 100 000 digits" },
+    { "name": "gen7", "generator": "1781 6", "note": "exponentially many prefix readings are all rejected by the last code digit at length 100 000" }
+  ]
+}
