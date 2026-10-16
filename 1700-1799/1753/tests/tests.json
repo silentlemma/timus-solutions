@@ -1,0 +1,14 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1753_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a book shorter than twice the rim never leans out" },
+    { "name": "03", "note": "a book exactly twice the rim: its middle only reaches the rim" },
+    { "name": "04", "note": "the lowest rim and the longest book" },
+    { "name": "05", "note": "the highest rim and the longest book" },
+    { "name": "06", "note": "a book just over twice the rim" },
+    { "name": "07", "note": "a low rim and a long book" },
+    { "name": "08", "note": "a high rim and a book a little over twice as long" }
+  ]
+}
