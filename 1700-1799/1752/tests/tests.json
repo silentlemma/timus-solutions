@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "1752_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "reachable and unreachable distances on a branching nine-vertex tree" },
+    { "name": "02", "note": "a single vertex" },
+    { "name": "03", "note": "a path of five vertices, asked from the middle and the ends" },
+    { "name": "04", "note": "two vertices" },
+    { "name": "05", "note": "a small tree with two levels of branches" },
+    { "name": "gen1", "generator": "1 1", "note": "every vertex and distance on a three-vertex path with the center labeled two" },
+    { "name": "gen2", "generator": "2 1", "note": "zero and positive distances on a generated tree with no edges" },
+    { "name": "gen3", "generator": "3 2", "note": "a random tree of 20000 vertices" },
+    { "name": "gen4", "generator": "4 3", "note": "a path of 20000 vertices" },
+    { "name": "gen5", "generator": "5 4", "note": "a broom of 20000 vertices" },
+    { "name": "gen6", "generator": "6 5", "note": "a star of 20000 vertices" },
+    { "name": "06", "note": "a leading tab before the zero-distance query on a single vertex" }
+  ]
+}
