@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1807_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: an even total splits in two halves" },
+    { "name": "02", "example": true, "note": "the second example: 5 = 2 + 3" },
+    { "name": "03", "note": "the smallest factor 3: parts 1 and 2" },
+    { "name": "04", "note": "the square of the largest prime below 31623" },
+    { "name": "05", "note": "a square with smallest prime factor 3" },
+    { "name": "06", "note": "an even total near 10^9" },
+    { "name": "07", "note": "an even total above the minimum" },
+    { "name": "08", "note": "the largest total" },
+    { "name": "09", "note": "the smallest factor 31" },
+    { "name": "10", "note": "a repeated smallest prime factor with a larger cofactor" },
+    { "name": "gen1", "generator": "1 1", "note": "a smallest prime factor of 7 selecting parts 3 and 4" },
+    { "name": "gen2", "generator": "2 2", "note": "the square of a large prime" },
+    { "name": "gen3", "generator": "3 2", "note": "a prime square producing a 297-bit lcm" },
+    { "name": "gen4", "generator": "4 3", "note": "a prime times a larger number" },
+    { "name": "11", "note": "factor 11 needs a unit pocket after choosing 2, 3 and 5" },
+    { "name": "12", "note": "factor 13 replaces 2 with 4 while retaining one unit pocket" },
+    { "name": "13", "note": "factor 17 uses four distinct primes and no unit padding" },
+    { "name": "14", "note": "factor 19 upgrades a prime power instead of adding more pockets" },
+    { "name": "15", "note": "factor 23 needs the power 8 rather than separate factors 2 and 4" },
+    { "name": "16", "note": "factor 29 combines powers 8 and 9 from different primes" },
+    { "name": "17", "note": "the smallest valid prime square needs power 16 and skips prime 19" },
+    { "name": "18", "note": "near-limit unequal primes 30109 and 33211 require a large partition" },
+    { "name": "19", "generator": "20 3", "note": "seeded unequal factors with smallest prime 43 fill the reduced sum exactly" },
+    { "name": "20", "generator": "134 3", "note": "seeded factor 173 exercises competing prime powers at an intermediate size" }
+  ]
+}
