@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1803_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the fewest rifles in binary" },
+    { "name": "03", "note": "the fewest rifles in base 10" },
+    { "name": "04", "note": "a middle count in base 7" },
+    { "name": "gen1", "generator": "1 1", "note": "a few hundred rifles" },
+    { "name": "gen2", "generator": "2 2", "note": "any count" },
+    { "name": "gen3", "generator": "3 3", "note": "the most rifles" },
+    { "name": "gen4", "generator": "2 4", "note": "the most rifles in binary, the longest numbers" },
+    { "name": "gen5", "generator": "3 4", "note": "the most rifles in base 3" },
+    { "name": "gen6", "generator": "10 4", "note": "the most rifles in base 10" },
+    { "name": "gen7", "generator": "9 4", "note": "the most rifles in base 9" }
+  ]
+}
