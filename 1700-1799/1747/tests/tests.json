@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1747_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the largest n, a prime modulus" },
+    { "name": "04", "note": "modulus 1" },
+    { "name": "05", "note": "the smallest n, modulus 1" },
+    { "name": "06", "note": "an even modulus" },
+    { "name": "07", "note": "the largest n, the modulus 10^9" },
+    { "name": "08", "note": "a small prime modulus" },
+    { "name": "gen1", "generator": "1 1", "note": "a random n and modulus" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest n, a modulus of small primes" },
+    { "name": "gen3", "generator": "3 3", "note": "a small n" },
+    { "name": "gen4", "generator": "4 1", "note": "a random n and modulus" }
+  ]
+}
