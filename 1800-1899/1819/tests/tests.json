@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1819_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single road" },
+    { "name": "03", "note": "a triangle: only two disjoint paths" },
+    { "name": "04", "note": "a K4: every pair has three paths" },
+    { "name": "05", "note": "two K4 joined by three roads, and a crossroad of degree 2" },
+    { "name": "06", "note": "two K4 joined by two roads: a cut pair between them" },
+    { "name": "07", "note": "a ring of three K4: the joining roads form one class of cut pairs" },
+    { "name": "08", "note": "two separate K4" },
+    { "name": "09", "note": "an isolated crossroad" },
+    { "name": "10", "note": "three paths of length 2 between two crossroads" },
+    { "name": "gen1", "generator": "1 1", "note": "a random graph" },
+    { "name": "gen2", "generator": "2 2", "note": "two large rim cycles sharing a hub, every answer Yes" },
+    { "name": "gen3", "generator": "3 3", "note": "a ring of K4 blocks joined by single roads" },
+    { "name": "gen4", "generator": "4 4", "note": "a path of 50000 crossroads" },
+    { "name": "gen5", "generator": "5 5", "note": "a random tree with extra roads" },
+    { "name": "gen6", "generator": "6 6", "note": "many small pieces" },
+    { "name": "gen7", "generator": "7 5", "note": "degree-one crossroads remain after adding roads to a random tree" },
+    { "name": "gen8", "generator": "8 1", "note": "a sparse random graph with isolated crossroads and larger components" },
+    { "name": "11", "note": "two K4 sharing an articulation vertex still have three edge-disjoint paths across it" },
+    { "name": "12", "note": "bridges between K4 cores and a cycle at their midpoint separate even high-degree crossroads" },
+    { "name": "13", "note": "a seeded random subdivision with attached branches requires rerouting earlier paths" },
+    { "name": "14", "note": "one query between the largest isolated labels with 50000 crossroads and only one road" },
+    { "name": "gen9", "generator": "9 7", "note": "all three limits together: a giant cycle beside K4 and two isolated roots, with mixed queries" }
+  ]
+}
