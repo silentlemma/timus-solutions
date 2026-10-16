@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1796_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: five possible counts" },
+    { "name": "02", "example": true, "note": "the second example: a small note leaves one count" },
+    { "name": "03", "note": "a single ten-rouble note and the cheapest ticket" },
+    { "name": "04", "note": "the largest note alone and the cheapest ticket: 5000 answers" },
+    { "name": "05", "note": "the most money" },
+    { "name": "06", "note": "only the largest notes, the dearest ticket" },
+    { "name": "07", "note": "a price that does not divide the notes" },
+    { "name": "08", "note": "one note that buys exactly one ticket" },
+    { "name": "gen1", "generator": "1 1", "note": "a five-hundred-rouble note with two largest notes allows sixteen ticket counts" },
+    { "name": "gen2", "generator": "2 2", "note": "only five-hundred-rouble notes with a price that allows two adjacent counts" },
+    { "name": "gen3", "generator": "3 1", "note": "three thousand-rouble notes leave enough for exactly three expensive tickets" },
+    { "name": "gen4", "generator": "4 2", "note": "ten-rouble notes restrict a large mixed payment to one ticket count" }
+  ]
+}

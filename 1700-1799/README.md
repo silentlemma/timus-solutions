@@ -100,3 +100,4 @@
 | 1793 | [Tray 2](1793/) | geometry | C++, Go, Python, Java, Rust |
 | 1794 | [Masterpieces of World Architecture](1794/) | implementation | C++, Go, Python, Java, Rust |
 | 1795 | [Husband in a Shop](1795/) | simulation | C++, Go, Python, Java, Rust |
+| 1796 | [Amusement Park](1796/) | math | C++, Go, Python, Java, Rust |
