@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1768_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a square in order" },
+    { "name": "02", "example": true, "note": "the second example: a triangle that is not equilateral" },
+    { "name": "03", "note": "an equilateral triangle given to ten digits" },
+    { "name": "04", "note": "a square the other way round" },
+    { "name": "05", "note": "the corners of a square out of order" },
+    { "name": "06", "note": "a regular polygon of 100 vertices" },
+    { "name": "07", "note": "two points, each twice" },
+    { "name": "08", "note": "a segment walked twice" },
+    { "name": "09", "note": "a regular hexagon given to ten digits" },
+    { "name": "10", "note": "a triangle with its top raised by 0.001" },
+    { "name": "gen1", "generator": "1 1", "note": "a regular polygon in order" },
+    { "name": "gen2", "generator": "2 1", "note": "a regular polygon in order" },
+    { "name": "gen3", "generator": "3 2", "note": "one vertex moved towards the centre" },
+    { "name": "gen4", "generator": "4 2", "note": "one vertex moved towards the centre" },
+    { "name": "gen5", "generator": "5 3", "note": "a regular polygon in a star order" },
+    { "name": "gen6", "generator": "6 4", "note": "a smaller polygon walked round several times" }
+  ]
+}
