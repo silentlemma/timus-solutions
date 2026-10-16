@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1818_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "two fishermen throwing nothing: the residue is 0, so n^n" },
+    { "name": "04", "note": "two fishermen, one throw" },
+    { "name": "05", "note": "ten fishermen throwing nothing" },
+    { "name": "06", "note": "the most fishermen throwing nothing: 2000^2000" },
+    { "name": "07", "note": "the most fishermen, every throw n - 1" },
+    { "name": "08", "note": "an odd count with throws 0, 1, 2, ..." },
+    { "name": "09", "note": "five fishermen with falling throws" },
+    { "name": "gen1", "generator": "1 1", "note": "a random count" },
+    { "name": "gen2", "generator": "2 2", "note": "the most fishermen" },
+    { "name": "gen3", "generator": "3 3", "note": "the most fishermen, extreme throws" }
+  ]
+}
