@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1807_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: an even total splits in two halves" },
+    { "name": "02", "example": true, "note": "the second example: 5 = 2 + 3" },
+    { "name": "03", "note": "the smallest factor 3: parts 1 and 2" },
+    { "name": "04", "note": "the square of the largest prime below 31623" },
+    { "name": "05", "note": "a power of 3" },
+    { "name": "06", "note": "an even total near 10^9" },
+    { "name": "07", "note": "the smallest even total of the form" },
+    { "name": "08", "note": "the largest total" },
+    { "name": "09", "note": "the smallest factor 31" },
+    { "name": "10", "note": "31 times another prime" },
+    { "name": "gen1", "generator": "1 1", "note": "any total" },
+    { "name": "gen2", "generator": "2 2", "note": "the square of a large prime" },
+    { "name": "gen3", "generator": "3 2", "note": "the square of a large prime" },
+    { "name": "gen4", "generator": "4 3", "note": "a prime times a larger number" }
+  ]
+}
