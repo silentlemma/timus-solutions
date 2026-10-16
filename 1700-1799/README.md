@@ -55,3 +55,4 @@
 | 1748 | [The Most Complex Number](1748/) | number_theory | C++, Go, Python, Java, Rust |
 | 1749 | [Periodic Sum](1749/) | matrix | C++, Go, Python, Java, Rust |
 | 1750 | [Pakhom and the Gully](1750/) | geometry | C++, Go, Python, Java, Rust |
+| 1751 | [Improbability Theory](1751/) | graphs | C++, Go, Python, Java, Rust |
