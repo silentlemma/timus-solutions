@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1782_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single 0" },
+    { "name": "03", "note": "a single 1" },
+    { "name": "04", "note": "01: two letters, or one letter doubled" },
+    { "name": "05", "note": "00 cannot come from a doubling" },
+    { "name": "06", "note": "0110, a double double" },
+    { "name": "07", "note": "010" },
+    { "name": "08", "note": "a doubled word in the middle of the fence" },
+    { "name": "09", "note": "a longer word with letters at both ends" },
+    { "name": "gen1", "generator": "1 1", "note": "a short word from random phrases" },
+    { "name": "gen2", "generator": "2 1", "note": "a short word from random phrases" },
+    { "name": "gen3", "generator": "3 2", "note": "a piece of the Thue-Morse word" },
+    { "name": "gen4", "generator": "4 3", "note": "100 000 letters" },
+    { "name": "gen5", "generator": "5 3", "note": "100 000 letters" }
+  ]
+}

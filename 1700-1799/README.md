@@ -86,3 +86,4 @@
 | 1779 | [The Great Team](1779/) | constructive | C++, Go, Python, Java, Rust |
 | 1780 | [Gray Code](1780/) | dp | C++, Go, Python, Java, Rust |
 | 1781 | [Clean Code](1781/) | graphs | C++, Go, Python, Java, Rust |
+| 1782 | [Jack's New Word](1782/) | strings | C++, Go, Python, Java, Rust |
