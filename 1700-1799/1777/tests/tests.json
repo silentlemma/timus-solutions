@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1777_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the same minimum gap is chosen twice before equal piles appear" },
+    { "name": "02", "note": "the smallest three piles produce an existing size immediately" },
+    { "name": "03", "note": "a gap of one between the two smallest piles" },
+    { "name": "04", "note": "three largest neighbours" },
+    { "name": "05", "note": "small piles needing three steps" },
+    { "name": "06", "note": "three Fibonacci numbers: a long run" },
+    { "name": "07", "note": "a unit pile alongside the maximum size and half that size" },
+    { "name": "08", "note": "the largest three Fibonacci numbers: the longest run found" },
+    { "name": "gen1", "generator": "1 1", "note": "successive new minimum piles lead to a repeated unit pile" },
+    { "name": "gen2", "generator": "2 1", "note": "consecutive small piles create a unit pile before a duplicate" },
+    { "name": "gen3", "generator": "3 2", "note": "large unsorted piles create the same minimum gap on consecutive turns" },
+    { "name": "gen4", "generator": "4 2", "note": "large piles with the smallest gap between the two smallest sizes" },
+    { "name": "gen5", "generator": "5 3", "note": "large consecutive Fibonacci sizes in unsorted order produce a long sequence of decreasing gaps" }
+  ]
+}
