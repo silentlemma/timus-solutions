@@ -28,3 +28,4 @@
 | 1821 | [Biathlon](1821/) | sorting | C++, Go, Python, Java, Rust |
 | 1822 | [Hugo II's War](1822/) | binary_search | C++, Go, Python, Java, Rust |
 | 1823 | [Ideal Gas](1823/) | math | C++, Go, Python, Java, Rust |
+| 1824 | [Ifrit Bomber](1824/) | backtracking | C++, Go, Python, Java, Rust |
