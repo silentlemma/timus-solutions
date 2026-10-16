@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1743_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one nested chain" },
+    { "name": "02", "example": true, "note": "the second example: two chains meeting at 5" },
+    { "name": "03", "example": true, "note": "the third example: two separate ranges" },
+    { "name": "04", "note": "one double domino" },
+    { "name": "05", "note": "two ranges touching at a single number" },
+    { "name": "06", "note": "a big range around two separate small ones" },
+    { "name": "07", "note": "three equal dominoes" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 8 small dominoes" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 dominoes in two families: YES" },
+    { "name": "gen3", "generator": "3 3", "note": "the same with one range off to the side" },
+    { "name": "gen4", "generator": "4 4", "note": "100000 random dominoes" },
+    { "name": "gen5", "generator": "5 1", "note": "up to 8 small dominoes" },
+    { "name": "gen6", "generator": "6 1", "note": "up to 8 small dominoes" }
+  ]
+}
