@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1784_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one swap of two piles" },
+    { "name": "02", "note": "every pile already of one suit" },
+    { "name": "03", "note": "two piles trading suits at every rank" },
+    { "name": "04", "note": "all four suits turning round at every rank" },
+    { "name": "05", "note": "a swap under the top card only" },
+    { "name": "06", "note": "a swap above the bottom card only" },
+    { "name": "07", "note": "two separate swaps at the same rank" },
+    { "name": "gen1", "generator": "1 1", "note": "all twelve gaps active with swaps and longer cycles" },
+    { "name": "gen2", "generator": "2 1", "note": "an unchanged gap between fours and fives among mixed cycles" },
+    { "name": "gen3", "generator": "3 2", "note": "a few shuffles along the piles" },
+    { "name": "gen4", "generator": "4 3", "note": "suits turning round at some ranks" },
+    { "name": "08", "note": "one three-pile cycle below the twos while the fourth pile stays fixed" },
+    { "name": "09", "note": "one four-pile cycle between kings and aces costs five moves" },
+    { "name": "10", "note": "maximum answer of 72 with two separate swaps at all twelve gaps" },
+    { "name": "11", "note": "three suits cycle at every rank while hearts never move" },
+    { "name": "12", "note": "only the eights are exchanged so adjacent inverse swaps both count" },
+    { "name": "13", "note": "mixed cycle costs around T J Q and K followed by unchanged aces" },
+    { "name": "14", "note": "a four-cycle and its distant inverse surround long runs without cancelling" },
+    { "name": "15", "note": "random small deal with overlapping swaps that change which pile stays fixed" },
+    { "name": "16", "note": "random small deal with a three-cycle then a king-to-ace swap after a long run" },
+    { "name": "17", "note": "random small deal with two separate swaps then a four-cycle at the last gap" },
+    { "name": "gen5", "generator": "29 2", "note": "sparse seeded deal with a three-cycle a swap and two separate swaps" },
+    { "name": "gen6", "generator": "5 3", "note": "seeded rotations mix quarter-turns and half-turns with consecutive active gaps" }
+  ]
+}

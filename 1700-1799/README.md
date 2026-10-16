@@ -88,3 +88,4 @@
 | 1781 | [Clean Code](1781/) | graphs | C++, Go, Python, Java, Rust |
 | 1782 | [Jack's New Word](1782/) | strings | C++, Go, Python, Java, Rust |
 | 1783 | [Nuclear Arms Race](1783/) | simulation | C++, Go, Python, Java, Rust |
+| 1784 | [Rounders](1784/) | greedy | C++, Go, Python, Java, Rust |
