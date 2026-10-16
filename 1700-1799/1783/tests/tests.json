@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1783_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the orders turn negative" },
+    { "name": "02", "note": "one month of nothing" },
+    { "name": "03", "note": "one month at the largest plan" },
+    { "name": "04", "note": "looking one month ahead: the orders follow the plan" },
+    { "name": "05", "note": "one order that must reach a far plan" },
+    { "name": "06", "note": "a spike at each end, looking two months ahead" },
+    { "name": "gen1", "generator": "1 1", "note": "a short dip followed by a repeated higher target" },
+    { "name": "gen2", "generator": "2 1", "note": "one order rounds up to meet a larger second-month target" },
+    { "name": "gen3", "generator": "3 2", "note": "maximum sizes with uniformly random plans" },
+    { "name": "gen4", "generator": "4 3", "note": "long waves at the maximum month count and lookahead" },
+    { "name": "gen5", "generator": "5 4", "note": "rare maximum-height spikes among otherwise zero plans" },
+    { "name": "07", "note": "negative halves round upward, including a fractional decrease that becomes zero" },
+    { "name": "08", "note": "a constant positive plateau needs one initial increase and then no changes" },
+    { "name": "09", "note": "only the final extra plan forces an increase in the last reported month" },
+    { "name": "10", "note": "an interior peak controls the order and the next month replans from one actual change" },
+    { "name": "11", "note": "a seeded small random walk alternates decreases, holds and a renewed increase" },
+    { "name": "12", "generator": "1783 5", "note": "maximum month count and lookahead with zero stock throughout" },
+    { "name": "13", "generator": "1783 6", "note": "maximum sizes with a bounded random walk and frequent small signed changes" }
+  ]
+}
