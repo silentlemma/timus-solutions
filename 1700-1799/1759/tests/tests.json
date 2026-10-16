@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1759_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single person" },
+    { "name": "03", "note": "two equal lives: the one who died first wins" },
+    { "name": "04", "note": "the second life is one day longer" },
+    { "name": "05", "note": "lives across 29 February 1896 and 1900, which is not a leap year" },
+    { "name": "06", "note": "the absence of leap day in 1900 makes the later life longer" },
+    { "name": "07", "note": "leap day in 2000 makes the two lives equal" },
+    { "name": "gen1", "generator": "1 1", "note": "a few people" },
+    { "name": "gen2", "generator": "2 2", "note": "a full list of 100 people" },
+    { "name": "gen3", "generator": "3 3", "note": "the final two people share the longest life" },
+    { "name": "gen4", "generator": "4 3", "note": "a record is tied again after intervening shorter lives" },
+    { "name": "gen5", "generator": "5 4", "note": "dates around the end of February in 1800, 1900 and 2000" },
+    { "name": "08", "note": "the earliest allowed birth and the shortest possible three-day life" },
+    { "name": "09", "note": "treating 1800 as a leap year would incorrectly tie two short lives" },
+    { "name": "10", "note": "both date limits and a life over 65535 days; the last row wins after a one-day tenure" },
+    { "name": "11", "note": "consecutive 31-day months make row 7 longest, while row 1 holds the title longest" },
+    { "name": "12", "note": "all 100 people live exactly three days across leap day 2000, so the first wins" },
+    { "name": "13", "note": "seed 9 from the small random generator: row 4 sets a record tied by three later people" }
+  ]
+}
