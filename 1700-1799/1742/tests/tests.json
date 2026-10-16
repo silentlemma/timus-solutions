@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1742_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one programmer who names themselves" },
+    { "name": "03", "note": "a bare cycle of three: always one group" },
+    { "name": "04", "note": "a self-loop with a tree, and a bare cycle of two" },
+    { "name": "05", "note": "a star into a self-loop" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 8 programmers" },
+    { "name": "gen2", "generator": "2 2", "note": "100000 programmers pointing anywhere" },
+    { "name": "gen3", "generator": "3 3", "note": "one cycle of 100000" },
+    { "name": "gen4", "generator": "4 4", "note": "everyone names themselves" },
+    { "name": "gen5", "generator": "5 5", "note": "a long chain into a cycle of three" },
+    { "name": "gen6", "generator": "6 1", "note": "up to 8 programmers" }
+  ]
+}
