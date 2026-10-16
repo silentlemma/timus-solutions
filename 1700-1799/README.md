@@ -74,3 +74,4 @@
 | 1767 | [The House of Doctor Dee](1767/) | geometry | C++, Go, Python, Java, Rust |
 | 1768 | [Circular Strings](1768/) | geometry | C++, Go, Python, Java, Rust |
 | 1769 | [Old Ural Legend](1769/) | strings | C++, Go, Python, Java, Rust |
+| 1770 | [The Party of Ural Champions](1770/) | graphs | C++, Go, Python, Java, Rust |
