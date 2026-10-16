@@ -1,0 +1,11 @@
+{
+  "judging": "tokens",
+  "reference": "1804_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "both venues with goalless, extreme and close first games" },
+    { "name": "gen1", "generator": "1 1", "note": "200 random first games" },
+    { "name": "gen2", "generator": "2 2", "note": "200 low-scoring first games" },
+    { "name": "gen3", "generator": "3 1", "note": "200 random first games" }
+  ]
+}
