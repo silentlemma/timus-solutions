@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1804_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "both venues with goalless, extreme and close first games" },
+    { "name": "gen1", "generator": "1 1", "note": "random first games spanning the full score range at both venues" },
+    { "name": "gen2", "generator": "2 2", "note": "low-scoring first games with draws and clean sheets" },
+    { "name": "gen3", "generator": "3 1", "note": "mixed first-leg wins, draws and defeats in a maximum-size batch" },
+    { "name": "03", "note": "one first game at home with a 29-30 score needs two goals to keep a chance" },
+    { "name": "04", "note": "clean-sheet defeats of every size from 1 to 29 distinguish coin ties from away-goal losses" },
+    { "name": "05", "note": "clean-sheet wins sweep the upper failure threshold near the 30-goal second-game cap" },
+    { "name": "06", "note": "equal first-leg scores from 4 to 29 distinguish the two venues on both answer bounds" },
+    { "name": "07", "note": "large first-leg deficits test recovery near the largest permitted second-leg score" },
+    { "name": "08", "note": "large first-leg leads test failure thresholds near zero at both venues" },
+    { "name": "09", "generator": "180409 3", "note": "random high-scoring one-goal margins test venue changes in an odd-sized batch of 199 games" },
+    { "name": "10", "generator": "180410 4", "note": "maximum input byte length with 200 random two-digit scores and nontrivial margins" }
+  ]
+}
