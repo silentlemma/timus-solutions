@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1812_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: 15 is no square" },
+    { "name": "03", "note": "no rounds, the first circle" },
+    { "name": "04", "note": "no rounds, the second circle, irrational ratio" },
+    { "name": "05", "note": "equal radii, the middle circle after 30 rounds" },
+    { "name": "06", "note": "the circle next to the last after 30 rounds" },
+    { "name": "07", "note": "a circle deep in the Stern sequence, large sums" },
+    { "name": "08", "note": "an irrational pair after 30 rounds" },
+    { "name": "09", "note": "the middle circle, ratio 1 to 4" },
+    { "name": "gen1", "generator": "1 1", "note": "radii with a square ratio" },
+    { "name": "gen2", "generator": "2 2", "note": "any radii" },
+    { "name": "gen3", "generator": "3 3", "note": "30 rounds" },
+    { "name": "gen4", "generator": "4 3", "note": "30 rounds" }
+  ]
+}

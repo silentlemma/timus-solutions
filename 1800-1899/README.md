@@ -16,3 +16,4 @@
 | 1809 | [Chapaev and Potatoes](1809/) | implementation | C++, Go, Python, Java, Rust |
 | 1810 | [Antiequations](1810/) | math | C++, Go, Python, Java, Rust |
 | 1811 | [Dual-SIM Phone](1811/) | binary_search | C++, Go, Python, Java, Rust |
+| 1812 | [The Island of Bad Luck 2](1812/) | math | C++, Go, Python, Java, Rust |
