@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1739_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: returning a fruit for a perfumed second exit" },
+    { "name": "02", "example": true, "note": "the second example: one fruit of 100 cannot pass" },
+    { "name": "03", "note": "twelve fruit with over a thousand useful sets: the slowest case found" },
+    { "name": "04", "note": "one fruit of 256 passes as it is" },
+    { "name": "05", "note": "two fruit that only pass together" },
+    { "name": "06", "note": "one fruit of 320: 240, 352 and 264 after the sprays all fail" },
+    { "name": "07", "note": "three fruit of 200: no set passes" },
+    { "name": "08", "note": "twelve fruit of 256: every set passes, all go at once" },
+    { "name": "gen1", "generator": "1 1", "note": "up to 7 fruit on a coarse grid" },
+    { "name": "gen2", "generator": "2 2", "note": "twelve fruit with any aromas" },
+    { "name": "gen3", "generator": "3 3", "note": "multiples of forty keep all sprayed aromas integral" },
+    { "name": "gen4", "generator": "4 4", "note": "twelve fruit on a grid of multiples of thirty-two" },
+    { "name": "gen5", "generator": "5 1", "note": "five fruit with repeated aromas and no unsprayed legal load" },
+    { "name": "gen6", "generator": "6 3", "note": "multiples of forty include repeated maximum aromas" },
+    { "name": "09", "note": "twelve minimum aromas stay below 256 even with perfume, so no exit is legal" },
+    { "name": "10", "note": "the largest possible input sum has no legal load under any spray assignment" },
+    { "name": "11", "note": "both sprays must act on the same fruit in one exit, multiplying its aroma by 33/40" },
+    { "name": "12", "note": "different fruits need both sprays: fractional aromas 19.5 and 236.5 sum to 256" },
+    { "name": "13", "note": "a deodorized sum of 256.25 must not be truncated into a legal exit" },
+    { "name": "14", "note": "a stress-found case needs three exits and reuses the 104-aroma fruit as a bridge" },
+    { "name": "15", "note": "a stress-found case must spray the same returned fruit in separate exits, resetting its aroma" },
+    { "name": "16", "note": "both aroma endpoints appear in an unsprayed load totaling four multiples of 256" },
+    { "name": "gen7", "generator": "1739 2", "note": "twelve random arbitrary aromas leave in one exit only by using both sprays" },
+    { "name": "gen8", "generator": "1739 4", "note": "a random twelve-fruit grid needs two exits and allows an eleven-fruit deodorized load" }
+  ]
+}
