@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1820_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one steak, one place" },
+    { "name": "03", "note": "one steak on a huge pan: still two minutes" },
+    { "name": "04", "note": "the most steaks one at a time" },
+    { "name": "05", "note": "all steaks fit at once" },
+    { "name": "06", "note": "a free place left over" },
+    { "name": "07", "note": "a partial last minute when the side count is not divisible by capacity" },
+    { "name": "08", "note": "pairs: seven minutes for seven steaks" },
+    { "name": "09", "note": "one steak more than the pan holds" },
+    { "name": "10", "note": "unused capacity does not shorten cooking below two minutes" },
+    { "name": "11", "note": "maximum steaks fill exactly five minutes by mixing batches" },
+    { "name": "12", "note": "pan capacity exactly twice the steak count still needs two minutes" },
+    { "name": "13", "generator": "42 1", "note": "seeded random interior values need many pan loads and a partial last minute" }
+  ]
+}
