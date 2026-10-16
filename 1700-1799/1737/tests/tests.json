@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "1737_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one letter: three names" },
+    { "name": "03", "note": "three letters: the six orders of a, b, c" },
+    { "name": "04", "note": "four letters" },
+    { "name": "05", "note": "just past the length limit" },
+    { "name": "06", "note": "the largest n" },
+    { "name": "07", "note": "a third block begins after two complete repetitions" },
+    { "name": "gen1", "generator": "1 1", "note": "the longest n still listed: 99996 letters" },
+    { "name": "gen2", "generator": "2 2", "note": "a random n that is listed" },
+    { "name": "gen3", "generator": "3 3", "note": "long listed words ending in a single-letter partial block" },
+    { "name": "08", "note": "five letters: a two-letter tail after the first complete block" },
+    { "name": "09", "note": "six letters: two complete blocks with no extra tail" },
+    { "name": "gen4", "generator": "4 4", "note": "listed output crosses 65535 letters but remains below the total-length limit" }
+  ]
+}
