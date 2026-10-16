@@ -103,3 +103,4 @@
 | 1796 | [Amusement Park](1796/) | math | C++, Go, Python, Java, Rust |
 | 1797 | [Summit Online Judge. Version 2](1797/) | number_theory | C++, Go, Python, Java, Rust |
 | 1798 | [Fire Circle. Version 2](1798/) | geometry | C++, Go, Python, Java, Rust |
+| 1799 | [Sasha and swag strings](1799/) | strings | C++, Go, Python, Java, Rust |
