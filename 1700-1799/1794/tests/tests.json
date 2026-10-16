@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1794_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: everyone pleased if the second starts" },
+    { "name": "02", "example": true, "note": "the second example: every start pleases one student" },
+    { "name": "03", "note": "two students who both want to be first" },
+    { "name": "04", "note": "two students who agree, the second starting" },
+    { "name": "05", "note": "everyone in order from the first" },
+    { "name": "06", "note": "everyone wants to be last" },
+    { "name": "07", "note": "two groups of different size agree on different starts" },
+    { "name": "gen1", "generator": "1 1", "note": "a small class" },
+    { "name": "gen2", "generator": "2 2", "note": "a large class with any wishes" },
+    { "name": "gen3", "generator": "3 3", "note": "a large class mostly agreeing on one start" },
+    { "name": "gen4", "generator": "4 3", "note": "a large class with a minority agreeing on one start" },
+    { "name": "08", "note": "two separated starts tie for the maximum while all other starts please nobody" },
+    { "name": "09", "note": "the last student uniquely wins with most supporting differences negative" },
+    { "name": "10", "generator": "1794 4", "note": "maximum class size with two randomly interleaved groups separated by only two votes" }
+  ]
+}
