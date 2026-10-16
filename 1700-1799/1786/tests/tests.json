@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1786_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "letter replacements and case changes combine in the cheapest substring" },
+    { "name": "02", "note": "the name itself, nothing to pay" },
+    { "name": "03", "note": "all six letters have the wrong case" },
+    { "name": "04", "note": "the shortest text, one letter right" },
+    { "name": "05", "note": "an exact match precedes an uppercase copy of the name" },
+    { "name": "06", "note": "the best place is at the very end" },
+    { "name": "07", "note": "the shortest text, every letter wrong" },
+    { "name": "08", "note": "the longest text of one letter" },
+    { "name": "gen1", "generator": "1 1", "note": "random letters" },
+    { "name": "gen2", "generator": "2 2", "note": "damaged copies of the name" },
+    { "name": "gen3", "generator": "3 3", "note": "only the letters of the name" },
+    { "name": "gen4", "generator": "4 2", "note": "a planted near match needs both letter and case corrections" }
+  ]
+}
