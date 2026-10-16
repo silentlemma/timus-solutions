@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1809_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one potato moves" },
+    { "name": "02", "note": "already two separate pairs" },
+    { "name": "03", "note": "four in one column" },
+    { "name": "04", "note": "four on a diagonal, nobody sees anybody" },
+    { "name": "05", "note": "the four corners: a cycle of four" },
+    { "name": "06", "note": "a 2 x 2 square" },
+    { "name": "gen1", "generator": "1 1", "note": "anywhere on the board" },
+    { "name": "gen2", "generator": "2 2", "note": "inside a 4 x 4 corner" },
+    { "name": "gen3", "generator": "3 3", "note": "all on one line" },
+    { "name": "gen4", "generator": "4 4", "note": "a valid layout with one potato moved" },
+    { "name": "gen5", "generator": "5 2", "note": "inside a 4 x 4 corner" }
+  ]
+}
