@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1742_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a single programmer leading into a three-person cycle" },
+    { "name": "02", "note": "one programmer who names themselves" },
+    { "name": "03", "note": "a bare cycle of three: always one group" },
+    { "name": "04", "note": "a self-loop with a tree, and a bare cycle of two" },
+    { "name": "05", "note": "a star into a self-loop" },
+    { "name": "gen1", "generator": "1 1", "note": "a three-person cycle listed in reverse traversal order" },
+    { "name": "gen2", "generator": "2 2", "note": "a random graph at the size limit with many shared targets" },
+    { "name": "gen3", "generator": "3 3", "note": "one cycle of 100000" },
+    { "name": "gen4", "generator": "4 4", "note": "everyone names themselves" },
+    { "name": "gen5", "generator": "5 5", "note": "a long chain into a cycle of three" },
+    { "name": "gen6", "generator": "6 1", "note": "a programmer feeding directly into another programmer's self-loop" }
+  ]
+}

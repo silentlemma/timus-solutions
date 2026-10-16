@@ -46,3 +46,4 @@
 | 1739 | [Faryuks](1739/) | bitmask | C++, Go, Python, Java, Rust |
 | 1740 | [Deer is Better!](1740/) | math | C++, Go, Python, Java, Rust |
 | 1741 | [Communication Fiend](1741/) | dp | C++, Go, Python, Java, Rust |
+| 1742 | [Team building](1742/) | graphs | C++, Go, Python, Java, Rust |
