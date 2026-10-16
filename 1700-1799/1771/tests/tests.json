@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1771_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a bus at the same minute reaches stop 2 sooner: everyone may leave early" },
+    { "name": "03", "note": "those inside must have come for stops past 2 or not: 0 to 42" },
+    { "name": "04", "note": "the only bus seen, with stops on both sides of stop 2" },
+    { "name": "05", "note": "the 13 can only ride past stop 2" },
+    { "name": "06", "note": "the bus goes straight from stop 1 to stop 2: all 55 stay" },
+    { "name": "gen1", "generator": "1 1", "note": "a few stops and buses" },
+    { "name": "gen2", "generator": "2 1", "note": "a few stops and buses" },
+    { "name": "gen3", "generator": "3 2", "note": "up to 12 stops and routes" },
+    { "name": "gen4", "generator": "4 2", "note": "up to 12 stops and routes" },
+    { "name": "gen5", "generator": "5 3", "note": "up to 100 stops, routes and buses" },
+    { "name": "gen6", "generator": "6 3", "note": "up to 100 stops, routes and buses" }
+  ]
+}
