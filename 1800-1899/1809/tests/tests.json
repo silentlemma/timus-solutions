@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1809_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one potato moves" },
+    { "name": "02", "note": "already two separate pairs" },
+    { "name": "03", "note": "four in one column" },
+    { "name": "04", "note": "four on a diagonal, nobody sees anybody" },
+    { "name": "05", "note": "the four corners: a cycle of four" },
+    { "name": "06", "note": "a 2 x 2 square" },
+    { "name": "gen1", "generator": "1 1", "note": "anywhere on the board" },
+    { "name": "gen2", "generator": "2 2", "note": "inside a 4 x 4 corner" },
+    { "name": "gen3", "generator": "3 3", "note": "all on one line" },
+    { "name": "gen4", "generator": "4 4", "note": "a valid layout with one potato moved" },
+    { "name": "gen5", "generator": "5 2", "note": "a corner chain endpoint can move to pair with an isolated potato" },
+    { "name": "07", "note": "full-board perpendicular shots cross at an empty cell; no moves" },
+    { "name": "08", "note": "a T on the upper border needs its three-neighbour junction moved" },
+    { "name": "09", "note": "a bent chain in the upper-right corner needs an internal potato moved" },
+    { "name": "10", "note": "three collinear potatoes and an isolated corner potato need just one move" },
+    { "name": "11", "note": "a blocked three-potato line with a perpendicular branch is fixed in one move" },
+    { "name": "12", "generator": "95 1", "note": "seeded perpendicular pairs with disjoint shot segments must stay in place" },
+    { "name": "13", "generator": "30 2", "note": "seeded compact layout uses every row and column once, requiring two moves" }
+  ]
+}
