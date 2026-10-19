@@ -1,0 +1,31 @@
+{
+  "judging": "checker",
+  "reference": "1934_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "note": "lower failure probability breaks a tie between two-edge routes", "example": true },
+    { "name": "02", "note": "shortest route takes priority over zero risk" },
+    { "name": "03", "note": "sum of percentages gives wrong route" },
+    { "name": "04", "note": "later same-layer predecessor improves target" },
+    { "name": "05", "note": "different equally optimal zero-risk paths" },
+    { "name": "06", "note": "a slightly suboptimal route is legal within the probability tolerance" },
+    { "name": "07", "note": "minimum safe edge" },
+    { "name": "08", "note": "minimum reversed risky edge" },
+    { "name": "09", "note": "arbitrary endpoints and separate irrelevant component" },
+    { "name": "10", "note": "equal products, deliberately different reference path" },
+    { "name": "11", "note": "same-layer chord cannot extend shortest path" },
+    { "name": "12", "note": "survival underflow on a moderate stored path" },
+    { "name": "13", "note": "maximum city count with one route" },
+    { "name": "14", "note": "a direct risky edge takes priority over all indirect routes" },
+    { "name": "15", "note": "a shared neighbor fixes the shortest route between reversed endpoints" },
+    { "name": "16", "note": "competing three-edge routes require multiplying unequal survival probabilities" },
+    { "name": "17", "note": "a risky two-edge route beats safer detours" },
+    { "name": "18", "note": "a safer final edge does not guarantee the safest shortest route" },
+    { "name": "19", "note": "route reconstruction with both endpoints inside a cyclic graph" },
+    { "name": "stress1", "generator": "1934 1", "note": "max safe chain" },
+    { "name": "stress2", "generator": "1934 2", "note": "max risky chain" },
+    { "name": "stress3", "generator": "1934 3", "note": "max star with same-level chord" },
+    { "name": "stress4", "generator": "1934 4", "note": "deep chain then wide frontier" },
+    { "name": "stress5", "generator": "1934 5", "note": "later risk improvements propagate through a chain of diamonds" },
+    { "name": "stress6", "generator": "1934 6", "note": "max random tree plus edge" }
+  ]
+}
