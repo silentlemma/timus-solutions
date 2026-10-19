@@ -1,0 +1,92 @@
+{
+  "judging": "checker",
+  "reference": "2004_graphs_greedy.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "complete legal input domain, independent Euler output",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "03",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "04",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "05",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "06",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "07",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "08",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "09",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "10",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "11",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "12",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "13",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "14",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "15",
+      "note": "complete legal input domain, independent Euler output"
+    },
+    {
+      "name": "gen_order16",
+      "generator": "2004 16",
+      "note": "remaining legal order; output exceeds public file size limit"
+    },
+    {
+      "name": "gen_order17",
+      "generator": "2004 17",
+      "note": "remaining legal order; output exceeds public file size limit"
+    },
+    {
+      "name": "gen_order18",
+      "generator": "2004 18",
+      "note": "remaining legal order; output exceeds public file size limit"
+    },
+    {
+      "name": "gen_order19",
+      "generator": "2004 19",
+      "note": "remaining legal order; output exceeds public file size limit"
+    },
+    {
+      "name": "gen_order20",
+      "generator": "2004 20",
+      "note": "remaining legal order; output exceeds public file size limit"
+    }
+  ]
+}
