@@ -1,0 +1,32 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2033_hashing.cpp",
+  "cases": [
+    { "name": "001", "example": true, "note": "official sample with a popular model beating a cheaper minority" },
+    { "name": "002", "note": "five purchases of one model outweigh a lone competing offer" },
+    { "name": "003", "note": "four purchases beat two singleton models when minimum prices tie" },
+    { "name": "004", "note": "two equally frequent models are separated by opposite price limits" },
+    { "name": "005", "note": "three purchases beat three singletons despite identical person names" },
+    { "name": "006", "note": "one repeated model beats four singletons after its price drops to one" },
+    { "name": "007", "note": "two repeated models tie while equally cheap singletons lose on frequency" },
+    { "name": "008", "note": "six distinct models include two cheapest offers and a digit-only winner" },
+    { "name": "009", "note": "a three-to-two frequency lead survives mixed prices and a leading-zero rival" },
+    { "name": "010", "note": "two models with three purchases tie on minimum price despite different totals" },
+    { "name": "011", "note": "a repeated model keeps its leading zeros and beats cheaper singletons" },
+    { "name": "012", "note": "equal counts require a positive price comparison with the cheaper model seen later" },
+    { "name": "013", "note": "two optimal pairs precede a slightly more expensive pair in grouped order" },
+    { "name": "014", "note": "the inferior pair appears first and the lexically smaller optimal model appears last" },
+    { "name": "015", "note": "six identical minimum-price records preserve a one-digit zero model" },
+    { "name": "016", "note": "all fields reach their maximum widths or price with a twenty-digit model" },
+    { "name": "017", "note": "four maximum-price purchases beat two minimum-price purchases" },
+    { "name": "018", "note": "the minimum offer wins even when its sum average last and maximum prices lose" },
+    { "name": "019", "note": "all six distinct one-letter models tie at the minimum price" },
+    { "name": "020", "note": "maximum-length models differing only in the final digit select the last cheapest offer" },
+    { "name": "021", "note": "maximum-width person and model names form a six-way tie at the maximum price" },
+    { "name": "022", "note": "maximum-width models tie in count and the final offer of the first model sets its minimum" },
+    { "name": "023", "note": "maximum-width names preserve frequency priority over both price and lexical order" },
+    { "name": "024", "note": "three pairs of maximum-width models share the same minimum after price decreases" },
+    { "name": "025", "note": "three maximum-width model pairs require choosing the middle positive price" }
+  ]
+}
