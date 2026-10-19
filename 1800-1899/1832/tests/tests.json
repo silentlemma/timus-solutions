@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1832_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a prime, one circle" },
+    { "name": "02", "note": "the fewest artists" },
+    { "name": "03", "note": "a small prime" },
+    { "name": "04", "note": "four artists: circles d = 1 and d = 2" },
+    { "name": "05", "note": "six artists" },
+    { "name": "06", "note": "twelve artists, least non-divisor 5" },
+    { "name": "07", "note": "sixty artists, least non-divisor 7" },
+    { "name": "08", "note": "2520 artists, least non-divisor 11" },
+    { "name": "gen1", "generator": "1 1", "note": "a random number" },
+    { "name": "gen2", "generator": "2 2", "note": "27720 artists: all 26 colours" },
+    { "name": "gen3", "generator": "3 3", "note": "twice a large prime" },
+    { "name": "gen4", "generator": "4 4", "note": "a power of three" },
+    { "name": "gen5", "generator": "5 2", "note": "a number with many divisors" },
+    { "name": "gen6", "generator": "6 3", "note": "a large prime" },
+    { "name": "gen7", "generator": "7 2", "note": "a number with many divisors" }
+  ]
+}
