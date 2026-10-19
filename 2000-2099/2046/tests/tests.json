@@ -1,0 +1,459 @@
+{
+  "judging": "exact",
+  "reference": "2046_implementation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "003",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "004",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "005",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "006",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "007",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "008",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "009",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "010",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "011",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "012",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "013",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "014",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "015",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "016",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "017",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "018",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "019",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "020",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "021",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "022",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "023",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "024",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "025",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "026",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "027",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "028",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "029",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "030",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "031",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "032",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "033",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "034",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "035",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "036",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "037",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "038",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "039",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "040",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "041",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "042",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "043",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "044",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "045",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "046",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "047",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "048",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "049",
+      "note": "one cell, exact fit, overflow or five lines; empty rows"
+    },
+    {
+      "name": "050",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "051",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "052",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "053",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "054",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "055",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "056",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "057",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "058",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "059",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "060",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "061",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "062",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "063",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "064",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "065",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "066",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "067",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "068",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "069",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "070",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "071",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "072",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "073",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "074",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "075",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "076",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "077",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "078",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "079",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "080",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "081",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "082",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "083",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "084",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "085",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "086",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "087",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "088",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "089",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "090",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "091",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "092",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "093",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "094",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "095",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "096",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "097",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "098",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "099",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "100",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "101",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "102",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "103",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "104",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "105",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "106",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "107",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "108",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "109",
+      "note": "shuffled distinct slots and mixed-case names"
+    },
+    {
+      "name": "max_all_five_lines",
+      "note": "full twelve-slot upper-domain case"
+    },
+    {
+      "name": "max_mixed_heights",
+      "note": "full twelve-slot upper-domain case"
+    },
+    {
+      "name": "max_full_short_words",
+      "note": "full twelve-slot upper-domain case"
+    },
+    {
+      "name": "max_full_ten_letters",
+      "note": "full twelve-slot upper-domain case"
+    }
+  ]
+}
