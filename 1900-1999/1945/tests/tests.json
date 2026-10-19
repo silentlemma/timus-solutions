@@ -1,0 +1,219 @@
+{
+  "judging": "checker",
+  "reference": "1945_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample, arbitrary valid coloring",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one visitor at maximum arm count"
+    },
+    {
+      "name": "03",
+      "note": "one visitor at maximum arm count"
+    },
+    {
+      "name": "04",
+      "note": "one visitor at maximum arm count"
+    },
+    {
+      "name": "05",
+      "note": "one visitor at maximum arm count"
+    },
+    {
+      "name": "06",
+      "note": "minimum values"
+    },
+    {
+      "name": "07",
+      "note": "brothers with noninteger ratio"
+    },
+    {
+      "name": "08",
+      "note": "third and fifth offspring"
+    },
+    {
+      "name": "09",
+      "note": "parent absent from queue"
+    },
+    {
+      "name": "10",
+      "note": "not brothers at g=3"
+    },
+    {
+      "name": "11",
+      "note": "same pair becomes brothers at g=4"
+    },
+    {
+      "name": "12",
+      "note": "not brothers at g=4"
+    },
+    {
+      "name": "13",
+      "note": "same pair becomes brothers at g=5"
+    },
+    {
+      "name": "14",
+      "note": "unrelated large primes can share a hall"
+    },
+    {
+      "name": "15",
+      "note": "complete family reaches maximum arm count"
+    },
+    {
+      "name": "16",
+      "note": "complete family with every hall needed"
+    },
+    {
+      "name": "17",
+      "note": "overlapping possible families"
+    },
+    {
+      "name": "18",
+      "note": "long powers of two"
+    },
+    {
+      "name": "19",
+      "note": "complete family with every hall needed"
+    },
+    {
+      "name": "20",
+      "note": "overlapping possible families"
+    },
+    {
+      "name": "21",
+      "note": "long powers of two"
+    },
+    {
+      "name": "22",
+      "note": "complete family with every hall needed"
+    },
+    {
+      "name": "23",
+      "note": "overlapping possible families"
+    },
+    {
+      "name": "24",
+      "note": "long powers of two"
+    },
+    {
+      "name": "25",
+      "note": "complete family with every hall needed"
+    },
+    {
+      "name": "26",
+      "note": "overlapping possible families"
+    },
+    {
+      "name": "27",
+      "note": "long powers of two"
+    },
+    {
+      "name": "28",
+      "note": "powers of three at g=3"
+    },
+    {
+      "name": "29",
+      "note": "powers of three at g=5"
+    },
+    {
+      "name": "30",
+      "note": "powers of five"
+    },
+    {
+      "name": "31",
+      "note": "reversed sample input order"
+    },
+    {
+      "name": "32",
+      "note": "seeded input order with many overlaps"
+    },
+    {
+      "name": "33",
+      "note": "mixed whitespace, three pairwise possible brothers"
+    },
+    {
+      "name": "max_prefix_g2",
+      "generator": "prefix 2",
+      "note": "50000 distinct values, prefix, g=2"
+    },
+    {
+      "name": "max_near_limit_g2",
+      "generator": "near_limit 2",
+      "note": "50000 distinct values, near_limit, g=2"
+    },
+    {
+      "name": "max_many_twos_g2",
+      "generator": "many_twos 2",
+      "note": "50000 distinct values, many_twos, g=2"
+    },
+    {
+      "name": "max_reverse_g2",
+      "generator": "reverse 2",
+      "note": "50000 distinct values, reverse, g=2"
+    },
+    {
+      "name": "max_prefix_g3",
+      "generator": "prefix 3",
+      "note": "50000 distinct values, prefix, g=3"
+    },
+    {
+      "name": "max_near_limit_g3",
+      "generator": "near_limit 3",
+      "note": "50000 distinct values, near_limit, g=3"
+    },
+    {
+      "name": "max_many_twos_g3",
+      "generator": "many_twos 3",
+      "note": "50000 distinct values, many_twos, g=3"
+    },
+    {
+      "name": "max_reverse_g3",
+      "generator": "reverse 3",
+      "note": "50000 distinct values, reverse, g=3"
+    },
+    {
+      "name": "max_prefix_g4",
+      "generator": "prefix 4",
+      "note": "50000 distinct values, prefix, g=4"
+    },
+    {
+      "name": "max_near_limit_g4",
+      "generator": "near_limit 4",
+      "note": "50000 distinct values, near_limit, g=4"
+    },
+    {
+      "name": "max_many_twos_g4",
+      "generator": "many_twos 4",
+      "note": "50000 distinct values, many_twos, g=4"
+    },
+    {
+      "name": "max_reverse_g4",
+      "generator": "reverse 4",
+      "note": "50000 distinct values, reverse, g=4"
+    },
+    {
+      "name": "max_prefix_g5",
+      "generator": "prefix 5",
+      "note": "50000 distinct values, prefix, g=5"
+    },
+    {
+      "name": "max_near_limit_g5",
+      "generator": "near_limit 5",
+      "note": "50000 distinct values, near_limit, g=5"
+    },
+    {
+      "name": "max_many_twos_g5",
+      "generator": "many_twos 5",
+      "note": "50000 distinct values, many_twos, g=5"
+    },
+    {
+      "name": "max_reverse_g5",
+      "generator": "reverse 5",
+      "note": "50000 distinct values, reverse, g=5"
+    }
+  ]
+}
