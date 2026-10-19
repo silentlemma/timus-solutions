@@ -1,0 +1,224 @@
+{
+  "judging": "checker",
+  "reference": "2005_bruteforce.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "symmetric triangle metric; independent subset-DP optimum",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "003",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "004",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "005",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "006",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "007",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "008",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "009",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "010",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "011",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "012",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "013",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "014",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "015",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "016",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "017",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "018",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "019",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "020",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "021",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "022",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "023",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "024",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "025",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "026",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "027",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "028",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "029",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "030",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "031",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "032",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "033",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "034",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "035",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "036",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "037",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "038",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "039",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "040",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "041",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "042",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "043",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "044",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "045",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "046",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "047",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "048",
+      "note": "symmetric triangle metric; independent subset-DP optimum"
+    },
+    {
+      "name": "gen_zero",
+      "generator": "2005 zero",
+      "note": "boundary metric or random shortest-path metric"
+    },
+    {
+      "name": "gen_limit",
+      "generator": "2005 limit",
+      "note": "boundary metric or random shortest-path metric"
+    },
+    {
+      "name": "gen_line",
+      "generator": "2005 line",
+      "note": "boundary metric or random shortest-path metric"
+    },
+    {
+      "name": "gen_star",
+      "generator": "2005 star",
+      "note": "boundary metric or random shortest-path metric"
+    },
+    {
+      "name": "gen_random",
+      "generator": "2005 random",
+      "note": "boundary metric or random shortest-path metric"
+    }
+  ]
+}
