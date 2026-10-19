@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "2100_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: 13 at the table, so a dummy too" },
+    { "name": "03", "note": "one friend alone" },
+    { "name": "04", "note": "twenty friends with partners" },
+    { "name": "gen1", "generator": "1 1", "note": "random responses" },
+    { "name": "gen2", "generator": "2 2", "note": "exactly 13 people before the dummy" }
+  ]
+}
