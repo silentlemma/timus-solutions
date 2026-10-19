@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1866_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: iamb" },
+    { "name": "02", "note": "trochee" },
+    { "name": "03", "note": "dactyl" },
+    { "name": "04", "note": "amphibrach" },
+    { "name": "05", "note": "anapaest" },
+    { "name": "06", "note": "one line misses its first stress" },
+    { "name": "07", "note": "several spaces between words, one-syllable words" },
+    { "name": "08", "note": "an iambic line and a trochaic line" },
+    { "name": "09", "note": "words of four syllables, iamb and trochee mixed" },
+    { "name": "gen1", "generator": "1 1", "note": "a few lines in one meter" },
+    { "name": "gen2", "generator": "2 2", "note": "the most lines in one meter" },
+    { "name": "gen3", "generator": "3 3", "note": "one syllable stressed wrongly" },
+    { "name": "gen4", "generator": "4 4", "note": "one line in another meter" },
+    { "name": "gen5", "generator": "5 5", "note": "double spaces between words" },
+    { "name": "10", "note": "two minimum-length lines with no stressed syllables" },
+    { "name": "11", "note": "four- and five-syllable anapaests end before the next stress" },
+    { "name": "12", "note": "maximum line count with 50-character iambic lines and odd syllable counts" },
+    { "name": "13", "note": "moving a stress keeps dactylic stress counts but creates adjacent stresses" }
+  ]
+}
