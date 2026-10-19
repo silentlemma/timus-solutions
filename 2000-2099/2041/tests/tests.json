@@ -1,0 +1,607 @@
+{
+  "judging": "checker",
+  "reference": "2041_greedy_dsu.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "sample_yes; independent subset-DP existence and semantic order",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "sample_no; independent subset-DP existence and semantic order",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "one_bridge_serves_two_point_classes; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "004",
+      "note": "outer_volume_tiebreak_required; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "005",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "006",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "007",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "008",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "009",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "010",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "011",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "012",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "013",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "014",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "015",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "016",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "017",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "018",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "019",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "020",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "021",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "022",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "023",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "024",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "025",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "026",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "027",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "028",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "029",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "030",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "031",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "032",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "033",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "034",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "035",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "036",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "037",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "038",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "039",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "040",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "041",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "042",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "043",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "044",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "045",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "046",
+      "note": "all_ordered_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "047",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "048",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "049",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "050",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "051",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "052",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "053",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "054",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "055",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "056",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "057",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "058",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "059",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "060",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "061",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "062",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "063",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "064",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "065",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "066",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "067",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "068",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "069",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "070",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "071",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "072",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "073",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "074",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "075",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "076",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "077",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "078",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "079",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "080",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "081",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "082",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "083",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "084",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "085",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "086",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "087",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "088",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "089",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "090",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "091",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "092",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "093",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "094",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "095",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "096",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "097",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "098",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "099",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "100",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "101",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "102",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "103",
+      "note": "all_multisets_through7_bounds3; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "104",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "105",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "106",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "107",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "108",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "109",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "110",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "111",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "112",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "113",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "114",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "115",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "116",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "117",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "118",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "119",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "120",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "121",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "122",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "123",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "124",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "125",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "126",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "127",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "128",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "129",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "130",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "131",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "132",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "133",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "134",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "135",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "136",
+      "note": "random_small; independent subset-DP existence and semantic order"
+    },
+    {
+      "name": "gen_all_wide",
+      "generator": "2041 all_wide",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_unique_points",
+      "generator": "2041 unique_points",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_equal_points",
+      "generator": "2041 equal_points",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_tight_supply",
+      "generator": "2041 tight_supply",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_short_supply",
+      "generator": "2041 short_supply",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_endpoint_equality",
+      "generator": "2041 endpoint_equality",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_shared_bridges",
+      "generator": "2041 shared_bridges",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_random_mixed",
+      "generator": "2041 random_mixed",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_deletion_queries",
+      "generator": "2041 deletion_queries",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_minimum_points",
+      "generator": "2041 minimum_points",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    },
+    {
+      "name": "gen_maximum_points",
+      "generator": "2041 maximum_points",
+      "note": "100000 items; independent strict-bridge supply certificate and every output adjacency"
+    }
+  ]
+}
