@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "1865_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example with a valid six-vertex border" },
+    { "name": "02", "example": true, "note": "the example with an oversized lighthouse" },
+    { "name": "03", "note": "the border goes round the lighthouse" },
+    { "name": "04", "note": "the lighthouse next to the coast column, too large" },
+    { "name": "05", "note": "a small island whose lighthouse rows already give exactly half" },
+    { "name": "06", "note": "the largest lighthouse on the largest island" },
+    { "name": "07", "note": "a large lighthouse that just fits" },
+    { "name": "08", "note": "the narrowest island" },
+    { "name": "09", "note": "the lighthouse next to the coast column, fits" },
+    { "name": "gen1", "generator": "1 1", "note": "a small island" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest island, a small lighthouse" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest island, a lighthouse near the limit" },
+    { "name": "gen4", "generator": "4 4", "note": "a long thin island" },
+    { "name": "gen5", "generator": "5 5", "note": "a random island and lighthouse" },
+    { "name": "10", "note": "the smallest island with even area" },
+    { "name": "11", "note": "the mandatory lighthouse and corridor area equals half exactly" },
+    { "name": "12", "note": "a nonempty corridor makes the minimum Finnish area exceed half by one cell" },
+    { "name": "13", "note": "wraparound with an interior remainder after one complete corridor row" },
+    { "name": "14", "note": "wraparound takes all but one cell of a corridor row" },
+    { "name": "15", "note": "whole lighthouse rows already give exactly half without extra cells" },
+    { "name": "16", "note": "maximum island area with a straight border along a large lighthouse side" },
+    { "name": "17", "note": "maximum height and odd width require unequal row widths with a one-cell south clearance" },
+    { "name": "gen6", "generator": "12 1", "note": "seeded wraparound with a unit-wide corridor and multiple return rows" },
+    { "name": "gen7", "generator": "13 1", "note": "seeded odd-width island exhausts the north and lighthouse bands exactly" }
+  ]
+}
