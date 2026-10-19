@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2077_strings_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "a single word: one letter and a dot" },
+    { "name": "05", "note": "one-letter words stay whole" },
+    { "name": "06", "note": "a word that is a prefix of another" },
+    { "name": "07", "note": "two words with the same ending" },
+    { "name": "08", "note": "twelve words, five of them with a hyphen" },
+    { "name": "gen1", "generator": "1 1", "note": "a dozen short words" },
+    { "name": "gen2", "generator": "2 2", "note": "all words over ab up to length 15 and more" },
+    { "name": "gen3", "generator": "3 3", "note": "one word of length 10^6" },
+    { "name": "gen4", "generator": "4 4", "note": "1000 long words with a shared prefix and suffix" },
+    { "name": "gen5", "generator": "5 5", "note": "random short words over the whole alphabet" },
+    { "name": "gen6", "generator": "6 6", "note": "words a^k b a^j" }
+  ]
+}
