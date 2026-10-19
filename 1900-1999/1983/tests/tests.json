@@ -1,0 +1,441 @@
+{
+  "judging": "float:1e-2",
+  "reference": "1983_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "full disk; unsplit edge tangent at midpoint"
+    },
+    {
+      "name": "case_003",
+      "note": "half disk; diameter passes through center"
+    },
+    {
+      "name": "case_004",
+      "note": "quarter disk; origin at vertex"
+    },
+    {
+      "name": "case_005",
+      "note": "circular cap z0 a0"
+    },
+    {
+      "name": "case_006",
+      "note": "circular cap z0 a1"
+    },
+    {
+      "name": "case_007",
+      "note": "circular cap z0 a14"
+    },
+    {
+      "name": "case_008",
+      "note": "circular cap z0 a50"
+    },
+    {
+      "name": "case_009",
+      "note": "circular cap z0 a79"
+    },
+    {
+      "name": "case_010",
+      "note": "circular cap z0 a80"
+    },
+    {
+      "name": "case_011",
+      "note": "circular cap z0 a99"
+    },
+    {
+      "name": "case_012",
+      "note": "circular cap z0 a100"
+    },
+    {
+      "name": "case_013",
+      "note": "circular cap z0 a101"
+    },
+    {
+      "name": "case_014",
+      "note": "circular cap z0 a199"
+    },
+    {
+      "name": "case_015",
+      "note": "circular cap z60 a0"
+    },
+    {
+      "name": "case_016",
+      "note": "circular cap z60 a1"
+    },
+    {
+      "name": "case_017",
+      "note": "circular cap z60 a14"
+    },
+    {
+      "name": "case_018",
+      "note": "circular cap z60 a50"
+    },
+    {
+      "name": "case_019",
+      "note": "circular cap z60 a79"
+    },
+    {
+      "name": "case_020",
+      "note": "circular cap z60 a80"
+    },
+    {
+      "name": "case_021",
+      "note": "circular cap z60 a99"
+    },
+    {
+      "name": "case_022",
+      "note": "circular cap z60 a100"
+    },
+    {
+      "name": "case_023",
+      "note": "circular cap z60 a101"
+    },
+    {
+      "name": "case_024",
+      "note": "circular cap z60 a199"
+    },
+    {
+      "name": "case_025",
+      "note": "circular cap z99 a0"
+    },
+    {
+      "name": "case_026",
+      "note": "circular cap z99 a1"
+    },
+    {
+      "name": "case_027",
+      "note": "circular cap z99 a14"
+    },
+    {
+      "name": "case_028",
+      "note": "circular cap z99 a50"
+    },
+    {
+      "name": "case_029",
+      "note": "circular cap z99 a79"
+    },
+    {
+      "name": "case_030",
+      "note": "circular cap z99 a80"
+    },
+    {
+      "name": "case_031",
+      "note": "circular cap z99 a99"
+    },
+    {
+      "name": "case_032",
+      "note": "circular cap z99 a100"
+    },
+    {
+      "name": "case_033",
+      "note": "circular cap z99 a101"
+    },
+    {
+      "name": "case_034",
+      "note": "circular cap z99 a199"
+    },
+    {
+      "name": "case_035",
+      "note": "circular cap z100 a0"
+    },
+    {
+      "name": "case_036",
+      "note": "circular cap z100 a1"
+    },
+    {
+      "name": "case_037",
+      "note": "circular cap z100 a14"
+    },
+    {
+      "name": "case_038",
+      "note": "circular cap z100 a50"
+    },
+    {
+      "name": "case_039",
+      "note": "circular cap z100 a79"
+    },
+    {
+      "name": "case_040",
+      "note": "circular cap z100 a80"
+    },
+    {
+      "name": "case_041",
+      "note": "circular cap z100 a99"
+    },
+    {
+      "name": "case_042",
+      "note": "circular cap z100 a100"
+    },
+    {
+      "name": "case_043",
+      "note": "circular cap z100 a101"
+    },
+    {
+      "name": "case_044",
+      "note": "circular cap z100 a199"
+    },
+    {
+      "name": "case_045",
+      "note": "circular cap z101 a0"
+    },
+    {
+      "name": "case_046",
+      "note": "circular cap z101 a1"
+    },
+    {
+      "name": "case_047",
+      "note": "circular cap z101 a14"
+    },
+    {
+      "name": "case_048",
+      "note": "circular cap z101 a50"
+    },
+    {
+      "name": "case_049",
+      "note": "circular cap z101 a79"
+    },
+    {
+      "name": "case_050",
+      "note": "circular cap z101 a80"
+    },
+    {
+      "name": "case_051",
+      "note": "circular cap z101 a99"
+    },
+    {
+      "name": "case_052",
+      "note": "circular cap z101 a100"
+    },
+    {
+      "name": "case_053",
+      "note": "circular cap z101 a101"
+    },
+    {
+      "name": "case_054",
+      "note": "circular cap z101 a199"
+    },
+    {
+      "name": "case_055",
+      "note": "circular cap z200 a0"
+    },
+    {
+      "name": "case_056",
+      "note": "circular cap z200 a1"
+    },
+    {
+      "name": "case_057",
+      "note": "circular cap z200 a14"
+    },
+    {
+      "name": "case_058",
+      "note": "circular cap z200 a50"
+    },
+    {
+      "name": "case_059",
+      "note": "circular cap z200 a79"
+    },
+    {
+      "name": "case_060",
+      "note": "circular cap z200 a80"
+    },
+    {
+      "name": "case_061",
+      "note": "circular cap z200 a99"
+    },
+    {
+      "name": "case_062",
+      "note": "circular cap z200 a100"
+    },
+    {
+      "name": "case_063",
+      "note": "circular cap z200 a101"
+    },
+    {
+      "name": "case_064",
+      "note": "circular cap z200 a199"
+    },
+    {
+      "name": "case_065",
+      "note": "nearly collinear extreme 3D vertices"
+    },
+    {
+      "name": "case_066",
+      "note": "all three vertices on sphere"
+    },
+    {
+      "name": "case_067",
+      "note": "small triangle within sphere touching boundary"
+    },
+    {
+      "name": "case_068",
+      "note": "edge tangent but triangle lies outside"
+    },
+    {
+      "name": "case_069",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_070",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_071",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_072",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_073",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_074",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_075",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_076",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_077",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_078",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_079",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_080",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_081",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_082",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_083",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_084",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_085",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_086",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_087",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_088",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_089",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_090",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_091",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_092",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_093",
+      "note": "independent random 3D quadrature"
+    },
+    {
+      "name": "case_094",
+      "note": "oblique plane near tangency, disk radius squared 2.0225247"
+    },
+    {
+      "name": "case_095",
+      "note": "oblique plane near tangency, disk radius squared 5.23156746"
+    },
+    {
+      "name": "case_096",
+      "note": "oblique plane near tangency, disk radius squared 9.11455405"
+    },
+    {
+      "name": "case_097",
+      "note": "oblique plane near tangency, disk radius squared 9.59593096"
+    },
+    {
+      "name": "case_098",
+      "note": "oblique plane near tangency, disk radius squared 10.1896832"
+    },
+    {
+      "name": "case_099",
+      "note": "oblique plane near tangency, disk radius squared 10.2015567"
+    },
+    {
+      "name": "case_100",
+      "note": "oblique plane near tangency, disk radius squared 10.321965"
+    },
+    {
+      "name": "case_101",
+      "note": "oblique plane near tangency, disk radius squared 12.0514239"
+    },
+    {
+      "name": "gen_random_1983",
+      "generator": "1983 random",
+      "note": "random with signed coordinate permutation"
+    },
+    {
+      "name": "gen_random_42",
+      "generator": "42 random",
+      "note": "random with signed coordinate permutation"
+    },
+    {
+      "name": "gen_inside_1",
+      "generator": "1 inside",
+      "note": "inside with signed coordinate permutation"
+    },
+    {
+      "name": "gen_near_plane_9",
+      "generator": "9 near_plane",
+      "note": "near_plane with signed coordinate permutation"
+    },
+    {
+      "name": "gen_slender_13",
+      "generator": "13 slender",
+      "note": "slender with signed coordinate permutation"
+    },
+    {
+      "name": "gen_disjoint_2",
+      "generator": "2 disjoint",
+      "note": "disjoint with signed coordinate permutation"
+    }
+  ]
+}
