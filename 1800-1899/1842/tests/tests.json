@@ -1,0 +1,22 @@
+{
+  "judging": "checker",
+  "reference": "1842_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest word with two letters" },
+    { "name": "03", "note": "the shortest word with one letter" },
+    { "name": "04", "note": "a square" },
+    { "name": "05", "note": "a periodic word cut inside the period" },
+    { "name": "06", "note": "a decreasing alphabet: the period is the whole word" },
+    { "name": "07", "note": "three letters repeated" },
+    { "name": "08", "note": "one b before a run of a's" },
+    { "name": "gen1", "generator": "1 1", "note": "a short word over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest random word" },
+    { "name": "gen3", "generator": "3 3", "note": "the longest word over two letters" },
+    { "name": "gen4", "generator": "4 4", "note": "one letter repeated" },
+    { "name": "gen5", "generator": "5 5", "note": "a random block repeated" },
+    { "name": "gen6", "generator": "6 6", "note": "a Fibonacci word" },
+    { "name": "gen7", "generator": "7 7", "note": "one b in the middle of a's" },
+    { "name": "gen8", "generator": "8 8", "note": "a Thue-Morse word" }
+  ]
+}
