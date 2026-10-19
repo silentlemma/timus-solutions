@@ -1,0 +1,18 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1886_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: no way out" },
+    { "name": "03", "note": "a fast connection lost when delayed must not be used" },
+    { "name": "04", "note": "a connection leaving exactly at the arrival" },
+    { "name": "05", "note": "the largest times" },
+    { "name": "06", "note": "flights only lead away from the last airport" },
+    { "name": "gen1", "generator": "1 1", "note": "a few airports and flights" },
+    { "name": "gen2", "generator": "2 2", "note": "the most airports and flights" },
+    { "name": "gen3", "generator": "3 3", "note": "a long line of airports" },
+    { "name": "gen4", "generator": "4 4", "note": "many direct flights" },
+    { "name": "gen5", "generator": "5 5", "note": "a few airports, the most flights" },
+    { "name": "gen6", "generator": "6 6", "note": "times, durations and delays up to 10^9" }
+  ]
+}
