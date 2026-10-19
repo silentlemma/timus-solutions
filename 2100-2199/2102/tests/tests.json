@@ -1,0 +1,22 @@
+{
+  "judging": "exact",
+  "reference": "2102_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a single prime has only one prime factor" },
+    { "name": "02", "example": true, "note": "the second example: 2^20" },
+    { "name": "03", "example": true, "note": "the third example: 2^10 5^10" },
+    { "name": "04", "note": "n = 1 has no prime factors" },
+    { "name": "05", "note": "fifty-nine factors in a power of two" },
+    { "name": "06", "note": "nineteen twos times a large prime" },
+    { "name": "07", "note": "the largest prime below 10^18" },
+    { "name": "08", "note": "the square of a prime near 10^9" },
+    { "name": "gen1", "generator": "1 1", "note": "twenty small primes" },
+    { "name": "gen2", "generator": "2 2", "note": "nineteen small primes and a large one" },
+    { "name": "gen3", "generator": "3 3", "note": "eighteen small primes and two large ones" },
+    { "name": "gen4", "generator": "4 4", "note": "a random n" },
+    { "name": "09", "note": "nineteen factors, with a large prime square near the trial division boundary" },
+    { "name": "10", "note": "an odd number with exactly twenty prime factors" },
+    { "name": "11", "note": "twenty-one factors must fail even after twenty twos are removed" },
+    { "name": "12", "note": "n = 10^18: the inclusive upper limit has thirty-six prime factors" }
+  ]
+}
