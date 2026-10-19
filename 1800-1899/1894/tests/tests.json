@@ -1,0 +1,85 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1894_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "example": true,
+      "note": "the statement example"
+    },
+    {
+      "name": "02",
+      "note": "the minimum clearing time is exactly one minute"
+    },
+    {
+      "name": "03",
+      "note": "one further second is needed"
+    },
+    {
+      "name": "04",
+      "note": "very long thin polygons may already be clear"
+    },
+    {
+      "name": "05",
+      "note": "extreme coordinates and large integer cross products"
+    },
+    {
+      "name": "06",
+      "note": "nonparallel edges and a nonintegral answer"
+    },
+    {
+      "name": "07",
+      "note": "a large common translation leaves the answer unchanged"
+    },
+    {
+      "name": "08",
+      "note": "a small initial overlap is already able to clear"
+    },
+    {
+      "name": "09",
+      "note": "a thin polygon exposes cancellation in floating-point distance calculations"
+    },
+    {
+      "name": "small",
+      "generator": "1 1",
+      "note": "small random convex hulls"
+    },
+    {
+      "name": "parallel",
+      "generator": "2 2",
+      "note": "many parallel edge directions"
+    },
+    {
+      "name": "thin",
+      "generator": "3 3",
+      "note": "long thin shapes with large coordinates"
+    },
+    {
+      "name": "max_equal",
+      "generator": "4 4",
+      "note": "two maximal symmetric polygons"
+    },
+    {
+      "name": "max_shear",
+      "generator": "5 5",
+      "note": "maximal polygons with different edges"
+    },
+    {
+      "name": "unbalanced",
+      "generator": "6 6",
+      "note": "a triangle and a maximal polygon"
+    },
+    {
+      "name": "translated",
+      "generator": "7 7",
+      "note": "large shared offset and cyclic starts"
+    },
+    { "name": "10", "note": "minimum-area lattice triangles with only three vertices each" },
+    { "name": "11", "note": "perpendicular strips overlap although neither contains a vertex of the other" },
+    { "name": "12", "note": "identical scalene triangles require negating B rather than adding it unchanged" },
+    { "name": "13", "note": "an oblique clearing distance just above sixty leaves a tiny positive wait" },
+    { "name": "14", "note": "nearly matching slanted parallelograms clear just before sixty seconds" },
+    { "name": "15", "note": "unequal hull sizes and asymmetric partial overlap" },
+    { "name": "16", "generator": "1894 8", "note": "a random small triangle overlaps only a corner of a fifty-thousand-vertex polygon" }
+  ]
+}
