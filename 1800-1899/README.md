@@ -96,3 +96,4 @@
 | 1889 | [Airport Announcements](1889/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1890 | [Money out of Thin Air](1890/) | fenwick | C++, Go, Python, Java, Rust |
 | 1891 | [Language Ocean](1891/) | parsing | C++, Go, Python, Java, Rust |
+| 1892 | [Morning in Koltsovo](1892/) | simulation | C++, Go, Python, Java, Rust |
