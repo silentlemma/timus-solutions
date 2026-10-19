@@ -1,0 +1,288 @@
+{
+  "judging": "checker",
+  "reference": "2021_sorting.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample scores",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "003",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "004",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "005",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "006",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "007",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "008",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "009",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "010",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "011",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "012",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "013",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "014",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "015",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "016",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "017",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "018",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "019",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "020",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "021",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "022",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "023",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "024",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "025",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "026",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "027",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "028",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "029",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "030",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "031",
+      "note": "all n2 scores 0..6 / all n3 scores 0,3,6"
+    },
+    {
+      "name": "032",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "033",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "034",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "035",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "036",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "037",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "038",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "039",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "040",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "041",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "042",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "043",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "044",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "045",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "046",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "047",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "048",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "049",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "050",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "051",
+      "note": "random full score range n4/5 all orders enumerated"
+    },
+    {
+      "name": "052",
+      "note": "tie sorting same direction"
+    },
+    {
+      "name": "053",
+      "note": "strict certainty boundary equal 6 remaining"
+    },
+    {
+      "name": "054",
+      "note": "opposite final winner"
+    },
+    {
+      "name": "055",
+      "note": "equal totals different multisets"
+    },
+    {
+      "name": "056",
+      "note": "equal totals n4"
+    },
+    {
+      "name": "057",
+      "note": "small final lead"
+    },
+    {
+      "name": "058",
+      "note": "all zero tie"
+    },
+    {
+      "name": "059",
+      "note": "all maximum tie"
+    },
+    {
+      "name": "gen_first_wins_max_margin",
+      "generator": "20211000 first_wins_max_margin",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_second_wins_max_margin",
+      "generator": "20211001 second_wins_max_margin",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_all_zero_tie",
+      "generator": "20211002 all_zero_tie",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_all_six_tie",
+      "generator": "20211003 all_six_tie",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_equal_total_different_multisets",
+      "generator": "20211004 equal_total_different_multisets",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_equal_multiset_permuted",
+      "generator": "20211005 equal_multiset_permuted",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_one_point_first_win",
+      "generator": "20211006 one_point_first_win",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_one_point_second_win",
+      "generator": "20211007 one_point_second_win",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    },
+    {
+      "name": "gen_random_full_range",
+      "generator": "20211008 random_full_range",
+      "note": "1000 rounds; strict equality boundary, final ties and extremal score-prefix bound"
+    }
+  ]
+}
