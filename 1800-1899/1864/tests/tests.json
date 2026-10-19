@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1864_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: equal shares" },
+    { "name": "02", "example": true, "note": "the second example: one friend paid" },
+    { "name": "03", "note": "the least juice" },
+    { "name": "04", "note": "a friend who bought a little less gets a little less" },
+    { "name": "05", "note": "several friends paid too much, rounded down" },
+    { "name": "gen1", "generator": "1 1", "note": "a few friends" },
+    { "name": "gen2", "generator": "2 2", "note": "the most friends at random" },
+    { "name": "gen3", "generator": "3 3", "note": "one friend bought all the juice" },
+    { "name": "gen4", "generator": "4 4", "note": "nearly equal purchases" },
+    { "name": "06", "note": "two friends both receive money only when Den is included" },
+    { "name": "07", "note": "a purchase exactly equal to consumption gets zero" },
+    { "name": "08", "note": "maximum friend count and total juice give one rouble each" },
+    { "name": "09", "note": "fractional consumption gives exact payouts of 5 and 95" },
+    { "name": "10", "note": "ninety-eight positive surpluses each round from half a rouble to zero" }
+  ]
+}
