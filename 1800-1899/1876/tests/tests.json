@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1876_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the fewest slippers" },
+    { "name": "02", "note": "the most slippers" },
+    { "name": "03", "note": "one spare left slipper already beats the rights" },
+    { "name": "04", "note": "many spare left slippers" },
+    { "name": "05", "note": "many spare right slippers" },
+    { "name": "06", "note": "equal counts in the middle" },
+    { "name": "gen1", "generator": "1 1", "note": "any counts" },
+    { "name": "gen2", "generator": "2 2", "note": "more left slippers" },
+    { "name": "gen3", "generator": "3 3", "note": "more right slippers" },
+    { "name": "gen4", "generator": "4 4", "note": "equal counts" }
+  ]
+}

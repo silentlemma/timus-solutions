@@ -80,3 +80,4 @@
 | 1873 | [GOV Chronicles](1873/) | implementation | C++, Go, Python, Java, Rust |
 | 1874 | [Football Goal](1874/) | geometry | C++, Go, Python, Java, Rust |
 | 1875 | [Angry Birds](1875/) | geometry | C++, Go, Python, Java, Rust |
+| 1876 | [Centipede's Morning](1876/) | math | C++, Go, Python, Java, Rust |
