@@ -1,0 +1,173 @@
+{
+  "judging": "checker",
+  "reference": "2047_number_theory.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example: tau(4)=3 and tau(8)=4",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "003",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "004",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "005",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "006",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "007",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "008",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "009",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "010",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "011",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "012",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "013",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "014",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "015",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "016",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "017",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "018",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "019",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "020",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "021",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "022",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "023",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "024",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "025",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "026",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "027",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "028",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "029",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "030",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "031",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "032",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "033",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "034",
+      "note": "independent complete-sieve witness; initial term and history boundaries"
+    },
+    {
+      "name": "large_32767",
+      "generator": "32767",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    },
+    {
+      "name": "large_32768",
+      "generator": "32768",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    },
+    {
+      "name": "large_65535",
+      "generator": "65535",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    },
+    {
+      "name": "large_65536",
+      "generator": "65536",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    },
+    {
+      "name": "large_99999",
+      "generator": "99999",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    },
+    {
+      "name": "large_100000",
+      "generator": "100000",
+      "note": "long reconstruction, ring and sieve-block boundaries"
+    }
+  ]
+}
