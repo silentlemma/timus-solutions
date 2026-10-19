@@ -1,0 +1,164 @@
+{
+  "judging": "tokens",
+  "reference": "1991_implementation.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "independent unit-by-unit matching",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_003",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_004",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_005",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_006",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_007",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_008",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_009",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_010",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_011",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_012",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_013",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_014",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_015",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_016",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_017",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_018",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_019",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_020",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_021",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_022",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_023",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_024",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_025",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_026",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_027",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_028",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_029",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_030",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_031",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_032",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "case_033",
+      "note": "independent unit-by-unit matching"
+    },
+    {
+      "name": "gen_surplus",
+      "generator": "0 surplus",
+      "note": "maximum size closed form"
+    },
+    {
+      "name": "gen_deficit",
+      "generator": "1 deficit",
+      "note": "maximum size closed form"
+    },
+    {
+      "name": "gen_equal",
+      "generator": "2 equal",
+      "note": "maximum size closed form"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "3 alternating",
+      "note": "maximum size closed form"
+    },
+    {
+      "name": "gen_cycle",
+      "generator": "4 cycle",
+      "note": "maximum size closed form"
+    }
+  ]
+}
