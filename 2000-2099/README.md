@@ -98,3 +98,4 @@
 | 2091 | [Two courses that split the programs most evenly](2091/) | bruteforce | C++, Go, Python, Java, Rust |
 | 2092 | [One subscription plus single tickets at the lowest cost](2092/) | greedy, binary_search | C++, Go, Python, Java, Rust |
 | 2093 | [Fastest route over roads that snow slows down](2093/) | dijkstra | C++, Go, Python, Java, Rust |
+| 2094 | [When to take a seat in a filling row](2094/) | dp, probability | C++, Go, Python, Java, Rust |
