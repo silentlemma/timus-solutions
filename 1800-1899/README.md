@@ -78,3 +78,4 @@
 | 1871 | [Seismic Waves](1871/) | dijkstra | C++, Go, Python, Java, Rust |
 | 1872 | [Spacious Office](1872/) | matching | C++, Go, Python, Java, Rust |
 | 1873 | [GOV Chronicles](1873/) | implementation | C++, Go, Python, Java, Rust |
+| 1874 | [Football Goal](1874/) | geometry | C++, Go, Python, Java, Rust |

@@ -1,0 +1,15 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1874_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest sticks" },
+    { "name": "03", "note": "the longest sticks" },
+    { "name": "04", "note": "the shortest and the longest stick" },
+    { "name": "05", "note": "different short sticks" },
+    { "name": "gen1", "generator": "1 1", "note": "short sticks" },
+    { "name": "gen2", "generator": "2 2", "note": "long sticks" },
+    { "name": "gen3", "generator": "3 3", "note": "one short and one long stick" },
+    { "name": "gen4", "generator": "4 4", "note": "equal sticks" }
+  ]
+}
