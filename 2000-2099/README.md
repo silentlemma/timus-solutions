@@ -77,3 +77,4 @@
 | 2070 | [Prime powers with a prime number of divisors](2070/) | number_theory | C++, Go, Python, Java, Rust |
 | 2071 | [Order the cocktails for the fewest pourings](2071/) | bitmask, dp | C++, Go, Python, Java, Rust |
 | 2072 | [Water by dryness, ending each group at one of its ends](2072/) | sorting, dp | C++, Go, Python, Java, Rust |
+| 2073 | [A summary table of contest logs](2073/) | implementation | C++, Go, Python, Java, Rust |

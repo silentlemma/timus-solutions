@@ -1,0 +1,12 @@
+{
+  "judging": "exact",
+  "reference": "2073_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one problem and no submits" },
+    { "name": "03", "note": "a name of 30 symbols, all 13 problems, every verdict" },
+    { "name": "04", "note": "a digit-only name, double spaces, repeated failures" },
+    { "name": "gen1", "generator": "1", "note": "100 random contests" },
+    { "name": "gen2", "generator": "2", "note": "100 random contests, another seed" }
+  ]
+}
