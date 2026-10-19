@@ -1,0 +1,19 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1840_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one segment" },
+    { "name": "02", "example": true, "note": "the second example: a quarter circle of radius 4" },
+    { "name": "03", "note": "the longest single segment, cruising at the speed limit" },
+    { "name": "04", "note": "a U-turn on a half circle" },
+    { "name": "05", "note": "lines meeting behind: the long way around" },
+    { "name": "06", "note": "a sharp corner: a stop" },
+    { "name": "07", "note": "two wide turns, one segment lengthened" },
+    { "name": "08", "note": "the next segment starts behind the turn" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random segments" },
+    { "name": "gen2", "generator": "2 2", "note": "the most random segments" },
+    { "name": "gen3", "generator": "3 3", "note": "the most short segments" },
+    { "name": "gen4", "generator": "4 4", "note": "many U-turns" },
+    { "name": "gen5", "generator": "5 5", "note": "long sides around a square" }
+  ]
+}

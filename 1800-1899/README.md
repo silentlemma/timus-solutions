@@ -44,3 +44,4 @@
 | 1837 | [Isenbaev's Number](1837/) | bfs | C++, Go, Python, Java, Rust |
 | 1838 | [Samurai's Stroke](1838/) | math | C++, Go, Python, Java, Rust |
 | 1839 | [The Mentaculus](1839/) | geometry | C++, Go, Python, Java, Rust |
+| 1840 | [Victim of Advertising](1840/) | geometry | C++, Go, Python, Java, Rust |
