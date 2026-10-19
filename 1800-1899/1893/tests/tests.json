@@ -1,0 +1,173 @@
+{
+  "judging": "tokens",
+  "cases": [
+    {
+      "name": "01",
+      "note": "seat 3C: aisle",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "seat 64A: window",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "seat 21F: neither",
+      "example": true
+    },
+    {
+      "name": "04",
+      "note": "seat 1A: window"
+    },
+    {
+      "name": "05",
+      "note": "seat 1B: aisle"
+    },
+    {
+      "name": "06",
+      "note": "seat 1C: aisle"
+    },
+    {
+      "name": "07",
+      "note": "seat 1D: window"
+    },
+    {
+      "name": "08",
+      "note": "seat 2A: window"
+    },
+    {
+      "name": "09",
+      "note": "seat 2B: aisle"
+    },
+    {
+      "name": "10",
+      "note": "seat 2C: aisle"
+    },
+    {
+      "name": "11",
+      "note": "seat 2D: window"
+    },
+    {
+      "name": "12",
+      "note": "seat 3A: window"
+    },
+    {
+      "name": "13",
+      "note": "seat 3B: aisle"
+    },
+    {
+      "name": "14",
+      "note": "seat 3D: aisle"
+    },
+    {
+      "name": "15",
+      "note": "seat 3E: aisle"
+    },
+    {
+      "name": "16",
+      "note": "seat 3F: window"
+    },
+    {
+      "name": "17",
+      "note": "seat 20A: window"
+    },
+    {
+      "name": "18",
+      "note": "seat 20B: aisle"
+    },
+    {
+      "name": "19",
+      "note": "seat 20C: aisle"
+    },
+    {
+      "name": "20",
+      "note": "seat 20D: aisle"
+    },
+    {
+      "name": "21",
+      "note": "seat 20E: aisle"
+    },
+    {
+      "name": "22",
+      "note": "seat 20F: window"
+    },
+    {
+      "name": "23",
+      "note": "seat 21A: window"
+    },
+    {
+      "name": "24",
+      "note": "seat 21B: neither"
+    },
+    {
+      "name": "25",
+      "note": "seat 21C: aisle"
+    },
+    {
+      "name": "26",
+      "note": "seat 21D: aisle"
+    },
+    {
+      "name": "27",
+      "note": "seat 21E: neither"
+    },
+    {
+      "name": "28",
+      "note": "seat 21G: aisle"
+    },
+    {
+      "name": "29",
+      "note": "seat 21H: aisle"
+    },
+    {
+      "name": "30",
+      "note": "seat 21J: neither"
+    },
+    {
+      "name": "31",
+      "note": "seat 21K: window"
+    },
+    {
+      "name": "32",
+      "note": "seat 65A: window"
+    },
+    {
+      "name": "33",
+      "note": "seat 65B: neither"
+    },
+    {
+      "name": "34",
+      "note": "seat 65C: aisle"
+    },
+    {
+      "name": "35",
+      "note": "seat 65D: aisle"
+    },
+    {
+      "name": "36",
+      "note": "seat 65E: neither"
+    },
+    {
+      "name": "37",
+      "note": "seat 65F: neither"
+    },
+    {
+      "name": "38",
+      "note": "seat 65G: aisle"
+    },
+    {
+      "name": "39",
+      "note": "seat 65H: aisle"
+    },
+    {
+      "name": "40",
+      "note": "seat 65J: neither"
+    },
+    {
+      "name": "41",
+      "note": "seat 65K: window"
+    }
+  ],
+  "reference": "1893_implementation.cpp"
+}
