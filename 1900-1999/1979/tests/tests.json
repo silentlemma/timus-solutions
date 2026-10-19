@@ -1,0 +1,111 @@
+{
+  "judging": "checker",
+  "reference": "1979_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "example": true,
+      "note": "official valid net"
+    },
+    {
+      "name": "n001",
+      "note": "n=1 own complementary-face layout"
+    },
+    {
+      "name": "n002",
+      "note": "n=2 own complementary-face layout"
+    },
+    {
+      "name": "n003",
+      "note": "n=3 own complementary-face layout"
+    },
+    {
+      "name": "n004",
+      "note": "n=4 own complementary-face layout"
+    },
+    {
+      "name": "n005",
+      "note": "n=5 own complementary-face layout"
+    },
+    {
+      "name": "n006",
+      "note": "n=6 own complementary-face layout"
+    },
+    {
+      "name": "n007",
+      "note": "n=7 own complementary-face layout"
+    },
+    {
+      "name": "n008",
+      "note": "n=8 own complementary-face layout"
+    },
+    {
+      "name": "n009",
+      "note": "n=9 own complementary-face layout"
+    },
+    {
+      "name": "n010",
+      "note": "n=10 own complementary-face layout"
+    },
+    {
+      "name": "gen011",
+      "generator": "1979 11",
+      "note": "size 11"
+    },
+    {
+      "name": "gen017",
+      "generator": "1979 17",
+      "note": "size 17"
+    },
+    {
+      "name": "gen031",
+      "generator": "1979 31",
+      "note": "size 31"
+    },
+    {
+      "name": "gen049",
+      "generator": "1979 49",
+      "note": "size 49"
+    },
+    {
+      "name": "gen050",
+      "generator": "1979 50",
+      "note": "size 50"
+    },
+    {
+      "name": "gen063",
+      "generator": "1979 63",
+      "note": "size 63"
+    },
+    {
+      "name": "gen064",
+      "generator": "1979 64",
+      "note": "size 64"
+    },
+    {
+      "name": "gen079",
+      "generator": "1979 79",
+      "note": "size 79"
+    },
+    {
+      "name": "gen097",
+      "generator": "1979 97",
+      "note": "size 97"
+    },
+    {
+      "name": "gen098",
+      "generator": "1979 98",
+      "note": "size 98"
+    },
+    {
+      "name": "gen099",
+      "generator": "1979 99",
+      "note": "size 99"
+    },
+    {
+      "name": "gen100",
+      "generator": "1979 100",
+      "note": "size 100"
+    }
+  ]
+}
