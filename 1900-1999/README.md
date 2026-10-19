@@ -84,3 +84,4 @@
 | 1977 | [Growing energy and triangular redistribution](1977/) | segment_tree, simulation | C++, Go, Python, Java, Rust |
 | 1978 | [Best vector sum for every cardinality](1978/) | geometry, sorting | C++, Go, Python, Java, Rust |
 | 1979 | [Resource labels with equal cube cycles](1979/) | constructive | C++, Go, Python, Java, Rust |
+| 1980 | [Minimum speed allowance with a route](1980/) | binary_search, dijkstra | C++, Go, Python, Java, Rust |
