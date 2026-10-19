@@ -1,0 +1,605 @@
+{
+  "judging": "tokens",
+  "reference": "2038_matching_bitmask.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "003",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "004",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "005",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "006",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "007",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "008",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "009",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "010",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "011",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "012",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "013",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "014",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "015",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "016",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "017",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "018",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "019",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "020",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "021",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "022",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "023",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "024",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "025",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "026",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "027",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "028",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "029",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "030",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "031",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "032",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "033",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "034",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "035",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "036",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "037",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "038",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "039",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "040",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "041",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "042",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "043",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "044",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "045",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "046",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "047",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "048",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "049",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "050",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "051",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "052",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "053",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "054",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "055",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "056",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "057",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "058",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "059",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "060",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "061",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "062",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "063",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "064",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "065",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "066",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "067",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "068",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "069",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "070",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "071",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "072",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "073",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "074",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "075",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "076",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "077",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "078",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "079",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "080",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "081",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "082",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "083",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "084",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "085",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "086",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "087",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "088",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "089",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "090",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "091",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "092",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "093",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "094",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "095",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "096",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "097",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "098",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "099",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "100",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "101",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "102",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "103",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "104",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "105",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "106",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "107",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "108",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "109",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "110",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "111",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "112",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "113",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "114",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "115",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "116",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "117",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "118",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "119",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "120",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "121",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "122",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "123",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "124",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "125",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "126",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "127",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "128",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "129",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "130",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "131",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "132",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "133",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "134",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "135",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "136",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "137",
+      "note": "independent all-minimum-cover check or explicit perfect matching certificate"
+    },
+    {
+      "name": "gen_complete",
+      "generator": "2038 complete",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_complete_permuted",
+      "generator": "2038 complete_permuted",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_deficient_dense",
+      "generator": "2038 deficient_dense",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_half_block",
+      "generator": "2038 half_block",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_long_augment",
+      "generator": "2038 long_augment",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_long_augment_permuted",
+      "generator": "2038 long_augment_permuted",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_mixed",
+      "generator": "2038 mixed",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_empty",
+      "generator": "2038 empty",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_triangular",
+      "generator": "2038 triangular",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    },
+    {
+      "name": "gen_deficient_chain",
+      "generator": "2038 deficient_chain",
+      "note": "real maximum dimensions, tight matching/two-cover certificate; varied vertex and edge order"
+    }
+  ]
+}
