@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1890_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example" },
+    { "name": "02", "note": "one employee and equal thresholds" },
+    { "name": "03", "note": "fractional average and strict comparison" },
+    { "name": "04", "note": "interleaved employee numbers and nested departments" },
+    { "name": "05", "note": "a salary and department sum exceed signed 32-bit integers" },
+    { "name": "06", "note": "a path with overlapping increases and a leaf department" },
+    { "name": "random1", "generator": "1 1", "note": "small random tree and boundary thresholds" },
+    { "name": "random2", "generator": "2 1", "note": "another small random tree" },
+    { "name": "max_random", "generator": "3 2", "note": "maximal n and q, random tree" },
+    { "name": "max_path", "generator": "4 3", "note": "maximal path, every update succeeds" },
+    { "name": "max_star", "generator": "5 4", "note": "maximal star and point operations" },
+    { "name": "max_updates", "generator": "6 5", "note": "maximal tree, successful updates" },
+    { "name": "max_equal", "generator": "7 6", "note": "equal thresholds and 64-bit products" },
+    { "name": "max_alternating", "generator": "8 7", "note": "large initial differences" },
+    { "name": "max_overflow", "generator": "9 8", "note": "salaries above signed 32-bit range" }
+  ]
+}
