@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1857_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one letter and a key of length one" },
+    { "name": "04", "note": "one letter: every longer key repeats" },
+    { "name": "05", "note": "keys of length one" },
+    { "name": "06", "note": "a length with two prime factors" },
+    { "name": "07", "note": "a prime length close to the largest" },
+    { "name": "08", "note": "a length with five prime factors" },
+    { "name": "09", "note": "a power of two" },
+    { "name": "10", "note": "the largest alphabet and length" },
+    { "name": "gen1", "generator": "1 1", "note": "a short key" },
+    { "name": "gen2", "generator": "2 2", "note": "a long key" },
+    { "name": "gen3", "generator": "3 3", "note": "the longest key" }
+  ]
+}
