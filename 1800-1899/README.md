@@ -43,3 +43,4 @@
 | 1836 | [Babel Fish](1836/) | geometry | C++, Go, Python, Java, Rust |
 | 1837 | [Isenbaev's Number](1837/) | bfs | C++, Go, Python, Java, Rust |
 | 1838 | [Samurai's Stroke](1838/) | math | C++, Go, Python, Java, Rust |
+| 1839 | [The Mentaculus](1839/) | geometry | C++, Go, Python, Java, Rust |
