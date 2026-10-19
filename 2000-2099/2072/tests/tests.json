@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "2072_sorting_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single flower" },
+    { "name": "03", "note": "equal dryness: one walk to the right" },
+    { "name": "04", "note": "decreasing dryness: to the right end and back" },
+    { "name": "05", "note": "increasing dryness" },
+    { "name": "06", "note": "the middle flower first, then both ends" },
+    { "name": "gen1", "generator": "1 1", "note": "a few flowers" },
+    { "name": "gen2", "generator": "2 2", "note": "10^5 flowers, ten dryness values" },
+    { "name": "gen3", "generator": "3 3", "note": "10^5 flowers, any dryness" },
+    { "name": "gen4", "generator": "4 4", "note": "two values alternating along the whole bed" }
+  ]
+}
