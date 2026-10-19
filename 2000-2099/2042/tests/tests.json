@@ -1,0 +1,525 @@
+{
+  "judging": "tokens",
+  "reference": "2042_strings_segment_tree.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official_sample; literal palindrome occurrence enumeration",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "003",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "004",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "005",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "006",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "007",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "008",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "009",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "010",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "011",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "012",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "013",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "014",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "015",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "016",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "017",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "018",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "019",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "020",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "021",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "022",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "023",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "024",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "025",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "026",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "027",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "028",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "029",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "030",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "031",
+      "note": "all_small_ordered_ab; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "032",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "033",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "034",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "035",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "036",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "037",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "038",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "039",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "040",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "041",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "042",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "043",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "044",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "045",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "046",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "047",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "048",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "049",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "050",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "051",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "052",
+      "note": "all_small_ordered_abc; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "053",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "054",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "055",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "056",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "057",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "058",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "059",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "060",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "061",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "062",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "063",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "064",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "065",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "066",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "067",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "068",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "069",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "070",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "071",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "072",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "073",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "074",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "075",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "076",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "077",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "078",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "079",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "080",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "081",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "082",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "083",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "084",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "085",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "086",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "087",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "088",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "089",
+      "note": "random_overlapping_sequence; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "090",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "091",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "092",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "093",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "094",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "095",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "096",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "097",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "098",
+      "note": "odd_even_exact_length_bound; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "099",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "100",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "101",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "102",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "103",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "104",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "105",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "106",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "107",
+      "note": "block_partition_and_global_boundaries; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "108",
+      "note": "bounded_run_fast_path_and_fallback; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "109",
+      "note": "bounded_run_fast_path_and_fallback; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "110",
+      "note": "bounded_run_fast_path_and_fallback; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "111",
+      "note": "bounded_run_fast_path_and_fallback; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "112",
+      "note": "no_queries_empty_output; literal palindrome occurrence enumeration"
+    },
+    {
+      "name": "gen_uniform_queries",
+      "generator": "2042 uniform_queries",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_alternating_queries",
+      "generator": "2042 alternating_queries",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_periodic_queries",
+      "generator": "2042 periodic_queries",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_random_queries",
+      "generator": "2042 random_queries",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_short_queries",
+      "generator": "2042 short_queries",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_mixed_short_updates",
+      "generator": "2042 mixed_short_updates",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_mixed_long_updates",
+      "generator": "2042 mixed_long_updates",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_point_updates",
+      "generator": "2042 point_updates",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_edge_updates",
+      "generator": "2042 edge_updates",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_k_one",
+      "generator": "2042 k_one",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_k_two",
+      "generator": "2042 k_two",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_short_string",
+      "generator": "2042 short_string",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_updates_only",
+      "generator": "2042 updates_only",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    },
+    {
+      "name": "gen_singleton",
+      "generator": "2042 singleton",
+      "note": "100000 operations; independent bit-DP summary and accepted executable verify every answer"
+    }
+  ]
+}
