@@ -33,3 +33,4 @@
 | 1926 | [Dynamic Remainders Through One Common Modulus](1926/) | number_theory | C++, Go, Python, Java, Rust |
 | 1927 | [Area of Two Infinite Strips](1927/) | geometry | C++, Go, Python, Java, Rust |
 | 1928 | [Alternating Grants with a Terminal Gift](1928/) | games, dp | C++, Go, Python, Java, Rust |
+| 1929 | [A Distinguished Triple with Feasible Remaining Teams](1929/) | combinatorics | C++, Go, Python, Java, Rust |
