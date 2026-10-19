@@ -1,0 +1,78 @@
+{
+  "judging": "float:1e-6",
+  "reference": "2016_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "near-coincident circles: world-coordinate cancellation regressions"
+    },
+    {
+      "name": "003",
+      "note": "closed forms and square length/speed scaling"
+    },
+    {
+      "name": "004",
+      "note": "tiny near-coplanar second circles"
+    },
+    {
+      "name": "005",
+      "note": "independent wide valid spatial trajectories"
+    },
+    {
+      "name": "006",
+      "note": "thresholds near center height and maximum"
+    },
+    {
+      "name": "007",
+      "note": "horizontal arcs above and below threshold"
+    },
+    {
+      "name": "008",
+      "note": "horizontal reflections and axis swaps preserve length"
+    },
+    {
+      "name": "gen_vertical",
+      "generator": "201618 vertical",
+      "note": "vertical coplanar arcs with thresholds near selected heights"
+    },
+    {
+      "name": "gen_horizontal",
+      "generator": "201619 horizontal",
+      "note": "horizontal quarter-circles and full circles on either side of the speed threshold"
+    },
+    {
+      "name": "gen_near_coincident",
+      "generator": "201620 near_coincident",
+      "note": "nearly coincident circles producing tiny radii at large coordinates"
+    },
+    {
+      "name": "gen_near_coplanar",
+      "generator": "201621 near_coplanar",
+      "note": "small second circles with centers almost in the initial plane"
+    },
+    {
+      "name": "gen_spatial",
+      "generator": "201622 spatial",
+      "note": "spatial circle transfers with thresholds near the final center height"
+    },
+    {
+      "name": "gen_mixed",
+      "generator": "201623 mixed",
+      "note": "mixed vertical, horizontal and spatial paths with small-radius transfers"
+    },
+    { "name": "009", "note": "almost vertical initial radius with minimum speed and maximum acceleration" },
+    { "name": "010", "note": "signed coordinate limits on multiple axes with million-unit displacements" },
+    { "name": "011", "note": "final circle touches the threshold only at its top while both prefix arcs contribute" },
+    { "name": "012", "note": "both switches lie exactly on the threshold and the intervening half-circle lies below it" },
+    { "name": "013", "note": "maximum speed squared exceeds signed 32-bit range and all three arcs fail the threshold" },
+    { "name": "014", "note": "first switch at exactly pi radians exercises the directed-angle branch boundary" },
+    { "name": "015", "note": "small random spatial case follows a second arc longer than three pi over two" },
+    { "name": "016", "note": "small random spatial case switches again after less than 0.025 radians" },
+    { "name": "017", "generator": "201624 long_first", "note": "maximum batch of random long first arcs with positive-height final circles and extreme speeds" }
+  ]
+}
