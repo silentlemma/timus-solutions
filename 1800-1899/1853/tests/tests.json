@@ -1,0 +1,30 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1853_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a square with d at half the perimeter: every beam through the centre" },
+    { "name": "04", "note": "a large right triangle with d just under half the perimeter" },
+    { "name": "05", "note": "a long thin rectangle" },
+    { "name": "06", "note": "a hexagon with a short d" },
+    { "name": "gen1", "generator": "1 1", "note": "a small polygon" },
+    { "name": "gen2", "generator": "2 2", "note": "many vertices close to a large circle" },
+    { "name": "gen3", "generator": "3 3", "note": "a long thin needle" },
+    { "name": "gen4", "generator": "4 4", "note": "d at the largest integer below half the perimeter" },
+    { "name": "gen5", "generator": "5 5", "note": "d just over the longest side" },
+    { "name": "gen6", "generator": "6 6", "note": "a few vertices with the largest coordinates" },
+    { "name": "07", "note": "three vertices with the smallest feasible integer distance" },
+    { "name": "08", "note": "a scalene triangle at exactly half the perimeter still draws a curve" },
+    { "name": "09", "note": "a slanted parallelogram collapses the trace to one point" },
+    { "name": "10", "note": "integer side lengths make both endpoints cross vertices simultaneously" },
+    { "name": "11", "note": "one unit below half the perimeter gives a tiny nonzero trace at coordinate limits" },
+    { "name": "12", "note": "a flat triangle has only one feasible integer distance between its bounds" },
+    { "name": "13", "note": "a saved random octagon has unequal edges and unsynchronized corner events" },
+    { "name": "14", "note": "unit bevels next to million-unit edges create very short movement intervals" },
+    { "name": "gen7", "generator": "1853 7", "note": "exactly 10000 strictly convex lattice vertices with the shortest valid distance" },
+    { "name": "gen8", "generator": "1853 8", "note": "an almost symmetric polygon with 9999 vertices at the largest valid distance" },
+    { "name": "gen9", "generator": "1853 9", "note": "seeded Pythagorean sides place the initial receiver exactly on a distant vertex" },
+    { "name": "gen10", "generator": "1853 10", "note": "a sheared lattice polygon with 1000 vertices checks nearly parallel directions and logarithm cancellation" }
+  ]
+}
