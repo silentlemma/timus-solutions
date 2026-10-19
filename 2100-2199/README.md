@@ -5,3 +5,4 @@
 | # | Problem | Tags | Languages |
 |---|---------|------|-----------|
 | 2100 | [Count the guests and avoid thirteen](2100/) | implementation | C++, Go, Python, Java, Rust |
+| 2101 | [Inscribed rectangles through a point inside a triangle](2101/) | geometry | C++, Go, Python, Java, Rust |
