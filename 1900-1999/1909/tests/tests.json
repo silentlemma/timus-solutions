@@ -1,0 +1,197 @@
+{
+  "judging": "tokens",
+  "reference": "1909_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement sample",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "third statement sample",
+      "example": true
+    },
+    {
+      "name": "04",
+      "note": "parallel motion away"
+    },
+    {
+      "name": "05",
+      "note": "endpoint ray tangent while supporting-line entry is outside segment"
+    },
+    {
+      "name": "06",
+      "note": "sphere tangent to swept plane at segment interior"
+    },
+    {
+      "name": "07",
+      "note": "swept plane outside sphere"
+    },
+    {
+      "name": "08",
+      "note": "first supporting-line contact is exactly the first endpoint"
+    },
+    {
+      "name": "09",
+      "note": "first supporting-line contact is exactly the second endpoint"
+    },
+    {
+      "name": "10",
+      "note": "interior beam contact stops both rays before their later collisions"
+    },
+    {
+      "name": "11",
+      "note": "supporting line initially inside sphere but first actual contact is endpoint"
+    },
+    {
+      "name": "12",
+      "note": "initially intersecting supporting line does not imply beam contact"
+    },
+    {
+      "name": "13",
+      "note": "supporting line initially tangent outside beam"
+    },
+    {
+      "name": "14",
+      "note": "initial tangent line moves away"
+    },
+    {
+      "name": "15",
+      "note": "translated sphere at coordinate limits"
+    },
+    {
+      "name": "16",
+      "note": "maximum radius and coordinates; full discriminant exceeds 128 bits"
+    },
+    {
+      "name": "17",
+      "note": "maximum-radius endpoint tangency"
+    },
+    {
+      "name": "18",
+      "note": "swept plane one unit outside maximum sphere"
+    },
+    {
+      "name": "19",
+      "note": "maximum-radius exact swept-plane tangency"
+    },
+    {
+      "name": "20",
+      "note": "swept plane one unit inside tangent position"
+    },
+    {
+      "name": "21",
+      "note": "near-parallel integer vectors have cross product minus one"
+    },
+    {
+      "name": "22",
+      "note": "near-parallel motion with initially intersecting supporting line"
+    },
+    {
+      "name": "23",
+      "note": "nonzero projection slope; exact lower endpoint contact"
+    },
+    {
+      "name": "24",
+      "note": "one unit inside lower projection boundary"
+    },
+    {
+      "name": "25",
+      "note": "one unit outside lower projection boundary"
+    },
+    {
+      "name": "26",
+      "note": "nonzero projection slope; exact upper endpoint contact"
+    },
+    {
+      "name": "27",
+      "note": "one unit inside upper projection boundary"
+    },
+    {
+      "name": "28",
+      "note": "one unit outside upper projection boundary"
+    },
+    {
+      "name": "29",
+      "note": "negative projection slope at exact endpoint boundary"
+    },
+    {
+      "name": "30",
+      "note": "negative slope with strict interior contact"
+    },
+    {
+      "name": "31",
+      "note": "double root and rational boundary coincide at quadratic vertex"
+    },
+    {
+      "name": "32",
+      "note": "double root strictly inside segment"
+    },
+    {
+      "name": "random_small",
+      "note": "generated random small",
+      "generator": "190901 1"
+    },
+    {
+      "name": "random_large",
+      "note": "generated random large",
+      "generator": "190902 2"
+    },
+    {
+      "name": "plane_tangent",
+      "note": "generated plane tangent",
+      "generator": "190903 3"
+    },
+    {
+      "name": "lower_boundary",
+      "note": "generated lower boundary",
+      "generator": "190904 4"
+    },
+    {
+      "name": "strict_interior",
+      "note": "generated strict interior",
+      "generator": "190905 5"
+    },
+    {
+      "name": "outside_projection",
+      "note": "generated outside projection",
+      "generator": "190906 6"
+    },
+    {
+      "name": "parallel",
+      "note": "generated parallel",
+      "generator": "190907 7"
+    },
+    {
+      "name": "nearly_parallel",
+      "note": "generated nearly parallel",
+      "generator": "190908 8"
+    },
+    {
+      "name": "outside_plane",
+      "note": "generated outside plane",
+      "generator": "190909 9"
+    },
+    {
+      "name": "stop_before_crash",
+      "note": "generated stop before crash",
+      "generator": "190910 10"
+    },
+    {
+      "name": "line_initially_inside",
+      "note": "generated line initially inside",
+      "generator": "190911 11"
+    },
+    {
+      "name": "perpendicular",
+      "note": "generated perpendicular",
+      "generator": "190912 12"
+    }
+  ]
+}
