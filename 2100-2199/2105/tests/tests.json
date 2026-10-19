@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "2105_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest values: meetings at every half second" },
+    { "name": "03", "note": "both feed the whole time" },
+    { "name": "04", "note": "the largest speeds and time on the longest path" },
+    { "name": "05", "note": "a meeting exactly at the end" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest values with many intervals" },
+    { "name": "gen3", "generator": "3 3", "note": "the distance ends on a multiple of the length" }
+  ]
+}
