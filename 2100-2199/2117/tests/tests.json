@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "2117_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "C = 0: only 0 + 0" },
+    { "name": "04", "note": "C = 1" },
+    { "name": "05", "note": "10^18 is the square of 10^9" },
+    { "name": "06", "note": "the square of the largest prime below 10^6" },
+    { "name": "07", "note": "two different primes near 10^6" },
+    { "name": "08", "note": "C = 4: 0 + 4 and 1 + 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a random C" },
+    { "name": "gen2", "generator": "2 2", "note": "the square of a large prime times a number" },
+    { "name": "gen3", "generator": "3 3", "note": "a product of small squares" },
+    { "name": "gen4", "generator": "4 4", "note": "two different large primes" }
+  ]
+}
