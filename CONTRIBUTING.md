@@ -13,6 +13,7 @@ README.md                         overview and the list of problem ranges
 1000-1099/1005/README.zh.md
 1000-1099/1005/README.es.md
 1000-1099/1005/1005_<approach>.<ext>   solutions
+1000-1099/1005/1005_<approach>_table.py  generator of a table in the solutions, if any
 1000-1099/1005/tests/             own tests (see "Tests")
 run_tests.py                      test runner (see "Running the tests")
 ```
@@ -97,6 +98,10 @@ name. The suffix is present even when a problem has a single approach.
 Every file is a complete program: it reads standard input and writes standard
 output, exactly as submitted to the judge.
 
+`NNNN_<approach>_table.py`, when present, is not a solution: it prints a table
+that the solutions of that approach hold (see "Tables" below). The test runner
+skips it.
+
 ### Code style
 
 - **Comments** explain what is not obvious: one comment is at most 3 lines; no
@@ -104,9 +109,15 @@ output, exactly as submitted to the judge.
   write-up.
 - **Line length**: at most 100 characters, code and comments alike.
 - **No problem number** in the code: not in identifiers, literals or strings.
-- **No magic numbers**: limits, moduli and other constants of the problem are
-  named constants; bare literals are fine only for trivial values (`0`, `1`,
-  `2`, `-1`, `10`, ...).
+- **No magic numbers**: a number outside [-256, 256] is a named constant whose
+  name tells what it is (`MAX_COORD = 32000`, `MOD = 10**9 + 7`); smaller
+  literals may stay bare.
+- **Tables**: a solution computes what it needs. When that is too slow and it
+  holds a table instead, the table names its source in a comment: an OEIS
+  number for a known sequence, the statement for data given there, or a
+  generator `NNNN_<approach>_table.py` next to the solutions that prints the
+  table from scratch, however slowly. Results of an offline search, packed
+  or encoded data always come with such a generator.
 - **No hardcoding**: the code never special-cases particular inputs, such as
   values from the examples or the tests.
 - **Formatting**: the standard formatter of the language (`gofmt`,
@@ -185,6 +196,7 @@ hidden tests are much stronger.
 | `input_encoding` | optional: the encoding the solutions read the inputs and write the outputs in, e.g. `cp437` |
 | `cases[].name` | file name without extension |
 | `cases[].example` | shown in the "Examples" section of the write-ups |
+| `cases[].format_only` | optional boolean: an official example explicitly illustrating only output format; requires `example: true`, `judging: checker`, and stored files |
 | `cases[].note` | what the test checks; required |
 | `cases[].generator` | arguments of `gen.py`; the test has no files, its input is generated |
 
@@ -206,7 +218,11 @@ python checker.py <input file> <expected output file> <output file>
 
 Exit code 0 means accepted, 1 means wrong answer; a short reason is printed to
 standard output. The checker uses only the Python standard library. The stored
-`.out` files must pass their own checker.
+`.out` files must pass their own checker, except examples explicitly marked
+`format_only: true` because the official statement says their output is only a
+format illustration. Keep that output exact and explain this in the write-up.
+The exception only skips the stored-answer self-check: every actual solution
+output still goes through the checker and must solve the complete task.
 
 ### Generator
 

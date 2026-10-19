@@ -183,11 +183,33 @@ def read(path, encoding="utf-8"):
         return f.read()
 
 
+def format_only_examples(spec):
+    """Keep explicit format illustrations out of stored-answer self-checks."""
+    names = set()
+    for case in spec["cases"]:
+        flag = case.get("format_only", False)
+        if not isinstance(flag, bool):
+            raise ValueError("format_only must be a boolean")
+        if not flag:
+            continue
+        if spec.get("judging", "tokens") != "checker" or case.get("example") is not True:
+            raise ValueError("format_only requires a checker and an example")
+        if "generator" in case:
+            raise ValueError("format_only requires a stored example")
+        names.add(case["name"])
+    return names
+
+
 def run_problem(problem, only, pypy):
     sol_dir = problem_dir(problem)
     tests_dir = os.path.join(sol_dir, "tests")
     spec = json.load(open(os.path.join(tests_dir, "tests.json"), encoding="utf-8"))
     judging = spec.get("judging", "tokens")
+    try:
+        illustrations = format_only_examples(spec)
+    except ValueError as error:
+        print("%s: %s" % (problem, error))
+        return False
     # the encoding of the inputs and outputs the solutions see; stored files are UTF-8
     encoding = spec.get("input_encoding", "utf-8")
     cases = [c["name"] for c in spec["cases"]]
@@ -228,14 +250,18 @@ def run_problem(problem, only, pypy):
             with open(os.path.join(expected, n + ".out"), "w", encoding="utf-8", newline="") as f:
                 f.write(read(os.path.join(ref_out, n + ".out"), encoding))
 
+    # NNNN_<approach>_table.py prints a table of a solution and is not one itself
     solutions = sorted(
-        f for f in os.listdir(sol_dir) if os.path.splitext(f)[1] in IMAGES and only in f
+        f
+        for f in os.listdir(sol_dir)
+        if os.path.splitext(f)[1] in IMAGES and only in f and not f.endswith("_table.py")
     )
     ok = True
     if judging == "checker":
-        # the stored answers must pass their own checker
+        # Stored solutions must pass; explicit format illustrations need not.
         verdicts = check(problem, tests_dir, base, expected)
-        bad = [n for n in cases if n not in generated and verdicts.get(n, [1])[0] != 0]
+        bad = [n for n in cases if n not in generated and n not in illustrations
+               and verdicts.get(n, [1])[0] != 0]
         if bad:
             print("%s: stored outputs rejected by checker.py: %s" % (problem, ", ".join(bad)))
             ok = False
