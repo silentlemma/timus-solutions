@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2096_dfs_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one day and an empty question line" },
+    { "name": "03", "note": "one day with independent versions and both activity limits" },
+    { "name": "04", "note": "sibling rollback and a child of an earlier sibling" },
+    { "name": "05", "note": "overlapping progressions use the last change on each day" },
+    { "name": "06", "note": "many questions share targets and retain their input order" },
+    { "name": "07", "note": "deep inheritance through versions without changes or questions" },
+    { "name": "08", "note": "single changes allow the largest period and include the final day" },
+    { "name": "09", "note": "all versions inherit unchanged plans from different ancestors" },
+    { "name": "10", "note": "every answer line is empty despite nontrivial changes" },
+    { "name": "11", "note": "rollback restores a deep common ancestor before visiting another branch" },
+    { "name": "12", "note": "the maximum number of changes per plan can repeatedly overwrite one day" },
+    { "name": "gen1", "generator": "small 1", "note": "small random plan tree" },
+    { "name": "gen2", "generator": "small 2", "note": "small random tree with another seed" },
+    { "name": "gen3", "generator": "medium 3", "note": "medium random branches and arithmetic progressions" },
+    { "name": "gen4", "generator": "limits 4", "note": "all aggregate limits with a chain of versions" },
+    { "name": "gen5", "generator": "chain 5", "note": "maximum depth with only ten days" },
+    { "name": "gen6", "generator": "siblings 6", "note": "maximum width with independent sibling plans" },
+    { "name": "gen7", "generator": "changes 7", "note": "maximum questions and changes within individual blocks" },
+    { "name": "gen8", "generator": "strides 8", "note": "large strided overlaps in a branching tree" },
+    { "name": "gen9", "generator": "empty 9", "note": "maximum friends and changes with no questions" },
+    { "name": "gen10", "generator": "rollback 10", "note": "a deep history remains live while visiting many sibling leaves" },
+    { "name": "gen11", "generator": "sweeps 11", "note": "maximum individual progressions rewrite every day along a deep chain" }
+  ]
+}
