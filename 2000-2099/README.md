@@ -63,3 +63,4 @@
 | 2056 | [Determine the scholarship category](2056/) | implementation | C++, Go, Python, Java, Rust |
 | 2057 | [Minimum and maximum nonpalindromic factors](2057/) | strings | C++, Go, Python, Java, Rust |
 | 2058 | [Odd and even palindromic partitions](2058/) | strings, dp | C++, Go, Python, Java, Rust |
+| 2059 | [Compare palindrome frequencies](2059/) | strings | C++, Go, Python, Java, Rust |

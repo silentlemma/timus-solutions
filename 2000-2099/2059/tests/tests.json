@@ -1,0 +1,103 @@
+{
+  "judging": "checker",
+  "reference": "2059_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "example": true,
+      "note": "All three exact official sample pairs"
+    },
+    {
+      "name": "002",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "003",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "004",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "005",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "006",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "007",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "008",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "009",
+      "note": "Independent literal overlapping-palindrome counts; every test pair"
+    },
+    {
+      "name": "max_equal_unary",
+      "generator": "205912 equal_unary",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_disjoint_unary",
+      "generator": "205912 disjoint_unary",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_equal_alternating",
+      "generator": "205912 equal_alternating",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_aggregate_unary",
+      "generator": "205912 aggregate_unary",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_many_single_letters",
+      "generator": "205912 many_single_letters",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_aggregate_period2",
+      "generator": "205912 aggregate_period2",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_aggregate_disjoint_period2",
+      "generator": "205912 aggregate_disjoint_period2",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_aggregate_period26",
+      "generator": "205912 aggregate_period26",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_many_varied_single_letters",
+      "generator": "205912 many_varied_single_letters",
+      "note": "Closed-form counts for every pair; maximal lengths or near/full 8 MB input"
+    },
+    {
+      "name": "max_ruler",
+      "generator": "205912 max_ruler",
+      "note": "Independent exact Manacher occurrence enumeration and suffix-array LCP grouping"
+    },
+    {
+      "name": "max_binary",
+      "generator": "205912 max_binary",
+      "note": "Independent exact Manacher occurrence enumeration and suffix-array LCP grouping"
+    },
+    {
+      "name": "max_letters",
+      "generator": "205912 max_letters",
+      "note": "Independent exact Manacher occurrence enumeration and suffix-array LCP grouping"
+    }
+  ]
+}
