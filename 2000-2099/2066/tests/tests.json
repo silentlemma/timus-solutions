@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "2066_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "all zeros" },
+    { "name": "03", "note": "a one: adding beats multiplying" },
+    { "name": "04", "note": "all ones" },
+    { "name": "05", "note": "two times two equals two plus two" },
+    { "name": "06", "note": "the largest values" },
+    { "name": "07", "note": "two zeros" },
+    { "name": "08", "note": "a product wins" },
+    { "name": "gen1", "generator": "1", "note": "random values" },
+    { "name": "gen2", "generator": "2", "note": "small distinct positive operands favor multiplication" },
+    { "name": "09", "note": "zero and two maximum operands reach the global minimum" },
+    { "name": "10", "note": "repeated positive minima make subtracting both numbers strictly best" },
+    { "name": "11", "note": "addition and multiplication tie with unequal input values" }
+  ]
+}
