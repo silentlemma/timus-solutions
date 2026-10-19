@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "1845_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a unit modulus: only 0 is smaller" },
+    { "name": "03", "note": "one entry already smaller than the modulus" },
+    { "name": "04", "note": "a zero column: the determinant is 0" },
+    { "name": "05", "note": "a permutation matrix: zero pivots need row swaps" },
+    { "name": "06", "note": "the largest entries with the modulus 1 + i" },
+    { "name": "07", "note": "a diagonal of i: the determinant is a unit" },
+    { "name": "gen1", "generator": "1 1", "note": "a small random matrix" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest random matrix and modulus" },
+    { "name": "gen3", "generator": "3 3", "note": "two equal rows: the determinant is 0" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest matrix with a unit modulus" },
+    { "name": "gen5", "generator": "5 5", "note": "a real modulus" },
+    { "name": "gen6", "generator": "6 6", "note": "a modulus divisible by an integer and by 1 + i" },
+    { "name": "gen7", "generator": "7 7", "note": "a sparse matrix with many zero pivots" },
+    { "name": "gen8", "generator": "8 8", "note": "a matrix of real numbers" }
+  ]
+}
