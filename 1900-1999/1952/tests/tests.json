@@ -1,0 +1,496 @@
+{
+  "judging": "tokens",
+  "reference": "1952_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "exact_fraction_official_sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "exact_fraction_official_sample",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "exact_fraction_strict_mage_zero_health"
+    },
+    {
+      "name": "case_004",
+      "note": "exact_fraction_strict_mage_zero_health"
+    },
+    {
+      "name": "case_005",
+      "note": "exact_fraction_strict_mage_zero_health"
+    },
+    {
+      "name": "case_006",
+      "note": "exact_fraction_dragon_zero_at_Storm_end"
+    },
+    {
+      "name": "case_007",
+      "note": "exact_fraction_dragon_zero_at_Storm_end"
+    },
+    {
+      "name": "case_008",
+      "note": "exact_fraction_dragon_zero_at_Storm_end"
+    },
+    {
+      "name": "case_009",
+      "note": "exact_fraction_old_center_midrun_is_not_final_Storm"
+    },
+    {
+      "name": "case_010",
+      "note": "exact_fraction_Tail_only"
+    },
+    {
+      "name": "case_011",
+      "note": "exact_fraction_four_person_full_two_Breath_permutations"
+    },
+    {
+      "name": "case_012",
+      "note": "exact_fraction_four_person_full_two_Breath_permutations"
+    },
+    {
+      "name": "case_013",
+      "note": "exact_fraction_seeded_exact_collinear_S"
+    },
+    {
+      "name": "case_014",
+      "note": "exact_fraction_seeded_exact_collinear_S"
+    },
+    {
+      "name": "case_015",
+      "note": "exact_fraction_seeded_exact_collinear_BS"
+    },
+    {
+      "name": "case_016",
+      "note": "exact_fraction_seeded_exact_collinear_BS"
+    },
+    {
+      "name": "case_017",
+      "note": "exact_fraction_seeded_exact_collinear_BBS"
+    },
+    {
+      "name": "case_018",
+      "note": "exact_fraction_seeded_exact_collinear_BBS"
+    },
+    {
+      "name": "case_019",
+      "note": "exact_fraction_seeded_exact_collinear_SBS"
+    },
+    {
+      "name": "case_020",
+      "note": "exact_fraction_seeded_exact_collinear_SBS"
+    },
+    {
+      "name": "case_021",
+      "note": "exact_fraction_seeded_exact_collinear_SBBS"
+    },
+    {
+      "name": "case_022",
+      "note": "exact_fraction_seeded_exact_collinear_SBBS"
+    },
+    {
+      "name": "case_023",
+      "note": "exact_fraction_seeded_exact_collinear_BSBBS"
+    },
+    {
+      "name": "case_024",
+      "note": "exact_fraction_seeded_exact_collinear_BSBBS"
+    },
+    {
+      "name": "case_025",
+      "note": "seeded_general_geometry"
+    },
+    {
+      "name": "case_026",
+      "note": "seeded_general_geometry"
+    },
+    {
+      "name": "case_027",
+      "note": "seeded_general_geometry"
+    },
+    {
+      "name": "case_028",
+      "note": "seeded_general_geometry"
+    },
+    {
+      "name": "case_029",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_030",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_031",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_032",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_033",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_034",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_035",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_036",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_037",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_038",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_039",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_040",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_041",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_042",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_043",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_044",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_045",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_046",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_047",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_048",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_049",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_050",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_051",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_052",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_053",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_054",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_055",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_056",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_057",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_058",
+      "note": "preserved_strict_health_regression"
+    },
+    {
+      "name": "case_059",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_060",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_061",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_062",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_063",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_064",
+      "note": "seeded_exact_event_mixed_geometry"
+    },
+    {
+      "name": "case_065",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_066",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_067",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_068",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_069",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_070",
+      "note": "exact_dragon_integer_tie_with_unused_sqrt2"
+    },
+    {
+      "name": "case_071",
+      "note": "coarse_healer_quantum_H3_G1"
+    },
+    {
+      "name": "case_072",
+      "note": "coarse_healer_quantum_H3_G999"
+    },
+    {
+      "name": "case_073",
+      "note": "coarse_healer_quantum_H3_G1000"
+    },
+    {
+      "name": "case_074",
+      "note": "coarse_healer_quantum_H3_G1001"
+    },
+    {
+      "name": "case_075",
+      "note": "coarse_healer_quantum_H4_G1"
+    },
+    {
+      "name": "case_076",
+      "note": "coarse_healer_quantum_H4_G999"
+    },
+    {
+      "name": "case_077",
+      "note": "coarse_healer_quantum_H4_G1000"
+    },
+    {
+      "name": "case_078",
+      "note": "coarse_healer_quantum_H4_G1001"
+    },
+    {
+      "name": "case_079",
+      "note": "dense_threshold_roles1_9_blocks1_delta-1"
+    },
+    {
+      "name": "case_080",
+      "note": "dense_threshold_roles1_9_blocks1_delta0"
+    },
+    {
+      "name": "case_081",
+      "note": "dense_threshold_roles1_9_blocks1_delta1"
+    },
+    {
+      "name": "case_082",
+      "note": "dense_threshold_roles1_9_blocks2_delta-1"
+    },
+    {
+      "name": "case_083",
+      "note": "dense_threshold_roles1_9_blocks2_delta0"
+    },
+    {
+      "name": "case_084",
+      "note": "dense_threshold_roles1_9_blocks2_delta1"
+    },
+    {
+      "name": "case_085",
+      "note": "dense_threshold_roles5_5_blocks1_delta-1"
+    },
+    {
+      "name": "case_086",
+      "note": "dense_threshold_roles5_5_blocks1_delta0"
+    },
+    {
+      "name": "case_087",
+      "note": "dense_threshold_roles5_5_blocks1_delta1"
+    },
+    {
+      "name": "case_088",
+      "note": "dense_threshold_roles5_5_blocks2_delta-1"
+    },
+    {
+      "name": "case_089",
+      "note": "dense_threshold_roles5_5_blocks2_delta0"
+    },
+    {
+      "name": "case_090",
+      "note": "dense_threshold_roles5_5_blocks2_delta1"
+    },
+    {
+      "name": "case_091",
+      "note": "dense_threshold_roles9_1_blocks1_delta-1"
+    },
+    {
+      "name": "case_092",
+      "note": "dense_threshold_roles9_1_blocks1_delta0"
+    },
+    {
+      "name": "case_093",
+      "note": "dense_threshold_roles9_1_blocks1_delta1"
+    },
+    {
+      "name": "case_094",
+      "note": "dense_threshold_roles9_1_blocks2_delta-1"
+    },
+    {
+      "name": "case_095",
+      "note": "dense_threshold_roles9_1_blocks2_delta0"
+    },
+    {
+      "name": "case_096",
+      "note": "dense_threshold_roles9_1_blocks2_delta1"
+    },
+    {
+      "name": "case_097",
+      "note": "unequal_healer_tie_roles1_9_delta-1"
+    },
+    {
+      "name": "case_098",
+      "note": "unequal_healer_tie_roles1_9_delta0"
+    },
+    {
+      "name": "case_099",
+      "note": "unequal_healer_tie_roles1_9_delta1"
+    },
+    {
+      "name": "case_100",
+      "note": "unequal_healer_tie_roles5_5_delta-1"
+    },
+    {
+      "name": "case_101",
+      "note": "unequal_healer_tie_roles5_5_delta0"
+    },
+    {
+      "name": "case_102",
+      "note": "unequal_healer_tie_roles5_5_delta1"
+    },
+    {
+      "name": "case_103",
+      "note": "heavy_exact"
+    },
+    {
+      "name": "case_104",
+      "note": "heavy_irrational"
+    },
+    {
+      "name": "case_105",
+      "note": "heavy_exact_mixed"
+    },
+    {
+      "name": "case_106",
+      "note": "wide_rates_roles_5_5"
+    },
+    {
+      "name": "case_107",
+      "note": "wide_rates_fast_roles_5_5"
+    },
+    {
+      "name": "case_108",
+      "note": "wide_rates_roles_9_1"
+    },
+    {
+      "name": "case_109",
+      "note": "wide_rates_fast_roles_9_1"
+    },
+    {
+      "name": "case_110",
+      "note": "roles_1_9_mixedFalse"
+    },
+    {
+      "name": "case_111",
+      "note": "roles_1_9_mixedTrue"
+    },
+    {
+      "name": "case_112",
+      "note": "roles_9_1_mixedFalse"
+    },
+    {
+      "name": "case_113",
+      "note": "roles_9_1_mixedTrue"
+    },
+    {
+      "name": "case_114",
+      "note": "exact_health_tie_roles_1_9_delta0"
+    },
+    {
+      "name": "case_115",
+      "note": "exact_health_tie_roles_1_9_delta1"
+    },
+    {
+      "name": "case_116",
+      "note": "exact_dragon_tie_roles_1_9"
+    },
+    {
+      "name": "case_117",
+      "note": "exact_health_tie_roles_5_5_delta0"
+    },
+    {
+      "name": "case_118",
+      "note": "exact_health_tie_roles_5_5_delta1"
+    },
+    {
+      "name": "case_119",
+      "note": "exact_dragon_tie_roles_5_5"
+    },
+    {
+      "name": "case_120",
+      "note": "exact_health_tie_roles_9_1_delta0"
+    },
+    {
+      "name": "case_121",
+      "note": "exact_health_tie_roles_9_1_delta1"
+    },
+    {
+      "name": "case_122",
+      "note": "exact_dragon_tie_roles_9_1"
+    }
+  ]
+}
