@@ -91,3 +91,4 @@
 | 2084 | [Order tasks that pay down a debt](2084/) | dp, sorting | C++, Go, Python, Java, Rust |
 | 2085 | [A tree path that uses every technology once](2085/) | hashing, trees | C++, Go, Python, Java, Rust |
 | 2086 | [A triangle placed through a point on one of its sides](2086/) | geometry, math | C++, Go, Python, Java, Rust |
+| 2087 | [Switch the turnouts only where the last train went elsewhere](2087/) | trees, segment_tree | C++, Go, Python, Java, Rust |

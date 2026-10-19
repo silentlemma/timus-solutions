@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "2087_trees_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one edge and no switches" },
+    { "name": "04", "note": "a forced corner needs no changes" },
+    { "name": "05", "note": "all three exits at a four-way switch" },
+    { "name": "06", "note": "the depot is east of the switch" },
+    { "name": "07", "note": "the depot is south of the switch" },
+    { "name": "08", "note": "the depot is north of the switch" },
+    { "name": "09", "note": "simultaneous changes on separate branches" },
+    { "name": "10", "note": "event timestamps exceed the last allowed departure" },
+    { "name": "11", "note": "several forced turns before a branching switch" },
+    { "name": "12", "note": "an unused branch keeps its previous switch state" },
+    { "name": "random", "generator": "random 1", "note": "a random small grid tree" },
+    { "name": "sparse", "generator": "sparse 2", "note": "a sparse tree with unused cells" },
+    { "name": "batches", "generator": "batches 3", "note": "repeated destinations in batches" },
+    { "name": "zero", "generator": "zero 4", "note": "all required positions are already set" },
+    { "name": "repeats", "generator": "repeats 5", "note": "200000 identical destinations" },
+    { "name": "comb", "generator": "comb 6", "note": "a full 500 by 500 comb and 200000 changes" },
+    { "name": "snake", "generator": "snake 7", "note": "a deep full grid tree and 200000 changes" },
+    { "name": "snake_repeat", "generator": "snake_repeat 8", "note": "a deep full grid with no changes" },
+    { "name": "max_output", "generator": "max_output 9", "note": "200000 changes at one switch" },
+    { "name": "sweep", "generator": "sweep 10", "note": "a full random grid tree visited in alternating depth-first leaf order" }
+  ]
+}
