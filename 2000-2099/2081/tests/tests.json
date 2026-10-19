@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2081_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any consistent answer is accepted" },
+    { "name": "02", "note": "a dark dial: any time fits" },
+    { "name": "03", "note": "a full reading of 20:41, which 28:49 fits as well, then two dark ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a few readings, half the segments lost" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred readings, a few segments lost" },
+    { "name": "gen3", "generator": "3 3", "note": "a hundred close readings, most segments lost" },
+    { "name": "gen4", "generator": "4 4", "note": "a hundred dark readings" },
+    { "name": "04", "note": "one fully lit reading at the upper time limit 59:59" },
+    { "name": "05", "note": "four readings force 08:08, 08:00, 00:08 and the lower time limit 00:00" },
+    { "name": "06", "note": "a full dial crosses from 38:00 to 37:59 with a minute borrow" },
+    { "name": "07", "note": "fully lit readings exercise all ten digit shapes and all four cells" },
+    { "name": "08", "note": "eight identical lit readings must restore eight distinct decreasing times" },
+    { "name": "09", "note": "each of the seven segment positions is shown alone in the minutes units cell" },
+    { "name": "10", "note": "a dark first reading must leave room above a forced final reading of 58:58" },
+    { "name": "11", "note": "maximum 100 fully lit readings count down by one second through 01:00 to 00:00" },
+    { "name": "12", "note": "seeded random readings erase a different whole digit cell at each step" },
+    { "name": "13", "note": "alternating dark and lit readings require reserving times between later constraints" },
+    { "name": "14", "note": "seeded random readings retain exactly one segment in each of the four digits" }
+  ]
+}
