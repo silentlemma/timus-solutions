@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "2068_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a three-nut heap allows exactly one move" },
+    { "name": "02", "example": true, "note": "three one-nut heaps leave the first player without a move" },
+    { "name": "03", "example": true, "note": "mixed heap sizes give an odd total of 825 moves" },
+    { "name": "04", "note": "a single heap of one nut: no move at all" },
+    { "name": "05", "note": "five nuts: two moves" },
+    { "name": "06", "note": "the largest heap" },
+    { "name": "07", "note": "three heaps of three" },
+    { "name": "08", "note": "the largest heap with an odd number of moves" },
+    { "name": "gen1", "generator": "1 1", "note": "small heaps" },
+    { "name": "gen2", "generator": "2 2", "note": "random heaps" },
+    { "name": "gen3", "generator": "2 3", "note": "varied heap sizes give an even total despite many legal moves" },
+    { "name": "gen4", "generator": "3 4", "note": "all 777 heaps near the largest size" },
+    { "name": "09", "note": "two one-move heaps cancel despite legal moves being available" },
+    { "name": "10", "note": "maximum heap count and all heap sizes maximal" },
+    { "name": "11", "note": "only the last of 777 heaps can move" }
+  ]
+}
