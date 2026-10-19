@@ -1,0 +1,100 @@
+{
+  "judging": "tokens",
+  "reference": "1904_math_sorting.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one zero reference"
+    },
+    {
+      "name": "03",
+      "note": "original reading may be negative"
+    },
+    {
+      "name": "04",
+      "note": "single positive boundary"
+    },
+    {
+      "name": "05",
+      "note": "negative last reference makes the calm set empty"
+    },
+    {
+      "name": "06",
+      "note": "only one original reading is calm"
+    },
+    {
+      "name": "07",
+      "note": "two separated real intervals"
+    },
+    {
+      "name": "08",
+      "note": "touching inverse branches must merge"
+    },
+    {
+      "name": "09",
+      "note": "repeated zero folds"
+    },
+    {
+      "name": "10",
+      "note": "two isolated readings"
+    },
+    {
+      "name": "11",
+      "note": "impossible intermediate output"
+    },
+    {
+      "name": "12",
+      "note": "two points including a far negative original reading"
+    },
+    {
+      "name": "small",
+      "note": "small random folds",
+      "generator": "1 1"
+    },
+    {
+      "name": "components",
+      "note": "512 disjoint calm intervals",
+      "generator": "2 2"
+    },
+    {
+      "name": "zero",
+      "note": "ten identical zero folds",
+      "generator": "3 3"
+    },
+    {
+      "name": "positive",
+      "note": "maximum positive references",
+      "generator": "4 4"
+    },
+    {
+      "name": "empty",
+      "note": "a full-length chain with no calm reading",
+      "generator": "5 5"
+    },
+    {
+      "name": "points",
+      "note": "closed endpoint filtering",
+      "generator": "6 6"
+    },
+    {
+      "name": "signs",
+      "note": "alternating reference bounds",
+      "generator": "7 7"
+    },
+    {
+      "name": "random",
+      "note": "full-range signed random references",
+      "generator": "8 8"
+    },
+    {
+      "name": "shifted",
+      "note": "512 components shifted to negative original readings",
+      "generator": "9 9"
+    }
+  ]
+}
