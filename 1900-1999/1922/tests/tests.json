@@ -1,0 +1,127 @@
+{
+  "judging": "checker",
+  "reference": "1922_sorting.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example: two nested reliable teams",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one effective singleton"
+    },
+    {
+      "name": "03",
+      "note": "empty teams are excluded"
+    },
+    {
+      "name": "04",
+      "note": "threshold at the upper bound but no effective team"
+    },
+    {
+      "name": "05",
+      "note": "only the full team is reliable"
+    },
+    {
+      "name": "06",
+      "note": "an outsider at size plus one prevents reliability"
+    },
+    {
+      "name": "07",
+      "note": "two members become effective together"
+    },
+    {
+      "name": "08",
+      "note": "no nonempty effective team"
+    },
+    {
+      "name": "09",
+      "note": "single-addition reliability is not global maximality"
+    },
+    {
+      "name": "10",
+      "note": "a duplicate threshold group cannot be split"
+    },
+    {
+      "name": "11",
+      "note": "the next threshold is exactly one too small"
+    },
+    {
+      "name": "12",
+      "note": "a reliable singleton with no effective full team"
+    },
+    {
+      "name": "13",
+      "note": "several separated reliable prefix sizes"
+    },
+    {
+      "name": "14",
+      "note": "all thresholds exceed the population"
+    },
+    {
+      "name": "15",
+      "note": "reliability at an even size"
+    },
+    {
+      "name": "16",
+      "note": "an ineffective partial prefix is rejected"
+    },
+    {
+      "name": "17",
+      "note": "large gaps after an effective singleton"
+    },
+    {
+      "name": "18",
+      "note": "original member indices after sorting"
+    },
+    {
+      "name": "19",
+      "note": "a dense consecutive threshold sequence"
+    },
+    {
+      "name": "20",
+      "note": "a full team at exact threshold"
+    },
+    {
+      "name": "stress1",
+      "generator": "9001 1",
+      "note": "large output or threshold boundary; mode 1"
+    },
+    {
+      "name": "stress2",
+      "generator": "9002 2",
+      "note": "large output or threshold boundary; mode 2"
+    },
+    {
+      "name": "stress3",
+      "generator": "9003 3",
+      "note": "large output or threshold boundary; mode 3"
+    },
+    {
+      "name": "stress4",
+      "generator": "9004 4",
+      "note": "large output or threshold boundary; mode 4"
+    },
+    {
+      "name": "stress5",
+      "generator": "9005 5",
+      "note": "large output or threshold boundary; mode 5"
+    },
+    {
+      "name": "stress6",
+      "generator": "9006 6",
+      "note": "large output or threshold boundary; mode 6"
+    },
+    {
+      "name": "stress7",
+      "generator": "9007 7",
+      "note": "large output or threshold boundary; mode 7"
+    },
+    {
+      "name": "stress8",
+      "generator": "9008 8",
+      "note": "large output or threshold boundary; mode 8"
+    }
+  ]
+}
