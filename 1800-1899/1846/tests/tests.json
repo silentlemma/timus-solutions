@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1846_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one of two equal numbers removed" },
+    { "name": "02", "note": "the largest number, then an empty set" },
+    { "name": "03", "note": "a single number" },
+    { "name": "04", "note": "a gcd that grows back and a large prime" },
+    { "name": "05", "note": "one number added twice and removed twice" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small numbers" },
+    { "name": "gen2", "generator": "2 2", "note": "the most operations with random large numbers" },
+    { "name": "gen3", "generator": "3 3", "note": "multiples of one large number" },
+    { "name": "gen4", "generator": "4 4", "note": "a few equal numbers added and removed" },
+    { "name": "gen5", "generator": "5 5", "note": "powers of two times small odd numbers" },
+    { "name": "gen6", "generator": "6 6", "note": "everything added and then removed" }
+  ]
+}
