@@ -1,0 +1,139 @@
+{
+  "judging": "tokens",
+  "reference": "1907_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "smallest odd side and bound"
+    },
+    {
+      "name": "03",
+      "note": "smallest even side has no admissible size"
+    },
+    {
+      "name": "04",
+      "note": "one invalid opposite-parity size"
+    },
+    {
+      "name": "05",
+      "note": "powers of two only permit even sizes"
+    },
+    {
+      "name": "06",
+      "note": "even side also admits odd multiples of three"
+    },
+    {
+      "name": "07",
+      "note": "overlap of two odd prime divisors"
+    },
+    {
+      "name": "08",
+      "note": "even side with overlapping odd divisors"
+    },
+    {
+      "name": "09",
+      "note": "prime exponents must not create duplicate factors"
+    },
+    {
+      "name": "10",
+      "note": "odd bound and repeated prime factors"
+    },
+    {
+      "name": "11",
+      "note": "three odd prime divisors"
+    },
+    {
+      "name": "12",
+      "note": "four odd prime divisors"
+    },
+    {
+      "name": "13",
+      "note": "large prime with tiny bound"
+    },
+    {
+      "name": "14",
+      "note": "large repeated prime factor"
+    },
+    {
+      "name": "15",
+      "note": "closed form for unit side"
+    },
+    {
+      "name": "16",
+      "note": "closed form for power of two and odd bound"
+    },
+    {
+      "name": "17",
+      "note": "one odd prime with a huge exponent"
+    },
+    {
+      "name": "18",
+      "note": "maximum inputs; one odd prime factor"
+    },
+    {
+      "name": "small",
+      "note": "generated small",
+      "generator": "190701 1"
+    },
+    {
+      "name": "large_prime",
+      "note": "generated large prime",
+      "generator": "190702 2"
+    },
+    {
+      "name": "dense_odd",
+      "note": "generated dense odd",
+      "generator": "190703 3"
+    },
+    {
+      "name": "dense_even",
+      "note": "generated dense even",
+      "generator": "190704 4"
+    },
+    {
+      "name": "prime_square",
+      "note": "generated prime square",
+      "generator": "190705 5"
+    },
+    {
+      "name": "power_two",
+      "note": "generated power two",
+      "generator": "190706 6"
+    },
+    {
+      "name": "power_three",
+      "note": "generated power three",
+      "generator": "190707 7"
+    },
+    {
+      "name": "unit",
+      "note": "generated unit",
+      "generator": "190708 8"
+    },
+    {
+      "name": "maximum",
+      "note": "generated maximum",
+      "generator": "190709 9"
+    },
+    {
+      "name": "semiprime",
+      "note": "generated semiprime",
+      "generator": "190710 10"
+    },
+    {
+      "name": "prime_powers",
+      "note": "generated prime powers",
+      "generator": "190711 11"
+    },
+    {
+      "name": "random_large",
+      "note": "generated random large",
+      "generator": "190712 12"
+    }
+  ]
+}
