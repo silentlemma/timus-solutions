@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1868_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: three winners" },
+    { "name": "02", "note": "one forecaster with an empty forecast" },
+    { "name": "03", "note": "a perfect forecast beats a short one" },
+    { "name": "04", "note": "names are case-sensitive" },
+    { "name": "05", "note": "names of dots and commas, a team without a medal" },
+    { "name": "06", "note": "nobody guessed anything" },
+    { "name": "gen1", "generator": "1 1", "note": "a few forecasters" },
+    { "name": "gen2", "generator": "2 2", "note": "the most forecasters at random" },
+    { "name": "gen3", "generator": "3 3", "note": "guesses among the medallists only" },
+    { "name": "gen4", "generator": "4 4", "note": "empty or tiny forecasts" },
+    { "name": "gen5", "generator": "5 5", "note": "full, nearly right forecasts" }
+  ]
+}
