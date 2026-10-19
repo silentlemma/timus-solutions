@@ -37,3 +37,4 @@
 | 1830 | [Help in the RNOS](1830/) | math | C++, Go, Python, Java, Rust |
 | 1831 | [Tsyfirkin's Lesson](1831/) | probability | C++, Go, Python, Java, Rust |
 | 1832 | [Arirang Show](1832/) | constructive | C++, Go, Python, Java, Rust |
+| 1833 | [Hopes of Rowing](1833/) | matching | C++, Go, Python, Java, Rust |

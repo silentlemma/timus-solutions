@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1833_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a four-cycle" },
+    { "name": "02", "note": "no crews: nobody is paid" },
+    { "name": "03", "note": "a single crew" },
+    { "name": "04", "note": "a triangle: halves are needed" },
+    { "name": "05", "note": "a star: the centre takes all" },
+    { "name": "06", "note": "two triangles with k = 1" },
+    { "name": "07", "note": "an odd five-cycle" },
+    { "name": "gen1", "generator": "1 1", "note": "a few canoeists" },
+    { "name": "gen2", "generator": "2 2", "note": "the most crews at random" },
+    { "name": "gen3", "generator": "3 3", "note": "a long odd cycle with chords" },
+    { "name": "gen4", "generator": "4 4", "note": "a complete bipartite graph" },
+    { "name": "gen5", "generator": "5 5", "note": "sparse crews" },
+    { "name": "gen6", "generator": "6 2", "note": "maximum crew count with an even bonus threshold" },
+    { "name": "gen7", "generator": "7 3", "note": "a long cycle with chords" },
+    { "name": "08", "note": "a triangle joined to a two-leaf star forces zero, half and full bonuses together" },
+    { "name": "09", "note": "two private leaves per triangle vertex make a non-bipartite optimum integral" },
+    { "name": "10", "note": "a nine-vertex path leaves both endpoints unpaid at the maximum bonus" },
+    { "name": "11", "note": "a triangle, a short path, an edge and an isolate need independent component optima" },
+    { "name": "12", "note": "a retained random connected graph has mixed payments and a crew with surplus" },
+    { "name": "13", "note": "a maximum-sized path with reversed crews exercises long alternating searches" },
+    { "name": "14", "generator": "183314 6", "note": "equal bipartitions hide a Hall deficit and a 150-canoeist cover at maximum k" },
+    { "name": "15", "generator": "183315 7", "note": "a group of 249 triangles shares one hub while the last canoeist stays isolated" },
+    { "name": "16", "generator": "183316 8", "note": "a seeded 500-vertex branching tree tests an integral optimum with k equal to one" }
+  ]
+}
