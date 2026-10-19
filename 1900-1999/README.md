@@ -71,3 +71,4 @@
 | 1964 | [Smallest Common Membership](1964/) | math | C++, Go, Python, Java, Rust |
 | 1965 | [Two Monotone Subsequences](1965/) | dp | C++, Go, Python, Java, Rust |
 | 1966 | [Connectivity Along Intersecting Segments](1966/) | dsu, geometry | C++, Go, Python, Java, Rust |
+| 1967 | [Optimal Decimal Concatenation of Binary Blocks](1967/) | greedy | C++, Go, Python, Java, Rust |
