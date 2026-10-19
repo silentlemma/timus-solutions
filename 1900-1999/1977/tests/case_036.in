@@ -1,0 +1,24 @@
+5 81
+22
+19 save 1 2
+31 enforce 2 2
+43 enforce 3 3
+44 enforce 1 1
+46 save 3 5
+65 save 2 4
+77 enforce 1 1
+87 enforce 3 2
+101 enforce 4 1
+107 enforce 3 2
+123 save 1 2
+131 enforce 2 1
+138 save 2 4
+155 enforce 5 1
+158 save 1 3
+171 enforce 5 1
+179 enforce 1 1
+180 save 3 4
+195 enforce 1 1
+211 enforce 5 1
+213 save 1 4
+230 enforce 3 2

@@ -81,3 +81,4 @@
 | 1974 | [Maximum Aligned Matches Between Note Sequences](1974/) | bitmask, bruteforce | C++, Go, Python, Java, Rust |
 | 1975 | [Counting Rotations of Marked Sphere Points](1975/) | geometry | C++, Go, Python, Java, Rust |
 | 1976 | [Squared Distances to the Nearest Base](1976/) | geometry | C++, Go, Python, Java, Rust |
+| 1977 | [Growing energy and triangular redistribution](1977/) | segment_tree, simulation | C++, Go, Python, Java, Rust |
