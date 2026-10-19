@@ -1,0 +1,132 @@
+{
+  "judging": "checker",
+  "reference": "1906_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement example: a decreasing rational ratio",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "single zero observation"
+    },
+    {
+      "name": "04",
+      "note": "single maximum observation"
+    },
+    {
+      "name": "05",
+      "note": "a zero cannot be followed by a positive remainder"
+    },
+    {
+      "name": "06",
+      "note": "zero tail until a contradictory observation"
+    },
+    {
+      "name": "07",
+      "note": "normalization by the first-column gcd"
+    },
+    {
+      "name": "08",
+      "note": "maximal valid modulus is a proper divisor of the constraint"
+    },
+    {
+      "name": "09",
+      "note": "strip an excess prime power without factorization"
+    },
+    {
+      "name": "10",
+      "note": "nonzero minor leaves no sufficiently large modulus"
+    },
+    {
+      "name": "11",
+      "note": "a constant prefix stops before zero"
+    },
+    {
+      "name": "12",
+      "note": "a rational geometric chain with no determinant constraint"
+    },
+    {
+      "name": "13",
+      "note": "constant maximum values"
+    },
+    {
+      "name": "14",
+      "note": "a witness multiplication requires115 bits"
+    },
+    {
+      "name": "15",
+      "note": "a wide determinant proves the next prefix impossible"
+    },
+    {
+      "name": "16",
+      "note": "all zeros"
+    },
+    {
+      "name": "small",
+      "note": "small exhaustive-oracle alphabet",
+      "generator": "1 1"
+    },
+    {
+      "name": "prime",
+      "note": "10000 observations from a known modulus",
+      "generator": "2 2"
+    },
+    {
+      "name": "composite",
+      "note": "10000 observations from a composite modulus",
+      "generator": "3 3"
+    },
+    {
+      "name": "wide",
+      "note": "10000 wide-arithmetic alternating observations",
+      "generator": "4 4"
+    },
+    {
+      "name": "constant",
+      "note": "maximum constant observations and a large witness modulus",
+      "generator": "5 5"
+    },
+    {
+      "name": "zero_tail",
+      "note": "maximum zero-tail input",
+      "generator": "6 6"
+    },
+    {
+      "name": "zeros",
+      "note": "maximum all-zero input",
+      "generator": "7 7"
+    },
+    {
+      "name": "corrupted",
+      "note": "only the last observation contradicts a unique large modulus",
+      "generator": "8 8"
+    },
+    {
+      "name": "random",
+      "note": "maximum random observations",
+      "generator": "9 9"
+    },
+    {
+      "name": "stripped",
+      "note": "a full recurrence whose initial constraint must be reduced",
+      "generator": "10 10"
+    },
+    {
+      "name": "halving",
+      "note": "a decreasing geometric chain with no fixed modulus",
+      "generator": "11 11"
+    },
+    {
+      "name": "wide_stop",
+      "note": "wide arithmetic before an early stop",
+      "generator": "12 12"
+    }
+  ]
+}
