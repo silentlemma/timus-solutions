@@ -37,3 +37,4 @@
 | 1930 | [A Route with Fewest Gear Changes](1930/) | shortest_paths | C++, Go, Python, Java, Rust |
 | 1931 | [Who Participates in the Most Comparisons?](1931/) | simulation | C++, Go, Python, Java, Rust |
 | 1932 | [Pair Counts by Four-Digit Distance](1932/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1933 | [An Odd Round-Robin Pairing Matrix](1933/) | constructive | C++, Go, Python, Java, Rust |
