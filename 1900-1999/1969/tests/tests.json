@@ -1,0 +1,255 @@
+{
+  "judging": "checker",
+  "reference": "1969_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "ambiguous_single_tram"
+    },
+    {
+      "name": "case_003",
+      "note": "ambiguous_two_trams"
+    },
+    {
+      "name": "case_004",
+      "note": "shared_endpoint_times_are_allowed"
+    },
+    {
+      "name": "case_005",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_006",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_007",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_008",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_009",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_010",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_011",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_012",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_013",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_014",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_015",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_016",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_017",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_018",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_019",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_020",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_021",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_022",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_023",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_024",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_025",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_026",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_027",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_028",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_029",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_030",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_031",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_032",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_033",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_034",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_035",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_036",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_037",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_038",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_039",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_040",
+      "note": "all_small_physical_schedules"
+    },
+    {
+      "name": "case_041",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_042",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_043",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_044",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_045",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_046",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_047",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_048",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_049",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_050",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_051",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_physical_schedules"
+    },
+    {
+      "name": "many_trams_large_offset",
+      "note": "maximum_5000_observations",
+      "generator": "0 many_large_offset"
+    },
+    {
+      "name": "many_trams_small_offset",
+      "note": "maximum_5000_observations",
+      "generator": "0 many_small_offset"
+    },
+    {
+      "name": "single_tram_many_rounds",
+      "note": "maximum_5000_observations",
+      "generator": "0 single_long_run"
+    },
+    {
+      "name": "hundred_trams_repeated",
+      "note": "maximum_5000_observations",
+      "generator": "0 mixed_100"
+    },
+    {
+      "name": "five_hundred_trams",
+      "note": "maximum_5000_observations",
+      "generator": "0 mixed_500"
+    },
+    {
+      "name": "many_two_round_trams",
+      "note": "maximum_5000_observations",
+      "generator": "0 mixed_1250"
+    },
+    {
+      "name": "last_arrival_midnight_limit",
+      "note": "maximum_5000_observations",
+      "generator": "43900 many_large_offset"
+    },
+    {
+      "name": "minimum_at_end_of_day",
+      "note": "physical_day_boundary",
+      "generator": "86395 minimal"
+    }
+  ]
+}
