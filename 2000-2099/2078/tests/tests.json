@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "2078_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a perfect game: at least 130, at most 300" },
+    { "name": "04", "note": "no pins at all" },
+    { "name": "05", "note": "nine tens and an empty last frame" },
+    { "name": "06", "note": "no strikes or spares possible" },
+    { "name": "07", "note": "tens and zeros taking turns" },
+    { "name": "08", "note": "a ten before a last frame of 21" },
+    { "name": "gen1", "generator": "1 1", "note": "random frames" },
+    { "name": "gen2", "generator": "2 2", "note": "mostly tens" },
+    { "name": "gen3", "generator": "2 3", "note": "mostly tens, another seed" }
+  ]
+}
