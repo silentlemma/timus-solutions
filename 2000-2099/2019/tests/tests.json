@@ -1,0 +1,321 @@
+{
+  "judging": "checker",
+  "reference": "2019_greedy.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official sample 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "official sample 3",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "005",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "006",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "007",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "008",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "009",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "010",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "011",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "012",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "013",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "014",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "015",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "016",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "017",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "018",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "019",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "020",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "021",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "022",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "023",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "024",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "025",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "026",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "027",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "028",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "029",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "030",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "031",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "032",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "033",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "034",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "035",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "036",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "037",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "038",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "039",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "040",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "041",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "042",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "043",
+      "note": "all balanced-case words over two types n1..4"
+    },
+    {
+      "name": "044",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "045",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "046",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "047",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "048",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "049",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "050",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "051",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "052",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "053",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "054",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "055",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "056",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "057",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "058",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "059",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "060",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "061",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "062",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "063",
+      "note": "random up to seven pairs, six types"
+    },
+    {
+      "name": "064",
+      "note": "balanced type counts but unavoidable crossing"
+    },
+    {
+      "name": "065",
+      "note": "lowercase endpoints before uppercase endpoints"
+    },
+    {
+      "name": "066",
+      "note": "adjacent pairs and multiple valid matchings"
+    },
+    {
+      "name": "067",
+      "note": "nested reverse orientation"
+    },
+    {
+      "name": "068",
+      "note": "independent uppercase/lowercase numbering"
+    },
+    {
+      "name": "gen_nested_upper_first",
+      "generator": "20195000 nested_upper_first",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_nested_lower_first",
+      "generator": "20195001 nested_lower_first",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_adjacent_upper_first",
+      "generator": "20195002 adjacent_upper_first",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_adjacent_lower_first",
+      "generator": "20195003 adjacent_lower_first",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_random_valid_insertion",
+      "generator": "20195004 random_valid_insertion",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_all_wrong_type",
+      "generator": "20195005 all_wrong_type",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_balanced_counts_but_crossings",
+      "generator": "20195006 balanced_counts_but_crossings",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    },
+    {
+      "name": "gen_late_impossible_after_many_pairs",
+      "generator": "20195007 late_impossible_after_many_pairs",
+      "note": "5000 pairs; possible construction or explicit impossible pattern"
+    }
+  ]
+}
