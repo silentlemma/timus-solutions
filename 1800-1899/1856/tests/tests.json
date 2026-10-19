@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1856_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two swaps" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "both spells keep everyone in place" },
+    { "name": "04", "note": "both spells gather everyone at once" },
+    { "name": "05", "note": "a shift towards the first garrison against standing still" },
+    { "name": "06", "note": "a shift down against a shift up on four garrisons" },
+    { "name": "07", "note": "a shift down against a shift up on three garrisons" },
+    { "name": "gen1", "generator": "1 1", "note": "a few garrisons at random" },
+    { "name": "gen2", "generator": "2 2", "note": "the most garrisons at random" },
+    { "name": "gen3", "generator": "3 3", "note": "one spell gathers everything" },
+    { "name": "gen4", "generator": "4 4", "note": "two permutations" },
+    { "name": "gen5", "generator": "5 5", "note": "a rotation and a spell merging two neighbours" },
+    { "name": "gen6", "generator": "6 6", "note": "the same random map twice" },
+    { "name": "gen7", "generator": "7 7", "note": "maps into a few garrisons" },
+    { "name": "gen8", "generator": "8 8", "note": "a shift down against standing still: the longest win" }
+  ]
+}
