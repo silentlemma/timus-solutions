@@ -1,0 +1,415 @@
+{
+  "judging": "tokens",
+  "reference": "2030_dfs.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "004",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "005",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "006",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "007",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "008",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "009",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "010",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "011",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "012",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "013",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "014",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "015",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "016",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "017",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "018",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "019",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "020",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "021",
+      "note": "all labeled trees n1..4, binary initial values, all update words length 0..3"
+    },
+    {
+      "name": "022",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "023",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "024",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "025",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "026",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "027",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "028",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "029",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "030",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "031",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "032",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "033",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "034",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "035",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "036",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "037",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "038",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "039",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "040",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "041",
+      "note": "random n1..40, mixed queries, exact unbounded-integer scatter"
+    },
+    {
+      "name": "042",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "043",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "044",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "045",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "046",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "047",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "048",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "049",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "050",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "051",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "052",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "053",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "054",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "055",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "056",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "057",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "058",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "059",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "060",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "061",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "062",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "063",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "064",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "065",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "066",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "067",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "068",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "069",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "070",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "071",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "072",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "073",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "074",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "075",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "076",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "077",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "078",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "079",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "080",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "081",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "082",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "083",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "084",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "085",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "086",
+      "note": "path/star/binary, zeros/max, long all-update prefix, all final queries"
+    },
+    {
+      "name": "087",
+      "note": "no queries, isolated vertex"
+    },
+    {
+      "name": "088",
+      "note": "thousand alternating copies, true integer Fibonacci growth"
+    },
+    {
+      "name": "gen_path_queries",
+      "generator": "2030 path_queries",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_path_updates",
+      "generator": "2031 path_updates",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_path_mixed",
+      "generator": "2032 path_mixed",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_star_root",
+      "generator": "2033 star_root",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_star_leafroot",
+      "generator": "2034 star_leafroot",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_star_mixed",
+      "generator": "2035 star_mixed",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_binary_mixed",
+      "generator": "2036 binary_mixed",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_random_sparse",
+      "generator": "2037 random_sparse",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_random_mixed",
+      "generator": "2038 random_mixed",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_singleton_empty",
+      "generator": "2039 singleton_empty",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    },
+    {
+      "name": "gen_singleton_queries",
+      "generator": "2040 singleton_queries",
+      "note": "maximum requests, tree shape, modulo and output boundaries"
+    }
+  ]
+}
