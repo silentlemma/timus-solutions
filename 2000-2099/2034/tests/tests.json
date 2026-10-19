@@ -1,0 +1,375 @@
+{
+  "judging": "tokens",
+  "reference": "2034_bfs_dp.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "003",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "004",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "005",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "006",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "007",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "008",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "009",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "010",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "011",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "012",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "013",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "014",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "015",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "016",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "017",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "018",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "019",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "020",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "021",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "022",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "023",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "024",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "025",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "026",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "027",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "028",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "029",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "030",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "031",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "032",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "033",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "034",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "035",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "036",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "037",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "038",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "039",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "040",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "041",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "042",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "043",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "044",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "045",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "046",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "047",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "048",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "049",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "050",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "051",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "052",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "053",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "054",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "055",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "056",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "057",
+      "note": "all connected labeled simple graphs n3..5 and ordered distinct terminals"
+    },
+    {
+      "name": "058",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "059",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "060",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "061",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "062",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "063",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "064",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "065",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "066",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "067",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "068",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "069",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "070",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "071",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "072",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "073",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "074",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "075",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "076",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "077",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "078",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "079",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "080",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "081",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "082",
+      "note": "random connected graphs n6..10, shuffled/oriented edges"
+    },
+    {
+      "name": "gen_path_forced",
+      "generator": "2034 path_forced",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_path_remote",
+      "generator": "2035 path_remote",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_cycle_avoid",
+      "generator": "2036 cycle_avoid",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_cycle_forced",
+      "generator": "2037 cycle_forced",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_branch_outside",
+      "generator": "2038 branch_outside",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_star",
+      "generator": "2039 star",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_dense",
+      "generator": "2040 dense",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    },
+    {
+      "name": "gen_diamonds",
+      "generator": "2041 diamonds",
+      "note": "maximum valid graph, label/edge permutation preserves closed-form answer"
+    }
+  ]
+}
