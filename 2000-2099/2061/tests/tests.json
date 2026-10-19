@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "2061_strings_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest list" },
+    { "name": "03", "note": "the last length where every word is rich" },
+    { "name": "04", "note": "the first length with poor words" },
+    { "name": "05", "note": "a middle length" },
+    { "name": "06", "note": "one below the largest length" },
+    { "name": "07", "note": "the largest length, beyond 32-bit counts" },
+    { "name": "08", "note": "two letters, including constant words with repeated palindrome occurrences" },
+    { "name": "09", "note": "three letters, with both odd and even palindromes in the counted words" },
+    { "name": "10", "note": "the first cutoff beyond the example, requiring a fifth output line" },
+    { "name": "11", "note": "six-letter words still have the full count of 64" },
+    { "name": "12", "note": "the first extension of poor words, giving 488 rather than twice 252" },
+    { "name": "13", "note": "the smallest two-digit input, ending with the three-digit count 932" },
+    { "name": "14", "note": "the first four-digit count, 1756" },
+    { "name": "15", "note": "the count first drops below four fifths of all binary words" },
+    { "name": "16", "note": "the first five-digit count, 10618" },
+    { "name": "17", "note": "the first count beyond signed 16-bit range, still a majority of binary words" },
+    { "name": "18", "note": "the first count above 2 to the power 18, at the search split depth" },
+    { "name": "19", "note": "the first seven-digit count, 1199376" },
+    { "name": "20", "generator": "random 7 11 15", "note": "seeded cutoff at the last four-digit count, 5916" },
+    { "name": "21", "generator": "random 5 13 17", "note": "seeded cutoff where poor words first outnumber rich words" },
+    { "name": "22", "generator": "random 0 17 19", "note": "seeded cutoff at the last five-digit count, 96702" },
+    { "name": "23", "generator": "random 0 21 23", "note": "seeded cutoff at the last six-digit count, 738274" }
+  ]
+}
