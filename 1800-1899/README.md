@@ -85,3 +85,4 @@
 | 1878 | [Rubinchik's Cube](1878/) | implementation | C++, Go, Python, Java, Rust |
 | 1879 | [GOV-internship 2](1879/) | greedy | C++, Go, Python, Java, Rust |
 | 1880 | [Psych Up's Eigenvalues](1880/) | two_pointers | C++, Go, Python, Java, Rust |
+| 1881 | [Long problem statement](1881/) | simulation | C++, Go, Python, Java, Rust |
