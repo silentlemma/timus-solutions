@@ -1,0 +1,124 @@
+{
+  "judging": "tokens",
+  "reference": "1912_bfs.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement sample: individually escapable but jointly blocked",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "two adjacent boundary rooms can both leave in two crossings"
+    },
+    {
+      "name": "04",
+      "note": "diagonal starts need a rearrangement before both exits"
+    },
+    {
+      "name": "05",
+      "note": "all walls thick"
+    },
+    {
+      "name": "06",
+      "note": "open interior but sealed exterior boundary"
+    },
+    {
+      "name": "07",
+      "note": "one exit needs a free exterior repositioning"
+    },
+    {
+      "name": "08",
+      "note": "one exit with diagonal initial rooms"
+    },
+    {
+      "name": "09",
+      "note": "swapping participant labels changes no distance"
+    },
+    {
+      "name": "10",
+      "note": "independent random small maze 1"
+    },
+    {
+      "name": "11",
+      "note": "independent random small maze 2"
+    },
+    {
+      "name": "12",
+      "note": "independent random small maze 3"
+    },
+    {
+      "name": "13",
+      "note": "independent random small maze 4"
+    },
+    {
+      "name": "14",
+      "note": "independent random small maze 5"
+    },
+    {
+      "name": "small",
+      "note": "generated small",
+      "generator": "191201 1"
+    },
+    {
+      "name": "random_max",
+      "note": "generated random max",
+      "generator": "191202 2"
+    },
+    {
+      "name": "closed_max",
+      "note": "generated closed max",
+      "generator": "191203 3"
+    },
+    {
+      "name": "gate_max",
+      "note": "generated gate max",
+      "generator": "191204 4"
+    },
+    {
+      "name": "open_max",
+      "note": "generated open max",
+      "generator": "191205 5"
+    },
+    {
+      "name": "skinny_horizontal",
+      "note": "generated skinny horizontal",
+      "generator": "191206 6"
+    },
+    {
+      "name": "skinny_vertical",
+      "note": "generated skinny vertical",
+      "generator": "191207 7"
+    },
+    {
+      "name": "coupled_corridor",
+      "note": "generated coupled corridor",
+      "generator": "191208 8"
+    },
+    {
+      "name": "single_exit",
+      "note": "generated single exit",
+      "generator": "191209 9"
+    },
+    {
+      "name": "swapped_sample",
+      "note": "generated swapped sample",
+      "generator": "191210 10"
+    },
+    {
+      "name": "medium",
+      "note": "generated medium",
+      "generator": "191211 11"
+    },
+    {
+      "name": "sparse_max",
+      "note": "generated sparse max",
+      "generator": "191212 12"
+    }
+  ]
+}
