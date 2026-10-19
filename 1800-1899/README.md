@@ -48,3 +48,4 @@
 | 1841 | [Cableways](1841/) | segment_tree | C++, Go, Python, Java, Rust |
 | 1842 | [Local Roots](1842/) | strings | C++, Go, Python, Java, Rust |
 | 1843 | [Cutting a Parallelepiped](1843/) | constructive | C++, Go, Python, Java, Rust |
+| 1844 | [Warlord of the Army of Mages](1844/) | dp | C++, Go, Python, Java, Rust |

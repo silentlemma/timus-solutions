@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1844_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the same order and opposite orders" },
+    { "name": "02", "note": "one mage called by both, never at once" },
+    { "name": "03", "note": "no mage in common" },
+    { "name": "04", "note": "deadlocks that need a few steps to reach" },
+    { "name": "05", "note": "a mage called again and again" },
+    { "name": "gen1", "generator": "1 1", "note": "ten short plans over a few mages" },
+    { "name": "gen2", "generator": "2 2", "note": "ten of the longest plans over many mages" },
+    { "name": "gen3", "generator": "3 3", "note": "ten of the longest plans over a few mages" },
+    { "name": "gen4", "generator": "4 4", "note": "nested calls in the same or opposite orders" },
+    { "name": "gen5", "generator": "5 5", "note": "the longest plans holding every mage briefly" }
+  ]
+}
