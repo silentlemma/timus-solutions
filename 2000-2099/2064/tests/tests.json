@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "2064_math_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small caterpillars" },
+    { "name": "gen2", "generator": "2 2", "note": "many small values" },
+    { "name": "gen3", "generator": "3 3", "note": "values around the query times" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest input, values up to 10^9" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum counts with climb times up to a third of the query limit" },
+    { "name": "gen6", "generator": "6 6", "note": "one caterpillar taller than every query" },
+    { "name": "gen7", "generator": "7 1", "note": "a few small caterpillars, another seed" },
+    { "name": "02", "note": "minimum counts, climb time and query moment" },
+    { "name": "03", "note": "unit climb alternates between ground and peak at the maximum query boundary" },
+    { "name": "04", "note": "single cycle turning points and a final query just before the next peak" },
+    { "name": "05", "note": "a climb time exactly equal to the largest queried moment" },
+    { "name": "06", "note": "one query with three caterpillars at ground level and the shortest at its peak" },
+    { "name": "07", "note": "shorter caterpillars overtake the tallest one during its repeated descents" },
+    { "name": "08", "note": "coincident peaks at odd multiples must retain the greatest height" },
+    { "name": "09", "note": "stress-found random case with three sole winners, ties and repeated unsorted queries" },
+    { "name": "10", "generator": "2064 7", "note": "maximum caterpillar and query counts with one repeated short climb time" },
+    { "name": "11", "generator": "2064 8", "note": "one million distinct shuffled climb times and a single maximum-time query" }
+  ]
+}
