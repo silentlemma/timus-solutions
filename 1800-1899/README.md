@@ -66,3 +66,4 @@
 | 1859 | [Last Season of Team.GOV](1859/) | greedy | C++, Go, Python, Java, Rust |
 | 1860 | [Fiborial](1860/) | number_theory | C++, Go, Python, Java, Rust |
 | 1861 | [Graveyard in Deyja](1861/) | dp | C++, Go, Python, Java, Rust |
+| 1862 | [Very Wealthy Mole](1862/) | math | C++, Go, Python, Java, Rust |

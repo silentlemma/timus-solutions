@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1862_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "seven numbers" },
+    { "name": "03", "note": "pairwise distances in a nine-level tree" },
+    { "name": "04", "note": "a height equal to the modulus" },
+    { "name": "05", "note": "a height one past the modulus" },
+    { "name": "06", "note": "a height one below the modulus" },
+    { "name": "07", "note": "a large height" },
+    { "name": "08", "note": "the largest height" },
+    { "name": "gen1", "generator": "1 1", "note": "a small height" },
+    { "name": "gen2", "generator": "2 2", "note": "a random height close to the upper bound" },
+    { "name": "gen3", "generator": "3 3", "note": "a height near a multiple of the modulus" },
+    { "name": "09", "note": "first height whose total exceeds the modulus and signed 32-bit range" },
+    { "name": "10", "note": "first height whose exact total exceeds unsigned 32-bit range" },
+    { "name": "11", "note": "first height whose exact total exceeds signed 64-bit range" },
+    { "name": "12", "note": "height just beyond signed 32-bit input range" },
+    { "name": "13", "note": "height beyond exact integer representation in double precision" },
+    { "name": "14", "note": "a single set bit at the highest possible exponent bit position" },
+    { "name": "15", "note": "fifty-nine consecutive set bits in the exponent" },
+    { "name": "16", "note": "one below the maximum height to catch rounded input parsing" },
+    { "name": "17", "note": "a large valid height whose distance sum is zero modulo the modulus" },
+    { "name": "18", "note": "seeded small tree whose distance total first exceeds 2^24" },
+    { "name": "19", "generator": "22 1", "note": "maximum height of the small random generator with a sixty-bit vertex count" },
+    { "name": "20", "generator": "1 3", "note": "seeded large height with remainder two, making the reduced height minus three negative" }
+  ]
+}
