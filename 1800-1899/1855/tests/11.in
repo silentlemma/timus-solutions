@@ -1,0 +1,9 @@
+100000 8
+change 1 100000 10000
+change 1 100000 -9999
+change 1 99999 -1
+establish 1 100000
+establish 99990 100000
+establish 99999 100000
+establish 99998 100000
+establish 1 99999

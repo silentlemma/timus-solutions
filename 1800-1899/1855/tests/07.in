@@ -1,0 +1,11 @@
+8 10
+change 2 5 13
+change 5 8 29
+establish 1 2
+establish 4 5
+establish 5 6
+establish 2 5
+establish 1 8
+change 5 6 -29
+establish 4 6
+establish 6 8

@@ -1,0 +1,15 @@
+9 14
+change 1 9 1000
+change 2 8 4000
+establish 2 8
+change 3 7 -3000
+establish 2 8
+change 5 9 2000
+establish 3 9
+establish 1 5
+change 2 8 -1000
+establish 4 8
+change 5 9 -2000
+establish 1 9
+establish 3 7
+establish 8 9

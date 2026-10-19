@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1855_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two cities, before and after a toll" },
+    { "name": "03", "note": "the largest toll lifted again in the middle" },
+    { "name": "04", "note": "different tolls on two segments" },
+    { "name": "05", "note": "the most cities, every toll at its largest" },
+    { "name": "gen1", "generator": "1 1", "note": "a few cities and events" },
+    { "name": "gen2", "generator": "2 2", "note": "the most cities and events at random" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest tolls and long guilds" },
+    { "name": "gen4", "generator": "4 4", "note": "almost all events are changes" },
+    { "name": "gen5", "generator": "5 5", "note": "guilds only, no toll yet" },
+    { "name": "gen6", "generator": "6 6", "note": "single segments and pairs of cities" },
+    { "name": "06", "note": "one zero change and no guilds at the minimum event count" },
+    { "name": "07", "note": "touching updates share a city but must not share a road" },
+    { "name": "08", "note": "nested and crossing updates with queries before and after each partial undo" },
+    { "name": "09", "note": "one central paid road has different pair multiplicities from an end road" },
+    { "name": "10", "note": "asymmetric powers of two give fractional averages for several guild origins" },
+    { "name": "11", "note": "large cancelling updates leave only the final road at toll one" },
+    { "name": "12", "note": "unequal high plateaus and a crossing decrease exercise large weighted sums" },
+    { "name": "13", "note": "road updates and guild endpoints straddle powers of two through city 65537" },
+    { "name": "14", "note": "overlapping roads repeatedly reach both toll bounds in a mixed history" },
+    { "name": "15", "note": "identical irregular toll patterns near both ends must give equal local averages" },
+    { "name": "gen7", "generator": "7 7", "note": "maximum events on two cities alternate toll zero and 10000 with a query after every change" },
+    { "name": "gen8", "generator": "1855 8", "note": "random overlapping changes on 31 cities use the full valid delta range at the event limit" }
+  ]
+}
