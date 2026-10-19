@@ -1,0 +1,263 @@
+{
+  "judging": "tokens",
+  "reference": "2007_strings_greedy.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal all-order insertion/deletion check, empty unreachable",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "003",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "004",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "005",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "006",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "007",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "008",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "009",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "010",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "011",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "012",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "013",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "014",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "015",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "016",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "017",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "018",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "019",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "020",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "021",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "022",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "023",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "024",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "025",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "026",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "027",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "028",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "029",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "030",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "031",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "032",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "033",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "034",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "035",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "036",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "037",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "038",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "039",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "040",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "041",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "042",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "043",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "044",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "045",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "046",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "047",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "048",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "049",
+      "note": "literal all-order insertion/deletion check, empty unreachable"
+    },
+    {
+      "name": "gen_insert",
+      "generator": "2007 insert",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_shorten",
+      "generator": "2008 shorten",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_prefix",
+      "generator": "2009 prefix",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_delete",
+      "generator": "2010 delete",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_pairs",
+      "generator": "2011 pairs",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_alphabet",
+      "generator": "2012 alphabet",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_largest",
+      "generator": "2013 largest",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_high",
+      "generator": "2014 high",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_hidden",
+      "generator": "2015 hidden",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_one",
+      "generator": "2016 one",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_mixed",
+      "generator": "2017 mixed",
+      "note": "maximum length; direct formula or independent accepted output"
+    },
+    {
+      "name": "gen_random",
+      "generator": "2018 random",
+      "note": "maximum length; direct formula or independent accepted output"
+    }
+  ]
+}
