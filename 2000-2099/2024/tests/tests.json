@@ -1,0 +1,213 @@
+{
+  "judging": "tokens",
+  "reference": "2024_sorting_combinatorics.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official example 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "004",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "005",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "006",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "007",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "008",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "009",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "010",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "011",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "012",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "013",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "014",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "015",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "016",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "017",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "018",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "019",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "020",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "021",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "022",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "023",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "024",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "025",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "026",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "027",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "028",
+      "note": "all 26 equal positive frequencies, everyk"
+    },
+    {
+      "name": "029",
+      "note": "minimum"
+    },
+    {
+      "name": "030",
+      "note": "unusedzero colors do not create sets"
+    },
+    {
+      "name": "031",
+      "note": "onecolor, many unused zeros"
+    },
+    {
+      "name": "032",
+      "note": "twoactualcolors less thank"
+    },
+    {
+      "name": "033",
+      "note": "one mandatory highcolor plus boundaryties"
+    },
+    {
+      "name": "034",
+      "note": "one mandatory 4 plus choose 2of3 tied3"
+    },
+    {
+      "name": "035",
+      "note": "alloccurrencesofeachselectedcolor"
+    },
+    {
+      "name": "036",
+      "note": "nonadjacent occurrence positions"
+    },
+    {
+      "name": "037",
+      "note": "chooseonecompletegroup"
+    },
+    {
+      "name": "038",
+      "note": "chooseallactualcolors unique"
+    },
+    {
+      "name": "039",
+      "note": "uniqueheaviest"
+    },
+    {
+      "name": "040",
+      "note": "twoequalheaviest groupsbothchosen"
+    },
+    {
+      "name": "gen_one_color_small_k",
+      "generator": "20245000 one_color_small_k",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_one_color_large_k",
+      "generator": "20245001 one_color_large_k",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_all_colors_all",
+      "generator": "20245002 all_colors_all",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_balanced_boundary",
+      "generator": "20245003 balanced_boundary",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_max_binomial",
+      "generator": "20245004 max_binomial",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_mandatory_and_ties",
+      "generator": "20245005 mandatory_and_ties",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_skewed",
+      "generator": "20245006 skewed",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_random",
+      "generator": "20245007 random",
+      "note": "n100000 and independent cardinality knapsack audit"
+    },
+    {
+      "name": "gen_random_one",
+      "generator": "20245008 random_one",
+      "note": "n100000 and independent cardinality knapsack audit"
+    }
+  ]
+}
