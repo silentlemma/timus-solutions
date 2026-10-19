@@ -1,0 +1,15 @@
+{
+  "judging": "checker",
+  "reference": "2063_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only the format is checked" },
+    { "name": "gen1", "generator": "1 1", "note": "random rows" },
+    { "name": "gen2", "generator": "2 2", "note": "every row has both colours" },
+    { "name": "gen3", "generator": "3 3", "note": "black balls first, then white" },
+    { "name": "gen4", "generator": "4 4", "note": "alternating colours" },
+    { "name": "gen5", "generator": "5 5", "note": "one ball of the other colour" },
+    { "name": "gen6", "generator": "6 6", "note": "rows of a single colour" },
+    { "name": "gen7", "generator": "7 2", "note": "both colours, another seed" },
+    { "name": "gen8", "generator": "8 2", "note": "both colours, a third seed" }
+  ]
+}
