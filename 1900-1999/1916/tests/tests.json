@@ -1,0 +1,135 @@
+{
+  "judging": "tokens",
+  "reference": "1916_strings.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "all types stable, no length-two word"
+    },
+    {
+      "name": "03",
+      "note": "unary alias remains too short"
+    },
+    {
+      "name": "04",
+      "note": "a repeated stable pair"
+    },
+    {
+      "name": "05",
+      "note": "stable symbols remain distinct"
+    },
+    {
+      "name": "06",
+      "note": "a word spanning two child expansions"
+    },
+    {
+      "name": "07",
+      "note": "different prefix and suffix of shared child"
+    },
+    {
+      "name": "08",
+      "note": "forward references"
+    },
+    {
+      "name": "09",
+      "note": "repeated occurrences count only once"
+    },
+    {
+      "name": "10",
+      "note": "periodic rotations are distinct"
+    },
+    {
+      "name": "11",
+      "note": "several aliases share one language"
+    },
+    {
+      "name": "12",
+      "note": "window crosses more than one child boundary"
+    },
+    {
+      "name": "small",
+      "generator": "1917 1",
+      "note": "bounded DAG expansion: small"
+    },
+    {
+      "name": "stable",
+      "generator": "1918 2",
+      "note": "bounded DAG expansion: stable"
+    },
+    {
+      "name": "aliases",
+      "generator": "1919 3",
+      "note": "bounded DAG expansion: aliases"
+    },
+    {
+      "name": "flat",
+      "generator": "1920 4",
+      "note": "bounded DAG expansion: flat"
+    },
+    {
+      "name": "repeated",
+      "generator": "1921 5",
+      "note": "bounded DAG expansion: repeated"
+    },
+    {
+      "name": "doubling",
+      "generator": "1922 6",
+      "note": "bounded DAG expansion: doubling"
+    },
+    {
+      "name": "alternating",
+      "generator": "1923 7",
+      "note": "bounded DAG expansion: alternating"
+    },
+    {
+      "name": "disjoint",
+      "generator": "1924 8",
+      "note": "bounded DAG expansion: disjoint"
+    },
+    {
+      "name": "random_max",
+      "generator": "1925 9",
+      "note": "bounded DAG expansion: random_max"
+    },
+    {
+      "name": "many_boundaries",
+      "generator": "1926 10",
+      "note": "bounded DAG expansion: many_boundaries"
+    },
+    {
+      "name": "width_two",
+      "generator": "1927 11",
+      "note": "bounded DAG expansion: width_two"
+    },
+    {
+      "name": "shared",
+      "generator": "1928 12",
+      "note": "bounded DAG expansion: shared"
+    },
+    {
+      "name": "occurrences",
+      "generator": "1929 13",
+      "note": "bounded DAG expansion: occurrences"
+    },
+    {
+      "name": "high_symbols",
+      "generator": "1930 14",
+      "note": "bounded DAG expansion: high_symbols"
+    },
+    {
+      "name": "forward",
+      "generator": "1931 15",
+      "note": "bounded DAG expansion: forward"
+    },
+    {
+      "name": "ternary",
+      "generator": "1932 16",
+      "note": "bounded DAG expansion: ternary"
+    }
+  ]
+}
