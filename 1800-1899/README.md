@@ -91,3 +91,4 @@
 | 1884 | [Way to the University](1884/) | sorting | C++, Go, Python, Java, Rust |
 | 1885 | [Passenger Comfort](1885/) | math | C++, Go, Python, Java, Rust |
 | 1886 | [Trip 2](1886/) | dp | C++, Go, Python, Java, Rust |
+| 1887 | [Frequent Flyer Card](1887/) | probability | C++, Go, Python, Java, Rust |

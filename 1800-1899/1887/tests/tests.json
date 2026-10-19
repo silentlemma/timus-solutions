@@ -1,0 +1,17 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1887_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: even last digits" },
+    { "name": "02", "example": true, "note": "the second example: the last digit is always 0" },
+    { "name": "03", "note": "squares give only quadratic residues modulo 11" },
+    { "name": "04", "note": "one factor x + 1 and the rest always 1" },
+    { "name": "05", "note": "two factors with the largest coefficients" },
+    { "name": "06", "note": "the most factors with the largest coefficients" },
+    { "name": "07", "note": "two factors x + 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random factors" },
+    { "name": "gen2", "generator": "2 2", "note": "the most random factors" },
+    { "name": "gen3", "generator": "3 3", "note": "most factors always 1" },
+    { "name": "gen4", "generator": "4 4", "note": "small coefficients" }
+  ]
+}
