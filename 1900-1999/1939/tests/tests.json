@@ -1,0 +1,144 @@
+{
+  "judging": "tokens",
+  "reference": "1939_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement sample",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "exact contact at stop time"
+    },
+    {
+      "name": "04",
+      "note": "vehicle length equals stopping distance at contact"
+    },
+    {
+      "name": "05",
+      "note": "parked front at gate when grille later reaches height"
+    },
+    {
+      "name": "06",
+      "note": "grille closes before braking ends at contact"
+    },
+    {
+      "name": "07",
+      "note": "left-side3billion requires64-bit arithmetic"
+    },
+    {
+      "name": "08",
+      "note": "same clearance near maximal absolute height"
+    },
+    {
+      "name": "09",
+      "note": "one-unit positive expanded margin"
+    },
+    {
+      "name": "10",
+      "note": "one-unit negative expanded margin"
+    },
+    {
+      "name": "11",
+      "note": "very fast closure"
+    },
+    {
+      "name": "12",
+      "note": "slow closure,fast vehicle,short body"
+    },
+    {
+      "name": "13",
+      "note": "noninteger braking distance,deadline just too short"
+    },
+    {
+      "name": "14",
+      "note": "noninteger braking distance,enough deadline"
+    },
+    {
+      "name": "15",
+      "note": "tiny stopping distance but rear contact still fatal"
+    },
+    {
+      "name": "16",
+      "note": "tiny stopping distance with extra clearance"
+    },
+    {
+      "name": "17",
+      "note": "large products just before exact contact"
+    },
+    {
+      "name": "18",
+      "note": "large exact contact"
+    },
+    {
+      "name": "19",
+      "note": "large products just beyond exact contact"
+    },
+    {
+      "name": "20",
+      "note": "height translation preserves exact contact"
+    },
+    {
+      "name": "21",
+      "note": "large products with exact expanded margin-1"
+    },
+    {
+      "name": "22",
+      "note": "large products with exact expanded margin-1"
+    },
+    {
+      "name": "23",
+      "note": "large products with exact expanded margin-1"
+    },
+    {
+      "name": "24",
+      "note": "large products with exact expanded margin-1"
+    },
+    {
+      "name": "25",
+      "note": "large products with exact expanded margin+1"
+    },
+    {
+      "name": "26",
+      "note": "large products with exact expanded margin+1"
+    },
+    {
+      "name": "27",
+      "note": "large products with exact expanded margin+1"
+    },
+    {
+      "name": "28",
+      "note": "large products with exact expanded margin+1"
+    },
+    {
+      "name": "29",
+      "note": "own full-range random Crash"
+    },
+    {
+      "name": "30",
+      "note": "own full-range random Crash"
+    },
+    {
+      "name": "31",
+      "note": "own full-range random Crash"
+    },
+    {
+      "name": "32",
+      "note": "own full-range random Safe"
+    },
+    {
+      "name": "33",
+      "note": "own full-range random Safe"
+    },
+    {
+      "name": "34",
+      "note": "own full-range random Safe"
+    }
+  ]
+}
