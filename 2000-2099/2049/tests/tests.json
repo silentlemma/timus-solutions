@@ -1,0 +1,396 @@
+{
+  "judging": "checker",
+  "reference": "2049_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example: a valid four-transfer construction",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official example: odd total cannot be concentrated",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "004",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "005",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "006",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "007",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "008",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "009",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "010",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "011",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "012",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "013",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "014",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "015",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "016",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "017",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "018",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "019",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "020",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "021",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "022",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "023",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "024",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "025",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "026",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "027",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "028",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "029",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "030",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "031",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "032",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "033",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "034",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "035",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "036",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "037",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "038",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "039",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "040",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "041",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "042",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "043",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "044",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "045",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "046",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "047",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "048",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "049",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "050",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "051",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "052",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "053",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "054",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "055",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "056",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "057",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "058",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "059",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "060",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "061",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "062",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "063",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "064",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "065",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "066",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "067",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "068",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "069",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "070",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "071",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "072",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "073",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "074",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "075",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "076",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "077",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "078",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "079",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "080",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "081",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "082",
+      "note": "small reachability, resource threshold or binary boundary; alternative witness"
+    },
+    {
+      "name": "max_near_total_even",
+      "generator": "100000 99998",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_near_total_odd",
+      "generator": "100000 99997",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_long_catalyst",
+      "generator": "100000 65537",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_before_power",
+      "generator": "100000 65535",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_power",
+      "generator": "100000 65536",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_impossible_odd",
+      "generator": "100000 99999",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_impossible_total",
+      "generator": "100000 100000",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_zero_moves",
+      "generator": "100000 1",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_minimal_even",
+      "generator": "99999 99998",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_minimal_odd",
+      "generator": "99999 99997",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_minimal_long_run",
+      "generator": "65539 65537",
+      "note": "full-domain movement/resource case"
+    },
+    {
+      "name": "max_many_catalysts",
+      "generator": "100000 87381",
+      "note": "full-domain movement/resource case"
+    }
+  ]
+}
