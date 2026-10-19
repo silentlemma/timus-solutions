@@ -41,3 +41,4 @@
 | 1934 | [The Safest Shortest Route](1934/) | shortest_paths, probability | C++, Go, Python, Java, Rust |
 | 1935 | [Minimum Sheets with Reorderable Clearances](1935/) | greedy | C++, Go, Python, Java, Rust |
 | 1936 | [Expected Rounds in a Three-Gesture Elimination Game](1936/) | probability, dp | C++, Go, Python, Java, Rust |
+| 1937 | [Two Cyclic Strings Forming a Palindrome](1937/) | suffix_structures | C++, Go, Python, Java, Rust |
