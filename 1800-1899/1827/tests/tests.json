@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1827_hashing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the counts in the wrong order: the first day is the older one" },
+    { "name": "03", "note": "the counts in the right order" },
+    { "name": "04", "note": "a war longer than the record" },
+    { "name": "05", "note": "zero and the largest star counts" },
+    { "name": "06", "note": "a repeated war and overlapping matches" },
+    { "name": "07", "note": "one star count everywhere: every day" },
+    { "name": "gen1", "generator": "1 1", "note": "a short sky" },
+    { "name": "gen2", "generator": "2 2", "note": "few counts, many wars" },
+    { "name": "gen3", "generator": "3 3", "note": "a single count, wars of every length" },
+    { "name": "gen4", "generator": "4 4", "note": "random counts, a few thousand wars" },
+    { "name": "gen5", "generator": "5 5", "note": "random counts, the most wars, few matches" },
+    { "name": "gen6", "generator": "6 4", "note": "random counts, a few thousand wars" }
+  ]
+}
