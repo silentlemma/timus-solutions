@@ -1,0 +1,261 @@
+{
+  "judging": "tokens",
+  "reference": "1966_dsu_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_004",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_005",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_006",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_007",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_008",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_009",
+      "note": "geometric_contacts_and_overflow"
+    },
+    {
+      "name": "case_010",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_011",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_012",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_013",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_014",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_015",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_016",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_017",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_018",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_019",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_020",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_021",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_022",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_023",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_024",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_025",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_026",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_027",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_028",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_029",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_030",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_031",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_032",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_033",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_034",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_035",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_036",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_037",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_038",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_039",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_040",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_041",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_042",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_043",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_044",
+      "note": "stratified_rational_bfs"
+    },
+    {
+      "name": "case_045",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_046",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_047",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_048",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_049",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_050",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_051",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_052",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_053",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_054",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_055",
+      "note": "maximum_line_single_track"
+    },
+    {
+      "name": "case_056",
+      "note": "maximum_line_duplicate_tracks"
+    },
+    {
+      "name": "case_057",
+      "note": "maximum_two_collinear_components"
+    },
+    {
+      "name": "case_058",
+      "note": "maximum_all_tracks_cross_origin"
+    },
+    {
+      "name": "case_059",
+      "note": "maximum_parallel_components"
+    },
+    {
+      "name": "case_060",
+      "note": "maximum_endpoint_chain"
+    },
+    {
+      "name": "case_061",
+      "note": "maximum_one_statue_off_tracks"
+    },
+    {
+      "name": "case_062",
+      "note": "maximum_duplicate_tracks_uncovered_points"
+    },
+    {
+      "name": "case_063",
+      "note": "maximum_wide_cross_products"
+    }
+  ]
+}
