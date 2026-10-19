@@ -1,0 +1,284 @@
+{
+  "judging": "tokens",
+  "reference": "1963_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example_diagonal",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official_example_asymmetric",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_004",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_005",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_006",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_007",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_008",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_009",
+      "note": "bounds_rotated_square_and_concave"
+    },
+    {
+      "name": "case_010",
+      "note": "fractional_midpoints_and_concave_axis"
+    },
+    {
+      "name": "case_011",
+      "note": "fractional_midpoints_and_concave_axis"
+    },
+    {
+      "name": "case_012",
+      "note": "fractional_midpoints_and_concave_axis"
+    },
+    {
+      "name": "case_013",
+      "note": "fractional_midpoints_and_concave_axis"
+    },
+    {
+      "name": "case_014",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_015",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_016",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_017",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_018",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_019",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_020",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_021",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_022",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_023",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_024",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_025",
+      "note": "stratified_answer_0"
+    },
+    {
+      "name": "case_026",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_027",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_028",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_029",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_030",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_031",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_032",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_033",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_034",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_035",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_036",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_037",
+      "note": "stratified_answer_2"
+    },
+    {
+      "name": "case_038",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_039",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_040",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_041",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_042",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_043",
+      "note": "stratified_answer_4"
+    },
+    {
+      "name": "case_044",
+      "note": "stratified_answer_8"
+    },
+    {
+      "name": "case_045",
+      "note": "stratified_answer_8"
+    },
+    {
+      "name": "case_046",
+      "note": "stratified_answer_8"
+    },
+    {
+      "name": "case_047",
+      "note": "stratified_answer_8"
+    },
+    {
+      "name": "case_048",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_049",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_050",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_051",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_052",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_053",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_054",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_055",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_056",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_057",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_058",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_059",
+      "note": "concave_regression"
+    },
+    {
+      "name": "case_060",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_061",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_062",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_063",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_064",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_065",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_066",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_067",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_068",
+      "note": "full_coordinate_bound"
+    },
+    {
+      "name": "case_069",
+      "note": "full_coordinate_bound"
+    }
+  ]
+}
