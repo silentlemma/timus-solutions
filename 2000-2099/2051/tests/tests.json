@@ -1,0 +1,335 @@
+{
+  "judging": "checker",
+  "reference": "2051_meet_in_middle.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "exact balanced area and canonical reconstruction",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "003",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "004",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "005",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "006",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "007",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "008",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "009",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "010",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "011",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "012",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "013",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "014",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "015",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "016",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "017",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "018",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "019",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "020",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "021",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "022",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "023",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "024",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "025",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "026",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "027",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "028",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "029",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "030",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "031",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "032",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "033",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "034",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "035",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "036",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "037",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "038",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "039",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "040",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "041",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "042",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "043",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "044",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "045",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "046",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "047",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "048",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "049",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "050",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "051",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "052",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "053",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "054",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "055",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "056",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "057",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "058",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "059",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "060",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "061",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "062",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "063",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "064",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "065",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "066",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "067",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "068",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "069",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "070",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "071",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "072",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "073",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "074",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "075",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "076",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "077",
+      "note": "exact balanced area and canonical reconstruction"
+    },
+    {
+      "name": "max_dense",
+      "generator": "0 dense",
+      "note": "full-domain exact-integer area and resource case"
+    },
+    {
+      "name": "max_dense_lower",
+      "generator": "0 dense_lower",
+      "note": "full-domain exact-integer area and resource case"
+    },
+    {
+      "name": "max_mitm",
+      "generator": "0 mitm",
+      "note": "full-domain exact-integer area and resource case"
+    },
+    {
+      "name": "max_dense_mitm",
+      "generator": "0 dense_mitm",
+      "note": "full-domain exact-integer area and resource case"
+    }
+  ]
+}
