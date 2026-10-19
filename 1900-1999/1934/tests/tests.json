@@ -1,0 +1,113 @@
+{
+  "judging": "checker",
+  "reference": "1934_shortest_paths.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "shortest route takes priority over zero risk"
+    },
+    {
+      "name": "03",
+      "note": "sum of percentages gives wrong route"
+    },
+    {
+      "name": "04",
+      "note": "later same-layer predecessor improves target"
+    },
+    {
+      "name": "05",
+      "note": "different equally optimal zero-risk paths"
+    },
+    {
+      "name": "06",
+      "note": "a slightly suboptimal route is legal within1e-6"
+    },
+    {
+      "name": "07",
+      "note": "minimum safe edge"
+    },
+    {
+      "name": "08",
+      "note": "minimum reversed risky edge"
+    },
+    {
+      "name": "09",
+      "note": "arbitrary endpoints and separate irrelevant component"
+    },
+    {
+      "name": "10",
+      "note": "equal products, deliberately different reference path"
+    },
+    {
+      "name": "11",
+      "note": "same-layer chord cannot extend shortest path"
+    },
+    {
+      "name": "12",
+      "note": "survival underflow on a moderate stored path"
+    },
+    {
+      "name": "13",
+      "note": "maximum city count with one route"
+    },
+    {
+      "name": "14",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "15",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "16",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "17",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "18",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "19",
+      "note": "own medium rational-DP graph"
+    },
+    {
+      "name": "stress1",
+      "generator": "1934 1",
+      "note": "max safe chain"
+    },
+    {
+      "name": "stress2",
+      "generator": "1934 2",
+      "note": "max risky chain"
+    },
+    {
+      "name": "stress3",
+      "generator": "1934 3",
+      "note": "max star with same-level chord"
+    },
+    {
+      "name": "stress4",
+      "generator": "1934 4",
+      "note": "deep chain then wide frontier"
+    },
+    {
+      "name": "stress5",
+      "generator": "1934 5",
+      "note": "25000 repeated later improvements"
+    },
+    {
+      "name": "stress6",
+      "generator": "1934 6",
+      "note": "max random tree plus edge"
+    }
+  ]
+}
