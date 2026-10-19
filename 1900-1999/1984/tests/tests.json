@@ -1,0 +1,22 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1984_geometry.cpp",
+  "cases": [
+    { "name": "01", "note": "sample with two touching disks and an enclosing radius of two", "example": true },
+    { "name": "count_01", "note": "single disk requiring the special case radius of one" },
+    { "name": "count_03", "note": "three disk centers forming an equilateral triangle" },
+    { "name": "count_04", "note": "square arrangement giving an irrational enclosing radius" },
+    { "name": "count_05", "note": "pentagonal placement with every disk touching the outer boundary" },
+    { "name": "count_06", "note": "six disks yielding an exact enclosing radius of three" },
+    { "name": "count_07", "note": "first disk count whose minimum radius exceeds three" },
+    { "name": "count_08", "note": "octagonal arrangement with adjacent centers separated by forty five degrees" },
+    { "name": "count_09", "note": "nine disks giving a minimum radius just below four" },
+    { "name": "count_10", "note": "upper input bound requiring an enclosing radius above four" },
+    { "name": "whitespace_1", "note": "single disk count surrounded by spaces and a leading tab on the second line" },
+    { "name": "whitespace_7", "note": "blank first line and trailing spaces around the seven disk count" },
+    { "name": "whitespace_10", "note": "two digit maximum count parsed despite surrounding whitespace" },
+    { "name": "gen_minimum", "generator": "1984 minimum", "note": "minimum count" },
+    { "name": "gen_maximum", "generator": "1984 maximum", "note": "maximum count" },
+    { "name": "gen_random", "generator": "1984 random", "note": "random count" }
+  ]
+}
