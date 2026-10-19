@@ -1,0 +1,13 @@
+{
+  "judging": "checker",
+  "reference": "2081_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any consistent answer is accepted" },
+    { "name": "02", "note": "a dark dial: any time fits" },
+    { "name": "03", "note": "a full reading of 20:41, which 28:49 fits as well, then two dark ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a few readings, half the segments lost" },
+    { "name": "gen2", "generator": "2 2", "note": "100 readings, a few segments lost" },
+    { "name": "gen3", "generator": "3 3", "note": "100 close readings, most segments lost" },
+    { "name": "gen4", "generator": "4 4", "note": "100 dark readings" }
+  ]
+}
