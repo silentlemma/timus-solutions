@@ -1,0 +1,140 @@
+{
+  "judging": "tokens",
+  "reference": "1932_combinatorics.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one different digit, four different bits"
+    },
+    {
+      "name": "03",
+      "note": "two different digits"
+    },
+    {
+      "name": "04",
+      "note": "three different digits"
+    },
+    {
+      "name": "05",
+      "note": "four different digits"
+    },
+    {
+      "name": "06",
+      "note": "leading zeros and shifted equal digits"
+    },
+    {
+      "name": "07",
+      "note": "three common prefix digits"
+    },
+    {
+      "name": "08",
+      "note": "three common suffix digits"
+    },
+    {
+      "name": "09",
+      "note": "cyclic position permutations"
+    },
+    {
+      "name": "10",
+      "note": "same packed keys in distinct projections"
+    },
+    {
+      "name": "11",
+      "note": "letter positions and permutations"
+    },
+    {
+      "name": "12",
+      "note": "one nonzero in each different position"
+    },
+    {
+      "name": "13",
+      "note": "full binary four-position cube"
+    },
+    {
+      "name": "14",
+      "note": "three free positions over three symbols"
+    },
+    {
+      "name": "15",
+      "note": "two free nonadjacent hexadecimal positions"
+    },
+    {
+      "name": "16",
+      "note": "three free positions, first fixed"
+    },
+    {
+      "name": "17",
+      "note": "reverse sample order"
+    },
+    {
+      "name": "18",
+      "note": "mixed near and far distances"
+    },
+    {
+      "name": "19",
+      "note": "boundary codes and high nibbles"
+    },
+    {
+      "name": "20",
+      "note": "own distinct full-domain random set"
+    },
+    {
+      "name": "21",
+      "note": "own distinct full-domain random set"
+    },
+    {
+      "name": "22",
+      "note": "own distinct full-domain random set"
+    },
+    {
+      "name": "stress1",
+      "generator": "1933 1",
+      "note": "full domain sorted"
+    },
+    {
+      "name": "stress2",
+      "generator": "1934 2",
+      "note": "full domain shuffled"
+    },
+    {
+      "name": "stress3",
+      "generator": "1935 3",
+      "note": "omit0000"
+    },
+    {
+      "name": "stress4",
+      "generator": "1936 4",
+      "note": "omitffff shuffled"
+    },
+    {
+      "name": "stress5",
+      "generator": "1937 5",
+      "note": "60000 random identifiers"
+    },
+    {
+      "name": "stress6",
+      "generator": "1938 6",
+      "note": "32768 random identifiers"
+    },
+    {
+      "name": "stress7",
+      "generator": "1939 7",
+      "note": "fixed second digit"
+    },
+    {
+      "name": "stress8",
+      "generator": "1940 8",
+      "note": "exclude equal first two digits"
+    },
+    {
+      "name": "stress9",
+      "generator": "1941 9",
+      "note": "exclude zero final digit"
+    }
+  ]
+}
