@@ -1,0 +1,147 @@
+{
+  "judging": "tokens",
+  "reference": "1917_greedy.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one safely removable coin"
+    },
+    {
+      "name": "03",
+      "note": "nothing can be removed"
+    },
+    {
+      "name": "04",
+      "note": "equal thresholds cannot be split"
+    },
+    {
+      "name": "05",
+      "note": "a duplicate group at exact energy"
+    },
+    {
+      "name": "06",
+      "note": "two spells needed for two distinct groups"
+    },
+    {
+      "name": "07",
+      "note": "one spell at exact combined energy"
+    },
+    {
+      "name": "08",
+      "note": "an unsafe duplicate group blocks all higher thresholds"
+    },
+    {
+      "name": "09",
+      "note": "flush the preceding nonempty batch"
+    },
+    {
+      "name": "10",
+      "note": "several valid groups that cannot share a spell"
+    },
+    {
+      "name": "11",
+      "note": "different optimal partitions with the same number of spells"
+    },
+    {
+      "name": "12",
+      "note": "unsorted duplicate group with exact batch energy"
+    },
+    {
+      "name": "13",
+      "note": "stop at the first unsafe whole group"
+    },
+    {
+      "name": "14",
+      "note": "maximum threshold safely met"
+    },
+    {
+      "name": "15",
+      "note": "one below maximum threshold"
+    },
+    {
+      "name": "small",
+      "generator": "1918 1",
+      "note": "safe annihilation boundary: small"
+    },
+    {
+      "name": "shuffled",
+      "generator": "1919 2",
+      "note": "safe annihilation boundary: shuffled"
+    },
+    {
+      "name": "equal_safe",
+      "generator": "1920 3",
+      "note": "safe annihilation boundary: equal_safe"
+    },
+    {
+      "name": "equal_unsafe",
+      "generator": "1921 4",
+      "note": "safe annihilation boundary: equal_unsafe"
+    },
+    {
+      "name": "grouped",
+      "generator": "1922 5",
+      "note": "safe annihilation boundary: grouped"
+    },
+    {
+      "name": "many_spells",
+      "generator": "1923 6",
+      "note": "safe annihilation boundary: many_spells"
+    },
+    {
+      "name": "first_barrier",
+      "generator": "1924 7",
+      "note": "safe annihilation boundary: first_barrier"
+    },
+    {
+      "name": "prefix_barrier",
+      "generator": "1925 8",
+      "note": "safe annihilation boundary: prefix_barrier"
+    },
+    {
+      "name": "exact_billion",
+      "generator": "1926 9",
+      "note": "safe annihilation boundary: exact_billion"
+    },
+    {
+      "name": "below_billion",
+      "generator": "1927 10",
+      "note": "safe annihilation boundary: below_billion"
+    },
+    {
+      "name": "large_groups",
+      "generator": "1928 11",
+      "note": "safe annihilation boundary: large_groups"
+    },
+    {
+      "name": "exact_batch",
+      "generator": "1929 12",
+      "note": "safe annihilation boundary: exact_batch"
+    },
+    {
+      "name": "below_batch",
+      "generator": "1930 13",
+      "note": "safe annihilation boundary: below_batch"
+    },
+    {
+      "name": "random_max",
+      "generator": "1931 14",
+      "note": "safe annihilation boundary: random_max"
+    },
+    {
+      "name": "descending",
+      "generator": "1932 15",
+      "note": "safe annihilation boundary: descending"
+    },
+    {
+      "name": "budget_one",
+      "generator": "1933 16",
+      "note": "safe annihilation boundary: budget_one"
+    }
+  ]
+}
