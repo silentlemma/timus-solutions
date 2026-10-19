@@ -1,0 +1,457 @@
+{
+  "judging": "checker",
+  "reference": "2050_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "bounded line rotation and semantic witness",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "bounded line rotation and semantic witness",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "004",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "005",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "006",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "007",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "008",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "009",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "010",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "011",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "012",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "013",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "014",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "015",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "016",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "017",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "018",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "019",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "020",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "021",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "022",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "023",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "024",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "025",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "026",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "027",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "028",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "029",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "030",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "031",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "032",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "033",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "034",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "035",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "036",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "037",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "038",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "039",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "040",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "041",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "042",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "043",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "044",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "045",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "046",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "047",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "048",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "049",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "050",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "051",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "052",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "053",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "054",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "055",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "056",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "057",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "058",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "059",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "060",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "061",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "062",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "063",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "064",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "065",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "066",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "067",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "068",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "069",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "070",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "071",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "072",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "073",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "074",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "075",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "076",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "077",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "078",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "079",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "080",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "081",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "082",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "083",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "084",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "085",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "086",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "087",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "088",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "089",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "090",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "091",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "092",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "093",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "094",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "095",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "096",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "097",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "098",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "099",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "100",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "101",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "102",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "103",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "104",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "105",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_skew_extremes",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_short_axis",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_threshold_axis",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_nearly_parallel",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_coincident",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "max_parallel_offset",
+      "note": "bounded line rotation and semantic witness"
+    },
+    {
+      "name": "gen1",
+      "generator": "1 random",
+      "note": "random lines within all bounds"
+    }
+  ]
+}
