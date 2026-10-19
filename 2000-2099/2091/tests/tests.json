@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "2091_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any optimal pair is accepted" },
+    { "name": "02", "note": "no program has any course" },
+    { "name": "03", "note": "a pair that splits the programs one by one" },
+    { "name": "gen1", "generator": "1 1", "note": "a small table" },
+    { "name": "gen2", "generator": "1 2", "note": "repeated programs and identical course columns in a minimum-size table" },
+    { "name": "gen3", "generator": "2 3", "note": "a 100 by 100 random table" },
+    { "name": "gen4", "generator": "3 4", "note": "rare courses in a 100 by 100 table" },
+    { "name": "gen5", "generator": "4 5", "note": "every program has every course" },
+    { "name": "04", "note": "seven programs attain the rounded-up four-group bound with a unique optimal pair" },
+    { "name": "05", "note": "four balanced identical or complementary courses among 100 programs leave two empty groups" },
+    { "name": "06", "note": "four programs and 100 courses; only courses 99 and 100 split all four programs" },
+    { "name": "07", "note": "the neither-course group determines the optimum despite several small nonempty groups" },
+    { "name": "08", "generator": "5 2091", "note": "maximum-size shuffled random profiles with unequal row multiplicities; programs must not be deduplicated" }
+  ]
+}
