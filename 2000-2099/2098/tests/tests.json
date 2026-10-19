@@ -1,0 +1,15 @@
+{
+  "judging": "exact",
+  "reference": "2098_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest values: a fraction of a rouble" },
+    { "name": "04", "note": "a large percent over two years" },
+    { "name": "05", "note": "the largest values" },
+    { "name": "06", "note": "a tie counts as insurance" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "any values" },
+    { "name": "gen3", "generator": "4 3", "note": "another exact tie" }
+  ]
+}

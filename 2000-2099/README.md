@@ -102,3 +102,4 @@
 | 2095 | [Count the days a repeated removal sieve keeps](2095/) | math | C++, Go, Python, Java, Rust |
 | 2096 | [Questions about plans derived from earlier plans](2096/) | dfs, trees | C++, Go, Python, Java, Rust |
 | 2097 | [Find a section that differs by a linear function](2097/) | strings | C++, Go, Python, Java, Rust |
+| 2098 | [Pay cash or pay more for insurance](2098/) | math | C++, Go, Python, Java, Rust |
