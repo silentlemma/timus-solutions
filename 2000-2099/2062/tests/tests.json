@@ -1,0 +1,208 @@
+{
+  "judging": "tokens",
+  "reference": "2062_fenwick.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Literal selected-particle/multiple simulation",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Literal selected-particle/multiple simulation",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "004",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "005",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "006",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "007",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "008",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "009",
+      "note": "Literal check, several charges exceed signed 32 bits"
+    },
+    {
+      "name": "010",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "011",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "012",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "013",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "014",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "015",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "016",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "017",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "018",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "019",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "020",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "021",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "022",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "023",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "024",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "025",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "026",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "027",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "028",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "029",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "030",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "031",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "032",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "033",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "034",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "035",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "036",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "037",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "038",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "039",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "040",
+      "note": "Literal selected-particle/multiple simulation"
+    },
+    {
+      "name": "max_wide_repeat",
+      "generator": "206212 wide_repeat",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_prefix_repeat",
+      "generator": "206212 prefix_repeat",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_mixed_indices",
+      "generator": "206212 mixed_indices",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_all_unique_queries",
+      "generator": "206212 all_unique_queries",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_n1_overflow",
+      "generator": "206212 n1_overflow",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_all_updates",
+      "generator": "206212 all_updates",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_narrow_random",
+      "generator": "206212 narrow_random",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    },
+    {
+      "name": "max_square_mixed",
+      "generator": "206212 square_mixed",
+      "note": "Maximum legal workload; independent literal radiation or trial-divisor linearity"
+    }
+  ]
+}
