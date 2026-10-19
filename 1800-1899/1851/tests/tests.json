@@ -1,0 +1,19 @@
+{
+  "judging": "checker",
+  "reference": "1851_flow.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "nothing erased" },
+    { "name": "03", "note": "everything erased: distance 0" },
+    { "name": "04", "note": "a pattern of one erased character" },
+    { "name": "05", "note": "a string and a pattern of equal length" },
+    { "name": "06", "note": "an erased pattern between a 1 and a 0" },
+    { "name": "07", "note": "the shortest input" },
+    { "name": "gen1", "generator": "1 1", "note": "short strings" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest string with a pattern of half its length" },
+    { "name": "gen3", "generator": "3 3", "note": "the longest string and pattern of equal length" },
+    { "name": "gen4", "generator": "4 4", "note": "the longest string with a pattern of one character" },
+    { "name": "gen5", "generator": "5 5", "note": "almost everything erased" },
+    { "name": "gen6", "generator": "6 6", "note": "erased characters in long runs" }
+  ]
+}
