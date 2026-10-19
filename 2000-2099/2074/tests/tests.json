@@ -1,0 +1,13 @@
+{
+  "judging": "exact",
+  "reference": "2074_implementation_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a deep chain and a name with a space sorting before a dot" },
+    { "name": "03", "note": "a topic without problems, numbers out of order" },
+    { "name": "04", "note": "no inheritance: problems belong only to the topics that list them" },
+    { "name": "gen1", "generator": "1", "note": "a random classifier" },
+    { "name": "gen2", "generator": "2", "note": "a random classifier, another seed" },
+    { "name": "gen3", "generator": "3", "note": "a random classifier, a third seed" }
+  ]
+}
