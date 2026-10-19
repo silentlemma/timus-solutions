@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1834_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "already sorted: no passes" },
+    { "name": "03", "note": "two cars swapped: one reversing pass" },
+    { "name": "04", "note": "fully reversed: one pass" },
+    { "name": "05", "note": "a rising run and a falling run: one pass" },
+    { "name": "06", "note": "a falling start: two passes" },
+    { "name": "07", "note": "a zigzag that is one rise and one fall in values" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random cars" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest random train" },
+    { "name": "gen3", "generator": "3 3", "note": "runs starting with a rise" },
+    { "name": "gen4", "generator": "4 4", "note": "runs starting with a fall" },
+    { "name": "gen5", "generator": "5 5", "note": "a sorted train with a few swaps" },
+    { "name": "gen6", "generator": "6 3", "note": "interleaved rising-start runs needing ten passes" },
+    { "name": "gen7", "generator": "7 4", "note": "nine-pass sorting of a falling-start construction" },
+    { "name": "08", "note": "minimum size with both cars already in order" },
+    { "name": "09", "note": "five cars need three passes; four falling-start intervals also need an empty initial slot" },
+    { "name": "10", "note": "seeded small random train with six rising-start intervals exercises all three passes" },
+    { "name": "11", "note": "only car 1 is rotated to the tail, yet sorting requires two passes" },
+    { "name": "gen8", "generator": "0 6", "note": "maximum length already sorted prints only the zero pass count" },
+    { "name": "gen9", "generator": "0 7 4096", "note": "swapped adjacent pairs use exactly 4096 rank slots and twelve passes" },
+    { "name": "gen10", "generator": "0 7 4098", "note": "the next even length pushes swapped adjacent pairs to 4098 slots and thirteen passes" },
+    { "name": "gen11", "generator": "0 9", "note": "maximum length with odd cars before even cars requires fourteen output orders" },
+    { "name": "gen12", "generator": "1834 8", "note": "seeded random interleaving of increasing low cars and decreasing high cars sorts in one pass" }
+  ]
+}
