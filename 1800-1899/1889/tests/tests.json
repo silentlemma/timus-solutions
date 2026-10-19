@@ -1,0 +1,21 @@
+{
+  "judging": "tokens",
+  "reference": "1889_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: three answers" },
+    { "name": "02", "example": true, "note": "the second example: no answer" },
+    { "name": "03", "example": true, "note": "the third example: one language" },
+    { "name": "04", "note": "two phrases, one known" },
+    { "name": "05", "note": "one language twice" },
+    { "name": "06", "note": "a language at both ends" },
+    { "name": "07", "note": "two languages alternating" },
+    { "name": "gen1", "generator": "1 1", "note": "a few phrases at random" },
+    { "name": "gen2", "generator": "2 2", "note": "a real announcement, mostly unknown" },
+    { "name": "gen3", "generator": "3 3", "note": "many divisors, two known phrases" },
+    { "name": "gen4", "generator": "4 4", "note": "the most phrases at random" },
+    { "name": "gen5", "generator": "5 5", "note": "a single known phrase" },
+    { "name": "08", "note": "minimum phrase count with two different languages and name lengths 4 and 20" },
+    { "name": "09", "note": "an entirely unknown middle block is allowed, while repeats leave only 2 or 3 languages" },
+    { "name": "10", "note": "maximum input size with distinct 20-letter names sharing a long prefix requires 1000 languages" }
+  ]
+}

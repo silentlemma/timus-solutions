@@ -93,3 +93,4 @@
 | 1886 | [Trip 2](1886/) | dp | C++, Go, Python, Java, Rust |
 | 1887 | [Frequent Flyer Card](1887/) | probability | C++, Go, Python, Java, Rust |
 | 1888 | [Pilot Work Experience](1888/) | bfs | C++, Go, Python, Java, Rust |
+| 1889 | [Airport Announcements](1889/) | bruteforce | C++, Go, Python, Java, Rust |
