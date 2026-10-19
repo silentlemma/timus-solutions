@@ -1,0 +1,267 @@
+{
+  "judging": "tokens",
+  "reference": "2048_implementation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example: 2015 has three Friday 13 ths and 2016 has one",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "003",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "004",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "005",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "006",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "007",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "008",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "009",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "010",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "011",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "012",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "013",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "014",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "015",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "016",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "017",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "018",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "019",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "020",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "021",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "022",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "023",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "024",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "025",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "026",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "027",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "028",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "029",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "030",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "031",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "032",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "033",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "034",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "035",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "036",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "037",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "038",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "039",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "040",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "041",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "042",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "043",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "044",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "045",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "046",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "047",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "048",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "049",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "050",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "051",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "052",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "053",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "054",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "055",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "056",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "057",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "058",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "059",
+      "note": "calendar-century boundary, inclusivity, year type or many cycles"
+    },
+    {
+      "name": "max_full_span",
+      "note": "full-domain resource and boundary input"
+    },
+    {
+      "name": "max_max_single",
+      "note": "full-domain resource and boundary input"
+    },
+    {
+      "name": "max_many_cycles",
+      "note": "full-domain resource and boundary input"
+    },
+    {
+      "name": "max_last_cycle",
+      "note": "full-domain resource and boundary input"
+    },
+    {
+      "name": "max_century_crossing",
+      "note": "full-domain resource and boundary input"
+    },
+    {
+      "name": "max_min_single",
+      "note": "full-domain resource and boundary input"
+    }
+  ]
+}
