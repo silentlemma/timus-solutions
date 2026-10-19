@@ -1,0 +1,101 @@
+{
+  "judging": "tokens",
+  "reference": "1926_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one digit and largest divisor"
+    },
+    {
+      "name": "03",
+      "note": "a negative modular intermediate must normalize"
+    },
+    {
+      "name": "04",
+      "note": "highest position and repeated leading-digit updates"
+    },
+    {
+      "name": "05",
+      "note": "positive wraparound and restoration"
+    },
+    {
+      "name": "06",
+      "note": "latest old digit and no-op update"
+    },
+    {
+      "name": "07",
+      "note": "positions count from the right"
+    },
+    {
+      "name": "08",
+      "note": "only updates produce empty output"
+    },
+    {
+      "name": "09",
+      "note": "factors two and five require no modular inverse"
+    },
+    {
+      "name": "10",
+      "note": "initial number exceeds machine integer range"
+    },
+    {
+      "name": "11",
+      "note": "different prime subsets on a longer number"
+    },
+    {
+      "name": "stress1",
+      "generator": "11001 1",
+      "note": "divisor universe or maximum-size scenario; mode 1"
+    },
+    {
+      "name": "stress2",
+      "generator": "11002 2",
+      "note": "divisor universe or maximum-size scenario; mode 2"
+    },
+    {
+      "name": "stress3",
+      "generator": "11003 3",
+      "note": "divisor universe or maximum-size scenario; mode 3"
+    },
+    {
+      "name": "stress4",
+      "generator": "11004 4",
+      "note": "divisor universe or maximum-size scenario; mode 4"
+    },
+    {
+      "name": "stress5",
+      "generator": "11005 5",
+      "note": "divisor universe or maximum-size scenario; mode 5"
+    },
+    {
+      "name": "stress6",
+      "generator": "11006 6",
+      "note": "divisor universe or maximum-size scenario; mode 6"
+    },
+    {
+      "name": "stress7",
+      "generator": "11007 7",
+      "note": "divisor universe or maximum-size scenario; mode 7"
+    },
+    {
+      "name": "stress8",
+      "generator": "11008 8",
+      "note": "divisor universe or maximum-size scenario; mode 8"
+    },
+    {
+      "name": "stress9",
+      "generator": "11009 9",
+      "note": "divisor universe or maximum-size scenario; mode 9"
+    },
+    {
+      "name": "stress10",
+      "generator": "11010 10",
+      "note": "divisor universe or maximum-size scenario; mode 10"
+    }
+  ]
+}
