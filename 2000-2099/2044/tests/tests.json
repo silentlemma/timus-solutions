@@ -1,0 +1,396 @@
+{
+  "judging": "tokens",
+  "reference": "2044_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example: feasible factor counts 1; 2; 1 and 3; 2, 3 and 4",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "003",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "004",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "005",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "006",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "007",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "008",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "009",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "010",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "011",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "012",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "013",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "014",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "015",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "016",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "017",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "018",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "019",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "020",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "021",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "022",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "023",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "024",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "025",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "026",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "027",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "028",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "029",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "030",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "031",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "032",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "033",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "034",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "035",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "036",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "037",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "038",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "039",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "040",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "041",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "042",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "043",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "044",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "045",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "046",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "047",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "048",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "049",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "050",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "051",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "052",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "053",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "054",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "055",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "056",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "057",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "058",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "059",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "060",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "061",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "062",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "063",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "064",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "065",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "066",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "067",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "068",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "069",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "070",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "071",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "072",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "073",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "074",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "075",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "076",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "077",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "078",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "079",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "080",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "081",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "082",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "083",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "084",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "085",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "086",
+      "note": "prefix counts, palindrome boundaries and count-31 truncation"
+    },
+    {
+      "name": "max_uniform",
+      "generator": "uniform 300000",
+      "note": "maximum length; periodic independent expected-output certificate"
+    },
+    {
+      "name": "max_alternating",
+      "generator": "alternating 300000",
+      "note": "maximum length; periodic independent expected-output certificate"
+    },
+    {
+      "name": "max_cycle26",
+      "generator": "cycle26 300000",
+      "note": "maximum length; periodic independent expected-output certificate"
+    },
+    {
+      "name": "max_period7",
+      "generator": "period7 300000",
+      "note": "maximum length; periodic independent expected-output certificate"
+    },
+    {
+      "name": "max_period31",
+      "generator": "period31 300000",
+      "note": "maximum length; periodic independent expected-output certificate"
+    },
+    {
+      "name": "max_zimin",
+      "generator": "zimin 300000",
+      "note": "maximum length; explicit independent expected-output certificate"
+    },
+    {
+      "name": "max_alternating_unique_center",
+      "generator": "alternating_unique_center 300000",
+      "note": "maximum length; alternating_mirror independent expected-output certificate"
+    },
+    {
+      "name": "max_long_runs_few",
+      "generator": "long_runs_few 300000",
+      "note": "maximum length; runs independent expected-output certificate"
+    },
+    {
+      "name": "max_long_runs_many",
+      "generator": "long_runs_many 300000",
+      "note": "maximum length; runs independent expected-output certificate"
+    }
+  ]
+}
