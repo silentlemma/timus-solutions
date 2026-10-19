@@ -1,0 +1,106 @@
+{
+  "judging": "tokens",
+  "reference": "1903_combinatorics.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement example: identities differ",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "only the identified ship remains"
+    },
+    {
+      "name": "04",
+      "note": "the unique minimum cannot occupy position two"
+    },
+    {
+      "name": "05",
+      "note": "the identified tie block can contain an early position"
+    },
+    {
+      "name": "06",
+      "note": "the same tied ship at a later position"
+    },
+    {
+      "name": "07",
+      "note": "all equal ships remain distinct identities"
+    },
+    {
+      "name": "08",
+      "note": "a unique maximum at the last position"
+    },
+    {
+      "name": "09",
+      "note": "a unique maximum at an impossible position"
+    },
+    {
+      "name": "10",
+      "note": "one extra equal maximum is required"
+    },
+    {
+      "name": "11",
+      "note": "three nontrivial class groups"
+    },
+    {
+      "name": "12",
+      "note": "input indices are not sorted ranks"
+    },
+    {
+      "name": "small",
+      "generator": "1 1",
+      "note": "small random identities"
+    },
+    {
+      "name": "equal",
+      "generator": "2 2",
+      "note": "maximum equal-class set count modulo prime"
+    },
+    {
+      "name": "first",
+      "generator": "3 3",
+      "note": "maximum lower-tail subtraction"
+    },
+    {
+      "name": "last",
+      "generator": "4 4",
+      "note": "maximum upper-tail subtraction"
+    },
+    {
+      "name": "middle",
+      "generator": "5 5",
+      "note": "both bad tails with a middle-rank identified ship"
+    },
+    {
+      "name": "almost",
+      "generator": "6 6",
+      "note": "all but one identity survive"
+    },
+    {
+      "name": "groups",
+      "generator": "7 7",
+      "note": "many ties in three class groups"
+    },
+    {
+      "name": "random",
+      "generator": "8 8",
+      "note": "maximal random classes and identities"
+    },
+    {
+      "name": "singleton",
+      "generator": "9 9",
+      "note": "singleton selection on maximum input"
+    },
+    {
+      "name": "almost_equal",
+      "generator": "10 10",
+      "note": "all but one ship with identical classes"
+    }
+  ]
+}
