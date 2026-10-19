@@ -1,0 +1,132 @@
+{
+  "judging": "checker",
+  "reference": "1920_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example: too many vertices",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "statement example: a valid noncanonical cycle",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "smallest grid and cycle"
+    },
+    {
+      "name": "04",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "05",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "06",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "07",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "08",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "09",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "10",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "11",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "12",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "13",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "14",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "15",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "16",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "17",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "18",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "19",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "20",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "21",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "22",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "23",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "24",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "25",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "26",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "27",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "28",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "29",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "30",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    },
+    {
+      "name": "31",
+      "note": "parity, partial row, stage boundary or maximal cycle"
+    }
+  ]
+}
