@@ -1,0 +1,208 @@
+{
+  "judging": "tokens",
+  "reference": "1924_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "complete input domain: n=2"
+    },
+    {
+      "name": "04",
+      "note": "complete input domain: n=3"
+    },
+    {
+      "name": "05",
+      "note": "complete input domain: n=5"
+    },
+    {
+      "name": "06",
+      "note": "complete input domain: n=6"
+    },
+    {
+      "name": "07",
+      "note": "complete input domain: n=7"
+    },
+    {
+      "name": "08",
+      "note": "complete input domain: n=8"
+    },
+    {
+      "name": "09",
+      "note": "complete input domain: n=9"
+    },
+    {
+      "name": "10",
+      "note": "complete input domain: n=10"
+    },
+    {
+      "name": "11",
+      "note": "complete input domain: n=11"
+    },
+    {
+      "name": "12",
+      "note": "complete input domain: n=12"
+    },
+    {
+      "name": "13",
+      "note": "complete input domain: n=13"
+    },
+    {
+      "name": "14",
+      "note": "complete input domain: n=14"
+    },
+    {
+      "name": "15",
+      "note": "complete input domain: n=15"
+    },
+    {
+      "name": "16",
+      "note": "complete input domain: n=16"
+    },
+    {
+      "name": "17",
+      "note": "complete input domain: n=17"
+    },
+    {
+      "name": "18",
+      "note": "complete input domain: n=18"
+    },
+    {
+      "name": "19",
+      "note": "complete input domain: n=19"
+    },
+    {
+      "name": "20",
+      "note": "complete input domain: n=20"
+    },
+    {
+      "name": "21",
+      "note": "complete input domain: n=21"
+    },
+    {
+      "name": "22",
+      "note": "complete input domain: n=22"
+    },
+    {
+      "name": "23",
+      "note": "complete input domain: n=23"
+    },
+    {
+      "name": "24",
+      "note": "complete input domain: n=24"
+    },
+    {
+      "name": "25",
+      "note": "complete input domain: n=25"
+    },
+    {
+      "name": "26",
+      "note": "complete input domain: n=26"
+    },
+    {
+      "name": "27",
+      "note": "complete input domain: n=27"
+    },
+    {
+      "name": "28",
+      "note": "complete input domain: n=28"
+    },
+    {
+      "name": "29",
+      "note": "complete input domain: n=29"
+    },
+    {
+      "name": "30",
+      "note": "complete input domain: n=30"
+    },
+    {
+      "name": "31",
+      "note": "complete input domain: n=31"
+    },
+    {
+      "name": "32",
+      "note": "complete input domain: n=32"
+    },
+    {
+      "name": "33",
+      "note": "complete input domain: n=33"
+    },
+    {
+      "name": "34",
+      "note": "complete input domain: n=34"
+    },
+    {
+      "name": "35",
+      "note": "complete input domain: n=35"
+    },
+    {
+      "name": "36",
+      "note": "complete input domain: n=36"
+    },
+    {
+      "name": "37",
+      "note": "complete input domain: n=37"
+    },
+    {
+      "name": "38",
+      "note": "complete input domain: n=38"
+    },
+    {
+      "name": "39",
+      "note": "complete input domain: n=39"
+    },
+    {
+      "name": "40",
+      "note": "complete input domain: n=40"
+    },
+    {
+      "name": "41",
+      "note": "complete input domain: n=41"
+    },
+    {
+      "name": "42",
+      "note": "complete input domain: n=42"
+    },
+    {
+      "name": "43",
+      "note": "complete input domain: n=43"
+    },
+    {
+      "name": "44",
+      "note": "complete input domain: n=44"
+    },
+    {
+      "name": "45",
+      "note": "complete input domain: n=45"
+    },
+    {
+      "name": "46",
+      "note": "complete input domain: n=46"
+    },
+    {
+      "name": "47",
+      "note": "complete input domain: n=47"
+    },
+    {
+      "name": "48",
+      "note": "complete input domain: n=48"
+    },
+    {
+      "name": "49",
+      "note": "complete input domain: n=49"
+    },
+    {
+      "name": "50",
+      "note": "complete input domain: n=50"
+    }
+  ]
+}
