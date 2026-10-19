@@ -1,0 +1,5 @@
+sa : ba 13 bb 11 sa 15 sb 13 sc 17 sd 12 se 19
+sb : ba 14 bb 14 sa 18 sb 15 sc 10 sd 15 se 14
+sc : ba 14 bb 12 sa 13 sb 11 sc 17 sd 19 se 14
+sd : ba 16 bb 16 sa 15 sb 15 sc 14 sd 8 se 16
+se : ba 16 bb 14 sa 13 sb 12 sc 11 sd 20 se 14

@@ -1,0 +1,238 @@
+{
+  "judging": "checker",
+  "reference": "1986_matrix.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "rare recursive mixture"
+    },
+    {
+      "name": "case_004",
+      "note": "self recursive mixture"
+    },
+    {
+      "name": "case_005",
+      "note": "chain recursive mixture"
+    },
+    {
+      "name": "case_006",
+      "note": "zeros recursive mixture"
+    },
+    {
+      "name": "case_007",
+      "note": "dense recursive mixture"
+    },
+    {
+      "name": "case_008",
+      "note": "long_names recursive mixture"
+    },
+    {
+      "name": "case_009",
+      "note": "single recursive mixture"
+    },
+    {
+      "name": "case_010",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_011",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_012",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_013",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_014",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_015",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_016",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_017",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_018",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_019",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_020",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_021",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_022",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_023",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_024",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_025",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_026",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_027",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_028",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_029",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_030",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_031",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_032",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_033",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_034",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_035",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_036",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_037",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_038",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_039",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_040",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_041",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_042",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_043",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_044",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_045",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_046",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_047",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_048",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_049",
+      "note": "independent exact Fraction oracle"
+    },
+    {
+      "name": "case_050",
+      "note": "leading and trailing whitespace"
+    },
+    {
+      "name": "gen_rare_0",
+      "generator": "0 rare",
+      "note": "rare generated"
+    },
+    {
+      "name": "gen_dense_1",
+      "generator": "1 dense",
+      "note": "dense generated"
+    },
+    {
+      "name": "gen_dense_42",
+      "generator": "42 dense",
+      "note": "dense generated"
+    },
+    {
+      "name": "gen_long_names_99",
+      "generator": "99 long_names",
+      "note": "long_names generated"
+    },
+    {
+      "name": "gen_chain_7",
+      "generator": "7 chain",
+      "note": "chain generated"
+    },
+    {
+      "name": "gen_zeros_3",
+      "generator": "3 zeros",
+      "note": "zeros generated"
+    }
+  ]
+}

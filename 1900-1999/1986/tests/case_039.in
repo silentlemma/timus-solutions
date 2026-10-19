@@ -1,0 +1,9 @@
+sa : ba 7 bb 14 sa 11 sb 6 sc 10 sd 6 se 10 sf 6 sg 14 sh 6 si 10
+sb : ba 6 bb 11 sa 11 sb 8 sc 10 sd 16 se 7 sf 10 sg 9 sh 8 si 4
+sc : ba 4 bb 12 sa 6 sb 9 sc 6 sd 19 se 10 sf 12 sg 7 sh 5 si 10
+sd : ba 13 bb 13 sa 8 sb 10 sc 9 sd 10 se 9 sf 10 sg 7 sh 4 si 7
+se : ba 10 bb 8 sa 12 sb 7 sc 9 sd 14 se 9 sf 12 sg 4 sh 5 si 10
+sf : ba 3 bb 11 sa 16 sb 4 sc 8 sd 8 se 11 sf 14 sg 7 sh 11 si 7
+sg : ba 9 bb 8 sa 13 sb 6 sc 6 sd 6 se 10 sf 14 sg 9 sh 6 si 13
+sh : ba 11 bb 10 sa 10 sb 7 sc 7 sd 14 se 13 sf 7 sg 7 sh 9 si 5
+si : ba 6 bb 12 sa 7 sb 5 sc 10 sd 11 se 5 sf 12 sg 16 sh 8 si 8

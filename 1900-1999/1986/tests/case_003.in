@@ -1,0 +1,10 @@
+salada : salada 99 saladb 1
+saladb : salada 99 saladc 1
+saladc : salada 99 saladd 1
+saladd : salada 99 salade 1
+salade : salada 99 saladf 1
+saladf : salada 99 saladg 1
+saladg : salada 99 saladh 1
+saladh : salada 99 saladi 1
+saladi : salada 99 saladj 1
+saladj : basea 1 baseb 1 salada 98
