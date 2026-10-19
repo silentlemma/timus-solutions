@@ -1,0 +1,394 @@
+{
+  "judging": "tokens",
+  "reference": "1996_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal byte-by-byte exhaustive oracle",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal byte-by-byte exhaustive oracle",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "004",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "005",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "006",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "007",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "008",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "009",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "010",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "011",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "012",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "013",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "014",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "015",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "016",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "017",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "018",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "019",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "020",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "021",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "022",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "023",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "024",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "025",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "026",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "027",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "028",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "029",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "030",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "031",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "032",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "033",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "034",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "035",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "036",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "037",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "038",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "039",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "040",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "041",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "042",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "043",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "044",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "045",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "046",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "047",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "048",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "049",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "050",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "051",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "052",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "053",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "054",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "055",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "056",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "057",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "058",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "059",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "060",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "061",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "062",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "063",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "064",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "065",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "066",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "067",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "068",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "069",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "070",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "071",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "072",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "073",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "074",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "075",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "076",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "077",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "078",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "079",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "080",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "081",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "082",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "083",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "084",
+      "note": "literal byte-by-byte exhaustive oracle"
+    },
+    {
+      "name": "gen_random_mid",
+      "generator": "1996 random_mid",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_random_long",
+      "generator": "1997 random_long",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_all_ones",
+      "generator": "1998 all_ones",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_all_changes",
+      "generator": "1999 all_changes",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_periodic",
+      "generator": "2000 periodic",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_no_match",
+      "generator": "2001 no_match",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_one_window",
+      "generator": "2002 one_window",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_longer",
+      "generator": "2003 longer",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_threshold",
+      "generator": "2004 threshold",
+      "note": "maximum bounds; independently certified after generation"
+    },
+    {
+      "name": "gen_late_exact",
+      "generator": "2005 late_exact",
+      "note": "maximum bounds; independently certified after generation"
+    }
+  ]
+}

@@ -100,3 +100,4 @@
 | 1993 | [Reorder marked phrases and fix capitalization](1993/) | parsing, strings | C++, Go, Python, Java, Rust |
 | 1994 | [Optimal random removals between deterministic losses](1994/) | dp, probability, combinatorics | C++, Go, Python, Java, Rust |
 | 1995 | [Minimum total weight with a prescribed selection count](1995/) | greedy, constructive | C++, Go, Python, Java, Rust |
+| 1996 | [Minimum low-bit edits for a byte substring](1996/) | strings | C++, Go, Python, Java, Rust |
