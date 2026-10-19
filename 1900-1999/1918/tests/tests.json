@@ -1,0 +1,107 @@
+{
+  "judging": "tokens",
+  "reference": "1918_dp.cpp",
+  "cases": [
+    {
+      "name": "n2",
+      "note": "sample",
+      "example": true
+    },
+    {
+      "name": "n3",
+      "note": "exact count and Horner parity at n=3"
+    },
+    {
+      "name": "n4",
+      "note": "exact count and Horner parity at n=4"
+    },
+    {
+      "name": "n5",
+      "note": "exact count and Horner parity at n=5"
+    },
+    {
+      "name": "n6",
+      "note": "exact count and Horner parity at n=6"
+    },
+    {
+      "name": "n7",
+      "note": "exact count and Horner parity at n=7"
+    },
+    {
+      "name": "n8",
+      "note": "exact count and Horner parity at n=8"
+    },
+    {
+      "name": "n9",
+      "note": "exact count and Horner parity at n=9"
+    },
+    {
+      "name": "n10",
+      "note": "exact count and Horner parity at n=10"
+    },
+    {
+      "name": "n11",
+      "note": "exact count and Horner parity at n=11"
+    },
+    {
+      "name": "n12",
+      "note": "exact count and Horner parity at n=12"
+    },
+    {
+      "name": "n13",
+      "note": "exact count and Horner parity at n=13"
+    },
+    {
+      "name": "n14",
+      "note": "exact count and Horner parity at n=14"
+    },
+    {
+      "name": "n15",
+      "note": "exact count and Horner parity at n=15"
+    },
+    {
+      "name": "n16",
+      "note": "exact count and Horner parity at n=16"
+    },
+    {
+      "name": "n17",
+      "note": "exact count and Horner parity at n=17"
+    },
+    {
+      "name": "n32",
+      "note": "exact count and Horner parity at n=32"
+    },
+    {
+      "name": "n33",
+      "note": "exact count and Horner parity at n=33"
+    },
+    {
+      "name": "n128",
+      "note": "exact count and Horner parity at n=128"
+    },
+    {
+      "name": "n129",
+      "note": "exact count and Horner parity at n=129"
+    },
+    {
+      "name": "n1000",
+      "note": "exact count and Horner parity at n=1000"
+    },
+    {
+      "name": "n1001",
+      "note": "exact count and Horner parity at n=1001"
+    },
+    {
+      "name": "n2500",
+      "note": "exact count and Horner parity at n=2500"
+    },
+    {
+      "name": "n4999",
+      "note": "exact count and Horner parity at n=4999"
+    },
+    {
+      "name": "n5000",
+      "note": "exact count and Horner parity at n=5000"
+    }
+  ]
+}
