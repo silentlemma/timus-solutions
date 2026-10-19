@@ -1,0 +1,243 @@
+{
+  "judging": "checker",
+  "reference": "1973_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_003",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_004",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_005",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_006",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_007",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_008",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_009",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_010",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_011",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_012",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_013",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_014",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_015",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_016",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_017",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_018",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_019",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_020",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_021",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_022",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_023",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_024",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_025",
+      "note": "all_small_grid_hulls_and_anchors"
+    },
+    {
+      "name": "case_026",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_027",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_028",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_029",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_030",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_031",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_032",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_033",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_034",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_035",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_036",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_037",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_038",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_039",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_040",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_041",
+      "note": "seeded_integer_convex_hulls"
+    },
+    {
+      "name": "case_042",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_043",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_044",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_045",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_046",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_047",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_048",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "case_049",
+      "note": "determinant_one_affine_transform"
+    },
+    {
+      "name": "parabola_1000_anchor_0",
+      "note": "parabola_1000_anchor_0"
+    },
+    {
+      "name": "maximum_scale_1000_anchor_0",
+      "note": "maximum_scale_1000_anchor_0"
+    },
+    {
+      "name": "sheared_1000_anchor_0",
+      "note": "sheared_1000_anchor_0"
+    },
+    {
+      "name": "parabola_1000_anchor_499",
+      "note": "parabola_1000_anchor_499"
+    },
+    {
+      "name": "maximum_scale_1000_anchor_499",
+      "note": "maximum_scale_1000_anchor_499"
+    },
+    {
+      "name": "sheared_1000_anchor_499",
+      "note": "sheared_1000_anchor_499"
+    },
+    {
+      "name": "skinny_triangle",
+      "note": "skinny_triangle"
+    },
+    {
+      "name": "skinny_parallelogram",
+      "note": "skinny_parallelogram"
+    },
+    {
+      "name": "maximum_square",
+      "note": "maximum_square"
+    },
+    {
+      "name": "official_example",
+      "note": "official_example"
+    }
+  ]
+}
