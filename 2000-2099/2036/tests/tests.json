@@ -1,0 +1,467 @@
+{
+  "judging": "tokens",
+  "reference": "2036_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "003",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "004",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "005",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "006",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "007",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "008",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "009",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "010",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "011",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "012",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "013",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "014",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "015",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "016",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "017",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "018",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "019",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "020",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "021",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "022",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "023",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "024",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "025",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "026",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "027",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "028",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "029",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "030",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "031",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "032",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "033",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "034",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "035",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "036",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "037",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "038",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "039",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "040",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "041",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "042",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "043",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "044",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "045",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "046",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "047",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "048",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "049",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "050",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "051",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "052",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "053",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "054",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "055",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "056",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "057",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "058",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "059",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "060",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "061",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "062",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "063",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "064",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "065",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "066",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "067",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "068",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "069",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "070",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "071",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "072",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "073",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "074",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "075",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "076",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "077",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "078",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "079",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "080",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "081",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "082",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "083",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "084",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "085",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "086",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "087",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "088",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "089",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "090",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "091",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "092",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "093",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "094",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "095",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "096",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "097",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "098",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "099",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "100",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "101",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "102",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "103",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "104",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "105",
+      "note": "independent exact line/intersection closure; arbitrary order and finite special configurations"
+    },
+    {
+      "name": "gen_line_horizontal",
+      "generator": "2036 line_horizontal",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_line_slanted",
+      "generator": "2036 line_slanted",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_near_first",
+      "generator": "2036 near_first",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_near_middle",
+      "generator": "2036 near_middle",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_near_last",
+      "generator": "2036 near_last",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_grid",
+      "generator": "2036 grid",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_late_two",
+      "generator": "2036 late_two",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    },
+    {
+      "name": "gen_grid_permuted",
+      "generator": "2036 grid_permuted",
+      "note": "real maximum n=100000; exact closed-set or infinite-subset certificate"
+    }
+  ]
+}
