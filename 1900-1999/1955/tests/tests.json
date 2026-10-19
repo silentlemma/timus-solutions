@@ -1,0 +1,275 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1955_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "hand_boundary_tangency_collinearity",
+      "example": true
+    },
+    {
+      "name": "case_02",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_03",
+      "note": "hand_boundary_tangency_collinearity"
+    },
+    {
+      "name": "case_04",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_05",
+      "note": "hand_boundary_tangency_collinearity"
+    },
+    {
+      "name": "case_06",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_07",
+      "note": "hand_boundary_tangency_collinearity"
+    },
+    {
+      "name": "case_08",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_09",
+      "note": "hand_boundary_tangency_collinearity"
+    },
+    {
+      "name": "case_10",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_11",
+      "note": "hand_boundary_tangency_collinearity"
+    },
+    {
+      "name": "case_12",
+      "note": "reversed_orientation"
+    },
+    {
+      "name": "case_13",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_14",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_15",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_16",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_17",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_18",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_19",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_20",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_21",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_22",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_23",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_24",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_25",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_26",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_27",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_28",
+      "note": "independent_convex_vertex_diameter"
+    },
+    {
+      "name": "case_29",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_30",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_31",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_32",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_33",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_34",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_35",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_36",
+      "note": "scaled_translated_near_bounds"
+    },
+    {
+      "name": "case_37",
+      "note": "integer_near_parallel_narrow_notch"
+    },
+    {
+      "name": "case_38",
+      "note": "integer_near_parallel_narrow_notch"
+    },
+    {
+      "name": "case_39",
+      "note": "integer_near_parallel_narrow_notch"
+    },
+    {
+      "name": "case_40",
+      "note": "reversed_near_parallel"
+    },
+    {
+      "name": "case_41",
+      "note": "reversed_near_parallel"
+    },
+    {
+      "name": "case_42",
+      "note": "reversed_near_parallel"
+    },
+    {
+      "name": "case_43",
+      "note": "quarter_turn"
+    },
+    {
+      "name": "case_44",
+      "note": "quarter_turn"
+    },
+    {
+      "name": "case_45",
+      "note": "quarter_turn"
+    },
+    {
+      "name": "case_46",
+      "note": "quarter_turn"
+    },
+    {
+      "name": "case_47",
+      "note": "reflected_orientation"
+    },
+    {
+      "name": "case_48",
+      "note": "reflected_orientation"
+    },
+    {
+      "name": "case_49",
+      "note": "reflected_orientation"
+    },
+    {
+      "name": "case_50",
+      "note": "reflected_orientation"
+    },
+    {
+      "name": "case_51",
+      "note": "cyclic_vertex_order"
+    },
+    {
+      "name": "case_52",
+      "note": "cyclic_vertex_order"
+    },
+    {
+      "name": "case_53",
+      "note": "cyclic_vertex_order"
+    },
+    {
+      "name": "case_54",
+      "note": "cyclic_vertex_order"
+    },
+    {
+      "name": "case_55",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_56",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_57",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_58",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_59",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_60",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_61",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "case_62",
+      "note": "seeded_simple_radial_concave"
+    },
+    {
+      "name": "convex_lattice",
+      "note": "maximum200, exact Fraction component witness plus independent accepted global comparison"
+    },
+    {
+      "name": "radial_star",
+      "note": "maximum200, exact Fraction component witness plus independent accepted global comparison"
+    },
+    {
+      "name": "forty_nine_notch_comb",
+      "note": "maximum200, exact Fraction component witness plus independent accepted global comparison"
+    },
+    {
+      "name": "subdivided_rectangle",
+      "note": "maximum200, exact Fraction component witness plus independent accepted global comparison"
+    },
+    {
+      "name": "ninety_nine_turn_spiral",
+      "note": "maximum200, exact Fraction component witness plus independent accepted global comparison"
+    }
+  ]
+}
