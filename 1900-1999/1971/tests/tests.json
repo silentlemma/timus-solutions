@@ -1,0 +1,297 @@
+{
+  "judging": "tokens",
+  "reference": "1971_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_003",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_004",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_005",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_006",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_007",
+      "note": "empty_product_exact_threshold"
+    },
+    {
+      "name": "case_008",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_009",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_010",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_011",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_012",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_013",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_014",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_015",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_016",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_017",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_018",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_019",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_020",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_021",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_022",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_023",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_024",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_025",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_026",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_027",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_028",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_029",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_030",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_031",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_032",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_033",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_034",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_035",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_036",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_037",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_038",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_039",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_040",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_041",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_042",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_043",
+      "note": "prime_and_composite_exact_thresholds"
+    },
+    {
+      "name": "case_044",
+      "note": "name_prefixes_length_one_to_ten"
+    },
+    {
+      "name": "case_045",
+      "note": "every_factor_deep_disable_and_restore"
+    },
+    {
+      "name": "case_046",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_047",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_048",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_049",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_050",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_051",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_053",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_054",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_055",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_056",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_057",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_058",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_059",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_060",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_061",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_062",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_063",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_064",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "case_065",
+      "note": "seeded_valid_dynamic_history"
+    },
+    {
+      "name": "off_two",
+      "note": "maximum_100000_changes",
+      "generator": "0 off_two"
+    },
+    {
+      "name": "off_hundred",
+      "note": "maximum_100000_changes",
+      "generator": "0 off_hundred"
+    },
+    {
+      "name": "toggle_low",
+      "note": "maximum_100000_changes",
+      "generator": "0 toggle_low"
+    },
+    {
+      "name": "toggle_high",
+      "note": "maximum_100000_changes",
+      "generator": "0 toggle_high"
+    },
+    {
+      "name": "no_options_resolution",
+      "note": "maximum_100000_changes",
+      "generator": "0 no_options_resolution"
+    },
+    {
+      "name": "many_options_resolution",
+      "note": "maximum_100000_changes",
+      "generator": "0 many_options_resolution"
+    }
+  ]
+}

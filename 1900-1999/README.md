@@ -75,3 +75,4 @@
 | 1968 | [Recovering Colors in a Staggered Pyramid](1968/) | constructive | C++, Go, Python, Java, Rust |
 | 1969 | [Reconstructing Repeated Tram Schedules](1969/) | constructive | C++, Go, Python, Java, Rust |
 | 1970 | [Joining Rotated Overlapping Photographs](1970/) | backtracking | C++, Go, Python, Java, Rust |
+| 1971 | [Classifying a Dynamic Product Without Overflow](1971/) | number_theory | C++, Go, Python, Java, Rust |
