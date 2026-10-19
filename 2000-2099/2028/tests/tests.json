@@ -1,0 +1,12 @@
+{
+  "judging": "checker",
+  "reference": "2028_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "example": true,
+      "format_only": true,
+      "note": "entire official host-input domain; sample output is a format-only illustration, checker validates the actual program on all 100 target inputs"
+    }
+  ]
+}
