@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "2069_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest grid, all ones" },
+    { "name": "04", "note": "down the left street, then along the bottom one" },
+    { "name": "05", "note": "along the top, down a middle street, along the bottom" },
+    { "name": "06", "note": "the largest values" },
+    { "name": "07", "note": "down the left, along a middle street, down the right" },
+    { "name": "gen1", "generator": "1 1", "note": "a small grid" },
+    { "name": "gen2", "generator": "2 2", "note": "random sizes and values" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest grid" }
+  ]
+}
