@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1858_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a cube of eight turned crystals" },
+    { "name": "03", "note": "a cube of side 3 with a hidden centre" },
+    { "name": "04", "note": "a cube of side 4" },
+    { "name": "gen1", "generator": "1 1", "note": "a small cube" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest cube with the most questions" },
+    { "name": "gen3", "generator": "3 3", "note": "questions about the corners of the largest cube" },
+    { "name": "gen4", "generator": "4 4", "note": "a cube of side 3 with the largest crystals" },
+    { "name": "05", "note": "one adjacent pair at minimum n, l and m, with rune values 1 and 1000000000" },
+    { "name": "06", "note": "all 28 pairs of the smallest cube, with consecutive runes ending at 1000000000" },
+    { "name": "07", "note": "equal Manhattan distances have different Euclidean distances" },
+    { "name": "08", "note": "the central crystal is ID 1 and queries reach every boundary degree class" },
+    { "name": "09", "note": "seeded random cube includes collinear interior crystals two steps apart" },
+    { "name": "10", "note": "integral lengths after scaling for Pythagorean face and space diagonals" },
+    { "name": "11", "note": "every contact is queried and all 24 proper crystal rotations occur" },
+    { "name": "12", "note": "seeded random queries include three-axis displacements of mixed coordinate parity" },
+    { "name": "13", "note": "all 351 distinct pairs of a side-3 cube exhaust small distance patterns" },
+    { "name": "14", "note": "corners occupy the last eight IDs in a larger stored cube with dense low runes" },
+    { "name": "15", "generator": "185815 5", "note": "maximum crystal side and cube side with only the opposite-corner query" },
+    { "name": "16", "generator": "185816 6", "note": "local face, edge and space neighbours in 10000 queries at maximum cube size and unit scale" },
+    { "name": "17", "generator": "185817 7", "note": "interior-only pairs in 10000 queries on an odd side-29 cube" },
+    { "name": "18", "generator": "185818 8", "note": "one interior crystal numbered first is reused in 10000 queries in the largest cube" },
+    { "name": "19", "generator": "185819 9", "note": "planar queries in a side-17 cube use dense large runes and unit crystal side" }
+  ]
+}
