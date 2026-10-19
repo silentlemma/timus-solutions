@@ -51,3 +51,4 @@
 | 1844 | [Warlord of the Army of Mages](1844/) | dp | C++, Go, Python, Java, Rust |
 | 1845 | [Integer-valued Complex Determinant](1845/) | number_theory | C++, Go, Python, Java, Rust |
 | 1846 | [GCD 2010](1846/) | segment_tree | C++, Go, Python, Java, Rust |
+| 1847 | [Zamkadye](1847/) | dp | C++, Go, Python, Java, Rust |
