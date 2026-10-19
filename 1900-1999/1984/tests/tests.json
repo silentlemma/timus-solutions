@@ -1,0 +1,74 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1984_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "complete legal domain n=2",
+      "example": true
+    },
+    {
+      "name": "count_01",
+      "note": "complete legal domain n=1"
+    },
+    {
+      "name": "count_03",
+      "note": "complete legal domain n=3"
+    },
+    {
+      "name": "count_04",
+      "note": "complete legal domain n=4"
+    },
+    {
+      "name": "count_05",
+      "note": "complete legal domain n=5"
+    },
+    {
+      "name": "count_06",
+      "note": "complete legal domain n=6"
+    },
+    {
+      "name": "count_07",
+      "note": "complete legal domain n=7"
+    },
+    {
+      "name": "count_08",
+      "note": "complete legal domain n=8"
+    },
+    {
+      "name": "count_09",
+      "note": "complete legal domain n=9"
+    },
+    {
+      "name": "count_10",
+      "note": "complete legal domain n=10"
+    },
+    {
+      "name": "whitespace_1",
+      "note": "complete legal domain n=1"
+    },
+    {
+      "name": "whitespace_7",
+      "note": "complete legal domain n=7"
+    },
+    {
+      "name": "whitespace_10",
+      "note": "complete legal domain n=10"
+    },
+    {
+      "name": "gen_minimum",
+      "generator": "1984 minimum",
+      "note": "minimum count"
+    },
+    {
+      "name": "gen_maximum",
+      "generator": "1984 maximum",
+      "note": "maximum count"
+    },
+    {
+      "name": "gen_random",
+      "generator": "1984 random",
+      "note": "random count"
+    }
+  ]
+}

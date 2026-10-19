@@ -88,3 +88,4 @@
 | 1981 | [Counting diagonals by direction](1981/) | math, combinatorics | C++, Go, Python, Java, Rust |
 | 1982 | [Minimum forest reaching supplied vertices](1982/) | graphs, greedy | C++, Go, Python, Java, Rust |
 | 1983 | [Triangle area inside a ball](1983/) | geometry | C++, Go, Python, Java, Rust |
+| 1984 | [An enclosing circle touched by every unit disk](1984/) | geometry | C++, Go, Python, Java, Rust |
