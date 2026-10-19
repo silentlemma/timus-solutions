@@ -1,0 +1,284 @@
+{
+  "judging": "checker",
+  "reference": "2017_graphs_bitmask.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official sample 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "004",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "005",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "006",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "007",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "008",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "009",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "010",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "011",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "012",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "013",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "014",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "015",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "016",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "017",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "018",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "019",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "020",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "021",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "022",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "023",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "024",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "025",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "026",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "027",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "028",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "029",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "030",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "031",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "032",
+      "note": "all testimony combinations n2/3, three places"
+    },
+    {
+      "name": "033",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "034",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "035",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "036",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "037",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "038",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "039",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "040",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "041",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "042",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "043",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "044",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "045",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "046",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "047",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "048",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "049",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "050",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "051",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "052",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "053",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "054",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "055",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "056",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "057",
+      "note": "two independently consistent testimony groups"
+    },
+    {
+      "name": "058",
+      "note": "shared witness contradiction: minimum 3, not direct-star minimum 1"
+    },
+    {
+      "name": "059",
+      "note": "double-star: minimum consistent side 3, not minimum vertex cover 2"
+    },
+    {
+      "name": "gen_balanced_dense",
+      "generator": "201718 balanced_dense",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_skew_dense",
+      "generator": "201719 skew_dense",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_no_conflicts",
+      "generator": "201720 no_conflicts",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_shared_witness",
+      "generator": "201721 shared_witness",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_pairs",
+      "generator": "201722 pairs",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_path",
+      "generator": "201723 path",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_one_edge_many_isolates",
+      "generator": "201724 one_edge_many_isolates",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    },
+    {
+      "name": "gen_random",
+      "generator": "201725 random",
+      "note": "400 people; consistency on both sides and global minimum checked"
+    }
+  ]
+}
