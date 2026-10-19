@@ -1,0 +1,11 @@
+{
+  "judging": "exact",
+  "reference": "2076_geometry_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the parabola y = x^2" },
+    { "name": "02", "note": "a point, a line, rays and parabolas, with exact boundary cases" },
+    { "name": "gen1", "generator": "1 1", "note": "7000 small tests" },
+    { "name": "gen2", "generator": "2 2", "note": "7000 tests with coordinates up to 10^20" },
+    { "name": "gen3", "generator": "3 3", "note": "radius close to the distance from P to C" }
+  ]
+}
