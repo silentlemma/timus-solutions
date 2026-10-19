@@ -1,0 +1,320 @@
+{
+  "judging": "checker",
+  "reference": "1947_bruteforce.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample: already winning",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official sample: several valid commands",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "hole at row 1, column 1; FAIL"
+    },
+    {
+      "name": "04",
+      "note": "hole at row 1, column 1; MOVE"
+    },
+    {
+      "name": "05",
+      "note": "hole at row 1, column 2; FAIL"
+    },
+    {
+      "name": "06",
+      "note": "hole at row 1, column 2; MOVE"
+    },
+    {
+      "name": "07",
+      "note": "hole at row 1, column 2; WIN"
+    },
+    {
+      "name": "08",
+      "note": "hole at row 1, column 3; FAIL"
+    },
+    {
+      "name": "09",
+      "note": "hole at row 1, column 3; MOVE"
+    },
+    {
+      "name": "10",
+      "note": "hole at row 1, column 3; WIN"
+    },
+    {
+      "name": "11",
+      "note": "hole at row 1, column 4; FAIL"
+    },
+    {
+      "name": "12",
+      "note": "hole at row 1, column 4; MOVE"
+    },
+    {
+      "name": "13",
+      "note": "hole at row 1, column 4; WIN"
+    },
+    {
+      "name": "14",
+      "note": "hole at row 1, column 5; FAIL"
+    },
+    {
+      "name": "15",
+      "note": "hole at row 1, column 5; MOVE"
+    },
+    {
+      "name": "16",
+      "note": "hole at row 1, column 5; WIN"
+    },
+    {
+      "name": "17",
+      "note": "hole at row 2, column 1; FAIL"
+    },
+    {
+      "name": "18",
+      "note": "hole at row 2, column 1; MOVE"
+    },
+    {
+      "name": "19",
+      "note": "hole at row 2, column 1; WIN"
+    },
+    {
+      "name": "20",
+      "note": "hole at row 2, column 2; FAIL"
+    },
+    {
+      "name": "21",
+      "note": "hole at row 2, column 2; MOVE"
+    },
+    {
+      "name": "22",
+      "note": "hole at row 2, column 2; WIN"
+    },
+    {
+      "name": "23",
+      "note": "hole at row 2, column 3; FAIL"
+    },
+    {
+      "name": "24",
+      "note": "hole at row 2, column 3; MOVE"
+    },
+    {
+      "name": "25",
+      "note": "hole at row 2, column 3; WIN"
+    },
+    {
+      "name": "26",
+      "note": "hole at row 2, column 4; FAIL"
+    },
+    {
+      "name": "27",
+      "note": "hole at row 2, column 4; MOVE"
+    },
+    {
+      "name": "28",
+      "note": "hole at row 2, column 4; WIN"
+    },
+    {
+      "name": "29",
+      "note": "hole at row 2, column 5; FAIL"
+    },
+    {
+      "name": "30",
+      "note": "hole at row 2, column 5; MOVE"
+    },
+    {
+      "name": "31",
+      "note": "hole at row 2, column 5; WIN"
+    },
+    {
+      "name": "32",
+      "note": "hole at row 3, column 1; FAIL"
+    },
+    {
+      "name": "33",
+      "note": "hole at row 3, column 1; MOVE"
+    },
+    {
+      "name": "34",
+      "note": "hole at row 3, column 1; WIN"
+    },
+    {
+      "name": "35",
+      "note": "hole at row 3, column 2; FAIL"
+    },
+    {
+      "name": "36",
+      "note": "hole at row 3, column 2; MOVE"
+    },
+    {
+      "name": "37",
+      "note": "hole at row 3, column 2; WIN"
+    },
+    {
+      "name": "38",
+      "note": "hole at row 3, column 3; FAIL"
+    },
+    {
+      "name": "39",
+      "note": "hole at row 3, column 3; MOVE"
+    },
+    {
+      "name": "40",
+      "note": "hole at row 3, column 3; WIN"
+    },
+    {
+      "name": "41",
+      "note": "hole at row 3, column 4; FAIL"
+    },
+    {
+      "name": "42",
+      "note": "hole at row 3, column 4; MOVE"
+    },
+    {
+      "name": "43",
+      "note": "hole at row 3, column 4; WIN"
+    },
+    {
+      "name": "44",
+      "note": "hole at row 3, column 5; FAIL"
+    },
+    {
+      "name": "45",
+      "note": "hole at row 3, column 5; WIN"
+    },
+    {
+      "name": "46",
+      "note": "hole at row 4, column 1; FAIL"
+    },
+    {
+      "name": "47",
+      "note": "hole at row 4, column 1; MOVE"
+    },
+    {
+      "name": "48",
+      "note": "hole at row 4, column 1; WIN"
+    },
+    {
+      "name": "49",
+      "note": "hole at row 4, column 2; FAIL"
+    },
+    {
+      "name": "50",
+      "note": "hole at row 4, column 2; MOVE"
+    },
+    {
+      "name": "51",
+      "note": "hole at row 4, column 2; WIN"
+    },
+    {
+      "name": "52",
+      "note": "hole at row 4, column 3; FAIL"
+    },
+    {
+      "name": "53",
+      "note": "hole at row 4, column 3; MOVE"
+    },
+    {
+      "name": "54",
+      "note": "hole at row 4, column 3; WIN"
+    },
+    {
+      "name": "55",
+      "note": "hole at row 4, column 4; FAIL"
+    },
+    {
+      "name": "56",
+      "note": "hole at row 4, column 4; MOVE"
+    },
+    {
+      "name": "57",
+      "note": "hole at row 4, column 4; WIN"
+    },
+    {
+      "name": "58",
+      "note": "hole at row 4, column 5; FAIL"
+    },
+    {
+      "name": "59",
+      "note": "hole at row 4, column 5; MOVE"
+    },
+    {
+      "name": "60",
+      "note": "hole at row 4, column 5; WIN"
+    },
+    {
+      "name": "61",
+      "note": "hole at row 5, column 1; FAIL"
+    },
+    {
+      "name": "62",
+      "note": "hole at row 5, column 1; MOVE"
+    },
+    {
+      "name": "63",
+      "note": "hole at row 5, column 1; WIN"
+    },
+    {
+      "name": "64",
+      "note": "hole at row 5, column 2; FAIL"
+    },
+    {
+      "name": "65",
+      "note": "hole at row 5, column 2; MOVE"
+    },
+    {
+      "name": "66",
+      "note": "hole at row 5, column 2; WIN"
+    },
+    {
+      "name": "67",
+      "note": "hole at row 5, column 3; FAIL"
+    },
+    {
+      "name": "68",
+      "note": "hole at row 5, column 3; MOVE"
+    },
+    {
+      "name": "69",
+      "note": "hole at row 5, column 3; WIN"
+    },
+    {
+      "name": "70",
+      "note": "hole at row 5, column 4; FAIL"
+    },
+    {
+      "name": "71",
+      "note": "hole at row 5, column 4; MOVE"
+    },
+    {
+      "name": "72",
+      "note": "hole at row 5, column 4; WIN"
+    },
+    {
+      "name": "73",
+      "note": "hole at row 5, column 5; FAIL"
+    },
+    {
+      "name": "74",
+      "note": "hole at row 5, column 5; MOVE"
+    },
+    {
+      "name": "75",
+      "note": "hole at row 5, column 5; WIN"
+    },
+    {
+      "name": "76",
+      "note": "winning tile motion witness U1"
+    },
+    {
+      "name": "77",
+      "note": "winning tile motion witness U2"
+    },
+    {
+      "name": "78",
+      "note": "winning tile motion witness U3"
+    }
+  ]
+}
