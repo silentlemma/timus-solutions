@@ -1,0 +1,25 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1887_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: uniformly distributed check digits" },
+    { "name": "02", "example": true, "note": "the second example: the last digit is always 0" },
+    { "name": "03", "note": "squares give only quadratic residues modulo 11" },
+    { "name": "04", "note": "one factor x + 1 and the rest always 1" },
+    { "name": "05", "note": "two factors with the largest coefficients" },
+    { "name": "06", "note": "the most factors with the largest coefficients" },
+    { "name": "07", "note": "two factors x + 1" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random factors" },
+    { "name": "gen2", "generator": "2 2", "note": "the most random factors" },
+    { "name": "gen3", "generator": "3 3", "note": "most factors always 1" },
+    { "name": "gen4", "generator": "4 4", "note": "small coefficients" },
+    { "name": "08", "note": "one zero factor absorbs two nonconstant factors" },
+    { "name": "09", "note": "constant factors multiply to residue 10 and always give digit zero" },
+    { "name": "10", "note": "two unshifted linear factors merge residues zero and ten" },
+    { "name": "11", "note": "twenty-five unshifted linear factors make zero common and other digits rare" },
+    { "name": "12", "note": "a constant multiplier leaves only digit one impossible" },
+    { "name": "13", "note": "seeded exhaustive case has a digit with probability one in 100" },
+    { "name": "14", "note": "seeded four-factor case has uneven nonzero digit probabilities" },
+    { "name": "gen5", "generator": "1887 5", "note": "twenty-five seeded two-root quadratics make nonzero draws very unlikely" }
+  ]
+}
