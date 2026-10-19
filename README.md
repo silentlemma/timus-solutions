@@ -29,7 +29,7 @@ For every problem there is:
 | [1800–1899](1800-1899/) | 98 problems |
 | [1900–1999](1900-1999/) | 100 problems |
 | [2000–2099](2000-2099/) | 100 problems |
-| [2100–2199](2100-2199/) | 12 problems |
+| [2100–2199](2100-2199/) | 13 problems |
 <!-- index:end -->
 
 Each folder `1000-1099/1005/` holds the write-ups (`README.md`,
