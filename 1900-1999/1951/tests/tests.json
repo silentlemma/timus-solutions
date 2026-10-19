@@ -1,0 +1,208 @@
+{
+  "judging": "tokens",
+  "reference": "1951_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "hand_00",
+      "note": "unreduced exponent equality is insufficient"
+    },
+    {
+      "name": "hand_01",
+      "note": "negative real base with one fixed root"
+    },
+    {
+      "name": "hand_02",
+      "note": "second equation fixes a negative root"
+    },
+    {
+      "name": "hand_03",
+      "note": "nonreal phase with two common roots"
+    },
+    {
+      "name": "hand_04",
+      "note": "conjugate nonreal phase"
+    },
+    {
+      "name": "hand_05",
+      "note": "two imaginary roots"
+    },
+    {
+      "name": "max_unit",
+      "note": "coprime maximum exponents, every modulus checked"
+    },
+    {
+      "name": "hand_07",
+      "note": "high-exponent phase mismatch"
+    },
+    {
+      "name": "hand_08",
+      "note": "maximum answer100 with purely imaginary values"
+    },
+    {
+      "name": "hand_09",
+      "note": "large nontrivial gcd"
+    },
+    {
+      "name": "hand_10",
+      "note": "shared algebraic roots without integer x"
+    },
+    {
+      "name": "hand_11",
+      "note": "nonunit Gaussian value with common exponent factor"
+    },
+    {
+      "name": "hand_12",
+      "note": "negative reductions and zero pair at first modulus"
+    },
+    {
+      "name": "max_shared",
+      "note": "large compatible values, coprime exponents97/100"
+    },
+    {
+      "name": "max_coeff",
+      "note": "inclusive1e18 bounds in every signed quadrant"
+    },
+    {
+      "name": "bound_1",
+      "note": "inclusive1e18 bounds in every signed quadrant"
+    },
+    {
+      "name": "bound_2",
+      "note": "inclusive1e18 bounds in every signed quadrant"
+    },
+    {
+      "name": "bound_3",
+      "note": "inclusive1e18 bounds in every signed quadrant"
+    },
+    {
+      "name": "collision_00",
+      "note": "first_moduli_collision_requires_later_modulus"
+    },
+    {
+      "name": "collision_01",
+      "note": "first_moduli_zero_pair_collision"
+    },
+    {
+      "name": "collision_02",
+      "note": "first_moduli_collision_requires_later_modulus"
+    },
+    {
+      "name": "collision_03",
+      "note": "first_moduli_zero_pair_collision"
+    },
+    {
+      "name": "collision_04",
+      "note": "first_moduli_collision_requires_later_modulus"
+    },
+    {
+      "name": "collision_05",
+      "note": "first_moduli_zero_pair_collision"
+    },
+    {
+      "name": "collision_06",
+      "note": "first_moduli_collision_requires_later_modulus"
+    },
+    {
+      "name": "collision_4",
+      "note": "first_moduli_zero_pair_collision"
+    },
+    {
+      "name": "positive_00",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_01",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_02",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_03",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_04",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_05",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_06",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_07",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_08",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_09",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_10",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "positive_11",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_00",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_01",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_02",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_03",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_04",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_05",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_06",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "zero_07",
+      "note": "exact independent Gaussian-power witness"
+    },
+    {
+      "name": "whitespace",
+      "note": "tabs and varied line breaks with large signed values"
+    },
+    {
+      "name": "single_line",
+      "note": "six values on one line"
+    }
+  ]
+}
