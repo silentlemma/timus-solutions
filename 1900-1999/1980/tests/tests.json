@@ -1,0 +1,308 @@
+{
+  "judging": "checker",
+  "reference": "1980_binary_search_dijkstra.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official example1",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official example2",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "largest single-road excess"
+    },
+    {
+      "name": "case_004",
+      "note": "large slack and zero excess"
+    },
+    {
+      "name": "case_005",
+      "note": "small positive harmonic excess"
+    },
+    {
+      "name": "case_006",
+      "note": "long fast route beats short slow route"
+    },
+    {
+      "name": "case_007",
+      "note": "zero-excess multiple feasible routes"
+    },
+    {
+      "name": "case_008",
+      "note": "parallel roads need original IDs"
+    },
+    {
+      "name": "case_009",
+      "note": "unreachable irrelevant component"
+    },
+    {
+      "name": "case_010",
+      "note": "exact deadline with fractional edge times"
+    },
+    {
+      "name": "case_011",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_012",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_013",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_014",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_015",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_016",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_017",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_018",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_019",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_020",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_021",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_022",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_023",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_024",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_025",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_026",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_027",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_028",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_029",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_030",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_031",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_032",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_033",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_034",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_035",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_036",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_037",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_038",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_039",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_040",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_041",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_042",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_043",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_044",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_045",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_046",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_047",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_048",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_049",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_050",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_051",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_052",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_053",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_054",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_055",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_056",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_057",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_058",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_059",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "case_060",
+      "note": "independently enumerated random tiny route"
+    },
+    {
+      "name": "max_chain_max",
+      "generator": "1980 chain_max",
+      "note": "certified maximum chain_max"
+    },
+    {
+      "name": "max_chain_zero",
+      "generator": "1980 chain_zero",
+      "note": "certified maximum chain_zero"
+    },
+    {
+      "name": "max_chain_zero_large",
+      "generator": "1980 chain_zero_large",
+      "note": "certified maximum chain_zero_large"
+    },
+    {
+      "name": "max_chain_mixed",
+      "generator": "1980 chain_mixed",
+      "note": "certified maximum chain_mixed"
+    },
+    {
+      "name": "max_chain_large_deadline",
+      "generator": "1980 chain_large_deadline",
+      "note": "certified maximum chain_large_deadline"
+    },
+    {
+      "name": "max_parallel",
+      "generator": "1980 parallel",
+      "note": "certified maximum parallel"
+    },
+    {
+      "name": "max_heap_stale",
+      "generator": "1980 heap_stale",
+      "note": "certified maximum heap_stale"
+    },
+    {
+      "name": "max_switch_low",
+      "generator": "1980 switch_low",
+      "note": "certified maximum switch_low"
+    },
+    {
+      "name": "max_switch_high",
+      "generator": "1980 switch_high",
+      "note": "certified maximum switch_high"
+    },
+    {
+      "name": "max_irrelevant",
+      "generator": "1980 irrelevant",
+      "note": "certified maximum irrelevant"
+    },
+    {
+      "name": "max_tiny_root",
+      "generator": "1980 tiny_root",
+      "note": "certified maximum tiny_root"
+    },
+    {
+      "name": "max_uniform_bfs",
+      "generator": "1980 uniform_bfs",
+      "note": "certified maximum uniform_bfs"
+    }
+  ]
+}
