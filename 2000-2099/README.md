@@ -71,3 +71,4 @@
 | 2064 | [The highest of many zigzags](2064/) | math, prefix_sums | C++, Go, Python, Java, Rust |
 | 2065 | [Few distinct segment sums](2065/) | constructive | C++, Go, Python, Java, Rust |
 | 2066 | [The smallest value of three numbers](2066/) | bruteforce | C++, Go, Python, Java, Rust |
+| 2067 | [Pairs that no third point can join](2067/) | geometry | C++, Go, Python, Java, Rust |

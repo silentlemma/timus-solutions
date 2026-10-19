@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "2067_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: two friends" },
+    { "name": "02", "example": true, "note": "the second example: a triangle" },
+    { "name": "03", "note": "three points on a line, the middle one listed first" },
+    { "name": "04", "note": "a vertical line" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random points" },
+    { "name": "gen2", "generator": "2 2", "note": "a few points on a line" },
+    { "name": "gen3", "generator": "3 3", "note": "the most points on a line, large coordinates" },
+    { "name": "gen4", "generator": "4 4", "note": "a maximum-size collinear set with one point shifted vertically by one unit" },
+    { "name": "gen5", "generator": "5 5", "note": "the most random points" },
+    { "name": "gen6", "generator": "6 6", "note": "two far points" },
+    { "name": "gen7", "generator": "7 7", "note": "the most points on a vertical line" },
+    { "name": "05", "note": "a horizontal line at the upper coordinate limit spanning both x bounds" },
+    { "name": "06", "note": "a translated descending line with adjacent initial points and both extremes later" },
+    { "name": "07", "note": "a nearly collinear triangle with determinant one and product terms near 40000000000000000" }
+  ]
+}
