@@ -1,0 +1,251 @@
+{
+  "judging": "tokens",
+  "reference": "2018_dp_prefix_sums.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "003",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "004",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "005",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "006",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "007",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "008",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "009",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "010",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "011",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "012",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "013",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "014",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "015",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "016",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "017",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "018",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "019",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "020",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "021",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "022",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "023",
+      "note": "all binary strings n2..12"
+    },
+    {
+      "name": "024",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "025",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "026",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "027",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "028",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "029",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "030",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "031",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "032",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "033",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "034",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "035",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "036",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "037",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "038",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "039",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "040",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "041",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "042",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "043",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "044",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "045",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "046",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "047",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "048",
+      "note": "independent trailing-run DP and symmetry"
+    },
+    {
+      "name": "049",
+      "note": "exact first forbidden homogeneous strings"
+    },
+    {
+      "name": "050",
+      "note": "long one-run and short two-run"
+    },
+    {
+      "name": "051",
+      "note": "short one-run and long two-run"
+    },
+    {
+      "name": "gen_balanced",
+      "generator": "201818 balanced",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_a_one",
+      "generator": "201819 a_one",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_b_one",
+      "generator": "201820 b_one",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_both_one",
+      "generator": "201821 both_one",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_near_equal",
+      "generator": "201822 near_equal",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_a_large_b_small",
+      "generator": "201823 a_large_b_small",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_a_small_b_large",
+      "generator": "201824 a_small_b_large",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    },
+    {
+      "name": "gen_random",
+      "generator": "201825 random",
+      "note": "n=50000, trailing-run check and modulo normalization checked"
+    }
+  ]
+}
