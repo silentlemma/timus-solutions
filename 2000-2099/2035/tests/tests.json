@@ -1,0 +1,517 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2035_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "004",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "005",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "006",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "007",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "008",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "009",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "010",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "011",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "012",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "013",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "014",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "015",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "016",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "017",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "018",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "019",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "020",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "021",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "022",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "023",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "024",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "025",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "026",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "027",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "028",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "029",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "030",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "031",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "032",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "033",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "034",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "035",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "036",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "037",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "038",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "039",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "040",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "041",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "042",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "043",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "044",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "045",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "046",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "047",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "048",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "049",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "050",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "051",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "052",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "053",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "054",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "055",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "056",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "057",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "058",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "059",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "060",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "061",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "062",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "063",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "064",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "065",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "066",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "067",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "068",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "069",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "070",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "071",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "072",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "073",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "074",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "075",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "076",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "077",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "078",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "079",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "080",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "081",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "082",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "083",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "084",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "085",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "086",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "087",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "088",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "089",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "090",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "091",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "092",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "093",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "094",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "095",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "096",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "097",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "098",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "099",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "100",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "101",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "102",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "103",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "104",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "105",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "106",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "107",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "108",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "109",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "110",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "111",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "112",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "113",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "114",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "115",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "116",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "117",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "118",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "119",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "120",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "121",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "122",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "123",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "124",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "125",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "126",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    },
+    {
+      "name": "127",
+      "note": "zero/maximum bounds, capacity threshold or full-range arbitrary feasible pair"
+    }
+  ]
+}
