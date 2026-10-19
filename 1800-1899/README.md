@@ -53,3 +53,4 @@
 | 1846 | [GCD 2010](1846/) | segment_tree | C++, Go, Python, Java, Rust |
 | 1847 | [Zamkadye](1847/) | dp | C++, Go, Python, Java, Rust |
 | 1848 | [Fly Hunt](1848/) | geometry | C++, Go, Python, Java, Rust |
+| 1849 | [Rabbit Hunt 2](1849/) | sorting | C++, Go, Python, Java, Rust |

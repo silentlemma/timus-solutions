@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1849_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a rabbit at the hunter's feet" },
+    { "name": "03", "note": "two shots with equal hits: the later one" },
+    { "name": "04", "note": "no shot hits: the last shot" },
+    { "name": "05", "note": "rabbits behind the hunter and a direction that is not primitive" },
+    { "name": "06", "note": "the largest coordinates and parameters" },
+    { "name": "gen1", "generator": "1 1", "note": "a few rabbits and shots" },
+    { "name": "gen2", "generator": "2 2", "note": "the most rabbits and shots at random" },
+    { "name": "gen3", "generator": "3 3", "note": "the most rabbits on a dense grid" },
+    { "name": "gen4", "generator": "4 4", "note": "a hunter turning in the middle of a grid" },
+    { "name": "gen5", "generator": "5 5", "note": "every rabbit on one diagonal" },
+    { "name": "gen6", "generator": "6 6", "note": "no shot hits" },
+    { "name": "07", "note": "a downward vertical ray excludes rabbits above it and on adjacent columns" },
+    { "name": "08", "note": "an oblique ray includes fractional multiples of its direction but rejects nearby points" },
+    { "name": "09", "note": "identical repeated shots count the same rabbits again without removing them" },
+    { "name": "10", "note": "both hunter coordinates wrap at opposite boundaries before the winning second shot" },
+    { "name": "11", "note": "only the given first shot hits before zero multipliers reverse the direction" },
+    { "name": "12", "note": "maximum recurrence coefficients produce an interior winner with a zero direction component" },
+    { "name": "13", "note": "a retained random case has a unique interior maximum while the hunter reflects vertically" },
+    { "name": "14", "note": "a retained random case ties across several directions and returns to the best count at the end" },
+    { "name": "15", "generator": "15 7", "note": "all 10000 rabbits lie ahead on a horizontal ray and are hit by the only shot" },
+    { "name": "16", "generator": "16 8", "note": "one rabbit is hit on shot 1000000 after repeated wraps of the hunter position" },
+    { "name": "17", "generator": "17 9", "note": "seeded random rabbits on generated rays compete with unrelated distractors" }
+  ]
+}
