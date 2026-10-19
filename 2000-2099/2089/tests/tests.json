@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "2089_graphs_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid answer is accepted" },
+    { "name": "02", "example": true, "note": "the second example: six pairs, four teams" },
+    { "name": "03", "note": "a single pair" },
+    { "name": "04", "note": "the same two teams twice: a cycle of length two" },
+    { "name": "05", "note": "the same two teams three times" },
+    { "name": "06", "note": "a triangle with a tail" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams" },
+    { "name": "gen2", "generator": "1 2", "note": "a single pair with reversed team order" },
+    { "name": "gen3", "generator": "2 3", "note": "trees and single-cycle components covering 100000 teams" },
+    { "name": "gen4", "generator": "3 4", "note": "one group with two extra pairs" },
+    { "name": "gen5", "generator": "4 5", "note": "one cycle through all teams" },
+    { "name": "gen6", "generator": "5 6", "note": "one path through all teams" },
+    { "name": "07", "note": "a star stays feasible even though its center plays the maximum three pairs" },
+    { "name": "08", "note": "two-edge tails peel from both ends of a parallel-edge cycle" },
+    { "name": "09", "note": "spare teams in separate trees cannot rescue an overloaded component even when n < k" },
+    { "name": "10", "note": "a stress-selected random graph needs separate walks for a triangle and a parallel-edge cycle" },
+    { "name": "11", "note": "a stress-selected random graph has two cycles joined by a bridge and no leaves" },
+    { "name": "gen7", "generator": "6 208907", "note": "the minimum 50000 games cover all 100000 teams in independent pairs" },
+    { "name": "gen8", "generator": "7 208908", "note": "the maximum 100000 games reach the degree-bound minimum of 66667 teams with no leaves" }
+  ]
+}
