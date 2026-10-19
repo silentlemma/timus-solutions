@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "2099_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the turn at B" },
+    { "name": "03", "note": "the turn at C" },
+    { "name": "04", "note": "the turning point lies before B" },
+    { "name": "05", "note": "point C comes before the turning point" },
+    { "name": "06", "note": "perpendicular lines that do not meet" },
+    { "name": "07", "note": "the lines meet at another angle" },
+    { "name": "08", "note": "a valid flight with large coordinates" },
+    { "name": "09", "note": "coplanar cube corners with nonperpendicular directions" },
+    { "name": "gen1", "generator": "1 1", "note": "a valid flight, small coordinates" },
+    { "name": "gen2", "generator": "2 2", "note": "a valid flight, large coordinates" },
+    { "name": "gen3", "generator": "3 3", "note": "a displaced point breaks perpendicularity" },
+    { "name": "gen4", "generator": "4 4", "note": "random points" },
+    { "name": "10", "note": "four collinear points in forward order cannot supply a right-angle turn" },
+    { "name": "11", "note": "a three-dimensional flight whose turning point has fractional coordinates" },
+    { "name": "12", "note": "almost perpendicular directions have dot product one after large-term cancellation" },
+    { "name": "13", "note": "perpendicular skew lines at coordinate limits require a mixed product beyond signed 64 bits" },
+    { "name": "14", "note": "perpendicular lines miss by a tiny distance with an exact mixed product of one" }
+  ]
+}
