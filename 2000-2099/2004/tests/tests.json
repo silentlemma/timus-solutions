@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "2004_graphs_greedy.cpp",
+  "cases": [
+    { "name": "01", "note": "sample at the minimum order requires both single-bit words", "example": true },
+    { "name": "02", "note": "smallest even order covers all four bit pairs" },
+    { "name": "03", "note": "first unequal nonempty block split preserves all binary triples" },
+    { "name": "04", "note": "overlapping four-bit windows attain the minimum string length" },
+    { "name": "05", "note": "odd word length moves a two-bit lower block ahead of three upper bits" },
+    { "name": "06", "note": "balanced three-bit blocks leave the set of required words unchanged" },
+    { "name": "07", "note": "leading zeros remain significant in seven-bit words" },
+    { "name": "08", "note": "all byte-wide patterns occur without duplicate windows" },
+    { "name": "09", "note": "odd order extends coverage beyond byte-sized words" },
+    { "name": "10", "note": "a thousand-word-scale construction includes the closing overlap" },
+    { "name": "11", "note": "swapping six-bit and five-bit blocks still covers every word" },
+    { "name": "12", "note": "output exceeds four thousand bits while retaining optimal length" },
+    { "name": "13", "note": "thirteen-bit words require twelve extra bits to linearize the cycle" },
+    { "name": "14", "note": "an Euler tour covers every edge representing a fourteen-bit word" },
+    { "name": "15", "note": "largest stored case covers every fifteen-bit pattern" },
+    { "name": "gen_order16", "note": "generated coverage includes all two-byte binary words", "generator": "2004 16" },
+    { "name": "gen_order17", "note": "unequal eight-bit and nine-bit blocks exercise a large odd order", "generator": "2004 17" },
+    { "name": "gen_order18", "note": "generated output contains over a quarter million distinct windows", "generator": "2004 18" },
+    { "name": "gen_order19", "note": "largest odd order exercises the ten-bit and nine-bit split", "generator": "2004 19" },
+    { "name": "gen_order20", "note": "maximum input requires a string of more than a million bits", "generator": "2004 20" }
+  ]
+}
