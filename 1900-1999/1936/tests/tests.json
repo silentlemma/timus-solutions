@@ -1,0 +1,403 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1936_probability_dp.cpp",
+  "cases": [
+    {
+      "name": "002",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "004",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "005",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "006",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "007",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "008",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "009",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "010",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "011",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "012",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "013",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "014",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "015",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "016",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "017",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "018",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "019",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "020",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "021",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "022",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "023",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "024",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "025",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "026",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "027",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "028",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "029",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "030",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "031",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "032",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "033",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "034",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "035",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "036",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "037",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "038",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "039",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "040",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "041",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "042",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "043",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "044",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "045",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "046",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "047",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "048",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "049",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "050",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "051",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "052",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "053",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "054",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "055",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "056",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "057",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "058",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "059",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "060",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "061",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "062",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "063",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "064",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "065",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "066",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "067",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "068",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "069",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "070",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "071",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "072",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "073",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "074",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "075",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "076",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "077",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "078",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "079",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "080",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "081",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "082",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "083",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "084",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "085",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "086",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "087",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "088",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "089",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "090",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "091",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "092",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "093",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "094",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "095",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "096",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "097",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "098",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "099",
+      "note": "all legal counts; exact rational Markov reference"
+    },
+    {
+      "name": "100",
+      "note": "all legal counts; exact rational Markov reference"
+    }
+  ]
+}
