@@ -1,0 +1,362 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1977_segment_tree.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "initial_zero_save"
+    },
+    {
+      "name": "case_003",
+      "note": "single_cell_late_save"
+    },
+    {
+      "name": "case_004",
+      "note": "maximum_total_energy_exceeds_int64"
+    },
+    {
+      "name": "case_005",
+      "note": "empty_warehouse_enforce"
+    },
+    {
+      "name": "case_006",
+      "note": "unit_radius_both_boundaries_n1"
+    },
+    {
+      "name": "case_007",
+      "note": "unit_radius_both_boundaries_n2"
+    },
+    {
+      "name": "case_008",
+      "note": "unit_radius_both_boundaries_n3"
+    },
+    {
+      "name": "case_009",
+      "note": "unit_radius_both_boundaries_n4"
+    },
+    {
+      "name": "case_010",
+      "note": "unit_radius_both_boundaries_n5"
+    },
+    {
+      "name": "case_011",
+      "note": "unit_radius_both_boundaries_n9"
+    },
+    {
+      "name": "case_012",
+      "note": "unit_radius_both_boundaries_n30"
+    },
+    {
+      "name": "case_013",
+      "note": "large_triangle_tails_and_clear_n5"
+    },
+    {
+      "name": "case_014",
+      "note": "large_triangle_tails_and_clear_n7"
+    },
+    {
+      "name": "case_015",
+      "note": "large_triangle_tails_and_clear_n13"
+    },
+    {
+      "name": "case_016",
+      "note": "large_triangle_tails_and_clear_n29"
+    },
+    {
+      "name": "case_017",
+      "note": "large_triangle_tails_and_clear_n999999999"
+    },
+    {
+      "name": "case_018",
+      "note": "large_triangle_tails_and_clear_n1000000000"
+    },
+    {
+      "name": "case_019",
+      "note": "literal_mixed_small_0"
+    },
+    {
+      "name": "case_020",
+      "note": "literal_mixed_small_1"
+    },
+    {
+      "name": "case_021",
+      "note": "literal_mixed_small_2"
+    },
+    {
+      "name": "case_022",
+      "note": "literal_mixed_small_3"
+    },
+    {
+      "name": "case_023",
+      "note": "literal_mixed_small_4"
+    },
+    {
+      "name": "case_024",
+      "note": "literal_mixed_small_5"
+    },
+    {
+      "name": "case_025",
+      "note": "literal_mixed_small_6"
+    },
+    {
+      "name": "case_026",
+      "note": "literal_mixed_small_7"
+    },
+    {
+      "name": "case_027",
+      "note": "literal_mixed_small_8"
+    },
+    {
+      "name": "case_028",
+      "note": "literal_mixed_small_9"
+    },
+    {
+      "name": "case_029",
+      "note": "literal_mixed_small_10"
+    },
+    {
+      "name": "case_030",
+      "note": "literal_mixed_small_11"
+    },
+    {
+      "name": "case_031",
+      "note": "literal_mixed_small_12"
+    },
+    {
+      "name": "case_032",
+      "note": "literal_mixed_small_13"
+    },
+    {
+      "name": "case_033",
+      "note": "literal_mixed_small_14"
+    },
+    {
+      "name": "case_034",
+      "note": "literal_mixed_small_15"
+    },
+    {
+      "name": "case_035",
+      "note": "literal_mixed_small_16"
+    },
+    {
+      "name": "case_036",
+      "note": "literal_mixed_small_17"
+    },
+    {
+      "name": "case_037",
+      "note": "literal_mixed_small_18"
+    },
+    {
+      "name": "case_038",
+      "note": "literal_mixed_small_19"
+    },
+    {
+      "name": "case_039",
+      "note": "literal_mixed_small_20"
+    },
+    {
+      "name": "case_040",
+      "note": "literal_mixed_small_21"
+    },
+    {
+      "name": "case_041",
+      "note": "literal_mixed_small_22"
+    },
+    {
+      "name": "case_042",
+      "note": "literal_mixed_small_23"
+    },
+    {
+      "name": "case_043",
+      "note": "literal_mixed_small_24"
+    },
+    {
+      "name": "case_044",
+      "note": "literal_mixed_small_25"
+    },
+    {
+      "name": "case_045",
+      "note": "literal_mixed_small_26"
+    },
+    {
+      "name": "case_046",
+      "note": "literal_mixed_small_27"
+    },
+    {
+      "name": "case_047",
+      "note": "literal_mixed_small_28"
+    },
+    {
+      "name": "case_048",
+      "note": "literal_mixed_small_29"
+    },
+    {
+      "name": "case_049",
+      "note": "literal_mixed_small_30"
+    },
+    {
+      "name": "case_050",
+      "note": "literal_mixed_small_31"
+    },
+    {
+      "name": "case_051",
+      "note": "literal_mixed_small_32"
+    },
+    {
+      "name": "case_052",
+      "note": "literal_mixed_small_33"
+    },
+    {
+      "name": "case_053",
+      "note": "literal_mixed_small_34"
+    },
+    {
+      "name": "case_054",
+      "note": "literal_mixed_small_35"
+    },
+    {
+      "name": "case_055",
+      "note": "literal_mixed_small_36"
+    },
+    {
+      "name": "case_056",
+      "note": "literal_mixed_small_37"
+    },
+    {
+      "name": "case_057",
+      "note": "literal_mixed_small_38"
+    },
+    {
+      "name": "case_058",
+      "note": "literal_mixed_small_39"
+    },
+    {
+      "name": "case_059",
+      "note": "exact_piecewise_large_coordinates_0"
+    },
+    {
+      "name": "case_060",
+      "note": "exact_piecewise_large_coordinates_1"
+    },
+    {
+      "name": "case_061",
+      "note": "exact_piecewise_large_coordinates_2"
+    },
+    {
+      "name": "case_062",
+      "note": "exact_piecewise_large_coordinates_3"
+    },
+    {
+      "name": "case_063",
+      "note": "exact_piecewise_large_coordinates_4"
+    },
+    {
+      "name": "case_064",
+      "note": "exact_piecewise_large_coordinates_5"
+    },
+    {
+      "name": "case_065",
+      "note": "exact_piecewise_large_coordinates_6"
+    },
+    {
+      "name": "case_066",
+      "note": "exact_piecewise_large_coordinates_7"
+    },
+    {
+      "name": "case_067",
+      "note": "exact_piecewise_large_coordinates_8"
+    },
+    {
+      "name": "case_068",
+      "note": "exact_piecewise_large_coordinates_9"
+    },
+    {
+      "name": "case_069",
+      "note": "exact_piecewise_large_coordinates_10"
+    },
+    {
+      "name": "case_070",
+      "note": "exact_piecewise_large_coordinates_11"
+    },
+    {
+      "name": "max_whole",
+      "note": "q100000_whole",
+      "generator": "1977 whole"
+    },
+    {
+      "name": "max_points",
+      "note": "q100000_points",
+      "generator": "1977 points"
+    },
+    {
+      "name": "max_prefix",
+      "note": "q100000_prefix",
+      "generator": "1977 prefix"
+    },
+    {
+      "name": "max_disjoint",
+      "note": "q100000_disjoint",
+      "generator": "1977 disjoint"
+    },
+    {
+      "name": "max_zero_reserve",
+      "note": "q100000_zero_reserve",
+      "generator": "1977 zero_reserve"
+    },
+    {
+      "name": "max_many_enforce",
+      "note": "q100000_many_enforce",
+      "generator": "1977 many_enforce"
+    },
+    {
+      "name": "max_triangular_probe",
+      "note": "q100000_triangular_probe",
+      "generator": "1977 triangular_probe"
+    },
+    {
+      "name": "max_mixed_point",
+      "note": "q100000_mixed_point",
+      "generator": "1977 mixed_point"
+    },
+    {
+      "name": "max_disjoint_triangle",
+      "note": "q100000_disjoint_triangle",
+      "generator": "1977 disjoint_triangle"
+    },
+    {
+      "name": "max_prefix_triangle",
+      "note": "q100000_prefix_triangle",
+      "generator": "1977 prefix_triangle"
+    },
+    {
+      "name": "max_disjoint_two_triangles",
+      "note": "q100000_disjoint_two_triangles",
+      "generator": "1977 disjoint_two_triangles"
+    },
+    {
+      "name": "max_disjoint_512_triangles",
+      "note": "q100000_disjoint_512_triangles",
+      "generator": "1977 disjoint_512_triangles"
+    },
+    {
+      "name": "max_disjoint_2048_triangles",
+      "note": "q100000_disjoint_2048_triangles",
+      "generator": "1977 disjoint_2048_triangles"
+    },
+    {
+      "name": "max_mixed_cells",
+      "note": "q100000_mixed_cells",
+      "generator": "1977 mixed_cells"
+    },
+    {
+      "name": "max_mixed_gadgets",
+      "note": "q100000_mixed_gadgets",
+      "generator": "1977 mixed_gadgets"
+    }
+  ]
+}
