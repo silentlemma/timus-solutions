@@ -35,3 +35,4 @@
 | 1828 | [Approximation by a Progression](1828/) | math | C++, Go, Python, Java, Rust |
 | 1829 | [Routing Tables](1829/) | sorting | C++, Go, Python, Java, Rust |
 | 1830 | [Help in the RNOS](1830/) | math | C++, Go, Python, Java, Rust |
+| 1831 | [Tsyfirkin's Lesson](1831/) | probability | C++, Go, Python, Java, Rust |

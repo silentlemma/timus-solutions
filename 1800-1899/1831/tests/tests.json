@@ -1,0 +1,29 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1831_probability.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one-digit numbers: only the leading place" },
+    { "name": "03", "note": "three digits, checked against all pairs of numbers" },
+    { "name": "04", "note": "four digits: early reuse of learned sums" },
+    { "name": "05", "note": "ten digits: carry probabilities close to equilibrium" },
+    { "name": "06", "note": "a hundred digits: several expensive pairs remain unseen" },
+    { "name": "07", "note": "a thousand digits: almost complete learning of expensive pairs" },
+    { "name": "08", "note": "one below the most digits" },
+    { "name": "09", "note": "the most digits" },
+    { "name": "10", "note": "five digits: repeated digit sums beyond the short existing cases" },
+    { "name": "11", "note": "eight digits: the initial carry transient is almost gone" },
+    { "name": "12", "note": "twenty digits: many expensive sums are still first occurrences" },
+    { "name": "13", "note": "as many places as expensive unordered pairs, without assuming all are seen" },
+    { "name": "14", "note": "equal-digit pairs have roughly one-half probability of remaining unseen" },
+    { "name": "15", "note": "unequal pairs are mostly learned while equal pairs are often missing" },
+    { "name": "16", "note": "the remaining learning cost is dominated by rare equal-digit pairs" },
+    { "name": "17", "note": "a small unsaturated learning tail still exceeds the output tolerance" },
+    { "name": "18", "generator": "random 183101 6 7", "note": "seeded short lesson between the five- and eight-digit cases" },
+    { "name": "19", "generator": "random 183102 11 19", "note": "seeded early learning with distinct leading-digit probabilities" },
+    { "name": "20", "generator": "random 183103 40 60", "note": "seeded middle learning with different diagonal and off-diagonal rates" },
+    { "name": "21", "generator": "random 183104 90 99", "note": "seeded two-digit length near the hundred-place coverage gap" },
+    { "name": "22", "generator": "random 183105 400 600", "note": "seeded long lesson with a small but measurable unseen-pair correction" },
+    { "name": "23", "generator": "random 183106 1500 4500", "note": "seeded large length with saturated memory and accumulated carry cost" }
+  ]
+}
