@@ -1,0 +1,259 @@
+{
+  "judging": "checker",
+  "reference": "1959_two_pointers.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_003",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_004",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_005",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_006",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_007",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_008",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_009",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_010",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_011",
+      "note": "range_edges_ties_high_ids_and_intact"
+    },
+    {
+      "name": "case_012",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_013",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_014",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_015",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_016",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_017",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_018",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_019",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_020",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_021",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_022",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_023",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_024",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_025",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_026",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_027",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_028",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_029",
+      "note": "exhaustive_binary_ternary"
+    },
+    {
+      "name": "case_030",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_031",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_032",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_033",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_034",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_035",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_036",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_037",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_038",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_039",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_040",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_041",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_042",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_043",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_044",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_045",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_046",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_047",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_048",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_049",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_050",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_051",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "case_053",
+      "note": "seeded_full_alphabet"
+    },
+    {
+      "name": "unknown_text_unique",
+      "generator": "unknown_text_unique 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_pattern_unique",
+      "generator": "unknown_pattern_unique 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_text_constant",
+      "generator": "unknown_text_constant 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_pattern_one",
+      "generator": "unknown_pattern_one 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_pattern_long",
+      "generator": "unknown_pattern_long 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_text_one",
+      "generator": "unknown_text_one 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "intact_long",
+      "generator": "intact_long 100000",
+      "note": "maximum text length; independently certified optimum"
+    },
+    {
+      "name": "unknown_pattern_blocks",
+      "generator": "unknown_pattern_blocks 100000",
+      "note": "maximum text length; independently certified optimum"
+    }
+  ]
+}

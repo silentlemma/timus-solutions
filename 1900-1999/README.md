@@ -63,3 +63,4 @@
 | 1956 | [A Line with Minimum Total Distance](1956/) | geometry | C++, Go, Python, Java, Rust |
 | 1957 | [All Possible Final Standings](1957/) | math | C++, Go, Python, Java, Rust |
 | 1958 | [Sort by Value-Length Cyclic Swaps](1958/) | constructive | C++, Go, Python, Java, Rust |
+| 1959 | [Restore Symbols with Overlapping Window Modes](1959/) | two_pointers | C++, Go, Python, Java, Rust |
