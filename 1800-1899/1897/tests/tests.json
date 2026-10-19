@@ -1,0 +1,33 @@
+{
+  "judging": "tokens",
+  "reference": "1897_suffix_structures.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "official example: lexicographic choice" },
+    { "name": "02", "example": true, "note": "official example: empty winning string" },
+    { "name": "03", "example": true, "note": "official example: insufficient winning strings" },
+    { "name": "04", "note": "one character has no winning starting string" },
+    { "name": "05", "note": "two equal characters leave only the empty winner" },
+    { "name": "06", "note": "empty string precedes its nonempty extension" },
+    { "name": "07", "note": "two winning prefixes of a constant string" },
+    { "name": "08", "note": "alternating text with repeated occurrences" },
+    { "name": "09", "note": "terminal occurrences inside a nonterminal game state" },
+    { "name": "10", "note": "long repeated prefix and a rare suffix defect" },
+    { "name": "11", "note": "suffix ownership differs from position order" },
+    { "name": "12", "note": "rank exceeds the exact winning count" },
+    { "name": "13", "note": "nested repeated and mirrored factors" },
+    { "name": "14", "note": "rank needs 64-bit parsing" },
+    { "name": "small1", "generator": "11 0", "note": "small deterministic random text" },
+    { "name": "small2", "generator": "29 0", "note": "another small random rank" },
+    { "name": "max1", "generator": "1 1", "note": "100000 equal letters and a valid late rank" },
+    { "name": "max2", "generator": "2 2", "note": "99999 equal letters and a valid late rank" },
+    { "name": "max3", "generator": "3 3", "note": "maximal alternating text" },
+    { "name": "max4", "generator": "4 4", "note": "maximal period-three text" },
+    { "name": "max5", "generator": "5 5", "note": "maximal 26-letter random text" },
+    { "name": "max6", "generator": "6 6", "note": "maximal binary random text" },
+    { "name": "max7", "generator": "7 7", "note": "rare defects in a constant text" },
+    { "name": "max8", "generator": "8 8", "note": "repeated mirrored blocks" },
+    { "name": "max9", "generator": "9 9", "note": "full-alphabet periodic text" },
+    { "name": "max10", "generator": "10 10", "note": "one central defect in maximal text" },
+    { "name": "max11", "generator": "11 11", "note": "sparse binary text: b has probability 1/101" }
+  ]
+}
