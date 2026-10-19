@@ -1,0 +1,21 @@
+{
+  "judging": "exact",
+  "reference": "2070_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a small interval with one excluded prime square" },
+    { "name": "02", "example": true, "note": "the smallest allowed singleton is prime" },
+    { "name": "03", "example": true, "note": "an interval with prime squares and higher powers to exclude" },
+    { "name": "04", "note": "the square of the largest prime below 10^6" },
+    { "name": "05", "note": "a power of two with 37 divisors is excluded" },
+    { "name": "06", "note": "a composite divisor count keeps 2^38 in the answer" },
+    { "name": "07", "note": "the whole range" },
+    { "name": "08", "note": "a composite with 49 divisors remains in the answer" },
+    { "name": "gen1", "generator": "1 1", "note": "a short segment" },
+    { "name": "gen2", "generator": "2 2", "note": "a long segment" },
+    { "name": "gen3", "generator": "2 3", "note": "a long segment, another seed" },
+    { "name": "09", "note": "prime squares at both interval endpoints must both be excluded" },
+    { "name": "10", "note": "all numbers from 27 to 32 satisfy, including a cube and a fifth power" },
+    { "name": "11", "note": "a narrow interval around 997^4 catches a large odd-prime fourth power" },
+    { "name": "12", "note": "the maximum allowed value as a singleton has a composite divisor count" }
+  ]
+}

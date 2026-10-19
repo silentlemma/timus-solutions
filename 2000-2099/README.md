@@ -74,3 +74,4 @@
 | 2067 | [Pairs that no third point can join](2067/) | geometry | C++, Go, Python, Java, Rust |
 | 2068 | [Parity of the number of splits](2068/) | games | C++, Go, Python, Java, Rust |
 | 2069 | [The best route with at most two turns](2069/) | greedy | C++, Go, Python, Java, Rust |
+| 2070 | [Prime powers with a prime number of divisors](2070/) | number_theory | C++, Go, Python, Java, Rust |
