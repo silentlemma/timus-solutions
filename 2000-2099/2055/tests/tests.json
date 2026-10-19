@@ -1,0 +1,230 @@
+{
+  "judging": "checker",
+  "reference": "2055_trees.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Official positive width",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Official equal-price optimum",
+      "example": true
+    },
+    {
+      "name": "edge_00",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_01",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_02",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_03",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_04",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_05",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_06",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_07",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_08",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "edge_09",
+      "note": "Own structural and price boundary"
+    },
+    {
+      "name": "stress_00",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_01",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_02",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_03",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_04",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_05",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_06",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_07",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_08",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_09",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_10",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_11",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_12",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_13",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_14",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_15",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_16",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_17",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_18",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_19",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_20",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_21",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_22",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_23",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_24",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_25",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_26",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_27",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_28",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_29",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_30",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_31",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_32",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_33",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_34",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "stress_35",
+      "note": "Independent subset/rollback optimum, multiedges and cycles"
+    },
+    {
+      "name": "max_cycle",
+      "generator": "205511 cycle",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    },
+    {
+      "name": "max_dense_random",
+      "generator": "205511 dense_random",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    },
+    {
+      "name": "max_parallel_then_bridge",
+      "generator": "205511 parallel_then_bridge",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    },
+    {
+      "name": "max_sparse_random",
+      "generator": "205511 sparse_random",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    },
+    {
+      "name": "max_star_then_leaf_chain",
+      "generator": "205511 star_then_leaf_chain",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    },
+    {
+      "name": "max_tree",
+      "generator": "205511 tree",
+      "note": "Maximum graph, independent rollback optimum and accepted comparison"
+    }
+  ]
+}
