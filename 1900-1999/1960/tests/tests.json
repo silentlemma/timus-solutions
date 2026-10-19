@@ -1,0 +1,327 @@
+{
+  "judging": "tokens",
+  "reference": "1960_strings.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_003",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_004",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_005",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_006",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_007",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_008",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_009",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_010",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_011",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_012",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_013",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_014",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_015",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_016",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_017",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_018",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_019",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_020",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_021",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_022",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_023",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_024",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_025",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_026",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_027",
+      "note": "all_one_letter_inputs"
+    },
+    {
+      "name": "case_028",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_029",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_030",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_031",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_032",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_033",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_034",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_035",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_036",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_037",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_038",
+      "note": "root_parities_distinct_vs_occurrences_and_plateaus"
+    },
+    {
+      "name": "case_039",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_040",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_041",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_042",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_043",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_044",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_045",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_046",
+      "note": "exhaustive_ab"
+    },
+    {
+      "name": "case_047",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_048",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_049",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_050",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_051",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_053",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_054",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_055",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_056",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_057",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_058",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_059",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_060",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_061",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_062",
+      "note": "seeded_random"
+    },
+    {
+      "name": "case_063",
+      "note": "meta_reversal"
+    },
+    {
+      "name": "case_064",
+      "note": "meta_reversal"
+    },
+    {
+      "name": "case_065",
+      "note": "meta_bijective_alphabet"
+    },
+    {
+      "name": "case_066",
+      "note": "meta_bijective_alphabet"
+    },
+    {
+      "name": "case_067",
+      "note": "meta_bijective_alphabet"
+    },
+    {
+      "name": "case_068",
+      "note": "meta_bijective_alphabet"
+    },
+    {
+      "name": "case_069",
+      "note": "meta_reversal"
+    },
+    {
+      "name": "case_070",
+      "note": "meta_reversal"
+    },
+    {
+      "name": "unary",
+      "generator": "unary 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "alternating",
+      "generator": "alternating 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "alphabet_cycle",
+      "generator": "alphabet_cycle 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "ruler",
+      "generator": "ruler 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "long_jump",
+      "generator": "long_jump 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "fresh_runs",
+      "generator": "fresh_runs 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "random_26",
+      "generator": "random_26 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    },
+    {
+      "name": "random_3",
+      "generator": "random_3 100000 1960",
+      "note": "n100000; exact analytic or center-expansion prefix certificate"
+    }
+  ]
+}
