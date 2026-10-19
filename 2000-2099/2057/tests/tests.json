@@ -1,0 +1,219 @@
+{
+  "judging": "tokens",
+  "reference": "2057_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary",
+      "example": true
+    },
+    {
+      "name": "edge_00",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_01",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_02",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_03",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_04",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_05",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_06",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_07",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_08",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_09",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_10",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_11",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_12",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_13",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_14",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_15",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_16",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_17",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_18",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_19",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "edge_20",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_00",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_01",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_02",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_03",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_04",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_05",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_06",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_07",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_08",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_09",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_10",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_11",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_12",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_13",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_14",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "random_15",
+      "note": "Literal partition optimum; palindrome, boundary or failed-greedy adversary"
+    },
+    {
+      "name": "max_constant",
+      "generator": "205711 constant",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_alternating_even",
+      "generator": "205711 alternating_even",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_alternating_odd",
+      "generator": "205711 alternating_odd",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_unique_letter",
+      "generator": "205711 unique_letter",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_outer_letters",
+      "generator": "205711 outer_letters",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_odd_defect",
+      "generator": "205711 odd_defect",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_abba_blocks",
+      "generator": "205711 abba_blocks",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_random_lower",
+      "generator": "205711 random_lower",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_random_mixed",
+      "generator": "205711 random_mixed",
+      "note": "Maximum length, independently certified optimum"
+    },
+    {
+      "name": "max_pal_blocks",
+      "generator": "205711 pal_blocks",
+      "note": "Maximum length, independently certified optimum"
+    }
+  ]
+}
