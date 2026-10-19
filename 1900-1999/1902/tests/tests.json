@@ -1,0 +1,62 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1902_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "example": true,
+      "note": "the statement example"
+    },
+    {
+      "name": "02",
+      "note": "the shortest possible trip has one half-integer encounter"
+    },
+    {
+      "name": "03",
+      "note": "both strict entry-time boundaries at the latest arrival"
+    },
+    {
+      "name": "04",
+      "note": "opposite entries before, at, and after the first entry"
+    },
+    {
+      "name": "05",
+      "note": "integer encounter times with an odd trip duration"
+    },
+    {
+      "name": "random",
+      "generator": "1 1",
+      "note": "a deterministic random valid schedule"
+    },
+    {
+      "name": "shortest",
+      "generator": "2 2",
+      "note": "the shortest trip permits exactly one opposite entry"
+    },
+    {
+      "name": "maximum",
+      "generator": "3 3",
+      "note": "one hundred entries, maximum duration, and latest arrival"
+    },
+    {
+      "name": "earliest_bounds",
+      "generator": "4 4",
+      "note": "nearest valid entries to both strict boundaries at the earliest arrival"
+    },
+    {
+      "name": "integers",
+      "generator": "5 5",
+      "note": "all encounter times are integers"
+    },
+    {
+      "name": "halves",
+      "generator": "6 6",
+      "note": "all encounter times are half-integers"
+    },
+    {
+      "name": "minimum_full_duration",
+      "generator": "7 7",
+      "note": "one hundred entries with the smallest trip duration that allows them"
+    }
+  ]
+}
