@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1859_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one block and no friends" },
+    { "name": "03", "note": "one block of friends in a chain" },
+    { "name": "04", "note": "one-side groups of sizes one, two, four and five with a singleton filler" },
+    { "name": "05", "note": "two groups of every one-side type with no fillers" },
+    { "name": "06", "note": "mixed one-side groups leave one compartment singleton to place" },
+    { "name": "gen1", "generator": "1 1", "note": "a few blocks" },
+    { "name": "gen2", "generator": "2 2", "note": "the most blocks, small groups" },
+    { "name": "gen3", "generator": "3 3", "note": "the most blocks, large groups" },
+    { "name": "gen4", "generator": "4 4", "note": "the most blocks, no friends" },
+    { "name": "gen5", "generator": "5 5", "note": "every block one group" },
+    { "name": "gen6", "generator": "6 6", "note": "groups that fit together in few ways" },
+    { "name": "gen7", "generator": "7 7", "note": "two groups with one side seat in every block" },
+    { "name": "07", "note": "three-person filler must use three free seats so two two-person fillers can share the four-seat gap" },
+    { "name": "08", "note": "four-person and two-person fillers force equal-sized halves to pair together" },
+    { "name": "09", "note": "two three-person fillers force each one-compartment half to pair with a zero-compartment half" },
+    { "name": "10", "note": "a four-person filler forces the lone two-compartment and one-compartment halves to pair together" },
+    { "name": "11", "note": "odd counts of two-compartment halves require exactly one pair with a zero-compartment half" },
+    { "name": "12", "note": "all five two-side component types coexist with filler sizes one through four" },
+    { "name": "13", "note": "seeded small stress case mixes eight component types and both one-side and two-side groups" },
+    { "name": "gen8", "generator": "185908 8", "note": "maximum 15000 friendship edges form complete six-person components on 1000 blocks" },
+    { "name": "gen9", "generator": "185909 9", "note": "a thousand four-person fillers compete for blocks formed from the maximum 2000 singleton halves" },
+    { "name": "gen10", "generator": "185910 10", "note": "maximum-size filler mixture makes every capacity bound tight and forces 250 pairs of one-compartment halves" }
+  ]
+}
