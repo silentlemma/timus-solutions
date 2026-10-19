@@ -1,0 +1,31 @@
+{
+  "judging": "tokens",
+  "reference": "1919_geometry.cpp",
+  "cases": [
+    { "name": "01", "note": "statement example", "example": true },
+    { "name": "02", "note": "helical wrapping; adjacent height and aligned seam" },
+    { "name": "03", "note": "genuine tilt; height/circumference asymmetry; area alone is insufficient" },
+    { "name": "04", "note": "swap the target sides" },
+    { "name": "05", "note": "minimum dimensions" },
+    { "name": "06", "note": "maximum square and just-too-small cylinders" },
+    { "name": "07", "note": "zero radical and negative residual must not be squared as positive" },
+    { "name": "08", "note": "aligned equality and circumference below the shortest side" },
+    { "name": "09", "note": "maximum aspect ratio and exact boundary" },
+    { "name": "10", "note": "a very large other dimension cannot repair the shortest-side constraint" },
+    { "name": "11", "note": "near-boundary tilt for a narrow opening with a swapped cylinder as a control" },
+    { "name": "12", "note": "height steps across a tilted fit while the circumference stays fixed" },
+    { "name": "13", "note": "circumference steps across a tilted fit while the height stays fixed" },
+    { "name": "14", "note": "a tilted patch fits even though its longer side exceeds the cylinder height" },
+    { "name": "15", "note": "a shorter circumference prevents a nearly exact spiral patch from fitting" },
+    { "name": "16", "note": "a one-unit height decrease rejects a patch with barely positive squared slack" },
+    { "name": "17", "note": "large products distinguish a near-tangent fit from adjacent failing cylinders" },
+    { "name": "stress1", "generator": "6001 1", "note": "many short cylinders test spiral wrapping around a thin opening" },
+    { "name": "stress2", "generator": "6002 2", "note": "small perturbations around a large tilted fit test exact comparisons" },
+    { "name": "stress3", "generator": "6003 3", "note": "maximum square opening tests exact fits and undersized cylinders" },
+    { "name": "stress4", "generator": "6004 4", "note": "small cylinders exercise tilt and rejection for an elongated opening" },
+    { "name": "stress5", "generator": "6005 5", "note": "extreme aspect ratio tests unit-height fits and broad cylinder dimensions" },
+    { "name": "stress6", "generator": "6006 6", "note": "unit square fits both minimum cylinders and randomly sized walls" },
+    { "name": "stress7", "generator": "6007 7", "note": "random opening dimensions mix aligned equality with smaller and arbitrary cylinders" },
+    { "name": "stress8", "generator": "6008 8", "note": "swapped opening sides preserve feasibility near a large spiral boundary" }
+  ]
+}
