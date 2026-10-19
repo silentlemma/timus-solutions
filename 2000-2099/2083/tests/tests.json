@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2083_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the identity permutation" },
+    { "name": "03", "note": "a swap repeated five years" },
+    { "name": "04", "note": "a zero vector" },
+    { "name": "gen1", "generator": "1 1", "note": "small sizes" },
+    { "name": "gen2", "generator": "1 2", "note": "small sizes, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "one cycle through all teams" },
+    { "name": "gen4", "generator": "3 4", "note": "a random permutation of 5 * 10^4" },
+    { "name": "gen5", "generator": "4 5", "note": "consecutive cycle lengths from one to 315" },
+    { "name": "gen6", "generator": "5 6", "note": "the identity on 5 * 10^4 teams" },
+    { "name": "05", "note": "only the first weight is nonzero, so the result must be p rather than the identity" },
+    { "name": "06", "note": "a random sparse case from stress testing uses only the final power" },
+    { "name": "07", "note": "a power divisible by every cycle length returns every vertex to itself" },
+    { "name": "08", "note": "a random stress case reuses one length across several differently labelled cycles" },
+    { "name": "09", "note": "lengths 31, 32, and 33 straddle direct summation and exact convolution" },
+    { "name": "10", "note": "alternating weights wrap around an odd 43-cycle across a transform size boundary" },
+    { "name": "11", "note": "periodic sparse weights interact with cycle lengths that divide or are coprime to six" },
+    { "name": "12", "note": "a shuffled 65-cycle with fewer weights than vertices" },
+    { "name": "gen7", "generator": "6 208307", "note": "maximum m and minimum n with all weight on odd powers of a swap" },
+    { "name": "gen8", "generator": "7 208308", "note": "minimum m and maximum n leave almost all long-cycle residues empty" },
+    { "name": "gen9", "generator": "8 208309", "note": "maximum dimensions with sparse weights at large and boundary exponents" },
+    { "name": "gen10", "generator": "9 208310", "note": "many 33-cycles need exact large reconstruction and a fixed point reaches 2.5e18" },
+    { "name": "gen11", "generator": "10 208311", "note": "seeded medium random data mixes zero, unit, maximum, and arbitrary weights" }
+  ]
+}
