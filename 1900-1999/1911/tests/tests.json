@@ -1,0 +1,179 @@
+{
+  "judging": "float:1e-5",
+  "reference": "1911_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement sample: natural braking stops well inside",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "free shielding and sufficient natural braking"
+    },
+    {
+      "name": "03",
+      "note": "free braking leaves only shielding cost"
+    },
+    {
+      "name": "04",
+      "note": "both prices zero"
+    },
+    {
+      "name": "05",
+      "note": "shielding threshold H is plus one"
+    },
+    {
+      "name": "06",
+      "note": "shielding threshold H is exactly zero"
+    },
+    {
+      "name": "07",
+      "note": "shielding threshold H is minus one"
+    },
+    {
+      "name": "08",
+      "note": "free-flight or stopping time threshold, width=89"
+    },
+    {
+      "name": "09",
+      "note": "free-flight or stopping time threshold, width=90"
+    },
+    {
+      "name": "10",
+      "note": "free-flight or stopping time threshold, width=91"
+    },
+    {
+      "name": "11",
+      "note": "free-flight or stopping time threshold, width=100"
+    },
+    {
+      "name": "12",
+      "note": "free-flight or stopping time threshold, width=289"
+    },
+    {
+      "name": "13",
+      "note": "free-flight or stopping time threshold, width=290"
+    },
+    {
+      "name": "14",
+      "note": "free-flight or stopping time threshold, width=291"
+    },
+    {
+      "name": "15",
+      "note": "free-flight or stopping time threshold, width=300"
+    },
+    {
+      "name": "16",
+      "note": "natural deceleration exactly meets required arrival"
+    },
+    {
+      "name": "17",
+      "note": "one-unit earlier fire clearance requires no extra braking"
+    },
+    {
+      "name": "18",
+      "note": "one-unit later clearance needs extra braking"
+    },
+    {
+      "name": "19",
+      "note": "natural stop occurs exactly by exit"
+    },
+    {
+      "name": "20",
+      "note": "one additional braking unit at stopping threshold"
+    },
+    {
+      "name": "21",
+      "note": "tiny transit time with EXACT zero extra energy"
+    },
+    {
+      "name": "22",
+      "note": "same tiny transit time needs exactly one braking unit"
+    },
+    {
+      "name": "23",
+      "note": "near-equal maximum speeds and zero holding duration"
+    },
+    {
+      "name": "24",
+      "note": "best branch is first"
+    },
+    {
+      "name": "25",
+      "note": "best branch is middle"
+    },
+    {
+      "name": "26",
+      "note": "best branch is last"
+    },
+    {
+      "name": "27",
+      "note": "maximum energy scale and wall far behind"
+    },
+    {
+      "name": "28",
+      "note": "maximum deceleration naturally stops the slow cart"
+    },
+    {
+      "name": "random_small",
+      "note": "generated random small",
+      "generator": "191101 1"
+    },
+    {
+      "name": "random_large",
+      "note": "generated random large",
+      "generator": "191102 2"
+    },
+    {
+      "name": "maximum_stop",
+      "note": "generated maximum stop",
+      "generator": "191103 3"
+    },
+    {
+      "name": "maximum_intermediate",
+      "note": "generated maximum intermediate",
+      "generator": "191104 4"
+    },
+    {
+      "name": "exact_zero",
+      "note": "generated exact zero",
+      "generator": "191105 5"
+    },
+    {
+      "name": "natural_stop",
+      "note": "generated natural stop",
+      "generator": "191106 6"
+    },
+    {
+      "name": "free_magic",
+      "note": "generated free magic",
+      "generator": "191107 7"
+    },
+    {
+      "name": "catch_boundary",
+      "note": "generated catch boundary",
+      "generator": "191108 8"
+    },
+    {
+      "name": "best_last",
+      "note": "generated best last",
+      "generator": "191109 9"
+    },
+    {
+      "name": "best_middle",
+      "note": "generated best middle",
+      "generator": "191110 10"
+    },
+    {
+      "name": "wide_products",
+      "note": "generated wide products",
+      "generator": "191111 11"
+    },
+    {
+      "name": "shield_only_max",
+      "note": "generated shield only max",
+      "generator": "191112 12"
+    }
+  ]
+}
