@@ -1,0 +1,153 @@
+{
+  "judging": "checker",
+  "reference": "1913_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "collect both sources at one relay; statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "relay/source coincidences; statement example",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "out of range; statement example",
+      "example": true
+    },
+    {
+      "name": "04",
+      "note": "independent paths whose relays cannot communicate"
+    },
+    {
+      "name": "05",
+      "note": "three collinear edges, far source at exactly3R"
+    },
+    {
+      "name": "06",
+      "note": "one unit beyond a tangent feasible lens"
+    },
+    {
+      "name": "07",
+      "note": "swap which source uses the long path"
+    },
+    {
+      "name": "08",
+      "note": "Pythagorean rotated exact three-hop chain"
+    },
+    {
+      "name": "09",
+      "note": "near the rotated exact three-hop boundary"
+    },
+    {
+      "name": "10",
+      "note": "large positive radical terms"
+    },
+    {
+      "name": "11",
+      "note": "reflection and large integer products"
+    },
+    {
+      "name": "12",
+      "note": "max-radius independent paths"
+    },
+    {
+      "name": "13",
+      "note": "small radius, opposite coordinate extremes"
+    },
+    {
+      "name": "14",
+      "note": "two sources just beyond independent reach"
+    },
+    {
+      "name": "15",
+      "note": "tangent source disks but receiver out of reach"
+    },
+    {
+      "name": "16",
+      "note": "tangent source disks and tangent receiver disk"
+    },
+    {
+      "name": "17",
+      "note": "radius one smaller than critical receiver distance"
+    },
+    {
+      "name": "18",
+      "note": "a disk center lies in all disks"
+    },
+    {
+      "name": "19",
+      "note": "only shared topology with doubled disk0"
+    },
+    {
+      "name": "20",
+      "note": "only shared topology with doubled disk1"
+    },
+    {
+      "name": "21",
+      "note": "only shared topology with doubled disk2"
+    },
+    {
+      "name": "family1",
+      "generator": "1914 1",
+      "note": "small random terminals"
+    },
+    {
+      "name": "family2",
+      "generator": "1915 2",
+      "note": "full-coordinate random terminals"
+    },
+    {
+      "name": "family3",
+      "generator": "1916 3",
+      "note": "independent relays on opposite sides"
+    },
+    {
+      "name": "family4",
+      "generator": "1917 4",
+      "note": "equal-radius external tangency"
+    },
+    {
+      "name": "family5",
+      "generator": "1918 5",
+      "note": "one-unit perturbation at tangency"
+    },
+    {
+      "name": "family6",
+      "generator": "1919 6",
+      "note": "shared collecting relay"
+    },
+    {
+      "name": "family7",
+      "generator": "1920 7",
+      "note": "first source uses the split chain"
+    },
+    {
+      "name": "family8",
+      "generator": "1921 8",
+      "note": "second source uses the split chain"
+    },
+    {
+      "name": "family9",
+      "generator": "1922 9",
+      "note": "collinear exact three-hop range"
+    },
+    {
+      "name": "family10",
+      "generator": "1923 10",
+      "note": "contained and internally tangent disks"
+    },
+    {
+      "name": "family11",
+      "generator": "1924 11",
+      "note": "disjoint extreme coordinates"
+    },
+    {
+      "name": "family12",
+      "generator": "1925 12",
+      "note": "known feasible relay transmission graph"
+    }
+  ]
+}
