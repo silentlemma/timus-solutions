@@ -1,0 +1,304 @@
+{
+  "judging": "tokens",
+  "reference": "2020_simulation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official sample 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "004",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "005",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "006",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "007",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "008",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "009",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "010",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "011",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "012",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "013",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "014",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "015",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "016",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "017",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "018",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "019",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "020",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "021",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "022",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "023",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "024",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "025",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "026",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "027",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "028",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "029",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "030",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "031",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "032",
+      "note": "all nine maneuver pairs/all words lengths 1..4; independent run-block check"
+    },
+    {
+      "name": "033",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "034",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "035",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "036",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "037",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "038",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "039",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "040",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "041",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "042",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "043",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "044",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "045",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "046",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "047",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "048",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "049",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "050",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "051",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "052",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "053",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "054",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "055",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "056",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "057",
+      "note": "random destructive-queue maneuver-table trace and symmetry"
+    },
+    {
+      "name": "058",
+      "note": "synchronous old heads needed"
+    },
+    {
+      "name": "059",
+      "note": "left yields to right"
+    },
+    {
+      "name": "060",
+      "note": "right has priority over left"
+    },
+    {
+      "name": "061",
+      "note": "completely serial"
+    },
+    {
+      "name": "062",
+      "note": "all non-left concurrent"
+    },
+    {
+      "name": "063",
+      "note": "remaining tail"
+    },
+    {
+      "name": "064",
+      "note": "all eligible heads proceed immediately; no voluntary delay"
+    },
+    {
+      "name": "gen_serial_south_left",
+      "generator": "20205000 serial_south_left",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_serial_north_left",
+      "generator": "20205001 serial_north_left",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_all_left",
+      "generator": "20205002 all_left",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_no_left",
+      "generator": "20205003 no_left",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "20205004 alternating",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_unequal",
+      "generator": "20205005 unequal",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_synchronous_trap",
+      "generator": "20205006 synchronous_trap",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    },
+    {
+      "name": "gen_random",
+      "generator": "20205007 random",
+      "note": "up to 1000 cars each; serial/concurrent/priority changes checked"
+    }
+  ]
+}
