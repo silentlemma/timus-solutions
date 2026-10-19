@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2073_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one problem and no submits" },
+    { "name": "03", "note": "a name of 30 symbols, all 13 problems, every verdict" },
+    { "name": "04", "note": "a digit-only name, double spaces, repeated failures" },
+    { "name": "gen1", "generator": "1", "note": "a full batch of contests mixing empty logs and varied verdict histories" },
+    { "name": "gen2", "generator": "2", "note": "single-character and full-width names with internal spaces and mixed verdicts" },
+    { "name": "05", "note": "all problem counts from 1 to 13 with no submits check the dot to space boundary" },
+    { "name": "06", "note": "every ordered verdict pair on A checks acceptance precedence and verdict parsing" },
+    { "name": "07", "note": "the 100th submit is the only acceptance and targets the last problem M" },
+    { "name": "08", "note": "all 13 problems accepted once in reverse letter order leave no dots or blanks" },
+    { "name": "09", "note": "identical contest names and dates stay separate and marks reset as problem counts change" },
+    { "name": "10", "generator": "max", "note": "maximum input size with 100 logs of 100 longest verdicts and 30 character names" },
+    { "name": "11", "generator": "sparse 2073", "note": "seeded sparse logs shuffle every problem count and mix untried failed and accepted marks" }
+  ]
+}
