@@ -1,0 +1,52 @@
+{
+  "judging": "tokens",
+  "reference": "2012_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "smallest feasible first-hour count leaves fifteen minutes to spare",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "sample failure with seven tasks still unsolved",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "minimum first-hour progress gives the longest completion time"
+    },
+    {
+      "name": "04",
+      "note": "solving ten remaining tasks takes more than the entire contest"
+    },
+    {
+      "name": "05",
+      "note": "nine unfinished tasks cannot fit into the remaining four hours"
+    },
+    {
+      "name": "06",
+      "note": "eight remaining tasks need six more hours"
+    },
+    {
+      "name": "07",
+      "note": "one below the success threshold misses the deadline by thirty minutes"
+    },
+    {
+      "name": "08",
+      "note": "four later tasks leave one hour unused"
+    },
+    {
+      "name": "09",
+      "note": "three remaining tasks finish before the final hour begins"
+    },
+    {
+      "name": "10",
+      "note": "two final tasks require ninety minutes"
+    },
+    {
+      "name": "11",
+      "note": "maximum allowed first-hour count leaves only one task"
+    }
+  ]
+}
