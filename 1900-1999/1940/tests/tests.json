@@ -1,0 +1,167 @@
+{
+  "judging": "tokens",
+  "reference": "1940_number_theory.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "sample, including composite 25",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "small prime is not divided by itself"
+    },
+    {
+      "name": "03",
+      "note": "maximum endpoints, time and full billion range"
+    },
+    {
+      "name": "04",
+      "note": "maximum length with all small-prime exceptions"
+    },
+    {
+      "name": "05",
+      "note": "large upper/lower quotient sets"
+    },
+    {
+      "name": "06",
+      "note": "only parity on maximum range"
+    },
+    {
+      "name": "07",
+      "note": "six-prime periodic base on maximum range"
+    },
+    {
+      "name": "08",
+      "note": "start excluded: composite start would pass"
+    },
+    {
+      "name": "09",
+      "note": "right endpoint included: composite 25 passes"
+    },
+    {
+      "name": "10",
+      "note": "49 passes without testing 7"
+    },
+    {
+      "name": "11",
+      "note": "49 rejected at divisor 7"
+    },
+    {
+      "name": "12",
+      "note": "all small primes, composites and final boundary"
+    },
+    {
+      "name": "13",
+      "note": "small-prime exception at the largest tested prime"
+    },
+    {
+      "name": "14",
+      "note": "prime at the left endpoint is excluded"
+    },
+    {
+      "name": "15",
+      "note": "301 is composite and does not introduce a new prime"
+    },
+    {
+      "name": "16",
+      "note": "299 tested divisors: composite final divisor redundant"
+    },
+    {
+      "name": "17",
+      "note": "300 tested divisors: same result as previous"
+    },
+    {
+      "name": "18",
+      "note": "prime square 293 squared before its divisor is available"
+    },
+    {
+      "name": "19",
+      "note": "prime square becomes rejected when 293 is available"
+    },
+    {
+      "name": "20",
+      "note": "169 before divisor 13"
+    },
+    {
+      "name": "21",
+      "note": "169 with divisor 13"
+    },
+    {
+      "name": "22",
+      "note": "six-prime wheel period boundary"
+    },
+    {
+      "name": "23",
+      "note": "same wheel after composite 14"
+    },
+    {
+      "name": "24",
+      "note": "square at excluded left endpoint"
+    },
+    {
+      "name": "25",
+      "note": "two years near maximum start"
+    },
+    {
+      "name": "26",
+      "note": "two years of opposite parity"
+    },
+    {
+      "name": "27",
+      "note": "smallest legal values"
+    },
+    {
+      "name": "28",
+      "note": "small prime at included endpoint"
+    },
+    {
+      "name": "29",
+      "note": "composite and prime"
+    },
+    {
+      "name": "30",
+      "note": "two consecutive composite years"
+    },
+    {
+      "name": "31",
+      "note": "two accepted prime years"
+    },
+    {
+      "name": "32",
+      "note": "large range and shorter prime list"
+    },
+    {
+      "name": "33",
+      "note": "high thin segment, 299 minutes"
+    },
+    {
+      "name": "34",
+      "note": "same prime set at 300 minutes"
+    },
+    {
+      "name": "35",
+      "note": "whitespace and repeated sample arithmetic"
+    },
+    {
+      "name": "36",
+      "note": "last divisor is 17, prime must accept itself"
+    },
+    {
+      "name": "37",
+      "note": "31 accepts itself at 30 minutes"
+    },
+    {
+      "name": "38",
+      "note": "17 square accepted before divisor 17"
+    },
+    {
+      "name": "39",
+      "note": "17 square rejected at divisor 17"
+    },
+    {
+      "name": "40",
+      "note": "many prime-square cutoffs"
+    }
+  ]
+}

@@ -44,3 +44,4 @@
 | 1937 | [Two Cyclic Strings Forming a Palindrome](1937/) | suffix_structures | C++, Go, Python, Java, Rust |
 | 1938 | [An Equilateral Triangle on Three Lines](1938/) | geometry | C++, Go, Python, Java, Rust |
 | 1939 | [A Deadline Between Passing and Braking](1939/) | math | C++, Go, Python, Java, Rust |
+| 1940 | [Counting Years with No Small Proper Divisor](1940/) | number_theory | C++, Go, Python, Java, Rust |
