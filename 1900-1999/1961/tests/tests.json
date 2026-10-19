@@ -1,0 +1,259 @@
+{
+  "judging": "tokens",
+  "reference": "1961_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_003",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_004",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_005",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_006",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_007",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_008",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_009",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_010",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_011",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_012",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_013",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_014",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_015",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_016",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_017",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_018",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_019",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_020",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_021",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_022",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_023",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_024",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_025",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_026",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_027",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_028",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_029",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_030",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_031",
+      "note": "all_populations_through_four"
+    },
+    {
+      "name": "case_032",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_033",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_034",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_035",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_036",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_037",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_038",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_039",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_040",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_041",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_042",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_043",
+      "note": "ties_and_boundaries_and_wide_product"
+    },
+    {
+      "name": "case_044",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_045",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_046",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_047",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_048",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_049",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_050",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_051",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_052",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_053",
+      "note": "two_exact_equal_maxima_choose_larger"
+    },
+    {
+      "name": "case_054",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_055",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_056",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_057",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_058",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_059",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_060",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_061",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_062",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    },
+    {
+      "name": "case_063",
+      "note": "full_bound_unsimplified_ratio_oracle"
+    }
+  ]
+}

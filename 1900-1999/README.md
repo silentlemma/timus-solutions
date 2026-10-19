@@ -65,3 +65,4 @@
 | 1958 | [Sort by Value-Length Cyclic Swaps](1958/) | constructive | C++, Go, Python, Java, Rust |
 | 1959 | [Restore Symbols with Overlapping Window Modes](1959/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1960 | [Distinct Palindromes in Every Prefix](1960/) | strings | C++, Go, Python, Java, Rust |
+| 1961 | [Most Likely Population Count](1961/) | math | C++, Go, Python, Java, Rust |
