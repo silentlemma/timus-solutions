@@ -1,0 +1,211 @@
+{
+  "judging": "tokens",
+  "reference": "1992_trees.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "independent literal list-copy history",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_003",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_004",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_005",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_006",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_007",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_008",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_009",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_010",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_011",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_012",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_013",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_014",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_015",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_016",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_017",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_018",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_019",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_020",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_021",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_022",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_023",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_024",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_025",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_026",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_027",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_028",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_029",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_030",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_031",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_032",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_033",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_034",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_035",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_036",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_037",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_038",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_039",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_040",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "case_041",
+      "note": "independent literal list-copy history"
+    },
+    {
+      "name": "gen_exhaustive",
+      "generator": "0 exhaustive",
+      "note": "every valid four-command trace with two programs and up to two entities, followed by full history revelation"
+    },
+    {
+      "name": "gen_chain",
+      "generator": "1 chain",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_bounce_dense",
+      "generator": "2 bounce_dense",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_check_only",
+      "generator": "3 check_only",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_clone_only",
+      "generator": "4 clone_only",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_clone_fan",
+      "generator": "5 clone_fan",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_bounce_checks",
+      "generator": "6 bounce_checks",
+      "note": "maximum 500000 commands, closed-form output"
+    },
+    {
+      "name": "gen_numeric_checks",
+      "generator": "7 numeric_checks",
+      "note": "maximum 500000 commands, closed-form output"
+    }
+  ]
+}

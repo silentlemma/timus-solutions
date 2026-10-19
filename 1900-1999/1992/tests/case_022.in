@@ -1,0 +1,1201 @@
+1200 10
+learn 1 3
+learn 1 9
+check 1
+check 1
+check 1
+learn 1 5
+clone 1
+check 1
+learn 2 6
+learn 1 4
+check 2
+learn 1 7
+check 1
+rollback 2
+rollback 2
+rollback 2
+clone 1
+rollback 2
+check 2
+learn 1 1
+check 3
+learn 3 2
+learn 2 4
+rollback 3
+rollback 2
+learn 2 2
+rollback 3
+learn 3 7
+check 1
+rollback 1
+rollback 1
+learn 3 1
+clone 2
+rollback 1
+learn 4 3
+learn 2 6
+rollback 3
+relearn 3
+rollback 2
+rollback 2
+rollback 1
+rollback 3
+learn 3 10
+learn 3 1
+relearn 1
+check 2
+relearn 2
+learn 1 10
+learn 4 9
+learn 2 8
+learn 4 5
+clone 2
+rollback 4
+check 5
+rollback 1
+rollback 5
+rollback 5
+rollback 4
+clone 5
+learn 4 10
+clone 5
+check 3
+learn 7 7
+rollback 3
+check 4
+relearn 5
+rollback 3
+relearn 5
+check 7
+relearn 6
+rollback 7
+check 1
+relearn 6
+rollback 1
+rollback 1
+rollback 2
+relearn 7
+clone 3
+check 2
+rollback 3
+learn 7 4
+clone 5
+learn 4 5
+check 6
+check 5
+check 6
+learn 2 9
+check 9
+rollback 5
+check 1
+learn 2 5
+check 9
+rollback 8
+clone 4
+learn 2 10
+check 1
+check 1
+relearn 3
+rollback 10
+check 8
+relearn 3
+learn 9 6
+check 1
+rollback 9
+learn 1 1
+rollback 6
+check 5
+rollback 6
+rollback 9
+rollback 7
+learn 1 10
+rollback 8
+rollback 1
+learn 5 8
+learn 2 1
+learn 7 8
+check 10
+rollback 4
+clone 1
+rollback 5
+rollback 2
+relearn 10
+check 7
+relearn 5
+check 2
+learn 7 2
+check 5
+learn 3 8
+clone 5
+learn 3 2
+rollback 12
+relearn 9
+learn 4 9
+check 4
+clone 6
+relearn 8
+learn 3 6
+learn 8 10
+check 8
+rollback 10
+check 5
+rollback 3
+learn 7 3
+learn 5 9
+check 7
+learn 8 8
+clone 13
+check 12
+check 11
+check 4
+relearn 1
+learn 10 1
+check 6
+rollback 12
+clone 13
+check 10
+check 5
+check 3
+check 8
+check 4
+learn 1 4
+learn 7 1
+relearn 14
+check 2
+check 13
+learn 6 4
+learn 7 9
+check 1
+clone 12
+check 7
+clone 10
+check 7
+check 5
+learn 16 6
+clone 9
+check 18
+check 2
+clone 13
+check 3
+check 18
+relearn 2
+learn 5 5
+learn 13 6
+relearn 15
+learn 13 10
+check 6
+rollback 8
+learn 7 5
+rollback 11
+rollback 15
+learn 18 10
+learn 4 6
+check 14
+relearn 12
+check 3
+learn 16 8
+rollback 10
+rollback 11
+check 11
+learn 18 1
+relearn 3
+learn 13 8
+learn 1 6
+relearn 15
+learn 3 1
+rollback 7
+rollback 12
+rollback 5
+check 9
+clone 16
+rollback 7
+learn 9 6
+learn 16 10
+clone 8
+rollback 7
+check 18
+clone 10
+learn 22 6
+check 17
+learn 5 5
+learn 6 1
+relearn 11
+rollback 3
+relearn 12
+check 19
+learn 16 5
+learn 3 1
+learn 22 1
+learn 18 4
+clone 14
+clone 21
+rollback 3
+check 19
+rollback 15
+check 1
+clone 2
+relearn 15
+relearn 12
+learn 17 8
+check 5
+check 7
+relearn 8
+check 3
+check 13
+rollback 6
+learn 11 6
+clone 2
+check 12
+rollback 25
+learn 9 4
+clone 16
+check 25
+clone 15
+learn 7 4
+rollback 6
+check 27
+check 11
+check 27
+rollback 4
+rollback 16
+rollback 8
+clone 25
+rollback 27
+relearn 16
+learn 24 6
+relearn 6
+clone 1
+learn 14 3
+clone 23
+clone 14
+rollback 15
+check 22
+learn 3 1
+rollback 16
+rollback 3
+relearn 15
+rollback 12
+learn 7 5
+rollback 32
+clone 20
+learn 5 4
+check 23
+clone 22
+rollback 21
+rollback 4
+check 4
+relearn 6
+rollback 4
+learn 18 9
+rollback 32
+check 30
+check 17
+rollback 2
+rollback 15
+check 34
+check 21
+check 5
+clone 13
+clone 9
+relearn 10
+rollback 10
+rollback 11
+rollback 18
+relearn 19
+relearn 31
+check 35
+check 15
+clone 32
+check 11
+relearn 28
+check 5
+rollback 24
+learn 4 4
+relearn 32
+rollback 3
+rollback 27
+check 17
+learn 20 3
+relearn 24
+clone 26
+check 35
+check 38
+check 16
+check 24
+learn 9 9
+check 7
+rollback 36
+rollback 18
+relearn 21
+rollback 20
+relearn 25
+rollback 38
+check 38
+rollback 4
+learn 17 4
+clone 13
+learn 8 6
+rollback 34
+learn 39 7
+learn 25 3
+clone 4
+check 10
+relearn 34
+check 5
+check 3
+rollback 30
+rollback 36
+relearn 3
+check 40
+rollback 1
+learn 39 5
+check 28
+relearn 16
+rollback 30
+rollback 7
+rollback 31
+learn 25 8
+rollback 35
+learn 12 3
+learn 25 7
+relearn 4
+learn 16 1
+relearn 20
+learn 7 10
+rollback 1
+check 33
+relearn 3
+learn 17 6
+rollback 22
+check 20
+rollback 21
+relearn 23
+relearn 36
+check 7
+learn 17 5
+relearn 32
+rollback 27
+check 22
+check 14
+learn 40 8
+rollback 32
+check 35
+check 28
+rollback 32
+check 29
+rollback 30
+learn 19 6
+learn 10 5
+learn 15 10
+rollback 8
+check 6
+check 12
+relearn 38
+check 36
+check 31
+check 7
+check 27
+rollback 40
+check 14
+rollback 39
+check 23
+learn 39 4
+check 16
+learn 5 3
+learn 15 3
+rollback 5
+check 18
+check 25
+learn 11 7
+rollback 38
+check 38
+check 28
+check 7
+check 3
+learn 8 2
+learn 17 7
+check 26
+rollback 35
+check 35
+check 33
+rollback 23
+learn 25 4
+learn 26 6
+rollback 18
+check 29
+check 9
+learn 24 8
+check 40
+learn 23 4
+learn 34 5
+check 24
+rollback 27
+rollback 14
+relearn 5
+check 26
+learn 7 5
+check 19
+learn 33 5
+check 35
+learn 25 6
+relearn 2
+learn 12 7
+learn 11 1
+learn 39 5
+learn 35 9
+check 18
+check 31
+learn 37 7
+learn 28 4
+check 3
+check 13
+learn 4 6
+relearn 18
+rollback 30
+rollback 11
+rollback 15
+rollback 2
+learn 12 6
+rollback 25
+rollback 34
+rollback 38
+learn 1 2
+learn 15 5
+check 36
+relearn 27
+relearn 27
+check 1
+relearn 34
+rollback 1
+learn 5 10
+learn 16 9
+rollback 40
+check 24
+rollback 24
+check 18
+rollback 4
+check 20
+relearn 30
+learn 10 8
+rollback 22
+learn 15 8
+rollback 13
+learn 8 8
+check 9
+rollback 7
+learn 13 3
+rollback 12
+check 33
+learn 40 9
+learn 20 2
+check 9
+learn 20 10
+check 39
+rollback 8
+check 25
+learn 35 2
+learn 14 10
+rollback 37
+learn 9 5
+rollback 25
+relearn 22
+rollback 8
+learn 14 6
+relearn 2
+learn 28 9
+check 10
+check 7
+learn 13 2
+rollback 11
+relearn 24
+rollback 28
+check 10
+learn 11 9
+learn 19 3
+check 5
+check 24
+check 27
+rollback 25
+learn 33 9
+rollback 10
+relearn 27
+check 14
+rollback 34
+learn 2 8
+rollback 30
+rollback 17
+rollback 7
+learn 11 1
+rollback 6
+rollback 30
+relearn 38
+relearn 1
+rollback 14
+learn 31 5
+check 3
+rollback 17
+rollback 29
+learn 18 5
+rollback 39
+relearn 39
+check 13
+learn 19 5
+rollback 38
+rollback 29
+rollback 15
+rollback 1
+check 14
+rollback 17
+check 12
+check 20
+learn 31 9
+check 15
+rollback 23
+check 14
+check 25
+check 16
+learn 24 1
+relearn 23
+relearn 29
+rollback 7
+rollback 14
+rollback 16
+check 9
+rollback 35
+check 10
+learn 9 7
+check 22
+rollback 11
+check 1
+check 26
+learn 2 4
+relearn 27
+rollback 31
+rollback 3
+check 30
+check 34
+learn 27 1
+learn 22 7
+rollback 36
+relearn 14
+learn 32 7
+relearn 12
+check 20
+rollback 19
+check 34
+check 25
+check 7
+rollback 13
+learn 24 2
+learn 9 1
+rollback 21
+check 24
+relearn 35
+rollback 24
+learn 18 6
+learn 23 9
+learn 37 2
+rollback 13
+check 25
+relearn 8
+check 39
+relearn 13
+check 6
+rollback 26
+learn 1 5
+learn 34 7
+relearn 19
+rollback 10
+check 25
+check 37
+rollback 36
+learn 32 8
+check 9
+check 8
+learn 22 5
+rollback 33
+rollback 38
+check 31
+rollback 7
+check 21
+relearn 25
+relearn 38
+check 16
+rollback 14
+learn 1 4
+check 26
+check 37
+check 35
+learn 7 1
+learn 16 4
+check 7
+learn 11 1
+rollback 14
+rollback 27
+rollback 34
+learn 9 10
+check 2
+rollback 17
+check 32
+check 2
+learn 39 2
+check 40
+learn 24 2
+learn 16 7
+rollback 3
+check 27
+relearn 29
+rollback 9
+learn 35 3
+learn 13 7
+rollback 32
+rollback 35
+relearn 27
+relearn 3
+rollback 15
+rollback 16
+learn 40 3
+check 19
+check 1
+rollback 37
+rollback 6
+check 1
+rollback 4
+rollback 8
+check 37
+learn 3 1
+learn 29 8
+relearn 34
+relearn 17
+check 27
+check 24
+check 19
+learn 19 4
+rollback 40
+check 12
+check 27
+check 28
+relearn 4
+learn 20 1
+rollback 24
+relearn 9
+check 39
+check 22
+rollback 28
+learn 23 7
+learn 9 3
+relearn 36
+rollback 38
+check 6
+rollback 25
+check 31
+check 17
+check 16
+rollback 23
+rollback 13
+learn 21 8
+learn 36 10
+check 3
+learn 34 5
+rollback 7
+check 24
+check 4
+check 15
+check 23
+check 17
+rollback 39
+rollback 15
+rollback 26
+check 16
+rollback 22
+check 9
+rollback 2
+rollback 16
+learn 20 5
+learn 39 2
+learn 23 8
+rollback 21
+check 9
+learn 13 7
+relearn 8
+learn 35 1
+check 9
+check 22
+learn 24 7
+rollback 32
+check 26
+learn 6 3
+check 3
+relearn 31
+learn 29 1
+check 40
+rollback 13
+check 1
+check 7
+check 32
+rollback 39
+learn 27 3
+rollback 8
+learn 24 2
+learn 26 8
+check 19
+relearn 21
+learn 10 8
+learn 16 7
+check 16
+learn 33 2
+learn 2 7
+learn 1 2
+learn 15 1
+rollback 29
+check 25
+learn 35 10
+check 28
+check 23
+rollback 6
+learn 25 7
+check 23
+check 11
+rollback 2
+check 19
+learn 5 1
+relearn 29
+learn 28 9
+check 30
+check 38
+check 23
+check 9
+rollback 4
+rollback 4
+learn 35 4
+check 40
+relearn 13
+rollback 13
+relearn 4
+relearn 30
+learn 11 5
+relearn 32
+check 16
+check 4
+learn 1 6
+learn 14 2
+check 11
+learn 16 9
+learn 22 8
+check 31
+rollback 32
+rollback 5
+rollback 8
+relearn 38
+rollback 28
+rollback 20
+check 9
+check 6
+check 28
+learn 4 5
+relearn 2
+check 29
+rollback 11
+check 2
+check 11
+learn 27 7
+learn 22 1
+rollback 23
+check 12
+rollback 26
+rollback 33
+check 20
+check 24
+rollback 13
+rollback 14
+learn 31 7
+learn 4 7
+relearn 28
+rollback 34
+check 21
+rollback 12
+rollback 31
+learn 1 7
+check 5
+learn 5 1
+check 24
+rollback 17
+relearn 31
+rollback 27
+rollback 18
+relearn 33
+rollback 22
+check 13
+rollback 10
+rollback 28
+learn 11 4
+check 9
+check 14
+learn 34 5
+relearn 13
+check 5
+check 25
+check 1
+rollback 34
+check 35
+rollback 39
+learn 7 3
+learn 28 5
+learn 6 8
+rollback 30
+learn 4 9
+check 13
+rollback 2
+rollback 34
+check 31
+check 4
+learn 12 6
+rollback 12
+rollback 36
+rollback 12
+relearn 14
+rollback 9
+relearn 26
+check 19
+learn 18 7
+check 7
+learn 21 6
+learn 12 6
+rollback 8
+check 21
+rollback 26
+check 3
+rollback 3
+rollback 5
+learn 8 2
+check 18
+learn 13 1
+check 6
+check 34
+check 38
+check 18
+check 23
+check 16
+learn 15 2
+learn 17 4
+rollback 8
+check 4
+learn 8 2
+learn 18 6
+check 30
+relearn 30
+rollback 33
+rollback 25
+rollback 29
+rollback 28
+rollback 16
+check 19
+learn 11 5
+rollback 10
+rollback 34
+rollback 38
+learn 14 7
+relearn 9
+check 29
+relearn 32
+learn 1 9
+check 12
+learn 11 2
+learn 2 7
+relearn 40
+rollback 16
+rollback 30
+check 22
+check 26
+check 24
+learn 36 9
+rollback 7
+check 29
+check 3
+check 19
+rollback 18
+rollback 24
+check 12
+learn 18 6
+learn 5 1
+check 38
+check 5
+check 19
+learn 31 8
+check 37
+learn 20 9
+rollback 6
+check 27
+check 37
+learn 10 5
+rollback 7
+rollback 20
+learn 14 4
+rollback 15
+check 7
+check 10
+check 23
+check 9
+relearn 29
+check 18
+rollback 5
+check 38
+rollback 19
+rollback 1
+rollback 9
+learn 2 4
+check 8
+relearn 20
+check 13
+rollback 3
+check 29
+relearn 22
+check 37
+learn 14 9
+rollback 17
+learn 6 10
+rollback 19
+check 30
+rollback 35
+relearn 25
+relearn 19
+learn 13 5
+learn 21 2
+learn 34 7
+check 40
+learn 28 6
+learn 1 9
+learn 22 5
+learn 12 4
+rollback 4
+rollback 11
+relearn 19
+relearn 17
+rollback 9
+check 21
+learn 30 6
+relearn 26
+learn 21 7
+check 37
+check 17
+learn 17 6
+learn 14 6
+check 32
+learn 1 8
+check 2
+check 2
+check 27
+relearn 39
+check 17
+rollback 28
+check 40
+rollback 26
+check 18
+check 32
+rollback 5
+relearn 35
+learn 7 5
+check 24
+rollback 8
+learn 24 2
+learn 10 9
+check 20
+relearn 3
+check 27
+learn 31 3
+check 10
+relearn 32
+rollback 17
+rollback 13
+relearn 8
+check 5
+check 32
+rollback 27
+check 33
+relearn 13
+rollback 16
+check 34
+check 1
+rollback 31
+check 37
+relearn 15
+check 29
+rollback 32
+check 2
+learn 14 3
+rollback 14
+learn 21 1
+learn 11 7
+learn 5 10
+relearn 37
+check 10
+check 21
+learn 3 1
+learn 10 1
+learn 25 4
+check 37
+learn 16 7
+rollback 32
+rollback 40
+rollback 24
+learn 37 1
+learn 25 6
+learn 26 4
+relearn 38
+rollback 1
+rollback 36
+check 9
+learn 19 9
+rollback 14
+learn 32 3
+rollback 33
+learn 8 7
+relearn 23
+relearn 33
+learn 20 7
+learn 30 2
+learn 6 9
+relearn 40
+rollback 15
+rollback 25
+rollback 16
+relearn 33
+check 10
+relearn 27
+check 25
+learn 22 9
+check 5
+learn 30 3
+learn 37 7
+check 39
+learn 9 3
+check 22
+check 40
+learn 7 2
+learn 6 5
+rollback 29
+learn 25 6
+check 17
+check 4
+rollback 40
+rollback 37
+check 17
+check 40
+check 5
+rollback 36
+check 25
+relearn 28
+rollback 34
+relearn 39
+rollback 27
+learn 17 6
+rollback 10
+relearn 10
+learn 37 7
+check 3
+check 20
+check 5
+rollback 28
+learn 10 6
+check 40
+learn 9 10
+check 18
+rollback 35
+check 15
+check 20
+rollback 17
+relearn 40
+check 36
+check 21
+relearn 24
+relearn 1
+rollback 24
+check 1
+rollback 4
+check 13
+learn 7 6
+rollback 11
+learn 38 8
+check 37
+learn 14 8
+rollback 1
+rollback 21
+rollback 39
+learn 39 9
+learn 2 3
+check 20
+relearn 24
+learn 31 3
+check 40
+learn 37 6
+rollback 26
+rollback 26
+check 1
+learn 40 6
+rollback 2
+check 23
+check 33
+check 1
+check 2
+rollback 35
+check 30
+check 10
+rollback 25
+relearn 2
+relearn 35
+check 10
+relearn 35
+learn 12 5
+rollback 3
+check 13
+rollback 3
+check 31
+relearn 25
+check 2
+rollback 26
+learn 8 6
+learn 2 6
+check 14
+rollback 7
+check 11
+check 32
+rollback 33
+rollback 33
+check 24
+rollback 11
+learn 4 1
+rollback 10
+check 18
+learn 37 8
+learn 30 8
+rollback 40
+relearn 40
+check 15
+relearn 10
+learn 36 5
+relearn 26
+rollback 11
+relearn 29
+check 25
+learn 36 4
+rollback 11
+check 30
+rollback 1
+check 36
+learn 10 4
+check 32
+learn 27 2
+learn 36 3
+learn 3 6
+check 17
+learn 15 2
+check 16
+check 13
+check 10
+check 28
+check 1
+check 18
+rollback 9
+check 12
+learn 6 4
