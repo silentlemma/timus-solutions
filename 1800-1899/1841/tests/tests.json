@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1841_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a cheap ride beats walking while an expensive ride is ignored" },
+    { "name": "02", "example": true, "note": "the second example: a cableway from a shared vertex" },
+    { "name": "03", "note": "one segment and no cableways" },
+    { "name": "04", "note": "a cableway from the foot" },
+    { "name": "05", "note": "a cableway landing right where the next one starts" },
+    { "name": "06", "note": "maximum walking rates and coordinate spans" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short segments" },
+    { "name": "gen2", "generator": "2 2", "note": "the most segments and cableways, wide zigzags" },
+    { "name": "gen3", "generator": "3 3", "note": "narrow zigzags: cableways land many segments later" },
+    { "name": "gen4", "generator": "4 4", "note": "cheap cableways" },
+    { "name": "gen5", "generator": "5 2", "note": "the most segments and cableways, another seed" },
+    { "name": "07", "note": "all rides tie walking or take longer, so walking remains optimal" },
+    { "name": "08", "note": "a start listed on the upper segment at a vertex where the path keeps moving right" },
+    { "name": "09", "note": "a local-minimum start listed above the vertex lands exactly at the top" },
+    { "name": "10", "note": "a cableway must stop at the first crossing rather than a later crossing of the same x" },
+    { "name": "11", "note": "starts on a descending segment are in decreasing x order and the middle ride is best" },
+    { "name": "12", "note": "a slower ride that skips more bends beats a cheaper ride with an earlier landing" },
+    { "name": "13", "note": "the best route takes two rides with walking around a bend between them" },
+    { "name": "14", "note": "a retained random mountain entirely left of zero mixes unit and maximum walking rates" },
+    { "name": "15", "note": "a retained random mountain has many competing rides and starts on shared vertices" },
+    { "name": "gen6", "generator": "184106 5", "note": "the maximum segment count with no rides reaches the largest total walking time" },
+    { "name": "gen7", "generator": "184107 6", "note": "all 100000 cableways have distinct starts on one segment and random riding times" },
+    { "name": "gen8", "generator": "184108 7", "note": "one shared-vertex ride crosses almost 100000 bends before landing at the top" },
+    { "name": "gen9", "generator": "184109 8", "note": "seeded random short segments combine shared vertices and widely different walking rates" }
+  ]
+}
