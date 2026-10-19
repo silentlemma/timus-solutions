@@ -1,0 +1,77 @@
+# 2088. 盲抽后选最佳颜色的获胜概率
+
+[Timus 2088](https://acm.timus.ru/problem.aspx?space=1&num=2088) · 难度 5162 · dp, combinatorics
+
+原题作者 Eugene Kurpilyansky。
+
+[English](README.md) · [Русский](README.ru.md) · **中文** · [Español](README.es.md)
+
+## 任务
+
+一副牌有颜色 0 … k 的牌；颜色 0 是万能牌。Sasha 先拿一些已知的牌，然后从剩下的牌中随机得到 t 张。知道手牌后，Sasha 选一个使获胜机会最大的颜色 c ≥ 1；然后从剩余牌堆中翻开 y 张随机牌，若手中颜色 0 和 c 的牌比翻开的这些颜色的牌至少多 x 张，Sasha 获胜。求 Sasha 获胜的概率模 10⁹ + 7。时间限制 2 秒，内存限制 256 MB。
+
+## 输入
+
+k ≤ 100 和 t ≤ 100，牌堆中每种颜色的数量 c₀ … c_k（至多 100 张），Sasha 拿走的数量 s₀ … s_k，然后是 x 和 y。
+
+## 输出
+
+概率 p/q，以 p·q⁻¹ 模 10⁹ + 7 输出。
+
+## 样例
+
+### 样例 1
+
+输入：
+
+```
+3 1
+1 2 0 1
+0 1 0 0
+1 2
+```
+
+输出：
+
+```
+666666672
+```
+
+### 样例 2
+
+输入：
+
+```
+2 3
+6 5 3
+2 2 0
+5 3
+```
+
+输出：
+
+```
+176428573
+```
+
+## 解法
+
+拿走已知牌后，颜色 i 剩 rᵢ 张，共 R 张，盲抽后牌堆里剩 D = R − t 张。设手中有 h 张颜色 0 和 c 的牌，则牌堆中有 u = c₀ + c_c − h 张这样的牌，翻开的牌服从超几何分布，当 y 张翻开牌中颜色 0 和 c 的至多 h − x 张时 Sasha 获胜。所以在 C(D, y) 种翻法中获胜的有 W(u, h − x) = Σ_{j ≤ h−x} C(u, j) C(D − u, y − j) 种，这张表只算一次。
+
+盲抽得到 z 张万能牌和颜色 i 的 dᵢ 张，Σ dᵢ = t − z；共有 C(r₀, z) Π C(rᵢ, dᵢ) 种等可能的情况。固定 z 时颜色 i 的得分只依赖于 dᵢ，答案需要所有抽法上最大得分之和。按阈值累加：把所有 (颜色, dᵢ > 0) 对按得分排序，维护多项式 P(X) = Π Fᵢ(X)，其中 Fᵢ 是已允许的 d 上 C(rᵢ, d) X^d 之和（d = 0 总是允许的，它也给出基准得分：各颜色在 dᵢ = 0 时得分的最大值）。再允许一对 (i, d) 会把 Fᵢ 变为 Fᵢ + C(rᵢ, d) X^d，于是 P 增加 C(rᵢ, d) X^d · P / Fᵢ；因为 Fᵢ 常数项为 1，除法是精确的。X^{t−z} 系数的增量计数的是最佳得分刚好变为此得分的抽法，每种都以该得分加入。计数模 10⁹ + 7，结果再除以 C(R, t) C(D, y)。最坏工作量 O(t · k · t²)，在此限制下极小。
+
+第一个样例中任何手牌下最佳选择都是颜色 1，三种等可能手牌中有两种获胜，所以答案为 2/3。
+
+## 各语言说明
+
+得分需要精确比较，最大可达 C(100, 50) ≈ 10²⁹。C++ 和 Rust 用无符号 128 位整数保存，Go 和 Java 用大整数，Python 用自身的整数。
+
+## 解答
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
+|----|----|----|-----|------|----|----|
+| [2088_dp_combinatorics.cpp](2088_dp_combinatorics.cpp) | G++ 13.2 x64 | dp, combinatorics | O(t^3 k) | AC | 0.015 s | 672 KB |
+| [2088_dp_combinatorics.go](2088_dp_combinatorics.go) | Go 1.14 x64 | dp, combinatorics | O(t^3 k) | AC | 0.031 s | 2368 KB |
+| [2088_dp_combinatorics.java](2088_dp_combinatorics.java) | Java 1.8 | dp, combinatorics | O(t^3 k) | AC | 0.125 s | 2536 KB |
+| [2088_dp_combinatorics.py](2088_dp_combinatorics.py) | Python 3.12 x64 | dp, combinatorics | O(t^3 k) | AC | 0.093 s | 1268 KB |
+| [2088_dp_combinatorics.rs](2088_dp_combinatorics.rs) | Rust 1.75 x64 | dp, combinatorics | O(t^3 k) | AC | 0.046 s | 476 KB |
