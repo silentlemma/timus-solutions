@@ -78,3 +78,4 @@
 | 1971 | [Classifying a Dynamic Product Without Overflow](1971/) | number_theory | C++, Go, Python, Java, Rust |
 | 1972 | [Longest Nonrepeating Walk Between Two Bitsets](1972/) | constructive | C++, Go, Python, Java, Rust |
 | 1973 | [Expected Triangle Area from an Anchored Convex Polygon](1973/) | geometry | C++, Go, Python, Java, Rust |
+| 1974 | [Maximum Aligned Matches Between Note Sequences](1974/) | bitmask, bruteforce | C++, Go, Python, Java, Rust |
