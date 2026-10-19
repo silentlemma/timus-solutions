@@ -1,0 +1,156 @@
+{
+  "judging": "tokens",
+  "reference": "2001_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "forward simulation of basket/contents transfers",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "003",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "004",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "005",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "006",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "007",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "008",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "009",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "010",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "011",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "012",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "013",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "014",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "015",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "016",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "017",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "018",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "019",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "020",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "021",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "022",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "023",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "024",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "025",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "026",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "027",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "028",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "029",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "030",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "031",
+      "note": "forward simulation of basket/contents transfers"
+    },
+    {
+      "name": "gen_first",
+      "generator": "2001 first",
+      "note": "boundary or random physical masses; forward transfer check"
+    },
+    {
+      "name": "gen_second",
+      "generator": "2002 second",
+      "note": "boundary or random physical masses; forward transfer check"
+    },
+    {
+      "name": "gen_balanced",
+      "generator": "2003 balanced",
+      "note": "boundary or random physical masses; forward transfer check"
+    },
+    {
+      "name": "gen_baskets",
+      "generator": "2004 baskets",
+      "note": "boundary or random physical masses; forward transfer check"
+    },
+    {
+      "name": "gen_random",
+      "generator": "2005 random",
+      "note": "boundary or random physical masses; forward transfer check"
+    }
+  ]
+}
