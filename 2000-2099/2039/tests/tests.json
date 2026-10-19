@@ -1,0 +1,715 @@
+{
+  "judging": "tokens",
+  "reference": "2039_two_pointers.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official_sample; literal complete-row/column and cell check",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "003",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "004",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "005",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "006",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "007",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "008",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "009",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "010",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "011",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "012",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "013",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "014",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "015",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "016",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "017",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "018",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "019",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "020",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "021",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "022",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "023",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "024",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "025",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "026",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "027",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "028",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "029",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "030",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "031",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "032",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "033",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "034",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "035",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "036",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "037",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "038",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "039",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "040",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "041",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "042",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "043",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "044",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "045",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "046",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "047",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "048",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "049",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "050",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "051",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "052",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "053",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "054",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "055",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "056",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "057",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "058",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "059",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "060",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "061",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "062",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "063",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "064",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "065",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "066",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "067",
+      "note": "random_small; literal complete-row/column and cell check"
+    },
+    {
+      "name": "068",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "069",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "070",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "071",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "072",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "073",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "074",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "075",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "076",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "077",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "078",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "079",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "080",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "081",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "082",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "083",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "084",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "085",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "086",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "087",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "088",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "089",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "090",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "091",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "092",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "093",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "094",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "095",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "096",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "097",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "098",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "099",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "100",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "101",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "102",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "103",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "104",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "105",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "106",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "107",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "108",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "109",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "110",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "111",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "112",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "113",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "114",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "115",
+      "note": "word_boundary_thin_transposed; literal complete-row/column and cell check"
+    },
+    {
+      "name": "116",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "117",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "118",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "119",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "120",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "121",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "122",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "123",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "124",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "125",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "126",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "127",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "128",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "129",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "130",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "131",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "132",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "133",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "134",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "135",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "136",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "137",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "138",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "139",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "140",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "141",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "142",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "143",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "144",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "145",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "146",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "147",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "148",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "149",
+      "note": "perturbed_white_cartesian_product; literal complete-row/column and cell check"
+    },
+    {
+      "name": "150",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "151",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "152",
+      "note": "all_binary_grids_up_to3x3_all_k_and_impossible; literal complete-row/column and cell check"
+    },
+    {
+      "name": "gen_all_black",
+      "generator": "2039 all_black",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_all_white",
+      "generator": "2039 all_white",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "2039 alternating",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_defect",
+      "generator": "2039 defect",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_corners",
+      "generator": "2039 corners",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_impossible",
+      "generator": "2039 impossible",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_alternating_noise",
+      "generator": "203911 alternating_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_block_sparse",
+      "generator": "203911 block_sparse",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_block_dense",
+      "generator": "203911 block_dense",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_star_one_defect",
+      "generator": "203911 star_one_defect",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_star_sparse_noise",
+      "generator": "203911 star_sparse_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_many_stripes_noise",
+      "generator": "203911 many_stripes_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_embedded_star_noise",
+      "generator": "203903 embedded_star_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_embedded_stripes_noise",
+      "generator": "203903 embedded_stripes_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_embedded_block_noise",
+      "generator": "203903 embedded_block_noise",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_diagonal_zeros",
+      "generator": "203903 diagonal_zeros",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_triangular",
+      "generator": "203903 triangular",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_random_half",
+      "generator": "203903 random_half",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_random_half_large_k",
+      "generator": "203903 random_half_large_k",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    },
+    {
+      "name": "gen_embedded_star_clean",
+      "generator": "203903 embedded_star_clean",
+      "note": "maximum dimensions; independent area/complete-line enumeration certificate"
+    }
+  ]
+}
