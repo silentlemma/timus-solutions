@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "2084_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a zero utility task clears the debt before the other tasks earn" },
+    { "name": "02", "example": true, "note": "utilities above the initial debt still benefit from early repairs" },
+    { "name": "03", "note": "one task that earns nothing" },
+    { "name": "04", "note": "no debt at all" },
+    { "name": "05", "note": "one repair clears the whole debt" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small tasks" },
+    { "name": "gen2", "generator": "1 2", "note": "zero debt with both zero and positive repairs" },
+    { "name": "gen3", "generator": "2 3", "note": "maximum task count with utilities all above the initial debt" },
+    { "name": "gen4", "generator": "3 4", "note": "small repairs, utilities near the debt" },
+    { "name": "gen5", "generator": "4 5", "note": "full utility from every task at maximum task count and zero debt" },
+    { "name": "06", "note": "one task earns one unit after repairing before payment" },
+    { "name": "07", "note": "a repair exceeding the debt still earns the maximum utility" },
+    { "name": "08", "note": "all utilities are zero despite varied repairs and debt saturation" },
+    { "name": "09", "note": "positive utilities cannot exceed the final residual debt" },
+    { "name": "10", "note": "equal repairs require spending low utility tasks before valuable ones" },
+    { "name": "11", "note": "random stress case where descending repair order loses utility" },
+    { "name": "12", "note": "random stress case where taking the greatest immediate payment is suboptimal" },
+    { "name": "13", "note": "utilities around X mix with a large bonus while some debt remains unpaid" },
+    { "name": "14", "note": "two unpaid repair tasks must jointly clear exactly X before zero repair earners" },
+    { "name": "15", "note": "identical tasks have many optimal permutations and only the last earns anything" },
+    { "name": "16", "generator": "5 208416", "note": "maximum task count without repairs tests utility thresholds at unchanged debt" },
+    { "name": "17", "generator": "6 208417", "note": "maximum task count leaves one unit of debt even after every repair" },
+    { "name": "18", "generator": "7 208418", "note": "maximum X N repairs and utilities attain the largest possible total" },
+    { "name": "19", "generator": "8 208419", "note": "random repeated task types mix sacrificed repairs with capped utilities and bonuses" }
+  ]
+}
