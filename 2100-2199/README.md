@@ -27,3 +27,4 @@
 | 2120 | [Expected weight of a random labelled tree with some degrees fixed](2120/) | math, probability | C++, Go, Python, Java, Rust |
 | 2121 | [Area between two mirrored parabolas](2121/) | geometry, math | C++, Go, Python, Java, Rust |
 | 2122 | [Total Hamming distance between subsequences of every length](2122/) | math, combinatorics | C++, Go, Python, Java, Rust |
+| 2123 | [Counting ways to make a mass with two weights of each fast-growing type](2123/) | dp | C++, Go, Python, Java, Rust |
