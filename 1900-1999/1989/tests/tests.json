@@ -1,0 +1,182 @@
+{
+  "judging": "tokens",
+  "reference": "1989_strings.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "example": true,
+      "note": "official sample"
+    },
+    {
+      "name": "case_002",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_003",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_004",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_005",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_006",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_007",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_008",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_009",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_010",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_011",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_012",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_013",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_014",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_015",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_016",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_017",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_018",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_019",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_020",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_021",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_022",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "case_023",
+      "note": "independent literal oracle: random"
+    },
+    {
+      "name": "case_024",
+      "note": "independent literal oracle: planted"
+    },
+    {
+      "name": "case_025",
+      "note": "independent literal oracle: boundaries"
+    },
+    {
+      "name": "generated_exhaustive5",
+      "generator": "1990 exhaustive5",
+      "note": "all substring queries after every point assignment"
+    },
+    {
+      "name": "generated_exhaustive6",
+      "generator": "1991 exhaustive6",
+      "note": "all substring queries after every point assignment"
+    },
+    {
+      "name": "generated_exhaustive7",
+      "generator": "1992 exhaustive7",
+      "note": "all substring queries after every point assignment"
+    },
+    {
+      "name": "generated_exhaustive8",
+      "generator": "1993 exhaustive8",
+      "note": "all substring queries after every point assignment"
+    },
+    {
+      "name": "generated_ternary",
+      "generator": "1994 ternary",
+      "note": "all substring queries after every point assignment"
+    },
+    {
+      "name": "generated_all_yes",
+      "generator": "1995 all_yes",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_all_no",
+      "generator": "1996 all_no",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_updates",
+      "generator": "1997 updates",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_mixed",
+      "generator": "1998 mixed",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_mixed_yes",
+      "generator": "1999 mixed_yes",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_whole_yes",
+      "generator": "2000 whole_yes",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_varied_yes",
+      "generator": "2001 varied_yes",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_late_no",
+      "generator": "2002 late_no",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_nonuniform",
+      "generator": "2003 nonuniform",
+      "note": "maximum size, closed-form known answers"
+    },
+    {
+      "name": "generated_symmetric_ranges",
+      "generator": "2004 symmetric_ranges",
+      "note": "maximum size, closed-form known answers"
+    }
+  ]
+}
