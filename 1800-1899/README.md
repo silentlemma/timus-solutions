@@ -57,3 +57,4 @@
 | 1850 | [Space Tourism](1850/) | fenwick | C++, Go, Python, Java, Rust |
 | 1851 | [GOV-internship](1851/) | flow | C++, Go, Python, Java, Rust |
 | 1852 | [Cube in a Cube in a Cube](1852/) | simulation | C++, Go, Python, Java, Rust |
+| 1853 | [Laser Technologies](1853/) | geometry | C++, Go, Python, Java, Rust |
