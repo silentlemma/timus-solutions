@@ -1,0 +1,215 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1953_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "case_02",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_03",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_04",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_05",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_06",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_07",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_08",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_09",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_10",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_11",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_12",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_13",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_14",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_15",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_16",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_17",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_18",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_19",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_20",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_21",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_22",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_23",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_24",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_25",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_26",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_27",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_28",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_29",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_30",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_31",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_32",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_33",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_34",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_35",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_36",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_37",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_38",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_39",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_40",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_41",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_42",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_43",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_44",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_45",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_46",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_47",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_48",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_49",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_50",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_51",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    },
+    {
+      "name": "case_52",
+      "note": "independent Cartesian spectrum and midpoint tangency certificate"
+    }
+  ]
+}

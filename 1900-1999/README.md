@@ -57,3 +57,4 @@
 | 1950 | [Area Crossed by a Finite Channel](1950/) | geometry | C++, Go, Python, Java, Rust |
 | 1951 | [Counting Compatible Complex Roots](1951/) | number_theory | C++, Go, Python, Java, Rust |
 | 1952 | [Surviving Alternating Area Attacks](1952/) | dp | C++, Go, Python, Java, Rust |
+| 1953 | [Maximum-Area Ellipse from Three Sides](1953/) | geometry | C++, Go, Python, Java, Rust |
