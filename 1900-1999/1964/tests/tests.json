@@ -1,0 +1,476 @@
+{
+  "judging": "tokens",
+  "reference": "1964_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example_positive",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official_example_zero",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_004",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_005",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_006",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_007",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_008",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_009",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_010",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_011",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_012",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_013",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_014",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_015",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_016",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_017",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_018",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_019",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_020",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_021",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_022",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_023",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_024",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_025",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_026",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_027",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_028",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_029",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_030",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_031",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_032",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_033",
+      "note": "all_physical_populations_through_two"
+    },
+    {
+      "name": "case_034",
+      "note": "all_full"
+    },
+    {
+      "name": "case_035",
+      "note": "all_full"
+    },
+    {
+      "name": "case_036",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_037",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_038",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_039",
+      "note": "all_full"
+    },
+    {
+      "name": "case_040",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_041",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_042",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_043",
+      "note": "all_full"
+    },
+    {
+      "name": "case_044",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_045",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_046",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_047",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_048",
+      "note": "all_full"
+    },
+    {
+      "name": "case_049",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_050",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_051",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_052",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_053",
+      "note": "all_full"
+    },
+    {
+      "name": "case_054",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_055",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_056",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_057",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_058",
+      "note": "all_full"
+    },
+    {
+      "name": "case_059",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_060",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_061",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_062",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_063",
+      "note": "all_full"
+    },
+    {
+      "name": "case_064",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_065",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_066",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_067",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_068",
+      "note": "all_full"
+    },
+    {
+      "name": "case_069",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_070",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_071",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_072",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_073",
+      "note": "all_full"
+    },
+    {
+      "name": "case_074",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_075",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_076",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_077",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_078",
+      "note": "all_full"
+    },
+    {
+      "name": "case_079",
+      "note": "all_minimal"
+    },
+    {
+      "name": "case_080",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_081",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_082",
+      "note": "intersection_threshold"
+    },
+    {
+      "name": "case_083",
+      "note": "physical_answer_0"
+    },
+    {
+      "name": "case_084",
+      "note": "physical_answer_0"
+    },
+    {
+      "name": "case_085",
+      "note": "physical_answer_0"
+    },
+    {
+      "name": "case_086",
+      "note": "physical_answer_0"
+    },
+    {
+      "name": "case_087",
+      "note": "physical_answer_1"
+    },
+    {
+      "name": "case_088",
+      "note": "physical_answer_1"
+    },
+    {
+      "name": "case_089",
+      "note": "physical_answer_1"
+    },
+    {
+      "name": "case_090",
+      "note": "physical_answer_1"
+    },
+    {
+      "name": "case_091",
+      "note": "physical_answer_2"
+    },
+    {
+      "name": "case_092",
+      "note": "physical_answer_2"
+    },
+    {
+      "name": "case_093",
+      "note": "physical_answer_2"
+    },
+    {
+      "name": "case_094",
+      "note": "physical_answer_2"
+    },
+    {
+      "name": "case_095",
+      "note": "physical_answer_3"
+    },
+    {
+      "name": "case_096",
+      "note": "physical_answer_3"
+    },
+    {
+      "name": "case_097",
+      "note": "physical_answer_3"
+    },
+    {
+      "name": "case_098",
+      "note": "physical_answer_3"
+    },
+    {
+      "name": "case_099",
+      "note": "physical_answer_4"
+    },
+    {
+      "name": "case_100",
+      "note": "physical_answer_4"
+    },
+    {
+      "name": "case_101",
+      "note": "physical_answer_4"
+    },
+    {
+      "name": "case_102",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_103",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_104",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_105",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_106",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_107",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_108",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_109",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_110",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_111",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_112",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_113",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_114",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_115",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_116",
+      "note": "seeded_constructive_witness"
+    },
+    {
+      "name": "case_117",
+      "note": "seeded_constructive_witness"
+    }
+  ]
+}
