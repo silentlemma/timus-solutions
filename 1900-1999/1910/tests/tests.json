@@ -1,0 +1,103 @@
+{
+  "judging": "tokens",
+  "reference": "1910_two_pointers.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "minimum size and values"
+    },
+    {
+      "name": "03",
+      "note": "maximum sum in the only window"
+    },
+    {
+      "name": "04",
+      "note": "first window of a four-value sequence"
+    },
+    {
+      "name": "05",
+      "note": "last window of a four-value sequence"
+    },
+    {
+      "name": "06",
+      "note": "unique central maximum"
+    },
+    {
+      "name": "07",
+      "note": "increasing sequence"
+    },
+    {
+      "name": "08",
+      "note": "decreasing sequence"
+    },
+    {
+      "name": "09",
+      "note": "window sum rather than largest individual value"
+    },
+    {
+      "name": "10",
+      "note": "two peaks in the optimal triple"
+    },
+    {
+      "name": "11",
+      "note": "earlier tied sums below the unique maximum"
+    },
+    {
+      "name": "12",
+      "note": "best window occurs after removing a large old value"
+    },
+    {
+      "name": "13",
+      "note": "arbitrary values with one possible middle position"
+    },
+    {
+      "name": "14",
+      "note": "near-maximum sum and first middle position"
+    },
+    {
+      "name": "small",
+      "note": "generated small",
+      "generator": "191001 1"
+    },
+    {
+      "name": "random_max",
+      "note": "generated random max",
+      "generator": "191002 2"
+    },
+    {
+      "name": "first",
+      "note": "generated first",
+      "generator": "191003 3"
+    },
+    {
+      "name": "last",
+      "note": "generated last",
+      "generator": "191004 4"
+    },
+    {
+      "name": "middle",
+      "note": "generated middle",
+      "generator": "191005 5"
+    },
+    {
+      "name": "increasing",
+      "note": "generated increasing",
+      "generator": "191006 6"
+    },
+    {
+      "name": "decreasing",
+      "note": "generated decreasing",
+      "generator": "191007 7"
+    },
+    {
+      "name": "only",
+      "note": "generated only",
+      "generator": "191008 8"
+    }
+  ]
+}
