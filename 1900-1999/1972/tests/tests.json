@@ -1,0 +1,323 @@
+{
+  "judging": "checker",
+  "reference": "1972_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_003",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_004",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_005",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_006",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_007",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_008",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_009",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_010",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_011",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_012",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_013",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_014",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_015",
+      "note": "all_minimal_endpoint_pairs"
+    },
+    {
+      "name": "case_016",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_017",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_018",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_019",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_020",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_021",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_022",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_023",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_024",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_025",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_026",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_027",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_028",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_029",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_030",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_031",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_032",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_033",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_034",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_035",
+      "note": "small_exact_optimum_regressions"
+    },
+    {
+      "name": "case_036",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_037",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_038",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_039",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_040",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_041",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_042",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_043",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_044",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_045",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_046",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_047",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_048",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "case_049",
+      "note": "both_endpoint_parities"
+    },
+    {
+      "name": "distance_1",
+      "note": "maximum_all_hamming_distances",
+      "generator": "356897 n16"
+    },
+    {
+      "name": "distance_2",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1679778 n16"
+    },
+    {
+      "name": "distance_3",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1296227 n16"
+    },
+    {
+      "name": "distance_4",
+      "note": "maximum_all_hamming_distances",
+      "generator": "38052 n16"
+    },
+    {
+      "name": "distance_5",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1667109 n16"
+    },
+    {
+      "name": "distance_6",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1042598 n16"
+    },
+    {
+      "name": "distance_7",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1049671 n16"
+    },
+    {
+      "name": "distance_8",
+      "note": "maximum_all_hamming_distances",
+      "generator": "496200 n16"
+    },
+    {
+      "name": "distance_9",
+      "note": "maximum_all_hamming_distances",
+      "generator": "94665 n16"
+    },
+    {
+      "name": "distance_10",
+      "note": "maximum_all_hamming_distances",
+      "generator": "201226 n16"
+    },
+    {
+      "name": "distance_11",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1201707 n16"
+    },
+    {
+      "name": "distance_12",
+      "note": "maximum_all_hamming_distances",
+      "generator": "305868 n16"
+    },
+    {
+      "name": "distance_13",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1024461 n16"
+    },
+    {
+      "name": "distance_14",
+      "note": "maximum_all_hamming_distances",
+      "generator": "1406990 n16"
+    },
+    {
+      "name": "distance_15",
+      "note": "maximum_all_hamming_distances",
+      "generator": "952943 n16"
+    },
+    {
+      "name": "distance_16",
+      "note": "maximum_all_hamming_distances",
+      "generator": "719952 n16"
+    },
+    {
+      "name": "n12_distance_1",
+      "note": "large_answer_both_parities",
+      "generator": "131041 n12"
+    },
+    {
+      "name": "n12_distance_2",
+      "note": "large_answer_both_parities",
+      "generator": "131042 n12"
+    },
+    {
+      "name": "n13_distance_1",
+      "note": "large_answer_both_parities",
+      "generator": "262113 n13"
+    },
+    {
+      "name": "n13_distance_2",
+      "note": "large_answer_both_parities",
+      "generator": "262114 n13"
+    },
+    {
+      "name": "n14_distance_1",
+      "note": "large_answer_both_parities",
+      "generator": "524257 n14"
+    },
+    {
+      "name": "n14_distance_2",
+      "note": "large_answer_both_parities",
+      "generator": "524258 n14"
+    },
+    {
+      "name": "n15_distance_1",
+      "note": "large_answer_both_parities",
+      "generator": "1048545 n15"
+    },
+    {
+      "name": "n15_distance_2",
+      "note": "large_answer_both_parities",
+      "generator": "1048546 n15"
+    }
+  ]
+}
