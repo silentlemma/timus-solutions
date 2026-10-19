@@ -31,3 +31,4 @@
 | 1824 | [Ifrit Bomber](1824/) | backtracking | C++, Go, Python, Java, Rust |
 | 1825 | [Ifrit Bomber 2](1825/) | geometry | C++, Go, Python, Java, Rust |
 | 1826 | [Minefield](1826/) | greedy | C++, Go, Python, Java, Rust |
+| 1827 | [Indigenous Wars](1827/) | hashing | C++, Go, Python, Java, Rust |
