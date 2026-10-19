@@ -1,0 +1,23 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1825_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "same centre, overlapping rings" },
+    { "name": "03", "note": "same centre, one ring inside the other's hole" },
+    { "name": "04", "note": "far apart: the rings do not meet" },
+    { "name": "05", "note": "two identical thin rings at the largest radius" },
+    { "name": "06", "note": "a small ring inside the hole of a big one" },
+    { "name": "07", "note": "a small ring crossing the inner circle" },
+    { "name": "08", "note": "outer circles touching from outside" },
+    { "name": "09", "note": "two identical largest rings at one centre" },
+    { "name": "10", "note": "the largest rings at the largest distance" },
+    { "name": "11", "note": "two equal rings almost on top of each other" },
+    { "name": "12", "note": "a ring touching another's outer circle from outside" },
+    { "name": "gen1", "generator": "1 1", "note": "random rings" },
+    { "name": "gen2", "generator": "2 2", "note": "small rings close together" },
+    { "name": "gen3", "generator": "3 3", "note": "touching circles" },
+    { "name": "gen4", "generator": "4 3", "note": "touching circles" },
+    { "name": "gen5", "generator": "5 1", "note": "random rings" }
+  ]
+}
