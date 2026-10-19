@@ -83,3 +83,4 @@
 | 1876 | [Centipede's Morning](1876/) | math | C++, Go, Python, Java, Rust |
 | 1877 | [Bicycle Codes](1877/) | implementation | C++, Go, Python, Java, Rust |
 | 1878 | [Rubinchik's Cube](1878/) | implementation | C++, Go, Python, Java, Rust |
+| 1879 | [GOV-internship 2](1879/) | greedy | C++, Go, Python, Java, Rust |

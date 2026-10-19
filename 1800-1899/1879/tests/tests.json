@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1879_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "mixed fixed letters and question marks in both strings" },
+    { "name": "02", "note": "one question mark in each string" },
+    { "name": "03", "note": "t is all question marks: they take the commonest letter of s" },
+    { "name": "04", "note": "the question marks of both strings join on one letter" },
+    { "name": "05", "note": "no question marks" },
+    { "name": "06", "note": "the largest letter" },
+    { "name": "gen1", "generator": "1 1", "note": "short strings over a few letters" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum length s with letters drawn from the full alphabet" },
+    { "name": "gen3", "generator": "3 3", "note": "a few letters, many question marks" },
+    { "name": "gen4", "generator": "4 4", "note": "only question marks" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum length s with fixed letters from a small alphabet" },
+    { "name": "gen6", "generator": "6 6", "note": "the commonest letters of s and t differ" },
+    { "name": "07", "note": "minimum lengths with two different fixed endpoint letters" },
+    { "name": "08", "note": "singleton fixed t with blanks only in s and one unavoidable mismatch" },
+    { "name": "09", "note": "all blanks in s against fixed t with tied most frequent letters" },
+    { "name": "10", "note": "equal lengths and rearranged identical multisets require counting every cyclic start" },
+    { "name": "11", "note": "choosing different letters for the two blanks is strictly better than a shared letter" },
+    { "name": "12", "note": "the best shared replacement is the third letter, most frequent in neither string" },
+    { "name": "13", "note": "seeded stress case where unequal blank counts favor a minority letter of s" },
+    { "name": "14", "note": "seeded stress case where blanks complete a shared fixed letter to zero distance" },
+    { "name": "15", "generator": "187907 7", "note": "both lengths are 100000 and disjoint constant letters give the maximum distance 10000000000" },
+    { "name": "16", "generator": "187908 8", "note": "maximum length s against singleton t with random boundary letters and exactly one blank" },
+    { "name": "17", "generator": "187909 9", "note": "lengths 100000 and 99999 with sparse random letters and exactly one blank per string" }
+  ]
+}
