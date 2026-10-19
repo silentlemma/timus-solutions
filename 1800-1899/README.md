@@ -100,3 +100,4 @@
 | 1893 | [A380](1893/) | implementation | C++, Go, Python, Java, Rust |
 | 1894 | [Non-Flying Weather](1894/) | geometry | C++, Go, Python, Java, Rust |
 | 1895 | [Steaks on Board](1895/) | dp | C++, Go, Python, Java, Rust |
+| 1896 | [War Games 2.1](1896/) | fenwick, bitmask | C++, Rust |
