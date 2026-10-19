@@ -1,0 +1,203 @@
+{
+  "judging": "tokens",
+  "reference": "1987_greedy.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "closed endpoints and repeated queries"
+    },
+    {
+      "name": "case_003",
+      "note": "equal starts, equal ends and sibling transitions"
+    },
+    {
+      "name": "case_004",
+      "note": "minimum and maximum input coordinates"
+    },
+    {
+      "name": "case_005",
+      "note": "equal right endpoints"
+    },
+    {
+      "name": "case_006",
+      "note": "disjoint segments and gaps"
+    },
+    {
+      "name": "case_007",
+      "note": "all queries after all nested segments"
+    },
+    {
+      "name": "case_008",
+      "note": "all queries precede all starts"
+    },
+    {
+      "name": "case_009",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_010",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_011",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_012",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_013",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_014",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_015",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_016",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_017",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_018",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_019",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_020",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_021",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_022",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_023",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_024",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_025",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_026",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_027",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_028",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_029",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_030",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_031",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_032",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_033",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_034",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_035",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_036",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_037",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_038",
+      "note": "random laminar family, literal scan"
+    },
+    {
+      "name": "case_039",
+      "note": "arbitrary whitespace"
+    },
+    {
+      "name": "max_chain",
+      "generator": "1987 chain",
+      "note": "chain n=m=100000"
+    },
+    {
+      "name": "max_same_start",
+      "generator": "1987 same_start",
+      "note": "same_start n=m=100000"
+    },
+    {
+      "name": "max_same_end",
+      "generator": "1987 same_end",
+      "note": "same_end n=m=100000"
+    },
+    {
+      "name": "max_disjoint",
+      "generator": "1987 disjoint",
+      "note": "disjoint n=m=100000"
+    },
+    {
+      "name": "max_forest",
+      "generator": "1987 forest",
+      "note": "forest n=m=100000"
+    },
+    {
+      "name": "max_late",
+      "generator": "1987 late",
+      "note": "late n=m=100000"
+    },
+    {
+      "name": "max_repeat",
+      "generator": "1987 repeat",
+      "note": "repeat n=m=100000"
+    },
+    {
+      "name": "max_near_limit",
+      "generator": "1987 near_limit",
+      "note": "near_limit n=m=100000"
+    }
+  ]
+}

@@ -91,3 +91,4 @@
 | 1984 | [An enclosing circle touched by every unit disk](1984/) | geometry | C++, Go, Python, Java, Rust |
 | 1985 | [A prime-rich column in a Hamiltonian labeling](1985/) | constructive | C++, Go, Python, Java, Rust |
 | 1986 | [Expand recursive mixtures exactly](1986/) | matrix | C++, Go, Python, Java, Rust |
+| 1987 | [Shortest containing interval in a laminar family](1987/) | greedy | C++, Go, Python, Java, Rust |
