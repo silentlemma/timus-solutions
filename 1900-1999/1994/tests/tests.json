@@ -1,0 +1,483 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1994_dp_probability.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent Decimal70 sequential sampling oracle",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "003",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "004",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "005",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "006",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "007",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "008",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "009",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "010",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "011",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "012",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "013",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "014",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "015",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "016",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "017",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "018",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "019",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "020",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "021",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "022",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "023",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "024",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "025",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "026",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "027",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "028",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "029",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "030",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "031",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "032",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "033",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "034",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "035",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "036",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "037",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "038",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "039",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "040",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "041",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "042",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "043",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "044",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "045",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "046",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "047",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "048",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "049",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "050",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "051",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "052",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "053",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "054",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "055",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "056",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "057",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "058",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "059",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "060",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "061",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "062",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "063",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "064",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "065",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "066",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "067",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "068",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "069",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "070",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "071",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "072",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "073",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "074",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "075",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "076",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "077",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "078",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "079",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "080",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "081",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "082",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "083",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "084",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "085",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "086",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "087",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "088",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "089",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "090",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "091",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "092",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "093",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "094",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "095",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "096",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "097",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "098",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "099",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "100",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "101",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "102",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "103",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "104",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "105",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "106",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "107",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "108",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "109",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "110",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "111",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "112",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "113",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "114",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "115",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "116",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "117",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "118",
+      "note": "independent Decimal70 sequential sampling oracle"
+    },
+    {
+      "name": "119",
+      "note": "independent Decimal70 sequential sampling oracle"
+    }
+  ]
+}

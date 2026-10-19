@@ -98,3 +98,4 @@
 | 1991 | [Count unused supplies and unmatched targets](1991/) | implementation | C++, Go, Python, Java, Rust |
 | 1992 | [Share learning and undo histories](1992/) | trees, simulation | C++, Go, Python, Java, Rust |
 | 1993 | [Reorder marked phrases and fix capitalization](1993/) | parsing, strings | C++, Go, Python, Java, Rust |
+| 1994 | [Optimal random removals between deterministic losses](1994/) | dp, probability, combinatorics | C++, Go, Python, Java, Rust |
