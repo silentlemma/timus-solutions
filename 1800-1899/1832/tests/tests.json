@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1832_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: a prime, one circle" },
+    { "name": "02", "note": "the fewest artists" },
+    { "name": "03", "note": "a small prime" },
+    { "name": "04", "note": "four artists: circles d = 1 and d = 2" },
+    { "name": "05", "note": "six artists" },
+    { "name": "06", "note": "twelve artists, least non-divisor 5" },
+    { "name": "07", "note": "a full pair of seven-colour palettes" },
+    { "name": "08", "note": "a multiple of every step from one through ten" },
+    { "name": "gen1", "generator": "1 1", "note": "a random number" },
+    { "name": "gen2", "generator": "2 2", "note": "the construction using all 26 colours" },
+    { "name": "gen3", "generator": "3 3", "note": "twice a large prime" },
+    { "name": "gen4", "generator": "4 4", "note": "a power of three" },
+    { "name": "gen5", "generator": "5 2", "note": "a number with many divisors" },
+    { "name": "gen6", "generator": "6 3", "note": "a large prime" },
+    { "name": "gen7", "generator": "7 2", "note": "an even input with 168 divisors" },
+    { "name": "09", "note": "an odd composite with distinct prime factors, circles of lengths 3 and 5" },
+    { "name": "10", "note": "a composite least non-divisor of nine, with every step from 1 through 8 present" },
+    { "name": "gen8", "generator": "8 5", "note": "the exact upper limit of 300000 artists, including two-artist circles" }
+  ]
+}
