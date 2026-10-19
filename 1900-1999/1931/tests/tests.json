@@ -1,0 +1,140 @@
+{
+  "judging": "checker",
+  "reference": "1931_simulation.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one participant with zero comparisons"
+    },
+    {
+      "name": "03",
+      "note": "one maximum-valued participant"
+    },
+    {
+      "name": "04",
+      "note": "two increasing, either index valid"
+    },
+    {
+      "name": "05",
+      "note": "two decreasing, either index valid"
+    },
+    {
+      "name": "06",
+      "note": "three increasing"
+    },
+    {
+      "name": "07",
+      "note": "middle participant compared twice"
+    },
+    {
+      "name": "08",
+      "note": "two tied maxima, stored output chooses later index"
+    },
+    {
+      "name": "09",
+      "note": "new incumbent starts with incoming comparison"
+    },
+    {
+      "name": "10",
+      "note": "outgoing incumbent includes its loss"
+    },
+    {
+      "name": "11",
+      "note": "last minimum is not most compared"
+    },
+    {
+      "name": "12",
+      "note": "middle incumbent has longest tenure"
+    },
+    {
+      "name": "13",
+      "note": "second incumbent longest"
+    },
+    {
+      "name": "14",
+      "note": "equal tenures, noncanonical stored output"
+    },
+    {
+      "name": "15",
+      "note": "new incumbent wins near tie"
+    },
+    {
+      "name": "16",
+      "note": "many tied internal incumbents"
+    },
+    {
+      "name": "17",
+      "note": "alternating new records and large values"
+    },
+    {
+      "name": "18",
+      "note": "large positive values and record changes"
+    },
+    {
+      "name": "19",
+      "note": "nonrecord challengers remain one comparison"
+    },
+    {
+      "name": "20",
+      "note": "own full-value-range random input"
+    },
+    {
+      "name": "21",
+      "note": "own full-value-range random input"
+    },
+    {
+      "name": "22",
+      "note": "own full-value-range random input"
+    },
+    {
+      "name": "stress1",
+      "generator": "1932 1",
+      "note": "max increasing"
+    },
+    {
+      "name": "stress2",
+      "generator": "1933 2",
+      "note": "max decreasing many ties"
+    },
+    {
+      "name": "stress3",
+      "generator": "1934 3",
+      "note": "second minimum"
+    },
+    {
+      "name": "stress4",
+      "generator": "1935 4",
+      "note": "last minimum"
+    },
+    {
+      "name": "stress5",
+      "generator": "1936 5",
+      "note": "full-range random distinct"
+    },
+    {
+      "name": "stress6",
+      "generator": "1937 6",
+      "note": "exact two-way tie"
+    },
+    {
+      "name": "stress7",
+      "generator": "1938 7",
+      "note": "one-step shifted tie"
+    },
+    {
+      "name": "stress8",
+      "generator": "1939 8",
+      "note": "many record blocks"
+    },
+    {
+      "name": "stress9",
+      "generator": "1940 9",
+      "note": "top-bound random distinct"
+    }
+  ]
+}
