@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1862_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "seven numbers" },
+    { "name": "03", "note": "a tree small enough to count by hand" },
+    { "name": "04", "note": "a height equal to the modulus" },
+    { "name": "05", "note": "a height one past the modulus" },
+    { "name": "06", "note": "a height one below the modulus" },
+    { "name": "07", "note": "a large height" },
+    { "name": "08", "note": "the largest height" },
+    { "name": "gen1", "generator": "1 1", "note": "a small height" },
+    { "name": "gen2", "generator": "2 2", "note": "a large height" },
+    { "name": "gen3", "generator": "3 3", "note": "a height near a multiple of the modulus" }
+  ]
+}
