@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "2086_geometry_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: four places" },
+    { "name": "02", "example": true, "note": "the second example: Eugene too far" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "Eugene at distance X: Denis may sit at Eugene's place" },
+    { "name": "05", "note": "Eugene at distance Y: the hall may be at Eugene's place" },
+    { "name": "06", "note": "a double root: one position on the segment" },
+    { "name": "07", "note": "the largest values, a very flat triangle" },
+    { "name": "gen1", "generator": "1 1", "note": "small random values" },
+    { "name": "gen2", "generator": "2 2", "note": "Eugene at distance X" },
+    { "name": "gen3", "generator": "3 3", "note": "Eugene at distance Y" },
+    { "name": "gen4", "generator": "4 4", "note": "a double root" },
+    { "name": "gen5", "generator": "5 5", "note": "large random values" }
+  ]
+}
