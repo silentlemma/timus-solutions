@@ -1,0 +1,340 @@
+{
+  "judging": "tokens",
+  "reference": "1962_graphs.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example_two_paths",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official_example_proper_cycle",
+      "example": true
+    },
+    {
+      "name": "case_003",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_004",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_005",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_006",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_007",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_008",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_009",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_010",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_011",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_012",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_013",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_014",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_015",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_016",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_017",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_018",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_019",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_020",
+      "note": "all_legal_n2_n3"
+    },
+    {
+      "name": "case_021",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_022",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_023",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_024",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_025",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_026",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_027",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_028",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_029",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_030",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_031",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_032",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_033",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_034",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_035",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_036",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_037",
+      "note": "component_and_anchor_regression"
+    },
+    {
+      "name": "case_038",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_039",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_040",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_041",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_042",
+      "note": "meta_guest_fixed_relabel"
+    },
+    {
+      "name": "case_043",
+      "note": "meta_guest_fixed_relabel"
+    },
+    {
+      "name": "case_044",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_045",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_046",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_047",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_048",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_049",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_050",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_051",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_053",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_054",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_055",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_056",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_057",
+      "note": "meta_guest_fixed_relabel"
+    },
+    {
+      "name": "case_058",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_059",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_060",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_061",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_062",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_063",
+      "note": "meta_guest_fixed_relabel"
+    },
+    {
+      "name": "case_064",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_065",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_066",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_067",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_068",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_069",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_070",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_071",
+      "note": "seeded_physical_orders"
+    },
+    {
+      "name": "case_072",
+      "note": "maximum_unconstrained"
+    },
+    {
+      "name": "case_073",
+      "note": "maximum_single_edge"
+    },
+    {
+      "name": "case_074",
+      "note": "maximum_mutual_edge"
+    },
+    {
+      "name": "case_075",
+      "note": "maximum_guest_internal_path"
+    },
+    {
+      "name": "case_076",
+      "note": "maximum_hamilton_path"
+    },
+    {
+      "name": "case_077",
+      "note": "maximum_hamilton_path_mutual_end"
+    },
+    {
+      "name": "case_078",
+      "note": "maximum_hamilton_cycle"
+    },
+    {
+      "name": "case_079",
+      "note": "maximum_proper_cycle"
+    },
+    {
+      "name": "case_080",
+      "note": "maximum_high_degree"
+    },
+    {
+      "name": "case_081",
+      "note": "maximum_perfect_matching"
+    },
+    {
+      "name": "case_082",
+      "note": "maximum_twenty_five_paths"
+    },
+    {
+      "name": "case_083",
+      "note": "maximum_five_paths"
+    }
+  ]
+}
