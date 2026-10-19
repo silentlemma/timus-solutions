@@ -1,0 +1,28 @@
+{
+  "judging": "checker",
+  "reference": "2050_geometry.cpp",
+  "cases": [
+    { "name": "001", "example": true, "note": "perpendicular unit coordinate axes meeting at the origin" },
+    { "name": "002", "example": true, "note": "parallel vertical lines offset in both horizontal coordinates" },
+    { "name": "003", "note": "coincident diagonal lines with the same endpoint orientation" },
+    { "name": "004", "note": "acute spatial intersection with unequal endpoint distances" },
+    { "name": "005", "note": "acute intersection whose bisector has a zero component" },
+    { "name": "006", "note": "obtuse intersection with a unit source direction" },
+    { "name": "007", "note": "perpendicular planar diagonals with an axis aligned bisector" },
+    { "name": "008", "note": "obtuse spatial intersection with equal endpoint distances" },
+    { "name": "009", "note": "perpendicular spatial directions with unequal endpoint distances" },
+    { "name": "010", "note": "translated near perpendicular lines requiring a nonzero midpoint correction" },
+    { "name": "011", "note": "almost perpendicular directions with a positive dot product and negative offset" },
+    { "name": "012", "note": "nearly orthogonal directions with the smallest positive dot product in the boundary family" },
+    { "name": "013", "note": "skew lines with almost opposite directions and a distant axis" },
+    { "name": "014", "note": "skew lines with almost perpendicular directions and unequal endpoint distances" },
+    { "name": "015", "note": "skew lines spanning both coordinate limits in all three dimensions" },
+    { "name": "016", "note": "first bisector at distance 2300 forces the second bounded axis" },
+    { "name": "017", "note": "first bisector exactly at distance 1900 stays on the threshold" },
+    { "name": "018", "note": "nearly parallel skew lines with a cross product of magnitude one" },
+    { "name": "019", "note": "oppositely directed coincident lines along the full cube diagonal" },
+    { "name": "020", "note": "parallel lines on opposite cube edges with maximum transverse separation" },
+    { "name": "gen1", "generator": "1 random", "note": "seeded skew lines with independent coordinates in three dimensions" },
+    { "name": "021", "note": "coplanar lines with determinant one intersecting far outside the input cube" }
+  ]
+}
