@@ -1,0 +1,219 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1956_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_sample",
+      "example": true
+    },
+    {
+      "name": "case_02",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_03",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_04",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_05",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_06",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_07",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_08",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_09",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_10",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_11",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_12",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_13",
+      "note": "exhaustive_grid_multisets"
+    },
+    {
+      "name": "case_14",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_15",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_16",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_17",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_18",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_19",
+      "note": "bounds_duplicates_near_collinear"
+    },
+    {
+      "name": "case_20",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_21",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_22",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_23",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_24",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_25",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_26",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_27",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_28",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_29",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_30",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_31",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_32",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_33",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_34",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_35",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_36",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_37",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_38",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_39",
+      "note": "seeded_literal_supporting_lines"
+    },
+    {
+      "name": "case_40",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_41",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_42",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_43",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_44",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_45",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_46",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "case_47",
+      "note": "reversed_input_order"
+    },
+    {
+      "name": "random_full_range",
+      "note": "random_full_range"
+    },
+    {
+      "name": "rectangular_grid",
+      "note": "rectangular_grid"
+    },
+    {
+      "name": "parabola",
+      "note": "parabola"
+    },
+    {
+      "name": "almost_collinear",
+      "note": "almost_collinear"
+    },
+    {
+      "name": "weighted_duplicates",
+      "note": "weighted_duplicates"
+    },
+    {
+      "name": "rounded_circle",
+      "note": "rounded_circle"
+    }
+  ]
+}

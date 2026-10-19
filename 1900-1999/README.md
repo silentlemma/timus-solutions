@@ -60,3 +60,4 @@
 | 1953 | [Maximum-Area Ellipse from Three Sides](1953/) | geometry | C++, Go, Python, Java, Rust |
 | 1954 | [Five Palindromes with Parity-Aware Factorization](1954/) | dp | C++, Go, Python, Java, Rust |
 | 1955 | [Longest Visible Chord of a Simple Polygon](1955/) | geometry | C++, Go, Python, Java, Rust |
+| 1956 | [A Line with Minimum Total Distance](1956/) | geometry | C++, Go, Python, Java, Rust |
