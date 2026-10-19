@@ -20,3 +20,4 @@
 | 2113 | [Smallest jump height to outrun a spreading flood](2113/) | bfs, binary_search | C++, Go, Python, Java, Rust |
 | 2114 | [Heaviest right triangle of a given size in a grid](2114/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 2115 | [Sort a line with at most one swap](2115/) | sorting | C++, Go, Python, Java, Rust |
+| 2116 | [Components of a generalized knight graph on a huge board](2116/) | dfs | C++, Go, Python, Java, Rust |
