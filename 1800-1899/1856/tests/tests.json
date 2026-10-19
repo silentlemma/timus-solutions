@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1856_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a swap and the identity spell" },
+    { "name": "02", "example": true, "note": "the second example: the first spell gathers both garrisons" },
+    { "name": "03", "note": "both spells keep everyone in place" },
+    { "name": "04", "note": "both spells gather everyone at once" },
+    { "name": "05", "note": "a shift towards the first garrison against standing still" },
+    { "name": "06", "note": "a shift down against a shift up on four garrisons" },
+    { "name": "07", "note": "opposing shifts on an odd-length chain allow gathering" },
+    { "name": "gen1", "generator": "1 1", "note": "a few garrisons at random" },
+    { "name": "gen2", "generator": "2 2", "note": "the most garrisons at random" },
+    { "name": "gen3", "generator": "3 3", "note": "one spell gathers everything" },
+    { "name": "gen4", "generator": "4 4", "note": "two permutations" },
+    { "name": "gen5", "generator": "5 5", "note": "a rotation and a spell merging two neighbours" },
+    { "name": "gen6", "generator": "6 6", "note": "the same random map twice" },
+    { "name": "gen7", "generator": "7 7", "note": "one spell maps into three garrisons while the other can leave them" },
+    { "name": "gen8", "generator": "8 8", "note": "a shift down against standing still requires 999 noon moves" },
+    { "name": "08", "note": "neither noon spell gathers immediately but both midnight replies do" },
+    { "name": "09", "note": "one spell synchronizes alone but the other nonpermutation lets Korbu prevent it" },
+    { "name": "10", "note": "a common absorbing garrison is reached only by switching between two projections" },
+    { "name": "11", "note": "a random stress sample needs a long winning strategy and neither repeated spell wins" },
+    { "name": "12", "note": "two closed endpoints numbered 1 and 1000 trap the army at maximum size" },
+    { "name": "13", "note": "troops from 1000 garrisons feed a chain where both midnight replies have identical successors" },
+    { "name": "14", "generator": "4 1", "note": "a swap permutation and a nonconstant spell still force gathering" },
+    { "name": "15", "generator": "6 1", "note": "random maps have winning and losing occupied sets of the same size" },
+    { "name": "16", "generator": "9 1", "note": "random maps leave different pairs needing opposite merging spells" }
+  ]
+}

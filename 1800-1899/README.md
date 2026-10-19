@@ -60,3 +60,4 @@
 | 1853 | [Laser Technologies](1853/) | geometry | C++, Go, Python, Java, Rust |
 | 1854 | [Negotiations with Parthians](1854/) | number_theory | C++, Go, Python, Java, Rust |
 | 1855 | [Trade Guilds of Erathia](1855/) | fenwick | C++, Go, Python, Java, Rust |
+| 1856 | [War and Peace](1856/) | games | C++, Go, Python, Java, Rust |
