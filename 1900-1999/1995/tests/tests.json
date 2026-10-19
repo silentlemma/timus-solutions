@@ -1,0 +1,595 @@
+{
+  "judging": "checker",
+  "reference": "1995_greedy_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "brute-force optimum",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "003",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "004",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "005",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "006",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "007",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "008",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "009",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "010",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "011",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "012",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "013",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "014",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "015",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "016",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "017",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "018",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "019",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "020",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "021",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "022",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "023",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "024",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "025",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "026",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "027",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "028",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "029",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "030",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "031",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "032",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "033",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "034",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "035",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "036",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "037",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "038",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "039",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "040",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "041",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "042",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "043",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "044",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "045",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "046",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "047",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "048",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "049",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "050",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "051",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "052",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "053",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "054",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "055",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "056",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "057",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "058",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "059",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "060",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "061",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "062",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "063",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "064",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "065",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "066",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "067",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "068",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "069",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "070",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "071",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "072",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "073",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "074",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "075",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "076",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "077",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "078",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "079",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "080",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "081",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "082",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "083",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "084",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "085",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "086",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "087",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "088",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "089",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "090",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "091",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "092",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "093",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "094",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "095",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "096",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "097",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "098",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "099",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "100",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "101",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "102",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "103",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "104",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "105",
+      "note": "brute-force optimum"
+    },
+    {
+      "name": "106",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "107",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "108",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "109",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "110",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "111",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "112",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "113",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "114",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "115",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "116",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "117",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "118",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "119",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "120",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "121",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "122",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "123",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "124",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "125",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "126",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "127",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "128",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "129",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "130",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "131",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "132",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "133",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "134",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "135",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "136",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "137",
+      "note": "independent dynamic histogram order-statistics"
+    },
+    {
+      "name": "gen_records",
+      "generator": "0 records",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_low_percent",
+      "generator": "1 low_percent",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_near_percent",
+      "generator": "2 near_percent",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_balanced",
+      "generator": "3 balanced",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_boundary",
+      "generator": "4 boundary",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_one_kept",
+      "generator": "5 one_kept",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_all_twos",
+      "generator": "6 all_twos",
+      "note": "maximum size; histogram oracle and independent checker"
+    },
+    {
+      "name": "gen_tiny_discard",
+      "generator": "7 tiny_discard",
+      "note": "maximum size; histogram oracle and independent checker"
+    }
+  ]
+}
