@@ -1,0 +1,32 @@
+{
+  "judging": "checker",
+  "reference": "2086_geometry_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: four places" },
+    { "name": "02", "example": true, "note": "the second example: Eugene too far" },
+    { "name": "03", "example": true, "note": "the third example: two nearby places in a triangle obtuse at Denis" },
+    { "name": "04", "note": "at distance X from Vanya, Eugene may coincide with Denis" },
+    { "name": "05", "note": "at distance Y from Vanya, Eugene may coincide with the hall" },
+    { "name": "06", "note": "a double root: one position on the segment" },
+    { "name": "07", "note": "the largest lengths in a very flat triangle: two almost equal positions" },
+    { "name": "gen1", "generator": "1 1", "note": "small random values" },
+    { "name": "gen2", "generator": "2 2", "note": "a workplace offset of length X" },
+    { "name": "gen3", "generator": "3 3", "note": "a workplace offset of length Y" },
+    { "name": "gen4", "generator": "4 4", "note": "a double root" },
+    { "name": "gen5", "generator": "5 5", "note": "large random values" },
+    { "name": "08", "note": "only Denis can coincide with Eugene when X is the shorter side" },
+    { "name": "09", "note": "the shorter hall radius gives two Denis positions with Eugene at the hall" },
+    { "name": "10", "note": "all three sides at their minimum value, with both segment endpoints possible" },
+    { "name": "11", "note": "the distance from Eugene to Vanya is less than the height to DF" },
+    { "name": "12", "note": "real line intersections lie beyond the segment in a triangle obtuse at Denis" },
+    { "name": "13", "note": "a right angle at Denis makes the double root occur exactly where Eugene equals Denis" },
+    { "name": "14", "note": "maximum sides and extreme coordinates with four places just above tangency" },
+    { "name": "15", "note": "a base one above the lower triangle bound with nearly equal maximum radii" },
+    { "name": "16", "note": "a right angle at the hall gives a double root at the other segment endpoint" },
+    { "name": "17", "note": "minimum X and maximum Y and Z leave two mirror places very close to Eugene" },
+    { "name": "18", "note": "seeded small scalene case has four places with an oblique workplace offset" },
+    { "name": "19", "generator": "1 13", "note": "seeded obtuse triangle has one interior segment position between unequal endpoint radii" },
+    { "name": "20", "generator": "5 34", "note": "seeded large scalene triangle retains both interior segment positions" },
+    { "name": "21", "note": "maximum base one below the upper triangle bound, with four valid places near the height" }
+  ]
+}
