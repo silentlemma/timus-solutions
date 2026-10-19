@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2069_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a middle horizontal street improves on both one-turn routes" },
+    { "name": "02", "example": true, "note": "the best vertical popularity is below both outer horizontal popularities" },
+    { "name": "03", "note": "the smallest grid, all ones" },
+    { "name": "04", "note": "down the left street, then along the bottom one" },
+    { "name": "05", "note": "along the top, down a middle street, along the bottom" },
+    { "name": "06", "note": "the largest values" },
+    { "name": "07", "note": "down the left, along a middle street, down the right" },
+    { "name": "gen1", "generator": "1 1", "note": "a small grid" },
+    { "name": "gen2", "generator": "2 2", "note": "random sizes and values" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest grid" },
+    { "name": "08", "note": "only going along the top and then down the right gives the optimum" },
+    { "name": "09", "note": "huge interior popularities cannot bypass weak streets at both corners" },
+    { "name": "10", "note": "tied best middle vertical streets limit a two-turn route despite a huge horizontal street" },
+    { "name": "11", "generator": "4 2069", "note": "two columns and maximum rows, seeded random streets with a late maximum capped by the left endpoint" }
+  ]
+}
