@@ -64,3 +64,4 @@
 | 1857 | [Alice and Bandersnatch](1857/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1858 | [Magic Cube](1858/) | bfs | C++, Go, Python, Java, Rust |
 | 1859 | [Last Season of Team.GOV](1859/) | greedy | C++, Go, Python, Java, Rust |
+| 1860 | [Fiborial](1860/) | number_theory | C++, Go, Python, Java, Rust |
