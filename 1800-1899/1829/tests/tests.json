@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1829_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: four blocks merged into two" },
+    { "name": "02", "example": true, "note": "the second example: an extra network" },
+    { "name": "03", "note": "a row repeating the gateway it would inherit" },
+    { "name": "04", "note": "a default route against its two halves" },
+    { "name": "05", "note": "one block, different gateways" },
+    { "name": "06", "note": "a more specific row against a split of the outer block" },
+    { "name": "07", "note": "bits outside the mask in the network address" },
+    { "name": "08", "note": "the two last addresses against their /31 block" },
+    { "name": "09", "note": "two sibling /8 blocks against their /7 block" },
+    { "name": "10", "note": "a gap: /8 blocks 10 and 12 against the /6 block" },
+    { "name": "gen1", "generator": "1 1", "note": "a changed /30 gateway inside a small nested table" },
+    { "name": "gen2", "generator": "2 1", "note": "a /30 block split into two /31 blocks with the same gateway" },
+    { "name": "gen3", "generator": "3 2", "note": "dense routes inside one /16 with a changed gateway" },
+    { "name": "gen4", "generator": "4 2", "note": "splitting densely nested subnets while preserving routing" },
+    { "name": "gen5", "generator": "5 3", "note": "routes spread across all prefix lengths with a gateway mismatch" },
+    { "name": "gen6", "generator": "6 3", "note": "splitting routes across the address space with one shared gateway" },
+    { "name": "11", "note": "both tables empty, so every address is unrouted" },
+    { "name": "12", "note": "an unrouted address differs from a host routed to gateway zero" },
+    { "name": "13", "note": "different parent gateways are invisible when both children override them" },
+    { "name": "14", "note": "all 33 prefix lengths nested at zero against their disjoint routing regions" },
+    { "name": "15", "note": "only the host at the signed 32-bit boundary differs under a default route" },
+    { "name": "16", "note": "seeded nested routes with restored outer gateways against exhaustive host expansion" },
+    { "name": "17", "generator": "1829 4", "note": "exact row limit with shuffled /17 partitions of one quarter of the address space" },
+    { "name": "18", "generator": "1829 5", "note": "a prefix tree of 65535 rows whose zero-gateway leaves hide all internal gateways" }
+  ]
+}
