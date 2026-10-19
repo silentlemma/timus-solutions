@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "2115_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: already sorted" },
+    { "name": "02", "example": true, "note": "the second example; any fixing swap is accepted" },
+    { "name": "03", "note": "a single student" },
+    { "name": "04", "note": "repeated heights fixed by one swap" },
+    { "name": "05", "note": "a descending line with the last two swapped" },
+    { "name": "06", "note": "two separate disorders" },
+    { "name": "gen1", "generator": "1 1", "note": "a short line" },
+    { "name": "gen2", "generator": "1 2", "note": "a short line, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "a long sorted line with one swap" },
+    { "name": "gen4", "generator": "3 4", "note": "a long sorted line with two swaps" },
+    { "name": "gen5", "generator": "4 5", "note": "a long descending line with repeats and one swap" }
+  ]
+}
