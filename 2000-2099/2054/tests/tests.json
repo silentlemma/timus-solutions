@@ -1,0 +1,151 @@
+{
+  "judging": "float:1e-6",
+  "reference": "2054_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "example": true,
+      "note": "Both visible dates and a night in the official example"
+    },
+    {
+      "name": "002",
+      "example": true,
+      "note": "Official near-polar night example"
+    },
+    {
+      "name": "boundary_00",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_01",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_02",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_03",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_04",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_05",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_06",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_07",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_08",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_09",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_10",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "boundary_11",
+      "note": "Every month edge; day/night, poles, circles and tropics"
+    },
+    {
+      "name": "random_00",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_01",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_02",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_03",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_04",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_05",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_06",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "random_07",
+      "note": "Seeded mixed dates and fixed two-decimal latitude"
+    },
+    {
+      "name": "year_0",
+      "generator": "0 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_1",
+      "generator": "1 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_2",
+      "generator": "2 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_3",
+      "generator": "3 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_4",
+      "generator": "4 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_5",
+      "generator": "5 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_6",
+      "generator": "6 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "year_7",
+      "generator": "7 year",
+      "note": "All 8760 distinct nonleap calendar hours, shuffled, maximum n"
+    },
+    {
+      "name": "max_zenith",
+      "generator": "0 zenith",
+      "note": "8760 repeated queries near zenith, in polar night, or near polar horizon"
+    },
+    {
+      "name": "max_night",
+      "generator": "0 night",
+      "note": "8760 repeated queries near zenith, in polar night, or near polar horizon"
+    },
+    {
+      "name": "max_grazing",
+      "generator": "0 grazing",
+      "note": "8760 repeated queries near zenith, in polar night, or near polar horizon"
+    }
+  ]
+}
