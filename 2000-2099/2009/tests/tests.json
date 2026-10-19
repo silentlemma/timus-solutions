@@ -1,0 +1,237 @@
+{
+  "judging": "tokens",
+  "reference": "2009_simulation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent individual-event and literal-second queue check",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "003",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "004",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "005",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "006",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "007",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "008",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "009",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "010",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "011",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "012",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "013",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "014",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "015",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "016",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "017",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "018",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "019",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "020",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "021",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "022",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "023",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "024",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "025",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "026",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "027",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "028",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "029",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "030",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "031",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "032",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "033",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "034",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "035",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "036",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "037",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "038",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "039",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "040",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "041",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "042",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "043",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "044",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "045",
+      "note": "independent individual-event and literal-second queue check"
+    },
+    {
+      "name": "gen_none",
+      "generator": "2009 none",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_anchor",
+      "generator": "2010 anchor",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_individual",
+      "generator": "2011 individual",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_departed_friend",
+      "generator": "2012 departed_friend",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_gaps",
+      "generator": "2013 gaps",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_late",
+      "generator": "2014 late",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_dense",
+      "generator": "2015 dense",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_future",
+      "generator": "2016 future",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_crowd",
+      "generator": "2017 crowd",
+      "note": "1000 students; independent individual-service-event check"
+    },
+    {
+      "name": "gen_staggered",
+      "generator": "2018 staggered",
+      "note": "1000 students; independent individual-service-event check"
+    }
+  ]
+}
