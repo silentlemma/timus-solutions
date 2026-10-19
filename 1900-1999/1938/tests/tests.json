@@ -1,0 +1,132 @@
+{
+  "judging": "checker",
+  "reference": "1938_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement sample",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "concurrent near-parallel lines, integer area1 and tiny valid triangle"
+    },
+    {
+      "name": "04",
+      "note": "determinant1, unrotated line intersection beyond1e8"
+    },
+    {
+      "name": "05",
+      "note": "three near-parallel lines with very remote pair intersection"
+    },
+    {
+      "name": "06",
+      "note": "three parallel horizontal lines"
+    },
+    {
+      "name": "07",
+      "note": "three parallel vertical lines"
+    },
+    {
+      "name": "08",
+      "note": "all concurrent, first endpoint unusable"
+    },
+    {
+      "name": "09",
+      "note": "perpendicular source directions, tied rotations"
+    },
+    {
+      "name": "10",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "11",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "12",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "13",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "14",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "15",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "16",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "17",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "18",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "19",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "20",
+      "note": "Pell approximation of60degrees; one rotated determinant is tiny"
+    },
+    {
+      "name": "21",
+      "note": "Pell approximation after axis swap"
+    },
+    {
+      "name": "22",
+      "note": "all ordered distinct tiny-grid lines and all endpoint directions"
+    },
+    {
+      "name": "23",
+      "note": "all ordered distinct tiny-grid lines and all endpoint directions"
+    },
+    {
+      "name": "24",
+      "note": "all ordered distinct tiny-grid lines and all endpoint directions"
+    },
+    {
+      "name": "25",
+      "note": "all ordered distinct tiny-grid lines and all endpoint directions"
+    },
+    {
+      "name": "26",
+      "note": "random full-range integer anchors"
+    },
+    {
+      "name": "27",
+      "note": "random full-range integer anchors"
+    },
+    {
+      "name": "28",
+      "note": "random full-range integer anchors"
+    },
+    {
+      "name": "29",
+      "note": "random full-range integer anchors"
+    },
+    {
+      "name": "30",
+      "note": "random full-range integer anchors"
+    },
+    {
+      "name": "31",
+      "note": "random full-range integer anchors"
+    }
+  ]
+}
