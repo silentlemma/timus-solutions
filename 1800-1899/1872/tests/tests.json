@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1872_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one seating" },
+    { "name": "02", "example": true, "note": "the second example: no seating" },
+    { "name": "03", "note": "two rooms of equal area can always be swapped" },
+    { "name": "04", "note": "both teams like both rooms" },
+    { "name": "05", "note": "two teams want the same single room" },
+    { "name": "06", "note": "one seating, a team reaching down to a smaller room" },
+    { "name": "07", "note": "the first and last teams can swap over the middle one" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams, close areas" },
+    { "name": "gen2", "generator": "2 2", "note": "the most teams, each from its own room up" },
+    { "name": "gen3", "generator": "3 3", "note": "wide random wishes" },
+    { "name": "gen4", "generator": "4 4", "note": "one team fits no room" },
+    { "name": "gen5", "generator": "5 5", "note": "narrow wishes around spread-out rooms" },
+    { "name": "gen6", "generator": "6 6", "note": "one pair of equal rooms" },
+    { "name": "gen7", "generator": "7 7", "note": "a single seating with wishes both ways" }
+  ]
+}
