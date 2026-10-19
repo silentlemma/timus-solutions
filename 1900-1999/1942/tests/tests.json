@@ -1,0 +1,180 @@
+{
+  "judging": "checker",
+  "reference": "1942_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "sample: grouping and half coordinate",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "sample: duplicate targets at integer point",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "origin already integral"
+    },
+    {
+      "name": "04",
+      "note": "maximum necessary distance"
+    },
+    {
+      "name": "05",
+      "note": "negative fractions normalize near origin"
+    },
+    {
+      "name": "06",
+      "note": "positive residues choose negative translation"
+    },
+    {
+      "name": "07",
+      "note": "different integer coordinates share one group"
+    },
+    {
+      "name": "08",
+      "note": "maximize count before distance"
+    },
+    {
+      "name": "09",
+      "note": "equal counts with symmetric nearest shifts"
+    },
+    {
+      "name": "10",
+      "note": "both sides of half and exact tie"
+    },
+    {
+      "name": "11",
+      "note": "different residue pairs with equal squared distance"
+    },
+    {
+      "name": "12",
+      "note": "larger group beats zero distance"
+    },
+    {
+      "name": "13",
+      "note": "extreme signs with the same residue"
+    },
+    {
+      "name": "14",
+      "note": "half coordinate independent along each axis"
+    },
+    {
+      "name": "15",
+      "note": "thousandth resolution shared classes"
+    },
+    {
+      "name": "16",
+      "note": "integer part irrelevant to class and distance"
+    },
+    {
+      "name": "17",
+      "note": "best norm changes after a later frequency tie"
+    },
+    {
+      "name": "18",
+      "note": "later group outranks former closest maximum"
+    },
+    {
+      "name": "19",
+      "note": "four nearest classes with equal norm"
+    },
+    {
+      "name": "20",
+      "note": "negative and positive halves same group"
+    },
+    {
+      "name": "21",
+      "note": "variable precision, plus sign and signed zero"
+    },
+    {
+      "name": "22",
+      "note": "smallest positive displacement"
+    },
+    {
+      "name": "23",
+      "note": "non-half thirds represented exactly"
+    },
+    {
+      "name": "24",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "25",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "26",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "27",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "28",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "29",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "30",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "31",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "32",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "33",
+      "note": "seeded full-range rational-origin regression"
+    },
+    {
+      "name": "max_integer",
+      "generator": "integer",
+      "note": "50000 points, integer"
+    },
+    {
+      "name": "max_corner",
+      "generator": "corner",
+      "note": "50000 points, corner"
+    },
+    {
+      "name": "max_negative",
+      "generator": "negative",
+      "note": "50000 points, negative"
+    },
+    {
+      "name": "max_unique",
+      "generator": "unique",
+      "note": "50000 points, unique"
+    },
+    {
+      "name": "max_unique_far",
+      "generator": "unique_far",
+      "note": "50000 points, unique_far"
+    },
+    {
+      "name": "max_priority",
+      "generator": "priority",
+      "note": "50000 points, priority"
+    },
+    {
+      "name": "max_tie",
+      "generator": "tie",
+      "note": "50000 points, tie"
+    },
+    {
+      "name": "max_grid",
+      "generator": "grid",
+      "note": "50000 points, grid"
+    }
+  ]
+}
