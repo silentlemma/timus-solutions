@@ -1,0 +1,227 @@
+{
+  "judging": "float:1e-3",
+  "reference": "1950_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "03",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "04",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "05",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "06",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "07",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "08",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "09",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "10",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "11",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "12",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "13",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "14",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "15",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "16",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "17",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "18",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "19",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "20",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "21",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "22",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "23",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "24",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "25",
+      "note": "boundary, exact altitude, vertex-ray or immediate millith neighbor"
+    },
+    {
+      "name": "26",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "27",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "28",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "29",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "30",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "31",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "32",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "33",
+      "note": "exact stop after 9 cuts"
+    },
+    {
+      "name": "34",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "35",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "36",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "37",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "38",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "39",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "40",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "41",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "42",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "43",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "44",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "45",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "46",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "47",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "48",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "49",
+      "note": "nonterminating subdivision truncated with rigorous remainder bound"
+    },
+    {
+      "name": "integer",
+      "note": "integer coordinates"
+    },
+    {
+      "name": "one_decimal",
+      "note": "one fractional digit"
+    },
+    {
+      "name": "two_decimals",
+      "note": "two fractional digits"
+    },
+    {
+      "name": "leading_dot",
+      "note": "positive decimals without integer digits"
+    },
+    {
+      "name": "leading_zero",
+      "note": "leading zeros"
+    },
+    {
+      "name": "whitespace",
+      "note": "tabs, line break and trailing spaces"
+    }
+  ]
+}
