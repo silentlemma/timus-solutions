@@ -1,0 +1,23 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1825_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "equal outer radii with different holes and an inner disc internally tangent to the opposite outer circle" },
+    { "name": "02", "note": "same centre, overlapping rings" },
+    { "name": "03", "note": "same centre, one ring inside the other's hole" },
+    { "name": "04", "note": "far apart: the rings do not meet" },
+    { "name": "05", "note": "two identical thin rings at the largest radius" },
+    { "name": "06", "note": "a small ring crossing the larger ring's outer circle" },
+    { "name": "07", "note": "a small ring externally tangent to the larger ring" },
+    { "name": "08", "note": "outer circles touching from outside" },
+    { "name": "09", "note": "two identical largest rings at one centre" },
+    { "name": "10", "note": "the largest rings at the largest distance" },
+    { "name": "11", "note": "two equal rings almost on top of each other" },
+    { "name": "12", "note": "a ring touching another's outer circle from outside" },
+    { "name": "gen1", "generator": "1 1", "note": "a broad ring crossing a thin ring around a large hole" },
+    { "name": "gen2", "generator": "2 2", "note": "small rings close together" },
+    { "name": "gen3", "generator": "3 3", "note": "a ring contained in another with internally tangent outer circles" },
+    { "name": "gen4", "generator": "4 3", "note": "internally tangent outer circles with intersecting inner circles" },
+    { "name": "gen5", "generator": "5 1", "note": "partially overlapping rings with all four pairs of boundary circles crossing" }
+  ]
+}
