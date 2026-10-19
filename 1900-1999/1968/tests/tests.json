@@ -1,0 +1,271 @@
+{
+  "judging": "checker",
+  "reference": "1968_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_003",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_004",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_005",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_006",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_007",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_008",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_009",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_010",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_011",
+      "note": "all_minimal_physical_colorings"
+    },
+    {
+      "name": "case_012",
+      "note": "exact_alignment_not_overlap"
+    },
+    {
+      "name": "case_013",
+      "note": "exact_alignment_not_overlap"
+    },
+    {
+      "name": "case_014",
+      "note": "exact_alignment_not_overlap"
+    },
+    {
+      "name": "case_015",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_016",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_017",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_018",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_019",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_020",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_021",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_022",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_023",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_024",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_025",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_026",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_027",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_028",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_029",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_030",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_031",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_032",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_033",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_034",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_035",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_036",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_037",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_038",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_039",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_040",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_041",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_042",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_043",
+      "note": "literal_physical_layouts"
+    },
+    {
+      "name": "case_044",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_045",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_046",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_047",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_048",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_049",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_050",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_051",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_052",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_053",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_054",
+      "note": "larger_physical_chain_layouts"
+    },
+    {
+      "name": "case_055",
+      "note": "maximum_40x40_all_white_0"
+    },
+    {
+      "name": "case_056",
+      "note": "maximum_40x40_all_red_1"
+    },
+    {
+      "name": "case_057",
+      "note": "maximum_40x40_lowest_only_2"
+    },
+    {
+      "name": "case_058",
+      "note": "maximum_40x40_alternating_footprints_3"
+    },
+    {
+      "name": "case_059",
+      "note": "maximum_40x40_random_4"
+    },
+    {
+      "name": "case_060",
+      "note": "maximum_40x38_random_5"
+    },
+    {
+      "name": "case_061",
+      "note": "maximum_38x40_random_6"
+    },
+    {
+      "name": "case_062",
+      "note": "maximum_2x40_random_7"
+    },
+    {
+      "name": "case_063",
+      "note": "maximum_40x2_random_8"
+    },
+    {
+      "name": "case_064",
+      "note": "maximum_4x40_random_9"
+    },
+    {
+      "name": "case_065",
+      "note": "maximum_40x4_random_10"
+    },
+    {
+      "name": "case_066",
+      "note": "maximum_6x40_random_11"
+    }
+  ]
+}
