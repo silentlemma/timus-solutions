@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1875_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one shot for all" },
+    { "name": "02", "note": "all monkeys above one another" },
+    { "name": "03", "note": "on a parabola that opens upwards, no two together" },
+    { "name": "04", "note": "on a straight line not through the slingshot" },
+    { "name": "05", "note": "two parabolas of three and two monkeys" },
+    { "name": "06", "note": "the largest coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "small random points" },
+    { "name": "gen2", "generator": "2 2", "note": "large random points" },
+    { "name": "gen3", "generator": "3 3", "note": "several points on one parabola" },
+    { "name": "gen4", "generator": "4 4", "note": "points sharing an x" },
+    { "name": "gen5", "generator": "5 5", "note": "two parabolas" }
+  ]
+}
