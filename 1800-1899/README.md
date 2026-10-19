@@ -88,3 +88,4 @@
 | 1881 | [Long problem statement](1881/) | simulation | C++, Go, Python, Java, Rust |
 | 1882 | [Old Nokia](1882/) | shortest_paths | C++, Go, Python, Java, Rust |
 | 1883 | [Ent's Birthday](1883/) | geometry | C++, Go, Python, Java, Rust |
+| 1884 | [Way to the University](1884/) | sorting | C++, Go, Python, Java, Rust |
