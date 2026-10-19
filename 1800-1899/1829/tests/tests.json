@@ -1,0 +1,22 @@
+{
+  "judging": "tokens",
+  "reference": "1829_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: four blocks merged into two" },
+    { "name": "02", "example": true, "note": "the second example: an extra network" },
+    { "name": "03", "note": "a row repeating the gateway it would inherit" },
+    { "name": "04", "note": "a default route against its two halves" },
+    { "name": "05", "note": "one block, different gateways" },
+    { "name": "06", "note": "a more specific row against a split of the outer block" },
+    { "name": "07", "note": "bits outside the mask in the network address" },
+    { "name": "08", "note": "the two last addresses against their /31 block" },
+    { "name": "09", "note": "two sibling /8 blocks against their /7 block" },
+    { "name": "10", "note": "a gap: /8 blocks 10 and 12 against the /6 block" },
+    { "name": "gen1", "generator": "1 1", "note": "a few rows, changed" },
+    { "name": "gen2", "generator": "2 1", "note": "a few rows, split" },
+    { "name": "gen3", "generator": "3 2", "note": "the most rows in one corner, changed" },
+    { "name": "gen4", "generator": "4 2", "note": "the most rows in one corner, split" },
+    { "name": "gen5", "generator": "5 3", "note": "the most rows everywhere, changed" },
+    { "name": "gen6", "generator": "6 3", "note": "the most rows everywhere, split" }
+  ]
+}

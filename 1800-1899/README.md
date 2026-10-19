@@ -33,3 +33,4 @@
 | 1826 | [Minefield](1826/) | greedy | C++, Go, Python, Java, Rust |
 | 1827 | [Indigenous Wars](1827/) | hashing | C++, Go, Python, Java, Rust |
 | 1828 | [Approximation by a Progression](1828/) | math | C++, Go, Python, Java, Rust |
+| 1829 | [Routing Tables](1829/) | sorting | C++, Go, Python, Java, Rust |
