@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2063_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: only the format is checked" },
+    { "name": "gen1", "generator": "1 1", "note": "random rows" },
+    { "name": "gen2", "generator": "2 2", "note": "every row has both colours" },
+    { "name": "gen3", "generator": "3 3", "note": "black balls first, then white" },
+    { "name": "gen4", "generator": "4 4", "note": "alternating colours" },
+    { "name": "gen5", "generator": "5 5", "note": "one ball of the other colour" },
+    { "name": "gen6", "generator": "6 6", "note": "rows of a single colour" },
+    { "name": "gen7", "generator": "7 2", "note": "both colours, another seed" },
+    { "name": "gen8", "generator": "8 2", "note": "both colours, a third seed" },
+    { "name": "gen9", "generator": "9 7", "note": "one white ball first: a fixed claim (1, 2) would lose every game" },
+    { "name": "gen10", "generator": "10 8", "note": "one black ball last: a fixed claim (n-1, n) would lose every game" },
+    { "name": "gen11", "generator": "11 9", "note": "the boundary in the middle of every row" },
+    { "name": "gen12", "generator": "12 10", "note": "the boundary next to one end of every row" },
+    { "name": "gen13", "generator": "13 11", "note": "a uniformly random number of black balls in random places" },
+    { "name": "gen14", "generator": "14 12", "note": "mostly white balls with a few black ones" },
+    { "name": "gen15", "generator": "15 13", "note": "mostly black balls with a few white ones" },
+    { "name": "gen16", "generator": "16 1", "note": "random rows, a second seed" },
+    { "name": "gen17", "generator": "17 11", "note": "random counts of black balls, a second seed" }
+  ]
+}
