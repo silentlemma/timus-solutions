@@ -1,0 +1,285 @@
+{
+  "judging": "checker",
+  "reference": "1999_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "exact all-length arithmetic-language certificate",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "003",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "004",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "005",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "006",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "007",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "008",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "009",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "010",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "011",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "012",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "013",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "014",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "015",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "016",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "017",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "018",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "019",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "020",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "021",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "022",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "023",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "024",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "025",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "026",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "027",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "028",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "029",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "030",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "031",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "032",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "033",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "034",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "035",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "036",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "037",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "038",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "039",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "040",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "041",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "042",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "043",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "044",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "045",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "046",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "047",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "048",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "049",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "050",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "051",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "052",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "053",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "054",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "055",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "056",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "057",
+      "note": "exact all-length arithmetic-language certificate"
+    },
+    {
+      "name": "gen_random1",
+      "generator": "1999 random1",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_random8",
+      "generator": "2000 random8",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_coprime1",
+      "generator": "2001 coprime1",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_coprime8",
+      "generator": "2002 coprime8",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_empty",
+      "generator": "2003 empty",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_all_nonempty",
+      "generator": "2004 all_nonempty",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_mod97",
+      "generator": "2005 mod97",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_zero_only",
+      "generator": "2006 zero_only",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_unreachable",
+      "generator": "2007 unreachable",
+      "note": "maximum-state source automaton; exact full-language checker"
+    },
+    {
+      "name": "gen_carry_chain",
+      "generator": "2008 carry_chain",
+      "note": "maximum-state source automaton; exact full-language checker"
+    }
+  ]
+}
