@@ -47,3 +47,4 @@
 | 1940 | [Counting Years with No Small Proper Divisor](1940/) | number_theory | C++, Go, Python, Java, Rust |
 | 1941 | [Counting Windows with a Given Multiset](1941/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1942 | [The Nearest Shift for the Largest Lattice Class](1942/) | geometry | C++, Go, Python, Java, Rust |
+| 1943 | [A Five-Card Winning Prefix](1943/) | bruteforce, constructive | C++, Go, Python, Java, Rust |
