@@ -1,0 +1,131 @@
+{
+  "judging": "tokens",
+  "reference": "1929_combinatorics.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "one special, first ordinary"
+    },
+    {
+      "name": "03",
+      "note": "one special, first special"
+    },
+    {
+      "name": "04",
+      "note": "minimum global count, first ordinary"
+    },
+    {
+      "name": "05",
+      "note": "minimum global count, first special"
+    },
+    {
+      "name": "06",
+      "note": "one extra special"
+    },
+    {
+      "name": "07",
+      "note": "one extra special including first"
+    },
+    {
+      "name": "08",
+      "note": "all six people special"
+    },
+    {
+      "name": "09",
+      "note": "only first is ordinary"
+    },
+    {
+      "name": "10",
+      "note": "only one other ordinary"
+    },
+    {
+      "name": "11",
+      "note": "insufficient total specials"
+    },
+    {
+      "name": "12",
+      "note": "insufficient including first"
+    },
+    {
+      "name": "13",
+      "note": "exact threshold ordinary"
+    },
+    {
+      "name": "14",
+      "note": "exact threshold special"
+    },
+    {
+      "name": "15",
+      "note": "one extra, ordinary gives22"
+    },
+    {
+      "name": "16",
+      "note": "one extra, special gives25"
+    },
+    {
+      "name": "17",
+      "note": "two extra specials"
+    },
+    {
+      "name": "18",
+      "note": "two extra including first"
+    },
+    {
+      "name": "19",
+      "note": "actual partition into three remaining teams"
+    },
+    {
+      "name": "20",
+      "note": "maximum people, minimal specials"
+    },
+    {
+      "name": "21",
+      "note": "just below threshold"
+    },
+    {
+      "name": "22",
+      "note": "exact threshold maximum, ordinary"
+    },
+    {
+      "name": "23",
+      "note": "exact threshold maximum, special"
+    },
+    {
+      "name": "24",
+      "note": "one extra maximum, ordinary"
+    },
+    {
+      "name": "25",
+      "note": "one extra maximum, special"
+    },
+    {
+      "name": "26",
+      "note": "two extra maximum, ordinary"
+    },
+    {
+      "name": "27",
+      "note": "two extra maximum, special"
+    },
+    {
+      "name": "28",
+      "note": "only two ordinary people"
+    },
+    {
+      "name": "29",
+      "note": "only one ordinary person"
+    },
+    {
+      "name": "30",
+      "note": "only first is ordinary at maximum"
+    },
+    {
+      "name": "31",
+      "note": "maximum answer"
+    }
+  ]
+}
