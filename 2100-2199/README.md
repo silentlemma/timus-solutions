@@ -21,3 +21,4 @@
 | 2114 | [Heaviest right triangle of a given size in a grid](2114/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 2115 | [Sort a line with at most one swap](2115/) | sorting | C++, Go, Python, Java, Rust |
 | 2116 | [Components of a generalized knight graph on a huge board](2116/) | dfs | C++, Go, Python, Java, Rust |
+| 2117 | [Sums of two square roots equal to a given root](2117/) | number_theory | C++, Go, Python, Java, Rust |

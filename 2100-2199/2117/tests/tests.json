@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "2117_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the square example has two pairs" },
+    { "name": "02", "example": true, "note": "the prime example allows only a zero summand" },
+    { "name": "03", "note": "zero has only the pair (0, 0)" },
+    { "name": "04", "note": "one allows only a zero summand" },
+    { "name": "05", "note": "the maximum input is the square of 10^9" },
+    { "name": "06", "note": "the square of the largest prime below 10^6" },
+    { "name": "07", "note": "two different primes near 10^6" },
+    { "name": "08", "note": "the smallest positive input with an equal pair" },
+    { "name": "gen1", "generator": "1 1", "note": "a random C" },
+    { "name": "gen2", "generator": "2 2", "note": "the square of a large prime times a number" },
+    { "name": "gen3", "generator": "3 3", "note": "a product of small squares" },
+    { "name": "gen4", "generator": "4 4", "note": "two different large primes" },
+    { "name": "09", "note": "an odd square multiplier with irrational roots has no equal pair" },
+    { "name": "10", "note": "an even square multiplier with irrational roots includes an equal pair" },
+    { "name": "11", "note": "seven factors of two require repeated square removal and a leftover factor" },
+    { "name": "12", "note": "removing a small factor leaves a prime square above the trial bound" },
+    { "name": "13", "note": "the largest odd square below the maximum checks rounding of the pair count" },
+    { "name": "14", "note": "one below the input limit is not a perfect square despite floating point rounding" },
+    { "name": "15", "note": "a prime cube near the input limit has an odd exponent at the trial boundary" }
+  ]
+}
