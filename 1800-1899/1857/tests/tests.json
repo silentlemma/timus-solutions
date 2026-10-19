@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1857_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one letter and a key of length one" },
+    { "name": "04", "note": "one letter: every longer key repeats" },
+    { "name": "05", "note": "keys of length one" },
+    { "name": "06", "note": "a length with two prime factors" },
+    { "name": "07", "note": "a prime length close to the largest" },
+    { "name": "08", "note": "a length with five prime factors" },
+    { "name": "09", "note": "a power of two" },
+    { "name": "10", "note": "the largest alphabet and length" },
+    { "name": "gen1", "generator": "1 1", "note": "a short key" },
+    { "name": "gen2", "generator": "2 2", "note": "a long key" },
+    { "name": "gen3", "generator": "3 3", "note": "the longest key" },
+    { "name": "11", "note": "the smallest nontrivial alphabet and length leave exactly one rotation class" },
+    { "name": "12", "note": "binary words at an odd prime length distinguish rotations from reflections" },
+    { "name": "13", "note": "overlapping periods of lengths two, three, four and six must be removed once" },
+    { "name": "14", "note": "an odd prime square excludes repetitions of length three without subtracting them twice" },
+    { "name": "15", "note": "three distinct prime factors require the final negative inclusion-exclusion term" },
+    { "name": "16", "note": "a one-letter alphabet cancels all 32 terms at a length with repeated prime factors" },
+    { "name": "17", "note": "exactly 4300 output digits reach the default Python conversion boundary" },
+    { "name": "18", "note": "more than 4300 output digits require lifting the default Python conversion limit" },
+    { "name": "19", "note": "a short key already produces a 21-digit answer exceeding unsigned 64-bit range" },
+    { "name": "20", "generator": "1857 1", "note": "a seeded short random key combines seven letters with two distinct prime factors" },
+    { "name": "21", "generator": "1858 2", "note": "a seeded long random key has four distinct prime factors and a large nonmaximal alphabet" }
+  ]
+}
