@@ -1,0 +1,14 @@
+{
+  "judging": "checker",
+  "reference": "2091_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example; any optimal pair is accepted" },
+    { "name": "02", "note": "no program has any course" },
+    { "name": "03", "note": "a pair that splits the programs one by one" },
+    { "name": "gen1", "generator": "1 1", "note": "a small table" },
+    { "name": "gen2", "generator": "1 2", "note": "a small table, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "100 by 100 at random" },
+    { "name": "gen4", "generator": "3 4", "note": "100 by 100 with rare courses" },
+    { "name": "gen5", "generator": "4 5", "note": "every program has every course" }
+  ]
+}
