@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "2065_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one number" },
+    { "name": "02", "example": true, "note": "the second example: two distinct values" },
+    { "name": "03", "note": "every value distinct" },
+    { "name": "04", "note": "an odd k" },
+    { "name": "gen1", "generator": "1 1", "note": "small random n and k" },
+    { "name": "gen2", "generator": "2 2", "note": "k = n" },
+    { "name": "gen3", "generator": "3 3", "note": "k = 1" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest n, random k" },
+    { "name": "gen5", "generator": "5 5", "note": "the largest n, k = n" },
+    { "name": "gen6", "generator": "6 6", "note": "the largest n, an even k" }
+  ]
+}
