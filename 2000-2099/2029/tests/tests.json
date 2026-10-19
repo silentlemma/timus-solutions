@@ -1,0 +1,329 @@
+{
+  "judging": "tokens",
+  "reference": "2029_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "005",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "006",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "007",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "008",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "009",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "010",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "011",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "012",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "013",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "014",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "015",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "016",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "017",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "018",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "019",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "020",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "021",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "022",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "023",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "024",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "025",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "026",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "027",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "028",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "029",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "030",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "031",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "032",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "033",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "034",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "035",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "036",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "037",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "038",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "039",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "040",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "041",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "042",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "043",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "044",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "045",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "046",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "047",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "048",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "049",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "050",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "051",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "052",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "053",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "054",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "055",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "056",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "057",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "058",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "059",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "060",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "061",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "062",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "063",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "064",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "065",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "066",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "067",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "068",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "069",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "070",
+      "note": "legal disk assignment, smallest first, corner or wide-bit boundary"
+    },
+    {
+      "name": "gen_all_a",
+      "generator": "20295000 all_a",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_all_b",
+      "generator": "20295001 all_b",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_all_c",
+      "generator": "20295002 all_c",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_smallest_b",
+      "generator": "20295003 smallest_b",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_largest_c",
+      "generator": "20295004 largest_c",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "20295005 alternating",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_random",
+      "generator": "20295006 random",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    },
+    {
+      "name": "gen_small_prefix",
+      "generator": "20295007 small_prefix",
+      "note": "n50, independent full recursive Hanoi graph shortest-path audit"
+    }
+  ]
+}
