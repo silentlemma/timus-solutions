@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "2075_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the level reached just as a pour comes: drinking goes on" },
+    { "name": "03", "note": "the level reached before a pour: drinking stops for good" },
+    { "name": "04", "note": "a denser liqueur poured below the straw lifts the others" },
+    { "name": "05", "note": "a liqueur poured again joins its layer; touching sips merge" },
+    { "name": "06", "note": "large heights and times" },
+    { "name": "gen1", "generator": "1 1", "note": "a dozen small events" },
+    { "name": "gen2", "generator": "1 2", "note": "a dozen small events, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "10^5 events, many names, large values" },
+    { "name": "gen4", "generator": "3 4", "note": "10^5 events, three names, frequent straws" }
+  ]
+}
