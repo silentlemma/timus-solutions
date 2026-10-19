@@ -1,0 +1,145 @@
+{
+  "judging": "tokens",
+  "reference": "1914_matrix.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "a nonzero real kernel direction"
+    },
+    {
+      "name": "03",
+      "note": "one positively coupled unit"
+    },
+    {
+      "name": "04",
+      "note": "one negatively coupled unit"
+    },
+    {
+      "name": "05",
+      "note": "a half-turn gives one whole output turn"
+    },
+    {
+      "name": "06",
+      "note": "negative coefficient bound"
+    },
+    {
+      "name": "07",
+      "note": "row swap gives determinant minus one"
+    },
+    {
+      "name": "08",
+      "note": "large terms cancel to determinant minus one"
+    },
+    {
+      "name": "09",
+      "note": "large terms cancel to determinant plus one"
+    },
+    {
+      "name": "10",
+      "note": "nonzero singular matrix"
+    },
+    {
+      "name": "11",
+      "note": "row pivot needed but determinant is not a unit"
+    },
+    {
+      "name": "12",
+      "note": "nonsingular determinant four"
+    },
+    {
+      "name": "13",
+      "note": "late row swap"
+    },
+    {
+      "name": "14",
+      "note": "missing pivot in an interior column"
+    },
+    {
+      "name": "15",
+      "note": "cyclic permutation with determinant one"
+    },
+    {
+      "name": "16",
+      "note": "unit residues with inconsistent signs at the first two primes"
+    },
+    {
+      "name": "17",
+      "note": "nonzero integer determinant divisible by first prime"
+    },
+    {
+      "name": "zero",
+      "generator": "1915 1",
+      "note": "maximum all-zero matrix"
+    },
+    {
+      "name": "identity",
+      "generator": "1916 2",
+      "note": "maximum unit determinant, all35primes required"
+    },
+    {
+      "name": "negative",
+      "generator": "1917 3",
+      "note": "maximum negative unit determinant, all35primes"
+    },
+    {
+      "name": "dense_unit",
+      "generator": "1918 4",
+      "note": "maximum dense unimodular matrix from bounded row additions"
+    },
+    {
+      "name": "swapped_unit",
+      "generator": "1919 5",
+      "note": "dense negative unit determinant after a row swap"
+    },
+    {
+      "name": "random_max",
+      "generator": "1920 6",
+      "note": "maximum random entries and determinant size"
+    },
+    {
+      "name": "singular_max",
+      "generator": "1921 7",
+      "note": "maximum dense matrix with duplicate rows"
+    },
+    {
+      "name": "diagonal_max",
+      "generator": "1922 8",
+      "note": "determinant100^100"
+    },
+    {
+      "name": "hadamard",
+      "generator": "1923 9",
+      "note": "large Hadamard block with exact known determinant magnitude"
+    },
+    {
+      "name": "delayed",
+      "generator": "1924 10",
+      "note": "nonunit determinant congruent one modulo the first10primes"
+    },
+    {
+      "name": "mixed_signs",
+      "generator": "1925 11",
+      "note": "CRT residues must retain the same integer sign"
+    },
+    {
+      "name": "rank_one",
+      "generator": "1926 12",
+      "note": "maximum rank-one matrix"
+    },
+    {
+      "name": "cancellation",
+      "generator": "1927 13",
+      "note": "50blocks with determinant minus one"
+    },
+    {
+      "name": "permutation",
+      "generator": "1928 14",
+      "note": "maximum shuffled permutation matrix"
+    }
+  ]
+}
