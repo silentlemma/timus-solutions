@@ -1,0 +1,22 @@
++----------+----------+----------+
+|AAAAAAAAAA|BBBBBBBBBB|CCCCCCCCCC|
+|          |bbbbbbbbbb|cccccccccc|
+|          |          |cccccccccc|
++----------+----------+----------+
+|DDDDDDDDDD|EEEEEEEEEE|FFFFFFFFFF|
+|dddddddddd|eeeeeeeeee|          |
+|dddddddddd|eeeeeeeeee|          |
+|dddddddddd|eeeeeeeeee|          |
+|          |eeeeeeeeee|          |
++----------+----------+----------+
+|GGGGGGGGGG|HHHHHHHHHH|IIIIIIIIII|
+|gggggggggg|hhhhhhhhhh|iiiiiiiiii|
+|          |hhhhhhhhhh|iiiiiiiiii|
+|          |          |iiiiiiiiii|
++----------+----------+----------+
+|JJJJJJJJJJ|KKKKKKKKKK|LLLLLLLLLL|
+|jjjjjjjjjj|          |llllllllll|
+|jjjjjjjjjj|          |          |
+|jjjjjjjjjj|          |          |
+|jjjjjjjjjj|          |          |
++----------+----------+----------+
