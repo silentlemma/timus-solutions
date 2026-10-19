@@ -1,0 +1,111 @@
+{
+  "judging": "tokens",
+  "reference": "1935_greedy.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "single maximal clearance"
+    },
+    {
+      "name": "03",
+      "note": "single interior peak is already optimal"
+    },
+    {
+      "name": "04",
+      "note": "two peaks require rearrangement"
+    },
+    {
+      "name": "05",
+      "note": "largest possible answer"
+    },
+    {
+      "name": "06",
+      "note": "minimum clearance, maximum count"
+    },
+    {
+      "name": "07",
+      "note": "all allowed clearances"
+    },
+    {
+      "name": "08",
+      "note": "reverse all clearances"
+    },
+    {
+      "name": "09",
+      "note": "alternating extremes"
+    },
+    {
+      "name": "10",
+      "note": "all equal middle"
+    },
+    {
+      "name": "11",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "12",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "13",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "14",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "15",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "16",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "17",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "18",
+      "note": "independent subset/last-object placement DP"
+    },
+    {
+      "name": "19",
+      "note": "single smallest clearance"
+    },
+    {
+      "name": "20",
+      "note": "two distinct objects"
+    },
+    {
+      "name": "21",
+      "note": "two largest equal clearances"
+    },
+    {
+      "name": "22",
+      "note": "repeated peaks, not fixed order"
+    },
+    {
+      "name": "23",
+      "note": "three small requirements"
+    },
+    {
+      "name": "24",
+      "note": "small repeated peaks"
+    },
+    {
+      "name": "25",
+      "note": "one interior maximum"
+    },
+    {
+      "name": "26",
+      "note": "equal maxima at both ends"
+    }
+  ]
+}
