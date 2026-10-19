@@ -1,0 +1,139 @@
+{
+  "judging": "tokens",
+  "reference": "1908_dp_trees.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "single one-step ending"
+    },
+    {
+      "name": "03",
+      "note": "one skip replaces a whole chain"
+    },
+    {
+      "name": "04",
+      "note": "two direct choices"
+    },
+    {
+      "name": "05",
+      "note": "common forced prefix"
+    },
+    {
+      "name": "06",
+      "note": "three direct choices"
+    },
+    {
+      "name": "07",
+      "note": "one deep and one shallow subtree"
+    },
+    {
+      "name": "08",
+      "note": "complete binary tree of height two"
+    },
+    {
+      "name": "09",
+      "note": "different branching depths"
+    },
+    {
+      "name": "10",
+      "note": "normal and supplied states choose different last children"
+    },
+    {
+      "name": "11",
+      "note": "a forced stem needs the independent supplied-state optimum"
+    },
+    {
+      "name": "12",
+      "note": "last subtree with several endings"
+    },
+    {
+      "name": "13",
+      "note": "forced segments below both root choices"
+    },
+    {
+      "name": "14",
+      "note": "long forced stem before a star"
+    },
+    {
+      "name": "15",
+      "note": "comb with decreasing active branch count"
+    },
+    {
+      "name": "16",
+      "note": "insertion order differs from traversal order"
+    },
+    {
+      "name": "17",
+      "note": "different chain lengths"
+    },
+    {
+      "name": "18",
+      "note": "complete binary tree of height three"
+    },
+    {
+      "name": "small",
+      "note": "generated small",
+      "generator": "190801 1"
+    },
+    {
+      "name": "chain",
+      "note": "generated chain",
+      "generator": "190802 2"
+    },
+    {
+      "name": "two_stem",
+      "note": "generated two stem",
+      "generator": "190803 3"
+    },
+    {
+      "name": "star",
+      "note": "generated star",
+      "generator": "190804 4"
+    },
+    {
+      "name": "binary",
+      "note": "generated binary",
+      "generator": "190805 5"
+    },
+    {
+      "name": "alphabet",
+      "note": "generated alphabet",
+      "generator": "190806 6"
+    },
+    {
+      "name": "tails",
+      "note": "generated tails",
+      "generator": "190807 7"
+    },
+    {
+      "name": "stem",
+      "note": "generated stem",
+      "generator": "190808 8"
+    },
+    {
+      "name": "random_fixed",
+      "note": "generated random fixed",
+      "generator": "190809 9"
+    },
+    {
+      "name": "random_tree",
+      "note": "generated random tree",
+      "generator": "190810 10"
+    },
+    {
+      "name": "state_split",
+      "note": "generated state split",
+      "generator": "190811 11"
+    },
+    {
+      "name": "comb",
+      "note": "generated comb",
+      "generator": "190812 12"
+    }
+  ]
+}
