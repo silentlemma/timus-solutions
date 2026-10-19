@@ -1,0 +1,137 @@
+{
+  "judging": "checker",
+  "reference": "2045_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example; alternative valid words are also accepted",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "003",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "004",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "005",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "006",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "007",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "008",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "009",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "010",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "011",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "012",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "013",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "014",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "015",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "016",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "017",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "018",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "019",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "020",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "021",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "022",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "023",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "024",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "025",
+      "note": "distinct-palindrome counts; alternate valid alphabet and boundary lengths"
+    },
+    {
+      "name": "large_255",
+      "generator": "255",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    },
+    {
+      "name": "large_256",
+      "generator": "256",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    },
+    {
+      "name": "large_511",
+      "generator": "511",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    },
+    {
+      "name": "large_1000",
+      "generator": "1000",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    },
+    {
+      "name": "large_1999",
+      "generator": "1999",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    },
+    {
+      "name": "large_2000",
+      "generator": "2000",
+      "note": "long full-domain constructive answer; every row counted by checker"
+    }
+  ]
+}
