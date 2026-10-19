@@ -54,3 +54,4 @@
 | 1947 | [Tracing a Meander](1947/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1948 | [The First Impossible Return](1948/) | math | C++, Go, Python, Java, Rust |
 | 1949 | [Priority Film Schedules](1949/) | matching | C++, Go, Python, Java, Rust |
+| 1950 | [Area Crossed by a Finite Channel](1950/) | geometry | C++, Go, Python, Java, Rust |
