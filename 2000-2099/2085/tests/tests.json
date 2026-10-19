@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "2085_hashing_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid plan is accepted" },
+    { "name": "02", "example": true, "note": "the second example: one project has everything" },
+    { "name": "03", "example": true, "note": "the third example: technology 1 twice" },
+    { "name": "04", "note": "one project without the technology" },
+    { "name": "05", "note": "a line where the whole line is needed" },
+    { "name": "06", "note": "two leaves joined through an empty centre" },
+    { "name": "gen1", "generator": "1 1", "note": "a few projects, random sets" },
+    { "name": "gen2", "generator": "2 2", "note": "a few projects with a planted path" },
+    { "name": "gen3", "generator": "3 3", "note": "10^5 projects with a planted path" },
+    { "name": "gen4", "generator": "4 4", "note": "10^5 projects in a line with a planted path" },
+    { "name": "gen5", "generator": "5 5", "note": "10^5 projects with random sets" }
+  ]
+}
