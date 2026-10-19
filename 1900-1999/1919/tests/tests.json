@@ -1,0 +1,115 @@
+{
+  "judging": "tokens",
+  "reference": "1919_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "helical wrapping; adjacent height and aligned seam"
+    },
+    {
+      "name": "03",
+      "note": "genuine tilt; height/circumference asymmetry; area alone is insufficient"
+    },
+    {
+      "name": "04",
+      "note": "swap the target sides"
+    },
+    {
+      "name": "05",
+      "note": "minimum dimensions"
+    },
+    {
+      "name": "06",
+      "note": "maximum square and just-too-small cylinders"
+    },
+    {
+      "name": "07",
+      "note": "zero radical and negative residual must not be squared as positive"
+    },
+    {
+      "name": "08",
+      "note": "aligned equality and circumference below the shortest side"
+    },
+    {
+      "name": "09",
+      "note": "maximum aspect ratio and exact boundary"
+    },
+    {
+      "name": "10",
+      "note": "a very large other dimension cannot repair the shortest-side constraint"
+    },
+    {
+      "name": "11",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "12",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "13",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "14",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "15",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "16",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "17",
+      "note": "Pell boundary: exact squared slack one and adjacent dimensions"
+    },
+    {
+      "name": "stress1",
+      "generator": "6001 1",
+      "note": "1000 cylinders; deterministic mode 1"
+    },
+    {
+      "name": "stress2",
+      "generator": "6002 2",
+      "note": "1000 cylinders; deterministic mode 2"
+    },
+    {
+      "name": "stress3",
+      "generator": "6003 3",
+      "note": "1000 cylinders; deterministic mode 3"
+    },
+    {
+      "name": "stress4",
+      "generator": "6004 4",
+      "note": "1000 cylinders; deterministic mode 4"
+    },
+    {
+      "name": "stress5",
+      "generator": "6005 5",
+      "note": "1000 cylinders; deterministic mode 5"
+    },
+    {
+      "name": "stress6",
+      "generator": "6006 6",
+      "note": "1000 cylinders; deterministic mode 6"
+    },
+    {
+      "name": "stress7",
+      "generator": "6007 7",
+      "note": "1000 cylinders; deterministic mode 7"
+    },
+    {
+      "name": "stress8",
+      "generator": "6008 8",
+      "note": "1000 cylinders; deterministic mode 8"
+    }
+  ]
+}
