@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1948_math.cpp",
+  "cases": [
+    { "name": "01", "note": "official sample", "example": true },
+    { "name": "corpus_00", "note": "unit leading coefficient with the linear term swept from negative to positive" },
+    { "name": "corpus_01", "note": "positive linear terms at unit curvature followed by negative terms at stronger curvature" },
+    { "name": "corpus_02", "note": "even leading coefficient with small signed terms and fractional starting values" },
+    { "name": "corpus_03", "note": "small coefficient sweeps spanning both real roots and immediate failure" },
+    { "name": "corpus_04", "note": "zero and nonzero linear terms with constants on either side of zero" },
+    { "name": "corpus_05", "note": "small quadratics including a repeated root at the origin" },
+    { "name": "corpus_06", "note": "positive and negative linear terms tested against a full sweep of small constants" },
+    { "name": "corpus_07", "note": "small signed coefficients around the transition from possible to impossible returns" },
+    { "name": "corpus_08", "note": "stronger curvature with large linear terms of either sign and small constants" },
+    { "name": "corpus_09", "note": "small linear terms with positive constants that can prevent the first return" },
+    { "name": "corpus_10", "note": "small coefficient sweeps followed by extreme bounds and large signed triples" },
+    { "name": "corpus_11", "note": "fractional return bounds from large leading coefficients mixed with small curvature" },
+    { "name": "corpus_12", "note": "immediate failure for positive quadratics among large signed coefficients" },
+    { "name": "corpus_13", "note": "long return horizons with unit leading terms and large linear terms" },
+    { "name": "corpus_14", "note": "negative constants allowing a first return across widely varying curvature" },
+    { "name": "corpus_15", "note": "large products and integer division with both signs of the linear term" },
+    { "name": "corpus_16", "note": "mixed short and long return horizons in a partial query batch" },
+    { "name": "max_answer", "note": "a full batch repeating the coefficients that maximize the answer" },
+    { "name": "max_pell", "note": "exact square return bounds and adjacent constants with either sign of the linear term" },
+    { "name": "single_no_root", "note": "one query: first second already impossible" },
+    { "name": "whitespace", "note": "large queries separated by tabs and padded with trailing spaces" },
+    { "name": "zero", "note": "one query: exactly one possible second" }
+  ]
+}
