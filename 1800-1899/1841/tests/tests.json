@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1841_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a cableway from a shared vertex" },
+    { "name": "03", "note": "one segment and no cableways" },
+    { "name": "04", "note": "a cableway from the foot" },
+    { "name": "05", "note": "a cableway landing right where the next one starts" },
+    { "name": "06", "note": "the largest walking costs" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short segments" },
+    { "name": "gen2", "generator": "2 2", "note": "the most segments and cableways, wide zigzags" },
+    { "name": "gen3", "generator": "3 3", "note": "narrow zigzags: cableways land many segments later" },
+    { "name": "gen4", "generator": "4 4", "note": "cheap cableways" },
+    { "name": "gen5", "generator": "5 2", "note": "the most segments and cableways, another seed" }
+  ]
+}
