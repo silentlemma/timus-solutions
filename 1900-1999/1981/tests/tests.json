@@ -1,0 +1,290 @@
+{
+  "judging": "tokens",
+  "reference": "1981_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "size 4",
+      "example": true
+    },
+    {
+      "name": "n000005",
+      "note": "size 5"
+    },
+    {
+      "name": "n000006",
+      "note": "size 6"
+    },
+    {
+      "name": "n000007",
+      "note": "size 7"
+    },
+    {
+      "name": "n000008",
+      "note": "size 8"
+    },
+    {
+      "name": "n000009",
+      "note": "size 9"
+    },
+    {
+      "name": "n000010",
+      "note": "size 10"
+    },
+    {
+      "name": "n000011",
+      "note": "size 11"
+    },
+    {
+      "name": "n000012",
+      "note": "size 12"
+    },
+    {
+      "name": "n000013",
+      "note": "size 13"
+    },
+    {
+      "name": "n000014",
+      "note": "size 14"
+    },
+    {
+      "name": "n000015",
+      "note": "size 15"
+    },
+    {
+      "name": "n000016",
+      "note": "size 16"
+    },
+    {
+      "name": "n000017",
+      "note": "size 17"
+    },
+    {
+      "name": "n000018",
+      "note": "size 18"
+    },
+    {
+      "name": "n000019",
+      "note": "size 19"
+    },
+    {
+      "name": "n000020",
+      "note": "size 20"
+    },
+    {
+      "name": "n000021",
+      "note": "size 21"
+    },
+    {
+      "name": "n000022",
+      "note": "size 22"
+    },
+    {
+      "name": "n000023",
+      "note": "size 23"
+    },
+    {
+      "name": "n000024",
+      "note": "size 24"
+    },
+    {
+      "name": "n000025",
+      "note": "size 25"
+    },
+    {
+      "name": "n000026",
+      "note": "size 26"
+    },
+    {
+      "name": "n000027",
+      "note": "size 27"
+    },
+    {
+      "name": "n000028",
+      "note": "size 28"
+    },
+    {
+      "name": "n000029",
+      "note": "size 29"
+    },
+    {
+      "name": "n000030",
+      "note": "size 30"
+    },
+    {
+      "name": "n000031",
+      "note": "size 31"
+    },
+    {
+      "name": "n000032",
+      "note": "size 32"
+    },
+    {
+      "name": "n000033",
+      "note": "size 33"
+    },
+    {
+      "name": "n000034",
+      "note": "size 34"
+    },
+    {
+      "name": "n000049",
+      "note": "size 49"
+    },
+    {
+      "name": "n000050",
+      "note": "size 50"
+    },
+    {
+      "name": "n000063",
+      "note": "size 63"
+    },
+    {
+      "name": "n000064",
+      "note": "size 64"
+    },
+    {
+      "name": "n000099",
+      "note": "size 99"
+    },
+    {
+      "name": "n000100",
+      "note": "size 100"
+    },
+    {
+      "name": "n000101",
+      "note": "size 101"
+    },
+    {
+      "name": "n000127",
+      "note": "size 127"
+    },
+    {
+      "name": "n000128",
+      "note": "size 128"
+    },
+    {
+      "name": "n000255",
+      "note": "size 255"
+    },
+    {
+      "name": "n000256",
+      "note": "size 256"
+    },
+    {
+      "name": "n000349",
+      "note": "size 349"
+    },
+    {
+      "name": "n000350",
+      "note": "size 350"
+    },
+    {
+      "name": "n046340",
+      "note": "size 46340"
+    },
+    {
+      "name": "n046341",
+      "note": "size 46341"
+    },
+    {
+      "name": "n046342",
+      "note": "size 46342"
+    },
+    {
+      "name": "n065535",
+      "note": "size 65535"
+    },
+    {
+      "name": "n065536",
+      "note": "size 65536"
+    },
+    {
+      "name": "n065537",
+      "note": "size 65537"
+    },
+    {
+      "name": "n099997",
+      "note": "size 99997"
+    },
+    {
+      "name": "n099998",
+      "note": "size 99998"
+    },
+    {
+      "name": "n099999",
+      "note": "size 99999"
+    },
+    {
+      "name": "n100000",
+      "note": "size 100000"
+    },
+    {
+      "name": "n023062",
+      "note": "size 23062"
+    },
+    {
+      "name": "n013182",
+      "note": "size 13182"
+    },
+    {
+      "name": "n071750",
+      "note": "size 71750"
+    },
+    {
+      "name": "n089566",
+      "note": "size 89566"
+    },
+    {
+      "name": "n017915",
+      "note": "size 17915"
+    },
+    {
+      "name": "n018542",
+      "note": "size 18542"
+    },
+    {
+      "name": "n046471",
+      "note": "size 46471"
+    },
+    {
+      "name": "n017058",
+      "note": "size 17058"
+    },
+    {
+      "name": "n039333",
+      "note": "size 39333"
+    },
+    {
+      "name": "n052566",
+      "note": "size 52566"
+    },
+    {
+      "name": "n024913",
+      "note": "size 24913"
+    },
+    {
+      "name": "n083580",
+      "note": "size 83580"
+    },
+    {
+      "name": "whitespace",
+      "note": "maximum integer with surrounding spaces"
+    },
+    {
+      "name": "generated_random",
+      "generator": "1981 random",
+      "note": "random"
+    },
+    {
+      "name": "generated_max_even",
+      "generator": "1981 max_even",
+      "note": "max_even"
+    },
+    {
+      "name": "generated_max_odd",
+      "generator": "1981 max_odd",
+      "note": "max_odd"
+    }
+  ]
+}
