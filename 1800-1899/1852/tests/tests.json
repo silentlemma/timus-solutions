@@ -1,0 +1,30 @@
+{
+  "judging": "tokens",
+  "reference": "1852_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "opposite outer layers turn the same way around the vertical axis" },
+    { "name": "02", "example": true, "note": "the second example: already back" },
+    { "name": "03", "note": "one quarter turn" },
+    { "name": "04", "note": "two clockwise turns of adjacent faces: order 105" },
+    { "name": "05", "note": "a turn, another, and both undone: order 6" },
+    { "name": "06", "note": "a turn and its inverse" },
+    { "name": "07", "note": "half turns of opposite faces" },
+    { "name": "08", "note": "every face once, with alternating turn directions" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random turns" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest random sequence" },
+    { "name": "gen3", "generator": "3 3", "note": "alternating right-face turns cancel in inverse pairs" },
+    { "name": "gen4", "generator": "4 4", "note": "one face turned both ways" },
+    { "name": "gen5", "generator": "5 5", "note": "opposite faces only" },
+    { "name": "gen6", "generator": "6 6", "note": "long runs of one letter" },
+    { "name": "09", "note": "a single bottom half turn needs one further repetition" },
+    { "name": "10", "note": "opposite turns commute, so separated inverse pairs cancel" },
+    { "name": "11", "note": "seven repetitions of an order-105 word reduce its order to 15" },
+    { "name": "12", "note": "a seeded mixed-face sequence attains the maximum order 1260" },
+    { "name": "13", "note": "a short seeded sequence makes an edge cycle of length nine" },
+    { "name": "14", "note": "a corner three-cycle leaves every edge sticker fixed" },
+    { "name": "15", "note": "cubie positions return after 120 repetitions but colors need 720" },
+    { "name": "gen7", "generator": "1852 7", "note": "a random word and its reversed inverse cancel at the length limit" },
+    { "name": "gen8", "generator": "1852 8", "note": "a random conjugation preserves maximum order at the length limit" },
+    { "name": "gen9", "generator": "1852 9", "note": "fifty thousand random half turns exercise the subgroup without sticker twists" }
+  ]
+}
