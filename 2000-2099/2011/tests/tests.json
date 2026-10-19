@@ -1,0 +1,306 @@
+{
+  "judging": "tokens",
+  "reference": "2011_combinatorics.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "exact arbitrary-precision multinomial count",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "003",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "004",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "005",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "006",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "007",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "008",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "009",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "010",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "011",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "012",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "013",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "014",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "015",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "016",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "017",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "018",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "019",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "020",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "021",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "022",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "023",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "024",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "025",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "026",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "027",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "028",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "029",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "030",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "031",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "032",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "033",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "034",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "035",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "036",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "037",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "038",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "039",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "040",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "041",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "042",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "043",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "044",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "045",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "046",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "047",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "048",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "049",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "050",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "051",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "052",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "053",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "054",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "055",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "056",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "057",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "058",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "059",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "060",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "061",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "062",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "063",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "064",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "065",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "066",
+      "note": "exact arbitrary-precision multinomial count"
+    },
+    {
+      "name": "gen_same1",
+      "generator": "201100 same1",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_same3",
+      "generator": "201101 same3",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_minority_last",
+      "generator": "201102 minority_last",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_minority_first",
+      "generator": "201103 minority_first",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_balanced",
+      "generator": "201104 balanced",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "201105 alternating",
+      "note": "100 symbols; exact multinomial independently computed"
+    },
+    {
+      "name": "gen_random",
+      "generator": "201106 random",
+      "note": "100 symbols; exact multinomial independently computed"
+    }
+  ]
+}
