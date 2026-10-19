@@ -1,0 +1,32 @@
+{
+  "judging": "tokens",
+  "reference": "1935_greedy.cpp",
+  "cases": [
+    { "name": "01", "note": "statement example", "example": true },
+    { "name": "02", "note": "single maximal clearance" },
+    { "name": "03", "note": "single interior peak is already optimal" },
+    { "name": "04", "note": "two peaks require rearrangement" },
+    { "name": "05", "note": "largest possible answer" },
+    { "name": "06", "note": "minimum clearance, maximum count" },
+    { "name": "07", "note": "all allowed clearances" },
+    { "name": "08", "note": "all allowed clearances in descending order" },
+    { "name": "09", "note": "alternating extremes" },
+    { "name": "10", "note": "equal midrange clearances at the maximum object count" },
+    { "name": "11", "note": "largest clearance follows a valley between two larger requirements" },
+    { "name": "12", "note": "a single midrange requirement applies at both covers" },
+    { "name": "13", "note": "unsorted distinct clearances include the upper limit" },
+    { "name": "14", "note": "three distinct requirements in strictly decreasing order" },
+    { "name": "15", "note": "the largest clearance is near the start and the second largest is at the end" },
+    { "name": "16", "note": "the first requirement is largest despite a later rise" },
+    { "name": "17", "note": "separated interior peaks have different heights" },
+    { "name": "18", "note": "an interior maximum is followed by a smaller final requirement" },
+    { "name": "19", "note": "single smallest clearance" },
+    { "name": "20", "note": "two distinct objects" },
+    { "name": "21", "note": "two largest equal clearances" },
+    { "name": "22", "note": "repeated peaks, not fixed order" },
+    { "name": "23", "note": "three small requirements" },
+    { "name": "24", "note": "small repeated peaks" },
+    { "name": "25", "note": "one interior maximum" },
+    { "name": "26", "note": "equal maxima at both ends" }
+  ]
+}
