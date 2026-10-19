@@ -1,0 +1,5 @@
+1001 : aa, ab, ab.ab, ab.ab.a b, ab.ab.a b.a
+1002 : aa, ab, ab.ab, ab.ab.a b, ab.ab.b, dp
+1006 : aa, ab, ab.ab, ab.ab.a b, ab.ab.a b.a, ab.ab.b, dp
+1007 : ab.ab.aa, ab.ab.b
+1008 : aa, ab, ab.ab.a b, ab.ab.a b.a

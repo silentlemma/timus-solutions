@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "2074_implementation_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a deep chain and a name with a space sorting before a dot" },
+    { "name": "03", "note": "a topic without problems, numbers out of order" },
+    { "name": "04", "note": "no inheritance: problems belong only to the topics that list them" },
+    { "name": "gen1", "generator": "1", "note": "a random classifier" },
+    { "name": "gen2", "generator": "2", "note": "empty topics surround two populated topics with a shared problem number" },
+    { "name": "gen3", "generator": "3", "note": "shared problems span root topics and a branch with nested siblings" },
+    { "name": "05", "note": "the smallest classifier with one one-letter topic and the lowest problem number" },
+    { "name": "06", "note": "all 20 problem numbers including both bounds form one group from a reversed list" },
+    { "name": "07", "note": "maximum depth of 20 with 20-character names and all 400 topic memberships" },
+    { "name": "08", "note": "twenty root topics with two-digit ids produce 20 singleton groups in reverse input order" },
+    { "name": "09", "note": "identical leaf names under different parents must keep their distinct full paths" },
+    { "name": "10", "note": "interleaved equal groups stay separate from same-size unequal sets and strict supersets" },
+    { "name": "11", "note": "topic sorting puts a proper prefix first and a dotted path before a letter continuation" },
+    { "name": "12", "note": "twenty-character topic names retain every internal space in both root and child paths" },
+    { "name": "13", "note": "nested sibling ids from 1.10 through 1.19 still describe depth-two topics" },
+    { "name": "14", "note": "retained random input repeats a topic name along one ancestor chain" },
+    { "name": "15", "note": "retained random input returns upward by multiple levels before opening another branch" }
+  ]
+}
