@@ -1,0 +1,478 @@
+{
+  "judging": "tokens",
+  "reference": "2027_simulation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official example 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "official example 3",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "005",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "006",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "007",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "008",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "009",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "010",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "011",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "012",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "013",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "014",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "015",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "016",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "017",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "018",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "019",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "020",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "021",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "022",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "023",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "024",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "025",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "026",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "027",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "028",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "029",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "030",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "031",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "032",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "033",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "034",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "035",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "036",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "037",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "038",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "039",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "040",
+      "note": "all 37 single-cell operators and five input boundaries"
+    },
+    {
+      "name": "041",
+      "note": "halt has no movement and unused input allowed"
+    },
+    {
+      "name": "042",
+      "note": "overflow precedes out-of-bounds at same tick"
+    },
+    {
+      "name": "043",
+      "note": "negative overflow precedes movement"
+    },
+    {
+      "name": "044",
+      "note": "output resets current"
+    },
+    {
+      "name": "045",
+      "note": "repeat last input and clear outputs"
+    },
+    {
+      "name": "046",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "047",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "048",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "049",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "050",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "051",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "052",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "053",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "054",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "055",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "056",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "057",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "058",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "059",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "060",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "061",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "062",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "063",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "064",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "065",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "066",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "067",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "068",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "069",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "070",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "071",
+      "note": "all 26 memory registers swap rather than copy"
+    },
+    {
+      "name": "072",
+      "note": "zero CCW and signed nonzero CW"
+    },
+    {
+      "name": "073",
+      "note": "zero CCW and signed nonzero CW"
+    },
+    {
+      "name": "074",
+      "note": "zero CCW and signed nonzero CW"
+    },
+    {
+      "name": "075",
+      "note": "halt on exactly tick 1000000"
+    },
+    {
+      "name": "076",
+      "note": "halt would be tick 1000001"
+    },
+    {
+      "name": "077",
+      "note": "overflow on tick 1000000 before outside movement"
+    },
+    {
+      "name": "078",
+      "note": "negative overflow on tick 1000000"
+    },
+    {
+      "name": "079",
+      "note": "outside movement on tick 1000000 precedes TLE"
+    },
+    {
+      "name": "080",
+      "note": "last-tick output then outside movement"
+    },
+    {
+      "name": "081",
+      "note": "last-tick output inside board then TLE"
+    },
+    {
+      "name": "082",
+      "note": "counter termination later than budget"
+    },
+    {
+      "name": "083",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "084",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "085",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "086",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "087",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "088",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "089",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "090",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "091",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "092",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "093",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "094",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "095",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "096",
+      "note": "all 37 squared horizontal programs/five input boundaries"
+    },
+    {
+      "name": "097",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "098",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "099",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "100",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "101",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "102",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "103",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "104",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "105",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "106",
+      "note": "random small valid programs all operators/signed input"
+    },
+    {
+      "name": "gen_no_output_loop",
+      "generator": "20275000 no_output_loop",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_zero_output_cycle",
+      "generator": "20275001 zero_output_cycle",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_positive_read_cycle",
+      "generator": "20275002 positive_read_cycle",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_negative_read_max_inputs",
+      "generator": "20275003 negative_read_max_inputs",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_registers_max_board",
+      "generator": "20275004 registers_max_board",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_positive_overflow",
+      "generator": "20275005 positive_overflow",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_negative_overflow",
+      "generator": "20275006 negative_overflow",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_max_input_halt",
+      "generator": "20275007 max_input_halt",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    },
+    {
+      "name": "gen_max_board_output",
+      "generator": "20275008 max_board_output",
+      "note": "full million-tick semantics and maximum input/output resource checks"
+    }
+  ]
+}
