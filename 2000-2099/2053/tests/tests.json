@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "2053_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "example": true,
+      "format_only": true,
+      "note": "the official six-vertex format illustration is not a solution: an answer needs 16 vertices and more than 300 000 cycles"
+    },
+    {
+      "name": "002",
+      "note": "entire empty-input domain; independently verified valid construction"
+    }
+  ]
+}
