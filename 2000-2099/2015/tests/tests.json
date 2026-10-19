@@ -1,0 +1,286 @@
+{
+  "judging": "checker",
+  "reference": "2015_bruteforce.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "005",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "006",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "007",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "008",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "009",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "010",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "011",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "012",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "013",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "014",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "015",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "016",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "017",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "018",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "019",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "020",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "021",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "022",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "023",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "024",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "025",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "026",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "027",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "028",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "029",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "030",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "031",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "032",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "033",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "034",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "035",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "036",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "037",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "038",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "039",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "040",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "041",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "042",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "043",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "044",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "045",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "046",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "047",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "048",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "049",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "050",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "051",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "052",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "053",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "054",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "055",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "056",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "057",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "058",
+      "note": "independent exact fractional-cost enumeration; any optimal option accepted"
+    },
+    {
+      "name": "gen_random",
+      "generator": "201518 random",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_all_ties",
+      "generator": "201519 all_ties",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_no_friends",
+      "generator": "201520 no_friends",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_impossible",
+      "generator": "201521 impossible",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_alone_wins",
+      "generator": "201522 alone_wins",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_share_wins",
+      "generator": "201523 share_wins",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_odd_boundary",
+      "generator": "201524 odd_boundary",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_last_friend",
+      "generator": "201525 last_friend",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    },
+    {
+      "name": "gen_one_room",
+      "generator": "201526 one_room",
+      "note": "256 apartments and up to 256 friends; feasibility and global optimum checked"
+    }
+  ]
+}
