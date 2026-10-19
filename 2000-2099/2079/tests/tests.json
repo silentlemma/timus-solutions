@@ -1,0 +1,31 @@
+{
+  "judging": "exact",
+  "reference": "2079_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "zero residue with both signs of one as successors" },
+    { "name": "02", "example": true, "note": "zero discriminant with a single successor modulo seven" },
+    { "name": "03", "example": true, "note": "the third example: 4 never appears modulo 11" },
+    { "name": "04", "note": "minimum prime and unit residue with both possible successors" },
+    { "name": "05", "note": "p = 5, where the period is 20" },
+    { "name": "06", "note": "the largest prime below 10^9, x = 0" },
+    { "name": "07", "note": "unit residue with four sorted successors near the modulus limit" },
+    { "name": "08", "note": "a large prime with p mod 5 = 4" },
+    { "name": "09", "note": "the first prime past the walked ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a random prime and x" },
+    { "name": "gen2", "generator": "2 2", "note": "x a Fibonacci number modulo p" },
+    { "name": "gen3", "generator": "2 3", "note": "a reachable residue with two successors for a prime congruent to four modulo five" },
+    { "name": "gen4", "generator": "3 4", "note": "a small prime" },
+    { "name": "10", "note": "minimum prime and zero residue, with only the initial successor" },
+    { "name": "11", "note": "three distinct successors including zero modulo 3" },
+    { "name": "12", "note": "largest walked prime: all four Cassini candidates are unreachable" },
+    { "name": "13", "note": "zero has only successor 1 modulo 59" },
+    { "name": "14", "note": "zero discriminant gives one reachable root without duplicates" },
+    { "name": "15", "note": "a zero discriminant gives a root that never occurs in the sequence" },
+    { "name": "16", "note": "two simple roots occur while the repeated root is rejected" },
+    { "name": "17", "note": "p mod 5 = 3 with exactly two of four candidates reachable" },
+    { "name": "18", "note": "largest prime and largest x require wide arithmetic and sorted successors" },
+    { "name": "19", "note": "first prime above the walk threshold with both discriminants nonsquares" },
+    { "name": "gen5", "generator": "4 2079", "note": "random upper-half residue for a prime near 10^9 with p mod 5 = 1" },
+    { "name": "gen6", "generator": "5 7", "note": "random reachable residue modulo 65537 exercises square roots when p - 1 is a power of two" }
+  ]
+}
