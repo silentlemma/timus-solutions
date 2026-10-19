@@ -1,0 +1,394 @@
+{
+  "judging": "tokens",
+  "reference": "1998_two_pointers.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "003",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "004",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "005",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "006",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "007",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "008",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "009",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "010",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "011",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "012",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "013",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "014",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "015",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "016",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "017",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "018",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "019",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "020",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "021",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "022",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "023",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "024",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "025",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "026",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "027",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "028",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "029",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "030",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "031",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "032",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "033",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "034",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "035",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "036",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "037",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "038",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "039",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "040",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "041",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "042",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "043",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "044",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "045",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "046",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "047",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "048",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "049",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "050",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "051",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "052",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "053",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "054",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "055",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "056",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "057",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "058",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "059",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "060",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "061",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "062",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "063",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "064",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "065",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "066",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "067",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "068",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "069",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "070",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "071",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "072",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "073",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "074",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "075",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "076",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "077",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "078",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "079",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "080",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "081",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "082",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "083",
+      "note": "literal unit-second stack simulation and independent deadline/binary-search model"
+    },
+    {
+      "name": "gen_every_second",
+      "generator": "1998 every_second",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_heavy",
+      "generator": "1999 heavy",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_reset_blocks",
+      "generator": "2000 reset_blocks",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_finish_event",
+      "generator": "2001 finish_event",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_late",
+      "generator": "2002 late",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_exact_sum",
+      "generator": "2003 exact_sum",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_long_series",
+      "generator": "2004 long_series",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_deep_resets",
+      "generator": "2005 deep_resets",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_random_mixed",
+      "generator": "2006 random_mixed",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_sparse_drop",
+      "generator": "2007 sparse_drop",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    },
+    {
+      "name": "gen_mixed_weights",
+      "generator": "2008 mixed_weights",
+      "note": "maximum bounds with independent deadline/binary-search oracle and closed boundary certificates"
+    }
+  ]
+}
