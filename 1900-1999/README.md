@@ -79,3 +79,4 @@
 | 1972 | [Longest Nonrepeating Walk Between Two Bitsets](1972/) | constructive | C++, Go, Python, Java, Rust |
 | 1973 | [Expected Triangle Area from an Anchored Convex Polygon](1973/) | geometry | C++, Go, Python, Java, Rust |
 | 1974 | [Maximum Aligned Matches Between Note Sequences](1974/) | bitmask, bruteforce | C++, Go, Python, Java, Rust |
+| 1975 | [Counting Rotations of Marked Sphere Points](1975/) | geometry | C++, Go, Python, Java, Rust |

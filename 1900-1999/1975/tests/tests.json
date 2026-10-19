@@ -1,0 +1,353 @@
+{
+  "judging": "tokens",
+  "reference": "1975_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_axes",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "tetrahedron"
+    },
+    {
+      "name": "case_003",
+      "note": "octahedron"
+    },
+    {
+      "name": "case_004",
+      "note": "cube"
+    },
+    {
+      "name": "case_005",
+      "note": "ring_3"
+    },
+    {
+      "name": "case_006",
+      "note": "ring_4"
+    },
+    {
+      "name": "case_007",
+      "note": "ring_5"
+    },
+    {
+      "name": "case_008",
+      "note": "ring_6"
+    },
+    {
+      "name": "case_009",
+      "note": "ring_7"
+    },
+    {
+      "name": "case_010",
+      "note": "ring_8"
+    },
+    {
+      "name": "case_011",
+      "note": "latitude_3"
+    },
+    {
+      "name": "case_012",
+      "note": "latitude_4"
+    },
+    {
+      "name": "case_013",
+      "note": "latitude_5"
+    },
+    {
+      "name": "case_014",
+      "note": "latitude_6"
+    },
+    {
+      "name": "case_015",
+      "note": "latitude_7"
+    },
+    {
+      "name": "case_016",
+      "note": "latitude_8"
+    },
+    {
+      "name": "case_017",
+      "note": "noisy_square_4e-07"
+    },
+    {
+      "name": "case_018",
+      "note": "noisy_square_9e-07"
+    },
+    {
+      "name": "case_019",
+      "note": "noisy_square_1e-06"
+    },
+    {
+      "name": "case_020",
+      "note": "noisy_square_1.001e-06"
+    },
+    {
+      "name": "case_021",
+      "note": "noisy_square_1.1e-06"
+    },
+    {
+      "name": "case_022",
+      "note": "minimum_cross_three"
+    },
+    {
+      "name": "case_023",
+      "note": "tiny_north_triangle"
+    },
+    {
+      "name": "case_024",
+      "note": "near_equator_3_4e-07"
+    },
+    {
+      "name": "case_025",
+      "note": "near_equator_3_6e-07"
+    },
+    {
+      "name": "case_026",
+      "note": "near_equator_4_4e-07"
+    },
+    {
+      "name": "case_027",
+      "note": "near_equator_4_6e-07"
+    },
+    {
+      "name": "case_028",
+      "note": "near_equator_5_4e-07"
+    },
+    {
+      "name": "case_029",
+      "note": "near_equator_5_6e-07"
+    },
+    {
+      "name": "case_030",
+      "note": "near_equator_6_4e-07"
+    },
+    {
+      "name": "case_031",
+      "note": "near_equator_6_6e-07"
+    },
+    {
+      "name": "case_032",
+      "note": "perturbed_official_axes"
+    },
+    {
+      "name": "case_033",
+      "note": "perturbed_tetrahedron"
+    },
+    {
+      "name": "case_034",
+      "note": "perturbed_octahedron"
+    },
+    {
+      "name": "case_035",
+      "note": "perturbed_cube"
+    },
+    {
+      "name": "case_036",
+      "note": "angular_perturbation_0"
+    },
+    {
+      "name": "case_037",
+      "note": "angular_perturbation_1"
+    },
+    {
+      "name": "case_038",
+      "note": "angular_perturbation_2"
+    },
+    {
+      "name": "case_039",
+      "note": "angular_perturbation_3"
+    },
+    {
+      "name": "case_040",
+      "note": "angular_perturbation_4"
+    },
+    {
+      "name": "case_041",
+      "note": "angular_perturbation_5"
+    },
+    {
+      "name": "case_042",
+      "note": "angular_perturbation_6"
+    },
+    {
+      "name": "case_043",
+      "note": "angular_perturbation_7"
+    },
+    {
+      "name": "case_044",
+      "note": "angular_perturbation_8"
+    },
+    {
+      "name": "case_045",
+      "note": "angular_perturbation_9"
+    },
+    {
+      "name": "case_046",
+      "note": "angular_perturbation_10"
+    },
+    {
+      "name": "case_047",
+      "note": "angular_perturbation_11"
+    },
+    {
+      "name": "case_048",
+      "note": "angular_perturbation_12"
+    },
+    {
+      "name": "case_049",
+      "note": "angular_perturbation_13"
+    },
+    {
+      "name": "case_050",
+      "note": "angular_perturbation_14"
+    },
+    {
+      "name": "case_051",
+      "note": "angular_perturbation_15"
+    },
+    {
+      "name": "case_052",
+      "note": "angular_perturbation_16"
+    },
+    {
+      "name": "case_053",
+      "note": "angular_perturbation_17"
+    },
+    {
+      "name": "case_054",
+      "note": "angular_perturbation_18"
+    },
+    {
+      "name": "case_055",
+      "note": "angular_perturbation_19"
+    },
+    {
+      "name": "case_056",
+      "note": "angular_perturbation_20"
+    },
+    {
+      "name": "case_057",
+      "note": "angular_perturbation_21"
+    },
+    {
+      "name": "case_058",
+      "note": "angular_perturbation_22"
+    },
+    {
+      "name": "case_059",
+      "note": "angular_perturbation_23"
+    },
+    {
+      "name": "case_060",
+      "note": "angular_perturbation_24"
+    },
+    {
+      "name": "case_061",
+      "note": "angular_perturbation_25"
+    },
+    {
+      "name": "case_062",
+      "note": "angular_perturbation_26"
+    },
+    {
+      "name": "case_063",
+      "note": "angular_perturbation_27"
+    },
+    {
+      "name": "case_064",
+      "note": "angular_perturbation_28"
+    },
+    {
+      "name": "case_065",
+      "note": "angular_perturbation_29"
+    },
+    {
+      "name": "case_066",
+      "note": "angular_perturbation_30"
+    },
+    {
+      "name": "case_067",
+      "note": "angular_perturbation_31"
+    },
+    {
+      "name": "case_068",
+      "note": "angular_perturbation_32"
+    },
+    {
+      "name": "case_069",
+      "note": "angular_perturbation_33"
+    },
+    {
+      "name": "case_070",
+      "note": "angular_perturbation_34"
+    },
+    {
+      "name": "case_071",
+      "note": "angular_perturbation_35"
+    },
+    {
+      "name": "case_072",
+      "note": "angular_perturbation_36"
+    },
+    {
+      "name": "case_073",
+      "note": "angular_perturbation_37"
+    },
+    {
+      "name": "case_074",
+      "note": "angular_perturbation_38"
+    },
+    {
+      "name": "case_075",
+      "note": "angular_perturbation_39"
+    },
+    {
+      "name": "case_076",
+      "note": "great_circle_200"
+    },
+    {
+      "name": "case_077",
+      "note": "latitude_200"
+    },
+    {
+      "name": "case_078",
+      "note": "polar_cap_200"
+    },
+    {
+      "name": "case_079",
+      "note": "perturbed_great_circle_200"
+    },
+    {
+      "name": "case_080",
+      "note": "perturbed_latitude_200"
+    },
+    {
+      "name": "case_081",
+      "note": "perturbed_polar_cap_200"
+    },
+    {
+      "name": "case_082",
+      "note": "generic_200_unique_fingerprints"
+    },
+    {
+      "name": "case_083",
+      "note": "great_circle_200_angularly_irregular"
+    },
+    {
+      "name": "case_084",
+      "note": "polar_cap_200_angularly_irregular"
+    },
+    {
+      "name": "gen1",
+      "generator": "1 ring",
+      "note": "200 points evenly spread on the equator"
+    },
+    {
+      "name": "gen2",
+      "generator": "2 generic",
+      "note": "200 random points on the sphere"
+    }
+  ]
+}
