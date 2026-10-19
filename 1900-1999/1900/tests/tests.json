@@ -1,0 +1,79 @@
+{
+  "judging": "checker",
+  "reference": "1900_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "zero weight on a single span"
+    },
+    {
+      "name": "03",
+      "note": "maximum single trip"
+    },
+    {
+      "name": "04",
+      "note": "select every span"
+    },
+    {
+      "name": "05",
+      "note": "all-zero tie breaking"
+    },
+    {
+      "name": "06",
+      "note": "one span covers a long heavy trip"
+    },
+    {
+      "name": "07",
+      "note": "choose the three heaviest neighboring trips"
+    },
+    {
+      "name": "08",
+      "note": "overlapping trips are counted once"
+    },
+    {
+      "name": "small",
+      "generator": "1 1",
+      "note": "small random weights"
+    },
+    {
+      "name": "allmax",
+      "generator": "2 2",
+      "note": "maximum dense weights"
+    },
+    {
+      "name": "zero",
+      "generator": "3 3",
+      "note": "maximum zero weights"
+    },
+    {
+      "name": "one",
+      "generator": "4 4",
+      "note": "one selected span on maximal input"
+    },
+    {
+      "name": "quarter",
+      "generator": "5 5",
+      "note": "125 spans on maximal input"
+    },
+    {
+      "name": "half",
+      "generator": "6 6",
+      "note": "250 spans on maximal input"
+    },
+    {
+      "name": "all",
+      "generator": "7 7",
+      "note": "all 499 spans on maximal input"
+    },
+    {
+      "name": "adjacent",
+      "generator": "8 8",
+      "note": "only neighboring trips on maximal input"
+    }
+  ]
+}
