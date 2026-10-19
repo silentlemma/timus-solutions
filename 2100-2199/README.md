@@ -23,3 +23,4 @@
 | 2116 | [Components of a generalized knight graph on a huge board](2116/) | dfs | C++, Go, Python, Java, Rust |
 | 2117 | [Sums of two square roots equal to a given root](2117/) | number_theory | C++, Go, Python, Java, Rust |
 | 2118 | [Cutting a prefix-code bit string into undecodable pieces](2118/) | greedy, strings | C++, Go, Python, Java, Rust |
+| 2119 | [Weight of the subtree spanning a changing vertex set](2119/) | trees, fenwick | C++, Go, Python, Java, Rust |
