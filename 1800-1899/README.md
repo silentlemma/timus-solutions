@@ -75,3 +75,4 @@
 | 1868 | [Prediction Contest](1868/) | implementation | C++, Go, Python, Java, Rust |
 | 1869 | [New Year Cruise](1869/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 1870 | [Zinium 2](1870/) | constructive | C++, Go, Python, Java, Rust |
+| 1871 | [Seismic Waves](1871/) | dijkstra | C++, Go, Python, Java, Rust |

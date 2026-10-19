@@ -1,0 +1,12 @@
+10
+A 1 B
+B 1 C
+C 2 D A
+D 2 E B
+E 2 F C
+F 1 G
+G 1 H
+H 0
+I 2 D J
+J 2 I A
+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
