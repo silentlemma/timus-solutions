@@ -1,0 +1,136 @@
+{
+  "judging": "checker",
+  "reference": "1921_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example: king-adjacency coloring",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "statement example: impossible with one letter",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "single cell and one letter"
+    },
+    {
+      "name": "04",
+      "note": "single cell with a larger available alphabet"
+    },
+    {
+      "name": "05",
+      "note": "required run longer than any line"
+    },
+    {
+      "name": "06",
+      "note": "one-letter horizontal run exactly at target"
+    },
+    {
+      "name": "07",
+      "note": "one-letter vertical run exactly at target"
+    },
+    {
+      "name": "08",
+      "note": "one-letter run is too long"
+    },
+    {
+      "name": "09",
+      "note": "a complete horizontal block"
+    },
+    {
+      "name": "10",
+      "note": "transposed complete block"
+    },
+    {
+      "name": "11",
+      "note": "a long row needs only two alternating letters"
+    },
+    {
+      "name": "12",
+      "note": "a long column must use A and B, never C"
+    },
+    {
+      "name": "13",
+      "note": "two-dimensional unit runs need four colors"
+    },
+    {
+      "name": "14",
+      "note": "three colors cannot color a king-adjacent square"
+    },
+    {
+      "name": "15",
+      "note": "four colors suffice for a square"
+    },
+    {
+      "name": "16",
+      "note": "both diagonal slopes meet the length-two boundary"
+    },
+    {
+      "name": "17",
+      "note": "wide target block"
+    },
+    {
+      "name": "18",
+      "note": "tall target block requires transpose"
+    },
+    {
+      "name": "19",
+      "note": "geometrically impossible target length"
+    },
+    {
+      "name": "20",
+      "note": "one letter forces a forbidden length-100 row"
+    },
+    {
+      "name": "21",
+      "note": "maximal allowed one-letter board"
+    },
+    {
+      "name": "22",
+      "note": "large king grid cannot use two letters"
+    },
+    {
+      "name": "23",
+      "note": "large king grid cannot use three letters"
+    },
+    {
+      "name": "24",
+      "note": "maximal proper king coloring"
+    },
+    {
+      "name": "25",
+      "note": "unused available letters are allowed"
+    },
+    {
+      "name": "26",
+      "note": "maximal board with length-two blocks"
+    },
+    {
+      "name": "27",
+      "note": "length-99 block and a one-cell tail"
+    },
+    {
+      "name": "28",
+      "note": "maximal target with transposed stripes"
+    },
+    {
+      "name": "29",
+      "note": "maximal target with horizontal stripes"
+    },
+    {
+      "name": "30",
+      "note": "more letters cannot create a line long enough"
+    },
+    {
+      "name": "31",
+      "note": "maximal monochrome board has a forbidden run"
+    },
+    {
+      "name": "32",
+      "note": "length-98 blocks and an incomplete final block"
+    }
+  ]
+}
