@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "1883_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "both candles in the leftmost column" },
+    { "name": "03", "note": "candles near three corners" },
+    { "name": "04", "note": "all candles in one column" },
+    { "name": "05", "note": "one candle out of four" },
+    { "name": "gen1", "generator": "1 1", "note": "a few candles near the centre" },
+    { "name": "gen2", "generator": "2 2", "note": "the most candles anywhere" },
+    { "name": "gen3", "generator": "3 3", "note": "the most candles in a few columns" },
+    { "name": "gen4", "generator": "4 4", "note": "the most candles at the left edge" },
+    { "name": "gen5", "generator": "5 5", "note": "the most candles in one column" },
+    { "name": "06", "note": "minimum candle count, adjacent horizontal points at the upper-right limit" },
+    { "name": "07", "note": "cut one column beyond the leftmost limit at the lowest allowed candle height" },
+    { "name": "08", "note": "all but one candle, with a unit gap between the last two at the upper-right limit" },
+    { "name": "09", "note": "selection ends at a whole column whose top candle has the maximum allowed height" },
+    { "name": "10", "note": "seeded small random layout, shuffled columns with the cut at a negative height" },
+    { "name": "11", "note": "seeded crowded layout near the top-left corner, excluding one candle in the final column" },
+    { "name": "gen6", "generator": "188306 6", "note": "a thousand candles on a descending diagonal, selecting only one at the left edge" },
+    { "name": "gen7", "generator": "188307 7", "note": "a thousand candles in a unit-spaced grid at the upper-right limit, selecting 999" }
+  ]
+}

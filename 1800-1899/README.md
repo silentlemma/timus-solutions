@@ -87,3 +87,4 @@
 | 1880 | [Psych Up's Eigenvalues](1880/) | two_pointers, hashing | C++, Go, Python, Java, Rust |
 | 1881 | [Long problem statement](1881/) | simulation | C++, Go, Python, Java, Rust |
 | 1882 | [Old Nokia](1882/) | shortest_paths | C++, Go, Python, Java, Rust |
+| 1883 | [Ent's Birthday](1883/) | geometry | C++, Go, Python, Java, Rust |
