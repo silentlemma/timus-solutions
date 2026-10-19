@@ -1,0 +1,16 @@
+{
+  "judging": "tokens",
+  "reference": "1838_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest stalk: every cut drops a part" },
+    { "name": "03", "note": "two supports near the ends" },
+    { "name": "04", "note": "three supports" },
+    { "name": "05", "note": "the longest stalk on two supports at the ends" },
+    { "name": "06", "note": "a gap in the middle with a safe stretch" },
+    { "name": "gen1", "generator": "1 1", "note": "a short stalk" },
+    { "name": "gen2", "generator": "2 2", "note": "the most random supports" },
+    { "name": "gen3", "generator": "3 3", "note": "supports packed near the middle" },
+    { "name": "gen4", "generator": "4 4", "note": "two supports at the ends" }
+  ]
+}
