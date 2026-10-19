@@ -1,0 +1,103 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1927_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "parallel positive overlap"
+    },
+    {
+      "name": "03",
+      "note": "parallel touching line has zero area"
+    },
+    {
+      "name": "04",
+      "note": "parallel disjoint"
+    },
+    {
+      "name": "05",
+      "note": "same projection, reversed direction"
+    },
+    {
+      "name": "06",
+      "note": "contained parallel cross-section"
+    },
+    {
+      "name": "07",
+      "note": "oblique perpendicular cross-sections, equal lengths"
+    },
+    {
+      "name": "08",
+      "note": "oblique perpendicular cross-sections, unequal lengths"
+    },
+    {
+      "name": "09",
+      "note": "oblique parallel positive overlap"
+    },
+    {
+      "name": "10",
+      "note": "unit perpendicular cross-sections"
+    },
+    {
+      "name": "11",
+      "note": "oblique perpendicular cross-sections"
+    },
+    {
+      "name": "12",
+      "note": "nonintegral finite area"
+    },
+    {
+      "name": "13",
+      "note": "reverse first endpoints"
+    },
+    {
+      "name": "14",
+      "note": "reverse second endpoints"
+    },
+    {
+      "name": "15",
+      "note": "swap the two segments"
+    },
+    {
+      "name": "16",
+      "note": "determinant minus one"
+    },
+    {
+      "name": "17",
+      "note": "determinant plus one"
+    },
+    {
+      "name": "18",
+      "note": "maximum norms"
+    },
+    {
+      "name": "19",
+      "note": "translated nonparallel strip"
+    },
+    {
+      "name": "20",
+      "note": "independent translations"
+    },
+    {
+      "name": "21",
+      "note": "maximal vertical positive overlap"
+    },
+    {
+      "name": "22",
+      "note": "maximal parallel touching with reversal"
+    },
+    {
+      "name": "23",
+      "note": "separated opposite orientations"
+    },
+    {
+      "name": "24",
+      "note": "unit widths far apart"
+    }
+  ]
+}
