@@ -95,3 +95,4 @@
 | 1988 | [Meet a surface traveler without crossing the sphere](1988/) | geometry | C++, Go, Python, Java, Rust |
 | 1989 | [Palindromes under letter replacement](1989/) | strings, fenwick, hashing | C++, Go, Python, Java, Rust |
 | 1990 | [Widest horizontal segment through a corridor](1990/) | geometry, sorting | C++, Go, Python, Java, Rust |
+| 1991 | [Count unused supplies and unmatched targets](1991/) | implementation | C++, Go, Python, Java, Rust |
