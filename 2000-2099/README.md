@@ -88,3 +88,4 @@
 | 2081 | [Decreasing times behind a faulty dial](2081/) | greedy | C++, Go, Python, Java, Rust |
 | 2082 | [Restore the betting since the bot's last turn](2082/) | simulation | C++, Go, Python, Java, Rust |
 | 2083 | [A weighted sum of permutation powers along cycles](2083/) | math | C++, Go, Python, Java, Rust |
+| 2084 | [Order tasks that pay down a debt](2084/) | dp, sorting | C++, Go, Python, Java, Rust |
