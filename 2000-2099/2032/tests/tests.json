@@ -1,0 +1,510 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2032_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "005",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "006",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "007",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "008",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "009",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "010",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "011",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "012",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "013",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "014",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "015",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "016",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "017",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "018",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "019",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "020",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "021",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "022",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "023",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "024",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "025",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "026",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "027",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "028",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "029",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "030",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "031",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "032",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "033",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "034",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "035",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "036",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "037",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "038",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "039",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "040",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "041",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "042",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "043",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "044",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "045",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "046",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "047",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "048",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "049",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "050",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "051",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "052",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "053",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "054",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "055",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "056",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "057",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "058",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "059",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "060",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "061",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "062",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "063",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "064",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "065",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "066",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "067",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "068",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "069",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "070",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "071",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "072",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "073",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "074",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "075",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "076",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "077",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "078",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "079",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "080",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "081",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "082",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "083",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "084",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "085",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "086",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "087",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "088",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "089",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "090",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "091",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "092",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "093",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "094",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "095",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "096",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "097",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "098",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "099",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "100",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "101",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "102",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "103",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "104",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "105",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "106",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "107",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "108",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "109",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "110",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "111",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "112",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "113",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "114",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "115",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "116",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "117",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "118",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "119",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "120",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "121",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "122",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "123",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "124",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    },
+    {
+      "name": "125",
+      "note": "exact lengths, parity/area, non-axis embedding, permutations or wide-arithmetic boundary"
+    }
+  ]
+}
