@@ -1,0 +1,18 @@
+{
+  "judging": "checker",
+  "reference": "2089_graphs_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid answer is accepted" },
+    { "name": "02", "example": true, "note": "the second example: six pairs, four teams" },
+    { "name": "03", "note": "a single pair" },
+    { "name": "04", "note": "the same two teams twice: a cycle of length two" },
+    { "name": "05", "note": "the same two teams three times" },
+    { "name": "06", "note": "a triangle with a tail" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams" },
+    { "name": "gen2", "generator": "1 2", "note": "a few teams, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "10^5 teams in trees and cycles" },
+    { "name": "gen4", "generator": "3 4", "note": "one group with two extra pairs" },
+    { "name": "gen5", "generator": "4 5", "note": "one cycle through all teams" },
+    { "name": "gen6", "generator": "5 6", "note": "one path through all teams" }
+  ]
+}

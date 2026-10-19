@@ -93,3 +93,4 @@
 | 2086 | [A triangle placed through a point on one of its sides](2086/) | geometry, math | C++, Go, Python, Java, Rust |
 | 2087 | [Switch the turnouts only where the last train went elsewhere](2087/) | trees, segment_tree | C++, Go, Python, Java, Rust |
 | 2088 | [Win chance with the best colour chosen after a blind draw](2088/) | dp, combinatorics | C++, Go, Python, Java, Rust |
+| 2089 | [Pick winners so that no team wins twice](2089/) | graphs, greedy | C++, Go, Python, Java, Rust |
