@@ -1,0 +1,13 @@
+{
+  "judging": "tokens",
+  "reference": "2061_strings_bruteforce.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest list" },
+    { "name": "03", "note": "the last length where every word is rich" },
+    { "name": "04", "note": "the first length with poor words" },
+    { "name": "05", "note": "a middle length" },
+    { "name": "06", "note": "one below the largest length" },
+    { "name": "07", "note": "the largest length, beyond 32-bit counts" }
+  ]
+}
