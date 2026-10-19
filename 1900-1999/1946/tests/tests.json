@@ -1,0 +1,207 @@
+{
+  "judging": "tokens",
+  "reference": "1946_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "n2",
+      "note": "complete official input domain, n=2"
+    },
+    {
+      "name": "n4",
+      "note": "complete official input domain, n=4"
+    },
+    {
+      "name": "n5",
+      "note": "complete official input domain, n=5"
+    },
+    {
+      "name": "n6",
+      "note": "complete official input domain, n=6"
+    },
+    {
+      "name": "n7",
+      "note": "complete official input domain, n=7"
+    },
+    {
+      "name": "n8",
+      "note": "complete official input domain, n=8"
+    },
+    {
+      "name": "n9",
+      "note": "complete official input domain, n=9"
+    },
+    {
+      "name": "n10",
+      "note": "complete official input domain, n=10"
+    },
+    {
+      "name": "n11",
+      "note": "complete official input domain, n=11"
+    },
+    {
+      "name": "n12",
+      "note": "complete official input domain, n=12"
+    },
+    {
+      "name": "n13",
+      "note": "complete official input domain, n=13"
+    },
+    {
+      "name": "n14",
+      "note": "complete official input domain, n=14"
+    },
+    {
+      "name": "n15",
+      "note": "complete official input domain, n=15"
+    },
+    {
+      "name": "n16",
+      "note": "complete official input domain, n=16"
+    },
+    {
+      "name": "n17",
+      "note": "complete official input domain, n=17"
+    },
+    {
+      "name": "n18",
+      "note": "complete official input domain, n=18"
+    },
+    {
+      "name": "n19",
+      "note": "complete official input domain, n=19"
+    },
+    {
+      "name": "n20",
+      "note": "complete official input domain, n=20"
+    },
+    {
+      "name": "n21",
+      "note": "complete official input domain, n=21"
+    },
+    {
+      "name": "n22",
+      "note": "complete official input domain, n=22"
+    },
+    {
+      "name": "n23",
+      "note": "complete official input domain, n=23"
+    },
+    {
+      "name": "n24",
+      "note": "complete official input domain, n=24"
+    },
+    {
+      "name": "n25",
+      "note": "complete official input domain, n=25"
+    },
+    {
+      "name": "n26",
+      "note": "complete official input domain, n=26"
+    },
+    {
+      "name": "n27",
+      "note": "complete official input domain, n=27"
+    },
+    {
+      "name": "n28",
+      "note": "complete official input domain, n=28"
+    },
+    {
+      "name": "n29",
+      "note": "complete official input domain, n=29"
+    },
+    {
+      "name": "n30",
+      "note": "complete official input domain, n=30"
+    },
+    {
+      "name": "n31",
+      "note": "complete official input domain, n=31"
+    },
+    {
+      "name": "n32",
+      "note": "complete official input domain, n=32"
+    },
+    {
+      "name": "n33",
+      "note": "complete official input domain, n=33"
+    },
+    {
+      "name": "n34",
+      "note": "complete official input domain, n=34"
+    },
+    {
+      "name": "n35",
+      "note": "complete official input domain, n=35"
+    },
+    {
+      "name": "n36",
+      "note": "complete official input domain, n=36"
+    },
+    {
+      "name": "n37",
+      "note": "complete official input domain, n=37"
+    },
+    {
+      "name": "n38",
+      "note": "complete official input domain, n=38"
+    },
+    {
+      "name": "n39",
+      "note": "complete official input domain, n=39"
+    },
+    {
+      "name": "n40",
+      "note": "complete official input domain, n=40"
+    },
+    {
+      "name": "n41",
+      "note": "complete official input domain, n=41"
+    },
+    {
+      "name": "n42",
+      "note": "complete official input domain, n=42"
+    },
+    {
+      "name": "n43",
+      "note": "complete official input domain, n=43"
+    },
+    {
+      "name": "n44",
+      "note": "complete official input domain, n=44"
+    },
+    {
+      "name": "n45",
+      "note": "complete official input domain, n=45"
+    },
+    {
+      "name": "n46",
+      "note": "complete official input domain, n=46"
+    },
+    {
+      "name": "n47",
+      "note": "complete official input domain, n=47"
+    },
+    {
+      "name": "n48",
+      "note": "complete official input domain, n=48"
+    },
+    {
+      "name": "n49",
+      "note": "complete official input domain, n=49"
+    },
+    {
+      "name": "n50",
+      "note": "complete official input domain, n=50"
+    },
+    {
+      "name": "whitespace",
+      "note": "maximum n with whitespace and optional plus sign"
+    }
+  ]
+}

@@ -50,3 +50,4 @@
 | 1943 | [A Five-Card Winning Prefix](1943/) | bruteforce, constructive | C++, Go, Python, Java, Rust |
 | 1944 | [An ASCII Map with Point Priority](1944/) | implementation | C++, Go, Python, Java, Rust |
 | 1945 | [Coloring Multiplicative Families with Valuations](1945/) | number_theory | C++, Go, Python, Java, Rust |
+| 1946 | [Counting Sorted Goal Tables](1946/) | dp | C++, Go, Python, Java, Rust |
