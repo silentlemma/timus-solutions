@@ -1,0 +1,14 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1858_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a cube of eight turned crystals" },
+    { "name": "03", "note": "a cube of side 3 with a hidden centre" },
+    { "name": "04", "note": "a cube of side 4" },
+    { "name": "gen1", "generator": "1 1", "note": "a small cube" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest cube with the most questions" },
+    { "name": "gen3", "generator": "3 3", "note": "questions about the corners of the largest cube" },
+    { "name": "gen4", "generator": "4 4", "note": "a cube of side 3 with the largest crystals" }
+  ]
+}
