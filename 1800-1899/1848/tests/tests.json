@@ -1,0 +1,18 @@
+{
+  "judging": "tokens",
+  "reference": "1848_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a square with flies on its sides and corners" },
+    { "name": "03", "note": "notches and spikes: flies in line with corners" },
+    { "name": "04", "note": "two marks with a corner of one in line with the other" },
+    { "name": "05", "note": "a corner in the middle of a straight side" },
+    { "name": "06", "note": "the largest coordinates" },
+    { "name": "gen1", "generator": "1 1", "note": "small marks with a fly on every grid point" },
+    { "name": "gen2", "generator": "2 2", "note": "star-shaped marks and the most flies" },
+    { "name": "gen3", "generator": "3 3", "note": "sides at multiples of 45 degrees, flies on a dense grid" },
+    { "name": "gen4", "generator": "4 4", "note": "the most marks, all triangles" },
+    { "name": "gen5", "generator": "5 5", "note": "one mark with the most corners" },
+    { "name": "gen6", "generator": "6 6", "note": "thin strips across the wall, given from the top down" }
+  ]
+}
