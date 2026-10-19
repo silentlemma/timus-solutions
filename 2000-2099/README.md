@@ -83,3 +83,4 @@
 | 2076 | [A circle on a symmetry axis of a quadratic curve](2076/) | geometry, math | C++, Go, Python, Java, Rust |
 | 2077 | [Shortest unique abbreviations with a dot or a hyphen](2077/) | strings, sorting | C++, Rust |
 | 2078 | [Bowling score bounds from frame totals](2078/) | dp | C++, Go, Python, Java, Rust |
+| 2079 | [The Fibonacci residues that can follow a given one](2079/) | number_theory | C++, Go, Python, Java, Rust |

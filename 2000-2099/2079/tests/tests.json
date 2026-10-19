@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2079_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example: 4 never appears modulo 11" },
+    { "name": "04", "note": "p = 2" },
+    { "name": "05", "note": "p = 5, where the period is 20" },
+    { "name": "06", "note": "the largest prime below 10^9, x = 0" },
+    { "name": "07", "note": "the largest prime, x = 1" },
+    { "name": "08", "note": "a large prime with p mod 5 = 4" },
+    { "name": "09", "note": "the first prime past the walked ones" },
+    { "name": "gen1", "generator": "1 1", "note": "a random prime and x" },
+    { "name": "gen2", "generator": "2 2", "note": "x a Fibonacci number modulo p" },
+    { "name": "gen3", "generator": "2 3", "note": "x a Fibonacci number, another seed" },
+    { "name": "gen4", "generator": "3 4", "note": "a small prime" }
+  ]
+}
