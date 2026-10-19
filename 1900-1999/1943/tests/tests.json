@@ -1,0 +1,651 @@
+{
+  "judging": "checker",
+  "reference": "1943_bruteforce_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample, an alternate valid winning deck",
+      "example": true
+    },
+    {
+      "name": "local_2_001",
+      "note": "complete 2-card opponent domain, order 1"
+    },
+    {
+      "name": "local_2_002",
+      "note": "complete 2-card opponent domain, order 2"
+    },
+    {
+      "name": "local_3_001",
+      "note": "complete 3-card opponent domain, order 1"
+    },
+    {
+      "name": "local_3_002",
+      "note": "complete 3-card opponent domain, order 2"
+    },
+    {
+      "name": "local_3_003",
+      "note": "complete 3-card opponent domain, order 3"
+    },
+    {
+      "name": "local_3_004",
+      "note": "complete 3-card opponent domain, order 4"
+    },
+    {
+      "name": "local_3_005",
+      "note": "complete 3-card opponent domain, order 5"
+    },
+    {
+      "name": "local_3_006",
+      "note": "complete 3-card opponent domain, order 6"
+    },
+    {
+      "name": "local_4_001",
+      "note": "complete 4-card opponent domain, order 1"
+    },
+    {
+      "name": "local_4_002",
+      "note": "complete 4-card opponent domain, order 2"
+    },
+    {
+      "name": "local_4_003",
+      "note": "complete 4-card opponent domain, order 3"
+    },
+    {
+      "name": "local_4_004",
+      "note": "complete 4-card opponent domain, order 4"
+    },
+    {
+      "name": "local_4_005",
+      "note": "complete 4-card opponent domain, order 5"
+    },
+    {
+      "name": "local_4_006",
+      "note": "complete 4-card opponent domain, order 6"
+    },
+    {
+      "name": "local_4_007",
+      "note": "complete 4-card opponent domain, order 7"
+    },
+    {
+      "name": "local_4_008",
+      "note": "complete 4-card opponent domain, order 8"
+    },
+    {
+      "name": "local_4_009",
+      "note": "complete 4-card opponent domain, order 9"
+    },
+    {
+      "name": "local_4_011",
+      "note": "complete 4-card opponent domain, order 11"
+    },
+    {
+      "name": "local_4_012",
+      "note": "complete 4-card opponent domain, order 12"
+    },
+    {
+      "name": "local_4_013",
+      "note": "complete 4-card opponent domain, order 13"
+    },
+    {
+      "name": "local_4_014",
+      "note": "complete 4-card opponent domain, order 14"
+    },
+    {
+      "name": "local_4_015",
+      "note": "complete 4-card opponent domain, order 15"
+    },
+    {
+      "name": "local_4_016",
+      "note": "complete 4-card opponent domain, order 16"
+    },
+    {
+      "name": "local_4_017",
+      "note": "complete 4-card opponent domain, order 17"
+    },
+    {
+      "name": "local_4_018",
+      "note": "complete 4-card opponent domain, order 18"
+    },
+    {
+      "name": "local_4_019",
+      "note": "complete 4-card opponent domain, order 19"
+    },
+    {
+      "name": "local_4_020",
+      "note": "complete 4-card opponent domain, order 20"
+    },
+    {
+      "name": "local_4_021",
+      "note": "complete 4-card opponent domain, order 21"
+    },
+    {
+      "name": "local_4_022",
+      "note": "complete 4-card opponent domain, order 22"
+    },
+    {
+      "name": "local_4_023",
+      "note": "complete 4-card opponent domain, order 23"
+    },
+    {
+      "name": "local_4_024",
+      "note": "complete 4-card opponent domain, order 24"
+    },
+    {
+      "name": "local_5_001",
+      "note": "complete 5-card opponent domain, order 1"
+    },
+    {
+      "name": "local_5_002",
+      "note": "complete 5-card opponent domain, order 2"
+    },
+    {
+      "name": "local_5_003",
+      "note": "complete 5-card opponent domain, order 3"
+    },
+    {
+      "name": "local_5_004",
+      "note": "complete 5-card opponent domain, order 4"
+    },
+    {
+      "name": "local_5_005",
+      "note": "complete 5-card opponent domain, order 5"
+    },
+    {
+      "name": "local_5_006",
+      "note": "complete 5-card opponent domain, order 6"
+    },
+    {
+      "name": "local_5_007",
+      "note": "complete 5-card opponent domain, order 7"
+    },
+    {
+      "name": "local_5_008",
+      "note": "complete 5-card opponent domain, order 8"
+    },
+    {
+      "name": "local_5_009",
+      "note": "complete 5-card opponent domain, order 9"
+    },
+    {
+      "name": "local_5_010",
+      "note": "complete 5-card opponent domain, order 10"
+    },
+    {
+      "name": "local_5_011",
+      "note": "complete 5-card opponent domain, order 11"
+    },
+    {
+      "name": "local_5_012",
+      "note": "complete 5-card opponent domain, order 12"
+    },
+    {
+      "name": "local_5_013",
+      "note": "complete 5-card opponent domain, order 13"
+    },
+    {
+      "name": "local_5_014",
+      "note": "complete 5-card opponent domain, order 14"
+    },
+    {
+      "name": "local_5_015",
+      "note": "complete 5-card opponent domain, order 15"
+    },
+    {
+      "name": "local_5_016",
+      "note": "complete 5-card opponent domain, order 16"
+    },
+    {
+      "name": "local_5_017",
+      "note": "complete 5-card opponent domain, order 17"
+    },
+    {
+      "name": "local_5_018",
+      "note": "complete 5-card opponent domain, order 18"
+    },
+    {
+      "name": "local_5_019",
+      "note": "complete 5-card opponent domain, order 19"
+    },
+    {
+      "name": "local_5_020",
+      "note": "complete 5-card opponent domain, order 20"
+    },
+    {
+      "name": "local_5_021",
+      "note": "complete 5-card opponent domain, order 21"
+    },
+    {
+      "name": "local_5_022",
+      "note": "complete 5-card opponent domain, order 22"
+    },
+    {
+      "name": "local_5_023",
+      "note": "complete 5-card opponent domain, order 23"
+    },
+    {
+      "name": "local_5_024",
+      "note": "complete 5-card opponent domain, order 24"
+    },
+    {
+      "name": "local_5_025",
+      "note": "complete 5-card opponent domain, order 25"
+    },
+    {
+      "name": "local_5_026",
+      "note": "complete 5-card opponent domain, order 26"
+    },
+    {
+      "name": "local_5_027",
+      "note": "complete 5-card opponent domain, order 27"
+    },
+    {
+      "name": "local_5_028",
+      "note": "complete 5-card opponent domain, order 28"
+    },
+    {
+      "name": "local_5_029",
+      "note": "complete 5-card opponent domain, order 29"
+    },
+    {
+      "name": "local_5_030",
+      "note": "complete 5-card opponent domain, order 30"
+    },
+    {
+      "name": "local_5_031",
+      "note": "complete 5-card opponent domain, order 31"
+    },
+    {
+      "name": "local_5_032",
+      "note": "complete 5-card opponent domain, order 32"
+    },
+    {
+      "name": "local_5_033",
+      "note": "complete 5-card opponent domain, order 33"
+    },
+    {
+      "name": "local_5_034",
+      "note": "complete 5-card opponent domain, order 34"
+    },
+    {
+      "name": "local_5_035",
+      "note": "complete 5-card opponent domain, order 35"
+    },
+    {
+      "name": "local_5_036",
+      "note": "complete 5-card opponent domain, order 36"
+    },
+    {
+      "name": "local_5_037",
+      "note": "complete 5-card opponent domain, order 37"
+    },
+    {
+      "name": "local_5_038",
+      "note": "complete 5-card opponent domain, order 38"
+    },
+    {
+      "name": "local_5_039",
+      "note": "complete 5-card opponent domain, order 39"
+    },
+    {
+      "name": "local_5_040",
+      "note": "complete 5-card opponent domain, order 40"
+    },
+    {
+      "name": "local_5_041",
+      "note": "complete 5-card opponent domain, order 41"
+    },
+    {
+      "name": "local_5_042",
+      "note": "complete 5-card opponent domain, order 42"
+    },
+    {
+      "name": "local_5_043",
+      "note": "complete 5-card opponent domain, order 43"
+    },
+    {
+      "name": "local_5_044",
+      "note": "complete 5-card opponent domain, order 44"
+    },
+    {
+      "name": "local_5_045",
+      "note": "complete 5-card opponent domain, order 45"
+    },
+    {
+      "name": "local_5_046",
+      "note": "complete 5-card opponent domain, order 46"
+    },
+    {
+      "name": "local_5_047",
+      "note": "complete 5-card opponent domain, order 47"
+    },
+    {
+      "name": "local_5_048",
+      "note": "complete 5-card opponent domain, order 48"
+    },
+    {
+      "name": "local_5_049",
+      "note": "complete 5-card opponent domain, order 49"
+    },
+    {
+      "name": "local_5_050",
+      "note": "complete 5-card opponent domain, order 50"
+    },
+    {
+      "name": "local_5_051",
+      "note": "complete 5-card opponent domain, order 51"
+    },
+    {
+      "name": "local_5_052",
+      "note": "complete 5-card opponent domain, order 52"
+    },
+    {
+      "name": "local_5_053",
+      "note": "complete 5-card opponent domain, order 53"
+    },
+    {
+      "name": "local_5_054",
+      "note": "complete 5-card opponent domain, order 54"
+    },
+    {
+      "name": "local_5_055",
+      "note": "complete 5-card opponent domain, order 55"
+    },
+    {
+      "name": "local_5_056",
+      "note": "complete 5-card opponent domain, order 56"
+    },
+    {
+      "name": "local_5_057",
+      "note": "complete 5-card opponent domain, order 57"
+    },
+    {
+      "name": "local_5_058",
+      "note": "complete 5-card opponent domain, order 58"
+    },
+    {
+      "name": "local_5_059",
+      "note": "complete 5-card opponent domain, order 59"
+    },
+    {
+      "name": "local_5_060",
+      "note": "complete 5-card opponent domain, order 60"
+    },
+    {
+      "name": "local_5_061",
+      "note": "complete 5-card opponent domain, order 61"
+    },
+    {
+      "name": "local_5_062",
+      "note": "complete 5-card opponent domain, order 62"
+    },
+    {
+      "name": "local_5_063",
+      "note": "complete 5-card opponent domain, order 63"
+    },
+    {
+      "name": "local_5_064",
+      "note": "complete 5-card opponent domain, order 64"
+    },
+    {
+      "name": "local_5_065",
+      "note": "complete 5-card opponent domain, order 65"
+    },
+    {
+      "name": "local_5_066",
+      "note": "complete 5-card opponent domain, order 66"
+    },
+    {
+      "name": "local_5_067",
+      "note": "complete 5-card opponent domain, order 67"
+    },
+    {
+      "name": "local_5_068",
+      "note": "complete 5-card opponent domain, order 68"
+    },
+    {
+      "name": "local_5_069",
+      "note": "complete 5-card opponent domain, order 69"
+    },
+    {
+      "name": "local_5_070",
+      "note": "complete 5-card opponent domain, order 70"
+    },
+    {
+      "name": "local_5_071",
+      "note": "complete 5-card opponent domain, order 71"
+    },
+    {
+      "name": "local_5_072",
+      "note": "complete 5-card opponent domain, order 72"
+    },
+    {
+      "name": "local_5_073",
+      "note": "complete 5-card opponent domain, order 73"
+    },
+    {
+      "name": "local_5_074",
+      "note": "complete 5-card opponent domain, order 74"
+    },
+    {
+      "name": "local_5_075",
+      "note": "complete 5-card opponent domain, order 75"
+    },
+    {
+      "name": "local_5_076",
+      "note": "complete 5-card opponent domain, order 76"
+    },
+    {
+      "name": "local_5_077",
+      "note": "complete 5-card opponent domain, order 77"
+    },
+    {
+      "name": "local_5_078",
+      "note": "complete 5-card opponent domain, order 78"
+    },
+    {
+      "name": "local_5_079",
+      "note": "complete 5-card opponent domain, order 79"
+    },
+    {
+      "name": "local_5_080",
+      "note": "complete 5-card opponent domain, order 80"
+    },
+    {
+      "name": "local_5_081",
+      "note": "complete 5-card opponent domain, order 81"
+    },
+    {
+      "name": "local_5_082",
+      "note": "complete 5-card opponent domain, order 82"
+    },
+    {
+      "name": "local_5_083",
+      "note": "complete 5-card opponent domain, order 83"
+    },
+    {
+      "name": "local_5_084",
+      "note": "complete 5-card opponent domain, order 84"
+    },
+    {
+      "name": "local_5_085",
+      "note": "complete 5-card opponent domain, order 85"
+    },
+    {
+      "name": "local_5_086",
+      "note": "complete 5-card opponent domain, order 86"
+    },
+    {
+      "name": "local_5_087",
+      "note": "complete 5-card opponent domain, order 87"
+    },
+    {
+      "name": "local_5_088",
+      "note": "complete 5-card opponent domain, order 88"
+    },
+    {
+      "name": "local_5_089",
+      "note": "complete 5-card opponent domain, order 89"
+    },
+    {
+      "name": "local_5_090",
+      "note": "complete 5-card opponent domain, order 90"
+    },
+    {
+      "name": "local_5_091",
+      "note": "complete 5-card opponent domain, order 91"
+    },
+    {
+      "name": "local_5_092",
+      "note": "complete 5-card opponent domain, order 92"
+    },
+    {
+      "name": "local_5_093",
+      "note": "complete 5-card opponent domain, order 93"
+    },
+    {
+      "name": "local_5_094",
+      "note": "complete 5-card opponent domain, order 94"
+    },
+    {
+      "name": "local_5_095",
+      "note": "complete 5-card opponent domain, order 95"
+    },
+    {
+      "name": "local_5_096",
+      "note": "complete 5-card opponent domain, order 96"
+    },
+    {
+      "name": "local_5_097",
+      "note": "complete 5-card opponent domain, order 97"
+    },
+    {
+      "name": "local_5_098",
+      "note": "complete 5-card opponent domain, order 98"
+    },
+    {
+      "name": "local_5_099",
+      "note": "complete 5-card opponent domain, order 99"
+    },
+    {
+      "name": "local_5_100",
+      "note": "complete 5-card opponent domain, order 100"
+    },
+    {
+      "name": "local_5_101",
+      "note": "complete 5-card opponent domain, order 101"
+    },
+    {
+      "name": "local_5_102",
+      "note": "complete 5-card opponent domain, order 102"
+    },
+    {
+      "name": "local_5_103",
+      "note": "complete 5-card opponent domain, order 103"
+    },
+    {
+      "name": "local_5_104",
+      "note": "complete 5-card opponent domain, order 104"
+    },
+    {
+      "name": "local_5_105",
+      "note": "complete 5-card opponent domain, order 105"
+    },
+    {
+      "name": "local_5_106",
+      "note": "complete 5-card opponent domain, order 106"
+    },
+    {
+      "name": "local_5_107",
+      "note": "complete 5-card opponent domain, order 107"
+    },
+    {
+      "name": "local_5_108",
+      "note": "complete 5-card opponent domain, order 108"
+    },
+    {
+      "name": "local_5_109",
+      "note": "complete 5-card opponent domain, order 109"
+    },
+    {
+      "name": "local_5_110",
+      "note": "complete 5-card opponent domain, order 110"
+    },
+    {
+      "name": "local_5_111",
+      "note": "complete 5-card opponent domain, order 111"
+    },
+    {
+      "name": "local_5_112",
+      "note": "complete 5-card opponent domain, order 112"
+    },
+    {
+      "name": "local_5_113",
+      "note": "complete 5-card opponent domain, order 113"
+    },
+    {
+      "name": "local_5_114",
+      "note": "complete 5-card opponent domain, order 114"
+    },
+    {
+      "name": "local_5_115",
+      "note": "complete 5-card opponent domain, order 115"
+    },
+    {
+      "name": "local_5_116",
+      "note": "complete 5-card opponent domain, order 116"
+    },
+    {
+      "name": "local_5_117",
+      "note": "complete 5-card opponent domain, order 117"
+    },
+    {
+      "name": "local_5_118",
+      "note": "complete 5-card opponent domain, order 118"
+    },
+    {
+      "name": "local_5_119",
+      "note": "complete 5-card opponent domain, order 119"
+    },
+    {
+      "name": "local_5_120",
+      "note": "complete 5-card opponent domain, order 120"
+    },
+    {
+      "name": "max_worst",
+      "note": "500 cards, worst 68th first winning local trial"
+    },
+    {
+      "name": "max_sorted",
+      "note": "500 cards, increasing order"
+    },
+    {
+      "name": "max_reversed",
+      "note": "500 cards, decreasing order"
+    },
+    {
+      "name": "max_rotated",
+      "note": "500 cards, left rotation"
+    },
+    {
+      "name": "max_last",
+      "note": "500 cards, largest first"
+    },
+    {
+      "name": "max_parity",
+      "note": "500 cards, separated parity orders"
+    },
+    {
+      "name": "random_499",
+      "note": "seeded full-size permutation"
+    },
+    {
+      "name": "random_500",
+      "note": "seeded full-size permutation"
+    },
+    {
+      "name": "max_whitespace",
+      "note": "maximum input with tabs and varied whitespace"
+    }
+  ]
+}
