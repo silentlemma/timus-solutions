@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2071_bitmask_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single glass of all three juices" },
+    { "name": "03", "note": "all seven cocktails" },
+    { "name": "04", "note": "two cocktails with nothing in common" },
+    { "name": "05", "note": "one cocktail for everybody" },
+    { "name": "06", "note": "two cocktails taking turns" },
+    { "name": "gen1", "generator": "1 1", "note": "a few glasses" },
+    { "name": "gen2", "generator": "1 2", "note": "repeated apple and triple cocktails alongside banana and pineapple" },
+    { "name": "gen3", "generator": "2 3", "note": "maximum size with all seven cocktail types" },
+    { "name": "gen4", "generator": "3 4", "note": "a full row containing only apple and pineapple singletons" },
+    { "name": "07", "note": "one glass of one juice reaches the minimum answer of one" },
+    { "name": "08", "note": "shuffled repeated nested cocktails share all three juice runs" },
+    { "name": "09", "note": "the three overlapping pairs force a fourth pouring" },
+    { "name": "10", "note": "three single-juice glasses have no cocktail to bridge their runs" },
+    { "name": "11", "note": "all six proper cocktail subsets with ABP absent" },
+    { "name": "12", "note": "seeded small random case with repeated ABP and three singleton types" },
+    { "name": "13", "generator": "4 2071", "note": "maximum size with one rare P among otherwise identical ABP orders" },
+    { "name": "14", "generator": "5 2071", "note": "maximum size random overlapping pairs with no singleton or triple" }
+  ]
+}
