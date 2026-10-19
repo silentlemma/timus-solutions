@@ -1,0 +1,6 @@
+sa : ba 9 bb 13 bc 11 sa 12 sb 18 sc 8 sd 9 se 9 sf 11
+sb : ba 13 bb 12 bc 12 sa 9 sb 13 sc 14 sd 8 se 9 sf 10
+sc : ba 9 bb 12 bc 14 sa 10 sb 7 sc 15 sd 16 se 5 sf 12
+sd : ba 10 bb 12 bc 18 sa 7 sb 14 sc 8 sd 11 se 10 sf 10
+se : ba 7 bb 9 bc 13 sa 14 sb 10 sc 11 sd 11 se 17 sf 8
+sf : ba 8 bb 12 bc 13 sa 14 sb 13 sc 9 sd 11 se 15 sf 5

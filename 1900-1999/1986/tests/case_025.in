@@ -1,0 +1,4 @@
+sa : ba 14 sa 20 sb 18 sc 22 sd 26
+sb : ba 29 sa 17 sb 12 sc 22 sd 20
+sc : ba 16 sa 14 sb 21 sc 20 sd 29
+sd : ba 21 sa 15 sb 22 sc 21 sd 21
