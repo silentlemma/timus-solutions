@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1892_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example" },
+    { "name": "02", "note": "simultaneous first arrivals favor the landing" },
+    { "name": "03", "note": "a queued landing waits longer but still blocks departure" },
+    { "name": "04", "note": "landing arrival equals the earliest possible departure" },
+    { "name": "05", "note": "landing arrives one second after the departure starts" },
+    { "name": "06", "note": "further landings arrive while departure is waiting" },
+    { "name": "07", "note": "four asymmetric safety intervals and several idle periods" },
+    { "name": "08", "note": "a dense landing queue is exhausted first" },
+    { "name": "09", "note": "output extends beyond the input time window" },
+    { "name": "10", "note": "takeoffs finish long before the only landing arrives" },
+    { "name": "11", "note": "long takeoff gaps coexist with short landing gaps" },
+    { "name": "random", "generator": "1 1", "note": "small random arrival queues" },
+    { "name": "max_random", "generator": "2 2", "note": "maximum lists with random intervals" },
+    { "name": "max_dense", "generator": "3 3", "note": "maximum queue lengths and long waits" },
+    { "name": "boundary", "generator": "4 4", "note": "landing at the departure boundary" },
+    { "name": "chain", "generator": "5 5", "note": "several priority landings in a row" },
+    { "name": "max_sparse", "generator": "6 6", "note": "short gaps and widely spaced arrivals" },
+    { "name": "max_asymmetric", "generator": "7 7", "note": "maximum asymmetric queues" }
+  ]
+}
