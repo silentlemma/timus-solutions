@@ -1,0 +1,291 @@
+{
+  "judging": "tokens",
+  "reference": "1982_greedy.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "one city already supplied"
+    },
+    {
+      "name": "case_003",
+      "note": "single maximum-cost connection"
+    },
+    {
+      "name": "case_004",
+      "note": "all cities supplied need no lines"
+    },
+    {
+      "name": "case_005",
+      "note": "unpowered hub beats direct connections"
+    },
+    {
+      "name": "case_006",
+      "note": "supplied cities need not be connected"
+    },
+    {
+      "name": "case_007",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_008",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_009",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_010",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_011",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_012",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_013",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_014",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_015",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_016",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_017",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_018",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_019",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_020",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_021",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_022",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_023",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_024",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_025",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_026",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_027",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_028",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_029",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_030",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_031",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_032",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_033",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_034",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_035",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_036",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_037",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_038",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_039",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_040",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_041",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_042",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_043",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_044",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_045",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_046",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_047",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_048",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_049",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_050",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_051",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_052",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_053",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_054",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_055",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "case_056",
+      "note": "independent random rooted-forest enumeration"
+    },
+    {
+      "name": "max_uniform_max_one",
+      "generator": "1982 uniform_max_one",
+      "note": "uniform_max_one"
+    },
+    {
+      "name": "max_uniform_max_half",
+      "generator": "1982 uniform_max_half",
+      "note": "uniform_max_half"
+    },
+    {
+      "name": "max_uniform_max_all",
+      "generator": "1982 uniform_max_all",
+      "note": "uniform_max_all"
+    },
+    {
+      "name": "max_uniform_unit_half",
+      "generator": "1982 uniform_unit_half",
+      "note": "uniform_unit_half"
+    },
+    {
+      "name": "max_line_one",
+      "generator": "1982 line_one",
+      "note": "line_one"
+    },
+    {
+      "name": "max_line_half",
+      "generator": "1982 line_half",
+      "note": "line_half"
+    },
+    {
+      "name": "max_line_all",
+      "generator": "1982 line_all",
+      "note": "line_all"
+    },
+    {
+      "name": "max_one_missing",
+      "generator": "1982 one_missing",
+      "note": "one_missing"
+    },
+    {
+      "name": "max_random_one",
+      "generator": "1982 random_one",
+      "note": "random_one"
+    },
+    {
+      "name": "max_random_half",
+      "generator": "1982 random_half",
+      "note": "random_half"
+    },
+    {
+      "name": "max_random_many",
+      "generator": "1982 random_many",
+      "note": "random_many"
+    },
+    {
+      "name": "max_hub",
+      "generator": "1982 hub",
+      "note": "hub"
+    }
+  ]
+}
