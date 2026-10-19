@@ -1,0 +1,159 @@
+{
+  "judging": "tokens",
+  "reference": "1941_two_pointers.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "sample with overlapping permutations",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "smallest equal words"
+    },
+    {
+      "name": "03",
+      "note": "pattern longer than text"
+    },
+    {
+      "name": "04",
+      "note": "one letter absent"
+    },
+    {
+      "name": "05",
+      "note": "all one-letter windows"
+    },
+    {
+      "name": "06",
+      "note": "overlapping repeated-letter windows"
+    },
+    {
+      "name": "07",
+      "note": "multiplicity, not mere presence"
+    },
+    {
+      "name": "08",
+      "note": "positions within triplets matter"
+    },
+    {
+      "name": "09",
+      "note": "all three coordinate positions"
+    },
+    {
+      "name": "10",
+      "note": "both extreme codes"
+    },
+    {
+      "name": "11",
+      "note": "match between outsider runs"
+    },
+    {
+      "name": "12",
+      "note": "same length, one permutation"
+    },
+    {
+      "name": "13",
+      "note": "same length with mismatch"
+    },
+    {
+      "name": "14",
+      "note": "remove surplus before adding wanted letter"
+    },
+    {
+      "name": "15",
+      "note": "zero/nonzero deficit transitions"
+    },
+    {
+      "name": "16",
+      "note": "window at final position"
+    },
+    {
+      "name": "17",
+      "note": "punctuation and backslash tokens"
+    },
+    {
+      "name": "18",
+      "note": "mixed horizontal whitespace"
+    },
+    {
+      "name": "19",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "20",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "21",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "22",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "23",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "24",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "25",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "26",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "27",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "28",
+      "note": "seeded multiplicity regression"
+    },
+    {
+      "name": "max_single",
+      "generator": "single",
+      "note": "500000 letters: single"
+    },
+    {
+      "name": "max_constant",
+      "generator": "constant",
+      "note": "500000 letters: constant"
+    },
+    {
+      "name": "max_period",
+      "generator": "period",
+      "note": "500000 letters: period"
+    },
+    {
+      "name": "max_blocked",
+      "generator": "blocked",
+      "note": "500000 letters: blocked"
+    },
+    {
+      "name": "max_outsiders",
+      "generator": "outsiders",
+      "note": "500000 letters: outsiders"
+    },
+    {
+      "name": "max_churn",
+      "generator": "churn",
+      "note": "500000 letters: churn"
+    },
+    {
+      "name": "max_unique_head",
+      "generator": "unique_head",
+      "note": "500000 letters: unique_head"
+    },
+    {
+      "name": "max_unique_tail",
+      "generator": "unique_tail",
+      "note": "500000 letters: unique_tail"
+    }
+  ]
+}
