@@ -1,0 +1,133 @@
+{
+  "judging": "tokens",
+  "reference": "1915_simulation.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "copying an empty stack with no output"
+    },
+    {
+      "name": "03",
+      "note": "one push and no output"
+    },
+    {
+      "name": "04",
+      "note": "one removal"
+    },
+    {
+      "name": "05",
+      "note": "copy empty, then copy one coin"
+    },
+    {
+      "name": "06",
+      "note": "partial bottom suffix retained after duplication"
+    },
+    {
+      "name": "07",
+      "note": "logical capacity shrank below physical ring capacity"
+    },
+    {
+      "name": "08",
+      "note": "wrap two copied suffixes and exhaust"
+    },
+    {
+      "name": "09",
+      "note": "maximum coin value and order"
+    },
+    {
+      "name": "10",
+      "note": "many discarded bottom values"
+    },
+    {
+      "name": "11",
+      "note": "copies followed by a replacing push"
+    },
+    {
+      "name": "12",
+      "note": "become empty and reuse the ring"
+    },
+    {
+      "name": "13",
+      "note": "nested copies and shrinking remaining depth"
+    },
+    {
+      "name": "14",
+      "note": "different value at each copying stage"
+    },
+    {
+      "name": "small",
+      "generator": "1916 1",
+      "note": "small valid random operations"
+    },
+    {
+      "name": "push_pop",
+      "generator": "1917 2",
+      "note": "one million operations: push_pop"
+    },
+    {
+      "name": "periodic",
+      "generator": "1918 3",
+      "note": "one million operations: periodic"
+    },
+    {
+      "name": "copy_storm",
+      "generator": "1919 4",
+      "note": "one million operations: copy_storm"
+    },
+    {
+      "name": "empty_copies",
+      "generator": "1920 5",
+      "note": "one million operations: empty_copies"
+    },
+    {
+      "name": "alternating",
+      "generator": "1921 6",
+      "note": "one million operations: alternating"
+    },
+    {
+      "name": "wrapping",
+      "generator": "1922 7",
+      "note": "one million operations: wrapping"
+    },
+    {
+      "name": "shrinking",
+      "generator": "1923 8",
+      "note": "one million operations: shrinking"
+    },
+    {
+      "name": "nonbinary",
+      "generator": "1924 9",
+      "note": "one million operations: nonbinary"
+    },
+    {
+      "name": "no_output",
+      "generator": "1925 10",
+      "note": "one million operations: no_output"
+    },
+    {
+      "name": "extreme",
+      "generator": "1926 11",
+      "note": "one million operations: extreme"
+    },
+    {
+      "name": "late_push",
+      "generator": "1927 12",
+      "note": "one million operations: late_push"
+    },
+    {
+      "name": "tiny_cap",
+      "generator": "1928 13",
+      "note": "one million operations: tiny_cap"
+    },
+    {
+      "name": "random_max",
+      "generator": "1929 14",
+      "note": "one million operations: random_max"
+    }
+  ]
+}
