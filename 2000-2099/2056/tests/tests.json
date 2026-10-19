@@ -1,0 +1,88 @@
+{
+  "judging": "tokens",
+  "reference": "2056_implementation.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Priority, single mark, exact threshold or maximum n",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Priority, single mark, exact threshold or maximum n",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "004",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "005",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "006",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "007",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "008",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "009",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "010",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "011",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "012",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "013",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "014",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "015",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "016",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "017",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "018",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "019",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    },
+    {
+      "name": "020",
+      "note": "Priority, single mark, exact threshold or maximum n"
+    }
+  ]
+}

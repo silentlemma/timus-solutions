@@ -60,3 +60,4 @@
 | 2053 | [Generate a planar graph with over three hundred thousand cycles](2053/) | constructive | C++, Go, Python, Java, Rust |
 | 2054 | [Solar altitude from two rotations](2054/) | geometry | C++, Go, Python, Java, Rust |
 | 2055 | [Keep a connected road set with the narrowest price range](2055/) | trees, dsu, two_pointers | C++, Go, Python, Java, Rust |
+| 2056 | [Determine the scholarship category](2056/) | implementation | C++, Go, Python, Java, Rust |
