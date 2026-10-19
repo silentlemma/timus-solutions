@@ -1,0 +1,5 @@
+5 4
+change 1 5 10000
+change 2 4 -10000
+establish 1 5
+establish 2 4

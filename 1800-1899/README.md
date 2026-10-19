@@ -59,3 +59,4 @@
 | 1852 | [Cube in a Cube in a Cube](1852/) | simulation | C++, Go, Python, Java, Rust |
 | 1853 | [Laser Technologies](1853/) | geometry | C++, Go, Python, Java, Rust |
 | 1854 | [Negotiations with Parthians](1854/) | number_theory | C++, Go, Python, Java, Rust |
+| 1855 | [Trade Guilds of Erathia](1855/) | fenwick | C++, Go, Python, Java, Rust |
