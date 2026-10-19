@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1830_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "closing all three pages in five presses" },
+    { "name": "02", "note": "one page, opened by F1" },
+    { "name": "03", "note": "opening page 2 alone takes three presses" },
+    { "name": "04", "note": "all fifty pages to open" },
+    { "name": "05", "note": "only the last page to open: the longest way, 2^50 - 1" },
+    { "name": "06", "note": "nothing to change" },
+    { "name": "07", "note": "the first 49 pages open against only the last one" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random pages" },
+    { "name": "gen2", "generator": "2 2", "note": "fifty random pages" },
+    { "name": "gen3", "generator": "3 3", "note": "fifty pages differing at the end" },
+    { "name": "gen4", "generator": "4 2", "note": "scattered changes move the first visible page from 2 to 4" },
+    { "name": "08", "note": "two pages switch the visible page and require F1 before closing page 2" },
+    { "name": "09", "note": "page 49 alone is visible, so opening page 50 takes one press" },
+    { "name": "10", "note": "closing page 1 with F1 takes one press even when every higher page is open" },
+    { "name": "11", "note": "complementary alternating states at fifty pages exercise repeated open and closed runs" },
+    { "name": "12", "note": "a blocked change to page 9 alone needs 467 presses and temporary lower-page changes" },
+    { "name": "13", "note": "three changed pages in nonempty seven-page states are only five presses apart" },
+    { "name": "gen5", "generator": "9 1", "note": "seeded eight-page random states change four scattered pages" }
+  ]
+}
