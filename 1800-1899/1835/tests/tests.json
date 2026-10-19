@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1835_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a lone at" },
+    { "name": "03", "note": "the shortest address" },
+    { "name": "04", "note": "double dots cut both sides" },
+    { "name": "05", "note": "dots at the ends are dropped" },
+    { "name": "06", "note": "one address repeated is counted once" },
+    { "name": "07", "note": "two ats sharing the middle letters" },
+    { "name": "08", "note": "dotted parts on both sides" },
+    { "name": "09", "note": "no at at all" },
+    { "name": "10", "note": "capital letters are not allowed" },
+    { "name": "gen1", "generator": "1 1", "note": "a short random text" },
+    { "name": "gen2", "generator": "2 2", "note": "one long run of a with an at in the middle" },
+    { "name": "gen3", "generator": "3 3", "note": "random text over a, b, dot and at" },
+    { "name": "gen4", "generator": "4 4", "note": "the same short address many times" },
+    { "name": "gen5", "generator": "5 5", "note": "random printable lines" },
+    { "name": "gen6", "generator": "6 6", "note": "one long dotted address" },
+    { "name": "gen7", "generator": "7 1", "note": "a short random text" },
+    { "name": "gen8", "generator": "8 3", "note": "random text over a, b, dot and at" }
+  ]
+}
