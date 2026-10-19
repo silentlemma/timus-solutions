@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "1901_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "official example" },
+    { "name": "02", "note": "one passenger" },
+    { "name": "03", "note": "sum equal to capacity must pair" },
+    { "name": "04", "note": "two incompatible passengers" },
+    { "name": "05", "note": "all values mutually compatible with odd count" },
+    { "name": "06", "note": "all values mutually incompatible" },
+    { "name": "07", "note": "many small passengers and one universal heavy passenger" },
+    { "name": "08", "note": "incompatible Hamiltonian path through two equal minima" },
+    { "name": "09", "note": "two-minimum exchange with nontrivial rearrangement" },
+    { "name": "10", "note": "zero-pair path splits into three parts after deleting extremes" },
+    { "name": "11", "note": "large values and overflow boundary for two-value sums" },
+    { "name": "12", "note": "capacity one and repeated values" },
+    { "name": "small1", "generator": "11 0", "note": "small random multiset" },
+    { "name": "small2", "generator": "29 0", "note": "another small random multiset" },
+    { "name": "max1", "generator": "1 1", "note": "maximal all-light input" },
+    { "name": "max2", "generator": "2 2", "note": "maximal all-heavy input" },
+    { "name": "max3", "generator": "3 3", "note": "maximal random input" },
+    { "name": "max4", "generator": "4 4", "note": "capacity equality and near equality" },
+    { "name": "max5", "generator": "5 5", "note": "few universal heavy values" },
+    { "name": "max6", "generator": "6 6", "note": "minimal capacity with maximal count" },
+    { "name": "max7", "generator": "7 7", "note": "already sorted random input" },
+    { "name": "max8", "generator": "8 8", "note": "reverse-sorted random input" },
+    { "name": "max9", "generator": "9 9", "note": "alternating minimum and maximum values" }
+  ]
+}
