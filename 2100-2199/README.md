@@ -25,3 +25,4 @@
 | 2118 | [Cutting a prefix-code bit string into undecodable pieces](2118/) | greedy, strings | C++, Go, Python, Java, Rust |
 | 2119 | [Weight of the subtree spanning a changing vertex set](2119/) | trees, fenwick | C++, Go, Python, Java, Rust |
 | 2120 | [Expected weight of a random labelled tree with some degrees fixed](2120/) | math, probability | C++, Go, Python, Java, Rust |
+| 2121 | [Area between two mirrored parabolas](2121/) | geometry, math | C++, Go, Python, Java, Rust |
