@@ -70,3 +70,4 @@
 | 1863 | [Peaceful Atom](1863/) | meet_in_middle | C++, Go, Python, Java, Rust |
 | 1864 | [Get-Together at Den's](1864/) | math | C++, Go, Python, Java, Rust |
 | 1865 | [The Island of Märket](1865/) | constructive | C++, Go, Python, Java, Rust |
+| 1866 | [Poetic Foot](1866/) | parsing | C++, Go, Python, Java, Rust |
