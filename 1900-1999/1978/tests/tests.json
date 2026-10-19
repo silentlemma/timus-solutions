@@ -1,0 +1,307 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1978_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "zero vector"
+    },
+    {
+      "name": "case_003",
+      "note": "maximum single length"
+    },
+    {
+      "name": "case_004",
+      "note": "opposite vectors"
+    },
+    {
+      "name": "case_005",
+      "note": "duplicates and zeros"
+    },
+    {
+      "name": "case_006",
+      "note": "simultaneous distinct contiguous groups"
+    },
+    {
+      "name": "case_007",
+      "note": "grid repeated slopes"
+    },
+    {
+      "name": "case_008",
+      "note": "determinant-one nearby directions"
+    },
+    {
+      "name": "case_009",
+      "note": "horizontal line has no open-half-circle events"
+    },
+    {
+      "name": "case_010",
+      "note": "one large simultaneous reversal"
+    },
+    {
+      "name": "case_011",
+      "note": "literal subset random 0"
+    },
+    {
+      "name": "case_012",
+      "note": "literal subset random 1"
+    },
+    {
+      "name": "case_013",
+      "note": "literal subset random 2"
+    },
+    {
+      "name": "case_014",
+      "note": "literal subset random 3"
+    },
+    {
+      "name": "case_015",
+      "note": "literal subset random 4"
+    },
+    {
+      "name": "case_016",
+      "note": "literal subset random 5"
+    },
+    {
+      "name": "case_017",
+      "note": "literal subset random 6"
+    },
+    {
+      "name": "case_018",
+      "note": "literal subset random 7"
+    },
+    {
+      "name": "case_019",
+      "note": "literal subset random 8"
+    },
+    {
+      "name": "case_020",
+      "note": "literal subset random 9"
+    },
+    {
+      "name": "case_021",
+      "note": "literal subset random 10"
+    },
+    {
+      "name": "case_022",
+      "note": "literal subset random 11"
+    },
+    {
+      "name": "case_023",
+      "note": "literal subset random 12"
+    },
+    {
+      "name": "case_024",
+      "note": "literal subset random 13"
+    },
+    {
+      "name": "case_025",
+      "note": "literal subset random 14"
+    },
+    {
+      "name": "case_026",
+      "note": "literal subset random 15"
+    },
+    {
+      "name": "case_027",
+      "note": "literal subset random 16"
+    },
+    {
+      "name": "case_028",
+      "note": "literal subset random 17"
+    },
+    {
+      "name": "case_029",
+      "note": "literal subset random 18"
+    },
+    {
+      "name": "case_030",
+      "note": "literal subset random 19"
+    },
+    {
+      "name": "case_031",
+      "note": "literal subset random 20"
+    },
+    {
+      "name": "case_032",
+      "note": "literal subset random 21"
+    },
+    {
+      "name": "case_033",
+      "note": "literal subset random 22"
+    },
+    {
+      "name": "case_034",
+      "note": "literal subset random 23"
+    },
+    {
+      "name": "case_035",
+      "note": "literal subset random 24"
+    },
+    {
+      "name": "case_036",
+      "note": "literal subset random 25"
+    },
+    {
+      "name": "case_037",
+      "note": "literal subset random 26"
+    },
+    {
+      "name": "case_038",
+      "note": "literal subset random 27"
+    },
+    {
+      "name": "case_039",
+      "note": "literal subset random 28"
+    },
+    {
+      "name": "case_040",
+      "note": "literal subset random 29"
+    },
+    {
+      "name": "case_041",
+      "note": "literal subset random 30"
+    },
+    {
+      "name": "case_042",
+      "note": "literal subset random 31"
+    },
+    {
+      "name": "case_043",
+      "note": "literal subset random 32"
+    },
+    {
+      "name": "case_044",
+      "note": "literal subset random 33"
+    },
+    {
+      "name": "case_045",
+      "note": "literal subset random 34"
+    },
+    {
+      "name": "case_046",
+      "note": "literal subset random 35"
+    },
+    {
+      "name": "case_047",
+      "note": "literal subset random 36"
+    },
+    {
+      "name": "case_048",
+      "note": "literal subset random 37"
+    },
+    {
+      "name": "case_049",
+      "note": "literal subset random 38"
+    },
+    {
+      "name": "case_050",
+      "note": "literal subset random 39"
+    },
+    {
+      "name": "case_051",
+      "note": "literal subset random 40"
+    },
+    {
+      "name": "case_052",
+      "note": "literal subset random 41"
+    },
+    {
+      "name": "case_053",
+      "note": "literal subset random 42"
+    },
+    {
+      "name": "case_054",
+      "note": "literal subset random 43"
+    },
+    {
+      "name": "case_055",
+      "note": "literal subset random 44"
+    },
+    {
+      "name": "case_056",
+      "note": "literal subset random 45"
+    },
+    {
+      "name": "case_057",
+      "note": "literal subset random 46"
+    },
+    {
+      "name": "case_058",
+      "note": "literal subset random 47"
+    },
+    {
+      "name": "case_059",
+      "note": "literal subset random 48"
+    },
+    {
+      "name": "case_060",
+      "note": "literal subset random 49"
+    },
+    {
+      "name": "max_zero",
+      "generator": "1978 zero",
+      "note": "n1000 zero"
+    },
+    {
+      "name": "max_identical",
+      "generator": "1978 identical",
+      "note": "n1000 identical"
+    },
+    {
+      "name": "max_horizontal",
+      "generator": "1978 horizontal",
+      "note": "n1000 horizontal"
+    },
+    {
+      "name": "max_vertical",
+      "generator": "1978 vertical",
+      "note": "n1000 vertical"
+    },
+    {
+      "name": "max_diagonal",
+      "generator": "1978 diagonal",
+      "note": "n1000 diagonal"
+    },
+    {
+      "name": "max_antipodal",
+      "generator": "1978 antipodal",
+      "note": "n1000 antipodal"
+    },
+    {
+      "name": "max_farey",
+      "generator": "1978 farey",
+      "note": "n1000 farey"
+    },
+    {
+      "name": "max_four_groups",
+      "generator": "1978 four_groups",
+      "note": "n1000 four_groups"
+    },
+    {
+      "name": "max_six_groups",
+      "generator": "1978 six_groups",
+      "note": "n1000 six_groups"
+    },
+    {
+      "name": "max_random",
+      "generator": "1978 random",
+      "note": "n1000 random"
+    },
+    {
+      "name": "max_parabola",
+      "generator": "1978 parabola",
+      "note": "n1000 parabola"
+    },
+    {
+      "name": "max_grid",
+      "generator": "1978 grid",
+      "note": "n1000 grid"
+    }
+  ]
+}
