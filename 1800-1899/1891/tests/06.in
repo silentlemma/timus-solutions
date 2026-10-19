@@ -1,0 +1,4 @@
+1
+identity(int) : int
+1
+auto x = identity(x)

@@ -1,0 +1,8 @@
+3
+ReadInt() : int
+ReadString() : string
+Mix(int, string) : real
+3
+auto x = ReadInt()
+auto y = ReadString()
+auto z = Mix(y, x)

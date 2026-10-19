@@ -1,0 +1,5 @@
+1
+ReadInt() : int
+2
+int x = ReadInt()
+int x = ReadInt()

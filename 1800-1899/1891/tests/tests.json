@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "1891_parsing.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first statement example" },
+    { "name": "02", "example": true, "note": "the second statement example" },
+    { "name": "03", "example": true, "note": "the third statement example" },
+    { "name": "04", "note": "duplicate declaration takes priority over every other error" },
+    { "name": "05", "note": "unknown argument takes priority over a missing function" },
+    { "name": "06", "note": "a variable cannot use itself during initialization" },
+    { "name": "07", "note": "overload selection preserves argument order" },
+    { "name": "08", "note": "a found function has the wrong result type" },
+    { "name": "09", "note": "case-sensitive overloads and separate variable namespace" },
+    { "name": "10", "note": "a differently capitalized function is absent" },
+    { "name": "11", "note": "a valid program without auto variables has empty output" },
+    { "name": "12", "note": "argument count is part of a function signature" },
+    { "name": "13", "note": "a later unknown argument is still detected" },
+    { "name": "valid", "generator": "1 1", "note": "valid random declarations" },
+    { "name": "duplicate", "generator": "2 2", "note": "random double declaration" },
+    { "name": "unknown", "generator": "3 3", "note": "random unknown argument" },
+    { "name": "missing", "generator": "4 4", "note": "random missing function" },
+    { "name": "initialization", "generator": "5 5", "note": "random wrong result type" },
+    { "name": "max_valid", "generator": "6 6", "note": "maximum counts and argument lengths" },
+    { "name": "max_invalid", "generator": "7 7", "note": "maximum size with a late error" }
+  ]
+}

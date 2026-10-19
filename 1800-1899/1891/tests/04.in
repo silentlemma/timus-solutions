@@ -1,0 +1,6 @@
+1
+value() : int
+3
+auto a = value()
+string a = Absent(missing)
+auto b = Absent()

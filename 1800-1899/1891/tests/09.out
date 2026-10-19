@@ -1,0 +1,6 @@
+same : int
+a : string
+b : real
+c : string
+d : string
+e : int

@@ -1,0 +1,6 @@
+2
+f() : int
+f(int) : real
+2
+auto x = f()
+auto y = f(x, x)

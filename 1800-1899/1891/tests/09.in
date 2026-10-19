@@ -1,0 +1,17 @@
+7
+same() : int
+same(int) : string
+same(string) : real
+Same() : string
+join(real, int) : string
+join(int, real) : int
+Other(string, real) : string
+8
+auto same = same()
+auto a = same(same)
+auto b = same(a)
+auto c = Same()
+auto d = join(b, same)
+auto e = join(same, b)
+string f = same(e)
+real g = same(f)

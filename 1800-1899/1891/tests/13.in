@@ -1,0 +1,6 @@
+2
+Zero() : int
+F(int, int) : int
+2
+auto a = Zero()
+auto b = F(a, missing)
