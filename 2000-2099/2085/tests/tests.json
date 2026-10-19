@@ -1,0 +1,31 @@
+{
+  "judging": "checker",
+  "reference": "2085_hashing_trees.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example; any valid plan is accepted" },
+    { "name": "02", "example": true, "note": "the second example: one project has everything" },
+    { "name": "03", "example": true, "note": "the third example: technology 1 twice" },
+    { "name": "04", "note": "one project without the technology" },
+    { "name": "05", "note": "a line where the whole line is needed" },
+    { "name": "06", "note": "two leaves joined through an empty centre" },
+    { "name": "gen1", "generator": "1 1", "note": "a few projects, random sets" },
+    { "name": "gen2", "generator": "2 2", "note": "a planted path reduced to one project with its only technology" },
+    { "name": "gen3", "generator": "3 3", "note": "a planted covering path amid branches with random technology sets" },
+    { "name": "gen4", "generator": "4 4", "note": "a long chain whose covering segment includes empty projects" },
+    { "name": "gen5", "generator": "5 5", "note": "sparse random sets that leave some technologies absent" },
+    { "name": "07", "note": "minimum n and m with a valid one-project path" },
+    { "name": "08", "note": "all projects empty; identical prefix sums across several branches" },
+    { "name": "09", "note": "three necessary leaf branches cannot all belong to a simple path" },
+    { "name": "10", "note": "two child branches must count their non-root LCA technology once" },
+    { "name": "11", "note": "endpoints in the same child subtree cannot borrow the root technology" },
+    { "name": "12", "note": "technology used three times defeats an XOR-only path check" },
+    { "name": "13", "note": "correct total count and identifier sum still miss two technologies" },
+    { "name": "14", "note": "valid internal line segment excludes overlapping technologies at both ends" },
+    { "name": "15", "note": "seeded stress tree has a long path below the root through empty projects" },
+    { "name": "16", "note": "seeded stress tree has every technology but overlaps block every path" },
+    { "name": "gen6", "generator": "6 208506", "note": "maximum balanced tree; each technology occurs once but required vertices branch" },
+    { "name": "gen7", "generator": "7 208507", "note": "one million memberships and maximum technology count in ten complete sets" },
+    { "name": "gen8", "generator": "8 208508", "note": "maximum line with long empty corridors, two large sets and duplicate end guards" },
+    { "name": "gen9", "generator": "9 208509", "note": "seeded medium random tree with sparse unsorted sets of up to five technologies" }
+  ]
+}
