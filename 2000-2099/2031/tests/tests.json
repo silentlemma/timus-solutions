@@ -1,0 +1,405 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2031_bruteforce.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "entire official domain: n=2; any valid rotated interval accepted",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "entire official domain: n=99; any valid rotated interval accepted",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "entire official domain: n=1; any valid rotated interval accepted"
+    },
+    {
+      "name": "004",
+      "note": "entire official domain: n=3; any valid rotated interval accepted"
+    },
+    {
+      "name": "005",
+      "note": "entire official domain: n=4; any valid rotated interval accepted"
+    },
+    {
+      "name": "006",
+      "note": "entire official domain: n=5; any valid rotated interval accepted"
+    },
+    {
+      "name": "007",
+      "note": "entire official domain: n=6; any valid rotated interval accepted"
+    },
+    {
+      "name": "008",
+      "note": "entire official domain: n=7; any valid rotated interval accepted"
+    },
+    {
+      "name": "009",
+      "note": "entire official domain: n=8; any valid rotated interval accepted"
+    },
+    {
+      "name": "010",
+      "note": "entire official domain: n=9; any valid rotated interval accepted"
+    },
+    {
+      "name": "011",
+      "note": "entire official domain: n=10; any valid rotated interval accepted"
+    },
+    {
+      "name": "012",
+      "note": "entire official domain: n=11; any valid rotated interval accepted"
+    },
+    {
+      "name": "013",
+      "note": "entire official domain: n=12; any valid rotated interval accepted"
+    },
+    {
+      "name": "014",
+      "note": "entire official domain: n=13; any valid rotated interval accepted"
+    },
+    {
+      "name": "015",
+      "note": "entire official domain: n=14; any valid rotated interval accepted"
+    },
+    {
+      "name": "016",
+      "note": "entire official domain: n=15; any valid rotated interval accepted"
+    },
+    {
+      "name": "017",
+      "note": "entire official domain: n=16; any valid rotated interval accepted"
+    },
+    {
+      "name": "018",
+      "note": "entire official domain: n=17; any valid rotated interval accepted"
+    },
+    {
+      "name": "019",
+      "note": "entire official domain: n=18; any valid rotated interval accepted"
+    },
+    {
+      "name": "020",
+      "note": "entire official domain: n=19; any valid rotated interval accepted"
+    },
+    {
+      "name": "021",
+      "note": "entire official domain: n=20; any valid rotated interval accepted"
+    },
+    {
+      "name": "022",
+      "note": "entire official domain: n=21; any valid rotated interval accepted"
+    },
+    {
+      "name": "023",
+      "note": "entire official domain: n=22; any valid rotated interval accepted"
+    },
+    {
+      "name": "024",
+      "note": "entire official domain: n=23; any valid rotated interval accepted"
+    },
+    {
+      "name": "025",
+      "note": "entire official domain: n=24; any valid rotated interval accepted"
+    },
+    {
+      "name": "026",
+      "note": "entire official domain: n=25; any valid rotated interval accepted"
+    },
+    {
+      "name": "027",
+      "note": "entire official domain: n=26; any valid rotated interval accepted"
+    },
+    {
+      "name": "028",
+      "note": "entire official domain: n=27; any valid rotated interval accepted"
+    },
+    {
+      "name": "029",
+      "note": "entire official domain: n=28; any valid rotated interval accepted"
+    },
+    {
+      "name": "030",
+      "note": "entire official domain: n=29; any valid rotated interval accepted"
+    },
+    {
+      "name": "031",
+      "note": "entire official domain: n=30; any valid rotated interval accepted"
+    },
+    {
+      "name": "032",
+      "note": "entire official domain: n=31; any valid rotated interval accepted"
+    },
+    {
+      "name": "033",
+      "note": "entire official domain: n=32; any valid rotated interval accepted"
+    },
+    {
+      "name": "034",
+      "note": "entire official domain: n=33; any valid rotated interval accepted"
+    },
+    {
+      "name": "035",
+      "note": "entire official domain: n=34; any valid rotated interval accepted"
+    },
+    {
+      "name": "036",
+      "note": "entire official domain: n=35; any valid rotated interval accepted"
+    },
+    {
+      "name": "037",
+      "note": "entire official domain: n=36; any valid rotated interval accepted"
+    },
+    {
+      "name": "038",
+      "note": "entire official domain: n=37; any valid rotated interval accepted"
+    },
+    {
+      "name": "039",
+      "note": "entire official domain: n=38; any valid rotated interval accepted"
+    },
+    {
+      "name": "040",
+      "note": "entire official domain: n=39; any valid rotated interval accepted"
+    },
+    {
+      "name": "041",
+      "note": "entire official domain: n=40; any valid rotated interval accepted"
+    },
+    {
+      "name": "042",
+      "note": "entire official domain: n=41; any valid rotated interval accepted"
+    },
+    {
+      "name": "043",
+      "note": "entire official domain: n=42; any valid rotated interval accepted"
+    },
+    {
+      "name": "044",
+      "note": "entire official domain: n=43; any valid rotated interval accepted"
+    },
+    {
+      "name": "045",
+      "note": "entire official domain: n=44; any valid rotated interval accepted"
+    },
+    {
+      "name": "046",
+      "note": "entire official domain: n=45; any valid rotated interval accepted"
+    },
+    {
+      "name": "047",
+      "note": "entire official domain: n=46; any valid rotated interval accepted"
+    },
+    {
+      "name": "048",
+      "note": "entire official domain: n=47; any valid rotated interval accepted"
+    },
+    {
+      "name": "049",
+      "note": "entire official domain: n=48; any valid rotated interval accepted"
+    },
+    {
+      "name": "050",
+      "note": "entire official domain: n=49; any valid rotated interval accepted"
+    },
+    {
+      "name": "051",
+      "note": "entire official domain: n=50; any valid rotated interval accepted"
+    },
+    {
+      "name": "052",
+      "note": "entire official domain: n=51; any valid rotated interval accepted"
+    },
+    {
+      "name": "053",
+      "note": "entire official domain: n=52; any valid rotated interval accepted"
+    },
+    {
+      "name": "054",
+      "note": "entire official domain: n=53; any valid rotated interval accepted"
+    },
+    {
+      "name": "055",
+      "note": "entire official domain: n=54; any valid rotated interval accepted"
+    },
+    {
+      "name": "056",
+      "note": "entire official domain: n=55; any valid rotated interval accepted"
+    },
+    {
+      "name": "057",
+      "note": "entire official domain: n=56; any valid rotated interval accepted"
+    },
+    {
+      "name": "058",
+      "note": "entire official domain: n=57; any valid rotated interval accepted"
+    },
+    {
+      "name": "059",
+      "note": "entire official domain: n=58; any valid rotated interval accepted"
+    },
+    {
+      "name": "060",
+      "note": "entire official domain: n=59; any valid rotated interval accepted"
+    },
+    {
+      "name": "061",
+      "note": "entire official domain: n=60; any valid rotated interval accepted"
+    },
+    {
+      "name": "062",
+      "note": "entire official domain: n=61; any valid rotated interval accepted"
+    },
+    {
+      "name": "063",
+      "note": "entire official domain: n=62; any valid rotated interval accepted"
+    },
+    {
+      "name": "064",
+      "note": "entire official domain: n=63; any valid rotated interval accepted"
+    },
+    {
+      "name": "065",
+      "note": "entire official domain: n=64; any valid rotated interval accepted"
+    },
+    {
+      "name": "066",
+      "note": "entire official domain: n=65; any valid rotated interval accepted"
+    },
+    {
+      "name": "067",
+      "note": "entire official domain: n=66; any valid rotated interval accepted"
+    },
+    {
+      "name": "068",
+      "note": "entire official domain: n=67; any valid rotated interval accepted"
+    },
+    {
+      "name": "069",
+      "note": "entire official domain: n=68; any valid rotated interval accepted"
+    },
+    {
+      "name": "070",
+      "note": "entire official domain: n=69; any valid rotated interval accepted"
+    },
+    {
+      "name": "071",
+      "note": "entire official domain: n=70; any valid rotated interval accepted"
+    },
+    {
+      "name": "072",
+      "note": "entire official domain: n=71; any valid rotated interval accepted"
+    },
+    {
+      "name": "073",
+      "note": "entire official domain: n=72; any valid rotated interval accepted"
+    },
+    {
+      "name": "074",
+      "note": "entire official domain: n=73; any valid rotated interval accepted"
+    },
+    {
+      "name": "075",
+      "note": "entire official domain: n=74; any valid rotated interval accepted"
+    },
+    {
+      "name": "076",
+      "note": "entire official domain: n=75; any valid rotated interval accepted"
+    },
+    {
+      "name": "077",
+      "note": "entire official domain: n=76; any valid rotated interval accepted"
+    },
+    {
+      "name": "078",
+      "note": "entire official domain: n=77; any valid rotated interval accepted"
+    },
+    {
+      "name": "079",
+      "note": "entire official domain: n=78; any valid rotated interval accepted"
+    },
+    {
+      "name": "080",
+      "note": "entire official domain: n=79; any valid rotated interval accepted"
+    },
+    {
+      "name": "081",
+      "note": "entire official domain: n=80; any valid rotated interval accepted"
+    },
+    {
+      "name": "082",
+      "note": "entire official domain: n=81; any valid rotated interval accepted"
+    },
+    {
+      "name": "083",
+      "note": "entire official domain: n=82; any valid rotated interval accepted"
+    },
+    {
+      "name": "084",
+      "note": "entire official domain: n=83; any valid rotated interval accepted"
+    },
+    {
+      "name": "085",
+      "note": "entire official domain: n=84; any valid rotated interval accepted"
+    },
+    {
+      "name": "086",
+      "note": "entire official domain: n=85; any valid rotated interval accepted"
+    },
+    {
+      "name": "087",
+      "note": "entire official domain: n=86; any valid rotated interval accepted"
+    },
+    {
+      "name": "088",
+      "note": "entire official domain: n=87; any valid rotated interval accepted"
+    },
+    {
+      "name": "089",
+      "note": "entire official domain: n=88; any valid rotated interval accepted"
+    },
+    {
+      "name": "090",
+      "note": "entire official domain: n=89; any valid rotated interval accepted"
+    },
+    {
+      "name": "091",
+      "note": "entire official domain: n=90; any valid rotated interval accepted"
+    },
+    {
+      "name": "092",
+      "note": "entire official domain: n=91; any valid rotated interval accepted"
+    },
+    {
+      "name": "093",
+      "note": "entire official domain: n=92; any valid rotated interval accepted"
+    },
+    {
+      "name": "094",
+      "note": "entire official domain: n=93; any valid rotated interval accepted"
+    },
+    {
+      "name": "095",
+      "note": "entire official domain: n=94; any valid rotated interval accepted"
+    },
+    {
+      "name": "096",
+      "note": "entire official domain: n=95; any valid rotated interval accepted"
+    },
+    {
+      "name": "097",
+      "note": "entire official domain: n=96; any valid rotated interval accepted"
+    },
+    {
+      "name": "098",
+      "note": "entire official domain: n=97; any valid rotated interval accepted"
+    },
+    {
+      "name": "099",
+      "note": "entire official domain: n=98; any valid rotated interval accepted"
+    }
+  ]
+}
