@@ -1,0 +1,99 @@
+{
+  "judging": "tokens",
+  "reference": "1948_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "corpus_00",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_01",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_02",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_03",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_04",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_05",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_06",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_07",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_08",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_09",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_10",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_11",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_12",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_13",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_14",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_15",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "corpus_16",
+      "note": "independent corpus: literal small sums, coefficient bounds, exact square boundaries, seeded large cases"
+    },
+    {
+      "name": "max_answer",
+      "note": "1000 queries with maximum possible answer"
+    },
+    {
+      "name": "max_pell",
+      "note": "1000 exact large square boundaries and immediate neighbors"
+    },
+    {
+      "name": "single_no_root",
+      "note": "one query: first second already impossible"
+    },
+    {
+      "name": "whitespace",
+      "note": "1000 large queries with tabs and trailing spaces"
+    },
+    {
+      "name": "zero",
+      "note": "one query: exactly one possible second"
+    }
+  ]
+}

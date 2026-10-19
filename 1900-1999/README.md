@@ -52,3 +52,4 @@
 | 1945 | [Coloring Multiplicative Families with Valuations](1945/) | number_theory | C++, Go, Python, Java, Rust |
 | 1946 | [Counting Sorted Goal Tables](1946/) | dp | C++, Go, Python, Java, Rust |
 | 1947 | [Tracing a Meander](1947/) | bruteforce | C++, Go, Python, Java, Rust |
+| 1948 | [The First Impossible Return](1948/) | math | C++, Go, Python, Java, Rust |
