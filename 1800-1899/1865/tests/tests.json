@@ -1,0 +1,20 @@
+{
+  "judging": "checker",
+  "reference": "1865_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the border goes round the lighthouse" },
+    { "name": "04", "note": "the lighthouse next to the coast column, too large" },
+    { "name": "05", "note": "a small island where rows are pushed west" },
+    { "name": "06", "note": "the largest lighthouse on the largest island" },
+    { "name": "07", "note": "a large lighthouse that just fits" },
+    { "name": "08", "note": "the narrowest island" },
+    { "name": "09", "note": "the lighthouse next to the coast column, fits" },
+    { "name": "gen1", "generator": "1 1", "note": "a small island" },
+    { "name": "gen2", "generator": "2 2", "note": "the largest island, a small lighthouse" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest island, a lighthouse near the limit" },
+    { "name": "gen4", "generator": "4 4", "note": "a long thin island" },
+    { "name": "gen5", "generator": "5 5", "note": "a random island and lighthouse" }
+  ]
+}
