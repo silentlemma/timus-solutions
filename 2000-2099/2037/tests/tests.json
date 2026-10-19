@@ -1,0 +1,176 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2037_constructive.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "003",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "004",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "005",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "006",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "007",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "008",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "009",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "010",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "011",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "012",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "013",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "014",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "015",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "016",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "017",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "018",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "019",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "020",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "021",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "022",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "023",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "024",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "025",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "026",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "027",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "028",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "029",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "030",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "031",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "032",
+      "note": "binary palindrome feasibility transitions and semantically valid alternative words"
+    },
+    {
+      "name": "gen_phase_1",
+      "generator": "2037 phase_1",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_phase_2",
+      "generator": "2037 phase_2",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_phase_3",
+      "generator": "2037 phase_3",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_phase_4",
+      "generator": "2037 phase_4",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_phase_5",
+      "generator": "2037 phase_5",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_phase_0",
+      "generator": "2037 phase_0",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_near_max",
+      "generator": "2037 near_max",
+      "note": "near-maximum output size, all period residues and n=2000"
+    },
+    {
+      "name": "gen_maximum",
+      "generator": "2037 maximum",
+      "note": "near-maximum output size, all period residues and n=2000"
+    }
+  ]
+}
