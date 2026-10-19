@@ -1,0 +1,17 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1836_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "an empty aquarium" },
+    { "name": "03", "note": "a dry corner touching zero, a contradiction, two dry corners on one diagonal, the largest volume" },
+    { "name": "04", "note": "several dry corners: ambiguous or impossible" },
+    { "name": "05", "note": "a dry corner at zero, an impossible dry corner, a level surface" },
+    { "name": "06", "note": "the largest dry corner case and an ambiguous one" },
+    { "name": "07", "note": "dry corners below the bottom: a triangle without water" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small aquariums" },
+    { "name": "gen2", "generator": "2 2", "note": "the most tests from true planes" },
+    { "name": "gen3", "generator": "3 3", "note": "the largest sizes and levels" },
+    { "name": "gen4", "generator": "4 4", "note": "random readings with many zeros" }
+  ]
+}

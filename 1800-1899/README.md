@@ -40,3 +40,4 @@
 | 1833 | [Hopes of Rowing](1833/) | matching | C++, Go, Python, Java, Rust |
 | 1834 | [Tennis Racket](1834/) | constructive | C++, Go, Python, Java, Rust |
 | 1835 | [Swamp Doctor](1835/) | strings | C++, Go, Python, Java, Rust |
+| 1836 | [Babel Fish](1836/) | geometry | C++, Go, Python, Java, Rust |
