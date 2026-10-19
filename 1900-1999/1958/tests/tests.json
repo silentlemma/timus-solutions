@@ -1,0 +1,298 @@
+{
+  "judging": "checker",
+  "reference": "1958_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_003",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_004",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_005",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_006",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_007",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_008",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_009",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_010",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_011",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_012",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_013",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_014",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_015",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_016",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_017",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_018",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_019",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_020",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_021",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_022",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_023",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_024",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_025",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_026",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_027",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_028",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_029",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_030",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_031",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_032",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_033",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_034",
+      "note": "all_permutations_through_n4"
+    },
+    {
+      "name": "case_035",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_036",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_037",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_038",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_039",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_040",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_041",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_042",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_043",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_044",
+      "note": "five_element_permutations"
+    },
+    {
+      "name": "case_045",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_046",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_047",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_048",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_049",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_050",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_051",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_052",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_053",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_054",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_055",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_056",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_057",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_058",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_059",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_060",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_061",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_062",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_063",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "case_064",
+      "note": "medium_physical_replay"
+    },
+    {
+      "name": "maximum_identity",
+      "generator": "identity 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_reverse",
+      "generator": "reverse 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_reverse_prefix",
+      "generator": "reverse_prefix 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_random",
+      "generator": "random 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_alternating",
+      "generator": "alternating 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_left",
+      "generator": "left 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    },
+    {
+      "name": "maximum_right",
+      "generator": "right 500 1958",
+      "note": "n500; potentially large operation output is generated"
+    }
+  ]
+}
