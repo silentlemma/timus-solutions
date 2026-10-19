@@ -1,0 +1,4 @@
+1
+Foo() : int
+1
+auto x = foo()

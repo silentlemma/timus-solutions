@@ -1,0 +1,9 @@
+3
+ReadInt() : int
+ReadReal() : real
+SumRealInt(real, int) : real
+4
+auto x = ReadInt()
+auto y = ReadReal()
+real z = SumRealInt(y, x)
+real q = SumRealInt(x, y)

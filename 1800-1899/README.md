@@ -95,3 +95,4 @@
 | 1888 | [Pilot Work Experience](1888/) | bfs | C++, Go, Python, Java, Rust |
 | 1889 | [Airport Announcements](1889/) | bruteforce | C++, Go, Python, Java, Rust |
 | 1890 | [Money out of Thin Air](1890/) | fenwick | C++, Go, Python, Java, Rust |
+| 1891 | [Language Ocean](1891/) | parsing | C++, Go, Python, Java, Rust |

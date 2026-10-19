@@ -1,0 +1,4 @@
+1
+ReadInt() : int
+1
+real x = ReadInt()

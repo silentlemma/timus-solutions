@@ -1,0 +1,7 @@
+2
+ReadInt() : int
+IntToReal(int) : real
+3
+auto a = ReadInt()
+auto b = IntToReal(a)
+int c = ReadInt()
