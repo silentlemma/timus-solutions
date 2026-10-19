@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1826_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two soldiers cross once" },
+    { "name": "03", "note": "three soldiers" },
+    { "name": "04", "note": "the classic 1 2 5 10: pairing the slow ones wins" },
+    { "name": "05", "note": "equal times" },
+    { "name": "06", "note": "one fast escort and four slow" },
+    { "name": "07", "note": "a hundred of the slowest" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random soldiers" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred random soldiers" },
+    { "name": "gen3", "generator": "3 3", "note": "two fast and many slow" },
+    { "name": "gen4", "generator": "4 4", "note": "close times" }
+  ]
+}
