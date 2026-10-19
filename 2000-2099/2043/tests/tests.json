@@ -1,0 +1,419 @@
+{
+  "judging": "tokens",
+  "reference": "2043_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample: 14 base steps and refill detours 2 and 4",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "003",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "004",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "005",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "006",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "007",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "008",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "009",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "010",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "011",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "012",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "013",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "014",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "015",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "016",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "017",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "018",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "019",
+      "note": "stratified literal small serpentine walks"
+    },
+    {
+      "name": "020",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "021",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "022",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "023",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "024",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "025",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "026",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "027",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "028",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "029",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "030",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "031",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "032",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "033",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "034",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "035",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "036",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "037",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "038",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "039",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "040",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "041",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "042",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "043",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "044",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "045",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "046",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "047",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "048",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "049",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "050",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "051",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "052",
+      "note": "single dimension, top/bottom column boundary, and final no-refill"
+    },
+    {
+      "name": "053",
+      "note": "swapping width and height changes the south-boundary detours"
+    },
+    {
+      "name": "054",
+      "note": "swapping width and height changes the south-boundary detours"
+    },
+    {
+      "name": "055",
+      "note": "swapping width and height changes the south-boundary detours"
+    },
+    {
+      "name": "056",
+      "note": "swapping width and height changes the south-boundary detours"
+    },
+    {
+      "name": "057",
+      "note": "huge coordinates with at most 200 literal refill detours"
+    },
+    {
+      "name": "058",
+      "note": "huge coordinates with at most 200 literal refill detours"
+    },
+    {
+      "name": "059",
+      "note": "huge coordinates with at most 200 literal refill detours"
+    },
+    {
+      "name": "060",
+      "note": "huge coordinates with at most 200 literal refill detours"
+    },
+    {
+      "name": "061",
+      "note": "huge coordinates with at most 200 literal refill detours"
+    },
+    {
+      "name": "062",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "063",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "064",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "065",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "066",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "067",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "068",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "069",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "070",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "071",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "072",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "073",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "074",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "075",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "076",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "077",
+      "note": "accepted comparison inputs, independently rechecked by offset/coordinate check"
+    },
+    {
+      "name": "078",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "079",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "080",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "081",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "082",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "083",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "084",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "085",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "086",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "087",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "088",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "089",
+      "note": "period zero, midpoint symmetry and complementary prefix cutoffs"
+    },
+    {
+      "name": "max_columns_small_k",
+      "note": "ten full-domain cases: columns_small_k"
+    },
+    {
+      "name": "max_columns_large_k",
+      "note": "ten full-domain cases: columns_large_k"
+    },
+    {
+      "name": "max_columns_unit_capacity",
+      "note": "ten full-domain cases: columns_unit_capacity"
+    },
+    {
+      "name": "max_residue_forward",
+      "note": "ten full-domain cases: residue_forward"
+    },
+    {
+      "name": "max_residue_mirror",
+      "note": "ten full-domain cases: residue_mirror"
+    },
+    {
+      "name": "max_residue_huge_height",
+      "note": "ten full-domain cases: residue_huge_height"
+    },
+    {
+      "name": "max_odd_period_many_cycles",
+      "note": "ten full-domain cases: odd_period_many_cycles"
+    },
+    {
+      "name": "max_even_period_many_cycles",
+      "note": "ten full-domain cases: even_period_many_cycles"
+    },
+    {
+      "name": "max_zero_residue",
+      "note": "ten full-domain cases: zero_residue"
+    },
+    {
+      "name": "max_top_bottom_transitions",
+      "note": "ten full-domain cases: top_bottom_transitions"
+    },
+    {
+      "name": "max_one_column",
+      "note": "ten full-domain cases: one_column"
+    },
+    {
+      "name": "max_one_row",
+      "note": "ten full-domain cases: one_row"
+    },
+    {
+      "name": "max_capacity_end",
+      "note": "ten full-domain cases: capacity_end"
+    },
+    {
+      "name": "max_modular_edges",
+      "note": "ten full-domain cases: modular_edges"
+    }
+  ]
+}
