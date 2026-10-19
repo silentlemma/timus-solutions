@@ -1,0 +1,460 @@
+{
+  "judging": "tokens",
+  "reference": "1957_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_003",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_004",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_005",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_006",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_007",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_008",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_009",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_010",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_011",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_012",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_013",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_014",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_015",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_016",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_017",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_018",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_019",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_020",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_021",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_022",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_023",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_024",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_025",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_026",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_027",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_028",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_029",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_030",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_031",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_032",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_033",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_034",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_035",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_036",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_037",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_038",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_039",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_040",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_041",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_042",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_043",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_044",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_045",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_046",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_047",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_048",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_049",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_050",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_051",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_052",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_053",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_054",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_055",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_056",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_057",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_058",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_059",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_060",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_061",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_062",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_063",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_064",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_065",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_066",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_067",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_068",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_069",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_070",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_071",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_072",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_073",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_074",
+      "note": "independent_accepted_executable"
+    },
+    {
+      "name": "case_075",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_076",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_077",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_078",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_079",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_080",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_081",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_082",
+      "note": "complete_one_match_margin_classes_above_ten"
+    },
+    {
+      "name": "case_083",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_084",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_085",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_086",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_087",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_088",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_089",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_090",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_091",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_092",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_093",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_094",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_095",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_096",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_097",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_098",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_099",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_100",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_101",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_102",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_103",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_104",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_105",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_106",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_107",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_108",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_109",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_110",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_111",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "case_112",
+      "note": "exact_extreme_score_standings"
+    },
+    {
+      "name": "coefficient_certificate",
+      "generator": "certificate",
+      "note": "finite proof of all5832coefficient families, then empty tournament"
+    }
+  ]
+}
