@@ -1,0 +1,343 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1990_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "example": true,
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_002",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_003",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_004",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_005",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_006",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_007",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_008",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_009",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_010",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_011",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_012",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_013",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_014",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_015",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_016",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_017",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_018",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_019",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_020",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_021",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_022",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_023",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_024",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_025",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_026",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_027",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_028",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_029",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_030",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_031",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_032",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_033",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_034",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_035",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_036",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_037",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_038",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_039",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_040",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_041",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_042",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_043",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_044",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_045",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_046",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_047",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_048",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_049",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_050",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_051",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_052",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_053",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_054",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_055",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_056",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_057",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_058",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_059",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_060",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_061",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_062",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_063",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_064",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_065",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_066",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_067",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_068",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_069",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_070",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_071",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_072",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_073",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "case_074",
+      "note": "exact Fraction arrangement optimum"
+    },
+    {
+      "name": "gen_unique_levels",
+      "generator": "1990 unique_levels",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_same_level",
+      "generator": "1991 same_level",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_zigzag",
+      "generator": "1992 zigzag",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_staggered",
+      "generator": "1993 staggered",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_wide_sparse",
+      "generator": "1994 wide_sparse",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_outside",
+      "generator": "1995 outside",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_late_pinch",
+      "generator": "1996 late_pinch",
+      "note": "maximum closed form"
+    },
+    {
+      "name": "gen_interleaved",
+      "generator": "2000 interleaved",
+      "note": "maximum three interleaved height sets"
+    }
+  ]
+}
