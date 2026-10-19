@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2076_geometry_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the parabola y = x^2" },
+    { "name": "02", "note": "a point, a line, rays and parabolas, with exact boundary cases" },
+    { "name": "gen1", "generator": "1 1", "note": "small coefficients across all four curve types" },
+    { "name": "gen2", "generator": "2 2", "note": "large coordinates across points, lines, rays and parabolas" },
+    { "name": "gen3", "generator": "3 3", "note": "radii based on the distance from P to C and capped at the input limit" },
+    { "name": "03", "note": "minimum T and radius with P equal to the single curve point" },
+    { "name": "04", "note": "single-point curves at and beyond the radius boundary with extreme coordinates" },
+    { "name": "05", "note": "oblique lines with a huge displacement along the line and small normal distance" },
+    { "name": "06", "note": "line distances on either side of radius one and a nearly cancelling determinant" },
+    { "name": "07", "note": "rays with fractional endpoints and both signs of the quadratic coefficient" },
+    { "name": "08", "note": "negative oblique rays where the endpoint shift and perpendicular projection both matter" },
+    { "name": "09", "note": "disks tangent behind an oblique parabola vertex with radii one unit to either side" },
+    { "name": "10", "note": "nearest point changes from the vertex to two symmetric points at axial coordinate two" },
+    { "name": "11", "note": "off-vertex exact tangency and adjacent axial coordinates at small and huge scales" },
+    { "name": "12", "note": "the same parabola under parameter reversal and large parameter translations" },
+    { "name": "13", "note": "moving P far perpendicular to a parabola axis must leave every answer unchanged" },
+    { "name": "14", "note": "huge almost parallel parabola vectors with determinant one and cancelling dot products" },
+    { "name": "15", "note": "extreme signed coefficients and radii exercise the largest integer products" },
+    { "name": "16", "note": "seeded stress witnesses retain every attainable answer for each curve type" },
+    { "name": "17", "generator": "4 207617", "note": "maximum T with huge determinant-one parabolas and tiny radii" },
+    { "name": "18", "generator": "5 207618", "note": "maximum T with randomly rotated exact off-vertex tangencies and unit perturbations" },
+    { "name": "19", "generator": "6 207619", "note": "maximum T with random huge ray endpoints just inside or outside a disk" },
+    { "name": "20", "generator": "7 207620", "note": "maximum T with seeded oblique parabolas straddling the nearest-point transition" }
+  ]
+}
