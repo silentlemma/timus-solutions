@@ -1,0 +1,11 @@
+{
+  "judging": "exact",
+  "reference": "2111_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one city" },
+    { "name": "gen1", "generator": "1 1", "note": "a few cities" },
+    { "name": "gen2", "generator": "2 2", "note": "10^5 random roads" },
+    { "name": "gen3", "generator": "3 3", "note": "10^5 roads of the largest length: (10^9)^2" }
+  ]
+}
