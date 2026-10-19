@@ -1,0 +1,107 @@
+{
+  "judging": "tokens",
+  "reference": "1928_games_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "zero budget, no personal gift"
+    },
+    {
+      "name": "03",
+      "note": "zero budget and zero gift"
+    },
+    {
+      "name": "04",
+      "note": "single forced affordable request"
+    },
+    {
+      "name": "05",
+      "note": "zero gift versus positive grant"
+    },
+    {
+      "name": "06",
+      "note": "equal personal gift and exact grant"
+    },
+    {
+      "name": "07",
+      "note": "personal gift replaces unaffordable grant"
+    },
+    {
+      "name": "08",
+      "note": "largest budget allowing immediate gift"
+    },
+    {
+      "name": "09",
+      "note": "gift cannot be requested at budget equal to limit"
+    },
+    {
+      "name": "10",
+      "note": "one step above request limit"
+    },
+    {
+      "name": "11",
+      "note": "exact budget can beat opponent gift"
+    },
+    {
+      "name": "12",
+      "note": "gift through alternating turns"
+    },
+    {
+      "name": "13",
+      "note": "secondary preference changes result"
+    },
+    {
+      "name": "14",
+      "note": "secondary preference after longer history"
+    },
+    {
+      "name": "15",
+      "note": "zero gift, all paid money conserved"
+    },
+    {
+      "name": "16",
+      "note": "max budget, forced unit requests"
+    },
+    {
+      "name": "17",
+      "note": "odd budget, forced unit requests"
+    },
+    {
+      "name": "18",
+      "note": "all maximum parameters"
+    },
+    {
+      "name": "19",
+      "note": "max budget/limit, zero gift"
+    },
+    {
+      "name": "20",
+      "note": "minimal positive gift at max budget"
+    },
+    {
+      "name": "21",
+      "note": "gift just below request limit"
+    },
+    {
+      "name": "22",
+      "note": "odd budget, gift equals limit"
+    },
+    {
+      "name": "23",
+      "note": "nonmultiple maximum-scale budget"
+    },
+    {
+      "name": "24",
+      "note": "small limit and large gift"
+    },
+    {
+      "name": "25",
+      "note": "zero gift, nontrivial odd limit"
+    }
+  ]
+}
