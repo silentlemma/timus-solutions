@@ -1,0 +1,17 @@
+{
+  "judging": "tokens",
+  "reference": "1878_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one layer a quarter turn off" },
+    { "name": "02", "note": "already solved" },
+    { "name": "03", "note": "solved but turned as a whole" },
+    { "name": "04", "note": "every layer in its own orientation" },
+    { "name": "05", "note": "two layers half a turn from the other two" },
+    { "name": "06", "note": "one layer half a turn off" },
+    { "name": "07", "note": "three layers agree, the fourth half a turn off" },
+    { "name": "gen1", "generator": "1 1", "note": "every layer turned at random" },
+    { "name": "gen2", "generator": "2 2", "note": "at most one layer turned" },
+    { "name": "gen3", "generator": "3 3", "note": "layers turned by half turns" },
+    { "name": "gen4", "generator": "4 4", "note": "solved, turned as a whole" }
+  ]
+}
