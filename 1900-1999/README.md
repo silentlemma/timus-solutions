@@ -68,3 +68,4 @@
 | 1961 | [Most Likely Population Count](1961/) | math | C++, Go, Python, Java, Rust |
 | 1962 | [Circular Seating with Required Neighbors](1962/) | graphs | C++, Go, Python, Java, Rust |
 | 1963 | [Boundary Points on Reflection Axes](1963/) | geometry | C++, Go, Python, Java, Rust |
+| 1964 | [Smallest Common Membership](1964/) | math | C++, Go, Python, Java, Rust |
