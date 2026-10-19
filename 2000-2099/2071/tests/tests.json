@@ -1,0 +1,16 @@
+{
+  "judging": "checker",
+  "reference": "2071_bitmask_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single glass of all three juices" },
+    { "name": "03", "note": "all seven cocktails" },
+    { "name": "04", "note": "two cocktails with nothing in common" },
+    { "name": "05", "note": "one cocktail for everybody" },
+    { "name": "06", "note": "two cocktails taking turns" },
+    { "name": "gen1", "generator": "1 1", "note": "a few glasses" },
+    { "name": "gen2", "generator": "1 2", "note": "a few glasses, another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "10^5 glasses of all cocktails" },
+    { "name": "gen4", "generator": "3 4", "note": "10^5 glasses of some cocktails" }
+  ]
+}
