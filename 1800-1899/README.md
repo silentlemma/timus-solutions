@@ -42,3 +42,4 @@
 | 1835 | [Swamp Doctor](1835/) | strings | C++, Go, Python, Java, Rust |
 | 1836 | [Babel Fish](1836/) | geometry | C++, Go, Python, Java, Rust |
 | 1837 | [Isenbaev's Number](1837/) | bfs | C++, Go, Python, Java, Rust |
+| 1838 | [Samurai's Stroke](1838/) | math | C++, Go, Python, Java, Rust |

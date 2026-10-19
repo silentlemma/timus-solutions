@@ -1,0 +1,24 @@
+{
+  "judging": "tokens",
+  "reference": "1838_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the shortest stalk: every cut drops a part" },
+    { "name": "03", "note": "two supports near the ends" },
+    { "name": "04", "note": "three supports" },
+    { "name": "05", "note": "the longest stalk on two supports near the ends" },
+    { "name": "06", "note": "a gap in the middle with a safe stretch" },
+    { "name": "gen1", "generator": "1 1", "note": "a short stalk" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum support count scattered across a long stalk" },
+    { "name": "gen3", "generator": "3 3", "note": "supports packed near the middle" },
+    { "name": "gen4", "generator": "4 4", "note": "two supports one unit from either end" },
+    { "name": "07", "note": "the whole stalk balances exactly on its leftmost support" },
+    { "name": "08", "note": "both parts can balance only at a single cut point of zero length" },
+    { "name": "09", "note": "both inner supports clip the safe stretch inside a wide central gap" },
+    { "name": "10", "note": "seeded random supports leave three separated safe stretches" },
+    { "name": "11", "note": "a seeded odd-length stalk has a safe stretch ending at an interior support" },
+    { "name": "12", "note": "maximum length with a long left overhang limiting the safe cuts" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum support count with every interior integer position occupied" },
+    { "name": "gen6", "generator": "1838 6", "note": "maximum length and count with two random bands separated by a huge gap" }
+  ]
+}
