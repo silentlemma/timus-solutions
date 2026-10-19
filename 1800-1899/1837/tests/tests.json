@@ -1,0 +1,19 @@
+{
+  "judging": "tokens",
+  "reference": "1837_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no Isenbaev in the input, leaving everyone undefined" },
+    { "name": "03", "note": "one team with Isenbaev" },
+    { "name": "04", "note": "a team repeated" },
+    { "name": "05", "note": "a short chain of teams" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred random teams" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain reaching number 100" },
+    { "name": "06", "note": "prefix sorting, one-letter and 20-letter surnames, and near matches to Isenbaev" },
+    { "name": "07", "note": "late source teams create shortcuts around a cycle; use the shortest chain" },
+    { "name": "08", "note": "a hundred disjoint teams with 300 distinct contestants and all surnames except Isenbaev at the length limit" },
+    { "name": "09", "note": "a hundred teams share only Isenbaev in the last column; all 200 teammates have number one" },
+    { "name": "10", "generator": "4 4", "note": "seeded random teams in two connected components, only one containing Isenbaev" }
+  ]
+}
