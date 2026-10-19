@@ -1,0 +1,30 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1840_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: one segment" },
+    { "name": "02", "example": true, "note": "the second example: a quarter circle of radius 4" },
+    { "name": "03", "note": "the longest single segment, cruising at the speed limit" },
+    { "name": "04", "note": "a U-turn on a half circle" },
+    { "name": "05", "note": "lines meeting behind: the long way around" },
+    { "name": "06", "note": "a sharp corner: a stop" },
+    { "name": "07", "note": "two wide turns without lengthening any segment" },
+    { "name": "08", "note": "the next segment starts behind the turn" },
+    { "name": "gen1", "generator": "1 1", "note": "a few random segments" },
+    { "name": "gen2", "generator": "2 2", "note": "the maximum number of random segments across the coordinate range" },
+    { "name": "gen3", "generator": "3 3", "note": "short segments in a small box at the segment count limit" },
+    { "name": "gen4", "generator": "4 4", "note": "many U-turns" },
+    { "name": "gen5", "generator": "5 5", "note": "long sides around a square" },
+    { "name": "09", "note": "the shortest integer segment, directed toward negative x" },
+    { "name": "10", "note": "exactly enough straight distance to touch speed 10 without cruising" },
+    { "name": "11", "note": "radius 100 puts an arc exactly at the global speed cap with short end segments" },
+    { "name": "12", "note": "an oblique U-turn extends the second segment backward before a further turn" },
+    { "name": "13", "note": "both neighbours lengthen the same short middle segment" },
+    { "name": "14", "note": "nearly opposite integer directions create a tiny positive radius without being parallel" },
+    { "name": "15", "note": "braking for a tight final turn propagates across a short segment into a wide arc" },
+    { "name": "16", "note": "mixed obtuse and clockwise turns require nonintegral tangent lengths and radii" },
+    { "name": "17", "note": "a retained seeded small path mixes a major arc with two very different speed caps" },
+    { "name": "gen6", "generator": "184006 6", "note": "a thousand connected unit segments require 999 exact stops and summation of independent rest-to-rest rides" },
+    { "name": "gen7", "generator": "184007 7", "note": "a thousand almost parallel lattice segments stress huge major arcs and tiny direction determinants" }
+  ]
+}
