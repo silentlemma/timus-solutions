@@ -100,3 +100,4 @@
 | 2093 | [Fastest route over roads that snow slows down](2093/) | dijkstra | C++, Go, Python, Java, Rust |
 | 2094 | [When to take a seat in a filling row](2094/) | dp, probability | C++, Go, Python, Java, Rust |
 | 2095 | [Count the days a repeated removal sieve keeps](2095/) | math | C++, Go, Python, Java, Rust |
+| 2096 | [Questions about plans derived from earlier plans](2096/) | dfs, trees | C++, Go, Python, Java, Rust |
