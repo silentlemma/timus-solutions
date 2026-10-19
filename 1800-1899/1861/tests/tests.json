@@ -1,0 +1,25 @@
+{
+  "judging": "tokens",
+  "reference": "1861_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a partially erased name at the end of the inscription" },
+    { "name": "02", "example": true, "note": "the second example: two copies that cannot overlap" },
+    { "name": "03", "note": "the shortest inscription" },
+    { "name": "04", "note": "copies that overlap by all but one letter" },
+    { "name": "05", "note": "copies that overlap by one letter" },
+    { "name": "06", "note": "no copy fits" },
+    { "name": "07", "note": "letters of different case differ" },
+    { "name": "gen1", "generator": "1 1", "note": "short strings over two letters" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest inscription with many \"?\"" },
+    { "name": "gen3", "generator": "3 3", "note": "only \"?\" and a name of one repeated letter" },
+    { "name": "gen4", "generator": "4 4", "note": "a name with many periods" },
+    { "name": "gen5", "generator": "5 5", "note": "copies of the name, a few letters worn away" },
+    { "name": "gen6", "generator": "6 6", "note": "a name as long as the inscription" },
+    { "name": "08", "note": "random stress case where taking the earliest fitting copy loses a later pair" },
+    { "name": "09", "note": "a chain needs a longer period when the shortest-period continuation is blocked" },
+    { "name": "10", "note": "a maximum-length name fails only at its last letter despite all preceding wildcards" },
+    { "name": "11", "note": "half-length unbordered name allows exactly two touching copies at maximum input size" },
+    { "name": "12", "note": "seeded maximum-length input with a one-letter name counts wildcards and exact uppercase matches" },
+    { "name": "13", "note": "fixed letters outside the name separate independent groups of overlapping copies" }
+  ]
+}
