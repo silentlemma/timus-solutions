@@ -1,0 +1,23 @@
+{
+  "judging": "checker",
+  "reference": "1867_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: three atoms in a row" },
+    { "name": "02", "example": true, "note": "the second example: the triangle inequality fails" },
+    { "name": "03", "example": true, "note": "the third example: two atoms in one spot" },
+    { "name": "04", "note": "an equilateral triangle has no integer corners" },
+    { "name": "05", "note": "3 is not a sum of two squares" },
+    { "name": "06", "note": "the largest distance" },
+    { "name": "07", "note": "every atom in one spot" },
+    { "name": "08", "note": "the first atom at no distance from two atoms one apart" },
+    { "name": "09", "note": "only one of the ways to write 25 as a sum of squares works" },
+    { "name": "10", "note": "the same after a second atom on top of the first" },
+    { "name": "gen1", "generator": "1 1", "note": "a few atoms near each other" },
+    { "name": "gen2", "generator": "2 2", "note": "the most atoms spread far" },
+    { "name": "gen3", "generator": "3 3", "note": "one distance changed by one" },
+    { "name": "gen4", "generator": "4 4", "note": "atoms on a slanted line, some in one spot" },
+    { "name": "gen5", "generator": "5 5", "note": "the first distance a sum of two squares in many ways" },
+    { "name": "gen6", "generator": "6 6", "note": "a few atoms, one distance changed by one" },
+    { "name": "gen7", "generator": "7 7", "note": "atoms on a line and one off it" }
+  ]
+}
