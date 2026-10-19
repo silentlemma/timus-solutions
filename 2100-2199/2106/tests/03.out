@@ -1,0 +1,7 @@
+unsigned
+ int 0
+ int 1
+ int 2147483647
+ int 2147483648
+ int 4294967295
+ int 16909060
