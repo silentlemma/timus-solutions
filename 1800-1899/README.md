@@ -72,3 +72,4 @@
 | 1865 | [The Island of Märket](1865/) | constructive | C++, Go, Python, Java, Rust |
 | 1866 | [Poetic Foot](1866/) | parsing | C++, Go, Python, Java, Rust |
 | 1867 | [Nanotechnologies](1867/) | geometry | C++, Go, Python, Java, Rust |
+| 1868 | [Prediction Contest](1868/) | implementation | C++, Go, Python, Java, Rust |
