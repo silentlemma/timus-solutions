@@ -1,0 +1,32 @@
+{
+  "judging": "tokens",
+  "reference": "1925_math.cpp",
+  "cases": [
+    { "name": "01", "note": "statement example: correction", "example": true },
+    { "name": "02", "note": "statement example: impossible", "example": true },
+    { "name": "03", "note": "zero is valid even with negative ideal entry today" },
+    { "name": "04", "note": "negative one cannot be entered" },
+    { "name": "05", "note": "smallest positive correction" },
+    { "name": "06", "note": "negative initial balance recovers" },
+    { "name": "07", "note": "negative intermediate balance recovers" },
+    { "name": "08", "note": "history order does not alter the result" },
+    { "name": "09", "note": "an exact zero total" },
+    { "name": "10", "note": "zero display does not remove the required offset" },
+    { "name": "11", "note": "one-year lower bound" },
+    { "name": "12", "note": "answer may exceed every input number" },
+    { "name": "13", "note": "maximum answer is 9898" },
+    { "name": "14", "note": "minimum signed balance is negative 10201" },
+    { "name": "15", "note": "maximum history with exact zero correction" },
+    { "name": "16", "note": "past equality still accumulates the offset" },
+    { "name": "17", "note": "individually correct past inputs" },
+    { "name": "18", "note": "all years exactly satisfy the intended relation" },
+    { "name": "19", "note": "many small deficits accumulate" },
+    { "name": "20", "note": "many small excesses make correction impossible" },
+    { "name": "21", "note": "recover after a long negative prefix" },
+    { "name": "22", "note": "same totals in the opposite order" },
+    { "name": "23", "note": "mixed past errors overcome a negative initial balance and require a correction above one hundred" },
+    { "name": "24", "note": "a zero initial balance grows into a positive correction despite mixed past errors" },
+    { "name": "25", "note": "large past excesses make correction impossible despite a high current display" },
+    { "name": "26", "note": "mixed past inputs leave a negative final balance at the maximum current display" }
+  ]
+}
