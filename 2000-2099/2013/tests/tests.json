@@ -1,0 +1,258 @@
+{
+  "judging": "tokens",
+  "reference": "2013_graphs.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "explicit product graph of vertex and last positive value",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "explicit product graph of vertex and last positive value",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "004",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "005",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "006",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "007",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "008",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "009",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "010",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "011",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "012",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "013",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "014",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "015",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "016",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "017",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "018",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "019",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "020",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "021",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "022",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "023",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "024",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "025",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "026",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "027",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "028",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "029",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "030",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "031",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "032",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "033",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "034",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "035",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "036",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "037",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "038",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "039",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "040",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "041",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "042",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "043",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "044",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "045",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "046",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "047",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "048",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "049",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "050",
+      "note": "explicit product graph of vertex and last positive value"
+    },
+    {
+      "name": "gen_zero_chain",
+      "generator": "201300 zero_chain",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_zero_cycle",
+      "generator": "201301 zero_cycle",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_positive_chain",
+      "generator": "201302 positive_chain",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_positive_cycle",
+      "generator": "201303 positive_cycle",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_late_chain",
+      "generator": "201304 late_chain",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_late_cycle",
+      "generator": "201305 late_cycle",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_different_merge",
+      "generator": "201306 different_merge",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_same_merge",
+      "generator": "201307 same_merge",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_reset_merge",
+      "generator": "201308 reset_merge",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    },
+    {
+      "name": "gen_star",
+      "generator": "201309 star",
+      "note": "100000 vertices, up to 100000 edges; independently proved full-state pattern"
+    }
+  ]
+}
