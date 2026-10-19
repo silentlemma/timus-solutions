@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2100_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "one accompanied friend and two unaccompanied friends" },
+    { "name": "02", "example": true, "note": "the second example: 13 at the table, so a dummy too" },
+    { "name": "03", "note": "one friend alone" },
+    { "name": "04", "note": "twenty friends with partners" },
+    { "name": "gen1", "generator": "1 1", "note": "random responses" },
+    { "name": "gen2", "generator": "2 2", "note": "exactly 13 people before the dummy" },
+    { "name": "05", "note": "one friend arrives with a partner" },
+    { "name": "06", "note": "the couple and ten unaccompanied friends make twelve seats" },
+    { "name": "07", "note": "thirteen people trigger the required dummy seat" },
+    { "name": "08", "note": "fourteen people need no extra dummy" },
+    { "name": "09", "note": "the maximum number of friends arrive without partners" },
+    { "name": "11", "note": "maximum-length names mix partner suffixes and ordinary replies" },
+    { "name": "12", "note": "mixed capitalization and both reply forms are counted by suffix" }
+  ]
+}
