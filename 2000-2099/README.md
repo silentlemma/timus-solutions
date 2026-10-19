@@ -96,3 +96,4 @@
 | 2089 | [Pick winners so that no team wins twice](2089/) | graphs, greedy | C++, Go, Python, Java, Rust |
 | 2090 | [Crosswalk or traffic light: where each one wins](2090/) | math, probability | C++, Go, Python, Java, Rust |
 | 2091 | [Two courses that split the programs most evenly](2091/) | bruteforce | C++, Go, Python, Java, Rust |
+| 2092 | [One subscription plus single tickets at the lowest cost](2092/) | greedy, binary_search | C++, Go, Python, Java, Rust |
