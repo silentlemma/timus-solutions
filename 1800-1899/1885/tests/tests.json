@@ -1,0 +1,15 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1885_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest height and time" },
+    { "name": "03", "note": "a slow climb at x is enough" },
+    { "name": "04", "note": "the plane must climb at full speed all the way" },
+    { "name": "05", "note": "climbing at exactly x takes exactly t" },
+    { "name": "gen1", "generator": "1 1", "note": "any valid limits" },
+    { "name": "gen2", "generator": "2 2", "note": "a climb at x reaches h in time" },
+    { "name": "gen3", "generator": "3 3", "note": "a climb at x is too slow" },
+    { "name": "gen4", "generator": "4 4", "note": "h = t v" }
+  ]
+}
