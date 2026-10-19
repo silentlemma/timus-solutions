@@ -97,3 +97,4 @@
 | 1990 | [Widest horizontal segment through a corridor](1990/) | geometry, sorting | C++, Go, Python, Java, Rust |
 | 1991 | [Count unused supplies and unmatched targets](1991/) | implementation | C++, Go, Python, Java, Rust |
 | 1992 | [Share learning and undo histories](1992/) | trees, simulation | C++, Go, Python, Java, Rust |
+| 1993 | [Reorder marked phrases and fix capitalization](1993/) | parsing, strings | C++, Go, Python, Java, Rust |
