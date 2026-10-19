@@ -55,3 +55,4 @@
 | 1848 | [Fly Hunt](1848/) | geometry | C++, Go, Python, Java, Rust |
 | 1849 | [Rabbit Hunt 2](1849/) | sorting | C++, Go, Python, Java, Rust |
 | 1850 | [Space Tourism](1850/) | fenwick | C++, Go, Python, Java, Rust |
+| 1851 | [GOV-internship](1851/) | flow | C++, Go, Python, Java, Rust |
