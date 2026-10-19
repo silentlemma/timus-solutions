@@ -1,0 +1,24 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1884_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a car on the left arrives just as Egor leaves its lane" },
+    { "name": "03", "note": "one metre closer: Egor has to wait" },
+    { "name": "04", "note": "a car on the right arrives just as Egor leaves the road" },
+    { "name": "05", "note": "one metre closer on the right" },
+    { "name": "06", "note": "a gap between two cars exactly wide enough" },
+    { "name": "07", "note": "a gap one metre too narrow" },
+    { "name": "gen1", "generator": "1 1", "note": "a few cars close by" },
+    { "name": "gen2", "generator": "2 2", "note": "the most cars spread out" },
+    { "name": "gen3", "generator": "3 3", "note": "the most cars bumper to bumper" },
+    { "name": "gen4", "generator": "4 4", "note": "gaps Egor can just slip through" },
+    { "name": "gen5", "generator": "5 5", "note": "one car on each side far away" },
+    { "name": "08", "note": "minimum distances on both sides; the right car clears before Egor enters its lane" },
+    { "name": "09", "note": "a single safe instant between a near car clearing and a far car arriving" },
+    { "name": "10", "note": "random small road where right-lane cars fill exact gaps in the left-lane queue" },
+    { "name": "11", "note": "one near car followed by a blocking queue of 300 far-lane cars" },
+    { "name": "12", "note": "all 600 cars alternately extend the wait to 1296 seconds" },
+    { "name": "gen6", "generator": "8 1", "note": "seeded far-lane traffic delays the start until a near-lane car also blocks it" }
+  ]
+}
