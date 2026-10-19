@@ -1,0 +1,355 @@
+{
+  "judging": "checker",
+  "reference": "2022_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample 1",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "official sample 2",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "official sample 1"
+    },
+    {
+      "name": "004",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "005",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "006",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "007",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "008",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "009",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "010",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "011",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "012",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "013",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "014",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "015",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "016",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "017",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "018",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "019",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "020",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "021",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "022",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "023",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "024",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "025",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "026",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "027",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "028",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "029",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "030",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "031",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "032",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "033",
+      "note": "official sample 2"
+    },
+    {
+      "name": "034",
+      "note": "all binary small parameter combinations"
+    },
+    {
+      "name": "035",
+      "note": "all binary small parameter combinations"
+    },
+    {
+      "name": "036",
+      "note": "all binary small parameter combinations"
+    },
+    {
+      "name": "037",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "038",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "039",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "040",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "041",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "042",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "043",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "044",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "045",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "046",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "047",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "048",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "049",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "050",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "051",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "052",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "053",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "054",
+      "note": "random full integer bounds"
+    },
+    {
+      "name": "055",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "056",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "057",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "058",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "059",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "060",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "061",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "062",
+      "note": "random low heights/speeds, varied apex positions"
+    },
+    {
+      "name": "063",
+      "note": "both wall faces fit but interior apex hits ceiling"
+    },
+    {
+      "name": "064",
+      "note": "two separate feasible time components"
+    },
+    {
+      "name": "065",
+      "note": "single forbidden tangent time must split components"
+    },
+    {
+      "name": "066",
+      "note": "zero discriminant at floor gives no strict clearance"
+    },
+    {
+      "name": "067",
+      "note": "all maximum integer bounds"
+    },
+    {
+      "name": "068",
+      "note": "short before-wall flight domain"
+    },
+    {
+      "name": "069",
+      "note": "stone apex before wall"
+    },
+    {
+      "name": "070",
+      "note": "stone apex after wall"
+    },
+    {
+      "name": "071",
+      "note": "apex moves through both wall faces as throw time changes"
+    },
+    {
+      "name": "072",
+      "note": "robust component width 3.2e-6 close to landing"
+    },
+    {
+      "name": "073",
+      "note": "robust component width 5e-6 close to landing"
+    },
+    {
+      "name": "gen_all_maximum",
+      "generator": "20221000 all_maximum",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_large_integer_positive",
+      "generator": "20221001 large_integer_positive",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_two_components",
+      "generator": "20221002 two_components",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_ceiling_tangent",
+      "generator": "20221003 ceiling_tangent",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_near_landing",
+      "generator": "20221004 near_landing",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_apex_before",
+      "generator": "20221005 apex_before",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_apex_after",
+      "generator": "20221006 apex_after",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_switching_apex",
+      "generator": "20221007 switching_apex",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_short_domain",
+      "generator": "20221008 short_domain",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_random_full",
+      "generator": "20221009 random_full",
+      "note": "constant eight-value input; large bounds or geometric/numerical boundary"
+    },
+    {
+      "name": "gen_near_minimum_margin",
+      "generator": "20221010 near_minimum_margin",
+      "note": "feasible time width 2.004e-6; only 2 nanoseconds extra margin on either side"
+    }
+  ]
+}
