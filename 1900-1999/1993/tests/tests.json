@@ -1,0 +1,416 @@
+{
+  "judging": "exact",
+  "reference": "1993_parsing.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "independent grammar-tree expected output",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "independent grammar-tree expected output",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "04",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "05",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "06",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "07",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "08",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "09",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "10",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "11",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "12",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "13",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "14",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "15",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "16",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "17",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "18",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "19",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "20",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "21",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "22",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "23",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "24",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "25",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "26",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "27",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "28",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "29",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "30",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "31",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "32",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "33",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "34",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "35",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "36",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "37",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "38",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "39",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "40",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "41",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "42",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "43",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "44",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "45",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "46",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "47",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "48",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "49",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "50",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "51",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "52",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "53",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "54",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "55",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "56",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "57",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "58",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "59",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "60",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "61",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "62",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "63",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "64",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "65",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "66",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "67",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "68",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "69",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "70",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "71",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "72",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "73",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "74",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "75",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "76",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "77",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "78",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "79",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "80",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "81",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "82",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "83",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "84",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "85",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "86",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "87",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "88",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "89",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "90",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "91",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "92",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "93",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "94",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "95",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "96",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "97",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "98",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "99",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "100",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "101",
+      "note": "independent grammar-tree expected output"
+    },
+    {
+      "name": "102",
+      "note": "independent grammar-tree expected output"
+    }
+  ]
+}
