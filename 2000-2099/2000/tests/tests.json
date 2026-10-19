@@ -1,0 +1,427 @@
+{
+  "judging": "tokens",
+  "reference": "2000_games.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal minimax or independent arrival race/alternating guard simulation",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "003",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "004",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "005",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "006",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "007",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "008",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "009",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "010",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "011",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "012",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "013",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "014",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "015",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "016",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "017",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "018",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "019",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "020",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "021",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "022",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "023",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "024",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "025",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "026",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "027",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "028",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "029",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "030",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "031",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "032",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "033",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "034",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "035",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "036",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "037",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "038",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "039",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "040",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "041",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "042",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "043",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "044",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "045",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "046",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "047",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "048",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "049",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "050",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "051",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "052",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "053",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "054",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "055",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "056",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "057",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "058",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "059",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "060",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "061",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "062",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "063",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "064",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "065",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "066",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "067",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "068",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "069",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "070",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "071",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "072",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "073",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "074",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "075",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "076",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "077",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "078",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "079",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "080",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "081",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "082",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "083",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "084",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "085",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "086",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "087",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "088",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "089",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "090",
+      "note": "literal minimax or independent arrival race/alternating guard simulation"
+    },
+    {
+      "name": "gen_even_edge",
+      "generator": "2000 even_edge",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_odd_boundary",
+      "generator": "2001 odd_boundary",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_reversed",
+      "generator": "2002 reversed",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_adjacent",
+      "generator": "2003 adjacent",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_same_center",
+      "generator": "2004 same_center",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_same_edge",
+      "generator": "2005 same_edge",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_zeros",
+      "generator": "2006 zeros",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_spike_mid",
+      "generator": "2007 spike_mid",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_random_distinct",
+      "generator": "2008 random_distinct",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_random_same",
+      "generator": "2009 random_same",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_near_edge",
+      "generator": "2010 near_edge",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "2011 alternating",
+      "note": "maximum legal array; independent distance or literal alternating guard check"
+    }
+  ]
+}
