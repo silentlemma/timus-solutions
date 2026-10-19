@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2078_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "an opening ten with no later strike or spare" },
+    { "name": "02", "example": true, "note": "matching rising and falling totals around two consecutive tens" },
+    { "name": "03", "note": "maximum frame totals give a minimum of 130 and a maximum of 300" },
+    { "name": "04", "note": "no pins at all" },
+    { "name": "05", "note": "nine tens and an empty last frame" },
+    { "name": "06", "note": "no strikes or spares possible" },
+    { "name": "07", "note": "alternating tens and zeros followed by a last frame totaling ten" },
+    { "name": "08", "note": "a ten before a last frame of 21" },
+    { "name": "gen1", "generator": "1 1", "note": "random frames" },
+    { "name": "gen2", "generator": "2 2", "note": "mostly tens" },
+    { "name": "gen3", "generator": "2 3", "note": "seven ten-pin frames with a last-frame total of seventeen" },
+    { "name": "09", "note": "two consecutive tens share bonuses from a last frame totaling ten" },
+    { "name": "10", "note": "last-frame total twenty permits a spare and allows two strikes" },
+    { "name": "11", "note": "a one-pin frame stops consecutive-strike bonuses before the next ten" }
+  ]
+}
