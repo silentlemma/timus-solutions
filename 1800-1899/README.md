@@ -68,3 +68,4 @@
 | 1861 | [Graveyard in Deyja](1861/) | dp | C++, Go, Python, Java, Rust |
 | 1862 | [Very Wealthy Mole](1862/) | math | C++, Go, Python, Java, Rust |
 | 1863 | [Peaceful Atom](1863/) | meet_in_middle | C++, Go, Python, Java, Rust |
+| 1864 | [Get-Together at Den's](1864/) | math | C++, Go, Python, Java, Rust |

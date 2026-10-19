@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1864_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: equal shares" },
+    { "name": "02", "example": true, "note": "the second example: one friend paid" },
+    { "name": "03", "note": "the least juice" },
+    { "name": "04", "note": "a friend who bought a little less gets a little less" },
+    { "name": "05", "note": "several friends paid too much, rounded down" },
+    { "name": "gen1", "generator": "1 1", "note": "a few friends" },
+    { "name": "gen2", "generator": "2 2", "note": "the most friends at random" },
+    { "name": "gen3", "generator": "3 3", "note": "one friend bought all the juice" },
+    { "name": "gen4", "generator": "4 4", "note": "nearly equal purchases" }
+  ]
+}
