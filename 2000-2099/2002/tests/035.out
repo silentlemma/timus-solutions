@@ -1,0 +1,4 @@
+fail: no such user
+fail: no such user
+success: new user added
+fail: already logged out

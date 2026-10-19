@@ -1,0 +1,8 @@
+fail: no such user
+fail: no such user
+fail: no such user
+success: new user added
+fail: no such user
+success: new user added
+fail: incorrect password
+success: new user added
