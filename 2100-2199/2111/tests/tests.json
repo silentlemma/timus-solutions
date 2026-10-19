@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2111_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one city" },
+    { "name": "gen1", "generator": "1 1", "note": "a few cities" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum city count with random road lengths" },
+    { "name": "gen3", "generator": "3 3", "note": "maximum city count and road lengths reach a cost of 10^18" },
+    { "name": "03", "note": "minimum city count and minimum road length" },
+    { "name": "04", "note": "two unequal endpoint lengths include the shared cargo cost" },
+    { "name": "05", "note": "seven equal roads require counting every repeated delivery" },
+    { "name": "06", "note": "total length 46340 gives the largest square below signed 32-bit overflow" },
+    { "name": "07", "note": "total length 46341 gives the first square above signed 32-bit range" },
+    { "name": "08", "note": "unsorted mixed lengths exercise changing loads and return journeys" },
+    { "name": "09", "generator": "4 0", "note": "maximum city count with every road at the minimum length" },
+    { "name": "10", "generator": "5 2111", "note": "shuffled endpoint lengths give an odd cost above exact double precision" }
+  ]
+}

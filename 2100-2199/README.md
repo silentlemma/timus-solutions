@@ -15,3 +15,4 @@
 | 2108 | [Closing a set of figures under wish rules](2108/) | bitmask | C++, Go, Python, Java, Rust |
 | 2109 | [Common ancestor of a range of consecutive vertices](2109/) | trees, dp | C++, Go, Python, Java, Rust |
 | 2110 | [Largest OR after deleting exactly k numbers](2110/) | bitmask, dp, backtracking | C++, Go, Python, Java, Rust |
+| 2111 | [Delivery cost that does not depend on the order](2111/) | math | C++, Go, Python, Java, Rust |
