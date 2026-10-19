@@ -1,0 +1,29 @@
+{
+  "judging": "tokens",
+  "reference": "1882_shortest_paths.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single name" },
+    { "name": "03", "note": "two names: one step down" },
+    { "name": "04", "note": "names that extend each other" },
+    { "name": "05", "note": "names on the slowest key: going up is cheaper" },
+    { "name": "06", "note": "a name and its three one-letter extensions" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short names" },
+    { "name": "gen2", "generator": "2 2", "note": "many short names near the total length limit" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain of increasingly long names made only of a" },
+    { "name": "gen4", "generator": "4 4", "note": "names sharing long prefixes" },
+    { "name": "gen5", "generator": "5 5", "note": "random long names" },
+    { "name": "gen6", "generator": "6 6", "note": "every name up to 12 letters over s and z" },
+    { "name": "07", "note": "every keypad letter as a name, including erase shortcuts to s" },
+    { "name": "08", "note": "all two-letter names exercise every child key and filtered wrap" },
+    { "name": "09", "note": "random book where erasing t reaches the preceding r name faster" },
+    { "name": "10", "note": "random branching book with an optimal type, wrap, erase, and down route" },
+    { "name": "11", "note": "terminal prefixes remain in lists with singleton and two-name child filters" },
+    { "name": "12", "note": "random nested s and z prefixes distinguish four presses from three" },
+    { "name": "13", "note": "identical long suffixes under different initial letters form separate filters" },
+    { "name": "14", "generator": "1882 7", "note": "one 100000-letter name reaches the maximum individual length" },
+    { "name": "15", "generator": "1882 8", "note": "maximum feasible count of 29751 distinct names uses all 100000 letters" },
+    { "name": "16", "generator": "18822026 9", "note": "seeded unequal prefix families mix terminal names with cheap and slow branches" },
+    { "name": "17", "generator": "1882 10", "note": "a 49999-letter terminal prefix and its extension use the full length limit" }
+  ]
+}
