@@ -1,0 +1,303 @@
+{
+  "judging": "tokens",
+  "reference": "2052_dp.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal order, decimal carry or full-range digit-rank boundary",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "003",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "004",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "005",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "006",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "007",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "008",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "009",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "010",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "011",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "012",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "013",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "014",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "015",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "016",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "017",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "018",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "019",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "020",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "021",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "022",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "023",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "024",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "025",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "026",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "027",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "028",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "029",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "030",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "031",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "032",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "033",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "034",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "035",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "036",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "037",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "038",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "039",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "040",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "041",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "042",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "043",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "044",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "045",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "046",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "047",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "048",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "049",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "050",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "051",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "052",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "053",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "054",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "055",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "056",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "057",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "058",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "059",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "060",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "061",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "062",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "063",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "064",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "065",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "066",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "067",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "068",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_billion",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_all_nines",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_before_nines",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_mixed_digits",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_many_eights",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    },
+    {
+      "name": "max_large_fixed_boundary",
+      "note": "literal order, decimal carry or full-range digit-rank boundary"
+    }
+  ]
+}
