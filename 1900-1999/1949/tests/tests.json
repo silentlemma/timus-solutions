@@ -1,0 +1,236 @@
+{
+  "judging": "tokens",
+  "reference": "1949_matching.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "single_min",
+      "note": "one shortest film at minimum values"
+    },
+    {
+      "name": "single_max",
+      "note": "one full-day film with maximum count"
+    },
+    {
+      "name": "lex_count",
+      "note": "earliest priority beats a feasible two-film set"
+    },
+    {
+      "name": "touch_equal",
+      "note": "equal counts and touching endpoints form one chain"
+    },
+    {
+      "name": "count_drop",
+      "note": "nonoverlap alone does not permit a count decrease"
+    },
+    {
+      "name": "reverse_time",
+      "note": "priority order differs from chronological order"
+    },
+    {
+      "name": "overlap_equal",
+      "note": "identical films still need separate students"
+    },
+    {
+      "name": "everyone",
+      "note": "enough students for every film"
+    },
+    {
+      "name": "small_00",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_01",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_02",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_03",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_04",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_05",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_06",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_07",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_08",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_09",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_10",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "small_11",
+      "note": "literal student-assignment and lexicographic exhaustive witness"
+    },
+    {
+      "name": "max_chain",
+      "note": "maximum_equal_count_touching_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_reverse",
+      "note": "maximum_reverse_priority_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_02",
+      "note": "maximum_equal_count_touching_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_03",
+      "note": "maximum_reverse_priority_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_04",
+      "note": "maximum_equal_count_touching_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_05",
+      "note": "maximum_reverse_priority_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_06",
+      "note": "maximum_equal_count_touching_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_07",
+      "note": "maximum_reverse_priority_chain; accepted executable crosscheck"
+    },
+    {
+      "name": "max_08",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_09",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_10",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_11",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_12",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_13",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_14",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_15",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_16",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_17",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_18",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_19",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_20",
+      "note": "maximum_all_overlap; accepted executable crosscheck"
+    },
+    {
+      "name": "max_21",
+      "note": "maximum_decreasing_counts; accepted executable crosscheck"
+    },
+    {
+      "name": "max_22",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_23",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_24",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_25",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_26",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_27",
+      "note": "seeded_maximum_mixed; accepted executable crosscheck"
+    },
+    {
+      "name": "max_28",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_29",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_30",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_31",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_32",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_rearrange",
+      "note": "seeded_maximum_rearrangements; accepted executable crosscheck"
+    },
+    {
+      "name": "max_whitespace",
+      "note": "maximum input with tabs and trailing spaces"
+    }
+  ]
+}
