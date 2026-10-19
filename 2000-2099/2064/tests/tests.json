@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "2064_math_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small caterpillars" },
+    { "name": "gen2", "generator": "2 2", "note": "many small values" },
+    { "name": "gen3", "generator": "3 3", "note": "values around the query times" },
+    { "name": "gen4", "generator": "4 4", "note": "the largest input, values up to 10^9" },
+    { "name": "gen5", "generator": "5 5", "note": "the largest input, values below the query times" },
+    { "name": "gen6", "generator": "6 6", "note": "one caterpillar taller than every query" },
+    { "name": "gen7", "generator": "7 1", "note": "a few small caterpillars, another seed" }
+  ]
+}

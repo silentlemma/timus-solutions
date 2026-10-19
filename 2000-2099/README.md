@@ -68,3 +68,4 @@
 | 2061 | [Counting rich binary words](2061/) | strings, bruteforce | C++, Go, Python, Java, Rust |
 | 2062 | [Accumulate radiation at divisors](2062/) | fenwick | C++, Go, Python, Java, Rust |
 | 2063 | [Same colours without looking](2063/) | constructive | C++, Go, Python, Java, Rust |
+| 2064 | [The highest of many zigzags](2064/) | math, prefix_sums | C++, Go, Python, Java, Rust |
