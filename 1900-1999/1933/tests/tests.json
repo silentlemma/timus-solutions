@@ -1,0 +1,487 @@
+{
+  "judging": "checker",
+  "reference": "1933_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "03",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "04",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "05",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "06",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "07",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "08",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "09",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "10",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "11",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "12",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "13",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "14",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "15",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "16",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "17",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "18",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "19",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "20",
+      "note": "all legal sizes; independent circle-method witness"
+    },
+    {
+      "name": "size21",
+      "generator": "21",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size22",
+      "generator": "22",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size23",
+      "generator": "23",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size24",
+      "generator": "24",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size25",
+      "generator": "25",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size26",
+      "generator": "26",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size27",
+      "generator": "27",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size28",
+      "generator": "28",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size29",
+      "generator": "29",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size30",
+      "generator": "30",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size31",
+      "generator": "31",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size32",
+      "generator": "32",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size33",
+      "generator": "33",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size34",
+      "generator": "34",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size35",
+      "generator": "35",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size36",
+      "generator": "36",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size37",
+      "generator": "37",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size38",
+      "generator": "38",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size39",
+      "generator": "39",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size40",
+      "generator": "40",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size41",
+      "generator": "41",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size42",
+      "generator": "42",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size43",
+      "generator": "43",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size44",
+      "generator": "44",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size45",
+      "generator": "45",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size46",
+      "generator": "46",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size47",
+      "generator": "47",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size48",
+      "generator": "48",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size49",
+      "generator": "49",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size50",
+      "generator": "50",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size51",
+      "generator": "51",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size52",
+      "generator": "52",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size53",
+      "generator": "53",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size54",
+      "generator": "54",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size55",
+      "generator": "55",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size56",
+      "generator": "56",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size57",
+      "generator": "57",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size58",
+      "generator": "58",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size59",
+      "generator": "59",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size60",
+      "generator": "60",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size61",
+      "generator": "61",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size62",
+      "generator": "62",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size63",
+      "generator": "63",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size64",
+      "generator": "64",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size65",
+      "generator": "65",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size66",
+      "generator": "66",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size67",
+      "generator": "67",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size68",
+      "generator": "68",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size69",
+      "generator": "69",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size70",
+      "generator": "70",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size71",
+      "generator": "71",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size72",
+      "generator": "72",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size73",
+      "generator": "73",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size74",
+      "generator": "74",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size75",
+      "generator": "75",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size76",
+      "generator": "76",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size77",
+      "generator": "77",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size78",
+      "generator": "78",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size79",
+      "generator": "79",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size80",
+      "generator": "80",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size81",
+      "generator": "81",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size82",
+      "generator": "82",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size83",
+      "generator": "83",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size84",
+      "generator": "84",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size85",
+      "generator": "85",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size86",
+      "generator": "86",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size87",
+      "generator": "87",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size88",
+      "generator": "88",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size89",
+      "generator": "89",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size90",
+      "generator": "90",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size91",
+      "generator": "91",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size92",
+      "generator": "92",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size93",
+      "generator": "93",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size94",
+      "generator": "94",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size95",
+      "generator": "95",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size96",
+      "generator": "96",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size97",
+      "generator": "97",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size98",
+      "generator": "98",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size99",
+      "generator": "99",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    },
+    {
+      "name": "size100",
+      "generator": "100",
+      "note": "all legal sizes; expected matrix generated to avoid stored-file limits"
+    }
+  ]
+}
