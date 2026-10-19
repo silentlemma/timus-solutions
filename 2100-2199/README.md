@@ -19,3 +19,4 @@
 | 2112 | [Checking a shooter match log and guessing the teams](2112/) | dsu, greedy, simulation | C++, Go, Python, Java, Rust |
 | 2113 | [Smallest jump height to outrun a spreading flood](2113/) | bfs, binary_search | C++, Go, Python, Java, Rust |
 | 2114 | [Heaviest right triangle of a given size in a grid](2114/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 2115 | [Sort a line with at most one swap](2115/) | sorting | C++, Go, Python, Java, Rust |

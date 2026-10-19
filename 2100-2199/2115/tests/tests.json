@@ -1,0 +1,21 @@
+{
+  "judging": "checker",
+  "reference": "2115_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: already sorted" },
+    { "name": "02", "example": true, "note": "the second example; any fixing swap is accepted" },
+    { "name": "03", "note": "a single student" },
+    { "name": "04", "note": "repeated heights fixed by one swap" },
+    { "name": "05", "note": "a descending line with the last two swapped" },
+    { "name": "06", "note": "two separate disorders" },
+    { "name": "gen1", "generator": "1 1", "note": "a short line" },
+    { "name": "gen2", "generator": "1 2", "note": "one student is already ordered in both directions" },
+    { "name": "gen3", "generator": "2 3", "note": "a long sorted line with one swap" },
+    { "name": "gen4", "generator": "3 4", "note": "a long sorted line with two swaps" },
+    { "name": "gen5", "generator": "4 5", "note": "a long descending line with repeats and one swap" },
+    { "name": "07", "note": "two distinct students are already descending without a swap" },
+    { "name": "08", "note": "one descent across a plateau still needs more than one swap" },
+    { "name": "09", "note": "only swapping both endpoints sorts a line with interior plateaus" },
+    { "name": "gen6", "generator": "5 2115", "note": "maximum length with every height equal is already sorted" }
+  ]
+}
