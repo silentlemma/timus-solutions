@@ -1,0 +1,680 @@
+{
+  "judging": "tokens",
+  "reference": "2040_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official_sample; literal distinct-palindrome prefix-set check",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "003",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "004",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "005",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "006",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "007",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "008",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "009",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "010",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "011",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "012",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "013",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "014",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "015",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "016",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "017",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "018",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "019",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "020",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "021",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "022",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "023",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "024",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "025",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "026",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "027",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "028",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "029",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "030",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "031",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "032",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "033",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "034",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "035",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "036",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "037",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "038",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "039",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "040",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "041",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "042",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "043",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "044",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "045",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "046",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "047",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "048",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "049",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "050",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "051",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "052",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "053",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "054",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "055",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "056",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "057",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "058",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "059",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "060",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "061",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "062",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "063",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "064",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "065",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "066",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "067",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "068",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "069",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "070",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "071",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "072",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "073",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "074",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "075",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "076",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "077",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "078",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "079",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "080",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "081",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "082",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "083",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "084",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "085",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "086",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "087",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "088",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "089",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "090",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "091",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "092",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "093",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "094",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "095",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "096",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "097",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "098",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "099",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "100",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "101",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "102",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "103",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "104",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "105",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "106",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "107",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "108",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "109",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "110",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "111",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "112",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "113",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "114",
+      "note": "unary; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "115",
+      "note": "alternating; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "116",
+      "note": "periodic_defect; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "117",
+      "note": "one_separator; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "118",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "119",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "120",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "121",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "122",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "123",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "124",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "125",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "126",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "127",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "128",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "129",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "130",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "131",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "132",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "133",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "134",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "135",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "136",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "137",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "138",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "139",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "140",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "141",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "142",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "143",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "144",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "145",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "146",
+      "note": "random; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "147",
+      "note": "all_binary_through14; literal distinct-palindrome prefix-set check"
+    },
+    {
+      "name": "gen_unary_a",
+      "generator": "2040 unary_a",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_unary_b",
+      "generator": "2040 unary_b",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_alternating_a",
+      "generator": "2040 alternating_a",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_alternating_b",
+      "generator": "2040 alternating_b",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_periodic_aab",
+      "generator": "2040 periodic_aab",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_periodic_nonrich",
+      "generator": "2040 periodic_nonrich",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_random_binary",
+      "generator": "2040 random_binary",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_one_separator",
+      "generator": "2040 one_separator",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_long_blocks",
+      "generator": "2040 long_blocks",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_thue_morse",
+      "generator": "2040 thue_morse",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_fibonacci",
+      "generator": "2040 fibonacci",
+      "note": "5000000 characters; full independent Manacher/SAM and accepted-executable certificate"
+    },
+    {
+      "name": "gen_boundary255",
+      "generator": "255 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    },
+    {
+      "name": "gen_boundary256",
+      "generator": "256 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    },
+    {
+      "name": "gen_boundary257",
+      "generator": "257 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    },
+    {
+      "name": "gen_boundary65535",
+      "generator": "65535 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    },
+    {
+      "name": "gen_boundary65536",
+      "generator": "65536 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    },
+    {
+      "name": "gen_boundary65537",
+      "generator": "65537 boundary",
+      "note": "alternating word; every prefix introduces one palindrome; 24-bit field boundary"
+    }
+  ]
+}
