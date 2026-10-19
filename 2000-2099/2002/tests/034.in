@@ -1,0 +1,13 @@
+12
+register u p
+logout u
+login u q
+login u p
+register u q
+login u q
+login u p
+logout u
+login u q
+login u p
+logout u
+logout u

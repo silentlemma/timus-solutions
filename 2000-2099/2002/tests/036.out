@@ -1,0 +1,8 @@
+success: new user added
+success: new user added
+fail: incorrect password
+fail: incorrect password
+success: user logged in
+success: user logged in
+success: user logged out
+fail: already logged in
