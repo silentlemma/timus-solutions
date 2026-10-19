@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "2068_games.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "a single heap of one nut: no move at all" },
+    { "name": "05", "note": "five nuts: two moves" },
+    { "name": "06", "note": "the largest heap" },
+    { "name": "07", "note": "three heaps of three" },
+    { "name": "08", "note": "the largest heap with an odd number of moves" },
+    { "name": "gen1", "generator": "1 1", "note": "small heaps" },
+    { "name": "gen2", "generator": "2 2", "note": "random heaps" },
+    { "name": "gen3", "generator": "2 3", "note": "random heaps, another seed" },
+    { "name": "gen4", "generator": "3 4", "note": "777 heaps near the largest size" }
+  ]
+}
