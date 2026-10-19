@@ -1,0 +1,396 @@
+{
+  "judging": "tokens",
+  "reference": "1976_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "single_base_1x2_at_0"
+    },
+    {
+      "name": "case_003",
+      "note": "single_base_1x2_at_1"
+    },
+    {
+      "name": "case_004",
+      "note": "single_base_2x1_at_0"
+    },
+    {
+      "name": "case_005",
+      "note": "single_base_2x1_at_1"
+    },
+    {
+      "name": "case_006",
+      "note": "single_base_1x1000_at_0"
+    },
+    {
+      "name": "case_007",
+      "note": "single_base_1x1000_at_999"
+    },
+    {
+      "name": "case_008",
+      "note": "single_base_1000x1_at_0"
+    },
+    {
+      "name": "case_009",
+      "note": "single_base_1000x1_at_999"
+    },
+    {
+      "name": "case_010",
+      "note": "single_base_2x9_at_0"
+    },
+    {
+      "name": "case_011",
+      "note": "single_base_2x9_at_17"
+    },
+    {
+      "name": "case_012",
+      "note": "single_base_9x2_at_0"
+    },
+    {
+      "name": "case_013",
+      "note": "single_base_9x2_at_17"
+    },
+    {
+      "name": "case_014",
+      "note": "single_base_3x8_at_0"
+    },
+    {
+      "name": "case_015",
+      "note": "single_base_3x8_at_23"
+    },
+    {
+      "name": "case_016",
+      "note": "single_base_8x3_at_0"
+    },
+    {
+      "name": "case_017",
+      "note": "single_base_8x3_at_23"
+    },
+    {
+      "name": "case_018",
+      "note": "every_single_base_location_5x5_0"
+    },
+    {
+      "name": "case_019",
+      "note": "every_single_base_location_5x5_1"
+    },
+    {
+      "name": "case_020",
+      "note": "every_single_base_location_5x5_2"
+    },
+    {
+      "name": "case_021",
+      "note": "every_single_base_location_5x5_3"
+    },
+    {
+      "name": "case_022",
+      "note": "every_single_base_location_5x5_4"
+    },
+    {
+      "name": "case_023",
+      "note": "every_single_base_location_5x5_5"
+    },
+    {
+      "name": "case_024",
+      "note": "every_single_base_location_5x5_6"
+    },
+    {
+      "name": "case_025",
+      "note": "every_single_base_location_5x5_7"
+    },
+    {
+      "name": "case_026",
+      "note": "every_single_base_location_5x5_8"
+    },
+    {
+      "name": "case_027",
+      "note": "every_single_base_location_5x5_9"
+    },
+    {
+      "name": "case_028",
+      "note": "every_single_base_location_5x5_10"
+    },
+    {
+      "name": "case_029",
+      "note": "every_single_base_location_5x5_11"
+    },
+    {
+      "name": "case_030",
+      "note": "every_single_base_location_5x5_12"
+    },
+    {
+      "name": "case_031",
+      "note": "every_single_base_location_5x5_13"
+    },
+    {
+      "name": "case_032",
+      "note": "every_single_base_location_5x5_14"
+    },
+    {
+      "name": "case_033",
+      "note": "every_single_base_location_5x5_15"
+    },
+    {
+      "name": "case_034",
+      "note": "every_single_base_location_5x5_16"
+    },
+    {
+      "name": "case_035",
+      "note": "every_single_base_location_5x5_17"
+    },
+    {
+      "name": "case_036",
+      "note": "every_single_base_location_5x5_18"
+    },
+    {
+      "name": "case_037",
+      "note": "every_single_base_location_5x5_19"
+    },
+    {
+      "name": "case_038",
+      "note": "every_single_base_location_5x5_20"
+    },
+    {
+      "name": "case_039",
+      "note": "every_single_base_location_5x5_21"
+    },
+    {
+      "name": "case_040",
+      "note": "every_single_base_location_5x5_22"
+    },
+    {
+      "name": "case_041",
+      "note": "every_single_base_location_5x5_23"
+    },
+    {
+      "name": "case_042",
+      "note": "every_single_base_location_5x5_24"
+    },
+    {
+      "name": "case_043",
+      "note": "diagonal_ties"
+    },
+    {
+      "name": "case_044",
+      "note": "two_base_unequal_vertical_costs"
+    },
+    {
+      "name": "case_045",
+      "note": "envelope_pop_and_tie"
+    },
+    {
+      "name": "case_046",
+      "note": "diagonal_odd_even_midpoints"
+    },
+    {
+      "name": "case_047",
+      "note": "anti_diagonal"
+    },
+    {
+      "name": "case_048",
+      "note": "cartesian_base_product"
+    },
+    {
+      "name": "case_049",
+      "note": "one_complete_base_row"
+    },
+    {
+      "name": "case_050",
+      "note": "one_complete_base_column"
+    },
+    {
+      "name": "case_051",
+      "note": "spaced_binary_cells"
+    },
+    {
+      "name": "case_052",
+      "note": "seeded_literal_grid_0"
+    },
+    {
+      "name": "case_053",
+      "note": "seeded_literal_grid_1"
+    },
+    {
+      "name": "case_054",
+      "note": "seeded_literal_grid_2"
+    },
+    {
+      "name": "case_055",
+      "note": "seeded_literal_grid_3"
+    },
+    {
+      "name": "case_056",
+      "note": "seeded_literal_grid_4"
+    },
+    {
+      "name": "case_057",
+      "note": "seeded_literal_grid_5"
+    },
+    {
+      "name": "case_058",
+      "note": "seeded_literal_grid_6"
+    },
+    {
+      "name": "case_059",
+      "note": "seeded_literal_grid_7"
+    },
+    {
+      "name": "case_060",
+      "note": "seeded_literal_grid_8"
+    },
+    {
+      "name": "case_061",
+      "note": "seeded_literal_grid_9"
+    },
+    {
+      "name": "case_062",
+      "note": "seeded_literal_grid_10"
+    },
+    {
+      "name": "case_063",
+      "note": "seeded_literal_grid_11"
+    },
+    {
+      "name": "case_064",
+      "note": "seeded_literal_grid_12"
+    },
+    {
+      "name": "case_065",
+      "note": "seeded_literal_grid_13"
+    },
+    {
+      "name": "case_066",
+      "note": "seeded_literal_grid_14"
+    },
+    {
+      "name": "case_067",
+      "note": "seeded_literal_grid_15"
+    },
+    {
+      "name": "case_068",
+      "note": "seeded_literal_grid_16"
+    },
+    {
+      "name": "case_069",
+      "note": "seeded_literal_grid_17"
+    },
+    {
+      "name": "case_070",
+      "note": "seeded_literal_grid_18"
+    },
+    {
+      "name": "case_071",
+      "note": "seeded_literal_grid_19"
+    },
+    {
+      "name": "case_072",
+      "note": "seeded_literal_grid_20"
+    },
+    {
+      "name": "case_073",
+      "note": "seeded_literal_grid_21"
+    },
+    {
+      "name": "case_074",
+      "note": "seeded_literal_grid_22"
+    },
+    {
+      "name": "case_075",
+      "note": "seeded_literal_grid_23"
+    },
+    {
+      "name": "case_076",
+      "note": "seeded_literal_grid_24"
+    },
+    {
+      "name": "case_077",
+      "note": "seeded_literal_grid_25"
+    },
+    {
+      "name": "case_078",
+      "note": "seeded_literal_grid_26"
+    },
+    {
+      "name": "case_079",
+      "note": "seeded_literal_grid_27"
+    },
+    {
+      "name": "case_080",
+      "note": "seeded_literal_grid_28"
+    },
+    {
+      "name": "case_081",
+      "note": "seeded_literal_grid_29"
+    },
+    {
+      "name": "max_corner",
+      "note": "1000x1000_corner",
+      "generator": "1976 corner"
+    },
+    {
+      "name": "max_corners",
+      "note": "1000x1000_corners",
+      "generator": "1976 corners"
+    },
+    {
+      "name": "max_center",
+      "note": "1000x1000_center",
+      "generator": "1976 center"
+    },
+    {
+      "name": "max_checkerboard",
+      "note": "1000x1000_checkerboard",
+      "generator": "1976 checkerboard"
+    },
+    {
+      "name": "max_diagonal",
+      "note": "1000x1000_diagonal",
+      "generator": "1976 diagonal"
+    },
+    {
+      "name": "max_antidiagonal",
+      "note": "1000x1000_antidiagonal",
+      "generator": "1976 antidiagonal"
+    },
+    {
+      "name": "max_lattice",
+      "note": "1000x1000_lattice",
+      "generator": "1976 lattice"
+    },
+    {
+      "name": "max_stripes",
+      "note": "1000x1000_stripes",
+      "generator": "1976 stripes"
+    },
+    {
+      "name": "max_block",
+      "note": "1000x1000_block",
+      "generator": "1976 block"
+    },
+    {
+      "name": "max_dense",
+      "note": "1000x1000_dense",
+      "generator": "1976 dense"
+    },
+    {
+      "name": "max_sparse",
+      "note": "1000x1000_sparse",
+      "generator": "1976 sparse"
+    },
+    {
+      "name": "max_nearly_full",
+      "note": "1000x1000_nearly_full",
+      "generator": "1976 nearly_full"
+    },
+    {
+      "name": "max_bottom_row",
+      "note": "1000x1000_bottom_row",
+      "generator": "1976 bottom_row"
+    }
+  ]
+}
