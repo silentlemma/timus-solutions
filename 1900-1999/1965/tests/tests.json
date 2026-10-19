@@ -1,0 +1,316 @@
+{
+  "judging": "checker",
+  "reference": "1965_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example_opposite",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "official_example_both_increasing",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "official_example_fail",
+      "example": true
+    },
+    {
+      "name": "case_004",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_005",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_006",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_007",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_008",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_009",
+      "note": "all_permutations_n3"
+    },
+    {
+      "name": "case_010",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_011",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_012",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_013",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_014",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_015",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_016",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_017",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_018",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_019",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_020",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_021",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_022",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_023",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_024",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_025",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_026",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_027",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_028",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_029",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_030",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_031",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_032",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_033",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_034",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_035",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_036",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_037",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_038",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_039",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_040",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_041",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_042",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_043",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_044",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_045",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_046",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_047",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_048",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_049",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_050",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_051",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_052",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_053",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_054",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_055",
+      "note": "literal_assignment_stratified"
+    },
+    {
+      "name": "case_056",
+      "note": "monotone_input_empty_group_repair"
+    },
+    {
+      "name": "case_057",
+      "note": "reverse_monotone_empty_group_repair"
+    },
+    {
+      "name": "case_058",
+      "note": "monotone_input_empty_group_repair"
+    },
+    {
+      "name": "case_059",
+      "note": "reverse_monotone_empty_group_repair"
+    },
+    {
+      "name": "case_060",
+      "note": "monotone_input_empty_group_repair"
+    },
+    {
+      "name": "case_061",
+      "note": "reverse_monotone_empty_group_repair"
+    },
+    {
+      "name": "case_062",
+      "note": "monotone_input_empty_group_repair"
+    },
+    {
+      "name": "case_063",
+      "note": "reverse_monotone_empty_group_repair"
+    },
+    {
+      "name": "max_inc",
+      "note": "full_bound_max_inc",
+      "generator": "1965 max_inc"
+    },
+    {
+      "name": "max_dec",
+      "note": "full_bound_max_dec",
+      "generator": "1966 max_dec"
+    },
+    {
+      "name": "max_two_inc",
+      "note": "full_bound_max_two_inc",
+      "generator": "1967 max_two_inc"
+    },
+    {
+      "name": "max_two_dec",
+      "note": "full_bound_max_two_dec",
+      "generator": "1968 max_two_dec"
+    },
+    {
+      "name": "max_mixed",
+      "note": "full_bound_max_mixed",
+      "generator": "1969 max_mixed"
+    },
+    {
+      "name": "max_mixed_reversed",
+      "note": "full_bound_max_mixed_reversed",
+      "generator": "1970 max_mixed_reversed"
+    },
+    {
+      "name": "max_late_fail",
+      "note": "full_bound_max_late_fail",
+      "generator": "1971 max_late_fail"
+    },
+    {
+      "name": "max_early_fail",
+      "note": "full_bound_max_early_fail",
+      "generator": "1972 max_early_fail"
+    },
+    {
+      "name": "random_two_inc",
+      "note": "full_bound_random_two_inc",
+      "generator": "1973 random_two_inc"
+    },
+    {
+      "name": "random_two_dec",
+      "note": "full_bound_random_two_dec",
+      "generator": "1974 random_two_dec"
+    },
+    {
+      "name": "random_mixed",
+      "note": "full_bound_random_mixed",
+      "generator": "1975 random_mixed"
+    }
+  ]
+}
