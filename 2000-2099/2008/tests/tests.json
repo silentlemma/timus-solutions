@@ -1,0 +1,225 @@
+{
+  "judging": "tokens",
+  "reference": "2008_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "70-digit independent square-root physics check",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "70-digit independent square-root physics check",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "70-digit independent square-root physics check",
+      "example": true
+    },
+    {
+      "name": "004",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "005",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "006",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "007",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "008",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "009",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "010",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "011",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "012",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "013",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "014",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "015",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "016",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "017",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "018",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "019",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "020",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "021",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "022",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "023",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "024",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "025",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "026",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "027",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "028",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "029",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "030",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "031",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "032",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "033",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "034",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "035",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "036",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "037",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "038",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "039",
+      "note": "70-digit independent square-root physics check"
+    },
+    {
+      "name": "gen_max",
+      "generator": "2008 max",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_zero",
+      "generator": "2008 zero",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_equal",
+      "generator": "2008 equal",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_beyond",
+      "generator": "2008 beyond",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_apex",
+      "generator": "2008 apex",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_above",
+      "generator": "2008 above",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_oneway",
+      "generator": "2008 oneway",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_sign",
+      "generator": "2008 sign",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_fall",
+      "generator": "2008 fall",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_diagonal_low",
+      "generator": "2008 diagonal_low",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_diagonal_high",
+      "generator": "2008 diagonal_high",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    },
+    {
+      "name": "gen_random",
+      "generator": "2008 random",
+      "note": "exact boundary, sign, overflow or coordinate-limit family"
+    }
+  ]
+}
