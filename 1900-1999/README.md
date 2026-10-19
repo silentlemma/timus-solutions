@@ -48,3 +48,4 @@
 | 1941 | [Counting Windows with a Given Multiset](1941/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1942 | [The Nearest Shift for the Largest Lattice Class](1942/) | geometry | C++, Go, Python, Java, Rust |
 | 1943 | [A Five-Card Winning Prefix](1943/) | bruteforce, constructive | C++, Go, Python, Java, Rust |
+| 1944 | [An ASCII Map with Point Priority](1944/) | implementation | C++, Go, Python, Java, Rust |
