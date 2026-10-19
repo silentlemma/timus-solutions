@@ -86,3 +86,4 @@
 | 2079 | [The Fibonacci residues that can follow a given one](2079/) | number_theory | C++, Go, Python, Java, Rust |
 | 2080 | [Keep the cards in order of their next use](2080/) | fenwick | C++, Go, Python, Java, Rust |
 | 2081 | [Decreasing times behind a faulty dial](2081/) | greedy | C++, Go, Python, Java, Rust |
+| 2082 | [Restore the betting since the bot's last turn](2082/) | simulation | C++, Go, Python, Java, Rust |

@@ -1,0 +1,32 @@
+{
+  "judging": "exact",
+  "reference": "2082_simulation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "fold call and raise before the bot's first turn" },
+    { "name": "02", "example": true, "note": "a bot call and opponent folds ending preflop" },
+    { "name": "03", "example": true, "note": "a bot check followed by an opening flop bet" },
+    { "name": "04", "example": true, "note": "the heads-up dealer calls the remaining half blind" },
+    { "name": "05", "note": "bot acts first without any missing actions" },
+    { "name": "06", "note": "short all-in call and a raise before the first bot turn" },
+    { "name": "07", "note": "raise increments differ from chips paid by previous callers" },
+    { "name": "08", "note": "the big blind keeps the option to check before the flop" },
+    { "name": "09", "note": "a completed zero-bet street followed by a bet and a raise" },
+    { "name": "10", "note": "a folded dealer still determines the next street starting seat" },
+    { "name": "11", "note": "zero known actions can precede a later bot turn on the next street" },
+    { "name": "12", "note": "zero known actions can precede a raise and reraise on the same street" },
+    { "name": "13", "note": "checks on the old street must leave new-street spending untouched" },
+    { "name": "14", "note": "a short all-in call before dealing and a new-street bet" },
+    { "name": "15", "note": "a previously all-in player is skipped on later streets" },
+    { "name": "16", "note": "maximum blinds ante and initial stacks in a heads-up game" },
+    { "name": "gen_random", "generator": "random 1", "note": "a preflop raise and calls completing the street" },
+    { "name": "gen_first", "generator": "first 2", "note": "first recognition call with no known actions" },
+    { "name": "gen_headsup", "generator": "headsup 3", "note": "heads-up action order and repeated bot turns" },
+    { "name": "gen_full", "generator": "full 1", "note": "nine players and circular action order" },
+    { "name": "gen_allin", "generator": "allin 5", "note": "all-in actions in the missing history" },
+    { "name": "gen_late", "generator": "late 6", "note": "recognition on the turn or river" },
+    { "name": "gen_long", "generator": "long 7", "note": "hundreds of known actions and maximum-length names" },
+    { "name": "17", "note": "ante exhaustion and both short blinds leave only two of nine players able to act" },
+    { "name": "18", "note": "exactly 1000 known raises followed by a completed preflop and checks before the next bot turn" },
+    { "name": "19", "note": "a bot call is followed by a small-blind raise while both other opponents are already all-in" }
+  ]
+}
