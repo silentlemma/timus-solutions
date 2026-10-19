@@ -1,0 +1,26 @@
+{
+  "judging": "tokens",
+  "reference": "2056_implementation.cpp",
+  "cases": [
+    { "name": "001", "note": "two fives followed by a four earn a high scholarship", "example": true },
+    { "name": "002", "note": "all three exams graded three give no scholarship", "example": true },
+    { "name": "003", "note": "a single grade of three disqualifies the student" },
+    { "name": "004", "note": "one exam graded four earns a common scholarship" },
+    { "name": "005", "note": "a five on the only exam earns a named scholarship" },
+    { "name": "006", "note": "perfect grades at the maximum exam count earn a named scholarship" },
+    { "name": "007", "note": "all fours across ten exams give a common scholarship" },
+    { "name": "008", "note": "a leading three overrides otherwise perfect grades" },
+    { "name": "009", "note": "a final three prevents a scholarship despite a high average" },
+    { "name": "010", "note": "a four and a five meet the inclusive average threshold" },
+    { "name": "011", "note": "two fours keep the average below the threshold despite a final five" },
+    { "name": "012", "note": "a leading four followed by two fives still earns a high scholarship" },
+    { "name": "013", "note": "equal blocks of fours and fives meet the threshold at the maximum exam count" },
+    { "name": "014", "note": "an average of 4.4 across ten exams falls just below the high scholarship threshold" },
+    { "name": "015", "note": "a majority of fives lifts the average above the threshold without perfect grades" },
+    { "name": "016", "note": "alternating fives and fours qualify at an average of exactly 4.5" },
+    { "name": "017", "note": "a lone final four rules out a named scholarship while preserving a high scholarship" },
+    { "name": "018", "note": "one five after nine fours is insufficient for a high scholarship" },
+    { "name": "019", "note": "a three disqualifies mixed grades even when the average exceeds 4.5" },
+    { "name": "020", "note": "five fives and four fours put an odd exam count just above the threshold" }
+  ]
+}
