@@ -1,0 +1,263 @@
+{
+  "judging": "checker",
+  "reference": "1954_dp.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction",
+      "example": true
+    },
+    {
+      "name": "case_04",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_05",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_06",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_07",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_08",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_09",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_10",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_11",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_12",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_13",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_14",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_15",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_16",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_17",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_18",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_19",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_20",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_21",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_22",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_23",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_24",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_25",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_26",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_27",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_28",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_29",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_30",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_31",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_32",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_33",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_34",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_35",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_36",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_37",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_38",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_39",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_40",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_41",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_42",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_43",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_44",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_45",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_46",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_47",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_48",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_49",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_50",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_51",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_52",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_53",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_54",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_55",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "case_56",
+      "note": "literal cut oracle; exact five nonempty palindromes and witness reconstruction"
+    },
+    {
+      "name": "uniform",
+      "generator": "1954 uniform",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    },
+    {
+      "name": "alternating_even",
+      "generator": "1954 alternating_even",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    },
+    {
+      "name": "distinct_cycle",
+      "generator": "1954 distinct_cycle",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    },
+    {
+      "name": "five_given_palindromes",
+      "generator": "1954 five_given_palindromes",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    },
+    {
+      "name": "zimin",
+      "generator": "1954 zimin",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    },
+    {
+      "name": "binary_random",
+      "generator": "1954 binary_random",
+      "note": "100000characters, generated to satisfy file-size rule; independent proof or accepted executable decision"
+    }
+  ]
+}
