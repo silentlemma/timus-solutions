@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "1870_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: 5" },
+    { "name": "02", "example": true, "note": "the second example: 8 is even" },
+    { "name": "03", "note": "the smallest board" },
+    { "name": "04", "note": "a prime board size coprime to 6" },
+    { "name": "05", "note": "an odd square divisible by 3" },
+    { "name": "06", "note": "the largest board, even" },
+    { "name": "07", "note": "a composite board size coprime to 6" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "a large board prime to 6" },
+    { "name": "gen3", "generator": "3 3", "note": "a large board divisible by 2 or 3" },
+    { "name": "gen4", "generator": "4 4", "note": "one of the largest boards" },
+    { "name": "08", "note": "the first size divisible by both 2 and 3" },
+    { "name": "09", "note": "a multiple of 5 with a factor of 2 is impossible despite having no factor of 3" },
+    { "name": "10", "note": "an odd multiple of 3 with a second prime factor is impossible" },
+    { "name": "11", "note": "the smallest feasible composite square needs wrapped diagonals" },
+    { "name": "12", "generator": "5 4", "note": "the largest feasible board fills nearly 100000 columns" },
+    { "name": "13", "generator": "0 5 99995", "note": "the largest feasible size congruent to 5 modulo 6" },
+    { "name": "14", "generator": "0 4", "note": "the largest odd board must be rejected for divisibility by 3" },
+    { "name": "15", "generator": "1875 2", "note": "a seeded random feasible composite with three distinct prime factors" }
+  ]
+}
