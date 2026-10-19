@@ -1,0 +1,52 @@
+{
+  "judging": "tokens",
+  "reference": "2012_math.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "entire-domain minute-clock simulation, first phase 7",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "entire-domain minute-clock simulation, first phase 5",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "entire-domain minute-clock simulation, first phase 1"
+    },
+    {
+      "name": "04",
+      "note": "entire-domain minute-clock simulation, first phase 2"
+    },
+    {
+      "name": "05",
+      "note": "entire-domain minute-clock simulation, first phase 3"
+    },
+    {
+      "name": "06",
+      "note": "entire-domain minute-clock simulation, first phase 4"
+    },
+    {
+      "name": "07",
+      "note": "entire-domain minute-clock simulation, first phase 6"
+    },
+    {
+      "name": "08",
+      "note": "entire-domain minute-clock simulation, first phase 8"
+    },
+    {
+      "name": "09",
+      "note": "entire-domain minute-clock simulation, first phase 9"
+    },
+    {
+      "name": "10",
+      "note": "entire-domain minute-clock simulation, first phase 10"
+    },
+    {
+      "name": "11",
+      "note": "entire-domain minute-clock simulation, first phase 11"
+    }
+  ]
+}
