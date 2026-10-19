@@ -49,3 +49,4 @@
 | 1842 | [Local Roots](1842/) | strings | C++, Go, Python, Java, Rust |
 | 1843 | [Cutting a Parallelepiped](1843/) | constructive | C++, Go, Python, Java, Rust |
 | 1844 | [Warlord of the Army of Mages](1844/) | dp | C++, Go, Python, Java, Rust |
+| 1845 | [Integer-valued Complex Determinant](1845/) | number_theory | C++, Go, Python, Java, Rust |
