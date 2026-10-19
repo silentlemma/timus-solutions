@@ -1,0 +1,111 @@
+{
+  "judging": "exact",
+  "reference": "1944_implementation.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "origin covers both axes completely"
+    },
+    {
+      "name": "03",
+      "note": "positive quadrant includes origin"
+    },
+    {
+      "name": "04",
+      "note": "negative x, positive y"
+    },
+    {
+      "name": "05",
+      "note": "positive x, negative y"
+    },
+    {
+      "name": "06",
+      "note": "both coordinates negative"
+    },
+    {
+      "name": "07",
+      "note": "vertical line with upper endpoint"
+    },
+    {
+      "name": "08",
+      "note": "vertical line with lower endpoint"
+    },
+    {
+      "name": "09",
+      "note": "horizontal line with right endpoint"
+    },
+    {
+      "name": "10",
+      "note": "horizontal line with left endpoint"
+    },
+    {
+      "name": "11",
+      "note": "entire horizontal axis hidden by points"
+    },
+    {
+      "name": "12",
+      "note": "entire vertical axis hidden by points"
+    },
+    {
+      "name": "13",
+      "note": "maximum 201 by 201 rectangle"
+    },
+    {
+      "name": "14",
+      "note": "opposite corners verify row orientation"
+    },
+    {
+      "name": "15",
+      "note": "both axes fully covered"
+    },
+    {
+      "name": "16",
+      "note": "single far positive point"
+    },
+    {
+      "name": "17",
+      "note": "single far negative point"
+    },
+    {
+      "name": "18",
+      "note": "asymmetric axes and rectangle bounds"
+    },
+    {
+      "name": "19",
+      "note": "point priority over origin and each axis"
+    },
+    {
+      "name": "20",
+      "note": "bounds include zero beyond positive data"
+    },
+    {
+      "name": "21",
+      "note": "bounds include zero beyond negative data"
+    },
+    {
+      "name": "22",
+      "note": "250 unique points, maximal rectangle, seed 0"
+    },
+    {
+      "name": "23",
+      "note": "250 unique points, maximal rectangle, seed 1"
+    },
+    {
+      "name": "24",
+      "note": "250 unique points, maximal rectangle, seed 2"
+    },
+    {
+      "name": "25",
+      "note": "250 unique points, maximal rectangle, seed 3"
+    },
+    {
+      "name": "26",
+      "note": "signed integers and mixed whitespace"
+    }
+  ]
+}
