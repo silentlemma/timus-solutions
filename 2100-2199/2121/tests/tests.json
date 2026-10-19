@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "2121_geometry_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a = 1, the two side vertices touch the axes" },
+    { "name": "03", "note": "the largest a: 4a - 1 still fits in 64 bits" },
+    { "name": "04", "note": "one below the largest a" },
+    { "name": "05", "note": "a = 3" },
+    { "name": "06", "note": "4a - 1 is a run of nines" },
+    { "name": "gen1", "generator": "1 1", "note": "a random a" },
+    { "name": "gen2", "generator": "1 2", "note": "a random a" },
+    { "name": "gen3", "generator": "2 3", "note": "a small a" },
+    { "name": "gen4", "generator": "3 4", "note": "an a near the upper limit" }
+  ]
+}
