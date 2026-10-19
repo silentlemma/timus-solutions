@@ -1,0 +1,23 @@
+{
+  "judging": "checker",
+  "reference": "1895_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first statement example" },
+    { "name": "02", "example": true, "note": "the second statement example" },
+    { "name": "03", "example": true, "note": "the third statement example" },
+    { "name": "04", "note": "one order with the smallest preparation window" },
+    { "name": "05", "note": "three orders share a pan holding two" },
+    { "name": "06", "note": "widely separated preparation windows require four minutes" },
+    { "name": "07", "note": "a full batch is prepared in two minutes" },
+    { "name": "08", "note": "insufficient capacity before an equal deadline" },
+    { "name": "09", "note": "negative releases are clamped to flight start" },
+    { "name": "small", "generator": "1 1", "note": "small random instance" },
+    { "name": "dense", "generator": "2 2", "note": "maximal dense instance" },
+    { "name": "tight", "generator": "3 3", "note": "maximal instance with two-minute windows" },
+    { "name": "sparse", "generator": "4 4", "note": "maximal instance with separated windows" },
+    { "name": "batches", "generator": "5 5", "note": "clusters of equal and adjacent deadlines" },
+    { "name": "random", "generator": "6 6", "note": "maximal random instance" },
+    { "name": "odd", "generator": "7 7", "note": "an odd order count and capacity two" },
+    { "name": "impossible", "generator": "8 8", "note": "maximal impossible common deadline" }
+  ]
+}
