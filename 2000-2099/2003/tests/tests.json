@@ -1,0 +1,196 @@
+{
+  "judging": "tokens",
+  "reference": "2003_number_theory.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal pair-GCD transformations and triple certificate",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal pair-GCD transformations and triple certificate",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "004",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "005",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "006",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "007",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "008",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "009",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "010",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "011",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "012",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "013",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "014",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "015",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "016",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "017",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "018",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "019",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "020",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "021",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "022",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "023",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "024",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "025",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "026",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "027",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "028",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "029",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "030",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "031",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "032",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "033",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "034",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "035",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "036",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "037",
+      "note": "literal pair-GCD transformations and triple certificate"
+    },
+    {
+      "name": "gen_ones",
+      "generator": "2003 ones",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_distinct",
+      "generator": "2004 distinct",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_paired",
+      "generator": "2005 paired",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_late",
+      "generator": "2006 late",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_squares",
+      "generator": "2007 squares",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_powers",
+      "generator": "2008 powers",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_limit",
+      "generator": "2009 limit",
+      "note": "maximum input; independently certified expected answer"
+    },
+    {
+      "name": "gen_random",
+      "generator": "2010 random",
+      "note": "maximum input; independently certified expected answer"
+    }
+  ]
+}
