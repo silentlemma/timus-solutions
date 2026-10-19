@@ -1,0 +1,69 @@
+{
+  "judging": "float:1e-6",
+  "reference": "2016_geometry.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official example",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "near-coincident circles: world-coordinate cancellation regressions"
+    },
+    {
+      "name": "003",
+      "note": "closed forms and square length/speed scaling"
+    },
+    {
+      "name": "004",
+      "note": "tiny near-coplanar second circles"
+    },
+    {
+      "name": "005",
+      "note": "independent wide valid spatial trajectories"
+    },
+    {
+      "name": "006",
+      "note": "thresholds near center height and maximum"
+    },
+    {
+      "name": "007",
+      "note": "horizontal arcs above and below threshold"
+    },
+    {
+      "name": "008",
+      "note": "XY reflection and axis-swap invariants"
+    },
+    {
+      "name": "gen_vertical",
+      "generator": "201618 vertical",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    },
+    {
+      "name": "gen_horizontal",
+      "generator": "201619 horizontal",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    },
+    {
+      "name": "gen_near_coincident",
+      "generator": "201620 near_coincident",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    },
+    {
+      "name": "gen_near_coplanar",
+      "generator": "201621 near_coplanar",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    },
+    {
+      "name": "gen_spatial",
+      "generator": "201622 spatial",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    },
+    {
+      "name": "gen_mixed",
+      "generator": "201623 mixed",
+      "note": "1000 valid experiments, independently checked at 85 decimal digits"
+    }
+  ]
+}
