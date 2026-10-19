@@ -1,0 +1,181 @@
+{
+  "judging": "tokens",
+  "reference": "2058_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "003",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "004",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "005",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "006",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "007",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "008",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "009",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "010",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "011",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "012",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "013",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "014",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "015",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "016",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "017",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "018",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "019",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "020",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "021",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "022",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "023",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "024",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "025",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "026",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "027",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "028",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "029",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "030",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "031",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "032",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "033",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "034",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "035",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "036",
+      "note": "Literal all-palindromic-cuts parity DP; every prefix"
+    },
+    {
+      "name": "max_constant",
+      "generator": "205811 constant",
+      "note": "closed form certified for every prefix; n=300000"
+    },
+    {
+      "name": "max_alternating",
+      "generator": "205811 alternating",
+      "note": "closed form certified for every prefix; n=300000"
+    },
+    {
+      "name": "max_two_runs",
+      "generator": "205811 two_runs",
+      "note": "closed form certified for every prefix; n=300000"
+    },
+    {
+      "name": "max_ruler",
+      "generator": "205811 ruler",
+      "note": "independent Manacher radii, explicit enumeration of every palindrome and every cut; n=300000"
+    },
+    {
+      "name": "max_binary",
+      "generator": "205811 binary",
+      "note": "independent Manacher radii, explicit enumeration of every palindrome and every cut; n=300000"
+    },
+    {
+      "name": "max_letters",
+      "generator": "205811 letters",
+      "note": "independent Manacher radii, explicit enumeration of every palindrome and every cut; n=300000"
+    }
+  ]
+}
