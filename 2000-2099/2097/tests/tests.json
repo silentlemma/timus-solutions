@@ -1,0 +1,30 @@
+{
+  "judging": "checker",
+  "reference": "2097_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a similar section starting inside the second slope" },
+    { "name": "02", "example": true, "note": "the second example: no similar section" },
+    { "name": "03", "note": "a new slope of length 1: the closest first difference" },
+    { "name": "04", "note": "an exact match in the second slope after a first slope with different second differences" },
+    { "name": "05", "note": "an earlier slope shorter than the new one" },
+    { "name": "gen1", "generator": "1 1", "note": "a few short slopes with tiny heights" },
+    { "name": "gen2", "generator": "2 2", "note": "long slopes with planted similar sections" },
+    { "name": "gen3", "generator": "3 3", "note": "a new slope of length 1" },
+    { "name": "gen4", "generator": "4 4", "note": "large random heights" },
+    { "name": "gen5", "generator": "5 5", "note": "a single slope of length 10^5" },
+    { "name": "06", "note": "minimum input sizes with |a| = 4 billion" },
+    { "name": "07", "note": "opposite second differences of plus and minus 4 billion must not match" },
+    { "name": "08", "note": "a positive tilt of 2 beats a negative tilt of -10 by absolute value" },
+    { "name": "09", "note": "overlapping matches must all be visited, including the best at the last start" },
+    { "name": "10", "note": "a failed repeated prefix falls back to a shorter border before a match" },
+    { "name": "11", "note": "a pattern split between two old slopes is not a valid section" },
+    { "name": "12", "note": "matching endpoints and first step do not excuse one wrong interior height" },
+    { "name": "13", "note": "opposite nonzero tilts with equal absolute value are both optimal" },
+    { "name": "14", "note": "a vertical translation of a nonmonotone section needs no exact height match" },
+    { "name": "15", "note": "seeded stress case with the only match inside the final slope and nonzero tilt" },
+    { "name": "16", "note": "seeded stress case with mixed lengths and a planted section spoiled inside" },
+    { "name": "gen6", "generator": "6 2097", "note": "the maximum number of unit slopes with the unique zero-tilt optimum last" },
+    { "name": "gen7", "generator": "7 2097", "note": "both lengths are 100000 but the final sample breaks similarity" },
+    { "name": "gen8", "generator": "8 2097", "note": "a periodic slope of length 100000 with near-matches before the only full match at the end" }
+  ]
+}
