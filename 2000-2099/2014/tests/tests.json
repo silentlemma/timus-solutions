@@ -1,0 +1,273 @@
+{
+  "judging": "tokens",
+  "reference": "2014_segment_tree.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "003",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "004",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "005",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "006",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "007",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "008",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "009",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "010",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "011",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "012",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "013",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "014",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "015",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "016",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "017",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "018",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "019",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "020",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "021",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "022",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "023",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "024",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "025",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "026",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "027",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "028",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "029",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "030",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "031",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "032",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "033",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "034",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "035",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "036",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "037",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "038",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "039",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "040",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "041",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "042",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "043",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "044",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "045",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "046",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "047",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "048",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "049",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "050",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "051",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "052",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "053",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "054",
+      "note": "literal cash/debt recomputed for every receipt, calendar-valid input"
+    },
+    {
+      "name": "gen_negative",
+      "generator": "201418 negative",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_negative_reverse",
+      "generator": "201419 negative_reverse",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_negative_shuffled",
+      "generator": "201420 negative_shuffled",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_positive_reverse",
+      "generator": "201421 positive_reverse",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "201422 alternating",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_alternating_reverse",
+      "generator": "201423 alternating_reverse",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_early_income_late_notice",
+      "generator": "201424 early_income_late_notice",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_late_income",
+      "generator": "201425 late_income",
+      "note": "100000 operations, independent closed form and block cash check"
+    },
+    {
+      "name": "gen_random_a",
+      "generator": "701 random",
+      "note": "100000 mixed operations at random distinct nonleap-year minutes"
+    },
+    {
+      "name": "gen_random_b",
+      "generator": "702 random",
+      "note": "100000 mixed operations at random distinct nonleap-year minutes"
+    }
+  ]
+}
