@@ -1,0 +1,251 @@
+{
+  "judging": "checker",
+  "reference": "1970_backtracking.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official_example",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_003",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_004",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_005",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_006",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_007",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_008",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_009",
+      "note": "all_512_binary_interiors_identical_edges"
+    },
+    {
+      "name": "case_010",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_011",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_012",
+      "note": "random_palette_2"
+    },
+    {
+      "name": "case_013",
+      "note": "random_palette_3"
+    },
+    {
+      "name": "case_014",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_015",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_016",
+      "note": "periodic_1"
+    },
+    {
+      "name": "case_017",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_018",
+      "note": "random_palette_100"
+    },
+    {
+      "name": "case_019",
+      "note": "random_palette_2"
+    },
+    {
+      "name": "case_020",
+      "note": "periodic_5"
+    },
+    {
+      "name": "case_021",
+      "note": "periodic_5"
+    },
+    {
+      "name": "case_022",
+      "note": "random_palette_4"
+    },
+    {
+      "name": "case_023",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_024",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_025",
+      "note": "random_palette_100"
+    },
+    {
+      "name": "case_026",
+      "note": "random_palette_4"
+    },
+    {
+      "name": "case_027",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_028",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_029",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_030",
+      "note": "random_palette_1"
+    },
+    {
+      "name": "case_031",
+      "note": "random_palette_4"
+    },
+    {
+      "name": "case_032",
+      "note": "periodic_1"
+    },
+    {
+      "name": "case_033",
+      "note": "random_palette_4"
+    },
+    {
+      "name": "case_034",
+      "note": "random_palette_3"
+    },
+    {
+      "name": "case_035",
+      "note": "random_palette_2"
+    },
+    {
+      "name": "case_036",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_037",
+      "note": "random_palette_3"
+    },
+    {
+      "name": "case_038",
+      "note": "random_palette_2"
+    },
+    {
+      "name": "case_039",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_040",
+      "note": "random_palette_2"
+    },
+    {
+      "name": "case_041",
+      "note": "random_palette_10"
+    },
+    {
+      "name": "case_042",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_043",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_044",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_045",
+      "note": "overlap_palette_3"
+    },
+    {
+      "name": "case_046",
+      "note": "overlap_palette_3"
+    },
+    {
+      "name": "case_047",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_048",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_049",
+      "note": "overlap_palette_3"
+    },
+    {
+      "name": "case_050",
+      "note": "overlap_palette_3"
+    },
+    {
+      "name": "case_051",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_052",
+      "note": "overlap_palette_4"
+    },
+    {
+      "name": "case_053",
+      "note": "overlap_palette_3"
+    },
+    {
+      "name": "case_054",
+      "note": "overlap_palette_4"
+    },
+    {
+      "name": "case_055",
+      "note": "overlap_palette_10"
+    },
+    {
+      "name": "case_056",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_057",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_058",
+      "note": "overlap_palette_2"
+    },
+    {
+      "name": "case_059",
+      "note": "overlap_palette_10"
+    },
+    {
+      "name": "case_060",
+      "note": "overlap_palette_10"
+    },
+    {
+      "name": "case_061",
+      "note": "overlap_palette_4"
+    }
+  ]
+}

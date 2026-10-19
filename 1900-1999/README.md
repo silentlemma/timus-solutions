@@ -74,3 +74,4 @@
 | 1967 | [Optimal Decimal Concatenation of Binary Blocks](1967/) | greedy | C++, Go, Python, Java, Rust |
 | 1968 | [Recovering Colors in a Staggered Pyramid](1968/) | constructive | C++, Go, Python, Java, Rust |
 | 1969 | [Reconstructing Repeated Tram Schedules](1969/) | constructive | C++, Go, Python, Java, Rust |
+| 1970 | [Joining Rotated Overlapping Photographs](1970/) | backtracking | C++, Go, Python, Java, Rust |
