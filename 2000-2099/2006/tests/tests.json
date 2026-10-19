@@ -1,0 +1,212 @@
+{
+  "judging": "checker",
+  "reference": "2006_graphs_shortest_paths.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "independent BFS after every legal deletion",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "003",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "004",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "005",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "006",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "007",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "008",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "009",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "010",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "011",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "012",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "013",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "014",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "015",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "016",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "017",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "018",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "019",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "020",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "021",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "022",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "023",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "024",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "025",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "026",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "027",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "028",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "029",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "030",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "031",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "032",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "033",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "034",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "035",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "036",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "037",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "038",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "039",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "040",
+      "note": "independent BFS after every legal deletion"
+    },
+    {
+      "name": "gen_wide",
+      "generator": "2006 wide",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_tall",
+      "generator": "2007 tall",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_snake",
+      "generator": "2008 snake",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_comb",
+      "generator": "2009 comb",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_ladder",
+      "generator": "2010 ladder",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_adjacent",
+      "generator": "2011 adjacent",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_barrier",
+      "generator": "2012 barrier",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_irregular",
+      "generator": "2013 irregular",
+      "note": "known geometry or independent repeated-BFS optimum"
+    },
+    {
+      "name": "gen_irregular_tall",
+      "generator": "2014 irregular_tall",
+      "note": "known geometry or independent repeated-BFS optimum"
+    }
+  ]
+}
