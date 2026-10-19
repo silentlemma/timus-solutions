@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2072_sorting_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a single flower" },
+    { "name": "03", "note": "equal moisture: one walk to the right" },
+    { "name": "04", "note": "decreasing moisture: to the right end and back" },
+    { "name": "05", "note": "increasing moisture" },
+    { "name": "06", "note": "the middle flower first, then both ends" },
+    { "name": "gen1", "generator": "1 1", "note": "a few flowers" },
+    { "name": "gen2", "generator": "2 2", "note": "a maximum-size bed with ten moisture levels" },
+    { "name": "gen3", "generator": "3 3", "note": "random moisture levels across the full range in a bed of 10^5 flowers" },
+    { "name": "gen4", "generator": "4 4", "note": "two values alternating along the whole bed" },
+    { "name": "07", "note": "a more expensive group endpoint saves time on the next moisture level" },
+    { "name": "08", "note": "nested groups contract then expand, with three equal inner flowers and both moisture limits" },
+    { "name": "gen5", "generator": "5 2072", "note": "a maximum-size bed with distinct moisture levels, random visits alternating between halves and a total above 32 bits" }
+  ]
+}
