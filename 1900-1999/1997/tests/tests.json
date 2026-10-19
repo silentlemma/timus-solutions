@@ -1,0 +1,402 @@
+{
+  "judging": "checker",
+  "reference": "1997_matching.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal visitor enumeration or independent unit maxflow",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal visitor enumeration or independent unit maxflow",
+      "example": true
+    },
+    {
+      "name": "003",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "004",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "005",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "006",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "007",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "008",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "009",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "010",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "011",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "012",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "013",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "014",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "015",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "016",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "017",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "018",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "019",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "020",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "021",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "022",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "023",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "024",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "025",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "026",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "027",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "028",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "029",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "030",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "031",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "032",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "033",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "034",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "035",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "036",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "037",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "038",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "039",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "040",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "041",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "042",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "043",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "044",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "045",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "046",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "047",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "048",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "049",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "050",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "051",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "052",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "053",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "054",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "055",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "056",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "057",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "058",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "059",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "060",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "061",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "062",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "063",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "064",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "065",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "066",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "067",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "068",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "069",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "070",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "071",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "072",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "073",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "074",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "075",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "076",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "077",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "078",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "079",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "080",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "081",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "082",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "083",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "084",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "085",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "086",
+      "note": "literal visitor enumeration or independent unit maxflow"
+    },
+    {
+      "name": "gen_dense_short",
+      "generator": "1997 dense_short",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_dense_long",
+      "generator": "1998 dense_long",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_gap",
+      "generator": "1999 gap",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_random_short",
+      "generator": "2000 random_short",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_random_gap",
+      "generator": "2001 random_gap",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_alternating",
+      "generator": "2002 alternating",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_boundary",
+      "generator": "2003 boundary",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_short_boundary",
+      "generator": "2004 short_boundary",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_long_boundary",
+      "generator": "2005 long_boundary",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    },
+    {
+      "name": "gen_hall",
+      "generator": "2006 hall",
+      "note": "1000-event or imbalance boundary; independent maxflow certificate"
+    }
+  ]
+}
