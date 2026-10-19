@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2098_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "cash saves 500 roubles with a three-year surcharge" },
+    { "name": "02", "example": true, "note": "insurance saves 10000 roubles over four years" },
+    { "name": "03", "note": "the smallest values: a fraction of a rouble" },
+    { "name": "04", "note": "a large percent over two years" },
+    { "name": "05", "note": "the largest values" },
+    { "name": "06", "note": "a tie counts as insurance" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "cash wins with a 22 percent surcharge over 47 years" },
+    { "name": "gen3", "generator": "4 3", "note": "another exact tie" },
+    { "name": "07", "note": "cash is cheaper by exactly one kopeck" },
+    { "name": "08", "note": "insurance wins by one kopeck with a 99 percent surcharge" },
+    { "name": "09", "note": "maximum horizon and base price with minimum growth and percent" },
+    { "name": "10", "note": "odd long horizon and 99 percent make the scaled surcharge exceed signed 32 bits" },
+    { "name": "11", "generator": "2 2098", "note": "seeded random interior values with a fractional saving" }
+  ]
+}
