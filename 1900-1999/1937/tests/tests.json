@@ -1,0 +1,163 @@
+{
+  "judging": "checker",
+  "reference": "1937_suffix_structures.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "first statement sample",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "second statement sample",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "smallest valid different letters"
+    },
+    {
+      "name": "04",
+      "note": "smallest impossible pair"
+    },
+    {
+      "name": "05",
+      "note": "smallest repeated-letter valid pair"
+    },
+    {
+      "name": "06",
+      "note": "periodic second string; deliberately noncanonical reference"
+    },
+    {
+      "name": "07",
+      "note": "periodic phase and alternate valid second start"
+    },
+    {
+      "name": "08",
+      "note": "reverse the second string before matching"
+    },
+    {
+      "name": "09",
+      "note": "matching the unreversed second string would be wrong"
+    },
+    {
+      "name": "10",
+      "note": "wraparound start at final first-string position"
+    },
+    {
+      "name": "11",
+      "note": "odd middle and both input rotations"
+    },
+    {
+      "name": "12",
+      "note": "even middle and both input rotations"
+    },
+    {
+      "name": "13",
+      "note": "no palindromic middle at any start"
+    },
+    {
+      "name": "14",
+      "note": "matching outer and palindromic middle occur at different starts"
+    },
+    {
+      "name": "15",
+      "note": "a palindromic first string is insufficient"
+    },
+    {
+      "name": "16",
+      "note": "one-character second string, even middle"
+    },
+    {
+      "name": "17",
+      "note": "last alphabet letter and length-one pattern"
+    },
+    {
+      "name": "18",
+      "note": "all26letters"
+    },
+    {
+      "name": "19",
+      "note": "all26letters reversed"
+    },
+    {
+      "name": "20",
+      "note": "long equal prefix with a rare symbol"
+    },
+    {
+      "name": "21",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "22",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "23",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "24",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "25",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "26",
+      "note": "own random literal-search pair"
+    },
+    {
+      "name": "27",
+      "note": "own planted and rotated pair"
+    },
+    {
+      "name": "28",
+      "note": "own planted and rotated pair"
+    },
+    {
+      "name": "29",
+      "note": "own planted and rotated pair"
+    },
+    {
+      "name": "30",
+      "note": "own planted and rotated pair"
+    },
+    {
+      "name": "stress1",
+      "generator": "1938 1",
+      "note": "random26,late rotation,one-letter middle"
+    },
+    {
+      "name": "stress2",
+      "generator": "1939 2",
+      "note": "max random pattern,full negative scan"
+    },
+    {
+      "name": "stress3",
+      "generator": "1940 3",
+      "note": "max repetitions,even middle"
+    },
+    {
+      "name": "stress4",
+      "generator": "1941 4",
+      "note": "long near-palindromes,early negative filter"
+    },
+    {
+      "name": "stress5",
+      "generator": "1942 5",
+      "note": "binary suffix clones,late rotation"
+    },
+    {
+      "name": "stress6",
+      "generator": "1943 6",
+      "note": "balanced lengths,long even middle"
+    },
+    {
+      "name": "stress7",
+      "generator": "1944 7",
+      "note": "many matching outers and valid middles,never at the same start"
+    }
+  ]
+}
