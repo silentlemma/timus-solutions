@@ -1,0 +1,191 @@
+{
+  "judging": "tokens",
+  "reference": "2060_strings.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "Explicit enumeration of all three indices using literal substring reversals",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "003",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "004",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "005",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "006",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "007",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "008",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "009",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "010",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "011",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "012",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "013",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "014",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "015",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "016",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "017",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "018",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "019",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "020",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "021",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "022",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "023",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "024",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "025",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "026",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "027",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "028",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "029",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "030",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "031",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "032",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "033",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "034",
+      "note": "Explicit enumeration of all three indices using literal substring reversals"
+    },
+    {
+      "name": "035",
+      "note": "Independent closed form; answer exceeds signed 32-bit range"
+    },
+    {
+      "name": "036",
+      "note": "Independent closed form; answer exceeds signed 32-bit range"
+    },
+    {
+      "name": "max_constant",
+      "generator": "206012 constant",
+      "note": "Maximal lowercase word; independent closed-form answer"
+    },
+    {
+      "name": "max_alternating_even",
+      "generator": "206012 alternating_even",
+      "note": "Maximal lowercase word; independent closed-form answer"
+    },
+    {
+      "name": "max_alternating_odd",
+      "generator": "206012 alternating_odd",
+      "note": "Maximal lowercase word; independent closed-form answer"
+    },
+    {
+      "name": "max_period_three",
+      "generator": "206012 period_three",
+      "note": "Maximal lowercase word; independent closed-form answer"
+    },
+    {
+      "name": "max_two_runs",
+      "generator": "206012 two_runs",
+      "note": "Maximal lowercase word; independent closed-form answer"
+    },
+    {
+      "name": "max_ruler",
+      "generator": "206012 max_ruler",
+      "note": "Maximum length; independent eertree suffix-depth counts, no Manacher"
+    },
+    {
+      "name": "max_binary",
+      "generator": "206012 max_binary",
+      "note": "Maximum length; independent eertree suffix-depth counts, no Manacher"
+    },
+    {
+      "name": "max_letters",
+      "generator": "206012 max_letters",
+      "note": "Maximum length; independent eertree suffix-depth counts, no Manacher"
+    }
+  ]
+}

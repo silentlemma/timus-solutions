@@ -64,3 +64,4 @@
 | 2057 | [Minimum and maximum nonpalindromic factors](2057/) | strings | C++, Go, Python, Java, Rust |
 | 2058 | [Odd and even palindromic partitions](2058/) | strings, dp | C++, Go, Python, Java, Rust |
 | 2059 | [Compare palindrome frequencies](2059/) | strings | C++, Go, Python, Java, Rust |
+| 2060 | [Count adjacent palindromic occurrences](2060/) | strings | C++, Go, Python, Java, Rust |
