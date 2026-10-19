@@ -1,0 +1,25 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1828_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example: a constant sequence" },
+    { "name": "03", "note": "two numbers: the line through both" },
+    { "name": "04", "note": "a symmetric dip: a flat line" },
+    { "name": "05", "note": "an exact progression" },
+    { "name": "06", "note": "the longest exact falling progression" },
+    { "name": "07", "note": "the longest sequence swinging between the extremes" },
+    { "name": "gen1", "generator": "1 1", "note": "a short random sequence" },
+    { "name": "gen2", "generator": "2 2", "note": "the longest random sequence" },
+    { "name": "gen3", "generator": "3 3", "note": "close to a steep line" },
+    { "name": "gen4", "generator": "4 4", "note": "swinging in runs" },
+    { "name": "gen5", "generator": "5 2", "note": "a maximum-length random sequence with a positive fitted slope" },
+    { "name": "08", "note": "three values with almost equal endpoints and a deep middle outlier give a half-integer slope" },
+    { "name": "09", "note": "equal endpoints still give a falling fit whose first term is exactly zero" },
+    { "name": "10", "note": "an asymmetric random sequence has zero mean and exact cancellation of every slope contribution" },
+    { "name": "11", "note": "a single final unit among 10000 values gives a tiny positive slope and a negative first term" },
+    { "name": "12", "note": "ten thousand values near the upper bound have seeded unit perturbations and a small negative slope" },
+    { "name": "13", "note": "a maximum-length upward step makes large weighted sums and a first term below the input range" },
+    { "name": "gen6", "generator": "15560 1", "note": "all-positive seeded random values require a negative fitted first term" }
+  ]
+}
