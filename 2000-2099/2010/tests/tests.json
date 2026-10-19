@@ -1,0 +1,207 @@
+{
+  "judging": "tokens",
+  "reference": "2010_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "literal destination-cell attack sets, independently checked",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "003",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "004",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "005",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "006",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "007",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "008",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "009",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "010",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "011",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "012",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "013",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "014",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "015",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "016",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "017",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "018",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "019",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "020",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "021",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "022",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "023",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "024",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "025",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "026",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "027",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "028",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "029",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "030",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "031",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "032",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "033",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "034",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "035",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "036",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "037",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "038",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "039",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "040",
+      "note": "literal destination-cell attack sets, independently checked"
+    },
+    {
+      "name": "gen_corner",
+      "generator": "201018 corner",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_opposite_corner",
+      "generator": "201019 opposite_corner",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_edge_near",
+      "generator": "201020 edge_near",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_edge_middle",
+      "generator": "201021 edge_middle",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_near_corner",
+      "generator": "201022 near_corner",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_even_center",
+      "generator": "201023 even_center",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_odd_center",
+      "generator": "201024 odd_center",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    },
+    {
+      "name": "gen_random",
+      "generator": "201025 random",
+      "note": "maximum board; independent full-diagonal intersection counts"
+    }
+  ]
+}
