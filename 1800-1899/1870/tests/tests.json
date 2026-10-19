@@ -1,0 +1,17 @@
+{
+  "judging": "checker",
+  "reference": "1870_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: 5" },
+    { "name": "02", "example": true, "note": "the second example: 8 is even" },
+    { "name": "03", "note": "the smallest board" },
+    { "name": "04", "note": "7 is prime to 6" },
+    { "name": "05", "note": "9 is divisible by 3" },
+    { "name": "06", "note": "the largest board, even" },
+    { "name": "07", "note": "35 is prime to 6 but not prime" },
+    { "name": "gen1", "generator": "1 1", "note": "a small board" },
+    { "name": "gen2", "generator": "2 2", "note": "a large board prime to 6" },
+    { "name": "gen3", "generator": "3 3", "note": "a large board divisible by 2 or 3" },
+    { "name": "gen4", "generator": "4 4", "note": "one of the largest boards" }
+  ]
+}
