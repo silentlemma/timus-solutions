@@ -1,0 +1,179 @@
+{
+  "judging": "tokens",
+  "reference": "2025_math.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "exact official sample",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "003",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "004",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "005",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "006",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "007",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "008",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "009",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "010",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "011",
+      "note": "all legal batch lengths 1..10"
+    },
+    {
+      "name": "012",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "013",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "014",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "015",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "016",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "017",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "018",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "019",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "020",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "021",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "022",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "023",
+      "note": "small DP-audited remainder cases"
+    },
+    {
+      "name": "024",
+      "note": "large random constructions"
+    },
+    {
+      "name": "025",
+      "note": "large random constructions"
+    },
+    {
+      "name": "026",
+      "note": "large random constructions"
+    },
+    {
+      "name": "027",
+      "note": "large random constructions"
+    },
+    {
+      "name": "028",
+      "note": "large random constructions"
+    },
+    {
+      "name": "029",
+      "note": "large random constructions"
+    },
+    {
+      "name": "030",
+      "note": "large random constructions"
+    },
+    {
+      "name": "031",
+      "note": "large random constructions"
+    },
+    {
+      "name": "032",
+      "note": "sample pairs and max boundaries"
+    },
+    {
+      "name": "033",
+      "note": "sample pairs and max boundaries"
+    },
+    {
+      "name": "gen_all_singletons",
+      "generator": "20255000 all_singletons",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_two_equal_groups",
+      "generator": "20255001 two_equal_groups",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_two_odd_groups",
+      "generator": "20255002 two_odd_groups",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_almost_singletons",
+      "generator": "20255003 almost_singletons",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_divisors",
+      "generator": "20255004 divisors",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_large_remainders",
+      "generator": "20255005 large_remainders",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_mixed_extremes",
+      "generator": "20255006 mixed_extremes",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    },
+    {
+      "name": "gen_random",
+      "generator": "20255007 random",
+      "note": "T10, maximum or near-maximum n and independent objectwise pair count"
+    }
+  ]
+}
