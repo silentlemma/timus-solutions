@@ -1,0 +1,464 @@
+{
+  "judging": "checker",
+  "checker": "checker.py",
+  "reference": "2033_hashing.cpp",
+  "cases": [
+    {
+      "name": "001",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "002",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "003",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "004",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "005",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "006",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "007",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "008",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "009",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "010",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "011",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "012",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "013",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "014",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "015",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "016",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "017",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "018",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "019",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "020",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "021",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "022",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "023",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "024",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "025",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "026",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "027",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "028",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "029",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "030",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "031",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "032",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "033",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "034",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "035",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "036",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "037",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "038",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "039",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "040",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "041",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "042",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "043",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "044",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "045",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "046",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "047",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "048",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "049",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "050",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "051",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "052",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "053",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "054",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "055",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "056",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "057",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "058",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "059",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "060",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "061",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "062",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "063",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "064",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "065",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "066",
+      "note": "all 203 equality partitions of six records times all 64 binary boundary prices"
+    },
+    {
+      "name": "067",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "068",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "069",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "070",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "071",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "072",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "073",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "074",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "075",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "076",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "077",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "078",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "079",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "080",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "081",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "082",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "083",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "084",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "085",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "086",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "087",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "088",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "089",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "090",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "091",
+      "note": "full-range random model strings/friend duplicates/prices"
+    },
+    {
+      "name": "092",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "093",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "094",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "095",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "096",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "097",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "098",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "099",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "100",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "101",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "102",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "103",
+      "note": "all 720 record orders of two tied optimal models"
+    },
+    {
+      "name": "104",
+      "note": "all identical records with numeric-only model"
+    },
+    {
+      "name": "105",
+      "note": "maximum word widths and prices"
+    },
+    {
+      "name": "106",
+      "note": "popularity overrides arbitrarily cheaper minority"
+    },
+    {
+      "name": "107",
+      "note": "minimum observed price, not sum or average"
+    },
+    {
+      "name": "108",
+      "note": "all six distinct and tied"
+    },
+    {
+      "name": "109",
+      "note": "long common prefixes and numeric suffixes"
+    },
+    {
+      "name": "110",
+      "note": "true maximum word lengths and bounded six-record price/count cases"
+    },
+    {
+      "name": "111",
+      "note": "true maximum word lengths and bounded six-record price/count cases"
+    },
+    {
+      "name": "112",
+      "note": "true maximum word lengths and bounded six-record price/count cases"
+    },
+    {
+      "name": "113",
+      "note": "true maximum word lengths and bounded six-record price/count cases"
+    },
+    {
+      "name": "114",
+      "note": "true maximum word lengths and bounded six-record price/count cases"
+    }
+  ]
+}
