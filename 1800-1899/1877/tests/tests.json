@@ -1,0 +1,15 @@
+{
+  "judging": "tokens",
+  "reference": "1877_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: odd first code, even second" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the largest codes, safe" },
+    { "name": "04", "note": "both codes 0000: opened on the first night" },
+    { "name": "05", "note": "both codes odd: the second lock falls" },
+    { "name": "06", "note": "both codes even: the first lock falls" },
+    { "name": "gen1", "generator": "1 1", "note": "any codes" },
+    { "name": "gen2", "generator": "2 2", "note": "odd first code, even second" },
+    { "name": "gen3", "generator": "3 3", "note": "codes with leading zeros" }
+  ]
+}
