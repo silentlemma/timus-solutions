@@ -1,0 +1,108 @@
+{
+  "judging": "tokens",
+  "reference": "1923_bfs.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "both sides annex one country on the smallest map"
+    },
+    {
+      "name": "03",
+      "note": "whole initial country belongs to the lower-left side"
+    },
+    {
+      "name": "04",
+      "note": "unused colors cause no annexation"
+    },
+    {
+      "name": "05",
+      "note": "rectangular indexing and all four boundaries"
+    },
+    {
+      "name": "06",
+      "note": "revisiting an earlier alliance retains owned territory"
+    },
+    {
+      "name": "07",
+      "note": "both initial countries have multiple cells"
+    },
+    {
+      "name": "08",
+      "note": "diagonal contacts do not form one country"
+    },
+    {
+      "name": "09",
+      "note": "wide map and no row wraparound"
+    },
+    {
+      "name": "10",
+      "note": "tall map and asymmetric starting corners"
+    },
+    {
+      "name": "11",
+      "note": "full ownership does not change when alliances change"
+    },
+    {
+      "name": "12",
+      "note": "one wave annexes a whole country"
+    },
+    {
+      "name": "13",
+      "note": "an odd number of turns ends after the first player"
+    },
+    {
+      "name": "14",
+      "note": "several legal returns to old colors"
+    },
+    {
+      "name": "stress1",
+      "generator": "10001 1",
+      "note": "100 legal alternating moves; mode 1"
+    },
+    {
+      "name": "stress2",
+      "generator": "10002 2",
+      "note": "100 legal alternating moves; mode 2"
+    },
+    {
+      "name": "stress3",
+      "generator": "10003 3",
+      "note": "100 legal alternating moves; mode 3"
+    },
+    {
+      "name": "stress4",
+      "generator": "10004 4",
+      "note": "100 legal alternating moves; mode 4"
+    },
+    {
+      "name": "stress5",
+      "generator": "10005 5",
+      "note": "100 legal alternating moves; mode 5"
+    },
+    {
+      "name": "stress6",
+      "generator": "10006 6",
+      "note": "100 legal alternating moves; mode 6"
+    },
+    {
+      "name": "stress7",
+      "generator": "10007 7",
+      "note": "100 legal alternating moves; mode 7"
+    },
+    {
+      "name": "stress8",
+      "generator": "10008 8",
+      "note": "100 legal alternating moves; mode 8"
+    },
+    {
+      "name": "stress9",
+      "generator": "10009 9",
+      "note": "100 legal alternating moves; mode 9"
+    }
+  ]
+}
