@@ -1,0 +1,298 @@
+{
+  "judging": "float:1e-6",
+  "reference": "1988_geometry.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "official sample",
+      "example": true
+    },
+    {
+      "name": "case_002",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_003",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_004",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_005",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_006",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_007",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_008",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_009",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_010",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_011",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_012",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_013",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_014",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_015",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_016",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_017",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_018",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_019",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_020",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_021",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_022",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_023",
+      "note": "analytic or integer boundary family"
+    },
+    {
+      "name": "case_024",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_025",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_026",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_027",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_028",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_029",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_030",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_031",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_032",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_033",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_034",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_035",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_036",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_037",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_038",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_039",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_040",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_041",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_042",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_043",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_044",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_045",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_046",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_047",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_048",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_049",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_050",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_051",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_052",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_053",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_054",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_055",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_056",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_057",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_058",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_059",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_060",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_061",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_062",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_063",
+      "note": "independent Decimal time-feasibility oracle"
+    },
+    {
+      "name": "case_064",
+      "note": "arbitrary whitespace"
+    },
+    {
+      "name": "gen_radial_0",
+      "generator": "0 radial",
+      "note": "radial rotated integer geometry"
+    },
+    {
+      "name": "gen_visible_1",
+      "generator": "1 visible",
+      "note": "visible rotated integer geometry"
+    },
+    {
+      "name": "gen_tangent_2",
+      "generator": "2 tangent",
+      "note": "tangent rotated integer geometry"
+    },
+    {
+      "name": "gen_antipodal_3",
+      "generator": "3 antipodal",
+      "note": "antipodal rotated integer geometry"
+    },
+    {
+      "name": "gen_minimum_speed_5",
+      "generator": "5 minimum_speed",
+      "note": "minimum_speed rotated integer geometry"
+    },
+    {
+      "name": "gen_maximum_speed_7",
+      "generator": "7 maximum_speed",
+      "note": "maximum_speed rotated integer geometry"
+    },
+    {
+      "name": "gen_random_42",
+      "generator": "42 random",
+      "note": "random rotated integer geometry"
+    }
+  ]
+}
