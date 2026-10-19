@@ -1,0 +1,14 @@
+{
+  "judging": "tokens",
+  "reference": "1837_bfs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "Isenbaev is absent: everyone is undefined" },
+    { "name": "03", "note": "one team with Isenbaev" },
+    { "name": "04", "note": "a team repeated" },
+    { "name": "05", "note": "a short chain of teams" },
+    { "name": "gen1", "generator": "1 1", "note": "a few teams" },
+    { "name": "gen2", "generator": "2 2", "note": "a hundred random teams" },
+    { "name": "gen3", "generator": "3 3", "note": "a chain reaching number 100" }
+  ]
+}
