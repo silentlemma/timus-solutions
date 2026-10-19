@@ -1,0 +1,109 @@
+{
+  "judging": "checker",
+  "reference": "1905_bfs.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "no flights to another planet"
+    },
+    {
+      "name": "03",
+      "note": "zero flights and waiting"
+    },
+    {
+      "name": "04",
+      "note": "waiting cannot move backward in time"
+    },
+    {
+      "name": "05",
+      "note": "a backward self-flight reaches an earlier target"
+    },
+    {
+      "name": "06",
+      "note": "equal-time transfer followed by time travel"
+    },
+    {
+      "name": "07",
+      "note": "skip a colliding cycle and wait directly"
+    },
+    {
+      "name": "08",
+      "note": "a missed flight is not boardable"
+    },
+    {
+      "name": "09",
+      "note": "duplicate transfer events and a useless instantaneous self-loop"
+    },
+    {
+      "name": "10",
+      "note": "duplicate flights allow alternate valid routes"
+    },
+    {
+      "name": "11",
+      "note": "finish before a later visit without crossing the source event"
+    },
+    {
+      "name": "12",
+      "note": "packed event keys require64-bit integers"
+    },
+    {
+      "name": "13",
+      "note": "an unreachable target behind a cycle"
+    },
+    {
+      "name": "small",
+      "generator": "1 1",
+      "note": "small random flights"
+    },
+    {
+      "name": "chain",
+      "generator": "2 2",
+      "note": "99999-flight path through distinct planets"
+    },
+    {
+      "name": "backward",
+      "generator": "3 3",
+      "note": "100000 backward self-flights with disjoint visits"
+    },
+    {
+      "name": "random",
+      "generator": "4 4",
+      "note": "maximum random event coordinates"
+    },
+    {
+      "name": "star",
+      "generator": "5 5",
+      "note": "many departure and destination events"
+    },
+    {
+      "name": "missed",
+      "generator": "6 6",
+      "note": "all departures missed"
+    },
+    {
+      "name": "duplicates",
+      "generator": "7 7",
+      "note": "100000 duplicate event pairs"
+    },
+    {
+      "name": "highkeys",
+      "generator": "8 8",
+      "note": "high planet/time keys near the64-bit bound"
+    },
+    {
+      "name": "empty",
+      "generator": "9 9",
+      "note": "maximum planet count with no flights"
+    },
+    {
+      "name": "one_line",
+      "generator": "10 10",
+      "note": "maximal path encoded on one input line"
+    }
+  ]
+}
