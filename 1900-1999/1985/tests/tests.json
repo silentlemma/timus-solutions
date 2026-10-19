@@ -1,0 +1,218 @@
+{
+  "judging": "checker",
+  "reference": "1985_constructive.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "n=4, independent permutation/path/optimality check",
+      "example": true
+    },
+    {
+      "name": "size_001",
+      "note": "n=1, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_002",
+      "note": "n=2, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_003",
+      "note": "n=3, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_005",
+      "note": "n=5, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_006",
+      "note": "n=6, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_007",
+      "note": "n=7, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_008",
+      "note": "n=8, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_009",
+      "note": "n=9, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_010",
+      "note": "n=10, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_011",
+      "note": "n=11, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_012",
+      "note": "n=12, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_013",
+      "note": "n=13, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_014",
+      "note": "n=14, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_015",
+      "note": "n=15, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_016",
+      "note": "n=16, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_017",
+      "note": "n=17, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_018",
+      "note": "n=18, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_019",
+      "note": "n=19, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_020",
+      "note": "n=20, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_021",
+      "note": "n=21, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_022",
+      "note": "n=22, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_023",
+      "note": "n=23, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_024",
+      "note": "n=24, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_025",
+      "note": "n=25, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_026",
+      "note": "n=26, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_027",
+      "note": "n=27, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_028",
+      "note": "n=28, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_029",
+      "note": "n=29, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_030",
+      "note": "n=30, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_031",
+      "note": "n=31, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_032",
+      "note": "n=32, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_033",
+      "note": "n=33, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_048",
+      "note": "n=48, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_063",
+      "note": "n=63, independent permutation/path/optimality check"
+    },
+    {
+      "name": "size_064",
+      "note": "n=64, independent permutation/path/optimality check"
+    },
+    {
+      "name": "whitespace_1",
+      "note": "n=1, independent permutation/path/optimality check"
+    },
+    {
+      "name": "whitespace_3",
+      "note": "n=3, independent permutation/path/optimality check"
+    },
+    {
+      "name": "whitespace_5",
+      "note": "n=5, independent permutation/path/optimality check"
+    },
+    {
+      "name": "gen_size_65",
+      "generator": "65 fixed",
+      "note": "large boundary n=65"
+    },
+    {
+      "name": "gen_size_95",
+      "generator": "95 fixed",
+      "note": "large boundary n=95"
+    },
+    {
+      "name": "gen_size_127",
+      "generator": "127 fixed",
+      "note": "large boundary n=127"
+    },
+    {
+      "name": "gen_size_128",
+      "generator": "128 fixed",
+      "note": "large boundary n=128"
+    },
+    {
+      "name": "gen_size_129",
+      "generator": "129 fixed",
+      "note": "large boundary n=129"
+    },
+    {
+      "name": "gen_size_191",
+      "generator": "191 fixed",
+      "note": "large boundary n=191"
+    },
+    {
+      "name": "gen_size_192",
+      "generator": "192 fixed",
+      "note": "large boundary n=192"
+    },
+    {
+      "name": "gen_size_193",
+      "generator": "193 fixed",
+      "note": "large boundary n=193"
+    },
+    {
+      "name": "gen_size_254",
+      "generator": "254 fixed",
+      "note": "large boundary n=254"
+    },
+    {
+      "name": "gen_size_255",
+      "generator": "255 fixed",
+      "note": "large boundary n=255"
+    },
+    {
+      "name": "gen_size_256",
+      "generator": "256 fixed",
+      "note": "large boundary n=256"
+    }
+  ]
+}
