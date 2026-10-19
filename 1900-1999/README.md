@@ -34,3 +34,4 @@
 | 1927 | [Area of Two Infinite Strips](1927/) | geometry | C++, Go, Python, Java, Rust |
 | 1928 | [Alternating Grants with a Terminal Gift](1928/) | games, dp | C++, Go, Python, Java, Rust |
 | 1929 | [A Distinguished Triple with Feasible Remaining Teams](1929/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1930 | [A Route with Fewest Gear Changes](1930/) | shortest_paths | C++, Go, Python, Java, Rust |
