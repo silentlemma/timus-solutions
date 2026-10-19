@@ -1,0 +1,119 @@
+{
+  "judging": "tokens",
+  "reference": "1930_shortest_paths.cpp",
+  "cases": [
+    {
+      "name": "01",
+      "note": "statement first example",
+      "example": true
+    },
+    {
+      "name": "02",
+      "note": "statement second example",
+      "example": true
+    },
+    {
+      "name": "03",
+      "note": "first uphill gear is free"
+    },
+    {
+      "name": "04",
+      "note": "first downhill gear is free"
+    },
+    {
+      "name": "05",
+      "note": "downhill then uphill valley"
+    },
+    {
+      "name": "06",
+      "note": "monotone uphill path"
+    },
+    {
+      "name": "07",
+      "note": "monotone downhill reverse"
+    },
+    {
+      "name": "08",
+      "note": "alternating unique path"
+    },
+    {
+      "name": "09",
+      "note": "longer zero-change path beats short path"
+    },
+    {
+      "name": "10",
+      "note": "longer reverse downhill path"
+    },
+    {
+      "name": "11",
+      "note": "irrelevant isolated cities"
+    },
+    {
+      "name": "12",
+      "note": "direction independent of numeric city order"
+    },
+    {
+      "name": "13",
+      "note": "two zero-cost arrivals with distinct gears"
+    },
+    {
+      "name": "14",
+      "note": "same graph, permuted road records"
+    },
+    {
+      "name": "15",
+      "note": "separate irrelevant component"
+    },
+    {
+      "name": "16",
+      "note": "directed cycle followed by two changes"
+    },
+    {
+      "name": "17",
+      "note": "own medium random graph"
+    },
+    {
+      "name": "18",
+      "note": "own medium random graph"
+    },
+    {
+      "name": "19",
+      "note": "own medium random graph"
+    },
+    {
+      "name": "stress1",
+      "generator": "1931 1",
+      "note": "alternating max"
+    },
+    {
+      "name": "stress2",
+      "generator": "1932 2",
+      "note": "alternating reverse"
+    },
+    {
+      "name": "stress3",
+      "generator": "1933 3",
+      "note": "free downhill max"
+    },
+    {
+      "name": "stress4",
+      "generator": "1934 4",
+      "note": "max random connected"
+    },
+    {
+      "name": "stress5",
+      "generator": "1935 5",
+      "note": "dense clusters and alternating bridges"
+    },
+    {
+      "name": "stress6",
+      "generator": "1936 6",
+      "note": "max acyclic reverse"
+    },
+    {
+      "name": "stress7",
+      "generator": "1937 7",
+      "note": "large irrelevant component"
+    }
+  ]
+}
