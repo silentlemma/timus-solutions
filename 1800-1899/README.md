@@ -47,3 +47,4 @@
 | 1840 | [Victim of Advertising](1840/) | geometry | C++, Go, Python, Java, Rust |
 | 1841 | [Cableways](1841/) | segment_tree | C++, Go, Python, Java, Rust |
 | 1842 | [Local Roots](1842/) | strings | C++, Go, Python, Java, Rust |
+| 1843 | [Cutting a Parallelepiped](1843/) | constructive | C++, Go, Python, Java, Rust |
