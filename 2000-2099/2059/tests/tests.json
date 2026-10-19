@@ -1,0 +1,27 @@
+{
+  "judging": "checker",
+  "reference": "2059_strings.cpp",
+  "cases": [
+    { "name": "001", "example": true, "note": "all three exact official sample pairs" },
+    { "name": "002", "note": "small pairs checking equality, overlapping runs, reversed words and disjoint letters" },
+    { "name": "003", "note": "all ordered pairs of binary words up to length three" },
+    { "name": "004", "note": "exhaustive comparisons of one-letter and two-letter words over three letters" },
+    { "name": "005", "note": "overlapping palindrome frequencies in irregular binary words of varied lengths" },
+    { "name": "006", "note": "shared and exclusive palindromes in short words over three letters" },
+    { "name": "007", "note": "sparse palindromes and letter frequencies across the lowercase alphabet" },
+    { "name": "008", "note": "counter resets between long repeated-letter runs and tiny pairs" },
+    { "name": "009", "note": "equal frequencies in repeated blocks, reversed cycles and shifted single separators" },
+    { "name": "max_equal_unary", "generator": "205912 equal_unary", "note": "identical maximum-length runs with every palindrome frequency tied" },
+    { "name": "max_disjoint_unary", "generator": "205912 disjoint_unary", "note": "maximum-length runs of different letters with no shared palindromes" },
+    { "name": "max_equal_alternating", "generator": "205912 equal_alternating", "note": "maximum-length alternating words starting with opposite letters" },
+    { "name": "max_aggregate_unary", "generator": "205912 aggregate_unary", "note": "repeated comparisons of identical long runs near the total input limit" },
+    { "name": "max_many_single_letters", "generator": "205912 many_single_letters", "note": "equal single-letter pairs filling the total input limit" },
+    { "name": "max_aggregate_period2", "generator": "205912 aggregate_period2", "note": "repeated long alternating pairs with opposite starting letters" },
+    { "name": "max_aggregate_disjoint_period2", "generator": "205912 aggregate_disjoint_period2", "note": "disjoint two-letter alphabets in long alternating words near the input limit" },
+    { "name": "max_aggregate_period26", "generator": "205912 aggregate_period26", "note": "identical alphabet cycles with only single-letter palindromes" },
+    { "name": "max_many_varied_single_letters", "generator": "205912 many_varied_single_letters", "note": "alternating equal and unequal single-letter pairs filling eight million bytes" },
+    { "name": "max_ruler", "generator": "205912 max_ruler", "note": "nested palindromes in a maximum-length ruler sequence and its one-character rotation" },
+    { "name": "max_binary", "generator": "205912 max_binary", "note": "dense overlapping palindromes in two maximum-length random binary words" },
+    { "name": "max_letters", "generator": "205912 max_letters", "note": "maximum-length random lowercase words with many short palindromes" }
+  ]
+}
