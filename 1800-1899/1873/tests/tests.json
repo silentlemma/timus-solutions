@@ -1,0 +1,20 @@
+{
+  "judging": "tokens",
+  "reference": "1873_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: Vadik" },
+    { "name": "02", "example": true, "note": "the second example: Vitaliy, only the warm-up round" },
+    { "name": "03", "note": "Misha, all five Alarm contests" },
+    { "name": "04", "note": "Lyosha" },
+    { "name": "05", "note": "Sasha" },
+    { "name": "06", "note": "Vanya B." },
+    { "name": "07", "note": "Nikita" },
+    { "name": "08", "note": "Fedya" },
+    { "name": "09", "note": "Vanya K." },
+    { "name": "10", "note": "Den" },
+    { "name": "11", "note": "Egor" },
+    { "name": "12", "note": "Xiaohong" },
+    { "name": "13", "note": "Timothee" },
+    { "name": "14", "note": "Alexandre" }
+  ]
+}
