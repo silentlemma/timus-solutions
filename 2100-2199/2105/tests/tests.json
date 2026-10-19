@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2105_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "the smallest values: meetings at every half second" },
+    { "name": "03", "note": "both feed the whole time" },
+    { "name": "04", "note": "the largest speeds and time on the longest path" },
+    { "name": "05", "note": "a meeting exactly at the end" },
+    { "name": "gen1", "generator": "1 1", "note": "small values" },
+    { "name": "gen2", "generator": "2 2", "note": "maximum time and stop count with touching and zero-duration stops" },
+    { "name": "gen3", "generator": "3 3", "note": "the distance ends on a multiple of the length" },
+    { "name": "06", "note": "the maximum meeting count on a unit path with no stops" },
+    { "name": "07", "note": "riding ends one unit short of the first meeting" },
+    { "name": "08", "note": "both pause at a meeting across touching stops and then resume" },
+    { "name": "09", "note": "two partial laps combine into a meeting before either rider completes a lap" },
+    { "name": "gen4", "generator": "4 2105", "note": "maximum-count random positive stops span the ride with unequal speeds and many meetings" }
+  ]
+}
