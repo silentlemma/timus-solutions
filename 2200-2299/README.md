@@ -31,3 +31,4 @@
 | 2224 | [Two players racing on a 2 × N strip without revisiting cells](2224/) | games | C++, Go, Python, Java, Rust |
 | 2225 | [Fewest strikes of a two-nail hammer to drive a row of nails](2225/) | dsu, sorting | C++, Go, Python, Java, Rust |
 | 2226 | [Where a walk along the shortest unused edge ends, from every start](2226/) | dp, trees | C++, Go, Python, Java, Rust |
+| 2227 | [Measuring and cutting a convex polygon along its diagonals](2227/) | geometry, fenwick | C++, Go, Python, Java, Rust |
