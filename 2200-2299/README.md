@@ -16,3 +16,4 @@
 | 2209 | [The M-th fraction on level N of the Stern–Brocot tree](2209/) | math | C++, Go, Python, Java, Rust |
 | 2210 | [Most money after T days of working or buying businesses](2210/) | dp | C++, Go, Python, Java, Rust |
 | 2211 | [Counting triangles with integer sides and a given integer area](2211/) | number_theory | C++, Go, Python, Java, Rust |
+| 2212 | [Prefix sums applied Q times as one convolution](2212/) | math, combinatorics | C++, Go, Python, Java, Rust |
