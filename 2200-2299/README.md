@@ -8,3 +8,4 @@
 | 2201 | [A chat server where every gl and hf changes the luck of its readers](2201/) | parsing, prefix_sums | C++, Go, Python, Java, Rust |
 | 2202 | [Joining point pairs by non-crossing curves around a rectangle outline](2202/) | graphs, segment_tree | C++, Go, Python, Java, Rust |
 | 2203 | [Counting shop trips when two ingredients run out on their own schedules](2203/) | math, number_theory | C++, Go, Python, Java, Rust |
+| 2204 | [Choosing exam dates that block the fewest trips](2204/) | dp, two_pointers | C++, Go, Python, Java, Rust |
