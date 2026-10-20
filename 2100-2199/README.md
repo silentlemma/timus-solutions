@@ -88,3 +88,4 @@
 | 2181 | [Counting round trips on a grid that never revisit a crossing](2181/) | dp, math | C++, Go, Python, Java, Rust |
 | 2182 | [Bottles that multiply by the number of ones in their box number](2182/) | dp, combinatorics | C++, Go, Python, Java, Rust |
 | 2183 | [Flipping the signs of one segment to raise the minimum](2183/) | binary_search, dp | C++, Go, Python, Java, Rust |
+| 2184 | [The largest pile size when one pile was split between two chests](2184/) | number_theory | C++, Go, Python, Java, Rust |
