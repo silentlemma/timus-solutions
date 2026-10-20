@@ -55,3 +55,4 @@
 | 2148 | [Bouncing a shot off a round tank between two equidistant players](2148/) | geometry | C++, Go, Python, Java, Rust |
 | 2149 | [Turning ASCII pigeons into a neat pattern](2149/) | implementation | C++, Go, Python, Java, Rust |
 | 2150 | [Splitting a dense friendship graph into pairs and triangles](2150/) | greedy, matching | C++, Go, Python, Java, Rust |
+| 2151 | [Recognizing a winning or nearly winning mahjong hand](2151/) | bruteforce, greedy | C++, Go, Python, Java, Rust |
