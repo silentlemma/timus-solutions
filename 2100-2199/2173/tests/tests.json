@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "2173_dp_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "two single mentions may share a problem or occupy separate problems" },
+    { "name": "02", "example": true, "note": "five single mentions across thirteen problems allow empty problems and pairs" },
+    { "name": "03", "note": "one sponsor and one problem" },
+    { "name": "04", "note": "two sponsors share the only problem" },
+    { "name": "05", "note": "one sponsor chooses 1000 of 2000 problems" },
+    { "name": "06", "note": "a sponsor in both problems and two that split them" },
+    { "name": "gen1", "generator": "1 1", "note": "one sponsor must appear in both problems" },
+    { "name": "gen2", "generator": "1 2", "note": "minimum dimensions with a single required mention" },
+    { "name": "gen3", "generator": "2 3", "note": "all 1000 sponsors with a total wish of 2M" },
+    { "name": "gen4", "generator": "3 4", "note": "two sponsors in every problem" },
+    { "name": "gen5", "generator": "4 5", "note": "random wishes below 2M in total" },
+    { "name": "07", "note": "three equal wishes force all three distinct sponsor pairs" },
+    { "name": "08", "note": "one unused slot forces an odd final singleton count" },
+    { "name": "09", "note": "stress sample with larger wishes last must retain multiple final occupancies" },
+    { "name": "10", "note": "exactly 1000 distinct one-mention sponsors fill 500 problems in unordered pairs" },
+    { "name": "11", "note": "maximum dimensions with one near-universal sponsor and 999 single mentions" },
+    { "name": "12", "note": "two nearly universal sponsors leave room for a final single mention at M=2000" },
+    { "name": "13", "generator": "5 2173", "note": "seeded mixed wishes leave three slots free across seven to nine problems" },
+    { "name": "14", "generator": "6 734", "note": "seeded sparse wishes require summing placements with many empty problems" }
+  ]
+}
