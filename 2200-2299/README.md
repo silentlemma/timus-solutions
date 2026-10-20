@@ -10,3 +10,4 @@
 | 2203 | [Counting shop trips when two ingredients run out on their own schedules](2203/) | math, number_theory | C++, Go, Python, Java, Rust |
 | 2204 | [Choosing exam dates that block the fewest trips](2204/) | dp, two_pointers | C++, Go, Python, Java, Rust |
 | 2205 | [The lowest common ancestor in the tree of largest proper divisors](2205/) | number_theory | C++, Go, Python, Java, Rust |
+| 2206 | [Coprime lattice points inside a convex polygon](2206/) | geometry, number_theory | C++, Go, Python, Java, Rust |
