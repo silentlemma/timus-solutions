@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "2190_math_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: one boulder in, one boulder out" },
+    { "name": "02", "note": "equal heaps already match equal proportions" },
+    { "name": "03", "note": "a huge proportion forces filling a heap from one boulder" },
+    { "name": "04", "note": "proportions with a common factor already met" },
+    { "name": "05", "note": "a huge heap is cheapest to leave alone" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small heaps" },
+    { "name": "gen2", "generator": "1 2", "note": "equal heaps require unequal sizes in the reduced proportion" },
+    { "name": "gen3", "generator": "1 3", "note": "a fractional weighted median makes rounding up cheaper" },
+    { "name": "gen4", "generator": "2 4", "note": "maximum heap count with random sizes and proportions" },
+    { "name": "gen5", "generator": "3 5", "note": "heaps close to a multiple of the proportion" },
+    { "name": "gen6", "generator": "4 6", "note": "proportions with a common factor and extreme heaps" },
+    { "name": "06", "note": "a seeded weighted median rounds down while an unweighted median gives a larger cost" },
+    { "name": "07", "note": "a seeded fractional median is closer to its floor but its ceiling is cheaper" },
+    { "name": "08", "note": "reducing a common factor permits the best arrangement between multiples of the original proportions" },
+    { "name": "09", "note": "a flat fractional minimum contains no integer and the adjacent integers tie" },
+    { "name": "10", "note": "large cross products and a multiplier of three leave only four boulder moves" },
+    { "name": "gen7", "generator": "5 2190", "note": "maximum heap count with minimal heaps forces a positive multiplier and a cost near 10^14" },
+    { "name": "gen8", "generator": "1 442", "note": "seeded duplicate fractional ratios carry a majority of the total weight" }
+  ]
+}

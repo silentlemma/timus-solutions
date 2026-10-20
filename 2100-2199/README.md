@@ -94,3 +94,4 @@
 | 2187 | [Cutting a degree-increasing walk into paid journeys](2187/) | dp, graphs | C++, Go, Python, Java, Rust |
 | 2188 | [The earliest overtake that is never lost again](2188/) | prefix_sums, binary_search | C++, Go, Python, Java, Rust |
 | 2189 | [The value missing from the fewest subarrays under point updates](2189/) | fenwick, bitmask | C++, Go, Python, Java, Rust |
+| 2190 | [Fewest boulder moves to make heaps proportional](2190/) | math, sorting | C++, Go, Python, Java, Rust |
