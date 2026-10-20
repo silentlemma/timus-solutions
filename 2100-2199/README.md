@@ -51,3 +51,4 @@
 | 2144 | [Ordering sealed boxes into one sorted row](2144/) | sorting | C++, Go, Python, Java, Rust |
 | 2145 | [Counting assignments of problems that every student can solve](2145/) | combinatorics, sorting | C++, Go, Python, Java, Rust |
 | 2146 | [Smallest circular period after at most k letter changes](2146/) | strings | C++, Go, Python, Java, Rust |
+| 2147 | [Cheapest one-way and two-way roads for all visiting requests](2147/) | graphs | C++, Go, Python, Java, Rust |
