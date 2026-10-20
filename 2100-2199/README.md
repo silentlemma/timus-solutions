@@ -53,3 +53,4 @@
 | 2146 | [Smallest circular period after at most k letter changes](2146/) | strings | C++, Go, Python, Java, Rust |
 | 2147 | [Cheapest one-way and two-way roads for all visiting requests](2147/) | graphs | C++, Go, Python, Java, Rust |
 | 2148 | [Bouncing a shot off a round tank between two equidistant players](2148/) | geometry | C++, Go, Python, Java, Rust |
+| 2149 | [Turning ASCII pigeons into a neat pattern](2149/) | implementation | C++, Go, Python, Java, Rust |
