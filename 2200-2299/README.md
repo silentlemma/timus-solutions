@@ -29,3 +29,4 @@
 | 2222 | [Most knights on a 3 × N board whose attack graph is a tree](2222/) | dp | C++, Go, Python, Java, Rust |
 | 2223 | [How many calls an XOR-and-carry addition makes](2223/) | bitmask | C++, Go, Python, Java, Rust |
 | 2224 | [Two players racing on a 2 × N strip without revisiting cells](2224/) | games | C++, Go, Python, Java, Rust |
+| 2225 | [Fewest strikes of a two-nail hammer to drive a row of nails](2225/) | dsu, sorting | C++, Go, Python, Java, Rust |
