@@ -83,3 +83,4 @@
 | 2176 | [Sums of distinct numbers whose base-3 form hides in their binary form](2176/) | dp, meet_in_middle | C++, Go, Python, Java, Rust |
 | 2177 | [Longest row of distinct numbers whose neighbours sum to X or V](2177/) | math | C++, Go, Python, Java, Rust |
 | 2178 | [Counting segments that hold a set of consecutive numbers](2178/) | two_pointers | C++, Go, Python, Java, Rust |
+| 2179 | [Most non-crossing straight roads between cities](2179/) | geometry | C++, Go, Python, Java, Rust |
