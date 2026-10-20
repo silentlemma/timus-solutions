@@ -99,3 +99,4 @@
 | 2192 | [A forest route where every path pays more for mushrooms](2192/) | graphs | C++, Go, Python, Java, Rust |
 | 2193 | [Best rhyme score: suffix length halved for every mismatch](2193/) | strings | C++, Go, Python, Java, Rust |
 | 2194 | [Fewest turns on a board of snakes where a six rolls again](2194/) | bfs | C++, Go, Python, Java, Rust |
+| 2195 | [Turning one binary tree into another through a path](2195/) | constructive | C++, Go, Python, Java, Rust |
