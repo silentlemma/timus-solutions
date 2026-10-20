@@ -1,0 +1,31 @@
+{
+  "judging": "exact",
+  "reference": "2216_prefix_sums.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one floor and one stationary elevator" },
+    { "name": "04", "note": "one floor and several stationary elevators" },
+    { "name": "05", "note": "stationary elevators do not cross a gap" },
+    { "name": "06", "note": "a chain of adjacent floors" },
+    { "name": "07", "note": "a unique cheapest gap strictly inside the building" },
+    { "name": "08", "note": "overlapping routes with equal cheapest end gaps" },
+    { "name": "09", "note": "duplicate elevators on three consecutive segments" },
+    { "name": "10", "note": "several elevators spanning the whole building" },
+    { "name": "11", "note": "nested and overlapping intervals" },
+    { "name": "12", "note": "a transfer at a shared interval endpoint" },
+    { "name": "13", "note": "equal coverage at every gap" },
+    { "name": "14", "note": "the maximum floor with only one elevator" },
+    { "name": "15", "note": "a stationary elevator at the cheapest interior gap" },
+    { "name": "16", "note": "shuffled elevators and varied input whitespace" },
+    { "name": "gen1", "generator": "small 1", "note": "a small connected system" },
+    { "name": "gen2", "generator": "small 2", "note": "another small connected system" },
+    { "name": "gen3", "generator": "random 3", "note": "maximum sizes with random intervals" },
+    { "name": "gen4", "generator": "chain 4", "note": "maximum floors in a long chain" },
+    { "name": "gen5", "generator": "dense 5", "note": "the maximum possible finite answer" },
+    { "name": "gen6", "generator": "nested 6", "note": "maximum sizes with nested intervals" },
+    { "name": "gen7", "generator": "bottleneck 7", "note": "one elevator crosses an interior gap" },
+    { "name": "gen8", "generator": "single 8", "note": "maximum elevators on a single floor" },
+    { "name": "gen9", "generator": "staircase 9", "note": "short overlapping intervals" }
+  ]
+}
