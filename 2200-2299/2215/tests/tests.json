@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2215_geometry_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one city, inclusive edges and degenerate rectangles" },
+    { "name": "03", "note": "all rotation angles about a city at a nonzero pivot" },
+    { "name": "04", "note": "shared axes, boundary inclusion and equal sweep coordinates" },
+    { "name": "05", "note": "four quarter turns and an inverse pair restore all cities" },
+    { "name": "06", "note": "extreme coordinates and a translation beyond signed 32 bits" },
+    { "name": "07", "note": "different pivots compose into a translation" },
+    { "name": "08", "note": "a horizontal line becomes vertical after rotation" },
+    { "name": "09", "note": "one event and both extreme corners" },
+    { "name": "10", "note": "cities leave the input coordinate range and then return" },
+    { "name": "small", "generator": "1 1", "note": "small dense random cities and events" },
+    { "name": "sparse", "generator": "2 2", "note": "sparse cities across the full coordinate range" },
+    { "name": "static", "generator": "3 3", "note": "maximum cities and queries without rotations" },
+    { "name": "mixed", "generator": "4 4", "note": "maximum sizes with mixed rotations and queries" },
+    { "name": "drift", "generator": "5 5", "note": "large accumulated translations and a return" },
+    { "name": "axis", "generator": "6 6", "note": "maximum collinear cities and mixed events" },
+    { "name": "no_rain", "generator": "7 7", "note": "maximum sizes with rotations only and empty output" },
+    { "name": "single", "generator": "8 8", "note": "one city and the maximum number of events" },
+    { "name": "11", "note": "query endpoints lie in gaps below, between and above compressed y coordinates" },
+    { "name": "12", "note": "descending query edges and repeated boxes preserve the original answer order" },
+    { "name": "13", "note": "unit-wide strips near the coordinate limit after turns about an extreme pivot" },
+    { "name": "14", "note": "seeded random turns about changing pivots give four different counts in the same window" },
+    { "name": "15", "generator": "9 2215", "note": "maximum grid and event count with repeated sweep edges and empty strips between columns" }
+  ]
+}

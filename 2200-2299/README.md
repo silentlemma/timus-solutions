@@ -19,3 +19,4 @@
 | 2212 | [Prefix sums applied Q times as one convolution](2212/) | math, combinatorics | C++, Go, Python, Java, Rust |
 | 2213 | [Moving one command of a robot program to minimize the collected sum](2213/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 2214 | [Best value from a sliding window that may move K times](2214/) | dp | C++, Go, Python, Java, Rust |
+| 2215 | [Counting points in rectangles while the whole plane keeps turning](2215/) | geometry, fenwick | C++, Go, Python, Java, Rust |
