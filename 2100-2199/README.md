@@ -68,3 +68,4 @@
 | 2161 | [A knight who wins every duel whatever the others buy](2161/) | greedy | C++, Go, Python, Java, Rust |
 | 2162 | [Counting segments of an array that encode a simple graph](2162/) | hashing, segment_tree | C++, Go, Python, Java, Rust |
 | 2163 | [Possible values of one cell given row and column sums](2163/) | math | C++, Go, Python, Java, Rust |
+| 2164 | [Counting substrings that are finished connect-four games](2164/) | simulation | C++, Go, Python, Java, Rust |
