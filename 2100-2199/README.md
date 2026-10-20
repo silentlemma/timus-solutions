@@ -64,3 +64,4 @@
 | 2157 | [Longest fall through clouds that stop the jumper](2157/) | dp | C++, Go, Python, Java, Rust |
 | 2158 | [Splitting a multiset into an arithmetic and a geometric progression](2158/) | math, greedy | C++, Go, Python, Java, Rust |
 | 2159 | [Shortest and smallest essay that obeys word-order rules](2159/) | graphs, greedy | C++, Go, Python, Java, Rust |
+| 2160 | [Permutations with the same Cartesian tree](2160/) | combinatorics, trees | C++, Go, Python, Java, Rust |
