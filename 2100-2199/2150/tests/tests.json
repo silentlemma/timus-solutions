@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "2150_greedy_matching.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the minimum size example" },
+    { "name": "02", "example": true, "note": "the odd size example" },
+    { "name": "03", "note": "a single triangle" },
+    { "name": "04", "note": "an even complete graph" },
+    { "name": "05", "note": "an odd complete graph" },
+    { "name": "06", "note": "a tight balanced bipartite graph" },
+    { "name": "07", "note": "an odd near-bipartite graph with minimum degrees" },
+    { "name": "08", "note": "a greedy pair must be replaced by two pairs" },
+    { "name": "09", "note": "several greedy pairs need augmentations" },
+    { "name": "10", "note": "augmentations followed by a leftover triangle" },
+    { "name": "11", "note": "a degree-tight cycle on four vertices" },
+    { "name": "12", "note": "a tight circulant graph on nine vertices" },
+    { "name": "small1", "generator": "1 1", "note": "small random friendships" },
+    { "name": "small2", "generator": "1 2", "note": "another small random graph" },
+    { "name": "medium", "generator": "2 3", "note": "medium random friendships" },
+    { "name": "random_max", "generator": "3 4", "note": "maximum random graph" },
+    { "name": "bipartite_max", "generator": "4 5", "note": "maximum tight bipartite graph" },
+    { "name": "odd_max", "generator": "5 6", "note": "maximum odd near-bipartite graph" },
+    { "name": "complete_max", "generator": "6 7", "note": "maximum complete graph" },
+    { "name": "trap_even", "generator": "7 8", "note": "maximum even greedy trap" },
+    { "name": "trap_odd", "generator": "8 9", "note": "maximum odd greedy trap" },
+    { "name": "circulant_even", "generator": "9 10", "note": "maximum even tight circulant" },
+    { "name": "circulant_odd", "generator": "9 11", "note": "maximum odd tight circulant" }
+  ]
+}
