@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2149_implementation.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: halves after four turns" },
+    { "name": "02", "example": true, "note": "the second example: alternation after one turn" },
+    { "name": "03", "note": "two pigeons looking the same way" },
+    { "name": "04", "note": "two pigeons already facing each other" },
+    { "name": "gen1", "generator": "1 1", "note": "four pigeons already alternate starting to the right" },
+    { "name": "gen2", "generator": "1 2", "note": "two right-facing pigeons need one turn" },
+    { "name": "gen3", "generator": "2 3", "note": "a maximum-size random row" },
+    { "name": "gen4", "generator": "3 4", "note": "a halves pattern with three pigeons reversed" },
+    { "name": "gen5", "generator": "4 5", "note": "an alternating row with nine pigeons reversed" },
+    { "name": "05", "note": "maximum-size uniform right-facing row needs the maximum 50 turns" },
+    { "name": "06", "note": "reversed halves are already neat when each half has odd length" },
+    { "name": "07", "note": "alternation across an odd-length half boundary" },
+    { "name": "08", "note": "swapping the two middle pigeons of a halves pattern requires two turns" },
+    { "name": "09", "note": "only the final pigeon breaks the right-first alternating pattern" }
+  ]
+}
