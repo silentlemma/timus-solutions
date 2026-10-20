@@ -62,3 +62,4 @@
 | 2155 | [Catching a drone carried by the wind on a weighted grid](2155/) | dijkstra | C++, Go, Python, Java, Rust |
 | 2156 | [Splitting the differences around a circle into equal halves](2156/) | math, constructive | C++, Go, Python, Java, Rust |
 | 2157 | [Longest fall through clouds that stop the jumper](2157/) | dp | C++, Go, Python, Java, Rust |
+| 2158 | [Splitting a multiset into an arithmetic and a geometric progression](2158/) | math, greedy | C++, Go, Python, Java, Rust |
