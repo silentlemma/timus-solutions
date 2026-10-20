@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "2143_dp_bitmask.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "free seats two columns apart in consecutive rows can both be used" },
+    { "name": "02", "example": true, "note": "the second example: three free seats in a row hold only two" },
+    { "name": "03", "note": "one empty row holds four people" },
+    { "name": "04", "note": "one empty row cannot hold five" },
+    { "name": "05", "note": "rows two apart are not adjacent" },
+    { "name": "06", "note": "a free square of four seats holds one person" },
+    { "name": "07", "note": "a single free seat on the right" },
+    { "name": "gen1", "generator": "1 1", "note": "adjacent free pairs on both sides require seating one person on each side" },
+    { "name": "gen2", "generator": "1 2", "note": "a single free seat on the left" },
+    { "name": "gen3", "generator": "1 3", "note": "two separated seats on the left suffice without using the right side" },
+    { "name": "gen4", "generator": "2 4", "note": "more than two hundred people cannot fit despite having enough free seats" },
+    { "name": "gen5", "generator": "2 5", "note": "a partly occupied plane rejects a group below the empty plane's capacity" },
+    { "name": "gen6", "generator": "3 6", "note": "an empty plane and the largest group" },
+    { "name": "gen7", "generator": "4 7", "note": "an empty plane and one person too many" },
+    { "name": "08", "note": "two free seats conflict only diagonally across consecutive rows" },
+    { "name": "09", "note": "skip an early middle seat to take both endpoints in the next row" },
+    { "name": "10", "note": "only row 100 is free and its C and D seats are separated by the aisle" },
+    { "name": "11", "note": "an empty plane with 99 rows needs its final row to reach the capacity of 200" },
+    { "name": "12", "note": "seed 191 random layout needs both sides and only part of the maximum seating" }
+  ]
+}
