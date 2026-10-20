@@ -22,3 +22,4 @@
 | 2215 | [Counting points in rectangles while the whole plane keeps turning](2215/) | geometry, fenwick | C++, Go, Python, Java, Rust |
 | 2216 | [Fewest watched elevators that every route from bottom to top must use](2216/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 2217 | [Reaching a palindrome by sorting substrings of a binary string](2217/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 2218 | [Counting points at an exact Manhattan distance](2218/) | geometry, binary_search | C++, Go, Python, Java, Rust |
