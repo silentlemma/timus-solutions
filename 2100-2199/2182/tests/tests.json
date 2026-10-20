@@ -1,0 +1,14 @@
+{
+  "judging": "exact",
+  "reference": "2182_dp_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n = 1: the only bottle stays alone" },
+    { "name": "03", "note": "n = 2: box 1 collects from 2 and from the bottle of 3 via 2" },
+    { "name": "04", "note": "n = 60: the largest counts, still within 64 bits" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n with every box" },
+    { "name": "gen2", "generator": "1 2", "note": "a small n with every box" },
+    { "name": "gen3", "generator": "2 3", "note": "10^5 random boxes for n = 60" },
+    { "name": "gen4", "generator": "3 4", "note": "the small boxes and the largest ones" }
+  ]
+}
