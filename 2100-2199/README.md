@@ -76,3 +76,4 @@
 | 2169 | [Orienting a graph with one outgoing and three incoming edges at most](2169/) | dsu, graphs | C++, Go, Python, Java, Rust |
 | 2170 | [Time to merge juice in pairs over aligned power-of-two blocks](2170/) | dp, prefix_sums | C++, Go, Python, Java, Rust |
 | 2171 | [Numbers up to N covered by some of K arithmetic progressions](2171/) | math, number_theory | C++, Go, Python, Java, Rust |
+| 2172 | [Fewest problems to place every sponsor's mentions](2172/) | greedy, constructive | C++, Go, Python, Java, Rust |
