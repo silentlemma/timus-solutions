@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "2182_dp_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "n = 1: the only bottle stays alone" },
+    { "name": "03", "note": "n = 2: box 1 collects from 2 and from the bottle of 3 via 2" },
+    { "name": "04", "note": "n = 60: the largest counts, still within 64 bits" },
+    { "name": "gen1", "generator": "1 1", "note": "a small n with every box" },
+    { "name": "gen2", "generator": "1 2", "note": "the sole box queried at the minimum n" },
+    { "name": "gen3", "generator": "2 3", "note": "maximum query count with random boxes at n = 60" },
+    { "name": "gen4", "generator": "3 4", "note": "the small boxes and the largest ones" },
+    { "name": "05", "note": "n = 4: retained random queries include the 15 to 4 to 1 bottle chain" },
+    { "name": "06", "note": "n = 7: retained random queries exercise the 127 to 7 to 3 to 2 to 1 chain" },
+    { "name": "07", "note": "n = 6: box n receives one extra bottle while boxes above n stay single" },
+    { "name": "08", "note": "n = 32: box 1 exceeds signed 32 bits and query labels cross the signed limit" },
+    { "name": "09", "note": "n = 59: symmetric central binomial counts and no incoming bottle for box 60" },
+    { "name": "10", "note": "one query at n = 17: only the all-ones original bottle feeds box n" },
+    { "name": "11", "note": "n = 12: retained random queries mix cascade recipients with interior singleton boxes" },
+    { "name": "gen5", "generator": "4 2182", "note": "maximum q at n = 1 repeats the fixed point without spawning bottles" },
+    { "name": "gen6", "generator": "5 2182", "note": "maximum q at n = 60 densely repeats all recipient boxes and box 61" },
+    { "name": "gen7", "generator": "6 2182", "note": "n = 37: maximum q mixes seeded random labels with power-of-two neighbors" }
+  ]
+}

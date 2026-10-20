@@ -86,3 +86,4 @@
 | 2179 | [Most non-crossing straight roads between cities](2179/) | geometry | C++, Go, Python, Java, Rust |
 | 2180 | [Adding to a subtree down to a depth and reading one vertex](2180/) | fenwick | C++, Go, Python, Java, Rust |
 | 2181 | [Counting round trips on a grid that never revisit a crossing](2181/) | dp, math | C++, Go, Python, Java, Rust |
+| 2182 | [Bottles that multiply by the number of ones in their box number](2182/) | dp, combinatorics | C++, Go, Python, Java, Rust |
