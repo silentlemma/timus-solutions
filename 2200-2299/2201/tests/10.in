@@ -1,0 +1,16 @@
+15 8 10001 10000
+[00:00:00] First: /j
+[00:00:01] Second: /join
+[00:00:02] admin: /w<First> glhf
+[00:00:03] admin: /compare<First>
+[00:00:04] admin: /c<Second>-<First>
+[00:00:05] admin: /w<Second> glhfglhf
+[00:00:06] admin: /c<First>-<Second>
+[00:00:07] First: /s glhf
+[00:00:08] admin: /c<First>
+[00:00:09] admin: /c<Second>
+[00:00:10] First: /q
+[00:00:11] admin: /say glhf
+[00:00:12] First: /join
+[00:00:13] admin: /compare<First>
+[00:00:14] admin: /c<First>-<Second>

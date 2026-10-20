@@ -1,0 +1,15 @@
+14 10 1 1024
+[00:00:00] A: /j
+[00:00:01] B: /join
+[00:00:02] admin: /s glglglglgl
+[00:00:03] admin: /c<A>
+[00:00:04] A: /s hf
+[00:00:05] admin: /c<A>
+[00:00:06] admin: /c<B>
+[00:00:07] admin: /w<A> hfhf
+[00:00:08] admin: /c<A>
+[00:00:09] admin: /compare<A>-<B>
+[00:00:10] B: /quit
+[00:00:11] admin: /say hf
+[00:00:12] B: /j
+[00:00:13] admin: /c<B>-<A>

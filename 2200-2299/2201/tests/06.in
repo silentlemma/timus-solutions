@@ -1,0 +1,12 @@
+11 10 1 1
+[00:00:00] Unit: /j
+[00:00:01] Second: /join
+[00:00:02] Unit: /s glglglglgl
+[00:00:03] Second: /write<admin> hfhfhfhfhf
+[00:00:04] admin: /c<Unit>
+[00:00:05] Unit: /q
+[00:00:06] admin: /say glglglhfhf
+[00:00:07] Unit: /j
+[00:00:08] Unit: /w<Second> hfhfhfhfhf
+[00:00:09] admin: /compare<Unit>-<Second>
+[00:00:10] admin: /compare<Second>

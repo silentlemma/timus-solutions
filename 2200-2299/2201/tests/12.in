@@ -1,0 +1,18 @@
+17 6 8 2
+[00:00:00] write: /join
+[00:00:01] compare: /j
+[00:00:02] w: /join
+[00:00:03] c: /j
+[00:00:04] admin: /write<write> glhf
+[00:00:05] write: /w<compare> hfgl
+[00:00:06] admin: /compare<write>-<compare>
+[00:00:07] admin: /w<w> glglgl
+[00:00:08] admin: /c<w>-<c>
+[00:00:09] c: /compare<write>-<compare>
+[00:00:10] compare: /say hfhfhf
+[00:00:11] admin: /compare<compare>
+[00:00:12] write: /quit
+[00:00:13] admin: /compare<write>-<w>
+[00:00:14] admin: /compare<c>-<write>
+[00:00:15] write: /join
+[00:00:16] admin: /compare<write>-<compare>
