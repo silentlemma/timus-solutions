@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "2186_geometry_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one gun and zero or positive probability" },
+    { "name": "03", "note": "opposite guns and the exact one shot probability threshold" },
+    { "name": "04", "note": "both boundary rays hit at zero rotation" },
+    { "name": "05", "note": "two tangent events coincide at a positive rotation" },
+    { "name": "06", "note": "an interval wraps around zero and two shots change the thresholds" },
+    { "name": "07", "note": "ten shots round almost certain success to one in floating point" },
+    { "name": "08", "note": "maximum target coordinates and the smallest radius" },
+    { "name": "09", "note": "a single gun needs a rotation close to a full turn" },
+    { "name": "10", "note": "queries equal several exact probability grid values" },
+    { "name": "11", "note": "a rotation just below a full turn rounds to zero in angle subtraction" },
+    { "name": "gen1", "generator": "1 1", "note": "small random directions and queries" },
+    { "name": "gen2", "generator": "1 2", "note": "small random directions with another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "medium random directions and queries" },
+    { "name": "gen4", "generator": "3 4", "note": "maximum sizes and directions around the origin" },
+    { "name": "gen5", "generator": "4 5", "note": "maximum sizes and tightly clustered directions" },
+    { "name": "gen6", "generator": "5 6", "note": "maximum sizes and ten shots with probabilities near one" },
+    { "name": "gen7", "generator": "6 7", "note": "nearby directions on both sides of a tangent ray" },
+    { "name": "gen8", "generator": "7 8", "note": "maximum sizes and paired directions separated by the exact target cone width" }
+  ]
+}

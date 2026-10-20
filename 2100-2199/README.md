@@ -90,3 +90,4 @@
 | 2183 | [Flipping the signs of one segment to raise the minimum](2183/) | binary_search, dp | C++, Go, Python, Java, Rust |
 | 2184 | [The largest pile size when one pile was split between two chests](2184/) | number_theory | C++, Go, Python, Java, Rust |
 | 2185 | [Running many start values through add-if-negative, subtract-otherwise](2185/) | math | C++, Go, Python, Java, Rust |
+| 2186 | [The smallest rotation that points enough rays at a circle](2186/) | geometry, sorting | C++, Go, Python, Java, Rust |
