@@ -66,3 +66,4 @@
 | 2159 | [Shortest and smallest essay that obeys word-order rules](2159/) | graphs, greedy | C++, Go, Python, Java, Rust |
 | 2160 | [Permutations with the same Cartesian tree](2160/) | combinatorics, trees | C++, Go, Python, Java, Rust |
 | 2161 | [A knight who wins every duel whatever the others buy](2161/) | greedy | C++, Go, Python, Java, Rust |
+| 2162 | [Counting segments of an array that encode a simple graph](2162/) | hashing, segment_tree | C++, Go, Python, Java, Rust |
