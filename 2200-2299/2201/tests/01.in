@@ -1,0 +1,19 @@
+18 4 2 4
+[00:00:23] admin: /online
+[00:01:02] j0e: /j
+[00:01:15] j0e: /s hfhf
+[00:01:17] j0e: /q
+[00:01:18] admin: /write<j0e> hfhf
+[00:03:25] Tea_: /join
+[00:04:11] j0e: /join
+[00:07:54] Tea_: /j
+[00:08:30] admin: /say glgl
+[00:08:37] admin: /write<j0e> hfhf
+[00:09:00] Tea_: /compare<j0e>
+[00:13:41] admin: /c<j0e>-<Tea_>
+[00:13:44] j0e: /quit
+[00:13:57] admin: /compare<j0e>
+[00:27:49] j0e: /j
+[00:28:01] j0e: /s hfhf
+[00:30:19] admin: /compare<j0e>
+[00:30:43] admin: /compare<Tea_>-<j0e>

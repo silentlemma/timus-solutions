@@ -1,0 +1,12 @@
+11 10 1000000000 1000000000
+[00:00:00] aB9_Zx_1: /j
+[00:00:01] Z_0: /join
+[00:00:02] admin: /s glglglglgl
+[00:00:03] aB9_Zx_1: /s hfhfhfhfhf
+[00:00:04] admin: /c<Z_0>
+[00:00:05] admin: /c<aB9_Zx_1>
+[00:00:06] admin: /w<aB9_Zx_1> hfhfhfhfhf
+[00:00:07] admin: /compare<aB9_Zx_1>-<Z_0>
+[00:00:08] admin: /write<Z_0> hfhfhfhfhf
+[00:00:09] admin: /write<Z_0> glglglglgl
+[00:00:10] admin: /c<aB9_Zx_1>-<Z_0>

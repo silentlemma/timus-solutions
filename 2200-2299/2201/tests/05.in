@@ -1,0 +1,18 @@
+17 10 4 8
+[00:00:00] aB0_XXz9: /j
+[00:00:01] B: /join
+[00:00:02] admin: /write<aB0_XXz9> glglgl
+[00:00:03] admin: /write<aB0_XXz9> hfhf
+[00:00:04] admin: /c<aB0_XXz9>
+[00:00:05] admin: /say glglglhfhf
+[00:00:06] admin: /compare<aB0_XXz9>-<B>
+[00:00:07] B: /s glglglhfhf
+[00:00:08] admin: /compare<B>
+[00:00:09] admin: /w<aB0_XXz9> glglglglgl
+[00:00:10] admin: /w<aB0_XXz9> gl
+[00:00:11] admin: /w<aB0_XXz9> hfhfhfhf
+[00:00:12] admin: /c<aB0_XXz9>
+[00:00:13] admin: /w<B> glgl
+[00:00:14] admin: /w<aB0_XXz9> hf
+[00:00:15] admin: /compare<aB0_XXz9>-<B>
+[00:00:16] admin: /compare<B>-<aB0_XXz9>

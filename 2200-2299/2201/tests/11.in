@@ -1,0 +1,11 @@
+10 10 999999937 1000000000
+[00:00:00] a: /join
+[00:00:01] b: /j
+[00:00:02] admin: /w<a> gl
+[00:00:03] admin: /c<a>
+[00:00:04] admin: /w<b> hf
+[00:00:05] admin: /c<b>
+[00:00:06] admin: /c<a>-<b>
+[00:00:07] admin: /write<b> gl
+[00:00:08] admin: /write<a> hf
+[00:00:09] admin: /compare<a>-<b>

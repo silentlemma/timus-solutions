@@ -1,0 +1,8 @@
+7 6 8 4
+[00:00:00] q: /join
+[00:00:01] admin: /write<q> glgl
+[00:00:02] admin: /write<q> hfhfhf
+[00:00:03] admin: /compare<q>
+[00:00:04] admin: /c<admin>-<q>
+[00:00:05] admin: /w<q> gl
+[00:00:06] admin: /c<q>

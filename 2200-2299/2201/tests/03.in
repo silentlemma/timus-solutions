@@ -1,0 +1,18 @@
+17 2 2 4
+[00:00:00] admin: /join
+[00:00:01] Admin: /join
+[00:00:02] Admin: /c<missing>-<other>
+[00:00:03] admin: /compare<missing>-<other>
+[00:00:04] admin: /c<Admin>-<other>
+[00:00:05] Admin: /j
+[00:00:06] admin: /compare<admin>
+[00:00:07] admin: /c<Admin>-<Admin>
+[00:00:08] admin: /c<Admin>-<admin>
+[00:00:09] Admin: /quit
+[00:00:10] admin: /compare<Admin>
+[00:00:11] admin: /o
+[00:00:12] Admin: /j
+[00:00:13] Admin: /online
+[00:00:14] admin: /w<Never_0> gl
+[00:00:15] Never_0: /j
+[00:00:16] admin: /compare<Never_0>

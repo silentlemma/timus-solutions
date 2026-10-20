@@ -1,0 +1,23 @@
+22 10 2 4
+[00:00:00] A: /j
+[00:00:01] B: /join
+[00:00:02] A: /s gl
+[00:00:03] admin: /c<A>
+[00:00:04] admin: /c<B>
+[00:00:05] admin: /compare<A>-<B>
+[00:00:06] A: /q
+[00:00:07] admin: /say glglglglgl
+[00:00:08] B: /w<A> hfhf
+[00:00:09] Late: /j
+[00:00:10] admin: /c<Late>
+[00:00:11] A: /join
+[00:00:12] admin: /c<A>-<Late>
+[00:00:13] B: /write<admin> hf
+[00:00:14] admin: /compare<A>
+[00:00:15] B: /quit
+[00:00:16] admin: /s hfhfhfhfhf
+[00:00:17] B: /j
+[00:00:18] admin: /c<B>-<A>
+[00:00:19] admin: /compare<Late>-<A>
+[00:00:20] A: /say glhf
+[00:00:21] admin: /c<B>-<Late>
