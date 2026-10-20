@@ -1,0 +1,32 @@
+{
+  "judging": "exact",
+  "reference": "2200_dsu_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one board at the smallest coordinate bound" },
+    { "name": "04", "note": "an isolated center despite two neighboring boards" },
+    { "name": "05", "note": "horizontal jump when vertical intervals share an endpoint" },
+    { "name": "06", "note": "vertical jump when horizontal intervals share an endpoint" },
+    { "name": "07", "note": "two empty columns prevent a jump" },
+    { "name": "08", "note": "one empty row and one empty column prevent a diagonal jump" },
+    { "name": "09", "note": "a turning chain with a start board away from the first input line" },
+    { "name": "10", "note": "a tall hub with neighbors on both sides and an isolated board" },
+    { "name": "11", "note": "the center of a three by four board is connected" },
+    { "name": "12", "note": "the center of a four by three board is connected" },
+    { "name": "13", "note": "two components near both coordinate limits" },
+    { "name": "14", "note": "a board spanning almost the entire coordinate range" },
+    { "name": "15", "note": "endpoint jumps and a detour around a forbidden diagonal jump" },
+    { "name": "gen01", "generator": "small 1", "note": "small random boards with varied dimensions" },
+    { "name": "gen02", "generator": "small 2", "note": "another random layout and starting cell" },
+    { "name": "gen03", "generator": "small 3", "note": "a third random layout and starting cell" },
+    { "name": "gen04", "generator": "slices 4", "note": "random rectangular subdivisions" },
+    { "name": "gen05", "generator": "slices 5", "note": "another random subdivision layout" },
+    { "name": "gen06", "generator": "max_slices 6", "note": "maximum count of random subdivisions" },
+    { "name": "gen07", "generator": "chain 7", "note": "maximum count in a horizontal chain" },
+    { "name": "gen08", "generator": "hub 8", "note": "maximum count around one tall hub" },
+    { "name": "gen09", "generator": "grid 9", "note": "maximum count in a connected grid" },
+    { "name": "gen10", "generator": "disconnected 10", "note": "maximum count of isolated boards" },
+    { "name": "gen11", "generator": "extreme 11", "note": "maximum count in two distant chains" }
+  ]
+}
