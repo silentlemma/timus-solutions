@@ -1,0 +1,25 @@
+{
+  "judging": "checker",
+  "reference": "2148_geometry.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "an oblique reflection with the tank centered at the origin" },
+    { "name": "03", "note": "the players stand on the tangent line: a grazing shot does not count" },
+    { "name": "04", "note": "the players are on opposite sides of the tank" },
+    { "name": "05", "note": "coordinates at the limits" },
+    { "name": "06", "note": "the players are close to each other" },
+    { "name": "07", "note": "a right angle between the players" },
+    { "name": "gen1", "generator": "1 1", "note": "small coordinates" },
+    { "name": "gen2", "generator": "1 2", "note": "a diagonal reflection from a negatively translated center" },
+    { "name": "gen3", "generator": "1 3", "note": "perpendicular player directions around a translated tank" },
+    { "name": "gen4", "generator": "2 4", "note": "coordinates up to the limit" },
+    { "name": "gen5", "generator": "2 5", "note": "a steep bisector with large player coordinates" },
+    { "name": "gen6", "generator": "3 6", "note": "players far apart around the tank" },
+    { "name": "gen7", "generator": "3 7", "note": "diametrically opposite players around a shifted center" },
+    { "name": "08", "note": "an oblique chord is just outside the circle: squared clearance is one half" },
+    { "name": "09", "note": "an oblique chord cuts the circle by one half in squared distance despite exterior players" },
+    { "name": "10", "note": "minimum radius and nearly opposite players at coordinate limits still allow a bounce" },
+    { "name": "11", "note": "maximum radius with both players only one unit beyond the circle in squared distance" },
+    { "name": "12", "note": "seeded small random case uses distinct lattice representations of distance five" }
+  ]
+}
