@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "2195_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the smallest trees already agree" },
+    { "name": "04", "note": "a chain becomes a fork" },
+    { "name": "05", "note": "a fork becomes a chain" },
+    { "name": "06", "note": "isomorphic chains with reversed nonroot labels" },
+    { "name": "07", "note": "isomorphic asymmetric trees with different labels" },
+    { "name": "08", "note": "a complete tree becomes a comb" },
+    { "name": "09", "note": "a comb becomes a complete tree" },
+    { "name": "10", "note": "branches below a unary root become a chain" },
+    { "name": "11", "note": "splitting a chain into two root branches" },
+    { "name": "gen1", "generator": "1 1", "note": "small random relabeled trees" },
+    { "name": "gen2", "generator": "1 2", "note": "small random trees with another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "medium random relabeled trees" },
+    { "name": "gen4", "generator": "3 4", "note": "maximum random relabeled trees" },
+    { "name": "gen5", "generator": "4 5", "note": "maximum chain to balanced tree" },
+    { "name": "gen6", "generator": "5 6", "note": "maximum balanced tree to chain" },
+    { "name": "gen7", "generator": "6 7", "note": "maximum comb to balanced tree" },
+    { "name": "gen8", "generator": "7 8", "note": "maximum balanced tree to comb" },
+    { "name": "gen9", "generator": "8 9", "note": "maximum isomorphic random trees" },
+    { "name": "gen10", "generator": "9 10", "note": "maximum relabeled chains" },
+    { "name": "gen11", "generator": "10 11", "note": "maximum broom to comb" },
+    { "name": "gen12", "generator": "11 12", "note": "maximum two chains to random tree" }
+  ]
+}
