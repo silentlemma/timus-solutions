@@ -1,0 +1,17 @@
+{
+  "judging": "exact",
+  "reference": "2161_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: both can be crushed" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a single knight wins without rivals" },
+    { "name": "04", "note": "two equal knights crush each other" },
+    { "name": "05", "note": "no coins needed: the attack reaches the shield exactly" },
+    { "name": "06", "note": "no coins and the shield is one too weak" },
+    { "name": "gen1", "generator": "1 1", "note": "a few knights with small numbers" },
+    { "name": "gen2", "generator": "1 2", "note": "a few knights with small numbers" },
+    { "name": "gen3", "generator": "2 3", "note": "10^5 random knights" },
+    { "name": "gen4", "generator": "3 4", "note": "one rich knight has exactly enough" },
+    { "name": "gen5", "generator": "4 5", "note": "the rich knight is one coin short" }
+  ]
+}
