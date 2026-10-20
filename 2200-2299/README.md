@@ -30,3 +30,4 @@
 | 2223 | [How many calls an XOR-and-carry addition makes](2223/) | bitmask | C++, Go, Python, Java, Rust |
 | 2224 | [Two players racing on a 2 × N strip without revisiting cells](2224/) | games | C++, Go, Python, Java, Rust |
 | 2225 | [Fewest strikes of a two-nail hammer to drive a row of nails](2225/) | dsu, sorting | C++, Go, Python, Java, Rust |
+| 2226 | [Where a walk along the shortest unused edge ends, from every start](2226/) | dp, trees | C++, Go, Python, Java, Rust |
