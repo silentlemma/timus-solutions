@@ -79,3 +79,4 @@
 | 2172 | [Fewest problems to place every sponsor's mentions](2172/) | greedy, constructive | C++, Go, Python, Java, Rust |
 | 2173 | [Counting placements of sponsors, at most two per problem](2173/) | dp, combinatorics | C++, Go, Python, Java, Rust |
 | 2174 | [Pairing banknotes so that every pair sums to a prime](2174/) | matching | C++, Go, Python, Java, Rust |
+| 2175 | [Number of prefix maxima while elements only grow](2175/) | fenwick | C++, Go, Python, Java, Rust |
