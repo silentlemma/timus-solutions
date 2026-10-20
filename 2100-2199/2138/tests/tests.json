@@ -1,0 +1,20 @@
+{
+  "judging": "exact",
+  "reference": "2138_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "a high byte of one moves to the lowest position" },
+    { "name": "02", "example": true, "note": "a bad sender's two nonzero bytes move to the high end" },
+    { "name": "03", "note": "zero" },
+    { "name": "04", "note": "the largest value, all digits 255" },
+    { "name": "05", "note": "the million from the statement" },
+    { "name": "06", "note": "four different digits from a bad sender" },
+    { "name": "gen1", "generator": "1 1", "note": "a random value" },
+    { "name": "gen2", "generator": "1 2", "note": "a random input reverses beyond the signed 32-bit range" },
+    { "name": "gen3", "generator": "2 3", "note": "some zero digits" },
+    { "name": "gen4", "generator": "3 4", "note": "a palindromic digit order" },
+    { "name": "07", "note": "the largest one-byte input produces an unsigned result above the signed range" },
+    { "name": "08", "note": "the first two-byte value moves its nonzero byte between the middle positions" },
+    { "name": "09", "note": "the first value above the signed 32-bit range reverses to 128" },
+    { "name": "10", "note": "one below the unsigned maximum must reverse rather than remain unchanged" }
+  ]
+}
