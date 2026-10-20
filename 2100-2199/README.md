@@ -49,3 +49,4 @@
 | 2142 | [Paying red, blue and any mana with dual lands](2142/) | greedy | C++, Go, Python, Java, Rust |
 | 2143 | [Seating a group with no two members side by side](2143/) | dp, bitmask | C++, Go, Python, Java, Rust |
 | 2144 | [Ordering sealed boxes into one sorted row](2144/) | sorting | C++, Go, Python, Java, Rust |
+| 2145 | [Counting assignments of problems that every student can solve](2145/) | combinatorics, sorting | C++, Go, Python, Java, Rust |

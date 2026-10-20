@@ -1,0 +1,18 @@
+{
+  "judging": "exact",
+  "reference": "2145_combinatorics_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: a single way" },
+    { "name": "02", "example": true, "note": "the second example: all 3! ways" },
+    { "name": "03", "note": "p = 1 makes every answer 0" },
+    { "name": "04", "note": "one student solves nothing" },
+    { "name": "05", "note": "one student, knowledge and difficulty 0" },
+    { "name": "06", "note": "four equally skilled students solve every problem modulo five" },
+    { "name": "07", "note": "mixed equal values" },
+    { "name": "gen1", "generator": "1 1", "note": "a zero-knowledge student forces the only valid assignment" },
+    { "name": "gen2", "generator": "1 2", "note": "several zero-knowledge students compete for one zero-difficulty problem" },
+    { "name": "gen3", "generator": "2 3", "note": "the maximum n with a valid matching" },
+    { "name": "gen4", "generator": "3 4", "note": "the maximum n: 10^5! modulo a prime" },
+    { "name": "gen5", "generator": "4 5", "note": "the maximum n with one problem too hard" }
+  ]
+}
