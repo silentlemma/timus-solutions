@@ -1,0 +1,32 @@
+{
+  "judging": "exact",
+  "reference": "2131_suffix_structures.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one name with one character" },
+    { "name": "03", "note": "leftmost choices differ from lexicographic choices" },
+    { "name": "04", "note": "overlapping occurrences and increasing answer lengths" },
+    { "name": "05", "note": "positive names remove all remaining common candidates" },
+    { "name": "06", "note": "underscores and repeated occurrences" },
+    { "name": "07", "note": "an impossible answer stays impossible after more teams" },
+    { "name": "08", "note": "matches must not cross between different negative names" },
+    { "name": "09", "note": "several positive names successively shrink the intersection" },
+    { "name": "10", "note": "the only candidate is the entire first name" },
+    { "name": "11", "note": "repeated runs need different leftmost occurrence positions" },
+    { "name": "12", "note": "a candidate crosses the middle of the first name" },
+    { "name": "gen1", "generator": "1 1", "note": "small random names" },
+    { "name": "gen2", "generator": "1 2", "note": "small random names with another seed" },
+    { "name": "gen3", "generator": "2 3", "note": "small periodic names and substring windows" },
+    { "name": "gen4", "generator": "2 4", "note": "small structured names with another seed" },
+    { "name": "gen5", "generator": "3 5", "note": "one random name of maximal total length" },
+    { "name": "gen6", "generator": "4 6", "note": "maximal unary names with a full-length answer" },
+    { "name": "gen7", "generator": "5 7", "note": "maximal total length among many short names" },
+    { "name": "gen8", "generator": "6 8", "note": "maximal periodic names with long matches" },
+    { "name": "gen9", "generator": "7 9", "note": "maximal binary names with a positive window" },
+    { "name": "gen10", "generator": "8 10", "note": "medium random names over a small alphabet" },
+    { "name": "gen11", "generator": "9 11", "note": "maximal random pair over a small alphabet" },
+    { "name": "gen12", "generator": "10 12", "note": "maximal random all-positive names" },
+    { "name": "gen13", "generator": "11 13", "note": "maximal positives share a long suffix" },
+    { "name": "gen14", "generator": "12 14", "note": "maximal count of distinct team names" }
+  ]
+}
