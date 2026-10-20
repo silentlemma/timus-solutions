@@ -1,0 +1,32 @@
+{
+  "judging": "exact",
+  "reference": "2210_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the first purchase needs a full hundred days of savings" },
+    { "name": "04", "note": "the smallest income and purchases that take time to repay" },
+    { "name": "05", "note": "a purchase starts earning tomorrow and queries need their original order" },
+    { "name": "06", "note": "today's enterprise income cannot fund today's purchase" },
+    { "name": "07", "note": "an expensive enterprise only becomes worthwhile after a long payback period" },
+    { "name": "08", "note": "several useful enterprise types compete at different horizons" },
+    { "name": "09", "note": "duplicate and dominated enterprise types beside useful choices" },
+    { "name": "10", "note": "saving and repeated purchases must beat a locally attractive choice" },
+    { "name": "11", "note": "a cheap starter can accelerate access to a much larger enterprise" },
+    { "name": "12", "note": "maximum day count and results that require signed 64 bit integers" },
+    { "name": "gen1", "generator": "small 1", "note": "small random types and shuffled short horizons" },
+    { "name": "gen2", "generator": "tiny 2", "note": "one small enterprise and every short horizon" },
+    { "name": "gen3", "generator": "max-random 3", "note": "maximum types and queries with random costs and incomes" },
+    { "name": "gen4", "generator": "max-frontier 4", "note": "all hundred distinct cost income tradeoffs and maximum queries" },
+    { "name": "gen5", "generator": "max-cheap 5", "note": "maximum sizes and the largest possible income per purchase" },
+    { "name": "gen6", "generator": "max-expensive 6", "note": "maximum sizes with costly slow enterprises" },
+    { "name": "gen7", "generator": "duplicates 7", "note": "a hundred types built from repeated random pairs" },
+    { "name": "gen8", "generator": "equal-yield 8", "note": "all types earn the same amount but have different prices" },
+    { "name": "gen9", "generator": "equal-cost 9", "note": "all types have the maximum price but different incomes" },
+    { "name": "gen10", "generator": "delayed 10", "note": "late affordability and every horizon around the initial savings limit" },
+    { "name": "gen11", "generator": "staircase 11", "note": "near equal ratios with adjacent dominated types" },
+    { "name": "gen12", "generator": "thresholds 12", "note": "every short horizon followed by very large shuffled queries" },
+    { "name": "gen13", "generator": "slow-frontier 13", "note": "high costs and low incomes with twelve useful enterprise types" },
+    { "name": "gen14", "generator": "random-frontier 14", "note": "strictly increasing random prices and incomes without dominated types" }
+  ]
+}
