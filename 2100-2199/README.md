@@ -45,3 +45,4 @@
 | 2138 | [Swapping the byte order of a 32-bit number](2138/) | math | C++, Go, Python, Java, Rust |
 | 2139 | [Juice left in a rotating polygon with a hole in its side](2139/) | geometry, binary_search | C++, Go, Python, Java, Rust |
 | 2140 | [Fewest walk, jump, drop and climb moves through a voxel map](2140/) | bfs | C++, Go, Python, Java, Rust |
+| 2141 | [Maximum alternating sum of a segment](2141/) | dp | C++, Go, Python, Java, Rust |
