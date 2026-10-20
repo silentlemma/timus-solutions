@@ -50,3 +50,4 @@
 | 2143 | [Seating a group with no two members side by side](2143/) | dp, bitmask | C++, Go, Python, Java, Rust |
 | 2144 | [Ordering sealed boxes into one sorted row](2144/) | sorting | C++, Go, Python, Java, Rust |
 | 2145 | [Counting assignments of problems that every student can solve](2145/) | combinatorics, sorting | C++, Go, Python, Java, Rust |
+| 2146 | [Smallest circular period after at most k letter changes](2146/) | strings | C++, Go, Python, Java, Rust |

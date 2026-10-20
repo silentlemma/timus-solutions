@@ -1,0 +1,26 @@
+{
+  "judging": "checker",
+  "reference": "2146_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "three changes reduce a drum of distinct letters to period 3" },
+    { "name": "02", "example": true, "note": "the second example: one change gives period 1" },
+    { "name": "03", "example": true, "note": "the third example: no changes allowed" },
+    { "name": "04", "note": "a single sector" },
+    { "name": "05", "note": "already periodic and one change does not help" },
+    { "name": "06", "note": "a prime length: either the full length or 1" },
+    { "name": "07", "note": "two changes beat the existing period 3" },
+    { "name": "gen1", "generator": "1 1", "note": "a short drum over three letters" },
+    { "name": "gen2", "generator": "1 2", "note": "a one-letter drum with no changes available" },
+    { "name": "gen3", "generator": "2 3", "note": "a maximum-length random drum" },
+    { "name": "gen4", "generator": "3 4", "note": "a spoiled periodic drum with 128 divisors" },
+    { "name": "gen5", "generator": "3 5", "note": "many divisors and a small repair budget on a damaged repeating pattern" },
+    { "name": "gen6", "generator": "4 6", "note": "a maximum-length drum of equal letters" },
+    { "name": "gen7", "generator": "5 7", "note": "every one of the 128 divisors is tried" },
+    { "name": "08", "note": "a linear period of 2 fails across the circular boundary" },
+    { "name": "09", "note": "the full alphabet with the maximum change budget k = n" },
+    { "name": "10", "note": "optimal repairs change the first block and use the entire budget" },
+    { "name": "11", "note": "both residue classes have tied majorities at the exact repair budget" },
+    { "name": "12", "note": "a random drum needs one edit for period 4 but three for periods 1 and 2" },
+    { "name": "gen8", "generator": "1 24", "note": "a seeded drum where one allowed edit cannot create any proper circular period" }
+  ]
+}
