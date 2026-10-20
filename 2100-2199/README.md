@@ -96,3 +96,4 @@
 | 2189 | [The value missing from the fewest subarrays under point updates](2189/) | fenwick, bitmask | C++, Go, Python, Java, Rust |
 | 2190 | [Fewest boulder moves to make heaps proportional](2190/) | math, sorting | C++, Go, Python, Java, Rust |
 | 2191 | [Writing a polyline as a signed sum of exactly N absolute values](2191/) | math, constructive | C++, Go, Python, Java, Rust |
+| 2192 | [A forest route where every path pays more for mushrooms](2192/) | graphs | C++, Go, Python, Java, Rust |

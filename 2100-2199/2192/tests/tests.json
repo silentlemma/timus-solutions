@@ -1,0 +1,24 @@
+{
+  "judging": "exact",
+  "reference": "2192_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example: the long route fails on one day" },
+    { "name": "02", "note": "the last glade cannot be reached" },
+    { "name": "03", "note": "a single path with a tie on the first day" },
+    { "name": "04", "note": "an unreachable glade with paths into the route" },
+    { "name": "gen1", "generator": "1 1", "note": "a small acyclic forest" },
+    { "name": "gen2", "generator": "1 2", "note": "equal harvests make the answer depend on the price order" },
+    { "name": "gen3", "generator": "1 3", "note": "a stronger direct path with a tie at its bottleneck" },
+    { "name": "gen4", "generator": "2 4", "note": "maximum path count with a planted route" },
+    { "name": "gen5", "generator": "3 5", "note": "a long chain with a shortcut and days near the best ratio" },
+    { "name": "gen6", "generator": "4 6", "note": "glades numbered beyond N and extreme counts" },
+    { "name": "05", "note": "competing ratios and query products differ by one near 10^18" },
+    { "name": "06", "note": "minimum N M and Q with the sole edge pointing from target to source" },
+    { "name": "07", "note": "a stronger later branch must improve a merge before a weaker suffix caps it" },
+    { "name": "08", "note": "the route uses label 100000 while target 2 has an irrelevant outgoing edge" },
+    { "name": "09", "note": "equal unreduced ratios on routes of different lengths give scaled ties" },
+    { "name": "10", "note": "random seed 16 has four routes with distinct bottlenecks and edges beyond both endpoints" },
+    { "name": "gen7", "generator": "5 2192", "note": "maximum M and Q with 50000 branches merging into the target" },
+    { "name": "gen8", "generator": "6 92", "note": "dense random DAG with incoming source edges and outgoing target edges" }
+  ]
+}
