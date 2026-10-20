@@ -1,0 +1,26 @@
+{
+  "judging": "exact",
+  "reference": "2218_geometry_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one computer, zero distance and exact distance" },
+    { "name": "03", "note": "all diamond edges and corners counted once" },
+    { "name": "04", "note": "extreme coordinates and distances beyond signed 32 bits" },
+    { "name": "05", "note": "negative coordinates and repeated queries" },
+    { "name": "06", "note": "long intersecting diagonals and empty intervals" },
+    { "name": "07", "note": "mixed parity and points just inside or outside the boundary" },
+    { "name": "08", "note": "one query reaches every computer" },
+    { "name": "09", "note": "zero distance at occupied and empty positions" },
+    { "name": "10", "note": "adjacent extreme positions and translated diamond corners" },
+    { "name": "small1", "generator": "small 1", "note": "small random coordinates" },
+    { "name": "small2", "generator": "small 2", "note": "small random coordinates, another seed" },
+    { "name": "grid", "generator": "grid 3", "note": "dense grid with many boundary points" },
+    { "name": "diagonals", "generator": "diagonals 4", "note": "long intersecting diagonal buckets" },
+    { "name": "planted", "generator": "planted 5", "note": "every query has a planted answer" },
+    { "name": "wide", "generator": "wide 6", "note": "full coordinate and distance ranges" },
+    { "name": "max_diag", "generator": "max_diag 7", "note": "maximum sizes, one long diagonal" },
+    { "name": "max_hits", "generator": "max_hits 8", "note": "maximum sizes and maximum answer" },
+    { "name": "max_random", "generator": "max_random 9", "note": "maximum sizes, distinct buckets" },
+    { "name": "max_edges", "generator": "max_edges 10", "note": "maximum sizes, all four sides in large diagonal buckets" }
+  ]
+}
