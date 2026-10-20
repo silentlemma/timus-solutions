@@ -1,0 +1,28 @@
+{
+  "judging": "exact",
+  "reference": "2212_math_combinatorics.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "minimum length, days and values" },
+    { "name": "03", "note": "two maximum values and the maximum number of days" },
+    { "name": "04", "note": "one prefix sum wraps around the modulus" },
+    { "name": "05", "note": "two days turn ones into triangular numbers" },
+    { "name": "06", "note": "three days on an increasing array" },
+    { "name": "07", "note": "alternating extremes after the maximum number of days" },
+    { "name": "08", "note": "two days on an irregular array" },
+    { "name": "09", "note": "ones at a power of two with modular wraparound" },
+    { "name": "10", "note": "length just above a power of two" },
+    { "name": "11", "note": "length just below a power of two and a large odd day count" },
+    { "name": "12", "note": "mixed whitespace and a length above a transform boundary" },
+    { "name": "13", "note": "an output coefficient is exactly zero modulo the modulus" },
+    { "name": "gen1", "generator": "1 1", "note": "small random array" },
+    { "name": "gen2", "generator": "2 2", "note": "medium random array" },
+    { "name": "gen3", "generator": "3 3", "note": "maximum length and days with random values" },
+    { "name": "gen4", "generator": "4 4", "note": "maximum length, days and every value" },
+    { "name": "gen5", "generator": "5 5", "note": "maximum length of ones and maximum days" },
+    { "name": "gen6", "generator": "6 6", "note": "one day on a maximum alternating array" },
+    { "name": "gen7", "generator": "7 7", "note": "length near a power of two" },
+    { "name": "gen8", "generator": "8 8", "note": "two days on a maximum random array" },
+    { "name": "gen9", "generator": "9 9", "note": "random length across the full range" }
+  ]
+}
