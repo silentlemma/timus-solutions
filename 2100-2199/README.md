@@ -78,3 +78,4 @@
 | 2171 | [Numbers up to N covered by some of K arithmetic progressions](2171/) | math, number_theory | C++, Go, Python, Java, Rust |
 | 2172 | [Fewest problems to place every sponsor's mentions](2172/) | greedy, constructive | C++, Go, Python, Java, Rust |
 | 2173 | [Counting placements of sponsors, at most two per problem](2173/) | dp, combinatorics | C++, Go, Python, Java, Rust |
+| 2174 | [Pairing banknotes so that every pair sums to a prime](2174/) | matching | C++, Go, Python, Java, Rust |
