@@ -1,0 +1,31 @@
+{
+  "judging": "checker",
+  "reference": "2130_math_number_theory.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "example": true, "note": "the third example" },
+    { "name": "04", "note": "one affirmative answer for the unit divisor" },
+    { "name": "05", "note": "a negative answer for the unit divisor is impossible" },
+    { "name": "06", "note": "negative answers alone permit the unit witness" },
+    { "name": "07", "note": "a forbidden composite becomes implied by several positives" },
+    { "name": "08", "note": "a larger prime power contradicts an earlier negative answer" },
+    { "name": "09", "note": "increasing prime powers and redundant affirmative answers" },
+    { "name": "10", "note": "two large coprime divisors fit before a third causes overflow" },
+    { "name": "11", "note": "a feasible witness close to the limit and a later contradiction" },
+    { "name": "12", "note": "a forbidden maximum divisor becomes necessary after a power increase" },
+    { "name": "13", "note": "several negatives remain valid as the positive lcm grows" },
+    { "name": "14", "note": "a forbidden composite is implied without appearing as positive" },
+    { "name": "15", "note": "repeated answers and a contradiction that remains permanent" },
+    { "name": "gen1", "generator": "small 1", "note": "a small unrestricted random history" },
+    { "name": "gen2", "generator": "small 2", "note": "another small random history" },
+    { "name": "gen3", "generator": "feasible 3", "note": "a small history for one hidden witness" },
+    { "name": "gen4", "generator": "mixed 4", "note": "maximum size with consistent mixed answers" },
+    { "name": "gen5", "generator": "negative 5", "note": "maximum size with negative answers only" },
+    { "name": "gen6", "generator": "positive 6", "note": "maximum size with compatible positives" },
+    { "name": "gen7", "generator": "late 7", "note": "maximum size with a final composite contradiction" },
+    { "name": "gen8", "generator": "overflow 8", "note": "maximum size with a final limit overflow" },
+    { "name": "gen9", "generator": "powers 9", "note": "many distinct negatives and repeated lcm growth" },
+    { "name": "gen10", "generator": "unique 10", "note": "an immediate contradiction and a maximum suffix" }
+  ]
+}

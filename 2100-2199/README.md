@@ -34,3 +34,4 @@
 | 2127 | [Determinant of the adjacency matrix of an almost-tree](2127/) | graphs, matrix | C++, Go, Python, Java, Rust |
 | 2128 | [Solitaire from rows into suit piles as a topological order](2128/) | graphs | C++, Go, Python, Java, Rust |
 | 2129 | [Paying an amount with exactly l coins of powers of k](2129/) | dp | C++, Go, Python, Java, Rust |
+| 2130 | [A number consistent with divisibility answers so far](2130/) | math, number_theory | C++, Go, Python, Java, Rust |
