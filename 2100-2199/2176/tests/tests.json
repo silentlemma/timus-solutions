@@ -1,0 +1,26 @@
+{
+  "judging": "exact",
+  "reference": "2176_dp_meet_in_middle.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "the first hundred values include small unattainable gaps" },
+    { "name": "04", "note": "distinct summands and boundaries of small prefix sums" },
+    { "name": "05", "note": "every beautiful number and its immediate neighbors" },
+    { "name": "06", "note": "the total sum and complements of beautiful numbers with neighbors" },
+    { "name": "07", "note": "repeated queries in mixed order and values at the upper bound" },
+    { "name": "08", "note": "one query at the smallest allowed value" },
+    { "name": "09", "note": "one query at the largest allowed value" },
+    { "name": "10", "note": "the maximum query count in descending order" },
+    { "name": "gen1", "generator": "small 1", "note": "a few random smaller values" },
+    { "name": "gen2", "generator": "small 2", "note": "another set of smaller random values" },
+    { "name": "gen3", "generator": "random 3", "note": "a thousand random values up to the limit" },
+    { "name": "gen4", "generator": "beautiful 4", "note": "beautiful numbers and nearby values" },
+    { "name": "gen5", "generator": "subset 5", "note": "actual distinct subset sums and neighbors" },
+    { "name": "gen6", "generator": "bounds 6", "note": "values close to both input bounds" },
+    { "name": "gen7", "generator": "maximum 7", "note": "a thousand copies of the largest value" },
+    { "name": "gen8", "generator": "total 8", "note": "the total sum and nearby values" },
+    { "name": "gen9", "generator": "repeated 9", "note": "repeated positive and negative answers" },
+    { "name": "gen10", "generator": "prefix 10", "note": "prefix sums and their complements" }
+  ]
+}
