@@ -1,0 +1,29 @@
+{
+  "judging": "checker",
+  "reference": "2152_greedy_sorting.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "no edits while both fees are positive" },
+    { "name": "03", "note": "fractional price fees and two equal selected gains" },
+    { "name": "04", "note": "equal gains at the budget boundary" },
+    { "name": "05", "note": "the best weight and price changes have equal gains" },
+    { "name": "06", "note": "every digit is nine and no positive edit exists" },
+    { "name": "07", "note": "zero fees allow harmless edits and unused budget" },
+    { "name": "08", "note": "an edited value exceeds the original upper bound" },
+    { "name": "09", "note": "both the fee in cents and the fee in credits exceed signed 64 bits" },
+    { "name": "10", "note": "only the last digit improves and gains differ by a factor of 100" },
+    { "name": "11", "note": "all input bounds with a zero edit budget" },
+    { "name": "12", "note": "edits cross thresholds and only the two largest gains are selected" },
+    { "name": "13", "note": "skip leading nines and retain exact fractional cents" },
+    { "name": "small1", "generator": "1 1", "note": "small mixed values with a unique optimum" },
+    { "name": "small2", "generator": "1 2", "note": "another small unique optimum" },
+    { "name": "medium", "generator": "2 3", "note": "mixed digit lengths and a unique cutoff" },
+    { "name": "all", "generator": "3 4", "note": "maximal size and every package is changed" },
+    { "name": "partial", "generator": "4 5", "note": "maximal size with a strict partial budget" },
+    { "name": "unchanged", "generator": "5 6", "note": "maximal size without any permitted edits" },
+    { "name": "overflow", "generator": "6 7", "note": "maximal size, input bounds, and total fee" },
+    { "name": "price", "generator": "7 8", "note": "price edits with fractional fees" },
+    { "name": "threshold", "generator": "8 9", "note": "values around both thresholds" },
+    { "name": "distinct", "generator": "9 10", "note": "maximal size and many distinct gains" }
+  ]
+}
