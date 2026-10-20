@@ -1,0 +1,26 @@
+{
+  "judging": "exact",
+  "reference": "2196_geometry_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "minimum triangle, boundary points and days above 63" },
+    { "name": "03", "note": "collinear consecutive sides and nearest corners" },
+    { "name": "04", "note": "large diamond with area and cross products near integer limits" },
+    { "name": "05", "note": "a billion-unit edge in a triangle one unit high" },
+    { "name": "06", "note": "a unit triangle translated to the coordinate limit" },
+    { "name": "07", "note": "oblique edges, vertex projections and symmetric queries" },
+    { "name": "08", "note": "a narrow diagonal triangle and exact integer containment" },
+    { "name": "09", "note": "day-one boundary missed by about 5.46e-6 from the outside" },
+    { "name": "10", "note": "day-one boundary missed by about 1.08e-5 from the inside" },
+    { "name": "11", "note": "half-unit area with billion-unit nearly parallel sides" },
+    { "name": "gen1", "generator": "1 1", "note": "a translated random strict convex hull" },
+    { "name": "gen2", "generator": "1 2", "note": "another hull with a rotated first vertex" },
+    { "name": "gen3", "generator": "2 3", "note": "a rectangle with collinear boundary vertices" },
+    { "name": "gen4", "generator": "3 4", "note": "huge skinny geometry with distant queries" },
+    { "name": "gen5", "generator": "3 5", "note": "another skinny triangle orientation" },
+    { "name": "gen6", "generator": "4 6", "note": "maximum strict convex vertices and queries" },
+    { "name": "gen7", "generator": "5 7", "note": "maximum queries around a small square" },
+    { "name": "gen8", "generator": "6 8", "note": "edge and corner probes around day boundaries" },
+    { "name": "gen9", "generator": "7 9", "note": "maximum outside normals at scattered vertices" }
+  ]
+}

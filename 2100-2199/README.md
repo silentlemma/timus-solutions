@@ -100,3 +100,4 @@
 | 2193 | [Best rhyme score: suffix length halved for every mismatch](2193/) | strings | C++, Go, Python, Java, Rust |
 | 2194 | [Fewest turns on a board of snakes where a six rolls again](2194/) | bfs | C++, Go, Python, Java, Rust |
 | 2195 | [Turning one binary tree into another through a path](2195/) | constructive | C++, Go, Python, Java, Rust |
+| 2196 | [The day a growing offset of a convex polygon reaches each point](2196/) | geometry, binary_search | C++, Go, Python, Java, Rust |
