@@ -32,3 +32,4 @@
 | 2125 | [Extending a sequence by its lowest-degree polynomial](2125/) | math | C++, Go, Python, Java, Rust |
 | 2126 | [Red team wins: central trinomial coefficients modulo a prime](2126/) | math, combinatorics | C++, Go, Python, Java, Rust |
 | 2127 | [Determinant of the adjacency matrix of an almost-tree](2127/) | graphs, matrix | C++, Go, Python, Java, Rust |
+| 2128 | [Solitaire from rows into suit piles as a topological order](2128/) | graphs | C++, Go, Python, Java, Rust |

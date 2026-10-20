@@ -1,0 +1,33 @@
+{
+  "judging": "checker",
+  "reference": "2128_graphs.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one card" },
+    { "name": "04", "note": "one descending row of a single suit" },
+    { "name": "05", "note": "a higher rank blocks the ace of its own suit" },
+    { "name": "06", "note": "single card rows in a shuffled order" },
+    { "name": "07", "note": "one rank and a single row" },
+    { "name": "08", "note": "several independent legal first moves" },
+    { "name": "09", "note": "a cycle between two suits" },
+    { "name": "10", "note": "a deadlock reached after moving both aces" },
+    { "name": "11", "note": "a unique order that alternates between rows and suits" },
+    { "name": "12", "note": "independent complete suit rows" },
+    { "name": "13", "note": "a long forced alternation in one row" },
+    { "name": "14", "note": "irregular whitespace between input tokens" },
+    { "name": "small1", "generator": "small 1", "note": "a small unique move order" },
+    { "name": "small2", "generator": "small 29", "note": "a different unique move order" },
+    { "name": "blocked", "generator": "blocked 7", "note": "a forced local deadlock" },
+    { "name": "random1", "generator": "random 41", "note": "a random unambiguous deal" },
+    { "name": "random2", "generator": "random 73", "note": "another random unambiguous deal" },
+    { "name": "single", "generator": "single 13", "note": "one suit spread over many rows" },
+    { "name": "chain", "generator": "chain 17", "note": "the maximum number of suits" },
+    { "name": "rows", "generator": "rows 19", "note": "the maximum number of rows and ranks" },
+    { "name": "mixed", "generator": "mixed 23", "note": "a maximum deck with interleaved suits" },
+    { "name": "bands", "generator": "bands 31", "note": "a maximum deck with many forced row changes" },
+    { "name": "large_no", "generator": "blocked-large 37", "note": "a maximum deck with a local cycle" },
+    { "name": "late_no", "generator": "blocked-end 43", "note": "a deadlock after almost all cards move" },
+    { "name": "row_no", "generator": "blocked-row 47", "note": "a maximum row with no legal first move" }
+  ]
+}
