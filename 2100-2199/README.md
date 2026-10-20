@@ -41,3 +41,4 @@
 | 2134 | [Stamping a document until k cells are painted twice](2134/) | simulation | C++, Go, Python, Java, Rust |
 | 2135 | [Fewest segments with products in a range](2135/) | dp, two_pointers | C++, Go, Python, Java, Rust |
 | 2136 | [Fewest bricks that stop a rectangle sliding down a chimney](2136/) | two_pointers | C++, Go, Python, Java, Rust |
+| 2137 | [Extending a binary string to maximize the periods of its borders](2137/) | dp, strings | C++, Go, Python, Java, Rust |
