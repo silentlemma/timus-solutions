@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2189_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "one sailor with unchanged and replacement roles" },
+    { "name": "04", "note": "two sailors, ties, and role disappearance" },
+    { "name": "05", "note": "one role split at the endpoints and in the middle, then restored" },
+    { "name": "06", "note": "roles disappear and reappear between unchanged updates" },
+    { "name": "07", "note": "a less frequent role can cover more subarrays" },
+    { "name": "08", "note": "equal frequencies with different gap placement" },
+    { "name": "09", "note": "widely separated role values and boundary changes" },
+    { "name": "10", "note": "symmetric gaps, adjacent occurrences, and ties" },
+    { "name": "small1", "generator": "1 1", "note": "small random roles and repeated updates" },
+    { "name": "small2", "generator": "1 2", "note": "small random roles with another seed" },
+    { "name": "sparse", "generator": "2 1", "note": "maximum sizes with many distinct roles" },
+    { "name": "dense", "generator": "3 2", "note": "maximum sizes with two dense role sets" },
+    { "name": "noop", "generator": "4 1", "note": "distinct roles, no-ops, and 64-bit answers" },
+    { "name": "merge", "generator": "5 2", "note": "distinct roles merge into a single role" },
+    { "name": "split", "generator": "6 1", "note": "a single role splits into distinct roles" },
+    { "name": "hot", "generator": "7 2", "note": "many updates at endpoints and middle positions" },
+    { "name": "single", "generator": "8 1", "note": "one sailor with the maximum update count" },
+    { "name": "groups", "generator": "9 2", "note": "maximum sizes with many medium role sets" },
+    { "name": "fresh", "generator": "10 1", "note": "every update introduces an unseen role" },
+    { "name": "medium1", "generator": "11 1", "note": "mixed updates near word boundaries" },
+    { "name": "medium2", "generator": "11 2", "note": "medium roles with no-ops and fresh values" }
+  ]
+}
