@@ -27,3 +27,4 @@
 | 2220 | [Average of 1 / gcd over all pairs up to N](2220/) | number_theory | C++, Go, Python, Java, Rust |
 | 2221 | [Hull sizes of every subtree of a Cartesian tree of points](2221/) | geometry, trees | C++, Go, Python, Java, Rust |
 | 2222 | [Most knights on a 3 × N board whose attack graph is a tree](2222/) | dp | C++, Go, Python, Java, Rust |
+| 2223 | [How many calls an XOR-and-carry addition makes](2223/) | bitmask | C++, Go, Python, Java, Rust |
