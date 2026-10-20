@@ -71,3 +71,4 @@
 | 2164 | [Counting substrings that are finished connect-four games](2164/) | simulation | C++, Go, Python, Java, Rust |
 | 2165 | [Triangulation of a convex polygon with the largest smallest triangle](2165/) | dp, geometry | C++, Go, Python, Java, Rust |
 | 2166 | [Farthest crossing of lines from the origin in the L1 distance](2166/) | geometry, sorting | C++, Go, Python, Java, Rust |
+| 2167 | [Smallest XOR key that turns a number into a prime](2167/) | bitmask, number_theory | C++, Go, Python, Java, Rust |
