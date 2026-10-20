@@ -58,3 +58,4 @@
 | 2151 | [Recognizing a winning or nearly winning mahjong hand](2151/) | bruteforce, greedy | C++, Go, Python, Java, Rust |
 | 2152 | [Raising customs duties by changing one digit in k parcels](2152/) | greedy, sorting | C++, Go, Python, Java, Rust |
 | 2153 | [Largest party of distinct roles and which recruit would help](2153/) | dp, bitmask | C++, Go, Python, Java, Rust |
+| 2154 | [Closest line through two points to the origin](2154/) | geometry, sorting | C++, Go, Python, Java, Rust |
