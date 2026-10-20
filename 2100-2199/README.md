@@ -39,3 +39,4 @@
 | 2132 | [Splitting the edges of a graph into adjacent pairs](2132/) | graphs, constructive | C++, Go, Python, Java, Rust |
 | 2133 | [Counting runs of tall buildings under height updates](2133/) | fenwick | C++, Go, Python, Java, Rust |
 | 2134 | [Stamping a document until k cells are painted twice](2134/) | simulation | C++, Go, Python, Java, Rust |
+| 2135 | [Fewest segments with products in a range](2135/) | dp, two_pointers | C++, Go, Python, Java, Rust |
