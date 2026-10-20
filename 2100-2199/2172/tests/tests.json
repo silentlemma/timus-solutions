@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2172_greedy_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one sponsor, one problem" },
+    { "name": "03", "note": "the largest wish decides the number of problems" },
+    { "name": "04", "note": "one sponsor per problem when K equals one" },
+    { "name": "gen1", "generator": "1 1", "note": "a few sponsors with small wishes" },
+    { "name": "gen2", "generator": "1 2", "note": "a single requested appearance at minimum sponsor count and capacity" },
+    { "name": "gen3", "generator": "2 3", "note": "a thousand sponsors with capacity forcing more problems than any single wish" },
+    { "name": "gen4", "generator": "2 4", "note": "mixed wishes up to a hundred require rounding up the capacity bound" },
+    { "name": "gen5", "generator": "3 5", "note": "one sponsor wants 1000 problems" },
+    { "name": "gen6", "generator": "4 6", "note": "unit capacity with 50835 mentions requires one problem per mention" },
+    { "name": "05", "note": "both lower bounds are equal and every problem must be full" },
+    { "name": "06", "note": "unequal repeated wishes need a rounded capacity bound above every wish" },
+    { "name": "07", "note": "three sponsors need five of six problems and must stay distinct in each" },
+    { "name": "08", "note": "all sponsors fit into one problem with maximum K" },
+    { "name": "09", "note": "a lone sponsor with maximum wish still needs 1000 distinct problems" },
+    { "name": "gen7", "generator": "5 7", "note": "maximum N and K with total 100000 fill 100 problems with every sponsor" },
+    { "name": "gen8", "generator": "6 8", "note": "total 100000 and K equal to one require the maximum 100000 problem lines" },
+    { "name": "gen9", "generator": "7 9", "note": "seeded random wishes at total 100000 with K equal to three need a rounded capacity bound" }
+  ]
+}
