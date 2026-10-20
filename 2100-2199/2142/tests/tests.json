@@ -1,0 +1,19 @@
+{
+  "judging": "exact",
+  "reference": "2142_greedy.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "spare colored lands cover the any-color cost with lands left over" },
+    { "name": "02", "example": true, "note": "the second example: red can be covered, but 16 lands cannot pay 17 mana" },
+    { "name": "03", "note": "nothing is needed and nothing is owned" },
+    { "name": "04", "note": "all values at the upper bound: 3 * 10^9 overflows 32 bits" },
+    { "name": "05", "note": "blue lands cannot pay for red mana" },
+    { "name": "06", "note": "only dual lands, exactly enough" },
+    { "name": "07", "note": "only dual lands, one short of the any-color part" },
+    { "name": "08", "note": "spare red lands cannot pay for blue mana" },
+    { "name": "gen1", "generator": "1 1", "note": "dual lands fall one short of covering both color deficits with no any-color cost" },
+    { "name": "gen2", "generator": "1 2", "note": "an any-color-only spell is paid from colored lands without dual lands" },
+    { "name": "gen3", "generator": "2 3", "note": "large land counts cover each color but leave too little mana for the any-color cost" },
+    { "name": "gen4", "generator": "3 4", "note": "spare lands of both colors and all dual lands exactly cover the any-color cost" },
+    { "name": "gen5", "generator": "3 5", "note": "dual lands cover a blue deficit before the remaining lands pay the exact total cost" }
+  ]
+}
