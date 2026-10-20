@@ -1,0 +1,30 @@
+{
+  "judging": "exact",
+  "reference": "2180_fenwick.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "minimum tree and one query before any update" },
+    { "name": "03", "note": "zero access level and repeated reports do not remove tasks" },
+    { "name": "04", "note": "chain with inclusive depth boundaries and overlapping updates" },
+    { "name": "05", "note": "star with root-only updates and isolated leaves" },
+    { "name": "06", "note": "subtrees with interleaved labels and distinct depth boundaries" },
+    { "name": "07", "note": "task totals exceed signed 32-bit integers" },
+    { "name": "08", "note": "every vertex is queried before any update" },
+    { "name": "09", "note": "leaf updates and exact depth cutoffs on a chain" },
+    { "name": "gen1", "generator": "small_random 1", "note": "small random tree" },
+    { "name": "gen2", "generator": "small_chain 2", "note": "small random chain workload" },
+    { "name": "gen3", "generator": "small_star 3", "note": "small random star workload" },
+    { "name": "gen4", "generator": "small_balanced 4", "note": "small balanced tree" },
+    { "name": "gen5", "generator": "small_broom 5", "note": "small tree with a stem and leaves" },
+    { "name": "gen6", "generator": "chain 6", "note": "maximum chain and operation count" },
+    { "name": "gen7", "generator": "star 7", "note": "maximum star and operation count" },
+    { "name": "gen8", "generator": "balanced 8", "note": "maximum balanced tree" },
+    { "name": "gen9", "generator": "broom 9", "note": "maximum deep stem with many leaves" },
+    { "name": "gen10", "generator": "random 10", "note": "maximum random tree" },
+    { "name": "gen11", "generator": "updates 11", "note": "maximum input without reports" },
+    { "name": "gen12", "generator": "queries 12", "note": "maximum input with only reports" },
+    { "name": "gen13", "generator": "int64 13", "note": "maximum total at the deepest vertex" },
+    { "name": "gen14", "generator": "stress 14", "note": "deep branching with varied cutoffs" },
+    { "name": "gen15", "generator": "forks 15", "note": "two long chains with partial updates" }
+  ]
+}
