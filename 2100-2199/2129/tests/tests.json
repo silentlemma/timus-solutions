@@ -1,0 +1,23 @@
+{
+  "judging": "exact",
+  "reference": "2129_dp.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the statement example" },
+    { "name": "02", "note": "minimum amounts and too many coins" },
+    { "name": "03", "note": "binary carries and several representations" },
+    { "name": "04", "note": "ternary digit sums and parity restrictions" },
+    { "name": "05", "note": "larger bases and coin count congruences" },
+    { "name": "06", "note": "maximum amounts, bases, and exact powers" },
+    { "name": "07", "note": "the maximum coin count near small amounts" },
+    { "name": "08", "note": "large counts requiring modular reduction" },
+    { "name": "small1", "generator": "1 1", "note": "small random amounts" },
+    { "name": "small2", "generator": "1 2", "note": "small random amounts, another seed" },
+    { "name": "bounds", "generator": "2 3", "note": "random values across all input bounds" },
+    { "name": "sums1", "generator": "3 4", "note": "sums of an explicit multiset of coins" },
+    { "name": "sums2", "generator": "3 5", "note": "representable sums, another seed" },
+    { "name": "binary", "generator": "4 6", "note": "powers of two and nearby amounts" },
+    { "name": "bases", "generator": "5 7", "note": "large bases and power boundaries" },
+    { "name": "stress1", "generator": "6 8", "note": "maximum batch and coin count" },
+    { "name": "stress2", "generator": "6 9", "note": "large sparse binary amounts" }
+  ]
+}
