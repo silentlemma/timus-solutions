@@ -73,3 +73,4 @@
 | 2166 | [Farthest crossing of lines from the origin in the L1 distance](2166/) | geometry, sorting | C++, Go, Python, Java, Rust |
 | 2167 | [Smallest XOR key that turns a number into a prime](2167/) | bitmask, number_theory | C++, Go, Python, Java, Rust |
 | 2168 | [Covering a string with disjoint pieces that have a border](2168/) | dp, strings | C++, Go, Python, Java, Rust |
+| 2169 | [Orienting a graph with one outgoing and three incoming edges at most](2169/) | dsu, graphs | C++, Go, Python, Java, Rust |
