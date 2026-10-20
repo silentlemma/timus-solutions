@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "2183_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example: the minimum stays -1" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "a single negative mood" },
+    { "name": "04", "note": "two negative moods around a large one" },
+    { "name": "05", "note": "the bounds: flipping -10^9 gives 10^9" },
+    { "name": "06", "note": "the flip of a single mood is forced" },
+    { "name": "07", "note": "zero next to the flipped mood" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small values" },
+    { "name": "gen2", "generator": "1 2", "note": "negative runs separated by zero and a positive mood" },
+    { "name": "gen3", "generator": "2 3", "note": "random moods at the maximum array length" },
+    { "name": "gen4", "generator": "3 4", "note": "one block of negative moods" },
+    { "name": "gen5", "generator": "4 5", "note": "values only at the bounds" },
+    { "name": "08", "note": "repeated weakest negatives require flipping the entire array" },
+    { "name": "09", "note": "the unique best segment is a proper prefix of several negatives" },
+    { "name": "10", "note": "an untouched positive far from the internal flip limits the answer" },
+    { "name": "11", "note": "the best flip crosses a positive value and a negative equal to the answer" },
+    { "name": "12", "note": "flipping the last negative block leaves a weaker negative earlier" },
+    { "name": "gen6", "generator": "5 2183", "note": "a unique -1 among 100000 negatives requires a full-length flip" },
+    { "name": "gen7", "generator": "6 2183", "note": "negative endpoints force a flip across 99998 zeros" }
+  ]
+}
