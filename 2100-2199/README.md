@@ -38,3 +38,4 @@
 | 2131 | [Shortest substring of all marked names and no other name, over time](2131/) | suffix_structures | C++, Go, Python, Java, Rust |
 | 2132 | [Splitting the edges of a graph into adjacent pairs](2132/) | graphs, constructive | C++, Go, Python, Java, Rust |
 | 2133 | [Counting runs of tall buildings under height updates](2133/) | fenwick | C++, Go, Python, Java, Rust |
+| 2134 | [Stamping a document until k cells are painted twice](2134/) | simulation | C++, Go, Python, Java, Rust |
