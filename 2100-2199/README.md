@@ -43,3 +43,4 @@
 | 2136 | [Fewest bricks that stop a rectangle sliding down a chimney](2136/) | two_pointers | C++, Go, Python, Java, Rust |
 | 2137 | [Extending a binary string to maximize the periods of its borders](2137/) | dp, strings | C++, Go, Python, Java, Rust |
 | 2138 | [Swapping the byte order of a 32-bit number](2138/) | math | C++, Go, Python, Java, Rust |
+| 2139 | [Juice left in a rotating polygon with a hole in its side](2139/) | geometry, binary_search | C++, Go, Python, Java, Rust |

@@ -1,0 +1,25 @@
+{
+  "judging": "exact",
+  "reference": "2139_geometry_binary_search.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "a bottom hole empties a triangle without any rotations" },
+    { "name": "03", "note": "zero turns and complete turns with an initially full square" },
+    { "name": "04", "note": "clockwise turns and reversals never restore spilled juice" },
+    { "name": "05", "note": "a tiny square with a hole one thousandth from its vertices" },
+    { "name": "06", "note": "large translated coordinates and cuts through opposite vertices" },
+    { "name": "07", "note": "a continuous half turn empties the polygon before its endpoint" },
+    { "name": "08", "note": "an initially partial triangle and no rotations" },
+    { "name": "09", "note": "a hole very close to a vertex and asymmetric capacities" },
+    { "name": "10", "note": "a six-sided polygon with horizontal supporting sides" },
+    { "name": "small1", "generator": "1 1", "note": "small random convex polygon and turns" },
+    { "name": "small2", "generator": "1 2", "note": "another small polygon with reversals" },
+    { "name": "medium", "generator": "2 3", "note": "many small fractional turns" },
+    { "name": "maximal", "generator": "3 4", "note": "maximal vertices and turns" },
+    { "name": "many_turns", "generator": "4 5", "note": "many alternating tiny turns" },
+    { "name": "tiny", "generator": "5 6", "note": "small lattice coordinates with a translation" },
+    { "name": "translated", "generator": "6 7", "note": "coordinates at both allowed limits" },
+    { "name": "monotone", "generator": "7 8", "note": "a long monotone sequence of tiny turns" },
+    { "name": "initial", "generator": "8 9", "note": "a large polygon with no rotations" }
+  ]
+}
