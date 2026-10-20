@@ -60,3 +60,4 @@
 | 2153 | [Largest party of distinct roles and which recruit would help](2153/) | dp, bitmask | C++, Go, Python, Java, Rust |
 | 2154 | [Closest line through two points to the origin](2154/) | geometry, sorting | C++, Go, Python, Java, Rust |
 | 2155 | [Catching a drone carried by the wind on a weighted grid](2155/) | dijkstra | C++, Go, Python, Java, Rust |
+| 2156 | [Splitting the differences around a circle into equal halves](2156/) | math, constructive | C++, Go, Python, Java, Rust |

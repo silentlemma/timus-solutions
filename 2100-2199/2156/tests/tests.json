@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2156_math_constructive.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "all friends equal: every conversation is 0" },
+    { "name": "03", "note": "alternating extremes" },
+    { "name": "04", "note": "equal neighbours go to either set" },
+    { "name": "gen1", "generator": "1 1", "note": "a few small values" },
+    { "name": "gen2", "generator": "1 2", "note": "minimum-size circle with a repeated minimum" },
+    { "name": "gen3", "generator": "2 3", "note": "random values at maximum n" },
+    { "name": "gen4", "generator": "3 4", "note": "all values equal at maximum n" },
+    { "name": "gen5", "generator": "4 5", "note": "runs of equal values at maximum n" },
+    { "name": "05", "note": "minimum n with both value bounds and a zero closing conversation" },
+    { "name": "06", "note": "strictly decreasing unequal gaps balanced only by the last-to-first rise" },
+    { "name": "07", "note": "two unequal-step paths to one peak with equal endpoints and a zero wraparound edge" },
+    { "name": "08", "note": "odd sawtooth with unequal large jumps and total interest above unsigned 32-bit range" },
+    { "name": "09", "note": "seeded full-range sample with no balanced split into contiguous arcs" },
+    { "name": "10", "note": "seeded sample with all odd conversation weights and an odd half-sum" },
+    { "name": "11", "generator": "5 2156", "note": "maximum n strictly increasing from 1 to 10^9 with one closing fall" },
+    { "name": "12", "generator": "6 2156", "note": "maximum n and maximum total interest requiring 64-bit sums" },
+    { "name": "13", "generator": "7 2156", "note": "large odd circle with eight isolated seeded dips of distinct depths and mostly zero edges" }
+  ]
+}
