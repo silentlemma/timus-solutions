@@ -12,3 +12,4 @@
 | 2205 | [The lowest common ancestor in the tree of largest proper divisors](2205/) | number_theory | C++, Go, Python, Java, Rust |
 | 2206 | [Coprime lattice points inside a convex polygon](2206/) | geometry, number_theory | C++, Go, Python, Java, Rust |
 | 2207 | [The smallest Manhattan reach that fills the most jobs](2207/) | geometry, dsu | C++, Go, Python, Java, Rust |
+| 2208 | [Finding two numbers with a common factor in a range under updates](2208/) | number_theory, segment_tree | C++, Go, Python, Java, Rust |

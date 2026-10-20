@@ -1,0 +1,24 @@
+{
+  "judging": "checker",
+  "reference": "2208_number_theory_segment_tree.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "two positions, repeated values, and an unchanged update" },
+    { "name": "03", "note": "the only pair uses both endpoints and is removed twice" },
+    { "name": "04", "note": "prime powers retain their prime when the exponent changes" },
+    { "name": "05", "note": "shared large prime factors and a prime near the value limit" },
+    { "name": "06", "note": "seven distinct factors, disappearing factors, and the value limit" },
+    { "name": "07", "note": "updates remove and restore pairs across several query intervals" },
+    { "name": "gen1", "generator": "small 1", "note": "short random intervals, unique answers" },
+    { "name": "gen2", "generator": "small 2", "note": "another mix of random values and updates" },
+    { "name": "gen3", "generator": "long 3", "note": "maximal sizes and long distinct prime runs" },
+    { "name": "gen4", "generator": "dense 4", "note": "maximal sizes with seven factor updates" },
+    { "name": "gen5", "generator": "sparse 5", "note": "maximal sizes, sparse large prime updates" },
+    { "name": "08", "note": "minimum operation count; all three composite pairs share factors although the whole-array gcd is one" },
+    { "name": "09", "note": "two large factors exchange successors while updates cross the 97 and 101 cutoff" },
+    { "name": "10", "note": "small-prime repetition flags clear across tree splits while excluded positions still share factors" },
+    { "name": "11", "note": "retained seeded stress input with unrestricted ranges and several valid pairs" },
+    { "name": "gen6", "generator": "mixed 2208", "note": "initially absent large factors appear during an update-only prefix before random range queries" },
+    { "name": "gen7", "generator": "blocks 2208", "note": "maximum sizes; contiguous large-prime occurrence blocks empty and refill across summary levels" }
+  ]
+}
