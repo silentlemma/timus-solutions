@@ -57,3 +57,4 @@
 | 2150 | [Splitting a dense friendship graph into pairs and triangles](2150/) | greedy, matching | C++, Go, Python, Java, Rust |
 | 2151 | [Recognizing a winning or nearly winning mahjong hand](2151/) | bruteforce, greedy | C++, Go, Python, Java, Rust |
 | 2152 | [Raising customs duties by changing one digit in k parcels](2152/) | greedy, sorting | C++, Go, Python, Java, Rust |
+| 2153 | [Largest party of distinct roles and which recruit would help](2153/) | dp, bitmask | C++, Go, Python, Java, Rust |
