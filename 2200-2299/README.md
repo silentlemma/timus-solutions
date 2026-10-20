@@ -18,3 +18,4 @@
 | 2211 | [Counting triangles with integer sides and a given integer area](2211/) | number_theory | C++, Go, Python, Java, Rust |
 | 2212 | [Prefix sums applied Q times as one convolution](2212/) | math, combinatorics | C++, Go, Python, Java, Rust |
 | 2213 | [Moving one command of a robot program to minimize the collected sum](2213/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 2214 | [Best value from a sliding window that may move K times](2214/) | dp | C++, Go, Python, Java, Rust |
