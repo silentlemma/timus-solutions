@@ -1,0 +1,29 @@
+{
+  "judging": "exact",
+  "reference": "2193_strings.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the example" },
+    { "name": "02", "note": "one-letter words, equal and different word indices" },
+    { "name": "03", "note": "identical suffixes, duplicate words and maximum trimming" },
+    { "name": "04", "note": "every position differs and alternating matches" },
+    { "name": "05", "note": "the best suffix can contain four mismatches" },
+    { "name": "06", "note": "trimming exposes different suffixes of shifted repeating blocks" },
+    { "name": "07", "note": "ties between suffix lengths and adjacent mismatch counts" },
+    { "name": "08", "note": "mismatches at word boundaries and unequal original lengths" },
+    { "name": "09", "note": "six mismatches yield a nonintegral optimum" },
+    { "name": "gen1", "generator": "small 1", "note": "short unrelated random words" },
+    { "name": "gen2", "generator": "small 2", "note": "short words with several mutations and unequal lengths" },
+    { "name": "gen3", "generator": "max_words 3", "note": "maximum word and query counts" },
+    { "name": "gen4", "generator": "equal 4", "note": "maximum total length of equal words" },
+    { "name": "gen5", "generator": "different 5", "note": "long constant words that differ" },
+    { "name": "gen6", "generator": "near 6", "note": "long nearly equal words and many queries" },
+    { "name": "gen7", "generator": "max_total 7", "note": "maximum total of medium random words" },
+    { "name": "gen8", "generator": "clusters 8", "note": "mismatch clusters at several positions" },
+    { "name": "gen9", "generator": "trim 9", "note": "trimming at and around mismatch clusters" },
+    { "name": "gen10", "generator": "cutoff 10", "note": "seventeen useful versus eighteen mismatches" },
+    { "name": "gen11", "generator": "max_pairs 11", "note": "many distinct pairs of similar words" },
+    { "name": "10", "note": "a later long matching run beats the first local maximum after four score drops" },
+    { "name": "11", "note": "a 60000-letter word paired both ways with tiny partners ignores its unmatched prefix" },
+    { "name": "12", "note": "words over a two-letter alphabet check every cut and ordered pair in shuffled query order" }
+  ]
+}
