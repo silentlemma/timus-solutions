@@ -102,3 +102,4 @@
 | 2195 | [Turning one binary tree into another through a path](2195/) | constructive | C++, Go, Python, Java, Rust |
 | 2196 | [The day a growing offset of a convex polygon reaches each point](2196/) | geometry, binary_search | C++, Go, Python, Java, Rust |
 | 2197 | [The shortest repeating prefix of a string under block overwrites](2197/) | hashing, fenwick | C++, Go, Python, Java, Rust |
+| 2198 | [Total height of all ordered rooted trees with N vertices](2198/) | math, combinatorics | C++, Go, Python, Java, Rust |
