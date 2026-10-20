@@ -1,0 +1,16 @@
+{
+  "judging": "exact",
+  "reference": "2138_math.cpp",
+  "cases": [
+    { "name": "01", "example": true, "note": "the first example" },
+    { "name": "02", "example": true, "note": "the second example" },
+    { "name": "03", "note": "zero" },
+    { "name": "04", "note": "the largest value, all digits 255" },
+    { "name": "05", "note": "the million from the statement" },
+    { "name": "06", "note": "four different digits from a bad sender" },
+    { "name": "gen1", "generator": "1 1", "note": "a random value" },
+    { "name": "gen2", "generator": "1 2", "note": "a random value" },
+    { "name": "gen3", "generator": "2 3", "note": "some zero digits" },
+    { "name": "gen4", "generator": "3 4", "note": "a palindromic digit order" }
+  ]
+}
