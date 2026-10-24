@@ -10,6 +10,7 @@ problem. See CONTRIBUTING.md, sections "Tests" and "Running the tests".
 
 import argparse
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -155,11 +156,13 @@ def same(output, expected, judging):
         if len(a) != len(b):
             return False
         for x, y in zip(a, b):
-            if x == y:
-                continue
             try:
                 fx, fy = float(x), float(y)
             except ValueError:
+                if x != y:
+                    return False
+                continue
+            if not math.isfinite(fx) or not math.isfinite(fy):
                 return False
             if abs(fx - fy) > eps * max(1.0, abs(fy)):
                 return False
@@ -228,8 +231,7 @@ def run_problem(problem, only, pypy):
             shutil.copy(os.path.join(tests_dir, c["name"] + ".in"), inputs)
             shutil.copy(os.path.join(tests_dir, c["name"] + ".out"), expected)
     if generated:
-        with open(os.path.join(WORK, "generate.py"), "w") as f:
-            f.write(GENERATE)
+        write_helper(os.path.join(WORK, "generate.py"), GENERATE)
         p = docker(
             PYTHON_IMAGE, ["python", "/work/generate.py", repo_path(tests_dir), work_path(inputs)]
         )
@@ -303,9 +305,21 @@ def run_problem(problem, only, pypy):
     return ok
 
 
+def write_helper(path, text):
+    """Write a shared helper script only when it changes, so runs in parallel
+    never read a half-written one."""
+    try:
+        with open(path, newline="\n") as f:
+            if f.read() == text:
+                return
+    except OSError:
+        pass
+    with open(path, "w", newline="\n") as f:
+        f.write(text)
+
+
 def check(problem, tests_dir, base, outputs):
-    with open(os.path.join(WORK, "check.py"), "w") as f:
-        f.write(CHECK)
+    write_helper(os.path.join(WORK, "check.py"), CHECK)
     p = docker(
         PYTHON_IMAGE,
         [
@@ -330,8 +344,7 @@ def main():
     parser.add_argument("--pypy", action="store_true", help="run Python solutions under PyPy")
     args = parser.parse_args()
     os.makedirs(WORK, exist_ok=True)
-    with open(os.path.join(WORK, "build_and_run.sh"), "w", newline="\n") as f:
-        f.write(BUILD_AND_RUN)
+    write_helper(os.path.join(WORK, "build_and_run.sh"), BUILD_AND_RUN)
     ok = True
     for problem in args.problems:
         ok &= run_problem(problem, args.only, args.pypy)
