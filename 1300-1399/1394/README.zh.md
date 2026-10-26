@@ -1,6 +1,6 @@
 # 1394. 舰船（第二版）
 
-[Timus 1394](https://acm.timus.ru/problem.aspx?space=1&num=1394) · 难度 14802 · backtracking
+[Timus 1394](https://acm.timus.ru/problem.aspx?space=1&num=1394) · 难度 14802 · backtracking, linear_programming
 
 原题由 Vladimir Yakovlev 准备。
 
@@ -52,6 +52,8 @@ N 和 M，然后 N 行舰船长度，再 M 行各行长度。
 ## 解法
 
 一般情况下的精确多路划分很难，而评测的测试专门挑来击败单一启发式。
+这里有两种解法：回溯，三种精确搜索轮流运行（C++、Go、Java、Rust）；以及线性规划，
+它同时看到所有行，快得多（全部五种语言）。
 
 回溯按五个时段轮流运行三种精确搜索：B、行按长度升序的 B、C、D，再一次 B。
 时间片按 1.6 倍增长至上限，后面几轮稍微打乱顺序，直到某个搜索放好所有船或耗尽内部预算。
@@ -72,6 +74,23 @@ N 和 M，然后 N 行舰船长度，再 M 行各行长度。
 三种都需要：没有 C 时评测第 8 个测试超时，没有 D 时第 10 个测试超时，B 若占四个时段中的两个
 而不是五个中的三个，第 7 个测试超时。第四种搜索（逐艘船放进行里）不需要。
 
+线性规划按数量工作：船共有 k 种不同长度，一行的一种填法是一个各长度数量的向量，
+其总和等于该行长度。三个阶段从便宜到昂贵依次进行；最先找到的排法即为答案。
+
+- 贪心：行从最短的开始，每行按固定顺序取下每艘取后仍能由后面的船补满它的船
+  （后缀和的位集）；最长的行取走其余。共试六种顺序：船按长度降序和升序，
+  然后打乱船和行。
+- 列生成：在 (行, 填法) 对上建立线性规划，每行至多一种填法，每种长度用的船
+  不超过现有数量，目标是使填满的行数最多。它从空开始；单纯形法给出各长度和各行的
+  对偶价格，对每一行用 DP 求出按这些价格最便宜的填法（带重数的最小代价子集和）。
+  约化代价为负的填法加入线性规划。当线性规划填满所有行后，固定线性规划值最大的
+  那一行，按值从大到小尝试它的填法，其余部分同样求解。价格表明哪些长度稀缺，
+  而这正是逐行搜索看不到的：在测试 03 上这一阶段只需 9 个状态。它在 160 次求解
+  线性规划后停止。
+- 精确搜索：填法最少（由 DP 计数）的行先处理，用后缀和位集枚举它的填法，并记住
+  失败的状态。预算翻倍直到找到排法，其间穿插贪心尝试。这一搜索是完备的，因此答案
+  从不依赖浮点数：线性规划只决定搜索的顺序。
+
 S 为舰船总长度。
 
 易错点：
@@ -86,11 +105,14 @@ S 为舰船总长度。
 
 排法在这里的所有测试、130 个困难舰队和 11 000 个生成的舰队（其中 6 000 个各行等长）上
 都通过了检查器：回溯分别不超过 0.55 秒和 0.08 秒，
+线性规划分别不超过 0.02 秒和 0.24 秒，
 分别对应困难舰队和生成的舰队。
 
 ## 各语言说明
 
-- Python 的回溯在评测第 7 个测试上超时，四个版本各有不同的主搜索，都是如此，因此这里没有 Python 解法。
+- Python 在 PyPy 下运行线性规划，用 64 种贪心顺序代替六种，精确搜索不设预算。新填法加入时线性规划保留其基，因此单纯形法从停下的地方继续，而不是从头开始。
+- Go、Java 和 Rust 复现了 mt19937 和 libstdc++ 在贪心重试中的洗牌，因此它们的线性规划排法与 C++ 逐字节相同。
+- Python 的回溯在评测第 7 个测试上超时，四个版本各有不同的主搜索，都是如此，因此Python 只有线性规划解法。
 - 回溯的 Java 需要更贴近的移植才能在 1 秒内通过评测第 8 个测试：行内跳过的分支用循环而不是尾调用，下标用移位和掩码。
 
 ## 解答
@@ -101,3 +123,8 @@ S 为舰船总长度。
 | [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.468 s | 28492 KB |
 | [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.546 s | 26652 KB |
 | [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 27520 KB |
+| [1394_linear_programming.cpp](1394_linear_programming.cpp) | G++ 13.2 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.015 s | 6812 KB |
+| [1394_linear_programming.go](1394_linear_programming.go) | Go 1.14 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.031 s | 5244 KB |
+| [1394_linear_programming.java](1394_linear_programming.java) | Java 1.8 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.140 s | 3300 KB |
+| [1394_linear_programming.py](1394_linear_programming.py) | PyPy 3.10 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.343 s | 11144 KB |
+| [1394_linear_programming.rs](1394_linear_programming.rs) | Rust 1.75 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.015 s | 6964 KB |

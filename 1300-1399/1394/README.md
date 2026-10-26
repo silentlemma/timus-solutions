@@ -1,6 +1,6 @@
 # 1394. Ships. Version 2
 
-[Timus 1394](https://acm.timus.ru/problem.aspx?space=1&num=1394) · difficulty 14802 · backtracking
+[Timus 1394](https://acm.timus.ru/problem.aspx?space=1&num=1394) · difficulty 14802 · backtracking, linear_programming
 
 Original problem prepared by Vladimir Yakovlev.
 
@@ -56,7 +56,10 @@ Output:
 ## Solution
 
 Exact multi-way partitioning is hard in general, and the judge's tests
-are chosen to beat single heuristics.
+are chosen to beat single heuristics. Two solutions are here:
+backtracking, three exact searches taking turns (C++, Go, Java, Rust),
+and linear programming, which sees all the rows at once and is much
+faster (all five languages).
 
 Backtracking cycles three exact searches through five slots: B, B with
 the rows in increasing length, C, D and B again. Time slices grow
@@ -86,6 +89,32 @@ without D its test 10, and with B in two slots of four instead of three
 of five its test 7. A fourth search, ships one at a time into rows, was
 not needed.
 
+Linear programming works with counts: the ships come in k distinct
+lengths, and a filling of a row is a vector of counts that adds up to
+the row length. Three stages go from cheap to expensive; the first
+placement wins.
+
+- Greedy: rows go from the shortest, and each takes every ship, in a
+  fixed order, that still lets the later ships complete it (bitsets of
+  suffix sums); the longest row takes the rest. Six orders are tried:
+  ships by length down and up, then shuffled ships and rows.
+- Column generation: an LP over pairs (row, filling) with at most one
+  filling per row and no more ships of each length than there are
+  maximizes the number of filled rows. It starts empty; the simplex
+  method gives dual prices of the lengths and of the rows, and for every
+  row a DP finds the cheapest filling at these prices (a minimum-cost
+  subset sum with multiplicities). A filling with negative reduced cost
+  joins the LP. Once the LP fills every row, the row of the largest LP
+  value is fixed, its fillings tried in decreasing LP value, and the
+  rest is solved the same way. The prices tell which lengths are scarce,
+  which is exactly what row-by-row searches do not see: on test 03 this
+  stage needs 9 states. It stops after 160 LP solves.
+- Exact search: the row with the fewest fillings (counted by a DP) goes
+  first, its fillings are listed with bitsets of suffix sums, and failed
+  states are remembered. The budget doubles until a placement is found,
+  with greedy tries in between. This search is complete, so the answer
+  never depends on floating point: the LP only orders the search.
+
 S is the total ship length.
 
 Pitfalls:
@@ -102,14 +131,21 @@ Pitfalls:
 
 The placements pass the checker on all the tests here, on 130 hard
 fleets and on 11 000 generated fleets (6 000 of them with equal rows):
-backtracking within 0.55 s and 0.08 s, on the hard and the generated
-fleets.
+backtracking within 0.55 s and 0.08 s, linear programming within 0.02 s
+and 0.24 s, on the hard and the generated fleets.
 
 ## Language notes
 
+- Python runs the linear programming under PyPy with 64 greedy orders
+  instead of six and the exact search without a budget. The LP keeps its
+  basis when new fillings join it, so the simplex method goes on from
+  where it stopped instead of starting over.
+- Go, Java and Rust reproduce mt19937 and the libstdc++ shuffle of the
+  greedy retries, so their linear programming placements are those of
+  C++ byte for byte.
 - Backtracking in Python exceeded the limit on the judge's test 7 in
   four versions, each built around a different main search, so Python
-  has no solution here.
+  has only the linear programming solution.
 - The backtracking Java needed a closer port to pass the judge's test 8
   within 1 s: the skip branch of a row is a loop, not a tail call, and
   indexes use shifts and masks.
@@ -122,3 +158,8 @@ fleets.
 | [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.468 s | 28492 KB |
 | [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.546 s | 26652 KB |
 | [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 27520 KB |
+| [1394_linear_programming.cpp](1394_linear_programming.cpp) | G++ 13.2 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.015 s | 6812 KB |
+| [1394_linear_programming.go](1394_linear_programming.go) | Go 1.14 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.031 s | 5244 KB |
+| [1394_linear_programming.java](1394_linear_programming.java) | Java 1.8 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.140 s | 3300 KB |
+| [1394_linear_programming.py](1394_linear_programming.py) | PyPy 3.10 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.343 s | 11144 KB |
+| [1394_linear_programming.rs](1394_linear_programming.rs) | Rust 1.75 x64 | linear_programming | O(M^N · poly(N, M, S)) worst case | AC | 0.015 s | 6964 KB |
