@@ -1,6 +1,6 @@
 {
   "judging": "checker",
-  "reference": "1589_bidirectional.cpp",
+  "reference": "1589_greedy.cpp",
   "cases": [
     { "name": "01", "example": true, "note": "the first example: one box pushed along a corridor" },
     { "name": "02", "example": true, "note": "the second example: an irregular upper passage and a box already on a goal" },

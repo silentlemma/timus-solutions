@@ -1,6 +1,6 @@
 # 1589. Sokoban
 
-[Timus 1589](https://acm.timus.ru/problem.aspx?space=1&num=1589) · dificultad 14456 · bidirectional
+[Timus 1589](https://acm.timus.ru/problem.aspx?space=1&num=1589) · dificultad 14456 · greedy
 
 Problema original de Stanislav Vasiliev y Sergey Pupyrev, de la subregión oriental del NEERC del ACM ICPC 2007–2008, Ekaterimburgo, 27 de octubre de 2007.
 
@@ -67,90 +67,74 @@ dddrrrruLdlUUUluRR
 
 ## Solución
 
-La búsqueda avanza por empujes, no por pasos. Un estado es el conjunto de
-cajas y la zona a la que puede llegar el jugador, nombrada por su casilla
-más baja; todo cabe en una clave de 64 bits, y la zona se obtiene haciendo
-crecer una máscara de bits.
+La búsqueda avanza por empujes, no por pasos. Un estado es el conjunto
+de cajas y la zona a la que puede llegar el jugador, nombrada por su
+casilla más baja; todo cabe en una clave de 64 bits, y la zona se
+obtiene haciendo crecer una máscara de bits.
 
-Dos búsquedas primero-el-mejor se encuentran en el medio: empujes desde el
-inicio y tirones desde la posición resuelta (las cajas en las metas, el
-jugador en cualquier zona libre). Comparten una tabla de direccionamiento
-abierto de 2²² posiciones (2²¹ en Java y Python); un estado hallado por
-ambas une el plan. Cada búsqueda toma estados por `g + 3h`, donde h suma
-distancias en empujes de cajas aisladas: hasta la meta más cercana hacia
-delante, o desde la casilla inicial de caja más cercana en la inversa.
-Emparejar cajas con metas o casillas iniciales alcanzables detecta cuándo
-no pueden colocarse todas. Las listas abiertas son cubetas enlazadas a
-través de la tabla, cuyo tamaño limita su almacenamiento.
+La búsqueda voraz toma estados por `empujes + 20·h`, donde h es el menor
+número total de empujes con que cajas solas llegan a metas distintas (el
+método húngaro); el peso grande hace la búsqueda casi voraz. Un estado
+se descarta cuando:
 
-La mayor parte del trabajo está en descartar posiciones muertas:
+- una caja quedaría en una casilla muerta, desde la que una caja sola no
+  alcanza ninguna meta;
+- quedan congeladas cajas fuera de meta: ninguna puede moverse por
+  ningún eje aun quitando paso a paso todas las cajas movibles, o el
+  jugador no puede empujar ninguna aun quitando todas las que sí puede
+  empujar y ampliando su zona;
+- el emparejamiento no tiene coste finito;
+- algún conjunto de dos, tres o cuatro cajas que contiene la movida no
+  puede resolverse por sí solo: para cada conjunto así, una tabla
+  construida con búsquedas de tirones desde todos los conjuntos de metas
+  de ese tamaño guarda las casillas del jugador desde las que sí puede.
 
-- casillas muertas para una caja sola: sin camino a una meta hacia
-  delante, o desde una casilla inicial de caja en la inversa;
-- cajas congeladas (solo hacia delante): ambos ejes bloqueados por una
-  pared o caja congelada a cualquier lado, o casillas muertas a ambos
-  lados, con una caja fuera de meta en el grupo congelado;
-- corrales (solo hacia delante): si todos los empujes alrededor de una
-  región inaccesible van hacia dentro y están listos, solo se prueban
-  esos; una región sin terminar ni empujes limítrofes potenciales está muerta;
-- subconjuntos pequeños: para cada grupo de dos a cuatro cajas una tabla,
-  construida con una búsqueda solo con esas cajas, dice si ellas solas aún
-  pueden resolverse (para la búsqueda de tirones: alcanzarse desde el
-  inicio). Los subconjuntos comprobados contienen la caja movida: todos
-  los pares y tríos, y cuartetos a no más de tres filas y columnas de ella.
+Un corral, una zona en la que el jugador no puede entrar con una caja
+sin terminar en su borde o una meta dentro, cuyos empujes de borde van
+todos hacia dentro (y siguen siendo los mismos sin las cajas de fuera),
+restringe los movimientos a esos empujes. Los estados vistos se guardan
+en un conjunto de claves con direccionamiento abierto y los nodos en un
+arreglo plano; el plan se reconstruye con el movimiento guardado en cada
+nodo, y los pasos entre empujes salen de un recorrido en anchura.
 
-El plan se reconstruye con el movimiento guardado en cada clave, y los
-pasos entre empujes salen de un recorrido en anchura. En la tabla, P es
-el tiempo de preprocesamiento, S los estados almacenados, B las cajas,
-y F y H los costes máximos de comprobar la congelación y operar la tabla hash.
+En un nivel denso del foro, 13 cajas en 36 casillas, desde el inicio se
+alcanzan más de 30 millones de estados y 22 millones desde la posición
+resuelta, pero solo unos 6 300 están en ambos lados; la búsqueda voraz
+necesita allí 1,8 s.
+
+En la tabla, P es el tiempo de preprocesamiento, E los estados
+expandidos y B las cajas.
 
 Detalles a tener en cuenta:
 
-- las cajas pueden estar ya en sus metas: imprime una línea vacía (prueba
-  03);
-- el jugador puede empezar sobre una meta (`+`) y las filas pueden empezar
-  con espacios (prueba 04);
+- las cajas pueden estar ya en sus metas: imprime una línea vacía
+  (prueba 03);
+- el jugador puede empezar sobre una meta (`+`) y las filas pueden
+  empezar con espacios (prueba 04);
 - una caja sobre una meta aislada del jugador por paredes, ignorando
-  otras cajas, nunca se mueve y se excluye de la búsqueda (prueba 05).
+  otras cajas, nunca se mueve y se excluye de la búsqueda (prueba 05);
+- los límites dejan poco margen a la búsqueda voraz: hasta 3,8 s y 57 MB
+  en el juez.
 
-Los planes se comprobaron con las pruebas de aquí y con unos 1 500 niveles
-generados; en esas comprobaciones, las soluciones resolvieron todos los
-niveles aleatorios resueltos por una implementación independiente aceptada.
+Los planes pasan el verificador en las pruebas de aquí y en 2 291
+niveles generados, los voraces en como mucho 2,4 s y 63 MB cada uno.
 
 ## Notas por lenguaje
 
-- Go reutiliza el hueco de inserción de la primera consulta y calcula los
-  índices de los subconjuntos pequeños directamente a partir de las
-  casillas de las cajas: una primera versión, unas 1,4 veces más lenta
-  que C++, se rendía tras 4,6 s en la prueba 92 del juez, que C++
-  resuelve en 2,2 s. Go busca hasta los 4,85 s.
-
-- Java usa una tabla de 2²¹ claves para que la JVM quepa en 64 MB y
-  tiene las mismas mejoras que Go. Marca un área completa del jugador en
-  cuanto la encuentra, construye las tablas de subconjuntos con
-  operaciones de bits y guarda las máscaras en las claves, lo que bajó
-  la prueba 92 del juez de más de 5 s a 4,34 s.
-
-- Python guarda los estados en arreglos compactos y se ejecuta con PyPy;
-  CPython es varias veces más lento. Tarda unos 0,5 s en las pruebas de
-  aquí, pero excede el límite de 5 s en la prueba 62 del juez, mucho más
-  pesada: C++ necesita 2,2 s en la prueba 92. Se probaron tres búsquedas
-  distintas en Python: esta bidireccional, la misma con reinicios de
-  primero el mejor y asignaciones de coste mínimo de cajas a metas
-  (prueba 55), y una búsqueda voraz según esa asignación con casillas
-  muertas, cajas congeladas, corrales y tablas de pares y tríos de cajas
-  (prueba 56). Con el mismo número de estados, Python con PyPy es unas
-  35 veces más lento que C++, así que para pasar haría falta una
-  búsqueda que visite muchos menos estados. Se mantiene marcada TLE:
-  pasa todas las pruebas de aquí, pero no se afirma que quepa en el
-  tiempo en cada prueba del juez.
+- Go, Java y Rust siguen al C++ paso a paso; sus planes son los de C++
+  byte a byte.
+- El Java voraz numera los subconjuntos de cajas con bucles simples y
+  guarda todos los búferes en arreglos primitivos: una primera versión
+  excedía el límite en la prueba 88 del juez.
+- Aquí no hay solución en Python: la búsqueda voraz necesita 3,8 s en
+  C++, y las búsquedas anteriores en Python, entre ellas una
+  bidireccional, excedían el límite en las pruebas 55 a 67 del juez.
 
 ## Soluciones
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
 |----------|----------|---------|-------------|-----------|--------|---------|
-| [1589_bidirectional.cpp](1589_bidirectional.cpp) | G++ 13.2 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 2.203 s | 54384 KB |
-| [1589_bidirectional.go](1589_bidirectional.go) | Go 1.14 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 3.000 s | 58376 KB |
-| [1589_bidirectional.java](1589_bidirectional.java) | Java 1.8 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 4.343 s | 28700 KB |
-| [1589_bidirectional.py](1589_bidirectional.py) | PyPy 3.10 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | TLE (test 62) | 5.015 s | 50612 KB |
-| [1589_bidirectional.rs](1589_bidirectional.rs) | Rust 1.75 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 2.390 s | 55068 KB |
+| [1589_greedy.cpp](1589_greedy.cpp) | G++ 13.2 x64 | greedy | O(P + E · B⁴) | AC | 3.812 s | 57152 KB |
+| [1589_greedy.go](1589_greedy.go) | Go 1.14 x64 | greedy | O(P + E · B⁴) | AC | 2.546 s | 58752 KB |
+| [1589_greedy.java](1589_greedy.java) | Java 1.8 | greedy | O(P + E · B⁴) | AC | 4.078 s | 31196 KB |
+| [1589_greedy.rs](1589_greedy.rs) | Rust 1.75 x64 | greedy | O(P + E · B⁴) | AC | 2.984 s | 55436 KB |

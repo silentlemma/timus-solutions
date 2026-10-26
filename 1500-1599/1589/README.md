@@ -1,6 +1,6 @@
 # 1589. Sokoban
 
-[Timus 1589](https://acm.timus.ru/problem.aspx?space=1&num=1589) · difficulty 14456 · bidirectional
+[Timus 1589](https://acm.timus.ru/problem.aspx?space=1&num=1589) · difficulty 14456 · greedy
 
 Original problem by Stanislav Vasiliev and Sergey Pupyrev, from the ACM ICPC 2007–2008 NEERC Eastern Subregional Contest, Yekaterinburg, October 27, 2007.
 
@@ -70,81 +70,67 @@ The search runs over pushes, not steps. A state is the set of boxes and
 the area the player can walk to, named by its lowest cell; both fit in
 one 64-bit key, and the area is found by growing a bit mask.
 
-Two best-first searches meet in the middle: pushes from the start and
-pulls from the solved position (the boxes on the goals, the player in
-any free area). They share one open-addressing table of 2²² slots
-(2²¹ in Java and Python); a state found by both joins the plan's halves.
-Each search takes states by `g + 3h`, where h sums lone-box push
-distances to the nearest goal (forward) or from the nearest initial
-box cell (reverse). Matching boxes to reachable goals or starting cells
-detects when they cannot all be placed. The open lists are buckets
-threaded through the table, so their storage is bounded by its size.
+The greedy search takes states by `pushes + 20·h`, where h is the least
+total number of pushes that lone boxes need to reach distinct goals (the
+Hungarian method); the large weight makes the search nearly greedy. A
+state is dropped when:
 
-Most of the work is in cutting dead positions:
+- a box would stand on a dead cell, from which a lone box reaches no
+  goal;
+- boxes off goals stay frozen: none can move along either axis even with
+  every movable box taken away step by step, or none can be pushed by
+  the player even with every pushable box taken away and the player's
+  area grown;
+- the matching has no finite cost;
+- some set of two, three or four boxes containing the moved one cannot
+  be solved on its own: for every such set a table, built by pull
+  searches from every set of goals of that size, holds the player cells
+  from which it can.
 
-- dead cells for a lone box: no path to a goal (forward) or from a
-  starting box cell (reverse);
-- frozen boxes (forward only): both axes blocked by a wall/frozen box
-  on either side or dead cells on both sides, with a box off goal in
-  the frozen group;
-- corrals (forward only): if every push around an unreachable region
-  goes inward and is ready, only those pushes are tried; an unfinished
-  region with no potential boundary push is dead;
-- small subsets: for every set of two to four boxes a table, built by
-  a search with only those boxes, tells whether they alone can still be
-  solved (for the pull search: reached from the start). Checked subsets
-  contain the moved box: all pairs and triples, and quadruples within
-  three rows and columns of it.
+A corral, an area the player cannot enter with an unfinished box on its
+border or a goal inside, whose border pushes all go inward (and stay the
+same with the outside boxes gone), restricts the moves to those pushes.
+The states seen are kept in an open-addressing set of keys and the nodes
+in a flat array; the plan is rebuilt from the move stored with each
+node, and the steps between pushes come from a breadth-first walk.
 
-The plan is rebuilt from the move stored with each key, and the steps
-between pushes come from a breadth-first walk. In the table, P is
-preprocessing time, S stored states, B boxes, F the maximum freeze-check
-cost and H the maximum hash-table cost.
+On a dense level from the forum, 13 boxes on 36 cells, more than 30
+million states are reachable from the start and 22 million from the
+solved position, but only about 6 300 lie on both sides; the greedy
+search needs 1.8 s there.
+
+In the table, P is preprocessing time, E expanded states and B boxes.
 
 Pitfalls:
 
-- the boxes may already be on their goals: print an empty line (test 03);
+- the boxes may already be on their goals: print an empty line (test
+  03);
 - the player may start on a goal (`+`) and rows may start with spaces
   (test 04);
 - a box on a goal walled off from the player, ignoring other boxes,
-  never moves and is excluded from the search (test 05).
+  never moves and is excluded from the search (test 05);
+- the limits leave little room for the greedy search: up to 3.8 s and
+  57 MB on the judge.
 
-The plans were checked on the tests here and on about 1 500 generated
-levels; in those checks, the solutions solved every random level
-solved by an independent accepted implementation.
+The plans pass the checker on the tests here and on 2 291 generated
+levels, the greedy ones within 2.4 s and 63 MB each.
 
 ## Language notes
 
-- Go reuses the first probe's insertion slot and computes small-subset
-  indexes straight from the boxes' floor indexes: a first version,
-  about 1.4 times slower than C++, gave up after 4.6 s on the judge's
-  test 92, which C++ solves in 2.2 s. Go also searches until 4.85 s.
-
-- Java keeps a table of 2²¹ keys so that the JVM fits in 64 MB and has
-  the same speedups as Go. It marks a whole player area when it is
-  found, builds the subset tables with bit operations and keeps the
-  masks in the keys, which brought the judge's test 92 from over 5 s
-  down to 4.34 s.
-
-- Python keeps the states in compact arrays and runs under PyPy; CPython
-  is several times slower. It takes about 0.5 s on the tests here, yet
-  exceeds the 5 s limit on the judge's test 62, which is far heavier:
-  C++ needs 2.2 s on test 92. Three different Python searches were
-  tried: this bidirectional one, the same with best-first restarts and
-  minimum-cost assignments of boxes to goals (test 55), and a greedy
-  search by that assignment with dead cells, frozen boxes, corrals and
-  tables of pairs and triples of boxes (test 56). On equal numbers of
-  states Python under PyPy is about 35 times slower than C++, so passing
-  would need a search that visits far fewer states. It is kept marked
-  TLE: it passes all the tests here but is not claimed to fit the time
-  limit on every test of the judge.
+- Go, Java and Rust follow the C++ step by step; their plans are those
+  of C++ byte for byte.
+- The greedy Java ranks box subsets with plain loops and keeps every
+  buffer in a primitive array: a first version exceeded the limit on the
+  judge's test 88.
+- Python has no solution here: the greedy search needs 3.8 s in C++, and
+  earlier Python searches, among them a bidirectional one, exceeded the
+  limit on the judge's tests 55 to 67.
 
 ## Solutions
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory |
 |----------|----------|----------|------------|---------|------|--------|
-| [1589_bidirectional.cpp](1589_bidirectional.cpp) | G++ 13.2 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 2.203 s | 54384 KB |
-| [1589_bidirectional.go](1589_bidirectional.go) | Go 1.14 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 3.000 s | 58376 KB |
-| [1589_bidirectional.java](1589_bidirectional.java) | Java 1.8 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 4.343 s | 28700 KB |
-| [1589_bidirectional.py](1589_bidirectional.py) | PyPy 3.10 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | TLE (test 62) | 5.015 s | 50612 KB |
-| [1589_bidirectional.rs](1589_bidirectional.rs) | Rust 1.75 x64 | bidirectional | O(P + S · B · (B³ + F + H)) | AC | 2.390 s | 55068 KB |
+| [1589_greedy.cpp](1589_greedy.cpp) | G++ 13.2 x64 | greedy | O(P + E · B⁴) | AC | 3.812 s | 57152 KB |
+| [1589_greedy.go](1589_greedy.go) | Go 1.14 x64 | greedy | O(P + E · B⁴) | AC | 2.546 s | 58752 KB |
+| [1589_greedy.java](1589_greedy.java) | Java 1.8 | greedy | O(P + E · B⁴) | AC | 4.078 s | 31196 KB |
+| [1589_greedy.rs](1589_greedy.rs) | Rust 1.75 x64 | greedy | O(P + E · B⁴) | AC | 2.984 s | 55436 KB |
