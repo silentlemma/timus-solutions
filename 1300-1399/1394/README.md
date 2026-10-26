@@ -56,18 +56,20 @@ Output:
 ## Solution
 
 Exact multi-way partitioning is hard in general, and the judge's tests
-are chosen to beat single heuristics. C++, Go, Java and Rust cycle four
-exact searches through five slots (B twice), with capped 1.6-fold slice
-growth and perturbed orders in later rounds, until success or the internal
-cutoff. Python's searches are described below.
+are chosen to beat single heuristics.
+
+Backtracking cycles three exact searches through five slots: B, B with
+the rows in increasing length, C, D and B again. Time slices grow
+1.6-fold up to a cap and later rounds perturb the orders, until one
+search places all ships or the internal cutoff comes.
 
 - B, rows one at a time. Ships go longest first; inside a row each ship
   is taken or skipped, and the copies of a skipped length are skipped
   together. Every open row must stay a subset sum of the unused ships
   (bitsets of suffix sums, rebuilt when a row opens). A failed state,
   the unused ships plus the open rows, goes into a hash table that
-  survives restarts, since it does not depend on the order. One B slot
-  per round also checks residues for D's moduli and small moduli.
+  survives restarts, since it does not depend on the order. Every other
+  B slot also checks residues for D's moduli and small moduli.
 - C, B over the rare lengths only (at most one to three copies): a row
   then needs a remainder that the common ships can make, and a nested B
   places the common ships at the end. This avoids the many
@@ -78,12 +80,11 @@ cutoff. Python's searches are described below.
   gets its length modulo K. A DP over rows and count vectors (in mixed
   radix) answers it, with a budget per query and a cache that survives
   restarts.
-- A, ships one at a time into rows, the rarest lengths first. Every
-  row's remaining length must be a sum of unplaced ships; a row that
-  cannot be completed without the current ship gets it; rows with equal
-  remaining lengths are tried once; equal ships go to rows in order; and
-  the rows' ship counts must be able to add up (bitsets of the sums of
-  exactly c ships).
+
+All three are needed: without C the judge's test 8 runs out of time,
+without D its test 10, and with B in two slots of four instead of three
+of five its test 7. A fourth search, ships one at a time into rows, was
+not needed.
 
 S is the total ship length.
 
@@ -95,47 +96,29 @@ Pitfalls:
 - residue puzzles: almost all ships multiples of some k and one special
   ship per row whose residue constrains the row assignments (generated
   tests 7 and 8);
+- fleets that only the row-by-row search B solves, and only in a lucky
+  order, while C and D fail (tests 14 and 15);
 - the rows must be printed in input order.
 
-The placements pass the checker on all the tests here, on 200 generated
-fleets of eight kinds and on a few known hard fleets, each in well under
-the limit; an independent accepted implementation solves the same set.
+The placements pass the checker on all the tests here, on 130 hard
+fleets and on 11 000 generated fleets (6 000 of them with equal rows):
+backtracking within 0.55 s and 0.08 s, on the hard and the generated
+fleets.
 
 ## Language notes
 
-- Python runs under PyPy with a portfolio of its own, since a port of
-  the four searches above needs about 5 s on test 03:
-  - it starts with random tries: the ships and the rows in random
-    orders, every row takes each ship that still lets the later ships
-    complete it (bitsets of suffix sums), and the longest row takes the
-    rest; this alone settles most fleets within milliseconds;
-  - after 0.05 s of tries they go on in turns with two row searches over
-    length counts (one with the count check), A, residue searches and
-    an optional search over fillings;
-  - the residue search, for a modulus that divides most ships, gives
-    the non-multiples to rows first, a few per row, until every row's
-    remainder is a multiple, and then solves the fleet scaled down;
-  - the search over fillings gives every row but the longest one of
-    its count vectors, the row with the fewest fillings that still fit
-    first, with failed states cached; it takes test 03 in 0.3 s.
-
-  Four versions, each built around a different main search, exceed the
-  time limit on test 7 of the judge (1.03 s), while every fleet here,
-  the fleets from the forum and fifteen kinds of generated fleets take
-  at most 0.35 s locally. It is kept marked TLE: it passes all the
-  tests here but is not claimed to be fast enough for every test of
-  the judge.
-- Java needed a closer port to pass the judge's test 8 within 1 s: the
-  skip branch of a row is a loop, not a tail call; the bitsets of A stop
-  at the longest row; indexes use shifts and masks. A first version without
-  these exceeded 1 s on that test.
+- Backtracking in Python exceeded the limit on the judge's test 7 in
+  four versions, each built around a different main search, so Python
+  has no solution here.
+- The backtracking Java needed a closer port to pass the judge's test 8
+  within 1 s: the skip branch of a row is a loop, not a tail call, and
+  indexes use shifts and masks.
 
 ## Solutions
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory |
 |----------|----------|----------|------------|---------|------|--------|
-| [1394_backtracking.cpp](1394_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 26956 KB |
-| [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 31580 KB |
-| [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.859 s | 49668 KB |
-| [1394_backtracking.py](1394_backtracking.py) | PyPy 3.10 x64 | backtracking | O(M^N · poly(N, M, S)) per search | TLE (test 7) | 1.015 s | 14184 KB |
-| [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 32072 KB |
+| [1394_backtracking.cpp](1394_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 26108 KB |
+| [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.468 s | 28492 KB |
+| [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.546 s | 26652 KB |
+| [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 27520 KB |

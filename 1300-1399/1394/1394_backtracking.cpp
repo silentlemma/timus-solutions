@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <bitset>
 #include <cmath>
 #include <cstdio>
 #include <ctime>
@@ -8,9 +7,9 @@
 using namespace std;
 typedef unsigned long long Hash;
 
-// Four exact searches with growing time slices and perturbed orders, tried in
+// Three exact searches with growing time slices and perturbed orders, tried in
 // turns until one places all ships: B (rows one at a time), C (B over the
-// rare lengths only), D (C with residues modulo K checked exactly), A (ships).
+// rare lengths only), D (C with residues modulo K checked exactly).
 const int MAX_SHIPS = 100;
 const int MAX_ROWS = 10;
 const int MAX_LEN = 100;
@@ -68,101 +67,6 @@ bool tick() {
         return false;
     }
     return true;
-}
-
-// Ships go one by one into rows. Every row's remaining length must be a sum
-// of unplaced ships, and the rows' ship counts must be able to add up.
-int remain[MAX_ROWS];
-bitset<MAX_SUM> suffixSums[MAX_SHIPS + 1];
-vector<bitset<MAX_SUM>> countSums; // [first[i] + c]: sums of exactly c ships of i..n-1
-int first[MAX_SHIPS + 2];
-const int COUNT_BITS = 128;
-
-void prepareA() {
-    suffixSums[n].reset();
-    suffixSums[n][0] = 1;
-    for (int i = n - 1; i >= 0; i--)
-        suffixSums[i] = suffixSums[i + 1] | (suffixSums[i + 1] << v[i]);
-    int total = 0;
-    for (int i = n; i >= 0; i--) {
-        first[i] = total;
-        total += n - i + 1;
-    }
-    countSums.assign(total, bitset<MAX_SUM>());
-    countSums[first[n]][0] = 1;
-    for (int i = n - 1; i >= 0; i--)
-        for (int c = 0; c <= n - i; c++) {
-            bitset<MAX_SUM> &d = countSums[first[i] + c];
-            if (c <= n - i - 1)
-                d = countSums[first[i + 1] + c];
-            if (c >= 1)
-                d |= countSums[first[i + 1] + c - 1] << v[i];
-        }
-}
-
-bool countsFit(int i) {
-    int total = n - i;
-    bitset<COUNT_BITS> acc;
-    acc[0] = 1;
-    for (int b = 0; b < m; b++) {
-        bitset<COUNT_BITS> next;
-        bool any = false;
-        for (int c = 0; c <= total; c++)
-            if (countSums[first[i] + c][remain[b]]) {
-                next |= acc << c;
-                any = true;
-            }
-        if (!any)
-            return false;
-        acc = next;
-    }
-    return acc[total];
-}
-
-bool searchA(int i) {
-    if (i == n)
-        return true;
-    if (!tick() || !countsFit(i))
-        return false;
-    int x = v[i];
-    const bitset<MAX_SUM> &rest = suffixSums[i + 1];
-    int forced = -1; // a row that cannot be completed without ship i
-    for (int b = 0; b < m; b++)
-        if (!rest[remain[b]]) {
-            if (forced != -1)
-                return false;
-            forced = b;
-        }
-    int low = i > 0 && v[i - 1] == x ? placed[i - 1] : 0; // equal ships: rows in order
-    int tried[MAX_ROWS], triedCount = 0;
-    for (int b = forced != -1 ? forced : low; b < m; b++) {
-        if (b < low)
-            return false;
-        int r = remain[b];
-        if (r >= x && rest[r - x] && find(tried, tried + triedCount, r) == tried + triedCount) {
-            tried[triedCount++] = r; // rows of equal remaining length are tried once
-            remain[b] -= x;
-            placed[i] = b;
-            if (searchA(i + 1))
-                return true;
-            remain[b] += x;
-            if (aborted)
-                return false;
-        }
-        if (forced != -1)
-            break;
-    }
-    return false;
-}
-
-bool runA() {
-    prepareA();
-    for (int b = 0; b < m; b++) {
-        remain[b] = rowLen[rowId[b]];
-        if (!suffixSums[0][remain[b]])
-            return false;
-    }
-    return searchA(0);
 }
 
 // Failed states of the row searches, by a hash of the unused ships and the
@@ -571,15 +475,16 @@ const int SHARE = 4;                 // a modulus must divide a quarter of the s
 const int SMALL_MOD_MAX = 6;         // B also checks moduli up to this
 const int TOP_MODS = 4;
 const int SCORE_SCALE = 100;
-const int SLOTS = 5; // B, B with rows ascending, C, D, A
+const int SLOTS = 5; // B, B with rows ascending, C, D, B again
 const int STRATEGY_B = 0;
 const int STRATEGY_C = 1;
 const int STRATEGY_D = 2;
-const int STRATEGY_A = 3;
+// B gets three slots of five: the hardest tests need its row-by-row search
+const int SLOT_STRATEGY[SLOTS] = {STRATEGY_B, STRATEGY_B, STRATEGY_C, STRATEGY_D, STRATEGY_B};
 const int RARE_LEVELS = 3;  // C: "rare" means at most 1..3 copies
 const int KEY_SCALE = 1000; // ship order keys
 const int MAX_NOISE = 30;
-const long long RARE_FIRST = 1000000000LL, FREQUENT_FIRST = 1000000;
+const long long RARE_FIRST = 1000000000LL;
 const double FIRST_SLICE = 0.003, SLICE_GROWTH = 1.6;
 const int MAX_GROWTH = 20;
 
@@ -639,7 +544,7 @@ int main() {
     bool solved = false;
     for (int attempt = 0; sane && !solved; attempt++) {
         int slot = attempt % SLOTS, round = attempt / SLOTS;
-        int strategy = slot <= 1 ? 0 : slot - 1; // 0 B, 1 C, 2 D, 3 A
+        int strategy = SLOT_STRATEGY[slot];
         bool rowsUp = slot == 1;
         int rareLevel = 1 + round % RARE_LEVELS;
         int ci = dMods.empty() ? -1 : round % (int)dMods.size();
@@ -654,7 +559,7 @@ int main() {
         if ((strategy == STRATEGY_C || strategy == STRATEGY_D) && (kept == 0 || kept == n))
             strategy = STRATEGY_B;
 
-        // ship order: B longest first, C and D rare lengths first, A by copies,
+        // ship order: B longest first, C and D rare lengths first,
         // later rounds add noise, equal lengths stay together
         long long lengthKey[MAX_LEN + 1];
         for (int x = 1; x <= MAX_LEN; x++) {
@@ -663,8 +568,6 @@ int main() {
                 lengthKey[x] += rnd() % (KEY_SCALE * (unsigned)min(MAX_NOISE, round + 1));
             if ((strategy == STRATEGY_C || strategy == STRATEGY_D) && rare[x])
                 lengthKey[x] += RARE_FIRST;
-            if (strategy == STRATEGY_A)
-                lengthKey[x] -= (long long)copies[x] * FREQUENT_FIRST;
         }
         for (int i = 0; i < n; i++) {
             order[i] = i;
@@ -697,10 +600,8 @@ int main() {
             solved = runRows(n, bChecks, (round + slot) % 2 == 0 ? bCount : 0);
         else if (strategy == STRATEGY_C)
             solved = runRows(kept, nullptr, 0);
-        else if (strategy == STRATEGY_D)
-            solved = runRows(kept, &dChecks[ci], dChecks[ci] ? 1 : 0);
         else
-            solved = runA();
+            solved = runRows(kept, &dChecks[ci], dChecks[ci] ? 1 : 0);
         if (!solved && elapsed() > TIME_LIMIT)
             break;
     }

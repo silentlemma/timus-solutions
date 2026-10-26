@@ -1,14 +1,15 @@
 use std::io::{self, Read, Write};
 use std::time::{Duration, Instant};
 
-// Four exact searches with growing time slices and perturbed orders, tried in
+// Three exact searches with growing time slices and perturbed orders, tried in
 // turns until one places all ships: B (rows one at a time), C (B over the
-// rare lengths only), D (C with residues modulo K checked exactly), A (ships).
+// rare lengths only), D (C with residues modulo K checked exactly).
 const MAX_SHIPS: usize = 100;
 const MAX_ROWS: usize = 10;
 const MAX_LEN: usize = 100;
 const MAX_SUM: usize = 10001; // fewer than 100 ships of at most 100
-const TIME_LIMIT: Duration = Duration::from_millis(900);
+const TIME_LIMIT_MILLIS: u64 = 900;
+const TIME_LIMIT: Duration = Duration::from_millis(TIME_LIMIT_MILLIS);
 const CLOCK_EVERY: i64 = 256; // nodes between looks at the clock
 const WORD: usize = 64;
 const WORDS: usize = (MAX_SUM + WORD - 1) / WORD;
@@ -589,127 +590,6 @@ impl RowSearch {
     }
 }
 
-// Strategy A: ships go one by one into rows. Every row's remaining length
-// must be a sum of unplaced ships, and the rows' ship counts must add up.
-struct ShipSearch {
-    n: usize,
-    m: usize,
-    v: Vec<usize>,
-    remain: Vec<usize>,
-    place: Vec<usize>,
-    suffix: Vec<Vec<u64>>,
-    counts: Vec<Vec<u64>>, // [start[i] + c]: sums of exactly c ships of i..n
-    start: Vec<usize>,
-}
-
-impl ShipSearch {
-    fn prepare(&mut self) {
-        let n = self.n;
-        self.suffix = vec![vec![0; WORDS]; n + 1];
-        one(&mut self.suffix[n]);
-        for i in (0..n).rev() {
-            let (head, tail) = self.suffix.split_at_mut(i + 1);
-            shift_or(&mut head[i], &tail[0], self.v[i]);
-        }
-        self.start = vec![0; n + 2];
-        let mut total = 0;
-        for i in (0..=n).rev() {
-            self.start[i] = total;
-            total += n - i + 1;
-        }
-        self.counts = vec![vec![0; WORDS]; total];
-        one(&mut self.counts[self.start[n]]);
-        for i in (0..n).rev() {
-            for c in 0..=n - i {
-                let mut d = vec![0u64; WORDS];
-                if c < n - i {
-                    d.copy_from_slice(&self.counts[self.start[i + 1] + c]);
-                }
-                if c >= 1 {
-                    let src = &self.counts[self.start[i + 1] + c - 1];
-                    let (ws, bs) = (self.v[i] / WORD, self.v[i] % WORD);
-                    for w in (ws..WORDS).rev() {
-                        let mut x = src[w - ws] << bs;
-                        if bs != 0 && w > ws {
-                            x |= src[w - ws - 1] >> (WORD - bs);
-                        }
-                        d[w] |= x;
-                    }
-                }
-                self.counts[self.start[i] + c] = d;
-            }
-        }
-    }
-
-    // the counts of ships per row can add up to n - i: a 128-bit set of totals
-    fn counts_fit(&self, i: usize) -> bool {
-        let total = self.n - i;
-        let mut acc: u128 = 1;
-        for b in 0..self.m {
-            let mut next: u128 = 0;
-            let mut any = false;
-            for c in 0..=total {
-                if get(&self.counts[self.start[i] + c], self.remain[b]) {
-                    next |= acc << c;
-                    any = true;
-                }
-            }
-            if !any {
-                return false;
-            }
-            acc = next;
-        }
-        (acc >> total) & 1 != 0
-    }
-
-    fn search(&mut self, clock: &mut Clock, i: usize) -> bool {
-        if i == self.n {
-            return true;
-        }
-        if !clock.tick() || !self.counts_fit(i) {
-            return false;
-        }
-        let x = self.v[i];
-        let mut forced = None; // a row that cannot be completed without ship i
-        for b in 0..self.m {
-            if !get(&self.suffix[i + 1], self.remain[b]) {
-                if forced.is_some() {
-                    return false;
-                }
-                forced = Some(b);
-            }
-        }
-        let low = if i > 0 && self.v[i - 1] == x {
-            self.place[i - 1]
-        } else {
-            0
-        }; // equal ships: rows in order
-        let mut tried: Vec<usize> = Vec::new();
-        for b in forced.unwrap_or(low)..self.m {
-            if b < low {
-                return false;
-            }
-            let r = self.remain[b];
-            if r >= x && get(&self.suffix[i + 1], r - x) && !tried.contains(&r) {
-                tried.push(r); // rows of equal remaining length are tried once
-                self.remain[b] -= x;
-                self.place[i] = b;
-                if self.search(clock, i + 1) {
-                    return true;
-                }
-                self.remain[b] += x;
-                if clock.aborted {
-                    return false;
-                }
-            }
-            if forced.is_some() {
-                break;
-            }
-        }
-        false
-    }
-}
-
 struct Rng(u32);
 
 impl Rng {
@@ -731,17 +611,17 @@ const MOD_MAX: usize = 50;
 const SMALL_MOD_MAX: usize = 6; // B also checks moduli up to this
 const TOP_MODS: usize = 4;
 const SCORE_SCALE: i64 = 100;
-const SLOTS: usize = 5; // B, B with rows ascending, C, D, A
+const SLOTS: usize = 5; // B, B with rows ascending, C, D, B again
 const SHARE: usize = 4; // a modulus must divide a quarter of the ships
 const STRATEGY_B: usize = 0;
 const STRATEGY_C: usize = 1;
 const STRATEGY_D: usize = 2;
-const STRATEGY_A: usize = 3;
+// B gets three slots of five: the hardest tests need its row-by-row search.
+const SLOT_STRATEGY: [usize; SLOTS] = [STRATEGY_B, STRATEGY_B, STRATEGY_C, STRATEGY_D, STRATEGY_B];
 const RARE_LEVELS: usize = 3; // C: "rare" means at most 1..3 copies
 const KEY_SCALE: u32 = 1000; // ship order keys
 const MAX_NOISE: usize = 30;
 const RARE_FIRST: i64 = 1_000_000_000;
-const FREQUENT_FIRST: i64 = 1_000_000;
 const FIRST_SLICE: f64 = 0.003; // seconds
 const SLICE_GROWTH: f64 = 1.6;
 const MAX_GROWTH: i32 = 20;
@@ -830,7 +710,7 @@ fn main() {
     while sane && !solved {
         let (slot, round) = (attempt % SLOTS, attempt / SLOTS);
         attempt += 1;
-        let mut strategy = if slot <= 1 { 0 } else { slot - 1 }; // 0 B, 1 C, 2 D, 3 A
+        let mut strategy = SLOT_STRATEGY[slot];
         let rows_up = slot == 1;
         let rare_level = 1 + round % RARE_LEVELS;
         let ci = if d_mods.is_empty() {
@@ -855,7 +735,7 @@ fn main() {
             strategy = STRATEGY_B;
         }
 
-        // ship order: B longest first, C and D rare lengths first, A by copies,
+        // ship order: B longest first, C and D rare lengths first,
         // later rounds add noise, equal lengths stay together
         let mut length_key = [0i64; MAX_LEN + 1];
         for x in 1..=MAX_LEN {
@@ -866,9 +746,6 @@ fn main() {
             }
             if (strategy == STRATEGY_C || strategy == STRATEGY_D) && rare[x] {
                 length_key[x] += RARE_FIRST;
-            }
-            if strategy == STRATEGY_A {
-                length_key[x] -= copies[x] as i64 * FREQUENT_FIRST;
             }
         }
         let mut order: Vec<usize> = (0..n).collect();
@@ -897,70 +774,52 @@ fn main() {
         sh.clock.attempt_end =
             (sh.clock.started.elapsed() + Duration::from_secs_f64(slice)).min(TIME_LIMIT);
         let lens: Vec<usize> = row_id.iter().map(|&j| row_len[j]).collect();
-        if strategy == STRATEGY_A {
-            let mut a = ShipSearch {
+        let (kept_here, checks): (usize, Vec<usize>) = match strategy {
+            STRATEGY_B => (
                 n,
-                m,
-                v: v.clone(),
-                remain: lens.clone(),
-                place: vec![0; n],
-                suffix: Vec::new(),
-                counts: Vec::new(),
-                start: Vec::new(),
-            };
-            a.prepare();
-            solved = lens.iter().all(|&l| get(&a.suffix[0], l)) && a.search(&mut sh.clock, 0);
-            if solved {
-                placed.copy_from_slice(&a.place);
+                if (round + slot) % 2 == 0 {
+                    b_checks.clone()
+                } else {
+                    Vec::new()
+                },
+            ),
+            STRATEGY_C => (kept, Vec::new()),
+            _ => (kept, ci.and_then(|c| d_checks[c]).into_iter().collect()),
+        };
+        let s = &mut main_search;
+        s.n = n;
+        s.m = m;
+        s.kept = kept_here;
+        s.v[..n].copy_from_slice(&v);
+        s.len[..m].copy_from_slice(&lens);
+        for (t, &z) in checks.iter().enumerate() {
+            let r = &mut sh.pool[z];
+            let mut class_of = [-1i32; MAX_LEN];
+            for j in 0..r.classes {
+                class_of[r.residue[j]] = j as i32;
             }
-        } else {
-            let (kept_here, checks): (usize, Vec<usize>) = match strategy {
-                0 => (
-                    n,
-                    if (round + slot) % 2 == 0 {
-                        b_checks.clone()
-                    } else {
-                        Vec::new()
-                    },
-                ),
-                1 => (kept, Vec::new()),
-                _ => (kept, ci.and_then(|c| d_checks[c]).into_iter().collect()),
-            };
-            let s = &mut main_search;
-            s.n = n;
-            s.m = m;
-            s.kept = kept_here;
-            s.v[..n].copy_from_slice(&v);
-            s.len[..m].copy_from_slice(&lens);
-            for (t, &z) in checks.iter().enumerate() {
-                let r = &mut sh.pool[z];
-                let mut class_of = [-1i32; MAX_LEN];
-                for j in 0..r.classes {
-                    class_of[r.residue[j]] = j as i32;
-                }
-                for i in 0..n {
-                    s.cls[t][i] = class_of[v[i] % r.modulus];
-                }
-                r.set_rows(&lens);
+            for i in 0..n {
+                s.cls[t][i] = class_of[v[i] % r.modulus];
             }
-            s.checks = checks;
-            let mut tag = 0;
-            if kept_here < n {
-                let mut is_rare = [false; MAX_LEN + 1];
-                for &x in &v[..kept_here] {
-                    is_rare[x] = true;
-                }
-                tag = TAG_SALT;
-                for x in 1..=MAX_LEN {
-                    if is_rare[x] {
-                        tag = mix(tag ^ x as u64);
-                    }
+            r.set_rows(&lens);
+        }
+        s.checks = checks;
+        let mut tag = 0;
+        if kept_here < n {
+            let mut is_rare = [false; MAX_LEN + 1];
+            for &x in &v[..kept_here] {
+                is_rare[x] = true;
+            }
+            tag = TAG_SALT;
+            for x in 1..=MAX_LEN {
+                if is_rare[x] {
+                    tag = mix(tag ^ x as u64);
                 }
             }
-            solved = s.run(&mut sh, Some(&mut sub_search), tag);
-            if solved {
-                placed.copy_from_slice(&s.place[..n]);
-            }
+        }
+        solved = s.run(&mut sh, Some(&mut sub_search), tag);
+        if solved {
+            placed.copy_from_slice(&s.place[..n]);
         }
         if !solved && sh.clock.started.elapsed() > TIME_LIMIT {
             break;

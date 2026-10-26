@@ -23,6 +23,8 @@
     { "name": "11", "note": "ten ships in nine unsorted rows, exactly one row combines two ships" },
     { "name": "12", "note": "one odd unit ship is reserved for the only odd row of a random even fleet" },
     { "name": "13", "note": "random repeated lengths require different mixtures in unequal rows" },
+    { "name": "14", "note": "nine rows that only a row-by-row search in a lucky order fills quickly" },
+    { "name": "15", "note": "a variant of the forum fleet with a row of 820 that defeats searches by rare lengths, residues and single ships" },
     { "name": "gen9", "generator": "1394 9", "note": "nine equal rows force complementary pairs despite shuffled duplicate ships" },
     { "name": "gen10", "generator": "1394 10", "note": "random lengths 76 to 100 force exactly three ships in each of five rows" }
   ]

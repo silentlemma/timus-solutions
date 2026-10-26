@@ -11,9 +11,9 @@ import (
 	"time"
 )
 
-// Four exact searches with growing time slices and perturbed orders, tried in
+// Three exact searches with growing time slices and perturbed orders, tried in
 // turns until one places all ships: B (rows one at a time), C (B over the
-// rare lengths only), D (C with residues modulo K checked exactly), A (ships).
+// rare lengths only), D (C with residues modulo K checked exactly).
 const (
 	maxShips   = 100
 	maxRows    = 10
@@ -84,8 +84,7 @@ func tick() bool {
 	return true
 }
 
-// bits is a bitset of run-time width: a row search needs sums up to its
-// longest row, the ship search up to maxSum
+// bits is a bitset of run-time width: a row search needs sums up to its longest row.
 type bits []hash
 
 func (b bits) get(x int) bool { return (b[x/word]>>uint(x%word))&1 != 0 }
@@ -112,141 +111,6 @@ func (b bits) shiftOr(s bits, sh int) {
 	}
 }
 
-// Strategy A: ships go one by one into rows. Every row's remaining length
-// must be a sum of unplaced ships, and the rows' ship counts must add up.
-var (
-	remain      [maxRows]int
-	suffixSums  [maxShips + 1]bits
-	countSums   []bits // [first[i] + c]: sums of exactly c ships of i..n-1
-	countsStart [maxShips + 2]int
-)
-
-func prepareA() {
-	for i := n; i >= 0; i-- {
-		if suffixSums[i] == nil {
-			suffixSums[i] = make(bits, words)
-		}
-		if i == n {
-			suffixSums[i].one()
-		} else {
-			suffixSums[i].shiftOr(suffixSums[i+1], v[i])
-		}
-	}
-	total := 0
-	for i := n; i >= 0; i-- {
-		countsStart[i] = total
-		total += n - i + 1
-	}
-	for len(countSums) < total {
-		countSums = append(countSums, make(bits, words))
-	}
-	for i := n; i >= 0; i-- {
-		for c := 0; c <= n-i; c++ {
-			d := countSums[countsStart[i]+c]
-			for w := range d {
-				d[w] = 0
-			}
-			if i == n {
-				d[0] = 1
-				continue
-			}
-			if c <= n-i-1 {
-				copy(d, countSums[countsStart[i+1]+c])
-			}
-			if c >= 1 {
-				src := countSums[countsStart[i+1]+c-1]
-				ws, bs := v[i]/word, uint(v[i]%word)
-				for w := len(d) - 1; w >= ws; w-- {
-					x := src[w-ws] << bs
-					if bs != 0 && w-ws > 0 {
-						x |= src[w-ws-1] >> (word - bs)
-					}
-					d[w] |= x
-				}
-			}
-		}
-	}
-}
-
-// the counts of ships per row can add up to n - i: a 128-bit set of totals
-func countsFit(i int) bool {
-	total := n - i
-	acc := [2]hash{1, 0}
-	for b := 0; b < m; b++ {
-		var next [2]hash
-		any := false
-		for c := 0; c <= total; c++ {
-			if !countSums[countsStart[i]+c].get(remain[b]) {
-				continue
-			}
-			any = true
-			shifted := acc
-			if c >= word {
-				shifted = [2]hash{0, acc[0] << uint(c-word)}
-			} else if c > 0 {
-				shifted = [2]hash{acc[0] << uint(c), acc[1]<<uint(c) | acc[0]>>uint(word-c)}
-			}
-			next[0] |= shifted[0]
-			next[1] |= shifted[1]
-		}
-		if !any {
-			return false
-		}
-		acc = next
-	}
-	return (acc[total/word]>>uint(total%word))&1 != 0
-}
-
-func searchA(i int) bool {
-	if i == n {
-		return true
-	}
-	if !tick() || !countsFit(i) {
-		return false
-	}
-	x, rest := v[i], suffixSums[i+1]
-	forced := -1 // a row that cannot be completed without ship i
-	for b := 0; b < m; b++ {
-		if !rest.get(remain[b]) {
-			if forced != -1 {
-				return false
-			}
-			forced = b
-		}
-	}
-	low := 0 // equal ships go to rows in order
-	if i > 0 && v[i-1] == x {
-		low = placed[i-1]
-	}
-	var tried []int
-	start := low
-	if forced != -1 {
-		start = forced
-	}
-	for b := start; b < m; b++ {
-		if b < low {
-			return false
-		}
-		r := remain[b]
-		if r >= x && rest.get(r-x) && !contains(tried, r) {
-			tried = append(tried, r) // rows of equal remaining length are tried once
-			remain[b] -= x
-			placed[i] = b
-			if searchA(i + 1) {
-				return true
-			}
-			remain[b] += x
-			if aborted {
-				return false
-			}
-		}
-		if forced != -1 {
-			break
-		}
-	}
-	return false
-}
-
 func contains(list []int, x int) bool {
 	for _, y := range list {
 		if y == x {
@@ -254,17 +118,6 @@ func contains(list []int, x int) bool {
 		}
 	}
 	return false
-}
-
-func runA() bool {
-	prepareA()
-	for b := 0; b < m; b++ {
-		remain[b] = rowLen[rowID[b]]
-		if !suffixSums[0].get(remain[b]) {
-			return false
-		}
-	}
-	return searchA(0)
 }
 
 // Failed states of the row searches, by a hash of the unused ships and the
@@ -369,7 +222,9 @@ func (z *residues) split(b int, R *[maxLen]int, reach *[maxLen + 1]hash, code ha
 				continue
 			}
 			for cc := c; cc <= R[j]; cc += z.mod {
-				if z.overBudget() || z.feasible(b+1, code-taken-hash(cc)*z.radix[j]) || z.broken {
+				if z.overBudget() ||
+					z.feasible(b+1, code-taken-hash(cc)*z.radix[j]) ||
+					z.broken {
 					return true
 				}
 			}
@@ -467,7 +322,8 @@ func (z *residues) init(k int) bool {
 	})
 	total, s := 1.0, hash(1)
 	for _, cl := range list {
-		z.residue[z.classes], z.count[z.classes], z.radix[z.classes] = cl.residue, cl.count, s
+		z.residue[z.classes] = cl.residue
+		z.count[z.classes], z.radix[z.classes] = cl.count, s
 		z.classes++
 		total *= float64(cl.count + 1)
 		if total > maxCodes {
@@ -750,21 +606,22 @@ const (
 	smallModMax    = 6     // B also checks moduli up to this
 	topMods        = 4
 	scoreScale     = 100
-	slots          = 5 // B, B with rows ascending, C, D, A
+	slots          = 5 // B, B with rows ascending, C, D, B again
 	share          = 4 // a modulus must divide a quarter of the ships
 	strategyB      = 0
 	strategyC      = 1
 	strategyD      = 2
-	strategyA      = 3
 	rareLevels     = 3    // C: "rare" means at most 1..3 copies
 	keyScale       = 1000 // ship order keys
 	maxNoise       = 30
 	rareFirst      = 1000000000
-	frequentFirst  = 1000000
 	firstSlice     = 0.003 // seconds
 	sliceGrowth    = 1.6
 	maxGrowth      = 20
 )
+
+// B gets three slots of five: the hardest tests need its row-by-row search.
+var slotStrategy = [slots]int{strategyB, strategyB, strategyC, strategyD, strategyB}
 
 func main() {
 	in := bufio.NewReader(os.Stdin)
@@ -845,10 +702,7 @@ func main() {
 	solved := false
 	for attempt := 0; sane && !solved; attempt++ {
 		slot, round := attempt%slots, attempt/slots
-		strategy := 0 // 0 B, 1 C, 2 D, 3 A
-		if slot > 1 {
-			strategy = slot - 1
-		}
+		strategy := slotStrategy[slot]
 		rowsUp := slot == 1
 		rareLevel := 1 + round%rareLevels
 		ci, K := -1, 0
@@ -877,7 +731,7 @@ func main() {
 			strategy = strategyB
 		}
 
-		// ship order: B longest first, C and D rare lengths first, A by copies,
+		// ship order: B longest first, C and D rare lengths first,
 		// later rounds add noise, equal lengths stay together
 		var lengthKey [maxLen + 1]int64
 		for x := 1; x <= maxLen; x++ {
@@ -891,9 +745,6 @@ func main() {
 			}
 			if (strategy == strategyC || strategy == strategyD) && rare[x] {
 				lengthKey[x] += rareFirst
-			}
-			if strategy == strategyA {
-				lengthKey[x] -= int64(copies[x]) * frequentFirst
 			}
 		}
 		for i := 0; i < n; i++ {
@@ -919,9 +770,13 @@ func main() {
 		}
 		rows := rowID[:m]
 		if rowsUp || (strategy == strategyD && round%2 == 0) {
-			sort.SliceStable(rows, func(p, q int) bool { return rowLen[rows[p]] < rowLen[rows[q]] })
+			sort.SliceStable(rows, func(p, q int) bool {
+				return rowLen[rows[p]] < rowLen[rows[q]]
+			})
 		} else if round == 0 {
-			sort.SliceStable(rows, func(p, q int) bool { return rowLen[rows[p]] > rowLen[rows[q]] })
+			sort.SliceStable(rows, func(p, q int) bool {
+				return rowLen[rows[p]] > rowLen[rows[q]]
+			})
 		} else {
 			for j := m - 1; j > 0; j-- {
 				k := int(rnd() % uint32(j+1))
@@ -940,22 +795,20 @@ func main() {
 			attemptEnd = timeLimit
 		}
 		switch strategy {
-		case 0:
+		case strategyB:
 			if (round+slot)%2 == 0 {
 				solved = runRows(n, bChecks)
 			} else {
 				solved = runRows(n, nil)
 			}
-		case 1:
+		case strategyC:
 			solved = runRows(kept, nil)
-		case 2:
+		default:
 			if dChecks[ci] != nil {
 				solved = runRows(kept, []*residues{dChecks[ci]})
 			} else {
 				solved = runRows(kept, nil)
 			}
-		default:
-			solved = runA()
 		}
 		if !solved && elapsed() > timeLimit {
 			break

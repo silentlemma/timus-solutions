@@ -56,24 +56,26 @@ Salida:
 
 ## Solución
 
-La partición exacta en varias partes es difícil en general, y las pruebas
-del juez están elegidas para vencer heurísticas aisladas. C++, Go, Java y
-Rust alternan cuatro búsquedas exactas en cinco turnos (B dos veces),
-multiplicando las porciones de tiempo por 1,6 por ronda hasta un tope y alterando los
-órdenes posteriores, hasta hallar una colocación o agotar el presupuesto
-interno. Las búsquedas de Python se describen abajo.
+La partición exacta en varias partes es difícil en general, y las
+pruebas del juez están elegidas para vencer heurísticas aisladas.
+
+El backtracking alterna tres búsquedas exactas en cinco turnos: B, B con
+las filas de menor a mayor longitud, C, D y B otra vez. Las porciones de
+tiempo crecen 1,6 veces hasta un tope y las rondas posteriores alteran
+los órdenes, hasta que una búsqueda coloca todos los barcos o se agota
+el presupuesto interno.
 
 - B, filas una a una. Los barcos van de más largo a más corto; dentro de
   una fila cada barco se toma o se salta, y las copias de una longitud
   saltada se saltan juntas. Cada fila abierta debe seguir siendo suma de
   un subconjunto de los barcos sin usar (bitsets de sumas de sufijos,
-  recalculados al abrir una fila). Un estado fallido, los barcos sin usar
-  más las filas abiertas, va a una tabla hash que sobrevive a los
-  reinicios, porque no depende del orden. Un turno de B por ronda también
-  comprueba los restos con los módulos de D y módulos pequeños.
+  recalculados al abrir una fila). Un estado fallido, los barcos sin
+  usar más las filas abiertas, va a una tabla hash que sobrevive a los
+  reinicios, porque no depende del orden. Uno de cada dos turnos de B
+  también comprueba los restos con los módulos de D y módulos pequeños.
 - C, B solo sobre las longitudes raras (de una a tres copias): una fila
-  necesita entonces un resto que formen los barcos comunes, y un B anidado
-  coloca los comunes al final. Así se evitan las muchas formas
+  necesita entonces un resto que formen los barcos comunes, y un B
+  anidado coloca los comunes al final. Así se evitan las muchas formas
   intercambiables de llenar filas con barcos comunes.
 - D, C donde «raro» significa no divisible por un módulo K que divide a
   muchos barcos, más una comprobación exacta de restos: los no múltiplos
@@ -81,12 +83,10 @@ interno. Las búsquedas de Python se describen abajo.
   modo que cada fila obtenga su longitud módulo K. Lo responde una DP
   sobre filas y vectores de cantidades (en base mixta), con un
   presupuesto por consulta y una caché que sobrevive a los reinicios.
-- A, barcos uno a uno en filas, las longitudes más raras primero. La
-  longitud restante de cada fila debe ser suma de barcos sin colocar; una
-  fila que no puede completarse sin el barco actual lo recibe; las filas
-  con igual longitud restante se prueban una vez; los barcos iguales van a
-  filas en orden; y las cantidades de barcos por fila deben poder sumar
-  (bitsets de las sumas de exactamente c barcos).
+
+Hacen falta las tres: sin C se acaba el tiempo en la prueba 8 del juez,
+sin D en la 10, y con B en dos turnos de cuatro en vez de tres de cinco,
+en la 7. Una cuarta búsqueda, barcos uno a uno en filas, no hizo falta.
 
 S es la longitud total de los barcos.
 
@@ -98,53 +98,29 @@ Detalles a tener en cuenta:
 - acertijos de restos: casi todos los barcos múltiplos de algún k y un
   barco especial por fila cuyo resto restringe la asignación de filas
   (pruebas generadas 7 y 8);
+- flotas que solo resuelve la búsqueda por filas B, y solo en un orden
+  afortunado, mientras C y D fallan (pruebas 14 y 15);
 - las filas se imprimen en el orden de la entrada.
 
-Las colocaciones pasan el verificador en todas las pruebas de aquí, en 200
-flotas generadas de ocho tipos y en unas pocas flotas difíciles conocidas,
-cada una muy por debajo del límite; una implementación independiente
-aceptada resuelve el mismo conjunto.
+Las colocaciones pasan el verificador en todas las pruebas de aquí, en
+130 flotas difíciles y en 11 000 flotas generadas (6 000 de ellas con
+filas iguales): el backtracking en como mucho 0,55 s y 0,08 s, en las
+flotas difíciles y en las generadas respectivamente.
 
 ## Notas por lenguaje
 
-- Python se ejecuta con PyPy y con un conjunto de búsquedas propio, ya
-  que una traducción de las cuatro búsquedas de arriba necesita unos
-  5 s en la prueba 03:
-  - empieza con intentos al azar: los barcos y las filas en orden
-    aleatorio, cada fila toma todo barco que aún deja completarla con
-    los barcos siguientes (bitsets de sumas de sufijos) y la fila más
-    larga se queda con el resto; esto solo resuelve la mayoría de las
-    flotas en milisegundos;
-  - tras 0,05 s de intentos, estos se turnan con dos búsquedas por filas
-    sobre cantidades por longitud (una comprueba el número de barcos), A,
-    búsquedas por restos y una búsqueda opcional por rellenos;
-  - la búsqueda por restos, para un módulo que divide a la mayoría de
-    los barcos, reparte primero los no múltiplos entre las filas, unos
-    pocos por fila, hasta que lo que falta en cada fila sea múltiplo, y
-    luego resuelve la flota reducida;
-  - la búsqueda por rellenos da a cada fila salvo la más larga uno de
-    sus vectores de cantidades, primero la fila con menos rellenos que
-    aún caben, y guarda los estados fallidos; resuelve la prueba 03 en
-    0,3 s.
-
-  Cuatro versiones, cada una con una búsqueda principal distinta,
-  exceden el límite en la prueba 7 del juez (1,03 s), mientras que todas
-  las flotas de aquí, las del foro y quince clases de flotas generadas
-  tardan como mucho 0,35 s en local. Se mantiene marcada como TLE: pasa
-  todas las pruebas de aquí, pero no se afirma que sea lo bastante
-  rápida para todas las pruebas del juez.
-- Java necesitó un port más ajustado para pasar la prueba 8 del juez en
-  1 s: la rama de saltar en una fila es un bucle y no una llamada de
-  cola; los bitsets de A terminan en la fila más larga; los índices usan
-  desplazamientos y máscaras. Una primera versión sin esto excedía 1 s en
-  esa prueba.
+- El backtracking en Python excedía el límite en la prueba 7 del juez en
+  cuatro versiones, cada una con su búsqueda principal, así que aquí no
+  hay solución en Python.
+- El Java con backtracking necesitó un port más ajustado para pasar la
+  prueba 8 del juez en 1 s: la rama de saltar en una fila es un bucle y
+  no una llamada de cola, y los índices usan desplazamientos y máscaras.
 
 ## Soluciones
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
 |----------|----------|---------|-------------|-----------|--------|---------|
-| [1394_backtracking.cpp](1394_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 26956 KB |
-| [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 31580 KB |
-| [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.859 s | 49668 KB |
-| [1394_backtracking.py](1394_backtracking.py) | PyPy 3.10 x64 | backtracking | O(M^N · poly(N, M, S)) per search | TLE (test 7) | 1.015 s | 14184 KB |
-| [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 32072 KB |
+| [1394_backtracking.cpp](1394_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.406 s | 26108 KB |
+| [1394_backtracking.go](1394_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.468 s | 28492 KB |
+| [1394_backtracking.java](1394_backtracking.java) | Java 1.8 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.546 s | 26652 KB |
+| [1394_backtracking.rs](1394_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N · poly(N, M, S)) per search | AC | 0.453 s | 27520 KB |

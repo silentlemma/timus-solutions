@@ -2,13 +2,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StreamTokenizer;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-// Four exact searches with growing time slices and perturbed orders, tried in
+// Three exact searches with growing time slices and perturbed orders, tried in
 // turns until one places all ships: B (rows one at a time), C (B over the
-// rare lengths only), D (C with residues modulo K checked exactly), A (ships).
+// rare lengths only), D (C with residues modulo K checked exactly).
 public class Main {
     static final int MAX_SHIPS = 100;
     static final int MAX_ROWS = 10;
@@ -105,154 +103,6 @@ public class Main {
         }
     }
 
-    // Strategy A: ships go one by one into rows. Every row's remaining length
-    // must be a sum of unplaced ships, and the rows' ship counts must add up.
-    static int[] remain = new int[MAX_ROWS];
-    static long[][] suffixSums;
-    static long[][] countSums; // [first[i] + c]: sums of exactly c ships of i..n-1
-    static int[] first = new int[MAX_SHIPS + 2];
-
-    // the sums only up to the longest row matter
-    static void prepareA() {
-        int longest = 0;
-        for (int b = 0; b < m; b++) {
-            longest = Math.max(longest, rowLen[b]);
-        }
-        int width = longest / WORD + 1;
-        if (suffixSums == null) {
-            suffixSums = new long[MAX_SHIPS + 1][WORDS];
-        }
-        one(suffixSums[n], width);
-        for (int i = n - 1; i >= 0; i--) {
-            shiftOr(suffixSums[i], suffixSums[i + 1], v[i], width);
-        }
-        int total = 0;
-        for (int i = n; i >= 0; i--) {
-            first[i] = total;
-            total += n - i + 1;
-        }
-        if (countSums == null || countSums.length < total) {
-            countSums = new long[total][WORDS];
-        }
-        one(countSums[first[n]], width);
-        for (int i = n - 1; i >= 0; i--) {
-            for (int c = 0; c <= n - i; c++) {
-                long[] d = countSums[first[i] + c];
-                if (c <= n - i - 1) {
-                    System.arraycopy(countSums[first[i + 1] + c], 0, d, 0, width);
-                } else {
-                    Arrays.fill(d, 0, width, 0);
-                }
-                if (c >= 1) {
-                    long[] src = countSums[first[i + 1] + c - 1];
-                    int ws = v[i] >>> WORD_SHIFT;
-                    int bs = v[i] & WORD_MASK;
-                    for (int w = width - 1; w >= ws; w--) {
-                        long x = src[w - ws] << bs;
-                        if (bs != 0 && w > ws) {
-                            x |= src[w - ws - 1] >>> (WORD - bs);
-                        }
-                        d[w] |= x;
-                    }
-                }
-            }
-        }
-    }
-
-    // the counts of ships per row can add up to n - i: a 128-bit set of totals
-    static boolean countsFit(int i) {
-        int total = n - i;
-        long low = 1;
-        long high = 0;
-        for (int b = 0; b < m; b++) {
-            long nextLow = 0;
-            long nextHigh = 0;
-            boolean any = false;
-            for (int c = 0; c <= total; c++) {
-                if (!get(countSums[first[i] + c], remain[b])) {
-                    continue;
-                }
-                any = true;
-                if (c == 0) {
-                    nextLow |= low;
-                    nextHigh |= high;
-                } else if (c < WORD) {
-                    nextLow |= low << c;
-                    nextHigh |= high << c | low >>> (WORD - c);
-                } else {
-                    nextHigh |= low << (c - WORD);
-                }
-            }
-            if (!any) {
-                return false;
-            }
-            low = nextLow;
-            high = nextHigh;
-        }
-        long word = total < WORD ? low : high;
-        return ((word >>> (total % WORD)) & 1) != 0;
-    }
-
-    static boolean searchA(int i) {
-        if (i == n) {
-            return true;
-        }
-        if (!tick() || !countsFit(i)) {
-            return false;
-        }
-        int x = v[i];
-        long[] rest = suffixSums[i + 1];
-        int forced = -1; // a row that cannot be completed without ship i
-        for (int b = 0; b < m; b++) {
-            if (!get(rest, remain[b])) {
-                if (forced != -1) {
-                    return false;
-                }
-                forced = b;
-            }
-        }
-        int low = i > 0 && v[i - 1] == x ? placed[i - 1] : 0; // equal ships: rows in order
-        int[] tried = new int[MAX_ROWS];
-        int triedCount = 0;
-        for (int b = forced != -1 ? forced : low; b < m; b++) {
-            if (b < low) {
-                return false;
-            }
-            int r = remain[b];
-            boolean seen = false;
-            for (int t = 0; t < triedCount; t++) {
-                seen |= tried[t] == r;
-            }
-            if (r >= x && get(rest, r - x) && !seen) {
-                tried[triedCount++] = r; // rows of equal remaining length are tried once
-                remain[b] -= x;
-                placed[i] = b;
-                if (searchA(i + 1)) {
-                    return true;
-                }
-                remain[b] += x;
-                if (aborted) {
-                    return false;
-                }
-            }
-            if (forced != -1) {
-                break;
-            }
-        }
-        return false;
-    }
-
-    static boolean runA() {
-        prepareA();
-        for (int b = 0; b < m; b++) {
-            remain[b] = rowLen[rowId[b]];
-            if (!get(suffixSums[0], remain[b])) {
-                return false;
-            }
-        }
-        return searchA(0);
-    }
-
     // Failed states of the row searches, by a hash of the unused ships and the
     // open rows; they do not depend on the order, so they survive restarts.
     static final int MEMO_BITS = 20;
@@ -300,6 +150,9 @@ public class Main {
     static final int SLOT_SHIFT = 8;
     static final long SALT = 0x1234567L;
     static long[] checked = new long[CHECK_SIZE]; // (key with the low bit cleared) | feasible
+    // Residue queries are sequential; recursive calls advance to the next row.
+    static int[][] residueRest = new int[MAX_ROWS][MAX_LEN];
+    static long[][] residueReach = new long[MAX_ROWS][MAX_LEN + 1];
 
     static class Residues {
         int mod;
@@ -365,11 +218,12 @@ public class Main {
             if (broken) {
                 return true;
             }
-            int[] rest = new int[classes];
+            int[] rest = residueRest[b];
             long c = code;
             for (int j = 0; j < classes; j++) {
-                rest[j] = (int)Long.remainderUnsigned(c, count[j] + 1);
-                c = Long.divideUnsigned(c, count[j] + 1);
+                // MAX_CODES keeps every mixed-radix code within a positive long.
+                rest[j] = (int)(c % (count[j] + 1));
+                c /= count[j] + 1;
             }
             if (b == m - 1) {
                 int r = 0;
@@ -386,7 +240,8 @@ public class Main {
                     return (e & 1) != 0;
                 }
             }
-            long[] reach = new long[classes + 1];
+            long[] reach = residueReach[b];
+            Arrays.fill(reach, 0, classes, 0);
             reach[classes] = 1;
             for (int j = classes - 1; j >= 0; j--) {
                 for (int t = 0; t <= rest[j] && t < mod; t++) {
@@ -424,25 +279,28 @@ public class Main {
             mod = k;
             classes = 0;
             full = (1L << k) - 1;
-            List<int[]> list = new ArrayList<>();
+            int[] order = new int[MAX_LEN];
+            long[] key = new long[MAX_LEN];
+            int classCount = 0;
             for (int r = 1; r < k; r++) {
                 if (perResidue[r] > 0) {
-                    list.add(new int[] {perResidue[r], r});
+                    order[classCount++] = r;
+                    key[r] = perResidue[r];
                 }
             }
-            list.sort(
-                (x, y) -> x[0] != y[0] ? Integer.compare(x[0], y[0]) : Integer.compare(x[1], y[1]));
+            sortByKey(order, classCount, key);
             double total = 1;
-            long s = 1;
-            for (int[] cl : list) {
-                residue[classes] = cl[1];
-                count[classes] = cl[0];
-                radix[classes++] = s;
-                total *= cl[0] + 1;
+            long scale = 1;
+            for (int j = 0; j < classCount; j++) {
+                int value = order[j];
+                residue[classes] = value;
+                count[classes] = perResidue[value];
+                radix[classes++] = scale;
+                total *= perResidue[value] + 1;
                 if (total > MAX_CODES) {
                     return false;
                 }
-                s *= cl[0] + 1;
+                scale *= perResidue[value] + 1;
             }
             return true;
         }
@@ -730,20 +588,41 @@ public class Main {
     static final int SMALL_MOD_MAX = 6; // B also checks moduli up to this
     static final int TOP_MODS = 4;
     static final int SCORE_SCALE = 100;
-    static final int SLOTS = 5; // B, B with rows ascending, C, D, A
+    static final int SLOTS = 5; // B, B with rows ascending, C, D, B again
     static final int SHARE = 4; // a modulus must divide a quarter of the ships
     static final int STRATEGY_B = 0;
     static final int STRATEGY_C = 1;
     static final int STRATEGY_D = 2;
-    static final int STRATEGY_A = 3;
+    // B gets three slots: the hardest inputs need its row-by-row search.
+    static final int[] SLOT_STRATEGY = {STRATEGY_B, STRATEGY_B, STRATEGY_C, STRATEGY_D, STRATEGY_B};
     static final int RARE_LEVELS = 3;  // C: "rare" means at most 1..3 copies
     static final int KEY_SCALE = 1000; // ship order keys
     static final int MAX_NOISE = 30;
     static final long RARE_FIRST = 1000000000L;
-    static final long FREQUENT_FIRST = 1000000L;
     static final double FIRST_SLICE = 3; // milliseconds
     static final double SLICE_GROWTH = 1.6;
     static final int MAX_GROWTH = 20;
+
+    static boolean contains(int[] values, int size, int value) {
+        for (int i = 0; i < size; i++) {
+            if (values[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static void sortByKey(int[] order, int size, long[] key) {
+        for (int i = 1; i < size; i++) {
+            int value = order[i];
+            int j = i;
+            while (j > 0 && key[order[j - 1]] > key[value]) {
+                order[j] = order[j - 1];
+                j--;
+            }
+            order[j] = value;
+        }
+    }
 
     public static void main(String[] args) throws IOException {
         StreamTokenizer in =
@@ -775,45 +654,51 @@ public class Main {
 
         // moduli for D from two rankings: many multiples of a large k, and the
         // fewest non-multiples (say all ships even but one odd ship per row)
-        List<long[]> byScore = new ArrayList<>();
-        List<long[]> byFew = new ArrayList<>();
+        int[] byScore = new int[MOD_MAX];
+        int[] byFew = new int[MOD_MAX];
+        long[] scoreKey = new long[MOD_MAX + 1];
+        long[] fewKey = new long[MOD_MAX + 1];
+        int rankedCount = 0;
         for (int k = MOD_MIN; k <= MOD_MAX; k++) {
-            int d = 0;
+            int divisible = 0;
             for (int i = 0; i < n; i++) {
                 if (ships[i] % k == 0) {
-                    d++;
+                    divisible++;
                 }
             }
-            if (d < n && d >= Math.max(MOD_MIN, n / SHARE)) {
-                byScore.add(new long[] {-(long)d * k, k});
-                byFew.add(new long[] {(long)(n - d) * SCORE_SCALE - k, k});
+            if (divisible < n && divisible >= Math.max(MOD_MIN, n / SHARE)) {
+                byScore[rankedCount] = k;
+                byFew[rankedCount++] = k;
+                scoreKey[k] = -(long)divisible * k;
+                fewKey[k] = (long)(n - divisible) * SCORE_SCALE - k;
             }
         }
-        for (List<long[]> list : Arrays.asList(byScore, byFew)) {
-            list.sort((x, y) -> x[0] != y[0] ? Long.compare(x[0], y[0]) : Long.compare(x[1], y[1]));
-        }
-        List<Integer> dMods = new ArrayList<>();
-        for (int c = 0; c < TOP_MODS; c++) {
-            for (List<long[]> list : Arrays.asList(byScore, byFew)) {
-                if (c < list.size() && !dMods.contains((int)list.get(c)[1])) {
-                    dMods.add((int)list.get(c)[1]);
-                }
+        sortByKey(byScore, rankedCount, scoreKey);
+        sortByKey(byFew, rankedCount, fewKey);
+        int[] mods = new int[MAX_CHECKS];
+        int dCount = 0;
+        for (int c = 0; c < TOP_MODS && c < rankedCount; c++) {
+            if (!contains(mods, dCount, byScore[c])) {
+                mods[dCount++] = byScore[c];
+            }
+            if (!contains(mods, dCount, byFew[c])) {
+                mods[dCount++] = byFew[c];
             }
         }
-        // residue checks: D's moduli, plus small ones that B checks with them
-        Residues[] dChecks = new Residues[dMods.size()];
+        // D's moduli, plus small ones that B checks with them.
+        Residues[] dChecks = new Residues[dCount];
         Residues[] bChecks = new Residues[MAX_CHECKS];
         int bCount = 0;
-        List<Integer> mods = new ArrayList<>(dMods);
+        int modCount = dCount;
         for (int k = MOD_MIN; k <= SMALL_MOD_MAX; k++) {
-            if (!mods.contains(k)) {
-                mods.add(k);
+            if (!contains(mods, modCount, k)) {
+                mods[modCount++] = k;
             }
         }
-        for (int c = 0; c < mods.size(); c++) {
+        for (int c = 0; c < modCount; c++) {
             Residues r = new Residues();
-            boolean ok = r.init(mods.get(c)) && r.classes > 0;
-            if (c < dMods.size()) {
+            boolean ok = r.init(mods[c]) && r.classes > 0;
+            if (c < dCount) {
                 dChecks[c] = ok ? r : null;
             }
             if (ok) {
@@ -823,16 +708,17 @@ public class Main {
         }
 
         long[] key = new long[n];
-        Integer[] order = new Integer[n];
+        int[] order = new int[n];
+        long[] rowKey = new long[m];
         boolean solved = false;
         for (int attempt = 0; sane && !solved; attempt++) {
             int slot = attempt % SLOTS;
             int round = attempt / SLOTS;
-            int strategy = slot <= 1 ? 0 : slot - 1; // 0 B, 1 C, 2 D, 3 A
+            int strategy = SLOT_STRATEGY[slot];
             boolean rowsUp = slot == 1;
             int rareLevel = 1 + round % RARE_LEVELS;
-            int ci = dMods.isEmpty() ? -1 : round % dMods.size();
-            int bigK = ci < 0 ? 0 : dMods.get(ci);
+            int ci = dCount == 0 ? -1 : round % dCount;
+            int bigK = ci < 0 ? 0 : mods[ci];
             boolean[] rare = new boolean[MAX_LEN + 1];
             for (int x = 1; x <= MAX_LEN; x++) {
                 rare[x] = strategy == STRATEGY_C
@@ -852,7 +738,7 @@ public class Main {
                 strategy = STRATEGY_B;
             }
 
-            // ship order: B longest first, C and D rare lengths first, A by copies,
+            // ship order: B longest first, C and D rare lengths first,
             // later rounds add noise, equal lengths stay together
             long[] lengthKey = new long[MAX_LEN + 1];
             for (int x = 1; x <= MAX_LEN; x++) {
@@ -864,43 +750,32 @@ public class Main {
                 if ((strategy == STRATEGY_C || strategy == STRATEGY_D) && rare[x]) {
                     lengthKey[x] += RARE_FIRST;
                 }
-                if (strategy == STRATEGY_A) {
-                    lengthKey[x] -= copies[x] * FREQUENT_FIRST;
-                }
             }
             for (int i = 0; i < n; i++) {
                 order[i] = i;
-                key[i] = lengthKey[ships[i]];
+                key[i] = -lengthKey[ships[i]] * (MAX_LEN + 1) - ships[i];
             }
-            Arrays.sort(order,
-                        (p, q)
-                            -> key[p] != key[q]       ? Long.compare(key[q], key[p])
-                               : ships[p] != ships[q] ? Integer.compare(ships[q], ships[p])
-                                                      : Integer.compare(p, q));
+            sortByKey(order, n, key);
             for (int i = 0; i < n; i++) {
                 shipId[i] = order[i];
                 v[i] = ships[order[i]];
             }
             // rows: longest first in round 0, then random; shortest first for the
             // second B slot and for D in even rounds (the last row absorbs the rest)
-            Integer[] rows = new Integer[m];
+            boolean ascending = rowsUp || (strategy == STRATEGY_D && round % 2 == 0);
             for (int j = 0; j < m; j++) {
-                rows[j] = j;
+                rowId[j] = j;
+                rowKey[j] = ascending ? rowLen[j] : -rowLen[j];
             }
-            if (rowsUp || (strategy == STRATEGY_D && round % 2 == 0)) {
-                Arrays.sort(rows, (p, q) -> Integer.compare(rowLen[p], rowLen[q]));
-            } else if (round == 0) {
-                Arrays.sort(rows, (p, q) -> Integer.compare(rowLen[q], rowLen[p]));
+            if (ascending || round == 0) {
+                sortByKey(rowId, m, rowKey);
             } else {
                 for (int j = m - 1; j > 0; j--) {
                     int k = (int)Long.remainderUnsigned(rnd() & UNSIGNED_INT, j + 1);
-                    Integer t = rows[j];
-                    rows[j] = rows[k];
-                    rows[k] = t;
+                    int temporary = rowId[j];
+                    rowId[j] = rowId[k];
+                    rowId[k] = temporary;
                 }
-            }
-            for (int j = 0; j < m; j++) {
-                rowId[j] = rows[j];
             }
 
             nodes = 0;
@@ -913,28 +788,25 @@ public class Main {
                 solved = runRows(n, bChecks, (round + slot) % 2 == 0 ? bCount : 0);
             } else if (strategy == STRATEGY_C) {
                 solved = runRows(kept, null, 0);
-            } else if (strategy == STRATEGY_D) {
-                solved = runRows(kept, new Residues[] {dChecks[ci]}, dChecks[ci] != null ? 1 : 0);
             } else {
-                solved = runA();
+                solved = runRows(kept, new Residues[] {dChecks[ci]}, dChecks[ci] != null ? 1 : 0);
             }
             if (!solved && elapsed() > TIME_LIMIT) {
                 break;
             }
         }
 
-        List<List<Integer>> rows = new ArrayList<>();
-        for (int j = 0; j < m; j++) {
-            rows.add(new ArrayList<>());
-        }
+        int[][] rows = new int[m][n];
+        int[] rowCount = new int[m];
         for (int i = 0; i < n; i++) {
-            rows.get(rowId[placed[i]]).add(ships[shipId[i]]);
+            int row = rowId[placed[i]];
+            rows[row][rowCount[row]++] = ships[shipId[i]];
         }
         StringBuilder out = new StringBuilder();
-        for (List<Integer> row : rows) {
-            out.append(row.size()).append('\n');
-            for (int k = 0; k < row.size(); k++) {
-                out.append(k > 0 ? " " : "").append(row.get(k));
+        for (int row = 0; row < m; row++) {
+            out.append(rowCount[row]).append('\n');
+            for (int k = 0; k < rowCount[row]; k++) {
+                out.append(k > 0 ? " " : "").append(rows[row][k]);
             }
             out.append('\n');
         }
