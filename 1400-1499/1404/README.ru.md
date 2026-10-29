@@ -56,12 +56,32 @@ k-е зашифрованное значение — это (k − 1)-е плю�
 
 Тесты получены шифрованием слов и проверяются точным сравнением.
 
+## Оптимизированные решения
+
+Оптимизированные решения (C++, Java) расшифровывают буквы по одной по
+мере чтения через `getchar` и `System.in.read` вместо `iostream` и
+`Scanner`, не сохраняя слово строкой: C++ сразу печатает каждую букву
+через `putchar`, Java собирает их в массив из 101 байта и выводит его
+одним вызовом. Разность по модулю 26 берётся как
+`(code − previous + 26) % 26`, она никогда не отрицательна. C++ занимает
+84 КБ вместо 360 КБ, Java — 328 КБ вместо 1612 КБ, в обоих случаях при
+том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1404_implementation.cpp](1404_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 360 KB |
-| [1404_implementation.go](1404_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1068 KB |
-| [1404_implementation.java](1404_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 1612 KB |
-| [1404_implementation.py](1404_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB |
-| [1404_implementation.rs](1404_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 208 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1404_implementation.cpp](1404_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 360 KB | 11286038 |
+| [1404_implementation.go](1404_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1068 KB | 11286039 |
+| [1404_implementation.java](1404_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 1612 KB | 11286041 |
+| [1404_implementation.py](1404_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11286040 |
+| [1404_implementation.rs](1404_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 208 KB | 11286042 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
+| [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
