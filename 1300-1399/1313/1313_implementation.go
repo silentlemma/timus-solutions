@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -10,10 +11,7 @@ func main() {
 	in := bufio.NewScanner(os.Stdin)
 	in.Split(bufio.ScanWords)
 	in.Scan()
-	n := 0
-	for _, c := range in.Text() {
-		n = n*10 + int(c-'0')
-	}
+	n, _ := strconv.Atoi(in.Text())
 	grid := make([][]string, n)
 	for i := range grid {
 		grid[i] = make([]string, n)

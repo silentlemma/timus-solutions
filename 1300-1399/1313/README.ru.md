@@ -17,7 +17,7 @@
 
 ## Входные данные
 
-N, затем N строк по N чисел.
+N, затем N строк по N натуральных чисел, каждое не больше 100.
 
 ## Выходные данные
 
@@ -56,16 +56,38 @@ N² чисел в порядке диагоналей в одной строке
   отсюда граница max(0, s − N + 1) (тест 04);
 - N = 1 — это один пиксель (тест 02).
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает числа вручную вместо
+`StringTokenizer`, хранит картинку в одном плоском массиве `byte`,
+поскольку каждое число не больше 100, и записывает числа по цифрам в
+выходной буфер на 1 КБ: 392 КБ вместо 1176 КБ при том же времени. Обход
+по диагоналям тот же.
+
+Оптимизированное решение на Python хранит цвета, не больше 100, в
+`bytearray`, готовит текст каждого цвета один раз и собирает ответ
+байтами: 484 КБ вместо 1892 КБ при том же времени.
+
 ## Особенности языков
 
-- Кроме C++, числа переносятся как текст: целыми они нигде не нужны.
+- Кроме C++ и оптимизированных решений на Java и Python, числа
+  переносятся как текст: целыми они нигде не нужны.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1313_implementation.cpp](1313_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.015 s | 244 KB |
-| [1313_implementation.go](1313_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.015 s | 1332 KB |
-| [1313_implementation.java](1313_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.078 s | 1176 KB |
-| [1313_implementation.py](1313_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.046 s | 1892 KB |
-| [1313_implementation.rs](1313_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 588 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1313_implementation.cpp](1313_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.015 s | 244 KB | 11284904 |
+| [1313_implementation.go](1313_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 1352 KB | 11303290 |
+| [1313_implementation.java](1313_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.078 s | 1176 KB | 11284908 |
+| [1313_implementation.py](1313_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.046 s | 1892 KB | 11284907 |
+| [1313_implementation.rs](1313_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 588 KB | 11284910 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1313_implementation_optimized.java](1313_implementation_optimized.java) | Java 1.8 | implementation | O(N^2) | AC | 0.093 s | 392 KB | 11303592 |
+| [1313_implementation_optimized.py](1313_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.062 s | 484 KB | 11303739 |

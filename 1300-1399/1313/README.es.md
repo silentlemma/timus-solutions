@@ -17,7 +17,7 @@ Límite de tiempo: 0,5 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-N y luego N filas de N números.
+N y luego N filas de N números naturales, cada uno a lo sumo 100.
 
 ## Salida
 
@@ -56,17 +56,39 @@ Detalles a tener en cuenta:
   antes de la fila 0, de ahí la cota max(0, s − N + 1) (prueba 04);
 - N = 1 es un solo píxel (prueba 02).
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los números a mano en lugar de
+`StringTokenizer`, guarda la imagen en un solo arreglo plano de `byte`,
+ya que cada número es a lo sumo 100, y escribe los números cifra a cifra
+en un búfer de salida de 1 KB: 392 KB en lugar de 1176 KB, con el mismo
+tiempo. El recorrido por las diagonales es el mismo.
+
+La solución optimizada en Python guarda los colores, a lo sumo 100, en
+un `bytearray`, prepara el texto de cada color una sola vez y construye
+la respuesta como bytes: 484 KB en lugar de 1892 KB, con el mismo
+tiempo.
+
 ## Notas por lenguaje
 
-- Salvo en C++, los números se copian como texto: nunca hacen falta
-  como enteros.
+- Salvo en C++ y en las soluciones optimizadas en Java y Python, los
+  números se copian como texto: nunca hacen falta como enteros.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1313_implementation.cpp](1313_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.015 s | 244 KB |
-| [1313_implementation.go](1313_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.015 s | 1332 KB |
-| [1313_implementation.java](1313_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.078 s | 1176 KB |
-| [1313_implementation.py](1313_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.046 s | 1892 KB |
-| [1313_implementation.rs](1313_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 588 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1313_implementation.cpp](1313_implementation.cpp) | G++ 13.2 x64 | implementation | O(N^2) | AC | 0.015 s | 244 KB | 11284904 |
+| [1313_implementation.go](1313_implementation.go) | Go 1.14 x64 | implementation | O(N^2) | AC | 0.046 s | 1352 KB | 11303290 |
+| [1313_implementation.java](1313_implementation.java) | Java 1.8 | implementation | O(N^2) | AC | 0.078 s | 1176 KB | 11284908 |
+| [1313_implementation.py](1313_implementation.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.046 s | 1892 KB | 11284907 |
+| [1313_implementation.rs](1313_implementation.rs) | Rust 1.75 x64 | implementation | O(N^2) | AC | 0.031 s | 588 KB | 11284910 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1313_implementation_optimized.java](1313_implementation_optimized.java) | Java 1.8 | implementation | O(N^2) | AC | 0.093 s | 392 KB | 11303592 |
+| [1313_implementation_optimized.py](1313_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N^2) | AC | 0.062 s | 484 KB | 11303739 |
