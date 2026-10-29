@@ -82,12 +82,40 @@ Tatiana Henrihovna Grotter
 - ученика могут звать так же, как факультет (тест 03);
 - порядок факультетов в выводе не алфавитный.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Rust обходится без словаря по названиям
+факультетов. Оно читает ввод построчно, а не целиком, находит факультет
+в списке из четырёх и дописывает каждое имя прямо в байтовый буфер
+своего факультета: 492 КБ вместо 980 КБ при том же времени.
+
+Оптимизированное решение на Java читает ввод блоками по 4 КБ, узнаёт
+факультет по первой букве (у всех четырёх она своя) и копирует имена
+байтами в отдельный байтовый поток каждого факультета, без объектов
+`String`: 0.062 с вместо 0.125 с и 1180 КБ вместо 2324 КБ.
+Оптимизированное решение на Python читает строки байтами и собирает
+имена каждого факультета в одном `bytearray`: 812 КБ вместо 1520 КБ при
+том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1446_implementation.cpp](1446_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.031 s | 520 KB |
-| [1446_implementation.go](1446_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1672 KB |
-| [1446_implementation.java](1446_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2324 KB |
-| [1446_implementation.py](1446_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 1520 KB |
-| [1446_implementation.rs](1446_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 980 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1446_implementation.cpp](1446_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.031 s | 520 KB | 11286303 |
+| [1446_implementation.go](1446_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1672 KB | 11286304 |
+| [1446_implementation.java](1446_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2324 KB | 11286306 |
+| [1446_implementation.py](1446_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 1520 KB | 11286305 |
+| [1446_implementation.rs](1446_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 980 KB | 11286307 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
+| [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
+
+\* Не входит в первые 10 и в лучшие 15% решений на своём языке на
+нынешнем судье; возможно, его можно оптимизировать дальше.
