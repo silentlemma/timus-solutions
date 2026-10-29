@@ -19,9 +19,9 @@ func main() {
 	n := next()
 	// bubble sort never swaps equal scores, so teams with the same score keep
 	// their input order: a counting sort by score does the same
-	buckets := make([][]int32, most+1)
+	buckets := make([][]int, most+1)
 	for i := 0; i < n; i++ {
-		team := int32(next())
+		team := next()
 		solved := next()
 		buckets[solved] = append(buckets[solved], team)
 	}
@@ -30,7 +30,7 @@ func main() {
 	for solved := most; solved >= 0; solved-- {
 		tail := " " + strconv.Itoa(solved) + "\n"
 		for _, team := range buckets[solved] {
-			w.WriteString(strconv.Itoa(int(team)))
+			w.WriteString(strconv.Itoa(team))
 			w.WriteString(tail)
 		}
 	}

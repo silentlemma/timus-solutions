@@ -70,17 +70,37 @@
 
 答案在 300 支队伍以内与冒泡排序本身做了核对，更大的表与库中的稳定排序做了核对。
 
+## 优化解法
+
+优化解法（C++、Java、Rust）通过 8 KB 的缓冲区手工读写数字，而不用 `scanf` 和
+`printf`、`StreamTokenizer` 和 `PrintWriter`，或 `parse` 和 `writeln!`：有
+150 000 行时，大部分时间花在数字与文本的相互转换上。排序仍是同样的计数排序；
+Java 把解题数存成字节，因为它不超过 100。C++：0.031 s，而不是 0.265 s，
+内存几乎不变（1388 KB 对 1404 KB）。Java：0.109 s，而不是 0.218 s；
+1736 KB，而不是 6844 KB。Rust：1688 KB，而不是 6528 KB，时间不变。
+
 ## 各语言说明
 
+- Go 用 `bufio.Scanner` 按单词读取，而不是 `fmt.Scan`：输入最多有 150 000 行。
 - Python 把编号放在 `array("i")` 类型的桶里，每个编号四个字节。
 - Java 用按分数做前缀和的稳定计数排序代替列表。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1100_sorting.cpp](1100_sorting.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.265 s | 1404 KB |
-| [1100_sorting.go](1100_sorting.go) | Go 1.14 x64 | sorting | O(N) | AC | 0.078 s | 6008 KB |
-| [1100_sorting.java](1100_sorting.java) | Java 1.8 | sorting | O(N) | AC | 0.218 s | 6844 KB |
-| [1100_sorting.py](1100_sorting.py) | Python 3.12 x64 | sorting | O(N) | AC | 0.234 s | 3308 KB |
-| [1100_sorting.rs](1100_sorting.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.062 s | 6528 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1100_sorting.cpp](1100_sorting.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.265 s | 1404 KB | 11279152 |
+| [1100_sorting.go](1100_sorting.go) | Go 1.14 x64 | sorting | O(N) | AC | 0.062 s | 6852 KB | 11303071 |
+| [1100_sorting.java](1100_sorting.java) | Java 1.8 | sorting | O(N) | AC | 0.218 s | 6844 KB | 11279155 |
+| [1100_sorting.py](1100_sorting.py) | Python 3.12 x64 | sorting | O(N) | AC | 0.234 s | 3308 KB | 11279154 |
+| [1100_sorting.rs](1100_sorting.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.062 s | 6528 KB | 11279156 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1100_sorting_optimized.cpp](1100_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.031 s | 1388 KB | 11303548 |
+| [1100_sorting_optimized.java](1100_sorting_optimized.java) | Java 1.8 | sorting | O(N) | AC | 0.109 s | 1736 KB | 11303549 |
+| [1100_sorting_optimized.rs](1100_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.046 s | 1688 KB | 11303550 |

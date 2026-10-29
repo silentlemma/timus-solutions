@@ -78,18 +78,42 @@ Pitfalls:
 The answers were checked against the bubble sort itself for up to 300
 teams and against a library stable sort for larger tables.
 
+## Optimized solutions
+
+The optimized solutions (C++, Java, Rust) read and write the numbers by
+hand through 8 KB buffers instead of `scanf` and `printf`, `StreamTokenizer`
+and `PrintWriter`, or `parse` and `writeln!`: with 150 000 lines the
+conversions between numbers and text take most of the time. The sort is
+the same counting sort; Java stores the scores as bytes, since they are at
+most 100. C++: 0.031 s instead of 0.265 s, with about the same memory
+(1388 KB against 1404 KB); Java: 0.109 s instead of 0.218 s and 1736 KB
+instead of 6844 KB; Rust: 1688 KB instead of 6528 KB, with the same
+time.
+
 ## Language notes
 
+- Go reads the words with `bufio.Scanner` instead of `fmt.Scan`: the input
+  has up to 150 000 lines.
 - Python keeps the IDs in `array("i")` buckets, four bytes each.
 - Java does a stable counting sort with prefix sums over the scores
   instead of lists.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1100_sorting.cpp](1100_sorting.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.265 s | 1404 KB |
-| [1100_sorting.go](1100_sorting.go) | Go 1.14 x64 | sorting | O(N) | AC | 0.078 s | 6008 KB |
-| [1100_sorting.java](1100_sorting.java) | Java 1.8 | sorting | O(N) | AC | 0.218 s | 6844 KB |
-| [1100_sorting.py](1100_sorting.py) | Python 3.12 x64 | sorting | O(N) | AC | 0.234 s | 3308 KB |
-| [1100_sorting.rs](1100_sorting.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.062 s | 6528 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1100_sorting.cpp](1100_sorting.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.265 s | 1404 KB | 11279152 |
+| [1100_sorting.go](1100_sorting.go) | Go 1.14 x64 | sorting | O(N) | AC | 0.062 s | 6852 KB | 11303071 |
+| [1100_sorting.java](1100_sorting.java) | Java 1.8 | sorting | O(N) | AC | 0.218 s | 6844 KB | 11279155 |
+| [1100_sorting.py](1100_sorting.py) | Python 3.12 x64 | sorting | O(N) | AC | 0.234 s | 3308 KB | 11279154 |
+| [1100_sorting.rs](1100_sorting.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.062 s | 6528 KB | 11279156 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1100_sorting_optimized.cpp](1100_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N) | AC | 0.031 s | 1388 KB | 11303548 |
+| [1100_sorting_optimized.java](1100_sorting_optimized.java) | Java 1.8 | sorting | O(N) | AC | 0.109 s | 1736 KB | 11303549 |
+| [1100_sorting_optimized.rs](1100_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N) | AC | 0.046 s | 1688 KB | 11303550 |
