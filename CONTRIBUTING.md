@@ -55,14 +55,22 @@ the input and the output as fenced code blocks, with the exact file contents.
 
 ## Solution
 Idea, algorithm, why it is correct (sketch), complexity, pitfalls.
-Alternative approaches in a line each, if any.
+Alternative approaches in a line each, if any. This section explains the
+simple solutions.
+
+## Optimized solutions
+Only when there are optimized solutions (see "Simple and optimized
+solutions"): what they do differently from the simple ones and why it is
+faster or lighter.
 
 ## Language notes
 What differs between languages: e.g. "the greedy passes in C++ and Go but
 needs the O(n log n) version in Python", "Java 8 needs fast input".
 
 ## Solutions
-Table: file · language · approach · complexity · verdict · time · memory.
+Table: file · language · approach · complexity · verdict · time · memory ·
+submission.
+With optimized solutions, two tables under "### Simple" and "### Optimized".
 ```
 
 Fenced code blocks without a language tag are reserved for the examples: the
@@ -95,12 +103,46 @@ below joined with `_`, e.g. `1589_astar_bidirectional.cpp`, `1005_dp.go`. Two
 solutions of a problem in the same language differ in the approach part of the
 name. The suffix is present even when a problem has a single approach.
 
+An optimized solution that uses the same approach as a simple one in the same
+language adds `_optimized`: `1001_math.cpp` and `1001_math_optimized.cpp`.
+An optimized solution with an approach of its own is named by its tags, like
+any other solution.
+
 Every file is a complete program: it reads standard input and writes standard
 output, exactly as submitted to the judge.
 
 `NNNN_<approach>_table.py`, when present, is not a solution: it prints a table
 that the solutions of that approach hold (see "Tables" below). The test runner
 skips it.
+
+### Simple and optimized solutions
+
+Every problem has **simple** solutions: the clearest correct program that
+passes, written for a reader. They read the input with the usual means of the
+language (`scanf` or `cin`, `bufio` with `fmt.Fscan`, `BufferedReader` with
+`StringTokenizer` or `StreamTokenizer`, `read_to_string`, `sys.stdin`), use the
+standard library and ordinary integer types, and take the most direct
+algorithm that fits the limits.
+
+**Optimized** solutions stand next to them when they are at least 30% faster
+or lighter than the simple solution in the same language: hand-written input
+parsing, narrow types, packed data or another algorithm. The gain is measured
+on the accepted submissions of the two files; times under 0.015 s count as
+0.015 s, and a difference of one tick of the Timus timer either way (0.031 s
+against 0.015 s, 0.046 s against 0.031 s) is noise, neither a gain nor a loss:
+the write-up calls such times the same. Each trick carries a comment, and the
+"Optimized solutions" section of the write-up explains them, naming any cost,
+such as more time for less memory. A simple solution is never replaced by an
+optimized one.
+
+An optimized solution aims at the top 10, or the top 15% by both time and
+memory, of the Timus rating of its language, counting only the runs on the
+current judge, with the compilers it offers now. A solution that does not get
+there is still kept: its row carries an asterisk, and a footnote under the
+table says that it may be optimized further.
+
+When the simple algorithm does not fit the limits in some language, that
+language has only the optimized solution, and the language notes say so.
 
 ### Code style
 
@@ -121,8 +163,8 @@ skips it.
 - **No hardcoding**: the code never special-cases particular inputs, such as
   values from the examples or the tests.
 - **Formatting**: the standard formatter of the language (`gofmt`,
-  `clang-format` with the repository's `.clang-format`, `ruff format`,
-  `rustfmt`).
+  `clang-format` with the repository's `.clang-format` for C++ and Java,
+  `ruff format`, `rustfmt`).
 - **Warnings**: the code builds without warnings with the judge's compiler.
 
 ### Tags
@@ -142,7 +184,10 @@ only, and extend the list here when a new one is needed.
 ### Verdicts
 
 - A solution is published once the judge **accepts** it; the table of solutions
-  shows the compiler, time and memory of that run.
+  shows the compiler, time and memory of that run and its submission number.
+  The source of that submission on Timus is the file in the repository, byte
+  for byte up to line endings: any change to a file, even a comment or
+  formatting, needs a new submission.
 - A solution that **exceeds the time or memory limit** may be kept as an
   exception, when it is a meaningful correct approach that does not fit the
   limits (e.g. a 256 KB memory limit that a language runtime cannot meet). The
