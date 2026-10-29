@@ -58,17 +58,37 @@ Pitfalls:
 The answers were checked against a direct reading of the definition with
 both endings.
 
+## Optimized solutions
+
+The optimized C++ solution reads `n` with `scanf` and then counts the `!`
+characters one by one with `getchar` up to the end of the input, instead
+of reading the marks as a string with `iostream`: 128 KB instead of
+396 KB, with the same time.
+
+The optimized Java solution reads the input in 1 KB blocks, parses `n`
+by hand and counts the exclamation marks byte by byte instead of using
+`Scanner`: 0.093 s instead of 0.125 s and 360 KB instead of 1544 KB.
+
 ## Language notes
 
-- C++, Go, Java and Rust read the marks as one token and take its length;
-  Python counts the `!` characters after the space.
+- The simple C++, Go, Java and Rust solutions read the marks as one token
+  and take its length; Python counts the `!` characters after the space.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1083_math.cpp](1083_math.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 396 KB |
-| [1083_math.go](1083_math.go) | Go 1.14 x64 | math | O(n/k) | AC | 0.031 s | 1076 KB |
-| [1083_math.java](1083_math.java) | Java 1.8 | math | O(n/k) | AC | 0.125 s | 1544 KB |
-| [1083_math.py](1083_math.py) | Python 3.12 x64 | math | O(n/k) | AC | 0.093 s | 340 KB |
-| [1083_math.rs](1083_math.rs) | Rust 1.75 x64 | math | O(n/k) | AC | 0.015 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1083_math.cpp](1083_math.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 396 KB | 11279022 |
+| [1083_math.go](1083_math.go) | Go 1.14 x64 | math | O(n/k) | AC | 0.031 s | 1076 KB | 11279024 |
+| [1083_math.java](1083_math.java) | Java 1.8 | math | O(n/k) | AC | 0.125 s | 1544 KB | 11279029 |
+| [1083_math.py](1083_math.py) | Python 3.12 x64 | math | O(n/k) | AC | 0.093 s | 340 KB | 11279027 |
+| [1083_math.rs](1083_math.rs) | Rust 1.75 x64 | math | O(n/k) | AC | 0.015 s | 232 KB | 11279031 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
+| [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
