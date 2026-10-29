@@ -45,59 +45,47 @@ distintas, de modo que la respuesta es `Yes`.
 
 ## Solución
 
-Para un prefijo de longitud `i` con cantidades `c1,c2,c3`, el número
-exacto es `i!/(c1!·c2!·c3!)`: intercambiar símbolos iguales no cambia la
-palabra. Los factoriales completos desbordarían enteros de tamaño fijo.
-Solo necesitamos alcanzar seis.
+Las piezas de un mismo tipo son iguales, así que k piezas con c₁, c₂, c₃
+de cada tipo forman k!/(c₁!·c₂!·c₃!) palabras distintas. Se leen las
+piezas una a una y se mantiene esta cuenta para las leídas: cuando llega
+la k-ésima pieza y su tipo aparece ahora c veces, la cuenta se
+multiplica por k y se divide exactamente entre c. En cuanto la cuenta
+llega a 6, la respuesta es `Yes`: las piezas restantes, añadidas en un
+orden fijo, mantienen distintas las palabras. Si nunca llega a 6, la
+respuesta es `No`. `O(n)`.
 
-Empieza con los tres contadores a cero y `ways=1` para el prefijo vacío.
-Añade los símbolos en su orden de entrada. Si el tipo añadido es `v`,
-aumenta su cantidad a `c` y la longitud a `i`, y actualiza `ways =
-ways·i/c`. Primero multiplica y después divide. El cociente es exacto:
-el numerador gana el factor `i`, mientras que en el denominador solo el
-factorial del tipo añadido gana el factor `c`.
+Antes de cada paso la cuenta es a lo sumo 5, así que 5 · 100 cabe en
+cualquier tipo entero; se multiplica antes de dividir.
 
-Cuando `ways≥6`, devuelve `Yes`. Los símbolos restantes no pueden
-reducir la cantidad: añade una misma secuencia fija de los símbolos
-restantes a cada palabra distinta del prefijo. Las palabras completas
-siguen siendo diferentes y usan todos los símbolos. Si ningún prefijo
-alcanza seis, el resultado exacto final es menor y se devuelve `No`.
+Detalles a tener en cuenta:
 
-Por inducción, el contador es exacto en cada paso anterior al retorno,
-pues la actualización es la razón de dos coeficientes multinomiales
-consecutivos. La extensión con un sufijo fijo prueba la validez de una
-respuesta positiva temprana. Sin retorno temprano, el contador final
-exacto decide la condición. Esto demuestra la corrección.
+- exactamente seis palabras ya es `Yes`;
+- no hay que calcular los factoriales completos: se desbordan.
 
-Antes de actualizar, `ways≤5` e `i≤100`, así que el producto no supera
-500. Bastan enteros ordinarios; no hay redondeo, módulo, saturación
-imprecisa ni factoriales desbordados. Se guardan tres cantidades con
-índice `v−1`. Cinco símbolos iguales y uno distinto producen exactamente
-seis palabras; cuatro y uno producen cinco. Si todos son iguales siempre
-hay una sola palabra.
+## Soluciones optimizadas
 
-Tiempo `O(n)` y estado de conteo adicional `O(1)`. Los programas
-completos conservan los símbolos de entrada y usan espacio total `O(n)`.
-Otra opción consiste en multiplicar coeficientes binomiales para las
-tres cantidades y detenerse al alcanzar el mismo umbral.
+La solución optimizada en C++ cuenta los valores al leerlos con `scanf`
+en lugar de `iostream` y un vector, e imprime la respuesta en cuanto la
+conoce: 116 KB en lugar de 380 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
-Cuenta palabras distintas, no permutaciones de piezas numeradas.
-Exactamente seis también sirve. No dividas `ways/c` antes de
-multiplicar: la división intermedia podría no ser exacta. No limites el
-valor a seis para seguir una recurrencia exacta; devuelve
-inmediatamente. Los cinco programas hacen división entera después de
-multiplicar. Python usa CPython y no necesita aritmética de grandes
-enteros en el solucionador. Go 1.14, Java 8 y Rust 1.75 solo requieren
-enteros comunes y tres contadores.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2011_combinatorics.cpp](2011_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.031 s | 380 KB |
-| [2011_combinatorics.go](2011_combinatorics.go) | Go 1.14 x64 | combinatorics | O(n) | AC | 0.046 s | 1112 KB |
-| [2011_combinatorics.java](2011_combinatorics.java) | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 408 KB |
-| [2011_combinatorics.py](2011_combinatorics.py) | Python 3.12 x64 | combinatorics | O(n) | AC | 0.109 s | 516 KB |
-| [2011_combinatorics.rs](2011_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.062 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2011_combinatorics.cpp](2011_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.031 s | 380 KB | 11292493 |
+| [2011_combinatorics.go](2011_combinatorics.go) | Go 1.14 x64 | combinatorics | O(n) | AC | 0.046 s | 1112 KB | 11292495 |
+| [2011_combinatorics.java](2011_combinatorics.java) | Java 1.8 | combinatorics | O(n) | AC | 0.125 s | 1668 KB | 11303363 |
+| [2011_combinatorics.py](2011_combinatorics.py) | Python 3.12 x64 | combinatorics | O(n) | AC | 0.109 s | 516 KB | 11292497 |
+| [2011_combinatorics.rs](2011_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.062 s | 232 KB | 11292499 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |

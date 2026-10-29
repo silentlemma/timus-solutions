@@ -1,41 +1,25 @@
-import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-  private static final int ALPHABET = 3;
-  private static final int TARGET = 6;
+    static final int TARGET = 6;
+    static final int KINDS = 3;
 
-  private static boolean solve(int[] values) {
-    int[] counts = new int[ALPHABET];
-    int ways = 1, length = 0;
-    for (int value : values) {
-      ++length;
-      ++counts[value - 1];
-      ways = ways * length / counts[value - 1];
-      if (ways >= TARGET)
-        return true;
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] counts = new int[KINDS];
+        // ways is the number of different words from the pieces read so far
+        int ways = 1;
+        boolean enough = false;
+        for (int length = 1; length <= n; length++) {
+            int letter = in.nextInt() - 1;
+            counts[letter]++;
+            ways = ways * length / counts[letter];
+            if (ways >= TARGET) {
+                enough = true;
+                break;
+            }
+        }
+        System.out.println(enough ? "Yes" : "No");
     }
-    return false;
-  }
-
-  private static int readInt(BufferedInputStream in) throws IOException {
-    int c;
-    do {
-      c = in.read();
-    } while (c <= ' ' && c >= 0);
-    int value = 0;
-    while (c > ' ') {
-      value = value * 10 + c - '0';
-      c = in.read();
-    }
-    return value;
-  }
-
-  public static void main(String[] args) throws IOException {
-    BufferedInputStream in = new BufferedInputStream(System.in);
-    int n = readInt(in);
-    int[] values = new int[n];
-    for (int i = 0; i < n; ++i) values[i] = readInt(in);
-    System.out.println(solve(values) ? "Yes" : "No");
-  }
 }

@@ -45,59 +45,46 @@ different words, so the answer is `Yes`.
 
 ## Solution
 
-For a prefix of length `i` with multiplicities `c1,c2,c3`, the exact
-number of distinct words is `i!/(c1!·c2!·c3!)`: permutations of equal
-symbols do not change the word. Computing the full factorials in
-fixed-width integers would overflow. We only need to reach six.
+Pieces of the same kind are equal, so k pieces with c₁, c₂, c₃ of each
+kind make k!/(c₁!·c₂!·c₃!) different words. Read the pieces one by one
+and keep this count for the pieces read so far: when the k-th piece
+comes and its kind now occurs c times, the count is multiplied by k and
+divided by c, exactly. As soon as the count reaches 6 the answer is
+`Yes`: the remaining pieces, appended in a fixed order, keep the words
+different. If it never reaches 6, the answer is `No`. `O(n)`.
 
-Start with counts zero and `ways=1` for the empty prefix. Read the
-symbols in their given order. When adding a symbol of type `v`, increase
-its count to `c`, increase the prefix length to `i`, and update `ways =
-ways·i/c`. Multiply before dividing. The quotient is exact: the new
-numerator gains factor `i`, while just that symbol's factorial in the
-denominator gains factor `c`.
+The count is at most 5 before each step, so 5 · 100 fits any integer
+type; multiply before dividing.
 
-As soon as `ways≥6`, return `Yes`. This is safe even with unread
-symbols: append a fixed remaining sequence to every distinct prefix
-word. The resulting full words are still distinct and use exactly all
-symbols, so their number cannot decrease. If no prefix reaches six, the
-final exact count is below six and the answer is `No`.
+Pitfalls:
 
-Inductively the stored count is exact at every step before return, since
-the update is the ratio of consecutive multinomial coefficients. The
-append argument proves that an early positive answer stays positive. If
-there is no early return, the last exact count decides the condition.
-Together these establish correctness.
+- exactly six words is already `Yes`;
+- do not compute the full factorials: they overflow.
 
-Before every update `ways≤5` and `i≤100`, so the multiplication is at
-most 500. Ordinary integer types suffice; there is no rounding, modulo,
-saturation error or factorial overflow. Use an array of three counts
-indexed by `v−1`. For example, five copies of one type and one of
-another give six words, whereas four plus one give only five. All equal
-symbols always give one word regardless of `n`.
+## Optimized solutions
 
-Time is `O(n)`; the counting state uses `O(1)` extra space. These
-complete programs retain the input symbols, using `O(n)` total space. An
-alternative is to multiply binomial coefficients for the three
-multiplicities and stop once the same threshold is reached.
+The optimized C++ solution counts the values as they are read with
+`scanf` instead of `iostream` and a vector, and prints the answer as
+soon as it is known: 116 KB instead of 380 KB, with the same time.
 
 ## Language notes
 
-Count distinct words rather than permutations of labeled pieces. The
-condition includes exactly six. Do not divide `ways` by `c` before
-multiplying by `i`: that intermediate division need not be exact. Do not
-cap the count and then continue applying an exact-count recurrence;
-return as soon as the threshold is reached. All five ports use integer
-division after multiplication. Python uses CPython; no large-integer
-work is needed in the solver. Go 1.14, Java 8 and Rust 1.75 need only
-fixed arrays and ordinary integer arithmetic.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2011_combinatorics.cpp](2011_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.031 s | 380 KB |
-| [2011_combinatorics.go](2011_combinatorics.go) | Go 1.14 x64 | combinatorics | O(n) | AC | 0.046 s | 1112 KB |
-| [2011_combinatorics.java](2011_combinatorics.java) | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 408 KB |
-| [2011_combinatorics.py](2011_combinatorics.py) | Python 3.12 x64 | combinatorics | O(n) | AC | 0.109 s | 516 KB |
-| [2011_combinatorics.rs](2011_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.062 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2011_combinatorics.cpp](2011_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.031 s | 380 KB | 11292493 |
+| [2011_combinatorics.go](2011_combinatorics.go) | Go 1.14 x64 | combinatorics | O(n) | AC | 0.046 s | 1112 KB | 11292495 |
+| [2011_combinatorics.java](2011_combinatorics.java) | Java 1.8 | combinatorics | O(n) | AC | 0.125 s | 1668 KB | 11303363 |
+| [2011_combinatorics.py](2011_combinatorics.py) | Python 3.12 x64 | combinatorics | O(n) | AC | 0.109 s | 516 KB | 11292497 |
+| [2011_combinatorics.rs](2011_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.062 s | 232 KB | 11292499 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
