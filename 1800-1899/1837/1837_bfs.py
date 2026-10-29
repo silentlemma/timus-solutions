@@ -11,7 +11,7 @@ def main():
     members = tokens[1:]
     mates = {}
     for t in range(teams):
-        team = members[TEAM * t:TEAM * (t + 1)]
+        team = members[TEAM * t : TEAM * (t + 1)]
         for name in team:
             mates.setdefault(name, set()).update(team)
     # breadth-first search from the champion over shared teams

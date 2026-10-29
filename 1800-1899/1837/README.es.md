@@ -78,12 +78,46 @@ Trampas:
 - los nombres se comparan como cadenas simples, todos con mayúscula
   inicial.
 
+## Soluciones optimizadas
+
+Las soluciones optimizadas en C++, Java y Rust hacen la misma búsqueda
+en anchura, pero sobre números en lugar de nombres. Cada nombre recibe
+un número la primera vez que aparece, guardado en un mapa ordenado para
+que la salida siga ordenada; los compañeros de equipo y las distancias
+son arreglos simples indexados por esos números, y la cola también es un
+arreglo. C++ lee los nombres con `scanf` en un búfer de 21 bytes, Java
+los lee byte a byte y guarda los compañeros como listas enlazadas en
+arreglos de `int`, y Rust imprime mediante un `BufWriter`. C++ ocupa
+252 KB en lugar de 552 KB, con el mismo tiempo; Rust, 264 KB en lugar de
+468 KB, con el mismo tiempo; Java, 0.109 s en lugar de 0.171 s y 656 KB
+en lugar de 4192 KB.
+
+La solución optimizada en Go lee los nombres con un escáner de palabras
+sobre un búfer de 1 KB en lugar de `fmt.Fscan` y los numera en una tabla
+hash, así que el grafo guarda `int` en lugar de cadenas, y ordena los
+nombres antes de imprimir: 964 KB en lugar de 1420 KB, con el mismo
+tiempo.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1837_bfs.cpp](1837_bfs.cpp) | G++ 13.2 x64 | bfs | O(n log n) | AC | 0.015 s | 552 KB |
-| [1837_bfs.go](1837_bfs.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 1420 KB |
-| [1837_bfs.java](1837_bfs.java) | Java 1.8 | bfs | O(n log n) | AC | 0.171 s | 4192 KB |
-| [1837_bfs.py](1837_bfs.py) | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 560 KB |
-| [1837_bfs.rs](1837_bfs.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.046 s | 468 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1837_bfs.cpp](1837_bfs.cpp) | G++ 13.2 x64 | bfs | O(n log n) | AC | 0.015 s | 552 KB | 11303519 |
+| [1837_bfs.go](1837_bfs.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 1420 KB | 11290519 |
+| [1837_bfs.java](1837_bfs.java) | Java 1.8 | bfs | O(n log n) | AC | 0.171 s | 4192 KB | 11290524 |
+| [1837_bfs.py](1837_bfs.py) | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 604 KB | 11303521 |
+| [1837_bfs.rs](1837_bfs.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.046 s | 468 KB | 11290528 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1837_bfs_optimized.cpp](1837_bfs_optimized.cpp) \* | G++ 13.2 x64 | bfs | O(n log n) | AC | 0.031 s | 252 KB | 11303641 |
+| [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
+| [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
+| [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

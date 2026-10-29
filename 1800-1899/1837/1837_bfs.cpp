@@ -9,12 +9,15 @@ const int TEAM = 3;
 
 int main() {
     int teams;
-    if (!(std::cin >> teams)) return 0;
+    if (!(std::cin >> teams))
+        return 0;
     std::map<std::string, std::set<std::string>> mates;
     for (int t = 0; t < teams; t++) {
         std::string team[TEAM];
-        for (auto &name : team) std::cin >> name;
-        for (auto &name : team) mates[name].insert(team, team + TEAM);
+        for (auto &name : team)
+            std::cin >> name;
+        for (auto &name : team)
+            mates[name].insert(team, team + TEAM);
     }
     // breadth-first search from the champion over shared teams
     std::map<std::string, int> number;
