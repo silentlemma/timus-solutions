@@ -60,16 +60,33 @@ N，然后是 N 个数，每行一个。N 可能为 0。
 
 在 200 个随机数组上用两步的直接模拟验证过这一等价性。
 
+## 优化解法
+
+优化解法（C++、Python）使用同样的计数器，但存为 16 位整数，因为每个值最多出现
+25 000 次；每个值的那一行只格式化一次，然后按出现次数重复输出。C++ 用手工解析代
+替 `scanf`，从 8 KB 的块中读数；Python 通过生成器按 4 KB 分块读取，而不是切分全
+部输入，并把计数器存放在 `array("H")` 中。C++ 为 156 KB，而不是 280 KB，时间不
+变。Python 为 0.078 s，而不是 0.109 s；880 KB，而不是 4732 KB。
+
 ## 各语言说明
 
 - 所有语言都为每个值保留一个计数器，共 25 001 个，并通过缓冲输出。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1290_sorting.cpp](1290_sorting.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.031 s | 280 KB |
-| [1290_sorting.go](1290_sorting.go) | Go 1.14 x64 | sorting | O(N + 25000) | AC | 0.031 s | 1384 KB |
-| [1290_sorting.java](1290_sorting.java) | Java 1.8 | sorting | O(N + 25000) | AC | 0.125 s | 2056 KB |
-| [1290_sorting.py](1290_sorting.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.109 s | 4732 KB |
-| [1290_sorting.rs](1290_sorting.rs) | Rust 1.75 x64 | sorting | O(N + 25000) | AC | 0.015 s | 724 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1290_sorting.cpp](1290_sorting.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.031 s | 280 KB | 11284563 |
+| [1290_sorting.go](1290_sorting.go) | Go 1.14 x64 | sorting | O(N + 25000) | AC | 0.031 s | 1384 KB | 11284564 |
+| [1290_sorting.java](1290_sorting.java) | Java 1.8 | sorting | O(N + 25000) | AC | 0.125 s | 2056 KB | 11284571 |
+| [1290_sorting.py](1290_sorting.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.109 s | 4732 KB | 11284569 |
+| [1290_sorting.rs](1290_sorting.rs) | Rust 1.75 x64 | sorting | O(N + 25000) | AC | 0.015 s | 724 KB | 11284575 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
+| [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |

@@ -69,6 +69,17 @@ Pitfalls:
 The equivalence was checked against a direct simulation of the two
 steps on 200 random arrays.
 
+## Optimized solutions
+
+The optimized solutions (C++, Python) keep the same counters, but as
+16-bit numbers, since a value occurs at most 25 000 times, and print
+each value's line once formatted and then repeated as many times as the
+value occurs. C++ parses the numbers by hand from 8 KB blocks instead of
+`scanf`; Python reads 4 KB blocks through a generator instead of
+splitting the whole input, and keeps the counters in an `array("H")`.
+C++: 156 KB instead of 280 KB, with the same time; Python: 0.078 s
+instead of 0.109 s and 880 KB instead of 4732 KB.
+
 ## Language notes
 
 - All languages keep one counter per value, 25 001 in all, and print
@@ -76,10 +87,19 @@ steps on 200 random arrays.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1290_sorting.cpp](1290_sorting.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.031 s | 280 KB |
-| [1290_sorting.go](1290_sorting.go) | Go 1.14 x64 | sorting | O(N + 25000) | AC | 0.031 s | 1384 KB |
-| [1290_sorting.java](1290_sorting.java) | Java 1.8 | sorting | O(N + 25000) | AC | 0.125 s | 2056 KB |
-| [1290_sorting.py](1290_sorting.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.109 s | 4732 KB |
-| [1290_sorting.rs](1290_sorting.rs) | Rust 1.75 x64 | sorting | O(N + 25000) | AC | 0.015 s | 724 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1290_sorting.cpp](1290_sorting.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.031 s | 280 KB | 11284563 |
+| [1290_sorting.go](1290_sorting.go) | Go 1.14 x64 | sorting | O(N + 25000) | AC | 0.031 s | 1384 KB | 11284564 |
+| [1290_sorting.java](1290_sorting.java) | Java 1.8 | sorting | O(N + 25000) | AC | 0.125 s | 2056 KB | 11284571 |
+| [1290_sorting.py](1290_sorting.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.109 s | 4732 KB | 11284569 |
+| [1290_sorting.rs](1290_sorting.rs) | Rust 1.75 x64 | sorting | O(N + 25000) | AC | 0.015 s | 724 KB | 11284575 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
+| [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |
