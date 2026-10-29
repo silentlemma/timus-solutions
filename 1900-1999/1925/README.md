@@ -57,49 +57,48 @@ Big Bang!
 
 ## Solution
 
-Let x be the current input. The check requires
+Let x be today's input. The check compares the sums over all n + 1
+rounds: g₁ + … + gₙ + x = (b₁ − 2) + … + (bₙ − 2) + (k − 2). So
+x = k − 2 + Σ(bᵢ − gᵢ − 2); if it is negative, no input works and the
+answer is `Big Bang!`. `O(n)`.
 
-```text
-sum(gᵢ) + x = sum(bᵢ−2) + (k−2).
-```
+Pitfalls:
 
-Rearranging gives x=k−2+sum(bᵢ−gᵢ−2). Start a signed balance at k−2
-and add bᵢ−gᵢ−2 for every past pair. Inspect the sign only after all
-pairs: output the balance if nonnegative, otherwise the failure phrase.
+- the running total may become negative in the middle and still end
+  nonnegative, so decide only at the end;
+- zero is a valid answer;
+- every round, today's included, subtracts 2.
 
-The equation has coefficient one on x, so this candidate is unique.
-If it is nonnegative, substituting it satisfies the aggregate check.
-If it is negative, no other nonnegative value can satisfy that equality.
-This proves both outcomes.
+## Optimized solutions
 
-An individual intended value or an intermediate balance may be negative.
-Only the final total matters. For example k=100 with past pairs
-(0,100),(100,0) yields 94, although the running balance becomes negative
-after the first pair. With k=1 and pair (3,0), the correct answer is zero.
+The optimized C++ solution reads the pairs with `scanf` instead of
+`iostream` and adds them up at once instead of storing the history:
+124 KB instead of 428 KB.
 
-O(n) time. The arithmetic accumulator uses O(1) working space; these
-implementations store the history or read the complete input, so their
-total space is O(n).
-
-There are n+1 rounds, including today. Subtract two for every round.
-Do not reject early, validate each past round separately, clamp a negative
-subtotal, or require k≥2. Zero is valid, and the final input may exceed
-100. Preserve the exact failure phrase.
+The optimized Java solution reads the input in 1 KB blocks and parses it
+by hand instead of using `Scanner`, and adds the readings up as they are
+read instead of storing them: 0.078 s instead of 0.140 s and 364 KB
+instead of 1796 KB.
 
 ## Language notes
 
-Use signed arithmetic, including in Rust. All intermediate balances fit
-32-bit signed integers: the overall possible range is −10201..9898.
-The upper end occurs at n=100,k=100 and every pair (100,0).
-All five versions return a signed balance and format failure only at
-the end; Python supplies history pairs lazily over buffered input.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1925_math.cpp](1925_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 428 KB |
-| [1925_math.go](1925_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1088 KB |
-| [1925_math.java](1925_math.java) | Java 1.8 | math | O(n) | AC | 0.140 s | 1796 KB |
-| [1925_math.py](1925_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 504 KB |
-| [1925_math.rs](1925_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1925_math.cpp](1925_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 428 KB | 11291544 |
+| [1925_math.go](1925_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1088 KB | 11291551 |
+| [1925_math.java](1925_math.java) | Java 1.8 | math | O(n) | AC | 0.140 s | 1796 KB | 11291560 |
+| [1925_math.py](1925_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 504 KB | 11291556 |
+| [1925_math.rs](1925_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB | 11291566 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
+| [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |

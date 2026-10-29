@@ -56,47 +56,48 @@ Big Bang!
 
 ## Solución
 
-Sea x la entrada actual. La condición agregada es
+Sea x la entrada de hoy. La comprobación compara las sumas de las n + 1
+rondas: g₁ + … + gₙ + x = (b₁ − 2) + … + (bₙ − 2) + (k − 2). Por tanto
+x = k − 2 + Σ(bᵢ − gᵢ − 2); si es negativo, ninguna entrada sirve y la
+respuesta es `Big Bang!`. `O(n)`.
 
-```text
-sum(gᵢ) + x = sum(bᵢ−2) + (k−2).
-```
+Detalles a tener en cuenta:
 
-Despejando, x=k−2+sum(bᵢ−gᵢ−2). Iniciar un balance con signo en k−2
-y sumar bᵢ−gᵢ−2 por cada par. Comprobar su signo solo al terminar:
-si es no negativo, imprimirlo; si es negativo, dar la frase de fallo.
+- la suma parcial puede volverse negativa a mitad de camino y acabar
+  siendo no negativa, así que se decide solo al final;
+- cero es una respuesta válida;
+- cada ronda, la de hoy incluida, resta 2.
 
-El coeficiente de x es uno, así que el candidato es único. Si es no
-negativo, sustituirlo satisface la igualdad. Si es negativo, ningún otro
-entero no negativo puede satisfacerla. Esto demuestra ambos resultados.
+## Soluciones optimizadas
 
-Un valor previsto individual o un balance intermedio puede ser negativo.
-Solo importa el total final. Por ejemplo, k=100 y pares (0,100),(100,0)
-dan 94, aunque el primer par vuelva negativo el balance.
-Con k=1 y par (3,0), el resultado correcto es cero.
+La solución optimizada en C++ lee los pares con `scanf` en lugar de
+`iostream` y los suma al momento en lugar de guardar el historial:
+124 KB en lugar de 428 KB.
 
-O(n) tiempo. El acumulador usa O(1) espacio de trabajo; las versiones
-guardan el historial o toda la entrada, por lo que el espacio total es O(n).
-
-Son n+1 rondas, incluida la actual; restar dos por cada una.
-No rechazar antes de tiempo, verificar rondas separadas, truncar subtotales
-negativos a cero ni exigir k≥2. Cero es válido y el resultado puede superar
-100. Mantener exactamente la frase de fallo.
+La solución optimizada en Java lee la entrada en bloques de 1 KB y la
+analiza a mano en lugar de usar `Scanner`, y suma las lecturas a medida
+que las lee en lugar de guardarlas: 0.078 s en lugar de 0.140 s y 364 KB
+en lugar de 1796 KB.
 
 ## Notas por lenguaje
 
-Usar enteros con signo, también en Rust. Todos los balances intermedios
-están entre −10201 y 9898, dentro de 32 bits con signo. El máximo ocurre
-con n=100,k=100 y todos los pares (100,0). Las cinco versiones retornan
-un balance con signo y eligen el formato al final. Python ofrece los pares
-perezosamente sobre la entrada almacenada.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1925_math.cpp](1925_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 428 KB |
-| [1925_math.go](1925_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1088 KB |
-| [1925_math.java](1925_math.java) | Java 1.8 | math | O(n) | AC | 0.140 s | 1796 KB |
-| [1925_math.py](1925_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 504 KB |
-| [1925_math.rs](1925_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1925_math.cpp](1925_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 428 KB | 11291544 |
+| [1925_math.go](1925_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1088 KB | 11291551 |
+| [1925_math.java](1925_math.java) | Java 1.8 | math | O(n) | AC | 0.140 s | 1796 KB | 11291560 |
+| [1925_math.py](1925_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 504 KB | 11291556 |
+| [1925_math.rs](1925_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB | 11291566 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
+| [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |
