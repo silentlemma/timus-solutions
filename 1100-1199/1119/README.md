@@ -70,16 +70,39 @@ The answers were checked against a DP over all `(N + 1)(M + 1)` crossings
 of the grid, each reached from the west, from the south or along a
 diagonal, on every test and 60 random grids.
 
+## Optimized solutions
+
+The optimized C++ solution keeps the blocks and the chain lengths in fixed
+arrays of 100 elements instead of `vector`s and prints the length with
+`printf("%.0f")` without `std::round`: the length is never exactly halfway
+between two integers, since `100√2·L` is irrational for `L > 0`. The
+algorithm is the same; the solution takes 148 KB instead of 212 KB, with
+the same time.
+
+The optimized Java solution reads the input in 1 KB blocks and parses it
+by hand instead of using `Scanner`, and stores each block as one number
+`x · 1001 + y`, so a plain sort of `int`s orders the pairs without a
+comparator: 0.078 s instead of 0.187 s and 408 KB instead of 3928 KB.
+
 ## Language notes
 
 - All languages run the same quadratic DP.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1119_dp.cpp](1119_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.031 s | 212 KB |
-| [1119_dp.go](1119_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.031 s | 1136 KB |
-| [1119_dp.java](1119_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.187 s | 3928 KB |
-| [1119_dp.py](1119_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.078 s | 504 KB |
-| [1119_dp.rs](1119_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1119_dp.cpp](1119_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.031 s | 212 KB | 11279257 |
+| [1119_dp.go](1119_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.031 s | 1136 KB | 11279260 |
+| [1119_dp.java](1119_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.187 s | 3928 KB | 11279263 |
+| [1119_dp.py](1119_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.078 s | 504 KB | 11279261 |
+| [1119_dp.rs](1119_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.031 s | 232 KB | 11279265 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1119_dp_optimized.cpp](1119_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 148 KB | 11303560 |
+| [1119_dp_optimized.java](1119_dp_optimized.java) | Java 1.8 | dp | O(K²) | AC | 0.078 s | 408 KB | 11303708 |

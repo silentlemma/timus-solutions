@@ -75,16 +75,40 @@ Las respuestas se comprobaron con una programación dinámica sobre los
 oeste, desde el sur o por una diagonal, en todas las pruebas y 60
 cuadrículas aleatorias.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ guarda las manzanas y las longitudes de las
+cadenas en arreglos fijos de 100 elementos en lugar de `vector`s e imprime
+la longitud con `printf("%.0f")` sin `std::round`: la longitud nunca está
+exactamente a mitad de camino entre dos enteros, ya que `100√2·L` es
+irracional para `L > 0`. El algoritmo es el mismo; la solución ocupa
+148 KB en lugar de 212 KB, con el mismo tiempo.
+
+La solución optimizada en Java lee la entrada en bloques de 1 KB y la
+analiza a mano en lugar de usar `Scanner`, y guarda cada casilla como un
+solo número `x · 1001 + y`, así que ordenar los `int` ordena los pares
+sin comparador: 0.078 s en lugar de 0.187 s y 408 KB en lugar de
+3928 KB.
+
 ## Notas por lenguaje
 
 - Todos los lenguajes hacen la misma programación dinámica cuadrática.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1119_dp.cpp](1119_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.031 s | 212 KB |
-| [1119_dp.go](1119_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.031 s | 1136 KB |
-| [1119_dp.java](1119_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.187 s | 3928 KB |
-| [1119_dp.py](1119_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.078 s | 504 KB |
-| [1119_dp.rs](1119_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1119_dp.cpp](1119_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.031 s | 212 KB | 11279257 |
+| [1119_dp.go](1119_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.031 s | 1136 KB | 11279260 |
+| [1119_dp.java](1119_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.187 s | 3928 KB | 11279263 |
+| [1119_dp.py](1119_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.078 s | 504 KB | 11279261 |
+| [1119_dp.rs](1119_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.031 s | 232 KB | 11279265 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1119_dp_optimized.cpp](1119_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 148 KB | 11303560 |
+| [1119_dp_optimized.java](1119_dp_optimized.java) | Java 1.8 | dp | O(K²) | AC | 0.078 s | 408 KB | 11303708 |
