@@ -50,12 +50,26 @@ Pitfalls:
 - the double counts its value twice (test 02);
 - for N = 10⁴ the answer is about 5·10¹¹ and needs 64 bits (test 04).
 
+## Optimized solutions
+
+The optimized Java solution uses the same formula and parses the number
+byte by byte from `System.in` instead of using `Scanner`: 0.078 s
+instead of 0.125 s and 344 KB instead of 1584 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1502_math.cpp](1502_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1502_math.go](1502_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1100 KB |
-| [1502_math.java](1502_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1584 KB |
-| [1502_math.py](1502_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 368 KB |
-| [1502_math.rs](1502_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1502_math.cpp](1502_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11287258 |
+| [1502_math.go](1502_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1100 KB | 11287259 |
+| [1502_math.java](1502_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1584 KB | 11287261 |
+| [1502_math.py](1502_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 368 KB | 11287260 |
+| [1502_math.rs](1502_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 244 KB | 11287262 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
