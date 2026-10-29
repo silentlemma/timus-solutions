@@ -50,22 +50,39 @@ None
 
 ## 解法
 
-扫描成绩，维护总和 `S`、最小值 `q`，初始分别为零和五。处理每个前缀后，它们恰好是前缀总和与最小值，因为新成绩加入总和，并与原最小值比较。处理完 `n` 项后，`q=3` 当且仅当存在三分，此时先输出 `None`，不考虑平均值。
+读入成绩，同时记录总和 S 和最小值。然后按顺序应用规则：只要有 3 就是 `None`；全是
+5 就是 `Named`；平均分至少 4.5 就是 `High`，用整数检查 2S ≥ 9n；其余情况为
+`Common`。`O(n)`。
 
-否则 `q=5` 当且仅当成绩全部为五，因为五是合法最大值，此时输出 `Named`。若两项都不满足，则只有四分和五分，且至少有一个四分。由于 `n>0`，条件 `S/n≥4.5` 等价于精确整数比较 `2S≥9n`；成立输出 `High`，否则输出 `Common`。这些判断按规定顺序覆盖全部情况且互斥，因此算法正确。
+注意事项：
 
-即使平均分很高，三分也优先取消奖学金。全五分必须是 `Named` 而非 `High`。阈值包含相等，四分与五分组合应为 `High`。不要先用整数除法截断平均值。仅有一次考试时，三、四、五分分别对应 `None`、`Common`、`Named`，注意大小写。
+- 有 3 时平均分再高也没用；
+- 全是 5 是 `Named`，不是 `High`；
+- 4.5 的门槛包含等号：一个 4 和一个 5 得到 `High`。
+
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 读入、用 `puts` 输出，而不是使用 `iostream` 和
+`std::string`：116 KB，而不是 420 KB，时间不变。
 
 ## 各语言说明
 
-一次扫描 `O(n)` 时间，工作状态 `O(1)`；Python 和 Rust 另保存 `O(n)` 输入文本或令牌，其他版本用缓冲流读取。算术全部精确：`S≤50`、`2S≤100`、`9n≤90`。五个版本使用相同三个统计量；Python 为 CPython 3.12，无需浮点除法。
+没有特别需要注意的地方。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2056_implementation.cpp](2056_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 420 KB |
-| [2056_implementation.go](2056_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.046 s | 1096 KB |
-| [2056_implementation.java](2056_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.109 s | 452 KB |
-| [2056_implementation.py](2056_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 472 KB |
-| [2056_implementation.rs](2056_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2056_implementation.cpp](2056_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 420 KB | 11293663 |
+| [2056_implementation.go](2056_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.046 s | 1096 KB | 11293666 |
+| [2056_implementation.java](2056_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 420 KB | 11303532 |
+| [2056_implementation.py](2056_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 472 KB | 11293667 |
+| [2056_implementation.rs](2056_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 224 KB | 11293678 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
