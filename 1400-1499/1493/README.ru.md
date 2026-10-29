@@ -83,12 +83,32 @@ Yes
   переходе от 100000 к 099999 (тесты 06, 08, 09);
 - соседи 000000 и 999999 тоже счастливые билеты (тесты 04, 05).
 
+## Оптимизированные решения
+
+Оптимизированные решения (Java, Rust) проверяют тех же двух соседей без
+проверки диапазона: билет не 000000 и не 999999, поэтому оба соседа —
+билеты. Rust выводит ответ байтовой строкой через `write_all`: 0.031 с
+вместо 0.062 с при той же памяти.
+
+Оптимизированное решение на Java разбирает шесть цифр побайтно из
+`System.in` вместо `Scanner`: 0.078 с вместо 0.140 с и 308 КБ вместо
+1596 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1493_implementation.cpp](1493_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 124 KB |
-| [1493_implementation.go](1493_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1064 KB |
-| [1493_implementation.java](1493_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1596 KB |
-| [1493_implementation.py](1493_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.062 s | 376 KB |
-| [1493_implementation.rs](1493_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 224 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1493_implementation.cpp](1493_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 124 KB | 11287206 |
+| [1493_implementation.go](1493_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1064 KB | 11287207 |
+| [1493_implementation.java](1493_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1596 KB | 11287209 |
+| [1493_implementation.py](1493_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.062 s | 376 KB | 11287208 |
+| [1493_implementation.rs](1493_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 224 KB | 11287210 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1493_implementation_optimized.java](1493_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.078 s | 308 KB | 11303750 |
+| [1493_implementation_optimized.rs](1493_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 224 KB | 11303611 |
