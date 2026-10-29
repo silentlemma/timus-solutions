@@ -51,41 +51,45 @@ supera el límite.
 
 ## Solución
 
-Convierte las duraciones a minutos. La primera fase ocupa 60 y quedan
-`12−f` tareas. El tiempo de finalización es `T=60+45·(12−f)`. Devuelve
-`YES` exactamente cuando `T≤300`.
+La primera hora ocupa 60 minutos, y las 12 − f tareas restantes 45
+minutos cada una, una tras otra. El plan cabe cuando
+60 + 45 · (12 − f) ≤ 300, es decir, cuando f ≥ 7. `O(1)`.
 
-La condición es necesaria y suficiente. La primera hora fija y las
-tareas restantes consecutivas necesitan exactamente ese tiempo; si
-supera el límite es imposible terminar. Si no supera 300, empezar el
-resto inmediatamente después del minuto 60 permite acabar a tiempo. Los
-minutos libres dentro de la primera hora no adelantan el inicio de la
-segunda fase.
+Detalle: las tareas restantes empiezan solo después de la primera hora
+completa, aunque las primeras f se terminen antes.
 
-Equivalentemente, después de la primera hora quedan 240 minutos. Solo
-caben `floor(240/45)=5` tareas adicionales, por lo que `12−f≤5`, es
-decir, `f≥7`. Los programas mantienen la expresión temporal con
-constantes con nombre, evitando un umbral sin explicar. Terminar justo
-en el límite también es válido.
+## Soluciones optimizadas
 
-Tiempo `O(1)` y espacio adicional `O(1)`. El mayor tiempo posible es
-`60+11·45=555`, por lo que bastan enteros ordinarios con signo. No hacen
-falta coma flotante ni redondeos.
+Las soluciones optimizadas en C++ y Java comprueban la misma
+desigualdad. C++ lee con `scanf` e imprime con `puts` en lugar de
+`iostream`: 116 KB en lugar de 380 KB, con el mismo tiempo. Java analiza
+el número a mano desde `System.in` en lugar de usar `Scanner`: 0.078 s
+en lugar de 0.125 s y 432 KB en lugar de 1532 KB.
+
+La solución optimizada en Rust escribe la respuesta como bytes en una
+sola llamada en lugar de usar `println!`: 0.015 s en lugar de 0.046 s y
+220 KB en lugar de 236 KB.
 
 ## Notas por lenguaje
 
-Reserva la primera hora completa, cuenta las tareas que faltan y mantén
-las mismas unidades. La salida es `YES`/`NO` en mayúsculas. El Scanner
-de Java 8 basta para un entero; los otros lenguajes usan sus lectores
-habituales. CPython sirve para este cálculo de tamaño constante. Los
-cinco programas usan la misma desigualdad entera exacta.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2012_math.cpp](2012_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 380 KB |
-| [2012_math.go](2012_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1080 KB |
-| [2012_math.java](2012_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1564 KB |
-| [2012_math.py](2012_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 348 KB |
-| [2012_math.rs](2012_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2012_math.cpp](2012_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 380 KB | 11292500 |
+| [2012_math.go](2012_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1080 KB | 11292501 |
+| [2012_math.java](2012_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1532 KB | 11303528 |
+| [2012_math.py](2012_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 348 KB | 11292502 |
+| [2012_math.rs](2012_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB | 11292505 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2012_math_optimized.cpp](2012_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303657 |
+| [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
+| [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
