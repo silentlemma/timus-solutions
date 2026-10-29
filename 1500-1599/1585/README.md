@@ -56,12 +56,39 @@ Pitfalls:
   or as two words;
 - a kind may be missing entirely (test 03).
 
+## Optimized solutions
+
+The three kinds start with different capital letters, E, L and M, and
+the word "Penguin" and the number `N` contain none of them, so it is
+enough to count these letters over the whole input and pick the largest
+count. The optimized C++ solution reads no words at all and counts the
+letters with `getchar`, printing the answer with `puts` instead of
+`iostream`: 88 KB instead of 388 KB, with the same time. The optimized
+Java solution counts them while reading 256-byte blocks: 0.109 s instead
+of 0.171 s and 328 KB instead of 4576 KB.
+
+The optimized Python solution counts the full names in the raw bytes
+with `bytes.count`: 348 KB instead of 512 KB, with the same time.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1585_implementation.cpp](1585_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 388 KB |
-| [1585_implementation.go](1585_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1132 KB |
-| [1585_implementation.java](1585_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.171 s | 4576 KB |
-| [1585_implementation.py](1585_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 512 KB |
-| [1585_implementation.rs](1585_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 440 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1585_implementation.cpp](1585_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 388 KB | 11287935 |
+| [1585_implementation.go](1585_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1132 KB | 11287937 |
+| [1585_implementation.java](1585_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.171 s | 4576 KB | 11287943 |
+| [1585_implementation.py](1585_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 512 KB | 11287941 |
+| [1585_implementation.rs](1585_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 440 KB | 11287944 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1585_implementation_optimized.cpp](1585_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 88 KB | 11303626 |
+| [1585_implementation_optimized.java](1585_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.109 s | 328 KB | 11303761 |
+| [1585_implementation_optimized.py](1585_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 348 KB | 11303762 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.

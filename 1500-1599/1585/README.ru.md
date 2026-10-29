@@ -56,12 +56,38 @@ Macaroni Penguin
   либо двумя словами;
 - какого-то вида может не быть вовсе (тест 03).
 
+## Оптимизированные решения
+
+Три вида начинаются с разных заглавных букв, E, L и M, а слово «Penguin»
+и число `N` ни одной из них не содержат, поэтому достаточно посчитать
+эти буквы во всём вводе и выбрать наибольший счётчик. Оптимизированное
+решение на C++ вообще не читает слова и считает буквы через `getchar`, а
+ответ выводит через `puts` вместо `iostream`: 88 КБ вместо 388 КБ при
+том же времени. Оптимизированное решение на Java считает их, читая блоки
+по 256 байт: 0.109 с вместо 0.171 с и 328 КБ вместо 4576 КБ.
+
+Оптимизированное решение на Python считает полные названия в исходных
+байтах через `bytes.count`: 348 КБ вместо 512 КБ при том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1585_implementation.cpp](1585_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 388 KB |
-| [1585_implementation.go](1585_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1132 KB |
-| [1585_implementation.java](1585_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.171 s | 4576 KB |
-| [1585_implementation.py](1585_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 512 KB |
-| [1585_implementation.rs](1585_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 440 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1585_implementation.cpp](1585_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 388 KB | 11287935 |
+| [1585_implementation.go](1585_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1132 KB | 11287937 |
+| [1585_implementation.java](1585_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.171 s | 4576 KB | 11287943 |
+| [1585_implementation.py](1585_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 512 KB | 11287941 |
+| [1585_implementation.rs](1585_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 440 KB | 11287944 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1585_implementation_optimized.cpp](1585_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 88 KB | 11303626 |
+| [1585_implementation_optimized.java](1585_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.109 s | 328 KB | 11303761 |
+| [1585_implementation_optimized.py](1585_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 348 KB | 11303762 |
+
+\* Не входит в первые 10 и в лучшие 15% решений на своём языке на
+нынешнем судье; возможно, его можно оптимизировать дальше.
