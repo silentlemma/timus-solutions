@@ -8,9 +8,9 @@
 
 ## 任务
 
-`N ≤ 100` 个生物的重量是不超过 10000 的整数。两个生物可以合并成一个重量为
-`2·√(m₁·m₂)` 的生物，合并一直进行到只剩一个。求最终重量的最小可能值，保留
-两位小数。
+`N ≤ 100` 个生物的重量是 1 到 10000 之间的整数。两个生物可以合并成一个重量为
+`2·√(m₁·m₂)` 的生物，合并一直进行到只剩一个。求最终重量的最小可能值，保留两位小
+数。
 
 时间限制：1 秒。内存限制：64 MB。
 
@@ -73,17 +73,39 @@
 
 答案已在 150 个最多七个生物的随机群体上，与枚举所有合并顺序的结果比对。
 
+## 优化解法
+
+优化的 C++ 解法把最多 100 个重量放在定长数组里，而不是 `vector`，因此不需要
+在堆上分配内存：136 KB，而不是 216 KB。排序和取整方法不变。
+
+优化的 Java 解法按 4 KB 分块读入并手工解析数字，而不是使用 `Scanner`；取整也不用
+`BigDecimal`。`double` 恰好是小于 `2^53` 的整数尾数除以 `2^shift`。每次合并的结
+果最多为 `2·√(x·10000)`，所以总重量始终小于 40000，移位量在 37 到 52 之间；尾数
+的 100 倍小于 `100·2^53`，仍能放进 `long`。因此总重量的 100 倍是两个 `long` 之比
+的精确分数，代码像 `printf` 一样按“五成双”取整：0.093 s，而不是 0.140 s；444 KB，
+而不是 1912 KB。
+
 ## 各语言说明
 
 - 所有语言以同样方式排序和折叠。
-- Java 通过 `BigDecimal` 以“五成双”方式舍入结果，与 C 的 `printf` 一致。
+- 简单的 Java 解法通过 `BigDecimal` 以“五成双”方式舍入结果，与 C 的 `printf`
+  一致。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1161_greedy.cpp](1161_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 216 KB |
-| [1161_greedy.go](1161_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1096 KB |
-| [1161_greedy.java](1161_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 1912 KB |
-| [1161_greedy.py](1161_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 364 KB |
-| [1161_greedy.rs](1161_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 248 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1161_greedy.cpp](1161_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 216 KB | 11281794 |
+| [1161_greedy.go](1161_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1096 KB | 11281809 |
+| [1161_greedy.java](1161_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 1912 KB | 11281833 |
+| [1161_greedy.py](1161_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 364 KB | 11281821 |
+| [1161_greedy.rs](1161_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 248 KB | 11281889 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1161_greedy_optimized.cpp](1161_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 136 KB | 11303573 |
+| [1161_greedy_optimized.java](1161_greedy_optimized.java) | Java 1.8 | greedy | O(N log N) | AC | 0.093 s | 444 KB | 11303959 |
