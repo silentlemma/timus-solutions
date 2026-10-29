@@ -39,48 +39,53 @@ Las salidas se comparan token a token.
 
 ## Solución
 
-Sean S la suma de los requisitos y M su máximo. La respuesta es S+M.
-Se calculan directamente ambas cantidades, sin ordenar el arreglo.
+La respuesta es la suma de todos los requisitos más el mayor de ellos,
+S + M.
 
-Para probar la cota inferior, fijar cualquier colocación y elegir un
-objeto con requisito M. Cada objeto a su izquierda se asigna al hueco
-inmediatamente a su izquierda; cada objeto a su derecha, al hueco
-inmediatamente a su derecha. El máximo elegido se asigna a sus dos
-huecos vecinos. Se usan los n+1 huecos distintos, y cada uno necesita
-al menos el requisito asignado. Todos los requisitos se cuentan una
-vez salvo el máximo seleccionado, que se cuenta dos veces. Por tanto
-hacen falta al menos S+M hojas. También vale con n=1 o máximos repetidos.
+No puede ser menos: tómese un objeto con el requisito mayor M. Cada
+objeto a su izquierda necesita su propio hueco a la izquierda, cada
+objeto a su derecha su propio hueco a la derecha, y el objeto mayor
+necesita sus dos huecos. Son n + 1 huecos distintos, y juntos tienen al
+menos S + M hojas.
 
-Para alcanzar esa cota, colocar los requisitos en orden no decreciente
-b_1≤...≤b_n. Poner b_1 hojas antes del primer objeto, b_{i+1} entre
-los objetos i e i+1, y b_n tras el último. Cada hueco interior contiene
-el mayor de los dos requisitos, por lo que satisface ambos. El total
-es b_1+(b_2+...+b_n)+b_n=S+M. La cota inferior es alcanzable y la
-fórmula es óptima. Ordenar solo sirve como testigo en la demostración.
+Basta con eso: se ordenan los requisitos a₁ ≤ … ≤ aₙ y se colocan los
+objetos en este orden, con a₁ hojas antes del primero, a_(i+1) hojas
+entre los objetos i e i + 1, y aₙ después del último. Cada hueco tiene
+lo que pide el mayor de sus vecinos, y el total es S + M. `O(n)`; el
+programa no necesita ordenar.
 
-Tiempo O(n). Las implementaciones guardan los valores de entrada:
-espacio total O(n) y estado aritmético adicional O(1).
+Detalles a tener en cuenta:
 
-Los vecinos comparten hojas: tomar el mayor requisito, no la suma.
-No conservar el orden de entrada: 100,1,100 necesita 301 hojas tras
-reordenar, pero 400 con ese orden fijo. El máximo contribuye una vez
-adicional. Un solo objeto requiere 2a_1 hojas por las dos tapas;
-tener varios máximos no cambia la fórmula.
+- los vecinos comparten un hueco: hace falta el requisito mayor, no la
+  suma;
+- el orden de la entrada no importa: 100, 1, 100 necesita 301 hojas, no
+  400;
+- un solo objeto necesita 2a₁ hojas.
+
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee con `scanf` en lugar de `iostream` y
+calcula la suma y el máximo mientras lee, sin guardar los requisitos:
+124 KB en lugar de 428 KB.
 
 ## Notas por lenguaje
 
-El resultado no supera 100·100+100=10100 y cabe en un entero de 32 bits.
-C++ usa acumulación entera y máximo; Go y Java calculan ambos en un
-bucle. Python usa sum y max. Rust suma con i32 y obtiene el máximo
-de una sección no vacía. Todos leen enteros separados por espacios
-en blanco y terminan la salida con un salto de línea.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1935_greedy.cpp](1935_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 428 KB |
-| [1935_greedy.go](1935_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.015 s | 1092 KB |
-| [1935_greedy.java](1935_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 436 KB |
-| [1935_greedy.py](1935_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.078 s | 332 KB |
-| [1935_greedy.rs](1935_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.015 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1935_greedy.cpp](1935_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 428 KB | 11291786 |
+| [1935_greedy.go](1935_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.015 s | 1092 KB | 11291790 |
+| [1935_greedy.java](1935_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 1720 KB | 11303361 |
+| [1935_greedy.py](1935_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.078 s | 332 KB | 11291793 |
+| [1935_greedy.rs](1935_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.015 s | 236 KB | 11291800 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |

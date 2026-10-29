@@ -39,48 +39,51 @@ Outputs are compared token by token.
 
 ## Solution
 
-Let S be the sum of all requirements and M their maximum. The answer
-is S+M. Compute these two quantities directly; no sorting is necessary.
+The answer is the sum of all requirements plus the largest one, S + M.
 
-To prove the lower bound, fix any placement and select an object with
-requirement M. Charge every object strictly to its left to the gap on
-that object's left. Charge every object strictly to its right to the
-gap on that object's right. Charge the selected maximum to both of its
-adjacent gaps. These are all n+1 different gaps, each of which must
-contain at least the charged requirement. Every requirement is counted
-once and the selected maximum twice, giving at least S+M sheets.
-This also covers n=1 and repeated maxima.
+It cannot be less: take an object with the largest requirement M. Each
+object to its left needs its own gap on its left side, each object to
+its right needs its own gap on its right side, and the largest object
+needs both of its gaps. These are n + 1 different gaps, and together
+they hold at least S + M sheets.
 
-For an upper bound, arrange the requirements in nondecreasing order
-b_1≤...≤b_n. Use b_1 sheets before the first object, b_{i+1} sheets
-between objects i and i+1, and b_n after the last. An internal gap has
-the larger of its two requirements, so every constraint holds. The
-total is b_1+(b_2+...+b_n)+b_n=S+M. The lower bound is attainable,
-and the formula is therefore optimal. Sorting is only a proof witness.
+It is enough: sort the requirements a₁ ≤ … ≤ aₙ and put the objects in
+this order with a₁ sheets before the first, a_(i+1) sheets between
+objects i and i + 1, and aₙ after the last. Every gap holds what the
+larger of its neighbours needs, and the total is S + M. `O(n)`; the
+program does not need to sort.
 
-O(n) time. These implementations store the input values, so total
-space is O(n), with O(1) additional arithmetic state.
+Pitfalls:
 
-Adjacent objects share sheets: add the larger clearance, not both.
-Do not preserve the input order: requirements 100,1,100 need 301 sheets
-after reordering, whereas that fixed order uses 400. The largest
-requirement contributes one extra time. A single object needs 2a_1
-sheets because both covers matter; repeated maxima add no extra rule.
+- neighbours share a gap: it needs the larger requirement, not the sum;
+- the order of the input does not matter: 100, 1, 100 needs 301 sheets,
+  not 400;
+- one object needs 2a₁ sheets.
+
+## Optimized solutions
+
+The optimized C++ solution reads with `scanf` instead of `iostream` and
+takes the sum and the maximum while reading, without storing the
+requirements: 124 KB instead of 428 KB.
 
 ## Language notes
 
-The answer is at most 100·100+100=10100, so ordinary 32-bit integers
-are sufficient. C++ uses integer accumulation and a maximum element;
-Go and Java combine them in one loop. Python uses sum and max. Rust
-uses i32 accumulation and the maximum of a nonempty slice. All programs
-read whitespace-separated integers and print a final newline.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1935_greedy.cpp](1935_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 428 KB |
-| [1935_greedy.go](1935_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.015 s | 1092 KB |
-| [1935_greedy.java](1935_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 436 KB |
-| [1935_greedy.py](1935_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.078 s | 332 KB |
-| [1935_greedy.rs](1935_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1935_greedy.cpp](1935_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 428 KB | 11291786 |
+| [1935_greedy.go](1935_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.015 s | 1092 KB | 11291790 |
+| [1935_greedy.java](1935_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 1720 KB | 11303361 |
+| [1935_greedy.py](1935_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.078 s | 332 KB | 11291793 |
+| [1935_greedy.rs](1935_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.015 s | 236 KB | 11291800 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
