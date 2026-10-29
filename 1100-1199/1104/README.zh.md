@@ -55,16 +55,36 @@ A1A
 
 答案经过验证：用 Python 的大整数把整个字符串按每个基数转换，再直接取余数。
 
+## 优化解法
+
+优化解法（C++、Java、Python）根本不保存长达 `10^6` 位的那一行：它们按 4 KB
+（Python 为 64 KB）的块读取输入，边读边累加各位数字，因此无论长度多少都只需
+很少的内存。Python 用 `bytes.translate` 一次把整块转换成数字值，再用 `sum`
+求和，不需要用 Python 代码逐个字符循环。C++：0.015 s，而不是 0.093 s；
+96 KB，而不是 2640 KB。Java：372 KB，而不是 5448 KB，时间不变。Python：
+0.109 s，而不是 0.265 s；588 KB，而不是 17808 KB。
+
 ## 语言说明
 
-- Python 和 Java 分别用 `int(ch, 36)` 和 `Character.digit` 把每一位按 36 进制数字读入；Rust 用 `to_digit(36)`。
+- 简单的 Python 和 Java 解法分别用 `int(ch, 36)` 和 `Character.digit` 把每一位按
+  36 进制数字读入；Rust 用 `to_digit(36)`。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1104_number_theory.cpp](1104_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.093 s | 2640 KB |
-| [1104_number_theory.go](1104_number_theory.go) | Go 1.14 x64 | number_theory | O(L) | AC | 0.031 s | 6608 KB |
-| [1104_number_theory.java](1104_number_theory.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 5448 KB |
-| [1104_number_theory.py](1104_number_theory.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.265 s | 17808 KB |
-| [1104_number_theory.rs](1104_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L) | AC | 0.015 s | 7048 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1104_number_theory.cpp](1104_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.093 s | 2640 KB | 11279172 |
+| [1104_number_theory.go](1104_number_theory.go) | Go 1.14 x64 | number_theory | O(L) | AC | 0.031 s | 6608 KB | 11279173 |
+| [1104_number_theory.java](1104_number_theory.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 5448 KB | 11279175 |
+| [1104_number_theory.py](1104_number_theory.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.265 s | 17808 KB | 11279174 |
+| [1104_number_theory.rs](1104_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L) | AC | 0.015 s | 7048 KB | 11279176 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
+| [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
+| [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |

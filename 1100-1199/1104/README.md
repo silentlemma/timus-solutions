@@ -62,17 +62,39 @@ Pitfalls:
 The answers were checked by converting the whole string in every base
 with Python's big integers and taking the remainder directly.
 
+## Optimized solutions
+
+The optimized solutions (C++, Java, Python) never store the line of up to
+`10^6` digits: they read the input in chunks of 4 KB (64 KB in Python) and
+add the digits up on the way, so the memory stays small whatever the
+length. Python turns a whole chunk into digit values at once with
+`bytes.translate` and sums it with `sum`, without a loop over the
+characters in Python code. C++: 0.015 s instead of 0.093 s and 96 KB
+instead of 2640 KB; Java: 372 KB instead of 5448 KB, with the same time;
+Python: 0.109 s instead of 0.265 s and 588 KB instead of 17808 KB.
+
 ## Language notes
 
-- Python and Java read each digit as a base-36 digit with `int(ch, 36)`
-  and `Character.digit`; Rust uses `to_digit(36)`.
+- The simple Python and Java solutions read each digit as a base-36
+  digit with `int(ch, 36)` and `Character.digit`; Rust uses
+  `to_digit(36)`.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1104_number_theory.cpp](1104_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.093 s | 2640 KB |
-| [1104_number_theory.go](1104_number_theory.go) | Go 1.14 x64 | number_theory | O(L) | AC | 0.031 s | 6608 KB |
-| [1104_number_theory.java](1104_number_theory.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 5448 KB |
-| [1104_number_theory.py](1104_number_theory.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.265 s | 17808 KB |
-| [1104_number_theory.rs](1104_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L) | AC | 0.015 s | 7048 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1104_number_theory.cpp](1104_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.093 s | 2640 KB | 11279172 |
+| [1104_number_theory.go](1104_number_theory.go) | Go 1.14 x64 | number_theory | O(L) | AC | 0.031 s | 6608 KB | 11279173 |
+| [1104_number_theory.java](1104_number_theory.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 5448 KB | 11279175 |
+| [1104_number_theory.py](1104_number_theory.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.265 s | 17808 KB | 11279174 |
+| [1104_number_theory.rs](1104_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L) | AC | 0.015 s | 7048 KB | 11279176 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
+| [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
+| [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |
