@@ -49,45 +49,43 @@ Los pares `(suministros,objetivos)` restantes son `(0,3)`, `(2,0)`,
 
 ## Solución
 
-Un grupo no puede usar más de `a_i` suministros ni atender más de `k`
-objetivos. Emparejar una unidad con un objetivo repetidamente consigue
-exactamente `b_i=min(a_i,k)` parejas; después uno de los lados está
-vacío. Quedan `a_i−b_i=max(a_i−k,0)` suministros y `k−b_i=max(k−a_i,0)`
-objetivos.
+Cada grupo gasta min(aᵢ, k) suministros en min(aᵢ, k) objetivos. Así
+deja aᵢ − k suministros sin usar si aᵢ > k, y k − aᵢ objetivos
+pendientes en otro caso. Estos números se suman sobre los grupos.
+`O(n)`.
 
-Mantenga dos totales inicialmente cero. Si `a_i>k`, añada `a_i−k` al
-suministro restante; en otro caso añada `k−a_i` a los objetivos
-restantes. Tras los primeros `j` grupos, ambos totales son sus restos
-verdaderos: la fórmula de un grupo es correcta y no hay intercambios
-entre grupos. Este invariante demuestra el resultado final.
+Detalles a tener en cuenta:
 
-No junte primero todos los suministros: un grupo puede tener excedente
-mientras otro mantiene objetivos. Si `a_i=k`, ambos aportes son cero; si
-`a_i=0`, quedan los `k` objetivos. La identidad
-`sin_usar−restantes=Σa_i−nk` sirve como comprobación, pero no determina
-por sí sola las dos respuestas.
+- los suministros no pasan de un grupo a otro, así que un grupo puede
+  tener suministros de sobra mientras otro aún tiene objetivos: comparar
+  solo los totales es un error;
+- el total sin usar llega a 10 000 · 99 999 ≈ 10⁹, que todavía cabe en
+  un entero de 32 bits con signo.
+
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee y escribe con `scanf` y `printf` en
+lugar de `iostream`: 132 KB en lugar de 448 KB. Los totales son los
+mismos.
 
 ## Notas por lenguaje
 
-Tiempo `O(n)` y estado auxiliar `O(1)` para los dos totales. C++, Go y
-Java consumen una entrada por flujo con búfer. Python guarda `O(n)`
-valores analizados y Rust `I` bytes de entrada; la memoria real de
-entrada es `O(n)` y `O(I)`, respectivamente. El corte de Python crea
-otro arreglo temporal `O(n)` sin cambiar el tiempo.
-
-El máximo sin usar es `10000·(100000−1)=999990000`; el máximo de
-objetivos restantes, `10000²=100000000`. Ambos caben en 32 bits con
-signo; las versiones compiladas usan acumuladores más anchos. Rust resta
-solo después de comparar para evitar desbordamiento sin signo. El
-tokenizador de Java lee exactamente estos enteros pequeños. No hacen
-falta ordenación, redistribución ni salida flotante.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1991_implementation.cpp](1991_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 448 KB |
-| [1991_implementation.go](1991_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1236 KB |
-| [1991_implementation.java](1991_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 496 KB |
-| [1991_implementation.py](1991_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.093 s | 1380 KB |
-| [1991_implementation.rs](1991_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 480 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1991_implementation.cpp](1991_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 448 KB | 11292383 |
+| [1991_implementation.go](1991_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1236 KB | 11292384 |
+| [1991_implementation.java](1991_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 472 KB | 11303526 |
+| [1991_implementation.py](1991_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.093 s | 1380 KB | 11292385 |
+| [1991_implementation.rs](1991_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 480 KB | 11292387 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |

@@ -49,45 +49,42 @@ The groups leave `(unused,targets)` equal to `(0,3)`, `(2,0)`, `(0,0)`,
 
 ## Solution
 
-A group can use no more than its `a_i` supplies and no more than its `k`
-targets. Matching one supply to one target repeatedly achieves exactly
-`b_i=min(a_i,k)` matches: after that, one of the two sides is empty.
-Thus this group leaves `a_i−b_i=max(a_i−k,0)` supplies and
-`k−b_i=max(k−a_i,0)` targets.
+Each group uses min(aᵢ, k) supplies on min(aᵢ, k) targets. So it leaves
+aᵢ − k unused supplies when aᵢ > k, and k − aᵢ remaining targets
+otherwise. Add these up over the groups. `O(n)`.
 
-Keep two totals, initially zero. If `a_i>k`, add `a_i−k` to unused
-supplies; otherwise add `k−a_i` to remaining targets. After processing
-the first `j` groups, the totals equal their true leftover counts,
-because the formula is correct for one group and groups do not exchange
-supplies. This invariant proves the final totals after all `n` groups.
+Pitfalls:
 
-Do not merge all supplies before computing the result: one group may
-have unused supplies while another still has targets. Equality `a_i=k`
-contributes zero to both totals; `a_i=0` leaves all `k` targets. As a
-check, `unused−remaining=Σa_i−nk`, but this identity alone does not
-determine both outputs.
+- supplies do not move between groups, so one group can have spare
+  supplies while another still has targets: comparing only the totals
+  is wrong;
+- the unused total reaches 10 000 · 99 999 ≈ 10⁹, which still fits a
+  32-bit signed integer.
+
+## Optimized solutions
+
+The optimized C++ solution reads and writes with `scanf` and `printf`
+instead of `iostream`: 132 KB instead of 448 KB. The totals are the
+same.
 
 ## Language notes
 
-Time is `O(n)`, with `O(1)` auxiliary state for the two totals. C++, Go
-and Java consume counts from a buffered stream. Python retains `O(n)`
-parsed input values; Rust retains `I` input bytes, so their actual input
-storage is `O(n)` and `O(I)` respectively. Python's slice is another
-`O(n)` temporary and does not affect the time bound.
-
-The largest unused total is `10000·(100000−1)=999990000`; the largest
-remaining total is `10000²=100000000`. Both fit signed 32 bits, and
-compiled versions use wider integer totals. Rust only subtracts after
-comparing the operands, preventing unsigned underflow. Java's tokenizer
-reads these small integer tokens exactly. There is no need for sorting,
-redistribution or floating-point output.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1991_implementation.cpp](1991_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 448 KB |
-| [1991_implementation.go](1991_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1236 KB |
-| [1991_implementation.java](1991_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 496 KB |
-| [1991_implementation.py](1991_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.093 s | 1380 KB |
-| [1991_implementation.rs](1991_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 480 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1991_implementation.cpp](1991_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 448 KB | 11292383 |
+| [1991_implementation.go](1991_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1236 KB | 11292384 |
+| [1991_implementation.java](1991_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 472 KB | 11303526 |
+| [1991_implementation.py](1991_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.093 s | 1380 KB | 11292385 |
+| [1991_implementation.rs](1991_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 480 KB | 11292387 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |
