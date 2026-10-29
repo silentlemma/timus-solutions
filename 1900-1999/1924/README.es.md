@@ -46,33 +46,44 @@ black
 
 ## Solución
 
-Cambiar + por − delante de x cambia el resultado en −2x, que es par.
-Toda expresión completa tiene por ello la misma paridad que la suma
-positiva S=n(n+1)/2. Ni los espacios elegidos, ni los signos, ni el orden
-afectan al ganador. Imprimir black si S es par y grimy si es impar.
-La fórmula también cubre n=1 sin jugadas.
+Cambiar el signo delante de un número x de + a − cambia el resultado en
+2x, un número par. Así que toda expresión que puedan formar los
+jugadores tiene la misma paridad que 1 + 2 + … + n = n(n + 1)/2, y
+ninguna jugada cambia el ganador: gana black si esta suma es par y grimy
+si es impar. `O(1)`.
 
-El argumento abarca todas las expresiones finales, así que ninguna
-estrategia óptima puede alterar la conclusión; no hace falta buscar jugadas.
+Detalle: con n = 1 no hay ninguna jugada, y aun así decide la paridad
+de 1.
 
-O(1) tiempo y O(1) espacio auxiliar.
+## Soluciones optimizadas
 
-Restar un impar sigue aportando paridad impar. No simular turnos ni
-decidir por el equipo que juega al final. La ausencia de espacios en n=1
-no produce empate. Dividir el producto antes de comprobar paridad.
+La solución optimizada en C++ lee con `scanf` e imprime con `puts` en
+lugar de `iostream`: 116 KB en lugar de 380 KB. La fórmula es la
+misma.
+
+La solución optimizada en Java analiza el número byte a byte desde
+`System.in` en lugar de usar `Scanner`: 336 KB en lugar de 1616 KB, con
+el mismo tiempo.
 
 ## Notas por lenguaje
 
-Las cinco versiones usan enteros y división exacta por 2. n(n+1) no supera
-2550 y la suma no supera 1275, de modo que bastan tipos enteros ordinarios.
-Python y Rust leen texto; C++, Go y Java usan entrada estándar para un entero.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1924_math.cpp](1924_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 380 KB |
-| [1924_math.go](1924_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1100 KB |
-| [1924_math.java](1924_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB |
-| [1924_math.py](1924_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 396 KB |
-| [1924_math.rs](1924_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1924_math.cpp](1924_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 380 KB | 11291523 |
+| [1924_math.go](1924_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1100 KB | 11291530 |
+| [1924_math.java](1924_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB | 11291534 |
+| [1924_math.py](1924_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 396 KB | 11291532 |
+| [1924_math.rs](1924_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 236 KB | 11291542 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1924_math_optimized.cpp](1924_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303649 |
+| [1924_math_optimized.java](1924_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 336 KB | 11303788 |
