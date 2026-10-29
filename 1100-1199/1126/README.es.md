@@ -83,17 +83,52 @@ Detalles a tener en cuenta:
 Las respuestas se comprobaron con el máximo de cada ventana calculado
 directamente, en todas las pruebas.
 
+## Soluciones optimizadas
+
+Las soluciones optimizadas (C++, Java) no guardan las lecturas: cada una
+entra en la cola doble junto con su índice en cuanto se lee, y el máximo de
+una ventana completa se imprime enseguida. C++ lee con `getchar`; Java
+analiza a mano un búfer de bytes, guarda la cola doble en un búfer circular
+de `M` celdas, ya que la ventana nunca tiene más, y escribe los números a
+través de un búfer de bytes. C++: 224 KB en lugar de 776 KB, con el
+mismo tiempo; Java: 0.109 s en lugar de 0.156 s y 624 KB en lugar de
+2332 KB.
+
+Las soluciones optimizadas en Python y Rust tampoco guardan las
+lecturas: solo mantienen la ventana. Python la guarda en un búfer
+circular de dos `array` en lugar de una deque y escribe las respuestas
+en lotes de 256 líneas: 668 KB en lugar de 3448 KB, con el mismo tiempo.
+Rust analiza los números a mano desde un búfer de 4 KB en lugar de leer
+toda la entrada en una cadena, y escribe cada respuesta por una salida
+con búfer en cuanto la conoce: 332 KB en lugar de 1192 KB, con el mismo
+tiempo.
+
 ## Notas por lenguaje
 
-- Go y Java guardan la cola en un arreglo con un frente que avanza; C++,
-  Rust y Python usan las colas dobles de su biblioteca.
+- En las soluciones simples, Go y Java guardan la cola en un arreglo con
+  un frente que avanza; C++, Rust y Python usan las colas dobles de su
+  biblioteca.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1126_two_pointers.cpp](1126_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 776 KB |
-| [1126_two_pointers.go](1126_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.062 s | 2896 KB |
-| [1126_two_pointers.java](1126_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.156 s | 2332 KB |
-| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.140 s | 3448 KB |
-| [1126_two_pointers.rs](1126_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.046 s | 1192 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1126_two_pointers.cpp](1126_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 776 KB | 11279323 |
+| [1126_two_pointers.go](1126_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.062 s | 2896 KB | 11279328 |
+| [1126_two_pointers.java](1126_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.156 s | 2332 KB | 11279331 |
+| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.140 s | 3448 KB | 11279329 |
+| [1126_two_pointers.rs](1126_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.046 s | 1192 KB | 11279332 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
+| [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) | AC | 0.125 s | 668 KB | 11303710 |
+| [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

@@ -72,16 +72,43 @@
 
 答案经过验证：在所有测试上与直接计算每个窗口最大值的程序比对。
 
+## 优化解法
+
+优化解法（C++、Java）不保存读数：每个读数一读入就连同下标一起进入双端
+队列，窗口满时立即输出最大值。C++ 用 `getchar` 读取；Java 手工解析字节缓冲区，
+用 `M` 个单元的环形缓冲区存放双端队列（窗口里不会超过这么多），并通过字节
+缓冲区输出数字。C++：224 KB，而不是 776 KB，时间不变。Java：0.109 s，而不是
+0.156 s；624 KB，而不是 2332 KB。
+
+优化的 Python 和 Rust 解法同样不保存读数，只保存窗口。Python 用两个 `array` 组成
+的环形缓冲区保存窗口，而不是用双端队列，并按每批 256 行输出答案：668 KB，而不是
+3448 KB，时间不变。Rust 从 4 KB 缓冲区手工解析数字，而不是把整个输入读成字符串，
+并且每个答案一算出就通过缓冲输出写出：332 KB，而不是 1192 KB，时间不变。
+
 ## 各语言说明
 
-- Go 和 Java 用带移动队头的数组实现队列；C++、Rust 和 Python 使用库中的双端队列。
+- 在简单解法中，Go 和 Java 用带移动队头的数组实现队列；C++、Rust 和 Python 使用
+  库中的双端队列。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1126_two_pointers.cpp](1126_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 776 KB |
-| [1126_two_pointers.go](1126_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.062 s | 2896 KB |
-| [1126_two_pointers.java](1126_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.156 s | 2332 KB |
-| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.140 s | 3448 KB |
-| [1126_two_pointers.rs](1126_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.046 s | 1192 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1126_two_pointers.cpp](1126_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 776 KB | 11279323 |
+| [1126_two_pointers.go](1126_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N) | AC | 0.062 s | 2896 KB | 11279328 |
+| [1126_two_pointers.java](1126_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.156 s | 2332 KB | 11279331 |
+| [1126_two_pointers.py](1126_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.140 s | 3448 KB | 11279329 |
+| [1126_two_pointers.rs](1126_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.046 s | 1192 KB | 11279332 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
+| [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) | AC | 0.125 s | 668 KB | 11303710 |
+| [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
+
+\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
