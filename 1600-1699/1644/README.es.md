@@ -77,12 +77,36 @@ Detalles a tener en cuenta:
 Las respuestas coinciden con una implementación aceptada independiente
 en 180 conjuntos aleatorios de anotaciones.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los números a mano desde un
+búfer pequeño en lugar de usar `Scanner` y distingue las dos palabras
+por su primera letra, `h` o `s`, saltándose el resto: 400 KB en lugar de
+1708 KB, con el mismo tiempo.
+
+La solución optimizada en C++ lee con `scanf` en un pequeño arreglo de
+`char` en lugar de `iostream` y `std::string`, y distingue las dos
+palabras por la primera letra: 128 KB en lugar de 388 KB, con el mismo
+tiempo.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1644_implementation.cpp](1644_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 392 KB |
-| [1644_implementation.go](1644_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1084 KB |
-| [1644_implementation.java](1644_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1708 KB |
-| [1644_implementation.py](1644_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.109 s | 444 KB |
-| [1644_implementation.rs](1644_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 220 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1644_implementation.cpp](1644_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 388 KB | 11303499 |
+| [1644_implementation.go](1644_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1084 KB | 11288487 |
+| [1644_implementation.java](1644_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1708 KB | 11288489 |
+| [1644_implementation.py](1644_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.109 s | 444 KB | 11288488 |
+| [1644_implementation.rs](1644_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 220 KB | 11288490 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1644_implementation_optimized.cpp](1644_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303768 |
+| [1644_implementation_optimized.java](1644_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 400 KB | 11303630 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-const int KNOWN_HUNGRY = 2, KNOWN_FULL = 10;  // given in the statement
+const int KNOWN_HUNGRY = 2, KNOWN_FULL = 10; // given in the statement
 
 int main() {
     int n;
