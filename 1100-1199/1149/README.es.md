@@ -59,16 +59,42 @@ Las respuestas se compararon en todas las pruebas con una segunda
 construcción que envuelve la expresión de dentro hacia fuera, `(S)Aᵢ+…`,
 con `Aᵢ` construido por recursión.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ usa `scanf`, `printf` y `putchar` en
+lugar de `iostream` e imprime la expresión por partes en lugar de
+construirla en un `std::string`, así que la respuesta larga nunca está
+entera en memoria: 128 KB en lugar de 768 KB.
+
+La solución optimizada en Java escribe la expresión directamente en un
+búfer de bytes de 4 KB en lugar de construir cadenas, y analiza el
+número byte a byte en lugar de usar `Scanner`: 0.046 s en lugar de
+0.125 s y 372 KB en lugar de 4356 KB. La solución optimizada en Python
+escribe las piezas a medida que las construye y forma cada seno
+prolongando la parte inicial del anterior: 384 KB en lugar de 780 KB,
+con el mismo tiempo.
+
 ## Notas por lenguaje
 
-- Python une partes; los demás usan cadenas o búferes.
+- La solución sencilla en Python une partes; las demás soluciones
+  sencillas usan cadenas o búferes.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1149_strings.cpp](1149_strings.cpp) | G++ 13.2 x64 | strings | O(N²) | AC | 0.015 s | 768 KB |
-| [1149_strings.go](1149_strings.go) | Go 1.14 x64 | strings | O(N²) | AC | 0.015 s | 2976 KB |
-| [1149_strings.java](1149_strings.java) | Java 1.8 | strings | O(N²) | AC | 0.125 s | 4356 KB |
-| [1149_strings.py](1149_strings.py) | Python 3.12 x64 | strings | O(N²) | AC | 0.046 s | 780 KB |
-| [1149_strings.rs](1149_strings.rs) | Rust 1.75 x64 | strings | O(N²) | AC | 0.015 s | 636 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1149_strings.cpp](1149_strings.cpp) | G++ 13.2 x64 | strings | O(N²) | AC | 0.015 s | 768 KB | 11280016 |
+| [1149_strings.go](1149_strings.go) | Go 1.14 x64 | strings | O(N²) | AC | 0.015 s | 2976 KB | 11280150 |
+| [1149_strings.java](1149_strings.java) | Java 1.8 | strings | O(N²) | AC | 0.125 s | 4356 KB | 11280213 |
+| [1149_strings.py](1149_strings.py) | Python 3.12 x64 | strings | O(N²) | AC | 0.046 s | 780 KB | 11280177 |
+| [1149_strings.rs](1149_strings.rs) | Rust 1.75 x64 | strings | O(N²) | AC | 0.015 s | 636 KB | 11280243 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1149_strings_optimized.cpp](1149_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(N²) | AC | 0.015 s | 128 KB | 11303572 |
+| [1149_strings_optimized.java](1149_strings_optimized.java) | Java 1.8 | strings | O(N²) | AC | 0.046 s | 372 KB | 11303716 |
+| [1149_strings_optimized.py](1149_strings_optimized.py) | Python 3.12 x64 | strings | O(N²) | AC | 0.062 s | 384 KB | 11303717 |
