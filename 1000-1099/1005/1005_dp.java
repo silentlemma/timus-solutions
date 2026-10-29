@@ -8,12 +8,12 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         int[] w = new int[n];
         int total = 0;
         for (int i = 0; i < n; i++) {
             in.nextToken();
-            w[i] = (int) in.nval;
+            w[i] = (int)in.nval;
             total += w[i];
         }
         // reach[s]: some stones weigh exactly s; the lighter pile is at most total/2

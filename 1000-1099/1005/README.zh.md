@@ -1,6 +1,6 @@
 # 1005. 把重量分成两堆
 
-[Timus 1005](https://acm.timus.ru/problem.aspx?space=1&num=1005) · 难度 78 · dp, bitmask, bruteforce
+[Timus 1005](https://acm.timus.ru/problem.aspx?space=1&num=1005) · 难度 78 · dp, bitmask, bruteforce, meet_in_middle
 
 原题出自 1997 年乌拉尔国立大学锦标赛。
 
@@ -70,29 +70,51 @@
 即 `reach |= reach << x`。在 Python 中，借助任意精度整数，这一操作一次处理整个机器字，比按 `s`
 循环快得多。
 
-**枚举全部子集（bruteforce, bitmask）。** 由于 `n ≤ 20`，可以枚举全部 `2^20` 个子集。按格雷码
-顺序，每个子集与前一个只差一个重量，因此和可以 `O(1)` 更新；最后一个重量可以固定留在第二组，
-工作量减半。时间 `O(2^n)`。
-
 注意事项：
 
 - 总和最大为 `2 · 10^6`：`int` 足够，但对不超过 `total` 的所有和建表会浪费内存，只需
   `total / 2`；
 - `n = 1`：答案就是那唯一的重量。
 
+## 优化解法
+
+**枚举全部子集**（C++）。由于 `n ≤ 20`，可以枚举全部 `2^20` 个子集。按
+格雷码顺序，每个子集与前一个只差一个重量，因此和可以 `O(1)` 更新；最后
+一个重量可以固定留在第二组，工作量减半。时间 `O(2^(n-1))`，完全不需要
+表，因此内存比 DP 少得多：200 KB，而不是 1124 KB，时间不变。
+
+**折半搜索**（Go、Java、Rust）。把重量分成两半，每半最多 10 个，分别列出每半
+所有子集的和（最多 1024 个）并排序。一堆就是一半的某个子集加上另一半的某个
+子集，因此左半的和从小往大走、右半的和从大往小走，每次移动能让这堆更接近
+`total / 2` 的那一侧；这样跳过的每一对都不比已经看过的更好。当差值达到
+`total mod 2` 时可以提前结束，因为任何划分都不可能更小。时间 `O(n·2^(n/2))`，
+内存只需几 KB，而不是 `total / 2` 个元素的表。Go 和 Java 还从小缓冲区手工
+解析输入。时间不变，内存方面 Go 为 920 KB，而不是 2000 KB；Java 为
+472 KB，而不是 1388 KB；Rust 为 244 KB，而不是 1144 KB。
+
 ## 各语言说明
 
-- **C++**、**Go**、**Java**、**Rust**：布尔子集和表，约 `2 · 10^7` 次简单操作。
-- **C++** 另外提供按格雷码顺序枚举全部子集的解法。
+- **C++**、**Go**、**Java**、**Rust**：简单解法使用布尔子集和表，约
+  `2 · 10^7` 次简单操作。
 - **Python**：大整数位集；普通的按重量和按和的双重循环会太慢。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1005_bruteforce_bitmask.cpp](1005_bruteforce_bitmask.cpp) | G++ 13.2 x64 | bruteforce, bitmask | O(2^(n-1)) | AC | 0.015 s | 200 KB |
-| [1005_dp.cpp](1005_dp.cpp) | G++ 13.2 x64 | dp | O(n·S) | AC | 0.015 s | 1124 KB |
-| [1005_dp.go](1005_dp.go) | Go 1.14 x64 | dp | O(n·S) | AC | 0.062 s | 2000 KB |
-| [1005_dp.java](1005_dp.java) | Java 1.8 | dp | O(n·S) | AC | 0.140 s | 1388 KB |
-| [1005_dp.rs](1005_dp.rs) | Rust 1.75 x64 | dp | O(n·S) | AC | 0.031 s | 1144 KB |
-| [1005_dp_bitmask.py](1005_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n·S/64) | AC | 0.093 s | 920 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1005_dp.cpp](1005_dp.cpp) | G++ 13.2 x64 | dp | O(n·S) | AC | 0.015 s | 1124 KB | 11277610 |
+| [1005_dp.go](1005_dp.go) | Go 1.14 x64 | dp | O(n·S) | AC | 0.062 s | 2000 KB | 11277623 |
+| [1005_dp.java](1005_dp.java) | Java 1.8 | dp | O(n·S) | AC | 0.109 s | 1388 KB | 11303450 |
+| [1005_dp.rs](1005_dp.rs) | Rust 1.75 x64 | dp | O(n·S) | AC | 0.031 s | 1144 KB | 11277646 |
+| [1005_dp_bitmask.py](1005_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n·S/64) | AC | 0.093 s | 920 KB | 11277630 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1005_bruteforce_bitmask.cpp](1005_bruteforce_bitmask.cpp) | G++ 13.2 x64 | bruteforce, bitmask | O(2^(n-1)) | AC | 0.015 s | 200 KB | 11277615 |
+| [1005_meet_in_middle.go](1005_meet_in_middle.go) | Go 1.14 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.046 s | 920 KB | 11303539 |
+| [1005_meet_in_middle.java](1005_meet_in_middle.java) | Java 1.8 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 472 KB | 11303540 |
+| [1005_meet_in_middle.rs](1005_meet_in_middle.rs) | Rust 1.75 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.031 s | 244 KB | 11303541 |
