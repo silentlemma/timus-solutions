@@ -1,6 +1,6 @@
 #include <cstdio>
 
-const int FAR = 2000;  // beyond every coordinate
+const int FAR = 2000; // beyond every coordinate
 
 int main() {
     int n, x;
@@ -19,7 +19,7 @@ int main() {
             right = w;
     }
     if (x < left || x > right)
-        puts("Impossible");  // an obstacle stands between the start and the exit
+        puts("Impossible"); // an obstacle stands between the start and the exit
     else if (x > 0)
         printf("%d %d\n", x, -2 * left + x);
     else
