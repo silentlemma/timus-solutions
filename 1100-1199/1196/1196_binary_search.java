@@ -1,36 +1,27 @@
-import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 import java.util.Arrays;
 
 public class Main {
-    static final int BUFFER = 1 << 16;
-    static InputStream in = new BufferedInputStream(System.in, BUFFER);
-
-    static int read() throws IOException {
-        int c = in.read();
-        while (c < '0') {
-            c = in.read();
-        }
-        int v = 0;
-        while (c >= '0') {
-            v = v * 10 + c - '0';
-            c = in.read();
-        }
-        return v;
-    }
-
     public static void main(String[] args) throws IOException {
-        int n = read();
+        StreamTokenizer in =
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+        in.nextToken();
+        int n = (int)in.nval;
         // the teacher's dates come sorted, so each of the student's dates is
         // looked up by binary search, counting repeats every time
         int[] known = new int[n];
         for (int i = 0; i < n; i++) {
-            known[i] = read();
+            in.nextToken();
+            known[i] = (int)in.nval;
         }
-        int m = read(), count = 0;
+        in.nextToken();
+        int m = (int)in.nval, count = 0;
         for (int i = 0; i < m; i++) {
-            if (Arrays.binarySearch(known, read()) >= 0) {
+            in.nextToken();
+            if (Arrays.binarySearch(known, (int)in.nval) >= 0) {
                 count++;
             }
         }
