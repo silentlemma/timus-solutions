@@ -63,17 +63,47 @@ Detalles a tener en cuenta:
 - con 100 000 preguntas, la entrada y la salida se leen y escriben en
   bloques grandes para no pasar de 0,5 segundos.
 
+## Soluciones optimizadas
+
+Las soluciones optimizadas en C++ y Java guardan las sumas de prefijos
+como enteros de 32 bits, suficientes para sumas entre −10⁸ y 10⁸. C++
+analiza los números y escribe las respuestas a mano mediante búferes de
+4 KB y guarda las sumas en un arreglo estático: 0.015 s en lugar de
+0.125 s y 132 KB en lugar de 2784 KB.
+
+La solución optimizada en Java lee la entrada en bloques de 4 KB y la
+analiza a mano en lugar de usar `StreamTokenizer`, y escribe las
+respuestas en un búfer de bytes de 4 KB en lugar de construir cadenas:
+0.125 s en lugar de 0.156 s y 452 KB en lugar de 7324 KB. La solución
+optimizada en Python analiza la entrada línea a línea en lugar de
+dividirla toda de una vez y escribe las respuestas en lotes de 1024
+líneas: 1440 KB en lugar de 27608 KB, aunque el tiempo sube de 0.125 s a
+0.203 s.
+
 ## Notas por lenguaje
 
-- Java lee la entrada con su propio búfer de bytes y reúne las
-  respuestas en una sola cadena.
+- La solución sencilla en Java lee con `StreamTokenizer`, que admite las
+  lecturas negativas, y reúne las respuestas en una sola cadena.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1330_prefix_sums.cpp](1330_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.125 s | 2784 KB |
-| [1330_prefix_sums.go](1330_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + Q) | AC | 0.046 s | 2828 KB |
-| [1330_prefix_sums.java](1330_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.109 s | 7492 KB |
-| [1330_prefix_sums.py](1330_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + Q) | AC | 0.125 s | 27608 KB |
-| [1330_prefix_sums.rs](1330_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + Q) | AC | 0.046 s | 3736 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1330_prefix_sums.cpp](1330_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.125 s | 2784 KB | 11284999 |
+| [1330_prefix_sums.go](1330_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + Q) | AC | 0.046 s | 2828 KB | 11285000 |
+| [1330_prefix_sums.java](1330_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.156 s | 7324 KB | 11303461 |
+| [1330_prefix_sums.py](1330_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + Q) | AC | 0.125 s | 27608 KB | 11285001 |
+| [1330_prefix_sums.rs](1330_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + Q) | AC | 0.046 s | 3736 KB | 11285004 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1330_prefix_sums_optimized.cpp](1330_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 132 KB | 11303598 |
+| [1330_prefix_sums_optimized.java](1330_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.125 s | 452 KB | 11303742 |
+| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + Q) | AC | 0.203 s | 1440 KB | 11303743 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

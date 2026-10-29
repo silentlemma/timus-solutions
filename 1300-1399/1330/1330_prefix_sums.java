@@ -1,36 +1,15 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 
 public class Main {
-    static final int BUFFER = 1 << 16;
-    static byte[] buffer = new byte[BUFFER];
-    static int length = 0, position = 0;
-
-    static int read() throws IOException {
-        if (position == length) {
-            length = System.in.read(buffer, 0, BUFFER);
-            position = 0;
-            if (length <= 0)
-                return -1;
-        }
-        return buffer[position++];
-    }
+    static StreamTokenizer in =
+        new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
 
     static int next() throws IOException {
-        int c = read();
-        while (c != '-' && (c < '0' || c > '9')) {
-            if (c < 0)
-                return 0;
-            c = read();
-        }
-        boolean negative = c == '-';
-        if (negative)
-            c = read();
-        int value = 0;
-        while (c >= '0' && c <= '9') {
-            value = value * 10 + (c - '0');
-            c = read();
-        }
-        return negative ? -value : value;
+        in.nextToken();
+        return (int)in.nval;
     }
 
     public static void main(String[] args) throws IOException {
