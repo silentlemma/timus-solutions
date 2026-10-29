@@ -84,8 +84,9 @@ neither
 
 ## Solution
 
-Read the final character as the letter and the preceding digits as
-the row. Select one of three row ranges and use this classification:
+The row is the number before the last character, the seat is the last
+letter. The plane has three layouts, and each sets which seats are by a
+window and which are by an aisle:
 
 | Rows | `window` | `aisle` | `neither` |
 | --- | --- | --- | --- |
@@ -93,45 +94,43 @@ the row. Select one of three row ranges and use this classification:
 | 3–20 | A F | B C D E | none |
 | 21–65 | A K | C D G H | B E F J |
 
-These sets follow directly from the two ends of each row and the
-neighbors of each aisle. In rows 1–2, A and D are next to both a window
-and an aisle; the required window priority gives the table above.
-Each valid letter is assigned exactly the required result.
-
-The number of checks and the input size are bounded by constants, so
-both time and extra memory are `O(1)`.
-
-In the examples, row 3 has an aisle between B and C, so `3C` is `aisle`.
-Seat `64A` is at the left window. Seat `21F` is in the middle block
-between the aisles and touches neither one, so it is `neither`.
+In rows 1–2 the seats A and D touch both a window and an aisle; a window
+comes first, so they are `window`. `O(1)`.
 
 Pitfalls:
 
-- rows 2/3 and 20/21 use different layouts;
-- the rightmost window letter changes from D to F to K;
-- there is no seat I in rows 21–65;
-- check windows before aisles, especially for A and D in rows 1–2.
+- the layouts change after rows 2 and 20;
+- there is no seat I in rows 21–65.
 
-The answers agree with a separate model of the seating layout on all 566
-valid seats.
+## Optimized solutions
+
+The optimized C++ solution reads the seat with `scanf("%d%c")` and
+prints with `puts` instead of using `iostream` and `std::string`: 120 KB
+instead of 348 KB. The layouts are the same.
+
+The optimized Java solution reads the seat byte by byte, the digits
+making the row and the next byte the letter, instead of reading a
+string: 0.109 s instead of 0.156 s and 380 KB instead of 1580 KB.
 
 ## Language notes
 
-All five versions parse the digits before the final ASCII letter as
-the row number and use the same fixed-size classification. Go and Rust
-can safely index the designation by bytes because valid input contains
-only decimal digits and one uppercase English letter.
-
-Java uses `Scanner` for this single short token. No special fast-input
-routine or large integer type is needed; membership tests examine only
-the fixed seat-letter sets.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1893_implementation.cpp](1893_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 348 KB |
-| [1893_implementation.go](1893_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1104 KB |
-| [1893_implementation.java](1893_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1580 KB |
-| [1893_implementation.py](1893_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 468 KB |
-| [1893_implementation.rs](1893_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1893_implementation.cpp](1893_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 348 KB | 11291153 |
+| [1893_implementation.go](1893_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1104 KB | 11291155 |
+| [1893_implementation.java](1893_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1580 KB | 11291159 |
+| [1893_implementation.py](1893_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 468 KB | 11291157 |
+| [1893_implementation.rs](1893_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11291163 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
+| [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |

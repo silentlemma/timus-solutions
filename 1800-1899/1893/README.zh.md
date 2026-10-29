@@ -81,49 +81,49 @@ neither
 
 ## 解法
 
-最后一个字符是座位字母，前面的数字是排号。选择三个排号区间之一，
-按下表分类：
+行号是最后一个字符之前的数字，座位是最后一个字母。飞机有三种排布，每种排布决定
+哪些座位靠窗、哪些靠过道：
 
-| 排号 | `window` | `aisle` | `neither` |
+| 排 | `window` | `aisle` | `neither` |
 | --- | --- | --- | --- |
 | 1–2 | A D | B C | 无 |
 | 3–20 | A F | B C D E | 无 |
 | 21–65 | A K | C D G H | B E F J |
 
-这些集合直接来自每排两端及各过道的相邻座位。在第 1–2 排，A 和 D
-既靠窗又靠过道；按靠窗优先的规则，得到上述分类。每个有效字母因此
-都对应要求的结果。
-
-检查次数和输入长度均为常数，因此时间和额外空间都是 `O(1)`。
-
-样例中，第 3 排的 B 和 C 之间有过道，所以 `3C` 为 `aisle`。
-`64A` 靠左侧窗户。`21F` 位于两条过道之间的中间座位块内部，不与
-任何过道相邻，因此为 `neither`。
+在第 1–2 排，A 和 D 既靠窗又靠过道；靠窗优先，所以它们是 `window`。`O(1)`。
 
 注意事项：
 
-- 排号在 2/3 和 20/21 之间时布局改变；
-- 最右侧靠窗字母依次为 D、F、K；
-- 第 21–65 排没有座位 I；
-- 先判断靠窗，尤其注意第 1–2 排的 A 和 D。
+- 排布在第 2 排和第 20 排之后改变；
+- 第 21–65 排没有座位 I。
 
-在全部 566 个有效座位上，答案与单独实现的座位布局模型一致。
+## 优化解法
+
+优化的 C++ 解法用 `scanf("%d%c")` 读入座位、用 `puts` 输出，而不是使用
+`iostream` 和 `std::string`：120 KB，而不是 348 KB。座位排布不变。
+
+优化的 Java 解法逐字节读取座位：数字组成排号，下一个字节是字母，而不是读入字符串：
+0.109 s，而不是 0.156 s；380 KB，而不是 1580 KB。
 
 ## 各语言说明
 
-五种实现都把最后一个 ASCII 字母之前的数字解析为排号，并使用同一套
-固定大小的分类。Go 和 Rust 可以安全地按字节索引，因为合法输入只含
-十进制数字和一个大写英文字母。
-
-Java 用 `Scanner` 读取这个短记号。无需专门的快速输入或大整数类型；
-成员检查仅涉及固定的座位字母集合。
+没有特别需要注意的地方。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1893_implementation.cpp](1893_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 348 KB |
-| [1893_implementation.go](1893_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1104 KB |
-| [1893_implementation.java](1893_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1580 KB |
-| [1893_implementation.py](1893_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 468 KB |
-| [1893_implementation.rs](1893_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1893_implementation.cpp](1893_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 348 KB | 11291153 |
+| [1893_implementation.go](1893_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1104 KB | 11291155 |
+| [1893_implementation.java](1893_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1580 KB | 11291159 |
+| [1893_implementation.py](1893_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 468 KB | 11291157 |
+| [1893_implementation.rs](1893_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11291163 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
+| [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |
