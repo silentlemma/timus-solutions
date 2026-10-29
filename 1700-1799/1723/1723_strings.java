@@ -15,6 +15,6 @@ public class Main {
                 best = c - 'a';
             }
         }
-        System.out.println((char) ('a' + best));
+        System.out.println((char)('a' + best));
     }
 }
