@@ -65,12 +65,27 @@ Pitfalls:
 - a 1 × 1 bar allows no move, so the first player loses at once
   (test 03).
 
+## Optimized solutions
+
+The optimized Java solution parses the two numbers by hand with
+`System.in.read` instead of using `Scanner`: 372 KB instead of 1608 KB,
+with the same time. It tests the parity of `m · n` directly, which is
+the opposite of the parity of the number of moves `m · n − 1`.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1639_games.cpp](1639_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 120 KB |
-| [1639_games.go](1639_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1132 KB |
-| [1639_games.java](1639_games.java) | Java 1.8 | games | O(1) | AC | 0.125 s | 1608 KB |
-| [1639_games.py](1639_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 412 KB |
-| [1639_games.rs](1639_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.062 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1639_games.cpp](1639_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 120 KB | 11288461 |
+| [1639_games.go](1639_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1132 KB | 11288462 |
+| [1639_games.java](1639_games.java) | Java 1.8 | games | O(1) | AC | 0.125 s | 1608 KB | 11288464 |
+| [1639_games.py](1639_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 412 KB | 11288463 |
+| [1639_games.rs](1639_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 236 KB | 11303478 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
