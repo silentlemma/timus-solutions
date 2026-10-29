@@ -46,66 +46,50 @@ Outputs are compared token by token.
 
 ## Solution
 
-First, using all `k` groups is best. If only `m < k` groups are used,
-then `n ≥ k > m` forces some group to contain at least two objects.
-Split it into two nonempty parts of sizes `a` and `b`. All existing
-cross-group pairs remain, while the `ab > 0` pairs between the two new
-parts become contributing pairs. Thus using fewer groups is worse.
+Using all k groups is best: with fewer groups some group has at least
+two objects, and splitting it adds pairs. With group sizes s₁, …, s_k
+the number of pairs from different groups is (n² − Σ sᵢ²) / 2, so the
+sum of squares should be as small as possible. That happens when the
+sizes differ by at most one, since moving an object from a group of
+size a to a group of size b ≤ a − 2 lowers the sum of squares. So
+r = n mod k groups get q + 1 objects and the other k − r get
+q = n div k, and the answer is (n² − (k − r)·q² − r·(q + 1)²) / 2.
+`O(1)` per test.
 
-For exactly `k` groups with sizes `s₁, …, sₖ`, the number of cross-group
-pairs is `(n² - Σ sᵢ²) / 2`. The square `n²` counts all ordered object
-pairs; the squares of the group sizes remove pairs within groups,
-including self-pairs. The remaining cross-group pairs occur twice, so
-divide by two.
-
-We therefore minimize the sum of squared sizes. Suppose two group sizes
-are `a ≥ b+2`. Moving one object from the larger group to the smaller
-changes their squared-size sum by `(a-1)² + (b+1)² - a² - b² = -2(a-b-1)
-< 0`. It increases the cross-group total by `a-b-1`. Hence an optimum
-has no sizes differing by two or more. Repeatedly making such improving
-transfers ends with balanced sizes; all such balanced partitions have
-the same squared-size sum and therefore attain the maximum.
-
-Let `q = n // k` and `r = n % k`. Exactly `r` groups have size `q+1`,
-and the other `k-r` groups have size `q`. They are nonempty because `k ≤
-n`. The answer is `(n² - (k-r)q² - r(q+1)²) / 2`. Compute it with
-integer division only; the numerator is even, since each integer square
-has the same parity as the integer itself.
-
-The sample uses sizes `2,2,2`, giving 12 pairs; five singleton groups
-give 10 pairs; sizes `2,2` give 4 pairs. As further checks, `k = n`
-gives `n(n-1)/2`, while `k = 2` gives `floor(n²/4)`.
-
-Each test takes `O(1)` arithmetic time and `O(1)` working space.
-Processing all tests takes `O(T)` time. Input or output buffering uses
-up to `O(T)` storage in these programs; C++ and Go process cases with
-fixed-size buffers.
+For n = 6, k = 3 the groups are 2, 2, 2 and the answer is 12.
 
 Pitfalls:
 
-- The statement allows at most `k` groups; justify why exactly `k` is optimal.
-- Groups must be nonempty, and all objects must be assigned once.
-- Use the remainder to distinguish sizes `q` and `q+1`; do not use a
-  real-valued average.
-- Count unordered pairs once: the square formula needs division by two.
-- Read every test case and print exactly one answer per line. At the
-  largest input, the answer is 49995000; wide integer intermediates keep
-  all products exact.
+- every pair counts once, hence the division by two;
+- integer arithmetic only, no average in floating point.
+
+## Optimized solutions
+
+The optimized C++ solution uses the same formula, but reads and writes
+with `scanf` and `printf` instead of `iostream`: 128 KB instead of
+444 KB, with the same time.
 
 ## Language notes
 
-C++ uses `long long`, Go `int64`, Java `long`, and Rust `u64` for the
-arithmetic. Python uses exact integers and `divmod`. Rust's unsigned
-subtraction is safe because the within-group square sum cannot exceed
-`n²`. All ports use integer quotient and remainder; none constructs the
-actual partition. CPython needs no alternate runtime.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2025_math.cpp](2025_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 444 KB |
-| [2025_math.go](2025_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1128 KB |
-| [2025_math.java](2025_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 392 KB |
-| [2025_math.py](2025_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 448 KB |
-| [2025_math.rs](2025_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2025_math.cpp](2025_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 444 KB | 11292869 |
+| [2025_math.go](2025_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1128 KB | 11292876 |
+| [2025_math.java](2025_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1628 KB | 11303364 |
+| [2025_math.py](2025_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 448 KB | 11292879 |
+| [2025_math.rs](2025_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 228 KB | 11292891 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2025_math_optimized.cpp](2025_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 128 KB | 11303661 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.

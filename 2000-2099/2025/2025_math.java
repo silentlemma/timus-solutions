@@ -1,36 +1,17 @@
-import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-  static long solve(long count, long groups) {
-    long small = count / groups;
-    long larger = count % groups;
-    long squares = (groups - larger) * small * small + larger * (small + 1) * (small + 1);
-    return (count * count - squares) / 2;
-  }
-
-  static long readNumber(BufferedInputStream in) throws IOException {
-    int character;
-    do {
-      character = in.read();
-    } while (character >= 0 && character <= ' ');
-    long value = 0;
-    while (character > ' ') {
-      value = value * 10 + character - '0';
-      character = in.read();
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int tests = in.nextInt();
+        StringBuilder out = new StringBuilder();
+        for (int t = 0; t < tests; t++) {
+            long count = in.nextLong(), groups = in.nextLong();
+            // groups of sizes small and small + 1, as equal as possible
+            long small = count / groups, larger = count % groups;
+            long squares = (groups - larger) * small * small + larger * (small + 1) * (small + 1);
+            out.append((count * count - squares) / 2).append('\n');
+        }
+        System.out.print(out);
     }
-    return value;
-  }
-
-  public static void main(String[] args) throws IOException {
-    BufferedInputStream in = new BufferedInputStream(System.in);
-    int tests = (int) readNumber(in);
-    StringBuilder out = new StringBuilder();
-    while (tests-- > 0) {
-      long count = readNumber(in);
-      long groups = readNumber(in);
-      out.append(solve(count, groups)).append('\n');
-    }
-    System.out.print(out);
-  }
 }
