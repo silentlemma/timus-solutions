@@ -61,16 +61,30 @@ La fórmula se comprobó simulando el robot en todos los campos hasta
 14 × 14, y se comparó con una solución escrita aparte en todas las
 pruebas.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java lee la entrada en bloques de 1 KB y
+analiza los dos números a mano en lugar de usar `Scanner`: 348 KB en
+lugar de 1564 KB, con el mismo tiempo.
+
 ## Notas por lenguaje
 
 - La fórmula es común; Python usa enteros de precisión arbitraria, los demás de 64 bits.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1224_math.cpp](1224_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1224_math.go](1224_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB |
-| [1224_math.java](1224_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1564 KB |
-| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 372 KB |
-| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1224_math.cpp](1224_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11283705 |
+| [1224_math.go](1224_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB | 11283706 |
+| [1224_math.java](1224_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1564 KB | 11283708 |
+| [1224_math.py](1224_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 372 KB | 11283707 |
+| [1224_math.rs](1224_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11283709 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1224_math_optimized.java](1224_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11303726 |
