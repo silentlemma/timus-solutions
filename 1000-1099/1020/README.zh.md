@@ -73,16 +73,34 @@
 - 多边形可能按顺时针给出——公式不受影响；
 - 输出恰好两位小数。
 
+## 优化解法
+
+优化的 C++ 和 Java 解法在读入时就沿多边形累加，因此不存储钉子坐标。Java 还按
+1 KB 分块读入并手工切出每个数，而不是使用 `Scanner`，并用 `BigDecimal` 按与
+`String.format` 相同的方式取整。C++ 156 KB，而不是 224 KB，时间不变；Java 780 KB，
+而不是 2096 KB，时间不变。
+
 ## 各语言说明
 
-各语言使用同样的公式。Java 用 `Locale.US` 读取和输出，使小数点为点号。
+各语言使用同样的公式。简单的 Java 解法用 `Locale.US` 读取和输出，使小数点为点号。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1020_geometry.cpp](1020_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 224 KB |
-| [1020_geometry.go](1020_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 1084 KB |
-| [1020_geometry.java](1020_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2096 KB |
-| [1020_geometry.py](1020_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.062 s | 392 KB |
-| [1020_geometry.rs](1020_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1020_geometry.cpp](1020_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 224 KB | 11278243 |
+| [1020_geometry.go](1020_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 1084 KB | 11278244 |
+| [1020_geometry.java](1020_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2096 KB | 11278246 |
+| [1020_geometry.py](1020_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.062 s | 392 KB | 11278245 |
+| [1020_geometry.rs](1020_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 264 KB | 11278249 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 780 KB | 11303958 |
+
+\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。

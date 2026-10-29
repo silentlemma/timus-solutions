@@ -82,17 +82,37 @@ Pitfalls:
 - the polygon may be given clockwise — the formula does not care;
 - print with exactly two decimals.
 
+## Optimized solutions
+
+The optimized C++ and Java solutions walk the polygon while reading, so
+the nails are never stored. Java also reads the input in 1 KB blocks and
+cuts each number out by hand instead of using `Scanner`, and rounds with
+`BigDecimal` the way `String.format` does. C++ 156 KB instead of 224 KB,
+with the same time; Java 780 KB instead of 2096 KB, with the same time.
+
 ## Language notes
 
-The same formula everywhere. Java parses and prints with `Locale.US`, so
-that the decimal separator is a point.
+The same formula everywhere. The simple Java solution parses and prints
+with `Locale.US`, so that the decimal separator is a point.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1020_geometry.cpp](1020_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 224 KB |
-| [1020_geometry.go](1020_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 1084 KB |
-| [1020_geometry.java](1020_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2096 KB |
-| [1020_geometry.py](1020_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.062 s | 392 KB |
-| [1020_geometry.rs](1020_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1020_geometry.cpp](1020_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 224 KB | 11278243 |
+| [1020_geometry.go](1020_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 1084 KB | 11278244 |
+| [1020_geometry.java](1020_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2096 KB | 11278246 |
+| [1020_geometry.py](1020_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.062 s | 392 KB | 11278245 |
+| [1020_geometry.rs](1020_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 264 KB | 11278249 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 780 KB | 11303958 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.
