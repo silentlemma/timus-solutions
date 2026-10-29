@@ -7,9 +7,11 @@ const char *WORDS[] = {"legion", "zounds", "swarm",   "throng", "horde",
 
 int main() {
     int n;
-    if (!(std::cin >> n)) return 0;
+    if (!(std::cin >> n))
+        return 0;
     int i = 0;
-    while (n < FROM[i]) i++;
+    while (n < FROM[i])
+        i++;
     std::cout << WORDS[i] << "\n";
     return 0;
 }
