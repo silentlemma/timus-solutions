@@ -1,6 +1,6 @@
 # 1297. 回文
 
-[Timus 1297](https://acm.timus.ru/problem.aspx?space=1&num=1297) · 难度 82 · strings
+[Timus 1297](https://acm.timus.ru/problem.aspx?space=1&num=1297) · 难度 82 · strings, greedy
 
 原题作者 Evgeny Krokhalev，出自 2004 年 3 月 13 日第九届中学生公开团体程序设计竞赛。
 
@@ -58,16 +58,39 @@ Manacher 算法可以做到 `O(n)`，但在这个规模下没有必要。
 
 在 300 个随机字符串上与枚举所有子串的结果比较过。
 
+## 优化解法
+
+优化的 C++ 解法用 `getchar` 逐个读取字母，而不是读入整行，放进最多容纳 1000 个字
+母的定长数组，遇到第一个空白字符就停止。它直接从这个数组输出答案，而不构造字符串：
+92 KB，而不是 364 KB，时间不变。优化的 Rust 解法以字节读写字母，中间不经过 UTF-8
+字符串：0.015 s，而不是 0.046 s；208 KB，而不是 244 KB。从每个中心向外扩展的查找
+方法不变。
+
+**逐步增长最长回文**（Python）。以下一个字母结尾的回文最多比目前最长的回文长 2：
+去掉它的两端后，剩下的是以前一个字母结尾的回文。所以对每个字母只检查以它结尾、长
+度为 best + 2 和 best + 1 的两个候选，方法是把切片与其反转比较，这在 Python 中由
+C 完成：0.109 s，而不是 0.171 s，但内存从 452 KB 增加到 464 KB。
+
 ## 各语言说明
 
-- 整行读入，查找前去掉多余的空白字符，例如末尾的 `\r`。
+- 简单解法整行读入，查找前去掉多余的空白字符，例如末尾的 `\r`。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1297_strings.cpp](1297_strings.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 364 KB |
-| [1297_strings.go](1297_strings.go) | Go 1.14 x64 | strings | O(n^2) | AC | 0.015 s | 1088 KB |
-| [1297_strings.java](1297_strings.java) | Java 1.8 | strings | O(n^2) | AC | 0.125 s | 444 KB |
-| [1297_strings.py](1297_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.171 s | 452 KB |
-| [1297_strings.rs](1297_strings.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.046 s | 244 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1297_strings.cpp](1297_strings.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 364 KB | 11284682 |
+| [1297_strings.go](1297_strings.go) | Go 1.14 x64 | strings | O(n^2) | AC | 0.015 s | 1088 KB | 11284689 |
+| [1297_strings.java](1297_strings.java) | Java 1.8 | strings | O(n^2) | AC | 0.125 s | 444 KB | 11284696 |
+| [1297_strings.py](1297_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.171 s | 452 KB | 11284694 |
+| [1297_strings.rs](1297_strings.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.046 s | 244 KB | 11284699 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1297_greedy.py](1297_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.109 s | 464 KB | 11303737 |
+| [1297_strings_optimized.cpp](1297_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 92 KB | 11303962 |
+| [1297_strings_optimized.rs](1297_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.015 s | 208 KB | 11303738 |

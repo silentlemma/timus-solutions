@@ -1,6 +1,6 @@
 # 1297. Palindrome
 
-[Timus 1297](https://acm.timus.ru/problem.aspx?space=1&num=1297) · difficulty 82 · strings
+[Timus 1297](https://acm.timus.ru/problem.aspx?space=1&num=1297) · difficulty 82 · strings, greedy
 
 Original problem by Evgeny Krokhalev, from the Ninth Open Team Programming Contest for Schoolchildren, March 13, 2004.
 
@@ -67,17 +67,46 @@ Pitfalls:
 The answers were compared with checking every substring on 300 random
 lines.
 
+## Optimized solutions
+
+The optimized C++ solution reads the letters one by one with `getchar`
+instead of reading a whole line, into a fixed array for the at most 1000
+letters, stopping at the first whitespace. It writes the answer straight
+from that array instead of building a string: 92 KB instead of 364 KB,
+with the same time. The optimized Rust solution reads and writes the
+letters as bytes, with no UTF-8 string in between: 0.015 s instead of
+0.046 s and 208 KB instead of 244 KB. The search from every centre is
+the same.
+
+**Growing the best palindrome** (Python). A palindrome ending at the
+next letter is at most 2 longer than the best one so far: cut off its
+ends and a palindrome remains that ends one letter earlier. So for each
+letter only the two candidates of lengths best + 2 and best + 1 ending
+there are checked, by comparing the slice with its reverse, which Python
+does in C: 0.109 s instead of 0.171 s, although the memory grows from
+452 KB to 464 KB.
+
 ## Language notes
 
-- The line is read whole, and stray whitespace such as a final `\r` is
-  dropped before the search.
+- The simple solutions read the line whole, and stray whitespace such
+  as a final `\r` is dropped before the search.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1297_strings.cpp](1297_strings.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 364 KB |
-| [1297_strings.go](1297_strings.go) | Go 1.14 x64 | strings | O(n^2) | AC | 0.015 s | 1088 KB |
-| [1297_strings.java](1297_strings.java) | Java 1.8 | strings | O(n^2) | AC | 0.125 s | 444 KB |
-| [1297_strings.py](1297_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.171 s | 452 KB |
-| [1297_strings.rs](1297_strings.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.046 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1297_strings.cpp](1297_strings.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 364 KB | 11284682 |
+| [1297_strings.go](1297_strings.go) | Go 1.14 x64 | strings | O(n^2) | AC | 0.015 s | 1088 KB | 11284689 |
+| [1297_strings.java](1297_strings.java) | Java 1.8 | strings | O(n^2) | AC | 0.125 s | 444 KB | 11284696 |
+| [1297_strings.py](1297_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.171 s | 452 KB | 11284694 |
+| [1297_strings.rs](1297_strings.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.046 s | 244 KB | 11284699 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1297_greedy.py](1297_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.109 s | 464 KB | 11303737 |
+| [1297_strings_optimized.cpp](1297_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 92 KB | 11303962 |
+| [1297_strings_optimized.rs](1297_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.015 s | 208 KB | 11303738 |
