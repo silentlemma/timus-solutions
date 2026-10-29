@@ -5,10 +5,10 @@ const int SIZE = 4;
 
 int main() {
     std::string grille[SIZE], square[SIZE];
-    for (std::string& row : grille) {
+    for (std::string &row : grille) {
         std::cin >> row;
     }
-    for (std::string& row : square) {
+    for (std::string &row : square) {
         std::cin >> row;
     }
     std::string password;

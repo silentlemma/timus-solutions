@@ -5,7 +5,10 @@ const SIZE: usize = 4;
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let rows: Vec<&[u8]> = text.split_ascii_whitespace().map(|w| w.as_bytes()).collect();
+    let rows: Vec<&[u8]> = text
+        .split_ascii_whitespace()
+        .map(|w| w.as_bytes())
+        .collect();
     let mut grille: Vec<Vec<u8>> = rows[..SIZE].iter().map(|r| r.to_vec()).collect();
     let square = &rows[SIZE..2 * SIZE];
     let mut password = String::new();
