@@ -65,16 +65,31 @@ Las respuestas se comprobaron probando todo inicio y longitud para
 racha de longitud `N` exactamente cuando `N` divide a `2S` y
 `2S/N − N + 1` es positivo y par.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza el número byte a byte desde
+`System.in` en lugar de usar `Scanner` y actualiza el resto para la
+siguiente longitud más corta en O(1): 368 KB en lugar de 1640 KB, con el
+mismo tiempo.
+
 ## Notas por lenguaje
 
 - Todos los lenguajes hacen el mismo bucle descendente.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1120_math.cpp](1120_math.cpp) | G++ 13.2 x64 | math | O(√S) | AC | 0.015 s | 128 KB |
-| [1120_math.go](1120_math.go) | Go 1.14 x64 | math | O(√S) | AC | 0.031 s | 1064 KB |
-| [1120_math.java](1120_math.java) | Java 1.8 | math | O(√S) | AC | 0.109 s | 1640 KB |
-| [1120_math.py](1120_math.py) | Python 3.12 x64 | math | O(√S) | AC | 0.078 s | 444 KB |
-| [1120_math.rs](1120_math.rs) | Rust 1.75 x64 | math | O(√S) | AC | 0.046 s | 220 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1120_math.cpp](1120_math.cpp) | G++ 13.2 x64 | math | O(√S) | AC | 0.015 s | 128 KB | 11279266 |
+| [1120_math.go](1120_math.go) | Go 1.14 x64 | math | O(√S) | AC | 0.031 s | 1064 KB | 11279268 |
+| [1120_math.java](1120_math.java) | Java 1.8 | math | O(√S) | AC | 0.109 s | 1640 KB | 11279273 |
+| [1120_math.py](1120_math.py) | Python 3.12 x64 | math | O(√S) | AC | 0.078 s | 444 KB | 11279271 |
+| [1120_math.rs](1120_math.rs) | Rust 1.75 x64 | math | O(√S) | AC | 0.046 s | 220 KB | 11279275 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1120_math_optimized.java](1120_math_optimized.java) | Java 1.8 | math | O(√S) | AC | 0.093 s | 368 KB | 11303709 |
