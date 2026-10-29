@@ -55,16 +55,38 @@
 
 答案已在 1 到 65535 的所有位置、随机位置以及 1 附近的位置上与另一份独立解答比对。
 
+## 优化解法
+
+优化解法（C++、Rust）手工解析位置编号，并把每个答案作为两个字节（一个数字和一个
+分隔符）输出，而不是把答案拼成字符串：C++ 用 `getchar` 和 `putchar`，Rust 从
+1 KB 的输入缓冲区读取并写入 `BufWriter`。判定方法不变。C++ 0.031 s，而不是
+0.062 s；84 KB，而不是 388 KB；Rust 188 KB，而不是 3160 KB，时间不变。
+
+优化的 Python 解法逐行解析输入，并把答案作为字节按 1 KB 一段输出，而不是拼成一个
+大字符串：492 KB，而不是 6556 KB，但时间从 0.125 s 增加到 0.218 s。
+
 ## 各语言说明
 
 - Python 用精确的 `math.isqrt`；其他语言用整数比较修正浮点平方根。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1209_math.cpp](1209_math.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.062 s | 388 KB |
-| [1209_math.go](1209_math.go) | Go 1.14 x64 | math | O(1) per position | AC | 0.062 s | 2664 KB |
-| [1209_math.java](1209_math.java) | Java 1.8 | math | O(1) per position | AC | 0.062 s | 1372 KB |
-| [1209_math.py](1209_math.py) | Python 3.12 x64 | math | O(1) per position | AC | 0.125 s | 6556 KB |
-| [1209_math.rs](1209_math.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 3160 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1209_math.cpp](1209_math.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.062 s | 388 KB | 11283621 |
+| [1209_math.go](1209_math.go) | Go 1.14 x64 | math | O(1) per position | AC | 0.062 s | 2664 KB | 11283625 |
+| [1209_math.java](1209_math.java) | Java 1.8 | math | O(1) per position | AC | 0.062 s | 1372 KB | 11283627 |
+| [1209_math.py](1209_math.py) | Python 3.12 x64 | math | O(1) per position | AC | 0.125 s | 6556 KB | 11283626 |
+| [1209_math.rs](1209_math.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 3160 KB | 11283628 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1209_math_optimized.cpp](1209_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.031 s | 84 KB | 11303960 |
+| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(1) per position | AC | 0.218 s | 492 KB | 11303724 |
+| [1209_math_optimized.rs](1209_math_optimized.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 188 KB | 11303961 |
+
+\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
