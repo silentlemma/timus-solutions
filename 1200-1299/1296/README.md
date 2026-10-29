@@ -78,7 +78,8 @@ ending = max(ending + p, 0).
 The answer is the largest value `ending` ever takes, and it starts at 0
 for the empty segment. Read each signed integer, add it to `ending`,
 clamp `ending` to 0, and update `best`. This takes `O(N)` time and
-`O(1)` auxiliary memory; Python and Rust buffer the input in `O(N)` memory.
+`O(1)` auxiliary memory; the simple Python and Rust solutions buffer the
+input in `O(N)` memory.
 
 Pitfalls:
 
@@ -93,18 +94,37 @@ Pitfalls:
 The answers were compared with checking every segment on 1500 random
 sequences.
 
+## Optimized solutions
+
+The optimized Python solution reads the numbers line by line, one per
+line, instead of splitting the whole input, and compares the running
+sums directly instead of calling `max()`: 0.078 s instead of 0.125 s and
+388 KB instead of 4788 KB. The optimized Rust solution reads the numbers
+line by line through a 1 KB buffered reader instead of reading the whole
+input into a string: 228 KB instead of 1260 KB, with the same time.
+
 ## Language notes
 
 - All languages keep just two running sums, `best` and `ending`.
-- C++, Go and Java use `O(1)` total memory; Python and Rust use `O(N)`
+- C++, Go and Java, and the optimized Python and Rust solutions, use
+  `O(1)` total memory; the simple Python and Rust solutions use `O(N)`
   total memory for buffered input.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1296_dp.cpp](1296_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.046 s | 132 KB |
-| [1296_dp.go](1296_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1512 KB |
-| [1296_dp.java](1296_dp.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 464 KB |
-| [1296_dp.py](1296_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.125 s | 4788 KB |
-| [1296_dp.rs](1296_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 1260 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1296_dp.cpp](1296_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.046 s | 132 KB | 11297977 |
+| [1296_dp.go](1296_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1512 KB | 11297978 |
+| [1296_dp.java](1296_dp.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 464 KB | 11297980 |
+| [1296_dp.py](1296_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.125 s | 4788 KB | 11297981 |
+| [1296_dp.rs](1296_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 1260 KB | 11297982 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1296_dp_optimized.py](1296_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 388 KB | 11303735 |
+| [1296_dp_optimized.rs](1296_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 228 KB | 11303736 |
