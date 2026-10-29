@@ -67,16 +67,30 @@ Detalles a tener en cuenta:
   (pruebas 03 y 04);
 - los dos extremos cuentan cuando son impares (pruebas 01 y 07).
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los dos números byte a byte desde
+`System.in` en lugar de usar `Scanner`: 0.078 s en lugar de 0.109 s y
+304 KB en lugar de 1624 KB.
+
 ## Notas por lenguaje
 
-- Las cinco soluciones usan la misma fórmula.
+- Todas las soluciones usan la misma fórmula.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1327_math.cpp](1327_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1327_math.go](1327_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1060 KB |
-| [1327_math.java](1327_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1624 KB |
-| [1327_math.py](1327_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 404 KB |
-| [1327_math.rs](1327_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1327_math.cpp](1327_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11284981 |
+| [1327_math.go](1327_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1060 KB | 11284982 |
+| [1327_math.java](1327_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1624 KB | 11284984 |
+| [1327_math.py](1327_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 404 KB | 11284983 |
+| [1327_math.rs](1327_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 236 KB | 11284985 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1327_math_optimized.java](1327_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 304 KB | 11303741 |
