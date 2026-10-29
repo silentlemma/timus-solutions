@@ -72,12 +72,25 @@ yes
 
 Ответы совпадают с независимой принятой реализацией на всех тестах.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает числа побайтно из `System.in`
+вместо `Scanner`: 336 КБ вместо 1572 КБ при том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1877_implementation.cpp](1877_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB |
-| [1877_implementation.go](1877_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1064 KB |
-| [1877_implementation.java](1877_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 1572 KB |
-| [1877_implementation.py](1877_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 404 KB |
-| [1877_implementation.rs](1877_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 216 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1877_implementation.cpp](1877_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303804 |
+| [1877_implementation.go](1877_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1064 KB | 11291005 |
+| [1877_implementation.java](1877_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 1572 KB | 11291007 |
+| [1877_implementation.py](1877_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 404 KB | 11291006 |
+| [1877_implementation.rs](1877_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 232 KB | 11303805 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1877_implementation_optimized.java](1877_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 336 KB | 11303782 |
