@@ -66,12 +66,36 @@ Detalles a tener en cuenta:
 - si ningún equipo se repite, la salida queda vacía (pruebas 02, 03,
   05).
 
+## Soluciones optimizadas
+
+Las soluciones optimizadas (C++, Java) no guardan la lista de primeras
+apariciones: un equipo entra en la respuesta en cuanto se lee su segundo
+envío. C++ lo imprime en ese momento; Java lo añade a un `StringBuilder`
+e imprime toda la respuesta al final. El orden de la salida difiere del
+de las soluciones sencillas, lo que el enunciado permite.
+
+La solución optimizada en C++ lee los nombres con `scanf` en un búfer de
+31 bytes en lugar de `iostream`: 184 KB en lugar de 412 KB, con el mismo
+tiempo. La solución optimizada en Java lee la entrada en bloques de
+256 bytes y separa a mano cada nombre de equipo, de a lo sumo 30
+caracteres, en lugar de usar `Scanner`: 0.093 s en lugar de 0.156 s y
+428 KB en lugar de 3944 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1496_implementation.cpp](1496_implementation.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 412 KB |
-| [1496_implementation.go](1496_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1116 KB |
-| [1496_implementation.java](1496_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.156 s | 3944 KB |
-| [1496_implementation.py](1496_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 336 KB |
-| [1496_implementation.rs](1496_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 412 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1496_implementation.cpp](1496_implementation.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 412 KB | 11287227 |
+| [1496_implementation.go](1496_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1116 KB | 11287228 |
+| [1496_implementation.java](1496_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.156 s | 3944 KB | 11287230 |
+| [1496_implementation.py](1496_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 336 KB | 11287229 |
+| [1496_implementation.rs](1496_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 412 KB | 11287231 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
+| [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |

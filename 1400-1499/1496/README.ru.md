@@ -63,12 +63,35 @@ C++: `O(N log N)`; остальные: `O(N)` в среднем.
 - названия — это текст, так что «0» и «00» — разные команды (тест 04);
 - если ни одна команда не повторяется, вывод пустой (тесты 02, 03, 05).
 
+## Оптимизированные решения
+
+Оптимизированные решения (C++, Java) не хранят список первых появлений:
+команда попадает в ответ, как только прочитана её вторая посылка. C++
+сразу печатает её, а Java дописывает её в `StringBuilder` и печатает
+весь ответ в конце. Порядок вывода отличается от простых решений, что
+условие разрешает.
+
+Оптимизированное решение на C++ читает названия через `scanf` в буфер на
+31 байт вместо `iostream`: 184 КБ вместо 412 КБ при том же времени.
+Оптимизированное решение на Java читает ввод блоками по 256 байт и
+вырезает каждое название команды, не длиннее 30 символов, вручную вместо
+`Scanner`: 0.093 с вместо 0.156 с и 428 КБ вместо 3944 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1496_implementation.cpp](1496_implementation.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 412 KB |
-| [1496_implementation.go](1496_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1116 KB |
-| [1496_implementation.java](1496_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.156 s | 3944 KB |
-| [1496_implementation.py](1496_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 336 KB |
-| [1496_implementation.rs](1496_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 412 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1496_implementation.cpp](1496_implementation.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 412 KB | 11287227 |
+| [1496_implementation.go](1496_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1116 KB | 11287228 |
+| [1496_implementation.java](1496_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.156 s | 3944 KB | 11287230 |
+| [1496_implementation.py](1496_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 336 KB | 11287229 |
+| [1496_implementation.rs](1496_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 412 KB | 11287231 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
+| [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
