@@ -57,12 +57,37 @@ stierlitz
 Ответы совпадают с независимой принятой реализацией на 60 случайных
 тестах.
 
+## Оптимизированные решения
+
+Оптимизированные решения не хранят текст отдельно от стека. C++ и Java
+читают ввод небольшими блоками и кладут буквы прямо в стек
+фиксированного размера на 200 000 байт; Rust читает ввод байтами и
+использует как стек уже обработанное начало, поскольку стек никогда не
+длиннее прочитанной части. Все выводят стек одним блоком байтов. При том
+же времени C++ занимает 284 КБ вместо 988 КБ, Java — 660 КБ вместо
+3828 КБ, Rust — 396 КБ вместо 936 КБ.
+
+Оптимизированное решение на Python читает текст блоками по 4 КБ и идёт
+по нему байтами, пропуская всё, что не строчная буква, поэтому строка
+целиком не хранится: 820 КБ вместо 1424 КБ при том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1654_implementation.cpp](1654_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.031 s | 988 KB |
-| [1654_implementation.go](1654_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 3072 KB |
-| [1654_implementation.java](1654_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 3828 KB |
-| [1654_implementation.py](1654_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.109 s | 1424 KB |
-| [1654_implementation.rs](1654_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 936 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1654_implementation.cpp](1654_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.031 s | 988 KB | 11288568 |
+| [1654_implementation.go](1654_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 3072 KB | 11288569 |
+| [1654_implementation.java](1654_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 3828 KB | 11288573 |
+| [1654_implementation.py](1654_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.109 s | 1424 KB | 11288572 |
+| [1654_implementation.rs](1654_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 936 KB | 11288574 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1654_implementation_optimized.cpp](1654_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 284 KB | 11303631 |
+| [1654_implementation_optimized.java](1654_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 660 KB | 11303632 |
+| [1654_implementation_optimized.py](1654_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.093 s | 820 KB | 11303769 |
+| [1654_implementation_optimized.rs](1654_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 396 KB | 11303633 |
