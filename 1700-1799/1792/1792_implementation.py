@@ -12,7 +12,7 @@ def valid(word):
 def main():
     word = list(map(int, sys.stdin.read().split()))
     # try the word as it is, then each single change
-    candidates = [word] + [word[:k] + [1 - word[k]] + word[k + 1:] for k in range(len(word))]
+    candidates = [word] + [word[:k] + [1 - word[k]] + word[k + 1 :] for k in range(len(word))]
     print(*next(c for c in candidates if valid(c)))
 
 

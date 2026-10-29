@@ -5,13 +5,19 @@ const DISKS: usize = 4;
 // petal j lies in every disk except disk j
 fn valid(word: &[u32]) -> bool {
     let total: u32 = word[..DISKS].iter().sum();
-    word[DISKS..].iter().enumerate().all(|(j, &p)| (total - word[j]) % 2 == p)
+    word[DISKS..]
+        .iter()
+        .enumerate()
+        .all(|(j, &p)| (total - word[j]) % 2 == p)
 }
 
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let word: Vec<u32> = input.split_ascii_whitespace().map(|x| x.parse().unwrap()).collect();
+    let word: Vec<u32> = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
     // try the word as it is, then each single change
     let mut candidates = vec![word.clone()];
     for k in 0..word.len() {
