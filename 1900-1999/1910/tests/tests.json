@@ -1,6 +1,6 @@
 {
   "judging": "tokens",
-  "reference": "1910_two_pointers.cpp",
+  "reference": "1910_implementation.cpp",
   "cases": [
     {
       "name": "01",

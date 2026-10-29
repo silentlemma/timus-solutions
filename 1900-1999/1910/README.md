@@ -1,6 +1,6 @@
 # 1910. The Strongest Consecutive Triple
 
-[Timus 1910](https://acm.timus.ru/problem.aspx?space=1&num=1910) · difficulty 34 · two_pointers
+[Timus 1910](https://acm.timus.ru/problem.aspx?space=1&num=1910) · difficulty 34 · implementation
 
 Original problem by Denis Dublennykh, from NEERC 2012, Eastern subregional contest.
 
@@ -39,42 +39,51 @@ Two exact integers, checked token by token.
 
 ## Solution
 
-Maintain a sliding window of length three. Initialize its sum from the
-first three values and its middle position to 2. Moving the zero-based
-start from s−1 to s removes a[s−1] and adds a[s+2]. If the resulting sum
-exceeds the best seen, save it and the new middle position s+2.
+Try every section from the second to the next to last as the middle of
+the three: add it to its two neighbours and keep the largest sum with
+its number. The statement promises that the best triple is unique, so a
+strict comparison is enough. `O(n)`; a sum is at most 3·10⁶ and fits a
+32-bit integer.
 
-The update preserves the invariant that the current sum belongs exactly
-to the current triple. Initially the best is the first triple's sum;
-after each comparison it is the maximum over all examined triples.
-Every possible start 0,…,n−3 is examined once, so the final sum is optimal
-and the saved position belongs to its unique maximizing triple.
+Pitfalls:
 
-For n=3, the initial window is the only one and the update loop is empty.
-The middle position is neither the first nor the last index of the window.
-In the sample the values at positions 2,3,4 sum to 12, and the middle is 3.
+- the answer is the number of the middle section, counted from 1;
+- with n = 3 there is only one triple.
 
-Time is O(n). The implementations store the input in O(n) space and use
-O(1) additional state. A triple sums to at most 3·10⁶, safely within a
-signed 32-bit integer.
+## Optimized solutions
+
+The optimized C++ solution does not store the sections: it reads them
+one by one with `scanf` and keeps only the two before the current one,
+which is all a triple needs: 128 KB instead of 192 KB, with the same
+time.
+
+The optimized Java solution keeps only the two sections before the
+current one, as the C++ one does, and parses the input by hand instead
+of using `Scanner`: 0.125 s instead of 0.156 s and 380 KB instead of
+2372 KB.
 
 ## Language notes
 
-C++, Go 1.14, Java 8 and Rust 1.75 use integer arrays or vectors.
-Python 3.12 reads integer tokens and uses the same rolling update.
-No floating point or large integer arithmetic is necessary. Update only
-on a strictly larger sum; the input guarantee excludes tied maxima.
-
-The answers agree with summing all triples directly on all 14 157
-sequences of lengths 3 to 7 over values 1 to 4 with a unique best
-triple.
+No language needs anything special.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1910_two_pointers.cpp](1910_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 432 KB |
-| [1910_two_pointers.go](1910_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n) | AC | 0.015 s | 1096 KB |
-| [1910_two_pointers.java](1910_two_pointers.java) | Java 1.8 | two_pointers | O(n) | AC | 0.125 s | 2376 KB |
-| [1910_two_pointers.py](1910_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n) | AC | 0.078 s | 496 KB |
-| [1910_two_pointers.rs](1910_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.015 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1910_implementation.cpp](1910_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 192 KB | 11303319 |
+| [1910_implementation.go](1910_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1108 KB | 11303324 |
+| [1910_implementation.java](1910_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.156 s | 2372 KB | 11303327 |
+| [1910_implementation.py](1910_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.062 s | 452 KB | 11303331 |
+| [1910_implementation.rs](1910_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 236 KB | 11303334 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
+| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.

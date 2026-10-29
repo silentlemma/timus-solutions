@@ -1,6 +1,6 @@
 # 1910. La terna consecutiva de mayor suma
 
-[Timus 1910](https://acm.timus.ru/problem.aspx?space=1&num=1910) · difficulty 34 · two_pointers
+[Timus 1910](https://acm.timus.ru/problem.aspx?space=1&num=1910) · difficulty 34 · implementation
 
 Problema original de Denis Dublennykh, NEERC 2012, Eastern subregional contest.
 
@@ -39,41 +39,49 @@ Dos enteros exactos, comparados por tokens.
 
 ## Solución
 
-Mantén una ventana de longitud tres. Su suma inicial contiene los tres
-primeros valores y su posición central es 2. Al mover el inicio desde
-s−1 hasta s, con índices del arreglo desde cero, resta a[s−1] y añade
-a[s+2]. Si la suma supera la mejor conocida, guarda la suma y el centro s+2.
+Se prueba cada sección, de la segunda a la penúltima, como la del medio
+de las tres: se suma con sus dos vecinas y se guarda la mayor suma con
+su número. El enunciado promete que el mejor trío es único, así que
+basta una comparación estricta. `O(n)`; una suma es a lo sumo 3·10⁶ y
+cabe en un entero de 32 bits.
 
-La actualización mantiene que la suma actual pertenece exactamente a la
-terna actual. Al inicio, la mejor corresponde a la primera ventana;
-tras cada comparación es máxima entre todas las ventanas examinadas.
-Cada inicio permitido 0,…,n−3 se visita una vez, por lo que la suma final
-es óptima y la posición guardada pertenece a la única terna que la alcanza.
+Detalles a tener en cuenta:
 
-Con n=3 solo existe la ventana inicial y el bucle de actualización está
-vacío. Hay que imprimir el centro, no el inicio ni el final. En el ejemplo
-las posiciones 2,3,4 suman 12 y la posición central es 3.
+- la respuesta es el número de la sección del medio, contando desde 1;
+- con n = 3 solo hay un trío.
 
-Tiempo O(n), espacio O(n) para los valores de entrada y O(1) adicional.
-La suma no supera 3·10⁶, así que cabe en un entero con signo de 32 bits.
+## Soluciones optimizadas
+
+La solución optimizada en C++ no guarda las secciones: las lee una a una
+con `scanf` y recuerda solo las dos anteriores a la actual, que es todo
+lo que necesita un trío: 128 KB en lugar de 192 KB, con el mismo tiempo.
+
+La solución optimizada en Java guarda solo los dos tramos anteriores al
+actual, como la de C++, y analiza la entrada a mano en lugar de usar
+`Scanner`: 0.125 s en lugar de 0.156 s y 380 KB en lugar de 2372 KB.
 
 ## Notas por lenguaje
 
-C++, Go 1.14, Java 8 y Rust 1.75 usan arreglos o vectores enteros.
-Python 3.12 lee tokens enteros y aplica la misma actualización. No hacen
-falta coma flotante ni enteros grandes. Actualiza solo con una suma
-estrictamente mayor; el enunciado excluye empates del máximo.
-
-Las respuestas coinciden con sumar directamente todas las ternas en las
-14 157 secuencias de longitud 3 a 7 con valores de 1 a 4 y una única
-terna óptima.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1910_two_pointers.cpp](1910_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 432 KB |
-| [1910_two_pointers.go](1910_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n) | AC | 0.015 s | 1096 KB |
-| [1910_two_pointers.java](1910_two_pointers.java) | Java 1.8 | two_pointers | O(n) | AC | 0.125 s | 2376 KB |
-| [1910_two_pointers.py](1910_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n) | AC | 0.078 s | 496 KB |
-| [1910_two_pointers.rs](1910_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.015 s | 240 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1910_implementation.cpp](1910_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 192 KB | 11303319 |
+| [1910_implementation.go](1910_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1108 KB | 11303324 |
+| [1910_implementation.java](1910_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.156 s | 2372 KB | 11303327 |
+| [1910_implementation.py](1910_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.062 s | 452 KB | 11303331 |
+| [1910_implementation.rs](1910_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 236 KB | 11303334 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
+| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

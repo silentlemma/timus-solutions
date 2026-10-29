@@ -14,7 +14,7 @@
 | 1907 | [Equal Shares of Two Square Grids](1907/) | number_theory | C++, Go, Python, Java, Rust |
 | 1908 | [Click Costs in a Pruned Choice Tree](1908/) | dp, trees | C++, Go, Python, Java, Rust |
 | 1909 | [First Contact Without Square Roots](1909/) | geometry | C++, Go, Python, Java, Rust |
-| 1910 | [The Strongest Consecutive Triple](1910/) | two_pointers | C++, Go, Python, Java, Rust |
+| 1910 | [The Strongest Consecutive Triple](1910/) | implementation | C++, Go, Python, Java, Rust |
 | 1911 | [Minimum Energy to Let a Moving Barrier Pass](1911/) | math | C++, Go, Python, Java, Rust |
 | 1912 | [Escaping While Staying Adjacent](1912/) | bfs | C++, Go, Python, Java, Rust |
 | 1913 | [Two Relays Connecting Three Terminals](1913/) | geometry | C++, Go, Python, Java, Rust |
