@@ -57,12 +57,32 @@ Boyer–Moore 投票：保存一个候选值和一个计数器。与候选值相
   04）；
 - 多数值可以是 0（测试 05）。
 
+## 优化解法
+
+优化解法（C++、Java）按 16 KB 分块读入，并手工解析多达 500 000 个数，而不是用
+`scanf` 和 `StreamTokenizer`，数值存为能容纳 `10⁹` 的 `int`。C++ 用时 0.031 s，
+而不是 0.437 s，内存 104 KB，而不是 136 KB；Java 用时 0.140 s，而不是 0.265 s，
+但内存从 488 KB 增加到 584 KB。投票方法不变。
+
+优化的 Python 解法利用每行恰好一个值这一点，直接转换这 `n` 行中的每一行，不切分
+成词：0.203 s，而不是 0.375 s，内存不变。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1510_greedy.cpp](1510_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.437 s | 136 KB |
-| [1510_greedy.go](1510_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 6024 KB |
-| [1510_greedy.java](1510_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.265 s | 488 KB |
-| [1510_greedy.py](1510_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.375 s | 444 KB |
-| [1510_greedy.rs](1510_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.109 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1510_greedy.cpp](1510_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.437 s | 136 KB | 11287306 |
+| [1510_greedy.go](1510_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 6024 KB | 11287307 |
+| [1510_greedy.java](1510_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.265 s | 488 KB | 11287309 |
+| [1510_greedy.py](1510_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.375 s | 444 KB | 11287308 |
+| [1510_greedy.rs](1510_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.109 s | 232 KB | 11287310 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
+| [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
+| [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
