@@ -63,46 +63,71 @@ Salida:
 ## Solución
 
 El orden de la sesión impar es el recorrido en postorden del árbol de
-búsqueda, y el postorden de un árbol binario de búsqueda con claves
-distintas determina el árbol. Leído al revés, da cada presidente, luego
-toda el ala derecha y luego toda el ala izquierda. El árbol se reconstruye
-en una pasada por esa lista invertida con una pila de presidentes a los
-que aún puede llegar el ala izquierda:
+búsqueda: ala izquierda, ala derecha, presidente. Leído al revés, cada
+presidente aparece antes que todos los miembros de sus alas. Por eso,
+insertar los números en un árbol binario de búsqueda vacío en ese orden
+invertido pone a cada miembro exactamente donde estaba: su presidente ya
+está en su sitio cuando llega. El orden de la sesión par es entonces un
+recorrido recursivo: ala derecha, ala izquierda, presidente.
+
+Cada inserción baja desde la raíz. En una cadena de 3000 miembros son
+hasta 3000 pasos, unos 4,5 millones en total: `O(N^2)`, aún rápido.
+
+Detalles a tener en cuenta:
+
+- el árbol puede ser una cadena de profundidad 3000, y la recursión del
+  recorrido también; Python sube su límite de recursión;
+- puede haber varios números por línea; se leen como palabras;
+- con un solo miembro, ambos órdenes coinciden.
+
+Las respuestas de ambos métodos se compararon en todas las pruebas y en
+300 parlamentos aleatorios, lo que además comprobó que cada entrada es un
+orden válido de sesión impar.
+
+## Soluciones optimizadas
+
+Las soluciones optimizadas reconstruyen el árbol en una pasada, `O(N)`.
+Leído al revés, el orden de la sesión impar da cada presidente, luego toda
+el ala derecha y luego toda el ala izquierda. Se mantiene una pila de
+presidentes a los que aún puede llegar el ala izquierda:
 
 - si el siguiente número es mayor que la cima de la pila, es el hijo
   derecho de esa cima;
 - si no, se sacan todos los presidentes mayores que él; el último sacado
-  es el presidente cuya ala izquierda empieza, y el número pasa a ser su
+  es el presidente cuya ala izquierda empieza él, y el número pasa a ser su
   hijo izquierdo.
 
-Cada número entra en la pila una vez y sale como mucho una vez, así que
-es `O(N)`. El orden de la sesión par es el orden normal raíz, izquierda,
-derecha leído al revés, que una pila explícita produce sin recursión.
-
-Detalles a tener en cuenta:
-
-- el árbol puede ser una cadena de profundidad 3000, así que se evita la
-  recursión;
-- puede haber varios números por línea; se leen como palabras;
-- con un solo miembro, ambos órdenes coinciden.
-
-Las respuestas se compararon en todas las pruebas y en 300 parlamentos
-aleatorios con una reconstrucción por inserción simple y recorridos
-recursivos, que además comprobó que cada entrada es un orden válido de
-sesión impar.
+Cada número entra en la pila una vez y sale como mucho una vez. El orden de
+la sesión par es el orden normal raíz, izquierda, derecha leído al revés,
+que una segunda pila explícita produce sin recursión. Los hijos se indexan
+por la posición en la entrada; Go además analiza la entrada a mano. C++
+ocupa 188 KB en lugar de 348 KB y Go 1052 KB en lugar de 2200 KB, ambos
+con el mismo tiempo; Python tarda 0.078 s en lugar de 0.500 s y ocupa
+1028 KB en lugar de 1508 KB. Java y Rust solo tienen las soluciones
+sencillas.
 
 ## Notas por lenguaje
 
-- Todos los lenguajes usan las mismas dos pilas. C++, Go, Java y Rust guardan
-  los hijos en arrays indexados por el número del miembro; Python usa
-  diccionarios cuyas claves son los números de los miembros.
+- Las soluciones simples recorren el árbol de forma recursiva, hasta 3000
+  llamadas de profundidad: ningún lenguaje necesita una pila mayor para
+  eso, y Python solo sube su límite de recursión.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1136_trees.cpp](1136_trees.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 776 KB |
-| [1136_trees.go](1136_trees.go) | Go 1.14 x64 | trees | O(N) | AC | 0.046 s | 2396 KB |
-| [1136_trees.java](1136_trees.java) | Java 1.8 | trees | O(N) | AC | 0.093 s | 1524 KB |
-| [1136_trees.py](1136_trees.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1336 KB |
-| [1136_trees.rs](1136_trees.rs) | Rust 1.75 x64 | trees | O(N) | AC | 0.046 s | 1296 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1136_trees.cpp](1136_trees.cpp) | G++ 13.2 x64 | trees | O(N^2) | AC | 0.015 s | 348 KB | 11303079 |
+| [1136_trees.go](1136_trees.go) | Go 1.14 x64 | trees | O(N^2) | AC | 0.031 s | 2200 KB | 11303083 |
+| [1136_trees.java](1136_trees.java) | Java 1.8 | trees | O(N^2) | AC | 0.109 s | 640 KB | 11303090 |
+| [1136_trees.py](1136_trees.py) | Python 3.12 x64 | trees | O(N^2) | AC | 0.500 s | 1508 KB | 11303091 |
+| [1136_trees.rs](1136_trees.rs) | Rust 1.75 x64 | trees | O(N^2) | AC | 0.031 s | 804 KB | 11303094 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1136_trees_optimized.cpp](1136_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 188 KB | 11303566 |
+| [1136_trees_optimized.go](1136_trees_optimized.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1052 KB | 11303567 |
+| [1136_trees_optimized.py](1136_trees_optimized.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1028 KB | 11303568 |

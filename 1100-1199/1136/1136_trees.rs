@@ -1,54 +1,70 @@
 use std::fmt::Write as _;
 use std::io::{self, Read};
 
-// identification numbers are positive and below this bound, so 0 means none
-const LIMIT: usize = 65536;
+// a binary search tree: the number of every node and its children
+struct Tree {
+    number: Vec<u32>,
+    left: Vec<Option<usize>>,
+    right: Vec<Option<usize>>,
+}
+
+impl Tree {
+    fn insert(&mut self, value: u32) {
+        let node = self.number.len();
+        self.number.push(value);
+        self.left.push(None);
+        self.right.push(None);
+        if node == 0 {
+            return;
+        }
+        let mut v = 0;
+        loop {
+            let child = if value < self.number[v] {
+                &mut self.left[v]
+            } else {
+                &mut self.right[v]
+            };
+            match *child {
+                Some(next) => v = next,
+                None => {
+                    *child = Some(node);
+                    return;
+                }
+            }
+        }
+    }
+
+    // the even-session order: right wing, left wing, then the chairman
+    fn speak(&self, v: Option<usize>, out: &mut String) {
+        if let Some(v) = v {
+            self.speak(self.right[v], out);
+            self.speak(self.left[v], out);
+            writeln!(out, "{}", self.number[v]).unwrap();
+        }
+    }
+}
 
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
     let mut tok = input
         .split_ascii_whitespace()
-        .map(|t| t.parse::<usize>().unwrap());
-    let n = tok.next().unwrap();
-    let post: Vec<usize> = tok.take(n).collect();
-    // read backwards, the odd-session order gives every chairman, then the
-    // right wing, then the left wing; a stack of the open chairmen rebuilds the
-    // tree from that
-    let mut left = vec![0usize; LIMIT];
-    let mut right = vec![0usize; LIMIT];
-    let mut stack: Vec<usize> = Vec::new();
-    for &v in post.iter().rev() {
-        match stack.last() {
-            Some(&top) if v > top => right[top] = v,
-            Some(_) => {
-                let mut parent = stack.pop().unwrap();
-                while let Some(&top) = stack.last() {
-                    if top < v {
-                        break;
-                    }
-                    parent = stack.pop().unwrap();
-                }
-                left[parent] = v;
-            }
-            None => {}
-        }
-        stack.push(v);
-    }
-    // the even-session order is the plain order root, left, right reversed
-    let mut order = Vec::new();
-    stack = vec![post[n - 1]];
-    while let Some(v) = stack.pop() {
-        order.push(v);
-        for child in [right[v], left[v]] {
-            if child != 0 {
-                stack.push(child);
-            }
-        }
+        .map(|t| t.parse::<u32>().unwrap());
+    let n = tok.next().unwrap() as usize;
+    let post: Vec<u32> = tok.take(n).collect();
+    let mut tree = Tree {
+        number: Vec::new(),
+        left: Vec::new(),
+        right: Vec::new(),
+    };
+    // read backwards, the odd-session order names every chairman before the
+    // members of the wings, so inserting in that order rebuilds the tree
+    for &value in post.iter().rev() {
+        tree.insert(value);
     }
     let mut out = String::new();
-    for v in order.iter().rev() {
-        writeln!(out, "{}", v).unwrap();
+    if n > 0 {
+        tree.speak(Some(0), &mut out);
     }
     print!("{}", out);
 }

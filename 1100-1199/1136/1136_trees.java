@@ -2,13 +2,37 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StreamTokenizer;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
-    // identification numbers are positive and below this bound, so 0 means none
-    static final int LIMIT = 65536;
+    // a binary search tree in arrays: the number of node v and its children,
+    // -1 for a missing child
+    static int[] number, leftChild, rightChild;
+    static int size = 0;
+    static StringBuilder out = new StringBuilder();
+
+    static void insert(int value) {
+        int node = size++;
+        number[node] = value;
+        leftChild[node] = rightChild[node] = -1;
+        for (int v = 0; node > 0;) {
+            int[] side = value < number[v] ? leftChild : rightChild;
+            if (side[v] < 0) {
+                side[v] = node;
+                return;
+            }
+            v = side[v];
+        }
+    }
+
+    // the even-session order: right wing, left wing, then the chairman
+    static void speak(int v) {
+        if (v < 0) {
+            return;
+        }
+        speak(rightChild[v]);
+        speak(leftChild[v]);
+        out.append(number[v]).append('\n');
+    }
 
     public static void main(String[] args) throws IOException {
         StreamTokenizer in =
@@ -20,41 +44,16 @@ public class Main {
             in.nextToken();
             post[k] = (int)in.nval;
         }
-        // read backwards, the odd-session order gives every chairman, then the
-        // right wing, then the left wing; a stack of the open chairmen rebuilds the
-        // tree from that
-        int[] left = new int[LIMIT], right = new int[LIMIT];
-        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        number = new int[n];
+        leftChild = new int[n];
+        rightChild = new int[n];
+        // read backwards, the odd-session order names every chairman before the
+        // members of the wings, so inserting in that order rebuilds the tree
         for (int k = n - 1; k >= 0; k--) {
-            int v = post[k];
-            if (!stack.isEmpty() && v > stack.peek()) {
-                right[stack.peek()] = v;
-            } else if (!stack.isEmpty()) {
-                int parent = stack.pop();
-                while (!stack.isEmpty() && stack.peek() > v) {
-                    parent = stack.pop();
-                }
-                left[parent] = v;
-            }
-            stack.push(v);
+            insert(post[k]);
         }
-        // the even-session order is the plain order root, left, right reversed
-        List<Integer> order = new ArrayList<>();
-        stack.clear();
-        stack.push(post[n - 1]);
-        while (!stack.isEmpty()) {
-            int v = stack.pop();
-            order.add(v);
-            if (right[v] != 0) {
-                stack.push(right[v]);
-            }
-            if (left[v] != 0) {
-                stack.push(left[v]);
-            }
-        }
-        StringBuilder out = new StringBuilder();
-        for (int k = n - 1; k >= 0; k--) {
-            out.append(order.get(k)).append('\n');
+        if (n > 0) {
+            speak(0);
         }
         System.out.print(out);
     }

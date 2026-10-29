@@ -4,11 +4,39 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
 )
 
-// identification numbers are positive and below this bound, so 0 means none
-const limit = 65536
+// a binary search tree in slices: the number of node v and its children,
+// -1 for a missing child
+var number, leftChild, rightChild []int
+
+func insert(value int) {
+	node := len(number)
+	number = append(number, value)
+	leftChild = append(leftChild, -1)
+	rightChild = append(rightChild, -1)
+	for v := 0; node > 0; {
+		child := &rightChild[v]
+		if value < number[v] {
+			child = &leftChild[v]
+		}
+		if *child < 0 {
+			*child = node
+			return
+		}
+		v = *child
+	}
+}
+
+// speak prints the even-session order: right wing, left wing, then the chairman
+func speak(out *bufio.Writer, v int) {
+	if v < 0 {
+		return
+	}
+	speak(out, rightChild[v])
+	speak(out, leftChild[v])
+	fmt.Fprintln(out, number[v])
+}
 
 func main() {
 	in := bufio.NewReader(os.Stdin)
@@ -18,44 +46,14 @@ func main() {
 	for k := range post {
 		fmt.Fscan(in, &post[k])
 	}
-	// read backwards, the odd-session order gives every chairman, then the
-	// right wing, then the left wing; a stack of the open chairmen rebuilds the
-	// tree from that
-	left := make([]int, limit)
-	right := make([]int, limit)
-	var stack []int
+	// read backwards, the odd-session order names every chairman before the
+	// members of the wings, so inserting in that order rebuilds the tree
 	for k := n - 1; k >= 0; k-- {
-		v := post[k]
-		if len(stack) > 0 && v > stack[len(stack)-1] {
-			right[stack[len(stack)-1]] = v
-		} else if len(stack) > 0 {
-			parent := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
-			for len(stack) > 0 && stack[len(stack)-1] > v {
-				parent = stack[len(stack)-1]
-				stack = stack[:len(stack)-1]
-			}
-			left[parent] = v
-		}
-		stack = append(stack, v)
-	}
-	// the even-session order is the plain order root, left, right reversed
-	var order []int
-	stack = []int{post[n-1]}
-	for len(stack) > 0 {
-		v := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		order = append(order, v)
-		if right[v] != 0 {
-			stack = append(stack, right[v])
-		}
-		if left[v] != 0 {
-			stack = append(stack, left[v])
-		}
+		insert(post[k])
 	}
 	out := bufio.NewWriter(os.Stdout)
 	defer out.Flush()
-	for k := n - 1; k >= 0; k-- {
-		out.WriteString(strconv.Itoa(order[k]) + "\n")
+	if n > 0 {
+		speak(out, 0)
 	}
 }
