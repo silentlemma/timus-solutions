@@ -15,8 +15,8 @@
 
 ## Входные данные
 
-n ≤ 20, затем n ответов, каждый — имя из латинских букв, возможно с
-`+one`.
+1 ≤ n ≤ 20, затем n ответов, каждый — имя не длиннее 20 латинских букв,
+возможно с `+one`.
 
 ## Выходные данные
 
@@ -69,12 +69,32 @@ FRED+one
 Во втором примере за столом оказалось бы 2 + 5 · 2 + 1 = 13 человек,
 поэтому к ним добавляется манекен: 1400.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ читает ответы через `scanf` в буфер на
+25 байт вместо `iostream` и считает те, в которых есть `+`, ведь он
+бывает только в ответе, оканчивающемся на `+one`: 128 КБ вместо 396 КБ
+при том же времени.
+
+Оптимизированное решение на Java читает ввод блоками по 1 КБ и, как
+решение на C++, побайтно считает знаки `+` в ответах вместо `Scanner` и
+строк: 0.093 с вместо 0.140 с и 364 КБ вместо 1572 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2100_implementation.cpp](2100_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 404 KB |
-| [2100_implementation.go](2100_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1076 KB |
-| [2100_implementation.java](2100_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.156 s | 1596 KB |
-| [2100_implementation.py](2100_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 420 KB |
-| [2100_implementation.rs](2100_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 236 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [2100_implementation.cpp](2100_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.031 s | 396 KB | 11303533 |
+| [2100_implementation.go](2100_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1076 KB | 11294707 |
+| [2100_implementation.java](2100_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.140 s | 1572 KB | 11303534 |
+| [2100_implementation.py](2100_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 420 KB | 11294708 |
+| [2100_implementation.rs](2100_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 236 KB | 11294714 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
+| [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
