@@ -48,6 +48,17 @@ Pitfalls:
 
 - even 20 digits already overflow a 64-bit integer (test gen4).
 
+## Optimized solutions
+
+The optimized C++ solution folds the digits as they are read with
+`getchar`, without storing the number as a string, and writes the
+one-digit answer as a byte: 84 KB instead of 380 KB, with the same time.
+
+The optimized Go solution reads the digits byte by byte from a 128-byte
+buffered reader instead of reading the number as a string with
+`fmt.Scan`, and writes the one-digit answer as two bytes: 0.015 s
+instead of 0.046 s and 912 KB instead of 1060 KB.
+
 ## Language notes
 
 - Python's integers hold N exactly, so it just takes `int(N) % 7`; the
@@ -55,10 +66,19 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1243_math.cpp](1243_math.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.015 s | 380 KB |
-| [1243_math.go](1243_math.go) | Go 1.14 x64 | math | O(len N) | AC | 0.046 s | 1060 KB |
-| [1243_math.java](1243_math.java) | Java 1.8 | math | O(len N) | AC | 0.078 s | 400 KB |
-| [1243_math.py](1243_math.py) | Python 3.12 x64 | math | O(len N) | AC | 0.046 s | 328 KB |
-| [1243_math.rs](1243_math.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.046 s | 216 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1243_math.cpp](1243_math.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.015 s | 380 KB | 11283900 |
+| [1243_math.go](1243_math.go) | Go 1.14 x64 | math | O(len N) | AC | 0.046 s | 1060 KB | 11283901 |
+| [1243_math.java](1243_math.java) | Java 1.8 | math | O(len N) | AC | 0.078 s | 400 KB | 11283907 |
+| [1243_math.py](1243_math.py) | Python 3.12 x64 | math | O(len N) | AC | 0.046 s | 328 KB | 11283905 |
+| [1243_math.rs](1243_math.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.046 s | 216 KB | 11283909 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
+| [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |

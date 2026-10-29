@@ -46,16 +46,34 @@ N mod 7。
 
 - 仅 20 位数就已经超出 64 位整数（测试 gen4）。
 
+## 优化解法
+
+优化的 C++ 解法一边用 `getchar` 读取一边逐位取模，不把这个数存成字符串，并把一位
+数的答案作为一个字节输出：84 KB，而不是 380 KB，时间不变。
+
+优化的 Go 解法从 128 字节的带缓冲读取器逐字节读取数字，而不是用 `fmt.Scan` 把整
+个数读成字符串，并把一位数的答案作为两个字节输出：0.015 s，而不是 0.046 s；
+912 KB，而不是 1060 KB。
+
 ## 各语言说明
 
 - Python 的整数能精确表示 N，所以直接用 `int(N) % 7`；其他语言逐位折叠。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1243_math.cpp](1243_math.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.015 s | 380 KB |
-| [1243_math.go](1243_math.go) | Go 1.14 x64 | math | O(len N) | AC | 0.046 s | 1060 KB |
-| [1243_math.java](1243_math.java) | Java 1.8 | math | O(len N) | AC | 0.078 s | 400 KB |
-| [1243_math.py](1243_math.py) | Python 3.12 x64 | math | O(len N) | AC | 0.046 s | 328 KB |
-| [1243_math.rs](1243_math.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.046 s | 216 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1243_math.cpp](1243_math.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.015 s | 380 KB | 11283900 |
+| [1243_math.go](1243_math.go) | Go 1.14 x64 | math | O(len N) | AC | 0.046 s | 1060 KB | 11283901 |
+| [1243_math.java](1243_math.java) | Java 1.8 | math | O(len N) | AC | 0.078 s | 400 KB | 11283907 |
+| [1243_math.py](1243_math.py) | Python 3.12 x64 | math | O(len N) | AC | 0.046 s | 328 KB | 11283905 |
+| [1243_math.rs](1243_math.rs) | Rust 1.75 x64 | math | O(len N) | AC | 0.046 s | 216 KB | 11283909 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
+| [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
