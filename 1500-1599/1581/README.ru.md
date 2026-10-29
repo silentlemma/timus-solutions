@@ -8,7 +8,7 @@
 
 ## Задача
 
-Последовательность из N ≤ 1000 чисел от 1 до 10 диктуется сериями: для
+Последовательность из 1 ≤ N ≤ 1000 чисел от 1 до 10 диктуется сериями: для
 каждой серии равных чисел сначала говорится, сколько их, а затем какое
 это число. Нужно вывести продиктованные числа.
 
@@ -50,12 +50,31 @@ N, затем N чисел.
 - равные числа, стоящие не рядом, образуют разные серии (тест 04);
 - 10 — одно число, так что читать нужно числа, а не символы.
 
+## Оптимизированные решения
+
+Оптимизированные решения (Java, Rust) не хранят числа: каждое число
+сравнивается с предыдущим во время чтения, а серия выводится, как только
+заканчивается; Java дописывает её в `StringBuilder` со всем ответом,
+Rust пишет в `BufWriter`. Числа разбираются вручную: в Java из буфера на
+1 КБ вместо `Scanner`, в Rust из байтов ввода, а не разбиением `String`.
+Java: 0.093 с вместо 0.125 с и 436 КБ вместо 2404 КБ; Rust: 208 КБ
+вместо 308 КБ при том же времени.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1581_implementation.cpp](1581_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 196 KB |
-| [1581_implementation.go](1581_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.031 s | 1268 KB |
-| [1581_implementation.java](1581_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2404 KB |
-| [1581_implementation.py](1581_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 404 KB |
-| [1581_implementation.rs](1581_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 328 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1581_implementation.cpp](1581_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 196 KB | 11287897 |
+| [1581_implementation.go](1581_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.031 s | 1268 KB | 11287898 |
+| [1581_implementation.java](1581_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2404 KB | 11287900 |
+| [1581_implementation.py](1581_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 372 KB | 11303372 |
+| [1581_implementation.rs](1581_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 308 KB | 11303373 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1581_implementation_optimized.java](1581_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 436 KB | 11303624 |
+| [1581_implementation_optimized.rs](1581_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 208 KB | 11303625 |

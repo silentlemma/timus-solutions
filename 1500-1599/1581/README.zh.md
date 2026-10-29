@@ -8,7 +8,7 @@
 
 ## 任务
 
-一个由 N ≤ 1000 个 1 到 10 之间的数组成的序列按“段”口述：对每一段相等的数，先说有几个，再说是哪个数。输出口述
+一个由 1 ≤ N ≤ 1000 个 1 到 10 之间的数组成的序列按“段”口述：对每一段相等的数，先说有几个，再说是哪个数。输出口述
 出来的数。
 
 时间限制：1 秒。内存限制：64 MB。
@@ -48,12 +48,29 @@ N，然后是 N 个数。
 - 不相邻的相等数属于不同的段（测试 04）；
 - 10 是一个数，所以要按数读入，而不是按字符。
 
+## 优化解法
+
+优化解法（Java、Rust）不保存这些数：读入时把每个数和前一个比较，一段连续相同的数
+结束时就立即处理：Java 把它追加到存放整个答案的 `StringBuilder`，Rust 把它写入
+`BufWriter`。数字用手工解析：Java 从 1 KB 的缓冲区读取，而不是用 `Scanner`；Rust
+直接从输入的字节中解析，而不是切分 `String`。Java 为 0.093 s，而不是 0.125 s；
+436 KB，而不是 2404 KB。Rust 为 208 KB，而不是 308 KB，时间不变。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1581_implementation.cpp](1581_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 196 KB |
-| [1581_implementation.go](1581_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.031 s | 1268 KB |
-| [1581_implementation.java](1581_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2404 KB |
-| [1581_implementation.py](1581_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 404 KB |
-| [1581_implementation.rs](1581_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 328 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1581_implementation.cpp](1581_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 196 KB | 11287897 |
+| [1581_implementation.go](1581_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.031 s | 1268 KB | 11287898 |
+| [1581_implementation.java](1581_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.125 s | 2404 KB | 11287900 |
+| [1581_implementation.py](1581_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 372 KB | 11303372 |
+| [1581_implementation.rs](1581_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 308 KB | 11303373 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1581_implementation_optimized.java](1581_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 436 KB | 11303624 |
+| [1581_implementation_optimized.rs](1581_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 208 KB | 11303625 |
