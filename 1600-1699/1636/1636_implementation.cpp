@@ -1,7 +1,7 @@
 #include <cstdio>
 
 const int PROBLEMS = 10;
-const int PER_ATTEMPT = 20;  // minutes for each rejected attempt
+const int PER_ATTEMPT = 20; // minutes for each rejected attempt
 
 int main() {
     int t1, t2;
