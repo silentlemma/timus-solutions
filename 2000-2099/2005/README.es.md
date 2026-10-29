@@ -51,44 +51,28 @@ es 4, por lo que cumple la restricción.
 
 ## Solución
 
-Solo cambia el orden de 2, 3 y 4. De sus seis permutaciones, dos
-terminan en 3 y están prohibidas. Quedan `1,2,3,4,5`, `1,3,2,4,5`,
-`1,3,4,2,5` y `1,4,3,2,5`. Sumamos las cuatro distancias consecutivas de
-cada candidata y conservamos una mínima con su coste.
+El punto 1 va primero y el 5 al final, así que solo varía el orden de
+los puntos 2, 3 y 4: seis órdenes, de los que los dos con el 3 justo
+antes del 5 están prohibidos. Se prueban los otros cuatro, se suman las
+cuatro distancias de cada ruta y se queda la más corta. `O(1)`.
 
-Los programas enumeran el primer y último lugar intermedio, distintos
-entre sí y sin permitir 3 como último. El intermedio central es el
-restante. Internamente sus índices desde cero son 1, 2 y 3, cuya suma es
-6; restar los extremos elegidos recupera el índice central. Así se
-considera cada permutación válida exactamente una vez y ninguna
-prohibida. Toda respuesta posible está entre las cuatro candidatas, por
-lo que elegir su mínimo prueba optimalidad. Guardar coste y ruta juntos
-garantiza que la ruta impresa tenga la longitud declarada.
+Detalles a tener en cuenta:
 
-Tiempo `O(1)` y memoria `O(1)`: siempre hay cinco lugares, cuatro
-candidatas y cuatro aristas por candidata. La suma no supera 40000, de
-modo que bastan enteros con signo de 32 bits. Las distancias métricas
-dadas no necesitan preprocesamiento de caminos mínimos.
-
-La restricción se refiere a la penúltima parada, no a la segunda o
-tercera. Mantener 1 al inicio y 5 al final. Las distancias cero y los
-empates son legales. Inicializar el mejor coste permitiendo que gane
-cero; 10000 no limita la ruta completa. Convertir índices internos a
-números 1..5 al imprimir.
+- la regla se refiere a la parada justo antes de la última;
+- una ruta cuesta de 0 a 40 000, así que el mínimo empieza en «todavía
+  ninguno», no en 0 ni en 10 000.
 
 ## Notas por lenguaje
 
-Los cinco lenguajes evalúan las mismas cuatro candidatas y leen las 25
-entradas. Se usan arreglos fijos cuando resulta práctico y listas
-pequeñas en Python. La ruta guardada no se modifica al considerar
-candidatas posteriores.
+- Python toma los órdenes de `itertools.permutations`; los demás
+  lenguajes recorren los puntos con tres bucles anidados.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2005_bruteforce.cpp](2005_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.031 s | 432 KB |
-| [2005_bruteforce.go](2005_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1108 KB |
-| [2005_bruteforce.java](2005_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 432 KB |
-| [2005_bruteforce.py](2005_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.093 s | 508 KB |
-| [2005_bruteforce.rs](2005_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 224 KB |
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2005_bruteforce.cpp](2005_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11303437 |
+| [2005_bruteforce.go](2005_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1104 KB | 11303440 |
+| [2005_bruteforce.java](2005_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1616 KB | 11303442 |
+| [2005_bruteforce.py](2005_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.093 s | 432 KB | 11303445 |
+| [2005_bruteforce.rs](2005_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 236 KB | 11303446 |

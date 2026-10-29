@@ -51,46 +51,28 @@ stop is 4, so it obeys the restriction.
 
 ## Solution
 
-Only the order of locations 2, 3 and 4 varies. Their six permutations
-contain two ending in 3, which are forbidden. The four remaining routes
-are `1,2,3,4,5`, `1,3,2,4,5`, `1,3,4,2,5` and `1,4,3,2,5`. Sum the four
-consecutive distances for each and retain a cheapest route together with
-its cost.
+Point 1 is first and point 5 is last, so only the order of points 2, 3
+and 4 varies: six orders, of which the two with 3 just before 5 are
+forbidden. Try the four others, add up the four distances of each route,
+and keep the shortest. `O(1)`.
 
-The programs enumerate the first and last intermediate locations,
-requiring them to differ and excluding 3 as the last. The middle
-location is the remaining one. Internally these locations have
-zero-based indices 1, 2, 3, whose sum is 6; subtracting the selected
-endpoints recovers the middle index. This visits every allowed
-permutation exactly once and no forbidden permutation. Every required
-answer is among these four candidates, so choosing their minimum proves
-optimality. Updating the saved cost and route together ensures that the
-printed route has the printed length.
+Pitfalls:
 
-Time `O(1)` and memory `O(1)`, since there are always five locations,
-four candidates and four edges per candidate. Each sum is at most 40000,
-so signed 32-bit integers suffice. No shortest-path preprocessing is
-needed for the given metric distances.
-
-The restriction concerns the penultimate stop, not the second or third
-stop. Keep location 5 last and location 1 first. Zero distances and tied
-optima are legal. Initialize the best cost so zero can win; 10000 is not
-a valid upper bound for a whole route. Convert internal zero-based
-indices back to 1..5 in the output.
+- the rule concerns the stop just before the last one;
+- a route costs from 0 to 40 000, so the minimum starts from "none yet",
+  not from 0 or 10 000.
 
 ## Language notes
 
-All five languages evaluate the same four candidates and consume all 25
-matrix entries. Fixed arrays are used where convenient; Python uses
-small lists. The saved route is preserved independently of later
-candidates.
+- Python takes the orders from `itertools.permutations`; the other
+  languages go through the points with three nested loops.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2005_bruteforce.cpp](2005_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.031 s | 432 KB |
-| [2005_bruteforce.go](2005_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1108 KB |
-| [2005_bruteforce.java](2005_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 432 KB |
-| [2005_bruteforce.py](2005_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.093 s | 508 KB |
-| [2005_bruteforce.rs](2005_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 224 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2005_bruteforce.cpp](2005_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11303437 |
+| [2005_bruteforce.go](2005_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1104 KB | 11303440 |
+| [2005_bruteforce.java](2005_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1616 KB | 11303442 |
+| [2005_bruteforce.py](2005_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.093 s | 432 KB | 11303445 |
+| [2005_bruteforce.rs](2005_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 236 KB | 11303446 |

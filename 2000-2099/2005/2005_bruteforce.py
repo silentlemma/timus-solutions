@@ -1,29 +1,23 @@
 import sys
+from itertools import permutations
 
 POINTS = 5
-END = POINTS - 1
-FORBIDDEN_LAST = 2
-MIDDLE_SUM = END * (END - 1) // 2
+# point k has index k - 1: start 0, middle points FIRST_MIDDLE..LAST_MIDDLE, finish END
+FIRST_MIDDLE = 1
+POINT_3 = 2
+LAST_MIDDLE = 3
+END = 4
 
-
-def solve(distance):
-    best_cost = -1
-    best_route = []
-    for first in range(1, END):
-        for last in range(1, END):
-            if first == last or last == FORBIDDEN_LAST:
-                continue
-            middle = MIDDLE_SUM - first - last
-            route = [0, first, middle, last, END]
-            cost = sum(distance[a][b] for a, b in zip(route, route[1:]))
-            if best_cost < 0 or cost < best_cost:
-                best_cost, best_route = cost, route
-    return best_cost, best_route
-
-
-if __name__ == "__main__":
-    tokens = iter(map(int, sys.stdin.buffer.read().split()))
-    distance = [[next(tokens) for _ in range(POINTS)] for _ in range(POINTS)]
-    cost, route = solve(distance)
-    print(cost)
-    print(*(point + 1 for point in route))
+numbers = list(map(int, sys.stdin.read().split()))
+d = [numbers[POINTS * i : POINTS * (i + 1)] for i in range(POINTS)]
+best, route = None, None
+# points 2, 3 and 4 (indices 1, 2, 3) come in any order, except that 3 may
+# not be the last of them
+for a, b, c in permutations(range(FIRST_MIDDLE, LAST_MIDDLE + 1)):
+    if c == POINT_3:
+        continue
+    cost = d[0][a] + d[a][b] + d[b][c] + d[c][END]
+    if best is None or cost < best:
+        best, route = cost, (0, a, b, c, END)
+print(best)
+print(*(point + 1 for point in route))
