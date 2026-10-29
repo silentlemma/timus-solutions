@@ -2,15 +2,9 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math"
 	"os"
-	"strconv"
-)
-
-const (
-	decimals  = 4
-	floatBits = 64
-	lineBytes = 32
 )
 
 func main() {
@@ -19,28 +13,14 @@ func main() {
 	defer writer.Flush()
 
 	var nums []uint64
-	var cur uint64
-	inNumber := false
 	for {
-		c, err := reader.ReadByte()
-		if err == nil && c >= '0' && c <= '9' {
-			cur = cur*10 + uint64(c-'0')
-			inNumber = true
-			continue
-		}
-		if inNumber {
-			nums = append(nums, cur)
-			cur, inNumber = 0, false
-		}
-		if err != nil {
+		var x uint64
+		if _, err := fmt.Fscan(reader, &x); err != nil {
 			break
 		}
+		nums = append(nums, x)
 	}
-
-	buf := make([]byte, 0, lineBytes)
 	for i := len(nums) - 1; i >= 0; i-- {
-		buf = strconv.AppendFloat(buf[:0], math.Sqrt(float64(nums[i])), 'f', decimals, floatBits)
-		buf = append(buf, '\n')
-		writer.Write(buf)
+		fmt.Fprintf(writer, "%.4f\n", math.Sqrt(float64(nums[i])))
 	}
 }

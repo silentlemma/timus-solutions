@@ -85,25 +85,62 @@ Detalles a tener en cuenta:
 - los valores no caben en 32 bits: hay que usar enteros de 64 bits;
 - hasta unas 131 000 líneas de salida: la salida debe ir con búfer.
 
+## Soluciones optimizadas
+
+Las soluciones optimizadas (C++, Go, Java, Rust) guardan la entrada como
+texto y no como un arreglo de números. C++, Go y Java la leen en un solo
+búfer y analizan los números desde el final hacia atrás, que es justo el
+orden de la salida; Rust recorre los tokens del texto al revés. La raíz se
+imprime a mano: se multiplica por `10^4`, se redondea y se escribe como
+parte entera y cuatro cifras de la parte fraccionaria, sin el lento
+formateo de números de coma flotante. En lugar de un arreglo de hasta
+131 000 números, en memoria quedan solo los 256 KB de la entrada. C++:
+0.031 s en lugar de 0.125 s y 356 KB en lugar de 1576 KB; Go: 0.015 s en
+lugar de 0.125 s y 1180 KB en lugar de 6588 KB; Java: 0.125 s en lugar
+de 0.593 s y 872 KB en lugar de 11728 KB; Rust: 0.015 s en lugar de
+0.046 s y 464 KB en lugar de 3072 KB.
+
+La solución optimizada en Python escribe las respuestas por bloques
+desde el final de la entrada: corta unos 4 KB de números cada vez, en un
+separador, así que nunca construye a la vez la lista de todas las
+raíces: 2052 KB en lugar de 11492 KB, aunque el tiempo sube de 0.125 s a
+0.156 s.
+
 ## Notas por lenguaje
 
-- **C++**: `scanf("%llu")` en un bucle, `printf("%.4f\n")`.
-- **Go**: un analizador byte a byte sobre `bufio.Reader` y `strconv.AppendFloat`
-  en un `bufio.Writer`; llamar a `fmt.Printf` por cada línea es lento.
-- **Python**: leer toda la entrada con `sys.stdin.buffer.read().split()`, armar
-  todas las líneas y escribirlas con un solo `join`.
-- **Java**: analizar los números desde un búfer de bytes y acumular la salida en
-  un `StringBuilder`; formatear con `Locale.US`, de lo contrario el separador
-  decimal podría ser una coma.
-- **Rust**: leer toda la entrada en un `String`, convertir a `u64` y formatear
-  con `{:.4}` en una sola cadena de salida.
+- **C++**: la solución simple usa `scanf("%llu")` en un bucle y
+  `printf("%.4f\n")`.
+- **Go**: la solución simple lee con `fmt.Fscan` sobre un `bufio.Reader`
+  y escribe con `fmt.Fprintf` en un `bufio.Writer`; llamar a
+  `fmt.Printf` sobre la salida sin búfer por cada línea es lento.
+- **Python**: la solución simple lee toda la entrada con
+  `sys.stdin.buffer.read().split()`, arma todas las líneas y las escribe con
+  un solo `join`.
+- **Java**: la solución simple lee con `BufferedReader` y
+  `StringTokenizer` y acumula la salida en un `StringBuilder`; formatea
+  con `Locale.US`, de lo contrario el separador decimal podría ser una
+  coma.
+- **Rust**: la solución simple lee toda la entrada en un `String`,
+  convierte a `u64` y formatea con `{:.4}` en una sola cadena de salida.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1001_math.cpp](1001_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.125 s | 1576 KB |
-| [1001_math.go](1001_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 5056 KB |
-| [1001_math.java](1001_math.java) | Java 1.8 | math | O(n) | AC | 0.453 s | 11412 KB |
-| [1001_math.py](1001_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.125 s | 11492 KB |
-| [1001_math.rs](1001_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.046 s | 3096 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1001_math.cpp](1001_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.125 s | 1576 KB | 11277417 |
+| [1001_math.go](1001_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.125 s | 6588 KB | 11303052 |
+| [1001_math.java](1001_math.java) | Java 1.8 | math | O(n) | AC | 0.593 s | 11728 KB | 11303054 |
+| [1001_math.py](1001_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.125 s | 11492 KB | 11277419 |
+| [1001_math.rs](1001_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.046 s | 3072 KB | 11303271 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1001_math_optimized.cpp](1001_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.031 s | 356 KB | 11303536 |
+| [1001_math_optimized.go](1001_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 1180 KB | 11303537 |
+| [1001_math_optimized.java](1001_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 872 KB | 11303449 |
+| [1001_math_optimized.py](1001_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 2052 KB | 11303694 |
+| [1001_math_optimized.rs](1001_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 464 KB | 11303538 |

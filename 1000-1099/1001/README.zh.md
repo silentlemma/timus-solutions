@@ -79,23 +79,53 @@
 - 数值超出 32 位范围，需要使用 64 位整数；
 - 输出可能多达约 131 000 行，必须使用缓冲输出。
 
+## 优化解法
+
+优化解法（C++、Go、Java、Rust）把输入保存为文本，而不是数的数组。
+C++、Go 和 Java 把它读入一个缓冲区，从末尾向前解析数字，这正是输出的顺序；
+Rust 则倒序遍历文本中的记号。平方根手工输出：乘以 `10^4`、四舍五入，
+再写出整数部分和四位小数，省去较慢的浮点数格式化。内存中不再有最多
+131 000 个数的数组，只剩 256 KB 的输入。C++：0.031 s，而不是 0.125 s；
+356 KB，而不是 1576 KB。Go：0.015 s，而不是 0.125 s；1180 KB，而不是
+6588 KB。Java：0.125 s，而不是 0.593 s；872 KB，而不是 11728 KB。
+Rust：0.015 s，而不是 0.046 s；464 KB，而不是 3072 KB。
+
+优化的 Python 解法从输入末尾开始分块输出答案：每次在分隔符处截取约 4 KB 的数字，
+因此不会一次性构造所有平方根的列表：2052 KB，而不是 11492 KB，但时间从 0.125 s
+增加到 0.156 s。
+
 ## 各语言说明
 
-- **C++**：循环使用 `scanf("%llu")`，输出用 `printf("%.4f\n")`。
-- **Go**：在 `bufio.Reader` 上按字节解析，用 `strconv.AppendFloat` 写入 `bufio.Writer`；
-  每行调用一次 `fmt.Printf` 会很慢。
-- **Python**：用 `sys.stdin.buffer.read().split()` 读入全部输入，拼好所有行后用一次
-  `join` 输出。
-- **Java**：从字节缓冲区解析数字，把输出收集到 `StringBuilder` 中；格式化时使用
-  `Locale.US`，否则小数点可能变成逗号。
-- **Rust**：把全部输入读入 `String`，解析为 `u64`，用 `{:.4}` 格式化到一个输出字符串中。
+- **C++**：简单解法循环使用 `scanf("%llu")`，输出用 `printf("%.4f\n")`。
+- **Go**：简单解法在 `bufio.Reader` 上用 `fmt.Fscan` 读取，用
+  `fmt.Fprintf` 写入 `bufio.Writer`；每行对无缓冲的输出调用一次
+  `fmt.Printf` 会很慢。
+- **Python**：简单解法用 `sys.stdin.buffer.read().split()` 读入全部输入，拼好所有
+  行后用一次 `join` 输出。
+- **Java**：简单解法用 `BufferedReader` 配合 `StringTokenizer` 读取，把输出
+  收集到 `StringBuilder` 中；格式化时使用 `Locale.US`，否则小数点可能变成
+  逗号。
+- **Rust**：简单解法把全部输入读入 `String`，解析为 `u64`，用 `{:.4}`
+  格式化到一个输出字符串中。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1001_math.cpp](1001_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.125 s | 1576 KB |
-| [1001_math.go](1001_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 5056 KB |
-| [1001_math.java](1001_math.java) | Java 1.8 | math | O(n) | AC | 0.453 s | 11412 KB |
-| [1001_math.py](1001_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.125 s | 11492 KB |
-| [1001_math.rs](1001_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.046 s | 3096 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1001_math.cpp](1001_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.125 s | 1576 KB | 11277417 |
+| [1001_math.go](1001_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.125 s | 6588 KB | 11303052 |
+| [1001_math.java](1001_math.java) | Java 1.8 | math | O(n) | AC | 0.593 s | 11728 KB | 11303054 |
+| [1001_math.py](1001_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.125 s | 11492 KB | 11277419 |
+| [1001_math.rs](1001_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.046 s | 3072 KB | 11303271 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1001_math_optimized.cpp](1001_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.031 s | 356 KB | 11303536 |
+| [1001_math_optimized.go](1001_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 1180 KB | 11303537 |
+| [1001_math_optimized.java](1001_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 872 KB | 11303449 |
+| [1001_math_optimized.py](1001_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 2052 KB | 11303694 |
+| [1001_math_optimized.rs](1001_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 464 KB | 11303538 |
