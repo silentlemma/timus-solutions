@@ -68,16 +68,39 @@ Las respuestas se compararon con la comprobación de todos los rectángulos
 mediante una tabla de sumas prefijas en 150 arrays aleatorios de hasta
 `9 × 9`.
 
+## Soluciones optimizadas
+
+La solución optimizada en Python lee la entrada en bloques de 4 KB,
+guarda cada fila en un `array` de bytes (todos los valores están entre
+−127 y 127) y suma una fila a las sumas de columnas con `map` en lugar
+de un bucle de Python: 632 KB en lugar de 1372 KB, con el mismo tiempo.
+La solución optimizada en Rust analiza los números a mano directamente
+desde `stdin().lock()`, guarda la matriz en un solo vector plano de `i8`
+y reutiliza un vector de sumas de columnas: 212 KB en lugar de 372 KB,
+aunque el tiempo sube de 0.015 s a 0.046 s.
+
 ## Notas por lenguaje
 
 - Todos los lenguajes hacen el mismo recorrido.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1146_dp.cpp](1146_dp.cpp) | G++ 13.2 x64 | dp | O(N³) | AC | 0.015 s | 248 KB |
-| [1146_dp.go](1146_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1308 KB |
-| [1146_dp.java](1146_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.078 s | 620 KB |
-| [1146_dp.py](1146_dp.py) | Python 3.12 x64 | dp | O(N³) | AC | 0.187 s | 1372 KB |
-| [1146_dp.rs](1146_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 372 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1146_dp.cpp](1146_dp.cpp) | G++ 13.2 x64 | dp | O(N³) | AC | 0.015 s | 248 KB | 11279486 |
+| [1146_dp.go](1146_dp.go) | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1308 KB | 11279491 |
+| [1146_dp.java](1146_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.078 s | 620 KB | 11279494 |
+| [1146_dp.py](1146_dp.py) | Python 3.12 x64 | dp | O(N³) | AC | 0.187 s | 1372 KB | 11279492 |
+| [1146_dp.rs](1146_dp.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 372 KB | 11279497 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1146_dp_optimized.py](1146_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N³) | AC | 0.171 s | 632 KB | 11303714 |
+| [1146_dp_optimized.rs](1146_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.
