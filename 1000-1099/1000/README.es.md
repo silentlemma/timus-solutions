@@ -70,23 +70,36 @@ Detalles a tener en cuenta:
 - los números se leen como tokens separados por espacios en blanco, así que da
   igual si están en una línea o en dos.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los dos números byte a byte desde
+`System.in` en lugar de usar `Scanner`: 0.046 s en lugar de 0.078 s y
+336 KB en lugar de 1548 KB.
+
 ## Notas por lenguaje
 
 - **C++**: `long long` y `scanf("%lld %lld")`.
 - **Go**: `int64` con `fmt.Scan`, que omite cualquier espacio en blanco.
 - **Python**: los enteros tienen precisión arbitraria; leer todos los tokens con
   `sys.stdin.read().split()` funciona con cualquier distribución en líneas.
-- **Java**: `long` y `Scanner`; para una entrada tan pequeña `Scanner` es
-  suficientemente rápido.
+- **Java**: la solución sencilla usa `long` y `Scanner`.
 - **Rust**: leer toda la entrada en un `String`, dividirla por espacios en blanco
   y convertir a `i64`.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1000_math.cpp](1000_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 128 KB |
-| [1000_math.go](1000_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB |
-| [1000_math.java](1000_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 1548 KB |
-| [1000_math.py](1000_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 132 KB |
-| [1000_math.rs](1000_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.001 s | 228 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1000_math.cpp](1000_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303840 |
+| [1000_math.go](1000_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB | 11277409 |
+| [1000_math.java](1000_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 1548 KB | 11277412 |
+| [1000_math.py](1000_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 132 KB | 11277410 |
+| [1000_math.rs](1000_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.001 s | 228 KB | 11303841 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1000_math_optimized.java](1000_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.046 s | 336 KB | 11303693 |
