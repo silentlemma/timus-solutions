@@ -1,39 +1,33 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
-const modulus int64 = 1000000007
-
-func solve(n, a, b int) int64 {
-	endsOne := make([]int64, b+1)
-	endsTwo := make([]int64, a+1)
-	endsOne[0], endsTwo[0] = 1, 1
-	var windowOne, windowTwo int64 = 1, 1
-	var lastOne, lastTwo int64
-	for length := 1; length <= n; length++ {
-		lastOne, lastTwo = windowOne, windowTwo
-		var expiredTwo, expiredOne int64
-		if length >= a {
-			expiredTwo = endsTwo[(length-a)%(a+1)]
-		}
-		if length >= b {
-			expiredOne = endsOne[(length-b)%(b+1)]
-		}
-		windowOne = (windowOne + lastTwo + modulus - expiredTwo) % modulus
-		windowTwo = (windowTwo + lastOne + modulus - expiredOne) % modulus
-		endsOne[length%(b+1)] = lastOne
-		endsTwo[length%(a+1)] = lastTwo
-	}
-	return (lastOne + lastTwo) % modulus
-}
+const mod = 1000000007
 
 func main() {
-	in := bufio.NewReader(os.Stdin)
 	var n, a, b int
-	fmt.Fscan(in, &n, &a, &b)
-	fmt.Println(solve(n, a, b))
+	fmt.Scan(&n, &a, &b)
+	// one[i], two[i]: sequences of length i that end with a run of ones or twos,
+	// the empty sequence counts once on both sides, so one[0] = two[0] = 1
+	one := make([]int, n+1)
+	two := make([]int, n+1)
+	sumOne := make([]int, n+1)
+	sumTwo := make([]int, n+1)
+	one[0], two[0], sumOne[0], sumTwo[0] = 1, 1, 1, 1
+	for i := 1; i <= n; i++ {
+		// the last run of ones has length 1..a and follows a sequence ending in twos
+		one[i] = sumTwo[i-1]
+		if i-a-1 >= 0 {
+			one[i] -= sumTwo[i-a-1]
+		}
+		two[i] = sumOne[i-1]
+		if i-b-1 >= 0 {
+			two[i] -= sumOne[i-b-1]
+		}
+		one[i] = (one[i]%mod + mod) % mod
+		two[i] = (two[i]%mod + mod) % mod
+		sumOne[i] = (sumOne[i-1] + one[i]) % mod
+		sumTwo[i] = (sumTwo[i-1] + two[i]) % mod
+	}
+	fmt.Println((one[n] + two[n]) % mod)
 }

@@ -1,24 +1,16 @@
-import sys
+MOD = 10**9 + 7
 
-MOD = 1000000007
-
-
-def solve(n, a, b):
-    ends_one = [0] * (b + 1)
-    ends_two = [0] * (a + 1)
-    ends_one[0] = ends_two[0] = 1
-    window_one = window_two = 1
-    last_one = last_two = 0
-    for length in range(1, n + 1):
-        last_one, last_two = window_one, window_two
-        expired_two = ends_two[(length - a) % (a + 1)] if length >= a else 0
-        expired_one = ends_one[(length - b) % (b + 1)] if length >= b else 0
-        window_one = (window_one + last_two - expired_two) % MOD
-        window_two = (window_two + last_one - expired_one) % MOD
-        ends_one[length % (b + 1)] = last_one
-        ends_two[length % (a + 1)] = last_two
-    return (last_one + last_two) % MOD
-
-
-if __name__ == "__main__":
-    print(solve(*map(int, sys.stdin.buffer.read().split())))
+n, a, b = map(int, input().split())
+# one[i], two[i]: sequences of length i that end with a run of ones or twos,
+# the empty sequence counts once on both sides, so one[0] = two[0] = 1
+one = [1] + [0] * n
+two = [1] + [0] * n
+sum_one = [1] + [0] * n
+sum_two = [1] + [0] * n
+for i in range(1, n + 1):
+    # the last run of ones has length 1..a and follows a sequence ending in twos
+    one[i] = (sum_two[i - 1] - (sum_two[i - a - 1] if i - a - 1 >= 0 else 0)) % MOD
+    two[i] = (sum_one[i - 1] - (sum_one[i - b - 1] if i - b - 1 >= 0 else 0)) % MOD
+    sum_one[i] = (sum_one[i - 1] + one[i]) % MOD
+    sum_two[i] = (sum_two[i - 1] + two[i]) % MOD
+print((one[n] + two[n]) % MOD)

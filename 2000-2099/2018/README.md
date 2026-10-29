@@ -40,64 +40,57 @@ Outputs are compared token by token.
 
 ## Solution
 
-Let `A_i` count valid prefixes of length `i` ending in 1, and `B_i` those
-ending in 2. Set artificial boundary values `A_0 = B_0 = 1`: each denotes
-the empty prefix before the first run of the opposite symbol.
-For positive `i`, split a sequence before its final maximal run:
+Let one[i] be the number of valid sequences of length i that end with a
+run of ones, and two[i] those that end with a run of twos. A sequence
+ending with a run of r ones, 1 ≤ r ≤ a, is a sequence of length i − r
+that ends with twos, followed by the run; the empty sequence counts once
+on each side, one[0] = two[0] = 1. So
 
-- `A_i = sum(B_(i−r), 1 ≤ r ≤ min(a,i))`.
-- `B_i = sum(A_(i−r), 1 ≤ r ≤ min(b,i))`.
+- one[i] = two[i − 1] + two[i − 2] + … + two[max(0, i − a)],
+- two[i] = one[i − 1] + … + one[max(0, i − b)],
 
-The prefix either is empty or ends with the other symbol. Conversely,
-appending the chosen run creates a valid sequence with a unique final run.
-Thus these sums count every sequence exactly once. The answer is
-`(A_n + B_n) mod 1,000,000,007`, since the final symbols are disjoint.
+and the answer is one[n] + two[n] modulo 10⁹ + 7. Each sum is the
+difference of two prefix sums of the same array, so every length takes
+`O(1)`, `O(n)` in all.
 
-Do not sum up to 300 terms afresh for every length. Before processing `i`,
-maintain `S_A = sum(B_j, max(0,i−a) ≤ j < i)` and
-`S_B = sum(A_j, max(0,i−b) ≤ j < i)`, initially both one.
-Their current values are exactly `A_i` and `B_i`. Save both values before
-updating either sum. For the next length, add `B_i` to `S_A` and remove
-`B_(i−a)` when `i ≥ a`; add `A_i` to `S_B` and remove `A_(i−b)` when `i ≥ b`.
-Reduce all updates modulo the modulus, normalizing subtraction to a
-nonnegative residue. These updates preserve the stated window invariant,
-which proves by induction that the computed counts satisfy the recurrence.
-
-Only recently produced values can expire. Store the `B` values in a circular
-buffer of size `a+1`, and the `A` values in one of size `b+1`. Read expired
-entries before writing the new ones. A value being overwritten is already
-outside its window; the extra slot also separates the current value from
-the one expiring now. In particular, the `A` buffer is sized by **b**, not a.
-The algorithm uses `O(n)` time and `O(a+b)` space, at most 602 buffered counts.
-
-For the sample, the permitted sequences are `112`, `121`, `211`, `212`.
-The pair `22` is forbidden by `b=1`; `111` exceeds `a=2`, so the answer is four.
+In the example n = 3, a = 2, b = 1 the sequences are 112, 121, 211 and
+212: 22 has a run of twos longer than b, 111 a run of ones longer
+than a.
 
 Pitfalls:
 
-- Include the artificial empty prefix exactly once in each recurrence,
-  then expire it normally.
-- Compute both current counts from the old windows before updating the windows.
-- Expire at `i ≥ a` or `i ≥ b`, including equality, and use the opposite
-  ending type.
-- Use wide intermediate arithmetic: an update with an added modulus can
-  approach three moduli.
-- Normalize negative subtraction and do not count the two empty boundary
-  states as real answers.
+- the empty sequence counts once in each sum and never as an answer;
+- the difference of two prefix sums modulo 10⁹ + 7 can be negative.
+
+## Optimized solutions
+
+The optimized Java solution keeps only the values the sums still need:
+the last a + 1 values of two and the last b + 1 values of one, in
+circular buffers, together with the two window sums, which are moved one
+step for every length instead of being taken from prefix sums. It also
+parses the three numbers by hand instead of using `Scanner`: 0.093 s
+instead of 0.125 s and 408 KB instead of 3140 KB.
 
 ## Language notes
 
-All versions use the same two circular buffers and modular windows. C++,
-Go and Java use signed 64-bit counts; Rust uses `u64`, and Python uses
-integers with a nonnegative modulo operation. No recursion or large DP
-table is needed.
+- Python's `%` already gives a nonnegative remainder; C++, Go and Java
+  add the modulus before taking the remainder again, and Rust uses
+  `rem_euclid`.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2018_dp_prefix_sums.cpp](2018_dp_prefix_sums.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB |
-| [2018_dp_prefix_sums.go](2018_dp_prefix_sums.go) | Go 1.14 x64 | dp, prefix_sums | O(n) | AC | 0.031 s | 1088 KB |
-| [2018_dp_prefix_sums.java](2018_dp_prefix_sums.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.125 s | 404 KB |
-| [2018_dp_prefix_sums.py](2018_dp_prefix_sums.py) | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB |
-| [2018_dp_prefix_sums.rs](2018_dp_prefix_sums.rs) | Rust 1.75 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 216 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2018_dp_prefix_sums.cpp](2018_dp_prefix_sums.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 1368 KB | 11303350 |
+| [2018_dp_prefix_sums.go](2018_dp_prefix_sums.go) | Go 1.14 x64 | dp, prefix_sums | O(n) | AC | 0.031 s | 2688 KB | 11303351 |
+| [2018_dp_prefix_sums.java](2018_dp_prefix_sums.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.125 s | 3140 KB | 11303352 |
+| [2018_dp_prefix_sums.py](2018_dp_prefix_sums.py) | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.156 s | 8624 KB | 11303354 |
+| [2018_dp_prefix_sums.rs](2018_dp_prefix_sums.rs) | Rust 1.75 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 1648 KB | 11303355 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |

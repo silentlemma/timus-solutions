@@ -1,43 +1,33 @@
-use std::io::{self, Read};
+use std::io;
 
-const MOD: u64 = 1_000_000_007;
-
-fn solve(n: usize, a: usize, b: usize) -> u64 {
-    let mut ends_one = vec![0u64; b + 1];
-    let mut ends_two = vec![0u64; a + 1];
-    ends_one[0] = 1;
-    ends_two[0] = 1;
-    let (mut window_one, mut window_two) = (1, 1);
-    let (mut last_one, mut last_two) = (0, 0);
-    for length in 1..=n {
-        last_one = window_one;
-        last_two = window_two;
-        let expired_two = if length >= a {
-            ends_two[(length - a) % (a + 1)]
-        } else {
-            0
-        };
-        let expired_one = if length >= b {
-            ends_one[(length - b) % (b + 1)]
-        } else {
-            0
-        };
-        window_one = (window_one + last_two + MOD - expired_two) % MOD;
-        window_two = (window_two + last_one + MOD - expired_one) % MOD;
-        ends_one[length % (b + 1)] = last_one;
-        ends_two[length % (a + 1)] = last_two;
-    }
-    (last_one + last_two) % MOD
-}
+const MOD: i64 = 1_000_000_007;
 
 fn main() {
-    let mut input = String::new();
-    io::stdin().read_to_string(&mut input).unwrap();
-    let mut tokens = input
-        .split_whitespace()
-        .map(|s| s.parse::<usize>().unwrap());
-    let n = tokens.next().unwrap();
-    let a = tokens.next().unwrap();
-    let b = tokens.next().unwrap();
-    println!("{}", solve(n, a, b));
+    let mut line = String::new();
+    io::stdin().read_line(&mut line).unwrap();
+    let v: Vec<usize> = line
+        .split_ascii_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
+    let (n, a, b) = (v[0], v[1], v[2]);
+    // one[i], two[i]: sequences of length i that end with a run of ones or twos,
+    // the empty sequence counts once on both sides, so one[0] = two[0] = 1
+    let mut one = vec![0i64; n + 1];
+    let mut two = vec![0i64; n + 1];
+    let mut sum_one = vec![0i64; n + 1];
+    let mut sum_two = vec![0i64; n + 1];
+    one[0] = 1;
+    two[0] = 1;
+    sum_one[0] = 1;
+    sum_two[0] = 1;
+    for i in 1..=n {
+        // the last run of ones has length 1..a and follows a sequence ending in twos
+        one[i] = sum_two[i - 1] - if i > a { sum_two[i - a - 1] } else { 0 };
+        two[i] = sum_one[i - 1] - if i > b { sum_one[i - b - 1] } else { 0 };
+        one[i] = one[i].rem_euclid(MOD);
+        two[i] = two[i].rem_euclid(MOD);
+        sum_one[i] = (sum_one[i - 1] + one[i]) % MOD;
+        sum_two[i] = (sum_two[i - 1] + two[i]) % MOD;
+    }
+    println!("{}", (one[n] + two[n]) % MOD);
 }

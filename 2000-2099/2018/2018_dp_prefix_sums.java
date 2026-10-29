@@ -1,45 +1,25 @@
-import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-  static final long MOD = 1000000007L;
-  static final int SPACE = 32;
-  static final int RADIX = 10;
+    static final long MOD = 1000000007;
 
-  static int readInt(BufferedInputStream in) throws IOException {
-    int c;
-    do {
-      c = in.read();
-    } while (c <= SPACE && c >= 0);
-    int value = 0;
-    while (c > SPACE) {
-      value = value * RADIX + c - '0';
-      c = in.read();
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(), a = in.nextInt(), b = in.nextInt();
+        // one[i], two[i]: sequences of length i that end with a run of ones or twos,
+        // the empty sequence counts once on both sides, so one[0] = two[0] = 1
+        long[] one = new long[n + 1], two = new long[n + 1];
+        long[] sumOne = new long[n + 1], sumTwo = new long[n + 1];
+        one[0] = two[0] = sumOne[0] = sumTwo[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            // the last run of ones has length 1..a and follows a sequence ending in twos
+            one[i] = sumTwo[i - 1] - (i - a - 1 >= 0 ? sumTwo[i - a - 1] : 0);
+            two[i] = sumOne[i - 1] - (i - b - 1 >= 0 ? sumOne[i - b - 1] : 0);
+            one[i] = (one[i] % MOD + MOD) % MOD;
+            two[i] = (two[i] % MOD + MOD) % MOD;
+            sumOne[i] = (sumOne[i - 1] + one[i]) % MOD;
+            sumTwo[i] = (sumTwo[i - 1] + two[i]) % MOD;
+        }
+        System.out.println((one[n] + two[n]) % MOD);
     }
-    return value;
-  }
-
-  static long solve(int n, int a, int b) {
-    long[] endsOne = new long[b + 1];
-    long[] endsTwo = new long[a + 1];
-    endsOne[0] = endsTwo[0] = 1;
-    long windowOne = 1, windowTwo = 1, lastOne = 0, lastTwo = 0;
-    for (int length = 1; length <= n; length++) {
-      lastOne = windowOne;
-      lastTwo = windowTwo;
-      long expiredTwo = length >= a ? endsTwo[(length - a) % (a + 1)] : 0;
-      long expiredOne = length >= b ? endsOne[(length - b) % (b + 1)] : 0;
-      windowOne = (windowOne + lastTwo + MOD - expiredTwo) % MOD;
-      windowTwo = (windowTwo + lastOne + MOD - expiredOne) % MOD;
-      endsOne[length % (b + 1)] = lastOne;
-      endsTwo[length % (a + 1)] = lastTwo;
-    }
-    return (lastOne + lastTwo) % MOD;
-  }
-
-  public static void main(String[] args) throws IOException {
-    BufferedInputStream in = new BufferedInputStream(System.in);
-    int n = readInt(in), a = readInt(in), b = readInt(in);
-    System.out.println(solve(n, a, b));
-  }
 }

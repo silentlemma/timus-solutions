@@ -1,28 +1,23 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 
-constexpr long long MOD = 1000000007;
-
-long long solve(int n, int a, int b) {
-    std::vector<long long> ends_one(b + 1), ends_two(a + 1);
-    ends_one[0] = ends_two[0] = 1;
-    long long window_one = 1, window_two = 1, last_one = 0, last_two = 0;
-    for (int length = 1; length <= n; ++length) {
-        last_one = window_one;
-        last_two = window_two;
-        long long expired_two = length >= a ? ends_two[(length - a) % (a + 1)] : 0;
-        long long expired_one = length >= b ? ends_one[(length - b) % (b + 1)] : 0;
-        window_one = (window_one + last_two + MOD - expired_two) % MOD;
-        window_two = (window_two + last_one + MOD - expired_one) % MOD;
-        ends_one[length % (b + 1)] = last_one;
-        ends_two[length % (a + 1)] = last_two;
-    }
-    return (last_one + last_two) % MOD;
-}
+const long long MOD = 1000000007;
 
 int main() {
     int n, a, b;
-    std::cin >> n >> a >> b;
-    std::cout << solve(n, a, b) << '\n';
-    return 0;
+    scanf("%d %d %d", &n, &a, &b);
+    // one[i], two[i]: sequences of length i that end with a run of ones or twos,
+    // the empty sequence counts once on both sides, so one[0] = two[0] = 1
+    std::vector<long long> one(n + 1), two(n + 1), sumOne(n + 1), sumTwo(n + 1);
+    one[0] = two[0] = sumOne[0] = sumTwo[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        // the last run of ones has length 1..a and follows a sequence ending in twos
+        one[i] = sumTwo[i - 1] - (i - a - 1 >= 0 ? sumTwo[i - a - 1] : 0);
+        two[i] = sumOne[i - 1] - (i - b - 1 >= 0 ? sumOne[i - b - 1] : 0);
+        one[i] = (one[i] % MOD + MOD) % MOD;
+        two[i] = (two[i] % MOD + MOD) % MOD;
+        sumOne[i] = (sumOne[i - 1] + one[i]) % MOD;
+        sumTwo[i] = (sumTwo[i - 1] + two[i]) % MOD;
+    }
+    printf("%lld\n", (one[n] + two[n]) % MOD);
 }
