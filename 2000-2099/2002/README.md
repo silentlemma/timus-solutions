@@ -76,42 +76,45 @@ the account is already offline.
 
 ## Solution
 
-Use a hash map from name to a record containing its stored password and
-online flag. For each request, perform a noninserting lookup. Apply the
-first matching row of the table, append its response and change only the
-fields specified by that successful operation.
+Keep a hash map from a name to its password and an online flag. For
+every request, look the name up and check the conditions of the table
+from the top; the first one that holds gives the reply and the only
+change. `O(n·L)` for names of length L ≤ 30.
 
-For login, existence is checked first, then password equality, and only
-then the online flag. A wrong password must therefore report the
-password error even when the account is already online. Duplicate
-registration never overwrites a password or resets the flag. Logout
-changes only online to offline. Missing lookups never create accounts.
+Pitfalls:
 
-Inductively, after zero requests the map is the required empty registry.
-Assuming it correctly represents all accounts after a prefix, the next
-lookup finds precisely the specified account or its absence. The ordered
-conditions choose the required response and perform exactly the
-permitted update, preserving the invariant. This proves every output and
-subsequent state.
+- for login, a wrong password is reported before "already logged in";
+- registration does not log the user in;
+- failed requests change nothing, and a lookup never creates an account;
+- names and passwords are compared exactly, case included.
 
-Let `L≤30` bound token length. Expected time is `O(n L)` with hash maps,
-and memory is `O(n L)` including input and responses. A conservative
-collision worst case is `O(n² L)`, still small for at most 100 requests.
-All five ports use the same transition order.
+## Optimized solutions
 
-Do not check already-online before password validity. Do not log in
-automatically on registration. A failed login, logout or duplicate
-registration must not alter the database. Compare full strings
-case-sensitively; quotes, backslashes and command-like names are
-ordinary token characters. Emit one canonical line, without echoing the
-name or password.
+The optimized C++ solution reads the words with `scanf` into buffers of
+31 bytes instead of `iostream` and answers every request at once instead
+of storing all requests and replies first: 212 KB instead of 516 KB,
+with the same time.
+
+The optimized Go solution parses the requests by hand from a 1 KB
+buffered reader instead of `fmt.Fscan` and answers each one at once
+through a buffered writer, with no list of commands: 0.015 s instead of
+0.046 s and 936 KB instead of 1124 KB.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB |
-| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB |
-| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.109 s | 684 KB |
-| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB |
-| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB | 11292443 |
+| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB | 11292444 |
+| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.140 s | 664 KB | 11303527 |
+| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB | 11292445 |
+| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB | 11292448 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
+| [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |

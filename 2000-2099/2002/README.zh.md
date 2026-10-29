@@ -59,22 +59,40 @@ fail: already logged out
 
 ## 解法
 
-哈希表将名字映射为密码和登录布尔值。每次只查询、不因缺失而创建记录，选首个满足的条件，输出对应回复，并且仅在成功时执行规定更新。
+用哈希表把名字映射到密码和在线标志。对每个请求查找名字，并从上到下检查表中的
+条件；第一个成立的条件给出回复和唯一的改动。名字长度 L ≤ 30 时为 `O(n·L)`。
 
-登录先检查用户存在，再检查密码，最后检查是否已登录。即使在线，错误密码仍应报告密码错误。重复注册不能覆盖密码或重置会话；退出只清除登录标志。失败查询不插入用户。
+注意事项：
 
-归纳证明：初始空表正确。若请求前缀后表准确表示账户，则下一次查询找到正确记录或缺失；有序条件决定正确回复，唯一允许的更新保持表准确。因此全部输出及后续状态均正确。
+- 登录时，密码错误要先于“已经登录”报告；
+- 注册不会自动登录；
+- 失败的请求什么也不改变，查找也从不创建账户；
+- 名字和密码精确比较，区分大小写。
 
-设 `L≤30` 为令牌长度，哈希表期望时间 `O(n L)`，含输入和回复的空间 `O(n L)`；保守碰撞最坏时间 `O(n² L)`，在 100 请求内也很小。五种语言使用同一优先级。
+## 优化解法
 
-不要先于密码检查在线状态，不要注册后自动登录。失败操作必须保持账户不变。完整字符串区分大小写；引号、反斜杠、命令式用户名均普通字符。只输出固定回复，不回显名字或密码。
+优化的 C++ 解法用 `scanf` 代替 `iostream`，把单词读入 31 字节的缓冲区，并对每个
+请求立即回复，而不是先保存全部请求和回复：212 KB，而不是 516 KB，时间不变。
+
+优化的 Go 解法从 1 KB 的带缓冲读取器手工解析请求，而不是用 `fmt.Fscan`，并通过带
+缓冲的写入器立即回答每个请求，不保存命令列表：0.015 s，而不是 0.046 s；936 KB，
+而不是 1124 KB。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB |
-| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB |
-| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.109 s | 684 KB |
-| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB |
-| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB | 11292443 |
+| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB | 11292444 |
+| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.140 s | 664 KB | 11303527 |
+| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB | 11292445 |
+| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB | 11292448 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
+| [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |

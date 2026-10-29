@@ -74,41 +74,48 @@ ya se salió.
 
 ## Solución
 
-Un mapa hash asocia cada nombre a su contraseña y un indicador de
-conexión. Buscar sin insertar, elegir la primera condición aplicable,
-añadir la respuesta y realizar solo el cambio permitido por una
-operación exitosa.
+Se guarda una tabla hash del nombre a su contraseña y una marca de
+conectado. Para cada petición se busca el nombre y se comprueban las
+condiciones de la tabla de arriba abajo; la primera que se cumple da la
+respuesta y el único cambio. `O(n·L)` para nombres de longitud L ≤ 30.
 
-Al entrar, comprobar existencia, contraseña y finalmente sesión activa.
-Una contraseña errónea mantiene prioridad incluso si la cuenta ya está
-conectada. Un registro duplicado no reemplaza contraseña ni reinicia
-sesión. Salir solo apaga el indicador; una búsqueda fallida no crea
-cuenta.
+Detalles a tener en cuenta:
 
-Por inducción, el registro vacío inicial es correcto. Si representa
-exactamente las cuentas tras un prefijo, la siguiente búsqueda encuentra
-el registro apropiado o su ausencia; las condiciones ordenadas dan la
-respuesta requerida y la actualización permitida conserva la
-representación. Así todos los resultados y estados posteriores son
-correctos.
+- al entrar, una contraseña incorrecta se informa antes que «ya
+  conectado»;
+- el registro no conecta al usuario;
+- las peticiones fallidas no cambian nada, y una búsqueda nunca crea una
+  cuenta;
+- nombres y contraseñas se comparan exactamente, con mayúsculas y
+  minúsculas.
 
-Con longitud `L≤30`, tiempo esperado `O(n L)` y memoria `O(n L)`
-incluyendo entrada y respuestas. Una cota conservadora con colisiones es
-`O(n² L)`, pequeña con 100 operaciones. Los cinco lenguajes mantienen la
-misma prioridad.
+## Soluciones optimizadas
 
-No comprobar conexión antes de contraseña ni conectar automáticamente al
-registrar. Los fallos no modifican cuentas. Comparar cadenas completas
-con mayúsculas; comillas, barras inversas y nombres de comando son
-caracteres ordinarios. Emitir solo el mensaje fijo, sin repetir nombre o
-contraseña.
+La solución optimizada en C++ lee las palabras con `scanf` en búferes de
+31 bytes en lugar de `iostream` y responde a cada petición en el acto,
+en lugar de guardar antes todas las peticiones y respuestas: 212 KB en
+lugar de 516 KB, con el mismo tiempo.
+
+La solución optimizada en Go analiza las peticiones a mano desde un
+lector con búfer de 1 KB en lugar de `fmt.Fscan` y responde cada una
+enseguida con un escritor con búfer, sin lista de órdenes: 0.015 s en
+lugar de 0.046 s y 936 KB en lugar de 1124 KB.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB |
-| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB |
-| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.109 s | 684 KB |
-| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB |
-| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2002_implementation.cpp](2002_implementation.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 516 KB | 11292443 |
+| [2002_implementation.go](2002_implementation.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.046 s | 1124 KB | 11292444 |
+| [2002_implementation.java](2002_implementation.java) | Java 1.8 | implementation | O(n L) | AC | 0.140 s | 664 KB | 11303527 |
+| [2002_implementation.py](2002_implementation.py) | Python 3.12 x64 | implementation | O(n L) | AC | 0.093 s | 576 KB | 11292445 |
+| [2002_implementation.rs](2002_implementation.rs) | Rust 1.75 x64 | implementation | O(n L) | AC | 0.046 s | 460 KB | 11292448 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
+| [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |
