@@ -74,16 +74,45 @@ Pitfalls:
 The answers were checked with the checker on every test and on hundreds
 of random graphs of all four generator shapes.
 
+## Optimized solutions
+
+The optimized solutions (Go, Java) parse the input by hand from a
+buffer, keep the neighbours of each vertex as bytes, since there are at
+most 100 vertices, and run the BFS over a plain array used as the queue.
+The team of a vertex is stored as 1 or 2, with 0 for a vertex not
+reached yet, so one array replaces both the "visited" marks and the
+colours. Java collects the neighbours of a vertex in a buffer of `n`
+bytes before copying them into an array of the exact size: a line lists
+the neighbours of its vertex among the other `n - 1` vertices, each
+once, so it has fewer than `n` entries. Go: 948 KB instead of 1480 KB,
+with the same time; Java: 0.093 s instead of 0.125 s and 420 KB instead
+of 748 KB.
+
+The optimized Python solution parses the input line by line, keeps the
+adjacency lists and the sides in `bytearray`s (there are at most 100
+vertices) and walks a plain list as the queue: 548 KB instead of 964 KB,
+with the same time.
+
 ## Language notes
 
 - Rust takes each list with `take_while` on a shared token iterator.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1106_bfs.cpp](1106_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M) | AC | 0.015 s | 272 KB |
-| [1106_bfs.go](1106_bfs.go) | Go 1.14 x64 | bfs | O(N + M) | AC | 0.031 s | 1480 KB |
-| [1106_bfs.java](1106_bfs.java) | Java 1.8 | bfs | O(N + M) | AC | 0.125 s | 748 KB |
-| [1106_bfs.py](1106_bfs.py) | Python 3.12 x64 | bfs | O(N + M) | AC | 0.093 s | 964 KB |
-| [1106_bfs.rs](1106_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M) | AC | 0.031 s | 296 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1106_bfs.cpp](1106_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M) | AC | 0.015 s | 272 KB | 11279182 |
+| [1106_bfs.go](1106_bfs.go) | Go 1.14 x64 | bfs | O(N + M) | AC | 0.031 s | 1480 KB | 11279183 |
+| [1106_bfs.java](1106_bfs.java) | Java 1.8 | bfs | O(N + M) | AC | 0.125 s | 748 KB | 11279185 |
+| [1106_bfs.py](1106_bfs.py) | Python 3.12 x64 | bfs | O(N + M) | AC | 0.093 s | 964 KB | 11279184 |
+| [1106_bfs.rs](1106_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M) | AC | 0.031 s | 296 KB | 11279186 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1106_bfs_optimized.go](1106_bfs_optimized.go) | Go 1.14 x64 | bfs | O(N + M) | AC | 0.031 s | 948 KB | 11303554 |
+| [1106_bfs_optimized.java](1106_bfs_optimized.java) | Java 1.8 | bfs | O(N + M) | AC | 0.093 s | 420 KB | 11303555 |
+| [1106_bfs_optimized.py](1106_bfs_optimized.py) | Python 3.12 x64 | bfs | O(N + M) | AC | 0.078 s | 548 KB | 11303707 |
