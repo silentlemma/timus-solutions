@@ -70,16 +70,33 @@ number up to `10^6` with an exact comparison over the whole range, on
 every test, on 200 random ranges below 3000 and on the longest prime gap
 below a million.
 
+## Optimized solutions
+
+The optimized Java solution reads the input byte by byte instead of
+using `Scanner` and merges the two passes into one: going down from `J`
+it also keeps the number with the smallest ratio seen so far, so when it
+reaches `I` without meeting a prime the answer is already known. On equal
+ratios the smaller number, met later, replaces the earlier one. The
+solution takes 372 KB instead of 1552 KB, with the same time.
+
 ## Language notes
 
 - All languages use the same trial division.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1118_number_theory.cpp](1118_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.015 s | 128 KB |
-| [1118_number_theory.go](1118_number_theory.go) | Go 1.14 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.031 s | 1060 KB |
-| [1118_number_theory.java](1118_number_theory.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.109 s | 1552 KB |
-| [1118_number_theory.py](1118_number_theory.py) | Python 3.12 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 440 KB |
-| [1118_number_theory.rs](1118_number_theory.rs) | Rust 1.75 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.031 s | 212 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1118_number_theory.cpp](1118_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.015 s | 128 KB | 11279249 |
+| [1118_number_theory.go](1118_number_theory.go) | Go 1.14 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.031 s | 1060 KB | 11279251 |
+| [1118_number_theory.java](1118_number_theory.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.109 s | 1552 KB | 11279254 |
+| [1118_number_theory.py](1118_number_theory.py) | Python 3.12 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 440 KB | 11279252 |
+| [1118_number_theory.rs](1118_number_theory.rs) | Rust 1.75 x64 | number_theory | O(g · √J), g ≤ 114 | AC | 0.031 s | 212 KB | 11279256 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1118_number_theory_optimized.java](1118_number_theory_optimized.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 372 KB | 11303559 |
