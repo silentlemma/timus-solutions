@@ -87,21 +87,37 @@ Detalles a tener en cuenta:
 - contar solo las divisiones omite el coste de insertar dígitos al principio:
   el [test 05](tests/05.in) ya construye una respuesta de 12 dígitos.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza el número byte a byte desde
+`System.in` en lugar de usar `Scanner`, y añade las cifras al final e
+invierte la cadena una sola vez en lugar de insertar cada cifra al
+principio: 380 KB en lugar de 1604 KB, con el mismo tiempo.
+
 ## Notas por lenguaje
 
-El mismo voraz en todos los lenguajes; los dígitos se juntan en una cadena.
-Para `k = O(log N)` dígitos recogidos, C++, Go y Java insertan cada dígito
-al principio, moviendo o copiando los anteriores: el tiempo total es
-`O(k^2) = O((log N)^2)`. Python y Rust añaden al final y luego invierten
-el orden, con tiempo total `O(log N)`. Los cinco usan `O(log N)` de espacio
-adicional.
+El mismo voraz en todos los lenguajes; los dígitos se juntan en una
+cadena. Para `k = O(log N)` dígitos recogidos, las soluciones simples en
+C++, Go y Java insertan cada dígito al principio, moviendo o copiando
+los anteriores: el tiempo total es `O(k^2) = O((log N)^2)`. Python, Rust
+y la solución optimizada en Java añaden al final y luego invierten el
+orden, con tiempo total `O(log N)`. Todas las soluciones usan `O(log N)`
+de espacio adicional.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB |
-| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB |
-| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB |
-| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB |
-| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB | 11278098 |
+| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB | 11278101 |
+| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB | 11278109 |
+| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB | 11278104 |
+| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB | 11278114 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |

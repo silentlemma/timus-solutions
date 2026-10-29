@@ -86,20 +86,36 @@ Pitfalls:
 - counting only divisions misses the cost of prepending digits: even
   [test 05](tests/05.in) builds a 12-digit answer.
 
+## Optimized solutions
+
+The optimized Java solution parses the number byte by byte from
+`System.in` instead of using `Scanner`, and appends the digits and
+reverses the string once instead of inserting each digit at the front:
+380 KB instead of 1604 KB, with the same time.
+
 ## Language notes
 
-The same greedy in every language; the digits are collected into a string.
-For `k = O(log N)` collected digits, C++, Go, and Java repeatedly prepend,
-moving or copying the existing digits each time: `O(k^2) = O((log N)^2)`
-total time. Python and Rust append and then reverse the order in `O(log N)`
-total time. All five use `O(log N)` extra space.
+The same greedy in every language; the digits are collected into a
+string. For `k = O(log N)` collected digits, the simple C++, Go and Java
+solutions repeatedly prepend, moving or copying the existing digits each
+time: `O(k^2) = O((log N)^2)` total time. Python, Rust and the optimized
+Java solution append and then reverse the order in `O(log N)` total
+time. All solutions use `O(log N)` extra space.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB |
-| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB |
-| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB |
-| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB |
-| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB | 11278098 |
+| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB | 11278101 |
+| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB | 11278109 |
+| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB | 11278104 |
+| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB | 11278114 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |

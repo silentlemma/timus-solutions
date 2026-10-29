@@ -76,20 +76,33 @@
 - 答案可能有 12 位（`10^9 = 2^9 · 5^9` 得到 `555555555888`）：不要存进 32 位整数——按字符串输出数字。
 - 只统计除法会漏掉在开头插入数字的开销：[测试 05](tests/05.in) 就会构造一个 12 位的答案。
 
+## 优化解法
+
+优化的 Java 解法直接从 `System.in` 逐字节解析数字，而不是使用 `Scanner`；数字追
+加到末尾，最后把字符串反转一次，而不是每次插到开头：380 KB，而不是 1604 KB，时间
+不变。
+
 ## 各语言说明
 
-各语言使用相同的贪心；数字收集到字符串中。
-设收集了 `k = O(log N)` 个数字，C++、Go 和 Java 每次都在开头插入，
-需要移动或复制已有数字，总时间为 `O(k^2) = O((log N)^2)`。
-Python 和 Rust 在末尾追加，再逆序输出，总时间为 `O(log N)`。
-五种实现的额外空间均为 `O(log N)`。
+各语言使用相同的贪心；数字收集到字符串中。设收集了 `k = O(log N)` 个数字，简单的
+C++、Go 和 Java 解法每次都在开头插入，需要移动或复制已有数字，总时间为
+`O(k^2) = O((log N)^2)`。Python、Rust 和优化的 Java 解法在末尾追加，再逆序输出，
+总时间为 `O(log N)`。所有解法的额外空间均为 `O(log N)`。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB |
-| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB |
-| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB |
-| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB |
-| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1014_greedy.cpp](1014_greedy.cpp) | G++ 13.2 x64 | greedy | O((log N)^2) | AC | 0.015 s | 192 KB | 11278098 |
+| [1014_greedy.go](1014_greedy.go) | Go 1.14 x64 | greedy | O((log N)^2) | AC | 0.031 s | 1096 KB | 11278101 |
+| [1014_greedy.java](1014_greedy.java) | Java 1.8 | greedy | O((log N)^2) | AC | 0.125 s | 1604 KB | 11278109 |
+| [1014_greedy.py](1014_greedy.py) | Python 3.12 x64 | greedy | O(log N) | AC | 0.093 s | 444 KB | 11278104 |
+| [1014_greedy.rs](1014_greedy.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.046 s | 232 KB | 11278114 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
