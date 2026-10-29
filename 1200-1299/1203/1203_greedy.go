@@ -6,32 +6,17 @@ import (
 	"os"
 )
 
-const (
-	timeLimit = 30000
-	buffer    = 1 << 16
-)
-
-var reader = bufio.NewReaderSize(os.Stdin, buffer)
-
-func readInt() int {
-	c, _ := reader.ReadByte()
-	for c < '0' || c > '9' {
-		c, _ = reader.ReadByte()
-	}
-	v := 0
-	for c >= '0' && c <= '9' {
-		v = v*10 + int(c-'0')
-		c, _ = reader.ReadByte()
-	}
-	return v
-}
+const timeLimit = 30000
 
 func main() {
-	n := readInt()
+	in := bufio.NewReader(os.Stdin)
+	var n int
+	fmt.Fscan(in, &n)
 	// the latest start among the talks that end at each minute
 	latest := make([]int, timeLimit+1)
 	for i := 0; i < n; i++ {
-		s, e := readInt(), readInt()
+		var s, e int
+		fmt.Fscan(in, &s, &e)
 		if s > latest[e] {
 			latest[e] = s
 		}

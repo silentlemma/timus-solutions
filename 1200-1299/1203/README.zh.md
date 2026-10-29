@@ -61,16 +61,36 @@
 
 答案已在 300 个随机输入和所有测试上与另一份独立解答比对。
 
+## 优化解法
+
+优化解法（C++、Rust）直接从输入缓冲区手工解析数字，而不是用 `scanf` 或把全部输入
+读进字符串，并用 16 位整数保存最晚的开始时间，因为所有时间都不超过 30 000。C++
+为 0.001 s，而不是 0.109 s；164 KB，而不是 304 KB。Rust 为 276 KB，而不是
+4176 KB，时间不变。
+
+优化的 Python 解法按 16 KB 分块读入并按需解析，最晚开始时间存在 16 位整数的
+`array` 中，而不是列表：980 KB，而不是 14476 KB，但时间从 0.109 s 增加到 0.140 s。
+
 ## 各语言说明
 
-- Go 和 Java 用手写的字节读取器读入。
+没有特别需要注意的地方。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1203_greedy.cpp](1203_greedy.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.109 s | 304 KB |
-| [1203_greedy.go](1203_greedy.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.031 s | 1344 KB |
-| [1203_greedy.java](1203_greedy.java) | Java 1.8 | greedy | O(N + T) | AC | 0.109 s | 704 KB |
-| [1203_greedy.py](1203_greedy.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.109 s | 14476 KB |
-| [1203_greedy.rs](1203_greedy.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.015 s | 4176 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1203_greedy.cpp](1203_greedy.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.109 s | 304 KB | 11283566 |
+| [1203_greedy.go](1203_greedy.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.125 s | 4420 KB | 11303282 |
+| [1203_greedy.java](1203_greedy.java) | Java 1.8 | greedy | O(N + T) | AC | 0.109 s | 620 KB | 11303457 |
+| [1203_greedy.py](1203_greedy.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.109 s | 14476 KB | 11283574 |
+| [1203_greedy.rs](1203_greedy.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.015 s | 4176 KB | 11283580 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [1203_greedy_optimized.cpp](1203_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.001 s | 164 KB | 11303579 |
+| [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.140 s | 980 KB | 11303723 |
+| [1203_greedy_optimized.rs](1203_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.031 s | 276 KB | 11303580 |
