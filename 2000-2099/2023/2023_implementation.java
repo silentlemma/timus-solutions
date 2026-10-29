@@ -1,37 +1,28 @@
-import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
-  static int solve(String[] names) {
-    int position = 0;
-    int steps = 0;
-    for (String name : names) {
-      char initial = name.charAt(0);
-      int target = "APOR".indexOf(initial) >= 0 ? 0 : "BMS".indexOf(initial) >= 0 ? 1 : 2;
-      steps += Math.abs(target - position);
-      position = target;
-    }
-    return steps;
-  }
+    // the three cabinets from left to right, with the names from the statement
+    static final String[][] CABINETS = {
+        {"Alice", "Ariel", "Aurora", "Phil", "Peter", "Olaf", "Phoebus", "Ralph", "Robin"},
+        {"Bambi", "Belle", "Bolt", "Mulan", "Mowgli", "Mickey", "Silver", "Simba", "Stitch"},
+        {"Dumbo", "Genie", "Jiminy", "Kuzko", "Kida", "Kenai", "Tarzan", "Tiana", "Winnie"},
+    };
 
-  static String readToken(BufferedInputStream in) throws IOException {
-    StringBuilder token = new StringBuilder();
-    int character;
-    do {
-      character = in.read();
-    } while (character >= 0 && character <= ' ');
-    while (character > ' ') {
-      token.append((char) character);
-      character = in.read();
+    public static void main(String[] args) {
+        Map<String, Integer> cabinet = new HashMap<>();
+        for (int i = 0; i < CABINETS.length; i++)
+            for (String name : CABINETS[i])
+                cabinet.put(name, i);
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int position = 0, steps = 0;
+        for (int k = 0; k < n; k++) {
+            int target = cabinet.get(in.next());
+            steps += Math.abs(target - position);
+            position = target;
+        }
+        System.out.println(steps);
     }
-    return token.toString();
-  }
-
-  public static void main(String[] args) throws IOException {
-    BufferedInputStream in = new BufferedInputStream(System.in);
-    int count = Integer.parseInt(readToken(in));
-    String[] names = new String[count];
-    for (int index = 0; index < count; index++) names[index] = readToken(in);
-    System.out.println(solve(names));
-  }
 }

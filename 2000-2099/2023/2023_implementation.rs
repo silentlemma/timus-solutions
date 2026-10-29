@@ -1,28 +1,35 @@
+use std::collections::HashMap;
 use std::io::{self, Read};
 
-fn solve(names: &[&str]) -> i32 {
-    let mut position = 0_i32;
-    let mut steps = 0;
-    for name in names {
-        let initial = name.as_bytes()[0];
-        let target = if b"APOR".contains(&initial) {
-            0
-        } else if b"BMS".contains(&initial) {
-            1
-        } else {
-            2
-        };
+// the three cabinets from left to right, with the names from the statement
+const CABINETS: [[&str; 9]; 3] = [
+    [
+        "Alice", "Ariel", "Aurora", "Phil", "Peter", "Olaf", "Phoebus", "Ralph", "Robin",
+    ],
+    [
+        "Bambi", "Belle", "Bolt", "Mulan", "Mowgli", "Mickey", "Silver", "Simba", "Stitch",
+    ],
+    [
+        "Dumbo", "Genie", "Jiminy", "Kuzko", "Kida", "Kenai", "Tarzan", "Tiana", "Winnie",
+    ],
+];
+
+fn main() {
+    let mut cabinet = HashMap::new();
+    for (i, names) in CABINETS.iter().enumerate() {
+        for &name in names {
+            cabinet.insert(name, i as i32);
+        }
+    }
+    let mut input = String::new();
+    io::stdin().read_to_string(&mut input).unwrap();
+    let mut words = input.split_ascii_whitespace();
+    let n: usize = words.next().unwrap().parse().unwrap();
+    let (mut position, mut steps) = (0, 0);
+    for name in words.take(n) {
+        let target = cabinet[name];
         steps += (target - position).abs();
         position = target;
     }
-    steps
-}
-
-fn main() {
-    let mut input = String::new();
-    io::stdin().read_to_string(&mut input).unwrap();
-    let mut tokens = input.split_whitespace();
-    let count: usize = tokens.next().unwrap().parse().unwrap();
-    let names: Vec<&str> = tokens.take(count).collect();
-    println!("{}", solve(&names));
+    println!("{}", steps);
 }

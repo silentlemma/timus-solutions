@@ -4,37 +4,36 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
-func solve(names []string) int {
-	position, steps := 0, 0
-	for _, name := range names {
-		target := 2
-		if strings.ContainsRune("APOR", rune(name[0])) {
-			target = 0
-		} else if strings.ContainsRune("BMS", rune(name[0])) {
-			target = 1
-		}
-		difference := target - position
-		if difference < 0 {
-			difference = -difference
-		}
-		steps += difference
-		position = target
-	}
-	return steps
+// the three cabinets from left to right, with the names from the statement
+var cabinets = [3][9]string{
+	{"Alice", "Ariel", "Aurora", "Phil", "Peter", "Olaf", "Phoebus", "Ralph", "Robin"},
+	{"Bambi", "Belle", "Bolt", "Mulan", "Mowgli", "Mickey", "Silver", "Simba", "Stitch"},
+	{"Dumbo", "Genie", "Jiminy", "Kuzko", "Kida", "Kenai", "Tarzan", "Tiana", "Winnie"},
 }
 
 func main() {
+	cabinet := map[string]int{}
+	for i, names := range cabinets {
+		for _, name := range names {
+			cabinet[name] = i
+		}
+	}
 	in := bufio.NewReader(os.Stdin)
-	var count int
-	if _, err := fmt.Fscan(in, &count); err != nil {
-		return
+	var n int
+	fmt.Fscan(in, &n)
+	position, steps := 0, 0
+	for k := 0; k < n; k++ {
+		var name string
+		fmt.Fscan(in, &name)
+		target := cabinet[name]
+		if target > position {
+			steps += target - position
+		} else {
+			steps += position - target
+		}
+		position = target
 	}
-	names := make([]string, count)
-	for index := range names {
-		fmt.Fscan(in, &names[index])
-	}
-	fmt.Println(solve(names))
+	fmt.Println(steps)
 }

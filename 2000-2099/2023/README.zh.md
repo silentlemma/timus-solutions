@@ -15,6 +15,7 @@
 | 0 | Alice, Ariel, Aurora, Phil, Peter, Olaf, Phoebus, Ralph, Robin |
 | 1 | Bambi, Belle, Bolt, Mulan, Mowgli, Mickey, Silver, Simba, Stitch |
 | 2 | Dumbo, Genie, Jiminy, Kuzko, Kida, Kenai, Tarzan, Tiana, Winnie |
+
 从位置 0 开始，按照给定顺序处理 `n` 个标签。走到相邻位置需要一步，在正确位置处理标签不需要步数。
 求总步数。最后一个标签处理完就结束，不要求返回位置 0。标签可以重复。
 限制为 `1 ≤ n ≤ 1000`、1 秒、64 MB。
@@ -48,43 +49,47 @@ Mulan
 
 ## 解法
 
-处理完一个标签后，只需记住当前位置。三组首字母互不相交：`A, P, O, R` 对应位置 0，
-`B, M, S` 对应位置 1，其余合法首字母 `D, G, J, K, T, W` 对应位置 2。
-输入保证标签来自表格，因此可用首字母代替完整查表。
+对每个标签在表中查出它的位置并走过去：从位置 p 走到位置 q 需要 |p − q| 步。从位置
+0 开始，把这些距离相加。`O(n)`。
 
-初始化 `position = 0`、`steps = 0`。依次求标签位置 `target`，把
-`abs(target - position)` 加到 `steps`，再令 `position = target`。
-处理恰好 `n` 个标签后输出 `steps`。不能排序或改变顺序。
-
-证明：从位置 `p` 到 `q`，每步只能改变一单位坐标，故至少走 `|q-p|` 步；
-直接朝 `q` 走恰好达到此下界。给定顺序固定了所有连续目的地对，也固定了最初的位置 0，
-所以各段准确距离之和就是所求总步数。归纳可知，每处理一个标签，当前位置与累计步数都正确。
-最后一个标签后没有额外的一段路程。
-
-样例的位置依次为 `0 → 0 → 2 → 0 → 1`，步数为 `0 + 2 + 2 + 1 = 5`。
-由于名称长度有界，时间为 `O(n)`。扫描只用 `O(1)` 个计数器；这些程序保存输入标签，
-因此总额外空间是 `O(n)`。若逐项读取并处理，可把存储降到 `O(1)`。
+在样例中，位置依次为 0 → 0 → 2 → 0 → 1，步数为 0 + 2 + 2 + 1 = 5。
 
 注意事项：
 
-- 处理第一个标签前就处于最左侧的位置。
-- 两个外侧位置之间需要两步，同一位置之间需要零步。
-- 保留重复标签与原顺序；末尾无需返回。
-- 注意表中 `Mickey`、`Kuzko`、`Phoebus` 的拼写。首字母表示目的地，
-  不是字母表区间，也不是某个小格的编号。
+- 处理第一个标签之前站在位置 0；
+- 处理完最后一个标签后不需要返回。
+
+## 优化解法
+
+优化解法（C++、Java）逐字节读取输入，不保存任何名字。标签中唯一的大写字母就是首
+字母，而首字母能区分位置：A、P、O、R 表示位置 0，B、M、S 表示位置 1，其余都表示
+位置 2。数字 `n` 中没有大写字母，所以输入中的每个大写字母都开始下一个标签。C++
+为 100 KB，而不是 400 KB，时间不变。Java 为 0.078 s，而不是 0.140 s；344 KB，而
+不是 1964 KB。
+
+优化的 Rust 解法和 C++、Java 解法一样逐字节扫描输入中的大写字母，而不是读入名字
+再查表：232 KB，而不是 424 KB，时间不变。
 
 ## 各语言说明
 
-五种语言均采用相同的扫描，普通整数足够，答案至多 2000。C++ 使用字符串成员查找，
-Go 查找 ASCII 首字母对应的 rune，Rust 查找字节，Java 使用 `indexOf`，Python 使用字符串成员判断。
-缓冲输入足以处理 1000 个标签，CPython 无需更换运行时。
+没有特别需要注意的地方。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2023_implementation.cpp](2023_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 460 KB |
-| [2023_implementation.go](2023_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1160 KB |
-| [2023_implementation.java](2023_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 596 KB |
-| [2023_implementation.py](2023_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 388 KB |
-| [2023_implementation.rs](2023_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 248 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2023_implementation.cpp](2023_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 400 KB | 11303356 |
+| [2023_implementation.go](2023_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1156 KB | 11303357 |
+| [2023_implementation.java](2023_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.140 s | 1964 KB | 11303358 |
+| [2023_implementation.py](2023_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 400 KB | 11303359 |
+| [2023_implementation.rs](2023_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 424 KB | 11303360 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
+|----|----|----|-----|------|----|----|------|
+| [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
+| [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
+| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
