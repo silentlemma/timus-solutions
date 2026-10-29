@@ -3,7 +3,8 @@
 
 int main() {
     int k, n;
-    if (!(std::cin >> k >> n)) return 0;
+    if (!(std::cin >> k >> n))
+        return 0;
     int jam = 0;
     for (int i = 0; i < n; i++) {
         int cars;
