@@ -65,12 +65,30 @@ Detalles a tener en cuenta:
 Las respuestas coinciden con una implementación aceptada independiente
 en 200 pruebas aleatorias.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los cuatro números a mano desde
+un búfer pequeño en lugar de usar `Scanner`, lo que necesita mucha menos
+memoria: 380 KB en lugar de 1616 KB, con el mismo tiempo. La fórmula es
+la misma.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1638_math.cpp](1638_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1638_math.go](1638_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB |
-| [1638_math.java](1638_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB |
-| [1638_math.py](1638_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB |
-| [1638_math.rs](1638_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1638_math.cpp](1638_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11288456 |
+| [1638_math.go](1638_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB | 11288457 |
+| [1638_math.java](1638_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB | 11288459 |
+| [1638_math.py](1638_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11288458 |
+| [1638_math.rs](1638_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 240 KB | 11303473 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

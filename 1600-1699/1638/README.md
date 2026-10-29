@@ -65,12 +65,29 @@ Pitfalls:
 The answers match an independent accepted implementation on 200 random
 tests.
 
+## Optimized solutions
+
+The optimized Java solution parses the four numbers by hand from a small
+buffer instead of using `Scanner`, which needs far less memory: 380 KB
+instead of 1616 KB, with the same time. The formula is the same.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1638_math.cpp](1638_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1638_math.go](1638_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB |
-| [1638_math.java](1638_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB |
-| [1638_math.py](1638_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB |
-| [1638_math.rs](1638_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1638_math.cpp](1638_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11288456 |
+| [1638_math.go](1638_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1060 KB | 11288457 |
+| [1638_math.java](1638_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1616 KB | 11288459 |
+| [1638_math.py](1638_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11288458 |
+| [1638_math.rs](1638_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 240 KB | 11303473 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.
