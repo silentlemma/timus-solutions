@@ -1,30 +1,12 @@
-import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-  static final int BASE = 10;
-  static final BufferedInputStream INPUT = new BufferedInputStream(System.in);
-  static int next() throws IOException {
-    int ch;
-    do {
-      ch = INPUT.read();
-    } while (ch <= ' ' && ch >= 0);
-    int value = 0;
-    while (ch > ' ') {
-      value = value * BASE + ch - '0';
-      ch = INPUT.read();
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a1 = in.nextInt(), b1 = in.nextInt();
+        int a2 = in.nextInt(), b2 = in.nextInt();
+        int a3 = in.nextInt(), b3 = in.nextInt();
+        // b2 is the empty second basket, a3 the empty first one
+        System.out.println((a1 - a3) + " " + (b1 - b2));
     }
-    return value;
-  }
-  static int[] solve(int first, int second, int emptyFirst, int emptySecond) {
-    return new int[] {first - emptyFirst, second - emptySecond};
-  }
-  public static void main(String[] args) throws IOException {
-    int a1 = next(), b1 = next();
-    next();
-    int b2 = next(), a3 = next();
-    next();
-    int[] result = solve(a1, b1, a3, b2);
-    System.out.println(result[0] + " " + result[1]);
-  }
 }

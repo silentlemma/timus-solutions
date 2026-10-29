@@ -46,28 +46,39 @@ lecturas iniciales 1 y 2 da 1 y 1.
 
 ## Solución
 
-Sean `c,d` las masas vacías y `x,y` las bayas iniciales. Entonces
-`a1=c+x`, `b1=d+y`. Al vaciar la segunda, `b2=d`; al vaciar la primera,
-`a3=c`. La respuesta única es `x=a1−a3`, `y=b1−b2`.
+Sean c y d los pesos de las cestas vacías, y x e y los de las bayas. La
+primera pesada da a1 = c + x y b1 = d + y. Después de vaciar la segunda
+cesta en la primera, b2 = d; después de vaciar la primera en la segunda,
+a3 = c. Así x = a1 − a3 e y = b1 − b2; las lecturas a2 y b3 no hacen
+falta. `O(1)`.
 
-Sustituir demuestra que ambas diferencias son exactamente los contenidos
-iniciales. Las otras lecturas cumplen `a2=c+x+y`, `b3=d+x+y`: se
-consumen de la entrada pero no hacen falta para recuperar. No hay
-división, búsqueda ni redondeo.
+## Soluciones optimizadas
 
-Tiempo `O(1)` y memoria `O(1)` para seis lecturas fijas. Las diferencias
-válidas están entre 0 y 10000, dentro de 32 bits con signo.
-
-Restar la misma cesta vacía: `a3` para la primera y `b2` para la
-segunda. Las lecturas combinadas `a2,b3` aún incluyen una cesta.
-Mantener el orden de salida y aceptar masas nulas sin casos especiales.
+Las soluciones optimizadas (C++, Java) calculan las mismas dos
+diferencias. C++ salta las lecturas a2 y b3 con `%*d` en `scanf` en
+lugar de usar `iostream`: 124 KB en lugar de 396 KB, con el mismo
+tiempo. Java analiza los números a mano desde `System.in` en lugar de
+usar `Scanner`: 0.125 s en lugar de 0.156 s y 344 KB en lugar de
+1608 KB.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2001_math.cpp](2001_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB |
-| [2001_math.go](2001_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1088 KB |
-| [2001_math.java](2001_math.java) | Java 1.8 | math | O(1) | AC | 0.156 s | 388 KB |
-| [2001_math.py](2001_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 384 KB |
-| [2001_math.rs](2001_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2001_math.cpp](2001_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB | 11292438 |
+| [2001_math.go](2001_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1088 KB | 11292439 |
+| [2001_math.java](2001_math.java) | Java 1.8 | math | O(1) | AC | 0.156 s | 1608 KB | 11303362 |
+| [2001_math.py](2001_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 384 KB | 11292440 |
+| [2001_math.rs](2001_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB | 11292442 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
+| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.

@@ -47,30 +47,38 @@ Subtracting these from the initial readings 1 and 2 gives 1 and 1.
 
 ## Solution
 
-Let empty basket masses be `c,d`, and initial berry masses be `x,y`. The
-initial readings are `a1=c+x`, `b1=d+y`. After the second basket is
-emptied, `b2=d`. After the first basket is emptied, `a3=c`. Therefore
-the unique answer is `x=a1−a3`, `y=b1−b2`.
+Let the empty baskets weigh c and d and the berries x and y. The first
+weighing gives a1 = c + x and b1 = d + y. After the second basket is
+emptied into the first, b2 = d; after the first is emptied into the
+second, a3 = c. So x = a1 − a3 and y = b1 − b2; the readings a2 and b3
+are not needed. `O(1)`.
 
-Substitution proves both differences equal precisely the original
-contents. The other two readings satisfy `a2=c+x+y`, `b3=d+x+y`; they
-are consumed from the input but are unnecessary for recovery. No
-division, search or rounding is involved.
+## Optimized solutions
 
-Time `O(1)` and memory `O(1)` for the fixed six readings. Differences
-lie in 0..10000 for valid data, so 32-bit signed integers suffice.
-
-Subtract the mass of the same empty basket: `a3` for the first, `b2` for
-the second. The combined readings `a2,b3` still include a basket.
-Preserve output order and handle zero contents or zero basket masses
-normally.
+The optimized solutions (C++, Java) compute the same two differences.
+C++ skips the readings a2 and b3 with `%*d` in `scanf` instead of using
+`iostream`: 124 KB instead of 396 KB, with the same time. Java parses
+the numbers by hand from `System.in` instead of using `Scanner`: 0.125 s
+instead of 0.156 s and 344 KB instead of 1608 KB.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2001_math.cpp](2001_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB |
-| [2001_math.go](2001_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1088 KB |
-| [2001_math.java](2001_math.java) | Java 1.8 | math | O(1) | AC | 0.156 s | 388 KB |
-| [2001_math.py](2001_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 384 KB |
-| [2001_math.rs](2001_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2001_math.cpp](2001_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB | 11292438 |
+| [2001_math.go](2001_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1088 KB | 11292439 |
+| [2001_math.java](2001_math.java) | Java 1.8 | math | O(1) | AC | 0.156 s | 1608 KB | 11303362 |
+| [2001_math.py](2001_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 384 KB | 11292440 |
+| [2001_math.rs](2001_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB | 11292442 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
+| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+
+\* Not in the top 10 or the top 15% of the solutions in its language on
+the current judge; it may be optimized further.
