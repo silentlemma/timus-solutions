@@ -60,6 +60,22 @@ N строк с процентами.
 - построчный вывод в некоторых языках медленный при N = 10 000: лучше
   сначала собрать весь вывод.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Python читает голоса построчно через
+генератор, а не разбивает весь ввод сразу, и форматирует процент для
+каждого различного числа голосов только один раз: кандидаты с одинаковым
+числом голосов получают одну и ту же готовую строку. Строки выводятся по
+одной через буферизованный `sys.stdout.write`, а не склеиваются заранее:
+856 КБ вместо 1948 КБ при том же времени.
+
+Оптимизированное решение на C++ разбирает числа через `getchar` вместо
+`scanf` и считает голоса в массиве фиксированного размера из 16-битных
+счётчиков: 128 КБ вместо 252 КБ при том же времени. Оптимизированное
+решение на Rust разбирает числа вручную из байтов `stdin().lock()`
+вместо чтения всего ввода в строку, считает в 16-битных счётчиках и
+выводит через буфер на 1 КБ: 252 КБ вместо 468 КБ при том же времени.
+
 ## Особенности языков
 
 - C++, Go, Python и Rust форматируют double напрямую; все четыре
@@ -69,10 +85,23 @@ N строк с процентами.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1263_implementation.cpp](1263_implementation.cpp) | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.031 s | 252 KB |
-| [1263_implementation.go](1263_implementation.go) | Go 1.14 x64 | implementation | O(N + M) | AC | 0.031 s | 1456 KB |
-| [1263_implementation.java](1263_implementation.java) | Java 1.8 | implementation | O(N + M) | AC | 0.156 s | 5696 KB |
-| [1263_implementation.py](1263_implementation.py) | Python 3.12 x64 | implementation | O(N + M) | AC | 0.078 s | 1948 KB |
-| [1263_implementation.rs](1263_implementation.rs) | Rust 1.75 x64 | implementation | O(N + M) | AC | 0.015 s | 468 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1263_implementation.cpp](1263_implementation.cpp) | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.031 s | 252 KB | 11284152 |
+| [1263_implementation.go](1263_implementation.go) | Go 1.14 x64 | implementation | O(N + M) | AC | 0.031 s | 1456 KB | 11284153 |
+| [1263_implementation.java](1263_implementation.java) | Java 1.8 | implementation | O(N + M) | AC | 0.156 s | 5696 KB | 11284158 |
+| [1263_implementation.py](1263_implementation.py) | Python 3.12 x64 | implementation | O(N + M) | AC | 0.078 s | 1948 KB | 11284154 |
+| [1263_implementation.rs](1263_implementation.rs) | Rust 1.75 x64 | implementation | O(N + M) | AC | 0.015 s | 468 KB | 11284161 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1263_implementation_optimized.cpp](1263_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.031 s | 128 KB | 11303730 |
+| [1263_implementation_optimized.py](1263_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N + M) | AC | 0.078 s | 856 KB | 11303586 |
+| [1263_implementation_optimized.rs](1263_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N + M) | AC | 0.015 s | 252 KB | 11303731 |
+
+\* Не входит в первые 10 и в лучшие 15% решений на своём языке на
+нынешнем судье; возможно, его можно оптимизировать дальше.
