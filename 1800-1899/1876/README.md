@@ -64,12 +64,26 @@ Pitfalls:
 The formula agrees with a search over every order of drawing slippers
 for all inputs, and with an independent accepted implementation.
 
+## Optimized solutions
+
+The optimized Java solution parses the numbers byte by byte from
+`System.in` instead of using `Scanner`: 0.109 s instead of 0.140 s and
+412 KB instead of 1600 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1876_math.cpp](1876_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1876_math.go](1876_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1076 KB |
-| [1876_math.java](1876_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1600 KB |
-| [1876_math.py](1876_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 376 KB |
-| [1876_math.rs](1876_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1876_math.cpp](1876_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11303802 |
+| [1876_math.go](1876_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1076 KB | 11290999 |
+| [1876_math.java](1876_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1600 KB | 11291002 |
+| [1876_math.py](1876_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 376 KB | 11291001 |
+| [1876_math.rs](1876_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 232 KB | 11303803 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |

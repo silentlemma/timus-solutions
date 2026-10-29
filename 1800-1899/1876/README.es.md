@@ -67,12 +67,26 @@ La fórmula coincide con una búsqueda sobre todos los órdenes de sacar
 zapatillas para todas las entradas, y con una implementación aceptada
 independiente.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los números byte a byte desde
+`System.in` en lugar de usar `Scanner`: 0.109 s en lugar de 0.140 s y
+412 KB en lugar de 1600 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1876_math.cpp](1876_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1876_math.go](1876_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1076 KB |
-| [1876_math.java](1876_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1600 KB |
-| [1876_math.py](1876_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 376 KB |
-| [1876_math.rs](1876_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1876_math.cpp](1876_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11303802 |
+| [1876_math.go](1876_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1076 KB | 11290999 |
+| [1876_math.java](1876_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1600 KB | 11291002 |
+| [1876_math.py](1876_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 376 KB | 11291001 |
+| [1876_math.rs](1876_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 232 KB | 11303803 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
