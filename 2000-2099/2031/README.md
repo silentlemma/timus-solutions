@@ -55,67 +55,49 @@ Glupenky Pierre
 
 ## Solution
 
-Work with the row after rotation. Every number there is between 1 and
-99, and its two digits, including a possible leading zero, belong to
-`0,1,6,8,9`. Scan these integers in increasing order. Keep the length of
-the current consecutive run of readable numbers, resetting it to zero at
-an unreadable number. Once its length reaches `n` at integer `r`, the
-target interval `[r-n+1,r]` is available.
+Only the digits 0, 1, 6, 8 and 9 can be read upside down, so after the
+turn only the numbers from 1 to 99 made of them can appear. Go through
+1 … 99, count the current run of consecutive readable numbers, and stop
+when it reaches n at some number r. Then print r, r − 1, …, r − n + 1
+upside down: for each number its units digit turned first and its tens
+digit turned second, so the turned row reads the run in increasing
+order. If no run is long enough, the answer is `Glupenky Pierre`.
+`O(100 + n)`.
 
-To produce its preimage, visit target integers from `r` down to `r-n+1`.
-For each one, map its units digit first and its tens digit second through the
-rotation map. Append these as characters, preserving width two. If the scan
-finishes without a run of length `n`, report impossibility.
-
-### Correctness
-
-The digit map is an involution: applying it twice recovers each readable digit.
-Our row is therefore the inverse rotation of the chosen target interval.
-The whole-row reversal restores increasing target order, and the reversal and
-mapping inside each word restores that target's two digits. Thus the result
-rotates to exactly the chosen positive consecutive integers.
-
-Conversely, any valid printed row must rotate to a positive consecutive interval
-inside `[1,99]` consisting only of readable digits. The complete scan visits
-every integer in that interval consecutively, so its run length reaches `n`.
-Consequently a failed scan proves that no answer exists.
-
-The readable positive targets are
-`1,6,8,9,10,11,16,18,19,60,61,66,68,69,80,81,86,88,89,90,91,96,98,99`.
-Their longest runs are `[8,11]` and `[88,91]`, each of length four.
-Hence exactly lengths one through four are feasible; the program
-discovers runs instead of using this cutoff as a special case.
-
-The first sample `11 01` rotates to `10 11`. Our program may instead print
-`60 80`, which rotates to `08 09` and is equally valid. For the second sample,
-length 99 exceeds the maximum run length, so the required phrase is correct.
-
-The scan tests at most 99 integers and emits `n` words on success: `O(100+n)`
-time, `O(1)` scan state and `O(n)` buffered output. The fixed two-digit universe
-keeps the enumeration work constant.
+The readable numbers are 1, 6, 8, 9, 10, 11, 16, 18, 19, 60, 61, 66, 68,
+69, 80, 81, 86, 88, 89, 90, 91, 96, 98, 99; the longest runs, 8–11 and
+88–91, have four numbers, so only n ≤ 4 has an answer.
 
 Pitfalls:
 
-- Rotate the whole row, reversing both word order and digit order.
-- Swap `6` and `9`; merely reversing characters is insufficient.
-- Keep both printed digits, including leading zero.
-- Exclude zero from the target interval.
-- An alternative valid interval need not match the sample tokens.
+- 6 and 9 swap when turned;
+- keep the leading zero: 01 turned upside down is 10;
+- 00 would turn into 0, which is not positive.
+
+## Optimized solutions
+
+The optimized C++ solution reads `n` with `getchar` and prints the
+digits one by one with `putchar` instead of using `iostream` and
+building a string: 88 KB instead of 368 KB, with the same time.
 
 ## Language notes
 
-All ports append mapped digit characters rather than converting a
-rotated number to an integer, preserving zeros. The map contains a
-marker for unreadable digits. Rust computes descending targets as
-`r-offset`; the found run guarantees `r ≥ n`, so unsigned subtraction is
-safe. No large integers or floating point are needed.
+- The turned numbers are built from characters, so a leading zero stays.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2031_bruteforce.cpp](2031_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 372 KB |
-| [2031_bruteforce.go](2031_bruteforce.go) | Go 1.14 x64 | bruteforce | O(100+n) | AC | 0.015 s | 1092 KB |
-| [2031_bruteforce.java](2031_bruteforce.java) | Java 1.8 | bruteforce | O(100+n) | AC | 0.109 s | 472 KB |
-| [2031_bruteforce.py](2031_bruteforce.py) | Python 3.12 x64 | bruteforce | O(100+n) | AC | 0.078 s | 472 KB |
-| [2031_bruteforce.rs](2031_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(100+n) | AC | 0.015 s | 200 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2031_bruteforce.cpp](2031_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 368 KB | 11303664 |
+| [2031_bruteforce.go](2031_bruteforce.go) | Go 1.14 x64 | bruteforce | O(100+n) | AC | 0.031 s | 1152 KB | 11303665 |
+| [2031_bruteforce.java](2031_bruteforce.java) | Java 1.8 | bruteforce | O(100+n) | AC | 0.093 s | 440 KB | 11303530 |
+| [2031_bruteforce.py](2031_bruteforce.py) | Python 3.12 x64 | bruteforce | O(100+n) | AC | 0.078 s | 420 KB | 11303666 |
+| [2031_bruteforce.rs](2031_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(100+n) | AC | 0.015 s | 204 KB | 11303667 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|------------|
+| [2031_bruteforce_optimized.cpp](2031_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 88 KB | 11303668 |

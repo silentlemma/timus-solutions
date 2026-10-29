@@ -2,6 +2,8 @@ import sys
 
 BASE = 10
 LIMIT = BASE * BASE - 1
+# the d-th character is digit d turned upside down, as in the statement, and
+# ? marks a digit that reads as nothing
 TURN = "01????9?86"
 
 

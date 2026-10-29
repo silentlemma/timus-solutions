@@ -55,66 +55,50 @@ Glupenky Pierre
 
 ## Solución
 
-Busca primero la fila posterior al giro. Cada objetivo está entre 1 y 99 y sus
-dos cifras, incluido un posible cero inicial, pertenecen a `0,1,6,8,9`. Recorre
-los enteros en orden, manteniendo la longitud de la racha consecutiva legible;
-un número ilegible la reinicia a cero. Cuando alcanza `n` al llegar a `r`, el
-intervalo `[r-n+1,r]` está disponible.
+Solo las cifras 0, 1, 6, 8 y 9 se leen al revés, así que tras el giro
+solo pueden aparecer los números del 1 al 99 formados por ellas. Se
+recorren 1 … 99, se cuenta la racha actual de números legibles
+consecutivos y se para cuando llega a n en algún número r. Entonces se
+imprimen r, r − 1, …, r − n + 1 al revés: de cada número, primero la
+cifra de las unidades girada y luego la de las decenas girada, así que
+la fila girada lee la racha en orden creciente. Si ninguna racha es lo
+bastante larga, la respuesta es `Glupenky Pierre`. `O(100 + n)`.
 
-Para construir la preimagen recorre los objetivos desde `r` hasta `r-n+1`.
-Emite primero la unidad transformada y luego la decena transformada. Añadir
-caracteres conserva dos cifras. Si el recorrido termina sin racha suficiente,
-declara imposibilidad.
+Los números legibles son 1, 6, 8, 9, 10, 11, 16, 18, 19, 60, 61, 66, 68,
+69, 80, 81, 86, 88, 89, 90, 91, 96, 98, 99; las rachas más largas, 8–11
+y 88–91, tienen cuatro números, así que solo n ≤ 4 tiene respuesta.
 
-### Corrección
+Detalles a tener en cuenta:
 
-El mapa de cifras es una involución: aplicarlo dos veces recupera cada cifra
-legible. La fila construida es el giro inverso del intervalo elegido. Invertir
-la fila restaura el orden creciente, y la inversión y transformación dentro
-de cada palabra recuperan las dos cifras objetivo. El giro produce por tanto
-exactamente los enteros positivos consecutivos elegidos.
+- al girar, el 6 y el 9 se intercambian;
+- se conserva el cero inicial: 01 al revés es 10;
+- 00 se convertiría en 0, que no es positivo.
 
-Recíprocamente, cualquier fila válida debe girar a un intervalo positivo
-consecutivo dentro de `[1,99]` con cifras legibles. La búsqueda completa
-visita esos enteros seguidos y su racha alcanzará `n`. Por ello, el
-fracaso de la búsqueda demuestra que no existe respuesta.
+## Soluciones optimizadas
 
-Los objetivos positivos legibles son
-`1,6,8,9,10,11,16,18,19,60,61,66,68,69,80,81,86,88,89,90,91,96,98,99`.
-Las rachas máximas son `[8,11]` y `[88,91]`, de longitud cuatro: son factibles
-exactamente las longitudes uno a cuatro. El programa encuentra las rachas sin
-usar ese límite como caso especial.
-
-El primer ejemplo `11 01` gira a `10 11`. El programa también puede imprimir
-`60 80`, que gira a `08 09` y es igualmente válido. En el segundo ejemplo,
-99 supera la longitud máxima y corresponde la frase indicada.
-
-Se examinan como máximo 99 enteros y, con éxito, se emiten `n` palabras:
-tiempo `O(100+n)`, estado de búsqueda `O(1)` y salida almacenada `O(n)`.
-El universo fijo de dos cifras mantiene constante la enumeración.
-
-Trampas:
-
-- Invierte tanto el orden de las palabras como las cifras de cada palabra.
-- Intercambia `6` y `9`; invertir caracteres solamente no basta.
-- Conserva el cero inicial de cada representación de dos cifras.
-- Excluye cero del intervalo positivo.
-- Otro intervalo válido no tiene que coincidir con los tokens del ejemplo.
+La solución optimizada en C++ lee `n` con `getchar` e imprime las cifras
+una a una con `putchar`, sin `iostream` y sin construir una cadena:
+88 KB en lugar de 368 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
-Todos los programas añaden caracteres de cifras transformadas sin convertir
-el resultado a entero, para conservar ceros. El mapa marca las cifras ilegibles.
-Rust genera los objetivos descendentes como `r-offset`; encontrar la racha
-garantiza `r ≥ n`, así que la resta sin signo es segura. No se necesitan enteros
-grandes ni coma flotante.
+- Los números girados se construyen con caracteres, así que el cero
+  inicial se conserva.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2031_bruteforce.cpp](2031_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 372 KB |
-| [2031_bruteforce.go](2031_bruteforce.go) | Go 1.14 x64 | bruteforce | O(100+n) | AC | 0.015 s | 1092 KB |
-| [2031_bruteforce.java](2031_bruteforce.java) | Java 1.8 | bruteforce | O(100+n) | AC | 0.109 s | 472 KB |
-| [2031_bruteforce.py](2031_bruteforce.py) | Python 3.12 x64 | bruteforce | O(100+n) | AC | 0.078 s | 472 KB |
-| [2031_bruteforce.rs](2031_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(100+n) | AC | 0.015 s | 200 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2031_bruteforce.cpp](2031_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 368 KB | 11303664 |
+| [2031_bruteforce.go](2031_bruteforce.go) | Go 1.14 x64 | bruteforce | O(100+n) | AC | 0.031 s | 1152 KB | 11303665 |
+| [2031_bruteforce.java](2031_bruteforce.java) | Java 1.8 | bruteforce | O(100+n) | AC | 0.093 s | 440 KB | 11303530 |
+| [2031_bruteforce.py](2031_bruteforce.py) | Python 3.12 x64 | bruteforce | O(100+n) | AC | 0.078 s | 420 KB | 11303666 |
+| [2031_bruteforce.rs](2031_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(100+n) | AC | 0.015 s | 204 KB | 11303667 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2031_bruteforce_optimized.cpp](2031_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 88 KB | 11303668 |

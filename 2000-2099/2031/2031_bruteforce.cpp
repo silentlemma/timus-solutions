@@ -3,6 +3,8 @@
 
 constexpr int BASE = 10;
 constexpr int LIMIT = BASE * BASE - 1;
+// the d-th character is digit d turned upside down, as in the statement, and
+// ? marks a digit that reads as nothing
 const std::string TURN = "01????9?86";
 
 std::string solve(int count) {

@@ -2,6 +2,8 @@ use std::io::{self, Read};
 
 const BASE: usize = 10;
 const LIMIT: usize = BASE * BASE - 1;
+// the d-th character is digit d turned upside down, as in the statement, and
+// ? marks a digit that reads as nothing
 const TURN: &[u8] = b"01????9?86";
 
 fn solve(count: usize) -> String {

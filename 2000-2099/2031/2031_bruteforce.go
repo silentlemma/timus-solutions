@@ -9,6 +9,9 @@ import (
 
 const base = 10
 const limit = base*base - 1
+
+// the d-th character is digit d turned upside down, as in the statement, and
+// ? marks a digit that reads as nothing
 const turn = "01????9?86"
 
 func solve(count int) string {
