@@ -12,10 +12,10 @@ public class Main {
         int[][] own = new int[PLAYERS][];
         for (int p = 0; p < PLAYERS; p++) {
             in.nextToken();
-            own[p] = new int[(int) in.nval];
+            own[p] = new int[(int)in.nval];
             for (int i = 0; i < own[p].length; i++) {
                 in.nextToken();
-                own[p][i] = (int) in.nval;
+                own[p][i] = (int)in.nval;
             }
         }
         // walk the three sorted lists together, always moving past the
