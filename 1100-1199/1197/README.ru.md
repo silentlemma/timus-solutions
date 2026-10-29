@@ -58,16 +58,43 @@ g6
 
 Ответы сверены с отдельно написанным решением на всех 64 клетках.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ читает через `getchar` вместо `iostream`
+и считает прыжки без таблицы. Прыжок сдвигает одну координату на 1, а
+другую на 2, каждую в любую сторону, и выбор для двух координат
+независим; поэтому ответ равен
+`ways(x, 1) · ways(y, 2) + ways(x, 2) · ways(y, 1)`, где `ways(p, s)` —
+сколько из `p - s` и `p + s` остаются на доске. Решению нужно 84 КБ
+вместо 396 КБ при том же времени.
+
+Оптимизированное решение на Java читает числа и клетки побайтно из
+`System.in` вместо `Scanner`, а поскольку каждый ответ — одна цифра,
+пишет по два байта на клетку в один массив: 296 КБ вместо 1576 КБ при
+том же времени.
+
 ## Особенности языков
 
-- Во всех языках восемь прыжков лежат в таблице, по которой идёт цикл.
+- В простых решениях восемь прыжков лежат в таблице, по которой идёт цикл.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1197_implementation.cpp](1197_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 396 KB |
-| [1197_implementation.go](1197_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1072 KB |
-| [1197_implementation.java](1197_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 1576 KB |
-| [1197_implementation.py](1197_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.046 s | 328 KB |
-| [1197_implementation.rs](1197_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 216 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1197_implementation.cpp](1197_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 396 KB | 11283494 |
+| [1197_implementation.go](1197_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1072 KB | 11283496 |
+| [1197_implementation.java](1197_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 1576 KB | 11283500 |
+| [1197_implementation.py](1197_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.046 s | 328 KB | 11283499 |
+| [1197_implementation.rs](1197_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 216 KB | 11283504 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---------|
+| [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
+| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+
+\* Не входит в первые 10 и в лучшие 15% решений на своём языке на
+нынешнем судье; возможно, его можно оптимизировать дальше.

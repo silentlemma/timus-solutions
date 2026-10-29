@@ -61,16 +61,44 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en las 64
 casillas.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee con `getchar` en lugar de `iostream` y
+cuenta los saltos sin tabla. Un salto mueve una coordenada 1 y la otra 2,
+cada una en cualquier sentido, y las elecciones de las dos coordenadas
+son independientes; por eso la cuenta es
+`ways(x, 1) · ways(y, 2) + ways(x, 2) · ways(y, 1)`, donde `ways(p, s)`
+dice cuántos de `p - s` y `p + s` quedan dentro del tablero. La solución
+ocupa 84 KB en lugar de 396 KB, con el mismo tiempo.
+
+La solución optimizada en Java lee los números y las casillas byte a
+byte desde `System.in` en lugar de usar `Scanner`, y como cada respuesta
+es una sola cifra, escribe dos bytes por casilla en un solo arreglo:
+296 KB en lugar de 1576 KB, con el mismo tiempo.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes guardan los ocho saltos en una tabla y la recorren.
+- Las soluciones sencillas guardan los ocho saltos en una tabla y la
+  recorren.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1197_implementation.cpp](1197_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 396 KB |
-| [1197_implementation.go](1197_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1072 KB |
-| [1197_implementation.java](1197_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 1576 KB |
-| [1197_implementation.py](1197_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.046 s | 328 KB |
-| [1197_implementation.rs](1197_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 216 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1197_implementation.cpp](1197_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 396 KB | 11283494 |
+| [1197_implementation.go](1197_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.015 s | 1072 KB | 11283496 |
+| [1197_implementation.java](1197_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 1576 KB | 11283500 |
+| [1197_implementation.py](1197_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.046 s | 328 KB | 11283499 |
+| [1197_implementation.rs](1197_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 216 KB | 11283504 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
+| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+
+\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
+su lenguaje en el juez actual; quizá se pueda optimizar más.
