@@ -6,29 +6,13 @@ import (
 	"os"
 )
 
-const buffer = 1 << 20
-
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, buffer)
-	readInt := func() int {
-		x := 0
-		c, _ := reader.ReadByte()
-		for c < '0' || c > '9' {
-			c, _ = reader.ReadByte()
-		}
-		for c >= '0' && c <= '9' {
-			x = x*10 + int(c-'0')
-			var err error
-			if c, err = reader.ReadByte(); err != nil {
-				break
-			}
-		}
-		return x
-	}
-	n := readInt()
+	in := bufio.NewReader(os.Stdin)
+	var n int
+	fmt.Fscan(in, &n)
 	taken := make([]int, n)
 	for i := range taken {
-		taken[i] = readInt()
+		fmt.Fscan(in, &taken[i])
 	}
 	// the pocket is a stack: roll the balls in order, and whenever the top
 	// one is the next ball the inspector took out, take it out
