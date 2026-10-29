@@ -46,46 +46,39 @@ Impossible
 
 ## Solución
 
-Elige `A=min(X,C)` y `B=C-A`. Si `B≤Y`, imprime la pareja; de lo
-contrario, `Impossible`. El primer sumando es no negativo y no supera
-`X` ni `C`; por ello `B≥0` y la suma es `C` por construcción. Comprobar
-`B≤Y` completa las cotas.
+Se toma A lo mayor posible, A = min(X, C), y B = C − A. Si B ≤ Y, el
+par sirve; si no, no sirve ninguno, porque cualquier otro A es menor y
+solo hace mayor a B. `O(1)`.
 
-Para demostrar completitud, cualquier primer sumando válido no supera ni `X`
-ni `C`, luego no supera nuestra elección. Su segundo sumando será al menos
-nuestro `B`. Minimizamos el segundo sumando necesario: si incluso este mínimo
-excede `Y`, toda pareja falla. Así también se justifica la imposibilidad.
+Detalles a tener en cuenta:
 
-Equivalentemente, todas las soluciones corresponden a
-`max(0,C-Y) ≤ A ≤ min(X,C)` y `B=C-A`. Bajo las cotas no negativas, el
-intervalo no está vacío exactamente cuando `C≤X+Y`.
+- tomar A = X sin limitarlo por C puede dejar B negativo;
+- se admiten sumandos cero, y se acepta cualquier par válido.
 
-En el primer ejemplo `A=2` da `B=3` dentro de su cota; `0 5` y `1 4` también
-sirven. En el segundo, la suma máxima `9+15=24` no alcanza `100`.
-Tiempo y espacio de trabajo `O(1)`: comparación, resta y comprobación.
+## Soluciones optimizadas
 
-Trampas:
-
-- Las cotas son no negativas e inclusivas.
-- Tomar `A=X` sin limitarlo por `C` puede dejar `B` negativo.
-- Los sumandos cero y la pareja cero son legítimos.
-- Se acepta cualquier pareja válida, no solo el ejemplo.
-- Respeta exactamente la escritura de `Impossible`.
+La solución optimizada en C++ analiza los tres números a mano con
+`getchar` en lugar de `iostream`: 100 KB en lugar de 400 KB, con el
+mismo tiempo.
 
 ## Notas por lenguaje
 
-C++ y Java usan 64 bits con signo, Go `int64`, Rust `u64` y Python
-enteros exactos. La resta de Rust es segura porque `A≤C`. Incluso
-`X+Y≤2000000000` cabe en 32 bits con signo; los tipos anchos simplemente
-mantienen sencilla la aritmética. Todos distinguen la pareja cero válida
-de la ausencia de solución.
+Ningún lenguaje necesita nada especial.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2035_math.cpp](2035_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 400 KB |
-| [2035_math.go](2035_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1088 KB |
-| [2035_math.java](2035_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 488 KB |
-| [2035_math.py](2035_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 436 KB |
-| [2035_math.rs](2035_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 228 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2035_math.cpp](2035_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 400 KB | 11293165 |
+| [2035_math.go](2035_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1088 KB | 11293168 |
+| [2035_math.java](2035_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 492 KB | 11303531 |
+| [2035_math.py](2035_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 436 KB | 11293171 |
+| [2035_math.rs](2035_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 228 KB | 11293174 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|-------|
+| [2035_math_optimized.cpp](2035_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11303670 |
