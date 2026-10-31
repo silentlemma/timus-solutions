@@ -5,13 +5,15 @@
 
 int main() {
     int q;
-    if (scanf("%d", &q) != 1) return 0;
+    if (scanf("%d", &q) != 1)
+        return 0;
     int size = 1;
-    while (size < q) size *= 2;
+    while (size < q)
+        size *= 2;
     // every addition gets its own leaf; an empty leaf holds 0, which does
     // not change a gcd
     std::vector<int> tree(2 * size, 0);
-    std::unordered_map<int, std::vector<int>> leaves;  // value -> leaves
+    std::unordered_map<int, std::vector<int>> leaves; // value -> leaves
     for (int k = 0; k < q; k++) {
         char sign;
         int x;
@@ -30,7 +32,8 @@ int main() {
         // once a node keeps its value, so do all above it
         for (v /= 2; v > 0; v /= 2) {
             int g = std::gcd(tree[2 * v], tree[2 * v + 1]);
-            if (tree[v] == g) break;
+            if (tree[v] == g)
+                break;
             tree[v] = g;
         }
         printf("%d\n", tree[1] ? tree[1] : 1);
