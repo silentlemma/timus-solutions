@@ -94,7 +94,44 @@ Pitfalls:
 - Initialize the first price from its record; a default zero is invalid.
 - Treat digit-only model names as strings, preserving leading zeros.
 
+## Optimized solutions
+
+The optimized C++ solution drops the hash map: with only six records it
+compares every record with all six, counting the records of the same
+model and taking their smallest price, 36 comparisons in all, and keeps
+the best record with the same tie-break. The names are read with `scanf`
+into fixed arrays of 21 bytes, enough for 20 characters and the
+terminating zero, instead of `std::string` and `iostream`:
+{2033_bruteforce.cpp}.
+
+The optimized Rust solution drops the hash map: with only six records it
+compares every record with all six, counting the records of the same
+model and taking their smallest price, 36 comparisons in all, and keeps
+the best record with the same tie-break. The six models stay slices of
+the input text in a fixed array instead of copies in a `HashMap`:
+{2033_bruteforce.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `2033_bruteforce.cpp`: time reduction +0.00%; memory reduction
+  +67.71%; base: `2033_hashing.cpp`.
+
+- `2033_bruteforce.rs`: time reduction +0.00%; memory reduction +47.71%;
+  base: `2033_hashing.rs`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [2033_hashing.java](2033_hashing.java).
 
 C++ uses `unordered_map`, Go `map`, Rust and Java `HashMap`, Python
 `dict`. Go map values are copied out, updated and stored back. Rust
@@ -105,10 +142,19 @@ record; other ports use whitespace tokens.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB |
-| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB |
-| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.109 s | 612 KB |
-| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB |
-| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB | 11293121 |
+| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB | 11293123 |
+| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.125 s | 628 KB | 11304031 |
+| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB | 11293124 |
+| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB | 11293128 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
+| [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |

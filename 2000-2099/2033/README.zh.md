@@ -79,7 +79,31 @@ nexus4
 - 首次价格从当前记录初始化，不能保留默认零。
 - 全数字型号仍是字符串，要保留前导零。
 
+## 优化解法
+
+优化的 C++ 解法不用哈希表：记录只有六条，所以把每条记录与全部六条比较，统计同一
+型号的记录数并取其最低价格，一共 36 次比较，再按同样的平局规则选出最好的记录。名
+称用 `scanf` 读入长度固定为 21 字节的数组（足够容纳 20 个字符和结尾的零），而不
+是使用 `std::string` 和 `iostream`：{2033_bruteforce.cpp}。
+
+优化的 Rust 解法不用哈希表：记录只有六条，所以把每条记录与全部六条比较，统计同一
+型号的记录数并取其最低价格，一共 36 次比较，再按同样的平局规则选出最好的记录。六
+个型号保持为输入文本的切片，存放在定长数组中，而不是复制到 `HashMap` 里：
+{2033_bruteforce.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `2033_bruteforce.cpp`: 时间降低 +0.00%; 内存降低 +67.71%; 基础版本: `2033_hashing.cpp`.
+
+- `2033_bruteforce.rs`: 时间降低 +0.00%; 内存降低 +47.71%; 基础版本: `2033_hashing.rs`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [2033_hashing.java](2033_hashing.java).
 
 C++ 用 `unordered_map`，Go 用 `map`，Rust、Java 用 `HashMap`，Python 用 `dict`。
 Go 的映射值复制取出、修改后写回。Rust 和其他实现都用首次价格初始化最低价。
@@ -87,10 +111,19 @@ Go 的映射值复制取出、修改后写回。Rust 和其他实现都用首次
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB |
-| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB |
-| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.109 s | 612 KB |
-| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB |
-| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB | 11293121 |
+| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB | 11293123 |
+| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.125 s | 628 KB | 11304031 |
+| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB | 11293124 |
+| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB | 11293128 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
+| [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |

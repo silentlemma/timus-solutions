@@ -94,7 +94,44 @@ Trampas:
 - Inicializa el primer precio con su registro, sin dejar un cero por defecto.
 - Los modelos numéricos siguen siendo cadenas con sus ceros iniciales.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ prescinde de la tabla hash: con solo seis
+registros compara cada registro con los seis, contando los registros del
+mismo modelo y tomando su precio mínimo, 36 comparaciones en total, y se
+queda con el mejor registro con el mismo desempate. Los nombres se leen
+con `scanf` en arreglos fijos de 21 bytes, suficientes para
+20 caracteres y el cero final, en lugar de `std::string` e `iostream`:
+{2033_bruteforce.cpp}.
+
+La solución optimizada en Rust prescinde de la tabla hash: con solo seis
+registros compara cada registro con los seis, contando los registros del
+mismo modelo y tomando su precio mínimo, 36 comparaciones en total, y se
+queda con el mejor registro con el mismo desempate. Los seis modelos
+siguen siendo trozos del texto de entrada en un arreglo fijo en lugar de
+copias en un `HashMap`: {2033_bruteforce.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `2033_bruteforce.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +67.71%; base: `2033_hashing.cpp`.
+
+- `2033_bruteforce.rs`: reducción de tiempo +0.00%; reducción de memoria
+  +47.71%; base: `2033_hashing.rs`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [2033_hashing.java](2033_hashing.java).
 
 C++ usa `unordered_map`, Go `map`, Rust y Java `HashMap` y Python `dict`.
 Go copia el valor de la tabla, lo cambia y lo guarda otra vez. Rust y los demás
@@ -104,10 +141,19 @@ los otros programas separan por blancos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB |
-| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB |
-| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.109 s | 612 KB |
-| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB |
-| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_hashing.cpp](2033_hashing.cpp) | G++ 13.2 x64 | hashing | O(1) | AC | 0.015 s | 384 KB | 11293121 |
+| [2033_hashing.go](2033_hashing.go) | Go 1.14 x64 | hashing | O(1) | AC | 0.031 s | 1116 KB | 11293123 |
+| [2033_hashing.java](2033_hashing.java) | Java 1.8 | hashing | O(1) | AC | 0.125 s | 628 KB | 11304031 |
+| [2033_hashing.py](2033_hashing.py) | Python 3.12 x64 | hashing | O(1) | AC | 0.109 s | 452 KB | 11293124 |
+| [2033_hashing.rs](2033_hashing.rs) | Rust 1.75 x64 | hashing | O(1) | AC | 0.046 s | 436 KB | 11293128 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
+| [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
