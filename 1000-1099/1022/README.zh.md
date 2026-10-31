@@ -79,18 +79,54 @@
 - 输入给出的是孩子而不是父母：从列表统计入度；
 - 只有 `0` 的一行是空列表，而不是输入结束。
 
+## 优化解法
+
+优化的 C++ Kahn 算法解法把关系存放在固定的 101 × 101 `bool` 矩阵中，由于
+`N ≤ 100`，只占约 10 KB，队列也放在固定数组里，而不是用随每条关系增长的 `vector`
+嵌套 `vector`。从队列取出一个成员时，它扫描矩阵的整行，总共 `O(N²)`，对 100 个成
+员来说微不足道：{1022_bfs_graphs_optimized.cpp}。
+
+优化的 Java Kahn 算法解法从 4 KB 缓冲区中手工解析数字，而不是用 `Scanner`；关系
+存放在 (N + 1) × (N + 1) 的 `boolean` 矩阵中，由于 `N ≤ 100`，矩阵很小，队列放在
+`int` 数组里，而不是用装箱 `Integer` 对象的列表。从队列取出一个成员时，它扫描矩
+阵的整行，总共 `O(N²)`：{1022_bfs_graphs_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1022_bfs_graphs_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.10%; 基础版本: `1022_bfs_graphs.cpp`.
+
+- `1022_bfs_graphs_optimized.java`: 时间降低 +25.60%; 内存降低 +80.31%; 基础版本: `1022_bfs_graphs.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1022_bfs_graphs.go](1022_bfs_graphs.go).
+- [1022_dfs_graphs.rs](1022_dfs_graphs.rs).
 
 - **C++**、**Go**、**Java**：Kahn 算法。
 - **C++**、**Rust**：递归 DFS（深度至多 100）；**Python**：用显式迭代器栈实现同样的 DFS。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1022_bfs_graphs.cpp](1022_bfs_graphs.cpp) | G++ 13.2 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 204 KB |
-| [1022_bfs_graphs.go](1022_bfs_graphs.go) | Go 1.14 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 1124 KB |
-| [1022_bfs_graphs.java](1022_bfs_graphs.java) | Java 1.8 | bfs, graphs | O(N + E) | AC | 0.125 s | 1828 KB |
-| [1022_dfs_graphs.cpp](1022_dfs_graphs.cpp) | G++ 13.2 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 196 KB |
-| [1022_dfs_graphs.py](1022_dfs_graphs.py) | Python 3.12 x64 | dfs, graphs | O(N + E) | AC | 0.078 s | 512 KB |
-| [1022_dfs_graphs.rs](1022_dfs_graphs.rs) | Rust 1.75 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1022_bfs_graphs.cpp](1022_bfs_graphs.cpp) | G++ 13.2 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 204 KB | 11278266 |
+| [1022_dfs_graphs.cpp](1022_dfs_graphs.cpp) | G++ 13.2 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 196 KB | 11278269 |
+| [1022_bfs_graphs.go](1022_bfs_graphs.go) | Go 1.14 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 1124 KB | 11278272 |
+| [1022_bfs_graphs.java](1022_bfs_graphs.java) | Java 1.8 | bfs, graphs | O(N + E) | AC | 0.125 s | 1828 KB | 11278276 |
+| [1022_dfs_graphs.py](1022_dfs_graphs.py) | Python 3.12 x64 | dfs, graphs | O(N + E) | AC | 0.078 s | 512 KB | 11278274 |
+| [1022_dfs_graphs.rs](1022_dfs_graphs.rs) | Rust 1.75 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 236 KB | 11278277 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
+| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -88,7 +88,44 @@ Pitfalls:
 - the input lists children, not parents: count in-degrees from the lists;
 - a line with just `0` is an empty list, not the end of the input.
 
+## Optimized solutions
+
+The optimized C++ solution of Kahn's algorithm keeps the links in a
+fixed `bool` matrix of 101 × 101 cells, about 10 KB since `N ≤ 100`, and
+the queue in a fixed array, instead of a `vector` of `vector`s that
+grows with every link. Taking a member from the queue, it scans the
+whole row of the matrix, `O(N²)` in total, which costs nothing for 100
+members: {1022_bfs_graphs_optimized.cpp}.
+
+The optimized Java solution of Kahn's algorithm parses the numbers by
+hand from a 4 KB buffer instead of `Scanner`, keeps the links in a
+`boolean` matrix of (N + 1) × (N + 1) cells, small since `N ≤ 100`, and
+the queue in an `int` array, instead of lists of boxed `Integer`
+objects. Taking a member from the queue, it scans the whole row of the
+matrix, `O(N²)` in total: {1022_bfs_graphs_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1022_bfs_graphs_optimized.cpp`: time reduction +0.00%; memory
+  reduction +45.10%; base: `1022_bfs_graphs.cpp`.
+
+- `1022_bfs_graphs_optimized.java`: time reduction +25.60%; memory
+  reduction +80.31%; base: `1022_bfs_graphs.java`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1022_bfs_graphs.go](1022_bfs_graphs.go).
+- [1022_dfs_graphs.rs](1022_dfs_graphs.rs).
 
 - **C++**, **Go**, **Java**: Kahn's algorithm.
 - **C++**, **Rust**: recursive DFS (the depth is at most 100); **Python**:
@@ -96,11 +133,22 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1022_bfs_graphs.cpp](1022_bfs_graphs.cpp) | G++ 13.2 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 204 KB |
-| [1022_bfs_graphs.go](1022_bfs_graphs.go) | Go 1.14 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 1124 KB |
-| [1022_bfs_graphs.java](1022_bfs_graphs.java) | Java 1.8 | bfs, graphs | O(N + E) | AC | 0.125 s | 1828 KB |
-| [1022_dfs_graphs.cpp](1022_dfs_graphs.cpp) | G++ 13.2 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 196 KB |
-| [1022_dfs_graphs.py](1022_dfs_graphs.py) | Python 3.12 x64 | dfs, graphs | O(N + E) | AC | 0.078 s | 512 KB |
-| [1022_dfs_graphs.rs](1022_dfs_graphs.rs) | Rust 1.75 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1022_bfs_graphs.cpp](1022_bfs_graphs.cpp) | G++ 13.2 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 204 KB | 11278266 |
+| [1022_dfs_graphs.cpp](1022_dfs_graphs.cpp) | G++ 13.2 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 196 KB | 11278269 |
+| [1022_bfs_graphs.go](1022_bfs_graphs.go) | Go 1.14 x64 | bfs, graphs | O(N + E) | AC | 0.015 s | 1124 KB | 11278272 |
+| [1022_bfs_graphs.java](1022_bfs_graphs.java) | Java 1.8 | bfs, graphs | O(N + E) | AC | 0.125 s | 1828 KB | 11278276 |
+| [1022_dfs_graphs.py](1022_dfs_graphs.py) | Python 3.12 x64 | dfs, graphs | O(N + E) | AC | 0.078 s | 512 KB | 11278274 |
+| [1022_dfs_graphs.rs](1022_dfs_graphs.rs) | Rust 1.75 x64 | dfs, graphs | O(N + E) | AC | 0.015 s | 236 KB | 11278277 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
+| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
