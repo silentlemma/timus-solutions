@@ -87,6 +87,62 @@ Pitfalls:
 - when printing base-`10^9` limbs, every limb but the most significant one
   must be padded with leading zeros to 9 digits.
 
+## Optimized solutions
+
+The optimized C++ solution keeps `zero` and `other` in two static arrays
+of 201 base-`10^9` limbs, enough because the answer is below
+`K^N ≤ 10^N` with `N < 1800`, and makes a step of the recurrence in one
+pass over the limbs, in place: the limb of `zero` takes the limb of
+`other`, and the limb of `other` becomes the sum of
+`(zero + other) · (K - 1)` and the carry, modulo `10^9`; the sum itself
+stays below `18 · 10^9` and fits in 64 bits. No temporary vectors are
+allocated and grown on every step: {1012_dp_optimized.cpp}.
+
+The optimized Go solution replaces `math/big` with two fixed arrays of
+201 base-`10^9` limbs, enough because the answer is below `K^N ≤ 10^N`
+with `N < 1800`, and makes a step of the recurrence in one pass over the
+limbs, in place, with the sum and the product by `K - 1` fused: the
+intermediate value stays below `18 · 10^9` and fits in 64 bits. No new
+big integers are allocated on every step, and the limbs are printed with
+zero padding through a buffered writer: {1012_dp_optimized.go}.
+
+The optimized Java solution replaces `BigInteger` with two `long` arrays
+of 201 base-`10^9` limbs, enough because the answer is below
+`K^N ≤ 10^N` with `N < 1800`, and makes a step of the recurrence in one
+pass over the limbs, in place, with the sum and the product by `K - 1`
+fused: the intermediate value stays below `18 · 10^9` and fits in a
+`long`. It also reads the two numbers byte by byte instead of with
+`Scanner`, and pads the limbs with zeros by hand:
+{1012_dp_optimized.java}.
+
+The optimized Rust solution keeps `zero` and `other` in two fixed arrays
+of 201 base-`10^9` limbs, enough because the answer is below
+`K^N ≤ 10^N` with `N < 1800`, and makes a step of the recurrence in one
+pass over the limbs, in place: the intermediate value
+`(zero + other) · (K - 1)` plus the carry stays below `18 · 10^9` and
+fits in a `u64`. No new vectors are allocated for every sum and product,
+and the limbs go straight to a `BufWriter` instead of into one more
+string: {1012_dp_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1012_dp_optimized.cpp`: time reduction +0.00%; memory reduction
+  +58.21%; base: `1012_dp.cpp`.
+
+- `1012_dp_optimized.go`: time reduction -106.67%; memory reduction
+  +48.83%; base: `1012_dp.go`.
+
+- `1012_dp_optimized.java`: time reduction +25.60%; memory reduction
+  +89.02%; base: `1012_dp.java`.
+
+- `1012_dp_optimized.rs`: time reduction +0.00%; memory reduction
+  +58.46%; base: `1012_dp.rs`.
+
 ## Language notes
 
 - **Python**, **Go** (`math/big`) and **Java** (`BigInteger`) provide long
@@ -95,10 +151,23 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1012_dp.cpp](1012_dp.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 268 KB |
-| [1012_dp.go](1012_dp.go) | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 2056 KB |
-| [1012_dp.java](1012_dp.java) | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.125 s | 3860 KB |
-| [1012_dp.py](1012_dp.py) | Python 3.12 x64 | dp | O(N·L), L = length of the answer | AC | 0.062 s | 340 KB |
-| [1012_dp.rs](1012_dp.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 520 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1012_dp.cpp](1012_dp.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 268 KB | 11278066 |
+| [1012_dp.go](1012_dp.go) | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 2056 KB | 11278067 |
+| [1012_dp.java](1012_dp.java) | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.125 s | 3860 KB | 11278076 |
+| [1012_dp.py](1012_dp.py) | Python 3.12 x64 | dp | O(N·L), L = length of the answer | AC | 0.062 s | 340 KB | 11278071 |
+| [1012_dp.rs](1012_dp.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 520 KB | 11278084 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1012_dp_optimized.cpp](1012_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 112 KB | 11307305 |
+| [1012_dp_optimized.go](1012_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.031 s | 1052 KB | 11307309 |
+| [1012_dp_optimized.java](1012_dp_optimized.java) \* | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.093 s | 424 KB | 11307307 |
+| [1012_dp_optimized.rs](1012_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 216 KB | 11307310 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

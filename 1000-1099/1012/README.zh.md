@@ -78,6 +78,45 @@
 - 64 位整数大约在 20 位数字后溢出：简单版本的解法在这里是错的；
 - 输出以 `10^9` 为基的各段时，除最高段外每段都要补前导零到 9 位。
 
+## 优化解法
+
+优化的 C++ 解法把 `zero` 和 `other` 存在两个静态数组中，每个有 201 段以 `10^9`
+为基的数位；这已足够，因为答案小于 `K^N ≤ 10^N`，且 `N < 1800`。递推的一步在数位
+上原地扫一遍完成：`zero` 的数位取 `other` 的数位，`other` 的数位变为
+`(zero + other) · (K - 1)` 与进位之和对 `10^9` 取模，这个和本身小于
+`18 · 10^9`，放得进 64 位。每一步都不再分配和扩展临时向量：
+{1012_dp_optimized.cpp}。
+
+优化的 Go 解法用两个固定大小、各有 201 段以 `10^9` 为基数位的数组代替
+`math/big`；这已足够，因为答案小于 `K^N ≤ 10^N`，且 `N < 1800`。递推的一步在数位
+上原地扫一遍完成，加法和乘以 `K - 1` 合并在一起：中间值小于 `18 · 10^9`，放得进
+64 位。每一步都不再创建新的大整数，各段补零后通过带缓冲的输出打印：
+{1012_dp_optimized.go}。
+
+优化的 Java 解法用两个各有 201 段以 `10^9` 为基数位的 `long` 数组代替
+`BigInteger`；这已足够，因为答案小于 `K^N ≤ 10^N`，且 `N < 1800`。递推的一步在数
+位上原地扫一遍完成，加法和乘以 `K - 1` 合并在一起：中间值小于 `18 · 10^9`，放得
+进 `long`。此外，两个数逐字节读取而不用 `Scanner`，各段手工补零：
+{1012_dp_optimized.java}。
+
+优化的 Rust 解法把 `zero` 和 `other` 存在两个固定大小的数组中，每个有 201 段以
+`10^9` 为基的数位；这已足够，因为答案小于 `K^N ≤ 10^N`，且 `N < 1800`。递推的一
+步在数位上原地扫一遍完成：中间值 `(zero + other) · (K - 1)` 加进位小于
+`18 · 10^9`，放得进 `u64`。每次加法和乘法都不再分配新的向量，各段直接写入
+`BufWriter`，不再拼成另一个字符串：{1012_dp_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1012_dp_optimized.cpp`: 时间降低 +0.00%; 内存降低 +58.21%; 基础版本: `1012_dp.cpp`.
+
+- `1012_dp_optimized.go`: 时间降低 -106.67%; 内存降低 +48.83%; 基础版本: `1012_dp.go`.
+
+- `1012_dp_optimized.java`: 时间降低 +25.60%; 内存降低 +89.02%; 基础版本: `1012_dp.java`.
+
+- `1012_dp_optimized.rs`: 时间降低 +0.00%; 内存降低 +58.46%; 基础版本: `1012_dp.rs`.
+
 ## 各语言说明
 
 - **Python**、**Go**（`math/big`）和 **Java**（`BigInteger`）提供大整数。
@@ -85,10 +124,23 @@
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1012_dp.cpp](1012_dp.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 268 KB |
-| [1012_dp.go](1012_dp.go) | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 2056 KB |
-| [1012_dp.java](1012_dp.java) | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.125 s | 3860 KB |
-| [1012_dp.py](1012_dp.py) | Python 3.12 x64 | dp | O(N·L), L = length of the answer | AC | 0.062 s | 340 KB |
-| [1012_dp.rs](1012_dp.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 520 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1012_dp.cpp](1012_dp.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 268 KB | 11278066 |
+| [1012_dp.go](1012_dp.go) | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 2056 KB | 11278067 |
+| [1012_dp.java](1012_dp.java) | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.125 s | 3860 KB | 11278076 |
+| [1012_dp.py](1012_dp.py) | Python 3.12 x64 | dp | O(N·L), L = length of the answer | AC | 0.062 s | 340 KB | 11278071 |
+| [1012_dp.rs](1012_dp.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 520 KB | 11278084 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1012_dp_optimized.cpp](1012_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 112 KB | 11307305 |
+| [1012_dp_optimized.go](1012_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N·L), L = length of the answer | AC | 0.031 s | 1052 KB | 11307309 |
+| [1012_dp_optimized.java](1012_dp_optimized.java) \* | Java 1.8 | dp | O(N·L), L = length of the answer | AC | 0.093 s | 424 KB | 11307307 |
+| [1012_dp_optimized.rs](1012_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N·L), L = length of the answer | AC | 0.015 s | 216 KB | 11307310 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
