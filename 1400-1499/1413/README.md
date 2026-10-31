@@ -58,16 +58,68 @@ Pitfalls:
 - a diagonal jump is one metre long, not √2 (test 04);
 - diagonal coordinates are irrational, so counting does not make the
   final coordinates exact (test 04);
-- reading a million characters one at a time through slow input calls
-  can take a large part of the 0.5 seconds, so the input is read in
-  big blocks.
+- reading a million characters with a slow input call for each one can
+  take a large part of the 0.5 seconds, so the solutions read whole
+  tokens, lines or the whole input at once.
+
+## Optimized solutions
+
+The optimized Go solution counts the keys in a reusable 4 KB buffer
+instead of reading all the up to 10⁶ keys into memory at once:
+{1413_simulation_optimized.go}.
+
+The optimized Java solution counts the keys straight from the bytes of a
+`BufferedInputStream` and stops at the first 0, instead of decoding the
+input into `String` lines of up to a million characters with
+`BufferedReader`: {1413_simulation_optimized.java}.
+
+The optimized Python solution reads the input in 8 KB chunks and counts
+the digits of each chunk with `bytes.count`, instead of reading all the
+up to 10⁶ keys into memory at once; after the first 0 the rest of the
+input is read but not counted: {1413_simulation_optimized.py}.
+
+The optimized Rust solution counts the keys in a reusable 4 KB buffer
+instead of reading all the up to 10⁶ keys into a vector at once:
+{1413_simulation_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1413_simulation_optimized.go`: time reduction +0.00%; memory
+  reduction +68.46%; base: `1413_simulation.go`.
+
+- `1413_simulation_optimized.java`: time reduction -17.20%; memory
+  reduction +83.87%; base: `1413_simulation.java`.
+
+- `1413_simulation_optimized.py`: time reduction +16.13%; memory
+  reduction +82.94%; base: `1413_simulation.py`.
+
+- `1413_simulation_optimized.rs`: time reduction +0.00%; memory
+  reduction +88.58%; base: `1413_simulation.rs`.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1413_simulation.cpp](1413_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 1640 KB |
-| [1413_simulation.go](1413_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 3196 KB |
-| [1413_simulation.java](1413_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 980 KB |
-| [1413_simulation.py](1413_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 3072 KB |
-| [1413_simulation.rs](1413_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1413_simulation.cpp](1413_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 1832 KB | 11307301 |
+| [1413_simulation.go](1413_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 3196 KB | 11286093 |
+| [1413_simulation.java](1413_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.093 s | 5804 KB | 11307330 |
+| [1413_simulation.py](1413_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 3072 KB | 11286094 |
+| [1413_simulation.rs](1413_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB | 11286097 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1413_simulation_optimized.go](1413_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 1008 KB | 11307331 |
+| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
+| [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
+| [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

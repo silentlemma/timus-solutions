@@ -1,25 +1,27 @@
 #include <cmath>
 #include <cstdio>
+#include <iostream>
 #include <string>
 
 const int KEYS = 10;
-const int BUFFER = 1 << 16;
-const double HALF = sqrt(0.5); // each axis of a diagonal jump
+const double HALF = sqrt(1.0 / 2); // each axis of a diagonal jump
 // the numeric keypad: the jump of each key in steps east and north
 const int DX[KEYS] = {0, -1, 0, 1, -1, 0, 1, -1, 0, 1};
 const int DY[KEYS] = {0, -1, -1, -1, 0, 0, 0, 1, 1, 1};
 
 int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     std::string keys;
-    char buffer[BUFFER];
-    for (size_t got; (got = fread(buffer, 1, sizeof buffer, stdin)) > 0;)
-        keys.append(buffer, got);
     long long times[KEYS] = {};
-    for (char c : keys) {
-        if (c == '0')
-            break;
-        if (c > '0' && c <= '9')
-            times[c - '0']++;
+    bool stopped = false;
+    while (std::cin >> keys) {
+        for (char c : keys) {
+            if (c == '0')
+                stopped = true;
+            if (!stopped && c > '0' && c <= '9')
+                times[c - '0']++;
+        }
     }
     // straight jumps add whole metres, diagonal ones 1/sqrt(2) on each axis
     long long sx = 0, sy = 0, dx = 0, dy = 0;

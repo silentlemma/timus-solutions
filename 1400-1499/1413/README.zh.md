@@ -52,15 +52,56 @@ X 和 Y，向东和向北的位移。
 - 第一个 0 之后的按键必须忽略（测试 01、05、gen2）；
 - 斜跳的长度是一米，不是 √2（测试 04）；
 - 斜跳的坐标是无理数，因此计数并不能使最终坐标完全精确（测试 04）；
-- 用慢速输入调用逐个读取一百万个字符可能占去 0.5 秒中的很大一部分，所以按大块
-  读入。
+- 每个字符都调用一次慢速输入来读取一百万个字符，可能占去 0.5 秒中的很大一部分，
+  所以各解法一次读入整个记号、整行或全部输入。
+
+## 优化解法
+
+优化的 Go 解法在一个可重复使用的 4 KB 缓冲区中统计按键，而不是把多达 10⁶ 次按键
+一次全部读入内存：{1413_simulation_optimized.go}。
+
+优化的 Java 解法直接按 `BufferedInputStream` 的字节统计按键，并在第一个 0 处停
+止，而不是用 `BufferedReader` 把输入解码成长达一百万个字符的 `String` 行：
+{1413_simulation_optimized.java}。
+
+优化的 Python 解法按 8 KB 分块读取输入，并用 `bytes.count` 统计每块中的各个数
+字，而不是把多达 10⁶ 次按键一次全部读入内存；第一个 0 之后的输入照常读取但不再计
+数：{1413_simulation_optimized.py}。
+
+优化的 Rust 解法在一个可重复使用的 4 KB 缓冲区中统计按键，而不是把多达 10⁶ 次按
+键一次全部读入向量：{1413_simulation_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1413_simulation_optimized.go`: 时间降低 +0.00%; 内存降低 +68.46%; 基础版本: `1413_simulation.go`.
+
+- `1413_simulation_optimized.java`: 时间降低 -17.20%; 内存降低 +83.87%; 基础版本: `1413_simulation.java`.
+
+- `1413_simulation_optimized.py`: 时间降低 +16.13%; 内存降低 +82.94%; 基础版本: `1413_simulation.py`.
+
+- `1413_simulation_optimized.rs`: 时间降低 +0.00%; 内存降低 +88.58%; 基础版本: `1413_simulation.rs`.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1413_simulation.cpp](1413_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 1640 KB |
-| [1413_simulation.go](1413_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 3196 KB |
-| [1413_simulation.java](1413_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 980 KB |
-| [1413_simulation.py](1413_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 3072 KB |
-| [1413_simulation.rs](1413_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1413_simulation.cpp](1413_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 1832 KB | 11307301 |
+| [1413_simulation.go](1413_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 3196 KB | 11286093 |
+| [1413_simulation.java](1413_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.093 s | 5804 KB | 11307330 |
+| [1413_simulation.py](1413_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 3072 KB | 11286094 |
+| [1413_simulation.rs](1413_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB | 11286097 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1413_simulation_optimized.go](1413_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 1008 KB | 11307331 |
+| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
+| [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
+| [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
