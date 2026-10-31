@@ -65,6 +65,41 @@
 答案已在 120 个最多 13 个阳台的随机输入上，以及所有 20 个阳台的测试上，与
 对全部 `2^N` 个子集自底向上计算的表比对。
 
+## 优化解法
+
+优化的 C++ 解法为每个状态缓存剩余伤害与该状态下存活怪物数之和，这样存活数每个状
+态只算一次，而不是每次转移都算一次，总时间为 `O(S·N)`；答案是整圈的缓存值减去全
+部怪物数。缓存是只存可达状态的 `unordered_map`，而不是覆盖全部 `2^N` 个掩码的数
+组：{1152_bitmask_optimized.cpp}。
+
+优化的 Go 解法为每个状态缓存剩余伤害与该状态下存活怪物数之和，这样存活数每个状态
+只算一次，而不是每次转移都算一次，总时间为 `O(S·N)`；答案是整圈的缓存值减去全部
+怪物数。缓存是只存可达状态的 `map`，而不是覆盖全部 `2^N` 个掩码的切片：
+{1152_bitmask_optimized.go}。
+
+优化的 Java 解法为每个状态缓存剩余伤害与该状态下存活怪物数之和，这样存活数每个状
+态只算一次，而不是每次转移都算一次，总时间为 `O(S·N)`；答案是整圈的缓存值减去全
+部怪物数。缓存不是覆盖全部 `2^N` 个掩码的数组，而是建在两个 `int` 数组上、填满一
+半就翻倍的开放寻址哈希表，因此只存可达状态，键也无需装箱；输入用
+`StreamTokenizer` 而不是 `Scanner` 读取：{1152_bitmask_optimized.java}。
+
+优化的 Python 解法用普通字典代替 `lru_cache` 保存可达状态，并为每个状态缓存剩余
+伤害与该状态下存活怪物数之和，这样存活数每个状态只算一次，而不是每次转移都算一
+次，总时间为 `O(S·N)`；答案是整圈的缓存值减去全部怪物数：
+{1152_bitmask_optimized.py}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1152_bitmask_optimized.cpp`: 时间降低 +0.00%; 内存降低 +87.18%; 基础版本: `1152_bitmask.cpp`.
+
+- `1152_bitmask_optimized.go`: 时间降低 +51.61%; 内存降低 +75.09%; 基础版本: `1152_bitmask.go`.
+
+- `1152_bitmask_optimized.java`: 时间降低 +25.60%; 内存降低 +81.78%; 基础版本: `1152_bitmask.java`.
+
+- `1152_bitmask_optimized.py`: 时间降低 +67.52%; 内存降低 +6.28%; 基础版本: `1152_bitmask.py`.
+
 ## 各语言说明
 
 - 所有语言都对同一个递归做记忆化；Python 用以掩码为键的缓存，其余语言用
@@ -74,10 +109,21 @@
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1152_bitmask.cpp](1152_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N²) | AC | 0.015 s | 3868 KB |
-| [1152_bitmask.go](1152_bitmask.go) | Go 1.14 x64 | bitmask | O(2^N + S·N²) | AC | 0.031 s | 10052 KB |
-| [1152_bitmask.java](1152_bitmask.java) | Java 1.8 | bitmask | O(2^N + S·N²) | AC | 0.125 s | 5356 KB |
-| [1152_bitmask.py](1152_bitmask.py) | Python 3.12 x64 | bitmask | O(S·N²) | AC | 0.625 s | 2420 KB |
-| [1152_bitmask.rs](1152_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^N + S·N²) | AC | 0.001 s | 1592 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1152_bitmask.cpp](1152_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N²) | AC | 0.015 s | 3868 KB | 11280481 |
+| [1152_bitmask.go](1152_bitmask.go) | Go 1.14 x64 | bitmask | O(2^N + S·N²) | AC | 0.031 s | 10052 KB | 11280557 |
+| [1152_bitmask.java](1152_bitmask.java) | Java 1.8 | bitmask | O(2^N + S·N²) | AC | 0.125 s | 5356 KB | 11280628 |
+| [1152_bitmask.py](1152_bitmask.py) | Python 3.12 x64 | bitmask | O(S·N²) | AC | 0.625 s | 2420 KB | 11280596 |
+| [1152_bitmask.rs](1152_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^N + S·N²) | AC | 0.001 s | 1592 KB | 11280672 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1152_bitmask_optimized.cpp](1152_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N) | AC | 0.015 s | 496 KB | 11305857 |
+| [1152_bitmask_optimized.go](1152_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O(S·N) | AC | 0.015 s | 2504 KB | 11305860 |
+| [1152_bitmask_optimized.java](1152_bitmask_optimized.java) | Java 1.8 | bitmask | O(2^N + S·N) | AC | 0.093 s | 976 KB | 11305862 |
+| [1152_bitmask_optimized.py](1152_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(S·N) | AC | 0.203 s | 2268 KB | 11305865 |

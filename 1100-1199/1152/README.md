@@ -72,6 +72,57 @@ Pitfalls:
 The answers were compared with a bottom-up table over all `2^N` subsets
 on 120 random inputs with up to 13 balconies and on every test with 20.
 
+## Optimized solutions
+
+The optimized C++ solution caches for each state the damage still to
+come plus the monsters alive in it, so the living sum is computed once
+per state instead of once per transition, `O(S·N)` time in all; the
+answer is the value of the full circle minus all monsters. The cache is
+an `unordered_map` that holds only the reachable states instead of an
+array of all `2^N` masks: {1152_bitmask_optimized.cpp}.
+
+The optimized Go solution caches for each state the damage still to come
+plus the monsters alive in it, so the living sum is computed once per
+state instead of once per transition, `O(S·N)` time in all; the answer
+is the value of the full circle minus all monsters. The cache is a `map`
+that holds only the reachable states instead of a slice of all `2^N`
+masks: {1152_bitmask_optimized.go}.
+
+The optimized Java solution caches for each state the damage still to
+come plus the monsters alive in it, so the living sum is computed once
+per state instead of once per transition, `O(S·N)` time in all; the
+answer is the value of the full circle minus all monsters. Instead of an
+array of all `2^N` masks the cache is a hash table with open addressing
+in two `int` arrays that doubles as it fills, so it holds only the
+reachable states and boxes no keys; the input is read with
+`StreamTokenizer` instead of `Scanner`: {1152_bitmask_optimized.java}.
+
+The optimized Python solution keeps the reachable states in a plain
+dictionary instead of `lru_cache` and caches for each state the damage
+still to come plus the monsters alive in it, so the living sum is
+computed once per state instead of once per transition, `O(S·N)` time in
+all; the answer is the value of the full circle minus all monsters:
+{1152_bitmask_optimized.py}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1152_bitmask_optimized.cpp`: time reduction +0.00%; memory reduction
+  +87.18%; base: `1152_bitmask.cpp`.
+
+- `1152_bitmask_optimized.go`: time reduction +51.61%; memory reduction
+  +75.09%; base: `1152_bitmask.go`.
+
+- `1152_bitmask_optimized.java`: time reduction +25.60%; memory
+  reduction +81.78%; base: `1152_bitmask.java`.
+
+- `1152_bitmask_optimized.py`: time reduction +67.52%; memory reduction
+  +6.28%; base: `1152_bitmask.py`.
+
 ## Language notes
 
 - All languages memoize the same recursion; Python keeps the memo in a
@@ -81,10 +132,21 @@ on 120 random inputs with up to 13 balconies and on every test with 20.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1152_bitmask.cpp](1152_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N²) | AC | 0.015 s | 3868 KB |
-| [1152_bitmask.go](1152_bitmask.go) | Go 1.14 x64 | bitmask | O(2^N + S·N²) | AC | 0.031 s | 10052 KB |
-| [1152_bitmask.java](1152_bitmask.java) | Java 1.8 | bitmask | O(2^N + S·N²) | AC | 0.125 s | 5356 KB |
-| [1152_bitmask.py](1152_bitmask.py) | Python 3.12 x64 | bitmask | O(S·N²) | AC | 0.625 s | 2420 KB |
-| [1152_bitmask.rs](1152_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^N + S·N²) | AC | 0.001 s | 1592 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1152_bitmask.cpp](1152_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N²) | AC | 0.015 s | 3868 KB | 11280481 |
+| [1152_bitmask.go](1152_bitmask.go) | Go 1.14 x64 | bitmask | O(2^N + S·N²) | AC | 0.031 s | 10052 KB | 11280557 |
+| [1152_bitmask.java](1152_bitmask.java) | Java 1.8 | bitmask | O(2^N + S·N²) | AC | 0.125 s | 5356 KB | 11280628 |
+| [1152_bitmask.py](1152_bitmask.py) | Python 3.12 x64 | bitmask | O(S·N²) | AC | 0.625 s | 2420 KB | 11280596 |
+| [1152_bitmask.rs](1152_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^N + S·N²) | AC | 0.001 s | 1592 KB | 11280672 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1152_bitmask_optimized.cpp](1152_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(2^N + S·N) | AC | 0.015 s | 496 KB | 11305857 |
+| [1152_bitmask_optimized.go](1152_bitmask_optimized.go) | Go 1.14 x64 | bitmask | O(S·N) | AC | 0.015 s | 2504 KB | 11305860 |
+| [1152_bitmask_optimized.java](1152_bitmask_optimized.java) | Java 1.8 | bitmask | O(2^N + S·N) | AC | 0.093 s | 976 KB | 11305862 |
+| [1152_bitmask_optimized.py](1152_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(S·N) | AC | 0.203 s | 2268 KB | 11305865 |
