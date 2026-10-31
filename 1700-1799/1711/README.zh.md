@@ -13,8 +13,8 @@ n 道题中每道都有三个候选代号，题目在题集中按代号的字典
 
 ## 输入
 
-n（1 ≤ n ≤ 16），然后 n 行，每行是一道题的三个代号：由小写字母组成，长度至多 20，所有代号互不相同。
-最后一行是要求的顺序，即 1 … n 的一个排列。
+n（1 ≤ n ≤ 16），然后 n 行，每行是一道题的三个代号：由小写拉丁字母组成，长度至多
+20，所有代号互不相同。最后一行是要求的顺序，即 1 … n 的一个排列。
 
 ## 输出
 
@@ -92,12 +92,41 @@ IMPOSSIBLE
 
 检查程序验证每个代号属于对应的题目，并且代号递增。在 600 个随机题集上，答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 读入一个 16 × 3 个名字、每个 21 字节的固定数组
+（n ≤ 16，名字最多 20 个字母再加结尾的零，足够放下），而不是通过 `iostream`
+读入由 `std::string` 组成的二维向量。它不对每道题的三个名字排序，而是用 `strcmp`
+逐个比较，找出排在上一个选择之后的最小名字，只记下所选名字的指针，最后用 `puts`
+输出：{1711_greedy_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1711_greedy_optimized.cpp`: 时间降低 +51.61%; 内存降低 +74.75%; 基础版本: `1711_greedy.cpp`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1711_greedy.go](1711_greedy.go).
+- [1711_greedy.java](1711_greedy.java).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1711_greedy.cpp](1711_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 400 KB |
-| [1711_greedy.go](1711_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.062 s | 1148 KB |
-| [1711_greedy.java](1711_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.140 s | 516 KB |
-| [1711_greedy.py](1711_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.093 s | 456 KB |
-| [1711_greedy.rs](1711_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1711_greedy.cpp](1711_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.031 s | 396 KB | 11304067 |
+| [1711_greedy.go](1711_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.062 s | 1148 KB | 11289207 |
+| [1711_greedy.java](1711_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.140 s | 516 KB | 11289209 |
+| [1711_greedy.py](1711_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.093 s | 492 KB | 11304068 |
+| [1711_greedy.rs](1711_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 236 KB | 11289213 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1711_greedy_optimized.cpp](1711_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 100 KB | 11304441 |

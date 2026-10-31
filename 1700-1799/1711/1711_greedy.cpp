@@ -3,14 +3,14 @@
 #include <string>
 #include <vector>
 
-const int CHOICES = 3;  // names offered for every problem
+const int CHOICES = 3; // names offered for every problem
 
 int main() {
     int n;
     std::cin >> n;
     std::vector<std::vector<std::string>> names(n, std::vector<std::string>(CHOICES));
-    for (auto& options : names) {
-        for (std::string& name : options) {
+    for (auto &options : names) {
+        for (std::string &name : options) {
             std::cin >> name;
         }
         std::sort(options.begin(), options.end());
@@ -22,7 +22,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         int p;
         std::cin >> p;
-        const std::vector<std::string>& options = names[p - 1];
+        const std::vector<std::string> &options = names[p - 1];
         auto it = std::upper_bound(options.begin(), options.end(), last);
         if (it == options.end()) {
             std::cout << "IMPOSSIBLE\n";
@@ -31,7 +31,7 @@ int main() {
         last = *it;
         chosen.push_back(last);
     }
-    for (const std::string& name : chosen) {
+    for (const std::string &name : chosen) {
         std::cout << name << "\n";
     }
 }
