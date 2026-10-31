@@ -73,12 +73,58 @@ n, 2 ≤ n ≤ 100, затем три строки по 5n − 1 символо�
 Во втором примере чередование нарушает только первый голубь, так что
 хватает одного разворота.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ читает через `scanf` в один буфер `char`
+постоянного размера на 500 байт вместо `std::cin` в `std::string`, так
+что программа обходится без библиотеки `iostream`; в строке не больше
+5 · 100 − 1 = 499 символов, так как `n ≤ 100`:
+{2149_implementation_optimized.cpp}.
+
+Оптимизированное решение на Java читает байты из буфера на 4 КБ вместо
+`Scanner` и считает голубей прямо по байтам первой строки, в каждом
+пятом столбце, не создавая из неё `String`; две другие строки читаются и
+отбрасываются: {2149_implementation_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `2149_implementation_optimized.cpp`: сокращение времени +0.00%;
+  сокращение памяти +73.47%; база: `2149_implementation.cpp`.
+
+- `2149_implementation_optimized.java`: сокращение времени -12.00%;
+  сокращение памяти +75.13%; база: `2149_implementation.java`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [2149_implementation.rs](2149_implementation.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2149_implementation.cpp](2149_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.031 s | 400 KB |
-| [2149_implementation.go](2149_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1100 KB |
-| [2149_implementation.java](2149_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1612 KB |
-| [2149_implementation.py](2149_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 412 KB |
-| [2149_implementation.rs](2149_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 240 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2149_implementation.cpp](2149_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 392 KB | 11304075 |
+| [2149_implementation.go](2149_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1100 KB | 11295005 |
+| [2149_implementation.java](2149_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1576 KB | 11304076 |
+| [2149_implementation.py](2149_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 412 KB | 11295006 |
+| [2149_implementation.rs](2149_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 240 KB | 11295008 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
+| [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

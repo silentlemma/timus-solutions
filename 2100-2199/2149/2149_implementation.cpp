@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-constexpr int STEP = 5;  // four characters of a pigeon and a separating column
+constexpr int STEP = 5; // four characters of a pigeon and a separating column
 
 int main() {
     int n;
@@ -14,8 +14,10 @@ int main() {
     int halves = 0, parity = 0;
     for (int i = 0; i < n; i++) {
         bool left = top[i * STEP] == '<';
-        if (left != (i < n / 2)) halves++;
-        if (left != (i % 2 == 0)) parity++;
+        if (left != (i < n / 2))
+            halves++;
+        if (left != (i % 2 == 0))
+            parity++;
     }
     std::cout << std::min(std::min(halves, n - halves), std::min(parity, n - parity)) << '\n';
     return 0;
