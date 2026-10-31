@@ -101,6 +101,86 @@ Las cantidades del voraz se compararon con una búsqueda en anchura
 sobre los extremos derechos alcanzables en 400 entradas aleatorias
 pequeñas.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ no guarda ni ordena los segmentos. Como
+los extremos son enteros y M ≤ 5000, mantiene un cubo por cada extremo
+izquierdo de 0 a M − 1 con el segmento que llega más lejos desde allí;
+los segmentos que empiezan antes de 0 comparten el cubo de 0, y los que
+empiezan en M o después o terminan en 0 o antes se descartan, porque
+nunca ayudan. Con alcances iguales el cubo guarda el extremo izquierdo
+menor, así que se imprime el mismo recubrimiento. Después el voraz
+recorre los M cubos una vez: tiempo `O(N + M)` y memoria `O(M)`. Los
+números se analizan a mano desde bloques de 4 KB en lugar de con
+`scanf`: {1303_greedy_optimized.cpp}.
+
+La solución optimizada en Go no guarda ni ordena los segmentos. Como los
+extremos son enteros y M ≤ 5000, mantiene un cubo por cada extremo
+izquierdo de 0 a M − 1 con el segmento que llega más lejos desde allí;
+los segmentos que empiezan antes de 0 comparten el cubo de 0, y los que
+empiezan en M o después o terminan en 0 o antes se descartan, porque
+nunca ayudan. Con alcances iguales el cubo guarda el extremo izquierdo
+menor, así que se imprime el mismo recubrimiento. Después el voraz
+recorre los M cubos una vez: tiempo `O(N + M)` y memoria `O(M)`. Los
+números se analizan byte a byte desde el lector con búfer en lugar de
+como palabras de un `bufio.Scanner`: {1303_greedy_optimized.go}.
+
+La solución optimizada en Java no guarda ni ordena los segmentos. Como
+los extremos son enteros y M ≤ 5000, mantiene un cubo por cada extremo
+izquierdo de 0 a M − 1 con el segmento que llega más lejos desde allí;
+los segmentos que empiezan antes de 0 comparten el cubo de 0, y los que
+empiezan en M o después o terminan en 0 o antes se descartan, porque
+nunca ayudan. Con alcances iguales el cubo guarda el extremo izquierdo
+menor, así que se imprime el mismo recubrimiento. Después el voraz
+recorre los M cubos una vez: tiempo `O(N + M)` y memoria `O(M)`, en
+lugar de un arreglo de hasta 99 999 pares `long[]` ordenado con un
+comparador. Los números se analizan a mano desde bloques de 4 KB en
+lugar de con `StreamTokenizer`: {1303_greedy_optimized.java}.
+
+La solución optimizada en Python no guarda ni ordena los segmentos. Como
+los extremos son enteros y M ≤ 5000, mantiene un cubo por cada extremo
+izquierdo de 0 a M − 1 con el segmento que llega más lejos desde allí;
+los segmentos que empiezan antes de 0 comparten el cubo de 0, y los que
+empiezan en M o después o terminan en 0 o antes se descartan, porque
+nunca ayudan. Con alcances iguales el cubo guarda el extremo izquierdo
+menor, así que se imprime el mismo recubrimiento. Después el voraz
+recorre los M cubos una vez: tiempo `O(N + M)` y memoria `O(M)`. La
+entrada se lee línea a línea, contando con un par por línea, en lugar de
+leerla y partirla entera de una vez: {1303_greedy_optimized.py}.
+
+La solución optimizada en Rust no guarda ni ordena los segmentos. Como
+los extremos son enteros y M ≤ 5000, mantiene un cubo por cada extremo
+izquierdo de 0 a M − 1 con el segmento que llega más lejos desde allí;
+los segmentos que empiezan antes de 0 comparten el cubo de 0, y los que
+empiezan en M o después o terminan en 0 o antes se descartan, porque
+nunca ayudan. Con alcances iguales el cubo guarda el extremo izquierdo
+menor, así que se imprime el mismo recubrimiento. Después el voraz
+recorre los M cubos una vez: tiempo `O(N + M)` y memoria `O(M)`. La
+entrada se lee línea a línea, contando con un par por línea, en lugar de
+leerla entera en una cadena: {1303_greedy_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1303_greedy_optimized.cpp`: reducción de tiempo +88.00%; reducción de
+  memoria +87.46%; base: `1303_greedy.cpp`.
+
+- `1303_greedy_optimized.go`: reducción de tiempo +67.39%; reducción de
+  memoria +85.08%; base: `1303_greedy.go`.
+
+- `1303_greedy_optimized.java`: reducción de tiempo +57.34%; reducción
+  de memoria +89.70%; base: `1303_greedy.java`.
+
+- `1303_greedy_optimized.py`: reducción de tiempo +31.60%; reducción de
+  memoria +95.40%; base: `1303_greedy.py`.
+
+- `1303_greedy_optimized.rs`: reducción de tiempo -106.67%; reducción de
+  memoria +93.76%; base: `1303_greedy.rs`.
+
 ## Notas por lenguaje
 
 - Todos los lenguajes deshacen los empates igual, con el primer
@@ -109,10 +189,24 @@ pequeñas.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1303_greedy.cpp](1303_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.125 s | 1372 KB |
-| [1303_greedy.go](1303_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.046 s | 8068 KB |
-| [1303_greedy.java](1303_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.218 s | 8312 KB |
-| [1303_greedy.py](1303_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.250 s | 24780 KB |
-| [1303_greedy.rs](1303_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 3716 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1303_greedy.cpp](1303_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.125 s | 1372 KB | 11284796 |
+| [1303_greedy.go](1303_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.046 s | 8068 KB | 11284802 |
+| [1303_greedy.java](1303_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.218 s | 8312 KB | 11284806 |
+| [1303_greedy.py](1303_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.250 s | 24780 KB | 11284804 |
+| [1303_greedy.rs](1303_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 3716 KB | 11284810 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1303_greedy_optimized.cpp](1303_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + M) | AC | 0.015 s | 172 KB | 11307319 |
+| [1303_greedy_optimized.go](1303_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + M) | AC | 0.015 s | 1204 KB | 11307326 |
+| [1303_greedy_optimized.java](1303_greedy_optimized.java) | Java 1.8 | greedy | O(N + M) | AC | 0.093 s | 856 KB | 11307323 |
+| [1303_greedy_optimized.py](1303_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1140 KB | 11307328 |
+| [1303_greedy_optimized.rs](1303_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + M) | AC | 0.031 s | 232 KB | 11307329 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

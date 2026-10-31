@@ -87,16 +87,82 @@ No solution
 
 在 400 个小型随机输入上，用对可达右端点的广度优先搜索验证了贪心得到的数量。
 
+## 优化解法
+
+优化的 C++ 解法既不保存也不排序线段。由于端点是整数且 M ≤ 5000，它为从 0 到
+M − 1 的每个左端点设一个桶，只保留从该处向右延伸最远的线段；左端点小于 0 的线段
+共用桶 0，左端点不小于 M 或右端点不大于 0 的线段直接丢弃，因为它们永远没有用。右
+端点相同时桶里保留左端点较小的线段，所以输出的覆盖相同。然后贪心把 M 个桶扫一
+遍：时间 `O(N + M)`，内存 `O(M)`。数从 4 KB 的块中手工解析，而不是用 `scanf`：
+{1303_greedy_optimized.cpp}。
+
+优化的 Go 解法既不保存也不排序线段。由于端点是整数且 M ≤ 5000，它为从 0 到 M − 1
+的每个左端点设一个桶，只保留从该处向右延伸最远的线段；左端点小于 0 的线段共用桶
+0，左端点不小于 M 或右端点不大于 0 的线段直接丢弃，因为它们永远没有用。右端点相
+同时桶里保留左端点较小的线段，所以输出的覆盖相同。然后贪心把 M 个桶扫一遍：时间
+`O(N + M)`，内存 `O(M)`。数从带缓冲的读取器中逐字节解析，而不是作为
+`bufio.Scanner` 的单词读取：{1303_greedy_optimized.go}。
+
+优化的 Java 解法既不保存也不排序线段。由于端点是整数且 M ≤ 5000，它为从 0 到
+M − 1 的每个左端点设一个桶，只保留从该处向右延伸最远的线段；左端点小于 0 的线段
+共用桶 0，左端点不小于 M 或右端点不大于 0 的线段直接丢弃，因为它们永远没有用。右
+端点相同时桶里保留左端点较小的线段，所以输出的覆盖相同。然后贪心把 M 个桶扫一
+遍：时间 `O(N + M)`，内存 `O(M)`，而不是用比较器排序多达 99 999 个 `long[]` 对的
+数组。数从 4 KB 的块中手工解析，而不是用 `StreamTokenizer`：
+{1303_greedy_optimized.java}。
+
+优化的 Python 解法既不保存也不排序线段。由于端点是整数且 M ≤ 5000，它为从 0 到
+M − 1 的每个左端点设一个桶，只保留从该处向右延伸最远的线段；左端点小于 0 的线段
+共用桶 0，左端点不小于 M 或右端点不大于 0 的线段直接丢弃，因为它们永远没有用。右
+端点相同时桶里保留左端点较小的线段，所以输出的覆盖相同。然后贪心把 M 个桶扫一
+遍：时间 `O(N + M)`，内存 `O(M)`。输入按行读取（依赖每行一对数），而不是一次读入
+再整体切分：{1303_greedy_optimized.py}。
+
+优化的 Rust 解法既不保存也不排序线段。由于端点是整数且 M ≤ 5000，它为从 0 到
+M − 1 的每个左端点设一个桶，只保留从该处向右延伸最远的线段；左端点小于 0 的线段
+共用桶 0，左端点不小于 M 或右端点不大于 0 的线段直接丢弃，因为它们永远没有用。右
+端点相同时桶里保留左端点较小的线段，所以输出的覆盖相同。然后贪心把 M 个桶扫一
+遍：时间 `O(N + M)`，内存 `O(M)`。输入按行读取（依赖每行一对数），而不是整个读进
+一个字符串：{1303_greedy_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1303_greedy_optimized.cpp`: 时间降低 +88.00%; 内存降低 +87.46%; 基础版本: `1303_greedy.cpp`.
+
+- `1303_greedy_optimized.go`: 时间降低 +67.39%; 内存降低 +85.08%; 基础版本: `1303_greedy.go`.
+
+- `1303_greedy_optimized.java`: 时间降低 +57.34%; 内存降低 +89.70%; 基础版本: `1303_greedy.java`.
+
+- `1303_greedy_optimized.py`: 时间降低 +31.60%; 内存降低 +95.40%; 基础版本: `1303_greedy.py`.
+
+- `1303_greedy_optimized.rs`: 时间降低 -106.67%; 内存降低 +93.76%; 基础版本: `1303_greedy.rs`.
+
 ## 各语言说明
 
 - 所有语言都以同样方式处理相等情况（取排序后的第一条），因此输出相同的覆盖。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1303_greedy.cpp](1303_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.125 s | 1372 KB |
-| [1303_greedy.go](1303_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.046 s | 8068 KB |
-| [1303_greedy.java](1303_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.218 s | 8312 KB |
-| [1303_greedy.py](1303_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.250 s | 24780 KB |
-| [1303_greedy.rs](1303_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 3716 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1303_greedy.cpp](1303_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.125 s | 1372 KB | 11284796 |
+| [1303_greedy.go](1303_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.046 s | 8068 KB | 11284802 |
+| [1303_greedy.java](1303_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.218 s | 8312 KB | 11284806 |
+| [1303_greedy.py](1303_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.250 s | 24780 KB | 11284804 |
+| [1303_greedy.rs](1303_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 3716 KB | 11284810 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1303_greedy_optimized.cpp](1303_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + M) | AC | 0.015 s | 172 KB | 11307319 |
+| [1303_greedy_optimized.go](1303_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + M) | AC | 0.015 s | 1204 KB | 11307326 |
+| [1303_greedy_optimized.java](1303_greedy_optimized.java) | Java 1.8 | greedy | O(N + M) | AC | 0.093 s | 856 KB | 11307323 |
+| [1303_greedy_optimized.py](1303_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1140 KB | 11307328 |
+| [1303_greedy_optimized.rs](1303_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + M) | AC | 0.031 s | 232 KB | 11307329 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
