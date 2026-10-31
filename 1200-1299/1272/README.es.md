@@ -8,17 +8,18 @@ Problema original de Magaz Asanov (preparado por Igor Goldberg), del Campeonato 
 
 ## Tarea
 
-Una ciudad está sobre N ≤ 10 000 islas unidas por K ≤ 12 000 túneles y
-M ≤ 12 000 puentes, y entre todos conectan todas las islas. Un metro
-debe conectar todas las islas usando algunos de estos enlaces, con el
-menor número posible de puentes. ¿Cuántos puentes necesita?
+Una ciudad está sobre 1 ≤ N ≤ 10 000 islas unidas por 0 ≤ K ≤ 12 000
+túneles y 0 ≤ M ≤ 12 000 puentes, y entre todos conectan todas las
+islas. Un metro debe conectar todas las islas usando algunos de estos
+enlaces, con el menor número posible de puentes. ¿Cuántos puentes
+necesita?
 
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
 N, K y M, luego K túneles y M puentes, cada uno como dos números de
-isla.
+isla entre 1 y N.
 
 ## Salida
 
@@ -66,17 +67,80 @@ Detalles a tener en cuenta:
 - con una sola isla, o si los túneles ya lo conectan todo, la respuesta
   es 0 (pruebas 02, 04).
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ analiza los números a mano desde un búfer
+de 4 KB en lugar de `scanf` y guarda los padres en un arreglo global
+fijo de 10 001 celdas, suficiente para `N ≤ 10 000`, en lugar de un
+`std::vector`. Además lee los puentes hasta el final, cosa que la
+solución sencilla no hace: {1272_dsu_optimized.cpp}.
+
+La solución optimizada en Go analiza los números byte a byte desde el
+`bufio.Reader` en lugar de `fmt.Fscan` y guarda los padres como
+`uint16`, que admite números de isla hasta 10 000, en lugar de `int`.
+Además lee los puentes hasta el final, cosa que la solución sencilla no
+hace: {1272_dsu_optimized.go}.
+
+La solución optimizada en Python lee la entrada en trozos de 8 KB y
+convierte los tokens trozo a trozo, saltando los puentes según llegan,
+en lugar de partir toda la entrada en una lista de una vez:
+{1272_dsu_optimized.py}.
+
+La solución optimizada en Rust analiza los números a mano desde un búfer
+de 4 KB que se rellena desde la entrada estándar, en lugar de leer toda
+la entrada en un `String`, así que en memoria quedan solo los padres y
+el búfer: {1272_dsu_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1272_dsu_optimized.cpp`: reducción de tiempo +51.61%; reducción de
+  memoria +49.12%; base: `1272_dsu.cpp`.
+
+- `1272_dsu_optimized.go`: reducción de tiempo -106.67%; reducción de
+  memoria +35.85%; base: `1272_dsu.go`.
+
+- `1272_dsu_optimized.py`: reducción de tiempo -17.20%; reducción de
+  memoria +67.67%; base: `1272_dsu.py`.
+
+- `1272_dsu_optimized.rs`: reducción de tiempo +0.00%; reducción de
+  memoria +63.93%; base: `1272_dsu.rs`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1272_dsu.java](1272_dsu.java).
 
 - Todos los lenguajes usan la misma unión-búsqueda con reducción de
   caminos a la mitad. Python y Rust leen toda la entrada, añadiendo `O(M)` de tiempo.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1272_dsu.cpp](1272_dsu.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N) | AC | 0.031 s | 228 KB |
-| [1272_dsu.go](1272_dsu.go) | Go 1.14 x64 | dsu | O((N + K) log N) | AC | 0.015 s | 1428 KB |
-| [1272_dsu.java](1272_dsu.java) | Java 1.8 | dsu | O((N + K) log N) | AC | 0.140 s | 488 KB |
-| [1272_dsu.py](1272_dsu.py) | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.093 s | 3328 KB |
-| [1272_dsu.rs](1272_dsu.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 732 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1272_dsu.cpp](1272_dsu.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N) | AC | 0.031 s | 228 KB | 11284262 |
+| [1272_dsu.go](1272_dsu.go) | Go 1.14 x64 | dsu | O((N + K) log N) | AC | 0.015 s | 1428 KB | 11284264 |
+| [1272_dsu.java](1272_dsu.java) | Java 1.8 | dsu | O((N + K) log N) | AC | 0.140 s | 488 KB | 11284270 |
+| [1272_dsu.py](1272_dsu.py) | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.093 s | 3328 KB | 11284266 |
+| [1272_dsu.rs](1272_dsu.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 732 KB | 11284276 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1272_dsu_optimized.cpp](1272_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N + M) | AC | 0.015 s | 116 KB | 11304487 |
+| [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
+| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
+| [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
