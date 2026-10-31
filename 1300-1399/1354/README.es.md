@@ -95,6 +95,66 @@ prefijo en 300 palabras aleatorias de hasta 12 letras, y en las pruebas
 generadas se comprobó que la respuesta es un palíndromo sin otra
 adición más corta.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ nunca construye la cadena
+reverse(T) + `#` + T de unas 2·|S1| letras. Calcula la función de
+prefijos solo de reverse(S1), leyendo las letras de S1 con índices
+invertidos, y después ejecuta la fase de búsqueda de Knuth–Morris–Pratt
+con T como texto: la longitud emparejada tras la última letra es L. La
+tabla usa `unsigned short`, dos bytes por entrada, porque una longitud
+emparejada no pasa de 9999 en una palabra de hasta 10 000 letras. En
+lugar de `iostream`, la palabra se lee con `scanf` en un arreglo fijo y
+se imprime con `fputs`, y las letras añadidas salen una a una con
+`putchar`: {1354_strings_optimized.cpp}.
+
+La solución optimizada en Go nunca construye la cadena
+reverse(T) + `#` + T de unas 2·|S1| letras. Calcula la función de
+prefijos solo de reverse(S1), leyendo las letras de S1 con índices
+invertidos, y después ejecuta la fase de búsqueda de Knuth–Morris–Pratt
+con T como texto: la longitud emparejada tras la última letra es L. La
+tabla usa `uint16`, dos bytes por entrada, porque una longitud
+emparejada no pasa de 9999 en una palabra de hasta 10 000 letras, y la
+respuesta se escribe con un `bufio.Writer` sin armarla como cadena:
+{1354_strings_optimized.go}.
+
+La solución optimizada en Java nunca construye la cadena reverse(T) +
+`#` + T de unas 2·|S1| letras. Calcula la función de prefijos solo de
+reverse(S1), leyendo las letras de S1 con índices invertidos, y después
+ejecuta la fase de búsqueda de Knuth–Morris–Pratt con T como texto: la
+longitud emparejada tras la última letra es L. La tabla es un `char[]`,
+dos bytes por entrada, porque una longitud emparejada no pasa de 9999 en
+una palabra de hasta 10 000 letras, y la respuesta se escribe con un
+`BufferedWriter` sin armarla como cadena: {1354_strings_optimized.java}.
+
+La solución optimizada en Python nunca construye la cadena reverse(T) +
+`#` + T de unas 2·|S1| letras. Calcula la función de prefijos solo de
+reverse(S1) y después ejecuta la fase de búsqueda de Knuth–Morris–Pratt
+con T como texto: la longitud emparejada tras la última letra es L.
+Trabaja con `bytes`, y la tabla es un `array("H")` de entradas de dos
+bytes en lugar de una lista de objetos enteros, porque una longitud
+emparejada no pasa de 9999 en una palabra de hasta 10 000 letras:
+{1354_strings_optimized.py}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1354_strings_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +67.68%; base: `1354_strings.cpp`.
+
+- `1354_strings_optimized.go`: reducción de tiempo +0.00%; reducción de
+  memoria +37.66%; base: `1354_strings.go`.
+
+- `1354_strings_optimized.java`: reducción de tiempo +26.90%; reducción
+  de memoria +30.42%; base: `1354_strings.java`.
+
+- `1354_strings_optimized.py`: reducción de tiempo +0.00%; reducción de
+  memoria +57.57%; base: `1354_strings.py`.
+
 ## Notas por lenguaje
 
 - Las cinco soluciones usan la misma función de prefijos sobre bytes o
@@ -102,10 +162,23 @@ adición más corta.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1354_strings.cpp](1354_strings.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 396 KB |
-| [1354_strings.go](1354_strings.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 1540 KB |
-| [1354_strings.java](1354_strings.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.171 s | 960 KB |
-| [1354_strings.py](1354_strings.py) | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 1216 KB |
-| [1354_strings.rs](1354_strings.rs) | Rust 1.75 x64 | strings | O(len(S1)) | AC | 0.031 s | 336 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1354_strings.cpp](1354_strings.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 396 KB | 11285248 |
+| [1354_strings.go](1354_strings.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 1540 KB | 11285253 |
+| [1354_strings.java](1354_strings.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.171 s | 960 KB | 11285261 |
+| [1354_strings.py](1354_strings.py) | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 1216 KB | 11285257 |
+| [1354_strings.rs](1354_strings.rs) | Rust 1.75 x64 | strings | O(len(S1)) | AC | 0.031 s | 336 KB | 11285267 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1354_strings_optimized.cpp](1354_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 128 KB | 11304449 |
+| [1354_strings_optimized.go](1354_strings_optimized.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 960 KB | 11304450 |
+| [1354_strings_optimized.java](1354_strings_optimized.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.125 s | 668 KB | 11304452 |
+| [1354_strings_optimized.py](1354_strings_optimized.py) \* | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 516 KB | 11304453 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
