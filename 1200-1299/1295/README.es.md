@@ -11,7 +11,7 @@ Problema original de Den Raskovalov, de la Novena Competición Abierta por Equip
 ¿En cuántos ceros termina el número decimal 1ⁿ + 2ⁿ + 3ⁿ + 4ⁿ, para
 1 ≤ n ≤ 300 000?
 
-Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
+Límite de tiempo: 0.5 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
@@ -83,17 +83,51 @@ Detalles a tener en cuenta:
 Los resultados se compararon con la suma exacta en enteros grandes para
 todos los n hasta 3000.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza `n` a mano desde un búfer de 4 KB
+que se llena desde `System.in`, en lugar de crear un `Scanner`, así que
+la JVM no carga el escáner ni sus expresiones regulares; las potencias
+módulo 100 son las mismas: {1295_number_theory_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1295_number_theory_optimized.java`: reducción de tiempo +12.80%;
+  reducción de memoria +79.75%; base: `1295_number_theory.java`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1295_number_theory.cpp](1295_number_theory.cpp).
+- [1295_number_theory.go](1295_number_theory.go).
+- [1295_number_theory.rs](1295_number_theory.rs).
 
 - Python usa el `pow` de tres argumentos incorporado; los demás
   lenguajes elevan a la potencia módulo 100 a mano.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB |
-| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB |
-| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB |
-| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB |
-| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB | 11284634 |
+| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB | 11284638 |
+| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB | 11284648 |
+| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB | 11284644 |
+| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB | 11284651 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |

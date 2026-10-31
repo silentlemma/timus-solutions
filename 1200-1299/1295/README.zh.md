@@ -10,7 +10,7 @@
 
 当 1 ≤ n ≤ 300 000 时，十进制数 1ⁿ + 2ⁿ + 3ⁿ + 4ⁿ 末尾有几个零？
 
-时间限制：1 秒。内存限制：64 MB。
+时间限制：0.5 秒。内存限制：64 MB。
 
 ## 输入
 
@@ -73,16 +73,42 @@ n 最大时这个和超过 180 000 位，但末尾零的个数受其中 2 的幂
 
 对 3000 以内的每个 n，结果都与高精度精确和比较过。
 
+## 优化解法
+
+优化的 Java 解法从由 `System.in` 填充的 4 KB 缓冲区中手工解析 `n`，而不是创建
+`Scanner`，这样 JVM 不必加载扫描器及其正则表达式；模 100 的幂运算不变：
+{1295_number_theory_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1295_number_theory_optimized.java`: 时间降低 +12.80%; 内存降低 +79.75%; 基础版本: `1295_number_theory.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1295_number_theory.cpp](1295_number_theory.cpp).
+- [1295_number_theory.go](1295_number_theory.go).
+- [1295_number_theory.rs](1295_number_theory.rs).
 
 - Python 使用内置的三参数 `pow`；其他语言手工做模 100 的快速幂。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB |
-| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB |
-| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB |
-| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB |
-| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB | 11284634 |
+| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB | 11284638 |
+| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB | 11284648 |
+| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB | 11284644 |
+| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB | 11284651 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |

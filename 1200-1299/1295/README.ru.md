@@ -11,7 +11,7 @@
 Сколькими нулями оканчивается десятичная запись числа
 1ⁿ + 2ⁿ + 3ⁿ + 4ⁿ при 1 ≤ n ≤ 300 000?
 
-Ограничение времени: 1 секунда. Ограничение памяти: 64 МБ.
+Ограничение времени: 0.5 секунды. Ограничение памяти: 64 МБ.
 
 ## Входные данные
 
@@ -82,17 +82,51 @@
 Результаты сравнивались с точной суммой в длинной арифметике для всех
 n до 3000.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает `n` вручную из буфера на
+4 КБ, заполняемого из `System.in`, а не создаёт `Scanner`, так что JVM
+не загружает сканер и его регулярные выражения; степени по модулю 100 те
+же: {1295_number_theory_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1295_number_theory_optimized.java`: сокращение времени +12.80%;
+  сокращение памяти +79.75%; база: `1295_number_theory.java`.
+
 ## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1295_number_theory.cpp](1295_number_theory.cpp).
+- [1295_number_theory.go](1295_number_theory.go).
+- [1295_number_theory.rs](1295_number_theory.rs).
 
 - Python использует встроенный `pow` с тремя аргументами; остальные
   языки возводят в степень по модулю 100 вручную.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB |
-| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB |
-| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB |
-| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB |
-| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory.cpp](1295_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log n) | AC | 0.015 s | 128 KB | 11284634 |
+| [1295_number_theory.go](1295_number_theory.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 1080 KB | 11284638 |
+| [1295_number_theory.java](1295_number_theory.java) | Java 1.8 | number_theory | O(log n) | AC | 0.125 s | 1600 KB | 11284648 |
+| [1295_number_theory.py](1295_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.093 s | 464 KB | 11284644 |
+| [1295_number_theory.rs](1295_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log n) | AC | 0.046 s | 240 KB | 11284651 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
