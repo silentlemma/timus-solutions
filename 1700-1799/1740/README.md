@@ -14,7 +14,7 @@ the shortest and the longest possible time for the whole way.
 
 ## Input
 
-l, k and h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
+Integers l, k and h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
 
 ## Output
 
@@ -53,12 +53,60 @@ Pitfalls:
 - the times are whole numbers; the code prints eight decimal
   places.
 
+## Optimized solutions
+
+The optimized C++ solution reads the three numbers with `scanf` instead
+of `std::cin`, so the program does not carry the `iostream` machinery at
+all; the computation and the output are the same:
+{1740_math_optimized.cpp}.
+
+The optimized Java solution reads the numbers with a `StreamTokenizer`
+instead of a `Scanner` and does not format floating-point numbers at
+all: both answers are whole numbers up to 1000 · 1000 = 10⁶, so it
+computes them in `int` and appends `.00000000` to each, instead of
+calling `printf` with `%.8f`, whose formatter and locale data cost more
+than the rest of the program: {1740_math_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1740_math_optimized.cpp`: time reduction +0.00%; memory reduction
+  +72.28%; base: `1740_math.cpp`.
+
+- `1740_math_optimized.java`: time reduction +0.00%; memory reduction
+  +75.89%; base: `1740_math.java`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1740_math.go](1740_math.go).
+- [1740_math.rs](1740_math.rs).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB |
-| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB |
-| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1800 KB |
-| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB |
-| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 252 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB | 11289483 |
+| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB | 11289484 |
+| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1792 KB | 11304069 |
+| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11289486 |
+| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 252 KB | 11304070 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

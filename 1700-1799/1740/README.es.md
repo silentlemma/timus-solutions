@@ -14,7 +14,7 @@ Hallar el menor y el mayor tiempo posible para todo el camino.
 
 ## Entrada
 
-l, k y h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
+Los enteros l, k y h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
 
 ## Salida
 
@@ -52,12 +52,59 @@ Trampas:
 - cuando k divide a l las dos respuestas coinciden;
 - los tiempos son enteros; el código los imprime con ocho decimales.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee los tres números con `scanf` en lugar
+de `std::cin`, así que el programa no lleva la maquinaria de `iostream`;
+el cálculo y la salida son los mismos: {1740_math_optimized.cpp}.
+
+La solución optimizada en Java lee los números con un `StreamTokenizer`
+en lugar de un `Scanner` y no formatea números de coma flotante: las dos
+respuestas son enteros de hasta 1000 · 1000 = 10⁶, así que las calcula
+en `int` y añade `.00000000` a cada una, en lugar de llamar a `printf`
+con `%.8f`, cuyo formateador y datos de configuración regional cuestan
+más que el resto del programa: {1740_math_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1740_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +72.28%; base: `1740_math.cpp`.
+
+- `1740_math_optimized.java`: reducción de tiempo +0.00%; reducción de
+  memoria +75.89%; base: `1740_math.java`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1740_math.go](1740_math.go).
+- [1740_math.rs](1740_math.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB |
-| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB |
-| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1800 KB |
-| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB |
-| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 252 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB | 11289483 |
+| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB | 11289484 |
+| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1792 KB | 11304069 |
+| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11289486 |
+| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 252 KB | 11304070 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

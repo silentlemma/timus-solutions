@@ -12,7 +12,7 @@
 
 ## 输入
 
-l、k 和 h（1 ≤ k ≤ l ≤ 1000，1 ≤ h ≤ 1000）。
+整数 l、k 和 h（1 ≤ k ≤ l ≤ 1000，1 ≤ h ≤ 1000）。
 
 ## 输出
 
@@ -47,12 +47,48 @@ l、k 和 h（1 ≤ k ≤ l ≤ 1000，1 ≤ h ≤ 1000）。
 - 当 k 整除 l 时两个答案相同；
 - 时间是整数，代码输出八位小数。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 而不是 `std::cin` 读入三个数，程序因此完全不带
+`iostream` 的那套机制；计算和输出都不变：{1740_math_optimized.cpp}。
+
+优化的 Java 解法用 `StreamTokenizer` 而不是 `Scanner` 读入数字，并且完全不格式化
+浮点数：两个答案都是不超过 1000 · 1000 = 10⁶ 的整数，所以它用 `int` 计算，再在每
+个数后面接上 `.00000000`，而不是用 `%.8f` 调用 `printf`，后者的格式化器和区域设
+置数据比程序其余部分还费资源：{1740_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1740_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +72.28%; 基础版本: `1740_math.cpp`.
+
+- `1740_math_optimized.java`: 时间降低 +0.00%; 内存降低 +75.89%; 基础版本: `1740_math.java`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1740_math.go](1740_math.go).
+- [1740_math.rs](1740_math.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB |
-| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB |
-| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1800 KB |
-| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB |
-| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 252 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB | 11289483 |
+| [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB | 11289484 |
+| [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1792 KB | 11304069 |
+| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11289486 |
+| [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 252 KB | 11304070 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
