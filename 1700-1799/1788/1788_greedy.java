@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Main {
     static int sum(int[] values, int count) {
         int total = 0;
-        for (int i = 0; i < count; i++) total += values[i];
+        for (int i = 0; i < count; i++)
+            total += values[i];
         return total;
     }
 
@@ -12,8 +13,10 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt(), m = in.nextInt();
         int[] girls = new int[n], boys = new int[m];
-        for (int i = 0; i < n; i++) girls[i] = in.nextInt();
-        for (int i = 0; i < m; i++) boys[i] = in.nextInt();
+        for (int i = 0; i < n; i++)
+            girls[i] = in.nextInt();
+        for (int i = 0; i < m; i++)
+            boys[i] = in.nextInt();
         // with k pairs the k most sensitive girls stay dry, and the k most
         // sensitive boys walk with them
         Arrays.sort(girls);
