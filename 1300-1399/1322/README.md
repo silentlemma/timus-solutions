@@ -74,6 +74,53 @@ Pitfalls:
 The decoder was checked by encoding 400 random and periodic texts of up
 to 12 characters by sorting their rotations directly.
 
+## Optimized solutions
+
+The optimized C++ solution packs into each entry of `order` the
+character its row ends with: the low 7 bits hold the character code,
+below 128, and the bits above hold the row, below 100 000 < 2^17, so an
+entry fits in 32 bits. Following the rows then reads one array instead
+of two, and each character is printed with `putchar` right away instead
+of building the text in a string. The column is read with `scanf` into a
+static buffer of 100 001 bytes instead of `iostream` and `std::string`:
+{1322_strings_optimized.cpp}.
+
+The optimized Java solution packs into each entry of `order` the
+character its row ends with: the low 7 bits hold the character code,
+below 128, and the bits above hold the row, below 100 000 < 2^17, so an
+entry fits in an `int`. Following the rows then reads one array instead
+of two, and each character goes straight to a `BufferedOutputStream`
+instead of into a `char` array and a `String`. The column is read byte
+by byte from 4 KB blocks into a `byte` array of 100 000 entries, instead
+of collecting the lines in a `StringBuilder` and copying them into
+`char` arrays: {1322_strings_optimized.java}.
+
+The optimized Python solution replaces the built-in `sorted` with a
+counting sort over the 128 codes and stores `order` in an `array("I")`
+of 32-bit entries instead of a list of Python integers. Each entry also
+holds the character its row ends with: the low 7 bits hold the character
+code, below 128, and the bits above hold the row, below 100 000 < 2^17,
+so an entry fits in 32 bits. The text is built in a `bytearray` instead
+of a list of one-character strings. The counting sort is a loop in
+Python, slower than `sorted`, so the gain is mostly in memory:
+{1322_strings_optimized.py}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1322_strings_optimized.cpp`: time reduction +0.00%; memory reduction
+  +43.24%; base: `1322_strings.cpp`.
+
+- `1322_strings_optimized.java`: time reduction +0.00%; memory reduction
+  +70.69%; base: `1322_strings.java`.
+
+- `1322_strings_optimized.py`: time reduction -39.74%; memory reduction
+  +84.08%; base: `1322_strings.py`.
+
 ## Language notes
 
 - Python sorts the positions with the built-in stable sort; the other
@@ -83,10 +130,22 @@ to 12 characters by sorting their rotations directly.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1322_strings.cpp](1322_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 1036 KB |
-| [1322_strings.go](1322_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.015 s | 2624 KB |
-| [1322_strings.java](1322_strings.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 3152 KB |
-| [1322_strings.py](1322_strings.py) | Python 3.12 x64 | strings | O(n log n) | AC | 0.078 s | 6308 KB |
-| [1322_strings.rs](1322_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 1108 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1322_strings.cpp](1322_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 1036 KB | 11284953 |
+| [1322_strings.go](1322_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.015 s | 2624 KB | 11284954 |
+| [1322_strings.java](1322_strings.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 3152 KB | 11284956 |
+| [1322_strings.py](1322_strings.py) | Python 3.12 x64 | strings | O(n log n) | AC | 0.078 s | 6308 KB | 11284955 |
+| [1322_strings.rs](1322_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 1108 KB | 11284957 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1322_strings_optimized.cpp](1322_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.001 s | 588 KB | 11307290 |
+| [1322_strings_optimized.java](1322_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
+| [1322_strings_optimized.py](1322_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.109 s | 1004 KB | 11307297 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
