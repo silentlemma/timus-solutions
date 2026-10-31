@@ -6,15 +6,15 @@ OUTCOMES = 3
 
 
 def decimal(token):
-    parts = token.lower().split('e')
+    parts = token.lower().split("e")
     mantissa = parts[0]
     exponent = int(parts[1]) if len(parts) == 2 else 0
-    point = mantissa.find('.')
+    point = mantissa.find(".")
     scale = len(mantissa) - point - 1 if point >= 0 else 0
     scale -= exponent
-    value = int(mantissa.replace('.', ''))
+    value = int(mantissa.replace(".", ""))
     if scale < 0:
-        value *= 10 ** -scale
+        value *= 10**-scale
         scale = 0
     return value, scale
 
@@ -25,7 +25,7 @@ def main():
     numerator = 1
     denominator = 0
     for value, scale in odds:
-        denominator = denominator * value + numerator * 10 ** scale
+        denominator = denominator * value + numerator * 10**scale
         numerator *= value
     numerator *= TOTAL
     # betting in proportion to 1 / k on every outcome pays the same whatever

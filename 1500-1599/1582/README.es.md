@@ -10,9 +10,9 @@ Problema original de Sergey Pupyrev, preparado por Vladimir Yakovlev, de la subr
 
 Un partido tiene tres resultados con las mejores cuotas k₁, k₂ y k₃
 (0.01 … 100): una apuesta de x al resultado correcto paga k·x, y una
-errada no paga nada. Hay que repartir apuestas por un total de 1000
-libras entre los tres resultados para recuperar lo máximo en el peor
-caso, e imprimir esa cantidad redondeada al entero más cercano.
+errada no paga nada. Hay que repartir apuestas por un total de
+1000 libras entre los tres resultados para recuperar lo máximo en el
+peor caso, e imprimir esa cantidad redondeada al entero más cercano.
 
 Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
@@ -57,10 +57,10 @@ Salida:
 ## Solución
 
 Se apuesta xᵢ al resultado i, con x₁ + x₂ + x₃ = 1000; el resultado i
-paga kᵢ·xᵢ. Si los tres pagos difieren, pasar un poco de dinero del
-resultado mejor pagado al peor pagado sube el mínimo, así que en el
-mejor reparto todos los pagos son iguales a cierto P. Entonces
-xᵢ = P / kᵢ, y el total da
+paga kᵢ·xᵢ. Para garantizar un pago P, cada resultado debe pagar al
+menos P, así que xᵢ ≥ P / kᵢ, y sumar las tres desigualdades da
+1000 ≥ P·(1/k₁ + 1/k₂ + 1/k₃). Las apuestas xᵢ = P / kᵢ alcanzan esa
+cota, así que el mayor pago garantizado es
 
 P = 1000 / (1/k₁ + 1/k₂ + 1/k₃).
 
@@ -86,12 +86,48 @@ Detalles a tener en cuenta:
   (prueba 10). La precisión decimal no está limitada, así que se usa
   aritmética exacta en lugar de sumar un epsilon.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java lee las tres cuotas con `BufferedReader`
+y `StringTokenizer` en lugar de un `Scanner`, y se ahorra sus
+expresiones regulares y datos de configuración regional. La aritmética
+sigue siendo exacta, con las cuotas en `BigDecimal` y las comparaciones
+en `BigInteger`, así que solo se abarata la lectura de la entrada:
+{1582_math_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1582_math_optimized.java`: reducción de tiempo +14.68%; reducción de
+  memoria +57.08%; base: `1582_math.java`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1582_math.go](1582_math.go).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1582_math.cpp](1582_math.cpp) | G++ 13.2 x64 | math | O(L^2) | AC | 0.015 s | 392 KB |
-| [1582_math.go](1582_math.go) | Go 1.14 x64 | math | O(L^2) | AC | 0.031 s | 1192 KB |
-| [1582_math.java](1582_math.java) | Java 1.8 | math | O(L^2) | AC | 0.125 s | 1788 KB |
-| [1582_math.py](1582_math.py) | Python 3.12 x64 | math | O(L^2) | AC | 0.093 s | 576 KB |
-| [1582_math.rs](1582_math.rs) | Rust 1.75 x64 | math | O(L^2) | AC | 0.015 s | 224 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1582_math.cpp](1582_math.cpp) | G++ 13.2 x64 | math | O(L^2) | AC | 0.031 s | 388 KB | 11304410 |
+| [1582_math.go](1582_math.go) | Go 1.14 x64 | math | O(L^2) | AC | 0.031 s | 1192 KB | 11298030 |
+| [1582_math.java](1582_math.java) | Java 1.8 | math | O(L^2) | AC | 0.109 s | 1780 KB | 11304013 |
+| [1582_math.py](1582_math.py) | Python 3.12 x64 | math | O(L^2) | AC | 0.078 s | 532 KB | 11304014 |
+| [1582_math.rs](1582_math.rs) | Rust 1.75 x64 | math | O(L^2) | AC | 0.046 s | 212 KB | 11304419 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1582_math_optimized.java](1582_math_optimized.java) | Java 1.8 | math | O(L^2) | AC | 0.093 s | 764 KB | 11304379 |

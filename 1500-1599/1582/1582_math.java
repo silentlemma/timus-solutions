@@ -1,6 +1,6 @@
-import java.util.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.*;
 
 public class Main {
     static final int TOTAL = 1000, MAX_ODD = 100, OUTCOMES = 3;
@@ -13,8 +13,8 @@ public class Main {
             BigDecimal odd = new BigDecimal(in.next());
             int scale = Math.max(odd.scale(), 0);
             BigInteger value = odd.setScale(scale).unscaledValue();
-            denominator = denominator.multiply(value).add(
-                numerator.multiply(BigInteger.TEN.pow(scale)));
+            denominator =
+                denominator.multiply(value).add(numerator.multiply(BigInteger.TEN.pow(scale)));
             numerator = numerator.multiply(value);
         }
         numerator = numerator.multiply(BigInteger.valueOf(TOTAL));
@@ -23,8 +23,8 @@ public class Main {
         int low = 0, high = TOTAL * MAX_ODD / OUTCOMES + 1;
         while (low + 1 < high) {
             int middle = (low + high) / 2;
-            if (numerator.multiply(BigInteger.valueOf(2)).compareTo(
-                    denominator.multiply(BigInteger.valueOf(2 * middle - 1))) >= 0)
+            if (numerator.multiply(BigInteger.valueOf(2))
+                    .compareTo(denominator.multiply(BigInteger.valueOf(2 * middle - 1))) >= 0)
                 low = middle;
             else
                 high = middle;

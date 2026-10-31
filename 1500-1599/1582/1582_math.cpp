@@ -5,7 +5,7 @@
 #include <vector>
 
 const int TOTAL = 1000, MAX_ODD = 100, OUTCOMES = 3;
-const int BASE = 1000000000, DIGITS = 9;
+const int BASE = 10;
 using Big = std::vector<int>;
 
 void trim(Big &a) {
@@ -15,12 +15,11 @@ void trim(Big &a) {
 
 Big number(std::string text) {
     Big a;
-    if (text[0] == '+') text.erase(0, 1);
-    for (size_t end = text.size(); end > 0;) {
-        size_t start = end > DIGITS ? end - DIGITS : 0;
-        a.push_back(std::stoi(text.substr(start, end - start)));
-        end = start;
-    }
+    if (text[0] == '+')
+        text.erase(0, 1);
+    // one ordinary integer per decimal digit, least significant first.
+    for (auto digit = text.rbegin(); digit != text.rend(); ++digit)
+        a.push_back(*digit - '0');
     trim(a);
     return a;
 }
@@ -46,8 +45,10 @@ Big add(const Big &a, const Big &b) {
     int carry = 0;
     for (size_t i = 0; i < std::max(a.size(), b.size()) || carry; i++) {
         int value = carry;
-        if (i < a.size()) value += a[i];
-        if (i < b.size()) value += b[i];
+        if (i < a.size())
+            value += a[i];
+        if (i < b.size())
+            value += b[i];
         c.push_back(value % BASE);
         carry = value / BASE;
     }
@@ -55,10 +56,7 @@ Big add(const Big &a, const Big &b) {
 }
 
 Big shift(Big a, size_t scale) {
-    int factor = 1;
-    for (size_t i = 0; i < scale % DIGITS; i++) factor *= 10;
-    a = multiply(a, number(std::to_string(factor)));
-    a.insert(a.begin(), scale / DIGITS, 0);
+    a.insert(a.begin(), scale, 0);
     return a;
 }
 

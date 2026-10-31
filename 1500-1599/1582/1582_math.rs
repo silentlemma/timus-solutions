@@ -3,8 +3,7 @@ use std::io::{self, Read};
 const TOTAL: usize = 1000;
 const MAX_ODD: usize = 100;
 const OUTCOMES: usize = 3;
-const BASE: u64 = 1000000000;
-const DIGITS: usize = 9;
+const BASE: u64 = 10;
 type Big = Vec<u64>;
 
 fn trim(a: &mut Big) {
@@ -15,13 +14,12 @@ fn trim(a: &mut Big) {
 
 fn number(text: &str) -> Big {
     let text = text.trim_start_matches('+');
-    let mut a = Vec::new();
-    let mut end = text.len();
-    while end > 0 {
-        let start = end.saturating_sub(DIGITS);
-        a.push(text[start..end].parse().unwrap());
-        end = start;
-    }
+    // one ordinary integer per decimal digit, least significant first.
+    let mut a: Big = text
+        .chars()
+        .rev()
+        .map(|c| u64::from(c.to_digit(10).unwrap()))
+        .collect();
     trim(&mut a);
     a
 }
@@ -51,8 +49,12 @@ fn add(a: &Big, b: &Big) -> Big {
     let mut i = 0;
     while i < a.len().max(b.len()) || carry > 0 {
         let mut value = carry;
-        if i < a.len() { value += a[i]; }
-        if i < b.len() { value += b[i]; }
+        if i < a.len() {
+            value += a[i];
+        }
+        if i < b.len() {
+            value += b[i];
+        }
         c.push(value % BASE);
         carry = value / BASE;
         i += 1;
@@ -61,9 +63,8 @@ fn add(a: &Big, b: &Big) -> Big {
 }
 
 fn shift(a: &Big, scale: usize) -> Big {
-    let factor = 10_u64.pow((scale % DIGITS) as u32);
-    let mut c = vec![0; scale / DIGITS];
-    c.extend(multiply(a, &number(&factor.to_string())));
+    let mut c = vec![0; scale];
+    c.extend_from_slice(a);
     c
 }
 
@@ -78,7 +79,11 @@ fn decimal(token: &str) -> (Big, usize) {
     let lower = token.to_ascii_lowercase();
     let parts: Vec<&str> = lower.split('e').collect();
     let mantissa = parts[0];
-    let exponent: i64 = if parts.len() == 2 { parts[1].parse().unwrap() } else { 0 };
+    let exponent: i64 = if parts.len() == 2 {
+        parts[1].parse().unwrap()
+    } else {
+        0
+    };
     let mut scale = match mantissa.find('.') {
         Some(point) => (mantissa.len() - point - 1) as i64,
         None => 0,
@@ -108,8 +113,10 @@ fn main() {
     let mut high = TOTAL * MAX_ODD / OUTCOMES + 1;
     while low + 1 < high {
         let middle = (low + high) / 2;
-        if at_least(&multiply(&numerator, &number("2")),
-                    &multiply(&denominator, &number(&(2 * middle - 1).to_string()))) {
+        if at_least(
+            &multiply(&numerator, &number("2")),
+            &multiply(&denominator, &number(&(2 * middle - 1).to_string())),
+        ) {
             low = middle;
         } else {
             high = middle;

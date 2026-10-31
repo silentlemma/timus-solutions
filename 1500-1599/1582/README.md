@@ -56,10 +56,10 @@ Output:
 
 ## Solution
 
-Bet xᵢ on outcome i, with x₁ + x₂ + x₃ = 1000; outcome i pays kᵢ·xᵢ. If
-the three payouts differ, moving a little money from the best-paid
-outcome to the worst-paid one raises the minimum, so in the best split
-all payouts are equal to some P. Then xᵢ = P / kᵢ, and the total gives
+Bet xᵢ on outcome i, with x₁ + x₂ + x₃ = 1000; outcome i pays kᵢ·xᵢ. To
+guarantee a payout P, every outcome must pay at least P, so xᵢ ≥ P / kᵢ,
+and adding the three inequalities gives 1000 ≥ P·(1/k₁ + 1/k₂ + 1/k₃).
+The bets xᵢ = P / kᵢ reach this bound, so the best guaranteed payout is
 
 P = 1000 / (1/k₁ + 1/k₂ + 1/k₃).
 
@@ -83,12 +83,47 @@ Pitfalls:
   (test 10). Decimal precision is not bounded, so use exact arithmetic
   rather than adding an epsilon.
 
+## Optimized solutions
+
+The optimized Java solution reads the three odds with `BufferedReader`
+and `StringTokenizer` instead of a `Scanner`, avoiding its regular
+expressions and locale data. The arithmetic stays exact, with the odds
+in `BigDecimal` and the comparisons in `BigInteger`, so only reading the
+input gets cheaper: {1582_math_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1582_math_optimized.java`: time reduction +14.68%; memory reduction
+  +57.08%; base: `1582_math.java`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1582_math.go](1582_math.go).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1582_math.cpp](1582_math.cpp) | G++ 13.2 x64 | math | O(L^2) | AC | 0.015 s | 392 KB |
-| [1582_math.go](1582_math.go) | Go 1.14 x64 | math | O(L^2) | AC | 0.031 s | 1192 KB |
-| [1582_math.java](1582_math.java) | Java 1.8 | math | O(L^2) | AC | 0.125 s | 1788 KB |
-| [1582_math.py](1582_math.py) | Python 3.12 x64 | math | O(L^2) | AC | 0.093 s | 576 KB |
-| [1582_math.rs](1582_math.rs) | Rust 1.75 x64 | math | O(L^2) | AC | 0.015 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1582_math.cpp](1582_math.cpp) | G++ 13.2 x64 | math | O(L^2) | AC | 0.031 s | 388 KB | 11304410 |
+| [1582_math.go](1582_math.go) | Go 1.14 x64 | math | O(L^2) | AC | 0.031 s | 1192 KB | 11298030 |
+| [1582_math.java](1582_math.java) | Java 1.8 | math | O(L^2) | AC | 0.109 s | 1780 KB | 11304013 |
+| [1582_math.py](1582_math.py) | Python 3.12 x64 | math | O(L^2) | AC | 0.078 s | 532 KB | 11304014 |
+| [1582_math.rs](1582_math.rs) | Rust 1.75 x64 | math | O(L^2) | AC | 0.046 s | 212 KB | 11304419 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1582_math_optimized.java](1582_math_optimized.java) | Java 1.8 | math | O(L^2) | AC | 0.093 s | 764 KB | 11304379 |
