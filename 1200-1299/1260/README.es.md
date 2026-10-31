@@ -55,7 +55,8 @@ sienta en segundo lugar:
 Así, a(k) = a(k − 1) + a(k − 3) + 1, con a(1) = a(2) = 1 y a(3) = 2.
 Aplicar la regla hacia atrás da a(0) = 0 y a(−1) = −1, lo que permite
 empezar el bucle en k = 1 sin casos especiales. a(55) = 1 388 937 263
-aún cabe en 32 bits, pero las soluciones usan 64. `O(N)`.
+aún cabe en 32 bits, pero C++, Go, Java y Rust usan enteros de 64 bits,
+y Python, sus enteros de precisión arbitraria. `O(N)`.
 
 Detalles a tener en cuenta:
 
@@ -66,17 +67,51 @@ Detalles a tener en cuenta:
 La recurrencia se comparó con listar todas las permutaciones para N
 hasta 10.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java lee el único número N cifra a cifra
+directamente desde `System.in` en lugar de crear un `Scanner`, cuya
+preparación cuesta mucho más que la propia recurrencia, de 54 pasos como
+mucho; el cálculo es el mismo: {1260_dp_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1260_dp_optimized.java`: reducción de tiempo -17.20%; reducción de
+  memoria +79.59%; base: `1260_dp.java`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1260_dp.cpp](1260_dp.cpp).
+- [1260_dp.go](1260_dp.go).
+- [1260_dp.rs](1260_dp.rs).
 
 - Todos los lenguajes guardan los tres últimos valores en tres
   variables.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1260_dp.cpp](1260_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 128 KB |
-| [1260_dp.go](1260_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 1076 KB |
-| [1260_dp.java](1260_dp.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 1568 KB |
-| [1260_dp.py](1260_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.109 s | 404 KB |
-| [1260_dp.rs](1260_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1260_dp.cpp](1260_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 128 KB | 11284122 |
+| [1260_dp.go](1260_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 1076 KB | 11284124 |
+| [1260_dp.java](1260_dp.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 1568 KB | 11284130 |
+| [1260_dp.py](1260_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.109 s | 404 KB | 11284128 |
+| [1260_dp.rs](1260_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 232 KB | 11284131 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 320 KB | 11304342 |
