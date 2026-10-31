@@ -9,7 +9,8 @@ public class Main {
         long work = m * d1, low = work / d2, extra = work % d2;
         StringBuilder sb = new StringBuilder();
         for (long day = 0; day < d2; day++) {
-            if (day > 0) sb.append(' ');
+            if (day > 0)
+                sb.append(' ');
             sb.append(day < d2 - extra ? low : low + 1);
         }
         System.out.println(sb);
