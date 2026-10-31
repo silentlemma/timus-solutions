@@ -97,7 +97,33 @@ Trampas:
 - Dos giros izquierdos opuestos se realizan simultáneamente.
 - Incluir el tiempo de la cola residual cuando termina la otra.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee las dos colas con `scanf` en arreglos
+globales de `char` de 1001 bytes, ya que una cola tiene como mucho 1000
+coches, en lugar de `std::string` leídos mediante `iostream`; las
+recorre hasta sus ceros finales e imprime con `printf`:
+{2020_simulation_optimized.cpp}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `2020_simulation_optimized.cpp`: reducción de tiempo +0.00%; reducción
+  de memoria +72.63%; base: `2020_simulation.cpp`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [2020_simulation.py](2020_simulation.py).
+- [2020_simulation.rs](2020_simulation.rs).
 
 Las cinco versiones recorren las cadenas con dos índices. Python suma
 valores booleanos; las demás los convierten o incrementan condicionalmente.
@@ -105,10 +131,18 @@ Los enteros ordinarios bastan para el resultado.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2020_simulation.cpp](2020_simulation.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 380 KB |
-| [2020_simulation.go](2020_simulation.go) | Go 1.14 x64 | simulation | O(s + t) | AC | 0.031 s | 1116 KB |
-| [2020_simulation.java](2020_simulation.java) | Java 1.8 | simulation | O(s + t) | AC | 0.125 s | 368 KB |
-| [2020_simulation.py](2020_simulation.py) | Python 3.12 x64 | simulation | O(s + t) | AC | 0.062 s | 424 KB |
-| [2020_simulation.rs](2020_simulation.rs) | Rust 1.75 x64 | simulation | O(s + t) | AC | 0.015 s | 228 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2020_simulation.cpp](2020_simulation.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 380 KB | 11292679 |
+| [2020_simulation.go](2020_simulation.go) | Go 1.14 x64 | simulation | O(s + t) | AC | 0.031 s | 1116 KB | 11292686 |
+| [2020_simulation.java](2020_simulation.java) | Java 1.8 | simulation | O(s + t) | AC | 0.093 s | 444 KB | 11307207 |
+| [2020_simulation.py](2020_simulation.py) | Python 3.12 x64 | simulation | O(s + t) | AC | 0.062 s | 424 KB | 11292688 |
+| [2020_simulation.rs](2020_simulation.rs) | Rust 1.75 x64 | simulation | O(s + t) | AC | 0.015 s | 228 KB | 11292699 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
