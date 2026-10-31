@@ -2,75 +2,47 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math/bits"
 	"os"
 	"strconv"
 )
 
-const buffer = 1 << 20
-
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, buffer)
+	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
-	readInt := func() int {
-		x := 0
-		c, _ := reader.ReadByte()
-		for c < '0' || c > '9' {
-			c, _ = reader.ReadByte()
-		}
-		for c >= '0' && c <= '9' {
-			x = x*10 + int(c-'0')
-			var err error
-			if c, err = reader.ReadByte(); err != nil {
-				break
-			}
-		}
-		return x
-	}
-
+	readInt := func() int { var value int; fmt.Fscan(reader, &value); return value }
 	n := readInt()
-	us, vs, ws := make([]int, n-1), make([]int, n-1), make([]int, n-1)
-	start := make([]int, n+1)
-	for i := 0; i+1 < n; i++ {
-		us[i], vs[i], ws[i] = readInt(), readInt(), readInt()
-		start[us[i]+1]++
-		start[vs[i]+1]++
-	}
-	// adjacency lists packed into one array (both directions of each edge)
-	for i := 0; i < n; i++ {
-		start[i+1] += start[i]
-	}
-	fill := append([]int(nil), start[:n]...)
-	adj, weight := make([]int, 2*(n-1)), make([]int, 2*(n-1))
-	for i := 0; i+1 < n; i++ {
-		adj[fill[us[i]]], weight[fill[us[i]]] = vs[i], ws[i]
-		fill[us[i]]++
-		adj[fill[vs[i]]], weight[fill[vs[i]]] = us[i], ws[i]
-		fill[vs[i]]++
+	type edge struct{ to, weight int }
+	adjacency := make([][]edge, n)
+	for i := 1; i < n; i++ {
+		u, v, w := readInt(), readInt(), readInt()
+		adjacency[u] = append(adjacency[u], edge{v, w})
+		adjacency[v] = append(adjacency[v], edge{u, w})
 	}
 
-	// Euler tour from vertex 0: a vertex is written on entry and after each child
+	// euler tour from vertex 0: a vertex is written on entry and after each child
 	parent := make([]int, n)
 	for i := range parent {
 		parent[i] = -1
 	}
 	depth, dist, first := make([]int, n), make([]int, n), make([]int, n)
 	tour := []int{0}
-	pointer := append([]int(nil), start[:n]...)
+	pointer := make([]int, n)
 	stack := []int{0}
 	for len(stack) > 0 {
 		v := stack[len(stack)-1]
 		p := pointer[v]
-		if p < start[v+1] {
+		if p < len(adjacency[v]) {
 			pointer[v]++
-			u := adj[p]
+			u := adjacency[v][p].to
 			if u == parent[v] {
 				continue
 			}
 			parent[u] = v
 			depth[u] = depth[v] + 1
-			dist[u] = dist[v] + weight[p]
+			dist[u] = dist[v] + adjacency[v][p].weight
 			first[u] = len(tour)
 			tour = append(tour, u)
 			stack = append(stack, u)

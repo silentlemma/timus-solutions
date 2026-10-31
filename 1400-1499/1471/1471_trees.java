@@ -1,78 +1,58 @@
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
-    static final int BUFFER = 1 << 16;
-    static DataInputStream in = new DataInputStream(System.in);
-    static byte[] buf = new byte[BUFFER];
-    static int bufLen = 0, bufPos = 0;
-
-    static int read() throws IOException {
-        if (bufPos == bufLen) {
-            bufLen = in.read(buf, 0, BUFFER);
-            bufPos = 0;
-            if (bufLen <= 0)
-                return -1;
-        }
-        return buf[bufPos++];
-    }
-
+    static StreamTokenizer input =
+        new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
     static int readInt() throws IOException {
-        int c = read();
-        while (c < '0' || c > '9')
-            c = read();
-        int x = 0;
-        for (; c >= '0' && c <= '9'; c = read())
-            x = x * 10 + c - '0';
-        return x;
+        input.nextToken();
+        return (int)input.nval;
     }
-
+    static class Edge {
+        int to, weight;
+        Edge(int to, int weight) {
+            this.to = to;
+            this.weight = weight;
+        }
+    }
     static int[] depth;
 
     static int shallower(int a, int b) { return depth[a] <= depth[b] ? a : b; }
 
     public static void main(String[] args) throws IOException {
         int n = readInt();
-        int[] us = new int[n - 1], vs = new int[n - 1], ws = new int[n - 1];
-        int[] start = new int[n + 1];
-        for (int i = 0; i + 1 < n; i++) {
-            us[i] = readInt();
-            vs[i] = readInt();
-            ws[i] = readInt();
-            start[us[i] + 1]++;
-            start[vs[i] + 1]++;
-        }
-        // adjacency lists packed into one array (both directions of each edge)
+        List<List<Edge>> adjacency = new ArrayList<>();
         for (int i = 0; i < n; i++)
-            start[i + 1] += start[i];
-        int[] fill = Arrays.copyOf(start, n);
-        int[] adj = new int[2 * (n - 1)], weight = new int[2 * (n - 1)];
-        for (int i = 0; i + 1 < n; i++) {
-            adj[fill[us[i]]] = vs[i];
-            weight[fill[us[i]]++] = ws[i];
-            adj[fill[vs[i]]] = us[i];
-            weight[fill[vs[i]]++] = ws[i];
+            adjacency.add(new ArrayList<Edge>());
+        for (int i = 1; i < n; i++) {
+            int u = readInt(), v = readInt(), w = readInt();
+            adjacency.get(u).add(new Edge(v, w));
+            adjacency.get(v).add(new Edge(u, w));
         }
-
-        // Euler tour from vertex 0: a vertex is written on entry and after each child
+        // euler tour from vertex 0: a vertex is written on entry and after each child
         int[] parent = new int[n], dist = new int[n], first = new int[n];
         depth = new int[n];
         Arrays.fill(parent, -1);
         int[] tour = new int[2 * n - 1], stack = new int[n];
-        int[] pointer = Arrays.copyOf(start, n);
+        int[] pointer = new int[n];
         int len = 1, top = 1;
         while (top > 0) {
             int v = stack[top - 1];
             int p = pointer[v];
-            if (p < start[v + 1]) {
+            if (p < adjacency.get(v).size()) {
                 pointer[v]++;
-                int u = adj[p];
+                Edge edge = adjacency.get(v).get(p);
+                int u = edge.to;
                 if (u == parent[v])
                     continue;
                 parent[u] = v;
                 depth[u] = depth[v] + 1;
-                dist[u] = dist[v] + weight[p];
+                dist[u] = dist[v] + edge.weight;
                 first[u] = len;
                 tour[len++] = u;
                 stack[top++] = u;
