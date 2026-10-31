@@ -63,16 +63,44 @@
 
 公式与动态规划的结果对 60000 以内的每个 `N` 都做了核对。
 
+## 优化解法
+
+优化的 Java 解法用 `System.in.read` 逐字节读入唯一的数，而不是创建 `Scanner`，这
+样 JVM 不必加载扫描器及其正则表达式；判断过程不变：
+{1073_number_theory_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1073_number_theory_optimized.java`: 时间降低 -14.68%; 内存降低 +77.94%; 基础版本: `1073_number_theory.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1073_number_theory.cpp](1073_number_theory.cpp).
+- [1073_number_theory.go](1073_number_theory.go).
+- [1073_number_theory.rs](1073_number_theory.rs).
 
 - Python 使用精确的 `math.isqrt`；其他语言对浮点平方根取整，对这么小的数是精确的。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1073_number_theory.cpp](1073_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(√N) | AC | 0.015 s | 132 KB |
-| [1073_number_theory.go](1073_number_theory.go) | Go 1.14 x64 | number_theory | O(√N) | AC | 0.031 s | 1076 KB |
-| [1073_number_theory.java](1073_number_theory.java) | Java 1.8 | number_theory | O(√N) | AC | 0.109 s | 1596 KB |
-| [1073_number_theory.py](1073_number_theory.py) | Python 3.12 x64 | number_theory | O(√N) | AC | 0.078 s | 440 KB |
-| [1073_number_theory.rs](1073_number_theory.rs) | Rust 1.75 x64 | number_theory | O(√N) | AC | 0.015 s | 228 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1073_number_theory.cpp](1073_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(√N) | AC | 0.015 s | 132 KB | 11278937 |
+| [1073_number_theory.go](1073_number_theory.go) | Go 1.14 x64 | number_theory | O(√N) | AC | 0.031 s | 1076 KB | 11278938 |
+| [1073_number_theory.java](1073_number_theory.java) | Java 1.8 | number_theory | O(√N) | AC | 0.109 s | 1596 KB | 11278942 |
+| [1073_number_theory.py](1073_number_theory.py) | Python 3.12 x64 | number_theory | O(√N) | AC | 0.078 s | 440 KB | 11278940 |
+| [1073_number_theory.rs](1073_number_theory.rs) | Rust 1.75 x64 | number_theory | O(√N) | AC | 0.015 s | 228 KB | 11278944 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(√N) | AC | 0.125 s | 352 KB | 11304462 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

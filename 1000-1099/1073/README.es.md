@@ -77,7 +77,33 @@ Detalles a tener en cuenta:
 La fórmula se comprobó con la programación dinámica para cada `N` hasta
 60000.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java lee el único número byte a byte con
+`System.in.read` en lugar de crear un `Scanner`, así que la JVM no carga
+el escáner ni sus expresiones regulares; las comprobaciones son las
+mismas: {1073_number_theory_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1073_number_theory_optimized.java`: reducción de tiempo -14.68%;
+  reducción de memoria +77.94%; base: `1073_number_theory.java`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1073_number_theory.cpp](1073_number_theory.cpp).
+- [1073_number_theory.go](1073_number_theory.go).
+- [1073_number_theory.rs](1073_number_theory.rs).
 
 - Python usa `math.isqrt`, que es exacta; los demás lenguajes redondean la
   raíz cuadrada en coma flotante, lo que es exacto para números tan
@@ -85,10 +111,20 @@ La fórmula se comprobó con la programación dinámica para cada `N` hasta
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1073_number_theory.cpp](1073_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(√N) | AC | 0.015 s | 132 KB |
-| [1073_number_theory.go](1073_number_theory.go) | Go 1.14 x64 | number_theory | O(√N) | AC | 0.031 s | 1076 KB |
-| [1073_number_theory.java](1073_number_theory.java) | Java 1.8 | number_theory | O(√N) | AC | 0.109 s | 1596 KB |
-| [1073_number_theory.py](1073_number_theory.py) | Python 3.12 x64 | number_theory | O(√N) | AC | 0.078 s | 440 KB |
-| [1073_number_theory.rs](1073_number_theory.rs) | Rust 1.75 x64 | number_theory | O(√N) | AC | 0.015 s | 228 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1073_number_theory.cpp](1073_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(√N) | AC | 0.015 s | 132 KB | 11278937 |
+| [1073_number_theory.go](1073_number_theory.go) | Go 1.14 x64 | number_theory | O(√N) | AC | 0.031 s | 1076 KB | 11278938 |
+| [1073_number_theory.java](1073_number_theory.java) | Java 1.8 | number_theory | O(√N) | AC | 0.109 s | 1596 KB | 11278942 |
+| [1073_number_theory.py](1073_number_theory.py) | Python 3.12 x64 | number_theory | O(√N) | AC | 0.078 s | 440 KB | 11278940 |
+| [1073_number_theory.rs](1073_number_theory.rs) | Rust 1.75 x64 | number_theory | O(√N) | AC | 0.015 s | 228 KB | 11278944 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(√N) | AC | 0.125 s | 352 KB | 11304462 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
