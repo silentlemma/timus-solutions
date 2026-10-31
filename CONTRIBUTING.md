@@ -124,22 +124,40 @@ language (`scanf` or `cin`, `bufio` with `fmt.Fscan`, `BufferedReader` with
 standard library and ordinary integer types, and take the most direct
 algorithm that fits the limits.
 
-**Optimized** solutions stand next to them when they are at least 30% faster
-or lighter than the simple solution in the same language: hand-written input
-parsing, narrow types, packed data or another algorithm. The gain is measured
-on the accepted submissions of the two files; times under 0.015 s count as
-0.015 s, and a difference of one tick of the Timus timer either way (0.031 s
-against 0.015 s, 0.046 s against 0.031 s) is noise, neither a gain nor a loss:
-the write-up calls such times the same. Each trick carries a comment, and the
-"Optimized solutions" section of the write-up explains them, naming any cost,
-such as more time for less memory. A simple solution is never replaced by an
-optimized one.
+**Optimized** solutions stand next to simple ones when their distinct,
+accepted code reduces time or memory by at least 30% relative to our base
+solution in the same language: `optimized <= 0.70 * base` in at least one
+metric. Reaching a rating target is not a condition for including that
+implementation. One tick of the judge timer is noise, and times below
+0.015 s count as 0.015 s. The write-up explains the measured gain and any
+tradeoff, and each non-obvious optimization carries a comment.
+
+When both programs use the same algorithm, the faster implementation adds
+`_optimized` to the approach name. Different algorithms use their own
+approach tags. The write-up describes which version is the base solution
+and which is faster. A meaningful simple solution is retained alongside
+its distinct optimized counterpart.
+
+Identical source files are not duplicated. If the base implementation
+already meets the rating target, its existing file suffices; another
+implementation is not needed just for an optimized filename. A distinct
+implementation with the required 30% gain may still stand next to it.
+Coverage and rating reports also use the existing accepted base program.
+
+The five language families are C++, Go, Java, Python/PyPy and Rust.
+Only the languages offered by the problem's submission form are required;
+unavailable languages are excluded and receive no unjudgeable ports.
 
 An optimized solution aims at the top 10, or the top 15% by both time and
 memory, of the Timus rating of its language, counting only the runs on the
 current judge, with the compilers it offers now. A solution that does not get
-there is still kept: its row carries an asterisk, and a footnote under the
-table says that it may be optimized further.
+there is still kept when it meets the 30% base-comparison criterion. Mark
+its row with an escaped asterisk immediately after the solution link:
+`[NNNN_approach_optimized.cpp](NNNN_approach_optimized.cpp) \*`.
+Under the table, add a line beginning with `\* `, for example:
+"\* Accepted; the rating target is not yet met. This version may be
+optimized further." Translate the explanation in each write-up. The
+linter accepts starred rows and requires this explanatory footnote.
 
 When the simple algorithm does not fit the limits in some language, that
 language has only the optimized solution, and the language notes say so.
