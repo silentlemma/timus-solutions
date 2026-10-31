@@ -10,7 +10,6 @@ int main() {
         int other;
         std::cin >> other;
         int doubled_time = start + duration + other;
-        std::cout << doubled_time / 2
-                  << (doubled_time % 2 == 0 ? ".000000\n" : ".500000\n");
+        std::cout << doubled_time / 2 << (doubled_time % 2 == 0 ? ".000000\n" : ".500000\n");
     }
 }

@@ -68,7 +68,31 @@ El ejemplo da `(600+600+60)/2=630` y `(600+630+60)/2=645`.
 Tiempo `O(n)` y estado aritmético `O(1)` por encuentro. Las implementaciones
 que guardan tokens de entrada o acumulan salida usan espacio total `O(n)`.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee con `scanf` e imprime con `printf` en
+lugar de `std::cin` y `std::cout`, así que el programa prescinde de
+`iostream` y de la memoria que este reserva; la salida es la misma:
+{1902_math_optimized.cpp}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1902_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +71.30%; base: `1902_math.cpp`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1902_math.rs](1902_math.rs).
 
 Las cinco versiones imprimen cociente y sufijo según la paridad. Basta
 entrada/salida con búfer; Python usa CPython 3.12. Lee exactamente n
@@ -76,10 +100,18 @@ instantes adicionales; t es una duración y no un instante absoluto.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1902_math.cpp](1902_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 436 KB |
-| [1902_math.go](1902_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1104 KB |
-| [1902_math.java](1902_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB |
-| [1902_math.py](1902_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 336 KB |
-| [1902_math.rs](1902_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 228 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1902_math.cpp](1902_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 432 KB | 11304061 |
+| [1902_math.go](1902_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1104 KB | 11291222 |
+| [1902_math.java](1902_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 444 KB | 11304348 |
+| [1902_math.py](1902_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 336 KB | 11291224 |
+| [1902_math.rs](1902_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 228 KB | 11291229 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |

@@ -65,7 +65,23 @@ Original problem by Denis Dublennykh, from Ural Championship 2012.
 时间 `O(n)`，每次计算只需 `O(1)` 状态。
 保存输入词元或输出缓冲的实现，总空间为 `O(n)`。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 读入、用 `printf` 输出，而不是 `std::cin` 和
+`std::cout`，因此程序不需要 `iostream` 及其分配的内存；输出不变：
+{1902_math_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1902_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +71.30%; 基础版本: `1902_math.cpp`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1902_math.rs](1902_math.rs).
 
 五种实现均输出整数商和由奇偶性决定的小数后缀。使用缓冲输入输出即可。
 Python 面向 CPython 3.12。应读取恰好 n 个进入时刻；t 是持续时间，
@@ -73,10 +89,18 @@ Python 面向 CPython 3.12。应读取恰好 n 个进入时刻；t 是持续时�
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1902_math.cpp](1902_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 436 KB |
-| [1902_math.go](1902_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1104 KB |
-| [1902_math.java](1902_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 388 KB |
-| [1902_math.py](1902_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 336 KB |
-| [1902_math.rs](1902_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 228 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1902_math.cpp](1902_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 432 KB | 11304061 |
+| [1902_math.go](1902_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1104 KB | 11291222 |
+| [1902_math.java](1902_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 444 KB | 11304348 |
+| [1902_math.py](1902_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 336 KB | 11291224 |
+| [1902_math.rs](1902_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 228 KB | 11291229 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |
