@@ -67,12 +67,85 @@ Pitfalls:
   sign repeats it; taking kinds in turn ignores the counts and can run
   out of other kinds too early (test 07).
 
+## Optimized solutions
+
+The optimized C++ solution packs a kind and its count into one `int`,
+count·2¹⁴ + kind: both are at most 10000, below 2¹⁴ = 16384, so the two
+fields never overlap, and comparing the packed numbers compares first
+the counts and then the kinds, as with the pairs. The heap is a fixed
+array of 10000 such numbers run by `std::push_heap` and `std::pop_heap`
+instead of a `priority_queue` of pairs, and the kinds are printed with
+`printf` as they come instead of being collected in a string:
+{1604_greedy_optimized.cpp}.
+
+The optimized Go solution writes its own heap over a slice of signs,
+reserved for k entries, instead of `container/heap`, which turns every
+pushed and popped sign into an `interface{}` value and allocates it. The
+numbers are parsed byte by byte from the `bufio.Reader` instead of with
+`fmt.Fscan`: {1604_greedy_optimized.go}.
+
+The optimized Java solution passes the `PriorityQueue` an ordinary
+`Comparator` class instead of a lambda, whose first use loads extra
+machinery of the runtime. When a kind is placed, its array is taken out
+of the heap anyway, so the solution lowers the count in that array and
+puts it back instead of creating a new one for every sign. The kinds go
+out through a `BufferedWriter` instead of a `StringBuilder`:
+{1604_greedy_optimized.java}.
+
+The optimized Python solution packs the heap entry (−count, kind) into
+one integer, −count·(k + 1) + kind, instead of a tuple: the kind is from
+1 to k, below the base k + 1, so the integers compare exactly like the
+tuples, and `divmod` recovers both fields. It reads the input as bytes,
+frees the list of tokens before the main loop, and writes the kinds in
+chunks of 256 instead of keeping the whole order in memory:
+{1604_greedy_optimized.py}.
+
+The optimized Rust solution writes each kind through a `BufWriter` as it
+is placed instead of collecting up to 10000 strings in a `Vec` and
+joining them into one more string: {1604_greedy_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1604_greedy_optimized.cpp`: time reduction +0.00%; memory reduction
+  +49.32%; base: `1604_greedy.cpp`.
+
+- `1604_greedy_optimized.go`: time reduction +51.61%; memory reduction
+  +49.27%; base: `1604_greedy.go`.
+
+- `1604_greedy_optimized.java`: time reduction +19.87%; memory reduction
+  +64.35%; base: `1604_greedy.java`.
+
+- `1604_greedy_optimized.py`: time reduction +0.00%; memory reduction
+  +42.12%; base: `1604_greedy.py`.
+
+- `1604_greedy_optimized.rs`: time reduction -313.33%; memory reduction
+  +56.70%; base: `1604_greedy.rs`.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1604_greedy.cpp](1604_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 292 KB |
-| [1604_greedy.go](1604_greedy.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.031 s | 2184 KB |
-| [1604_greedy.java](1604_greedy.java) | Java 1.8 | greedy | O(n log k) | AC | 0.156 s | 3456 KB |
-| [1604_greedy.py](1604_greedy.py) | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1776 KB |
-| [1604_greedy.rs](1604_greedy.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.015 s | 1044 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1604_greedy.cpp](1604_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 292 KB | 11288133 |
+| [1604_greedy.go](1604_greedy.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.031 s | 2184 KB | 11288136 |
+| [1604_greedy.java](1604_greedy.java) | Java 1.8 | greedy | O(n log k) | AC | 0.156 s | 3456 KB | 11288142 |
+| [1604_greedy.py](1604_greedy.py) | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1776 KB | 11288140 |
+| [1604_greedy.rs](1604_greedy.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.015 s | 1044 KB | 11288144 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1604_greedy_optimized.cpp](1604_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n log k) | AC | 0.015 s | 148 KB | 11304457 |
+| [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
+| [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
+| [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
+| [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
