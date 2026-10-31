@@ -17,7 +17,8 @@
 
 ## 输入
 
-`V`（至多 500000）、`a`（0 到 90）和 `K`。
+三个用空格分隔的数：整数 `V`（`0 ≤ V ≤ 500000`）、整数 `a`（`0 ≤ a ≤ 90`）
+和实数 `K > 1`。
 
 ## 输出
 
@@ -54,16 +55,42 @@
 
 答案已在所有测试上与另一份独立编写的解答比对。
 
+## 优化解法
+
+优化的 Java 解法从 `System.in` 逐字符收集三个数，再用 `Double.parseDouble` 转
+换，而不是创建 `Scanner`——后者的初始化比整个计算还要费时；公式和输出都不变：
+{1192_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1192_math_optimized.java`: 时间降低 +25.60%; 内存降低 +50.42%; 基础版本: `1192_math.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1192_math.cpp](1192_math.cpp).
+- [1192_math.go](1192_math.go).
+- [1192_math.rs](1192_math.rs).
 
 - Java 用 US 区域设置输出，保证小数点是点号。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1192_math.cpp](1192_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 152 KB |
-| [1192_math.go](1192_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1096 KB |
-| [1192_math.java](1192_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1920 KB |
-| [1192_math.py](1192_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 416 KB |
-| [1192_math.rs](1192_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 248 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1192_math.cpp](1192_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 152 KB | 11283452 |
+| [1192_math.go](1192_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1096 KB | 11283453 |
+| [1192_math.java](1192_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1920 KB | 11283457 |
+| [1192_math.py](1192_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 416 KB | 11283454 |
+| [1192_math.rs](1192_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 248 KB | 11283458 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1192_math_optimized.java](1192_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 952 KB | 11304273 |

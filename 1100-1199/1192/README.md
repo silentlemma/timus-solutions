@@ -18,7 +18,8 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 ## Input
 
-`V` (up to 500000), `a` (0 to 90) and `K`.
+Three space-separated numbers: integers `V` (`0 ≤ V ≤ 500000`) and
+`a` (`0 ≤ a ≤ 90`), and a real number `K > 1`.
 
 ## Output
 
@@ -59,16 +60,51 @@ Pitfalls:
 The answers were compared with a separately written solution on every
 test.
 
+## Optimized solutions
+
+The optimized Java solution collects the three numbers from `System.in`
+character by character and converts them with `Double.parseDouble`
+instead of creating a `Scanner`, whose setup costs more than the whole
+computation; the formula and the output are the same:
+{1192_math_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1192_math_optimized.java`: time reduction +25.60%; memory reduction
+  +50.42%; base: `1192_math.java`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1192_math.cpp](1192_math.cpp).
+- [1192_math.go](1192_math.go).
+- [1192_math.rs](1192_math.rs).
 
 - Java prints with the US locale so that the decimal point is a dot.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1192_math.cpp](1192_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 152 KB |
-| [1192_math.go](1192_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1096 KB |
-| [1192_math.java](1192_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1920 KB |
-| [1192_math.py](1192_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 416 KB |
-| [1192_math.rs](1192_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 248 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1192_math.cpp](1192_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 152 KB | 11283452 |
+| [1192_math.go](1192_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1096 KB | 11283453 |
+| [1192_math.java](1192_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1920 KB | 11283457 |
+| [1192_math.py](1192_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 416 KB | 11283454 |
+| [1192_math.rs](1192_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 248 KB | 11283458 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1192_math_optimized.java](1192_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 952 KB | 11304273 |
