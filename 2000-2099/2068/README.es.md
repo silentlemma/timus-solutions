@@ -87,15 +87,23 @@ O(n).
 
 ## Notas por lenguaje
 
-La suma es como máximo 777 · 27160 y cabe en un entero de 32 bits; en C++
-y Java se guarda de todos modos en 64 bits.
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [2068_games.cpp](2068_games.cpp).
+
+La suma es como máximo 777 · 27160 y cabe en un entero de 32 bits; en
+C++, Java y Rust se guarda de todos modos en 64 bits, igual que en Go,
+cuyo `int` ocupa 64 bits en x64.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB |
-| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB |
-| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.093 s | 440 KB |
-| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 368 KB |
-| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.031 s | 248 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB | 11294416 |
+| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB | 11294420 |
+| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 480 KB | 11304044 |
+| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 388 KB | 11304045 |
+| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 256 KB | 11304046 |

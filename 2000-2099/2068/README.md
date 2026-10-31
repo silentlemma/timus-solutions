@@ -79,20 +79,28 @@ point there are as many heaps as nuts, so the number of moves made is
 always (S − n) / 2, the sum of (aᵢ − 1) / 2 over the heaps.
 
 Daenerys makes the odd-numbered moves, so she wins exactly when this
-number is odd. In the third example the heaps give 388 + 156 + 232 + 49
-+ 0 = 825 moves, which is odd. The work is O(n).
+number is odd. In the third example the heaps give
+388 + 156 + 232 + 49 + 0 = 825 moves, which is odd. The work is O(n).
 
 ## Language notes
 
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [2068_games.cpp](2068_games.cpp).
+
 The sum is at most 777 · 27160 and fits a 32-bit integer; it is kept in
-64 bits anyway in C++ and Java.
+64 bits anyway in C++, Java and Rust, and in Go, whose `int` is 64 bits
+on x64.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB |
-| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB |
-| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.093 s | 440 KB |
-| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 368 KB |
-| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.031 s | 248 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB | 11294416 |
+| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB | 11294420 |
+| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 480 KB | 11304044 |
+| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 388 KB | 11304045 |
+| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 256 KB | 11304046 |

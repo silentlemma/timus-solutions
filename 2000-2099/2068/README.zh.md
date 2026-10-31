@@ -73,14 +73,19 @@ Daenerys 走第奇数步，所以她获胜当且仅当这个数是奇数。第�
 
 ## 各语言说明
 
-总和不超过 777 · 27160，32 位整数即可容纳；C++ 和 Java 中仍用 64 位保存。
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [2068_games.cpp](2068_games.cpp).
+
+总和不超过 777 · 27160，32 位整数即可容纳；C++、Java 和 Rust 中仍用 64 位保存，
+Go 的 `int` 在 x64 上也是 64 位。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB |
-| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB |
-| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.093 s | 440 KB |
-| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 368 KB |
-| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.031 s | 248 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2068_games.cpp](2068_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 124 KB | 11294416 |
+| [2068_games.go](2068_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1108 KB | 11294420 |
+| [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 480 KB | 11304044 |
+| [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 388 KB | 11304045 |
+| [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 256 KB | 11304046 |
