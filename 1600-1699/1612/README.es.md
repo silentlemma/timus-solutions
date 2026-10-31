@@ -88,12 +88,59 @@ Detalles a tener en cuenta:
   tranvías y `tram,trolleybus` uno de cada (pruebas 06 y 07);
 - con cuentas iguales, cero incluido, es un conductor de autobús.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ reúne cada palabra en un arreglo fijo de
+`char` de 11 bytes en lugar de un `std::string`: solo pueden coincidir
+palabras de como mucho 10 letras, la longitud de `trolleybus`, así que
+las letras posteriores a la décima solo se cuentan, sin guardarse.
+Comprueba las letras con una comparación de rango en lugar de `islower`:
+{1612_strings_optimized.cpp}.
+
+La solución optimizada en Java lee los bytes desde un búfer de 4 KB en
+lugar de reunir todo el mensaje en un `StringBuilder` y partirlo con una
+expresión regular. De la palabra actual solo guarda su longitud y si
+sigue siendo prefijo de `tram` y de `trolleybus`, así que nunca guarda
+ninguna palabra: {1612_strings_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1612_strings_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +56.41%; base: `1612_strings.cpp`.
+
+- `1612_strings_optimized.java`: reducción de tiempo +14.68%; reducción
+  de memoria +51.90%; base: `1612_strings.java`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1612_strings.go](1612_strings.go).
+- [1612_strings.rs](1612_strings.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1612_strings.cpp](1612_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 156 KB |
-| [1612_strings.go](1612_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1124 KB |
-| [1612_strings.java](1612_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 840 KB |
-| [1612_strings.py](1612_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 444 KB |
-| [1612_strings.rs](1612_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1612_strings.cpp](1612_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 156 KB | 11288250 |
+| [1612_strings.go](1612_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1124 KB | 11288251 |
+| [1612_strings.java](1612_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 840 KB | 11288255 |
+| [1612_strings.py](1612_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 444 KB | 11288253 |
+| [1612_strings.rs](1612_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 232 KB | 11288257 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
+| [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
