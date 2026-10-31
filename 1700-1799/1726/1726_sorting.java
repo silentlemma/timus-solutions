@@ -1,24 +1,10 @@
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 import java.util.Arrays;
 
 public class Main {
-    static DataInputStream in = new DataInputStream(new BufferedInputStream(System.in));
-
-    static int readInt() throws IOException {
-        int c = in.read();
-        while (c < '0') {
-            c = in.read();
-        }
-        int value = 0;
-        while (c >= '0') {
-            value = value * 10 + c - '0';
-            c = in.read();
-        }
-        return value;
-    }
-
     // the sum of |a_i - a_j| over all pairs: in sorted order the i-th value
     // is larger than the i values before it
     static long pairSum(long[] a) {
@@ -32,14 +18,19 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        int n = readInt();
+        StreamTokenizer in =
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+        in.nextToken();
+        int n = (int)in.nval;
         long[] x = new long[n], y = new long[n];
         for (int i = 0; i < n; i++) {
-            x[i] = readInt();
-            y[i] = readInt();
+            in.nextToken();
+            x[i] = (long)in.nval;
+            in.nextToken();
+            y[i] = (long)in.nval;
         }
         // walking along the streets, a visit covers |dx| + |dy|
-        long pairs = (long) n * (n - 1) / 2;
+        long pairs = (long)n * (n - 1) / 2;
         System.out.println((pairSum(x) + pairSum(y)) / pairs);
     }
 }

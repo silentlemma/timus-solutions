@@ -15,7 +15,9 @@ fn pair_sum(a: &mut [i64]) -> i64 {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|w| w.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|w| w.parse::<i64>().unwrap());
     let n = it.next().unwrap();
     let mut x = Vec::with_capacity(n as usize);
     let mut y = Vec::with_capacity(n as usize);

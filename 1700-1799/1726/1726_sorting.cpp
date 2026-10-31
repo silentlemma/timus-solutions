@@ -16,9 +16,11 @@ long long pairSum(std::vector<long long> &a) {
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     std::vector<long long> x(n), y(n);
-    for (int i = 0; i < n; i++) scanf("%lld %lld", &x[i], &y[i]);
+    for (int i = 0; i < n; i++)
+        scanf("%lld %lld", &x[i], &y[i]);
     // walking along the streets, a visit covers |dx| + |dy|
     long long pairs = (long long)n * (n - 1) / 2;
     printf("%lld\n", (pairSum(x) + pairSum(y)) / pairs);
