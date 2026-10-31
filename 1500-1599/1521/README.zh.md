@@ -51,12 +51,73 @@ N 和 K。
 - K = 1 时士兵按顺序离开（测试 03、gen5）；
 - K = N 时最后一名士兵先离开（测试 04、gen4）。
 
+## 优化解法
+
+优化的 C++ 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
+进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
+所找士兵的节点，所以沿途把它们减一，不需要第二遍。树放在静态数组中，每个数用
+`printf` 立即输出，而不是把输出收集到字符串里：{1521_fenwick_optimized.cpp}。
+
+优化的 Go 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行进；
+并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含所找
+士兵的节点，所以沿途把它们减一，不需要第二遍。计数用 `int32` 存储（它们不超过
+N ≤ 100000，放得下）；N 和 K 逐字节读取，而不是用 `fmt.Scan`；数字用
+`strconv.AppendInt` 格式化到一个重复使用的缓冲区中：
+{1521_fenwick_optimized.go}。
+
+优化的 Java 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
+进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
+所找士兵的节点，所以沿途把它们减一，不需要第二遍。N 和 K 从 `System.in` 逐位读
+取，而不是用 `BufferedReader` 和 `StringTokenizer`；数字通过 4 KB 的
+`BufferedOutputStream` 写出，而不是把输出收集到 `StringBuilder` 中：
+{1521_fenwick_optimized.java}。
+
+优化的 Python 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
+进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
+所找士兵的节点，所以沿途把它们减一，不需要第二遍。树是 32 位无符号整数的 `array`
+（计数不超过 N ≤ 100000，放得下），而不是 Python 整数的列表；答案每 1024 个一批
+输出，而不是一直攒到最后：{1521_fenwick_optimized.py}。
+
+优化的 Rust 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
+进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
+所找士兵的节点，所以沿途把它们减一，不需要第二遍。计数用 `u32` 而不是 `usize` 存
+储（它们不超过 N ≤ 100000，放得下）；数字通过 `BufWriter` 输出，而不是收集到
+`String` 中：{1521_fenwick_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1521_fenwick_optimized.cpp`: 时间降低 -48.39%; 内存降低 +75.84%; 基础版本: `1521_fenwick.cpp`.
+
+- `1521_fenwick_optimized.go`: 时间降低 +25.81%; 内存降低 +46.34%; 基础版本: `1521_fenwick.go`.
+
+- `1521_fenwick_optimized.java`: 时间降低 +26.90%; 内存降低 +82.85%; 基础版本: `1521_fenwick.java`.
+
+- `1521_fenwick_optimized.py`: 时间降低 +4.84%; 内存降低 +88.83%; 基础版本: `1521_fenwick.py`.
+
+- `1521_fenwick_optimized.rs`: 时间降低 +0.00%; 内存降低 +74.68%; 基础版本: `1521_fenwick.rs`.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1521_fenwick.cpp](1521_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.031 s | 2136 KB |
-| [1521_fenwick.go](1521_fenwick.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.062 s | 2460 KB |
-| [1521_fenwick.java](1521_fenwick.java) | Java 1.8 | fenwick | O(N log N) | AC | 0.171 s | 5016 KB |
-| [1521_fenwick.py](1521_fenwick.py) | Python 3.12 x64 | fenwick | O(N log N) | AC | 0.640 s | 12028 KB |
-| [1521_fenwick.rs](1521_fenwick.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 2512 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1521_fenwick.cpp](1521_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.031 s | 2136 KB | 11287371 |
+| [1521_fenwick.go](1521_fenwick.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.062 s | 2460 KB | 11287372 |
+| [1521_fenwick.java](1521_fenwick.java) | Java 1.8 | fenwick | O(N log N) | AC | 0.171 s | 5016 KB | 11287374 |
+| [1521_fenwick.py](1521_fenwick.py) | Python 3.12 x64 | fenwick | O(N log N) | AC | 0.640 s | 12028 KB | 11287373 |
+| [1521_fenwick.rs](1521_fenwick.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 2512 KB | 11287375 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1521_fenwick_optimized.cpp](1521_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.046 s | 516 KB | 11304369 |
+| [1521_fenwick_optimized.go](1521_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 1320 KB | 11304370 |
+| [1521_fenwick_optimized.java](1521_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(N log N) | AC | 0.125 s | 860 KB | 11304371 |
+| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log N) | AC | 0.609 s | 1344 KB | 11304372 |
+| [1521_fenwick_optimized.rs](1521_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 636 KB | 11304373 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
