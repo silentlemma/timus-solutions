@@ -75,16 +75,46 @@
 - 忘记减去只有一个部分的拆分；
 - 有符号 32 位整数从 `N = 226` 起就会溢出。
 
+## 优化解法
+
+优化的 C++ 解法把表放在栈上一个固定大小、含 501 个 `long long` 的数组里，而不是
+`vector`，因为 `N ≤ 500`，这样就不需要在堆上分配内存：{1017_dp_optimized.cpp}。
+
+优化的 Java 解法用基于 `BufferedReader` 的 `StreamTokenizer` 读入唯一的数，而不
+是 `Scanner`，后者的正则表达式机制加载起来既费时间又占内存：
+{1017_dp_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1017_dp_optimized.cpp`: 时间降低 +0.00%; 内存降低 +46.94%; 基础版本: `1017_dp.cpp`.
+
+- `1017_dp_optimized.java`: 时间降低 +14.68%; 内存降低 +71.65%; 基础版本: `1017_dp.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1017_dp.rs](1017_dp.rs).
 
 各语言使用同样的 DP 和 64 位整数；Python 的整数没有上限。
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1017_dp.cpp](1017_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 196 KB |
-| [1017_dp.go](1017_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 1088 KB |
-| [1017_dp.java](1017_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 1580 KB |
-| [1017_dp.py](1017_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 420 KB |
-| [1017_dp.rs](1017_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1017_dp.cpp](1017_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 196 KB | 11278180 |
+| [1017_dp.go](1017_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 1088 KB | 11278186 |
+| [1017_dp.java](1017_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 1580 KB | 11278192 |
+| [1017_dp.py](1017_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 420 KB | 11278189 |
+| [1017_dp.rs](1017_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.015 s | 236 KB | 11278195 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1017_dp_optimized.cpp](1017_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 104 KB | 11305919 |
+| [1017_dp_optimized.java](1017_dp_optimized.java) | Java 1.8 | dp | O(N^2) | AC | 0.093 s | 448 KB | 11305922 |

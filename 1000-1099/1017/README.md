@@ -69,8 +69,9 @@ by one: for a size `k`, `ways[s] += ways[s - k]` for `s` going **down** from
 `N` to `k`, so that every size is used at most once (going up would allow
 repeats). After all sizes, the answer is `ways[N] - 1`.
 
-`O(N^2)` time, at most 125 250 updates. The numbers grow fast: for `N = 500` the answer is
-about `7.3 · 10^14`, so 64-bit integers are needed.
+`O(N^2)` time, at most 125 250 updates. The numbers grow fast: for
+`N = 500` the answer is about `7.3 · 10^14`, so 64-bit integers are
+needed.
 
 Alternatively, `f(n, k)` — partitions of `n` into distinct parts not smaller
 than `k` — satisfies `f(n, k) = f(n, k + 1) + f(n - k, k + 1)`, which gives
@@ -82,17 +83,57 @@ Pitfalls:
 - forgetting to subtract the one-step partition;
 - signed 32-bit integers overflow from `N = 226` on.
 
+## Optimized solutions
+
+The optimized C++ solution keeps the table in a fixed array of 501
+`long long` values on the stack instead of a `vector`, since `N ≤ 500`,
+and so needs no heap allocation: {1017_dp_optimized.cpp}.
+
+The optimized Java solution reads the single number with
+`StreamTokenizer` over a `BufferedReader` instead of `Scanner`, whose
+regular-expression machinery costs time and memory to load:
+{1017_dp_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1017_dp_optimized.cpp`: time reduction +0.00%; memory reduction
+  +46.94%; base: `1017_dp.cpp`.
+
+- `1017_dp_optimized.java`: time reduction +14.68%; memory reduction
+  +71.65%; base: `1017_dp.java`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1017_dp.rs](1017_dp.rs).
 
 The same DP in every language with 64-bit integers; Python's integers are
 unbounded.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1017_dp.cpp](1017_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 196 KB |
-| [1017_dp.go](1017_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 1088 KB |
-| [1017_dp.java](1017_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 1580 KB |
-| [1017_dp.py](1017_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 420 KB |
-| [1017_dp.rs](1017_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1017_dp.cpp](1017_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 196 KB | 11278180 |
+| [1017_dp.go](1017_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 1088 KB | 11278186 |
+| [1017_dp.java](1017_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 1580 KB | 11278192 |
+| [1017_dp.py](1017_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 420 KB | 11278189 |
+| [1017_dp.rs](1017_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.015 s | 236 KB | 11278195 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1017_dp_optimized.cpp](1017_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 104 KB | 11305919 |
+| [1017_dp_optimized.java](1017_dp_optimized.java) | Java 1.8 | dp | O(N^2) | AC | 0.093 s | 448 KB | 11305922 |
