@@ -1,26 +1,20 @@
-import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
+import java.util.ArrayDeque;
 import java.util.Arrays;
 
 public class Main {
-    static class FastInput {
-        final BufferedInputStream stream = new BufferedInputStream(System.in);
-
+    static class Input {
+        final StreamTokenizer input =
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         int nextInt() throws IOException {
-            int character;
-            do {
-                character = stream.read();
-            } while (character <= ' ');
-            int value = 0;
-            while (character > ' ') {
-                value = value * 10 + character - '0';
-                character = stream.read();
-            }
-            return value;
+            input.nextToken();
+            return (int)input.nval;
         }
     }
-
-    static int[][] readGraph(FastInput input, int count, int roads) throws IOException {
+    static int[][] readGraph(Input input, int count, int roads) throws IOException {
         int[] lower = new int[roads];
         int[] upper = new int[roads];
         int[] degrees = new int[count];
@@ -47,24 +41,13 @@ public class Main {
         int[] distance = new int[stateCount];
         Arrays.fill(distance, stateCount);
         boolean[] settled = new boolean[stateCount];
-        int arcEntries = 0;
-        for (int[] neighbors : adjacency) {
-            arcEntries += neighbors.length;
-        }
-        // Two initial entries plus at most one insertion per expanded arc.
-        int capacity = 2 * arcEntries + 2 + 1;
-        int[] queue = new int[capacity];
         int first = 2 * start;
         distance[first] = distance[first + 1] = 0;
-        queue[0] = first;
-        queue[1] = first + 1;
-        int head = 0;
-        int tail = 2;
-        while (head != tail) {
-            int state = queue[head++];
-            if (head == capacity) {
-                head = 0;
-            }
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        queue.add(first);
+        queue.add(first + 1);
+        while (!queue.isEmpty()) {
+            int state = queue.removeFirst();
             if (settled[state]) {
                 continue;
             }
@@ -79,17 +62,10 @@ public class Main {
                 int candidate = distance[state] + cost;
                 if (candidate < distance[nextState]) {
                     distance[nextState] = candidate;
-                    if (cost == 0) {
-                        if (head == 0) {
-                            head = capacity;
-                        }
-                        queue[--head] = nextState;
-                    } else {
-                        queue[tail++] = nextState;
-                        if (tail == capacity) {
-                            tail = 0;
-                        }
-                    }
+                    if (cost == 0)
+                        queue.addFirst(nextState);
+                    else
+                        queue.addLast(nextState);
                 }
             }
         }
@@ -97,7 +73,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        FastInput input = new FastInput();
+        Input input = new Input();
         int count = input.nextInt();
         int roads = input.nextInt();
         int[][] adjacency = readGraph(input, count, roads);

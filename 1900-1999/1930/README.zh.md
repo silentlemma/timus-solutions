@@ -76,23 +76,71 @@ Original problem from Ural Regional School Programming Contest 2012 | by Grigori
 也不限定上坡挡开始。逐条使用给定方向：第二例包含有向环，
 不能按编号推断高度排序。只保证起终点连通，不保证整个图连通。
 
+## 优化解法
+
+优化的 C++ 解法从用 `fread` 反复填充的 4 KB 缓冲区中手工解析至多 200 004 个数，
+并用 `printf` 输出，而不是用 `iostream`；图和 0–1 BFS 不变：
+{1930_shortest_paths_optimized.cpp}。
+
+优化的 Go 解法从标准输入读入的 4 KB 缓冲区中手工解析数字，而不是对至多 200 004
+个数逐个调用 `fmt.Fscan`；图和 0–1 BFS 不变：
+{1930_shortest_paths_optimized.go}。
+
+优化的 Java 解法从 `BufferedInputStream` 中手工解析数字，而不是用
+`StreamTokenizer`，并把双端队列做成 `int` 数组上的环形缓冲区，而不是装箱
+`Integer` 的 `ArrayDeque`。设邻接项数为 `A = 2m`，则进入队列的状态至多 `2 + 2A`
+个，所以容量 `2A + 3` 永远不会占满，还留有一个空位：
+{1930_shortest_paths_optimized.java}。
+
+优化的 Python 解法按 4 KB 分块读入，而不是一次切分整个输入，并把每个邻接表存成无
+符号 16 位数的 `array("H")`，而不是整数对象的列表：由于 n ≤ 10000，目标状态
+2·城市+挡位至多为 19 999：{1930_shortest_paths_optimized.py}。
+
+优化的 Rust 解法把邻接表存成 `Vec<u16>` 而不是 `Vec<usize>`，每项占 2 字节而不是
+8 字节：由于 n ≤ 10000，目标状态 2·城市+挡位至多为 19 999。数字从 4 KB 缓冲区中
+手工解析，而不是把整个输入读进 `String`：{1930_shortest_paths_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1930_shortest_paths_optimized.cpp`: 时间降低 +67.39%; 内存降低 +12.81%; 基础版本: `1930_shortest_paths.cpp`.
+
+- `1930_shortest_paths_optimized.go`: 时间降低 +66.67%; 内存降低 +20.11%; 基础版本: `1930_shortest_paths.go`.
+
+- `1930_shortest_paths_optimized.java`: 时间降低 +37.60%; 内存降低 -36.59%; 基础版本: `1930_shortest_paths.java`.
+
+- `1930_shortest_paths_optimized.py`: 时间降低 +0.00%; 内存降低 +87.93%; 基础版本: `1930_shortest_paths.py`.
+
+- `1930_shortest_paths_optimized.rs`: 时间降低 +0.00%; 内存降低 +69.02%; 基础版本: `1930_shortest_paths.rs`.
+
 ## 各语言说明
 
-邻接项编码为 2·邻城+所需挡位，每条路存两项。距离用有符号
-32 位整数足够；2n 可作无穷大，因为扩展图简单路径少于 2n 条
-费用至多 1 的边。Java 使用缓冲整数读取、基本类型邻接数组与
-环形双端队列。设 A=2m 为邻接项数，总插入不超过 2+2A，容量
-2A+3 留一个空位。Go 用两个栈实现队列，仅当前栈为空时反转
-延迟后栈；每个延迟项最多转移一次，总工作量线性。C++、Rust
-使用标准双端队列，Python 使用 deque 与 bytearray 确定标记。
-输入缓冲与图总空间仍为 O(n+m)。
+邻接项编码为 2·邻城+所需挡位，每条路存两项。距离用有符号 32 位整数足够；2n 可作
+无穷大，因为扩展图简单路径少于 2n 条费用至多 1 的边。Java 用 `StreamTokenizer`
+读入，每个城市一个 `int` 邻接数组，并使用 `ArrayDeque`。Go 用两个栈实现双端队
+列，仅当前端栈为空时才反转延迟的后端栈；每个延迟项最多转移一次，总工作量线性。
+C++、Rust 使用标准双端队列，Python 使用 deque，并用 bytearray 存放已确定标记。输
+入缓冲与图总空间仍为 O(n+m)。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1930_shortest_paths.cpp](1930_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 1936 KB |
-| [1930_shortest_paths.go](1930_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 6744 KB |
-| [1930_shortest_paths.java](1930_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.140 s | 3524 KB |
-| [1930_shortest_paths.py](1930_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 19520 KB |
-| [1930_shortest_paths.rs](1930_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.015 s | 4468 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1930_shortest_paths.cpp](1930_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 1936 KB | 11291679 |
+| [1930_shortest_paths.go](1930_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 6744 KB | 11291681 |
+| [1930_shortest_paths.java](1930_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 2536 KB | 11307200 |
+| [1930_shortest_paths.py](1930_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 19520 KB | 11291686 |
+| [1930_shortest_paths.rs](1930_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.015 s | 4468 KB | 11291694 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1930_shortest_paths_optimized.cpp](1930_shortest_paths_optimized.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.015 s | 1688 KB | 11307202 |
+| [1930_shortest_paths_optimized.go](1930_shortest_paths_optimized.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.031 s | 5388 KB | 11307203 |
+| [1930_shortest_paths_optimized.java](1930_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.078 s | 3464 KB | 11307206 |
+| [1930_shortest_paths_optimized.py](1930_shortest_paths_optimized.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 2356 KB | 11307205 |
+| [1930_shortest_paths_optimized.rs](1930_shortest_paths_optimized.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.015 s | 1384 KB | 11307204 |
