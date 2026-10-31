@@ -68,12 +68,50 @@ Yes
 
 第三个样例中 10¹⁰ = 2¹⁰ · 5¹⁰ 有 20 个质因子。
 
+## 优化解法
+
+优化的 Java 解法从由 `System.in` 填充的 4 KB 缓冲区中手工解析 n，而不是创建
+`Scanner`，这样 JVM 不必加载扫描器及其正则表达式；不超过 10¹⁸ 的 n 放得进
+`long`，试除过程不变：{2102_number_theory_optimized.java}。
+
+优化的 Python 解法倒数还需要的素因子个数，一旦答案确定就停止。比当前除数小的素数
+都已除尽，所以剩下的因子都不小于当前除数：当还需要两个以上因子，而除数的这么多次
+幂已超过 n 剩下的部分时，答案立即是 No，因此大素数 n 只需几次除法就结束。当至多
+还需要两个因子时，已除去至少 18 个，剩下的部分至多 10¹⁸ / 2¹⁸，试除至多到它的平
+方根结束，即不超过 1 953 125，不需要界 B。除过 2 之后只试奇数除数：
+{2102_number_theory_optimized.py}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `2102_number_theory_optimized.java`: 时间降低 -12.00%; 内存降低 +74.87%; 基础版本: `2102_number_theory.java`.
+
+- `2102_number_theory_optimized.py`: 时间降低 +41.50%; 内存降低 -9.28%; 基础版本: `2102_number_theory.py`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [2102_number_theory.rs](2102_number_theory.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 124 KB |
-| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB |
-| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.156 s | 1636 KB |
-| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.484 s | 428 KB |
-| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 116 KB | 11304072 |
+| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB | 11294722 |
+| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.125 s | 1592 KB | 11304073 |
+| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.453 s | 388 KB | 11304074 |
+| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB | 11294726 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

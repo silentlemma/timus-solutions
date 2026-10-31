@@ -76,12 +76,63 @@ Yes
 
 В третьем примере 10¹⁰ = 2¹⁰ · 5¹⁰ имеет 20 простых множителей.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает n вручную из буфера на 4 КБ,
+заполняемого из `System.in`, а не создаёт `Scanner`, так что JVM не
+загружает сканер и его регулярные выражения; n до 10¹⁸ помещается в
+`long`, а перебор делителей тот же: {2102_number_theory_optimized.java}.
+
+Оптимизированное решение на Python ведёт обратный отсчёт ещё нужных
+простых множителей и останавливается, как только ответ известен. Все
+простые меньше текущего делителя уже вынесены, так что все оставшиеся
+множители не меньше делителя: пока нужно больше двух множителей и
+делитель в степени их числа больше того, что осталось от n, ответ сразу
+No, так что для большого простого n перебор кончается после нескольких
+делений. Когда нужно не больше двух множителей, вынесено уже не меньше
+18, так что остаток не больше 10¹⁸ / 2¹⁸, и перебор кончается не дальше
+его квадратного корня, не больше 1 953 125, без границы B. После 2 оно
+пробует только нечётные делители: {2102_number_theory_optimized.py}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `2102_number_theory_optimized.java`: сокращение времени -12.00%;
+  сокращение памяти +74.87%; база: `2102_number_theory.java`.
+
+- `2102_number_theory_optimized.py`: сокращение времени +41.50%;
+  сокращение памяти -9.28%; база: `2102_number_theory.py`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [2102_number_theory.rs](2102_number_theory.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 124 KB |
-| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB |
-| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.156 s | 1636 KB |
-| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.484 s | 428 KB |
-| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 116 KB | 11304072 |
+| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB | 11294722 |
+| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.125 s | 1592 KB | 11304073 |
+| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.453 s | 388 KB | 11304074 |
+| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB | 11294726 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

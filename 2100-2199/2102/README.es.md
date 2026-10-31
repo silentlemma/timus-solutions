@@ -77,12 +77,65 @@ trabajo es O(min(sqrt n, B)).
 
 En el tercer ejemplo 10¹⁰ = 2¹⁰ · 5¹⁰ tiene 20 factores primos.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza n a mano desde un búfer de 4 KB
+que se llena desde `System.in`, en lugar de crear un `Scanner`, así que
+la JVM no carga el escáner ni sus expresiones regulares; n hasta 10¹⁸
+cabe en `long`, y la división por tanteo es la misma:
+{2102_number_theory_optimized.java}.
+
+La solución optimizada en Python lleva la cuenta atrás de los factores
+primos que aún faltan y se detiene en cuanto conoce la respuesta. Todos
+los primos menores que el divisor actual ya se han dividido, así que los
+factores restantes son al menos el divisor: mientras falten más de dos y
+el divisor elevado a su número supere lo que queda de n, la respuesta es
+No de inmediato, lo que despacha un primo grande en unas pocas
+divisiones. Cuando faltan como mucho dos factores, ya se han quitado al
+menos 18, así que lo que queda es como mucho 10¹⁸ / 2¹⁸ y la división
+termina como mucho en su raíz cuadrada, que no pasa de 1 953 125, sin la
+cota B. Después del 2 solo prueba divisores impares:
+{2102_number_theory_optimized.py}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `2102_number_theory_optimized.java`: reducción de tiempo -12.00%;
+  reducción de memoria +74.87%; base: `2102_number_theory.java`.
+
+- `2102_number_theory_optimized.py`: reducción de tiempo +41.50%;
+  reducción de memoria -9.28%; base: `2102_number_theory.py`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [2102_number_theory.rs](2102_number_theory.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 124 KB |
-| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB |
-| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.156 s | 1636 KB |
-| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.484 s | 428 KB |
-| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 116 KB | 11304072 |
+| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB | 11294722 |
+| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.125 s | 1592 KB | 11304073 |
+| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.453 s | 388 KB | 11304074 |
+| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB | 11294726 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

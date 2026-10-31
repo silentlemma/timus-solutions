@@ -1,5 +1,5 @@
 TARGET = 20
-BOUND = 2 * 10 ** 6  # trial divisors; beyond them at most two prime factors remain
+BOUND = 2 * 10**6  # trial divisors; beyond them at most two prime factors remain
 
 
 def main():

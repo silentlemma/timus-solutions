@@ -76,12 +76,64 @@ cannot reach 20, and the answer is No. The work is O(min(sqrt n, B)).
 
 In the third example 10¹⁰ = 2¹⁰ · 5¹⁰ has 20 prime factors.
 
+## Optimized solutions
+
+The optimized Java solution parses n by hand from a 4 KB buffer filled
+from `System.in` instead of creating a `Scanner`, so the JVM does not
+load the scanner and its regular expressions; n up to 10¹⁸ fits in
+`long`, and the trial division is the same:
+{2102_number_theory_optimized.java}.
+
+The optimized Python solution counts down the prime factors still needed
+and stops as soon as the answer is known. Every prime below the current
+divisor has been divided out, so all factors left are at least the
+divisor: while more than two are needed and the divisor raised to their
+number exceeds what is left of n, the answer is No at once, which
+settles a large prime n after a handful of divisions. Once at most two
+factors are needed, at least 18 are removed, so what is left is at most
+10¹⁸ / 2¹⁸ and the division stops at its square root, at most 1 953 125,
+without the bound B. After 2 it tries only odd divisors:
+{2102_number_theory_optimized.py}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `2102_number_theory_optimized.java`: time reduction -12.00%; memory
+  reduction +74.87%; base: `2102_number_theory.java`.
+
+- `2102_number_theory_optimized.py`: time reduction +41.50%; memory
+  reduction -9.28%; base: `2102_number_theory.py`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [2102_number_theory.rs](2102_number_theory.rs).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 124 KB |
-| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB |
-| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.156 s | 1636 KB |
-| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.484 s | 428 KB |
-| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory.cpp](2102_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 116 KB | 11304072 |
+| [2102_number_theory.go](2102_number_theory.go) | Go 1.14 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.046 s | 1120 KB | 11294722 |
+| [2102_number_theory.java](2102_number_theory.java) | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.125 s | 1592 KB | 11304073 |
+| [2102_number_theory.py](2102_number_theory.py) | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.453 s | 388 KB | 11304074 |
+| [2102_number_theory.rs](2102_number_theory.rs) | Rust 1.75 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 232 KB | 11294726 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
