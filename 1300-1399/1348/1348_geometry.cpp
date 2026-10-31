@@ -1,23 +1,17 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
-const int MAX_ROPE = 30000;
-
 int main() {
-    long long ax = 0, ay = 0, bx = 0, by = 0, cx = 0, cy = 0, rope = 0;
+    long long ax = 0, ay = 0, bx = 0, by = 0, cx = 0, cy = 0;
     std::string token;
     if (!(std::cin >> ax >> ay >> bx >> by >> cx >> cy >> token))
         return 0;
-    for (char digit : token) {
-        if (digit < '0' || digit > '9')
-            continue;
-        rope = std::min(static_cast<long long>(MAX_ROPE), rope * 10 + digit - '0');
-        if (rope == MAX_ROPE)
-            break;
-    }
+    // an unbounded rope may become infinity; then both extensions are zero.
+    double rope = std::strtod(token.c_str(), nullptr);
     long long dx = bx - ax, dy = by - ay, length = dx * dx + dy * dy;
     // the nearest point of the bed: C projected onto AB, kept inside it
     double t = 0;

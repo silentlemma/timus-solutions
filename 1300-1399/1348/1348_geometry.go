@@ -3,23 +3,18 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
 
-const MAX_ROPE = 30000
+const floatBits = 64
 
 func main() {
 	var ax, ay, bx, by, cx, cy, rope float64
 	var token string
 	fmt.Scan(&ax, &ay, &bx, &by, &cx, &cy, &token)
-	for _, digit := range token {
-		if digit < '0' || digit > '9' {
-			continue
-		}
-		rope = math.Min(MAX_ROPE, rope*10+float64(digit-'0'))
-		if rope == MAX_ROPE {
-			break
-		}
-	}
+	// parsefloat returns infinity for an unbounded rope, giving zero extensions.
+	rope, _ = strconv.ParseFloat(token, floatBits)
+
 	dx, dy := bx-ax, by-ay
 	// the nearest point of the bed: C projected onto AB, kept inside it
 	t, length := 0.0, dx*dx+dy*dy

@@ -46,16 +46,17 @@ A、B、C 的坐标和长度 L。
 端点。所以答案是 max(0, d_近 − L) 和 max(0, max(|CA|, |CB|) − L)。投影使用
 t = (C − A) · (B − A) / |B − A|²，并限制在 0 到 1 之间；苗圃只有一个点（A = B）时取 t = 0。
 
-L 没有上界。逐位读取十进制数字，累积 min(30000, 10 * rope + digit)，达到 30000 后停止累积。
-任何距离都不超过 20000√2 < 30000，因此这个上限不改变两个答案，并避免整数或浮点转换溢出。
-几何计算耗时 `O(1)`；计入输入后，时间和空间都是 `O(k)`，其中 k 是输入字符数。
+L 没有上界，所以把它读成浮点数，而不是会溢出的整数。极大的 L 会变成极大的数或无
+穷大，此时两个答案都是 0，这是正确的：任何距离都不超过 20000√2 < 30000。几何计算
+耗时 `O(1)`；计入输入后，时间和空间都是 `O(k)`，其中 k 是输入字符数。
 
 注意事项：
 
 - 苗圃可能只是一个点（测试 02 和 08）；
 - C 在苗圃所在直线上、位于某端之外时，最近点是那个端点而不是投影（测试 04）；
 - 绳子已经够长时答案是 0，不是负数（测试 05）；
-- L 可能超出整数和浮点数范围；应在逐位读取时限制其大小，而不是转换整个字符串（测试 09–11）。
+- L 可能超出整数和浮点数范围（测试 09–11）：作为浮点数它会变成无穷大，两个答案都
+  是 0，而整数类型会溢出。
 
 ## 各语言说明
 
@@ -63,10 +64,10 @@ L 没有上界。逐位读取十进制数字，累积 min(30000, 10 * rope + dig
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 412 KB |
-| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1088 KB |
-| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.125 s | 1856 KB |
-| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 552 KB |
-| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 272 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 396 KB | 11307276 |
+| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1080 KB | 11307278 |
+| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.140 s | 1856 KB | 11307281 |
+| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 496 KB | 11307292 |
+| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 244 KB | 11307285 |

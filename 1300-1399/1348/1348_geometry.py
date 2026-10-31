@@ -1,19 +1,14 @@
 import math
 import sys
 
-MAX_ROPE = 30000
+COORDINATES = 6
 
 
 def main():
     tokens = sys.stdin.read().split()
-    ax, ay, bx, by, cx, cy = map(int, tokens[:6])
-    rope = 0
-    for digit in tokens[6]:
-        if digit < '0' or digit > '9':
-            continue
-        rope = min(MAX_ROPE, rope * 10 + ord(digit) - ord('0'))
-        if rope == MAX_ROPE:
-            break
+    ax, ay, bx, by, cx, cy = map(int, tokens[:COORDINATES])
+    # an unbounded rope may become infinity; then both extensions are zero.
+    rope = float(tokens[COORDINATES])
     dx, dy = bx - ax, by - ay
     # the nearest point of the bed: C projected onto AB, kept inside it
     length = dx * dx + dy * dy

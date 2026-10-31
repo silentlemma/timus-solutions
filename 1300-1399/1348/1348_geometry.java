@@ -2,21 +2,14 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX_ROPE = 30000;
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         long ax = in.nextLong(), ay = in.nextLong(), bx = in.nextLong(), by = in.nextLong();
-        long cx = in.nextLong(), cy = in.nextLong(), rope = 0;
+        long cx = in.nextLong(), cy = in.nextLong();
         String token = in.next();
-        for (int i = 0; i < token.length(); i++) {
-            char digit = token.charAt(i);
-            if (digit < '0' || digit > '9')
-                continue;
-            rope = Math.min(MAX_ROPE, rope * 10 + digit - '0');
-            if (rope == MAX_ROPE)
-                break;
-        }
+        // an unbounded rope may become infinity; then both extensions are zero.
+        double rope = Double.parseDouble(token);
         long dx = bx - ax, dy = by - ay, length = dx * dx + dy * dy;
         // the nearest point of the bed: C projected onto AB, kept inside it
         double t = 0;

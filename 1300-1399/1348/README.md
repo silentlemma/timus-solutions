@@ -52,12 +52,11 @@ max(0, d_near − L) and max(0, max(|CA|, |CB|) − L). The projection uses
 t = (C − A) · (B − A) / |B − A|², kept between 0 and 1, and a bed of a
 single point, A = B, takes t = 0.
 
-There is no upper bound on L. Read its decimal digits, accumulating
-min(30000, 10 * rope + digit), and stop accumulating at 30000. Every
-distance is at most 20000√2 < 30000, so this cap preserves both answers
-without overflowing an integer or a floating-point conversion. Geometry
-takes `O(1)` time; including input, time and space are `O(k)`, where k is
-the number of input characters.
+There is no upper bound on L, so it is read as a floating-point number,
+not as an integer, which would overflow. A huge L becomes a huge number
+or infinity, and both answers are then 0, which is right: every distance
+is at most 20000√2 < 30000. Geometry takes `O(1)` time; including input,
+time and space are `O(k)`, where k is the number of input characters.
 
 Pitfalls:
 
@@ -66,8 +65,9 @@ Pitfalls:
   end, not the projection (test 04);
 - a rope that is already long enough needs 0, not a negative number
   (test 05);
-- L may exceed both integer and floating-point ranges; cap it while
-  reading its digits instead of converting the whole token (tests 09–11).
+- L may exceed both integer and floating-point ranges (tests 09–11): as
+  a floating-point number it becomes infinity, and both answers are 0,
+  while an integer type would overflow.
 
 ## Language notes
 
@@ -75,10 +75,10 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 412 KB |
-| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1088 KB |
-| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.125 s | 1856 KB |
-| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 552 KB |
-| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 272 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 396 KB | 11307276 |
+| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1080 KB | 11307278 |
+| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.140 s | 1856 KB | 11307281 |
+| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 496 KB | 11307292 |
+| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 244 KB | 11307285 |

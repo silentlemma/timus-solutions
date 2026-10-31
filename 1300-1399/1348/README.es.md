@@ -52,12 +52,12 @@ respuestas son max(0, d_cerca − L) y max(0, max(|CA|, |CB|) − L). La
 proyección usa t = (C − A) · (B − A) / |B − A|², limitado entre 0 y 1, y
 un bancal de un solo punto, A = B, toma t = 0.
 
-L no tiene cota superior. Se leen sus dígitos decimales acumulando
-min(30000, 10 * rope + digit), y se deja de acumular al llegar a 30000.
-Toda distancia es como mucho 20000√2 < 30000, así que este límite conserva
-ambas respuestas y evita desbordar un entero o una conversión a coma
-flotante. La geometría tarda `O(1)`; contando la entrada, el tiempo y el
-espacio son `O(k)`, donde k es el número de caracteres de entrada.
+L no tiene cota superior, así que se lee como número de coma flotante y
+no como entero, que se desbordaría. Un L enorme se convierte en un
+número enorme o en infinito, y entonces ambas respuestas son 0, lo cual
+es correcto: toda distancia es como mucho 20000√2 < 30000. La geometría
+tarda `O(1)`; contando la entrada, el tiempo y el espacio son `O(k)`,
+donde k es el número de caracteres de entrada.
 
 Detalles a tener en cuenta:
 
@@ -65,8 +65,9 @@ Detalles a tener en cuenta:
 - con C en la recta del bancal más allá de un extremo, el punto más
   cercano es ese extremo, no la proyección (prueba 04);
 - una cuerda que ya basta necesita 0, no un número negativo (prueba 05);
-- L puede superar los rangos enteros y de coma flotante: hay que limitarlo
-  al leer sus dígitos, sin convertir el token completo (pruebas 09–11).
+- L puede superar los rangos enteros y de coma flotante (pruebas 09–11):
+  como número de coma flotante se vuelve infinito y ambas respuestas son
+  0, mientras que un tipo entero se desbordaría.
 
 ## Notas por lenguaje
 
@@ -74,10 +75,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 412 KB |
-| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1088 KB |
-| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.125 s | 1856 KB |
-| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 552 KB |
-| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 272 KB |
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1348_geometry.cpp](1348_geometry.cpp) | G++ 13.2 x64 | geometry | O(k) | AC | 0.015 s | 396 KB | 11307276 |
+| [1348_geometry.go](1348_geometry.go) | Go 1.14 x64 | geometry | O(k) | AC | 0.031 s | 1080 KB | 11307278 |
+| [1348_geometry.java](1348_geometry.java) | Java 1.8 | geometry | O(k) | AC | 0.140 s | 1856 KB | 11307281 |
+| [1348_geometry.py](1348_geometry.py) | Python 3.12 x64 | geometry | O(k) | AC | 0.078 s | 496 KB | 11307292 |
+| [1348_geometry.rs](1348_geometry.rs) | Rust 1.75 x64 | geometry | O(k) | AC | 0.031 s | 244 KB | 11307285 |
