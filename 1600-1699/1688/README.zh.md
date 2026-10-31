@@ -71,12 +71,50 @@ Team.GOV!
 
 答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+优化的 Java 解法从一个 4 KB 的缓冲区逐字节解析数字，缓冲区读完后再从 `System.in`
+重新填充，而不是先把全部输入复制到 `StringBuilder`，再为分词复制成另一个字符串。
+即使答案已经确定，它也会读完全部 m 张账单；总额和 3n 都可能达到 6 · 10⁹，所以都
+用 `long` 保存：{1688_implementation_optimized.java}。
+
+优化的 Python 解法通过遍历 `sys.stdin.buffer` 的生成器逐行取出词元，而不是读入全
+部输入再转换成最多 3002 个整数的列表；累计总额的方式与简单解法相同：
+{1688_implementation_optimized.py}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1688_implementation_optimized.java`: 时间降低 -60.26%; 内存降低 +62.20%; 基础版本: `1688_implementation.java`.
+
+- `1688_implementation_optimized.py`: 时间降低 +0.00%; 内存降低 +44.67%; 基础版本: `1688_implementation.py`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1688_implementation.cpp](1688_implementation.cpp).
+- [1688_implementation.go](1688_implementation.go).
+- [1688_implementation.rs](1688_implementation.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1688_implementation.cpp](1688_implementation.cpp) | G++ 13.2 x64 | implementation | O(m) | AC | 0.015 s | 136 KB |
-| [1688_implementation.go](1688_implementation.go) | Go 1.14 x64 | implementation | O(m) | AC | 0.015 s | 1124 KB |
-| [1688_implementation.java](1688_implementation.java) | Java 1.8 | implementation | O(m) | AC | 0.078 s | 1016 KB |
-| [1688_implementation.py](1688_implementation.py) | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 788 KB |
-| [1688_implementation.rs](1688_implementation.rs) | Rust 1.75 x64 | implementation | O(m) | AC | 0.015 s | 224 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1688_implementation.cpp](1688_implementation.cpp) | G++ 13.2 x64 | implementation | O(m) | AC | 0.015 s | 128 KB | 11304065 |
+| [1688_implementation.go](1688_implementation.go) | Go 1.14 x64 | implementation | O(m) | AC | 0.015 s | 1124 KB | 11288883 |
+| [1688_implementation.java](1688_implementation.java) | Java 1.8 | implementation | O(m) | AC | 0.078 s | 1016 KB | 11288886 |
+| [1688_implementation.py](1688_implementation.py) | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 788 KB | 11288885 |
+| [1688_implementation.rs](1688_implementation.rs) | Rust 1.75 x64 | implementation | O(m) | AC | 0.015 s | 232 KB | 11304066 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
+| [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

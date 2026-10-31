@@ -76,12 +76,61 @@ total > 3n, — так обходимся без дробей; останавл�
 
 Ответы совпадают с независимой принятой реализацией.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает числа побайтно из буфера на
+4 КБ, который оно заново заполняет из `System.in`, вместо того чтобы
+сначала копировать весь ввод в `StringBuilder`, а затем ещё в одну
+строку для разбивки на токены. Оно читает все m счетов, даже когда ответ
+уже известен, и держит сумму и 3n в `long`, ведь оба значения могут
+достигать 6 · 10⁹: {1688_implementation_optimized.java}.
+
+Оптимизированное решение на Python берёт токены построчно из генератора
+по `sys.stdin.buffer` вместо того, чтобы читать весь ввод и превращать
+его в список до 3002 целых; текущая сумма считается так же, как в
+простом решении: {1688_implementation_optimized.py}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1688_implementation_optimized.java`: сокращение времени -60.26%;
+  сокращение памяти +62.20%; база: `1688_implementation.java`.
+
+- `1688_implementation_optimized.py`: сокращение времени +0.00%;
+  сокращение памяти +44.67%; база: `1688_implementation.py`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1688_implementation.cpp](1688_implementation.cpp).
+- [1688_implementation.go](1688_implementation.go).
+- [1688_implementation.rs](1688_implementation.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1688_implementation.cpp](1688_implementation.cpp) | G++ 13.2 x64 | implementation | O(m) | AC | 0.015 s | 136 KB |
-| [1688_implementation.go](1688_implementation.go) | Go 1.14 x64 | implementation | O(m) | AC | 0.015 s | 1124 KB |
-| [1688_implementation.java](1688_implementation.java) | Java 1.8 | implementation | O(m) | AC | 0.078 s | 1016 KB |
-| [1688_implementation.py](1688_implementation.py) | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 788 KB |
-| [1688_implementation.rs](1688_implementation.rs) | Rust 1.75 x64 | implementation | O(m) | AC | 0.015 s | 224 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1688_implementation.cpp](1688_implementation.cpp) | G++ 13.2 x64 | implementation | O(m) | AC | 0.015 s | 128 KB | 11304065 |
+| [1688_implementation.go](1688_implementation.go) | Go 1.14 x64 | implementation | O(m) | AC | 0.015 s | 1124 KB | 11288883 |
+| [1688_implementation.java](1688_implementation.java) | Java 1.8 | implementation | O(m) | AC | 0.078 s | 1016 KB | 11288886 |
+| [1688_implementation.py](1688_implementation.py) | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 788 KB | 11288885 |
+| [1688_implementation.rs](1688_implementation.rs) | Rust 1.75 x64 | implementation | O(m) | AC | 0.015 s | 232 KB | 11304066 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
+| [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

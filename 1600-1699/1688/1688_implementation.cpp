@@ -1,6 +1,6 @@
 #include <cstdio>
 
-const long long SHARES = 3;  // a bill is split three ways
+const long long SHARES = 3; // a bill is split three ways
 
 int main() {
     long long n, total = 0;
