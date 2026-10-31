@@ -72,12 +72,60 @@ Pitfalls:
   finishes at 6000 tenths and Early at 6601, so only Late leads;
 - the answer is sorted by surname, not in the order the board changed.
 
+## Optimized solutions
+
+The optimized C++ solution reads each skier with one `scanf` that also
+splits the time at `:` and `.`, instead of `iostream` and substrings
+converted with `stoi`, and keeps the skiers in a static array of
+100 records with a 21-byte name, enough since `n ≤ 100` and a surname
+has at most 20 letters, instead of a vector of tuples with
+`std::string`. The board keeps pointers to the names, sorted with
+`strcmp`: {1821_sorting_optimized.cpp}.
+
+The optimized Java solution reads the lines with `BufferedReader` and
+`StringTokenizer`, which also splits the time at `:` and `.`, instead of
+`Scanner` and substrings, and sorts an array of records that implement
+`Comparable` instead of boxed `Integer` indices with a lambda
+comparator: {1821_sorting_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1821_sorting_optimized.cpp`: time reduction +0.00%; memory reduction
+  +73.21%; base: `1821_sorting.cpp`.
+
+- `1821_sorting_optimized.java`: time reduction +30.13%; memory
+  reduction +83.13%; base: `1821_sorting.java`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1821_sorting.go](1821_sorting.go).
+- [1821_sorting.rs](1821_sorting.rs).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1821_sorting.cpp](1821_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 452 KB |
-| [1821_sorting.go](1821_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.031 s | 1136 KB |
-| [1821_sorting.java](1821_sorting.java) | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 3936 KB |
-| [1821_sorting.py](1821_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 460 KB |
-| [1821_sorting.rs](1821_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1821_sorting.cpp](1821_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 448 KB | 11304255 |
+| [1821_sorting.go](1821_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.031 s | 1136 KB | 11290261 |
+| [1821_sorting.java](1821_sorting.java) | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 3936 KB | 11290273 |
+| [1821_sorting.py](1821_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 460 KB | 11290266 |
+| [1821_sorting.rs](1821_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 228 KB | 11290275 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1821_sorting_optimized.cpp](1821_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 120 KB | 11307289 |
+| [1821_sorting_optimized.java](1821_sorting_optimized.java) | Java 1.8 | sorting | O(n log n) | AC | 0.109 s | 664 KB | 11307294 |

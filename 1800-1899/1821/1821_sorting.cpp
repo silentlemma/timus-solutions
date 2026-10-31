@@ -16,7 +16,8 @@ int tenths(const std::string &text) {
 
 int main() {
     int n;
-    if (!(std::cin >> n)) return 0;
+    if (!(std::cin >> n))
+        return 0;
     std::vector<std::tuple<int, int, std::string>> finishes;
     for (int i = 0; i < n; i++) {
         std::string name, time;
@@ -36,6 +37,7 @@ int main() {
     }
     std::sort(leaders.begin(), leaders.end());
     std::cout << leaders.size() << "\n";
-    for (const auto &name : leaders) std::cout << name << "\n";
+    for (const auto &name : leaders)
+        std::cout << name << "\n";
     return 0;
 }
