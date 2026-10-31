@@ -8,8 +8,8 @@ Original problem from the Second Ural Team Student Programming Championship, Yek
 
 ## Task
 
-Find the median of N ≤ 250 000 integers from 0 to 2³¹ − 1: the middle
-element of the sorted sequence for odd N, and the mean of the two
+Find the median of 1 ≤ N ≤ 250 000 integers from 0 to 2³¹ − 1: the
+middle element of the sorted sequence for odd N, and the mean of the two
 middle elements for even N. Print it with one decimal.
 
 Time limit: 1 second. Memory limit: 1 MB. The statement allows C, C++
@@ -69,6 +69,24 @@ Pitfalls:
 - C++ streams cost too much memory here, so the program reads with
   `scanf`.
 
+## Optimized solutions
+
+The optimized C++ solution parses the numbers by hand from a 4 KB buffer
+instead of `scanf`. It builds the heap of the first ⌊N/2⌋ + 1 numbers at
+once with `std::make_heap`, in linear time, instead of pushing them one
+by one, and replaces the top with a single downward sift instead of
+`pop_heap` followed by `push_heap`: {1306_sorting_optimized.cpp}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1306_sorting_optimized.cpp`: time reduction +84.73%; memory reduction
+  +8.97%; base: `1306_sorting.cpp`.
+
 ## Language notes
 
 - The statement allows only C, C++ and Pascal, but the Timus submit form
@@ -77,7 +95,15 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.203 s | 624 KB |
-| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.031 s | 696 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.203 s | 624 KB | 11284855 |
+| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.046 s | 700 KB | 11304528 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1306_sorting_optimized.cpp](1306_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.031 s | 568 KB | 11304527 |

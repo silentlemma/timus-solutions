@@ -8,8 +8,8 @@
 
 ## 任务
 
-求 N ≤ 250 000 个 0 到 2³¹ − 1 之间整数的中位数：N 为奇数时是排序后正中间的元素，N 为偶数时是中间
-两个元素的平均值。保留一位小数输出。
+求 1 ≤ N ≤ 250 000 个 0 到 2³¹ − 1 之间整数的中位数：N 为奇数时是排序后正中
+间的元素，N 为偶数时是中间两个元素的平均值。保留一位小数输出。
 
 时间限制：1 秒。内存限制：1 MB。题面只允许 C、C++ 和 Pascal，提交表单还提供 Rust。
 
@@ -60,13 +60,34 @@ N，然后是 N 个数，每行一个。
 - 平均值要么是整数，要么以 .5 结尾，因此不用浮点数就能精确输出（测试 01 和 08）；
 - 这里 C++ 流太占内存，所以程序用 `scanf` 读入。
 
+## 优化解法
+
+优化的 C++ 解法从 4 KB 缓冲区中手工解析数字，而不是用 `scanf`。它用
+`std::make_heap` 在线性时间内一次建好前 ⌊N/2⌋ + 1 个数的堆，而不是逐个插入；替
+换堆顶时只做一次向下调整，而不是先 `pop_heap` 再 `push_heap`：
+{1306_sorting_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1306_sorting_optimized.cpp`: 时间降低 +84.73%; 内存降低 +8.97%; 基础版本: `1306_sorting.cpp`.
+
 ## 各语言说明
 
 - 题面只允许 C、C++ 和 Pascal，但 Timus 的提交表单还提供 Rust 1.75，所以给出 C++ 和 Rust 解答；Go、Python 和 Java 无法提交。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.203 s | 624 KB |
-| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.031 s | 696 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1306_sorting.cpp](1306_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.203 s | 624 KB | 11284855 |
+| [1306_sorting.rs](1306_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N) | AC | 0.046 s | 700 KB | 11304528 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1306_sorting_optimized.cpp](1306_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N log N) | AC | 0.031 s | 568 KB | 11304527 |
