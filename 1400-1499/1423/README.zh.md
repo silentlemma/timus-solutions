@@ -56,12 +56,50 @@ N；若不出现，答案为 −1。查找用 Knuth–Morris–Pratt 算法和 T
   作空格（测试 05、gen3）；
 - 朴素的子串查找在由同一个字母重复组成的字符串上可能是平方复杂度（gen2）。
 
+## 优化解法
+
+优化的 C++ 解法把前缀函数存成打包在 32 位字数组中的 18 位字段，因为每个值都小于
+N ≤ 250 000 < 2^18，读取时一次从相邻的两个字中取出字段；每次访问多花几次移位，但
+只占约 0.56 MB，而 `int` 值要 1 MB。此外它把 S 扫两遍，而不是构造 S + S，并用
+`scanf` 把 S 和 T 读进两个 250 001 字节的静态缓冲区，而不是用 `cin` 读进
+`std::string`：{1423_strings_optimized.cpp}。
+
+优化的 Go 解法用 `int32` 而不是 8 字节的 `int` 存前缀函数，因为每个值都小于
+N ≤ 250 000，并依据两个字符串的长度都是 N，用 `io.ReadFull` 把 S 和 T 直接读进恰
+好 N 字节的数组，而不是读入全部输入再按字段切分：{1423_strings_optimized.go}。
+
+优化的 Java 解法按 64 KB 分块读取原始输入，手工从中切出 S 和 T 作为 `byte` 数组
+并按字节比较，而不是用 `BufferedReader` 把各行解码成每个字符占两字节的 `char` 数
+组：{1423_strings_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1423_strings_optimized.cpp`: 时间降低 -106.67%; 内存降低 +40.82%; 基础版本: `1423_strings.cpp`.
+
+- `1423_strings_optimized.go`: 时间降低 +0.00%; 内存降低 +40.39%; 基础版本: `1423_strings.go`.
+
+- `1423_strings_optimized.java`: 时间降低 +19.87%; 内存降低 +39.97%; 基础版本: `1423_strings.java`.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1423_strings.cpp](1423_strings.cpp) | G++ 13.2 x64 | strings | O(N) | AC | 0.015 s | 1940 KB |
-| [1423_strings.go](1423_strings.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 4268 KB |
-| [1423_strings.java](1423_strings.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3492 KB |
-| [1423_strings.py](1423_strings.py) | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1372 KB |
-| [1423_strings.rs](1423_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.031 s | 3052 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1423_strings.cpp](1423_strings.cpp) | G++ 13.2 x64 | strings | O(N) | AC | 0.015 s | 1940 KB | 11286160 |
+| [1423_strings.go](1423_strings.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 4268 KB | 11286161 |
+| [1423_strings.java](1423_strings.java) | Java 1.8 | strings | O(N) | AC | 0.156 s | 5744 KB | 11307252 |
+| [1423_strings.py](1423_strings.py) | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1372 KB | 11286163 |
+| [1423_strings.rs](1423_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.031 s | 3052 KB | 11286168 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
+| [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
+| [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

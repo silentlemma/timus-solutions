@@ -62,12 +62,63 @@ Pitfalls:
 - a naive substring search can take quadratic time on strings of one
   repeated letter (gen2).
 
+## Optimized solutions
+
+The optimized C++ solution stores the prefix function in 18-bit fields
+packed into an array of 32-bit words, since every value is below
+N ≤ 250 000 < 2^18, and reads a field from two neighbouring words at
+once; this costs a few shifts per access but takes about 0.56 MB instead
+of 1 MB for `int` values. It also scans S twice instead of building S +
+S, and reads S and T with `scanf` into two static buffers of
+250 001 bytes instead of `std::string` with `cin`:
+{1423_strings_optimized.cpp}.
+
+The optimized Go solution keeps the prefix function in `int32` values
+instead of 8-byte `int`, since every value is below N ≤ 250 000, and
+reads S and T straight into byte arrays of exactly N bytes with
+`io.ReadFull`, relying on both strings having length N, instead of
+reading the whole input and splitting it into fields:
+{1423_strings_optimized.go}.
+
+The optimized Java solution reads the raw input in 64 KB blocks and cuts
+S and T out of it by hand as `byte` arrays, comparing bytes, instead of
+decoding the lines with `BufferedReader` into `char` arrays, which take
+two bytes per character: {1423_strings_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1423_strings_optimized.cpp`: time reduction -106.67%; memory
+  reduction +40.82%; base: `1423_strings.cpp`.
+
+- `1423_strings_optimized.go`: time reduction +0.00%; memory reduction
+  +40.39%; base: `1423_strings.go`.
+
+- `1423_strings_optimized.java`: time reduction +19.87%; memory
+  reduction +39.97%; base: `1423_strings.java`.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1423_strings.cpp](1423_strings.cpp) | G++ 13.2 x64 | strings | O(N) | AC | 0.015 s | 1940 KB |
-| [1423_strings.go](1423_strings.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 4268 KB |
-| [1423_strings.java](1423_strings.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3492 KB |
-| [1423_strings.py](1423_strings.py) | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1372 KB |
-| [1423_strings.rs](1423_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.031 s | 3052 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1423_strings.cpp](1423_strings.cpp) | G++ 13.2 x64 | strings | O(N) | AC | 0.015 s | 1940 KB | 11286160 |
+| [1423_strings.go](1423_strings.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 4268 KB | 11286161 |
+| [1423_strings.java](1423_strings.java) | Java 1.8 | strings | O(N) | AC | 0.156 s | 5744 KB | 11307252 |
+| [1423_strings.py](1423_strings.py) | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1372 KB | 11286163 |
+| [1423_strings.rs](1423_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.031 s | 3052 KB | 11286168 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
+| [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
+| [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

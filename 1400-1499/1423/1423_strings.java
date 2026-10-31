@@ -1,34 +1,14 @@
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
-    static final int BUFFER = 1 << 16;
-    static final int SPACE = ' ';
-    static final int BYTE = 0xFF; // bytes read as unsigned
-
-    static byte[] data;
-    static int pos;
-
-    // the next run of bytes above the space, as characters from 33 to 255 may come
-    static byte[] next() {
-        while (pos < data.length && (data[pos] & BYTE) <= SPACE)
-            pos++;
-        int start = pos;
-        while (pos < data.length && (data[pos] & BYTE) > SPACE)
-            pos++;
-        return java.util.Arrays.copyOfRange(data, start, pos);
-    }
-
     public static void main(String[] args) throws IOException {
-        InputStream in = System.in;
-        ByteArrayOutputStream raw = new ByteArrayOutputStream();
-        byte[] buf = new byte[BUFFER];
-        for (int got; (got = in.read(buf)) > 0;)
-            raw.write(buf, 0, got);
-        data = raw.toByteArray();
-        int n = Integer.parseInt(new String(next()));
-        byte[] s = next(), t = next();
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in, StandardCharsets.ISO_8859_1));
+        int n = Integer.parseInt(in.readLine().trim());
+        char[] s = in.readLine().toCharArray(), t = in.readLine().toCharArray();
         // t is s turned left by k, that is right by n - k: find it in s + s with KMP
         int[] fail = new int[n];
         for (int i = 1, k = 0; i < n; i++) {
@@ -39,7 +19,7 @@ public class Main {
             fail[i] = k;
         }
         for (int i = 0, k = 0; i + 1 < 2 * n; i++) {
-            byte c = s[i % n];
+            char c = s[i % n];
             while (k > 0 && c != t[k])
                 k = fail[k - 1];
             if (c == t[k])
