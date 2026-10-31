@@ -28,7 +28,7 @@ int main() {
     scanf("%d", &q);
     std::vector<int> cuts(q);
     std::vector<bool> cut(m, false);
-    for (int& c : cuts) {
+    for (int &c : cuts) {
         scanf("%d", &c);
         cut[--c] = true;
     }

@@ -2,26 +2,18 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
-	"strconv"
 )
 
-const bufSize = 1 << 16
-
 func main() {
-	in := bufio.NewReaderSize(os.Stdin, bufSize)
-	out := bufio.NewWriterSize(os.Stdout, bufSize)
+	in := bufio.NewReader(os.Stdin)
+	out := bufio.NewWriter(os.Stdout)
 	defer out.Flush()
 	readInt := func() int {
-		n, c := 0, byte(' ')
-		for c == ' ' || c == '\n' || c == '\r' {
-			c, _ = in.ReadByte()
-		}
-		for c >= '0' && c <= '9' {
-			n = n*10 + int(c-'0')
-			c, _ = in.ReadByte()
-		}
-		return n
+		var value int
+		fmt.Fscan(in, &value)
+		return value
 	}
 	n, m := readInt(), readInt()
 	from, to := make([]int, m), make([]int, m)
@@ -70,9 +62,9 @@ func main() {
 	}
 	for k, a := range answers {
 		if k > 0 {
-			out.WriteByte(' ')
+			fmt.Fprint(out, " ")
 		}
-		out.WriteString(strconv.Itoa(a))
+		fmt.Fprint(out, a)
 	}
-	out.WriteByte('\n')
+	fmt.Fprintln(out)
 }

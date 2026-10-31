@@ -17,7 +17,10 @@ fn find(parent: &mut [usize], v: usize) -> usize {
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let v: Vec<usize> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let v: Vec<usize> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let (n, m) = (v[0], v[1]);
     let ends = &v[2..2 + 2 * m];
     let start = 2 + 2 * m;

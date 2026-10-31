@@ -4,10 +4,10 @@ import sys
 def main():
     data = sys.stdin.buffer.read().split()
     n, m = int(data[0]), int(data[1])
-    ends = data[2:2 + 2 * m]
+    ends = data[2 : 2 + 2 * m]
     start = 2 + 2 * m
     q = int(data[start])
-    cuts = [int(w) - 1 for w in data[start + 1:start + 1 + q]]
+    cuts = [int(w) - 1 for w in data[start + 1 : start + 1 + q]]
     parent = list(range(n + 1))
 
     def find(v):

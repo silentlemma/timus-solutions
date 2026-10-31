@@ -35,24 +35,24 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         in.nextToken();
-        int m = (int) in.nval;
+        int m = (int)in.nval;
         from = new int[m];
         to = new int[m];
         for (int i = 0; i < m; i++) {
             in.nextToken();
-            from[i] = (int) in.nval;
+            from[i] = (int)in.nval;
             in.nextToken();
-            to[i] = (int) in.nval;
+            to[i] = (int)in.nval;
         }
         in.nextToken();
-        int q = (int) in.nval;
+        int q = (int)in.nval;
         int[] cuts = new int[q];
         boolean[] cut = new boolean[m];
         for (int k = 0; k < q; k++) {
             in.nextToken();
-            cuts[k] = (int) in.nval - 1;
+            cuts[k] = (int)in.nval - 1;
             cut[cuts[k]] = true;
         }
         parent = new int[n + 1];
