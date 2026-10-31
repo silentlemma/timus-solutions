@@ -97,7 +97,45 @@ Pitfalls:
 - one long line of 1000 generations needs an explicit stack rather than
   deep recursion.
 
+## Optimized solutions
+
+The optimized Java solution reads the words byte by byte from 4 KB
+blocks instead of collecting the whole input in a `StringBuilder`, and
+stores the parent links and the child links as two linked lists of edges
+in `int` arrays, sized for `2N` edges since everyone has at most two
+parents and doubled if repeated lines fill them, instead of lists of
+boxed `Integer`. The victims are marked as seen before they go on the
+stack, so each person is pushed at most once and the stack holds `N`
+entries: {1242_graphs_optimized.java}.
+
+The fast Python version stores each adjacency set and each visited set as an integer bitset. Separate upward and downward closures still exclude only ancestors and descendants of victims. Extracting the lowest set bit selects the next vertex; bitwise OR adds its neighbours. With `B = ceil(N / W)` machine words per bitset, the upper bounds are `O((N + links) · B)` time and `O(N · B)` words of memory. This trades bit operations for fewer Python lists and integer objects. The adjacency-list traversal remains the simpler base version.
+
+{1242_graphs_bitmask.py}.
+
+Source-matched Accepted runs: base 0.078 s / 912 KB; this version 0.062 s / 628 KB (submission 11307446). Accepted with a measured gain; the rating target is still unmet in the 2026-10-31 snapshot.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1242_graphs_optimized.java`: time reduction +0.00%; memory reduction
+  +33.45%; base: `1242_graphs.java`.
+
+- `1242_graphs_bitmask.py`: time reduction +20.51%; memory reduction
+  +31.14%; base: `1242_graphs.py`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1242_graphs.go](1242_graphs.go).
+- [1242_graphs.rs](1242_graphs.rs).
 
 - Python and Rust read the whole input and split it at the word `BLOOD`;
   Java also buffers the whole input, then tokenizes it. C++ and Go read
@@ -105,10 +143,21 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB |
-| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB |
-| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB |
-| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB |
-| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB | 11283878 |
+| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB | 11283881 |
+| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB | 11283893 |
+| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB | 11283888 |
+| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB | 11283897 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
+| [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -88,17 +88,55 @@ BLOOD
 - 受害者名单可能为空，此时所有人都是嫌疑人；
 - 一条 1000 代的长链需要显式栈，而不是深递归。
 
+## 优化解法
+
+优化的 Java 解法按 4 KB 分块逐字节读取单词，而不是把全部输入收集到
+`StringBuilder` 中，并把父母关系和子女关系存成 `int` 数组中的两组边链表，先留出
+`2N` 条边的空间（每人最多两个父母），若重复的行把数组填满就加倍，而不是装箱
+`Integer` 的列表。受害者在入栈之前就标记为已访问，所以每个人最多入栈一次，栈只需
+`N` 个元素：{1242_graphs_optimized.java}。
+
+较快的 Python 版本用整数位集保存每个邻接集合和访问集合。向上与向下的闭包仍独立计算，只排除受害者的祖先及后代。取最低有效位选择下一个顶点，按位或加入其邻居。若每个位集占 `B = ceil(N / W)` 个机器字，时间上界为 `O((N + links) · B)`，空间为 `O(N · B)` 个字。位运算减少了 Python 列表与整数对象的数量。邻接表遍历保留为更简单的基础版本。
+
+{1242_graphs_bitmask.py}.
+
+与源代码对应的 Accepted 记录：基础版本 0.078 秒 / 912 KB；本版本 0.062 秒 / 628 KB（提交 11307446）。已获 Accepted 且有实测收益，但在 2026-10-31 的快照中尚未达到排名目标。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1242_graphs_optimized.java`: 时间降低 +0.00%; 内存降低 +33.45%; 基础版本: `1242_graphs.java`.
+
+- `1242_graphs_bitmask.py`: 时间降低 +20.51%; 内存降低 +31.14%; 基础版本: `1242_graphs.py`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1242_graphs.go](1242_graphs.go).
+- [1242_graphs.rs](1242_graphs.rs).
 
 - Python 和 Rust 读入全部输入并在单词 `BLOOD` 处分开；Java 也先缓存全部输入，再分词。
   C++ 和 Go 逐词读到 `BLOOD` 为止。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB |
-| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB |
-| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB |
-| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB |
-| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB | 11283878 |
+| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB | 11283881 |
+| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB | 11283893 |
+| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB | 11283888 |
+| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB | 11283897 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
+| [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -100,7 +100,46 @@ Detalles a tener en cuenta:
 - una sola línea de 1000 generaciones necesita una pila explícita en vez
   de una recursión profunda.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java lee las palabras byte a byte en bloques
+de 4 KB en lugar de juntar toda la entrada en un `StringBuilder`, y
+guarda los enlaces a los padres y a los hijos como dos listas enlazadas
+de aristas en arreglos `int`, con sitio para `2N` aristas porque cada
+uno tiene como mucho dos padres, que se duplica si las líneas repetidas
+lo llenan, en lugar de listas de `Integer` empaquetados. Las víctimas se
+marcan como vistas antes de entrar en la pila, así que cada persona se
+apila como mucho una vez y la pila tiene `N` elementos:
+{1242_graphs_optimized.java}.
+
+La versión rápida de Python guarda cada conjunto de vecinos y de visitados como un bitset entero. Los cierres hacia arriba y hacia abajo siguen separados y excluyen solo antepasados y descendientes de las víctimas. El bit menos significativo elige el siguiente vértice y un OR añade sus vecinos. Con `B = ceil(N / W)` palabras de máquina por bitset, las cotas son `O((N + links) · B)` de tiempo y `O(N · B)` palabras de memoria. Las operaciones de bits reducen las listas y los objetos enteros de Python. El recorrido con listas de adyacencia se conserva como versión básica más sencilla.
+
+{1242_graphs_bitmask.py}.
+
+Ejecuciones Accepted correspondientes al código: versión básica 0.078 s / 912 KB; esta versión 0.062 s / 628 KB (envío 11307446). Aceptada con una mejora medida; aún no cumple el objetivo de clasificación en la instantánea del 2026-10-31.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1242_graphs_optimized.java`: reducción de tiempo +0.00%; reducción de
+  memoria +33.45%; base: `1242_graphs.java`.
+
+- `1242_graphs_bitmask.py`: reducción de tiempo +20.51%; reducción de
+  memoria +31.14%; base: `1242_graphs.py`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1242_graphs.go](1242_graphs.go).
+- [1242_graphs.rs](1242_graphs.rs).
 
 - Python y Rust leen toda la entrada y la parten en la palabra `BLOOD`;
   Java también guarda toda la entrada antes de separarla en palabras.
@@ -108,10 +147,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB |
-| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB |
-| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB |
-| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB |
-| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs.cpp](1242_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + links) | AC | 0.015 s | 232 KB | 11283878 |
+| [1242_graphs.go](1242_graphs.go) | Go 1.14 x64 | graphs | O(N + links) | AC | 0.015 s | 1120 KB | 11283881 |
+| [1242_graphs.java](1242_graphs.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 1100 KB | 11283893 |
+| [1242_graphs.py](1242_graphs.py) | Python 3.12 x64 | graphs | O(N + links) | AC | 0.078 s | 912 KB | 11283888 |
+| [1242_graphs.rs](1242_graphs.rs) | Rust 1.75 x64 | graphs | O(N + links) | AC | 0.031 s | 312 KB | 11283897 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
+| [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
