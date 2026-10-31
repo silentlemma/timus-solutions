@@ -1,24 +1,17 @@
-import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
 
 public class Main {
-    static class FastInput {
-        final BufferedInputStream stream = new BufferedInputStream(System.in);
-
+    static class Input {
+        final StreamTokenizer input =
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         int nextInt() throws IOException {
-            int character;
-            do {
-                character = stream.read();
-            } while (character <= ' ');
-            int value = 0;
-            while (character > ' ') {
-                value = value * 10 + character - '0';
-                character = stream.read();
-            }
-            return value;
+            input.nextToken();
+            return (int)input.nval;
         }
     }
-
     static int mostCompared(int[] values) {
         int championValue = values[0];
         int champion = 0;
@@ -41,7 +34,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        FastInput input = new FastInput();
+        Input input = new Input();
         int count = input.nextInt();
         int[] values = new int[count];
         for (int i = 0; i < count; i++) {

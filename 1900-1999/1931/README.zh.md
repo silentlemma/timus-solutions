@@ -61,19 +61,61 @@ Original problem from Open Ural FU Championship 2012 | by Olga Soboleva.
 新候选次数从 1 开始，不是 0。输出编号，不是次数。并列最大时
 不同编号仍然正确，例如 [3,2,1,4] 的答案既可为 2，也可为 3。
 
+## 优化解法
+
+优化的 C++ 解法每读入一个分数就立即处理，而不是把它们全部存进 `vector`：只保留当
+前在位者和计数器。数字从用 `fread` 反复填充的 4 KB 缓冲区中手工解析，而不是用
+`iostream`：{1931_simulation_optimized.cpp}。
+
+优化的 Go 解法每读入一个分数就立即处理，而不是把它们全部存进切片，并从标准输入读
+入的 4 KB 缓冲区中手工解析数字，而不是对每个数调用 `fmt.Fscan`：
+{1931_simulation_optimized.go}。
+
+优化的 Python 解法每读入一个分数就立即处理，并按 4 KB 分块读入，只把未读完的数带
+到下一块，而不是一次把整个输入切分成记号列表：{1931_simulation_optimized.py}。
+
+优化的 Rust 解法每读入一个分数就立即处理，而不是把它们收集到 `Vec` 中，并从 4 KB
+缓冲区中手工解析数字，而不是把整个输入读进 `String`：
+{1931_simulation_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1931_simulation_optimized.cpp`: 时间降低 +0.00%; 内存降低 +90.15%; 基础版本: `1931_simulation.cpp`.
+
+- `1931_simulation_optimized.go`: 时间降低 +66.67%; 内存降低 +70.24%; 基础版本: `1931_simulation.go`.
+
+- `1931_simulation_optimized.py`: 时间降低 +12.80%; 内存降低 +94.61%; 基础版本: `1931_simulation.py`.
+
+- `1931_simulation_optimized.rs`: 时间降低 -106.67%; 内存降低 +90.45%; 基础版本: `1931_simulation.rs`.
+
 ## 各语言说明
 
-分数在有符号 32 位范围内，计数至多 n−1≤99999；对分数只比较。
-Java 使用缓冲整数读取，C++、Go、Rust 保存基本类型值数组，Python
-以生成器遍历解析的记号。提交算法不需要每人一个计数器数组，
-独立检查器才使用这种完整计数方式。
+分数在有符号 32 位范围内，计数至多 n−1≤99999；对分数只比较。Java 用
+`StreamTokenizer` 读入，C++、Go、Java、Rust 保存基本类型值数组，Python 以生成器
+遍历解析的记号。提交算法不需要每人一个计数器数组，独立检查器才使用这种完整计数方
+式。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1931_simulation.cpp](1931_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 812 KB |
-| [1931_simulation.go](1931_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 3468 KB |
-| [1931_simulation.java](1931_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.109 s | 828 KB |
-| [1931_simulation.py](1931_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.125 s | 8392 KB |
-| [1931_simulation.rs](1931_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1931_simulation.cpp](1931_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 812 KB | 11291700 |
+| [1931_simulation.go](1931_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 3468 KB | 11291704 |
+| [1931_simulation.java](1931_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.093 s | 840 KB | 11307245 |
+| [1931_simulation.py](1931_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.125 s | 8392 KB | 11291708 |
+| [1931_simulation.rs](1931_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB | 11291717 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1931_simulation_optimized.cpp](1931_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 80 KB | 11307246 |
+| [1931_simulation_optimized.go](1931_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.031 s | 1032 KB | 11307247 |
+| [1931_simulation_optimized.py](1931_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.109 s | 452 KB | 11307249 |
+| [1931_simulation_optimized.rs](1931_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.031 s | 204 KB | 11307248 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -71,20 +71,76 @@ la candidatura anterior ANTES del reemplazo. La nueva empieza en 1, no 0.
 Devolver identificador, no cantidad. No rechazar una respuesta distinta
 solo por empate: para [3,2,1,4] sirven tanto 2 como 3.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ procesa cada puntuación en cuanto la lee
+en lugar de guardarlas todas en un `vector`: solo conserva el titular y
+los contadores. Los números se analizan a mano desde un búfer de 4 KB
+que se rellena con `fread` en lugar de `iostream`:
+{1931_simulation_optimized.cpp}.
+
+La solución optimizada en Go procesa cada puntuación en cuanto la lee en
+lugar de guardarlas todas en un slice, y analiza los números a mano
+desde un búfer de 4 KB leído de la entrada estándar en lugar de llamar a
+`fmt.Fscan` para cada uno: {1931_simulation_optimized.go}.
+
+La solución optimizada en Python procesa cada puntuación en cuanto la
+lee y lee la entrada en trozos de 4 KB, pasando al trozo siguiente solo
+un número inacabado, en lugar de partir toda la entrada de golpe en una
+lista de tokens: {1931_simulation_optimized.py}.
+
+La solución optimizada en Rust procesa cada puntuación en cuanto la lee
+en lugar de juntarlas en un `Vec`, y analiza los números a mano desde un
+búfer de 4 KB en lugar de leer toda la entrada en un `String`:
+{1931_simulation_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1931_simulation_optimized.cpp`: reducción de tiempo +0.00%; reducción
+  de memoria +90.15%; base: `1931_simulation.cpp`.
+
+- `1931_simulation_optimized.go`: reducción de tiempo +66.67%; reducción
+  de memoria +70.24%; base: `1931_simulation.go`.
+
+- `1931_simulation_optimized.py`: reducción de tiempo +12.80%; reducción
+  de memoria +94.61%; base: `1931_simulation.py`.
+
+- `1931_simulation_optimized.rs`: reducción de tiempo -106.67%;
+  reducción de memoria +90.45%; base: `1931_simulation.rs`.
+
 ## Notas por lenguaje
 
-Las puntuaciones caben en enteros con signo de 32 bits y las cuentas
-son ≤n−1≤99999. Solo se comparan puntuaciones. Java usa lectura entera
-con búfer; C++, Go y Rust guardan arreglos primitivos; Python recorre
-tokens mediante un generador. El algoritmo entregado no necesita
-contadores individuales, pero el comprobador independiente sí los usa.
+Las puntuaciones caben en enteros con signo de 32 bits y las cuentas no
+pasan de n−1≤99999. Solo se comparan puntuaciones. Java lee con
+`StreamTokenizer`; C++, Go, Java y Rust guardan arreglos primitivos;
+Python recorre tokens mediante un generador. El algoritmo entregado no
+necesita contadores individuales, pero el comprobador independiente sí
+los usa.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1931_simulation.cpp](1931_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 812 KB |
-| [1931_simulation.go](1931_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 3468 KB |
-| [1931_simulation.java](1931_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.109 s | 828 KB |
-| [1931_simulation.py](1931_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.125 s | 8392 KB |
-| [1931_simulation.rs](1931_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1931_simulation.cpp](1931_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 812 KB | 11291700 |
+| [1931_simulation.go](1931_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 3468 KB | 11291704 |
+| [1931_simulation.java](1931_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.093 s | 840 KB | 11307245 |
+| [1931_simulation.py](1931_simulation.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.125 s | 8392 KB | 11291708 |
+| [1931_simulation.rs](1931_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 2136 KB | 11291717 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1931_simulation_optimized.cpp](1931_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 80 KB | 11307246 |
+| [1931_simulation_optimized.go](1931_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.031 s | 1032 KB | 11307247 |
+| [1931_simulation_optimized.py](1931_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.109 s | 452 KB | 11307249 |
+| [1931_simulation_optimized.rs](1931_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.031 s | 204 KB | 11307248 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
