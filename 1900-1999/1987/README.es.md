@@ -118,20 +118,72 @@ Trampas:
 - Retirar hijos terminados antes de volver a un antecesor.
 - El algoritmo lineal depende de las garantías de estructura laminar y orden.
 
+## Soluciones optimizadas
+
+La solución optimizada en Go lee toda la entrada de golpe y analiza los
+dígitos a mano en lugar de llamar a `fmt.Fscan` para cada uno de hasta
+300 002 números; el barrido es el mismo: {1987_greedy_optimized.go}.
+
+La solución optimizada en Python responde cada consulta en cuanto la lee
+y guarda la pila dentro del arreglo de extremos izquierdos: una vez
+apilado un intervalo, su extremo izquierdo ya no hace falta, así que esa
+celda guarda el índice del intervalo que queda debajo en la pila. Los
+extremos son `array("i")` de casillas con signo de 4 bytes, donde caben
+coordenadas de hasta 10⁹, en lugar de listas de objetos enteros; la
+entrada se lee en trozos de 4 KB en lugar de toda de golpe y las
+respuestas se escriben en lotes de 1024: {1987_greedy_optimized.py}.
+
+La solución optimizada en Rust responde cada consulta en cuanto la lee y
+guarda la pila dentro del vector de extremos izquierdos: una vez apilado
+un intervalo, su extremo izquierdo ya no hace falta, así que esa celda
+guarda el índice del intervalo que queda debajo en la pila. Solo quedan
+los dos vectores de extremos de `i32`, donde caben coordenadas de hasta
+10⁹ e índices de hasta 10⁵. Los números se analizan a mano desde un
+búfer de 4 KB en lugar de leer toda la entrada en un `String`, y las
+respuestas pasan por un `BufWriter`: {1987_greedy_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1987_greedy_optimized.go`: reducción de tiempo +81.87%; reducción de
+  memoria -55.43%; base: `1987_greedy.go`.
+
+- `1987_greedy_optimized.py`: reducción de tiempo -33.69%; reducción de
+  memoria +91.98%; base: `1987_greedy.py`.
+
+- `1987_greedy_optimized.rs`: reducción de tiempo +51.61%; reducción de
+  memoria +81.68%; base: `1987_greedy.rs`.
+
 ## Notas por lenguaje
 
 Los cinco programas realizan el mismo barrido. Coordenadas e índices
 caben en enteros de 32 bits con signo. C++ y Rust usan vectores, Java
-arreglos primitivos y Go slices. Go y Java incluyen lectores rápidos de
-enteros. Python almacena los extremos, consume las consultas mediante un
-iterador de tokens y acumula las respuestas.
+arreglos primitivos y Go slices. Go lee con `fmt.Fscan` y Java con
+`StreamTokenizer`. Python almacena los extremos, consume las consultas
+mediante un iterador de tokens y acumula las respuestas.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1987_greedy.cpp](1987_greedy.cpp) | G++ 13.2 x64 | greedy | O(n+m) | AC | 0.031 s | 1288 KB |
-| [1987_greedy.go](1987_greedy.go) | Go 1.14 x64 | greedy | O(n+m) | AC | 0.031 s | 10676 KB |
-| [1987_greedy.java](1987_greedy.java) | Java 1.8 | greedy | O(n+m) | AC | 0.125 s | 5572 KB |
-| [1987_greedy.py](1987_greedy.py) | Python 3.12 x64 | greedy | O(n+m) | AC | 0.187 s | 24900 KB |
-| [1987_greedy.rs](1987_greedy.rs) | Rust 1.75 x64 | greedy | O(n+m) | AC | 0.031 s | 5328 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1987_greedy.cpp](1987_greedy.cpp) | G++ 13.2 x64 | greedy | O(n+m) | AC | 0.031 s | 1288 KB | 11292362 |
+| [1987_greedy.go](1987_greedy.go) | Go 1.14 x64 | greedy | O(n+m) | AC | 0.171 s | 6776 KB | 11307320 |
+| [1987_greedy.java](1987_greedy.java) | Java 1.8 | greedy | O(n+m) | AC | 0.140 s | 5492 KB | 11307231 |
+| [1987_greedy.py](1987_greedy.py) | Python 3.12 x64 | greedy | O(n+m) | AC | 0.187 s | 24900 KB | 11292364 |
+| [1987_greedy.rs](1987_greedy.rs) | Rust 1.75 x64 | greedy | O(n+m) | AC | 0.031 s | 5328 KB | 11292367 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1987_greedy_optimized.go](1987_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n+m) | AC | 0.031 s | 10532 KB | 11307365 |
+| [1987_greedy_optimized.py](1987_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n+m) | AC | 0.250 s | 1996 KB | 11307366 |
+| [1987_greedy_optimized.rs](1987_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n+m) | AC | 0.015 s | 976 KB | 11307324 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
