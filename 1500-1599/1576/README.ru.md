@@ -18,7 +18,9 @@
 
 ## Входные данные
 
-N1 и C1, затем N2, T и C2, затем N3, затем K и K длительностей звонков.
+N1 и C1, затем N2, T и C2, затем N3 — все целые от 1 до 1000, — затем
+K (1 ≤ K ≤ 1000) и K длительностей звонков в виде mm:ss, где
+0 ≤ mm, ss ≤ 59.
 
 ## Выходные данные
 
@@ -85,12 +87,50 @@ N1 + C1·M, N2 + C2·max(0, M − T) и N3. Они меньше 7·10⁷. `O(K)`
 - подписи выровнены по ширине: после `Basic:` пять пробелов, после
   `Combined:` два, после `Unlimited:` один.
 
+## Оптимизированные решения
+
+Оптимизированное решение на Java разбирает числа вручную из буфера на
+4 КБ, заполняемого из `System.in`, а не создаёт `Scanner`, так что JVM
+не загружает сканер и его регулярные выражения. Звонок оно читает как
+два числа, где двоеточие завершает минуты, а не разбивает `String` по
+`:`, а числа тарифов читает как `int`, куда помещаются значения до 1000,
+перед той же арифметикой в `long`: {1576_implementation_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1576_implementation_optimized.java`: сокращение времени -14.68%;
+  сокращение памяти +83.24%; база: `1576_implementation.java`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1576_implementation.cpp](1576_implementation.cpp).
+- [1576_implementation.go](1576_implementation.go).
+- [1576_implementation.rs](1576_implementation.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1576_implementation.cpp](1576_implementation.cpp) | G++ 13.2 x64 | implementation | O(K) | AC | 0.015 s | 132 KB |
-| [1576_implementation.go](1576_implementation.go) | Go 1.14 x64 | implementation | O(K) | AC | 0.015 s | 1168 KB |
-| [1576_implementation.java](1576_implementation.java) | Java 1.8 | implementation | O(K) | AC | 0.109 s | 2244 KB |
-| [1576_implementation.py](1576_implementation.py) | Python 3.12 x64 | implementation | O(K) | AC | 0.078 s | 508 KB |
-| [1576_implementation.rs](1576_implementation.rs) | Rust 1.75 x64 | implementation | O(K) | AC | 0.015 s | 232 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1576_implementation.cpp](1576_implementation.cpp) | G++ 13.2 x64 | implementation | O(K) | AC | 0.015 s | 132 KB | 11287847 |
+| [1576_implementation.go](1576_implementation.go) | Go 1.14 x64 | implementation | O(K) | AC | 0.015 s | 1168 KB | 11287851 |
+| [1576_implementation.java](1576_implementation.java) | Java 1.8 | implementation | O(K) | AC | 0.109 s | 2244 KB | 11287858 |
+| [1576_implementation.py](1576_implementation.py) | Python 3.12 x64 | implementation | O(K) | AC | 0.078 s | 508 KB | 11287853 |
+| [1576_implementation.rs](1576_implementation.rs) | Rust 1.75 x64 | implementation | O(K) | AC | 0.015 s | 232 KB | 11287860 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
