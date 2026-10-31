@@ -18,8 +18,8 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-El tipo y el tamaño del pozo, y luego N y el tipo y el tamaño de cada
-tapa.
+El tipo y el tamaño del pozo, y luego N (1 ≤ N ≤ 100) y el tipo y el
+tamaño de cada tapa.
 
 ## Salida
 
@@ -87,12 +87,49 @@ Detalles a tener en cuenta:
   de radio 5 (el segundo ejemplo), así que las comparaciones en coma
   flotante requieren cuidado.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los números a mano desde un búfer
+de 4 KB que se llena desde `System.in`, en lugar de crear un `Scanner`,
+así que la JVM no carga el escáner ni sus expresiones regulares; la
+comparación de las longitudes al cuadrado es la misma:
+{1572_geometry_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1572_geometry_optimized.java`: reducción de tiempo +44.29%; reducción
+  de memoria +80.86%; base: `1572_geometry.java`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1572_geometry.cpp](1572_geometry.cpp).
+- [1572_geometry.go](1572_geometry.go).
+- [1572_geometry.rs](1572_geometry.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1572_geometry.cpp](1572_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 128 KB |
-| [1572_geometry.go](1572_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1072 KB |
-| [1572_geometry.java](1572_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1776 KB |
-| [1572_geometry.py](1572_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 384 KB |
-| [1572_geometry.rs](1572_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 228 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1572_geometry.cpp](1572_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 128 KB | 11287799 |
+| [1572_geometry.go](1572_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1072 KB | 11287801 |
+| [1572_geometry.java](1572_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1776 KB | 11287805 |
+| [1572_geometry.py](1572_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 384 KB | 11287803 |
+| [1572_geometry.rs](1572_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 228 KB | 11287810 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1572_geometry_optimized.java](1572_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.078 s | 340 KB | 11304529 |
