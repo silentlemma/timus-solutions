@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"sort"
 	"strconv"
@@ -9,24 +10,13 @@ import (
 
 type edge struct{ a, b, length int }
 
-func readInt(in *bufio.Reader) int {
-	c, _ := in.ReadByte()
-	for c == ' ' || c == '\n' || c == '\r' {
-		c, _ = in.ReadByte()
-	}
-	n := 0
-	for ; c >= '0' && c <= '9'; c, _ = in.ReadByte() {
-		n = n*10 + int(c-'0')
-	}
-	return n
-}
-
 func main() {
 	in := bufio.NewReader(os.Stdin)
-	n, m := readInt(in), readInt(in)
+	var n, m int
+	fmt.Fscan(in, &n, &m)
 	edges := make([]edge, m)
 	for k := range edges {
-		edges[k] = edge{readInt(in), readInt(in), readInt(in)}
+		fmt.Fscan(in, &edges[k].a, &edges[k].b, &edges[k].length)
 	}
 	sort.SliceStable(edges, func(x, y int) bool { return edges[x].length < edges[y].length })
 	parent := make([]int, n+1)
