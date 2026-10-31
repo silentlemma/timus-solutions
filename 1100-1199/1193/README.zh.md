@@ -17,7 +17,8 @@
 
 ## 输入
 
-`N`，然后对每名学生给出 `T1 T2 T3`。
+`N`（`1 ≤ N ≤ 40`），然后对每名学生给出 `T1 T2 T3`，满足 `0 ≤ T1 ≤ T3 ≤ 600`、
+`1 ≤ T2 ≤ 240`。所有 `T1` 互不相同。
 
 ## 输出
 
@@ -73,16 +74,48 @@
 
 答案已在 300 场随机口试和所有测试上与另一份用二分查找提前量的独立解答比对。
 
+## 优化解法
+
+优化的 C++ 解法把学生存在有 40 条记录的静态数组中（因为 `N ≤ 40`，这已足够），而
+不是存在堆上分配的元组向量里；排序和模拟都不变：{1193_greedy_optimized.cpp}。
+
+优化的 Java 解法按 4 KB 分块逐字节读数，而不是用 `Scanner`，并把学生存在三个
+`int` 数组中，每读入一个就用插入法放到正确位置，而不是用 lambda 比较器对三元组数
+组排序。学生最多 40 个，平方级的插入排序几乎不花时间：
+{1193_greedy_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1193_greedy_optimized.cpp`: 时间降低 +0.00%; 内存降低 +39.58%; 基础版本: `1193_greedy.cpp`.
+
+- `1193_greedy_optimized.java`: 时间降低 +10.71%; 内存降低 +90.04%; 基础版本: `1193_greedy.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1193_greedy.go](1193_greedy.go).
+- [1193_greedy.rs](1193_greedy.rs).
 
 - 所有语言都按准备时间对学生排序，循环相同。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1193_greedy.cpp](1193_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB |
-| [1193_greedy.go](1193_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1116 KB |
-| [1193_greedy.java](1193_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 3776 KB |
-| [1193_greedy.py](1193_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 380 KB |
-| [1193_greedy.rs](1193_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1193_greedy.cpp](1193_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB | 11283459 |
+| [1193_greedy.go](1193_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1116 KB | 11283460 |
+| [1193_greedy.java](1193_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 3776 KB | 11283464 |
+| [1193_greedy.py](1193_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 380 KB | 11283463 |
+| [1193_greedy.rs](1193_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 236 KB | 11283465 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
+| [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
