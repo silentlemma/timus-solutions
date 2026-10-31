@@ -16,11 +16,11 @@
 
 ## 输入
 
-`n` 和 `s`，然后是 `D1, …, Dn`。
+`n`（`1 ≤ n ≤ 20`）和 `s`（`1 ≤ s < 2³¹ − 1`），然后是 `D1, …, Dn`。
 
 ## 输出
 
-`k1, …, kn`，以空格或换行分隔。
+`k1, …, kn`（`0 < ki ≤ 1000`），以空格或换行分隔。
 
 ## 样例
 
@@ -55,16 +55,46 @@
 上界已在 59 个生成的数组上通过将 `ki + 1` 相乘还原 `s` 验证，并在所有测试上
 与另一份独立解答比对。
 
+## 优化解法
+
+优化的 C++ 解法逐个读入乘数，只保留前一个，每读到一个除数就立即输出对应的上界，
+而不是把 `s` 和全部乘数存进 `std::vector`：{1228_math_optimized.cpp}。
+
+优化的 Java 解法直接从 `System.in` 逐位解析数字，而不是创建 `Scanner`，并且只保
+留前一个乘数，而不是保存全部乘数的数组：{1228_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1228_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +36.00%; 基础版本: `1228_math.cpp`.
+
+- `1228_math_optimized.java`: 时间降低 +50.40%; 内存降低 +78.22%; 基础版本: `1228_math.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1228_math.go](1228_math.go).
+- [1228_math.rs](1228_math.rs).
 
 - 所有语言都把 `s` 放在乘数前面，再对相邻两数做除法。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1228_math.cpp](1228_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 200 KB |
-| [1228_math.go](1228_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.001 s | 1136 KB |
-| [1228_math.java](1228_math.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 1616 KB |
-| [1228_math.py](1228_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 424 KB |
-| [1228_math.rs](1228_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 216 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1228_math.cpp](1228_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 200 KB | 11283732 |
+| [1228_math.go](1228_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.001 s | 1136 KB | 11283735 |
+| [1228_math.java](1228_math.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 1616 KB | 11283739 |
+| [1228_math.py](1228_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 424 KB | 11283737 |
+| [1228_math.rs](1228_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 216 KB | 11283740 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1228_math_optimized.cpp](1228_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.001 s | 128 KB | 11304270 |
+| [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
