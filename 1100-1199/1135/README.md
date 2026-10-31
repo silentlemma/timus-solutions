@@ -8,10 +8,10 @@ Original problem from the Central Russia regional quarterfinal, Rybinsk, October
 
 ## Task
 
-`N ≤ 30000` recruits stand in a row, each facing left (`<`) or right
-(`>`). Every second, all pairs of neighbours facing each other (`><`) turn
-around at once. Count the pair turns until nothing changes, or print `NO`
-if it never stops.
+`1 ≤ N ≤ 30000` recruits stand in a row, each facing left (`<`) or right
+(`>`). Every second, all pairs of neighbours facing each other (`><`)
+turn around at once. Count the pair turns until nothing changes, or
+print `NO` if it never stops.
 
 Time limit: 1 second. Memory limit: 64 MB.
 
@@ -65,16 +65,51 @@ Pitfalls:
 The answers were compared with a second-by-second simulation on 200
 random rows of up to 300 recruits.
 
+## Optimized solutions
+
+The fast Java implementation keeps the same inversion count, but reads directly from a reusable 4 KB byte buffer instead of character readers. It skips line breaks while counting exactly `N` directions. Time remains `O(N)` and auxiliary storage is constant. The character-reader implementation remains the base version.
+
+{1135_math_optimized.java}.
+
+Source-matched Accepted runs: base 0.125 s / 532 KB; this version 0.078 s / 364 KB (submission 11307457). The rating target is met in the 2026-10-31 snapshot.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1135_math_optimized.java`: time reduction +37.60%; memory reduction
+  +31.58%; base: `1135_math.java`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1135_math.cpp](1135_math.cpp).
+- [1135_math.go](1135_math.go).
+- [1135_math.rs](1135_math.rs).
 
 - All languages skip the line breaks and keep the same running count.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1135_math.cpp](1135_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 132 KB |
-| [1135_math.go](1135_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1100 KB |
-| [1135_math.java](1135_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 532 KB |
-| [1135_math.py](1135_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 420 KB |
-| [1135_math.rs](1135_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 248 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1135_math.cpp](1135_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 132 KB | 11279403 |
+| [1135_math.go](1135_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1100 KB | 11279405 |
+| [1135_math.java](1135_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 532 KB | 11279408 |
+| [1135_math.py](1135_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 420 KB | 11279406 |
+| [1135_math.rs](1135_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 248 KB | 11279409 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
