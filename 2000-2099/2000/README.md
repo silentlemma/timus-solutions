@@ -21,7 +21,8 @@ positions `p,q` in 1..n. Time 0.5 seconds; memory 64 MB.
 ## Input
 
 The length `n`, then `n` values, then the first and second player's
-start positions in that order.
+start positions in that order. The length is on the first line, the
+values on the second and the two positions on the third.
 
 ## Output
 
@@ -118,12 +119,48 @@ the heavier-side formula, not a midpoint split. A zero-valued cell still
 takes a move to cross; sharing a cell does not stop either player. Keep
 the original player labels when the first start is to the right.
 
+## Optimized solutions
+
+The optimized C++ solution keeps the values in a global array of 100 000
+`uint16_t` instead of a `vector` of 64-bit integers, since a value is at
+most 10000, and sums them in `int`, since the total is at most
+100000 · 10000 = 10⁹. The numbers are parsed by hand from a 4 KB buffer
+refilled with `fread` and the scores are printed with `printf` instead
+of `iostream`: {2000_games_optimized.cpp}.
+
+The optimized Go solution keeps the values in a slice of `uint16`
+instead of `int64`, since a value is at most 10000, and widens each one
+to `int64` when adding; the numbers are parsed by hand from a `bufio`
+reader instead of `fmt.Fscan`: {2000_games_optimized.go}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `2000_games_optimized.cpp`: time reduction +51.61%; memory reduction
+  +77.45%; base: `2000_games.cpp`.
+
+- `2000_games_optimized.go`: time reduction +50.00%; memory reduction
+  +50.40%; base: `2000_games.go`.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2000_games.cpp](2000_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.031 s | 1224 KB |
-| [2000_games.go](2000_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 2484 KB |
-| [2000_games.java](2000_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 1252 KB |
-| [2000_games.py](2000_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.125 s | 11780 KB |
-| [2000_games.rs](2000_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.046 s | 2916 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2000_games.cpp](2000_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.031 s | 1224 KB | 11292433 |
+| [2000_games.go](2000_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 2484 KB | 11292434 |
+| [2000_games.java](2000_games.java) | Java 1.8 | games | O(n) | AC | 0.140 s | 1300 KB | 11307192 |
+| [2000_games.py](2000_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.125 s | 11780 KB | 11292435 |
+| [2000_games.rs](2000_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.046 s | 2916 KB | 11292437 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2000_games_optimized.cpp](2000_games_optimized.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 276 KB | 11307194 |
+| [2000_games_optimized.go](2000_games_optimized.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1232 KB | 11307195 |

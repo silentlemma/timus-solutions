@@ -14,7 +14,8 @@
 
 ## 输入
 
-先给长度 `n`，再给 `n` 个数，最后依次给第一、第二人的起点。
+先给长度 `n`，再给 `n` 个数，最后依次给第一、第二人的起点。长度在第一行，各个数
+在第二行，两个起点在第三行。
 
 ## 输出
 
@@ -64,12 +65,40 @@
 
 先收后走；不同起点的中点等距总归第一人，不论左右顺序。同起点必须选较重侧。经过零格仍花回合，同格不会阻挡。第一人在右边时不能交换玩家身份。
 
+## 优化解法
+
+优化的 C++ 解法把各值存放在含 100 000 个 `uint16_t` 的全局数组中，而不是 64 位整
+数的 `vector`，因为每个值至多为 10000；求和用 `int`，因为总和至多为
+100000 · 10000 = 10⁹。数字从用 `fread` 反复填充的 4 KB 缓冲区中手工解析，得分
+用 `printf` 输出，而不是用 `iostream`：{2000_games_optimized.cpp}。
+
+优化的 Go 解法把各值存放在 `uint16` 切片而不是 `int64` 切片中，因为每个值至多为
+10000，相加时再把每个值扩展为 `int64`；数字从 `bufio` 读取器中手工解析，而不是用
+`fmt.Fscan`：{2000_games_optimized.go}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `2000_games_optimized.cpp`: 时间降低 +51.61%; 内存降低 +77.45%; 基础版本: `2000_games.cpp`.
+
+- `2000_games_optimized.go`: 时间降低 +50.00%; 内存降低 +50.40%; 基础版本: `2000_games.go`.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2000_games.cpp](2000_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.031 s | 1224 KB |
-| [2000_games.go](2000_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 2484 KB |
-| [2000_games.java](2000_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 1252 KB |
-| [2000_games.py](2000_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.125 s | 11780 KB |
-| [2000_games.rs](2000_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.046 s | 2916 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2000_games.cpp](2000_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.031 s | 1224 KB | 11292433 |
+| [2000_games.go](2000_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 2484 KB | 11292434 |
+| [2000_games.java](2000_games.java) | Java 1.8 | games | O(n) | AC | 0.140 s | 1300 KB | 11307192 |
+| [2000_games.py](2000_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.125 s | 11780 KB | 11292435 |
+| [2000_games.rs](2000_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.046 s | 2916 KB | 11292437 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2000_games_optimized.cpp](2000_games_optimized.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 276 KB | 11307194 |
+| [2000_games_optimized.go](2000_games_optimized.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1232 KB | 11307195 |
