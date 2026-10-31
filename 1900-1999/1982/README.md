@@ -97,7 +97,54 @@ Pitfalls:
 - The zero matrix diagonal is not a free connection to a different vertex.
 - If all vertices are already supplied, no paid edge is needed.
 
+## Optimized solutions
+
+The optimized C++ solution parses the numbers by hand from a 4 KB buffer
+that it refills with `fread`, instead of `iostream`, and keeps the costs
+in a fixed 100 × 100 matrix of `int` instead of a vector of `long long`
+rows. Since `n≤100` and every cost is at most `10⁵`, the keys and the
+answer, at most 9,900,000, fit in `int` too, and `10⁵ + 1` serves as
+infinity: {1982_greedy_optimized.cpp}.
+
+The optimized Python solution takes the tokens line by line from a
+generator over `sys.stdin.buffer` instead of splitting the whole input
+at once, and stores each row of costs in an `array("I")` of 32-bit
+unsigned numbers instead of a list of integer objects; costs up to `10⁵`
+fit there. It also picks the vertex with the least key by a plain loop
+instead of building a tuple for every candidate, and uses `10⁵ + 1` as
+infinity: {1982_greedy_optimized.py}.
+
+The optimized Rust solution parses the numbers from a 4 KB `BufReader`
+that refills itself, instead of reading the whole input into a string,
+and keeps the costs in one flat vector of `u32` instead of a vector of
+`u64` rows. Since `n≤100` and every cost is at most `10⁵`, the keys and
+the answer, at most 9,900,000, fit in `u32` too, and `10⁵ + 1` serves
+as infinity: {1982_greedy_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1982_greedy_optimized.cpp`: time reduction +0.00%; memory reduction
+  +76.61%; base: `1982_greedy.cpp`.
+
+- `1982_greedy_optimized.py`: time reduction -19.23%; memory reduction
+  +65.15%; base: `1982_greedy.py`.
+
+- `1982_greedy_optimized.rs`: time reduction -106.67%; memory reduction
+  +46.36%; base: `1982_greedy.rs`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1982_greedy.go](1982_greedy.go).
 
 All five versions use the same dense Prim algorithm with integer costs.
 The input matrix is stored completely. C++, Go, Java and Rust use wide
@@ -105,10 +152,22 @@ integer totals and keys; Python uses exact integers.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1982_greedy.cpp](1982_greedy.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 496 KB |
-| [1982_greedy.go](1982_greedy.go) | Go 1.14 x64 | greedy | O(n^2) | AC | 0.031 s | 1260 KB |
-| [1982_greedy.java](1982_greedy.java) | Java 1.8 | greedy | O(n^2) | AC | 0.093 s | 648 KB |
-| [1982_greedy.py](1982_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 1492 KB |
-| [1982_greedy.rs](1982_greedy.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.015 s | 440 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1982_greedy.cpp](1982_greedy.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 496 KB | 11292336 |
+| [1982_greedy.go](1982_greedy.go) | Go 1.14 x64 | greedy | O(n^2) | AC | 0.031 s | 1260 KB | 11292337 |
+| [1982_greedy.java](1982_greedy.java) | Java 1.8 | greedy | O(n^2) | AC | 0.093 s | 552 KB | 11304431 |
+| [1982_greedy.py](1982_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 1492 KB | 11292338 |
+| [1982_greedy.rs](1982_greedy.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.015 s | 440 KB | 11292340 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1982_greedy_optimized.cpp](1982_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 116 KB | 11304427 |
+| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.093 s | 520 KB | 11304429 |
+| [1982_greedy_optimized.rs](1982_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.031 s | 236 KB | 11304428 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

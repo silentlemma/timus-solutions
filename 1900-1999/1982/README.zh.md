@@ -65,16 +65,59 @@
 - 矩阵对角线的零不是不同顶点间的免费边。
 - 全部顶点都是供给点时，不需要付费边。
 
+## 优化解法
+
+优化的 C++ 解法从一个 4 KB 的缓冲区手动解析数字，缓冲区用 `fread` 反复填充，而不
+是用 `iostream`；代价存放在固定的 100 × 100 `int` 矩阵中，而不是由 `long long`
+行组成的向量。因为 `n≤100`，每个代价不超过 `10⁵`，键值以及不超过 9,900,000 的答
+案也都放得进 `int`，并用 `10⁵ + 1` 表示无穷大：{1982_greedy_optimized.cpp}。
+
+优化的 Python 解法通过遍历 `sys.stdin.buffer` 的生成器逐行取出词元，而不是一次性
+切分全部输入；每行代价存放在 32 位无符号数的 `array("I")` 中，而不是整数对象的列
+表，不超过 `10⁵` 的代价都放得下。它还用普通循环选出键值最小的顶点，而不是为每个
+候选顶点构造元组，并用 `10⁵ + 1` 表示无穷大：{1982_greedy_optimized.py}。
+
+优化的 Rust 解法从一个会自动重新填充的 4 KB `BufReader` 中解析数字，而不是把全部
+输入读进字符串；代价存放在一个扁平的 `u32` 向量中，而不是由 `u64` 行组成的向量。
+因为 `n≤100`，每个代价不超过 `10⁵`，键值以及不超过 9,900,000 的答案也都放得进
+`u32`，并用 `10⁵ + 1` 表示无穷大：{1982_greedy_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1982_greedy_optimized.cpp`: 时间降低 +0.00%; 内存降低 +76.61%; 基础版本: `1982_greedy.cpp`.
+
+- `1982_greedy_optimized.py`: 时间降低 -19.23%; 内存降低 +65.15%; 基础版本: `1982_greedy.py`.
+
+- `1982_greedy_optimized.rs`: 时间降低 -106.67%; 内存降低 +46.36%; 基础版本: `1982_greedy.rs`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1982_greedy.go](1982_greedy.go).
 
 五个版本均使用整数费用的稠密 Prim，并完整存储矩阵。C++、Go、Java、Rust 使用宽整数类型保存键值和总费用，Python 使用精确整数。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1982_greedy.cpp](1982_greedy.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 496 KB |
-| [1982_greedy.go](1982_greedy.go) | Go 1.14 x64 | greedy | O(n^2) | AC | 0.031 s | 1260 KB |
-| [1982_greedy.java](1982_greedy.java) | Java 1.8 | greedy | O(n^2) | AC | 0.093 s | 648 KB |
-| [1982_greedy.py](1982_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 1492 KB |
-| [1982_greedy.rs](1982_greedy.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.015 s | 440 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1982_greedy.cpp](1982_greedy.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 496 KB | 11292336 |
+| [1982_greedy.go](1982_greedy.go) | Go 1.14 x64 | greedy | O(n^2) | AC | 0.031 s | 1260 KB | 11292337 |
+| [1982_greedy.java](1982_greedy.java) | Java 1.8 | greedy | O(n^2) | AC | 0.093 s | 552 KB | 11304431 |
+| [1982_greedy.py](1982_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 1492 KB | 11292338 |
+| [1982_greedy.rs](1982_greedy.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.015 s | 440 KB | 11292340 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1982_greedy_optimized.cpp](1982_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 116 KB | 11304427 |
+| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.093 s | 520 KB | 11304429 |
+| [1982_greedy_optimized.rs](1982_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.031 s | 236 KB | 11304428 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
