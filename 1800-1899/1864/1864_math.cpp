@@ -6,7 +6,8 @@ const int MONEY = 100;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     std::vector<int> bought(n);
     int total = 0;
     for (int &b : bought) {
@@ -21,7 +22,8 @@ int main() {
         over[i] = std::max(0, bought[i] * (n + 1) - total);
         all += over[i];
     }
-    for (int i = 0; i < n; i++) printf(i ? " %d" : "%d", MONEY * over[i] / all);
+    for (int i = 0; i < n; i++)
+        printf(i ? " %d" : "%d", MONEY * over[i] / all);
     printf("\n");
     return 0;
 }

@@ -65,12 +65,48 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 
 在两百次随机聚会上，分配结果与一个独立的已通过实现一致。
 
+## 优化解法
+
+优化的 C++ 解法计算同样的份额，但把购买量和多出的量存在两个各 100 个数的固定数组
+中（因为 `n ≤ 100`，这已足够），而不是堆上的两个向量：
+{1864_math_optimized.cpp}。
+
+优化的 Java 解法计算同样的份额，但用 `BufferedReader` 和 `StringTokenizer` 读
+数，而不用 `Scanner`，因为 `Scanner` 准备正则表达式要花时间和内存：
+{1864_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1864_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.83%; 基础版本: `1864_math.cpp`.
+
+- `1864_math_optimized.java`: 时间降低 +0.00%; 内存降低 +69.77%; 基础版本: `1864_math.java`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1864_math.go](1864_math.go).
+- [1864_math.rs](1864_math.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1864_math.cpp](1864_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 200 KB |
-| [1864_math.go](1864_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1116 KB |
-| [1864_math.java](1864_math.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 1720 KB |
-| [1864_math.py](1864_math.py) | Python 3.12 x64 | math | O(n²) | AC | 0.093 s | 412 KB |
-| [1864_math.rs](1864_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1864_math.cpp](1864_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 192 KB | 11304246 |
+| [1864_math.go](1864_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1116 KB | 11290890 |
+| [1864_math.java](1864_math.java) | Java 1.8 | math | O(n) | AC | 0.125 s | 1720 KB | 11290894 |
+| [1864_math.py](1864_math.py) | Python 3.12 x64 | math | O(n²) | AC | 0.093 s | 412 KB | 11290893 |
+| [1864_math.rs](1864_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB | 11304247 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
+| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 520 KB | 11307325 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
