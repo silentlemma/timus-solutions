@@ -57,7 +57,8 @@ public class Main {
                     lowest = Math.min(lowest, gap(lo));
                 }
             }
-            if (lowest <= 0) break;
+            if (lowest <= 0)
+                break;
             k++;
         }
         // in quarters 0 and 3 of a turn the butter faces down

@@ -10,7 +10,10 @@ const TURN: usize = 4;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<f64> = input.split_ascii_whitespace().map(|x| x.parse().unwrap()).collect();
+    let v: Vec<f64> = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
     let [length, height, turns] = v[..] else {
         return;
     };
@@ -65,5 +68,12 @@ fn main() {
     }
     // in quarters 0 and 3 of a turn the butter faces down
     let in_turn = k % TURN;
-    println!("{}", if in_turn == 0 || in_turn == TURN - 1 { "butter" } else { "bread" });
+    println!(
+        "{}",
+        if in_turn == 0 || in_turn == TURN - 1 {
+            "butter"
+        } else {
+            "bread"
+        }
+    );
 }

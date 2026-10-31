@@ -97,12 +97,58 @@ The answers agree with an independent interval-subdivision oracle on
 3000 random inputs (1500 small ones), 64 boundary inputs, all nine
 stored tests and all five configured generator cases.
 
+## Optimized solutions
+
+The optimized C++ solution reads the three numbers with `scanf` and
+prints the side with `puts` instead of using `iostream`, whose runtime
+is not needed here; the floating-point computation is exactly the same:
+{1800_math_optimized.cpp}.
+
+The optimized Java solution reads the three numbers from a 4 KB block
+and parses them by hand instead of `Scanner`, whose regular-expression
+machinery costs time and memory to load; the floating-point computation
+is exactly the same: {1800_math_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1800_math_optimized.cpp`: time reduction +0.00%; memory reduction
+  +73.12%; base: `1800_math.cpp`.
+
+- `1800_math_optimized.java`: time reduction -14.68%; memory reduction
+  +76.14%; base: `1800_math.java`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1800_math.go](1800_math.go).
+- [1800_math.rs](1800_math.rs).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1800_math.cpp](1800_math.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 376 KB |
-| [1800_math.go](1800_math.go) | Go 1.14 x64 | math | O(omega) | AC | 0.031 s | 1084 KB |
-| [1800_math.java](1800_math.java) | Java 1.8 | math | O(omega) | AC | 0.109 s | 1636 KB |
-| [1800_math.py](1800_math.py) | Python 3.12 x64 | math | O(omega) | AC | 0.093 s | 592 KB |
-| [1800_math.rs](1800_math.rs) | Rust 1.75 x64 | math | O(omega) | AC | 0.031 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1800_math.cpp](1800_math.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 372 KB | 11304236 |
+| [1800_math.go](1800_math.go) | Go 1.14 x64 | math | O(omega) | AC | 0.031 s | 1084 KB | 11289935 |
+| [1800_math.java](1800_math.java) | Java 1.8 | math | O(omega) | AC | 0.109 s | 1576 KB | 11304238 |
+| [1800_math.py](1800_math.py) | Python 3.12 x64 | math | O(omega) | AC | 0.093 s | 592 KB | 11289938 |
+| [1800_math.rs](1800_math.rs) | Rust 1.75 x64 | math | O(omega) | AC | 0.046 s | 236 KB | 11304241 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
+| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

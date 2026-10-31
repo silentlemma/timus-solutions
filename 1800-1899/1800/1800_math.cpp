@@ -9,9 +9,7 @@ const double PI = std::acos(-1.0);
 double half, top, omega;
 
 // the height of the lowest end of the toast at time t
-double gap(double t) {
-    return top - GRAVITY * t * t / 2 - half * std::fabs(std::sin(omega * t));
-}
+double gap(double t) { return top - GRAVITY * t * t / 2 - half * std::fabs(std::sin(omega * t)); }
 
 // d gap / dt in quarter k, where the angle within the half turn is
 // omega*t - (k / 2)*pi
@@ -26,7 +24,8 @@ double bend(double t, int k) {
 
 int main() {
     int length, height, turns;
-    if (!(std::cin >> length >> height >> turns)) return 0;
+    if (!(std::cin >> length >> height >> turns))
+        return 0;
     half = length / CENTIMETRES / 2;
     top = height / CENTIMETRES;
     omega = turns * 2 * PI / SECONDS;
@@ -60,7 +59,8 @@ int main() {
                 lowest = std::min(lowest, gap(lo));
             }
         }
-        if (lowest <= 0) break;
+        if (lowest <= 0)
+            break;
         k++;
     }
     // in quarters 0 and 3 of a turn the butter faces down

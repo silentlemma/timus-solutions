@@ -74,12 +74,48 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 
 在 3000 个随机输入（1500 个小输入）、64 个边界输入、全部九个保存的测试和五个配置的生成用例上，答案均与独立的时间区间细分判定程序一致。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 读入三个数，用 `puts` 输出朝下的一面，而不是用
+`iostream`，这里用不着后者的运行时；浮点计算完全相同：
+{1800_math_optimized.cpp}。
+
+优化的 Java 解法从 4 KB 的块中读入三个数并手工解析，而不是用 `Scanner`，后者的正
+则表达式机制加载起来既费时间又占内存；浮点计算完全相同：
+{1800_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1800_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +73.12%; 基础版本: `1800_math.cpp`.
+
+- `1800_math_optimized.java`: 时间降低 -14.68%; 内存降低 +76.14%; 基础版本: `1800_math.java`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1800_math.go](1800_math.go).
+- [1800_math.rs](1800_math.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1800_math.cpp](1800_math.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 376 KB |
-| [1800_math.go](1800_math.go) | Go 1.14 x64 | math | O(omega) | AC | 0.031 s | 1084 KB |
-| [1800_math.java](1800_math.java) | Java 1.8 | math | O(omega) | AC | 0.109 s | 1636 KB |
-| [1800_math.py](1800_math.py) | Python 3.12 x64 | math | O(omega) | AC | 0.093 s | 592 KB |
-| [1800_math.rs](1800_math.rs) | Rust 1.75 x64 | math | O(omega) | AC | 0.031 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1800_math.cpp](1800_math.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 372 KB | 11304236 |
+| [1800_math.go](1800_math.go) | Go 1.14 x64 | math | O(omega) | AC | 0.031 s | 1084 KB | 11289935 |
+| [1800_math.java](1800_math.java) | Java 1.8 | math | O(omega) | AC | 0.109 s | 1576 KB | 11304238 |
+| [1800_math.py](1800_math.py) | Python 3.12 x64 | math | O(omega) | AC | 0.093 s | 592 KB | 11289938 |
+| [1800_math.rs](1800_math.rs) | Rust 1.75 x64 | math | O(omega) | AC | 0.046 s | 236 KB | 11304241 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
+| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
