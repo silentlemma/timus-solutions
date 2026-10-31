@@ -57,16 +57,42 @@
 更长的输入由独立的数位动态规划验证，该算法为对称位置赋值，并记录与输入的大小关系。
 现有测试、生成器用例及长度至多 2001 位的边界用例（包括长进位）均一致。
 
+## 优化解法
+
+优化的 C++ 解法用 `getchar` 把数字读入一个 2002 字节的固定数组（足够放下 2001 位
+数字和结尾的零），而不是通过 `iostream` 读入 `std::string`。镜像和加一在另一个同
+样大小的数组中原地完成，不产生临时字符串，比较则用 `strcmp`；省下的内存主要来自
+不用 `iostream`：{1123_strings_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1123_strings_optimized.cpp`: 时间降低 +0.00%; 内存降低 +75.56%; 基础版本: `1123_strings.cpp`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1123_strings.java](1123_strings.java).
+- [1123_strings.rs](1123_strings.rs).
 
 - 各语言都直接在数字串上操作。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1123_strings.cpp](1123_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.001 s | 360 KB |
-| [1123_strings.go](1123_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1152 KB |
-| [1123_strings.java](1123_strings.java) | Java 1.8 | strings | O(L) | AC | 0.093 s | 436 KB |
-| [1123_strings.py](1123_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 448 KB |
-| [1123_strings.rs](1123_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.015 s | 204 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1123_strings.cpp](1123_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.001 s | 360 KB | 11297955 |
+| [1123_strings.go](1123_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1152 KB | 11297956 |
+| [1123_strings.java](1123_strings.java) | Java 1.8 | strings | O(L) | AC | 0.093 s | 436 KB | 11297958 |
+| [1123_strings.py](1123_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 448 KB | 11297959 |
+| [1123_strings.rs](1123_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.015 s | 204 KB | 11297960 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1123_strings_optimized.cpp](1123_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 88 KB | 11304374 |

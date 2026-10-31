@@ -74,16 +74,51 @@ dynamic program checked longer inputs by assigning symmetric digits and
 tracking comparison with the input. Stored tests, generator cases and
 boundary cases up to 2001 digits, including long carries, agreed.
 
+## Optimized solutions
+
+The optimized C++ solution reads the digits with `getchar` into a fixed
+array of 2002 bytes, enough for the 2001 digits and the terminating
+zero, instead of an `std::string` read through `iostream`. It mirrors
+and adds one in a second array of the same size, in place, without
+temporary strings, and compares with `strcmp`; leaving out `iostream`
+saves most of the memory: {1123_strings_optimized.cpp}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1123_strings_optimized.cpp`: time reduction +0.00%; memory reduction
+  +75.56%; base: `1123_strings.cpp`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1123_strings.java](1123_strings.java).
+- [1123_strings.rs](1123_strings.rs).
 
 - All languages work on the digit string directly.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1123_strings.cpp](1123_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.001 s | 360 KB |
-| [1123_strings.go](1123_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1152 KB |
-| [1123_strings.java](1123_strings.java) | Java 1.8 | strings | O(L) | AC | 0.093 s | 436 KB |
-| [1123_strings.py](1123_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 448 KB |
-| [1123_strings.rs](1123_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.015 s | 204 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1123_strings.cpp](1123_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.001 s | 360 KB | 11297955 |
+| [1123_strings.go](1123_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1152 KB | 11297956 |
+| [1123_strings.java](1123_strings.java) | Java 1.8 | strings | O(L) | AC | 0.093 s | 436 KB | 11297958 |
+| [1123_strings.py](1123_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.078 s | 448 KB | 11297959 |
+| [1123_strings.rs](1123_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.015 s | 204 KB | 11297960 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1123_strings_optimized.cpp](1123_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 88 KB | 11304374 |
