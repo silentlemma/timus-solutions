@@ -98,6 +98,64 @@ Detalles a tener en cuenta:
   principio;
 - la suma 10000 puede requerir valores extremos, como `32767 + (-22767)`.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ analiza los números a mano desde un búfer
+de 4 KB que se rellena con `fread`, en lugar de `scanf`. Guarda solo la
+lista creciente, en `int16_t`, que admite cualquier número entre -32768
+y 32767, y avanza su puntero mientras lee la lista decreciente, de modo
+que la segunda lista nunca se guarda: {1021_two_pointers_optimized.cpp}.
+
+La solución optimizada en Go analiza los números byte a byte desde un
+`bufio.Reader` en lugar de `fmt.Fscan`. Guarda solo la lista creciente,
+en `int16`, que admite cualquier número entre -32768 y 32767, y avanza
+su puntero mientras lee la lista decreciente, de modo que la segunda
+lista nunca se guarda: {1021_two_pointers_optimized.go}.
+
+La solución optimizada en Java analiza los números a mano desde un búfer
+de 4 KB que se rellena desde `System.in`, en lugar de `StreamTokenizer`.
+Guarda solo la lista creciente, en `short`, que admite cualquier número
+entre -32768 y 32767, y avanza su puntero mientras lee la lista
+decreciente, de modo que la segunda lista nunca se guarda:
+{1021_two_pointers_optimized.java}.
+
+La solución optimizada en Python aprovecha que cada número va en su
+propia línea y convierte cada línea según llega, en lugar de partir toda
+la entrada en una lista. En vez de un conjunto, marca los números de la
+primera lista en un `bytearray` de 65536 celdas, una por cada valor
+posible entre -32768 y 32767. Para cada `b` de la segunda lista
+comprueba primero que `10000 - b` está en ese intervalo y solo entonces
+lo busca allí: {1021_hashing_optimized.py}.
+
+La solución optimizada en Rust analiza los números a mano desde un búfer
+de 4 KB que se rellena desde la entrada estándar, en lugar de leer toda
+la entrada en un `String`. Guarda solo la lista creciente, en `i16`, que
+admite cualquier número entre -32768 y 32767, y avanza su puntero
+mientras lee la lista decreciente, de modo que la segunda lista nunca se
+guarda: {1021_two_pointers_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1021_two_pointers_optimized.cpp`: reducción de tiempo +80.77%;
+  reducción de memoria +63.89%; base: `1021_two_pointers.cpp`.
+
+- `1021_two_pointers_optimized.go`: reducción de tiempo +50.00%;
+  reducción de memoria +57.25%; base: `1021_two_pointers.go`.
+
+- `1021_two_pointers_optimized.java`: reducción de tiempo +37.60%;
+  reducción de memoria +45.58%; base: `1021_two_pointers.java`.
+
+- `1021_hashing_optimized.py`: reducción de tiempo -39.74%; reducción de
+  memoria +95.36%; base: `1021_hashing.py`.
+
+- `1021_two_pointers_optimized.rs`: reducción de tiempo +67.39%;
+  reducción de memoria +86.55%; base: `1021_two_pointers.rs`.
+
 ## Notas por lenguaje
 
 - **C++**, **Go**, **Java**, **Rust**: dos punteros.
@@ -105,10 +163,24 @@ Detalles a tener en cuenta:
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1021_hashing.py](1021_hashing.py) | Python 3.12 x64 | hashing | O(N1 + N2) on average | AC | 0.078 s | 10700 KB |
-| [1021_two_pointers.cpp](1021_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.078 s | 576 KB |
-| [1021_two_pointers.go](1021_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 2620 KB |
-| [1021_two_pointers.java](1021_two_pointers.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 904 KB |
-| [1021_two_pointers.rs](1021_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.046 s | 2112 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1021_two_pointers.cpp](1021_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.078 s | 576 KB | 11278250 |
+| [1021_two_pointers.go](1021_two_pointers.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 2620 KB | 11278252 |
+| [1021_two_pointers.java](1021_two_pointers.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.125 s | 904 KB | 11278257 |
+| [1021_hashing.py](1021_hashing.py) | Python 3.12 x64 | hashing | O(N1 + N2) on average | AC | 0.078 s | 10700 KB | 11278255 |
+| [1021_two_pointers.rs](1021_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.046 s | 2112 KB | 11278259 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1021_two_pointers_optimized.cpp](1021_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 208 KB | 11304533 |
+| [1021_two_pointers_optimized.go](1021_two_pointers_optimized.go) | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1120 KB | 11304534 |
+| [1021_two_pointers_optimized.java](1021_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N1 + N2) | AC | 0.078 s | 492 KB | 11304535 |
+| [1021_hashing_optimized.py](1021_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N1 + N2) on average | AC | 0.109 s | 496 KB | 11304537 |
+| [1021_two_pointers_optimized.rs](1021_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 284 KB | 11304536 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
