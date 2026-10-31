@@ -62,12 +62,50 @@ orthography
 
 答案与一个独立的已通过实现一致，并能把加密器的输出还原为随机文本。
 
+## 优化解法
+
+优化的 C++ 解法用 `fgets` 把这一行读进 20003 字节的静态缓冲区（足够放下 20000 个
+字符、回车、换行和结尾的零），并填写一个 20000 字节的静态输出数组，用 `fwrite`
+输出，而不是用 `std::string` 和 `iostream`。它在半开区间上用普通递归重放顺序，而
+不是用存放二元组的向量，因为 20000 个字符时深度最多约 15 层：
+{1685_strings_optimized.cpp}。
+
+优化的 Java 解法在半开区间上用普通递归重放顺序（20000 个字符时深度最多约
+15 层），而不是用为每个字符分配两个 `int[]` 区间的 `ArrayDeque`：
+{1685_strings_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1685_strings_optimized.cpp`: 时间降低 +0.00%; 内存降低 +71.13%; 基础版本: `1685_strings.cpp`.
+
+- `1685_strings_optimized.java`: 时间降低 +14.68%; 内存降低 +60.05%; 基础版本: `1685_strings.java`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1685_strings.go](1685_strings.go).
+- [1685_strings.rs](1685_strings.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1685_strings.cpp](1685_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 388 KB |
-| [1685_strings.go](1685_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1228 KB |
-| [1685_strings.java](1685_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 1672 KB |
-| [1685_strings.py](1685_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 536 KB |
-| [1685_strings.rs](1685_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.062 s | 248 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1685_strings.cpp](1685_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 388 KB | 11288861 |
+| [1685_strings.go](1685_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1228 KB | 11288862 |
+| [1685_strings.java](1685_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 1672 KB | 11288864 |
+| [1685_strings.py](1685_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 536 KB | 11288863 |
+| [1685_strings.rs](1685_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.062 s | 248 KB | 11288865 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1685_strings_optimized.cpp](1685_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 112 KB | 11307312 |
+| [1685_strings_optimized.java](1685_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 668 KB | 11307316 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
