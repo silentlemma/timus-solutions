@@ -17,7 +17,7 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 ## Entrada
 
-`N` y luego las coordenadas de las ciudades.
+`N` y luego `N` líneas, cada una con las dos coordenadas de una ciudad.
 
 ## Salida
 
@@ -73,17 +73,70 @@ Detalles a tener en cuenta:
 Cada plan impreso pasó el comprobador en todas las pruebas, incluidas diez
 mil ciudades sobre cónicas con muchos valores de `x` compartidos.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los números a mano desde un búfer
+de 4 KB en lugar de juntar todas las líneas en una cadena para un
+`StringTokenizer`, y ordena un arreglo simple de `long` en lugar de
+números `Integer` con un comparador. Cada clave es `x + 10⁹`, como mucho
+2·10⁹ y por tanto 31 bits, desplazado encima del índice de ciudad de
+14 bits (menor que 10000 < 2¹⁴). En la clave solo está `x`: como no hay
+tres ciudades en una recta, como mucho dos comparten una `x`, y una
+pasada posterior intercambia ese par vecino cuando sus `y` están en mal
+orden: {1178_geometry_optimized.java}.
+
+La solución optimizada en Python aprovecha que cada ciudad va en su
+propia línea y lee las líneas una a una en lugar de partir toda la
+entrada. Empaqueta cada ciudad en un solo entero, `x + 10⁹` e `y + 10⁹`
+de 31 bits cada uno encima del número de ciudad de 14 bits, así que un
+`sort` simple ordena las ciudades por `(x, y)` sin función clave ni
+tuplas, y escribe los pares sobre la marcha en lugar de reunir una lista
+de líneas: {1178_geometry_optimized.py}.
+
+La solución optimizada en Rust analiza los números a mano desde un búfer
+de 4 KB en lugar de leer toda la entrada en un `String` y un vector con
+todos los números. Ordena tuplas `(x, y, número)` de `i32`, suficientes
+para coordenadas de hasta `10⁹` en valor absoluto, con `sort_unstable`,
+que no necesita búfer adicional, y escribe a través de un `BufWriter`:
+{1178_geometry_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1178_geometry_optimized.java`: reducción de tiempo +33.57%; reducción
+  de memoria +85.16%; base: `1178_geometry.java`.
+
+- `1178_geometry_optimized.py`: reducción de tiempo +0.00%; reducción de
+  memoria +66.30%; base: `1178_geometry.py`.
+
+- `1178_geometry_optimized.rs`: reducción de tiempo -106.67%; reducción
+  de memoria +61.78%; base: `1178_geometry.rs`.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes ordenan los números de las ciudades por el par
-  `(x, y)`.
+- Todos los lenguajes ordenan las ciudades por `x` y, a igual `x`, por
+  `y`.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1178_geometry.cpp](1178_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 388 KB |
-| [1178_geometry.go](1178_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1676 KB |
-| [1178_geometry.java](1178_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 6872 KB |
-| [1178_geometry.py](1178_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 3276 KB |
-| [1178_geometry.rs](1178_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.015 s | 764 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1178_geometry.cpp](1178_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 388 KB | 11283266 |
+| [1178_geometry.go](1178_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1676 KB | 11283270 |
+| [1178_geometry.java](1178_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 6872 KB | 11283277 |
+| [1178_geometry.py](1178_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 3276 KB | 11283275 |
+| [1178_geometry.rs](1178_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.015 s | 764 KB | 11283279 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1178_geometry_optimized.java](1178_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 1020 KB | 11305836 |
+| [1178_geometry_optimized.py](1178_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 1104 KB | 11305838 |
+| [1178_geometry_optimized.rs](1178_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 292 KB | 11305833 |
