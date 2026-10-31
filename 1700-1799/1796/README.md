@@ -16,9 +16,9 @@ of tickets.
 
 ## Input
 
-Six counts of notes, from the smallest to the largest, then the price.
-All numbers are at most 1000, and the price is positive. At least one
-answer exists.
+Six non-negative counts of notes, from the smallest to the largest, then
+the price. All numbers are integers at most 1000, and the price is
+positive. At least one answer exists.
 
 ## Output
 
@@ -80,12 +80,63 @@ Pitfalls:
 The answers agree with an independent accepted implementation on 300
 random cases with few and with many notes.
 
+## Optimized solutions
+
+The optimized C++ solution reads with `scanf` instead of `std::cin` and
+prints each answer with `printf` right away instead of first collecting
+up to 5000 of them in a `std::string`, so the program does without
+`iostream`: {1796_math_optimized.cpp}.
+
+The optimized Java solution reads the seven numbers digit by digit
+straight from `System.in` instead of creating a `Scanner`; the answers
+are still collected in a `StringBuilder`: {1796_math_optimized.java}.
+
+The optimized Rust solution takes the seven numbers one by one from the
+token iterator instead of collecting them into a vector, and writes the
+answers through a `BufWriter` instead of making a `String` for each of
+up to 5000 answers and joining them: {1796_math_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1796_math_optimized.cpp`: time reduction +0.00%; memory reduction
+  +71.68%; base: `1796_math.cpp`.
+
+- `1796_math_optimized.java`: time reduction +28.44%; memory reduction
+  +63.03%; base: `1796_math.java`.
+
+- `1796_math_optimized.rs`: time reduction -106.67%; memory reduction
+  +47.90%; base: `1796_math.rs`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1796_math.go](1796_math.go).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1796_math.cpp](1796_math.cpp) | G++ 13.2 x64 | math | O(answers) | AC | 0.031 s | 460 KB |
-| [1796_math.go](1796_math.go) | Go 1.14 x64 | math | O(answers) | AC | 0.031 s | 1288 KB |
-| [1796_math.java](1796_math.java) | Java 1.8 | math | O(answers) | AC | 0.109 s | 1964 KB |
-| [1796_math.py](1796_math.py) | Python 3.12 x64 | math | O(answers) | AC | 0.078 s | 752 KB |
-| [1796_math.rs](1796_math.rs) | Rust 1.75 x64 | math | O(answers) | AC | 0.015 s | 480 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1796_math.cpp](1796_math.cpp) | G++ 13.2 x64 | math | O(answers) | AC | 0.015 s | 452 KB | 11304050 |
+| [1796_math.go](1796_math.go) | Go 1.14 x64 | math | O(answers) | AC | 0.031 s | 1288 KB | 11289894 |
+| [1796_math.java](1796_math.java) | Java 1.8 | math | O(answers) | AC | 0.109 s | 1980 KB | 11304051 |
+| [1796_math.py](1796_math.py) | Python 3.12 x64 | math | O(answers) | AC | 0.078 s | 720 KB | 11304052 |
+| [1796_math.rs](1796_math.rs) | Rust 1.75 x64 | math | O(answers) | AC | 0.015 s | 476 KB | 11304053 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1796_math_optimized.cpp](1796_math_optimized.cpp) | G++ 13.2 x64 | math | O(answers) | AC | 0.015 s | 128 KB | 11304279 |
+| [1796_math_optimized.java](1796_math_optimized.java) | Java 1.8 | math | O(answers) | AC | 0.078 s | 732 KB | 11304331 |
+| [1796_math_optimized.rs](1796_math_optimized.rs) | Rust 1.75 x64 | math | O(answers) | AC | 0.031 s | 248 KB | 11304332 |

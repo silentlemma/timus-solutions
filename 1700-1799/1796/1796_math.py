@@ -5,7 +5,7 @@ NOTES = [10, 50, 100, 500, 1000, 5000]
 
 def main():
     data = list(map(int, sys.stdin.read().split()))
-    counts, price = data[:len(NOTES)], data[len(NOTES)]
+    counts, price = data[: len(NOTES)], data[len(NOTES)]
     total = sum(c * note for c, note in zip(counts, NOTES))
     smallest = min(note for c, note in zip(counts, NOTES) if c > 0)
     # k tickets fit when k * price <= total, and taking away the smallest
