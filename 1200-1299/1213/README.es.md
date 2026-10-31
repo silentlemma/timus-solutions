@@ -21,7 +21,7 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 El nombre de la esclusa, luego una mampara por línea como dos nombres de
 compartimento unidos por `-`, y luego una línea `#`. Los nombres tienen
-hasta 20 letras y cifras, y las mayúsculas importan.
+hasta 20 letras latinas y cifras, y las mayúsculas importan.
 
 ## Salida
 
@@ -74,17 +74,72 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 100
 módulos aleatorios.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee los tabiques con `scanf` en un búfer
+de 42 bytes, suficiente para dos nombres de como mucho 20 caracteres y
+el guion, y guarda los nombres distintos en una tabla estática de
+30 nombres de 21 bytes, buscados con `strcmp`: hay como mucho
+30 compartimentos, así que la búsqueda lineal es barata. Esto sustituye
+a `iostream`, `std::string` y los nodos de `std::set`:
+{1213_graphs_optimized.cpp}.
+
+La solución optimizada en Java lee los tokens con `BufferedReader` y
+`StringTokenizer` en lugar de `Scanner`, cuyas expresiones regulares son
+caras de preparar. Busca el guion con `indexOf` y añade directamente los
+dos nombres, sin el arreglo temporal ni la lista envoltorio que crean
+`split` y `Arrays.asList`: {1213_graphs_optimized.java}.
+
+La solución optimizada en Rust lee la entrada línea a línea en lugar de
+leerla entera en una cadena, y guarda los nombres distintos en un vector
+pequeño con búsqueda lineal en lugar de un conjunto hash: hay como mucho
+30 compartimentos, así que se guardan como mucho 30 nombres, sea cual
+sea el número de tabiques: {1213_graphs_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1213_graphs_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +74.49%; base: `1213_graphs.cpp`.
+
+- `1213_graphs_optimized.java`: reducción de tiempo +28.44%; reducción
+  de memoria +72.07%; base: `1213_graphs.java`.
+
+- `1213_graphs_optimized.rs`: reducción de tiempo +50.00%; reducción de
+  memoria +50.96%; base: `1213_graphs.rs`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1213_graphs.go](1213_graphs.go).
 
 - Todos los lenguajes reúnen los nombres en un conjunto e imprimen su
   tamaño menos uno.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1213_graphs.cpp](1213_graphs.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 392 KB |
-| [1213_graphs.go](1213_graphs.go) | Go 1.14 x64 | graphs | O(P log P) | AC | 0.015 s | 1064 KB |
-| [1213_graphs.java](1213_graphs.java) | Java 1.8 | graphs | O(P log P) | AC | 0.109 s | 1876 KB |
-| [1213_graphs.py](1213_graphs.py) | Python 3.12 x64 | graphs | O(P log P) | AC | 0.078 s | 384 KB |
-| [1213_graphs.rs](1213_graphs.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.062 s | 416 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1213_graphs.cpp](1213_graphs.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 392 KB | 11283651 |
+| [1213_graphs.go](1213_graphs.go) | Go 1.14 x64 | graphs | O(P log P) | AC | 0.015 s | 1064 KB | 11283652 |
+| [1213_graphs.java](1213_graphs.java) | Java 1.8 | graphs | O(P log P) | AC | 0.109 s | 1876 KB | 11283654 |
+| [1213_graphs.py](1213_graphs.py) | Python 3.12 x64 | graphs | O(P log P) | AC | 0.078 s | 384 KB | 11283653 |
+| [1213_graphs.rs](1213_graphs.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.062 s | 416 KB | 11283655 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1213_graphs_optimized.cpp](1213_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 100 KB | 11307251 |
+| [1213_graphs_optimized.java](1213_graphs_optimized.java) | Java 1.8 | graphs | O(P log P) | AC | 0.078 s | 524 KB | 11307254 |
+| [1213_graphs_optimized.rs](1213_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.031 s | 204 KB | 11307256 |

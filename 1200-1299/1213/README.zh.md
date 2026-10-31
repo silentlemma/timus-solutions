@@ -17,7 +17,7 @@
 ## 输入
 
 气闸的名字，然后每行一块隔板，写作用 `-` 连接的两个隔舱名，最后一行是 `#`。名字
-最多 20 个字母和数字，区分大小写。
+最多 20 个拉丁字母和数字，区分大小写。
 
 ## 输出
 
@@ -63,16 +63,56 @@ Central-Waste
 
 答案已在 100 个随机货舱上与另一份独立解答比对。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 把隔板读入 42 字节的缓冲区（足够放下两个最多 20 个字符
+的名字和连字符），并把不同的名字存在一个 30 个名字、每个 21 字节的静态表中，用
+`strcmp` 查找：隔舱最多 30 个，线性查找很便宜。这取代了 `iostream`、
+`std::string` 和 `std::set` 的结点：{1213_graphs_optimized.cpp}。
+
+优化的 Java 解法用 `BufferedReader` 和 `StringTokenizer` 读取记号，而不是用初始
+化正则表达式代价较高的 `Scanner`。它用 `indexOf` 找到连字符并直接加入两个名字，
+省去了 `split` 和 `Arrays.asList` 产生的临时数组和列表包装对象：
+{1213_graphs_optimized.java}。
+
+优化的 Rust 解法逐行读取输入，而不是把全部输入读进一个字符串，并把不同的名字存在
+一个线性查找的小向量中，而不是哈希集合：隔舱最多 30 个，所以无论隔板有多少，最多
+只保存 30 个名字：{1213_graphs_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1213_graphs_optimized.cpp`: 时间降低 +0.00%; 内存降低 +74.49%; 基础版本: `1213_graphs.cpp`.
+
+- `1213_graphs_optimized.java`: 时间降低 +28.44%; 内存降低 +72.07%; 基础版本: `1213_graphs.java`.
+
+- `1213_graphs_optimized.rs`: 时间降低 +50.00%; 内存降低 +50.96%; 基础版本: `1213_graphs.rs`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1213_graphs.go](1213_graphs.go).
 
 - 所有语言都把名字收集到集合中，输出集合大小减一。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1213_graphs.cpp](1213_graphs.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 392 KB |
-| [1213_graphs.go](1213_graphs.go) | Go 1.14 x64 | graphs | O(P log P) | AC | 0.015 s | 1064 KB |
-| [1213_graphs.java](1213_graphs.java) | Java 1.8 | graphs | O(P log P) | AC | 0.109 s | 1876 KB |
-| [1213_graphs.py](1213_graphs.py) | Python 3.12 x64 | graphs | O(P log P) | AC | 0.078 s | 384 KB |
-| [1213_graphs.rs](1213_graphs.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.062 s | 416 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1213_graphs.cpp](1213_graphs.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 392 KB | 11283651 |
+| [1213_graphs.go](1213_graphs.go) | Go 1.14 x64 | graphs | O(P log P) | AC | 0.015 s | 1064 KB | 11283652 |
+| [1213_graphs.java](1213_graphs.java) | Java 1.8 | graphs | O(P log P) | AC | 0.109 s | 1876 KB | 11283654 |
+| [1213_graphs.py](1213_graphs.py) | Python 3.12 x64 | graphs | O(P log P) | AC | 0.078 s | 384 KB | 11283653 |
+| [1213_graphs.rs](1213_graphs.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.062 s | 416 KB | 11283655 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1213_graphs_optimized.cpp](1213_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 100 KB | 11307251 |
+| [1213_graphs_optimized.java](1213_graphs_optimized.java) | Java 1.8 | graphs | O(P log P) | AC | 0.078 s | 524 KB | 11307254 |
+| [1213_graphs_optimized.rs](1213_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.031 s | 204 KB | 11307256 |
