@@ -70,7 +70,34 @@ Las respuestas se comprobaron con una integración numérica de la altura
 comida `min(a, 2√(r² − x²))` sobre `x` con la regla de Simpson, partida
 donde cambia la fórmula.
 
+## Soluciones optimizadas
+
+La solución optimizada en Java analiza los dos enteros a mano desde un
+búfer de 4 KB que se llena desde `System.in`, en lugar de crear un
+`Scanner`, así que la JVM no carga el escáner ni sus expresiones
+regulares; la fórmula y la salida con `String.format` son las mismas:
+{1084_geometry_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1084_geometry_optimized.java`: reducción de tiempo +25.60%; reducción
+  de memoria +49.11%; base: `1084_geometry.java`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1084_geometry.cpp](1084_geometry.cpp).
+- [1084_geometry.go](1084_geometry.go).
+- [1084_geometry.rs](1084_geometry.rs).
 
 - C++ toma `π` como `acos(-1)`, ya que `M_PI` no forma parte del C++
   estándar.
@@ -79,10 +106,18 @@ donde cambia la fórmula.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1084_geometry.cpp](1084_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 148 KB |
-| [1084_geometry.go](1084_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB |
-| [1084_geometry.java](1084_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1792 KB |
-| [1084_geometry.py](1084_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 376 KB |
-| [1084_geometry.rs](1084_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1084_geometry.cpp](1084_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 148 KB | 11279033 |
+| [1084_geometry.go](1084_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11279034 |
+| [1084_geometry.java](1084_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1792 KB | 11279036 |
+| [1084_geometry.py](1084_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 376 KB | 11279035 |
+| [1084_geometry.rs](1084_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB | 11279037 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1084_geometry_optimized.java](1084_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 912 KB | 11304545 |
