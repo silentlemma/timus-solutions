@@ -16,7 +16,7 @@
 
 ## Входные данные
 
-Число N.
+Число N (1 ≤ N ≤ 21).
 
 ## Выходные данные
 
@@ -52,12 +52,59 @@
 
 Тесты проверяются точным сравнением.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ суммирует в том же 128-битном целом, но
+записывает цифры с конца в массив фиксированного размера на 23 символа
+вместо того, чтобы вставлять каждую в начало `std::string`: при `N ≤ 21`
+ответ меньше 21·21! < 10²², так что 22 цифры и завершающий ноль всегда
+помещаются. Без `<string>` программа сама ничего не выделяет в куче:
+{1402_combinatorics_optimized.cpp}.
+
+Оптимизированное решение на Java читает N побайтно из `System.in` вместо
+того, чтобы создавать `Scanner`, чьи регулярные выражения и данные
+локали обходятся дороже самих умножений, которых не больше двадцати;
+сумма по-прежнему хранится в `BigInteger`:
+{1402_combinatorics_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1402_combinatorics_optimized.cpp`: сокращение времени +0.00%;
+  сокращение памяти +48.94%; база: `1402_combinatorics.cpp`.
+
+- `1402_combinatorics_optimized.java`: сокращение времени +0.00%;
+  сокращение памяти +73.70%; база: `1402_combinatorics.java`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1402_combinatorics.go](1402_combinatorics.go).
+- [1402_combinatorics.rs](1402_combinatorics.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1402_combinatorics.cpp](1402_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N) | AC | 0.015 s | 188 KB |
-| [1402_combinatorics.go](1402_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N) | AC | 0.031 s | 1176 KB |
-| [1402_combinatorics.java](1402_combinatorics.java) | Java 1.8 | combinatorics | O(N) | AC | 0.109 s | 1688 KB |
-| [1402_combinatorics.py](1402_combinatorics.py) | Python 3.12 x64 | combinatorics | O(N) | AC | 0.078 s | 388 KB |
-| [1402_combinatorics.rs](1402_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N) | AC | 0.031 s | 232 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1402_combinatorics.cpp](1402_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N) | AC | 0.015 s | 188 KB | 11286026 |
+| [1402_combinatorics.go](1402_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N) | AC | 0.031 s | 1176 KB | 11286027 |
+| [1402_combinatorics.java](1402_combinatorics.java) | Java 1.8 | combinatorics | O(N) | AC | 0.109 s | 1688 KB | 11286031 |
+| [1402_combinatorics.py](1402_combinatorics.py) | Python 3.12 x64 | combinatorics | O(N) | AC | 0.078 s | 388 KB | 11286029 |
+| [1402_combinatorics.rs](1402_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N) | AC | 0.031 s | 232 KB | 11286032 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1402_combinatorics_optimized.cpp](1402_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(N) | AC | 0.001 s | 96 KB | 11304432 |
+| [1402_combinatorics_optimized.java](1402_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(N) | AC | 0.109 s | 444 KB | 11304433 |
