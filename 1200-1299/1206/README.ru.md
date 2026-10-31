@@ -56,17 +56,63 @@
 Формула проверена перебором всех пар для `K = 2` и `K = 3`, и каждое `K`
 сверено с отдельно написанным решением.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ так же умножает десятичные цифры на 55,
+но в массиве фиксированного размера на 100 элементов на стеке вместо
+растущего `std::vector`: при `K ≤ 50` ответ `36 · 55^(K−1)` меньше
+`100^K` и содержит не больше 100 цифр (на деле не больше 87). Без
+`<vector>` в программе вовсе нет кода контейнеров:
+{1206_combinatorics_optimized.cpp}.
+
+Оптимизированное решение на Java читает `K` побайтно из `System.in`
+вместо того, чтобы создавать `Scanner`, чьи регулярные выражения и
+данные локали обходятся дороже самого возведения в степень; ответ
+по-прежнему считается через `BigInteger`:
+{1206_combinatorics_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1206_combinatorics_optimized.cpp`: сокращение времени +0.00%;
+  сокращение памяти +46.81%; база: `1206_combinatorics.cpp`.
+
+- `1206_combinatorics_optimized.java`: сокращение времени +10.71%;
+  сокращение памяти +74.37%; база: `1206_combinatorics.java`.
+
 ## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1206_combinatorics.rs](1206_combinatorics.rs).
 
 - Python использует свои целые, Go — `math/big`, Java — `BigInteger`;
   C++ и Rust `K − 1` раз умножают десятичный массив цифр на 55.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1206_combinatorics.cpp](1206_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 188 KB |
-| [1206_combinatorics.go](1206_combinatorics.go) | Go 1.14 x64 | combinatorics | O(K²) | AC | 0.031 s | 1200 KB |
-| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.140 s | 1748 KB |
-| [1206_combinatorics.py](1206_combinatorics.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.109 s | 416 KB |
-| [1206_combinatorics.rs](1206_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(K²) | AC | 0.015 s | 212 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1206_combinatorics.cpp](1206_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 188 KB | 11283595 |
+| [1206_combinatorics.go](1206_combinatorics.go) | Go 1.14 x64 | combinatorics | O(K²) | AC | 0.031 s | 1200 KB | 11283596 |
+| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.140 s | 1748 KB | 11283601 |
+| [1206_combinatorics.py](1206_combinatorics.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.109 s | 416 KB | 11283600 |
+| [1206_combinatorics.rs](1206_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(K²) | AC | 0.015 s | 212 KB | 11283602 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
+| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) | AC | 0.125 s | 448 KB | 11304422 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

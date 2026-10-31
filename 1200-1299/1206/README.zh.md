@@ -53,17 +53,51 @@
 公式已在 `K = 2` 和 `K = 3` 时用枚举全部数对验证，并且每个 `K` 都与另一份独立解答
 比对过。
 
+## 优化解法
+
+优化的 C++ 解法同样把十进制数字乘以 55，但用的是栈上 100 个元素的固定数组，而不
+是不断增长的 `std::vector`：因为 `K ≤ 50`，答案 `36 · 55^(K−1)` 小于 `100^K`，最
+多 100 位（实际最多 87 位）。不用 `<vector>`，程序里就完全没有容器代码：
+{1206_combinatorics_optimized.cpp}。
+
+优化的 Java 解法直接从 `System.in` 逐字节读入 `K`，而不是创建 `Scanner`，后者的
+正则表达式和区域设置数据比求幂本身还费资源；答案仍用 `BigInteger` 计算：
+{1206_combinatorics_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1206_combinatorics_optimized.cpp`: 时间降低 +0.00%; 内存降低 +46.81%; 基础版本: `1206_combinatorics.cpp`.
+
+- `1206_combinatorics_optimized.java`: 时间降低 +10.71%; 内存降低 +74.37%; 基础版本: `1206_combinatorics.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1206_combinatorics.rs](1206_combinatorics.rs).
 
 - Python 用自带的整数，Go 用 `math/big`，Java 用 `BigInteger`；C++ 和 Rust 把
   十进制数字数组乘以 55 共 `K − 1` 次。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1206_combinatorics.cpp](1206_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 188 KB |
-| [1206_combinatorics.go](1206_combinatorics.go) | Go 1.14 x64 | combinatorics | O(K²) | AC | 0.031 s | 1200 KB |
-| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.140 s | 1748 KB |
-| [1206_combinatorics.py](1206_combinatorics.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.109 s | 416 KB |
-| [1206_combinatorics.rs](1206_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(K²) | AC | 0.015 s | 212 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1206_combinatorics.cpp](1206_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 188 KB | 11283595 |
+| [1206_combinatorics.go](1206_combinatorics.go) | Go 1.14 x64 | combinatorics | O(K²) | AC | 0.031 s | 1200 KB | 11283596 |
+| [1206_combinatorics.java](1206_combinatorics.java) | Java 1.8 | combinatorics | O(K²) | AC | 0.140 s | 1748 KB | 11283601 |
+| [1206_combinatorics.py](1206_combinatorics.py) | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.109 s | 416 KB | 11283600 |
+| [1206_combinatorics.rs](1206_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(K²) | AC | 0.015 s | 212 KB | 11283602 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
+| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) | AC | 0.125 s | 448 KB | 11304422 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
