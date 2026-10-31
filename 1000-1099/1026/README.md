@@ -96,6 +96,60 @@ Pitfalls:
 - the separator line `###` must be skipped, not parsed as a number;
 - read the input quickly: `10^5` lines.
 
+## Optimized solutions
+
+The optimized C++ solution counts the values like the simple counting
+solution, but keeps the counts in a global array of 5001 `int`, parses
+the numbers by hand from a 4 KB buffer refilled with `fread` (the `###`
+line is skipped with the other non-digits) and prints with `printf`
+instead of `iostream`: {1026_prefix_sums_optimized.cpp}.
+
+The optimized Go solution counts instead of sorting: it keeps only how
+many times each value from 1 to 5000 occurs, takes prefix sums and
+answers each query by binary search with `sort.SearchInts`, so the
+database is neither stored nor sorted. It also parses the digits by hand
+from the `bufio` reader instead of `fmt.Fscan`: {1026_prefix_sums.go}.
+
+The optimized Java solution counts instead of sorting as well: the
+frequencies of the values up to 5000, their prefix sums and a binary
+search per query. It reads the input in 4 KB blocks and parses the
+digits by hand, skipping the `###` line, instead of making a `String` of
+every line: {1026_prefix_sums.java}.
+
+The optimized Python solution counts instead of sorting too. It reads
+the database line by line, since every value is on its own line, counts
+each value in a list of 5001 frequencies, takes prefix sums and answers
+each query with `bisect_left`; neither the list of all tokens nor the
+sorted list of `N` numbers is kept: {1026_prefix_sums.py}.
+
+The optimized Rust solution counts the values in a fixed array of 5001
+`u32` while it reads the input line by line into one reused `String`,
+then answers each query by binary search over the prefix sums instead of
+sorting; it keeps neither the whole input nor the database:
+{1026_prefix_sums.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1026_prefix_sums_optimized.cpp`: time reduction +0.00%; memory
+  reduction +76.36%; base: `1026_prefix_sums.cpp`.
+
+- `1026_prefix_sums.go`: time reduction +67.39%; memory reduction
+  +53.87%; base: `1026_sorting.go`.
+
+- `1026_prefix_sums.java`: time reduction +0.00%; memory reduction
+  +92.25%; base: `1026_sorting.java`.
+
+- `1026_prefix_sums.py`: time reduction +14.68%; memory reduction
+  +95.17%; base: `1026_sorting.py`.
+
+- `1026_prefix_sums.rs`: time reduction -48.39%; memory reduction
+  +89.10%; base: `1026_sorting.rs`.
+
 ## Language notes
 
 - **C++**: both the sort and the counting sort with binary search.
@@ -104,11 +158,25 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1026_prefix_sums.cpp](1026_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.015 s | 440 KB |
-| [1026_sorting.cpp](1026_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + K) | AC | 0.015 s | 816 KB |
-| [1026_sorting.go](1026_sorting.go) | Go 1.14 x64 | sorting | O(N log N + K) | AC | 0.046 s | 2324 KB |
-| [1026_sorting.java](1026_sorting.java) | Java 1.8 | sorting | O(N log N + K) | AC | 0.109 s | 5112 KB |
-| [1026_sorting.py](1026_sorting.py) | Python 3.12 x64 | sorting | O(N log N + K) | AC | 0.109 s | 11668 KB |
-| [1026_sorting.rs](1026_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + K) | AC | 0.031 s | 2128 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1026_prefix_sums.cpp](1026_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.015 s | 440 KB | 11278309 |
+| [1026_sorting.cpp](1026_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + K) | AC | 0.015 s | 816 KB | 11278308 |
+| [1026_sorting.go](1026_sorting.go) | Go 1.14 x64 | sorting | O(N log N + K) | AC | 0.046 s | 2324 KB | 11278311 |
+| [1026_sorting.java](1026_sorting.java) | Java 1.8 | sorting | O(N log N + K) | AC | 0.109 s | 5112 KB | 11278313 |
+| [1026_sorting.py](1026_sorting.py) | Python 3.12 x64 | sorting | O(N log N + K) | AC | 0.109 s | 11668 KB | 11278312 |
+| [1026_sorting.rs](1026_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + K) | AC | 0.031 s | 2128 KB | 11278314 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1026_prefix_sums_optimized.cpp](1026_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.001 s | 104 KB | 11305903 |
+| [1026_prefix_sums.go](1026_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.015 s | 1072 KB | 11305908 |
+| [1026_prefix_sums.java](1026_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.109 s | 396 KB | 11305911 |
+| [1026_prefix_sums.py](1026_prefix_sums.py) \* | Python 3.12 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.093 s | 564 KB | 11305912 |
+| [1026_prefix_sums.rs](1026_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + V + K log V), V = 5000 | AC | 0.046 s | 232 KB | 11305916 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
