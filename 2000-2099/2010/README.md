@@ -17,8 +17,8 @@ other pieces to block a ray. A knight jumps in the usual way.
 ## Input
 
 The first line contains `n`, `1 ≤ n ≤ 100,000,000`. The next line
-contains `x y`, with `1 ≤ x,y ≤ n`. Time limit 0.5 seconds, memory 64
-MB.
+contains `x y`, with `1 ≤ x,y ≤ n`. Time limit 0.5 seconds,
+memory 64 MB.
 
 ## Output
 
@@ -86,7 +86,31 @@ negative knight positions easy to reject. An alternative is to count the
 complete two diagonal lines by intersection with the board and remove
 the origin from each.
 
+## Optimized solutions
+
+The optimized C++ solution reads with `scanf` and prints with `printf`
+instead of `iostream`, so the program does not carry the stream library
+at all; the formulas and the 64-bit arithmetic are the same:
+{2010_math_optimized.cpp}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `2010_math_optimized.cpp`: time reduction +51.61%; memory reduction
+  +75.00%; base: `2010_math.cpp`.
+
 ## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [2010_math.rs](2010_math.rs).
 
 Do not count the origin, add an extra move, or assume that all eight
 knight destinations exist near a border. The rook's answer does not
@@ -98,10 +122,18 @@ Python uses constant memory and runs under CPython.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB |
-| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB |
-| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB |
-| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB |
-| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB | 11292487 |
+| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB | 11292488 |
+| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 512 KB | 11304434 |
+| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB | 11292489 |
+| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB | 11292492 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |

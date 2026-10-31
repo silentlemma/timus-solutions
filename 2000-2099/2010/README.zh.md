@@ -53,16 +53,39 @@ Queen: 23
 
 固定次数的计算和八次马的检查使时间为 `O(1)`，额外空间为 `O(1)`。答案不超过 `4(n−1) ≤ 399,999,996`；实现使用 64 位整数或 Python 整数。使用有符号坐标以正确排除马的负坐标终点。另一种象的计数方法是把两条完整对角线与棋盘相交，再从每条去掉起点。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 读入、`printf` 输出，而不是 `iostream`，程序因此完全不
+带流库；公式和 64 位运算都不变：{2010_math_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `2010_math_optimized.cpp`: 时间降低 +51.61%; 内存降低 +75.00%; 基础版本: `2010_math.cpp`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [2010_math.rs](2010_math.rs).
 
 不能计入起点、第二步或越界的跳跃。车的答案与位置无关，象的答案则有关。后合并两个已去掉起点的集合，无需再减。单格棋盘用相同公式处理。Go 1.14 需要自定义最小值函数；Java 8 和 Rust 使用有符号宽整数。Python 只存常数个值，使用 CPython。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB |
-| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB |
-| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB |
-| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB |
-| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB | 11292487 |
+| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB | 11292488 |
+| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 512 KB | 11304434 |
+| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB | 11292489 |
+| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB | 11292492 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |

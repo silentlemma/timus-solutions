@@ -86,7 +86,31 @@ de Python. Las coordenadas con signo permiten rechazar destinos
 negativos del caballo. Como alternativa, se pueden intersectar las dos
 diagonales completas con el tablero y quitar el origen de cada una.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee con `scanf` e imprime con `printf` en
+lugar de `iostream`, así que el programa no lleva la biblioteca de
+flujos; las fórmulas y la aritmética de 64 bits son las mismas:
+{2010_math_optimized.cpp}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `2010_math_optimized.cpp`: reducción de tiempo +51.61%; reducción de
+  memoria +75.00%; base: `2010_math.cpp`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [2010_math.rs](2010_math.rs).
 
 No cuentes el origen, un segundo movimiento ni saltos fuera del tablero.
 El resultado de la torre no depende de la posición; el del alfil sí. No
@@ -97,10 +121,18 @@ constante de valores y se ejecuta en CPython.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB |
-| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB |
-| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB |
-| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB |
-| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math.cpp](2010_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 400 KB | 11292487 |
+| [2010_math.go](2010_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 1120 KB | 11292488 |
+| [2010_math.java](2010_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 512 KB | 11304434 |
+| [2010_math.py](2010_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 552 KB | 11292489 |
+| [2010_math.rs](2010_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB | 11292492 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
