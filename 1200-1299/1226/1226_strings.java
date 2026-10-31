@@ -1,34 +1,30 @@
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
-    static final int BUFFER = 1 << 16;
-
-    static boolean letter(byte c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'); }
+    static boolean letter(int c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'); }
 
     public static void main(String[] args) throws IOException {
-        InputStream in = System.in;
-        ByteArrayOutputStream all = new ByteArrayOutputStream();
-        byte[] buf = new byte[BUFFER];
-        for (int len = in.read(buf); len > 0; len = in.read(buf)) {
-            all.write(buf, 0, len);
-        }
-        byte[] text = all.toByteArray();
-        // every run of Latin letters is reversed in place; everything else stays
-        for (int i = 0; i < text.length; i++) {
-            int j = i;
-            while (j < text.length && letter(text[j])) {
-                j++;
+        // latin-1 preserves every input byte; only ascii letters are transformed.
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in, StandardCharsets.ISO_8859_1));
+        BufferedWriter out =
+            new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.ISO_8859_1));
+        StringBuilder word = new StringBuilder();
+        for (int c = in.read(); c != -1; c = in.read()) {
+            if (letter(c)) {
+                word.append((char)c);
+            } else {
+                out.write(word.reverse().toString());
+                word.setLength(0);
+                out.write(c);
             }
-            for (int a = i, b = j - 1; a < b; a++, b--) {
-                byte t = text[a];
-                text[a] = text[b];
-                text[b] = t;
-            }
-            i = Math.max(i, j);
         }
-        System.out.write(text);
-        System.out.flush();
+        out.write(word.reverse().toString());
+        out.flush();
     }
 }
