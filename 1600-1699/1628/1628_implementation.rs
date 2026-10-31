@@ -4,7 +4,9 @@ use std::io::{self, Read};
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let mut nums = text.split_ascii_whitespace().map(|w| w.parse::<usize>().unwrap());
+    let mut nums = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse::<usize>().unwrap());
     let mut next = || nums.next().unwrap();
     let (m, n, k) = (next(), next(), next());
     let mut black = HashSet::new();
