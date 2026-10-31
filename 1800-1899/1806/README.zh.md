@@ -76,12 +76,76 @@ n（2 ≤ n ≤ 50000），然后是十个 1 到 10000 之间、非递增的耗�
 
 检查器沿输出的路线累加代价，要求每一步都是改一位或交换一次，并把总和与最少时间比较。所有解答在小的随机测试以及最多 50000 台电报机的稠密、稀疏、链状和不可达布局上都能通过检查，并与一个独立的已通过实现对照。
 
+## 优化解法
+
+优化的 C++ 解法用一个扁平的开放寻址表代替 `std::unordered_map`，表的槽数是不小于
+`2n` 的 2 的幂，槽中存电报机编号加一，零表示空槽；槽由号码的乘法哈希选出，冲突时
+顺延到下一个槽，由于表最多半满，查找通常几次探测就结束。距离用 `int` 存：最快路
+线最多 `n − 1 ≤ 49 999` 步，每步不超过 10000，总计小于 `5 · 10^8 < 2^31`。队列是
+支持减小键值的索引二叉堆，所以每台电报机在堆中最多占一个位置，而不是重复入队，最
+后堆数组还用来输出路线。数从 4 KB 的块中手工解析，而不是用 `scanf` 读成字符串再
+转换：{1806_graphs_optimized.cpp}。
+
+优化的 Go 解法用一个由 `int32` 编号组成的扁平开放寻址表代替映射，槽数是不小于
+`2n` 的 2 的幂，零表示空槽；槽由号码的乘法哈希选出，冲突时顺延到下一个槽，半空的
+表通常让探测保持很短。距离用 `int32` 存：最快路线最多 `n − 1 ≤ 49 999` 步，每步
+不超过 10000，总计小于 `5 · 10^8 < 2^31`。队列是由 `int32` 组成、支持减小键值的
+索引二叉堆，而不是需要接口调用并重复入队的 `container/heap`。数从带缓冲的读取器
+中手工解析，而不是用 `fmt.Fscan`，路线直接写到输出：{1806_graphs_optimized.go}。
+
+优化的 Java 解法用一个由 `int` 编号组成的扁平开放寻址表代替以装箱 `Long` 为键的
+`HashMap`，槽数是不小于 `2n` 的 2 的幂，零表示空槽；槽由号码的乘法哈希选出，冲突
+时顺延到下一个槽，半空的表通常让探测保持很短。距离用 `int` 存：最快路线最多
+`n − 1 ≤ 49 999` 步，每步不超过 10000，总计小于 `5 · 10^8 < 2^31`。队列是支持减
+小键值的索引二叉堆，而不是用 lambda 比较器、存放 `long[]` 对的 `PriorityQueue`，
+所以入队时不创建对象。数从 4 KB 的字节块中手工解析：
+{1806_graphs_optimized.java}。
+
+优化的 Python 解法对每个数位位置记下在某个电报机号码中出现过的数字，并跳过会在该
+位置放上其他数字的修改和交换，因为任何电报机都不可能有这样的相邻号码。电报机一出
+队就从号码字典中删除，因为代价为正时它不可能再变好，之后的查找面对的字典更小；输
+入记号的列表也在搜索前释放。它在 PyPy 下运行，这里经过编译的整数循环更快：
+{1806_graphs_optimized.py}。
+
+优化的 Rust 解法用一个由 `u32` 编号组成的扁平开放寻址表代替 `HashMap`，槽数是不
+小于 `2n` 的 2 的幂，零表示空槽；槽由号码的乘法哈希选出，冲突时顺延到下一个槽，
+半空的表通常让探测保持很短。距离用 `i32`、堆中的顶点用 `u32` 存，大小是 `i64` 和
+`usize` 的一半：最快路线最多 `n − 1 ≤ 49 999` 步，每步不超过 10000，总计小于
+`5 · 10^8 < 2^31`。号码的各位数字放在固定数组中，而不是为每台电报机新建向量，路
+线直接写到输出，而不是先收集成字符串：{1806_graphs_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1806_graphs_optimized.cpp`: 时间降低 +65.06%; 内存降低 +70.82%; 基础版本: `1806_graphs.cpp`.
+
+- `1806_graphs_optimized.go`: 时间降低 +38.11%; 内存降低 +65.91%; 基础版本: `1806_graphs.go`.
+
+- `1806_graphs_optimized.java`: 时间降低 +46.02%; 内存降低 +69.51%; 基础版本: `1806_graphs.java`.
+
+- `1806_graphs_optimized.py`: 时间降低 +58.00%; 内存降低 +16.30%; 基础版本: `1806_graphs.py`.
+
+- `1806_graphs_optimized.rs`: 时间降低 +35.78%; 内存降低 +50.36%; 基础版本: `1806_graphs.rs`.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1806_graphs.cpp](1806_graphs.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.312 s | 4760 KB |
-| [1806_graphs.go](1806_graphs.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.328 s | 8788 KB |
-| [1806_graphs.java](1806_graphs.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.531 s | 12700 KB |
-| [1806_graphs.py](1806_graphs.py) | Python 3.12 x64 | graphs | O(135 n log n) | AC | 2.343 s | 16128 KB |
-| [1806_graphs.rs](1806_graphs.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.218 s | 6672 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1806_graphs.cpp](1806_graphs.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.312 s | 4756 KB | 11304248 |
+| [1806_graphs.go](1806_graphs.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.328 s | 8788 KB | 11290019 |
+| [1806_graphs.java](1806_graphs.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.578 s | 12740 KB | 11304250 |
+| [1806_graphs.py](1806_graphs.py) | Python 3.12 x64 | graphs | O(135 n log n) | AC | 2.343 s | 16464 KB | 11304252 |
+| [1806_graphs.rs](1806_graphs.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.218 s | 6680 KB | 11304254 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1806_graphs_optimized.cpp](1806_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.109 s | 1388 KB | 11307284 |
+| [1806_graphs_optimized.go](1806_graphs_optimized.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.203 s | 2996 KB | 11307288 |
+| [1806_graphs_optimized.java](1806_graphs_optimized.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.312 s | 3884 KB | 11307286 |
+| [1806_graphs_optimized.py](1806_graphs_optimized.py) | PyPy 3.10 x64 | graphs | O(135 n log n) | AC | 0.984 s | 13780 KB | 11307367 |
+| [1806_graphs_optimized.rs](1806_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.140 s | 3316 KB | 11307327 |

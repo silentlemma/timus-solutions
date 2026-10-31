@@ -9,12 +9,16 @@ fn main() {
     io::stdin().read_to_string(&mut input).unwrap();
     let mut it = input.split_ascii_whitespace();
     let n: usize = it.next().unwrap().parse().unwrap();
-    let cost: Vec<i64> = (0..DIGITS).map(|_| it.next().unwrap().parse().unwrap()).collect();
+    let cost: Vec<i64> = (0..DIGITS)
+        .map(|_| it.next().unwrap().parse().unwrap())
+        .collect();
     let mut place = vec![1i64; DIGITS];
     for p in (0..DIGITS - 1).rev() {
         place[p] = place[p + 1] * DIGITS as i64;
     }
-    let number: Vec<i64> = (0..n).map(|_| it.next().unwrap().parse().unwrap()).collect();
+    let number: Vec<i64> = (0..n)
+        .map(|_| it.next().unwrap().parse().unwrap())
+        .collect();
     let index: HashMap<i64, usize> = number.iter().enumerate().map(|(i, &v)| (v, i)).collect();
     let mut best: Vec<Option<i64>> = vec![None; n];
     let mut before = vec![usize::MAX; n];
@@ -29,11 +33,15 @@ fn main() {
             break;
         }
         let value = number[u];
-        let digit: Vec<i64> = (0..DIGITS).map(|p| value / place[p] % DIGITS as i64).collect();
+        let digit: Vec<i64> = (0..DIGITS)
+            .map(|p| value / place[p] % DIGITS as i64)
+            .collect();
         // neighbours with the first change at digit p share a prefix of p
         for p in 0..DIGITS {
             let low = value - digit[p] * place[p];
-            let changes = (0..DIGITS as i64).filter(|&o| o != digit[p]).map(|o| low + o * place[p]);
+            let changes = (0..DIGITS as i64)
+                .filter(|&o| o != digit[p])
+                .map(|o| low + o * place[p]);
             let swaps = (p + 1..DIGITS)
                 .filter(|&q| digit[q] != digit[p])
                 .map(|q| value + (digit[q] - digit[p]) * (place[p] - place[q]));

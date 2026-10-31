@@ -7,8 +7,8 @@ DIGITS = 10
 def main():
     data = sys.stdin.read().split()
     n = int(data[0])
-    cost = list(map(int, data[1:1 + DIGITS]))
-    numbers = [int(s) for s in data[1 + DIGITS:1 + DIGITS + n]]
+    cost = list(map(int, data[1 : 1 + DIGITS]))
+    numbers = [int(s) for s in data[1 + DIGITS : 1 + DIGITS + n]]
     index = {v: i for i, v in enumerate(numbers)}
     # place[p]: the value of a unit in digit p, counted from the left
     place = [10 ** (DIGITS - 1 - p) for p in range(DIGITS)]

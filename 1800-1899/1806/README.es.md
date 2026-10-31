@@ -97,12 +97,112 @@ pequeños aleatorios y con hasta 50000 telégrafos en disposiciones densas,
 dispersas, en cadena e inalcanzables, frente a una implementación
 aceptada independiente.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ sustituye `std::unordered_map` por una
+tabla plana de direccionamiento abierto cuyo tamaño es una potencia de
+dos, al menos `2n`, y cuyas casillas guardan el índice del telégrafo más
+uno, y cero si están vacías; la casilla se elige por hash multiplicativo
+del número, una colisión pasa a la casilla siguiente y, como la tabla
+está como mucho medio llena, una búsqueda suele terminar tras pocos
+sondeos. Las distancias son `int`: una ruta más rápida tiene como mucho
+`n − 1 ≤ 49 999` pasos de como mucho 10000 cada uno, menos de
+`5 · 10^8 < 2^31`. La cola es un montículo binario indexado con
+disminución de clave, así que cada telégrafo ocupa como mucho una
+casilla del montículo en lugar de entradas repetidas, y el arreglo del
+montículo se reutiliza para imprimir la ruta. Los números se analizan a
+mano desde bloques de 4 KB en lugar de leerlos como cadenas con `scanf`
+y convertirlos: {1806_graphs_optimized.cpp}.
+
+La solución optimizada en Go sustituye el mapa por una tabla plana de
+direccionamiento abierto de índices `int32` cuyo tamaño es una potencia
+de dos, al menos `2n`, donde cero marca una casilla vacía; la casilla se
+elige por hash multiplicativo del número, una colisión pasa a la casilla
+siguiente y la tabla medio vacía suele mantener cortos los sondeos. Las
+distancias son `int32`: una ruta más rápida tiene como mucho
+`n − 1 ≤ 49 999` pasos de como mucho 10000 cada uno, menos de
+`5 · 10^8 < 2^31`. La cola es un montículo binario indexado de `int32`
+con disminución de clave en lugar de `container/heap` con sus llamadas
+por interfaz y entradas repetidas. Los números se analizan a mano desde
+el lector con búfer en lugar de con `fmt.Fscan`, y la ruta se escribe
+directamente en la salida: {1806_graphs_optimized.go}.
+
+La solución optimizada en Java sustituye el `HashMap` de claves `Long`
+empaquetadas por una tabla plana de direccionamiento abierto de índices
+`int` cuyo tamaño es una potencia de dos, al menos `2n`, donde cero
+marca una casilla vacía; la casilla se elige por hash multiplicativo del
+número, una colisión pasa a la casilla siguiente y la tabla medio vacía
+suele mantener cortos los sondeos. Las distancias son `int`: una ruta
+más rápida tiene como mucho `n − 1 ≤ 49 999` pasos de como mucho
+10000 cada uno, menos de `5 · 10^8 < 2^31`. La cola es un montículo
+binario indexado con disminución de clave en lugar de una
+`PriorityQueue` de pares `long[]` con un comparador lambda, así que no
+se crea ningún objeto por entrada de la cola. Los números se analizan a
+mano desde bloques de bytes de 4 KB: {1806_graphs_optimized.java}.
+
+La solución optimizada en Python anota, para cada posición, qué dígitos
+aparecen en ella en algún número de telégrafo, y se salta los cambios e
+intercambios que pondrían allí otro dígito, porque ningún telégrafo
+puede tener ese número vecino. Un telégrafo sale del diccionario de
+números en cuanto se extrae de la cola, porque con costes positivos ya
+no puede mejorar, así que las búsquedas posteriores encuentran menos
+números, y la lista de tokens de la entrada se libera antes de la
+búsqueda. Se ejecuta con PyPy, cuyos bucles enteros compilados son aquí
+más rápidos: {1806_graphs_optimized.py}.
+
+La solución optimizada en Rust sustituye el `HashMap` por una tabla
+plana de direccionamiento abierto de índices `u32` cuyo tamaño es una
+potencia de dos, al menos `2n`, donde cero marca una casilla vacía; la
+casilla se elige por hash multiplicativo del número, una colisión pasa a
+la casilla siguiente y la tabla medio vacía suele mantener cortos los
+sondeos. Las distancias son `i32` y los vértices del montículo `u32`, la
+mitad de `i64` y `usize`: una ruta más rápida tiene como mucho
+`n − 1 ≤ 49 999` pasos de como mucho 10000 cada uno, menos de
+`5 · 10^8 < 2^31`. Los dígitos de un número van a un arreglo fijo en
+lugar de a un vector nuevo por cada telégrafo, y la ruta se escribe
+directamente en la salida en lugar de reunirse en cadenas:
+{1806_graphs_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1806_graphs_optimized.cpp`: reducción de tiempo +65.06%; reducción de
+  memoria +70.82%; base: `1806_graphs.cpp`.
+
+- `1806_graphs_optimized.go`: reducción de tiempo +38.11%; reducción de
+  memoria +65.91%; base: `1806_graphs.go`.
+
+- `1806_graphs_optimized.java`: reducción de tiempo +46.02%; reducción
+  de memoria +69.51%; base: `1806_graphs.java`.
+
+- `1806_graphs_optimized.py`: reducción de tiempo +58.00%; reducción de
+  memoria +16.30%; base: `1806_graphs.py`.
+
+- `1806_graphs_optimized.rs`: reducción de tiempo +35.78%; reducción de
+  memoria +50.36%; base: `1806_graphs.rs`.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1806_graphs.cpp](1806_graphs.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.312 s | 4760 KB |
-| [1806_graphs.go](1806_graphs.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.328 s | 8788 KB |
-| [1806_graphs.java](1806_graphs.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.531 s | 12700 KB |
-| [1806_graphs.py](1806_graphs.py) | Python 3.12 x64 | graphs | O(135 n log n) | AC | 2.343 s | 16128 KB |
-| [1806_graphs.rs](1806_graphs.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.218 s | 6672 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1806_graphs.cpp](1806_graphs.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.312 s | 4756 KB | 11304248 |
+| [1806_graphs.go](1806_graphs.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.328 s | 8788 KB | 11290019 |
+| [1806_graphs.java](1806_graphs.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.578 s | 12740 KB | 11304250 |
+| [1806_graphs.py](1806_graphs.py) | Python 3.12 x64 | graphs | O(135 n log n) | AC | 2.343 s | 16464 KB | 11304252 |
+| [1806_graphs.rs](1806_graphs.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.218 s | 6680 KB | 11304254 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1806_graphs_optimized.cpp](1806_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(135 n log n) | AC | 0.109 s | 1388 KB | 11307284 |
+| [1806_graphs_optimized.go](1806_graphs_optimized.go) | Go 1.14 x64 | graphs | O(135 n log n) | AC | 0.203 s | 2996 KB | 11307288 |
+| [1806_graphs_optimized.java](1806_graphs_optimized.java) | Java 1.8 | graphs | O(135 n log n) | AC | 0.312 s | 3884 KB | 11307286 |
+| [1806_graphs_optimized.py](1806_graphs_optimized.py) | PyPy 3.10 x64 | graphs | O(135 n log n) | AC | 0.984 s | 13780 KB | 11307367 |
+| [1806_graphs_optimized.rs](1806_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(135 n log n) | AC | 0.140 s | 3316 KB | 11307327 |
