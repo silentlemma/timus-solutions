@@ -86,16 +86,53 @@ IMPOSSIBLE
 答案已用检查程序在全部 13 个固定和生成测试上验证。独立判定程序和操作重放
 检查还通过了 3000 个小规模随机输入和 374 个边界用例，最多需要 500 次操作。
 
+## 优化解法
+
+优化的 C++ 解法输出同样的操作，但把每个顶点的粒子数和三个邻居存在以顶点字母为下
+标的小型固定数组中，而不是 `std::map`，用 `scanf` 代替 `iostream` 读入，并用
+`printf` 立即输出每个操作，而不是把全部输出先拼成字符串：
+{1155_constructive_optimized.cpp}。
+
+优化的 Java 解法输出同样的操作，但把每个顶点的粒子数和三个邻居存在以顶点字母为下
+标的固定数组中，而不是装箱字符的映射和由 lambda 建立的列表，并按 4 KB 分块逐字节
+读入八个数，而不是用 `Scanner`：{1155_constructive_optimized.java}。
+
+优化的 Rust 解法输出同样的操作，但把每个顶点的粒子数和三个邻居存在以顶点字母为下
+标的固定数组中，而不是哈希表，并把每个操作直接写入 `BufWriter`，而不是把全部输出
+先拼成字符串：{1155_constructive_optimized.rs}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1155_constructive_optimized.cpp`: 时间降低 -106.67%; 内存降低 +75.25%; 基础版本: `1155_constructive.cpp`.
+
+- `1155_constructive_optimized.java`: 时间降低 +40.38%; 内存降低 +88.26%; 基础版本: `1155_constructive.java`.
+
+- `1155_constructive_optimized.rs`: 时间降低 +0.00%; 内存降低 +50.46%; 基础版本: `1155_constructive.rs`.
+
 ## 各语言说明
 
 - 所有语言按相同顺序处理各棱，并输出相同的操作。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB |
-| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB |
-| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB |
-| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB |
-| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB | 11281010 |
+| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB | 11281106 |
+| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB | 11281181 |
+| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB | 11281128 |
+| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB | 11281207 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

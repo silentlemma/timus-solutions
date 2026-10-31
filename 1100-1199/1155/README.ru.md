@@ -99,6 +99,43 @@ IMPOSSIBLE
 ответы на 3000 малых случайных входах и 374 граничных случаях;
 максимум — 500 действий.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ печатает те же операции, но хранит
+количества и трёх соседей каждой вершины в небольших массивах
+фиксированного размера, индексированных буквой вершины, вместо
+`std::map`, читает через `scanf` вместо `iostream` и печатает каждую
+операцию через `printf` сразу, а не собирает весь вывод в строку:
+{1155_constructive_optimized.cpp}.
+
+Оптимизированное решение на Java печатает те же операции, но хранит
+количества и трёх соседей каждой вершины в массивах фиксированного
+размера, индексированных буквой вершины, вместо словарей с упакованными
+символами и списков, созданных лямбдами, и читает восемь чисел побайтно
+блоками по 4 КБ вместо `Scanner`: {1155_constructive_optimized.java}.
+
+Оптимизированное решение на Rust печатает те же операции, но хранит
+количества и трёх соседей каждой вершины в массивах фиксированного
+размера, индексированных буквой вершины, вместо хеш-таблиц и пишет
+каждую операцию сразу в `BufWriter`, а не собирает весь вывод в строку:
+{1155_constructive_optimized.rs}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1155_constructive_optimized.cpp`: сокращение времени -106.67%;
+  сокращение памяти +75.25%; база: `1155_constructive.cpp`.
+
+- `1155_constructive_optimized.java`: сокращение времени +40.38%;
+  сокращение памяти +88.26%; база: `1155_constructive.java`.
+
+- `1155_constructive_optimized.rs`: сокращение времени +0.00%;
+  сокращение памяти +50.46%; база: `1155_constructive.rs`.
+
 ## Особенности языков
 
 - Во всех языках рёбра проходятся в одном порядке и выводятся одни и те
@@ -106,10 +143,22 @@ IMPOSSIBLE
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB |
-| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB |
-| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB |
-| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB |
-| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB | 11281010 |
+| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB | 11281106 |
+| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB | 11281181 |
+| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB | 11281128 |
+| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB | 11281207 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.

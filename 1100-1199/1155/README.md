@@ -98,6 +98,44 @@ The answers were checked by the checker on all 13 stored and generated
 test cases. Independent oracle and operation replay checks passed on
 3000 random small inputs and 374 boundary cases, with at most 500 operations.
 
+## Optimized solutions
+
+The optimized C++ solution prints the same operations, but keeps the
+counts and the three neighbours of every corner in small fixed arrays
+indexed by the letter of the corner instead of `std::map`, reads with
+`scanf` instead of `iostream`, and prints every operation with `printf`
+right away instead of collecting the whole output in a string:
+{1155_constructive_optimized.cpp}.
+
+The optimized Java solution prints the same operations, but keeps the
+counts and the three neighbours of every corner in fixed arrays indexed
+by the letter of the corner instead of maps of boxed characters and
+lists built by lambdas, and reads the eight numbers byte by byte from
+4 KB blocks instead of with `Scanner`:
+{1155_constructive_optimized.java}.
+
+The optimized Rust solution prints the same operations, but keeps the
+counts and the three neighbours of every corner in fixed arrays indexed
+by the letter of the corner instead of hash maps, and writes every
+operation straight to a `BufWriter` instead of collecting the whole
+output in a string: {1155_constructive_optimized.rs}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1155_constructive_optimized.cpp`: time reduction -106.67%; memory
+  reduction +75.25%; base: `1155_constructive.cpp`.
+
+- `1155_constructive_optimized.java`: time reduction +40.38%; memory
+  reduction +88.26%; base: `1155_constructive.java`.
+
+- `1155_constructive_optimized.rs`: time reduction +0.00%; memory
+  reduction +50.46%; base: `1155_constructive.rs`.
+
 ## Language notes
 
 - All languages go over the edges in the same order and print the same
@@ -105,10 +143,22 @@ test cases. Independent oracle and operation replay checks passed on
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB |
-| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB |
-| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB |
-| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB |
-| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB | 11281010 |
+| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB | 11281106 |
+| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB | 11281181 |
+| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB | 11281128 |
+| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB | 11281207 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

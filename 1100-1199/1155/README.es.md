@@ -101,6 +101,44 @@ generadas. El oráculo independiente y la repetición de las operaciones
 validaron 3000 entradas aleatorias pequeñas y 374 casos límite, con un
 máximo de 500 operaciones.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ imprime las mismas operaciones, pero
+guarda las cantidades y los tres vecinos de cada vértice en pequeños
+arreglos fijos indexados por la letra del vértice en lugar de
+`std::map`, lee con `scanf` en lugar de `iostream` e imprime cada
+operación con `printf` en el acto en lugar de juntar toda la salida en
+una cadena: {1155_constructive_optimized.cpp}.
+
+La solución optimizada en Java imprime las mismas operaciones, pero
+guarda las cantidades y los tres vecinos de cada vértice en arreglos
+fijos indexados por la letra del vértice en lugar de mapas de caracteres
+empaquetados y listas creadas con lambdas, y lee los ocho números byte a
+byte en bloques de 4 KB en lugar de con `Scanner`:
+{1155_constructive_optimized.java}.
+
+La solución optimizada en Rust imprime las mismas operaciones, pero
+guarda las cantidades y los tres vecinos de cada vértice en arreglos
+fijos indexados por la letra del vértice en lugar de tablas hash, y
+escribe cada operación directamente en un `BufWriter` en lugar de juntar
+toda la salida en una cadena: {1155_constructive_optimized.rs}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1155_constructive_optimized.cpp`: reducción de tiempo -106.67%;
+  reducción de memoria +75.25%; base: `1155_constructive.cpp`.
+
+- `1155_constructive_optimized.java`: reducción de tiempo +40.38%;
+  reducción de memoria +88.26%; base: `1155_constructive.java`.
+
+- `1155_constructive_optimized.rs`: reducción de tiempo +0.00%;
+  reducción de memoria +50.46%; base: `1155_constructive.rs`.
+
 ## Notas por lenguaje
 
 - Todos los lenguajes recorren las aristas en el mismo orden e imprimen
@@ -108,10 +146,22 @@ máximo de 500 operaciones.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB |
-| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB |
-| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB |
-| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB |
-| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive.cpp](1155_constructive.cpp) | G++ 13.2 x64 | constructive | O(total) | AC | 0.015 s | 404 KB | 11281010 |
+| [1155_constructive.go](1155_constructive.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.031 s | 1116 KB | 11281106 |
+| [1155_constructive.java](1155_constructive.java) | Java 1.8 | constructive | O(total) | AC | 0.156 s | 3884 KB | 11281181 |
+| [1155_constructive.py](1155_constructive.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 612 KB | 11281128 |
+| [1155_constructive.rs](1155_constructive.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 436 KB | 11281207 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
