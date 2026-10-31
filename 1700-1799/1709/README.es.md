@@ -82,12 +82,50 @@ simetría, que d y a estén solo en vuelos existentes y ausentes, y que
 el resultado sea un árbol generador. Las respuestas coinciden con una
 implementación aceptada independiente en 800 grafos aleatorios.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ lee la matriz fila a fila con `scanf` en
+un búfer de 101 bytes y procesa en el acto los vuelos de esa fila, así
+que la matriz nunca se guarda; el plan es un arreglo global de 100 filas
+de 101 caracteres, ya que n ≤ 100, y se imprime con `puts`. Usa `stdio`
+en lugar de `iostream` y `std::string`: {1709_dsu_optimized.cpp}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1709_dsu_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +71.30%; base: `1709_dsu.cpp`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1709_dsu.go](1709_dsu.go).
+- [1709_dsu.java](1709_dsu.java).
+- [1709_dsu.py](1709_dsu.py).
+- [1709_dsu.rs](1709_dsu.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 464 KB |
-| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB |
-| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB |
-| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.093 s | 656 KB |
-| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 460 KB | 11304077 |
+| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB | 11289190 |
+| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB | 11289192 |
+| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.078 s | 636 KB | 11304078 |
+| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB | 11289193 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu_optimized.cpp](1709_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 132 KB | 11305852 |

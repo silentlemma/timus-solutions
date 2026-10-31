@@ -81,12 +81,51 @@ that d and a stand only on old and on missing flights, and that the
 result is a spanning tree. The answers match an independent accepted
 implementation on 800 random graphs.
 
+## Optimized solutions
+
+The optimized C++ solution reads the matrix one row at a time with
+`scanf` into a buffer of 101 bytes and handles the flights of that row
+at once, so the matrix itself is never stored; the plan is a global
+array of 100 rows of 101 characters, since n ≤ 100, printed with `puts`.
+It uses `stdio` instead of `iostream` and `std::string`:
+{1709_dsu_optimized.cpp}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1709_dsu_optimized.cpp`: time reduction +0.00%; memory reduction
+  +71.30%; base: `1709_dsu.cpp`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1709_dsu.go](1709_dsu.go).
+- [1709_dsu.java](1709_dsu.java).
+- [1709_dsu.py](1709_dsu.py).
+- [1709_dsu.rs](1709_dsu.rs).
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 464 KB |
-| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB |
-| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB |
-| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.093 s | 656 KB |
-| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 460 KB | 11304077 |
+| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB | 11289190 |
+| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB | 11289192 |
+| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.078 s | 636 KB | 11304078 |
+| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB | 11289193 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu_optimized.cpp](1709_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 132 KB | 11305852 |

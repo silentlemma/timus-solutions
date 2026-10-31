@@ -6,7 +6,7 @@ HEADER = 3  # n, d and a come before the matrix
 def main():
     data = sys.stdin.read().split()
     n, d, a = int(data[0]), int(data[1]), int(data[2])
-    flights = data[HEADER:HEADER + n]
+    flights = data[HEADER : HEADER + n]
     parent = list(range(n))
 
     def find(x):

@@ -17,7 +17,7 @@ int main() {
     long long d, a;
     std::cin >> n >> d >> a;
     std::vector<std::string> flights(n);
-    for (std::string& row : flights) {
+    for (std::string &row : flights) {
         std::cin >> row;
     }
     parent.resize(n);
@@ -50,7 +50,7 @@ int main() {
         }
     }
     std::cout << cost << "\n";
-    for (const std::string& row : plan) {
+    for (const std::string &row : plan) {
         std::cout << row << "\n";
     }
 }

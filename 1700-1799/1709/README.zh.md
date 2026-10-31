@@ -67,12 +67,42 @@ d00000
 检查程序接受任何最优方案：它检查花费、对称性、d 和 a 只出现在已有和不存在的航班上，以及结果是一棵生成树。
 在 800 个随机图上，答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 把矩阵逐行读入 101 字节的缓冲区，并立即处理这一行的航
+班，因此矩阵本身从不保存；由于 n ≤ 100，计划存放在 100 行、每行 101 个字符的全局
+数组中，用 `puts` 输出。它用 `stdio` 代替 `iostream` 和 `std::string`：
+{1709_dsu_optimized.cpp}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1709_dsu_optimized.cpp`: 时间降低 +0.00%; 内存降低 +71.30%; 基础版本: `1709_dsu.cpp`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1709_dsu.go](1709_dsu.go).
+- [1709_dsu.java](1709_dsu.java).
+- [1709_dsu.py](1709_dsu.py).
+- [1709_dsu.rs](1709_dsu.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 464 KB |
-| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB |
-| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB |
-| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.093 s | 656 KB |
-| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu.cpp](1709_dsu.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 460 KB | 11304077 |
+| [1709_dsu.go](1709_dsu.go) | Go 1.14 x64 | dsu | O(n²) | AC | 0.031 s | 1188 KB | 11289190 |
+| [1709_dsu.java](1709_dsu.java) | Java 1.8 | dsu | O(n²) | AC | 0.093 s | 796 KB | 11289192 |
+| [1709_dsu.py](1709_dsu.py) | Python 3.12 x64 | dsu | O(n²) | AC | 0.078 s | 636 KB | 11304078 |
+| [1709_dsu.rs](1709_dsu.rs) | Rust 1.75 x64 | dsu | O(n²) | AC | 0.015 s | 288 KB | 11289193 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1709_dsu_optimized.cpp](1709_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(n²) | AC | 0.015 s | 132 KB | 11305852 |
