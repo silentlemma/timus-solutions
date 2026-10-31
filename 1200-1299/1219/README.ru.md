@@ -56,6 +56,55 @@
 Вывод проверен на все три ограничения, а приведённые числа — его
 настоящие максимумы.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ сразу строит цикл как 17 576 байт, по
+байту на букву, и выводит его 56 раз через `fwrite`, а затем ещё первые
+15 744 буквы, вместо заполнения строки из миллиона букв; вывод тот же:
+{1219_constructive_optimized.cpp}.
+
+Оптимизированное решение на Go превращает цикл в блок из 17 576 байт, по
+байту на букву, и выводит его 56 раз через `bufio`, а затем ещё первые
+15 744 буквы, вместо заполнения среза из миллиона байтов; вывод тот же:
+{1219_constructive_optimized.go}.
+
+Оптимизированное решение на Java сразу строит цикл как 17 576 байт, по
+байту на букву, и выводит его 56 раз, а затем ещё первые 15 744 буквы,
+вместо массива `int` и массива байтов по миллиону элементов; вывод тот
+же: {1219_constructive_optimized.java}.
+
+Оптимизированное решение на Python сразу строит цикл в `bytearray` из
+17 576 букв и выводит его 56 раз, а затем ещё первые 15 744 буквы,
+вместо списка чисел и строки из миллиона букв; вывод тот же:
+{1219_constructive_optimized.py}.
+
+Оптимизированное решение на Rust превращает цикл в блок из 17 576 байт,
+по байту на букву, и выводит его 56 раз через `BufWriter`, а затем ещё
+первые 15 744 буквы, вместо сборки вектора из миллиона байтов; вывод тот
+же: {1219_constructive_optimized.rs}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1219_constructive_optimized.cpp`: сокращение времени +0.00%;
+  сокращение памяти +91.89%; база: `1219_constructive.cpp`.
+
+- `1219_constructive_optimized.go`: сокращение времени +0.00%;
+  сокращение памяти +38.11%; база: `1219_constructive.go`.
+
+- `1219_constructive_optimized.java`: сокращение времени +75.81%;
+  сокращение памяти +95.58%; база: `1219_constructive.java`.
+
+- `1219_constructive_optimized.py`: сокращение времени +60.26%;
+  сокращение памяти +86.97%; база: `1219_constructive.py`.
+
+- `1219_constructive_optimized.rs`: сокращение времени +0.00%;
+  сокращение памяти +80.53%; база: `1219_constructive.rs`.
+
 ## Особенности языков
 
 - Во всех языках цикл строится одной и той же рекурсивной конструкцией, а
@@ -63,10 +112,24 @@
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1219_constructive.cpp](1219_constructive.cpp) | G++ 13.2 x64 | constructive | O(L) | AC | 0.001 s | 1184 KB |
-| [1219_constructive.go](1219_constructive.go) | Go 1.14 x64 | constructive | O(L) | AC | 0.015 s | 2624 KB |
-| [1219_constructive.java](1219_constructive.java) | Java 1.8 | constructive | O(L) | AC | 0.062 s | 8868 KB |
-| [1219_constructive.py](1219_constructive.py) | Python 3.12 x64 | constructive | O(L) | AC | 0.078 s | 3224 KB |
-| [1219_constructive.rs](1219_constructive.rs) | Rust 1.75 x64 | constructive | O(L) | AC | 0.001 s | 2404 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1219_constructive.cpp](1219_constructive.cpp) | G++ 13.2 x64 | constructive | O(L) | AC | 0.001 s | 1184 KB | 11283683 |
+| [1219_constructive.go](1219_constructive.go) | Go 1.14 x64 | constructive | O(L) | AC | 0.015 s | 2624 KB | 11283684 |
+| [1219_constructive.java](1219_constructive.java) | Java 1.8 | constructive | O(L) | AC | 0.062 s | 8868 KB | 11283687 |
+| [1219_constructive.py](1219_constructive.py) | Python 3.12 x64 | constructive | O(L) | AC | 0.078 s | 3224 KB | 11283686 |
+| [1219_constructive.rs](1219_constructive.rs) | Rust 1.75 x64 | constructive | O(L) | AC | 0.001 s | 2404 KB | 11283688 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1219_constructive_optimized.cpp](1219_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(L) | AC | 0.001 s | 96 KB | 11304363 |
+| [1219_constructive_optimized.go](1219_constructive_optimized.go) | Go 1.14 x64 | constructive | O(L) | AC | 0.001 s | 1624 KB | 11304367 |
+| [1219_constructive_optimized.java](1219_constructive_optimized.java) | Java 1.8 | constructive | O(L) | AC | 0.001 s | 392 KB | 11304365 |
+| [1219_constructive_optimized.py](1219_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(L) | AC | 0.031 s | 420 KB | 11304366 |
+| [1219_constructive_optimized.rs](1219_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(L) | AC | 0.015 s | 468 KB | 11304368 |
+
+\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
