@@ -58,16 +58,49 @@
 
 答案在所有测试以及 150 组随机数据（包括相接的链、重复的和嵌套的线段）上都用检查程序验证过。
 
+## 优化解法
+
+优化的 C++ 解法把线段存放在一个含 99 个数对的全局数组里（因为 `N ≤ 99`），而不是
+两个 `vector`，并把保留的线段写到同一数组的前部：保留的线段只会占据已经扫描过的
+位置。整个过程不在堆上分配内存：{1112_greedy_optimized.cpp}。
+
+优化的 Java 解法按 4 KB 分块读入并手工解析带符号的数，而不是用 `Scanner`；把端点
+存放在两个 `int` 数组里，而不是每条线段一个数组对象；并用插入排序排序，`N ≤ 99`
+时这很便宜，也不需要比较器；保留的线段写到同样这两个数组的前部：
+{1112_greedy_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1112_greedy_optimized.cpp`: 时间降低 +0.00%; 内存降低 +41.67%; 基础版本: `1112_greedy.cpp`.
+
+- `1112_greedy_optimized.java`: 时间降低 +40.38%; 内存降低 +89.45%; 基础版本: `1112_greedy.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1112_greedy.go](1112_greedy.go).
+- [1112_greedy.rs](1112_greedy.rs).
 
 - 各语言都使用同样的排序和一次扫描。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1112_greedy.cpp](1112_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB |
-| [1112_greedy.go](1112_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1156 KB |
-| [1112_greedy.java](1112_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.156 s | 3944 KB |
-| [1112_greedy.py](1112_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 460 KB |
-| [1112_greedy.rs](1112_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 232 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1112_greedy.cpp](1112_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB | 11279212 |
+| [1112_greedy.go](1112_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1156 KB | 11279213 |
+| [1112_greedy.java](1112_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.156 s | 3944 KB | 11279215 |
+| [1112_greedy.py](1112_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 460 KB | 11279214 |
+| [1112_greedy.rs](1112_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 232 KB | 11279216 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1112_greedy_optimized.cpp](1112_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 112 KB | 11307228 |
+| [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |

@@ -79,16 +79,61 @@ Las respuestas se comprobaron con el comprobador en todas las pruebas y en
 150 conjuntos aleatorios, con cadenas de segmentos que se tocan,
 segmentos repetidos y anidados.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ guarda los segmentos en un único arreglo
+global de 99 pares, ya que `N ≤ 99`, en lugar de dos `vector`, y escribe
+los segmentos conservados al principio del mismo arreglo: un segmento
+conservado solo ocupa el lugar de uno ya recorrido. No se reserva
+memoria dinámica: {1112_greedy_optimized.cpp}.
+
+La solución optimizada en Java lee la entrada en bloques de 4 KB y
+analiza a mano los números con signo en lugar de usar `Scanner`, guarda
+los extremos en dos arreglos de `int` en lugar de un arreglo por
+segmento y los ordena por inserción, lo que con `N ≤ 99` es barato y no
+necesita comparador; los segmentos conservados se escriben al principio
+de los mismos arreglos: {1112_greedy_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1112_greedy_optimized.cpp`: reducción de tiempo +0.00%; reducción de
+  memoria +41.67%; base: `1112_greedy.cpp`.
+
+- `1112_greedy_optimized.java`: reducción de tiempo +40.38%; reducción
+  de memoria +89.45%; base: `1112_greedy.java`.
+
 ## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1112_greedy.go](1112_greedy.go).
+- [1112_greedy.rs](1112_greedy.rs).
 
 - Todos los lenguajes hacen la misma ordenación y un recorrido.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1112_greedy.cpp](1112_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB |
-| [1112_greedy.go](1112_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1156 KB |
-| [1112_greedy.java](1112_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.156 s | 3944 KB |
-| [1112_greedy.py](1112_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 460 KB |
-| [1112_greedy.rs](1112_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1112_greedy.cpp](1112_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 192 KB | 11279212 |
+| [1112_greedy.go](1112_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.015 s | 1156 KB | 11279213 |
+| [1112_greedy.java](1112_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.156 s | 3944 KB | 11279215 |
+| [1112_greedy.py](1112_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 460 KB | 11279214 |
+| [1112_greedy.rs](1112_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.015 s | 232 KB | 11279216 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1112_greedy_optimized.cpp](1112_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 112 KB | 11307228 |
+| [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
