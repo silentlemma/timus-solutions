@@ -79,7 +79,30 @@ min(n,Σb_i)，公共交集正好达到所述下界。
 20·10⁹，减法结果可能小于 −2³¹，必须使用有符号 64 位整数。所有
 a_i=n 时答案是 n。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 代替 `iostream` 读入，每读到一个值就立即从累加器中减去
+`n − a_i`，而不是把 k 个值存进向量，所以只需 `O(1)` 空间；累加器仍是有符号 64 位
+整数（`long long`），因为要减去多达 20 个、每个多达 10⁹ 的差额：
+{1964_math_optimized.cpp}。
+
+优化的 Java 解法计算同样的数，但用 `BufferedReader` 和 `StringTokenizer` 读取输
+入，而不用 `Scanner`，因为 `Scanner` 准备正则表达式要花时间和内存：
+{1964_math_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1964_math_optimized.cpp`: 时间降低 +51.61%; 内存降低 +73.53%; 基础版本: `1964_math.cpp`.
+
+- `1964_math_optimized.java`: 时间降低 +25.60%; 内存降低 +68.20%; 基础版本: `1964_math.java`.
+
 ## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1964_math.rs](1964_math.rs).
 
 C++ 使用 int64_t，Go 1.14 使用 int64，Java 8 使用 long，Rust 1.75
 使用 i64。Rust 不可用无符号累加器，因为中间值可能为负。Python 3.12
@@ -87,10 +110,19 @@ C++ 使用 int64_t，Go 1.14 使用 int64，Java 8 使用 long，Rust 1.75
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1964_math.cpp](1964_math.cpp) | G++ 13.2 x64 | math | O(k) | AC | 0.031 s | 408 KB |
-| [1964_math.go](1964_math.go) | Go 1.14 x64 | math | O(k) | AC | 0.031 s | 1120 KB |
-| [1964_math.java](1964_math.java) | Java 1.8 | math | O(k) | AC | 0.125 s | 1648 KB |
-| [1964_math.py](1964_math.py) | Python 3.12 x64 | math | O(k) | AC | 0.078 s | 476 KB |
-| [1964_math.rs](1964_math.rs) | Rust 1.75 x64 | math | O(k) | AC | 0.031 s | 236 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1964_math.cpp](1964_math.cpp) | G++ 13.2 x64 | math | O(k) | AC | 0.031 s | 408 KB | 11292204 |
+| [1964_math.go](1964_math.go) | Go 1.14 x64 | math | O(k) | AC | 0.031 s | 1120 KB | 11292206 |
+| [1964_math.java](1964_math.java) | Java 1.8 | math | O(k) | AC | 0.125 s | 1648 KB | 11304242 |
+| [1964_math.py](1964_math.py) | Python 3.12 x64 | math | O(k) | AC | 0.078 s | 476 KB | 11304244 |
+| [1964_math.rs](1964_math.rs) | Rust 1.75 x64 | math | O(k) | AC | 0.031 s | 236 KB | 11292211 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1964_math_optimized.cpp](1964_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) | AC | 0.015 s | 108 KB | 11307259 |
+| [1964_math_optimized.java](1964_math_optimized.java) | Java 1.8 | math | O(k) | AC | 0.093 s | 524 KB | 11307263 |

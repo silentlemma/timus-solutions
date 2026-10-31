@@ -15,5 +15,5 @@ def main():
     print(minimum_common(population, lower_bounds))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
