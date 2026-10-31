@@ -63,12 +63,61 @@
 Ответы совпадают с независимой принятой реализацией на 90 случайных
 тройках, в том числе на тройках чисел Фибоначчи.
 
+## Оптимизированные решения
+
+Оптимизированное решение на C++ не хранит список куч: только две
+наименьшие кучи a < b и текущую наименьшую разность g. Новая куча g не
+больше b − a, то есть меньше b, и в отсортированном порядке её соседями
+могут быть только a и b. Все старые разности остаются, поэтому следующая
+наименьшая разность — наименьшее из g, |g − a| и b − g, а двумя
+наименьшими кучами становятся g и a или a и g. Каждый шаг занимает
+`O(1)` времени, а весь прогон — `O(1)` памяти вместо сортировки
+растущего вектора; все значения помещаются в `long long`, ведь они не
+больше 10¹⁸: {1777_simulation_optimized.cpp}.
+
+Оптимизированное решение на Java читает три размера побайтно из
+`System.in` вместо того, чтобы создавать `Scanner`, чьи регулярные
+выражения и данные локали обходятся дороже короткой симуляции, которая
+осталась прежней: {1777_simulation_optimized.java}.
+
+### Измеренный выигрыш
+
+Каждая оптимизированная версия имеет Accepted и сокращает время или
+память минимум на 30% относительно базовой версии на том же языке.
+Базовые исходники сохранены. Отрицательное сокращение означает рост
+расхода. Звёздочка относится только к рейтинговой цели.
+
+- `1777_simulation_optimized.cpp`: сокращение времени +0.00%; сокращение
+  памяти +47.92%; база: `1777_simulation.cpp`.
+
+- `1777_simulation_optimized.java`: сокращение времени +0.00%;
+  сокращение памяти +74.18%; база: `1777_simulation.java`.
+
+## Особенности языков
+
+В срезе рейтинга от 31 октября 2026 года следующие базовые реализации
+уже достигают целей по времени и памяти. Сохраняются их существующие
+файлы в базовом наборе; для достижения рейтинговой цели на этих языках
+дополнительная реализация не требуется.
+
+- [1777_simulation.go](1777_simulation.go).
+- [1777_simulation.rs](1777_simulation.rs).
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB |
-| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB |
-| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.125 s | 1712 KB |
-| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB |
-| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.062 s | 248 KB |
+### Простые
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB | 11304057 |
+| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB | 11289732 |
+| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 1704 KB | 11304058 |
+| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB | 11289733 |
+| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.046 s | 252 KB | 11304059 |
+
+### Оптимизированные
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |

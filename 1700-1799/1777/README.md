@@ -56,18 +56,68 @@ Pitfalls:
 - the person who finds equal piles is counted too;
 - the new pile can repeat an old size, which ends the run one person
   later;
-- sizes up to 10¹⁸ need 64-bit numbers.
-- short random runs do not establish the worst case: test 08 asks 85 people.
+- sizes up to 10¹⁸ need 64-bit numbers;
+- short random runs do not establish the worst case: test 08 asks
+  85 people.
 
-The answers agree with an independent accepted implementation on 90
-random triples, including triples of Fibonacci numbers.
+The answers agree with an independent accepted implementation on
+90 random triples, including triples of Fibonacci numbers.
+
+## Optimized solutions
+
+The optimized C++ solution keeps no list of piles: only the two smallest
+piles a < b and the current smallest difference g. The new pile g is at
+most b − a, so it is smaller than b, and in sorted order its only
+possible neighbours are a and b. All old differences stay, so the next
+smallest difference is the least of g, |g − a| and b − g, and the two
+smallest piles become g and a, or a and g. Every step takes `O(1)` time
+and the whole run `O(1)` memory instead of sorting a growing vector; all
+values fit in `long long`, since they are at most 10¹⁸:
+{1777_simulation_optimized.cpp}.
+
+The optimized Java solution reads the three sizes byte by byte from
+`System.in` instead of creating a `Scanner`, whose regular expressions
+and locale data cost more than the short simulation, which stays the
+same: {1777_simulation_optimized.java}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1777_simulation_optimized.cpp`: time reduction +0.00%; memory
+  reduction +47.92%; base: `1777_simulation.cpp`.
+
+- `1777_simulation_optimized.java`: time reduction +0.00%; memory
+  reduction +74.18%; base: `1777_simulation.java`.
+
+## Language notes
+
+In the rating snapshot of 2026-10-31, the following base implementations
+already meet the time and memory targets. Their existing files are kept
+as the base solutions; the rating target needs no additional
+implementation for these languages.
+
+- [1777_simulation.go](1777_simulation.go).
+- [1777_simulation.rs](1777_simulation.rs).
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB |
-| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB |
-| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.125 s | 1712 KB |
-| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB |
-| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.062 s | 248 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB | 11304057 |
+| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB | 11289732 |
+| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 1704 KB | 11304058 |
+| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB | 11289733 |
+| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.046 s | 252 KB | 11304059 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |

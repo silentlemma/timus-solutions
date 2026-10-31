@@ -65,12 +65,61 @@ Trampas:
 Las respuestas coinciden con una implementación aceptada independiente
 en 90 tríos aleatorios, incluidos tríos de números de Fibonacci.
 
+## Soluciones optimizadas
+
+La solución optimizada en C++ no guarda la lista de montones: solo los
+dos montones menores a < b y la menor diferencia actual g. El nuevo
+montón g no pasa de b − a, así que es menor que b, y en orden sus únicos
+vecinos posibles son a y b. Todas las diferencias viejas siguen ahí, de
+modo que la siguiente menor diferencia es la menor de g, |g − a| y
+b − g, y los dos montones menores pasan a ser g y a, o a y g. Cada paso
+cuesta `O(1)` de tiempo y toda la ejecución `O(1)` de memoria en lugar
+de ordenar un vector que crece; todos los valores caben en `long long`,
+porque no pasan de 10¹⁸: {1777_simulation_optimized.cpp}.
+
+La solución optimizada en Java lee los tres tamaños byte a byte de
+`System.in` en lugar de crear un `Scanner`, cuyas expresiones regulares
+y datos de configuración regional cuestan más que la breve simulación,
+que sigue igual: {1777_simulation_optimized.java}.
+
+### Mejora medida
+
+Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
+al menos un 30% frente a la versión básica del mismo lenguaje. Se
+conservan los fuentes básicos. Una reducción negativa indica mayor
+coste. El asterisco solo se refiere al objetivo de clasificación.
+
+- `1777_simulation_optimized.cpp`: reducción de tiempo +0.00%; reducción
+  de memoria +47.92%; base: `1777_simulation.cpp`.
+
+- `1777_simulation_optimized.java`: reducción de tiempo +0.00%;
+  reducción de memoria +74.18%; base: `1777_simulation.java`.
+
+## Notas por lenguaje
+
+En la clasificación del 2026-10-31, las siguientes implementaciones
+básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
+archivos en el conjunto básico; estos lenguajes no necesitan otra
+implementación para alcanzar el objetivo.
+
+- [1777_simulation.go](1777_simulation.go).
+- [1777_simulation.rs](1777_simulation.rs).
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB |
-| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB |
-| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.125 s | 1712 KB |
-| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB |
-| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.062 s | 248 KB |
+### Sencillas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation.cpp](1777_simulation.cpp) | G++ 13.2 x64 | simulation | O(s^2 log s) for s steps | AC | 0.015 s | 192 KB | 11304057 |
+| [1777_simulation.go](1777_simulation.go) | Go 1.14 x64 | simulation | O(s^2 log s) for s steps | AC | 0.031 s | 1124 KB | 11289732 |
+| [1777_simulation.java](1777_simulation.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 1704 KB | 11304058 |
+| [1777_simulation.py](1777_simulation.py) | Python 3.12 x64 | simulation | O(s^2 log s) for s steps | AC | 0.093 s | 436 KB | 11289733 |
+| [1777_simulation.rs](1777_simulation.rs) | Rust 1.75 x64 | simulation | O(s^2 log s) for s steps | AC | 0.046 s | 252 KB | 11304059 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
