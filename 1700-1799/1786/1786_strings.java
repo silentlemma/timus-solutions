@@ -12,8 +12,10 @@ public class Main {
             for (int k = 0; k < NAME.length(); k++) {
                 char a = text.charAt(start + k), b = NAME.charAt(k);
                 // one fee for the wrong case, one for the wrong letter
-                if (Character.isUpperCase(a) != Character.isUpperCase(b)) cost += COINS;
-                if (Character.toLowerCase(a) != Character.toLowerCase(b)) cost += COINS;
+                if (Character.isUpperCase(a) != Character.isUpperCase(b))
+                    cost += COINS;
+                if (Character.toLowerCase(a) != Character.toLowerCase(b))
+                    cost += COINS;
             }
             best = Math.min(best, cost);
         }

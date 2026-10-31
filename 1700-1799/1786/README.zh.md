@@ -48,12 +48,48 @@ MyNameIsAlexander
 
 在 2,000 个随机短文本、592 个定向用例、全部 8 个已有测试和 64 个生成用例上，Python 的答案与基于合法操作图的独立参考程序一致。
 
+## 优化解法
+
+优化的 C++ 解法用 `scanf` 把文本读入 201 字节的缓冲区（足够容纳 200 个字母和结尾
+的零），而不是使用 `std::cin` 和 `std::string`；由于文本只含拉丁字母，它通过与
+`'Z'` 比较来判断大小写，通过加上 `'a' − 'A'` 转成小写，而不是调用 `isupper` 和
+`tolower`：{1786_strings_optimized.cpp}。
+
+优化的 Java 解法直接从 `System.in` 逐字符读取文本，而不是创建 `Scanner`；由于文
+本只含拉丁字母，它通过与 `'Z'` 比较来判断大小写，通过加上 `'a' − 'A'` 转成小写，
+而不是调用 `Character.isUpperCase` 和 `Character.toLowerCase`：
+{1786_strings_optimized.java}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1786_strings_optimized.cpp`: 时间降低 +0.00%; 内存降低 +68.42%; 基础版本: `1786_strings.cpp`.
+
+- `1786_strings_optimized.java`: 时间降低 +28.44%; 内存降低 +75.13%; 基础版本: `1786_strings.java`.
+
+## 各语言说明
+
+在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+
+- [1786_strings.go](1786_strings.go).
+- [1786_strings.rs](1786_strings.rs).
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1786_strings.cpp](1786_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 384 KB |
-| [1786_strings.go](1786_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1088 KB |
-| [1786_strings.java](1786_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 1616 KB |
-| [1786_strings.py](1786_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.078 s | 428 KB |
-| [1786_strings.rs](1786_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 216 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1786_strings.cpp](1786_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 380 KB | 11304047 |
+| [1786_strings.go](1786_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1088 KB | 11289804 |
+| [1786_strings.java](1786_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 1576 KB | 11304048 |
+| [1786_strings.py](1786_strings.py) | Python 3.12 x64 | strings | O(n^2) | AC | 0.109 s | 408 KB | 11304049 |
+| [1786_strings.rs](1786_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 216 KB | 11289809 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1786_strings_optimized.cpp](1786_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 120 KB | 11304276 |
+| [1786_strings_optimized.java](1786_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.078 s | 392 KB | 11304277 |

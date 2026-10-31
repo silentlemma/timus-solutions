@@ -11,8 +11,12 @@ def cost(a, b):
 
 def main():
     text = sys.stdin.read().strip()
-    print(min(sum(cost(a, b) for a, b in zip(text[start:], NAME))
-              for start in range(len(text) - len(NAME) + 1)))
+    print(
+        min(
+            sum(cost(a, b) for a, b in zip(text[start:], NAME))
+            for start in range(len(text) - len(NAME) + 1)
+        )
+    )
 
 
 main()
