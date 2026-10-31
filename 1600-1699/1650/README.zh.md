@@ -14,9 +14,10 @@ n 位财富已知的亿万富翁起初在给定的城市。m 天中他们会旅�
 
 ## 输入
 
-n（1 ≤ n ≤ 10000），然后 n 行“姓名 城市 财富”（财富在 1 到 10¹¹ 之间）。然后是 m 和 k
-（1 ≤ m ≤ 50000，0 ≤ k ≤ 50000），以及按天递增的 k 行“天 姓名 目的城市”。姓名和城市至多 20 个拉丁
-字母，区分大小写。
+n（1 ≤ n ≤ 10000），然后 n 行“姓名 城市 财富”（财富在 1 到 10¹¹ 之间）。然后是 m
+和 k（1 ≤ m ≤ 50000，0 ≤ k ≤ 50000），以及按天递增的 k 行“天 姓名 目的城市”
+（1 ≤ 天 ≤ m − 1），每人每天最多旅行一次。姓名和城市至多 20 个拉丁字母，区分大小
+写。
 
 ## 输出
 
@@ -74,12 +75,67 @@ Moscow 1
 在 60 段随机历史上答案与逐日计数一致，在生成的测试上与一个独立的已通过实现一致。那个实现在有人“旅行”
 到自己已在的城市时会出错，评测数据显然不含这种情况；这里的程序把这样的旅行视为原地不动。
 
+## 优化解法
+
+优化的 C++ 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个新
+城市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的映
+射代替两个映射，结点保存唯一领先城市的编号（平局时为平局标记），而不是叶子的个
+数，树由初始总额自底向上建立，更新时一旦某个结点的最大值和领先者都没有变化就停止
+上溯，因为更上面的结点不会再变。名字用 `scanf` 读入 21 字节的缓冲区，而不是用
+`iostream`：{1650_segment_tree_optimized.cpp}。
+
+优化的 Go 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个新城
+市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的映射
+代替两个映射，结点保存唯一领先城市的编号（平局时为平局标记），而不是叶子的个数，
+树由初始总额自底向上建立，更新时一旦某个结点的最大值和领先者都没有变化就停止上
+溯，因为更上面的结点不会再变。单词来自 `bufio.Scanner`，而不是 `fmt.Fscan`：
+{1650_segment_tree_optimized.go}。
+
+优化的 Java 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个新
+城市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的映
+射代替两个映射，结点保存唯一领先城市的编号（平局时为平局标记），而不是叶子的个
+数，树由初始总额自底向上建立，更新时一旦某个结点的最大值和领先者都没有变化就停止
+上溯，因为更上面的结点不会再变。记号逐行读取，而不是先把全部输入收集到
+`StringBuilder` 中：{1650_segment_tree_optimized.java}。
+
+优化的 Python 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个
+新城市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的
+映射代替两个映射，结点保存唯一领先城市的编号（平局时为平局标记），而不是叶子的个
+数，树由初始总额自底向上建立，更新时一旦某个结点的最大值和领先者都没有变化就停止
+上溯，因为更上面的结点不会再变。输入逐行读取（每行一条记录），而不是一次全部读
+入：{1650_segment_tree_optimized.py}。
+
+### 实测改进
+
+每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+
+- `1650_segment_tree_optimized.cpp`: 时间降低 -49.60%; 内存降低 +50.94%; 基础版本: `1650_segment_tree.cpp`.
+
+- `1650_segment_tree_optimized.go`: 时间降低 +45.61%; 内存降低 +1.04%; 基础版本: `1650_segment_tree.go`.
+
+- `1650_segment_tree_optimized.java`: 时间降低 -15.27%; 内存降低 +46.58%; 基础版本: `1650_segment_tree.java`.
+
+- `1650_segment_tree_optimized.py`: 时间降低 +1.51%; 内存降低 +41.56%; 基础版本: `1650_segment_tree.py`.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1650_segment_tree.cpp](1650_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 20656 KB |
-| [1650_segment_tree.go](1650_segment_tree.go) | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.171 s | 18416 KB |
-| [1650_segment_tree.java](1650_segment_tree.java) | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.203 s | 27324 KB |
-| [1650_segment_tree.py](1650_segment_tree.py) | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.062 s | 27776 KB |
-| [1650_segment_tree.rs](1650_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O((n + k) log C) | AC | 0.031 s | 12940 KB |
+### 简单版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1650_segment_tree.cpp](1650_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.125 s | 20700 KB | 11304018 |
+| [1650_segment_tree.go](1650_segment_tree.go) | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.171 s | 18416 KB | 11288517 |
+| [1650_segment_tree.java](1650_segment_tree.java) | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.203 s | 27324 KB | 11288519 |
+| [1650_segment_tree.py](1650_segment_tree.py) | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.062 s | 27776 KB | 11288518 |
+| [1650_segment_tree.rs](1650_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O((n + k) log C) | AC | 0.046 s | 13036 KB | 11304019 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) \* | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 10156 KB | 11307264 |
+| [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
+| [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
+| [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -17,9 +17,10 @@ cities, and list the cities with at least one such day, sorted by name.
 ## Input
 
 n (1 ≤ n ≤ 10000), then n lines "name city fortune" (fortunes from 1 to
-10¹¹). Then m and k (1 ≤ m ≤ 50000, 0 ≤ k ≤ 50000) and k lines
-"day name destination" in increasing order of day. Names and cities are
-up to 20 Latin letters, case-sensitive.
+10¹¹). Then m and k (1 ≤ m ≤ 50000, 0 ≤ k ≤ 50000) and k lines "day name
+destination" (1 ≤ day ≤ m − 1) in increasing order of day; nobody
+travels more than once a day. Names and cities are up to 20 Latin
+letters, case-sensitive.
 
 ## Output
 
@@ -87,12 +88,90 @@ implementation goes wrong when someone "travels" to the city they are
 already in, which the judge's tests evidently never contain; the
 program here treats such a trip as staying put.
 
+## Optimized solutions
+
+The optimized C++ solution reads the trips one at a time and applies
+each as soon as it is read, instead of storing them all first: a trip
+brings at most one new city, so the tree is sized from the start for the
+starting cities plus k. One map from a name to the city and fortune
+replaces two, a node keeps the index of its single leading city, or a
+tie mark, instead of a count of leaves, the tree is built bottom-up from
+the starting totals, and an update stops climbing as soon as a node
+keeps its maximum and its leader, since nothing above it can change
+then. Names are read with `scanf` into buffers of 21 bytes instead of
+with `iostream`: {1650_segment_tree_optimized.cpp}.
+
+The optimized Go solution reads the trips one at a time and applies each
+as soon as it is read, instead of storing them all first: a trip brings
+at most one new city, so the tree is sized from the start for the
+starting cities plus k. One map from a name to the city and fortune
+replaces two, a node keeps the index of its single leading city, or a
+tie mark, instead of a count of leaves, the tree is built bottom-up from
+the starting totals, and an update stops climbing as soon as a node
+keeps its maximum and its leader, since nothing above it can change
+then. The words come from a `bufio.Scanner` instead of `fmt.Fscan`:
+{1650_segment_tree_optimized.go}.
+
+The optimized Java solution reads the trips one at a time and applies
+each as soon as it is read, instead of storing them all first: a trip
+brings at most one new city, so the tree is sized from the start for the
+starting cities plus k. One map from a name to the city and fortune
+replaces two, a node keeps the index of its single leading city, or a
+tie mark, instead of a count of leaves, the tree is built bottom-up from
+the starting totals, and an update stops climbing as soon as a node
+keeps its maximum and its leader, since nothing above it can change
+then. The tokens are read line by line instead of collecting the whole
+input in a `StringBuilder` first: {1650_segment_tree_optimized.java}.
+
+The optimized Python solution reads the trips one at a time and applies
+each as soon as it is read, instead of storing them all first: a trip
+brings at most one new city, so the tree is sized from the start for the
+starting cities plus k. One map from a name to the city and fortune
+replaces two, a node keeps the index of its single leading city, or a
+tie mark, instead of a count of leaves, the tree is built bottom-up from
+the starting totals, and an update stops climbing as soon as a node
+keeps its maximum and its leader, since nothing above it can change
+then. The input is read line by line, one record per line, instead of
+all at once: {1650_segment_tree_optimized.py}.
+
+### Measured gains
+
+Each optimized version has Accepted and reduces time or memory by at
+least 30% against the base version in the same language. The base
+sources are retained. Negative reduction means increased cost. The
+asterisk concerns the rating target only.
+
+- `1650_segment_tree_optimized.cpp`: time reduction -49.60%; memory
+  reduction +50.94%; base: `1650_segment_tree.cpp`.
+
+- `1650_segment_tree_optimized.go`: time reduction +45.61%; memory
+  reduction +1.04%; base: `1650_segment_tree.go`.
+
+- `1650_segment_tree_optimized.java`: time reduction -15.27%; memory
+  reduction +46.58%; base: `1650_segment_tree.java`.
+
+- `1650_segment_tree_optimized.py`: time reduction +1.51%; memory
+  reduction +41.56%; base: `1650_segment_tree.py`.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1650_segment_tree.cpp](1650_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 20656 KB |
-| [1650_segment_tree.go](1650_segment_tree.go) | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.171 s | 18416 KB |
-| [1650_segment_tree.java](1650_segment_tree.java) | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.203 s | 27324 KB |
-| [1650_segment_tree.py](1650_segment_tree.py) | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.062 s | 27776 KB |
-| [1650_segment_tree.rs](1650_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O((n + k) log C) | AC | 0.031 s | 12940 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1650_segment_tree.cpp](1650_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.125 s | 20700 KB | 11304018 |
+| [1650_segment_tree.go](1650_segment_tree.go) | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.171 s | 18416 KB | 11288517 |
+| [1650_segment_tree.java](1650_segment_tree.java) | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.203 s | 27324 KB | 11288519 |
+| [1650_segment_tree.py](1650_segment_tree.py) | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.062 s | 27776 KB | 11288518 |
+| [1650_segment_tree.rs](1650_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O((n + k) log C) | AC | 0.046 s | 13036 KB | 11304019 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) \* | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 10156 KB | 11307264 |
+| [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
+| [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
+| [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

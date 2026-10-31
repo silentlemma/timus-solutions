@@ -72,7 +72,7 @@ int main() {
     }
     vector<long long> days(cityName.size());
     auto lead = [&](long long span) {
-        if (span > 0 && countOf[1] == 1)  // a strict leader only
+        if (span > 0 && countOf[1] == 1) // a strict leader only
             days[where[1]] += span;
     };
     long long today = 1;

@@ -15,7 +15,12 @@ impl Tree {
     fn new(cities: usize) -> Tree {
         let size = cities.next_power_of_two();
         let (best, count, at) = (vec![0; 2 * size], vec![1; 2 * size], vec![0; 2 * size]);
-        let mut tree = Tree { size, best, count, at };
+        let mut tree = Tree {
+            size,
+            best,
+            count,
+            at,
+        };
         for c in 0..size {
             tree.at[size + c] = c;
         }
@@ -68,7 +73,11 @@ fn main() {
         .collect();
     let mut city_id: HashMap<&str, usize> = HashMap::new();
     let mut city_name: Vec<&str> = Vec::new();
-    for &c in people.iter().map(|p| &p.1).chain(moves.iter().map(|mv| &mv.2)) {
+    for &c in people
+        .iter()
+        .map(|p| &p.1)
+        .chain(moves.iter().map(|mv| &mv.2))
+    {
         if !city_id.contains_key(c) {
             city_id.insert(c, city_name.len());
             city_name.push(c);
@@ -98,8 +107,10 @@ fn main() {
         tree.add(city_id[to], money);
         home.insert(who, (city_id[to], money));
     }
-    let answer: BTreeMap<&str, usize> =
-        (0..city_name.len()).filter(|&c| days[c] > 0).map(|c| (city_name[c], days[c])).collect();
+    let answer: BTreeMap<&str, usize> = (0..city_name.len())
+        .filter(|&c| days[c] > 0)
+        .map(|c| (city_name[c], days[c]))
+        .collect();
     let mut out = String::new();
     for (c, d) in answer {
         writeln!(out, "{} {}", c, d).unwrap();
