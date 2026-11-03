@@ -23,6 +23,12 @@ Time limit: 0.5 seconds. Memory limit: 0.75 MB.
 
 The value of every `POP`, one per line, in order.
 
+## Checking
+
+Compare the exact answer tokens; whitespace formatting is immaterial.
+
+- `1220_implementation_optimized.rs` (Rust 1.75 x64): 13 repository cases; 8 additional source-bound comparisons.
+
 ## Examples
 
 ### Example 1
@@ -76,18 +82,33 @@ Pitfalls:
 The output was compared with a plain list-based simulation on every test,
 including 100,000 operations of several kinds.
 
+## Optimized solutions
+
+Only C++ and Rust are judge-supported here; preserve both simple sources. The compact Rust still implements ordinary LIFO stacks, but chains blocks of eight values instead of retaining a per-stack allocation. Since every value is at most10^9<2^30, eight values occupy30bytes. A u16 link points to the preceding block; empty blocks enter a free list and are reused. At most1000top blocks are partial, while full blocks contain eight live values, so100000/8+1000+1slots suffice and fit u16 indices. Push/pop touch a bounded four/five-byte window and preserve neighbouring packed cells. Fixed global storage and bounded C-ABI input/output avoid heap and unused startup facilities. Total time O(Q), storage O(Q+S) for S=1000stacks. The exact source passed thirteen repository cases and eight independent stress inputs, including100000operations and block reuse.
+
+- `1220_implementation_optimized.rs`: 0.031 s / 436 KB; base `1220_implementation.rs`: 0.031 s / 672 KB; relative change: time -0.0%, memory -35.1%.
+
 ## Language notes
 
-- The statement allows only C, C++ and Pascal, but the Timus submit form
-  also offers Rust 1.75, so there are C++ and Rust solutions; Go, Python
-  and Java cannot be submitted.
-- The Rust runtime alone takes about 130 KB more than the C++ one; the
-  Rust solution still fits because it keeps the same blocks and small
-  fixed buffers and writes the numbers by hand.
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1220_implementation.cpp`; covering source `1220_implementation.cpp`; time/memory places 1/4, other-author entries 55/55.
+
+- Rust: preferred teaching base `1220_implementation.rs`; covering source `1220_implementation_optimized.rs`; time/memory places 1/1, other-author entries 2/2.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1220_implementation.cpp](1220_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 540 KB |
-| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1220_implementation.cpp](1220_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 540 KB | 11283689 |
+| [1220_implementation.rs](1220_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 672 KB | 11286809 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1220_implementation_optimized.rs](1220_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(Q) time; O(Q+S) bounded storage | AC | 0.031 s | 436 KB | 11309741 |
