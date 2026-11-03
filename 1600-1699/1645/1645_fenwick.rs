@@ -4,7 +4,10 @@ use std::io::{self, Read};
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<usize> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<usize> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let n = nums[0];
     let mut place = vec![0; n + 1]; // place[s]: finishing position of skier s
     for p in 1..=n {

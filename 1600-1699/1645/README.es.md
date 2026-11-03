@@ -45,40 +45,70 @@ Salida:
 
 ## Solución
 
-Se compara el esquiador i con el j:
+Los números indican el orden de salida, con intervalos de 30 segundos.
+Respecto de `i`, quien sale después pero llega antes es necesariamente más
+rápido; quien sale antes pero llega después es necesariamente más lento.
+Los otros órdenes permiten ambas comparaciones. El mejor puesto es
+`1 + forzosamente_más_rápidos`; el peor, `n − forzosamente_más_lentos`.
 
-- j salió después y llegó antes: j fue seguro más rápido;
-- j salió antes y llegó después: j fue seguro más lento;
-- en otro caso cabe cualquiera de las dos cosas: solo se conoce el orden
-  de llegada, no los tiempos, así que los huecos entre llegadas pueden
-  compensar los 30 segundos entre salidas o no.
+Ambas cotas son alcanzables simultáneamente para todos los rivales
+indeterminados del esquiador elegido. Para su mejor puesto, agrupa todas
+las llegadas anteriores justo antes de la suya en menos de 30 segundos,
+y aleja las posteriores más de `30n` segundos. Quienes salieron y llegaron
+antes tardarán más; quienes salieron y llegaron después también. Para su
+peor puesto, adelanta las llegadas anteriores más de `30n` segundos y agrupa
+las posteriores justo después, en menos de 30 segundos. Todos los rivales
+indeterminados serán más rápidos. Conserva el orden estricto de cada grupo
+y suma una constante grande a todas las llegadas para obtener duraciones
+positivas, que se pueden elegir distintas. Se construye por separado para
+cada esquiador y cota; no se exige que todos alcancen extremos en una misma carrera.
 
-Así, el mejor puesto es uno más el número de los que salieron después y
-llegaron antes, y el peor es uno más todos salvo los que salieron antes y
-llegaron después. Sea e el número de los que salieron antes y también
-llegaron antes, y p la posición de llegada de i. Los que salieron después
-y llegaron antes son p − 1 − e, así que el mejor puesto es p − e y el peor
-(n − i) + e + 1: todos los que salieron después más esos e. Un árbol de
-Fenwick sobre las posiciones de llegada, llenado en orden de salida, da
-e para cada esquiador. `O(n log n)`.
+Sean `p=place[i]` y `e` quienes salieron y llegaron antes. Hay `p−1−e`
+forzosamente más rápidos e `i−1−e` más lentos; las respuestas son `p−e`
+y `n−i+e+1`.
 
-Detalles a tener en cuenta:
+Procesa por orden de salida. Un árbol Fenwick contiene exactamente las
+posiciones de llegada de los que salieron antes. Su prefijo hasta `p−1`
+da `e`; imprime ambas cotas e inserta `p` después. El invariante y la
+inducción prueban cuentas y respuestas. Tiempo `O(n log n)`, espacio `O(n)`;
+con `n≤2000` los contadores e índices caben en enteros de máquina. Llegar
+en orden de salida permite todos los puestos; el orden inverso los fija.
 
-- llegar pronto no es quedar arriba: en el ejemplo el esquiador 1 llega
-  tercero tras dos que salieron después, así que a lo sumo es tercero;
-- llegar en el orden de salida no decide nada, todos los puestos quedan
-  abiertos (prueba 03); llegar en orden inverso lo decide todo
-  (prueba 04).
+## Evaluación
 
-Las respuestas coinciden con una implementación aceptada independiente
-en 90 carreras aleatorias.
+Se comparan dos tokens enteros por esquiador en orden de salida.
+Las fórmulas se validaron con 10078 construcciones exactas de tiempos:
+ambas cotas de cada objetivo en todas las permutaciones hasta seis personas,
+con duraciones positivas distintas y el orden de llegada correcto. Se
+comprueba alcanzabilidad, no solo condiciones necesarias por parejas.
+Por separado, los programas C++/Rust reales reformateados pasaron cada uno
+996 entradas extra contra cuentas directas: las 873 permutaciones hasta
+seis personas, 120 carreras aleatorias y tres máximas. Cada uno pasó además
+13 entradas del repositorio en Docker y tiene Accepted de sus bytes exactos.
+Las construcciones son comprobaciones matemáticas, no 10078 ejecuciones
+de cada programa nativo.
+
+## Notas por lenguaje
+
+Se conserva el mismo algoritmo Fenwick en los cinco lenguajes. C++ y
+Rust solo cambian por la salida exacta del formateador, cada uno con nuevo
+Accepted y sus propias mediciones. Los bytes originales se guardan en la
+copia local de la revisión. Go, Java y Python coinciden byte por byte con
+el archivo Accepted. No se llama optimización al formato ni se crean duplicados.
+
+La instantánea guardada del 2 de noviembre de 2026 cumple la meta acordada
+para todas las bases actuales: C++ en el 15% superior o los primeros diez
+puestos de ambas métricas; otras familias, primero en ambas. Una muestra
+filtrada vacía solo ofrece cobertura formal, no superioridad. Los candidatos
+didácticos más sencillos por parejas siguen pendientes del juez y no se
+incluyen como Accepted.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1645_fenwick.cpp](1645_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n) | AC | 0.015 s | 204 KB |
-| [1645_fenwick.go](1645_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n) | AC | 0.031 s | 1176 KB |
-| [1645_fenwick.java](1645_fenwick.java) | Java 1.8 | fenwick | O(n log n) | AC | 0.093 s | 652 KB |
-| [1645_fenwick.py](1645_fenwick.py) | Python 3.12 x64 | fenwick | O(n log n) | AC | 0.093 s | 852 KB |
-| [1645_fenwick.rs](1645_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n) | AC | 0.046 s | 268 KB |
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1645_fenwick.cpp](1645_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n) | AC | 0.015 s | 184 KB | 11308415 |
+| [1645_fenwick.go](1645_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n) | AC | 0.031 s | 1176 KB | 11288492 |
+| [1645_fenwick.java](1645_fenwick.java) | Java 1.8 | fenwick | O(n log n) | AC | 0.093 s | 652 KB | 11288494 |
+| [1645_fenwick.py](1645_fenwick.py) | Python 3.12 x64 | fenwick | O(n log n) | AC | 0.093 s | 852 KB | 11288493 |
+| [1645_fenwick.rs](1645_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n) | AC | 0.046 s | 268 KB | 11308416 |
