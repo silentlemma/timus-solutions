@@ -6,7 +6,8 @@ public class Main {
 
     static int readInt() throws IOException {
         int c = in.read();
-        while (c < '0') c = in.read();
+        while (c < '0')
+            c = in.read();
         int v = 0;
         while (c >= '0') {
             v = v * 10 + (c - '0');
@@ -26,7 +27,8 @@ public class Main {
         }
         int best = 1;
         for (int k = 2; k <= n; k++) {
-            if (votes[k] > votes[best]) best = k;
+            if (votes[k] > votes[best])
+                best = k;
         }
         System.out.println(best);
     }
