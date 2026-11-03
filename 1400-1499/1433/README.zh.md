@@ -1,6 +1,6 @@
 # 1433. 四面体
 
-[Timus 1433](https://acm.timus.ru/problem.aspx?space=1&num=1433) · 难度 264 · bruteforce
+[Timus 1433](https://acm.timus.ru/problem.aspx?space=1&num=1433) · 难度 264 · bruteforce, math
 
 原题作者 Pavel Egorov 与 Stanislav Vasiliev，出自 2006 年 2 月 25 日第七届乌拉尔国立大学个人公开赛。
 
@@ -21,6 +21,10 @@
 ## 输出
 
 "equal" 或 "different"。
+
+## 评测方式
+
+精确比较小写词元equal或different。 新Python精确源码在PyPy 3.10通过12个仓库测试。 另有 1600 独立旋转群颜色对. 其他保留原生版本各有保存的目标环境检查与精确Accepted。输出按本题检查器规则比较。
 
 ## 样例
 
@@ -52,12 +56,48 @@ equal
 - 有重复颜色时，同样颜色的任何排列都相等，因为交换两个同色面可以修正奇偶性
   （测试 05、07、08、12）。
 
+## 优化解法
+
+教学版仍枚举十二个正四面体旋转。新数学版本先比较颜色多重集。若颜色重复，交换两个同色面会改变置换奇偶性却不改变着色，所以总能选出偶置换代表。四种颜色各不相同时，置换唯一；其逆序数为偶数恰好表示正旋转。无需构造全部旋转后的着色，面数恒为四且比较精确。Python还使用现有文本输入输出流。
+
+- `1433_math.cpp`: 0.015 s / 104 KB; 基础 `1433_bruteforce.cpp`: 0.015 s / 360 KB; 相对变化: 时间 -0.0%, 内存 -71.1%.
+- `1433_math.java`: 0.093 s / 348 KB; 基础 `1433_bruteforce.java`: 0.125 s / 1568 KB; 相对变化: 时间 -25.6%, 内存 -77.8%.
+- `1433_math.py`: 0.109 s / 284 KB; 基础 `1433_bruteforce.py`: 0.078 s / 440 KB; 相对变化: 时间 +39.7%, 内存 -35.5%.
+
+## 各语言说明
+
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1433_bruteforce.cpp`; 覆盖源码 `1433_math.cpp`; 时间/内存名次 1/1, 其他作者记录 48/48.
+
+- Go: 首选教学基础 `1433_bruteforce.go`; 覆盖源码 `1433_bruteforce.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 首选教学基础 `1433_bruteforce.java`; 覆盖源码 `1433_math.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
+
+- Python/PyPy: 首选教学基础 `1433_bruteforce.py`; 覆盖源码 `1433_math.py`; 时间/内存名次 8/2, 其他作者记录 15/15.
+
+- Rust: 首选教学基础 `1433_bruteforce.rs`; 覆盖源码 `1433_bruteforce.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1433_bruteforce.cpp](1433_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 360 KB |
-| [1433_bruteforce.go](1433_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1084 KB |
-| [1433_bruteforce.java](1433_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1568 KB |
-| [1433_bruteforce.py](1433_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.078 s | 440 KB |
-| [1433_bruteforce.rs](1433_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1433_bruteforce.cpp](1433_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 360 KB | 11286216 |
+| [1433_bruteforce.go](1433_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.031 s | 1084 KB | 11286217 |
+| [1433_bruteforce.java](1433_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1568 KB | 11286219 |
+| [1433_bruteforce.py](1433_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.078 s | 440 KB | 11286218 |
+| [1433_bruteforce.rs](1433_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.031 s | 224 KB | 11286220 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1433_math.cpp](1433_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 104 KB | 11309265 |
+| [1433_math.java](1433_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11309266 |
+| [1433_math.py](1433_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 284 KB | 11309683 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
