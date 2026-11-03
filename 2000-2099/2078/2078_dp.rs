@@ -16,7 +16,10 @@ fn put(t: &mut Table, x: usize, y: usize, a: i32, b: i32) {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let total: Vec<usize> = input.split_whitespace().map(|t| t.parse().unwrap()).collect();
+    let total: Vec<usize> = input
+        .split_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     let empty: Table = [[(i32::MAX, i32::MIN); ROLL]; ROLL];
     let mut cur = empty;
     // rolls of the last frame: two, and a third one after a strike or a spare
@@ -30,7 +33,11 @@ fn main() {
                 }
                 continue;
             }
-            let cap = if r1 < PINS || r2 == PINS { PINS } else { PINS - r2 };
+            let cap = if r1 < PINS || r2 == PINS {
+                PINS
+            } else {
+                PINS - r2
+            };
             if last >= r1 + r2 && last - r1 - r2 <= cap {
                 put(&mut cur, r1, r2, last as i32, last as i32);
             }
