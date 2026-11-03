@@ -27,6 +27,10 @@ N, then the coordinates of the pumpkins 1 to N.
 K, then the numbers of the pumpkins in the order they are eaten, one per
 line. Any valid walk is accepted.
 
+## Checking
+
+Accept any maximal visit order starting at the first point, with distinct point indices and no self-contact or self-intersection of the path.
+
 ## Examples
 
 ### Example 1
@@ -82,12 +86,52 @@ Pitfalls:
 - pumpkin 1 in a corner leaves a gap of more than half a turn (tests
   04, gen3, gen4).
 
+## Optimized solutions
+
+Replace repeated cross-product comparisons during sorting with exact packed integer direction keys. A rational parameter based on Manhattan length is monotone around the origin. The coordinate bound gives a minimum separation between distinct fractions, so scaling and taking the floor cannot merge distinct directions. Pack the direction rank, squared distance and original index; same-ray points still appear nearest first. The angular gap identifies the same cyclic cut as the simple proof. No floating-point angle is used.
+
+- `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; base `1444_geometry.cpp`: 0.062 s / 444 KB; relative change: time -75.8%, memory -27.9%.
+- `1444_geometry_optimized.go`: 0.031 s / 1188 KB; base `1444_geometry.go`: 0.078 s / 2336 KB; relative change: time -60.3%, memory -49.1%.
+- `1444_geometry_optimized.java`: 0.093 s / 736 KB; base `1444_geometry.java`: 0.187 s / 6232 KB; relative change: time -50.3%, memory -88.2%.
+- `1444_geometry_optimized.py`: 0.171 s / 3976 KB; base `1444_geometry.py`: 0.453 s / 11600 KB; relative change: time -62.3%, memory -65.7%.
+- `1444_geometry_optimized.rs`: 0.046 s / 1244 KB; base `1444_geometry.rs`: 0.031 s / 2104 KB; relative change: time +48.4%, memory -40.9%.
+
+## Language notes
+
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1444_geometry.cpp`; covering source `1444_geometry_optimized.cpp`; time/memory places 1/10, other-author entries 352/352.
+
+- Go: preferred teaching base `1444_geometry.go`; covering source `1444_geometry_optimized.go`; time/memory places 1/1, other-author entries 4/4.
+
+- Java: preferred teaching base `1444_geometry.java`; covering source `1444_geometry_optimized.java`; time/memory places 1/1, other-author entries 6/6.
+
+- Python/PyPy: preferred teaching base `1444_geometry.py`; covering source `1444_geometry_optimized.py`; time/memory places 13/1, other-author entries 59/59.
+
+- Rust: preferred teaching base `1444_geometry.rs`; covering source `1444_geometry_optimized.rs`; time/memory places 1/2, other-author entries 1/1.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1444_geometry.cpp](1444_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.062 s | 444 KB |
-| [1444_geometry.go](1444_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.078 s | 2336 KB |
-| [1444_geometry.java](1444_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.187 s | 6232 KB |
-| [1444_geometry.py](1444_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.453 s | 11600 KB |
-| [1444_geometry.rs](1444_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 2104 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1444_geometry.cpp](1444_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.062 s | 444 KB | 11286284 |
+| [1444_geometry.go](1444_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.078 s | 2336 KB | 11286286 |
+| [1444_geometry.java](1444_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.187 s | 6232 KB | 11286290 |
+| [1444_geometry.py](1444_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.453 s | 11600 KB | 11286289 |
+| [1444_geometry.rs](1444_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 2104 KB | 11286291 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1444_geometry_optimized.cpp](1444_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 320 KB | 11309261 |
+| [1444_geometry_optimized.go](1444_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1188 KB | 11309263 |
+| [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
+| [1444_geometry_optimized.py](1444_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 3976 KB | 11309260 |
+| [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
