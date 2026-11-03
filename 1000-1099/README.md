@@ -84,7 +84,7 @@
 | 1077 | [The most tours that each own a road](1077/) | bfs, graphs | C++, Go, Python, Java, Rust |
 | 1078 | [The longest chain of segments nested one inside the next](1078/) | dp | C++, Go, Python, Java, Rust |
 | 1079 | [The largest term of Stern's sequence up to n](1079/) | dp | C++, Go, Python, Java, Rust |
-| 1080 | [Colouring a map with two colours](1080/) | bfs, graphs | C++, Go, Python, Java, Rust |
+| 1080 | [Colouring a map with two colours](1080/) | bfs, graphs, dsu | C++, Go, Python, Java, Rust |
 | 1081 | [The K-th binary string without two adjacent ones](1081/) | dp | C++, Go, Python, Java, Rust |
 | 1082 | [Input that makes a quicksort count a given number of steps](1082/) | constructive | C++, Go, Python, Java, Rust |
 | 1083 | [A factorial with k exclamation marks](1083/) | math | C++, Go, Python, Java, Rust |
