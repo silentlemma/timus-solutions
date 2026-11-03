@@ -27,7 +27,10 @@ fn main() {
     }
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<usize> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<usize> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let mut out = String::new();
     for q in nums[1..].chunks(2).take(nums[0]) {
         let (mut s1, mut s2) = (q[0], q[1]);

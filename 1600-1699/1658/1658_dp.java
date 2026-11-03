@@ -40,8 +40,8 @@ public class Main {
             // digits come out sorted, so each search starts at the last one
             int d = 1;
             for (int left = (fewest[s1 * (S2 + 1) + s2] & NONE) - 1; left >= 0; left--) {
-                while (d * d > s2 || d > s1
-                       || (fewest[(s1 - d) * (S2 + 1) + s2 - d * d] & NONE) != left)
+                while (d * d > s2 || d > s1 ||
+                       (fewest[(s1 - d) * (S2 + 1) + s2 - d * d] & NONE) != left)
                     d++;
                 sb.append((char)('0' + d));
                 s1 -= d;

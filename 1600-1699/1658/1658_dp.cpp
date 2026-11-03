@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-const int LONGEST = 100, TOP = 9;  // digits allowed in the answer, largest digit
+const int LONGEST = 100, TOP = 9; // digits allowed in the answer, largest digit
 const int S1 = LONGEST * TOP, S2 = LONGEST * TOP * TOP;
 const unsigned char NONE = 255;
 
