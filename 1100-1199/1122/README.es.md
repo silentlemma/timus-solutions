@@ -78,18 +78,50 @@ Las respuestas se comprobaron con una búsqueda en anchura sobre los
 `2^16` estados del tablero, de jugada en jugada, en todas las pruebas y 40
 partidas aleatorias.
 
+## Soluciones optimizadas
+
+Se dividen los 16 movimientos en dos grupos de ocho. Cada mitad se
+enumera en orden de Gray: cambiar un movimiento actualiza su efecto XOR.
+Para cada efecto izquierdo se guarda el menor número de movimientos.
+Dado un efecto derecho `r` y un objetivo `t`, se busca `t XOR r` a la
+izquierda, probando ambos colores finales. Cada subconjunto tiene una
+única división; conservar la representación izquierda más barata no
+elimina una respuesta óptima, incluso con movimientos dependientes.
+Se recorren dos listas de `2^8` subconjuntos en lugar de `2^16`. Con tablas
+hash, tiempo esperado y espacio `O(2^8)`; el tiempo en el peor caso de la
+tabla puede ser cuadrático en su número de entradas.
+
+Las cinco implementaciones distintas ahorran al menos un 30% de memoria
+frente a sus bases Accepted inalteradas: C++ 57,0%, Go 31,1%, Java 73,9%,
+Python 76,1% y Rust 43,5%. El tiempo se mantiene o mejora; un tick no se
+considera una aceleración fiable. C++, Java y Python cumplen la meta en
+la instantánea del 1 de noviembre de 2026. Las muestras filtradas de Go
+y Rust no contienen otros autores y no demuestran una ventaja competitiva.
+La enumeración base y la búsqueda por mitades también se contrastaron
+con algoritmos independientes sobre el espacio de estados.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes recorren los mismos `2^16` conjuntos; el bit más
-  bajo y la cuenta de bits salen de funciones incorporadas, y Python usa
-  `(s & -s).bit_length()` y `bin(s).count("1")`.
+Las cinco fuentes base enumeran los `2^16` conjuntos; Python usa bit_length y conteo de bits. Las cinco nuevas fuentes usan tablas hash y dos mitades de ocho movimientos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1122_bitmask.cpp](1122_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^16) | AC | 0.015 s | 428 KB |
-| [1122_bitmask.go](1122_bitmask.go) | Go 1.14 x64 | bitmask | O(2^16) | AC | 0.031 s | 1608 KB |
-| [1122_bitmask.java](1122_bitmask.java) | Java 1.8 | bitmask | O(2^16) | AC | 0.109 s | 1852 KB |
-| [1122_bitmask.py](1122_bitmask.py) | Python 3.12 x64 | bitmask | O(2^16) | AC | 0.109 s | 3192 KB |
-| [1122_bitmask.rs](1122_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^16) | AC | 0.031 s | 736 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1122_bitmask.cpp](1122_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^16) | AC | 0.015 s | 428 KB | 11279286 |
+| [1122_bitmask.go](1122_bitmask.go) | Go 1.14 x64 | bitmask | O(2^16) | AC | 0.031 s | 1608 KB | 11279289 |
+| [1122_bitmask.java](1122_bitmask.java) | Java 1.8 | bitmask | O(2^16) | AC | 0.109 s | 1852 KB | 11279292 |
+| [1122_bitmask.py](1122_bitmask.py) | Python 3.12 x64 | bitmask | O(2^16) | AC | 0.109 s | 3192 KB | 11279291 |
+| [1122_bitmask.rs](1122_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^16) | AC | 0.031 s | 736 KB | 11279293 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1122_bitmask_meet_in_middle.cpp](1122_bitmask_meet_in_middle.cpp) | G++ 13.2 x64 | bitmask, meet_in_middle | O(2^8) expected | AC | 0.015 s | 184 KB | 11308016 |
+| [1122_bitmask_meet_in_middle.go](1122_bitmask_meet_in_middle.go) | Go 1.14 x64 | bitmask, meet_in_middle | O(2^8) expected | AC | 0.031 s | 1108 KB | 11308019 |
+| [1122_bitmask_meet_in_middle.java](1122_bitmask_meet_in_middle.java) | Java 1.8 | bitmask, meet_in_middle | O(2^8) expected | AC | 0.093 s | 484 KB | 11308020 |
+| [1122_bitmask_meet_in_middle.py](1122_bitmask_meet_in_middle.py) | Python 3.12 x64 | bitmask, meet_in_middle | O(2^8) expected | AC | 0.078 s | 764 KB | 11308012 |
+| [1122_bitmask_meet_in_middle.rs](1122_bitmask_meet_in_middle.rs) | Rust 1.75 x64 | bitmask, meet_in_middle | O(2^8) expected | AC | 0.015 s | 416 KB | 11308021 |
