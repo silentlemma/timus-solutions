@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-std::string trim(const std::string& s) {
+std::string trim(const std::string &s) {
     size_t from = s.find_first_not_of(" \r\t");
     if (from == std::string::npos) {
         return "";
@@ -25,7 +25,7 @@ int main() {
         // in letter case are the same university
         size_t hash = team.rfind('#');
         std::string university = trim(hash == std::string::npos ? team : team.substr(0, hash));
-        for (char& c : university) {
+        for (char &c : university) {
             c = std::tolower(static_cast<unsigned char>(c));
         }
         if (taken.count(university)) {

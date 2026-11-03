@@ -26,6 +26,10 @@ universidades nunca difieren solo en mayúsculas. La respuesta existe.
 
 El nombre de ese equipo tal como aparece en la clasificación.
 
+## Evaluación
+
+Se compara la salida completa, incluidos espacios y saltos de línea.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -74,12 +78,46 @@ Trampas:
 
 Las respuestas coinciden con una implementación aceptada independiente.
 
+## Soluciones optimizadas
+
+Se conserva la primera selección por universidad, ignorando mayúsculas en su identidad y manteniendo la escritura original del equipo. Al completar el cupo ya no se almacenan claves de universidades nuevas. Procesar los registros en flujo elimina la lista de todas las líneas y copias. La versión PyPy conserva Unicode para no cambiar la conversión de mayúsculas ni la codificación de salida al ahorrar memoria.
+
+- `1680_strings_optimized.cpp`: 0.001 s / 100 KB; base `1680_strings.cpp`: 0.001 s / 400 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.0%.
+- `1680_strings_optimized.py`: 0.125 s / 244 KB; base `1680_strings.py`: 0.078 s / 364 KB; cambio respecto a la base: tiempo +60.3%, memoria -33.0%.
+
+## Notas por lenguaje
+
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1680_strings.cpp`; versión que cubre `1680_strings_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 47/47.
+
+- Go: base didáctica preferida `1680_strings.go`; versión que cubre `1680_strings.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1680_strings.java`; versión que cubre `1680_strings.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
+
+- Python/PyPy: base didáctica preferida `1680_strings.py`; versión que cubre `1680_strings_optimized.py`; puestos tiempo/memoria 11/1, registros de otros autores 12/12.
+
+- Rust: base didáctica preferida `1680_strings.rs`; versión que cubre `1680_strings.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1680_strings.cpp](1680_strings.cpp) | G++ 13.2 x64 | strings | O(n · L) | AC | 0.015 s | 420 KB |
-| [1680_strings.go](1680_strings.go) | Go 1.14 x64 | strings | O(n · L) | AC | 0.015 s | 1088 KB |
-| [1680_strings.java](1680_strings.java) | Java 1.8 | strings | O(n · L) | AC | 0.078 s | 472 KB |
-| [1680_strings.py](1680_strings.py) | Python 3.12 x64 | strings | O(n · L) | AC | 0.078 s | 456 KB |
-| [1680_strings.rs](1680_strings.rs) | Rust 1.75 x64 | strings | O(n · L) | AC | 0.015 s | 432 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1680_strings.cpp](1680_strings.cpp) | G++ 13.2 x64 | strings | O(n · L) | AC | 0.001 s | 400 KB | 11308838 |
+| [1680_strings.go](1680_strings.go) | Go 1.14 x64 | strings | O(n · L) | AC | 0.015 s | 1088 KB | 11288810 |
+| [1680_strings.java](1680_strings.java) | Java 1.8 | strings | O(n · L) | AC | 0.078 s | 472 KB | 11288813 |
+| [1680_strings.py](1680_strings.py) | Python 3.12 x64 | strings | O(n · L) | AC | 0.078 s | 364 KB | 11308839 |
+| [1680_strings.rs](1680_strings.rs) | Rust 1.75 x64 | strings | O(n · L) | AC | 0.015 s | 432 KB | 11288816 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1680_strings_optimized.cpp](1680_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(input size) | AC | 0.001 s | 100 KB | 11308250 |
+| [1680_strings_optimized.py](1680_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(input size) | AC | 0.125 s | 244 KB | 11309387 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
