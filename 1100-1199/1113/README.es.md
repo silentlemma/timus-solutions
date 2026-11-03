@@ -83,23 +83,54 @@ búsqueda binaria halla el menor `F` entero que alcanza `N`; los 12 viajes
 hechos a mano y 150 aleatorios, muchos con capacidades divisibles por
 `3 · 5 · 7 · 9`, coincidieron.
 
+## Soluciones optimizadas
+
+Se mantiene la construcción inversa mediante términos armónicos impares. Las cotas inferior y superior de punto fijo suelen determinar el entero exacto sin construir una fracción grande en cada paso. La anchura del intervalo está acotada; solo los casos ambiguos usan racionales exactos. Se comprueban las etapas vecinas posibles y se toma el combustible máximo necesario. No se emplean epsilon ni tablas de respuestas, por lo que el redondeo no acepta combustible insuficiente.
+
+k es el número de etapas. Un paso aritmético exacto no tiene coste binario constante: el caso racional depende de la longitud de numeradores y denominadores.
+
+- `1113_math_optimized.cpp`: 0.015 s / 168 KB; base `1113_math.cpp`: 0.031 s / 616 KB; cambio respecto a la base: tiempo -51.6%, memoria -72.7%.
+- `1113_math_optimized.go`: 0.015 s / 1044 KB; base `1113_math.go`: 0.046 s / 3364 KB; cambio respecto a la base: tiempo -67.4%, memoria -69.0%.
+- `1113_math_optimized.java`: 0.078 s / 368 KB; base `1113_math.java`: 0.125 s / 6344 KB; cambio respecto a la base: tiempo -37.6%, memoria -94.2%.
+- `1113_math_optimized.py`: 0.062 s / 480 KB; base `1113_math.py`: 0.125 s / 908 KB; cambio respecto a la base: tiempo -50.4%, memoria -47.1%.
+- `1113_math_optimized.rs`: 0.015 s / 224 KB; base `1113_math.rs`: 0.062 s / 536 KB; cambio respecto a la base: tiempo -75.8%, memoria -58.2%.
+
 ## Notas por lenguaje
 
-- Python guarda los tramos como fracciones exactas.
-- C++, Rust, Java y Go hallan `k` en coma flotante (un error cerca del
-  límite no cambia el resultado) y después calculan exactamente la parte
-  fraccionaria del combustible como una sola fracción sobre el mínimo
-  común múltiplo de los denominadores impares: con su propia aritmética
-  de enteros grandes en C++ y Rust, y con `BigInteger` y `math/big` en
-  Java y Go. Sumar fracciones normales con un `gcd` de enteros grandes en
-  cada uno de los 3092 pasos no cabe en medio segundo en Java y Go.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1113_math.cpp`; versión que cubre `1113_math_optimized.cpp`; puestos tiempo/memoria 1/4, registros de otros autores 25/25.
+
+- Go: base didáctica preferida `1113_math.go`; versión que cubre `1113_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1113_math.java`; versión que cubre `1113_math_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+
+- Python/PyPy: base didáctica preferida `1113_math.py`; versión que cubre `1113_math_optimized.py`; puestos tiempo/memoria 1/7, registros de otros autores 22/22.
+
+- Rust: base didáctica preferida `1113_math.rs`; versión que cubre `1113_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB |
-| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB |
-| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB |
-| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB |
-| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB | 11279217 |
+| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB | 11279218 |
+| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB | 11279220 |
+| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB | 11279219 |
+| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB | 11279221 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1113_math_optimized.cpp](1113_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 168 KB | 11309282 |
+| [1113_math_optimized.go](1113_math_optimized.go) | Go 1.14 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 1044 KB | 11309284 |
+| [1113_math_optimized.java](1113_math_optimized.java) | Java 1.8 | math | O(k) exact-arithmetic steps | AC | 0.078 s | 368 KB | 11309283 |
+| [1113_math_optimized.py](1113_math_optimized.py) \* | Python 3.12 x64 | math | O(k) exact-arithmetic steps | AC | 0.062 s | 480 KB | 11309281 |
+| [1113_math_optimized.rs](1113_math_optimized.rs) | Rust 1.75 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 224 KB | 11309285 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

@@ -61,19 +61,54 @@
 `q = ⌊F/M⌋`，再用二分搜索求出能到达 `N` 的最小整数 `F`；12 个手工构造的行程和 150 个随机行程（其中许多容量是 `3 · 5 · 7 · 9`
 的倍数）结果一致。
 
-## 各语言说明
+## 优化解法
 
-- Python 用精确分数保存各段长度。
-- C++、Rust、Java 和 Go 用浮点数求出 `k`（边界附近的误差不影响结果），然后把燃料的小数部分精确地表示成一个以各奇数分母的最小公倍数为分母的分数：C++
-  和 Rust 用自己写的小型大整数运算，Java 和 Go 用 `BigInteger` 和 `math/big`。若在 3092 步中每一步都对大整数做 `gcd`
-  来相加普通分数，Java 和 Go 无法在半秒内完成。
+仍按奇数调和项反向构造燃料量。定点上下界通常能确定精确整数结果，而不用每一步都构造大有理数。区间宽度有明确上界，只有不能确定结果时才使用精确分数。检查相邻的可能阶段，取所需燃料最大值。算法既不依赖 epsilon，也不存答案表，不会因舍入而接受不足的燃料。
+
+k 为燃料阶段数。精确算术步骤不是常数位代价，少见的分数回退取决于分子分母长度。
+
+- `1113_math_optimized.cpp`: 0.015 s / 168 KB; 基础版 `1113_math.cpp`: 0.031 s / 616 KB; 相对基础版的变化: 时间 -51.6%, 内存 -72.7%.
+- `1113_math_optimized.go`: 0.015 s / 1044 KB; 基础版 `1113_math.go`: 0.046 s / 3364 KB; 相对基础版的变化: 时间 -67.4%, 内存 -69.0%.
+- `1113_math_optimized.java`: 0.078 s / 368 KB; 基础版 `1113_math.java`: 0.125 s / 6344 KB; 相对基础版的变化: 时间 -37.6%, 内存 -94.2%.
+- `1113_math_optimized.py`: 0.062 s / 480 KB; 基础版 `1113_math.py`: 0.125 s / 908 KB; 相对基础版的变化: 时间 -50.4%, 内存 -47.1%.
+- `1113_math_optimized.rs`: 0.015 s / 224 KB; 基础版 `1113_math.rs`: 0.062 s / 536 KB; 相对基础版的变化: 时间 -75.8%, 内存 -58.2%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1113_math.cpp`; 覆盖实现 `1113_math_optimized.cpp`; 时间/内存名次 1/4, 其他作者记录 25/25.
+
+- Go: 优先教学基础版 `1113_math.go`; 覆盖实现 `1113_math.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1113_math.java`; 覆盖实现 `1113_math_optimized.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
+- Python/PyPy: 优先教学基础版 `1113_math.py`; 覆盖实现 `1113_math_optimized.py`; 时间/内存名次 1/7, 其他作者记录 22/22.
+
+- Rust: 优先教学基础版 `1113_math.rs`; 覆盖实现 `1113_math.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB |
-| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB |
-| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB |
-| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB |
-| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB | 11279217 |
+| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB | 11279218 |
+| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB | 11279220 |
+| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB | 11279219 |
+| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB | 11279221 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1113_math_optimized.cpp](1113_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 168 KB | 11309282 |
+| [1113_math_optimized.go](1113_math_optimized.go) | Go 1.14 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 1044 KB | 11309284 |
+| [1113_math_optimized.java](1113_math_optimized.java) | Java 1.8 | math | O(k) exact-arithmetic steps | AC | 0.078 s | 368 KB | 11309283 |
+| [1113_math_optimized.py](1113_math_optimized.py) \* | Python 3.12 x64 | math | O(k) exact-arithmetic steps | AC | 0.062 s | 480 KB | 11309281 |
+| [1113_math_optimized.rs](1113_math_optimized.rs) | Rust 1.75 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 224 KB | 11309285 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

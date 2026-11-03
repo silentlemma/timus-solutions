@@ -79,23 +79,54 @@ binary search for the least integer `F` reaching `N`; the 12 hand-made
 trips and 150 random ones, many with capacities divisible by
 `3 · 5 · 7 · 9`, agreed.
 
+## Optimized solutions
+
+The backward odd-harmonic fuel construction is unchanged. Fixed-point lower and upper bounds usually determine the exact integer result without building a large rational after every term. The interval width is bounded explicitly; only an ambiguous interval invokes exact rational arithmetic. Check the adjacent possible stages and retain the maximum required fuel. This uses neither an epsilon nor a precomputed answer table, so rounding cannot turn an insufficient amount into a valid answer.
+
+Here k is the number of fuel stages. Exact-arithmetic steps are not constant-cost bit operations: the rare rational fallback depends on numerator and denominator lengths.
+
+- `1113_math_optimized.cpp`: 0.015 s / 168 KB; base `1113_math.cpp`: 0.031 s / 616 KB; relative change: time -51.6%, memory -72.7%.
+- `1113_math_optimized.go`: 0.015 s / 1044 KB; base `1113_math.go`: 0.046 s / 3364 KB; relative change: time -67.4%, memory -69.0%.
+- `1113_math_optimized.java`: 0.078 s / 368 KB; base `1113_math.java`: 0.125 s / 6344 KB; relative change: time -37.6%, memory -94.2%.
+- `1113_math_optimized.py`: 0.062 s / 480 KB; base `1113_math.py`: 0.125 s / 908 KB; relative change: time -50.4%, memory -47.1%.
+- `1113_math_optimized.rs`: 0.015 s / 224 KB; base `1113_math.rs`: 0.062 s / 536 KB; relative change: time -75.8%, memory -58.2%.
+
 ## Language notes
 
-- Python keeps the stretches as exact fractions.
-- C++, Rust, Java and Go find `k` in floating point (an error near the
-  boundary does not change the result) and then compute the fractional
-  part of the fuel exactly as one fraction over the least common multiple
-  of the odd denominators: in their own small big-number arithmetic for
-  C++ and Rust, with `BigInteger` and `math/big` for Java and Go. Adding
-  plain fractions with a `gcd` of big numbers at each of the 3092 steps
-  is too slow for the half-second limit in Java and Go.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1113_math.cpp`; covering source `1113_math_optimized.cpp`; time/memory places 1/4, other-author entries 25/25.
+
+- Go: preferred teaching base `1113_math.go`; covering source `1113_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1113_math.java`; covering source `1113_math_optimized.java`; time/memory places 1/1, other-author entries 2/2.
+
+- Python/PyPy: preferred teaching base `1113_math.py`; covering source `1113_math_optimized.py`; time/memory places 1/7, other-author entries 22/22.
+
+- Rust: preferred teaching base `1113_math.rs`; covering source `1113_math.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB |
-| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB |
-| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB |
-| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB |
-| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1113_math.cpp](1113_math.cpp) | G++ 13.2 x64 | math | O(kB), k ≤ 3092 | AC | 0.031 s | 616 KB | 11279217 |
+| [1113_math.go](1113_math.go) | Go 1.14 x64 | math | O(kB), k ≤ 3092 | AC | 0.046 s | 3364 KB | 11279218 |
+| [1113_math.java](1113_math.java) | Java 1.8 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 6344 KB | 11279220 |
+| [1113_math.py](1113_math.py) | Python 3.12 x64 | math | O(kB), k ≤ 3092 | AC | 0.125 s | 908 KB | 11279219 |
+| [1113_math.rs](1113_math.rs) | Rust 1.75 x64 | math | O(kB), k ≤ 3092 | AC | 0.062 s | 536 KB | 11279221 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1113_math_optimized.cpp](1113_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 168 KB | 11309282 |
+| [1113_math_optimized.go](1113_math_optimized.go) | Go 1.14 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 1044 KB | 11309284 |
+| [1113_math_optimized.java](1113_math_optimized.java) | Java 1.8 | math | O(k) exact-arithmetic steps | AC | 0.078 s | 368 KB | 11309283 |
+| [1113_math_optimized.py](1113_math_optimized.py) \* | Python 3.12 x64 | math | O(k) exact-arithmetic steps | AC | 0.062 s | 480 KB | 11309281 |
+| [1113_math_optimized.rs](1113_math_optimized.rs) | Rust 1.75 x64 | math | O(k) exact-arithmetic steps | AC | 0.015 s | 224 KB | 11309285 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
