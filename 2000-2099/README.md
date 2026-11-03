@@ -95,7 +95,7 @@
 | 2088 | [Win chance with the best colour chosen after a blind draw](2088/) | dp, combinatorics | C++, Go, Python, Java, Rust |
 | 2089 | [Pick winners so that no team wins twice](2089/) | graphs, greedy | C++, Go, Python, Java, Rust |
 | 2090 | [Crosswalk or traffic light: where each one wins](2090/) | math, probability | C++, Go, Python, Java, Rust |
-| 2091 | [Two courses that split the programs most evenly](2091/) | bruteforce | C++, Go, Python, Java, Rust |
+| 2091 | [Two courses that split the programs most evenly](2091/) | bitmask, bruteforce | C++, Go, Python, Java, Rust |
 | 2092 | [One subscription plus single tickets at the lowest cost](2092/) | greedy, binary_search | C++, Go, Python, Java, Rust |
 | 2093 | [Fastest route over roads that snow slows down](2093/) | dijkstra | C++, Go, Python, Java, Rust |
 | 2094 | [When to take a seat in a filling row](2094/) | dp, probability | C++, Go, Python, Java, Rust |

@@ -5,10 +5,14 @@ const GROUPS: usize = 4; // both courses, only the first, only the second, neith
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<usize> = input.split_whitespace().map(|t| t.parse().unwrap()).collect();
+    let v: Vec<usize> = input
+        .split_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     let (n, m) = (v[0], v[1]);
-    let column: Vec<Vec<usize>> =
-        (0..m).map(|j| (0..n).map(|i| v[2 + i * m + j]).collect()).collect();
+    let column: Vec<Vec<usize>> = (0..m)
+        .map(|j| (0..n).map(|i| v[2 + i * m + j]).collect())
+        .collect();
     let (mut best, mut best_a, mut best_b) = (n + 1, 0, 0);
     // every pair of courses is tried: the four groups of a pair are counted
     // in one pass over the programs

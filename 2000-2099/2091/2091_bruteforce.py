@@ -6,7 +6,7 @@ GROUPS = 4  # both courses, only the first, only the second, neither
 def main():
     data = sys.stdin.read().split()
     n, m = int(data[0]), int(data[1])
-    rows = [data[2 + i * m:2 + (i + 1) * m] for i in range(n)]
+    rows = [data[2 + i * m : 2 + (i + 1) * m] for i in range(n)]
     columns = [[rows[i][j] == "1" for i in range(n)] for j in range(m)]
     best, pair = n + 1, None
     # every pair of courses is tried: the four groups of a pair are counted
