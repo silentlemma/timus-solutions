@@ -24,6 +24,10 @@
 
 `word: YES` или `word: NO` для каждого слова.
 
+## Проверка
+
+Вывод сравнивается полностью, включая пробелы и переводы строк.
+
 ## Примеры
 
 ### Пример 1
@@ -80,12 +84,52 @@ ababaaba: NO
 - клетку нельзя использовать дважды, а шаги только по горизонтали или
   вертикали (тест 03).
 
+## Оптимизированные решения
+
+Поиск по-прежнему идёт по соседним клеткам без повторного посещения. Неудачные состояния запоминаются по текущему концу и маске посещённых клеток; позиция в слове следует из размера маски и не увеличивает ключ. Маски допустимых букв и соседства отсекают невозможные продолжения до ветвления. Для одинаковых слов переиспользуется результат. Поле фиксировано и мало: явно учитывается перебор подмножеств, а не заявляется полиномиальное время поиска.
+
+- `1603_implementation_optimized.cpp`: 0.015 s / 176 KB; база `1603_implementation.cpp`: 0.031 s / 452 KB; изменение относительно базы: время -51.6%, память -61.1%.
+- `1603_implementation_optimized.go`: 0.031 s / 988 KB; база `1603_implementation.go`: 0.031 s / 5708 KB; изменение относительно базы: время -0.0%, память -82.7%.
+- `1603_implementation_optimized.java`: 0.093 s / 620 KB; база `1603_implementation.java`: 0.109 s / 5228 KB; изменение относительно базы: время -14.7%, память -88.1%.
+- `1603_implementation_optimized.py`: 0.093 s / 1128 KB; база `1603_implementation.py`: 0.359 s / 21264 KB; изменение относительно базы: время -74.1%, память -94.7%.
+- `1603_implementation_optimized.rs`: 0.031 s / 292 KB; база `1603_implementation.rs`: 0.062 s / 420 KB; изменение относительно базы: время -50.0%, память -30.5%.
+
+## Особенности языков
+
+Использован сохранённый срез 1–2 ноября 2026 года. Для C++ нужны топ 15% либо первые 10 мест одновременно по времени и памяти; для остальных семейств — первое место по обеим метрикам. Равные результаты делят место. Пустые выборки дают лишь формальное покрытие.
+
+- C++: предпочтительная учебная база `1603_implementation.cpp`; покрывающая версия `1603_implementation_optimized.cpp`; места по времени/памяти 1/1, чужих записей 59/59.
+
+- Go: предпочтительная учебная база `1603_implementation.go`; покрывающая версия `1603_implementation.go`; места по времени/памяти 1/1, чужих записей 0/0.
+
+- Java: предпочтительная учебная база `1603_implementation.java`; покрывающая версия `1603_implementation_optimized.java`; места по времени/памяти 1/2, чужих записей 2/2.
+
+- Python/PyPy: предпочтительная учебная база `1603_implementation.py`; покрывающая версия `1603_implementation_optimized.py`; места по времени/памяти 1/1, чужих записей 3/3.
+
+- Rust: предпочтительная учебная база `1603_implementation.rs`; покрывающая версия `1603_implementation_optimized.rs`; места по времени/памяти 1/1, чужих записей 1/1.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1603_implementation.cpp](1603_implementation.cpp) | G++ 13.2 x64 | implementation | O(n·16·2^16) | AC | 0.031 s | 452 KB |
-| [1603_implementation.go](1603_implementation.go) | Go 1.14 x64 | implementation | O(n·16·2^16) | AC | 0.031 s | 5708 KB |
-| [1603_implementation.java](1603_implementation.java) | Java 1.8 | implementation | O(n·16·2^16) | AC | 0.109 s | 5228 KB |
-| [1603_implementation.py](1603_implementation.py) | Python 3.12 x64 | implementation | O(n·16·2^16) | AC | 0.359 s | 21264 KB |
-| [1603_implementation.rs](1603_implementation.rs) | Rust 1.75 x64 | implementation | O(n·16·2^16) | AC | 0.062 s | 420 KB |
+В простой таблице находятся предпочтительные учебные версии и сохранённые принятые альтернативы. Предпочтительная база каждого семейства указана в особенностях языков.
+
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1603_implementation.cpp](1603_implementation.cpp) | G++ 13.2 x64 | implementation | O(n·16·2^16) | AC | 0.031 s | 452 KB | 11288124 |
+| [1603_implementation.go](1603_implementation.go) | Go 1.14 x64 | implementation | O(n·16·2^16) | AC | 0.031 s | 5708 KB | 11288126 |
+| [1603_implementation.java](1603_implementation.java) | Java 1.8 | implementation | O(n·16·2^16) | AC | 0.109 s | 5228 KB | 11288130 |
+| [1603_implementation.py](1603_implementation.py) | Python 3.12 x64 | implementation | O(n·16·2^16) | AC | 0.359 s | 21264 KB | 11288128 |
+| [1603_implementation.rs](1603_implementation.rs) | Rust 1.75 x64 | implementation | O(n·16·2^16) | AC | 0.062 s | 420 KB | 11288131 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1603_implementation_optimized.cpp](1603_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(16*2^16) per distinct word | AC | 0.015 s | 176 KB | 11309250 |
+| [1603_implementation_optimized.go](1603_implementation_optimized.go) | Go 1.14 x64 | implementation | O(16*2^16) per distinct word | AC | 0.031 s | 988 KB | 11309252 |
+| [1603_implementation_optimized.java](1603_implementation_optimized.java) \* | Java 1.8 | implementation | O(16*2^16) per distinct word | AC | 0.093 s | 620 KB | 11309251 |
+| [1603_implementation_optimized.py](1603_implementation_optimized.py) | Python 3.12 x64 | implementation | O(16*2^16) per distinct word | AC | 0.093 s | 1128 KB | 11309249 |
+| [1603_implementation_optimized.rs](1603_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(16*2^16) per distinct word | AC | 0.031 s | 292 KB | 11309253 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
