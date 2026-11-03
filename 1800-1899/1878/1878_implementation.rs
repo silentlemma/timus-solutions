@@ -10,7 +10,10 @@ const RING: [[usize; 2]; 2] = [[0, 1], [TURNS - 1, 2]];
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let cells: Vec<u32> = input.split_ascii_whitespace().map(|t| t.parse().unwrap()).collect();
+    let cells: Vec<u32> = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     let mut count = [0usize; TURNS];
     for (k, &colour) in cells.iter().enumerate() {
         if colour == 1 {

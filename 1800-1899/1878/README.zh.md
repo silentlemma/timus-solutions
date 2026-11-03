@@ -18,6 +18,10 @@
 
 最少步数。
 
+## 评测方式
+
+按词元比较输出，多余空白不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -52,12 +56,46 @@
 
 在全部 1536 个可复原的局面上（包括数字与颜色的所有对应关系），Python 解答与独立的逐层转动广度优先搜索结果一致。
 
+## 优化解法
+
+固定棋盘的不平衡公式代替枚举目标颜色和模距离循环。按行序统计各象限一种颜色的数量，比较相对象限的不平衡并取相应补值。证明依赖图中颜色的循环顺序，不能任意重排象限。棋盘大小固定，因此空间及算术操作数为常数。
+
+- `1878_math.java`: 0.109 s / 440 KB; 基础版 `1878_implementation.java`: 0.140 s / 1668 KB; 相对基础版的变化: 时间 -22.1%, 内存 -73.6%.
+- `1878_math.py`: 0.125 s / 288 KB; 基础版 `1878_implementation.py`: 0.093 s / 432 KB; 相对基础版的变化: 时间 +34.4%, 内存 -33.3%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1878_implementation.cpp`; 覆盖实现 `1878_implementation.cpp`; 时间/内存名次 1/1, 其他作者记录 45/45.
+
+- Go: 优先教学基础版 `1878_implementation.go`; 覆盖实现 `1878_implementation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1878_implementation.java`; 覆盖实现 `1878_implementation.java`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Python/PyPy: 优先教学基础版 `1878_implementation.py`; 覆盖实现 `1878_math.py`; 时间/内存名次 5/1, 其他作者记录 7/7.
+
+- Rust: 优先教学基础版 `1878_implementation.rs`; 覆盖实现 `1878_implementation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 128 KB |
-| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB |
-| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB |
-| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 420 KB |
-| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 212 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 108 KB | 11309211 |
+| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB | 11291010 |
+| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB | 11291012 |
+| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 432 KB | 11309212 |
+| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 208 KB | 11309213 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

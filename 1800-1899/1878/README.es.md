@@ -29,6 +29,10 @@ Cuatro líneas de cuatro colores de 1 a 4: la vista desde arriba.
 
 El menor número de movimientos.
 
+## Evaluación
+
+Se comparan los tokens; los espacios adicionales no importan.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -78,12 +82,46 @@ La solución en Python coincide con una búsqueda en anchura independiente
 mediante giros de las capas físicas en los 1536 estados resolubles,
 incluidas todas las correspondencias entre números y colores.
 
+## Soluciones optimizadas
+
+Una fórmula de desequilibrio del tablero fijo reemplaza enumerar colores objetivo y distancias modulares. Se cuenta un color en cada cuadrante por filas, se comparan desequilibrios opuestos y se toma el complemento correspondiente. Es esencial el orden cíclico de colores del dibujo; permutar cuadrantes arbitrariamente no equivale. Al ser fijo el tablero, almacenamiento y operaciones son constantes.
+
+- `1878_math.java`: 0.109 s / 440 KB; base `1878_implementation.java`: 0.140 s / 1668 KB; cambio respecto a la base: tiempo -22.1%, memoria -73.6%.
+- `1878_math.py`: 0.125 s / 288 KB; base `1878_implementation.py`: 0.093 s / 432 KB; cambio respecto a la base: tiempo +34.4%, memoria -33.3%.
+
+## Notas por lenguaje
+
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1878_implementation.cpp`; versión que cubre `1878_implementation.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 45/45.
+
+- Go: base didáctica preferida `1878_implementation.go`; versión que cubre `1878_implementation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1878_implementation.java`; versión que cubre `1878_implementation.java`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Python/PyPy: base didáctica preferida `1878_implementation.py`; versión que cubre `1878_math.py`; puestos tiempo/memoria 5/1, registros de otros autores 7/7.
+
+- Rust: base didáctica preferida `1878_implementation.rs`; versión que cubre `1878_implementation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 128 KB |
-| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB |
-| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB |
-| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 420 KB |
-| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 212 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 108 KB | 11309211 |
+| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB | 11291010 |
+| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB | 11291012 |
+| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 432 KB | 11309212 |
+| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 208 KB | 11309213 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

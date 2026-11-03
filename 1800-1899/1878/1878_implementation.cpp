@@ -13,8 +13,10 @@ int main() {
     for (int r = 0; r < SIDE; r++) {
         for (int c = 0; c < SIDE; c++) {
             int colour;
-            if (scanf("%d", &colour) != 1) return 0;
-            if (colour == 1) count[RING[r / HALF][c / HALF]]++;
+            if (scanf("%d", &colour) != 1)
+                return 0;
+            if (colour == 1)
+                count[RING[r / HALF][c / HALF]]++;
         }
     }
     // every layer holds one square of each colour, one per quadrant; the

@@ -11,8 +11,9 @@ def main():
     cells = list(map(int, sys.stdin.read().split()))
     # every layer holds one square of each colour, one per quadrant; the
     # cube is solved when the colour 1 squares of all layers share a quadrant
-    where = [RING[(k // SIDE * 2 // SIDE, k % SIDE * 2 // SIDE)]
-             for k, c in enumerate(cells) if c == 1]
+    where = [
+        RING[(k // SIDE * 2 // SIDE, k % SIDE * 2 // SIDE)] for k, c in enumerate(cells) if c == 1
+    ]
     print(min(sum(min((p - t) % TURNS, (t - p) % TURNS) for p in where) for t in range(TURNS)))
 
 

@@ -27,6 +27,10 @@ Four lines of four colours from 1 to 4: the view from above.
 
 The least number of moves.
 
+## Checking
+
+Compare output tokens; extra whitespace does not matter.
+
 ## Examples
 
 ### Example 1
@@ -75,12 +79,46 @@ The Python solution agrees with an independent breadth-first search over
 physical layer turns on all 1,536 solvable boards, including every
 number-to-colour assignment.
 
+## Optimized solutions
+
+A fixed-board imbalance formula replaces enumeration of target colors and modular-distance loops. Count one color in each row-major quadrant, compare opposite quadrant imbalances and take the corresponding complement. The cyclic color order in the physical diagram is essential to the derivation; arbitrary reordering of quadrants is not equivalent. The board size is fixed, so both storage and arithmetic are constant with respect to the input parameters.
+
+- `1878_math.java`: 0.109 s / 440 KB; base `1878_implementation.java`: 0.140 s / 1668 KB; relative change: time -22.1%, memory -73.6%.
+- `1878_math.py`: 0.125 s / 288 KB; base `1878_implementation.py`: 0.093 s / 432 KB; relative change: time +34.4%, memory -33.3%.
+
+## Language notes
+
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1878_implementation.cpp`; covering source `1878_implementation.cpp`; time/memory places 1/1, other-author entries 45/45.
+
+- Go: preferred teaching base `1878_implementation.go`; covering source `1878_implementation.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1878_implementation.java`; covering source `1878_implementation.java`; time/memory places 1/1, other-author entries 0/0.
+
+- Python/PyPy: preferred teaching base `1878_implementation.py`; covering source `1878_math.py`; time/memory places 5/1, other-author entries 7/7.
+
+- Rust: preferred teaching base `1878_implementation.rs`; covering source `1878_implementation.rs`; time/memory places 1/1, other-author entries 0/0.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 128 KB |
-| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB |
-| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB |
-| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 420 KB |
-| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 212 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1878_implementation.cpp](1878_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 108 KB | 11309211 |
+| [1878_implementation.go](1878_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1084 KB | 11291010 |
+| [1878_implementation.java](1878_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.140 s | 1668 KB | 11291012 |
+| [1878_implementation.py](1878_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 432 KB | 11309212 |
+| [1878_implementation.rs](1878_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 208 KB | 11309213 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
