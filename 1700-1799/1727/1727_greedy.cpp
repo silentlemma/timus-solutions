@@ -6,9 +6,11 @@ const int BASE = 10;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     std::vector<int> digits(LIMIT, 0), chosen;
-    for (int i = 1; i < LIMIT; i++) digits[i] = digits[i / BASE] + i % BASE;
+    for (int i = 1; i < LIMIT; i++)
+        digits[i] = digits[i / BASE] + i % BASE;
     // take numbers from the top whenever their digits still fit; the small
     // ones at the end fill any remainder, so the sum always comes out
     for (int i = LIMIT - 1; i >= 1 && n > 0; i--) {
