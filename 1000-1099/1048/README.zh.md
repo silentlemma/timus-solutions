@@ -23,7 +23,13 @@
 
 ## 评测方式
 
-按记号逐一比较输出，多余的空白字符不影响结果。
+输出按标记比较，且恰有 `N` 个数字。实际 Python 候选通过 610 次加法：
+600 个至多 300 位的随机正操作数，与任意精度整数加法比较；另有长度
+2、3、31、1000、1000000 的十个解析进位/前导零案例。长进位贯穿整个数，
+另一极限保留大量前导零。所有输入满足和不超长；百万位预期答案不依赖将操作数
+转成整数。实际 Python、Rust 还分别在 Docker 中通过仓库 14 个输入，
+取得各自精确源码的 Accepted。610 次参考检查是 Python 执行，
+并非每种编译语言都执行了 610 次。
 
 ## 样例
 
@@ -62,32 +68,62 @@
 100
 ```
 
-## 题解
+## 解法
 
-竖式加法：把每列的和（0 到 18）存进字节数组（Python 除外），然后从最后一列向第一列走，加上进位，保留 `t mod 10`，新进位为
-`t div 10`。同一个 `N + 1` 字节的数组保存答案的各位数字和换行符。时间 `O(N)`。
+从右往左按列相加。列数字之和为 `s`、传入进位为 `c` 时，
+写出 `(s + c) mod 10`，向左传 `(s + c) div 10`。初始进位为零。
+因 `0 ≤ s ≤ 18`，进位始终为 0 或 1，临时值最多 19。归纳可知，
+已处理后缀恰好保存该部分和的低位数字，未完成部分由进位传左。
+和能放入 `N` 位的保证使最终进位为零。必须保留全部 `N` 位，包括前导零，
+不能去零或额外输出进位位。
 
-难点只在规模：约 4 MB 的输入，而内存限制是 16 MB。必须快速读入，并且不能为每一位保存对象或 4 字节整数。
+原生语言基线把列和放入字节数组，再将该数组复用于输出。`N + 1` 缓冲的
+最后一字节是换行，不是新最高位。易读 Python 基线先读完整输入、删空白、
+分离出两个操作数字节串，再执行同样的逆序进位。Rust 基线在列和/输出数组之外
+还保留完整输入。所有版本时间、空间均 `O(N)`，五份原 Accepted 基线逐字节保留。
 
-注意事项：
+## 优化解法
 
-- 和的前导零也要输出：输出恰好 `N` 位；
-- 进位可能贯穿全部一百万位（`0999…9 + 000…1`）；
-- 没有必要把数转换成大整数类型，而且在很多语言里这是平方复杂度的。
+新 Python、Rust 一边读取一边丢弃输入，仅在一个 `N + 1` 字节缓冲中
+保存列和 `0..18`。逆序进位时将其覆盖为 ASCII 答案数字，最后一字节保持换行。
+无需分别保存两个操作数或完整输入，因为每对数字只需它们的和。
+缓冲本身占 `N + 1` 字节，不含运行时及输入输出缓冲。时间、空间仍 `O(N)`，
+是同一竖式加法的存储和 I/O 优化，故后缀 `_optimized`。
+
+Python 按题定格式逐行读取数字对；Rust 读完 `N` 后从锁定输入流筛选 ASCII 数字。
+均直接写出完成的字节缓冲，不将百万位操作数转成一个大整数。
+
+精确 Python 源码 Accepted 为 0.593 秒 / 1392 KB，基线 0.406 秒 / 10360 KB：
+内存减少 86.6%，记录时间增加 46.1%。Rust 为 0.046 秒 / 1144 KB，
+基线 0.015 秒 / 10248 KB：内存减少 88.8%，记录时间也较高。
+两份均按内存准入，不是按速度；易读且记录时间更低的基线仍保留。
 
 ## 各语言说明
 
-- **C++**、**Java**：用 `fread` / `DataInputStream` 做带缓冲的逐字节读入；**Go**：`bufio.Reader.ReadByte`；
-  **Rust**：把全部输入读进一个字节向量。
-- **Python**：全部输入是一个 `bytes` 对象；`translate` 删去空白字符，步长为 2 的切片分出两个数，进位循环写入
-  `bytearray`。用 `int()` 转换会是超线性复杂度的（而且 Python 3.12 默认拒绝超过 4300 位的字符串）。
+2026 年 11 月 2 日快照中，原 C++ 对比 234 条筛选后的其他作者记录，
+时间第 1、内存第 5；Java 对比六条记录两项第一。Go 样本为空，
+形式覆盖不能证明竞争优势。优化 Rust 对比一条记录两项第一。
+优化 Python 对比八条记录排名 7/1，仍保留星号：既定规则要求 C++ 两项同时
+进入前 15% 或前 10 名，其他语言两项均第一。Python 的内存改善仍满足准入，
+与是否达到排名目标分别记录。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1048_implementation.cpp](1048_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 1184 KB |
-| [1048_implementation.go](1048_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.062 s | 1976 KB |
-| [1048_implementation.java](1048_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.140 s | 2080 KB |
-| [1048_implementation.py](1048_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.406 s | 10360 KB |
-| [1048_implementation.rs](1048_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 10248 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1048_implementation.cpp](1048_implementation.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 1184 KB | 11278646 |
+| [1048_implementation.go](1048_implementation.go) | Go 1.14 x64 | implementation | O(N) | AC | 0.062 s | 1976 KB | 11278650 |
+| [1048_implementation.java](1048_implementation.java) | Java 1.8 | implementation | O(N) | AC | 0.140 s | 2080 KB | 11278656 |
+| [1048_implementation.py](1048_implementation.py) | Python 3.12 x64 | implementation | O(N) | AC | 0.406 s | 10360 KB | 11278662 |
+| [1048_implementation.rs](1048_implementation.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 10248 KB | 11278658 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1048_implementation_optimized.py](1048_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.593 s | 1392 KB | 11308404 |
+| [1048_implementation_optimized.rs](1048_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.046 s | 1144 KB | 11308405 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
