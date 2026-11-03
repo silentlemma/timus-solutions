@@ -8,21 +8,15 @@ Original problem from the Third Ural Collegiate Team Programming Championship, 1
 
 ## Task
 
-`N` distinct points (`1 ≤ N ≤ 15 000`) with integer coordinates
-`0 ≤ x, y ≤ 32 000` are given in increasing order of `y`, and of `x` for
-equal `y`. The **level** of a point is the number of other points with
-`x' ≤ x` and `y' ≤ y`. For every `k` from 0 to `N - 1` print how many points
-have level `k`.
-
-Time limit: 0.25 seconds. Memory limit: 64 MB.
+`N` distinct points, `1 ≤ N ≤ 15000`, have integer coordinates `0 ≤ x, y ≤ 32000`. They arrive in increasing `y`, then increasing `x` for equal `y`. A point's level is the number of other points with `x' ≤ x` and `y' ≤ y`. Count the points at every level from 0 to `N − 1`. Time limit: 0.25 seconds. Memory limit: 64 MB.
 
 ## Input
 
-`N`, then `N` lines `x y` in the order described above.
+`N`, followed by `N` lines `x y` in the stated order; no two points coincide.
 
 ## Output
 
-`N` lines: the number of points of level 0, 1, ..., `N - 1`.
+`N` lines, giving the counts of levels 0, 1, …, `N − 1`.
 
 ## Checking
 
@@ -72,41 +66,84 @@ Output:
 
 ## Solution
 
-The order of the input does half of the work. When a point arrives, every
-point with a smaller `y`, and every point with the same `y` and a smaller
-`x`, has already arrived — and no later point has `y' ≤ y` and `x' ≤ x`
-unless it is the same point. So the level of a point is the number of
-points **seen so far** with `x' ≤ x`.
+At the current point, every earlier point already has `y′ ≤ y`.
+A later point either has larger `y`, or equal `y` and larger `x`, so it
+cannot contribute. The level is therefore the number of previous points
+with `x′ ≤ x`.
 
-That is a prefix count over `x` with insertions: a **Fenwick tree**
-(binary indexed tree) over the coordinates `0..32 000` answers "how many
-inserted values are `≤ x`" and inserts a value in `O(log C)` each, `C` being
-the coordinate range. Process the points in order: query, count the level,
-insert. `O(N log C)` in total.
+Use a Fenwick tree of frequencies over `x = 0..32000`. Shift `x` by one:
+query the prefix ending at `x + 1`, increment that level's histogram cell,
+then insert this point. A Fenwick cell stores a suffix of its index
+prefix; repeatedly clearing the lowest set bit partitions the queried
+prefix into disjoint intervals. An insertion visits precisely the cells
+whose intervals contain its index. Thus each query counts exactly the
+required previous points. Querying before inserting excludes the point
+itself. Equal-`y` points are processed immediately, not as a batch, since
+the earlier points on the same row must count.
 
-A segment tree over the coordinates works the same way, a little slower.
+Time is `O(N log C)`, `C = 32001`, and the tree plus histogram use
+`O(C + N)` cells. The original C++ segment tree is also retained: it
+queries `[0, x + 1)` and inserts `x` with the same ordering argument.
+Its asymptotic bound is the same, with a larger tree. All six original
+Accepted sources are preserved without byte changes.
 
-Pitfalls:
+## Optimized solutions
 
-- `x` can be 0, and Fenwick trees are 1-based: shift by one;
-- a quadratic count of earlier points is `10^8` comparisons — too slow for
-  the 0.25-second limit;
-- `N` numbers in the output: build it in a buffer.
+Every tree or histogram counter is at most `N ≤ 15000`, so an unsigned
+16-bit cell is sufficient; query totals use wider arithmetic. The compact
+Fenwick versions use 16-bit counters instead of full native integers or
+Python object lists. At maximum size their two counter arrays occupy
+`2 × (32002 + 15000) = 94004` bytes, excluding input, output and runtime.
+
+C++ uses a small buffered reader and standard buffered output. Python
+streams input tokens and discards that generator after processing, but
+still builds its final output string. Rust retains the input text but
+parses lazily without a vector of all numeric tokens, and writes through
+a buffered writer. Time remains `O(N log C)` and counter storage remains
+`O(C + N)`; this is an implementation and memory optimization.
+
+Measured memory changes relative to the original Fenwick on the same
+language: C++ 348 → 224 KB (35.6%), Python 3644 → 1576 KB (56.8%), Rust
+1076 → 580 KB (46.1%). All three have their own Accepted and qualify by
+memory. Python is slower, 0.156 s versus 0.109 s; Rust stays at 0.031 s.
+C++ records 0.015 s versus 0.031 s, but that single timer tick is not used
+to establish a speedup. C++ is compared with the original Fenwick,
+not the more memory-hungry segment tree.
 
 ## Language notes
 
-- **C++**: a Fenwick tree and a bottom-up segment tree.
-- **Go**, **Python**, **Java**, **Rust**: a Fenwick tree; Python keeps the
-  loops tight (only the `x` coordinates are converted, `j &= j - 1` walks
-  down).
+Python was checked on 811 small point sets against direct two-dimensional
+dominance counts, including every nonempty subset of a 3 × 3 coordinate
+grid and random boundary coordinates. Two further 15000-point extremes
+use closed-form expected histograms, covering a count of 15000 and maximal Fenwick counts. Each of the
+three actual candidates also passed 14 repository inputs in Docker.
+
+The rating snapshot is from 2 November 2026. C++ is at time place 1 and
+memory place 2 among 235 filtered other-author entries and meets the
+target. Rust is first in both against two entries. Python is at places
+5 and 3 against 19 entries, so its optimized row keeps a star. Existing
+Java is first in both against five entries. Go's filtered comparison
+sample is empty; its formal coverage does not prove competitive superiority.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1028_fenwick.cpp](1028_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 348 KB |
-| [1028_fenwick.go](1028_fenwick.go) | Go 1.14 x64 | fenwick | O(N log C), C = 32001 | AC | 0.046 s | 1512 KB |
-| [1028_fenwick.java](1028_fenwick.java) | Java 1.8 | fenwick | O(N log C), C = 32001 | AC | 0.093 s | 888 KB |
-| [1028_fenwick.py](1028_fenwick.py) | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.109 s | 3644 KB |
-| [1028_fenwick.rs](1028_fenwick.rs) | Rust 1.75 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 1076 KB |
-| [1028_segment_tree.cpp](1028_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(N log C), C = 32001 | AC | 0.031 s | 472 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1028_fenwick.cpp](1028_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 348 KB | 11278320 |
+| [1028_fenwick.go](1028_fenwick.go) | Go 1.14 x64 | fenwick | O(N log C), C = 32001 | AC | 0.046 s | 1512 KB | 11278322 |
+| [1028_fenwick.java](1028_fenwick.java) | Java 1.8 | fenwick | O(N log C), C = 32001 | AC | 0.093 s | 888 KB | 11278326 |
+| [1028_fenwick.py](1028_fenwick.py) | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.109 s | 3644 KB | 11278325 |
+| [1028_fenwick.rs](1028_fenwick.rs) | Rust 1.75 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 1076 KB | 11278327 |
+| [1028_segment_tree.cpp](1028_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(N log C), C = 32001 | AC | 0.031 s | 472 KB | 11278321 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1028_fenwick_optimized.cpp](1028_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log C), C = 32001 | AC | 0.015 s | 224 KB | 11308209 |
+| [1028_fenwick_optimized.py](1028_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log C), C = 32001 | AC | 0.156 s | 1576 KB | 11308208 |
+| [1028_fenwick_optimized.rs](1028_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log C), C = 32001 | AC | 0.031 s | 580 KB | 11308211 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
