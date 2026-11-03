@@ -18,7 +18,7 @@ public class Main {
             }
             names.add(name.toString());
         }
-        if ((long) names.size() * n > LIMIT) {
+        if ((long)names.size() * n > LIMIT) {
             System.out.println("TOO LONG");
             return;
         }
