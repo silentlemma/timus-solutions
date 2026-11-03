@@ -21,6 +21,10 @@ N and K.
 
 The largest number of coffins.
 
+## Checking
+
+Compare one exact integer token; formatting whitespace is ignored. The new exact Python source passed 16 repository fixtures under PyPy 3.10. Other retained native variants keep their own saved target-runtime checks and exact Accepted receipts. Compare output according to the problem checker, not by choosing one historical formatting.
+
 ## Examples
 
 ### Example 1
@@ -72,16 +76,46 @@ Pitfalls:
 The formula was compared with an exhaustive search for all N and K from
 2 to 7.
 
+## Optimized solutions
+
+Use exactly the same integer corner-square formula as the teaching sources. For r=N mod K, let s=min(r,K-r); if N>=K, return (N*N-s*s)//K, otherwise zero. No floating-point rounding or answer table is involved. The compact source reads the existing text stream and writes the exact integer directly. Its own PyPy run supplies the memory saving; interpreter identity and the increased runtime are explicit below. The five simple files remain unchanged.
+
+- `1255_math_optimized.java`: 0.109 s / 320 KB; base `1255_math.java`: 0.125 s / 1600 KB; relative change: time -12.8%, memory -80.0%.
+- `1255_math_optimized.py`: 0.140 s / 248 KB; base `1255_math.py`: 0.078 s / 376 KB; relative change: time +79.5%, memory -34.0%.
+
 ## Language notes
 
-- All languages evaluate the same formula.
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1255_math.cpp`; covering source `1255_math.cpp`; time/memory places 1/2, other-author entries 31/31.
+
+- Go: preferred teaching base `1255_math.go`; covering source `1255_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1255_math.java`; covering source `1255_math_optimized.java`; time/memory places 3/1, other-author entries 4/4.
+
+- Python/PyPy: preferred teaching base `1255_math.py`; covering source `1255_math_optimized.py`; time/memory places 6/1, other-author entries 7/7.
+
+- Rust: preferred teaching base `1255_math.rs`; covering source `1255_math.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1255_math.cpp](1255_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1255_math.go](1255_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1132 KB |
-| [1255_math.java](1255_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1600 KB |
-| [1255_math.py](1255_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 376 KB |
-| [1255_math.rs](1255_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1255_math.cpp](1255_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11284031 |
+| [1255_math.go](1255_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1132 KB | 11284034 |
+| [1255_math.java](1255_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1600 KB | 11284037 |
+| [1255_math.py](1255_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 376 KB | 11284036 |
+| [1255_math.rs](1255_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11284039 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 320 KB | 11309313 |
+| [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
