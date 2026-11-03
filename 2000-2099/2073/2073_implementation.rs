@@ -28,8 +28,12 @@ fn main() {
     for _ in 0..n {
         let name = lines.next().unwrap();
         let date = lines.next().unwrap();
-        let counts: Vec<usize> =
-            lines.next().unwrap().split_whitespace().map(|t| t.parse().unwrap()).collect();
+        let counts: Vec<usize> = lines
+            .next()
+            .unwrap()
+            .split_whitespace()
+            .map(|t| t.parse().unwrap())
+            .collect();
         let (p, s) = (counts[0], counts[1]);
         // '.' for a given problem, 'x' once submitted, 'o' once accepted
         let mut marks = vec![b' '; LETTERS.len()];

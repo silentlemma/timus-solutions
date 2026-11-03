@@ -10,13 +10,12 @@ const string LETTERS = "ABCDEFGHIJKLM";
 string readLine() {
     string s;
     getline(cin, s);
-    while (!s.empty() && (s.back() == '\r' || s.back() == ' ')) s.pop_back();
+    while (!s.empty() && (s.back() == '\r' || s.back() == ' '))
+        s.pop_back();
     return s;
 }
 
-string pad(const string& s, int width) {
-    return s + string(width - s.size(), ' ');
-}
+string pad(const string &s, int width) { return s + string(width - s.size(), ' '); }
 
 int main() {
     string border = "+" + string(NAME_WIDTH, '-') + "+" + string(DATE_WIDTH, '-') + "+" +

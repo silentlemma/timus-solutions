@@ -31,6 +31,10 @@ n, y para cada concurso la línea del nombre, la de la fecha, la línea
 La tabla, con el formato del ejemplo, con una línea de borde antes del
 encabezado, después de él y después de cada concurso.
 
+## Evaluación
+
+Se compara la salida completa, incluidos espacios y saltos de línea.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -87,12 +91,50 @@ línea, quitando los espacios y retornos de carro finales (un nombre
 nunca termina en espacio). Las marcas conservan sus espacios finales: en
 el ejemplo la segunda fila termina en `.. ` antes del borde.
 
+## Soluciones optimizadas
+
+No cambian las notas ni el formato exacto de la tabla. Se lee y emite un concurso cada vez con búferes de líneas y filas ASCII acotados, sin retener toda la entrada ni la salida completa. Se conservan nombres, fechas y anchuras de relleno. Los límites de búfer provienen de las longitudes de campos; los numéricos se analizan aparte y no se truncan con cotas de texto.
+
+- `2073_implementation_optimized.cpp`: 0.015 s / 112 KB; base `2073_implementation.cpp`: 0.001 s / 356 KB; cambio respecto a la base: tiempo -0.0%, memoria -68.5%.
+- `2073_implementation_optimized.java`: 0.093 s / 440 KB; base `2073_implementation.java`: 0.093 s / 2224 KB; cambio respecto a la base: tiempo -0.0%, memoria -80.2%.
+- `2073_implementation_optimized.py`: 0.078 s / 464 KB; base `2073_implementation.py`: 0.062 s / 1196 KB; cambio respecto a la base: tiempo +25.8%, memoria -61.2%.
+- `2073_implementation_optimized.rs`: 0.015 s / 224 KB; base `2073_implementation.rs`: 0.015 s / 732 KB; cambio respecto a la base: tiempo -0.0%, memoria -69.4%.
+
+## Notas por lenguaje
+
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `2073_implementation.cpp`; versión que cubre `2073_implementation_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 32/32.
+
+- Go: base didáctica preferida `2073_implementation.go`; versión que cubre `2073_implementation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `2073_implementation.java`; versión que cubre `2073_implementation.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+
+- Python/PyPy: base didáctica preferida `2073_implementation.py`; versión que cubre `2073_implementation_optimized.py`; puestos tiempo/memoria 1/2, registros de otros autores 9/9.
+
+- Rust: base didáctica preferida `2073_implementation.rs`; versión que cubre `2073_implementation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2073_implementation.cpp](2073_implementation.cpp) | G++ 13.2 x64 | implementation | O(input) | AC | 0.015 s | 380 KB |
-| [2073_implementation.go](2073_implementation.go) | Go 1.14 x64 | implementation | O(input) | AC | 0.015 s | 1832 KB |
-| [2073_implementation.java](2073_implementation.java) | Java 1.8 | implementation | O(input) | AC | 0.078 s | 2308 KB |
-| [2073_implementation.py](2073_implementation.py) | Python 3.12 x64 | implementation | O(input) | AC | 0.062 s | 1324 KB |
-| [2073_implementation.rs](2073_implementation.rs) | Rust 1.75 x64 | implementation | O(input) | AC | 0.015 s | 748 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2073_implementation.cpp](2073_implementation.cpp) | G++ 13.2 x64 | implementation | O(input) | AC | 0.001 s | 356 KB | 11309231 |
+| [2073_implementation.go](2073_implementation.go) | Go 1.14 x64 | implementation | O(input) | AC | 0.015 s | 1832 KB | 11294474 |
+| [2073_implementation.java](2073_implementation.java) | Java 1.8 | implementation | O(input) | AC | 0.093 s | 2224 KB | 11309232 |
+| [2073_implementation.py](2073_implementation.py) | Python 3.12 x64 | implementation | O(input) | AC | 0.062 s | 1196 KB | 11309233 |
+| [2073_implementation.rs](2073_implementation.rs) | Rust 1.75 x64 | implementation | O(input) | AC | 0.015 s | 732 KB | 11309234 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2073_implementation_optimized.cpp](2073_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(input+output) | AC | 0.015 s | 112 KB | 11308727 |
+| [2073_implementation_optimized.java](2073_implementation_optimized.java) | Java 1.8 | implementation | O(input+output) | AC | 0.093 s | 440 KB | 11308732 |
+| [2073_implementation_optimized.py](2073_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(input+output) | AC | 0.078 s | 464 KB | 11308735 |
+| [2073_implementation_optimized.rs](2073_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(input+output) | AC | 0.015 s | 224 KB | 11308736 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

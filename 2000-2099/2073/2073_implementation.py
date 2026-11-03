@@ -15,8 +15,11 @@ def main():
         return lines[pos - 1]
 
     border = "+%s+%s+%s+" % ("-" * NAME_WIDTH, "-" * DATE_WIDTH, "-" * len(LETTERS))
-    out = [border, "|%s|%s|%s|" % ("Contest name".ljust(NAME_WIDTH), "Date".ljust(DATE_WIDTH),
-                                   LETTERS), border]
+    out = [
+        border,
+        "|%s|%s|%s|" % ("Contest name".ljust(NAME_WIDTH), "Date".ljust(DATE_WIDTH), LETTERS),
+        border,
+    ]
     for _ in range(int(next_line())):
         name, date = next_line(), next_line()
         p, s = map(int, next_line().split())

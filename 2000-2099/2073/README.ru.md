@@ -30,6 +30,10 @@ n, затем для каждого соревнования строка наз
 Таблица, оформленная как в примере, с линией границы перед заголовком,
 после него и после каждого соревнования.
 
+## Проверка
+
+Вывод сравнивается полностью, включая пробелы и переводы строк.
+
 ## Примеры
 
 ### Пример 1
@@ -85,12 +89,50 @@ E Runtime Error
 пробелом). Отметки сохраняют свои пробелы в конце: в примере вторая
 строка заканчивается на `.. ` перед границей.
 
+## Оптимизированные решения
+
+Оценки соревнований и точная раскладка таблицы не меняются. Одно соревнование читается и выводится за раз с ограниченными буферами строк и ASCII-рядов вместо хранения всех строк входа и полного результата. Имена, текст даты и ширины дополнения сохраняются точно. Размеры буферов следуют максимальным длинам полей; числовые поля разбираются отдельно и не обрезаются ограничением текстового поля.
+
+- `2073_implementation_optimized.cpp`: 0.015 s / 112 KB; база `2073_implementation.cpp`: 0.001 s / 356 KB; изменение относительно базы: время -0.0%, память -68.5%.
+- `2073_implementation_optimized.java`: 0.093 s / 440 KB; база `2073_implementation.java`: 0.093 s / 2224 KB; изменение относительно базы: время -0.0%, память -80.2%.
+- `2073_implementation_optimized.py`: 0.078 s / 464 KB; база `2073_implementation.py`: 0.062 s / 1196 KB; изменение относительно базы: время +25.8%, память -61.2%.
+- `2073_implementation_optimized.rs`: 0.015 s / 224 KB; база `2073_implementation.rs`: 0.015 s / 732 KB; изменение относительно базы: время -0.0%, память -69.4%.
+
+## Особенности языков
+
+Использован сохранённый срез 1–2 ноября 2026 года. Для C++ нужны топ 15% либо первые 10 мест одновременно по времени и памяти; для остальных семейств — первое место по обеим метрикам. Равные результаты делят место. Пустые выборки дают лишь формальное покрытие.
+
+- C++: предпочтительная учебная база `2073_implementation.cpp`; покрывающая версия `2073_implementation_optimized.cpp`; места по времени/памяти 1/1, чужих записей 32/32.
+
+- Go: предпочтительная учебная база `2073_implementation.go`; покрывающая версия `2073_implementation.go`; места по времени/памяти 1/1, чужих записей 0/0.
+
+- Java: предпочтительная учебная база `2073_implementation.java`; покрывающая версия `2073_implementation.java`; места по времени/памяти 1/1, чужих записей 2/2.
+
+- Python/PyPy: предпочтительная учебная база `2073_implementation.py`; покрывающая версия `2073_implementation_optimized.py`; места по времени/памяти 1/2, чужих записей 9/9.
+
+- Rust: предпочтительная учебная база `2073_implementation.rs`; покрывающая версия `2073_implementation.rs`; места по времени/памяти 1/1, чужих записей 0/0.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2073_implementation.cpp](2073_implementation.cpp) | G++ 13.2 x64 | implementation | O(input) | AC | 0.015 s | 380 KB |
-| [2073_implementation.go](2073_implementation.go) | Go 1.14 x64 | implementation | O(input) | AC | 0.015 s | 1832 KB |
-| [2073_implementation.java](2073_implementation.java) | Java 1.8 | implementation | O(input) | AC | 0.078 s | 2308 KB |
-| [2073_implementation.py](2073_implementation.py) | Python 3.12 x64 | implementation | O(input) | AC | 0.062 s | 1324 KB |
-| [2073_implementation.rs](2073_implementation.rs) | Rust 1.75 x64 | implementation | O(input) | AC | 0.015 s | 748 KB |
+В простой таблице находятся предпочтительные учебные версии и сохранённые принятые альтернативы. Предпочтительная база каждого семейства указана в особенностях языков.
+
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [2073_implementation.cpp](2073_implementation.cpp) | G++ 13.2 x64 | implementation | O(input) | AC | 0.001 s | 356 KB | 11309231 |
+| [2073_implementation.go](2073_implementation.go) | Go 1.14 x64 | implementation | O(input) | AC | 0.015 s | 1832 KB | 11294474 |
+| [2073_implementation.java](2073_implementation.java) | Java 1.8 | implementation | O(input) | AC | 0.093 s | 2224 KB | 11309232 |
+| [2073_implementation.py](2073_implementation.py) | Python 3.12 x64 | implementation | O(input) | AC | 0.062 s | 1196 KB | 11309233 |
+| [2073_implementation.rs](2073_implementation.rs) | Rust 1.75 x64 | implementation | O(input) | AC | 0.015 s | 732 KB | 11309234 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [2073_implementation_optimized.cpp](2073_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(input+output) | AC | 0.015 s | 112 KB | 11308727 |
+| [2073_implementation_optimized.java](2073_implementation_optimized.java) | Java 1.8 | implementation | O(input+output) | AC | 0.093 s | 440 KB | 11308732 |
+| [2073_implementation_optimized.py](2073_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(input+output) | AC | 0.078 s | 464 KB | 11308735 |
+| [2073_implementation_optimized.rs](2073_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(input+output) | AC | 0.015 s | 224 KB | 11308736 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Реализацию можно оптимизировать дальше.
