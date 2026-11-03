@@ -4,7 +4,7 @@ import sys
 def main():
     data = sys.stdin.buffer.read().split()
     n = int(data[0])
-    dryness = list(map(int, data[1:n + 1]))
+    dryness = list(map(int, data[1 : n + 1]))
     order = sorted(range(n), key=lambda i: (dryness[i], i))
     # a group of equal dryness is a segment of positions, watered by walking it once.
     # The walk ends at its left or right end, and those two states carry over

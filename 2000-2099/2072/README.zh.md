@@ -18,6 +18,10 @@ n（1 ≤ n ≤ 10⁵），然后从左到右给出 n 个湿润度，每个在 1
 
 最短总时间（分钟）。
 
+## 评测方式
+
+精确比较完整输出，包括空格和换行。
+
 ## 样例
 
 ### 样例 1
@@ -43,16 +47,46 @@ n（1 ≤ n ≤ 10⁵），然后从左到右给出 n 个湿润度，每个在 1
 
 样例中各组为 {2, 5}、{1}、{3, 6} 和 {4}（湿润度 2、3、5、6），最佳路线走 15 步，加 6 次浇水，共 21。
 
-## 各语言说明
+## 优化解法
 
-总和可能超过 2³¹（约到 10¹⁰），所以 C++、Go、Java 和 Rust 使用 64 位整数。Java 把湿润度和位置打包进一个 long 来排序。
+按湿度和位置排序后，仍使用相同的双端点 DP。根据题目界限把两个排序字段打包成整数，数值顺序与字典序完全一致，可无冲突还原位置。基本类型键代替元组和对象比较器，DP 转移及同湿度分组处理不变。
+
+- `2072_sorting_dp_optimized.cpp`: 0.031 s / 924 KB; 基础版 `2072_sorting_dp.cpp`: 0.093 s / 956 KB; 相对基础版的变化: 时间 -66.7%, 内存 -3.3%.
+- `2072_sorting_dp_optimized.py`: 0.328 s / 12940 KB; 基础版 `2072_sorting_dp.py`: 0.343 s / 21636 KB; 相对基础版的变化: 时间 -4.4%, 内存 -40.2%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `2072_sorting_dp.cpp`; 覆盖实现 `2072_sorting_dp_optimized.cpp`; 时间/内存名次 4/2, 其他作者记录 114/114.
+
+- Go: 优先教学基础版 `2072_sorting_dp.go`; 覆盖实现 `2072_sorting_dp.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Java: 优先教学基础版 `2072_sorting_dp.java`; 覆盖实现 `2072_sorting_dp.java`; 时间/内存名次 1/1, 其他作者记录 6/6.
+
+- Python/PyPy: 优先教学基础版 `2072_sorting_dp.py`; 覆盖实现 `2072_sorting_dp_optimized.py`; 时间/内存名次 3/1, 其他作者记录 11/11.
+
+- Rust: 优先教学基础版 `2072_sorting_dp.rs`; 覆盖实现 `2072_sorting_dp.rs`; 时间/内存名次 1/1, 其他作者记录 1/1.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2072_sorting_dp.cpp](2072_sorting_dp.cpp) | G++ 13.2 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 980 KB |
-| [2072_sorting_dp.go](2072_sorting_dp.go) | Go 1.14 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 4292 KB |
-| [2072_sorting_dp.java](2072_sorting_dp.java) | Java 1.8 | sorting, dp | O(n log n) | AC | 0.125 s | 2132 KB |
-| [2072_sorting_dp.py](2072_sorting_dp.py) | Python 3.12 x64 | sorting, dp | O(n log n) | AC | 0.312 s | 22588 KB |
-| [2072_sorting_dp.rs](2072_sorting_dp.rs) | Rust 1.75 x64 | sorting, dp | O(n log n) | AC | 0.031 s | 3424 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2072_sorting_dp.cpp](2072_sorting_dp.cpp) | G++ 13.2 x64 | sorting, dp | O(n log n) | AC | 0.093 s | 956 KB | 11309226 |
+| [2072_sorting_dp.go](2072_sorting_dp.go) | Go 1.14 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 4292 KB | 11294463 |
+| [2072_sorting_dp.java](2072_sorting_dp.java) | Java 1.8 | sorting, dp | O(n log n) | AC | 0.140 s | 2072 KB | 11309227 |
+| [2072_sorting_dp.py](2072_sorting_dp.py) | Python 3.12 x64 | sorting, dp | O(n log n) | AC | 0.343 s | 21636 KB | 11309228 |
+| [2072_sorting_dp.rs](2072_sorting_dp.rs) | Rust 1.75 x64 | sorting, dp | O(n log n) | AC | 0.015 s | 3420 KB | 11309229 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2072_sorting_dp_optimized.cpp](2072_sorting_dp_optimized.cpp) | G++ 13.2 x64 | sorting, dp | O(N log N) | AC | 0.031 s | 924 KB | 11308423 |
+| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) \* | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

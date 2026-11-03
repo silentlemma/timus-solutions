@@ -76,7 +76,7 @@
 | 2069 | [The best route with at most two turns](2069/) | greedy | C++, Go, Python, Java, Rust |
 | 2070 | [Prime powers with a prime number of divisors](2070/) | number_theory | C++, Go, Python, Java, Rust |
 | 2071 | [Order the cocktails for the fewest pourings](2071/) | bitmask, dp | C++, Go, Python, Java, Rust |
-| 2072 | [Water by dryness, ending each group at one of its ends](2072/) | sorting, dp | C++, Go, Python, Java, Rust |
+| 2072 | [Water by moisture, ending each group at one of its ends](2072/) | sorting, dp | C++, Go, Python, Java, Rust |
 | 2073 | [A summary table of contest logs](2073/) | implementation | C++, Go, Python, Java, Rust |
 | 2074 | [Group problems by their topic paths](2074/) | implementation, sorting | C++, Go, Python, Java, Rust |
 | 2075 | [Drinking a layered cocktail through a straw](2075/) | fenwick | C++, Go, Python, Java, Rust |

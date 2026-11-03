@@ -23,6 +23,10 @@ n, 1 ≤ n ≤ 10⁵, then the n moisture values from left to right, each from
 
 The smallest total time in minutes.
 
+## Checking
+
+Compare the complete output exactly, including spaces and line breaks.
+
 ## Examples
 
 ### Example 1
@@ -60,17 +64,46 @@ final value plus n. Sorting dominates: O(n log n).
 In the example the groups are {2, 5}, {1}, {3, 6} and {4} (moisture 2, 3,
 5 and 6), and the best walk takes 15 steps, plus 6 waterings: 21.
 
+## Optimized solutions
+
+Keep the same two-endpoint DP after ordering by moisture and position. Pack both sort fields into one integer key using their stated bounds; numeric order is therefore exactly lexicographic order. Unpacking recovers the original position without collisions. Primitive keys replace tuples and object comparators, while the DP state transitions and the treatment of equal-moisture groups remain unchanged.
+
+- `2072_sorting_dp_optimized.cpp`: 0.031 s / 924 KB; base `2072_sorting_dp.cpp`: 0.093 s / 956 KB; relative change: time -66.7%, memory -3.3%.
+- `2072_sorting_dp_optimized.py`: 0.328 s / 12940 KB; base `2072_sorting_dp.py`: 0.343 s / 21636 KB; relative change: time -4.4%, memory -40.2%.
+
 ## Language notes
 
-The total can exceed 2³¹ (up to about 10¹⁰), so C++, Go, Java and Rust use
-64-bit integers. Java sorts the moisture and the position packed into one long.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `2072_sorting_dp.cpp`; covering source `2072_sorting_dp_optimized.cpp`; time/memory places 4/2, other-author entries 114/114.
+
+- Go: preferred teaching base `2072_sorting_dp.go`; covering source `2072_sorting_dp.go`; time/memory places 1/1, other-author entries 1/1.
+
+- Java: preferred teaching base `2072_sorting_dp.java`; covering source `2072_sorting_dp.java`; time/memory places 1/1, other-author entries 6/6.
+
+- Python/PyPy: preferred teaching base `2072_sorting_dp.py`; covering source `2072_sorting_dp_optimized.py`; time/memory places 3/1, other-author entries 11/11.
+
+- Rust: preferred teaching base `2072_sorting_dp.rs`; covering source `2072_sorting_dp.rs`; time/memory places 1/1, other-author entries 1/1.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2072_sorting_dp.cpp](2072_sorting_dp.cpp) | G++ 13.2 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 980 KB |
-| [2072_sorting_dp.go](2072_sorting_dp.go) | Go 1.14 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 4292 KB |
-| [2072_sorting_dp.java](2072_sorting_dp.java) | Java 1.8 | sorting, dp | O(n log n) | AC | 0.125 s | 2132 KB |
-| [2072_sorting_dp.py](2072_sorting_dp.py) | Python 3.12 x64 | sorting, dp | O(n log n) | AC | 0.312 s | 22588 KB |
-| [2072_sorting_dp.rs](2072_sorting_dp.rs) | Rust 1.75 x64 | sorting, dp | O(n log n) | AC | 0.031 s | 3424 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2072_sorting_dp.cpp](2072_sorting_dp.cpp) | G++ 13.2 x64 | sorting, dp | O(n log n) | AC | 0.093 s | 956 KB | 11309226 |
+| [2072_sorting_dp.go](2072_sorting_dp.go) | Go 1.14 x64 | sorting, dp | O(n log n) | AC | 0.078 s | 4292 KB | 11294463 |
+| [2072_sorting_dp.java](2072_sorting_dp.java) | Java 1.8 | sorting, dp | O(n log n) | AC | 0.140 s | 2072 KB | 11309227 |
+| [2072_sorting_dp.py](2072_sorting_dp.py) | Python 3.12 x64 | sorting, dp | O(n log n) | AC | 0.343 s | 21636 KB | 11309228 |
+| [2072_sorting_dp.rs](2072_sorting_dp.rs) | Rust 1.75 x64 | sorting, dp | O(n log n) | AC | 0.015 s | 3420 KB | 11309229 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2072_sorting_dp_optimized.cpp](2072_sorting_dp_optimized.cpp) | G++ 13.2 x64 | sorting, dp | O(N log N) | AC | 0.031 s | 924 KB | 11308423 |
+| [2072_sorting_dp_optimized.py](2072_sorting_dp_optimized.py) \* | Python 3.12 x64 | sorting, dp | O(N log N) | AC | 0.328 s | 12940 KB | 11308422 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
