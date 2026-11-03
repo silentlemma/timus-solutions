@@ -4,18 +4,19 @@ sys.set_int_max_str_digits(0)
 
 # after the two currencies, a point gives a rate and a commission each way
 TERMS = 4
+DECIMAL_SCALE = 100
 
 
 def scaled(text, places):
-    whole, _, fraction = text.partition('.')
-    return int(whole + fraction + '0' * (places - len(fraction)))
+    whole, _, fraction = text.partition(".")
+    return int(whole + fraction + "0" * (places - len(fraction)))
 
 
 def main():
     tok = iter(sys.stdin.read().split())
     n, m, s = int(next(tok)), int(next(tok)), int(next(tok))
     text = next(tok)
-    places = max(2, len(text.partition('.')[2]))
+    places = max(2, len(text.partition(".")[2]))
     v = scaled(text, places)
     unit = 10 ** (places - 2)
     edges = []
@@ -28,7 +29,7 @@ def main():
     best = [-1] * (n + 1)
     best[s] = v
     for _ in range(n):
-        after = [amount * 100 if amount >= 0 else -1 for amount in best]
+        after = [amount * DECIMAL_SCALE if amount >= 0 else -1 for amount in best]
         changed = False
         for a, b, rate, fee in edges:
             cost = fee * unit
@@ -38,8 +39,8 @@ def main():
                     after[b] = got
                     changed = True
         best = after
-        unit *= 100
-        v *= 100
+        unit *= DECIMAL_SCALE
+        v *= DECIMAL_SCALE
         if best[s] > v or not changed:
             break
     print("YES" if best[s] > v or changed else "NO")

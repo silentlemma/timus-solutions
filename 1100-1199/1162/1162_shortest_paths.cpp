@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+const int AMOUNT_BASE = 100, DECIMAL_SCALE = 100;
+
 // Nonnegative integers stored in base 100, with no rounding.
 struct Amount {
     std::vector<int> digits;
@@ -21,8 +23,8 @@ struct Amount {
     bool operator<(const Amount &other) const {
         if (digits.size() != other.digits.size())
             return digits.size() < other.digits.size();
-        return std::lexicographical_compare(digits.rbegin(), digits.rend(),
-                                            other.digits.rbegin(), other.digits.rend());
+        return std::lexicographical_compare(digits.rbegin(), digits.rend(), other.digits.rbegin(),
+                                            other.digits.rend());
     }
 
     Amount operator*(int factor) const {
@@ -31,12 +33,12 @@ struct Amount {
         int carry = 0;
         for (int digit : digits) {
             carry += digit * factor;
-            result.digits.push_back(carry % 100);
-            carry /= 100;
+            result.digits.push_back(carry % AMOUNT_BASE);
+            carry /= AMOUNT_BASE;
         }
         while (carry) {
-            result.digits.push_back(carry % 100);
-            carry /= 100;
+            result.digits.push_back(carry % AMOUNT_BASE);
+            carry /= AMOUNT_BASE;
         }
         result.trim();
         return result;
@@ -48,7 +50,7 @@ struct Amount {
         for (size_t i = 0; i < digits.size(); i++) {
             int digit = digits[i] - borrow - (i < other.digits.size() ? other.digits[i] : 0);
             borrow = digit < 0;
-            result.digits[i] = digit + borrow * 100;
+            result.digits[i] = digit + borrow * AMOUNT_BASE;
         }
         result.trim();
         return result;
@@ -97,7 +99,7 @@ int main() {
     for (int pass = 0; pass < n; pass++) {
         std::vector<Amount> after;
         for (const Amount &amount : best)
-            after.push_back(amount * 100);
+            after.push_back(amount * DECIMAL_SCALE);
         std::vector<bool> next_reached = reached;
         changed = false;
         for (const Exchange &e : edges) {
@@ -113,8 +115,8 @@ int main() {
         }
         best = after;
         reached = next_reached;
-        unit = unit * 100;
-        v = v * 100;
+        unit = unit * DECIMAL_SCALE;
+        v = v * DECIMAL_SCALE;
         if (v < best[s] || !changed)
             break;
     }

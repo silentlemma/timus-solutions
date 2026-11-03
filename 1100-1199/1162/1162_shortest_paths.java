@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
+    static final int DECIMAL_SCALE = 100;
     static BigInteger scaled(String text, int places) {
         int dot = text.indexOf('.');
         int digits = dot < 0 ? 0 : text.length() - dot - 1;
@@ -30,7 +31,7 @@ public class Main {
         int dot = text.indexOf('.');
         int places = Math.max(2, dot < 0 ? 0 : text.length() - dot - 1);
         BigInteger v = scaled(text, places), unit = BigInteger.TEN.pow(places - 2);
-        BigInteger hundred = BigInteger.valueOf(100);
+        BigInteger hundred = BigInteger.valueOf(DECIMAL_SCALE);
         List<int[]> ends = new ArrayList<>();
         List<int[]> terms = new ArrayList<>();
         for (int k = 0; k < m; k++) {

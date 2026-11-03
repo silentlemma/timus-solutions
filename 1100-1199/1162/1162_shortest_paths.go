@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+const decimalScale int64 = 100
+
 type exchange struct {
 	from, to  int
 	rate, fee int64
@@ -34,7 +36,7 @@ func main() {
 	}
 	v := scaled(text, places)
 	unit := scaled("1", places-2)
-	hundred := big.NewInt(100)
+	hundred := big.NewInt(decimalScale)
 	var edges []exchange
 	for k := 0; k < m; k++ {
 		var a, b int

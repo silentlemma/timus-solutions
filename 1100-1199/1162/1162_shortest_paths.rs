@@ -1,6 +1,9 @@
 use std::cmp::Ordering;
 use std::io::{self, Read};
 
+const AMOUNT_BASE: u32 = 100;
+const DECIMAL_SCALE: u32 = 100;
+
 // Nonnegative integers stored in base 100, with no rounding.
 #[derive(Clone)]
 struct Amount(Vec<u32>);
@@ -26,7 +29,10 @@ impl Amount {
     }
 
     fn cmp(&self, other: &Self) -> Ordering {
-        self.0.len().cmp(&other.0.len()).then_with(|| self.0.iter().rev().cmp(other.0.iter().rev()))
+        self.0
+            .len()
+            .cmp(&other.0.len())
+            .then_with(|| self.0.iter().rev().cmp(other.0.iter().rev()))
     }
 
     fn mul(&self, factor: u32) -> Self {
@@ -34,12 +40,12 @@ impl Amount {
         let mut carry = 0;
         for digit in &self.0 {
             carry += digit * factor;
-            digits.push(carry % 100);
-            carry /= 100;
+            digits.push(carry % AMOUNT_BASE);
+            carry /= AMOUNT_BASE;
         }
         while carry > 0 {
-            digits.push(carry % 100);
-            carry /= 100;
+            digits.push(carry % AMOUNT_BASE);
+            carry /= AMOUNT_BASE;
         }
         let mut result = Self(digits);
         result.trim();
@@ -52,7 +58,7 @@ impl Amount {
         for (i, digit) in self.0.iter().enumerate() {
             let value = *digit as i32 - borrow - other.0.get(i).copied().unwrap_or(0) as i32;
             borrow = i32::from(value < 0);
-            result.0[i] = (value + borrow * 100) as u32;
+            result.0[i] = (value + borrow * AMOUNT_BASE as i32) as u32;
         }
         result.trim();
         result
@@ -108,15 +114,20 @@ fn main() {
     best[s] = Some(v.clone());
     let mut changed = false;
     for _ in 0..n {
-        let mut after: Vec<Option<Amount>> =
-            best.iter().map(|a| a.as_ref().map(|x| x.mul(100))).collect();
+        let mut after: Vec<Option<Amount>> = best
+            .iter()
+            .map(|a| a.as_ref().map(|x| x.mul(DECIMAL_SCALE)))
+            .collect();
         changed = false;
         for e in &edges {
             let cost = unit.mul(e.fee);
             if let Some(amount) = &best[e.from] {
                 if amount.cmp(&cost) != Ordering::Less {
                     let got = amount.sub(&cost).mul(e.rate);
-                    if after[e.to].as_ref().map_or(true, |old| got.cmp(old) == Ordering::Greater) {
+                    if after[e.to]
+                        .as_ref()
+                        .map_or(true, |old| got.cmp(old) == Ordering::Greater)
+                    {
                         after[e.to] = Some(got);
                         changed = true;
                     }
@@ -124,8 +135,8 @@ fn main() {
             }
         }
         best = after;
-        unit = unit.mul(100);
-        v = v.mul(100);
+        unit = unit.mul(DECIMAL_SCALE);
+        v = v.mul(DECIMAL_SCALE);
         if best[s].as_ref().unwrap().cmp(&v) == Ordering::Greater || !changed {
             break;
         }
