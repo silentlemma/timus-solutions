@@ -95,7 +95,7 @@
 | 1488 | [ACM Poker](1488/) | implementation | C++, Go, Python, Java, Rust |
 | 1489 | [Points on a Parallelepiped](1489/) | geometry | C++, Go, Python, Java, Rust |
 | 1490 | [Fire Circle](1490/) | math | C++, Go, Python, Java, Rust |
-| 1491 | [Unreal Story](1491/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 1491 | [Totals after inclusive range additions](1491/) | prefix_sums | C++, Go, Python, Java, Rust |
 | 1492 | [Vasya's Dad 2](1492/) | math | C++, Go, Python, Java, Rust |
 | 1493 | [One Step from Happiness](1493/) | implementation | C++, Go, Python, Java, Rust |
 | 1494 | [Monobilliards](1494/) | simulation | C++, Go, Python, Java, Rust |
