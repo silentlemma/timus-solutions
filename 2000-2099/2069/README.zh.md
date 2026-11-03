@@ -18,6 +18,10 @@ n 和 m（2 ≤ n, m ≤ 10⁵），然后从左到右给出 n 条竖直街道�
 
 最大的酷炫度。
 
+## 评测方式
+
+精确比较完整输出，包括空格和换行。
+
 ## 样例
 
 ### 样例 1
@@ -73,12 +77,52 @@ n 和 m（2 ≤ n, m ≤ 10⁵），然后从左到右给出 n 条竖直街道�
 
 第一个样例中，前两种情况给出 min(4, 3) = 3 和 min(2, 8) = 2，而最后一种沿 v₁ = 4 向下、沿 h₂ = 7 向右、再沿 v₂ = 8 向下，酷炫度为 4。
 
+## 优化解法
+
+流式计算两方向街道最大值及端点值，不保存所有街道。阈值可行当且仅当每个方向至少一条街达到阈值，且两个端点各有合格相邻街。这些街的交叉网格连通，因此条件充分且必要。取两方向最大值与两端点最大值的最小者即可，保持基础分类证明且工作空间为常数。
+
+- `2069_greedy_optimized.cpp`: 0.015 s / 84 KB; 基础版 `2069_greedy.cpp`: 0.156 s / 964 KB; 相对基础版的变化: 时间 -90.4%, 内存 -91.3%.
+- `2069_greedy_optimized.go`: 0.031 s / 1020 KB; 基础版 `2069_greedy.go`: 0.062 s / 5704 KB; 相对基础版的变化: 时间 -50.0%, 内存 -82.1%.
+- `2069_greedy_optimized.java`: 0.109 s / 404 KB; 基础版 `2069_greedy.java`: 0.140 s / 1260 KB; 相对基础版的变化: 时间 -22.1%, 内存 -67.9%.
+- `2069_greedy_optimized.py`: 0.171 s / 412 KB; 基础版 `2069_greedy.py`: 0.125 s / 21628 KB; 相对基础版的变化: 时间 +36.8%, 内存 -98.1%.
+- `2069_greedy_optimized.rs`: 0.031 s / 196 KB; 基础版 `2069_greedy.rs`: 0.015 s / 6308 KB; 相对基础版的变化: 时间 +106.7%, 内存 -96.9%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `2069_greedy.cpp`; 覆盖实现 `2069_greedy_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 51/51.
+
+- Go: 优先教学基础版 `2069_greedy.go`; 覆盖实现 `2069_greedy_optimized.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Java: 优先教学基础版 `2069_greedy.java`; 覆盖实现 `2069_greedy.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
+- Python/PyPy: 优先教学基础版 `2069_greedy.py`; 覆盖实现 `2069_greedy_optimized.py`; 时间/内存名次 2/1, 其他作者记录 4/4.
+
+- Rust: 优先教学基础版 `2069_greedy.rs`; 覆盖实现 `2069_greedy_optimized.rs`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2069_greedy.cpp](2069_greedy.cpp) | G++ 13.2 x64 | greedy | O(n + m) | AC | 0.140 s | 988 KB |
-| [2069_greedy.go](2069_greedy.go) | Go 1.14 x64 | greedy | O(n + m) | AC | 0.062 s | 5704 KB |
-| [2069_greedy.java](2069_greedy.java) | Java 1.8 | greedy | O(n + m) | AC | 0.140 s | 1344 KB |
-| [2069_greedy.py](2069_greedy.py) | Python 3.12 x64 | greedy | O(n + m) | AC | 0.109 s | 21716 KB |
-| [2069_greedy.rs](2069_greedy.rs) | Rust 1.75 x64 | greedy | O(n + m) | AC | 0.031 s | 6328 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2069_greedy.cpp](2069_greedy.cpp) | G++ 13.2 x64 | greedy | O(n + m) | AC | 0.156 s | 964 KB | 11309218 |
+| [2069_greedy.go](2069_greedy.go) | Go 1.14 x64 | greedy | O(n + m) | AC | 0.062 s | 5704 KB | 11294438 |
+| [2069_greedy.java](2069_greedy.java) | Java 1.8 | greedy | O(n + m) | AC | 0.140 s | 1260 KB | 11309219 |
+| [2069_greedy.py](2069_greedy.py) | Python 3.12 x64 | greedy | O(n + m) | AC | 0.125 s | 21628 KB | 11309220 |
+| [2069_greedy.rs](2069_greedy.rs) | Rust 1.75 x64 | greedy | O(n + m) | AC | 0.015 s | 6308 KB | 11309221 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2069_greedy_optimized.cpp](2069_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N+M) | AC | 0.015 s | 84 KB | 11308572 |
+| [2069_greedy_optimized.go](2069_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N+M) | AC | 0.031 s | 1020 KB | 11308575 |
+| [2069_greedy_optimized.java](2069_greedy_optimized.java) | Java 1.8 | greedy | O(N+M) | AC | 0.109 s | 404 KB | 11308581 |
+| [2069_greedy_optimized.py](2069_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N+M) | AC | 0.171 s | 412 KB | 11308586 |
+| [2069_greedy_optimized.rs](2069_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N+M) | AC | 0.031 s | 196 KB | 11308590 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

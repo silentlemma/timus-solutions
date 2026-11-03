@@ -8,8 +8,10 @@ int main() {
     int n, m;
     scanf("%d %d", &n, &m);
     vector<int> v(n), h(m);
-    for (int& x : v) scanf("%d", &x);
-    for (int& x : h) scanf("%d", &x);
+    for (int &x : v)
+        scanf("%d", &x);
+    for (int &x : h)
+        scanf("%d", &x);
     int maxV = *max_element(v.begin(), v.end());
     int maxH = *max_element(h.begin(), h.end());
     // one turn: down the left street and along the bottom, or along the top and down the right
