@@ -1,4 +1,4 @@
-# 1298. Knight
+# 1298. Cover Every Square by Knight Moves
 
 [Timus 1298](https://acm.timus.ru/problem.aspx?space=1&num=1298) · difficulty 234 · backtracking
 
@@ -25,10 +25,15 @@ N² squares, one per line, or `IMPOSSIBLE`.
 
 ## Checking
 
-Any correct tour is accepted. The checker reads the N² squares and
-verifies that they are all different, all on the board, and that each
-one is a knight move from the one before. When no tour exists, the
-output must be exactly `IMPOSSIBLE`.
+Validate the output as a witness: exactly N² distinct in-board squares,
+each consecutive displacement a knight move. Different correct tours are
+allowed; do not compare their text or assume the same tie order. Both new
+programs passed all eight repository inputs in Java 8 and CPython 3.12,
+covering every allowed value N=1..8. The actual 16 outputs and exit codes
+were re-read and checked independently. For `IMPOSSIBLE`, a separate plain
+search enumerated every start and legal path for N≤4, using 30102 recursive
+calls in total, without symmetry, degree ordering or isolated-vertex pruning.
+Both sources also have their own exact-byte Accepted submissions.
 
 ## Examples
 
@@ -86,39 +91,94 @@ a5
 
 ## Solution
 
-A depth-first search builds the path one square at a time and undoes a
-step when it gets stuck, trying every starting square in turn. On its
-own this could take very long on an 8 × 8 board, so the next squares
-are tried in the order of Warnsdorff's rule: first the square with the
-fewest free squares one move further. Dead ends then appear rarely and
-late.
+View each board square as a vertex, with edges for legal knight moves.
+Let `V=N²`. The simple versions perform depth-first backtracking from every
+starting square. Mark the current square, append it to the path, and try
+every unvisited neighbor; undo the mark and append when that branch fails.
+A path of V vertices is a tour. If every branch from every start fails,
+there is no tour. This proves completeness independently of the move order.
 
-With this order the search never has to step back for N from 5 to 8:
-it finds a tour from a1 in exactly N² calls. For N = 2, 3 and 4 there
-is no tour, and the search shows it by trying every start, which takes
-29 976 calls for N = 4. N = 1 is the single square a1. Since every
-branch the rule would skip is still tried, the answer is exact, not a
-heuristic guess.
+Warnsdorff's rule tries neighbors with fewer currently free onward moves
+first. It changes only the order: no branch is omitted. It often finds
+a witness quickly, but is not a polynomial-time guarantee. A coarse
+worst-case bound is `O(V·8^V)` time and `O(V)` storage, since each square
+has at most eight neighbors and recursion depth is at most V. The entire
+allowed range is small (`V≤64`) and is checked explicitly below.
 
-Pitfalls:
+N=1 has the one-square tour a1. N=2,3,4 have no tour; plain exhaustive
+search proves their impossibility. For N=5,6,7,8, actual output supplies
+a full tour. A tour need not be closed and may start at any square.
+Do not treat the heuristic's empirical behavior as an asymptotic proof.
 
-- N = 1 has a tour of one square, a1 (test 03);
-- 4 × 4 has no tour, although its board is larger than 3 × 3's
-  (test 05);
-- the tour does not have to be closed: the last square need not attack
-  the first.
+## Optimized solutions
+
+The two `_optimized` files keep the same complete Warnsdorff-ordered
+backtracking algorithm but represent legal neighbors and unvisited squares
+as bit masks. Number `(column,row)` by `column*N+row`. Candidate moves are
+`adjacency[v] & remaining`; the next-degree is the number of set bits in
+`adjacency[w] & remaining`. Only up to eight candidate moves need ordering.
+
+Two sound reductions remove unnecessary search. First, reflections in both
+axes and transposition preserve knight moves. Reflect a start to distances
+from its nearest edges, then transpose so column≤row. Therefore every
+starting-square orbit has a representative in
+`0≤column≤row<ceil(N/2)`, and testing only these representatives is complete.
+Second, when more than one vertex remains, an isolated vertex in the
+remaining induced graph makes a continuation impossible: a path through
+all remaining vertices cannot connect it to another remaining vertex.
+The single remaining vertex is exempt from this test.
+
+Python uses integer masks and `bit_count`, avoiding repeated coordinate
+tuple generation and free-neighbor lists. Java uses `long` masks and
+primitive per-depth candidate/degree arrays, avoiding ArrayList nodes,
+per-move coordinate arrays, comparator objects and Scanner. At N=8 all
+64 bits are needed: Java explicitly uses `-1L` for the full mask, since
+shifting a long by 64 would otherwise shift by zero. Bit 63 being signed
+does not invalidate bit counting or trailing-zero extraction.
+
+These reductions preserve completeness, not a polynomial bound. A coarse
+bound including every isolated-vertex scan is `O(V²·8^V)` time. For V≤64,
+masks and per-depth workspaces occupy `O(V)` bounded-size words/objects,
+with depth at most V; generalizing to larger boards would also require
+accounting for variable-size integer masks. No tours or answers are stored
+in the sources.
+
+Exact-source Accepted Python time is 0.062 versus 0.171 s (63.7% faster),
+but memory is 636 versus 544 KB (16.9% more). Java uses 396 versus 7116 KB
+(94.4% less memory), with time 0.125 versus 0.156 s (19.9% less). Both
+qualify by at least one metric; all five simple sources remain unchanged.
 
 ## Language notes
 
-- All five languages break ties in the same stable order, so they
-  print the same tours.
+The original five implementations retain their readable coordinate-based
+search and existing accepted tours. The two mask versions may print a
+different valid order. The table names the actually accepted runtime;
+the new Python source was accepted with CPython 3.12, not PyPy.
+
+Both admitted new versions still miss the first-place target in at least
+one metric, so both rows carry a star. The C++ base already meets the
+agreed top-15%-or-first-ten criterion in both metrics. Go and Rust have no
+eligible competing authors in the filtered snapshot: their bases give
+formal coverage, not evidence of superiority. Comparisons use each source's
+own same-language simple base, with no artificial optimized copies.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1298_backtracking.cpp](1298_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(N^2) for N >= 5 | AC | 0.015 s | 216 KB |
-| [1298_backtracking.go](1298_backtracking.go) | Go 1.14 x64 | backtracking | O(N^2) for N >= 5 | AC | 0.015 s | 4468 KB |
-| [1298_backtracking.java](1298_backtracking.java) | Java 1.8 | backtracking | O(N^2) for N >= 5 | AC | 0.156 s | 7116 KB |
-| [1298_backtracking.py](1298_backtracking.py) | Python 3.12 x64 | backtracking | O(N^2) for N >= 5 | AC | 0.171 s | 544 KB |
-| [1298_backtracking.rs](1298_backtracking.rs) | Rust 1.75 x64 | backtracking | O(N^2) for N >= 5 | AC | 0.015 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1298_backtracking.cpp](1298_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(V·8^V) | AC | 0.015 s | 216 KB | 11284706 |
+| [1298_backtracking.go](1298_backtracking.go) | Go 1.14 x64 | backtracking | O(V·8^V) | AC | 0.015 s | 4468 KB | 11284709 |
+| [1298_backtracking.java](1298_backtracking.java) | Java 1.8 | backtracking | O(V·8^V) | AC | 0.156 s | 7116 KB | 11284720 |
+| [1298_backtracking.py](1298_backtracking.py) | Python 3.12 x64 | backtracking | O(V·8^V) | AC | 0.171 s | 544 KB | 11284718 |
+| [1298_backtracking.rs](1298_backtracking.rs) | Rust 1.75 x64 | backtracking | O(V·8^V) | AC | 0.015 s | 244 KB | 11284723 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1298_backtracking_optimized.py](1298_backtracking_optimized.py) \* | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
+| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) | AC | 0.125 s | 396 KB | 11308542 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
