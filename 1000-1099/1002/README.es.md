@@ -1,6 +1,6 @@
 # 1002. Escribir un número con la menor cantidad de palabras
 
-[Timus 1002](https://acm.timus.ru/problem.aspx?space=1&num=1002) · dificultad 225 · dp, hashing
+[Timus 1002](https://acm.timus.ru/problem.aspx?space=1&num=1002) · dificultad 225 · dp, hashing, strings
 
 Problema original de la Olimpiada Centroeuropea de Informática 1999.
 
@@ -8,10 +8,11 @@ Problema original de la Olimpiada Centroeuropea de Informática 1999.
 
 ## Tarea
 
-Cada letra latina minúscula representa un dígito:
+Cada letra latina minúscula representa una cifra según la tabla. Para una cadena de hasta 100 cifras y un diccionario de hasta 50000 palabras de 1–50 letras, concatena palabras reutilizables que formen la cadena con el mínimo número de palabras. Hay varios casos y como máximo 300 KB de entrada total. Conserva los ceros iniciales. Tiempo: 2 segundos. Memoria: 64 MB.
 
 | Dígito | Letras |
-|--------|--------|
+|---|---|
+| 0 | o q z |
 | 1 | i j |
 | 2 | a b c |
 | 3 | d e f |
@@ -21,29 +22,14 @@ Cada letra latina minúscula representa un dígito:
 | 7 | p r s |
 | 8 | t u v |
 | 9 | w x y |
-| 0 | o q z |
-
-Una palabra escribe la cadena de dígitos de sus letras. Dados un número (una
-cadena de como máximo 100 dígitos) y un diccionario de `n ≤ 50 000` palabras,
-encuentra una secuencia de palabras del diccionario con la menor cantidad de
-palabras cuyas escrituras, concatenadas, den el número. Cada palabra puede
-usarse cualquier cantidad de veces.
-
-La entrada contiene varias pruebas de este tipo; su tamaño total es como máximo
-300 KB.
-
-Límite de tiempo: 2 segundos. Límite de memoria: 64 MB.
 
 ## Entrada
 
-Las pruebas van una tras otra. Una prueba es una línea con el número, una línea
-con `n` y `n` líneas con una palabra cada una (de 1 a 50 letras minúsculas).
-Una línea `-1` termina la entrada.
+Por caso: la cadena de cifras, el número de palabras y una palabra por línea. Una línea `-1` termina la entrada.
 
 ## Salida
 
-Para cada prueba, una línea: las palabras de una secuencia más corta separadas
-por espacios simples, o `No solution.` si el número no se puede escribir.
+Para cada caso, una secuencia mínima separada por espacios simples, o exactamente `No solution.` si no existe.
 
 ## Evaluación
 
@@ -99,44 +85,93 @@ ac
 
 ## Solución
 
-Programación dinámica sobre los prefijos del número: `best[i]` es la menor
-cantidad de palabras que escriben los primeros `i` dígitos, `best[0] = 0`.
-Desde cada `i` alcanzable se prueba cada palabra cuya escritura coincide con la
-subcadena que empieza en `i`, y se guarda la última palabra para reconstruir la
-respuesta.
+Sea `best[i]` el mínimo de palabras que forman las primeras `i` cifras;
+al inicio solo `best[0] = 0` es alcanzable. Desde cada posición alcanzable,
+cualquier codificación de palabra que coincida con la subcadena siguiente
+crea una arista de coste uno hasta su final. Las posiciones crecen:
+recorrer prefijos calcula caminos mínimos en este DAG. Guardar la última
+palabra permite reconstruir hacia atrás. Cualquier óptimo empatado sirve.
 
-Probar las `n` palabras en cada posición cuesta `O(100 · n · 50)` por prueba.
-Es mucho más rápido guardar el diccionario en una tabla hash de escritura a
-palabra: una palabra tiene como máximo 50 letras, así que en cada posición solo
-hay que buscar las subcadenas de longitud 1 a 50. Incluyendo el cálculo de hashes
-y la construcción de la tabla, el tiempo esperado por prueba es
-`O(100 · 50² + longitud total de las palabras)`.
+Las versiones sencillas guardan un mapa hash de codificación a una palabra
+representativa; para codificaciones iguales basta cualquier representante.
+Se consultan subcadenas de longitudes 1 a `W = 50`. Con longitud del número
+`P` y total de letras del diccionario `T`, el tiempo esperado es
+`O(T + P W²)` contando construcción y hashing de subcadenas; la memoria
+depende del diccionario. Las cinco fuentes Accepted se conservan intactas.
 
-Detalles a tener en cuenta:
+## Soluciones optimizadas
 
-- varias palabras pueden tener la misma escritura: basta con guardar cualquiera;
-- una palabra puede usarse muchas veces;
-- la salida debe ser exactamente `No solution.` cuando no hay respuesta.
+Antes de leer el diccionario, construye un trie de las subcadenas del
+propio NÚMERO de longitud hasta `W`, con como máximo `1 + P W` nodos.
+Recorre cada codificación de palabra por él; si falta una arista,
+descártala. Guarda un representante en cada terminal alcanzado. Las
+palabras inútiles no crean nodos ni entradas persistentes: resulta útil
+con diccionarios grandes que apenas coinciden con un número corto.
+
+Durante la DP, sigue las cifras por el trie sin asignar ni hashear
+subcadenas. Toda palabra utilizable está presente porque su codificación
+es una subcadena del número, y todo terminal retenido corresponde a una
+palabra real. Se conservan las aristas y el óptimo de la DP. La longitud
+de la palabra elegida determina la posición anterior al reconstruir.
+
+Con diez cifras fijas, tiempo `O(T + P W)` y memoria de trabajo
+`O(P W + R)`, siendo `R` el texto de representantes guardados, más los
+búferes. C++ usa un pool estático acotado y limpia los nodos del caso
+anterior; ese coste se suma entre casos. Go y Rust leen palabras en flujo;
+Java reutiliza el búfer de tokens, pero acumula líneas de salida. Python
+usa transiciones enteras planas. Es otro algoritmo, con etiquetas
+`dp, strings`, sin el sufijo `_optimized`.
+
+Las cinco versiones cumplen por reducción medida de memoria frente al
+hashing original del mismo lenguaje. Las diferencias cercanas a un tick
+del temporizador no se consideran prueba fiable de aceleración.
+
+Reducción medida de memoria: C++ 83.1%, Go 57.0%, Java 89.9%, Python 82.5%, Rust 76.7%. Cada fuente tiene su propio Accepted con ID en la tabla.
 
 ## Notas por lenguaje
 
-- **C++**: `std::unordered_map<std::string, int>`; leer con `cin` después de
-  `sync_with_stdio(false)`.
-- **Go**: `map[string]int`, donde `phone[i:i+l]` es una subcadena barata.
-- **Python**: la tabla es un `dict` y las escrituras salen de `str.translate`;
-  la versión con búsquedas es rápida, mientras que comparar cada palabra en cada
-  posición sería demasiado lento.
-- **Java**: `HashMap<String, Integer>` con `putIfAbsent`; entrada con
-  `BufferedReader` y `StringTokenizer`.
-- **Rust**: `HashMap<Vec<u8>, usize>` consultado con porciones de bytes del
-  número.
+Python se comprobó en 1802 casos con un BFS independiente de posiciones
+que prueba cada palabra completa. Se verifican pertenencia al diccionario,
+codificación y número mínimo, permitiendo empates. Hay colisiones de
+codificación, reutilización, imposibilidad, ceros iniciales, palabras de
+50 letras, diccionarios grandes irrelevantes y alternancia de casos grandes
+y pequeños. El flujo fuzz concatenado supera intencionadamente el límite
+total normal: es una prueba adicional de reinicio y semántica, no una
+entrada declarada válida de 300 KB. Los cinco programas reales también
+superaron 14 entradas del repositorio en Docker.
+
+La tabla muestra la instantánea filtrada del 2 de noviembre de 2026.
+Un asterisco indica objetivo de clasificación pendiente pese a una mejora
+real. Una muestra vacía no demuestra superioridad competitiva.
+
+| Lenguaje | Puesto en tiempo | Puesto en memoria | Registros de otros autores (tiempo / memoria) |
+|---|---|---|---|
+| C++ | 1 | 3 | 198 / 198 |
+| Go | 1 | 1 | 4 / 4 |
+| Java | 2 | 1 | 8 / 8 |
+| Python | 1 | 1 | 49 / 49 |
+| Rust | 4 | 1 | 3 / 3 |
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1002_dp_hashing.cpp](1002_dp_hashing.cpp) | G++ 13.2 x64 | dp, hashing | O(100 * 50^2 + total word length) on average | AC | 0.015 s | 2764 KB |
-| [1002_dp_hashing.go](1002_dp_hashing.go) | Go 1.14 x64 | dp, hashing | O(100 * 50^2 + total word length) on average | AC | 0.031 s | 3016 KB |
-| [1002_dp_hashing.java](1002_dp_hashing.java) | Java 1.8 | dp, hashing | O(100 * 50^2 + total word length) on average | AC | 0.109 s | 7032 KB |
-| [1002_dp_hashing.py](1002_dp_hashing.py) | Python 3.12 x64 | dp, hashing | O(100 * 50^2 + total word length) on average | AC | 0.093 s | 5424 KB |
-| [1002_dp_hashing.rs](1002_dp_hashing.rs) | Rust 1.75 x64 | dp, hashing | O(100 * 50^2 + total word length) on average | AC | 0.031 s | 2540 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1002_dp_hashing.cpp](1002_dp_hashing.cpp) | G++ 13.2 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.015 s | 2764 KB | 11277423 |
+| [1002_dp_hashing.go](1002_dp_hashing.go) | Go 1.14 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.031 s | 3016 KB | 11277424 |
+| [1002_dp_hashing.java](1002_dp_hashing.java) | Java 1.8 | dp, hashing | O(T + P W^2) expected | AC | 0.109 s | 7032 KB | 11277426 |
+| [1002_dp_hashing.py](1002_dp_hashing.py) | Python 3.12 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.093 s | 5424 KB | 11277425 |
+| [1002_dp_hashing.rs](1002_dp_hashing.rs) | Rust 1.75 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.031 s | 2540 KB | 11277427 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1002_dp_strings.cpp](1002_dp_strings.cpp) | G++ 13.2 x64 | dp, strings | O(T + P W) | AC | 0.015 s | 468 KB | 11308088 |
+| [1002_dp_strings.go](1002_dp_strings.go) | Go 1.14 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 1296 KB | 11308089 |
+| [1002_dp_strings.java](1002_dp_strings.java) \* | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
+| [1002_dp_strings.py](1002_dp_strings.py) | Python 3.12 x64 | dp, strings | O(T + P W) | AC | 0.078 s | 948 KB | 11308086 |
+| [1002_dp_strings.rs](1002_dp_strings.rs) \* | Rust 1.75 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 592 KB | 11308095 |
+
+\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
