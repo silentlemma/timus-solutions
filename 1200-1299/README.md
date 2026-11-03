@@ -12,7 +12,7 @@
 | 1205 | [The fastest way across town on foot and by subway](1205/) | graphs | C++, Go, Python, Java, Rust |
 | 1206 | [Pairs of numbers whose digit sums add up](1206/) | combinatorics | C++, Go, Python, Java, Rust |
 | 1207 | [A line through two points that halves the rest](1207/) | geometry | C++, Go, Python, Java, Rust |
-| 1208 | [The most legendary teams without a shared member](1208/) | bitmask | C++, Go, Python, Java, Rust |
+| 1208 | [The most legendary teams without a shared member](1208/) | bitmask, dp | C++, Go, Python, Java, Rust |
 | 1209 | [Digits of 1, 10, 100, 1000 written in a row](1209/) | math | C++, Go, Python, Java, Rust |
 | 1210 | [The cheapest climb through levels of planets](1210/) | dp | C++, Go, Python, Java, Rust |
 | 1211 | [Accusations without a ring and with one confession](1211/) | graphs | C++, Go, Python, Java, Rust |
