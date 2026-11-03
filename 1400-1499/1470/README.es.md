@@ -25,6 +25,10 @@ N y luego los registros, el último de ellos «3».
 
 La respuesta a cada pregunta en su propia línea.
 
+## Evaluación
+
+Se compara la salida completa, incluidos espacios y saltos de línea.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -75,18 +79,52 @@ Detalles a tener en cuenta:
 - puede haber preguntas antes de cualquier cambio y un cambio puede
   valer 0 (pruebas 01, 02).
 
+## Soluciones optimizadas
+
+Se mantiene Fenwick tridimensional con sumas de nodos en 32 bits. Al ser no negativos los sectores, cada nodo queda acotado por la masa legal total, inferior al máximo de 32 bits con signo. Las sumas de prefijos y los términos intermedios de inclusión–exclusión usan aritmética suficientemente ancha. Disminuye la memoria sin cambiar rangos ni signos. Python también procesa cada operación sin retener todos los tokens y respuestas.
+
+- `1470_fenwick_optimized.cpp`: 0.359 s / 8144 KB; base `1470_fenwick.cpp`: 0.375 s / 16552 KB; cambio respecto a la base: tiempo -4.3%, memoria -50.8%.
+- `1470_fenwick_optimized.go`: 0.140 s / 10320 KB; base `1470_fenwick.go`: 0.156 s / 20044 KB; cambio respecto a la base: tiempo -10.3%, memoria -48.5%.
+- `1470_fenwick_optimized.java`: 0.187 s / 12064 KB; base `1470_fenwick.java`: 0.281 s / 20908 KB; cambio respecto a la base: tiempo -33.5%, memoria -42.3%.
+- `1470_fenwick_optimized.py`: 0.734 s / 16836 KB; base `1470_fenwick.py`: 0.890 s / 61120 KB; cambio respecto a la base: tiempo -17.5%, memoria -72.5%.
+- `1470_fenwick_optimized.rs`: 0.046 s / 11476 KB; base `1470_fenwick.rs`: 0.125 s / 19804 KB; cambio respecto a la base: tiempo -63.2%, memoria -42.1%.
+
 ## Notas por lenguaje
 
-- Python se ejecuta con PyPy: las pruebas más grandes tardan unos 7,5 s
-  con CPython y unos 0,35 s con PyPy. El árbol es un `array("q")`,
-  porque una lista de enteros grandes no cabría en 64 MB.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1470_fenwick.cpp`; versión que cubre `1470_fenwick_optimized.cpp`; puestos tiempo/memoria 60/1, registros de otros autores 89/89.
+
+- Go: base didáctica preferida `1470_fenwick.go`; versión que cubre `1470_fenwick.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1470_fenwick.java`; versión que cubre `1470_fenwick_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
+
+- Python/PyPy: base didáctica preferida `1470_fenwick.py`; versión que cubre `1470_fenwick_optimized.py`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+
+- Rust: base didáctica preferida `1470_fenwick.rs`; versión que cubre `1470_fenwick_optimized.rs`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1470_fenwick.cpp](1470_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(log^3 N) per record | AC | 0.375 s | 16552 KB |
-| [1470_fenwick.go](1470_fenwick.go) | Go 1.14 x64 | fenwick | O(log^3 N) per record | AC | 0.156 s | 20044 KB |
-| [1470_fenwick.java](1470_fenwick.java) | Java 1.8 | fenwick | O(log^3 N) per record | AC | 0.281 s | 20908 KB |
-| [1470_fenwick.py](1470_fenwick.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per record | AC | 0.890 s | 61120 KB |
-| [1470_fenwick.rs](1470_fenwick.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per record | AC | 0.125 s | 19804 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1470_fenwick.cpp](1470_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(log^3 N) per record | AC | 0.375 s | 16552 KB | 11286549 |
+| [1470_fenwick.go](1470_fenwick.go) | Go 1.14 x64 | fenwick | O(log^3 N) per record | AC | 0.156 s | 20044 KB | 11286550 |
+| [1470_fenwick.java](1470_fenwick.java) | Java 1.8 | fenwick | O(log^3 N) per record | AC | 0.281 s | 20908 KB | 11286552 |
+| [1470_fenwick.py](1470_fenwick.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per record | AC | 0.890 s | 61120 KB | 11286551 |
+| [1470_fenwick.rs](1470_fenwick.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per record | AC | 0.125 s | 19804 KB | 11286553 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.359 s | 8144 KB | 11308809 |
+| [1470_fenwick_optimized.go](1470_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(log^3 N) per operation | AC | 0.140 s | 10320 KB | 11308810 |
+| [1470_fenwick_optimized.java](1470_fenwick_optimized.java) | Java 1.8 | fenwick | O(log^3 N) per operation | AC | 0.187 s | 12064 KB | 11308811 |
+| [1470_fenwick_optimized.py](1470_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per operation | AC | 0.734 s | 16836 KB | 11308813 |
+| [1470_fenwick_optimized.rs](1470_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per operation | AC | 0.046 s | 11476 KB | 11308812 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
