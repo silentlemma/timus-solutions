@@ -21,6 +21,10 @@ m（1 ≤ m ≤ 1000）行 "amount of name"，然后 n（1 ≤ n ≤ 1000）行�
 
 分钟数。
 
+## 评测方式
+
+按词元比较输出，多余空白不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -62,12 +66,52 @@ m（1 ≤ m ≤ 1000）行 "amount of name"，然后 n（1 ≤ n ≤ 1000）行�
 
 在 300 个随机情形上（其中包括只有一种商品、少数要买下全部的人在每次小额购买后都再打电话的情形），答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+仍模拟柜台访问，但只在读入时把商品名映射为整数编号。顾客队列用数组和头下标表示，与下一位交换可原地进行，无需插入删除后移动整个队列。不存在的商品使用零库存项。所有访问及库存更新不变，消除重复字符串查找、队列复制和全输入保存。
+
+- `1795_simulation_optimized.cpp`: 0.031 s / 272 KB; 基础版 `1795_simulation.cpp`: 0.031 s / 552 KB; 相对基础版的变化: 时间 -0.0%, 内存 -50.7%.
+- `1795_simulation_optimized.go`: 0.031 s / 1132 KB; 基础版 `1795_simulation.go`: 0.046 s / 6376 KB; 相对基础版的变化: 时间 -32.6%, 内存 -82.2%.
+- `1795_simulation_optimized.java`: 0.093 s / 1076 KB; 基础版 `1795_simulation.java`: 0.125 s / 4688 KB; 相对基础版的变化: 时间 -25.6%, 内存 -77.0%.
+- `1795_simulation_optimized.py`: 0.078 s / 612 KB; 基础版 `1795_simulation.py`: 0.078 s / 1100 KB; 相对基础版的变化: 时间 -0.0%, 内存 -44.4%.
+- `1795_simulation_optimized.rs`: 0.031 s / 508 KB; 基础版 `1795_simulation.rs`: 0.062 s / 632 KB; 相对基础版的变化: 时间 -50.0%, 内存 -19.6%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1795_simulation.cpp`; 覆盖实现 `1795_simulation_optimized.cpp`; 时间/内存名次 47/1, 其他作者记录 53/53.
+
+- Go: 优先教学基础版 `1795_simulation.go`; 覆盖实现 `1795_simulation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1795_simulation.java`; 覆盖实现 `1795_simulation.java`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Python/PyPy: 优先教学基础版 `1795_simulation.py`; 覆盖实现 `1795_simulation.py`; 时间/内存名次 1/1, 其他作者记录 6/6.
+
+- Rust: 优先教学基础版 `1795_simulation.rs`; 覆盖实现 `1795_simulation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1795_simulation.cpp](1795_simulation.cpp) | G++ 13.2 x64 | simulation | O(n^2) | AC | 0.031 s | 576 KB |
-| [1795_simulation.go](1795_simulation.go) | Go 1.14 x64 | simulation | O(n^2) | AC | 0.046 s | 6376 KB |
-| [1795_simulation.java](1795_simulation.java) | Java 1.8 | simulation | O(n^2) | AC | 0.125 s | 4680 KB |
-| [1795_simulation.py](1795_simulation.py) | Python 3.12 x64 | simulation | O(n^2) | AC | 0.093 s | 1080 KB |
-| [1795_simulation.rs](1795_simulation.rs) | Rust 1.75 x64 | simulation | O(n^2) | AC | 0.031 s | 652 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1795_simulation.cpp](1795_simulation.cpp) | G++ 13.2 x64 | simulation | O(n^2) | AC | 0.031 s | 552 KB | 11308937 |
+| [1795_simulation.go](1795_simulation.go) | Go 1.14 x64 | simulation | O(n^2) | AC | 0.046 s | 6376 KB | 11289883 |
+| [1795_simulation.java](1795_simulation.java) | Java 1.8 | simulation | O(n^2) | AC | 0.125 s | 4688 KB | 11308939 |
+| [1795_simulation.py](1795_simulation.py) | Python 3.12 x64 | simulation | O(n^2) | AC | 0.078 s | 1100 KB | 11308940 |
+| [1795_simulation.rs](1795_simulation.rs) | Rust 1.75 x64 | simulation | O(n^2) | AC | 0.062 s | 632 KB | 11308942 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1795_simulation_optimized.cpp](1795_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 272 KB | 11308816 |
+| [1795_simulation_optimized.go](1795_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 1132 KB | 11308817 |
+| [1795_simulation_optimized.java](1795_simulation_optimized.java) | Java 1.8 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.093 s | 1076 KB | 11308818 |
+| [1795_simulation_optimized.py](1795_simulation_optimized.py) | Python 3.12 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.078 s | 612 KB | 11308814 |
+| [1795_simulation_optimized.rs](1795_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 508 KB | 11308820 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

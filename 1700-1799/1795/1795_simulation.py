@@ -12,8 +12,7 @@ def main():
     start = WORDS * m + 2
     n = int(words[start - 1])
     # each customer: [product, wanted, amount told at the last visit]
-    line = deque([words[i + 2], int(words[i]), -1]
-                 for i in range(start, start + WORDS * n, WORDS))
+    line = deque([words[i + 2], int(words[i]), -1] for i in range(start, start + WORDS * n, WORDS))
     minutes = 0
     while line:
         customer = line.popleft()

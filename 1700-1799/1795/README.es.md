@@ -30,6 +30,10 @@ vende.
 
 El número de minutos.
 
+## Evaluación
+
+Se comparan los tokens; los espacios adicionales no importan.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -85,12 +89,52 @@ Las respuestas coinciden con una implementación aceptada independiente
 en 300 casos aleatorios, entre ellos un único producto con raros
 compradores de todo que vuelven a llamar tras cada compra pequeña.
 
+## Soluciones optimizadas
+
+Se conserva la simulación del mostrador, resolviendo nombres de productos a IDs enteros solo durante la lectura. La cola usa arreglos y un índice frontal. Intercambiar con el siguiente cliente es un intercambio in situ, no una inserción o borrado que desplaza la cola. Los productos ausentes tienen stock nulo. Se preservan visitas y cambios de stock, eliminando búsquedas repetidas, copias de cola y retención de toda la entrada.
+
+- `1795_simulation_optimized.cpp`: 0.031 s / 272 KB; base `1795_simulation.cpp`: 0.031 s / 552 KB; cambio respecto a la base: tiempo -0.0%, memoria -50.7%.
+- `1795_simulation_optimized.go`: 0.031 s / 1132 KB; base `1795_simulation.go`: 0.046 s / 6376 KB; cambio respecto a la base: tiempo -32.6%, memoria -82.2%.
+- `1795_simulation_optimized.java`: 0.093 s / 1076 KB; base `1795_simulation.java`: 0.125 s / 4688 KB; cambio respecto a la base: tiempo -25.6%, memoria -77.0%.
+- `1795_simulation_optimized.py`: 0.078 s / 612 KB; base `1795_simulation.py`: 0.078 s / 1100 KB; cambio respecto a la base: tiempo -0.0%, memoria -44.4%.
+- `1795_simulation_optimized.rs`: 0.031 s / 508 KB; base `1795_simulation.rs`: 0.062 s / 632 KB; cambio respecto a la base: tiempo -50.0%, memoria -19.6%.
+
+## Notas por lenguaje
+
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1795_simulation.cpp`; versión que cubre `1795_simulation_optimized.cpp`; puestos tiempo/memoria 47/1, registros de otros autores 53/53.
+
+- Go: base didáctica preferida `1795_simulation.go`; versión que cubre `1795_simulation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1795_simulation.java`; versión que cubre `1795_simulation.java`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
+
+- Python/PyPy: base didáctica preferida `1795_simulation.py`; versión que cubre `1795_simulation.py`; puestos tiempo/memoria 1/1, registros de otros autores 6/6.
+
+- Rust: base didáctica preferida `1795_simulation.rs`; versión que cubre `1795_simulation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1795_simulation.cpp](1795_simulation.cpp) | G++ 13.2 x64 | simulation | O(n^2) | AC | 0.031 s | 576 KB |
-| [1795_simulation.go](1795_simulation.go) | Go 1.14 x64 | simulation | O(n^2) | AC | 0.046 s | 6376 KB |
-| [1795_simulation.java](1795_simulation.java) | Java 1.8 | simulation | O(n^2) | AC | 0.125 s | 4680 KB |
-| [1795_simulation.py](1795_simulation.py) | Python 3.12 x64 | simulation | O(n^2) | AC | 0.093 s | 1080 KB |
-| [1795_simulation.rs](1795_simulation.rs) | Rust 1.75 x64 | simulation | O(n^2) | AC | 0.031 s | 652 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1795_simulation.cpp](1795_simulation.cpp) | G++ 13.2 x64 | simulation | O(n^2) | AC | 0.031 s | 552 KB | 11308937 |
+| [1795_simulation.go](1795_simulation.go) | Go 1.14 x64 | simulation | O(n^2) | AC | 0.046 s | 6376 KB | 11289883 |
+| [1795_simulation.java](1795_simulation.java) | Java 1.8 | simulation | O(n^2) | AC | 0.125 s | 4688 KB | 11308939 |
+| [1795_simulation.py](1795_simulation.py) | Python 3.12 x64 | simulation | O(n^2) | AC | 0.078 s | 1100 KB | 11308940 |
+| [1795_simulation.rs](1795_simulation.rs) | Rust 1.75 x64 | simulation | O(n^2) | AC | 0.062 s | 632 KB | 11308942 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1795_simulation_optimized.cpp](1795_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 272 KB | 11308816 |
+| [1795_simulation_optimized.go](1795_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 1132 KB | 11308817 |
+| [1795_simulation_optimized.java](1795_simulation_optimized.java) | Java 1.8 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.093 s | 1076 KB | 11308818 |
+| [1795_simulation_optimized.py](1795_simulation_optimized.py) | Python 3.12 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.078 s | 612 KB | 11308814 |
+| [1795_simulation_optimized.rs](1795_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 508 KB | 11308820 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

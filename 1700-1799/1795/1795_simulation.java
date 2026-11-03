@@ -45,7 +45,8 @@ public class Main {
                 // let the next one forward and call home; if the next one is
                 // the last of the line, it is Mark's turn
                 c.seen = left;
-                if (line.isEmpty()) break;
+                if (line.isEmpty())
+                    break;
                 line.add(1, c);
             }
         }

@@ -24,7 +24,11 @@ fn main() {
     let mut line: VecDeque<Customer> = (0..n)
         .map(|_| {
             let (product, wanted) = describe(&mut it);
-            Customer { product, wanted, seen: -1 }
+            Customer {
+                product,
+                wanted,
+                seen: -1,
+            }
         })
         .collect();
     let mut minutes = 0;
