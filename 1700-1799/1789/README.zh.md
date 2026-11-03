@@ -19,6 +19,10 @@ n（2 ≤ n ≤ 100）。
 
 触摸次数，然后按顺序输出所触摸的底座编号。
 
+## 评测方式
+
+验证至多1000次触碰，编号均在1..N；每次未成功触碰后传播所有可能位置，最终不得有存活位置。满足保证的任意序列均可。 新Python精确源码在PyPy 3.10通过13个仓库测试。 另有 99 N=2..100流式与列表构造比较. 其他保留原生版本各有保存的目标环境检查与精确Accepted。输出按本题检查器规则比较。
+
 ## 样例
 
 ### 样例 1
@@ -53,12 +57,46 @@ n（2 ≤ n ≤ 100）。
 
 检查器跟踪神器可能所在的底座集合，并要求它最终变空。2 到 100 的每个 n 都能通过，对 n 不超过 12 的这些集合做完全搜索，确认不存在更短的序列。
 
+## 优化解法
+
+保留捕获两种奇偶性的构造及证明。N>2时依次扫描2..N-1、N-1..2，共2*(N-2)次；N=2则输出1,1两次。紧凑版流式输出，不保留拼接列表或展开输出参数列表。序列和最坏情况保证不变，输出仍为O(N)时间，流式工作状态有界，所有教学源码保留。
+
+- `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; 基础 `1789_constructive.cpp`: 0.031 s / 380 KB; 相对变化: 时间 -51.6%, 内存 -71.6%.
+- `1789_constructive_optimized.py`: 0.156 s / 240 KB; 基础 `1789_constructive.py`: 0.062 s / 396 KB; 相对变化: 时间 +151.6%, 内存 -39.4%.
+
+## 各语言说明
+
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1789_constructive.cpp`; 覆盖源码 `1789_constructive_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 51/51.
+
+- Go: 首选教学基础 `1789_constructive.go`; 覆盖源码 `1789_constructive.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 首选教学基础 `1789_constructive.java`; 覆盖源码 `1789_constructive.java`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Python/PyPy: 首选教学基础 `1789_constructive.py`; 覆盖源码 `1789_constructive_optimized.py`; 时间/内存名次 8/1, 其他作者记录 7/7.
+
+- Rust: 首选教学基础 `1789_constructive.rs`; 覆盖源码 `1789_constructive.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1789_constructive.cpp](1789_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 400 KB |
-| [1789_constructive.go](1789_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1108 KB |
-| [1789_constructive.java](1789_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 1644 KB |
-| [1789_constructive.py](1789_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.062 s | 396 KB |
-| [1789_constructive.rs](1789_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 204 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1789_constructive.cpp](1789_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.031 s | 380 KB | 11308929 |
+| [1789_constructive.go](1789_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1108 KB | 11289832 |
+| [1789_constructive.java](1789_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1604 KB | 11308930 |
+| [1789_constructive.py](1789_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.062 s | 396 KB | 11289833 |
+| [1789_constructive.rs](1789_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 204 KB | 11289836 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
+| [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
