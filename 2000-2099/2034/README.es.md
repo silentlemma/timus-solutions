@@ -91,22 +91,46 @@ Trampas:
 - Cero es válido si `r` es inevitable en las rutas mínimas.
 - Un rodeo seguro pero más largo queda excluido.
 
+## Soluciones optimizadas
+
+Tras obtener distancias desde el primer origen, el segundo BFS se fusiona con la DP de cuello de botella por capas de caminos mínimos. FIFO garantiza que al extraer un vértice sus capas predecesoras estén completas y su valor sea definitivo. Se para al extraer el destino, no al descubrirlo. Adyacencia plana, cola reutilizada y distancias compactas conservan el mismo algoritmo lineal.
+
+- `2034_bfs_dp_optimized.cpp`: 0.031 s / 3228 KB; base `2034_bfs_dp.cpp`: 0.078 s / 6892 KB; cambio respecto a la base: tiempo -60.3%, memoria -53.2%.
+- `2034_bfs_dp_optimized.py`: 0.468 s / 4072 KB; base `2034_bfs_dp.py`: 0.515 s / 28236 KB; cambio respecto a la base: tiempo -9.1%, memoria -85.6%.
+
 ## Notas por lenguaje
 
-Los recorridos son iterativos: una cadena de 100000 vértices no requiere
-recursión. Java usa arreglos primitivos de adyacencia y cola; Go,
-entrada por bytes. Python lee las aristas por líneas a un arreglo
-compacto antes de la terna final y construye adyacencia por iterador.
-Rust conserva el texto y analiza por iterador. Todos usan `O(n+m)`
-espacio; distancias y puntuaciones caben en enteros de 32 bits con
-signo.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `2034_bfs_dp.cpp`; versión que cubre `2034_bfs_dp_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 137/137.
+
+- Go: base didáctica preferida `2034_bfs_dp.go`; versión que cubre `2034_bfs_dp.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `2034_bfs_dp.java`; versión que cubre `2034_bfs_dp.java`; puestos tiempo/memoria 1/1, registros de otros autores 5/5.
+
+- Python/PyPy: base didáctica preferida `2034_bfs_dp.py`; versión que cubre `2034_bfs_dp_optimized.py`; puestos tiempo/memoria 5/1, registros de otros autores 11/11.
+
+- Rust: base didáctica preferida `2034_bfs_dp.rs`; versión que cubre `2034_bfs_dp.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2034_bfs_dp.cpp](2034_bfs_dp.cpp) | G++ 13.2 x64 | bfs, dp | O(n+m) | AC | 0.078 s | 6892 KB |
-| [2034_bfs_dp.go](2034_bfs_dp.go) | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.109 s | 11080 KB |
-| [2034_bfs_dp.java](2034_bfs_dp.java) | Java 1.8 | bfs, dp | O(n+m) | AC | 0.125 s | 8304 KB |
-| [2034_bfs_dp.py](2034_bfs_dp.py) | Python 3.12 x64 | bfs, dp | O(n+m) | AC | 0.515 s | 28236 KB |
-| [2034_bfs_dp.rs](2034_bfs_dp.rs) | Rust 1.75 x64 | bfs, dp | O(n+m) | AC | 0.078 s | 13112 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2034_bfs_dp.cpp](2034_bfs_dp.cpp) | G++ 13.2 x64 | bfs, dp | O(n+m) | AC | 0.078 s | 6892 KB | 11293137 |
+| [2034_bfs_dp.go](2034_bfs_dp.go) | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.109 s | 11080 KB | 11293143 |
+| [2034_bfs_dp.java](2034_bfs_dp.java) | Java 1.8 | bfs, dp | O(n+m) | AC | 0.171 s | 8272 KB | 11309217 |
+| [2034_bfs_dp.py](2034_bfs_dp.py) | Python 3.12 x64 | bfs, dp | O(n+m) | AC | 0.515 s | 28236 KB | 11293145 |
+| [2034_bfs_dp.rs](2034_bfs_dp.rs) | Rust 1.75 x64 | bfs, dp | O(n+m) | AC | 0.078 s | 13112 KB | 11293149 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
+| [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
