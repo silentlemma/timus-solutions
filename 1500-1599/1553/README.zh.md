@@ -21,6 +21,10 @@ N、N − 1 条隧道、Q 以及各询问。
 
 每个 G 询问的答案，每行一个。
 
+## 评测方式
+
+按顺序比较查询答案。新Java执行106次：100个小随机树用逐次BFS路径核对、100000点链及100000操作、99999点星与4个仓库测试，覆盖零增量和值达10^9。
+
 ## 样例
 
 ### 样例 1
@@ -64,16 +68,54 @@ G 3 4
 
 - 从一个洞穴到它自己的询问就是该洞穴的值（测试 01、02、03）；
 - 允许增加 0（测试 04）；
-- 一个辐射值可达 10⁹（10⁵ 次各加 10⁴），接近 32 位上限，所以解法用 64 位保存；
+- 值至多10⁹（10⁵次各加10⁴），在有符号32位内；编译语言教学版保留64位值，紧凑版用32位存储，教学Python用Python整数；
 - 当洞穴 1 位于路径内部时，路径会分成两条链：gen2 的两条链分别有 52487 和 47513 个洞穴，
   而非一条包含 100000 个洞穴的链。
 
+## 优化解法
+
+保留迭代重链剖分及路径最大值查询。紧凑 C++/Python 使用扁平图/状态数组、32 位区间最大值和有界输入输出。至多 100000 次、每次至多 10000 的增加，使值不超过 10^9，可用有符号 32 位。增量非负，祖先最大值不变时即可停止上推。
+
+Java 进一步复用已结束用途的空间：遍历后邻接表头改作重儿子；子树大小改作顶点位置；遍历次序改作链头。此后按顶点编号枚举链根，绝不读取已覆盖的遍历顺序。链编号完成后，把预留 2N 格的边终点数组清零作为线段树。查询所需父亲和深度保留。省去三个 N 格分配及一个 2N 格树，不重叠仍活跃的用途。预处理 `O(N)`，更新 `O(log N)`，路径查询 `O(log² N)`，空间 `O(N)`。清晰 HLD 基础版全部保留。
+
+- `1553_trees_optimized.cpp`: 0.046 s / 5200 KB; 基础 `1553_trees.cpp`: 0.390 s / 9584 KB; 相对变化: 时间 -88.2%, 内存 -45.7%.
+- `1553_trees_optimized.java`: 0.187 s / 6968 KB; 基础 `1553_trees.java`: 0.203 s / 10684 KB; 相对变化: 时间 -7.9%, 内存 -34.8%.
+- `1553_trees_optimized.py`: 1.703 s / 5432 KB; 基础 `1553_trees.py`: 2.140 s / 60768 KB; 相对变化: 时间 -20.4%, 内存 -91.1%.
+
+## 各语言说明
+
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1553_trees.cpp`; 覆盖源码 `1553_trees_optimized.cpp`; 时间/内存名次 2/1, 其他作者记录 149/149.
+
+- Go: 首选教学基础 `1553_trees.go`; 覆盖源码 `1553_trees.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 首选教学基础 `1553_trees.java`; 覆盖源码 `1553_trees_optimized.java`; 时间/内存名次 2/1, 其他作者记录 5/5.
+
+- Python/PyPy: 首选教学基础 `1553_trees.py`; 覆盖源码 `1553_trees_optimized.py`; 时间/内存名次 2/1, 其他作者记录 1/1.
+
+- Rust: 首选教学基础 `1553_trees.rs`; 覆盖源码 `1553_trees.rs`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1553_trees.cpp](1553_trees.cpp) | G++ 13.2 x64 | trees | O((N + Q) log^2 N) | AC | 0.390 s | 9584 KB |
-| [1553_trees.go](1553_trees.go) | Go 1.14 x64 | trees | O((N + Q) log^2 N) | AC | 0.203 s | 19108 KB |
-| [1553_trees.java](1553_trees.java) | Java 1.8 | trees | O((N + Q) log^2 N) | AC | 0.203 s | 10684 KB |
-| [1553_trees.py](1553_trees.py) | Python 3.12 x64 | trees | O((N + Q) log^2 N) | AC | 2.140 s | 60768 KB |
-| [1553_trees.rs](1553_trees.rs) | Rust 1.75 x64 | trees | O((N + Q) log^2 N) | AC | 0.140 s | 19664 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1553_trees.cpp](1553_trees.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.390 s | 9584 KB | 11287607 |
+| [1553_trees.go](1553_trees.go) | Go 1.14 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.203 s | 19108 KB | 11287610 |
+| [1553_trees.java](1553_trees.java) | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.203 s | 10684 KB | 11287615 |
+| [1553_trees.py](1553_trees.py) | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 2.140 s | 60768 KB | 11287612 |
+| [1553_trees.rs](1553_trees.rs) | Rust 1.75 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.140 s | 19664 KB | 11287616 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1553_trees_optimized.cpp](1553_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.046 s | 5200 KB | 11309316 |
+| [1553_trees_optimized.java](1553_trees_optimized.java) \* | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.187 s | 6968 KB | 11309559 |
+| [1553_trees_optimized.py](1553_trees_optimized.py) \* | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 1.703 s | 5432 KB | 11309314 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
