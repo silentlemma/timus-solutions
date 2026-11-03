@@ -16,11 +16,14 @@ fn multiply(x: &Matrix, y: &Matrix, m: u64) -> Matrix {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<u64> = input
+    let mut values = input
         .split_ascii_whitespace()
-        .map(|t| t.parse().unwrap())
-        .collect();
-    let (n, k, m) = (v[0], v[1], v[2]);
+        .map(|text| text.parse::<u64>().unwrap());
+    let (n, k, m) = (
+        values.next().unwrap(),
+        values.next().unwrap(),
+        values.next().unwrap(),
+    );
     let d = (k - 1) % m;
     // (zero, other) -> (other, (zero + other)(K - 1)) is the matrix step,
     // after the first digit the pair is (0, K - 1)
