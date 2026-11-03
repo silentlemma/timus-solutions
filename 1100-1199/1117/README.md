@@ -28,7 +28,7 @@ The number of days.
 
 ## Checking
 
-The output is compared token by token; extra whitespace does not matter.
+Compare one exact integer token; formatting whitespace is ignored. The new exact Python source passed 12 repository fixtures under PyPy 3.10. Other retained native variants keep their own saved target-runtime checks and exact Accepted receipts. Compare output according to the problem checker, not by choosing one historical formatting.
 
 ## Examples
 
@@ -75,19 +75,46 @@ The answers were checked against a walk on the actual tree (the parent of
 random pairs below 3000, and the large tests against a direct loop over
 every step.
 
+## Optimized solutions
+
+Keep the same prefix-cost identity as the teaching files. With h=floor(x/2), start from 2*(h-popcount(h)); for even x subtract trailingZeros(x)-1. Population count and the least significant set bit replace a per-bit walk without changing the exact integer prefix. The answer remains the absolute difference of the two prefixes. The input labels fit the stated fixed-width range, so only a bounded number of bit operations is needed. Python uses existing text streams; the measured saving and slower runtime are listed separately.
+
+- `1117_math_optimized.java`: 0.093 s / 352 KB; base `1117_math.java`: 0.109 s / 1616 KB; relative change: time -14.7%, memory -78.2%.
+- `1117_math_optimized.py`: 0.109 s / 264 KB; base `1117_math.py`: 0.078 s / 436 KB; relative change: time +39.7%, memory -39.4%.
+
 ## Language notes
 
-- The trailing zeros and the bit counts come from built-ins:
-  `__builtin_ctzll` and `__builtin_popcountll`, `math/bits`,
-  `Long.numberOfTrailingZeros` and `Long.bitCount`, `trailing_zeros` and
-  `count_ones`; Python counts the ones in `bin(m)`.
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1117_math.cpp`; covering source `1117_math.cpp`; time/memory places 1/1, other-author entries 42/42.
+
+- Go: preferred teaching base `1117_math.go`; covering source `1117_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1117_math.java`; covering source `1117_math_optimized.java`; time/memory places 1/1, other-author entries 1/1.
+
+- Python/PyPy: preferred teaching base `1117_math.py`; covering source `1117_math_optimized.py`; time/memory places 3/1, other-author entries 6/6.
+
+- Rust: preferred teaching base `1117_math.rs`; covering source `1117_math.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1117_math.cpp](1117_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1117_math.go](1117_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1052 KB |
-| [1117_math.java](1117_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1616 KB |
-| [1117_math.py](1117_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 436 KB |
-| [1117_math.rs](1117_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1117_math.cpp](1117_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11279242 |
+| [1117_math.go](1117_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1052 KB | 11279244 |
+| [1117_math.java](1117_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1616 KB | 11279246 |
+| [1117_math.py](1117_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 436 KB | 11279245 |
+| [1117_math.rs](1117_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB | 11279248 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1117_math_optimized.java](1117_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 352 KB | 11309311 |
+| [1117_math_optimized.py](1117_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 264 KB | 11309685 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
