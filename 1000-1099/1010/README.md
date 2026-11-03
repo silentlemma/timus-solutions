@@ -89,17 +89,48 @@ Pitfalls:
 - the validity condition looks like it needs a convex hull, but it never
   matters for the answer.
 
+## Optimized solutions
+
+The maximum absolute chord slope is attained by adjacent points. The optimized scan keeps only the previous value and the first greatest difference, so it never retains all values or a difference array. Strict improvement preserves the required first tie; subtract in 64-bit arithmetic before taking the absolute value. Buffered native input and line-by-line Python input reduce overhead without changing this proof.
+
+- `1010_math_optimized.cpp`: 0.015 s / 88 KB; base `1010_math.cpp`: 0.046 s / 136 KB; relative change: time -67.4%, memory -35.3%.
+- `1010_math_optimized.java`: 0.093 s / 388 KB; base `1010_math.java`: 0.109 s / 580 KB; relative change: time -14.7%, memory -33.1%.
+- `1010_math_optimized.py`: 0.078 s / 360 KB; base `1010_math.py`: 0.062 s / 14648 KB; relative change: time +25.8%, memory -97.5%.
+
 ## Language notes
 
-Python finds the first maximum with `max` and `index`. Java uses a small
-byte-buffer reader, since `Scanner` is slow for `10^5` numbers.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1010_math.cpp`; covering source `1010_math_optimized.cpp`; time/memory places 1/1, other-author entries 73/73.
+
+- Go: preferred teaching base `1010_math.go`; covering source `1010_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1010_math.java`; covering source `1010_math_optimized.java`; time/memory places 3/1, other-author entries 9/9.
+
+- Python/PyPy: preferred teaching base `1010_math.py`; covering source `1010_math_optimized.py`; time/memory places 1/1, other-author entries 12/12.
+
+- Rust: preferred teaching base `1010_math.rs`; covering source `1010_math.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1010_math.cpp](1010_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.046 s | 136 KB |
-| [1010_math.go](1010_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 2668 KB |
-| [1010_math.java](1010_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 580 KB |
-| [1010_math.py](1010_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 14648 KB |
-| [1010_math.rs](1010_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 3696 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1010_math.cpp](1010_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.046 s | 136 KB | 11277744 |
+| [1010_math.go](1010_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 2668 KB | 11277751 |
+| [1010_math.java](1010_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 580 KB | 11277761 |
+| [1010_math.py](1010_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 14648 KB | 11277757 |
+| [1010_math.rs](1010_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 3696 KB | 11277762 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1010_math_optimized.cpp](1010_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 88 KB | 11309321 |
+| [1010_math_optimized.java](1010_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
+| [1010_math_optimized.py](1010_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 360 KB | 11309320 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

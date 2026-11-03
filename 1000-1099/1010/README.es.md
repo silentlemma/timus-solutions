@@ -91,17 +91,48 @@ Detalles a tener en cuenta:
 - la condición de validez parece pedir una envolvente convexa, pero nunca
   influye en la respuesta.
 
+## Soluciones optimizadas
+
+La pendiente absoluta máxima se alcanza entre puntos vecinos. El recorrido optimizado conserva únicamente el valor anterior y la primera diferencia máxima, sin almacenar todos los valores ni sus diferencias. Actualizar solo ante una mejora estricta conserva el desempate; la resta se calcula en 64 bits antes del valor absoluto. La entrada con búfer y la lectura por líneas de Python reducen sobrecostes sin cambiar la prueba.
+
+- `1010_math_optimized.cpp`: 0.015 s / 88 KB; base `1010_math.cpp`: 0.046 s / 136 KB; cambio respecto a la base: tiempo -67.4%, memoria -35.3%.
+- `1010_math_optimized.java`: 0.093 s / 388 KB; base `1010_math.java`: 0.109 s / 580 KB; cambio respecto a la base: tiempo -14.7%, memoria -33.1%.
+- `1010_math_optimized.py`: 0.078 s / 360 KB; base `1010_math.py`: 0.062 s / 14648 KB; cambio respecto a la base: tiempo +25.8%, memoria -97.5%.
+
 ## Notas por lenguaje
 
-Python encuentra el primer máximo con `max` e `index`. Java usa un pequeño
-lector con búfer de bytes, porque `Scanner` es lento para `10^5` números.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1010_math.cpp`; versión que cubre `1010_math_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 73/73.
+
+- Go: base didáctica preferida `1010_math.go`; versión que cubre `1010_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1010_math.java`; versión que cubre `1010_math_optimized.java`; puestos tiempo/memoria 3/1, registros de otros autores 9/9.
+
+- Python/PyPy: base didáctica preferida `1010_math.py`; versión que cubre `1010_math_optimized.py`; puestos tiempo/memoria 1/1, registros de otros autores 12/12.
+
+- Rust: base didáctica preferida `1010_math.rs`; versión que cubre `1010_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1010_math.cpp](1010_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.046 s | 136 KB |
-| [1010_math.go](1010_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 2668 KB |
-| [1010_math.java](1010_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 580 KB |
-| [1010_math.py](1010_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 14648 KB |
-| [1010_math.rs](1010_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 3696 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1010_math.cpp](1010_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.046 s | 136 KB | 11277744 |
+| [1010_math.go](1010_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 2668 KB | 11277751 |
+| [1010_math.java](1010_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 580 KB | 11277761 |
+| [1010_math.py](1010_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 14648 KB | 11277757 |
+| [1010_math.rs](1010_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 3696 KB | 11277762 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1010_math_optimized.cpp](1010_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 88 KB | 11309321 |
+| [1010_math_optimized.java](1010_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 388 KB | 11309322 |
+| [1010_math_optimized.py](1010_math_optimized.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 360 KB | 11309320 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
