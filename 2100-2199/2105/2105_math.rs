@@ -5,7 +5,9 @@ const ALICE: i64 = 1;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<i64>().unwrap());
     let mut next = || it.next().unwrap();
     // tuple fields are read from left to right
     let (length, total, va, vb, n) = (next(), next(), next(), next(), next());
