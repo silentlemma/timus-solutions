@@ -18,7 +18,7 @@
 | 1111 | [Sorting squares by their distance to a point](1111/) | geometry | C++, Go, Python, Java, Rust |
 | 1112 | [Keeping the most segments with no common inner point](1112/) | greedy | C++, Go, Python, Java, Rust |
 | 1113 | [The least fuel for a one-way trip with fuel depots](1113/) | math | C++, Go, Python, Java, Rust |
-| 1114 | [Placing up to A and B identical balls of two colours into N boxes](1114/) | combinatorics | C++, Go, Python, Java, Rust |
+| 1114 | [Placing up to A and B identical balls of two colours into N boxes](1114/) | combinatorics, math | C++, Go, Python, Java, Rust |
 | 1115 | [Splitting lengths into rows of given total lengths](1115/) | backtracking | C++, Go, Python, Java, Rust |
 | 1116 | [Cutting one piecewise-constant function by the domain of another](1116/) | two_pointers | C++, Go, Python, Java, Rust |
 | 1117 | [Walking an in-order numbered binary tree from one number to another](1117/) | math | C++, Go, Python, Java, Rust |
