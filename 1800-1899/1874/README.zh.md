@@ -18,6 +18,16 @@ a 和 b（1 ≤ a, b ≤ 10 000）。
 
 最大面积，小数点后至少六位。
 
+## 评测方式
+
+数值按题目容差比较，舍入界证明见下。
+
+- `1874_geometry_optimized.go` (Go 1.14 x64): 13个仓库测试; 13个额外精确源码比较.
+
+- `1874_geometry_optimized.java` (Java 1.8): 13个仓库测试.
+
+- `1874_geometry_optimized.py` (PyPy 3.10 x64): 13个仓库测试; 204个额外精确源码比较.
+
 ## 样例
 
 ### 样例 1
@@ -48,12 +58,48 @@ a 和 b（1 ≤ a, b ≤ 10 000）。
 
 公式与对木棍夹角的直接搜索一致，也与一个独立的已通过实现在所有测试上一致。
 
+## 优化解法
+
+保留同一几何最大值公式(a*a+b*b+2*sqrt(2)*a*b)/4及清晰源码。Java减少扫描/格式化开销。Go、Python运行时计算公式，再按10^6缩放为整数并只舍入一次，输出六位小数，不使用答案表。a,b<=10000时缩放结果小于2^47，浮点误差加最多半个百万分之一的十进制舍入误差仍小于10^-6绝对误差。小数部分补足六位，包括前导零。仅改变表示与输入输出，时间、空间均为O(1)。
+
+- `1874_geometry_optimized.go`: 0.031 s / 304 KB; 基础 `1874_geometry.go`: 0.031 s / 1136 KB; 相对变化: 时间 -0.0%, 内存 -73.2%.
+- `1874_geometry_optimized.java`: 0.109 s / 544 KB; 基础 `1874_geometry.java`: 0.140 s / 1832 KB; 相对变化: 时间 -22.1%, 内存 -70.3%.
+- `1874_geometry_optimized.py`: 0.140 s / 316 KB; 基础 `1874_geometry.py`: 0.078 s / 452 KB; 相对变化: 时间 +79.5%, 内存 -30.1%.
+
+## 各语言说明
+
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1874_geometry.cpp`; 覆盖源码 `1874_geometry.cpp`; 时间/内存名次 1/1, 其他作者记录 68/68.
+
+- Go: 首选教学基础 `1874_geometry.go`; 覆盖源码 `1874_geometry_optimized.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Java: 首选教学基础 `1874_geometry.java`; 覆盖源码 `1874_geometry_optimized.java`; 时间/内存名次 2/1, 其他作者记录 2/2.
+
+- Python/PyPy: 首选教学基础 `1874_geometry.py`; 覆盖源码 `1874_geometry_optimized.py`; 时间/内存名次 13/1, 其他作者记录 16/16.
+
+- Rust: 首选教学基础 `1874_geometry.rs`; 覆盖源码 `1874_geometry.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1874_geometry.cpp](1874_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1874_geometry.go](1874_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB |
-| [1874_geometry.java](1874_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1832 KB |
-| [1874_geometry.py](1874_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 452 KB |
-| [1874_geometry.rs](1874_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 248 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1874_geometry.cpp](1874_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 132 KB | 11309209 |
+| [1874_geometry.go](1874_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11290968 |
+| [1874_geometry.java](1874_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1832 KB | 11290975 |
+| [1874_geometry.py](1874_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 452 KB | 11290970 |
+| [1874_geometry.rs](1874_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 236 KB | 11309210 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
+| [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 544 KB | 11308337 |
+| [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
