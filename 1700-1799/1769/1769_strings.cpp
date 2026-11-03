@@ -12,7 +12,8 @@ int main() {
     std::vector<bool> seen(LIMIT + 1, false);
     int n = s.size();
     for (int i = 0; i < n; i++) {
-        if (s[i] == '0') continue;
+        if (s[i] == '0')
+            continue;
         int value = 0;
         for (int j = i; j < n && j < i + DIGITS; j++) {
             value = value * 10 + (s[j] - '0');
@@ -20,7 +21,8 @@ int main() {
         }
     }
     int answer = 1;
-    while (seen[answer]) answer++;
+    while (seen[answer])
+        answer++;
     std::cout << answer << "\n";
     return 0;
 }

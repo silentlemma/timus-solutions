@@ -10,7 +10,7 @@ def main():
     starts = [i for i in range(len(s)) if s[i] != "0"]
     seen = set()
     for length in range(1, DIGITS + 1):
-        seen.update(s[i:i + length] for i in starts if i + length <= len(s))
+        seen.update(s[i : i + length] for i in starts if i + length <= len(s))
     answer = 1
     while str(answer) in seen:
         answer += 1

@@ -13,7 +13,8 @@ public class Main {
         boolean[] seen = new boolean[LIMIT + 1];
         int n = s.length();
         for (int i = 0; i < n; i++) {
-            if (s.charAt(i) == '0') continue;
+            if (s.charAt(i) == '0')
+                continue;
             int value = 0;
             for (int j = i; j < n && j < i + DIGITS; j++) {
                 value = value * 10 + (s.charAt(j) - '0');
@@ -21,7 +22,8 @@ public class Main {
             }
         }
         int answer = 1;
-        while (seen[answer]) answer++;
+        while (seen[answer])
+            answer++;
         System.out.println(answer);
     }
 }
