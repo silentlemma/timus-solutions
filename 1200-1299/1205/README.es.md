@@ -29,11 +29,13 @@ de la ruta seguido de las estaciones en el orden en que se visitan.
 
 ## Evaluación
 
-Varias rutas pueden tardar lo mismo, así que se acepta cualquiera si su
-tiempo impreso coincide con el de la propia ruta (a pie de A a la
-primera estación, en tren entre estaciones consecutivas unidas, a pie
-entre las no unidas y a pie de la última estación a B) y si ese tiempo
-es el menor.
+El verificador comprueba óptimo y ruta/pareja válida, sin exigir salida literal.
+
+- `1205_graphs_optimized.java` (Java 1.8): 13 pruebas del repositorio; 77 comparaciones adicionales de fuente exacta.
+
+- `1205_graphs_optimized.py` (PyPy 3.10 x64): 13 pruebas del repositorio.
+
+- `1205_graphs_optimized.rs` (Rust 1.75 x64): 13 pruebas del repositorio; 77 comparaciones adicionales de fuente exacta.
 
 ## Ejemplos
 
@@ -86,18 +88,48 @@ Detalles a tener en cuenta:
 Las rutas se compararon con una solución escrita aparte en 200 ciudades
 aleatorias y en todas las pruebas, con el verificador en ambos sentidos.
 
+## Soluciones optimizadas
+
+Se conservan los caminos mínimos matriciales claros. Las variantes compactas ejecutan Dijkstra denso sobre el grafo geométrico completo implícito: calculan tiempo con hypot al relajar y guardan predecesores con IDs originales. La pertenencia al metro usa bits, sin matriz real de tiempos. Una estación sin enlace ferroviario se omite: reemplazar dos tramos a pie por el directo no aumenta tiempo por desigualdad triangular. Solo quedan extremos y estaciones con enlace. Pesos no negativos justifican fijar el mínimo no visitado. Igual velocidad, ausencia de metro o extremos coincidentes permiten caminar directamente. Con K activos, tiempo O(N+M+K²), O(N²)bits y O(N)estado numérico. Se conservan hypot robusto y etiquetas; el verificador admite cualquier ruta mínima válida.
+
+- `1205_graphs_optimized.java`: 0.093 s / 712 KB; base `1205_graphs.java`: 0.125 s / 1416 KB; cambio respecto a la base: tiempo -25.6%, memoria -49.7%.
+- `1205_graphs_optimized.py`: 0.265 s / 636 KB; base `1205_graphs.py`: 0.062 s / 1012 KB; cambio respecto a la base: tiempo +327.4%, memoria -37.2%.
+- `1205_graphs_optimized.rs`: 0.015 s / 208 KB; base `1205_graphs.rs`: 0.046 s / 344 KB; cambio respecto a la base: tiempo -67.4%, memoria -39.5%.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes ejecutan el mismo Dijkstra cuadrático sobre una
-  matriz de adyacencia e imprimen diez decimales; Java formatea el
-  tiempo con `Locale.US`.
+Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+
+- C++: base didáctica preferida `1205_graphs.cpp`; fuente que cubre `1205_graphs.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 83/83.
+
+- Go: base didáctica preferida `1205_graphs.go`; fuente que cubre `1205_graphs.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1205_graphs.java`; fuente que cubre `1205_graphs_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+
+- Python/PyPy: base didáctica preferida `1205_graphs.py`; fuente que cubre `1205_graphs_optimized.py`; puestos tiempo/memoria 36/1, registros de otros autores 36/36.
+
+- Rust: base didáctica preferida `1205_graphs.rs`; fuente que cubre `1205_graphs_optimized.rs`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1205_graphs.cpp](1205_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 256 KB |
-| [1205_graphs.go](1205_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1208 KB |
-| [1205_graphs.java](1205_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.125 s | 1416 KB |
-| [1205_graphs.py](1205_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.062 s | 1012 KB |
-| [1205_graphs.rs](1205_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 344 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1205_graphs.cpp](1205_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 256 KB | 11283587 |
+| [1205_graphs.go](1205_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1208 KB | 11283588 |
+| [1205_graphs.java](1205_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.125 s | 1416 KB | 11283593 |
+| [1205_graphs.py](1205_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.062 s | 1012 KB | 11283591 |
+| [1205_graphs.rs](1205_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 344 KB | 11283594 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1205_graphs_optimized.java](1205_graphs_optimized.java) | Java 1.8 | graphs | O(N+M+K²) time; O(N²) bits + O(N) numbers | AC | 0.093 s | 712 KB | 11309389 |
+| [1205_graphs_optimized.py](1205_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O(N+M+K²) time; O(N²) bits + O(N) numbers | AC | 0.265 s | 636 KB | 11309737 |
+| [1205_graphs_optimized.rs](1205_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N+M+K²) time; O(N²) bits + O(N) numbers | AC | 0.015 s | 208 KB | 11309390 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
