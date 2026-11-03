@@ -42,13 +42,19 @@ def main():
             a = [rng.randint(0, 2) for _ in range(s)]
         else:
             a = [rng.choice([1] * 20 + [0, 0, TOP, rng.randint(2, TOP)]) for _ in range(s)]
-        # nudge the sum into S + 1 .. S + 30000
-        while sum(a) - s < 1:
+        # Maintain the exact excess; rescanning the whole array after
+        # each one-element adjustment would make the generator quadratic.
+        excess = sum(a) - s
+        while excess < 1:
             i = rng.randrange(s)
-            a[i] = min(TOP, a[i] + 1)
-        while sum(a) - s > LIMIT:
+            previous = a[i]
+            a[i] = min(TOP, previous + 1)
+            excess += a[i] - previous
+        while excess > LIMIT:
             i = rng.randrange(s)
-            a[i] = max(0, a[i] - 1)
+            previous = a[i]
+            a[i] = max(0, previous - 1)
+            excess += a[i] - previous
     lines = ["%d %d" % (s, sum(a) - s)] + [str(x) for x in a]
     sys.stdout.write("\n".join(lines) + "\n")
 
