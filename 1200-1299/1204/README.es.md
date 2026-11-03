@@ -23,6 +23,10 @@ El número de pruebas `k` y luego `n` para cada prueba.
 
 Para cada prueba, sus idempotentes en una línea en orden creciente.
 
+## Evaluación
+
+Se comparan los tokens; los espacios adicionales no importan.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -69,17 +73,46 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 3000
 productos generados de los tres tipos.
 
+## Soluciones optimizadas
+
+La reconstrucción mediante CRT no cambia. Java usa un arreglo primitivo de primos, divisiones enteras y salida ASCII acotada en vez de objetos y cadenas por respuesta. Python usa un árbol de productos de primos: un MCD examina un bloque completo y dirige los factores no triviales hacia bloques menores; las hojas terminan por división de prueba. Cada divisor se verifica exactamente, sin hipótesis probabilísticas. Se contabilizan la construcción y los costes del MCD y la multiplicación de enteros grandes, no como operaciones constantes.
+
+- `1204_number_theory_optimized.java`: 0.109 s / 484 KB; base `1204_number_theory.java`: 0.171 s / 1088 KB; cambio respecto a la base: tiempo -36.3%, memoria -55.5%.
+- `1204_number_theory_trees.py`: 0.093 s / 1084 KB; base `1204_number_theory.py`: 0.312 s / 1016 KB; cambio respecto a la base: tiempo -70.2%, memoria +6.7%.
+
 ## Notas por lenguaje
 
-- Python calcula el inverso con `pow(q, -1, p)`; los demás lenguajes
-  usan el algoritmo de Euclides extendido.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1204_number_theory.cpp`; versión que cubre `1204_number_theory.cpp`; puestos tiempo/memoria 3/7, registros de otros autores 75/75.
+
+- Go: base didáctica preferida `1204_number_theory.go`; versión que cubre `1204_number_theory.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1204_number_theory.java`; versión que cubre `1204_number_theory_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 3/3.
+
+- Python/PyPy: base didáctica preferida `1204_number_theory.py`; versión que cubre `1204_number_theory_trees.py`; puestos tiempo/memoria 1/2, registros de otros autores 13/13.
+
+- Rust: base didáctica preferida `1204_number_theory.rs`; versión que cubre `1204_number_theory.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1204_number_theory.cpp](1204_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(k·π(√n)) | AC | 0.031 s | 228 KB |
-| [1204_number_theory.go](1204_number_theory.go) | Go 1.14 x64 | number_theory | O(k·π(√n)) | AC | 0.031 s | 1320 KB |
-| [1204_number_theory.java](1204_number_theory.java) | Java 1.8 | number_theory | O(k·π(√n)) | AC | 0.171 s | 1088 KB |
-| [1204_number_theory.py](1204_number_theory.py) | Python 3.12 x64 | number_theory | O(k·π(√n)) | AC | 0.312 s | 1016 KB |
-| [1204_number_theory.rs](1204_number_theory.rs) | Rust 1.75 x64 | number_theory | O(k·π(√n)) | AC | 0.015 s | 268 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1204_number_theory.cpp](1204_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(k·π(√n)) | AC | 0.031 s | 228 KB | 11283581 |
+| [1204_number_theory.go](1204_number_theory.go) | Go 1.14 x64 | number_theory | O(k·π(√n)) | AC | 0.031 s | 1320 KB | 11283582 |
+| [1204_number_theory.java](1204_number_theory.java) | Java 1.8 | number_theory | O(k·π(√n)) | AC | 0.171 s | 1088 KB | 11283585 |
+| [1204_number_theory.py](1204_number_theory.py) | Python 3.12 x64 | number_theory | O(k·π(√n)) | AC | 0.312 s | 1016 KB | 11283583 |
+| [1204_number_theory.rs](1204_number_theory.rs) | Rust 1.75 x64 | number_theory | O(k·π(√n)) | AC | 0.015 s | 268 KB | 11283586 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1204_number_theory_optimized.java](1204_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
+| [1204_number_theory_trees.py](1204_number_theory_trees.py) \* | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
