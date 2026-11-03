@@ -9,7 +9,7 @@ const long long INF = 1LL << 62;
 struct Update {
     int to;
     long long size;
-    char kind;  // 'P'irated, 'C'racked or 'L'icensed
+    char kind; // 'P'irated, 'C'racked or 'L'icensed
 };
 
 int main() {
@@ -31,10 +31,12 @@ int main() {
     for (int v = 1; v <= n; v++) {
         for (const Update &u : updates[v]) {
             for (int state = 0; state < 2; state++) {
-                if (best[v][state] == INF) continue;
+                if (best[v][state] == INF)
+                    continue;
                 long long cost = best[v][state] + u.size;
                 long long &target = u.kind == 'P' ? best[u.to][1] : best[u.to][state];
-                if (u.kind != 'L' || state == 0) target = std::min(target, cost);
+                if (u.kind != 'L' || state == 0)
+                    target = std::min(target, cost);
             }
         }
     }

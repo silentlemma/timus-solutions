@@ -9,7 +9,7 @@ def main():
     n, m = int(data[0]), int(data[1])
     updates = [[] for _ in range(n + 1)]
     for k in range(m):
-        x, y, d, kind = data[2 + FIELDS * k:2 + FIELDS * (k + 1)]
+        x, y, d, kind = data[2 + FIELDS * k : 2 + FIELDS * (k + 1)]
         updates[int(x)].append((int(y), int(d), kind.decode()))
     # updates only go up, so the versions can be taken in order; the
     # client is either still licensed (0) or already pirated (1)

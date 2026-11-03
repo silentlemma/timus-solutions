@@ -33,8 +33,8 @@ public class Main {
         best[1][0] = 0;
         for (int v = 1; v <= n; v++) {
             for (long[] u : updates.get(v)) {
-                int to = (int) u[0];
-                char kind = (char) u[2];
+                int to = (int)u[0];
+                char kind = (char)u[2];
                 for (int state = 0; state < 2; state++) {
                     if (best[v][state] == INF || (kind == 'L' && state == 1)) {
                         continue;
