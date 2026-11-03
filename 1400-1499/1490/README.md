@@ -23,6 +23,16 @@ R.
 
 The number of spoiled tiles.
 
+## Checking
+
+Compare the exact answer tokens; whitespace formatting is immaterial.
+
+- `1490_two_pointers.java` (Java 1.8): 14 repository cases.
+
+- `1490_two_pointers.py` (PyPy 3.10 x64): 14 repository cases.
+
+- `1490_two_pointers.rs` (Rust 1.75 x64): 14 repository cases.
+
 ## Examples
 
 ### Example 1
@@ -74,12 +84,48 @@ Pitfalls:
 - a floating square root must be corrected to the exact integer one
   (tests 06, 07).
 
+## Optimized solutions
+
+Keep the square-root teaching sources. The two_pointers versions sweep x=0..R-1 and maintain the number y of first-quadrant nearest corners strictly inside the disc. Decrease y while x*x+(y-1)*(y-1)>=R*R, add y and multiply the final sum by four. The boundary is monotone, so y decreases at most R times over the whole sweep: O(R) integer operations and constant working state. Equality is outside, preventing tangent cells from being counted; no floating-point rounding or coordinate-axis double counting is involved. R<=100000 keeps squares and the final answer within signed64bits. Python explicitly disables PyPy JIT for bounded code-cache memory and runs its single body without an extra frame. Its slower time/lower memory tradeoff is stated below.
+
+- `1490_two_pointers.java`: 0.125 s / 456 KB; base `1490_math.java`: 0.109 s / 1612 KB; relative change: time +14.7%, memory -71.7%.
+- `1490_two_pointers.py`: 0.234 s / 308 KB; base `1490_math.py`: 0.078 s / 472 KB; relative change: time +200.0%, memory -34.7%.
+- `1490_two_pointers.rs`: 0.031 s / 36 KB; base `1490_math.rs`: 0.031 s / 232 KB; relative change: time -0.0%, memory -84.5%.
+
+## Language notes
+
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1490_math.cpp`; covering source `1490_math.cpp`; time/memory places 1/15, other-author entries 93/93.
+
+- Go: preferred teaching base `1490_math.go`; covering source `1490_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1490_math.java`; covering source `1490_two_pointers.java`; time/memory places 4/2, other-author entries 4/4.
+
+- Python/PyPy: preferred teaching base `1490_math.py`; covering source `1490_two_pointers.py`; time/memory places 14/1, other-author entries 15/15.
+
+- Rust: preferred teaching base `1490_math.rs`; covering source `1490_two_pointers.rs`; time/memory places 2/1, other-author entries 1/1.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1490_math.cpp](1490_math.cpp) | G++ 13.2 x64 | math | O(R) | AC | 0.015 s | 128 KB |
-| [1490_math.go](1490_math.go) | Go 1.14 x64 | math | O(R) | AC | 0.031 s | 1088 KB |
-| [1490_math.java](1490_math.java) | Java 1.8 | math | O(R) | AC | 0.109 s | 1612 KB |
-| [1490_math.py](1490_math.py) | Python 3.12 x64 | math | O(R) | AC | 0.078 s | 472 KB |
-| [1490_math.rs](1490_math.rs) | Rust 1.75 x64 | math | O(R) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1490_math.cpp](1490_math.cpp) | G++ 13.2 x64 | math | O(R) | AC | 0.015 s | 128 KB | 11287181 |
+| [1490_math.go](1490_math.go) | Go 1.14 x64 | math | O(R) | AC | 0.031 s | 1088 KB | 11287183 |
+| [1490_math.java](1490_math.java) | Java 1.8 | math | O(R) | AC | 0.109 s | 1612 KB | 11287185 |
+| [1490_math.py](1490_math.py) | Python 3.12 x64 | math | O(R) | AC | 0.078 s | 472 KB | 11287184 |
+| [1490_math.rs](1490_math.rs) | Rust 1.75 x64 | math | O(R) | AC | 0.031 s | 232 KB | 11287186 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1490_two_pointers.java](1490_two_pointers.java) \* | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.125 s | 456 KB | 11307985 |
+| [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
+| [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
