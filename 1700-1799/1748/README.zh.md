@@ -18,6 +18,10 @@ t（1 ≤ t ≤ 100），然后是 t 个数 n（1 ≤ n ≤ 10¹⁸）。
 
 对每个 n 输出该数及其约数个数。
 
+## 评测方式
+
+按词元比较输出，多余空白不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -62,12 +66,52 @@ p₁^a₁ · p₂^a₂ · … 的约数个数为 (a₁ + 1)(a₂ + 1)…，只�
 在 100 个不超过 20 000 的随机询问上，答案与约数个数筛法一致；在 30 个不超过 10¹⁸ 以及纪录保持者附近的随机测试上，
 与一个独立的已通过实现一致。
 
+## 优化解法
+
+只在最大查询界限内枚举非递增素数指数。按数值维护非支配前沿，约数数目严格递增。若前驱的约数不少，新候选无用；否则删除随后约数不更多的记录。所有可能最优答案均保留，平局保留较小数。查询二分紧凑前沿，不保存并排序全部候选及独立前缀最佳数组。
+
+C 是生成的指数候选数，R 是最大前沿大小，T 是询问数；插入可能移动 R 项。
+
+- `1748_number_theory_optimized.cpp`: 0.015 s / 168 KB; 基础版 `1748_number_theory.cpp`: 0.015 s / 1904 KB; 相对基础版的变化: 时间 -0.0%, 内存 -91.2%.
+- `1748_number_theory_optimized.go`: 0.031 s / 1136 KB; 基础版 `1748_number_theory.go`: 0.031 s / 5404 KB; 相对基础版的变化: 时间 -0.0%, 内存 -79.0%.
+- `1748_number_theory_optimized.java`: 0.109 s / 488 KB; 基础版 `1748_number_theory.java`: 0.187 s / 8084 KB; 相对基础版的变化: 时间 -41.7%, 内存 -94.0%.
+- `1748_number_theory_optimized.py`: 0.093 s / 536 KB; 基础版 `1748_number_theory.py`: 0.187 s / 6476 KB; 相对基础版的变化: 时间 -50.3%, 内存 -91.7%.
+- `1748_number_theory_optimized.rs`: 0.031 s / 224 KB; 基础版 `1748_number_theory.rs`: 0.031 s / 1368 KB; 相对基础版的变化: 时间 -0.0%, 内存 -83.6%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1748_number_theory.cpp`; 覆盖实现 `1748_number_theory_optimized.cpp`; 时间/内存名次 1/2, 其他作者记录 71/71.
+
+- Go: 优先教学基础版 `1748_number_theory.go`; 覆盖实现 `1748_number_theory.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1748_number_theory.java`; 覆盖实现 `1748_number_theory_optimized.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
+
+- Python/PyPy: 优先教学基础版 `1748_number_theory.py`; 覆盖实现 `1748_number_theory_optimized.py`; 时间/内存名次 1/1, 其他作者记录 8/8.
+
+- Rust: 优先教学基础版 `1748_number_theory.rs`; 覆盖实现 `1748_number_theory.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1748_number_theory.cpp](1748_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K log K + t log K) | AC | 0.015 s | 1924 KB |
-| [1748_number_theory.go](1748_number_theory.go) | Go 1.14 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 5404 KB |
-| [1748_number_theory.java](1748_number_theory.java) | Java 1.8 | number_theory | O(K log K + t log K) | AC | 0.187 s | 8084 KB |
-| [1748_number_theory.py](1748_number_theory.py) | Python 3.12 x64 | number_theory | O(K log K + t log K) | AC | 0.156 s | 6608 KB |
-| [1748_number_theory.rs](1748_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 1368 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1748_number_theory.cpp](1748_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K log K + t log K) | AC | 0.015 s | 1904 KB | 11308921 |
+| [1748_number_theory.go](1748_number_theory.go) | Go 1.14 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 5404 KB | 11289533 |
+| [1748_number_theory.java](1748_number_theory.java) | Java 1.8 | number_theory | O(K log K + t log K) | AC | 0.187 s | 8084 KB | 11289536 |
+| [1748_number_theory.py](1748_number_theory.py) | Python 3.12 x64 | number_theory | O(K log K + t log K) | AC | 0.187 s | 6476 KB | 11308922 |
+| [1748_number_theory.rs](1748_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 1368 KB | 11289537 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1748_number_theory_optimized.cpp](1748_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(CR+T log R) | AC | 0.015 s | 168 KB | 11309275 |
+| [1748_number_theory_optimized.go](1748_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(CR+T log R) | AC | 0.031 s | 1136 KB | 11309278 |
+| [1748_number_theory_optimized.java](1748_number_theory_optimized.java) | Java 1.8 | number_theory | O(CR+T log R) | AC | 0.109 s | 488 KB | 11309276 |
+| [1748_number_theory_optimized.py](1748_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(CR+T log R) | AC | 0.093 s | 536 KB | 11309274 |
+| [1748_number_theory_optimized.rs](1748_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(CR+T log R) | AC | 0.031 s | 224 KB | 11309279 |

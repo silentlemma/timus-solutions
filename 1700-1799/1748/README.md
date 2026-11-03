@@ -20,6 +20,10 @@ t (1 ≤ t ≤ 100), then t numbers n (1 ≤ n ≤ 10¹⁸).
 
 For each n, the number and its number of divisors.
 
+## Checking
+
+Compare output tokens; extra whitespace does not matter.
+
 ## Examples
 
 ### Example 1
@@ -73,12 +77,52 @@ The answers match a sieve of divisor counts for every query of 100
 random numbers up to 20 000, and an independent accepted implementation
 on 30 random tests up to 10¹⁸ and around record holders.
 
+## Optimized solutions
+
+Enumerate nonincreasing prime exponents only up to the largest requested bound. Maintain the nondominated frontier ordered by value, with strictly increasing divisor counts. A predecessor with at least as many divisors makes a new candidate useless; otherwise remove following records with no greater count. This preserves every possible best answer and keeps the smallest value on ties. Queries binary-search the compact frontier instead of storing and sorting all generated candidates and separate prefix-best arrays.
+
+Here C counts generated exponent candidates, R is the largest frontier size and T the number of queries; frontier insertion may shift R entries.
+
+- `1748_number_theory_optimized.cpp`: 0.015 s / 168 KB; base `1748_number_theory.cpp`: 0.015 s / 1904 KB; relative change: time -0.0%, memory -91.2%.
+- `1748_number_theory_optimized.go`: 0.031 s / 1136 KB; base `1748_number_theory.go`: 0.031 s / 5404 KB; relative change: time -0.0%, memory -79.0%.
+- `1748_number_theory_optimized.java`: 0.109 s / 488 KB; base `1748_number_theory.java`: 0.187 s / 8084 KB; relative change: time -41.7%, memory -94.0%.
+- `1748_number_theory_optimized.py`: 0.093 s / 536 KB; base `1748_number_theory.py`: 0.187 s / 6476 KB; relative change: time -50.3%, memory -91.7%.
+- `1748_number_theory_optimized.rs`: 0.031 s / 224 KB; base `1748_number_theory.rs`: 0.031 s / 1368 KB; relative change: time -0.0%, memory -83.6%.
+
+## Language notes
+
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1748_number_theory.cpp`; covering source `1748_number_theory_optimized.cpp`; time/memory places 1/2, other-author entries 71/71.
+
+- Go: preferred teaching base `1748_number_theory.go`; covering source `1748_number_theory.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1748_number_theory.java`; covering source `1748_number_theory_optimized.java`; time/memory places 1/1, other-author entries 3/3.
+
+- Python/PyPy: preferred teaching base `1748_number_theory.py`; covering source `1748_number_theory_optimized.py`; time/memory places 1/1, other-author entries 8/8.
+
+- Rust: preferred teaching base `1748_number_theory.rs`; covering source `1748_number_theory.rs`; time/memory places 1/1, other-author entries 0/0.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1748_number_theory.cpp](1748_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K log K + t log K) | AC | 0.015 s | 1924 KB |
-| [1748_number_theory.go](1748_number_theory.go) | Go 1.14 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 5404 KB |
-| [1748_number_theory.java](1748_number_theory.java) | Java 1.8 | number_theory | O(K log K + t log K) | AC | 0.187 s | 8084 KB |
-| [1748_number_theory.py](1748_number_theory.py) | Python 3.12 x64 | number_theory | O(K log K + t log K) | AC | 0.156 s | 6608 KB |
-| [1748_number_theory.rs](1748_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 1368 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1748_number_theory.cpp](1748_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K log K + t log K) | AC | 0.015 s | 1904 KB | 11308921 |
+| [1748_number_theory.go](1748_number_theory.go) | Go 1.14 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 5404 KB | 11289533 |
+| [1748_number_theory.java](1748_number_theory.java) | Java 1.8 | number_theory | O(K log K + t log K) | AC | 0.187 s | 8084 KB | 11289536 |
+| [1748_number_theory.py](1748_number_theory.py) | Python 3.12 x64 | number_theory | O(K log K + t log K) | AC | 0.187 s | 6476 KB | 11308922 |
+| [1748_number_theory.rs](1748_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K log K + t log K) | AC | 0.031 s | 1368 KB | 11289537 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1748_number_theory_optimized.cpp](1748_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(CR+T log R) | AC | 0.015 s | 168 KB | 11309275 |
+| [1748_number_theory_optimized.go](1748_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(CR+T log R) | AC | 0.031 s | 1136 KB | 11309278 |
+| [1748_number_theory_optimized.java](1748_number_theory_optimized.java) | Java 1.8 | number_theory | O(CR+T log R) | AC | 0.109 s | 488 KB | 11309276 |
+| [1748_number_theory_optimized.py](1748_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(CR+T log R) | AC | 0.093 s | 536 KB | 11309274 |
+| [1748_number_theory_optimized.rs](1748_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(CR+T log R) | AC | 0.031 s | 224 KB | 11309279 |

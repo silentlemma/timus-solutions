@@ -15,9 +15,11 @@ std::vector<std::pair<unsigned long long, long long>> found;
 // a >= b >= c >= ... can be answers
 void grow(int index, int cap, unsigned long long value, long long divisors) {
     found.push_back({value, divisors});
-    if (index == COUNT) return;
+    if (index == COUNT)
+        return;
     for (int e = 1; e <= cap; e++) {
-        if (value > LIMIT / PRIMES[index]) break;
+        if (value > LIMIT / PRIMES[index])
+            break;
         value *= PRIMES[index];
         grow(index + 1, e, value, divisors * (e + 1));
     }
@@ -30,12 +32,14 @@ int main() {
     std::vector<std::pair<unsigned long long, long long>> best;
     std::pair<unsigned long long, long long> top = {0, 0};
     for (const auto &f : found) {
-        if (f.second > top.second) top = f;
+        if (f.second > top.second)
+            top = f;
         values.push_back(f.first);
         best.push_back(top);
     }
     int t;
-    if (scanf("%d", &t) != 1) return 0;
+    if (scanf("%d", &t) != 1)
+        return 0;
     while (t--) {
         unsigned long long n;
         scanf("%llu", &n);

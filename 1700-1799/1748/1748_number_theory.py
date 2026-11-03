@@ -1,7 +1,7 @@
 import sys
 from bisect import bisect_right
 
-LIMIT = 10 ** 18
+LIMIT = 10**18
 PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53)
 MOST = 64
 
@@ -33,7 +33,7 @@ def main():
         best.append(top)
     data = sys.stdin.read().split()
     out = []
-    for w in data[1:int(data[0]) + 1]:
+    for w in data[1 : int(data[0]) + 1]:
         value, divisors = best[bisect_right(values, int(w)) - 1]
         out.append("%d %d" % (value, divisors))
     print("\n".join(out))
