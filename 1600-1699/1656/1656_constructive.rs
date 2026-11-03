@@ -3,7 +3,10 @@ use std::io::{self, Read};
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<i64> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<i64> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let n = nums[0] as usize;
     let mut heights = nums[1..=n * n].to_vec();
     heights.sort_unstable_by(|a, b| b.cmp(a));
@@ -24,7 +27,12 @@ fn main() {
     }
     let lines: Vec<String> = grid
         .iter()
-        .map(|row| row.iter().map(|h| h.to_string()).collect::<Vec<_>>().join(" "))
+        .map(|row| {
+            row.iter()
+                .map(|h| h.to_string())
+                .collect::<Vec<_>>()
+                .join(" ")
+        })
         .collect();
     println!("{}", lines.join("\n"));
 }

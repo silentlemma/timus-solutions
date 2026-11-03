@@ -1,8 +1,8 @@
 #include <algorithm>
-#include <tuple>
 #include <cstdio>
 #include <cstdlib>
 #include <functional>
+#include <tuple>
 #include <vector>
 using namespace std;
 
@@ -18,7 +18,7 @@ int main() {
     int mid = n / 2;
     // cells by (nearer, farther) distance from the centre row and column:
     // along any row or column this grows outwards on each side
-    vector<tuple<int, int, int>> cells;  // nearer, farther, cell number
+    vector<tuple<int, int, int>> cells; // nearer, farther, cell number
     for (int r = 0; r < n; r++)
         for (int c = 0; c < n; c++) {
             int a = abs(r - mid), b = abs(c - mid);
