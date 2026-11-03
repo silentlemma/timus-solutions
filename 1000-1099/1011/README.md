@@ -25,7 +25,15 @@ The smallest `n`.
 
 ## Checking
 
-The output is compared token by token; extra whitespace does not matter.
+Compare the exact answer tokens; whitespace formatting is immaterial.
+
+- `1011_number_theory_optimized.cpp` (G++ 13.2 x64): 14 repository cases; 115 additional source-bound comparisons.
+
+- `1011_number_theory.go` (Go 1.14 x64): 14 repository cases; 14 additional source-bound comparisons.
+
+- `1011_number_theory.java` (Java 1.8): 14 repository cases; 115 additional source-bound comparisons.
+
+- `1011_number_theory_optimized.py` (PyPy 3.10 x64): 14 repository cases.
 
 ## Examples
 
@@ -85,18 +93,56 @@ Pitfalls:
 - both inequalities are strict: with `P = 12.5`, `1/8` is not inside;
 - `n = 1` never works, since `0 < P` and `Q < 100`.
 
+## Optimized solutions
+
+Keep the denominator scan and the readable one-step Stern–Brocot sources. The fast tree versions retain adjacent fractions a/b and c/d outside the open percentage interval. Their mediant is the simplest fraction between them. If it is still outside, an exact integer quotient skips the maximal run of mediants on that side; every skipped fraction remains outside. The first inside mediant therefore has the smallest denominator. Parse percentages as integer hundredths and compare cross-products with WHOLE=10000, including equality in the rejected endpoints. Quotient jumps follow continued-fraction descent, using O(log WHOLE) steps and constant numerical state. Go uses portable bounded syscall buffers; Python uses existing text streams under its explicitly recorded PyPy runtime.
+
+- `1011_number_theory_optimized.cpp`: 0.015 s / 104 KB; base `1011_math.cpp`: 0.015 s / 352 KB; relative change: time -0.0%, memory -70.5%.
+- `1011_number_theory.go`: 0.031 s / 312 KB; base `1011_math.go`: 0.015 s / 1088 KB; relative change: time +106.7%, memory -71.3%.
+- `1011_number_theory.java`: 0.125 s / 332 KB; base `1011_math.java`: 0.125 s / 1580 KB; relative change: time -0.0%, memory -79.0%.
+- `1011_number_theory_optimized.py`: 0.156 s / 292 KB; base `1011_number_theory.py`: 0.109 s / 468 KB; relative change: time +43.1%, memory -37.6%.
+
 ## Language notes
 
-- **C++**, **Go**, **Java**, **Rust**: the scan over `n` with 64-bit integers.
-- **C++** and **Python** also descend the Stern–Brocot tree.
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1011_math.cpp`; covering source `1011_number_theory_optimized.cpp`; time/memory places 1/3, other-author entries 155/155.
+
+- Go: preferred teaching base `1011_math.go`; covering source `1011_number_theory.go`; time/memory places 2/1, other-author entries 1/1.
+
+- Java: preferred teaching base `1011_math.java`; covering source `1011_number_theory.java`; time/memory places 2/1, other-author entries 5/5.
+
+- Python/PyPy: preferred teaching base `1011_number_theory.py`; covering source `1011_number_theory_optimized.py`; time/memory places 25/2, other-author entries 25/25.
+
+- Rust: preferred teaching base `1011_math.rs`; covering source `1011_math.rs`; time/memory places 1/1, other-author entries 1/1.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1011_math.cpp](1011_math.cpp) | G++ 13.2 x64 | math | O(answer) | AC | 0.015 s | 352 KB |
-| [1011_math.go](1011_math.go) | Go 1.14 x64 | math | O(answer) | AC | 0.015 s | 1088 KB |
-| [1011_math.java](1011_math.java) | Java 1.8 | math | O(answer) | AC | 0.125 s | 1580 KB |
-| [1011_math.rs](1011_math.rs) | Rust 1.75 x64 | math | O(answer) | AC | 0.015 s | 228 KB |
-| [1011_number_theory.cpp](1011_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(answer) tree steps | AC | 0.015 s | 352 KB |
-| [1011_number_theory.py](1011_number_theory.py) | Python 3.12 x64 | number_theory | O(answer) tree steps | AC | 0.109 s | 468 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1011_math.cpp](1011_math.cpp) | G++ 13.2 x64 | math | O(answer) | AC | 0.015 s | 352 KB | 11278050 |
+| [1011_math.go](1011_math.go) | Go 1.14 x64 | math | O(answer) | AC | 0.015 s | 1088 KB | 11278054 |
+| [1011_math.java](1011_math.java) | Java 1.8 | math | O(answer) | AC | 0.125 s | 1580 KB | 11278060 |
+| [1011_number_theory.py](1011_number_theory.py) | Python 3.12 x64 | number_theory | O(answer) tree steps | AC | 0.109 s | 468 KB | 11278057 |
+| [1011_math.rs](1011_math.rs) | Rust 1.75 x64 | math | O(answer) | AC | 0.015 s | 228 KB | 11278063 |
+
+### Other Accepted approaches
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1011_number_theory.cpp](1011_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(answer) tree steps | AC | 0.015 s | 352 KB | 11278050 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1011_number_theory_optimized.cpp](1011_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.015 s | 104 KB | 11308795 |
+| [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 312 KB | 11309756 |
+| [1011_number_theory.java](1011_number_theory.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.125 s | 332 KB | 11308797 |
+| [1011_number_theory_optimized.py](1011_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.156 s | 292 KB | 11309727 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
