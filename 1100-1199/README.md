@@ -95,7 +95,7 @@
 | 1188 | [Rearranging bookcase shelves to fit one big tome](1188/) | geometry | C++, Go, Python, Java, Rust |
 | 1189 | [Pairs X + Y = N where Y is X with one digit struck out](1189/) | math | C++, Go, Python, Java, Rust |
 | 1190 | [Can a chocolate label with a few percentages be honest?](1190/) | greedy | C++, Go, Python, Java, Rust |
-| 1191 | [Can a police officer catch a thief who keeps changing trams?](1191/) | math | C++, Go, Python, Java, Rust |
+| 1191 | [Can a police officer catch a thief who keeps changing trams?](1191/) | dp, math | C++, Go, Python, Java, Rust |
 | 1192 | [How far a bouncing ball travels in a dream](1192/) | math | C++, Go, Python, Java, Rust |
 | 1193 | [How much earlier must an oral exam start for everyone to finish in time?](1193/) | greedy | C++, Go, Python, Java, Rust |
 | 1194 | [How many handshakes when a party splits up on the way home](1194/) | math | C++, Go, Python, Java, Rust |

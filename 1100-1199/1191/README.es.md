@@ -1,6 +1,6 @@
 # 1191. ¿Puede un policía atrapar a un ladrón que cambia de tranvía?
 
-[Timus 1191](https://acm.timus.ru/problem.aspx?space=1&num=1191) · dificultad 249 · math
+[Timus 1191](https://acm.timus.ru/problem.aspx?space=1&num=1191) · dificultad 249 · dp, math
 
 Problema original de Leonid Volkov, del Quinto Campeonato por Equipos de Programación para Escolares, 2 de marzo de 2002.
 
@@ -26,6 +26,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 ## Salida
 
 `YES` si es posible atraparlo, si no `NO`.
+
+## Evaluación
+
+Tokens exactos. Cada fuente nueva tiene pruebas completas del entorno destino, comparaciones matemáticas independientes y Accepted propio ligado al hash; las bases conservan sus propias medidas.
 
 ## Ejemplos
 
@@ -61,42 +65,75 @@ YES
 
 ## Solución
 
-Solo importa la distancia en tiempo entre ellos, y solo cambia en las
-paradas. Si el ladrón llega a una parada con una ventaja de `g` minutos y
-espera `w` minutos (`0 ≤ w < K`, según el horario), el policía llega `g`
-minutos después que él. Si `w ≥ g`, el ladrón sigue allí. Si no, el
-policía sale en el primer tranvía tras su llegada, un número entero de
-intervalos después del tranvía del ladrón, así que la nueva ventaja es un
-múltiplo de `K` de al menos `g − w`. Elegir `w = g mod K` da la menor
-ventaja nueva posible, `g − g mod K`.
+Sea `g` el retraso de llegada del policía y `K` el intervalo.
+El ladrón espera `w`, `0≤w<K`. Si `g<K`, elige `g<w<K`: el policía llega
+mientras aún espera. Si `g≥K`, no puede atraparlo en esa parada.
 
-Una ventaja menor nunca es peor después, pues `g − g mod K` solo crece
-con `g`. Así que se sigue el caso más afortunado: en cada parada la
-ventaja pasa a ser `g − g mod K`, y atraparlo es posible exactamente
-cuando la ventaja llega a 0 en alguna parada, lo que ocurre cuando es
-menor que el intervalo de allí. `O(N)`.
+Sin captura, el policía sale un número entero de tranvías después:
+`K·ceil((g−w)/K)`. Escribe `g=qK+r`, `0≤r<K`. Como `w<K`, la diferencia
+es al menos `qK`. Elegir `w=r+(K−r)/2`, estrictamente entre `r` y `K`,
+alcanza esa cota sin empates entre llegada y salida. Los iguales tiempos
+de viaje conservan la diferencia al llegar a la siguiente parada.
 
-Detalles a tener en cuenta:
+El mejor siguiente estado es `g−g%K`, con cero como captura posible.
+La función no decrece con `g`: un retraso alcanzable menor nunca perjudica
+en paradas futuras. Inducción por rutas prueba que seguir estos mínimos
+detecta captura exactamente cuando algún horario admisible la permite.
+Devuelve YES al llegar a cero; tras `N` tranvías sin cero, NO. `g=K`
+permanece `K`, sin captura; intervalo uno no reduce un retraso entero positivo.
 
-- una ventaja igual al intervalo no permite atraparlo, simplemente se
-  mantiene;
-- los intervalos de 1 minuto nunca cambian la ventaja;
-- aunque la ventaja sea múltiplo de un intervalo, las paradas siguientes
-  todavía pueden reducirla.
+Tiempo `O(N)`. C++/Go/Java mantienen estado aritmético constante; Python/Rust
+anteriores guardan `O(N)` tokens. Los números están en 1..99, los divisores
+son positivos y el mínimo no crece: el resto entero es seguro y exacto.
 
-Las respuestas se compararon con una solución escrita aparte en 300
-persecuciones aleatorias y en todas las pruebas.
+## Soluciones optimizadas
+
+**Java.** El Java añadido mantiene la aritmética y retorno temprano; cambia
+`Scanner` por `StreamTokenizer` sobre `InputStreamReader`. Hasta 101 tokens
+enteros no requieren el analizador de patrones Scanner; sus valores pequeños
+se representan exactamente en el tokenizer. Misma idea, otra implementación:
+`_optimized`. El Accepted exacto registra 0,125 s y 408 KB frente a 0,125 s
+y 1636 KB de la base inalterada: 75,1% menos memoria y mismo tiempo.
+Ambas versiones se conservan, sin atribuirlo a otra recurrencia o intérprete.
+
+**Python/PyPy.** Se conserva la simulación directa como base educativa. El algoritmo nuevo recorre al revés: el menor desfase final positivo es 1. Como la transformación directa es k*floor(gap/k), para conservar needed se necesita antes al menos ceil(needed/k)*k. Actualizar ese umbral en orden inverso. Nunca disminuye: needed>L demuestra que no sobrevive ningún desfase positivo y la captura es posible. De lo contrario L sobrevive y no hay captura. Se consume la lista de enteros desde el final, sin una copia invertida. O(N)tiempo y almacenamiento de entrada; la ventaja medida es de memoria, no de tiempo.
+
+- `1191_math_optimized.java`: 0.125 s / 408 KB; base `1191_math.java`: 0.125 s / 1636 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.1%.
+- `1191_dp.py`: 0.109 s / 236 KB; base `1191_math.py`: 0.062 s / 352 KB; cambio respecto a la base: tiempo +75.8%, memoria -33.0%.
 
 ## Notas por lenguaje
 
-- Todos los lenguajes actualizan la ventaja con el operador de resto.
+Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+
+- C++: base didáctica preferida `1191_math.cpp`; fuente que cubre `1191_math.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 38/38.
+
+- Go: base didáctica preferida `1191_math.go`; fuente que cubre `1191_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1191_math.java`; fuente que cubre `1191_math_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 3/3.
+
+- Python/PyPy: base didáctica preferida `1191_math.py`; fuente que cubre `1191_dp.py`; puestos tiempo/memoria 8/1, registros de otros autores 12/12.
+
+- Rust: base didáctica preferida `1191_math.rs`; fuente que cubre `1191_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1191_math.cpp](1191_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 124 KB |
-| [1191_math.go](1191_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1060 KB |
-| [1191_math.java](1191_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1636 KB |
-| [1191_math.py](1191_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB |
-| [1191_math.rs](1191_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 212 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1191_math.cpp](1191_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 124 KB | 11283443 |
+| [1191_math.go](1191_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1060 KB | 11283445 |
+| [1191_math.java](1191_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1636 KB | 11283449 |
+| [1191_math.py](1191_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11283447 |
+| [1191_math.rs](1191_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 212 KB | 11283451 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
+| [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
