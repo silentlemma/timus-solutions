@@ -38,7 +38,7 @@ def main():
     pieces = []
     q = n
     while q > 0:
-        pieces.append(last[parent[q]:q])
+        pieces.append(last[parent[q] : q])
         q = parent[q]
     print("No")
     print(" ".join(reversed(pieces)))

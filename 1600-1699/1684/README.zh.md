@@ -18,6 +18,10 @@
 
 若存在切分，输出 No，下一行输出用空格分隔的各段；否则输出 Yes。任何正确的切分都可以。
 
+## 评测方式
+
+检查片段拼接为原文本且每段是模式前缀，接受任意合法分解，并核验无解回答。
+
 ## 样例
 
 ### 样例 1
@@ -69,12 +73,52 @@ Yes
 
 检查器把结论与一个独立的已通过实现比较，并验证各段都是前缀且拼起来正好是该词。
 
+## 优化解法
+
+新算法用前缀函数匹配及从后向前的最长末段贪心，替代基础版的 Z 函数和正向可达切分。字典对取前缀封闭：把最后一段向左延长，只会截短更早的合法前缀，因此可安全取最长末段。记录每个文本终点的匹配长度，逆向恢复切点并输出原串片段。紧凑链接及长度数组代替合并 Z 缓冲与输出副本。
+
+- `1684_greedy_strings.cpp`: 0.015 s / 836 KB; 基础版 `1684_strings.cpp`: 0.015 s / 6084 KB; 相对基础版的变化: 时间 -0.0%, 内存 -86.3%.
+- `1684_greedy_strings.go`: 0.015 s / 2068 KB; 基础版 `1684_strings.go`: 0.031 s / 7368 KB; 相对基础版的变化: 时间 -51.6%, 内存 -71.9%.
+- `1684_greedy_strings.java`: 0.109 s / 1248 KB; 基础版 `1684_strings.java`: 0.140 s / 8584 KB; 相对基础版的变化: 时间 -22.1%, 内存 -85.5%.
+- `1684_greedy_strings.py`: 0.156 s / 1692 KB; 基础版 `1684_strings.py`: 0.250 s / 7360 KB; 相对基础版的变化: 时间 -37.6%, 内存 -77.0%.
+- `1684_greedy_strings.rs`: 0.015 s / 1288 KB; 基础版 `1684_strings.rs`: 0.031 s / 4176 KB; 相对基础版的变化: 时间 -51.6%, 内存 -69.2%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1684_strings.cpp`; 覆盖实现 `1684_greedy_strings.cpp`; 时间/内存名次 1/1, 其他作者记录 67/67.
+
+- Go: 优先教学基础版 `1684_strings.go`; 覆盖实现 `1684_strings.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1684_strings.java`; 覆盖实现 `1684_greedy_strings.java`; 时间/内存名次 1/1, 其他作者记录 6/6.
+
+- Python/PyPy: 优先教学基础版 `1684_strings.py`; 覆盖实现 `1684_greedy_strings.py`; 时间/内存名次 6/1, 其他作者记录 30/30.
+
+- Rust: 优先教学基础版 `1684_strings.rs`; 覆盖实现 `1684_strings.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1684_strings.cpp](1684_strings.cpp) | G++ 13.2 x64 | strings | O(m + n) | AC | 0.031 s | 6108 KB |
-| [1684_strings.go](1684_strings.go) | Go 1.14 x64 | strings | O(m + n) | AC | 0.031 s | 7368 KB |
-| [1684_strings.java](1684_strings.java) | Java 1.8 | strings | O(m + n) | AC | 0.140 s | 8584 KB |
-| [1684_strings.py](1684_strings.py) | Python 3.12 x64 | strings | O(m + n) | AC | 0.265 s | 7024 KB |
-| [1684_strings.rs](1684_strings.rs) | Rust 1.75 x64 | strings | O(m + n) | AC | 0.062 s | 5168 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1684_strings.cpp](1684_strings.cpp) | G++ 13.2 x64 | strings | O(m + n) | AC | 0.015 s | 6084 KB | 11308841 |
+| [1684_strings.go](1684_strings.go) | Go 1.14 x64 | strings | O(m + n) | AC | 0.031 s | 7368 KB | 11288854 |
+| [1684_strings.java](1684_strings.java) | Java 1.8 | strings | O(m + n) | AC | 0.140 s | 8584 KB | 11288857 |
+| [1684_strings.py](1684_strings.py) | Python 3.12 x64 | strings | O(m + n) | AC | 0.250 s | 7360 KB | 11309202 |
+| [1684_strings.rs](1684_strings.rs) | Rust 1.75 x64 | strings | O(m + n) | AC | 0.031 s | 4176 KB | 11309203 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1684_greedy_strings.cpp](1684_greedy_strings.cpp) | G++ 13.2 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 836 KB | 11309270 |
+| [1684_greedy_strings.go](1684_greedy_strings.go) | Go 1.14 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 2068 KB | 11309272 |
+| [1684_greedy_strings.java](1684_greedy_strings.java) | Java 1.8 | greedy, strings | O(pattern length + text length) | AC | 0.109 s | 1248 KB | 11309271 |
+| [1684_greedy_strings.py](1684_greedy_strings.py) \* | Python 3.12 x64 | greedy, strings | O(pattern length + text length) | AC | 0.156 s | 1692 KB | 11309268 |
+| [1684_greedy_strings.rs](1684_greedy_strings.rs) | Rust 1.75 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 1288 KB | 11309273 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

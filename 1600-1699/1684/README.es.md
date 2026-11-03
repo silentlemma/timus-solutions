@@ -22,6 +22,10 @@ minúsculas, cada una de longitud a lo sumo 75000.
 No y, en la línea siguiente, los trozos separados por espacios, si
 existe una partición; si no, Yes. Se acepta cualquier partición válida.
 
+## Evaluación
+
+Se verifica que las piezas formen el texto y cada una sea prefijo del patrón; se acepta cualquier descomposición válida y se comprueba la imposibilidad.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -83,12 +87,52 @@ El verificador compara el veredicto con una implementación aceptada
 independiente y comprueba que los trozos son prefijos que forman la
 palabra.
 
+## Soluciones optimizadas
+
+El nuevo algoritmo usa función prefijo y elección voraz de la última pieza más larga, en lugar de Z y cortes alcanzables hacia delante. El diccionario contiene prefijos: extender la última pieza hacia la izquierda solo puede acortar un prefijo anterior válido, por lo que la elección es segura. Se guarda la longitud coincidente en cada extremo, se reconstruyen cortes hacia atrás y se emiten segmentos originales. Enlaces y longitudes compactos reemplazan el búfer Z combinado y las copias de salida.
+
+- `1684_greedy_strings.cpp`: 0.015 s / 836 KB; base `1684_strings.cpp`: 0.015 s / 6084 KB; cambio respecto a la base: tiempo -0.0%, memoria -86.3%.
+- `1684_greedy_strings.go`: 0.015 s / 2068 KB; base `1684_strings.go`: 0.031 s / 7368 KB; cambio respecto a la base: tiempo -51.6%, memoria -71.9%.
+- `1684_greedy_strings.java`: 0.109 s / 1248 KB; base `1684_strings.java`: 0.140 s / 8584 KB; cambio respecto a la base: tiempo -22.1%, memoria -85.5%.
+- `1684_greedy_strings.py`: 0.156 s / 1692 KB; base `1684_strings.py`: 0.250 s / 7360 KB; cambio respecto a la base: tiempo -37.6%, memoria -77.0%.
+- `1684_greedy_strings.rs`: 0.015 s / 1288 KB; base `1684_strings.rs`: 0.031 s / 4176 KB; cambio respecto a la base: tiempo -51.6%, memoria -69.2%.
+
+## Notas por lenguaje
+
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1684_strings.cpp`; versión que cubre `1684_greedy_strings.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 67/67.
+
+- Go: base didáctica preferida `1684_strings.go`; versión que cubre `1684_strings.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1684_strings.java`; versión que cubre `1684_greedy_strings.java`; puestos tiempo/memoria 1/1, registros de otros autores 6/6.
+
+- Python/PyPy: base didáctica preferida `1684_strings.py`; versión que cubre `1684_greedy_strings.py`; puestos tiempo/memoria 6/1, registros de otros autores 30/30.
+
+- Rust: base didáctica preferida `1684_strings.rs`; versión que cubre `1684_strings.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1684_strings.cpp](1684_strings.cpp) | G++ 13.2 x64 | strings | O(m + n) | AC | 0.031 s | 6108 KB |
-| [1684_strings.go](1684_strings.go) | Go 1.14 x64 | strings | O(m + n) | AC | 0.031 s | 7368 KB |
-| [1684_strings.java](1684_strings.java) | Java 1.8 | strings | O(m + n) | AC | 0.140 s | 8584 KB |
-| [1684_strings.py](1684_strings.py) | Python 3.12 x64 | strings | O(m + n) | AC | 0.265 s | 7024 KB |
-| [1684_strings.rs](1684_strings.rs) | Rust 1.75 x64 | strings | O(m + n) | AC | 0.062 s | 5168 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1684_strings.cpp](1684_strings.cpp) | G++ 13.2 x64 | strings | O(m + n) | AC | 0.015 s | 6084 KB | 11308841 |
+| [1684_strings.go](1684_strings.go) | Go 1.14 x64 | strings | O(m + n) | AC | 0.031 s | 7368 KB | 11288854 |
+| [1684_strings.java](1684_strings.java) | Java 1.8 | strings | O(m + n) | AC | 0.140 s | 8584 KB | 11288857 |
+| [1684_strings.py](1684_strings.py) | Python 3.12 x64 | strings | O(m + n) | AC | 0.250 s | 7360 KB | 11309202 |
+| [1684_strings.rs](1684_strings.rs) | Rust 1.75 x64 | strings | O(m + n) | AC | 0.031 s | 4176 KB | 11309203 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1684_greedy_strings.cpp](1684_greedy_strings.cpp) | G++ 13.2 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 836 KB | 11309270 |
+| [1684_greedy_strings.go](1684_greedy_strings.go) | Go 1.14 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 2068 KB | 11309272 |
+| [1684_greedy_strings.java](1684_greedy_strings.java) | Java 1.8 | greedy, strings | O(pattern length + text length) | AC | 0.109 s | 1248 KB | 11309271 |
+| [1684_greedy_strings.py](1684_greedy_strings.py) \* | Python 3.12 x64 | greedy, strings | O(pattern length + text length) | AC | 0.156 s | 1692 KB | 11309268 |
+| [1684_greedy_strings.rs](1684_greedy_strings.rs) | Rust 1.75 x64 | greedy, strings | O(pattern length + text length) | AC | 0.015 s | 1288 KB | 11309273 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

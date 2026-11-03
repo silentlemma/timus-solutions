@@ -5,7 +5,11 @@ fn z_function(s: &[u8]) -> Vec<usize> {
     let mut z = vec![0; n];
     let (mut left, mut right) = (0, 0);
     for i in 1..n {
-        let mut k = if i < right { z[i - left].min(right - i) } else { 0 };
+        let mut k = if i < right {
+            z[i - left].min(right - i)
+        } else {
+            0
+        };
         while i + k < n && s[k] == s[i + k] {
             k += 1;
         }
