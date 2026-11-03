@@ -24,6 +24,10 @@ K and P.
 
 The number of ents who know exactly K words, modulo P.
 
+## Checking
+
+Compare the complete output exactly, including spaces and line breaks.
+
 ## Examples
 
 ### Example 1
@@ -69,12 +73,54 @@ Pitfalls:
 - Python runs under PyPy: K = 10⁷ takes about 0.8 s with CPython and
   about 0.17 s with PyPy.
 
+## Optimized solutions
+
+Use the same recurrence, but sum the final range algebraically rather than evaluating every remaining DP state. Only an earlier prefix must be computed, and only its smaller initial portion must remain stored. Packed 32-bit residues replace 64-bit cells; the modulus bound makes every residue fit. The derivation of the even and odd endpoints preserves all base cases. The accepted Python implementation uses CPython; compare its recorded result with the actual interpreter of the retained simple source.
+
+```text
+T = floor(K/2), H = floor(T/2), D = floor(H/2)
+g(0) = 0, g(1) = 1
+S = sum(g(j), D < j <= H)
+For H >= 1:
+  g(2H) = 2S + [H is even] * g(D)
+  g(2H+1) = g(2H) + g(H)
+answer = g(T) mod P
+```
+
+- `1537_dp_optimized.py`: 0.656 s / 5276 KB; base `1537_dp.py`: 0.203 s / 20812 KB; relative change: time +223.2%, memory -74.6%.
+
+## Language notes
+
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1537_dp.cpp`; covering source `1537_dp.cpp`; time/memory places 6/1, other-author entries 75/75.
+
+- Go: preferred teaching base `1537_dp.go`; covering source `1537_dp.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1537_dp.java`; covering source `1537_dp.java`; time/memory places 1/1, other-author entries 10/10.
+
+- Python/PyPy: preferred teaching base `1537_dp.py`; covering source `1537_dp_optimized.py`; time/memory places 2/1, other-author entries 1/1.
+
+- Rust: preferred teaching base `1537_dp.rs`; covering source `1537_dp.rs`; time/memory places 1/1, other-author entries 0/0.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1537_dp.cpp](1537_dp.cpp) | G++ 13.2 x64 | dp | O(K) | AC | 0.046 s | 9684 KB |
-| [1537_dp.go](1537_dp.go) | Go 1.14 x64 | dp | O(K) | AC | 0.109 s | 11700 KB |
-| [1537_dp.java](1537_dp.java) | Java 1.8 | dp | O(K) | AC | 0.140 s | 11368 KB |
-| [1537_dp.py](1537_dp.py) | PyPy 3.10 x64 | dp | O(K) | AC | 0.203 s | 20812 KB |
-| [1537_dp.rs](1537_dp.rs) | Rust 1.75 x64 | dp | O(K) | AC | 0.046 s | 9836 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1537_dp.cpp](1537_dp.cpp) | G++ 13.2 x64 | dp | O(K) | AC | 0.046 s | 9684 KB | 11287481 |
+| [1537_dp.go](1537_dp.go) | Go 1.14 x64 | dp | O(K) | AC | 0.109 s | 11700 KB | 11287482 |
+| [1537_dp.java](1537_dp.java) | Java 1.8 | dp | O(K) | AC | 0.140 s | 11368 KB | 11287485 |
+| [1537_dp.py](1537_dp.py) | PyPy 3.10 x64 | dp | O(K) | AC | 0.203 s | 20812 KB | 11287484 |
+| [1537_dp.rs](1537_dp.rs) | Rust 1.75 x64 | dp | O(K) | AC | 0.046 s | 9836 KB | 11287488 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
