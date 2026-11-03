@@ -108,23 +108,50 @@ bottom and append at the logical end, rather than simply overwrite the
 old bottom slot. Handle copying an empty stack and an experiment without
 output. Do not materialize exponential copies or shift a full array.
 
+## Optimized solutions
+
+Retain only the top part of the coin stack that can affect the remaining removals, using the proven shrinking-ring invariant. Popped coins are emitted in bounded blocks instead of being copied into a complete answer array. Conditional wrap replaces hot remainder operations. The bound counts all copied elements over the entire execution, not separately for each command. The chosen Python version uses the interpreter recorded in its Accepted row.
+
+- `1915_simulation_optimized.cpp`: 0.062 s / 7492 KB; base `1915_simulation.cpp`: 0.187 s / 11640 KB; relative change: time -66.8%, memory -35.6%.
+- `1915_simulation_optimized.go`: 0.078 s / 9548 KB; base `1915_simulation.go`: 0.093 s / 21804 KB; relative change: time -16.1%, memory -56.2%.
+- `1915_simulation_optimized.java`: 0.250 s / 8448 KB; base `1915_simulation.java`: 0.390 s / 12292 KB; relative change: time -35.9%, memory -31.3%.
+- `1915_simulation_optimized.py`: 0.359 s / 37668 KB; base `1915_simulation.py`: 0.515 s / 16716 KB; relative change: time -30.3%, memory +125.3%.
+- `1915_simulation_optimized.rs`: 0.062 s / 7856 KB; base `1915_simulation.rs`: 0.046 s / 16904 KB; relative change: time +34.8%, memory -53.5%.
+
 ## Language notes
 
-Operations and values fit signed 32-bit integers. C++, Go, Java and Rust
-also keep a packed result array of P values; their total arrays remain
-linear. Python uses two `array('i')` buffers and emits blocks of 8192
-strings, avoiding a million Python integer objects or output strings.
-Its parser reads one operation per line, as specified. Go uses a byte
-parser and reusable decimal buffer; Java uses buffered byte input/output
-without allocating a string for each removed coin. Other ports use
-buffered standard streams.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1915_simulation.cpp`; covering source `1915_simulation_optimized.cpp`; time/memory places 4/9, other-author entries 45/45.
+
+- Go: preferred teaching base `1915_simulation.go`; covering source `1915_simulation.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1915_simulation.java`; covering source `1915_simulation_optimized.java`; time/memory places 1/1, other-author entries 2/2.
+
+- Python/PyPy: preferred teaching base `1915_simulation.py`; covering source `1915_simulation_optimized.py`; time/memory places 1/1, other-author entries 2/2.
+
+- Rust: preferred teaching base `1915_simulation.rs`; covering source `1915_simulation.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1915_simulation.cpp](1915_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.187 s | 11640 KB |
-| [1915_simulation.go](1915_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 21804 KB |
-| [1915_simulation.java](1915_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.296 s | 12368 KB |
-| [1915_simulation.py](1915_simulation.py) | PyPy 3.10 x64 | simulation | O(n) | AC | 0.515 s | 16716 KB |
-| [1915_simulation.rs](1915_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.046 s | 16904 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1915_simulation.cpp](1915_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.187 s | 11640 KB | 11291421 |
+| [1915_simulation.go](1915_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 21804 KB | 11291424 |
+| [1915_simulation.java](1915_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.390 s | 12292 KB | 11309214 |
+| [1915_simulation.py](1915_simulation.py) | PyPy 3.10 x64 | simulation | O(n) | AC | 0.515 s | 16716 KB | 11291425 |
+| [1915_simulation.rs](1915_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.046 s | 16904 KB | 11291432 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1915_simulation_optimized.cpp](1915_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(N+P) | AC | 0.062 s | 7492 KB | 11308596 |
+| [1915_simulation_optimized.go](1915_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N+P) | AC | 0.078 s | 9548 KB | 11308605 |
+| [1915_simulation_optimized.java](1915_simulation_optimized.java) | Java 1.8 | simulation | O(N+P) | AC | 0.250 s | 8448 KB | 11308601 |
+| [1915_simulation_optimized.py](1915_simulation_optimized.py) | PyPy 3.10 x64 | simulation | O(N+P) | AC | 0.359 s | 37668 KB | 11309401 |
+| [1915_simulation_optimized.rs](1915_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N+P) | AC | 0.062 s | 7856 KB | 11308602 |

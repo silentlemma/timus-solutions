@@ -88,20 +88,50 @@ n，1≤n≤1 000 000，随后 n 行，每行一个整数 x：
 逻辑末尾追加，不能只覆盖旧底部单元。处理空栈复制和无输出；
 不能展开指数大小的栈，也不能反复移动整个数组。
 
-## 各语言说明
+## 优化解法
 
-操作和值均可用有符号 32 位整数保存。C++、Go、Java、Rust 另存
-长度 P 的紧凑答案数组。Python 使用两个 `array('i')`，每 8192
-个值输出一次，避免百万个整数对象或输出字符串；按规定逐行读取。
-Go 使用字节解析器和复用十进制缓冲区，Java 使用字节缓冲输入输出，
-每个答案不分配字符串。其他版本也使用缓冲标准流。
+按已证明的收缩环不变量，只保留可能影响剩余弹出的栈顶部分。弹出硬币分块输出，不复制到完整答案数组。热路径的取余改为条件回绕。复杂度统计整个执行中的复制元素总量，而非逐命令分别计数。Python 使用 Accepted 行注明的实际解释器。
+
+- `1915_simulation_optimized.cpp`: 0.062 s / 7492 KB; 基础版 `1915_simulation.cpp`: 0.187 s / 11640 KB; 相对基础版的变化: 时间 -66.8%, 内存 -35.6%.
+- `1915_simulation_optimized.go`: 0.078 s / 9548 KB; 基础版 `1915_simulation.go`: 0.093 s / 21804 KB; 相对基础版的变化: 时间 -16.1%, 内存 -56.2%.
+- `1915_simulation_optimized.java`: 0.250 s / 8448 KB; 基础版 `1915_simulation.java`: 0.390 s / 12292 KB; 相对基础版的变化: 时间 -35.9%, 内存 -31.3%.
+- `1915_simulation_optimized.py`: 0.359 s / 37668 KB; 基础版 `1915_simulation.py`: 0.515 s / 16716 KB; 相对基础版的变化: 时间 -30.3%, 内存 +125.3%.
+- `1915_simulation_optimized.rs`: 0.062 s / 7856 KB; 基础版 `1915_simulation.rs`: 0.046 s / 16904 KB; 相对基础版的变化: 时间 +34.8%, 内存 -53.5%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1915_simulation.cpp`; 覆盖实现 `1915_simulation_optimized.cpp`; 时间/内存名次 4/9, 其他作者记录 45/45.
+
+- Go: 优先教学基础版 `1915_simulation.go`; 覆盖实现 `1915_simulation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1915_simulation.java`; 覆盖实现 `1915_simulation_optimized.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
+- Python/PyPy: 优先教学基础版 `1915_simulation.py`; 覆盖实现 `1915_simulation_optimized.py`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
+- Rust: 优先教学基础版 `1915_simulation.rs`; 覆盖实现 `1915_simulation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1915_simulation.cpp](1915_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.187 s | 11640 KB |
-| [1915_simulation.go](1915_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 21804 KB |
-| [1915_simulation.java](1915_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.296 s | 12368 KB |
-| [1915_simulation.py](1915_simulation.py) | PyPy 3.10 x64 | simulation | O(n) | AC | 0.515 s | 16716 KB |
-| [1915_simulation.rs](1915_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.046 s | 16904 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1915_simulation.cpp](1915_simulation.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.187 s | 11640 KB | 11291421 |
+| [1915_simulation.go](1915_simulation.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.093 s | 21804 KB | 11291424 |
+| [1915_simulation.java](1915_simulation.java) | Java 1.8 | simulation | O(n) | AC | 0.390 s | 12292 KB | 11309214 |
+| [1915_simulation.py](1915_simulation.py) | PyPy 3.10 x64 | simulation | O(n) | AC | 0.515 s | 16716 KB | 11291425 |
+| [1915_simulation.rs](1915_simulation.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.046 s | 16904 KB | 11291432 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1915_simulation_optimized.cpp](1915_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(N+P) | AC | 0.062 s | 7492 KB | 11308596 |
+| [1915_simulation_optimized.go](1915_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N+P) | AC | 0.078 s | 9548 KB | 11308605 |
+| [1915_simulation_optimized.java](1915_simulation_optimized.java) | Java 1.8 | simulation | O(N+P) | AC | 0.250 s | 8448 KB | 11308601 |
+| [1915_simulation_optimized.py](1915_simulation_optimized.py) | PyPy 3.10 x64 | simulation | O(N+P) | AC | 0.359 s | 37668 KB | 11309401 |
+| [1915_simulation_optimized.rs](1915_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(N+P) | AC | 0.062 s | 7856 KB | 11308602 |

@@ -19,7 +19,7 @@
 | 1912 | [Escaping While Staying Adjacent](1912/) | bfs | C++, Go, Python, Java, Rust |
 | 1913 | [Two Relays Connecting Three Terminals](1913/) | geometry | C++, Go, Python, Java, Rust |
 | 1914 | [Fractional Inputs with Integral Outputs](1914/) | matrix | C++, Go, Python, Java, Rust |
-| 1915 | [A Stack That Can Duplicate Itself](1915/) | simulation | C++, Go, Python, Java, Rust |
+| 1915 | [Titan Ruins: Reconstruction of Bygones](1915/) | simulation | C++, Go, Python, Java, Rust |
 | 1916 | [Short Fragments of Exponentially Long Words](1916/) | strings | C++, Go, Python, Java, Rust |
 | 1917 | [Safe Removal of Threshold Groups](1917/) | greedy | C++, Go, Python, Java, Rust |
 | 1918 | [Maps That Escape Every Proper Prefix](1918/) | dp | C++, Go, Python, Java, Rust |

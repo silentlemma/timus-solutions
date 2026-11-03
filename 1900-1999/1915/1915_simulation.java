@@ -91,7 +91,7 @@ public class Main {
         for (int coin : poppedCoins(operations)) {
             int start = digits.length;
             do {
-                digits[--start] = (byte) ('0' + coin % 10);
+                digits[--start] = (byte)('0' + coin % 10);
                 coin /= 10;
             } while (coin != 0);
             output.write(digits, start, digits.length - start);
