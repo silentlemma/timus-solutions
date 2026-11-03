@@ -78,19 +78,44 @@ La energía permite igualdad; contar todas las monedas destruidas a la vez.
 Reiniciar solo tras contabilizar el lote previo no vacío. Un grupo inseguro
 posterior no invalida el lote pendiente. Primero maximizar monedas, luego minimizar hechizos.
 
+## Soluciones optimizadas
+
+No cambia el voraz por grupos: los valores iguales son inseparables y no se puede saltar el primer grupo inseguro. Java ordena el arreglo primitivo in situ con heapsort iterativo, evitando clases auxiliares, copias y memoria temporal. La entrada de bytes y salida ASCII acotadas sustituyen objetos de tokens y formato. Los productos de comprobación usan enteros anchos y la memoria auxiliar de ordenación es constante.
+
+- `1917_greedy_optimized.java`: 0.109 s / 380 KB; base `1917_greedy.java`: 0.125 s / 648 KB; cambio respecto a la base: tiempo -12.8%, memoria -41.4%.
+
 ## Notas por lenguaje
 
-Python usa `groupby`; los otros puertos recorren tramos iguales. Los productos
-nativos usan 64 bits. El máximo dado es 1000·1 000 000=10⁹, pero ampliar
-explícitamente aclara la multiplicación. Java y Go usan entrada almacenada
-en búfer. Solo se imprimen los dos contadores solicitados.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1917_greedy.cpp`; versión que cubre `1917_greedy.cpp`; puestos tiempo/memoria 1/9, registros de otros autores 42/42.
+
+- Go: base didáctica preferida `1917_greedy.go`; versión que cubre `1917_greedy.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1917_greedy.java`; versión que cubre `1917_greedy_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 2/2.
+
+- Python/PyPy: base didáctica preferida `1917_greedy.py`; versión que cubre `1917_greedy.py`; puestos tiempo/memoria 1/1, registros de otros autores 6/6.
+
+- Rust: base didáctica preferida `1917_greedy.rs`; versión que cubre `1917_greedy.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1917_greedy.cpp](1917_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 416 KB |
-| [1917_greedy.go](1917_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1112 KB |
-| [1917_greedy.java](1917_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 648 KB |
-| [1917_greedy.py](1917_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.078 s | 572 KB |
-| [1917_greedy.rs](1917_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1917_greedy.cpp](1917_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 416 KB | 11291446 |
+| [1917_greedy.go](1917_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1112 KB | 11291447 |
+| [1917_greedy.java](1917_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 648 KB | 11291452 |
+| [1917_greedy.py](1917_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.078 s | 572 KB | 11291451 |
+| [1917_greedy.rs](1917_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB | 11291453 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

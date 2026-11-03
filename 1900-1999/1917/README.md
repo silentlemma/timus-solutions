@@ -83,20 +83,44 @@ and reset the batch only after counting the previous nonempty spell.
 An unsafe next group does not invalidate a pending earlier batch.
 The objectives are ordered: maximize coins before minimizing spells.
 
+## Optimized solutions
+
+The grouped greedy is unchanged: equal values form an inseparable group, and the first unsafe group cannot be bypassed. Java sorts the primitive input in place with iterative heapsort, avoiding sorting helper classes, copied arrays and scratch storage. Bounded byte input and ASCII output replace token and formatting objects. Products used to test a group are evaluated in a wide integer type; auxiliary sorting storage is constant.
+
+- `1917_greedy_optimized.java`: 0.109 s / 380 KB; base `1917_greedy.java`: 0.125 s / 648 KB; relative change: time -12.8%, memory -41.4%.
+
 ## Language notes
 
-Python groups sorted values with `groupby`; the other ports scan runs of
-equal values. Native ports use 64-bit energy products. Under the given
-bounds a product is at most 1000·1 000 000=10⁹, but widening explicitly
-keeps multiplication unambiguous. Java and Go use buffered input;
-all ports output only the two requested counts.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `1917_greedy.cpp`; covering source `1917_greedy.cpp`; time/memory places 1/9, other-author entries 42/42.
+
+- Go: preferred teaching base `1917_greedy.go`; covering source `1917_greedy.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1917_greedy.java`; covering source `1917_greedy_optimized.java`; time/memory places 2/1, other-author entries 2/2.
+
+- Python/PyPy: preferred teaching base `1917_greedy.py`; covering source `1917_greedy.py`; time/memory places 1/1, other-author entries 6/6.
+
+- Rust: preferred teaching base `1917_greedy.rs`; covering source `1917_greedy.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1917_greedy.cpp](1917_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 416 KB |
-| [1917_greedy.go](1917_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1112 KB |
-| [1917_greedy.java](1917_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 648 KB |
-| [1917_greedy.py](1917_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.078 s | 572 KB |
-| [1917_greedy.rs](1917_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1917_greedy.cpp](1917_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 416 KB | 11291446 |
+| [1917_greedy.go](1917_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1112 KB | 11291447 |
+| [1917_greedy.java](1917_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 648 KB | 11291452 |
+| [1917_greedy.py](1917_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.078 s | 572 KB | 11291451 |
+| [1917_greedy.rs](1917_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB | 11291453 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
