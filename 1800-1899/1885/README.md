@@ -23,6 +23,10 @@ h ≤ t·v).
 
 The least and the greatest time, each with absolute or relative error at most 10⁻⁶.
 
+## Checking
+
+Compare two real values with absolute or relative tolerance 1e-6. The new Python passed 6953 target-runtime cases including repository boundaries; exact rounding bounds justify all inputs.
+
 ## Examples
 
 ### Example 1
@@ -68,12 +72,44 @@ Pitfalls:
 The answers agree with an independent accepted implementation on all
 tests.
 
+## Optimized solutions
+
+Keep the same minimum/supremum formulas as the teaching versions. Compute their numerators exactly and round nonnegative divisions to six decimal places using scale `S=10^6`: `floor((a*S+floor(b/2))/b)`. The error is at most half a decimal unit, `0.5·10^-6`, within the required tolerance. Clip the minimum at zero and the maximum at t. Emit integer and padded fractional fields directly, avoiding floating-point conversion, the general percent formatter and a concatenated output string. All input-bound intermediates fit signed 64 bits; the Python file was accepted under PyPy 3.10. This changes the arithmetic and formatting implementation, not the mathematical answer. The short floating-point bases remain available. Time and extra space stay constant.
+
+- `1885_math_optimized.py`: 0.109 s / 272 KB; base `1885_math.py`: 0.078 s / 392 KB; relative change: time +39.7%, memory -30.6%.
+
+## Language notes
+
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+
+Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+
+- C++: preferred teaching base `1885_math.cpp`; covering source `1885_math.cpp`; time/memory places 1/4, other-author entries 106/106.
+
+- Go: preferred teaching base `1885_math.go`; covering source `1885_math.go`; time/memory places 1/1, other-author entries 0/0.
+
+- Java: preferred teaching base `1885_math.java`; covering source `1885_math.java`; time/memory places 1/1, other-author entries 1/1.
+
+- Python/PyPy: preferred teaching base `1885_math.py`; covering source `1885_math_optimized.py`; time/memory places 13/1, other-author entries 23/23.
+
+- Rust: preferred teaching base `1885_math.rs`; covering source `1885_math.rs`; time/memory places 1/1, other-author entries 0/0.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1885_math.cpp](1885_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 152 KB |
-| [1885_math.go](1885_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1088 KB |
-| [1885_math.java](1885_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1788 KB |
-| [1885_math.py](1885_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 392 KB |
-| [1885_math.rs](1885_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1885_math.cpp](1885_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 132 KB | 11308434 |
+| [1885_math.go](1885_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1088 KB | 11291093 |
+| [1885_math.java](1885_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1788 KB | 11291097 |
+| [1885_math.py](1885_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 392 KB | 11291095 |
+| [1885_math.rs](1885_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 248 KB | 11308435 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
