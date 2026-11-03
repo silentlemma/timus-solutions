@@ -25,7 +25,13 @@ L=min(0,min x)到R=max(0,max x)。每行W=R−L+1个符号，共H=U−D+1行。
 
 ## 评测方式
 
-完整图形按行列精确比较，空格不能代替背景点。每行以换行结束。
+逐字节比较整个图，包括每个符号和换行，不能只比较空白分隔的词。
+两份新发布程序各通过目标 Docker 编译器下全部 26 个仓库输入和 69 个独立额外输入。
+重新读取每次额外运行的实际输出及退出码，与独立逐坐标定义的答案比较：先判断输入点，
+再判断原点、坐标轴和背景。覆盖原点、单行单列、完全遮住的坐标轴、各象限、±100、
+250 点、显式正号、CRLF 和 EOF。独立 Python 候选也通过这 69 次目标运行，
+并在主机执行 2048 次，包括 3×3 网格所有非空子集；这 2048 次不是 C++ 或 Java
+测试。三个候选均有对应精确源码的 Accepted，准入条件仍单独判断。
 
 ## 样例
 
@@ -73,18 +79,48 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 原点仅在没有输入点时是+；轴上的点仍为*。不能加标签、空格、
 边框或额外边距。
 
-## 各语言说明
+## 优化解法
 
-Python用bytearray，Go用字节切片，C++用string，Java用char数组，
-Rust用字节向量。Java追加整行字符内容，不是数组对象表示。所有
-符号均为ASCII；直接输出已有末尾换行的图，避免额外空行。
+逐行绘制，不分配完整图。排序打包点坐标，使同一行的点相邻。先填背景及可见纵轴，需要时绘制横轴和原点，最后覆盖点，保持符号优先级和纵坐标递减顺序。复用行缓冲，空间取决于点数与行宽而非绘图面积。排序不能省去输出每格所需的时间。
+
+- `1944_implementation_optimized.cpp`: 0.015 s / 116 KB; 基础版 `1944_implementation.cpp`: 0.015 s / 472 KB; 相对基础版的变化: 时间 -0.0%, 内存 -75.4%.
+- `1944_implementation_optimized.java`: 0.125 s / 476 KB; 基础版 `1944_implementation.java`: 0.125 s / 844 KB; 相对基础版的变化: 时间 -0.0%, 内存 -43.6%.
+- `1944_implementation_optimized.py`: 0.140 s / 332 KB; 基础版 `1944_implementation.py`: 0.093 s / 636 KB; 相对基础版的变化: 时间 +50.5%, 内存 -47.8%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1944_implementation.cpp`; 覆盖实现 `1944_implementation_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 50/50.
+
+- Go: 优先教学基础版 `1944_implementation.go`; 覆盖实现 `1944_implementation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1944_implementation.java`; 覆盖实现 `1944_implementation.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
+
+- Python/PyPy: 优先教学基础版 `1944_implementation.py`; 覆盖实现 `1944_implementation_optimized.py`; 时间/内存名次 11/1, 其他作者记录 11/11.
+
+- Rust: 优先教学基础版 `1944_implementation.rs`; 覆盖实现 `1944_implementation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1944_implementation.cpp](1944_implementation.cpp) | G++ 13.2 x64 | implementation | O(n+WH) | AC | 0.015 s | 472 KB |
-| [1944_implementation.go](1944_implementation.go) | Go 1.14 x64 | implementation | O(n+WH) | AC | 0.031 s | 1420 KB |
-| [1944_implementation.java](1944_implementation.java) | Java 1.8 | implementation | O(n+WH) | AC | 0.125 s | 844 KB |
-| [1944_implementation.py](1944_implementation.py) | Python 3.12 x64 | implementation | O(n+WH) | AC | 0.093 s | 636 KB |
-| [1944_implementation.rs](1944_implementation.rs) | Rust 1.75 x64 | implementation | O(n+WH) | AC | 0.031 s | 348 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1944_implementation.cpp](1944_implementation.cpp) | G++ 13.2 x64 | implementation | O(n+WH) | AC | 0.015 s | 472 KB | 11291904 |
+| [1944_implementation.go](1944_implementation.go) | Go 1.14 x64 | implementation | O(n+WH) | AC | 0.031 s | 1420 KB | 11291906 |
+| [1944_implementation.java](1944_implementation.java) | Java 1.8 | implementation | O(n+WH) | AC | 0.125 s | 844 KB | 11291912 |
+| [1944_implementation.py](1944_implementation.py) | Python 3.12 x64 | implementation | O(n+WH) | AC | 0.093 s | 636 KB | 11291907 |
+| [1944_implementation.rs](1944_implementation.rs) | Rust 1.75 x64 | implementation | O(n+WH) | AC | 0.031 s | 348 KB | 11291920 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
+| [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
+
+\* Accepted；尚未达到排名目标，此实现仍可继续优化。

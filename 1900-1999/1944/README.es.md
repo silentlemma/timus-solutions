@@ -28,8 +28,17 @@ de W=R−L+1 símbolos. Imprimir solo el dibujo.
 
 ## Evaluación
 
-Se compara el dibujo completo con símbolos exactos por fila/columna;
-un espacio no sustituye un punto. Cada fila termina en salto de línea.
+Se compara cada símbolo y salto de línea del dibujo completo, no solo
+tokens separados por espacios. Cada programa nuevo publicado pasó los 26
+casos del repositorio y 69 entradas extra independientes en su compilador
+Docker objetivo. Se volvieron a leer las salidas reales y códigos de salida
+contra un oráculo independiente por coordenada: punto ocupado, origen,
+ejes y fondo. Se cubren origen, una fila o columna, ejes ocultos, cuadrantes,
+±100, 250 puntos, signo más explícito, CRLF y EOF. El candidato Python
+separado también pasó esas 69 ejecuciones objetivo y 2048 ejecuciones en
+el anfitrión, incluidos todos los subconjuntos no vacíos de la rejilla 3×3.
+Esas 2048 no se atribuyen a C++ o Java. Los tres candidatos tienen Accepted
+de sus bytes exactos; el criterio de admisión se comprueba por separado.
 
 ## Ejemplos
 
@@ -84,19 +93,48 @@ desplazamientos de fila/columna. El origen solo es + si no hay punto;
 un punto sobre un eje sigue siendo *. No añadir etiquetas, espacios,
 marcos o márgenes.
 
+## Soluciones optimizadas
+
+Se dibuja por filas sin asignar toda la cuadrícula. Ordenar coordenadas empaquetadas agrupa los puntos de cada fila. Se rellena el fondo y eje visible, se construyen eje horizontal y origen cuando corresponda y se superponen los puntos al final. Se conservan prioridades y orden vertical decreciente. El búfer se reutiliza: la memoria depende de puntos y anchura, no del área. Ordenar no elimina el tiempo de imprimir cada celda.
+
+- `1944_implementation_optimized.cpp`: 0.015 s / 116 KB; base `1944_implementation.cpp`: 0.015 s / 472 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.4%.
+- `1944_implementation_optimized.java`: 0.125 s / 476 KB; base `1944_implementation.java`: 0.125 s / 844 KB; cambio respecto a la base: tiempo -0.0%, memoria -43.6%.
+- `1944_implementation_optimized.py`: 0.140 s / 332 KB; base `1944_implementation.py`: 0.093 s / 636 KB; cambio respecto a la base: tiempo +50.5%, memoria -47.8%.
+
 ## Notas por lenguaje
 
-Python usa bytearray, Go segmentos de bytes, C++ cadenas, Java matrices
-char y Rust vectores de bytes. Java añade contenido de filas, no la
-representación del objeto matriz. Solo ASCII. Emitir directamente el
-dibujo ya terminado en salto, evitando una línea vacía adicional.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+
+- C++: base didáctica preferida `1944_implementation.cpp`; versión que cubre `1944_implementation_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 50/50.
+
+- Go: base didáctica preferida `1944_implementation.go`; versión que cubre `1944_implementation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+
+- Java: base didáctica preferida `1944_implementation.java`; versión que cubre `1944_implementation.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+
+- Python/PyPy: base didáctica preferida `1944_implementation.py`; versión que cubre `1944_implementation_optimized.py`; puestos tiempo/memoria 11/1, registros de otros autores 11/11.
+
+- Rust: base didáctica preferida `1944_implementation.rs`; versión que cubre `1944_implementation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1944_implementation.cpp](1944_implementation.cpp) | G++ 13.2 x64 | implementation | O(n+WH) | AC | 0.015 s | 472 KB |
-| [1944_implementation.go](1944_implementation.go) | Go 1.14 x64 | implementation | O(n+WH) | AC | 0.031 s | 1420 KB |
-| [1944_implementation.java](1944_implementation.java) | Java 1.8 | implementation | O(n+WH) | AC | 0.125 s | 844 KB |
-| [1944_implementation.py](1944_implementation.py) | Python 3.12 x64 | implementation | O(n+WH) | AC | 0.093 s | 636 KB |
-| [1944_implementation.rs](1944_implementation.rs) | Rust 1.75 x64 | implementation | O(n+WH) | AC | 0.031 s | 348 KB |
+La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas Accepted conservadas. Las notas identifican la base preferida de cada familia.
+
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1944_implementation.cpp](1944_implementation.cpp) | G++ 13.2 x64 | implementation | O(n+WH) | AC | 0.015 s | 472 KB | 11291904 |
+| [1944_implementation.go](1944_implementation.go) | Go 1.14 x64 | implementation | O(n+WH) | AC | 0.031 s | 1420 KB | 11291906 |
+| [1944_implementation.java](1944_implementation.java) | Java 1.8 | implementation | O(n+WH) | AC | 0.125 s | 844 KB | 11291912 |
+| [1944_implementation.py](1944_implementation.py) | Python 3.12 x64 | implementation | O(n+WH) | AC | 0.093 s | 636 KB | 11291907 |
+| [1944_implementation.rs](1944_implementation.rs) | Rust 1.75 x64 | implementation | O(n+WH) | AC | 0.031 s | 348 KB | 11291920 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
+| [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
+
+\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
