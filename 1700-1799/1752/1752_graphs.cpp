@@ -17,9 +17,11 @@ int walk(int root) {
         int v = stack.back();
         stack.pop_back();
         path[depth[v]] = v;
-        if (depth[v] > depth[deepest]) deepest = v;
+        if (depth[v] > depth[deepest])
+            deepest = v;
         for (int i = askHead[v]; i >= 0; i = askNext[i]) {
-            if (answer[i] == 0 && askDist[i] <= depth[v]) answer[i] = path[depth[v] - askDist[i]];
+            if (answer[i] == 0 && askDist[i] <= depth[v])
+                answer[i] = path[depth[v] - askDist[i]];
         }
         for (int e = head[v]; e >= 0; e = nxt[e]) {
             if (depth[to[e]] < 0) {
@@ -32,7 +34,8 @@ int walk(int root) {
 }
 
 int main() {
-    if (scanf("%d %d", &n, &q) != 2) return 0;
+    if (scanf("%d %d", &n, &q) != 2)
+        return 0;
     head.assign(n + 1, -1);
     for (int i = 0; i < n - 1; i++) {
         int a, b;
@@ -60,6 +63,7 @@ int main() {
     int a = walk(1);
     int b = walk(a);
     walk(b);
-    for (int i = 0; i < q; i++) printf("%d\n", answer[i]);
+    for (int i = 0; i < q; i++)
+        printf("%d\n", answer[i]);
     return 0;
 }

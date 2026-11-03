@@ -18,6 +18,10 @@ n（1 ≤ n ≤ 20000）和 q（1 ≤ q ≤ 50000），然后是 n − 1 条边�
 
 对每个询问输出一个与 v 距离为 d 的顶点，如果不存在则输出 0。任何符合要求的顶点都可以。
 
+## 评测方式
+
+逐询问检查返回顶点的距离，无此顶点时核验无解回答。
+
 ## 样例
 
 ### 样例 1
@@ -83,12 +87,50 @@ n（1 ≤ n ≤ 20000）和 q（1 ≤ q ≤ 50000），然后是 n − 1 条边�
 
 在 1200 个混合使用不同空白字符的小规模随机输入上，答案与独立的广度优先搜索一致。五种实现对这些输入以及静态、生成和最大规模测试均输出相同答案。
 
+## 优化解法
+
+基于直径端点和 DFS 路径的线性树算法不变。顶点、边、查询及距离编号有界，允许无符号 16 位存储，中间运算仍用足够宽的类型。去除不再使用的查询字段并复用工作数组。路径不变量仍给出相同祖先及距离，打包只改变表示。输入输出缓冲有界。
+
+- `1752_graphs_optimized.cpp`: 0.031 s / 372 KB; 基础版 `1752_graphs.cpp`: 0.109 s / 1492 KB; 相对基础版的变化: 时间 -71.6%, 内存 -75.1%.
+- `1752_graphs_optimized.go`: 0.046 s / 1756 KB; 基础版 `1752_graphs.go`: 0.062 s / 6500 KB; 相对基础版的变化: 时间 -25.8%, 内存 -73.0%.
+- `1752_graphs_optimized.java`: 0.125 s / 1100 KB; 基础版 `1752_graphs.java`: 0.109 s / 3748 KB; 相对基础版的变化: 时间 +14.7%, 内存 -70.7%.
+- `1752_graphs_optimized.py`: 0.296 s / 4832 KB; 基础版 `1752_graphs.py`: 0.265 s / 21232 KB; 相对基础版的变化: 时间 +11.7%, 内存 -77.2%.
+- `1752_graphs_optimized.rs`: 0.031 s / 2124 KB; 基础版 `1752_graphs.rs`: 0.078 s / 4136 KB; 相对基础版的变化: 时间 -60.3%, 内存 -48.6%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `1752_graphs.cpp`; 覆盖实现 `1752_graphs_optimized.cpp`; 时间/内存名次 2/1, 其他作者记录 75/75.
+
+- Go: 优先教学基础版 `1752_graphs.go`; 覆盖实现 `1752_graphs.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 优先教学基础版 `1752_graphs.java`; 覆盖实现 `1752_graphs.java`; 时间/内存名次 1/1, 其他作者记录 5/5.
+
+- Python/PyPy: 优先教学基础版 `1752_graphs.py`; 覆盖实现 `1752_graphs_optimized.py`; 时间/内存名次 1/1, 其他作者记录 6/6.
+
+- Rust: 优先教学基础版 `1752_graphs.rs`; 覆盖实现 `1752_graphs.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1752_graphs.cpp](1752_graphs.cpp) | G++ 13.2 x64 | graphs | O(n + q) | AC | 0.109 s | 1508 KB |
-| [1752_graphs.go](1752_graphs.go) | Go 1.14 x64 | graphs | O(n + q) | AC | 0.062 s | 6500 KB |
-| [1752_graphs.java](1752_graphs.java) | Java 1.8 | graphs | O(n + q) | AC | 0.125 s | 3784 KB |
-| [1752_graphs.py](1752_graphs.py) | Python 3.12 x64 | graphs | O(n + q) | AC | 0.265 s | 21232 KB |
-| [1752_graphs.rs](1752_graphs.rs) | Rust 1.75 x64 | graphs | O(n + q) | AC | 0.046 s | 4164 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1752_graphs.cpp](1752_graphs.cpp) | G++ 13.2 x64 | graphs | O(n + q) | AC | 0.109 s | 1492 KB | 11308923 |
+| [1752_graphs.go](1752_graphs.go) | Go 1.14 x64 | graphs | O(n + q) | AC | 0.062 s | 6500 KB | 11298038 |
+| [1752_graphs.java](1752_graphs.java) | Java 1.8 | graphs | O(n + q) | AC | 0.109 s | 3748 KB | 11308924 |
+| [1752_graphs.py](1752_graphs.py) | Python 3.12 x64 | graphs | O(n + q) | AC | 0.265 s | 21232 KB | 11298042 |
+| [1752_graphs.rs](1752_graphs.rs) | Rust 1.75 x64 | graphs | O(n + q) | AC | 0.078 s | 4136 KB | 11308925 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1752_graphs_optimized.cpp](1752_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N+Q) | AC | 0.031 s | 372 KB | 11308204 |
+| [1752_graphs_optimized.go](1752_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N+Q) | AC | 0.046 s | 1756 KB | 11308205 |
+| [1752_graphs_optimized.java](1752_graphs_optimized.java) | Java 1.8 | graphs | O(N+Q) | AC | 0.125 s | 1100 KB | 11309392 |
+| [1752_graphs_optimized.py](1752_graphs_optimized.py) | Python 3.12 x64 | graphs | O(N+Q) | AC | 0.296 s | 4832 KB | 11308203 |
+| [1752_graphs_optimized.rs](1752_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N+Q) | AC | 0.031 s | 2124 KB | 11308207 |

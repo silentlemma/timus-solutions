@@ -18,7 +18,8 @@ public class Main {
         while (top > 0) {
             int v = stack[--top];
             path[depth[v]] = v;
-            if (depth[v] > depth[deepest]) deepest = v;
+            if (depth[v] > depth[deepest])
+                deepest = v;
             for (int i = askHead[v]; i >= 0; i = askNext[i]) {
                 if (answer[i] == 0 && askDist[i] <= depth[v]) {
                     answer[i] = path[depth[v] - askDist[i]];
@@ -72,7 +73,8 @@ public class Main {
         int b = walk(a);
         walk(b);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < q; i++) sb.append(answer[i]).append('\n');
+        for (int i = 0; i < q; i++)
+            sb.append(answer[i]).append('\n');
         PrintWriter out = new PrintWriter(System.out);
         out.print(sb);
         out.flush();
@@ -88,14 +90,16 @@ public class Main {
             if (pointer == length) {
                 length = stream.read(buffer, 0, SIZE);
                 pointer = 0;
-                if (length <= 0) return -1;
+                if (length <= 0)
+                    return -1;
             }
             return buffer[pointer++];
         }
 
         int nextInt() throws IOException {
             int c = read();
-            while (c != -1 && c <= ' ') c = read();
+            while (c != -1 && c <= ' ')
+                c = read();
             int x = 0;
             while (c >= '0' && c <= '9') {
                 x = x * 10 + (c - '0');

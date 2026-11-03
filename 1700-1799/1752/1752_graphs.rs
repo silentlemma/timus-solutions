@@ -52,7 +52,9 @@ impl Tree {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut words = input.split_whitespace().map(|w| w.parse::<usize>().unwrap());
+    let mut words = input
+        .split_whitespace()
+        .map(|w| w.parse::<usize>().unwrap());
     let n = words.next().unwrap();
     let q = words.next().unwrap();
     let mut t = Tree {
