@@ -24,7 +24,13 @@
 
 ## 评测方式
 
-输出逐字符精确比较，只有最后的换行可以不同。
+输出逐字符比较，仅允许末尾换行不同。
+
+- `1993_parsing_optimized.cpp` (G++ 13.2 x64): 102个仓库测试; 112个额外精确源码比较.
+
+- `1993_parsing_optimized.go` (Go 1.14 x64): 102个仓库测试; 102个额外精确源码比较.
+
+- `1993_parsing_strings.py` (PyPy 3.10 x64): 102个仓库测试.
 
 ## 样例
 
@@ -64,18 +70,48 @@ Truly wonderful the mind of a child is
 
 第一个例子中宾语移到开头，连词留在逗号后。第二个例子中宾语已经在前，组内词序不变。
 
+## 优化解法
+
+保留按角色解析的证明。紧凑C++/Go在一个有界ASCII输入缓冲中保存短语区间，避免复制短语及流/字符串对象。扫描时跳过整组，记录宾语、主语、动词位置；组外单词是第二分句的可选连词。依次输出连词及三种角色，保留逗号分隔，全部转小写，仅结果首字母大写。组不嵌套且角色唯一，因此每个短语恰输出一次，内部词序不变。Python用切片及现有文本流。L<=100，时间和存储均O(L)。
+
+- `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; 基础 `1993_parsing.cpp`: 0.015 s / 388 KB; 相对变化: 时间 -0.0%, 内存 -80.4%.
+- `1993_parsing_optimized.go`: 0.015 s / 272 KB; 基础 `1993_parsing.go`: 0.031 s / 1184 KB; 相对变化: 时间 -51.6%, 内存 -77.0%.
+- `1993_parsing_strings.py`: 0.156 s / 300 KB; 基础 `1993_parsing.py`: 0.062 s / 504 KB; 相对变化: 时间 +151.6%, 内存 -40.5%.
+
 ## 各语言说明
 
-输入长度 `L≤100`。扫描位置只前进，每段短语复制一次，时间、空间均为 `O(L)`。最多六个短语，无需递归或通用嵌套语法分析。
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
 
-读取整行而非单个空白词；重排时保持多词短语完整。不要将第二分句或每个词首字母大写。Python、Go 直接转小写；Java 用 `Locale.ROOT`；C++ 将字符转换为无符号类型后交给大小写函数；Rust 使用 ASCII 转换和字节位置。输入字母、空格和标点均在 ASCII 中，操作安全。也可用正则提取短语；线性扫描只需标准库。
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1993_parsing.cpp`; 覆盖源码 `1993_parsing_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 63/63.
+
+- Go: 首选教学基础 `1993_parsing.go`; 覆盖源码 `1993_parsing_optimized.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Java: 首选教学基础 `1993_parsing.java`; 覆盖源码 `1993_parsing.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
+
+- Python/PyPy: 首选教学基础 `1993_parsing.py`; 覆盖源码 `1993_parsing_strings.py`; 时间/内存名次 13/4, 其他作者记录 12/12.
+
+- Rust: 首选教学基础 `1993_parsing.rs`; 覆盖源码 `1993_parsing.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1993_parsing.cpp](1993_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 388 KB |
-| [1993_parsing.go](1993_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 1184 KB |
-| [1993_parsing.java](1993_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.093 s | 504 KB |
-| [1993_parsing.py](1993_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.062 s | 504 KB |
-| [1993_parsing.rs](1993_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1993_parsing.cpp](1993_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 388 KB | 11292395 |
+| [1993_parsing.go](1993_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 1184 KB | 11292397 |
+| [1993_parsing.java](1993_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 472 KB | 11309216 |
+| [1993_parsing.py](1993_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.062 s | 504 KB | 11292399 |
+| [1993_parsing.rs](1993_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 224 KB | 11292401 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
+| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
+| [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
