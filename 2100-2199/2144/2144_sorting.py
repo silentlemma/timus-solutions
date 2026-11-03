@@ -9,7 +9,7 @@ def main():
     ok = True
     for _ in range(n):
         k = int(data[pos])
-        sizes = list(map(int, data[pos + 1:pos + 1 + k]))
+        sizes = list(map(int, data[pos + 1 : pos + 1 + k]))
         pos += 1 + k
         if any(a > b for a, b in zip(sizes, sizes[1:])):
             ok = False

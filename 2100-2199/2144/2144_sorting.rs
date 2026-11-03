@@ -3,7 +3,9 @@ use std::io::{self, Read};
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<u32>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<u32>().unwrap());
     let n = it.next().unwrap() as usize;
     let mut boxes = Vec::with_capacity(n);
     let mut ok = true;
