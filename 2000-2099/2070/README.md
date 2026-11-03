@@ -21,6 +21,10 @@ L and R, 2 ≤ L ≤ R ≤ 10¹².
 
 The number of satisfying integers in [L; R].
 
+## Checking
+
+Compare the complete output exactly, including spaces and line breaks.
+
 ## Examples
 
 ### Example 1
@@ -85,19 +89,52 @@ N = 10⁶.
 In the first example 4 = 2² has 3 divisors, so it is the only
 unsatisfying number among 3 … 7 and the answer is 4.
 
+## Optimized solutions
+
+Separate prime squares from higher qualifying even powers. Count primes up to the required square root with a quotient-value prime-count DP, whose states are the distinct integer quotients. Only the higher powers need an explicit sieve, and their prime bases lie below the fourth root. Count each qualifying exponent as in the simple number-theoretic proof and subtract prefix counts for the requested interval. Integer root corrections avoid floating-point boundary errors.
+
+Here R is the interval's right endpoint, M=floor(sqrt(R)) and P is the number of small primes used for the higher powers. The counted powers are excluded numbers, so subtract their interval count from the interval length.
+
+- `2070_number_theory_dp.cpp`: 0.015 s / 172 KB; base `2070_number_theory.cpp`: 0.015 s / 284 KB; relative change: time -0.0%, memory -39.4%.
+- `2070_number_theory_dp.go`: 0.031 s / 1116 KB; base `2070_number_theory.go`: 0.031 s / 2136 KB; relative change: time -0.0%, memory -47.8%.
+- `2070_number_theory_dp.java`: 0.125 s / 492 KB; base `2070_number_theory.java`: 0.140 s / 2584 KB; relative change: time -10.7%, memory -81.0%.
+- `2070_number_theory_dp.py`: 0.093 s / 940 KB; base `2070_number_theory.py`: 0.109 s / 2772 KB; relative change: time -14.7%, memory -66.1%.
+- `2070_number_theory_dp.rs`: 0.046 s / 228 KB; base `2070_number_theory.rs`: 0.046 s / 1200 KB; relative change: time -0.0%, memory -81.0%.
+
 ## Language notes
 
-C++, Go, Java and Rust compare powers with R / p before multiplying,
-so they never exceed 10¹² · 10⁶ and stay within 64 bits. The Python solution counts the
-squares as the primes between √L and √R with one slice of the sieve and
-walks only the primes up to ∛R, which keeps it fast on CPython.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+
+- C++: preferred teaching base `2070_number_theory.cpp`; covering source `2070_number_theory.cpp`; time/memory places 1/1, other-author entries 76/76.
+
+- Go: preferred teaching base `2070_number_theory.go`; covering source `2070_number_theory.go`; time/memory places 1/1, other-author entries 1/1.
+
+- Java: preferred teaching base `2070_number_theory.java`; covering source `2070_number_theory.java`; time/memory places 1/1, other-author entries 3/3.
+
+- Python/PyPy: preferred teaching base `2070_number_theory.py`; covering source `2070_number_theory.py`; time/memory places 1/1, other-author entries 13/13.
+
+- Rust: preferred teaching base `2070_number_theory.rs`; covering source `2070_number_theory.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2070_number_theory.cpp](2070_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.031 s | 304 KB |
-| [2070_number_theory.go](2070_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.031 s | 2136 KB |
-| [2070_number_theory.java](2070_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.140 s | 2632 KB |
-| [2070_number_theory.py](2070_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.109 s | 2816 KB |
-| [2070_number_theory.rs](2070_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.062 s | 1212 KB |
+The simple table includes the preferred teaching sources and preserved Accepted alternatives. The language notes identify the preferred base for each family.
+
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2070_number_theory.cpp](2070_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 284 KB | 11309222 |
+| [2070_number_theory.go](2070_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.031 s | 2136 KB | 11294446 |
+| [2070_number_theory.java](2070_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.140 s | 2584 KB | 11309223 |
+| [2070_number_theory.py](2070_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.109 s | 2772 KB | 11309224 |
+| [2070_number_theory.rs](2070_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.046 s | 1200 KB | 11309225 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2070_number_theory_dp.cpp](2070_number_theory_dp.cpp) | G++ 13.2 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.015 s | 172 KB | 11308159 |
+| [2070_number_theory_dp.go](2070_number_theory_dp.go) | Go 1.14 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.031 s | 1116 KB | 11308162 |
+| [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
+| [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
+| [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |

@@ -18,6 +18,10 @@ L 和 R（2 ≤ L ≤ R ≤ 10¹²）。
 
 [L; R] 中令人满意的整数个数。
 
+## 评测方式
+
+精确比较完整输出，包括空格和换行。
+
 ## 样例
 
 ### 样例 1
@@ -70,16 +74,52 @@ L 和 R（2 ≤ L ≤ R ≤ 10¹²）。
 
 第一个样例中 4 = 2² 有 3 个因数，是 3 … 7 中唯一不满意的数，答案为 4。
 
-## 各语言说明
+## 优化解法
 
-C++、Go、Java 和 Rust 在乘法前先把幂与 R / p 比较，所以它不会超过 10¹² · 10⁶，保持在 64 位以内。Python 解法用筛表的一次切片统计 √L 与 √R 之间的质数（即平方项），只对不超过 ∛R 的质数枚举更高次幂，这样在 CPython 上也足够快。
+将素数平方与其他合格偶次幂分开。用以不同整数商为状态的素数计数 DP，计算所需平方根以内的素数个数。只有更高次幂需要显式筛，其素数底数不超过四次根。按基础数论证明统计合格指数，用前缀计数相减得到区间答案。整数修正根值，避免浮点边界错误。
+
+R 为区间右端点，M=floor(sqrt(R))，P 为更高次幂所需的小素数数目。统计的是不合格数，应从区间长度减去其数量。
+
+- `2070_number_theory_dp.cpp`: 0.015 s / 172 KB; 基础版 `2070_number_theory.cpp`: 0.015 s / 284 KB; 相对基础版的变化: 时间 -0.0%, 内存 -39.4%.
+- `2070_number_theory_dp.go`: 0.031 s / 1116 KB; 基础版 `2070_number_theory.go`: 0.031 s / 2136 KB; 相对基础版的变化: 时间 -0.0%, 内存 -47.8%.
+- `2070_number_theory_dp.java`: 0.125 s / 492 KB; 基础版 `2070_number_theory.java`: 0.140 s / 2584 KB; 相对基础版的变化: 时间 -10.7%, 内存 -81.0%.
+- `2070_number_theory_dp.py`: 0.093 s / 940 KB; 基础版 `2070_number_theory.py`: 0.109 s / 2772 KB; 相对基础版的变化: 时间 -14.7%, 内存 -66.1%.
+- `2070_number_theory_dp.rs`: 0.046 s / 228 KB; 基础版 `2070_number_theory.rs`: 0.046 s / 1200 KB; 相对基础版的变化: 时间 -0.0%, 内存 -81.0%.
+
+## 语言说明
+
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+
+- C++: 优先教学基础版 `2070_number_theory.cpp`; 覆盖实现 `2070_number_theory.cpp`; 时间/内存名次 1/1, 其他作者记录 76/76.
+
+- Go: 优先教学基础版 `2070_number_theory.go`; 覆盖实现 `2070_number_theory.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
+
+- Java: 优先教学基础版 `2070_number_theory.java`; 覆盖实现 `2070_number_theory.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
+
+- Python/PyPy: 优先教学基础版 `2070_number_theory.py`; 覆盖实现 `2070_number_theory.py`; 时间/内存名次 1/1, 其他作者记录 13/13.
+
+- Rust: 优先教学基础版 `2070_number_theory.rs`; 覆盖实现 `2070_number_theory.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2070_number_theory.cpp](2070_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.031 s | 304 KB |
-| [2070_number_theory.go](2070_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.031 s | 2136 KB |
-| [2070_number_theory.java](2070_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.140 s | 2632 KB |
-| [2070_number_theory.py](2070_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.109 s | 2816 KB |
-| [2070_number_theory.rs](2070_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.062 s | 1212 KB |
+简单表包含优先教学源码和保留的 Accepted 替代实现。各语言族的优先基础版见语言说明。
+
+### 简单版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2070_number_theory.cpp](2070_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 284 KB | 11309222 |
+| [2070_number_theory.go](2070_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.031 s | 2136 KB | 11294446 |
+| [2070_number_theory.java](2070_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.140 s | 2584 KB | 11309223 |
+| [2070_number_theory.py](2070_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.109 s | 2772 KB | 11309224 |
+| [2070_number_theory.rs](2070_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.046 s | 1200 KB | 11309225 |
+
+### 优化版本
+
+| 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2070_number_theory_dp.cpp](2070_number_theory_dp.cpp) | G++ 13.2 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.015 s | 172 KB | 11308159 |
+| [2070_number_theory_dp.go](2070_number_theory_dp.go) | Go 1.14 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.031 s | 1116 KB | 11308162 |
+| [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
+| [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
+| [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |

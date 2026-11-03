@@ -5,7 +5,10 @@ const LIMIT: usize = 1_000_000; // square root of the largest R
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i64> = input.split_ascii_whitespace().map(|t| t.parse().unwrap()).collect();
+    let v: Vec<i64> = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     let (l, r) = (v[0], v[1]);
     let mut composite = vec![false; LIMIT + 1];
     composite[0] = true;
