@@ -20,7 +20,13 @@
 
 ## 评测方式
 
-数值按 10⁻⁶ 的绝对或相对误差比较。
+数值按题目容差比较，舍入界证明见下。
+
+- `1984_geometry_optimized.cpp` (G++ 13.2 x64): 16个仓库测试.
+
+- `1984_geometry_optimized.java` (Java 1.8): 16个仓库测试.
+
+- `1984_geometry_optimized.py` (PyPy 3.10 x64): 16个仓库测试; 10个额外精确源码比较.
 
 ## 样例
 
@@ -56,16 +62,48 @@
 - `π/n` 使用弧度。
 - 小圆盘内部不能重叠，但允许相切。
 
+## 优化解法
+
+半径公式仍为N=1时1，否则1+1/sin(pi/N)。C++/Java减少标准I/O开销，保留库公式。Python用Horner形式算到x^13的正弦多项式，只含六个固定阶乘比，并非答案表。2<=N<=10时0<x<=pi/2，下个交错项x^15/15!<7e-10；sin(pi/N)>=sin(pi/10)>0.3，因此半径误差<10^-8。六位十进制整数输出再增加至多半个百万分之一，仍满足10^-6绝对容差。全部十个合法N与独立库正弦对照。固定边界下时间、空间O(1)，明确保留N=1特例。
+
+- `1984_geometry_optimized.cpp`: 0.015 s / 120 KB; 基础 `1984_geometry.cpp`: 0.015 s / 444 KB; 相对变化: 时间 -0.0%, 内存 -73.0%.
+- `1984_geometry_optimized.java`: 0.125 s / 540 KB; 基础 `1984_geometry.java`: 0.125 s / 1796 KB; 相对变化: 时间 -0.0%, 内存 -69.9%.
+- `1984_geometry_optimized.py`: 0.109 s / 276 KB; 基础 `1984_geometry.py`: 0.078 s / 396 KB; 相对变化: 时间 +39.7%, 内存 -30.3%.
+
 ## 各语言说明
 
-五个版本使用相同的双精度公式。C++ 用 `acos(-1)` 求 π；Python、Go、Java 和 Rust 使用标准 π 常量。Java 固定输出区域设置，使用小数点。
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1984_geometry.cpp`; 覆盖源码 `1984_geometry_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 30/30.
+
+- Go: 首选教学基础 `1984_geometry.go`; 覆盖源码 `1984_geometry.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 首选教学基础 `1984_geometry.java`; 覆盖源码 `1984_geometry_optimized.java`; 时间/内存名次 4/1, 其他作者记录 4/4.
+
+- Python/PyPy: 首选教学基础 `1984_geometry.py`; 覆盖源码 `1984_geometry_optimized.py`; 时间/内存名次 8/1, 其他作者记录 9/9.
+
+- Rust: 首选教学基础 `1984_geometry.rs`; 覆盖源码 `1984_geometry.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1984_geometry.cpp](1984_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 444 KB |
-| [1984_geometry.go](1984_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1100 KB |
-| [1984_geometry.java](1984_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1820 KB |
-| [1984_geometry.py](1984_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 396 KB |
-| [1984_geometry.rs](1984_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1984_geometry.cpp](1984_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 444 KB | 11292346 |
+| [1984_geometry.go](1984_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1100 KB | 11292347 |
+| [1984_geometry.java](1984_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1796 KB | 11309215 |
+| [1984_geometry.py](1984_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 396 KB | 11292348 |
+| [1984_geometry.rs](1984_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB | 11292350 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1984_geometry_optimized.cpp](1984_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 120 KB | 11308253 |
+| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 540 KB | 11308258 |
+| [1984_geometry_optimized.py](1984_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.109 s | 276 KB | 11309752 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
