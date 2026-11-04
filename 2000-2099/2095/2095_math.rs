@@ -16,6 +16,9 @@ fn quiet(mut n: i64) -> i64 {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i64> = input.split_whitespace().map(|t| t.parse().unwrap()).collect();
+    let v: Vec<i64> = input
+        .split_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     println!("{}", quiet(v[1]) - quiet(v[0] - 1));
 }
