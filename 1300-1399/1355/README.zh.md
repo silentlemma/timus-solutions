@@ -21,6 +21,10 @@ T，然后是 T 行，每行 a 和 b。
 
 T 行答案。
 
+## 评测方式
+
+精确比较答案词元。每个新源码有完整目标环境检查、独立数学比较及哈希绑定的自身Accepted；保留简单版本的各自测量。
+
 ## 样例
 
 ### 样例 1
@@ -61,16 +65,44 @@ T 行答案。
 - T 可以为 0，此时不输出答案（测试 02）；
 - q = 2²⁹ 的步数最多，共 30 杯（测试 03）。
 
+## 优化解法
+
+基础版本保留试除法。快速 Python 版本计算商与不超过 1000 的所有素数之积的最大公约数，以识别小素因子，再按完整重数从商中除去它们。其余素因子大于 1000，而商不超过 10^9，因此最多剩下两个。第二个固定乘积包含 1001 到 31623 之间的素数。合数余项必有此范围内的因子，而大于 10^6 的素数余项与乘积互素，据此分别计入两个或一个因子。两个乘积由筛法预先生成，并存为十六进制常量。
+
+- `1355_number_theory_math.py`: 0.062 s / 584 KB; 基础 `1355_number_theory.py`: 0.109 s / 392 KB; 相对变化: 时间 -43.1%, 内存 +49.0%.
+
 ## 各语言说明
 
-- Python 先除尽 2，再只试奇数因子，在大素数上把循环次数减半。
+排名快照保存于 2026 年 11 月 2 日和 4 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+
+使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+
+- C++: 首选教学基础 `1355_number_theory.cpp`; 覆盖源码 `1355_number_theory.cpp`; 时间/内存名次 1/2, 其他作者记录 61/61.
+
+- Go: 首选教学基础 `1355_number_theory.go`; 覆盖源码 `1355_number_theory.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
+
+- Java: 首选教学基础 `1355_number_theory.java`; 覆盖源码 `1355_number_theory.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
+
+- Python/PyPy: 首选教学基础 `1355_number_theory.py`; 覆盖源码 `1355_number_theory_math.py`; 时间/内存名次 1/4, 其他作者记录 13/13.
+
+- Rust: 首选教学基础 `1355_number_theory.rs`; 覆盖源码 `1355_number_theory.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1355_number_theory.cpp](1355_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 132 KB |
-| [1355_number_theory.go](1355_number_theory.go) | Go 1.14 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 1100 KB |
-| [1355_number_theory.java](1355_number_theory.java) | Java 1.8 | number_theory | O(T·√(b/a)) | AC | 0.078 s | 448 KB |
-| [1355_number_theory.py](1355_number_theory.py) | Python 3.12 x64 | number_theory | O(T·√(b/a)) | AC | 0.109 s | 392 KB |
-| [1355_number_theory.rs](1355_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 212 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1355_number_theory.cpp](1355_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 132 KB | 11285268 |
+| [1355_number_theory.go](1355_number_theory.go) | Go 1.14 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 1100 KB | 11285270 |
+| [1355_number_theory.java](1355_number_theory.java) | Java 1.8 | number_theory | O(T·√(b/a)) | AC | 0.078 s | 448 KB | 11285272 |
+| [1355_number_theory.py](1355_number_theory.py) | Python 3.12 x64 | number_theory | O(T·√(b/a)) | AC | 0.109 s | 392 KB | 11285271 |
+| [1355_number_theory.rs](1355_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·√(b/a)) | AC | 0.015 s | 212 KB | 11285273 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1355_number_theory_math.py](1355_number_theory_math.py) \* | Python 3.12 x64 | number_theory, math | O(T*(P+log Q)) bounded arithmetic, P=1000 | AC | 0.062 s | 584 KB | 11310243 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
