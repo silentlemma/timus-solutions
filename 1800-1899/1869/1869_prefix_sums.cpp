@@ -8,7 +8,8 @@ const int SEATS = 36;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     // change[k] is how many people get on at station k minus how many get
     // off there; the eastbound and westbound trains are counted apart
     vector<long long> east(n + 1), west(n + 1);

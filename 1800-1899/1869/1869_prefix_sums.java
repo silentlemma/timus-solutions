@@ -10,7 +10,7 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         // change[k] is how many people get on at station k minus how many get
         // off there; the eastbound and westbound trains are counted apart
         long[] east = new long[n + 1];
@@ -18,7 +18,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 in.nextToken();
-                long a = (long) in.nval;
+                long a = (long)in.nval;
                 if (i < j) {
                     east[i] += a;
                     east[j] -= a;

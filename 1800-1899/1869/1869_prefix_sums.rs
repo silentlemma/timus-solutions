@@ -5,7 +5,9 @@ const SEATS: i64 = 36;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<i64>().unwrap());
     let n = it.next().unwrap() as usize;
     // change[k] is how many people get on at station k minus how many get
     // off there; the eastbound and westbound trains are counted apart

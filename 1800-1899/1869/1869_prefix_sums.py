@@ -10,7 +10,7 @@ def main():
     # off there; the eastbound and westbound trains are counted apart
     east, west = [0] * (n + 1), [0] * (n + 1)
     for i in range(n):
-        row = data[1 + i * n:1 + (i + 1) * n]
+        row = data[1 + i * n : 1 + (i + 1) * n]
         for j, a in enumerate(row):
             if i < j:
                 east[i] += a

@@ -73,7 +73,7 @@
 | 1866 | [Poetic Foot](1866/) | parsing | C++, Go, Python, Java, Rust |
 | 1867 | [Nanotechnologies](1867/) | geometry | C++, Go, Python, Java, Rust |
 | 1868 | [Prediction Contest](1868/) | implementation | C++, Go, Python, Java, Rust |
-| 1869 | [New Year Cruise](1869/) | prefix_sums | C++, Go, Python, Java, Rust |
+| 1869 | [New Year Cruise](1869/) | prefix_sums, simulation | C++, Go, Python, Java, Rust |
 | 1870 | [Zinium 2](1870/) | constructive | C++, Go, Python, Java, Rust |
 | 1871 | [Seismic Waves](1871/) | dijkstra | C++, Go, Python, Java, Rust |
 | 1872 | [Spacious Office](1872/) | matching | C++, Go, Python, Java, Rust |
