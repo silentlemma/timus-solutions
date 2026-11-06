@@ -105,7 +105,15 @@
 заданных случаях генератора, 1 500 небольших случайных случаях с
 независимым точным оракулом и 406 больших или граничных случаях.
 
+## Оптимизированные решения
+
+Версия C++ выделяет только нужное для текущей таблицы сумм число 64-битных слов. Если суммарная длина свободных кораблей U, подмножество длины T для будущего ряда существует тогда и только тогда, когда существует подмножество длины U − T. Проверяем меньшее значение. Для текущего ряда сохраняем полную целевую сумму, чтобы восстановить выбранные корабли. Последний поиск без ограничения на число вызовов сохраняет полноту.
+
+Принятые базовые реализации [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Особенности языков
+
+Эти замечания относятся к базовым реализациям.
 
 - C++ использует `std::bitset`; Go, Java и Rust хранят суммы в массивах
   64-битных слов с написанным вручную сдвигом с «или»; Python использует
@@ -113,10 +121,20 @@
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 436 KB |
-| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 1904 KB |
-| [1115_backtracking.java](1115_backtracking.java) | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.156 s | 4448 KB |
-| [1115_backtracking.py](1115_backtracking.py) | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.062 s | 732 KB |
-| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 436 KB | 11297943 |
+| [1115_backtracking.go](1115_backtracking.go) \* | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 1904 KB | 11297944 |
+| [1115_backtracking.java](1115_backtracking.java) \* | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.156 s | 4448 KB | 11297946 |
+| [1115_backtracking.py](1115_backtracking.py) \* | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.062 s | 732 KB | 11297951 |
+| [1115_backtracking.rs](1115_backtracking.rs) \* | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11297954 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

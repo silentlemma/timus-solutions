@@ -103,7 +103,15 @@ The Python solution was checked on all 7 stored tests, all 5 declared
 generator cases, 1,500 small random cases against an independent exact
 oracle, and 406 large or boundary cases.
 
+## Optimized solutions
+
+The C++ version allocates only the 64-bit words needed by the current suffix-sum table. For a future row of target T, the unused ships of total length U have a subset of length T exactly when they have one of length U − T. The feasibility test uses the smaller value. The current row still keeps its full target for reconstructing the chosen ships. The unbounded final search preserves completeness.
+
+The accepted base implementations [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - C++ uses `std::bitset`; Go, Java and Rust keep the sums in arrays of
   64-bit words with a hand-written shift-or; Python uses big integers as
@@ -111,10 +119,20 @@ oracle, and 406 large or boundary cases.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 436 KB |
-| [1115_backtracking.go](1115_backtracking.go) | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 1904 KB |
-| [1115_backtracking.java](1115_backtracking.java) | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.156 s | 4448 KB |
-| [1115_backtracking.py](1115_backtracking.py) | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.062 s | 732 KB |
-| [1115_backtracking.rs](1115_backtracking.rs) | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 436 KB | 11297943 |
+| [1115_backtracking.go](1115_backtracking.go) \* | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 1904 KB | 11297944 |
+| [1115_backtracking.java](1115_backtracking.java) \* | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.156 s | 4448 KB | 11297946 |
+| [1115_backtracking.py](1115_backtracking.py) \* | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.062 s | 732 KB | 11297951 |
+| [1115_backtracking.rs](1115_backtracking.rs) \* | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11297954 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
