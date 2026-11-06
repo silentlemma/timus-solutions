@@ -80,7 +80,15 @@ G Y Y
 答案已用检查程序在所有测试以及许多同一对房间之间有大量重复门的随机楼房
 上验证。
 
+## 优化解法
+
+C++ 和 Python 统计每对房间之间的门数。两扇平行门取相反方向时，在两端都抵消，因此剩余图中每对房间最多有一条真实边。添加虚拟边后各点度数均为偶数。沿未用边走到回路闭合，按走过的方向定向。单调游标只扫描一次邻接矩阵，再用原门数按输入顺序展开输出。
+
+已通过评测的基础实现 [1129_graphs.go](1129_graphs.go), [1129_graphs.java](1129_graphs.java), [1129_graphs.rs](1129_graphs.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都用显式栈做同样的遍历。
 - Python 用以房间对为键的列表来配对提及；每个列表最多只有一个索引，
@@ -88,10 +96,21 @@ G Y Y
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2096 KB |
-| [1129_graphs.go](1129_graphs.go) | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.015 s | 2424 KB |
-| [1129_graphs.java](1129_graphs.java) | Java 1.8 | graphs | O(N + D) expected | AC | 0.156 s | 3876 KB |
-| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.093 s | 2592 KB |
-| [1129_graphs.rs](1129_graphs.rs) | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1172 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2096 KB | 11279361 |
+| [1129_graphs.go](1129_graphs.go) \* | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.015 s | 2424 KB | 11279362 |
+| [1129_graphs.java](1129_graphs.java) \* | Java 1.8 | graphs | O(N + D) expected | AC | 0.156 s | 3876 KB | 11279365 |
+| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.093 s | 2592 KB | 11279363 |
+| [1129_graphs.rs](1129_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1172 KB | 11279366 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1129_graphs_optimized.cpp](1129_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + D) | AC | 0.015 s | 160 KB | 11310449 |
+| [1129_graphs_optimized.py](1129_graphs_optimized.py) \* | Python 3.12 x64 | graphs | O(N² + D) | AC | 0.093 s | 676 KB | 11310450 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
