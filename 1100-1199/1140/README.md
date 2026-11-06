@@ -81,16 +81,37 @@ The answers were checked by the checker on every test and on 1200 random
 walks; the distance formula in the checker was compared with a
 breadth-first search over all cells within 100 of the centre.
 
+## Optimized solutions
+
+Go and Rust accumulate only the three direction totals while reading the walk. They find the median of a, zero and b by clamping zero to the interval between a and b. The three return lengths follow directly from this median, and zero lengths are omitted. Auxiliary space stays constant.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 188 KB versus 344 KB.
+
+The accepted base implementations [1140_geometry.cpp](1140_geometry.cpp), [1140_geometry.java](1140_geometry.java), [1140_geometry.py](1140_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages add up the lengths and take the same median.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1140_geometry.cpp](1140_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 188 KB |
-| [1140_geometry.go](1140_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1348 KB |
-| [1140_geometry.java](1140_geometry.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 828 KB |
-| [1140_geometry.py](1140_geometry.py) | Python 3.12 x64 | geometry | O(n) | AC | 0.125 s | 776 KB |
-| [1140_geometry.rs](1140_geometry.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 344 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1140_geometry.cpp](1140_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 188 KB | 11279439 |
+| [1140_geometry.go](1140_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1348 KB | 11279440 |
+| [1140_geometry.java](1140_geometry.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 828 KB | 11279442 |
+| [1140_geometry.py](1140_geometry.py) \* | Python 3.12 x64 | geometry | O(n) | AC | 0.125 s | 776 KB | 11279441 |
+| [1140_geometry.rs](1140_geometry.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 344 KB | 11279443 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1140_geometry_optimized.go](1140_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 908 KB | 11311067 |
+| [1140_geometry_optimized.rs](1140_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 188 KB | 11311072 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
