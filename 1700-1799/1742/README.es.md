@@ -78,12 +78,32 @@ Las respuestas coinciden con una búsqueda sobre todos los órdenes de
 elección en 300 grafos aleatorios de hasta 8 programadores, y con una
 implementación aceptada independiente en las pruebas grandes.
 
+## Soluciones optimizadas
+
+Las versiones compactas limitan a dos el contador de aristas entrantes. Cero identifica un inicio y un ciclo está aislado si todos sus vértices tienen contador uno. Un byte por vértice indica si está sin visitar, en el recorrido actual o terminado. Tras contar el ciclo encontrado, se siguen otra vez las mismas flechas para marcar el recorrido como terminado. Cada vértice se visita un número constante de veces y no se necesita un vector separado con el recorrido.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 2 088 KB frente a 5148 KB.
+
+Las implementaciones base aceptadas [1742_graphs.java](1742_graphs.java), [1742_graphs.py](1742_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.078 s | 2344 KB |
-| [1742_graphs.go](1742_graphs.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.078 s | 8728 KB |
-| [1742_graphs.java](1742_graphs.java) | Java 1.8 | graphs | O(n) | AC | 0.140 s | 2020 KB |
-| [1742_graphs.py](1742_graphs.py) | Python 3.12 x64 | graphs | O(n) | AC | 0.187 s | 13504 KB |
-| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.015 s | 5148 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.078 s | 2344 KB | 11289502 |
+| [1742_graphs.go](1742_graphs.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.078 s | 8728 KB | 11289503 |
+| [1742_graphs.java](1742_graphs.java) \* | Java 1.8 | graphs | O(n) | AC | 0.140 s | 2020 KB | 11289505 |
+| [1742_graphs.py](1742_graphs.py) \* | Python 3.12 x64 | graphs | O(n) | AC | 0.187 s | 13504 KB | 11289504 |
+| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.015 s | 5148 KB | 11289506 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1742_graphs_optimized.cpp](1742_graphs_optimized.cpp) \* | G++ 13.2 x64 | graphs | O(n) | AC | 0.062 s | 576 KB | 11310429 |
+| [1742_graphs_optimized.go](1742_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(n) | AC | 0.046 s | 2084 KB | 11310371 |
+| [1742_graphs_optimized.rs](1742_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 2088 KB | 11310368 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

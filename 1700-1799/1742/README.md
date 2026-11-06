@@ -76,12 +76,32 @@ The answers match a search over every order of choosing on 300 random
 graphs of up to 8 programmers, and an independent accepted
 implementation on the large tests.
 
+## Optimized solutions
+
+The compact versions store incoming counts only up to two. Zero identifies a start, and a cycle is isolated exactly when every member has count one. A byte per vertex records whether it is unseen, on the current walk, or finished. After counting any cycle found, follow the same arrows again to mark the walk as finished. Each vertex is visited only a constant number of times, and no separate array of vertices on the walk is needed.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 2 088 KB versus 5148 KB.
+
+The accepted base implementations [1742_graphs.java](1742_graphs.java), [1742_graphs.py](1742_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.078 s | 2344 KB |
-| [1742_graphs.go](1742_graphs.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.078 s | 8728 KB |
-| [1742_graphs.java](1742_graphs.java) | Java 1.8 | graphs | O(n) | AC | 0.140 s | 2020 KB |
-| [1742_graphs.py](1742_graphs.py) | Python 3.12 x64 | graphs | O(n) | AC | 0.187 s | 13504 KB |
-| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.015 s | 5148 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.078 s | 2344 KB | 11289502 |
+| [1742_graphs.go](1742_graphs.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.078 s | 8728 KB | 11289503 |
+| [1742_graphs.java](1742_graphs.java) \* | Java 1.8 | graphs | O(n) | AC | 0.140 s | 2020 KB | 11289505 |
+| [1742_graphs.py](1742_graphs.py) \* | Python 3.12 x64 | graphs | O(n) | AC | 0.187 s | 13504 KB | 11289504 |
+| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.015 s | 5148 KB | 11289506 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1742_graphs_optimized.cpp](1742_graphs_optimized.cpp) \* | G++ 13.2 x64 | graphs | O(n) | AC | 0.062 s | 576 KB | 11310429 |
+| [1742_graphs_optimized.go](1742_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(n) | AC | 0.046 s | 2084 KB | 11310371 |
+| [1742_graphs_optimized.rs](1742_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 2088 KB | 11310368 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
