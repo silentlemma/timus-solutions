@@ -57,12 +57,29 @@ n，然后是每个城市的坐标。
 - 先除以 2 再四舍五入。
 - 城市分布在经过同一点的多条直线上时，不同直线上的城市之间也会产生道路，不能漏算（生成测试 `gen3`）。
 
+## 优化解法
+
+先按字典序排序城市，每条道路只从其第一个城市计算。对当前城市，将同一直线的两个相反约分方向归到同一键。若组内有更早的城市，就跳过该组；否则由最远城市确定道路长度。Go 复用哈希表，Rust 复用用于排序的数组。两者都使用补偿求和后再舍入。
+
+已通过评测的基础实现 [1588_geometry.cpp](1588_geometry.cpp), [1588_geometry.java](1588_geometry.java), [1588_geometry.py](1588_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1588_geometry.cpp](1588_geometry.cpp) | G++ 13.2 x64 | geometry | O(n² log n) | AC | 0.031 s | 240 KB |
-| [1588_geometry.go](1588_geometry.go) | Go 1.14 x64 | geometry | O(n² log n) | AC | 0.046 s | 6288 KB |
-| [1588_geometry.java](1588_geometry.java) | Java 1.8 | geometry | O(n² log n) | AC | 0.171 s | 1344 KB |
-| [1588_geometry.py](1588_geometry.py) | Python 3.12 x64 | geometry | O(n² log n) | AC | 0.187 s | 572 KB |
-| [1588_geometry.rs](1588_geometry.rs) | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.031 s | 452 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1588_geometry.cpp](1588_geometry.cpp) | G++ 13.2 x64 | geometry | O(n² log n) | AC | 0.031 s | 240 KB | 11287971 |
+| [1588_geometry.go](1588_geometry.go) | Go 1.14 x64 | geometry | O(n² log n) | AC | 0.046 s | 6288 KB | 11287972 |
+| [1588_geometry.java](1588_geometry.java) \* | Java 1.8 | geometry | O(n² log n) | AC | 0.171 s | 1344 KB | 11287979 |
+| [1588_geometry.py](1588_geometry.py) \* | Python 3.12 x64 | geometry | O(n² log n) | AC | 0.187 s | 572 KB | 11287976 |
+| [1588_geometry.rs](1588_geometry.rs) | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.031 s | 452 KB | 11287980 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1588_geometry_optimized.go](1588_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) expected | AC | 0.046 s | 1020 KB | 11310418 |
+| [1588_geometry_optimized.rs](1588_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.015 s | 236 KB | 11310417 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

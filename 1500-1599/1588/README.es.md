@@ -70,12 +70,29 @@ Detalles a tener en cuenta:
 - las ciudades en varias rectas que pasan por un punto también crean
   carreteras entre esas rectas; hay que contarlas (prueba generada `gen3`).
 
+## Soluciones optimizadas
+
+Se ordenan las ciudades lexicográficamente y cada carretera se cuenta solo desde su primera ciudad. Desde una ciudad, ambos sentidos de una dirección reducida comparten clave. Si el grupo contiene una ciudad anterior, se omite. En caso contrario la ciudad más lejana determina la longitud. Go reutiliza una tabla hash y Rust un vector que ordena. Ambas versiones usan suma compensada antes de redondear el total.
+
+Las implementaciones base aceptadas [1588_geometry.cpp](1588_geometry.cpp), [1588_geometry.java](1588_geometry.java), [1588_geometry.py](1588_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1588_geometry.cpp](1588_geometry.cpp) | G++ 13.2 x64 | geometry | O(n² log n) | AC | 0.031 s | 240 KB |
-| [1588_geometry.go](1588_geometry.go) | Go 1.14 x64 | geometry | O(n² log n) | AC | 0.046 s | 6288 KB |
-| [1588_geometry.java](1588_geometry.java) | Java 1.8 | geometry | O(n² log n) | AC | 0.171 s | 1344 KB |
-| [1588_geometry.py](1588_geometry.py) | Python 3.12 x64 | geometry | O(n² log n) | AC | 0.187 s | 572 KB |
-| [1588_geometry.rs](1588_geometry.rs) | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.031 s | 452 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1588_geometry.cpp](1588_geometry.cpp) | G++ 13.2 x64 | geometry | O(n² log n) | AC | 0.031 s | 240 KB | 11287971 |
+| [1588_geometry.go](1588_geometry.go) | Go 1.14 x64 | geometry | O(n² log n) | AC | 0.046 s | 6288 KB | 11287972 |
+| [1588_geometry.java](1588_geometry.java) \* | Java 1.8 | geometry | O(n² log n) | AC | 0.171 s | 1344 KB | 11287979 |
+| [1588_geometry.py](1588_geometry.py) \* | Python 3.12 x64 | geometry | O(n² log n) | AC | 0.187 s | 572 KB | 11287976 |
+| [1588_geometry.rs](1588_geometry.rs) | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.031 s | 452 KB | 11287980 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1588_geometry_optimized.go](1588_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) expected | AC | 0.046 s | 1020 KB | 11310418 |
+| [1588_geometry_optimized.rs](1588_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n² log n) | AC | 0.015 s | 236 KB | 11310417 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
