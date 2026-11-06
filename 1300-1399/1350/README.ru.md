@@ -90,16 +90,36 @@ MAYBE
 Ответы сравнивались с перебором всех возможных обедов на 400 случайных
 столовых до 6 продуктов.
 
+## Оптимизированные решения
+
+Компактные версии присваивают каждому продукту из меню индекс. C++ и Rust ищут индекс в отсортированном массиве, Go — в хеш-таблице. Rust читает каждый токен в один и тот же буфер. В массиве храним номер последнего студента, упомянувшего продукт, чтобы повторы в одном списке учитывались один раз. После исключения опасных продуктов первого студента для каждого следующего храним только число опасных продуктов, которые могли попасть в обед. Этого достаточно, когда станет известен размер обеда.
+
+Принятые базовые реализации [1350_implementation.java](1350_implementation.java), [1350_implementation.py](1350_implementation.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Особенности языков
+
+Эти замечания относятся к базовым реализациям.
 
 - Все пять решений считают продукты из S внутри и вне D.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1350_implementation.cpp](1350_implementation.cpp) | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.062 s | 1344 KB |
-| [1350_implementation.go](1350_implementation.go) | Go 1.14 x64 | implementation | O(N·K) | AC | 0.031 s | 2156 KB |
-| [1350_implementation.java](1350_implementation.java) | Java 1.8 | implementation | O(N·K) | AC | 0.140 s | 6524 KB |
-| [1350_implementation.py](1350_implementation.py) | Python 3.12 x64 | implementation | O(N·K) | AC | 0.078 s | 2240 KB |
-| [1350_implementation.rs](1350_implementation.rs) | Rust 1.75 x64 | implementation | O(N·K) | AC | 0.015 s | 1560 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1350_implementation.cpp](1350_implementation.cpp) | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.062 s | 1344 KB | 11285155 |
+| [1350_implementation.go](1350_implementation.go) | Go 1.14 x64 | implementation | O(N·K) | AC | 0.031 s | 2156 KB | 11285156 |
+| [1350_implementation.java](1350_implementation.java) \* | Java 1.8 | implementation | O(N·K) | AC | 0.140 s | 6524 KB | 11285160 |
+| [1350_implementation.py](1350_implementation.py) \* | Python 3.12 x64 | implementation | O(N·K) | AC | 0.078 s | 2240 KB | 11285157 |
+| [1350_implementation.rs](1350_implementation.rs) | Rust 1.75 x64 | implementation | O(N·K) | AC | 0.015 s | 1560 KB | 11285161 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
+| [1350_implementation_optimized.go](1350_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
+| [1350_implementation_optimized.rs](1350_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 192 KB | 11310869 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
