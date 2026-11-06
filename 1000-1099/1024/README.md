@@ -78,17 +78,35 @@ Pitfalls:
 - the lcm fits in `10^9` by the statement, but `a · b` before the division
   may not fit in 32 bits — use 64-bit integers.
 
+## Optimized solutions
+
+Go stores permutation entries in a fixed array of 16-bit indices. Each visited entry is replaced with zero, which lies outside the permutation, so a separate visited array is unnecessary. Combine the cycle lengths with lcm by dividing by the gcd before multiplying. Fixed byte buffers are read and written through the standard handles.
+
+The accepted base implementations [1024_math.cpp](1024_math.cpp), [1024_math.java](1024_math.java), [1024_math.py](1024_math.py), [1024_math.rs](1024_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 The same cycle walk everywhere; C++ (`std::lcm`) and Python (`math.lcm`)
 have the lcm in the standard library.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1024_math.cpp](1024_math.cpp) | G++ 13.2 x64 | math | O(N log N) | AC | 0.015 s | 200 KB |
-| [1024_math.go](1024_math.go) | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 1100 KB |
-| [1024_math.java](1024_math.java) | Java 1.8 | math | O(N log N) | AC | 0.140 s | 2400 KB |
-| [1024_math.py](1024_math.py) | Python 3.12 x64 | math | O(N log N) | AC | 0.078 s | 524 KB |
-| [1024_math.rs](1024_math.rs) | Rust 1.75 x64 | math | O(N log N) | AC | 0.046 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1024_math.cpp](1024_math.cpp) | G++ 13.2 x64 | math | O(N log N) | AC | 0.015 s | 200 KB | 11278283 |
+| [1024_math.go](1024_math.go) | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 1100 KB | 11278286 |
+| [1024_math.java](1024_math.java) \* | Java 1.8 | math | O(N log N) | AC | 0.140 s | 2400 KB | 11278291 |
+| [1024_math.py](1024_math.py) \* | Python 3.12 x64 | math | O(N log N) | AC | 0.078 s | 524 KB | 11278287 |
+| [1024_math.rs](1024_math.rs) \* | Rust 1.75 x64 | math | O(N log N) | AC | 0.046 s | 224 KB | 11278294 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1024_math_optimized.go](1024_math_optimized.go) \* | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 288 KB | 11311221 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
