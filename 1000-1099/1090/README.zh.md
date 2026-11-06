@@ -58,18 +58,34 @@
 
 答案与用归并排序统计逆序对的结果做了核对，`N ≤ 300` 时还与二重循环做了核对。
 
+## 优化解法
+
+C++ 和 Go 版本保留树状数组算法，并用固定大小的缓冲区读取输入。树中的每个计数不超过 N，可用 16 位存储。PyPy 版本以树状数组替代有序列表，前缀查询和插入均需 O(log N)。这三个版本的时间复杂度均为 O(K·N log N)，额外空间均为 O(N)。
+
+已通过评测的基础实现 [1090_fenwick.java](1090_fenwick.java), [1090_fenwick.rs](1090_fenwick.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- Python 把这一排中已出现的编号保存在有序列表中，用 `bisect` 求个数，并用 `list.insert` 插入每个编号。插入会
-  移动内存，理论上是 `O(N²)`，但它在 C 中执行，`N = 10000` 时比用 Python 写的树状数组更快。
-- 在 CPython 3.12 下，Python 解法在第 9 个测试上超时（0.515 秒）；同一文件在 PyPy 3.10 下以 0.437 秒通过，所以 Python 解法只能在 PyPy 下通过。
+教学 Python 版本使用有序列表和二分查找，并在 PyPy 3.10 下通过评测。同一源文件在 CPython 3.12 下于测试 9 超时（0.515 秒）。优化 Python 版本使用树状数组，同样在 PyPy 3.10 下通过。表格记录每个已通过提交实际使用的解释器。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1090_binary_search.py](1090_binary_search.py) | PyPy 3.10 x64 | binary_search | O(K·N^2) | AC | 0.437 s | 20044 KB |
-| [1090_fenwick.cpp](1090_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 236 KB |
-| [1090_fenwick.go](1090_fenwick.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.046 s | 1916 KB |
-| [1090_fenwick.java](1090_fenwick.java) | Java 1.8 | fenwick | O(K·N log N) | AC | 0.125 s | 512 KB |
-| [1090_fenwick.rs](1090_fenwick.rs) | Rust 1.75 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 2120 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1090_binary_search.py](1090_binary_search.py) | PyPy 3.10 x64 | binary_search | O(K·N^2) | AC | 0.437 s | 20044 KB | 11279088 |
+| [1090_fenwick.cpp](1090_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 236 KB | 11279084 |
+| [1090_fenwick.go](1090_fenwick.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.046 s | 1916 KB | 11279085 |
+| [1090_fenwick.java](1090_fenwick.java) \* | Java 1.8 | fenwick | O(K·N log N) | AC | 0.125 s | 512 KB | 11279089 |
+| [1090_fenwick.rs](1090_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 2120 KB | 11279090 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1090_fenwick_optimized.cpp](1090_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 104 KB | 11310324 |
+| [1090_fenwick_optimized.go](1090_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.031 s | 816 KB | 11310344 |
+| [1090_fenwick.py](1090_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 9076 KB | 11310319 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
