@@ -77,16 +77,37 @@
 - 只有一根木条时它本身就是答案；
 - 对于 `2^31 − 1` 和 1 这样的长度，逐次模拟锯切太慢。
 
+## 优化解法
+
+Go 和 Rust 每读入一个长度就更新当前最大公约数。一旦变为一，答案不可能再变化，因此立即结束，无需继续读取剩余长度。输入有缓冲，直接输出最大公约数，辅助空间为常数。Go 直接访问标准句柄并完成部分写入。Rust 通过 C 运行库读写。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 68 KB，基础版为 244 KB。
+
+已通过评测的基础实现 [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 各语言都用欧几里得算法依次合并各长度。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1053_number_theory.cpp](1053_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log L) | AC | 0.015 s | 132 KB |
-| [1053_number_theory.go](1053_number_theory.go) | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 1100 KB |
-| [1053_number_theory.java](1053_number_theory.java) | Java 1.8 | number_theory | O(N log L) | AC | 0.093 s | 776 KB |
-| [1053_number_theory.py](1053_number_theory.py) | Python 3.12 x64 | number_theory | O(N log L) | AC | 0.078 s | 488 KB |
-| [1053_number_theory.rs](1053_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.015 s | 244 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1053_number_theory.cpp](1053_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log L) | AC | 0.015 s | 132 KB | 11278705 |
+| [1053_number_theory.go](1053_number_theory.go) | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 1100 KB | 11278706 |
+| [1053_number_theory.java](1053_number_theory.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.093 s | 776 KB | 11278708 |
+| [1053_number_theory.py](1053_number_theory.py) \* | Python 3.12 x64 | number_theory | O(N log L) | AC | 0.078 s | 488 KB | 11278707 |
+| [1053_number_theory.rs](1053_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.015 s | 244 KB | 11278709 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
+| [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

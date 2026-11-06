@@ -85,17 +85,38 @@ Detalles a tener en cuenta:
 - simular los cortes uno a uno es demasiado lento para longitudes como
   `2^31 − 1` y 1.
 
+## Soluciones optimizadas
+
+Go y Rust actualizan un único máximo común divisor al leer cada longitud. Al llegar a uno, la respuesta ya no puede cambiar y terminan sin leer las longitudes restantes. La entrada usa un búfer y el resultado se imprime directamente, con espacio auxiliar constante. Go usa los descriptores estándar directamente y completa las escrituras parciales. Rust lee y escribe mediante la biblioteca de ejecución de C.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 68 KB frente a 244 KB.
+
+Las implementaciones base aceptadas [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes pliegan las longitudes con el algoritmo de
   Euclides.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1053_number_theory.cpp](1053_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log L) | AC | 0.015 s | 132 KB |
-| [1053_number_theory.go](1053_number_theory.go) | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 1100 KB |
-| [1053_number_theory.java](1053_number_theory.java) | Java 1.8 | number_theory | O(N log L) | AC | 0.093 s | 776 KB |
-| [1053_number_theory.py](1053_number_theory.py) | Python 3.12 x64 | number_theory | O(N log L) | AC | 0.078 s | 488 KB |
-| [1053_number_theory.rs](1053_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.015 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1053_number_theory.cpp](1053_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log L) | AC | 0.015 s | 132 KB | 11278705 |
+| [1053_number_theory.go](1053_number_theory.go) | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 1100 KB | 11278706 |
+| [1053_number_theory.java](1053_number_theory.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.093 s | 776 KB | 11278708 |
+| [1053_number_theory.py](1053_number_theory.py) \* | Python 3.12 x64 | number_theory | O(N log L) | AC | 0.078 s | 488 KB | 11278707 |
+| [1053_number_theory.rs](1053_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.015 s | 244 KB | 11278709 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
+| [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
