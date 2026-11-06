@@ -61,12 +61,28 @@ V(z) = π·a²/4·(z − 4z³/(3b²))
 - 生成的尺寸在舍入后相等时，调整后仍须满足 1 ≤ a < b（gen1/gen4；模式 1 的回归种子 1318341）；
 - 细长菠萝两端的块只有百分之几克重，同样需要六位小数（测试 04）。
 
+## 优化解法
+
+Go 版本将竖直坐标归一化到 [−1, 1]。若一片的中点为 m、半宽为 h，坐标平方的平均值为 m² + h²/3。用一减去该平均值，再乘以厚度和中央圆盘面积，即可直接得到重量。重量四舍五入到整数微克，再用固定缓冲区输出六位小数。syscall.Read 和 syscall.Write 使用标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1562_geometry.cpp](1562_geometry.cpp), [1562_geometry.java](1562_geometry.java), [1562_geometry.py](1562_geometry.py), [1562_geometry.rs](1562_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1562_geometry.cpp](1562_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 156 KB |
-| [1562_geometry.go](1562_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1100 KB |
-| [1562_geometry.java](1562_geometry.java) | Java 1.8 | geometry | O(n) | AC | 0.109 s | 2072 KB |
-| [1562_geometry.py](1562_geometry.py) | Python 3.12 x64 | geometry | O(n) | AC | 0.093 s | 424 KB |
-| [1562_geometry.rs](1562_geometry.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1562_geometry.cpp](1562_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 156 KB | 11287681 |
+| [1562_geometry.go](1562_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1100 KB | 11287682 |
+| [1562_geometry.java](1562_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.109 s | 2072 KB | 11287687 |
+| [1562_geometry.py](1562_geometry.py) \* | Python 3.12 x64 | geometry | O(n) | AC | 0.093 s | 424 KB | 11287683 |
+| [1562_geometry.rs](1562_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 268 KB | 11287689 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -68,12 +68,28 @@ Pitfalls:
 - the end pieces of a long thin pineapple weigh only hundredths of a
   gram, and they still need six digits (test 04).
 
+## Optimized solutions
+
+The Go version normalizes the vertical coordinate to [−1, 1]. For a slice with midpoint m and half-width h, the mean of the squared coordinate is m² + h²/3. Multiply one minus this mean by the slice thickness and the central disc area to get its weight directly. After rounding to whole micrograms, a fixed buffer formats the weight with six decimal digits. syscall.Read and syscall.Write use standard handles, retry interrupted calls and complete partial writes.
+
+The accepted base implementations [1562_geometry.cpp](1562_geometry.cpp), [1562_geometry.java](1562_geometry.java), [1562_geometry.py](1562_geometry.py), [1562_geometry.rs](1562_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1562_geometry.cpp](1562_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 156 KB |
-| [1562_geometry.go](1562_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1100 KB |
-| [1562_geometry.java](1562_geometry.java) | Java 1.8 | geometry | O(n) | AC | 0.109 s | 2072 KB |
-| [1562_geometry.py](1562_geometry.py) | Python 3.12 x64 | geometry | O(n) | AC | 0.093 s | 424 KB |
-| [1562_geometry.rs](1562_geometry.rs) | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1562_geometry.cpp](1562_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 156 KB | 11287681 |
+| [1562_geometry.go](1562_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 1100 KB | 11287682 |
+| [1562_geometry.java](1562_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.109 s | 2072 KB | 11287687 |
+| [1562_geometry.py](1562_geometry.py) \* | Python 3.12 x64 | geometry | O(n) | AC | 0.093 s | 424 KB | 11287683 |
+| [1562_geometry.rs](1562_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.015 s | 268 KB | 11287689 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
