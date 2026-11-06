@@ -75,19 +75,38 @@ WINNT
 
 答案用另一种方法做了核对：把所有路径的所有前缀当作名字元组排序，这样每个文件夹正好排在它的整棵子树之前。
 
+## 优化解法
+
+C++ 和 Python 按目录名序列排序路径。C++ 将分隔符替换为零字节，它排在所有合法名称字符之前。Python 对字节串元组排序。共享目录前缀的路径连续出现，因此只输出与上一条路径的公共前缀之后的部分。P 为包含缩进在内的输出字节数。
+
+已通过评测的基础实现 [1067_trees_sorting.go](1067_trees_sorting.go), [1067_trees_sorting.java](1067_trees_sorting.java), [1067_trees_sorting.rs](1067_trees_sorting.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - C++、Java 和 Rust 用有序映射（`std::map`、`TreeMap`、`BTreeMap`）保存子文件夹；Go 和 Python 用哈希表，
   输出时再对键排序。
 - 各语言都按字符编码比较名字，对这些字符来说正是题目要求的顺序。
 - Java 用正则表达式 `\\`（一个转义的反斜杠）拆分路径。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1067_trees_sorting.cpp](1067_trees_sorting.cpp) | G++ 13.2 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 3472 KB |
-| [1067_trees_sorting.go](1067_trees_sorting.go) | Go 1.14 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 8376 KB |
-| [1067_trees_sorting.java](1067_trees_sorting.java) | Java 1.8 | trees, sorting | O(L log N) | AC | 0.093 s | 7380 KB |
-| [1067_trees_sorting.py](1067_trees_sorting.py) | Python 3.12 x64 | trees, sorting | O(L log N) | AC | 0.078 s | 6692 KB |
-| [1067_trees_sorting.rs](1067_trees_sorting.rs) | Rust 1.75 x64 | trees, sorting | O(L log N) | AC | 0.031 s | 12116 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1067_trees_sorting.cpp](1067_trees_sorting.cpp) | G++ 13.2 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 3472 KB | 11278872 |
+| [1067_trees_sorting.go](1067_trees_sorting.go) \* | Go 1.14 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 8376 KB | 11278874 |
+| [1067_trees_sorting.java](1067_trees_sorting.java) \* | Java 1.8 | trees, sorting | O(L log N) | AC | 0.093 s | 7380 KB | 11278879 |
+| [1067_trees_sorting.py](1067_trees_sorting.py) | Python 3.12 x64 | trees, sorting | O(L log N) | AC | 0.078 s | 6692 KB | 11278877 |
+| [1067_trees_sorting.rs](1067_trees_sorting.rs) \* | Rust 1.75 x64 | trees, sorting | O(L log N) | AC | 0.031 s | 12116 KB | 11278881 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1067_sorting.cpp](1067_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log N + P) | AC | 0.015 s | 484 KB | 11310423 |
+| [1067_sorting.py](1067_sorting.py) \* | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

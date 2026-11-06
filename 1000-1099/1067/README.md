@@ -86,7 +86,15 @@ Pitfalls:
 The answers were checked by sorting every prefix of every path as a tuple
 of names: a folder then comes right before its whole subtree.
 
+## Optimized solutions
+
+C++ and Python sort paths by their sequences of directory names. C++ replaces each separator with a zero byte, which sorts before every legal name character. Python sorts tuples of byte strings. All paths sharing a directory prefix are consecutive, so print only the components beyond the prefix shared with the previous path. P is the number of output bytes, including indentation.
+
+The accepted base implementations [1067_trees_sorting.go](1067_trees_sorting.go), [1067_trees_sorting.java](1067_trees_sorting.java), [1067_trees_sorting.rs](1067_trees_sorting.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - C++, Java and Rust keep the subfolders in a sorted map (`std::map`,
   `TreeMap`, `BTreeMap`); Go and Python keep a hash map and sort its keys
@@ -98,10 +106,21 @@ of names: a folder then comes right before its whole subtree.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1067_trees_sorting.cpp](1067_trees_sorting.cpp) | G++ 13.2 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 3472 KB |
-| [1067_trees_sorting.go](1067_trees_sorting.go) | Go 1.14 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 8376 KB |
-| [1067_trees_sorting.java](1067_trees_sorting.java) | Java 1.8 | trees, sorting | O(L log N) | AC | 0.093 s | 7380 KB |
-| [1067_trees_sorting.py](1067_trees_sorting.py) | Python 3.12 x64 | trees, sorting | O(L log N) | AC | 0.078 s | 6692 KB |
-| [1067_trees_sorting.rs](1067_trees_sorting.rs) | Rust 1.75 x64 | trees, sorting | O(L log N) | AC | 0.031 s | 12116 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1067_trees_sorting.cpp](1067_trees_sorting.cpp) | G++ 13.2 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 3472 KB | 11278872 |
+| [1067_trees_sorting.go](1067_trees_sorting.go) \* | Go 1.14 x64 | trees, sorting | O(L log N) | AC | 0.015 s | 8376 KB | 11278874 |
+| [1067_trees_sorting.java](1067_trees_sorting.java) \* | Java 1.8 | trees, sorting | O(L log N) | AC | 0.093 s | 7380 KB | 11278879 |
+| [1067_trees_sorting.py](1067_trees_sorting.py) | Python 3.12 x64 | trees, sorting | O(L log N) | AC | 0.078 s | 6692 KB | 11278877 |
+| [1067_trees_sorting.rs](1067_trees_sorting.rs) \* | Rust 1.75 x64 | trees, sorting | O(L log N) | AC | 0.031 s | 12116 KB | 11278881 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1067_sorting.cpp](1067_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log N + P) | AC | 0.015 s | 484 KB | 11310423 |
+| [1067_sorting.py](1067_sorting.py) \* | Python 3.12 x64 | sorting | O(L log N + P) | AC | 0.078 s | 740 KB | 11310426 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
