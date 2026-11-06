@@ -123,12 +123,36 @@ búfer. Rust usa índices `u32`, convertidos al acceder a vectores. Copiar
 listas completas puede dar tiempo y memoria cuadráticos cuando muchas
 entidades copian una historia profunda.
 
+## Soluciones optimizadas
+
+Las versiones en C++ y Rust guardan los nodos inmutables de las pilas y los pares de índices de sus cimas en un solo arreglo. Los nodos crecen desde el inicio y los pares desde el final. Cada comando crea como máximo un nodo o una entidad, así que bastan n + 2 pares. Go usa arreglos separados y un búfer de entrada de tamaño fijo. Las tres versiones procesan los comandos al leerlos y usan un búfer de salida. C++ usó 3860 KB en lugar de 13608 KB, Go 5688 KB en lugar de 32780 KB y Rust 3968 KB en lugar de 13340 KB. Los tiempos figuran en la tabla.
+
+El tiempo medido en G++ 13.2 x64 aumenta de 0.156 a 0.187 s.
+
+El tiempo medido en Go 1.14 x64 aumenta de 0.062 a 0.078 s.
+
+El tiempo medido en Rust 1.75 x64 aumenta de 0.078 a 0.125 s.
+
+Las implementaciones base aceptadas [1992_trees.java](1992_trees.java), [1992_trees.py](1992_trees.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1992_trees.cpp](1992_trees.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.156 s | 13608 KB |
-| [1992_trees.go](1992_trees.go) | Go 1.14 x64 | trees | O(n) | AC | 0.062 s | 32780 KB |
-| [1992_trees.java](1992_trees.java) | Java 1.8 | trees | O(n) | AC | 0.171 s | 10724 KB |
-| [1992_trees.py](1992_trees.py) | Python 3.12 x64 | trees | O(n) | AC | 0.609 s | 14972 KB |
-| [1992_trees.rs](1992_trees.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.078 s | 13340 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1992_trees.cpp](1992_trees.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.156 s | 13608 KB | 11292388 |
+| [1992_trees.go](1992_trees.go) | Go 1.14 x64 | trees | O(n) | AC | 0.062 s | 32780 KB | 11292389 |
+| [1992_trees.java](1992_trees.java) | Java 1.8 | trees | O(n) | AC | 0.171 s | 10724 KB | 11292391 |
+| [1992_trees.py](1992_trees.py) \* | Python 3.12 x64 | trees | O(n) | AC | 0.609 s | 14972 KB | 11292390 |
+| [1992_trees.rs](1992_trees.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.078 s | 13340 KB | 11292393 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1992_trees_optimized.cpp](1992_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.187 s | 3860 KB | 11310373 |
+| [1992_trees_optimized.go](1992_trees_optimized.go) \* | Go 1.14 x64 | trees | O(n) | AC | 0.078 s | 5688 KB | 11310343 |
+| [1992_trees_optimized.rs](1992_trees_optimized.rs) \* | Rust 1.75 x64 | trees | O(n) | AC | 0.125 s | 3968 KB | 11310372 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
