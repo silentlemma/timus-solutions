@@ -55,12 +55,31 @@ d = 1 和 d = 2 中恰有一个使括号内为偶数，于是 aₖ₊₁ 能被 
 检查了从 1 到 100 的每个 N：得到的数由 N 位 1 和 2 组成且能被 2ᴺ 整除。由于
 N 位的答案唯一，测试按精确比较判定。
 
+## 优化解法
+
+Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一个十的幂。已有 k 位时最低 k 位二进制位均为零，因此第 k 位决定下一位十进制数字是一还是二。只有最低 N ≤ 100 位相关。Go 用两个 64 位字实现 128 位运算，Rust 使用 u128 的回绕运算。Go 直接从小型可复用字节缓冲区读取指数，并直接输出构造出的数字，不做字符串转换。
+
+通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 784 KB，基础版为 1140 KB。
+
+已通过评测的基础实现 [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1407_constructive.cpp](1407_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 188 KB |
-| [1407_constructive.go](1407_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.015 s | 1140 KB |
-| [1407_constructive.java](1407_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB |
-| [1407_constructive.py](1407_constructive.py) | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB |
-| [1407_constructive.rs](1407_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 216 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1407_constructive.cpp](1407_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11286054 |
+| [1407_constructive.go](1407_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.015 s | 1140 KB | 11286055 |
+| [1407_constructive.java](1407_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 1668 KB | 11286057 |
+| [1407_constructive.py](1407_constructive.py) \* | Python 3.12 x64 | constructive | O(N^3) | AC | 0.078 s | 416 KB | 11286056 |
+| [1407_constructive.rs](1407_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 216 KB | 11286058 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1407_constructive_optimized.go](1407_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
+| [1407_constructive_optimized.rs](1407_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
