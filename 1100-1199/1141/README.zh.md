@@ -63,17 +63,36 @@
 答案已在所有测试上与枚举 `0` 到 `n − 1` 的全部 `m` 的结果比对，同时确认了
 答案唯一。
 
+## 优化解法
+
+Go 和 Rust 一次筛出不超过 178 的奇质数，仅用这些质数分解每个 n ≤ 32000 的模数。随后用扩展欧几里得算法求逆指数，再用二进制快速幂解密。Go 使用固定字节缓冲区并直接输出十进制数字；Rust 逐步处理输入输出。质数表使用固定大小的数组。
+
+已通过评测的基础实现 [1141_number_theory.cpp](1141_number_theory.cpp), [1141_number_theory.java](1141_number_theory.java), [1141_number_theory.py](1141_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言用同样的方式分解、求逆和求幂；Python 用内置的
   `pow(e, -1, phi)` 求逆元。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1141_number_theory.cpp](1141_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 216 KB |
-| [1141_number_theory.go](1141_number_theory.go) | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 1156 KB |
-| [1141_number_theory.java](1141_number_theory.java) | Java 1.8 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 596 KB |
-| [1141_number_theory.py](1141_number_theory.py) | Python 3.12 x64 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 992 KB |
-| [1141_number_theory.rs](1141_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 352 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1141_number_theory.cpp](1141_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 216 KB | 11279444 |
+| [1141_number_theory.go](1141_number_theory.go) | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 1156 KB | 11279445 |
+| [1141_number_theory.java](1141_number_theory.java) \* | Java 1.8 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 596 KB | 11279448 |
+| [1141_number_theory.py](1141_number_theory.py) \* | Python 3.12 x64 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 992 KB | 11279446 |
+| [1141_number_theory.rs](1141_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 352 KB | 11279449 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1141_number_theory_optimized.go](1141_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.015 s | 772 KB | 11311153 |
+| [1141_number_theory_optimized.rs](1141_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 200 KB | 11311025 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

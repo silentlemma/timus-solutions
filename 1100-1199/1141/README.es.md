@@ -69,17 +69,36 @@ Detalles a tener en cuenta:
 Las respuestas se compararon en todas las pruebas con probar cada `m` de
 `0` a `n − 1`, lo que además confirmó que la respuesta es única.
 
+## Soluciones optimizadas
+
+Go y Rust criban una vez los primos impares hasta 178 y usan solo esos primos para factorizar cada módulo n ≤ 32000. Después calculan el exponente inverso con Euclides extendido y descifran por exponenciación binaria. Go usa búferes fijos de bytes y escribe las cifras directamente; Rust procesa la entrada y salida de forma incremental. La tabla de primos usa vectores de tamaño fijo.
+
+Las implementaciones base aceptadas [1141_number_theory.cpp](1141_number_theory.cpp), [1141_number_theory.java](1141_number_theory.java), [1141_number_theory.py](1141_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes factorizan, invierten y elevan igual; Python usa el
   `pow(e, -1, phi)` incorporado para el inverso.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1141_number_theory.cpp](1141_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 216 KB |
-| [1141_number_theory.go](1141_number_theory.go) | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 1156 KB |
-| [1141_number_theory.java](1141_number_theory.java) | Java 1.8 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 596 KB |
-| [1141_number_theory.py](1141_number_theory.py) | Python 3.12 x64 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 992 KB |
-| [1141_number_theory.rs](1141_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 352 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1141_number_theory.cpp](1141_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 216 KB | 11279444 |
+| [1141_number_theory.go](1141_number_theory.go) | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 1156 KB | 11279445 |
+| [1141_number_theory.java](1141_number_theory.java) \* | Java 1.8 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 596 KB | 11279448 |
+| [1141_number_theory.py](1141_number_theory.py) \* | Python 3.12 x64 | number_theory | O(K (√n + log n)) | AC | 0.046 s | 992 KB | 11279446 |
+| [1141_number_theory.rs](1141_number_theory.rs) | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 352 KB | 11279449 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1141_number_theory_optimized.go](1141_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(K (√n + log n)) | AC | 0.015 s | 772 KB | 11311153 |
+| [1141_number_theory_optimized.rs](1141_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(K (√n + log n)) | AC | 0.001 s | 200 KB | 11311025 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
