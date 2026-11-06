@@ -73,16 +73,37 @@ state (the contents of every box and the position of the hand) on 150
 tiny mosaics; the large tests were checked against the formula computed
 separately.
 
+## Optimized solutions
+
+Go and Rust combine component membership, size and activation in one 16-bit array. Zero means untouched, a negative value marks a root and its component size, and a positive value points to a parent. Union by size with path halving maintains the number of active components as misplaced balls are read.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 196 KB versus 652 KB.
+
+The accepted base implementations [1124_dsu.cpp](1124_dsu.cpp), [1124_dsu.java](1124_dsu.java), [1124_dsu.py](1124_dsu.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages run the same union-find with path halving.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1124_dsu.cpp](1124_dsu.cpp) | G++ 13.2 x64 | dsu | O(M·N·log M) | AC | 0.015 s | 208 KB |
-| [1124_dsu.go](1124_dsu.go) | Go 1.14 x64 | dsu | O(M·N·log M) | AC | 0.046 s | 1520 KB |
-| [1124_dsu.java](1124_dsu.java) | Java 1.8 | dsu | O(M·N·log M) | AC | 0.125 s | 480 KB |
-| [1124_dsu.py](1124_dsu.py) | Python 3.12 x64 | dsu | O(M·N·log M) | AC | 0.078 s | 1860 KB |
-| [1124_dsu.rs](1124_dsu.rs) | Rust 1.75 x64 | dsu | O(M·N·log M) | AC | 0.015 s | 652 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1124_dsu.cpp](1124_dsu.cpp) | G++ 13.2 x64 | dsu | O(M·N·log M) | AC | 0.015 s | 208 KB | 11279302 |
+| [1124_dsu.go](1124_dsu.go) | Go 1.14 x64 | dsu | O(M·N·log M) | AC | 0.046 s | 1520 KB | 11279303 |
+| [1124_dsu.java](1124_dsu.java) \* | Java 1.8 | dsu | O(M·N·log M) | AC | 0.125 s | 480 KB | 11279306 |
+| [1124_dsu.py](1124_dsu.py) \* | Python 3.12 x64 | dsu | O(M·N·log M) | AC | 0.078 s | 1860 KB | 11279305 |
+| [1124_dsu.rs](1124_dsu.rs) | Rust 1.75 x64 | dsu | O(M·N·log M) | AC | 0.015 s | 652 KB | 11279308 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
+| [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
