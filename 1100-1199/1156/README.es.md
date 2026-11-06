@@ -77,7 +77,17 @@ Las respuestas se comprobaron con el comprobador en todas las pruebas, y
 la posibilidad del reparto se comparó con probar todas las elecciones de
 `N` problemas en 200 entradas aleatorias de hasta 14 problemas.
 
+## Soluciones optimizadas
+
+C++ y Rust guardan la adyacencia en vectores planos y colorean cada componente por búsqueda en anchura. Cada fila de la programación dinámica de tamaños cabe en una palabra de 64 bits porque una ronda tiene como máximo 50 problemas. Desplazar la fila anterior por el tamaño de cada clase de color da la siguiente. Se guardan esas palabras para reconstruir la clase elegida comprobando la fila anterior. Con hasta 100 vértices y 200 aristas dirigidas, Rust guarda índices y enlaces en bytes. Rust arranca mediante C main y usa búferes fijos a través de la biblioteca de C, completando las escrituras parciales.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 64 KB frente a 244 KB.
+
+Las implementaciones base aceptadas [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes colorean con una búsqueda en profundidad con pila
   explícita y llenan la misma tabla de sumas de subconjuntos; Python
@@ -85,10 +95,21 @@ la posibilidad del reparto se comparó con probar todas las elecciones de
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1156_graphs.cpp](1156_graphs.cpp) | G++ 13.2 x64 | graphs | O(N·(N + M)) | AC | 0.001 s | 224 KB |
-| [1156_graphs.go](1156_graphs.go) | Go 1.14 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 1136 KB |
-| [1156_graphs.java](1156_graphs.java) | Java 1.8 | graphs | O(N·(N + M)) | AC | 0.093 s | 616 KB |
-| [1156_graphs.py](1156_graphs.py) | Python 3.12 x64 | graphs | O(N·(N + M)) | AC | 0.078 s | 892 KB |
-| [1156_graphs.rs](1156_graphs.rs) | Rust 1.75 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1156_graphs.cpp](1156_graphs.cpp) | G++ 13.2 x64 | graphs | O(N·(N + M)) | AC | 0.001 s | 224 KB | 11281228 |
+| [1156_graphs.go](1156_graphs.go) | Go 1.14 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 1136 KB | 11281244 |
+| [1156_graphs.java](1156_graphs.java) \* | Java 1.8 | graphs | O(N·(N + M)) | AC | 0.093 s | 616 KB | 11281275 |
+| [1156_graphs.py](1156_graphs.py) \* | Python 3.12 x64 | graphs | O(N·(N + M)) | AC | 0.078 s | 892 KB | 11281259 |
+| [1156_graphs.rs](1156_graphs.rs) | Rust 1.75 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 244 KB | 11281295 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1156_graphs_optimized.cpp](1156_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.015 s | 112 KB | 11310650 |
+| [1156_graphs_optimized.rs](1156_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.031 s | 64 KB | 11311218 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

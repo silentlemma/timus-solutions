@@ -77,17 +77,38 @@ The answers were checked by the checker on every test, and the
 feasibility was compared with trying every choice of `N` problems on 200
 random inputs with up to 14 problems.
 
+## Optimized solutions
+
+C++ and Rust store adjacency in flat arrays and colour each component with breadth-first search. Each row of the component subset-sum DP is one 64-bit word because a round has at most 50 problems. Shifting the preceding row by either colour-class size gives the next row. Keep those words to reconstruct the chosen class in each component by testing the preceding row. With at most 100 vertices and 200 directed edges, Rust stores labels and adjacency links in bytes. Rust enters through C main and transfers fixed byte buffers through the C runtime, finishing short writes.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 64 KB versus 244 KB.
+
+The accepted base implementations [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages colour by depth-first search with an explicit stack and
   fill the same subset-sum table; Python keeps each row as a set.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1156_graphs.cpp](1156_graphs.cpp) | G++ 13.2 x64 | graphs | O(N·(N + M)) | AC | 0.001 s | 224 KB |
-| [1156_graphs.go](1156_graphs.go) | Go 1.14 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 1136 KB |
-| [1156_graphs.java](1156_graphs.java) | Java 1.8 | graphs | O(N·(N + M)) | AC | 0.093 s | 616 KB |
-| [1156_graphs.py](1156_graphs.py) | Python 3.12 x64 | graphs | O(N·(N + M)) | AC | 0.078 s | 892 KB |
-| [1156_graphs.rs](1156_graphs.rs) | Rust 1.75 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1156_graphs.cpp](1156_graphs.cpp) | G++ 13.2 x64 | graphs | O(N·(N + M)) | AC | 0.001 s | 224 KB | 11281228 |
+| [1156_graphs.go](1156_graphs.go) | Go 1.14 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 1136 KB | 11281244 |
+| [1156_graphs.java](1156_graphs.java) \* | Java 1.8 | graphs | O(N·(N + M)) | AC | 0.093 s | 616 KB | 11281275 |
+| [1156_graphs.py](1156_graphs.py) \* | Python 3.12 x64 | graphs | O(N·(N + M)) | AC | 0.078 s | 892 KB | 11281259 |
+| [1156_graphs.rs](1156_graphs.rs) | Rust 1.75 x64 | graphs | O(N·(N + M)) | AC | 0.015 s | 244 KB | 11281295 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1156_graphs_optimized.cpp](1156_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.015 s | 112 KB | 11310650 |
+| [1156_graphs_optimized.rs](1156_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.031 s | 64 KB | 11311218 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
