@@ -70,16 +70,37 @@ T，然后是 T 行，每行一个 N。
 对 20 000 以内的所有 N 以及 2 000 个 10⁹ 以内的随机 N，检查了答案由素数组成、和正确且项数最少；Miller–Rabin
 检验在 203 000 个数上与试除法比较过。测试由检查程序评判，接受任何最短的和。
 
+## 优化解法
+
+Go 和 Rust 沿用适用于 N ≤ 10⁹、底数为 2、3、5、7 的确定性 Miller–Rabin 判定和最少质数项数的搜索。输入按固定大小的字节块读取，每个答案的一、二或三项直接以十进制字符写入固定字节输出缓冲区，不创建临时格式化字符串。Go 直接访问标准句柄并完成部分写入。Rust 通过 C main 启动，通过 C 运行库传输缓冲区。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 60 KB，基础版为 224 KB。
+
+已通过评测的基础实现 [1356_number_theory.cpp](1356_number_theory.cpp), [1356_number_theory.java](1356_number_theory.java), [1356_number_theory.py](1356_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - Miller–Rabin 中的乘积小于 10¹⁸，所以各语言用 64 位整数就够了。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1356_number_theory.cpp](1356_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 192 KB |
-| [1356_number_theory.go](1356_number_theory.go) | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 1100 KB |
-| [1356_number_theory.java](1356_number_theory.java) | Java 1.8 | number_theory | O(T·g·log N) | AC | 0.109 s | 516 KB |
-| [1356_number_theory.py](1356_number_theory.py) | Python 3.12 x64 | number_theory | O(T·g·log N) | AC | 0.109 s | 664 KB |
-| [1356_number_theory.rs](1356_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1356_number_theory.cpp](1356_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 192 KB | 11285274 |
+| [1356_number_theory.go](1356_number_theory.go) | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 1100 KB | 11285275 |
+| [1356_number_theory.java](1356_number_theory.java) | Java 1.8 | number_theory | O(T·g·log N) | AC | 0.109 s | 516 KB | 11285277 |
+| [1356_number_theory.py](1356_number_theory.py) \* | Python 3.12 x64 | number_theory | O(T·g·log N) | AC | 0.109 s | 664 KB | 11285276 |
+| [1356_number_theory.rs](1356_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 224 KB | 11285279 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1356_number_theory_optimized.go](1356_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 308 KB | 11311220 |
+| [1356_number_theory_optimized.rs](1356_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 60 KB | 11311225 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

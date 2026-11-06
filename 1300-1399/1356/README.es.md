@@ -85,17 +85,38 @@ aleatorios hasta 10⁹, y la prueba de Miller–Rabin se comparó con la
 división por tanteo en 203 000 números. Las pruebas se juzgan con un
 verificador que acepta cualquier suma mínima.
 
+## Soluciones optimizadas
+
+Go y Rust conservan las pruebas deterministas de Miller–Rabin con bases 2, 3, 5 y 7 para N ≤ 10⁹ y la misma búsqueda del mínimo número de sumandos primos. Leen bloques de bytes de tamaño fijo y escriben las cifras de uno, dos o tres sumandos directamente en un búfer fijo de salida, sin cadenas formateadas temporales. Go usa los descriptores estándar directamente y completa las escrituras parciales. Rust arranca mediante C main y transfiere los búferes con la biblioteca de C.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 60 KB frente a 224 KB.
+
+Las implementaciones base aceptadas [1356_number_theory.cpp](1356_number_theory.cpp), [1356_number_theory.java](1356_number_theory.java), [1356_number_theory.py](1356_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Los productos de Miller–Rabin quedan por debajo de 10¹⁸, así que los
   enteros de 64 bits bastan en todos los lenguajes.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1356_number_theory.cpp](1356_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 192 KB |
-| [1356_number_theory.go](1356_number_theory.go) | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 1100 KB |
-| [1356_number_theory.java](1356_number_theory.java) | Java 1.8 | number_theory | O(T·g·log N) | AC | 0.109 s | 516 KB |
-| [1356_number_theory.py](1356_number_theory.py) | Python 3.12 x64 | number_theory | O(T·g·log N) | AC | 0.109 s | 664 KB |
-| [1356_number_theory.rs](1356_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 224 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1356_number_theory.cpp](1356_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 192 KB | 11285274 |
+| [1356_number_theory.go](1356_number_theory.go) | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 1100 KB | 11285275 |
+| [1356_number_theory.java](1356_number_theory.java) | Java 1.8 | number_theory | O(T·g·log N) | AC | 0.109 s | 516 KB | 11285277 |
+| [1356_number_theory.py](1356_number_theory.py) \* | Python 3.12 x64 | number_theory | O(T·g·log N) | AC | 0.109 s | 664 KB | 11285276 |
+| [1356_number_theory.rs](1356_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 224 KB | 11285279 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1356_number_theory_optimized.go](1356_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(T·g·log N) | AC | 0.015 s | 308 KB | 11311220 |
+| [1356_number_theory_optimized.rs](1356_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(T·g·log N) | AC | 0.031 s | 60 KB | 11311225 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
