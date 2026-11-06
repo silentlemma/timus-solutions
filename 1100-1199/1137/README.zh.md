@@ -69,16 +69,36 @@
 
 答案已用检查程序在所有测试和 150 组随机线路上验证。
 
+## 优化解法
+
+Go、Python 和 Rust 用 16 位编号表示站点，并让当前路径栈与已完成的回路共用一个数组。栈从前端增长，出栈时先腾出一格，再把站点放到后端，最终回路为正序。两部分合计最多包含起点和每条已使用路段对应的一个站点，因此不会重叠。Python 和 Rust 还用两个扁平的 16 位数组保存终点和下一条边的编号。
+
+已通过评测的基础实现 [1137_graphs.cpp](1137_graphs.cpp), [1137_graphs.java](1137_graphs.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言使用同样的遍历和同样的路段顺序，因此答案完全一致。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1137_graphs.cpp](1137_graphs.cpp) | G++ 13.2 x64 | graphs | O(E) | AC | 0.015 s | 468 KB |
-| [1137_graphs.go](1137_graphs.go) | Go 1.14 x64 | graphs | O(E) | AC | 0.062 s | 3648 KB |
-| [1137_graphs.java](1137_graphs.java) | Java 1.8 | graphs | O(E) | AC | 0.093 s | 2104 KB |
-| [1137_graphs.py](1137_graphs.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.093 s | 3688 KB |
-| [1137_graphs.rs](1137_graphs.rs) | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 1268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1137_graphs.cpp](1137_graphs.cpp) | G++ 13.2 x64 | graphs | O(E) | AC | 0.015 s | 468 KB | 11279418 |
+| [1137_graphs.go](1137_graphs.go) | Go 1.14 x64 | graphs | O(E) | AC | 0.062 s | 3648 KB | 11279419 |
+| [1137_graphs.java](1137_graphs.java) | Java 1.8 | graphs | O(E) | AC | 0.093 s | 2104 KB | 11279422 |
+| [1137_graphs.py](1137_graphs.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.093 s | 3688 KB | 11279421 |
+| [1137_graphs.rs](1137_graphs.rs) | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 1268 KB | 11279423 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1137_graphs_optimized.go](1137_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(E) | AC | 0.031 s | 1144 KB | 11310529 |
+| [1137_graphs_optimized.py](1137_graphs_optimized.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.078 s | 780 KB | 11310614 |
+| [1137_graphs_optimized.rs](1137_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 320 KB | 11310571 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -80,17 +80,37 @@ Pitfalls:
 The answers were checked by the checker on every test and on 150 random
 sets of routes.
 
+## Optimized solutions
+
+Go, Python and Rust use 16-bit stop numbers and share one array between the active walk and the finished circuit. The stack grows from the front. Each pop frees a slot and puts the stop at the back, so the circuit ends up in forward order. The two portions cannot overlap because together they hold at most one stop per used segment plus the start. Python and Rust also store adjacency in flat arrays of 16-bit destination and next-edge indices.
+
+The accepted base implementations [1137_graphs.cpp](1137_graphs.cpp), [1137_graphs.java](1137_graphs.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages run the same walk with the same order of segments, so
   their answers are identical.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1137_graphs.cpp](1137_graphs.cpp) | G++ 13.2 x64 | graphs | O(E) | AC | 0.015 s | 468 KB |
-| [1137_graphs.go](1137_graphs.go) | Go 1.14 x64 | graphs | O(E) | AC | 0.062 s | 3648 KB |
-| [1137_graphs.java](1137_graphs.java) | Java 1.8 | graphs | O(E) | AC | 0.093 s | 2104 KB |
-| [1137_graphs.py](1137_graphs.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.093 s | 3688 KB |
-| [1137_graphs.rs](1137_graphs.rs) | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 1268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1137_graphs.cpp](1137_graphs.cpp) | G++ 13.2 x64 | graphs | O(E) | AC | 0.015 s | 468 KB | 11279418 |
+| [1137_graphs.go](1137_graphs.go) | Go 1.14 x64 | graphs | O(E) | AC | 0.062 s | 3648 KB | 11279419 |
+| [1137_graphs.java](1137_graphs.java) | Java 1.8 | graphs | O(E) | AC | 0.093 s | 2104 KB | 11279422 |
+| [1137_graphs.py](1137_graphs.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.093 s | 3688 KB | 11279421 |
+| [1137_graphs.rs](1137_graphs.rs) | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 1268 KB | 11279423 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1137_graphs_optimized.go](1137_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(E) | AC | 0.031 s | 1144 KB | 11310529 |
+| [1137_graphs_optimized.py](1137_graphs_optimized.py) | Python 3.12 x64 | graphs | O(E) | AC | 0.078 s | 780 KB | 11310614 |
+| [1137_graphs_optimized.rs](1137_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(E) | AC | 0.015 s | 320 KB | 11310571 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
