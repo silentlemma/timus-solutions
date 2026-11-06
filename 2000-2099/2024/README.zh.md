@@ -85,7 +85,15 @@ ababac
 - 正确处理边界相同频数，以及 `k = 1`、`k = 26`。
 - 不要使用阶乘或浮点数计算精确方案数。
 
+## 优化解法
+
+C++ 和 Rust 边读单词边统计频次，无需保存单词。排序 26 个计数器，找到频次等于分界值的区间。仍用乘法递推计算在并列颜色中选择的方案数。中间乘积不超过 26·C(26, 13)，可用 32 位整数保存。
+
+已通过评测的基础实现 [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go), [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java), [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 C++、Go、Rust 用 64 位整数计算组合数，Java 用 `long`，Python 的整数保持精确。
 频数之和用普通整数即可。Java 按升序排序并取最后 `k` 项，其余版本按降序取前 `k` 项。
@@ -94,10 +102,21 @@ CPython 使用相同的线性扫描。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB |
-| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB |
-| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.109 s | 1232 KB |
-| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB |
-| [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB | 11292830 |
+| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) \* | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
+| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) \* | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.109 s | 1232 KB | 11292845 |
+| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) \* | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
+| [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB | 11292855 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
+| [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

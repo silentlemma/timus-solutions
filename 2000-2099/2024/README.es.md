@@ -111,7 +111,15 @@ Trampas:
 - Resuelve los empates en la frontera, incluidos `k = 1` y `k = 26`.
 - No uses factoriales ni coma flotante para este recuento exacto.
 
+## Soluciones optimizadas
+
+C++ y Rust cuentan las frecuencias mientras leen la palabra, sin guardarla. Ordenan los 26 contadores y buscan el tramo igual al umbral. La misma recurrencia multiplicativa del binomial cuenta las selecciones entre los colores empatados. El producto intermedio no supera 26·C(26, 13) y cabe en 32 bits.
+
+Las implementaciones base aceptadas [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go), [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java), [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 C++, Go y Rust usan enteros de 64 bits para el coeficiente; Java usa
 `long` y Python enteros exactos. Las sumas caben en enteros ordinarios.
@@ -123,10 +131,21 @@ lineal.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB |
-| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB |
-| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.109 s | 1232 KB |
-| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB |
-| [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB | 11292830 |
+| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) \* | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
+| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) \* | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.109 s | 1232 KB | 11292845 |
+| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) \* | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
+| [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB | 11292855 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
+| [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
