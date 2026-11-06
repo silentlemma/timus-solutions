@@ -72,7 +72,15 @@ Pitfalls:
 - N = 2 does not follow the general pattern (test 01);
 - the answer for N = 200 000 has 200 000 digits (test gen3).
 
+## Optimized solutions
+
+Go and Rust generate the decimal runs of the same formula directly. With h = floor(N/2), h = 0 gives 1 and h = 1 gives 10. Otherwise the answer is h−1 ones, a zero, h−2 eights and 90. Repeated digits are written in blocks of at most 1024 bytes, so auxiliary space stays constant.
+
+The accepted base implementations [1289_math.cpp](1289_math.cpp), [1289_math.java](1289_math.java), [1289_math.py](1289_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python: since 3.11 converting an integer of more than 4300 digits to
   text raises an error unless the limit is lifted, one more reason to
@@ -80,10 +88,21 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1289_math.cpp](1289_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 396 KB |
-| [1289_math.go](1289_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1688 KB |
-| [1289_math.java](1289_math.java) | Java 1.8 | math | O(N) | AC | 0.093 s | 1272 KB |
-| [1289_math.py](1289_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 648 KB |
-| [1289_math.rs](1289_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.001 s | 596 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1289_math.cpp](1289_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 396 KB | 11284549 |
+| [1289_math.go](1289_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1688 KB | 11284552 |
+| [1289_math.java](1289_math.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 1272 KB | 11284557 |
+| [1289_math.py](1289_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 648 KB | 11284553 |
+| [1289_math.rs](1289_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.001 s | 596 KB | 11284561 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1289_math_optimized.go](1289_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 904 KB | 11311103 |
+| [1289_math_optimized.rs](1289_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

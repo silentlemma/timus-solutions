@@ -72,7 +72,15 @@ Detalles a tener en cuenta:
 - N = 2 no sigue el patrón general (prueba 01);
 - la respuesta para N = 200 000 tiene 200 000 cifras (prueba gen3).
 
+## Soluciones optimizadas
+
+Go y Rust generan directamente las secuencias de cifras de la misma fórmula. Con h = floor(N/2), los casos h = 0 y h = 1 dan 1 y 10. En los demás casos se escriben h−1 unos, un cero, h−2 ochos y 90. Las cifras repetidas se escriben en bloques de hasta 1024 bytes, con espacio auxiliar constante.
+
+Las implementaciones base aceptadas [1289_math.cpp](1289_math.cpp), [1289_math.java](1289_math.java), [1289_math.py](1289_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python: desde la 3.11, convertir a texto un entero de más de 4300
   cifras da error si no se levanta el límite, otra razón para construir
@@ -80,10 +88,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1289_math.cpp](1289_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 396 KB |
-| [1289_math.go](1289_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1688 KB |
-| [1289_math.java](1289_math.java) | Java 1.8 | math | O(N) | AC | 0.093 s | 1272 KB |
-| [1289_math.py](1289_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 648 KB |
-| [1289_math.rs](1289_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.001 s | 596 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1289_math.cpp](1289_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 396 KB | 11284549 |
+| [1289_math.go](1289_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1688 KB | 11284552 |
+| [1289_math.java](1289_math.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 1272 KB | 11284557 |
+| [1289_math.py](1289_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 648 KB | 11284553 |
+| [1289_math.rs](1289_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.001 s | 596 KB | 11284561 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1289_math_optimized.go](1289_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 904 KB | 11311103 |
+| [1289_math_optimized.rs](1289_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11310566 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
