@@ -53,12 +53,29 @@ k(k − 1)/2 对旗帜中的每一对都需要一种共同颜色。至多出现�
 
 检查器检查数量、范围、每对旗的共同颜色以及“至多两面”的规则；一个独立的已通过实现在所有 n ≤ 300 上的答案都能通过它。
 
+## 优化解法
+
+Go 和 Rust 根据其他旗帜的编号直接生成当前旗帜。对 k 面旗帜中从零编号的 a < b，颜色为 a(2k−a−1)/2 + b−a。第一项统计此前的配对，第二项定位当前配对。同一颜色恰好出现在相应两面旗帜上，无需保存配对颜色矩阵。两个版本均使用固定字节缓冲区进行输入输出，不使用扫描器或字符串转换。
+
+已通过评测的基础实现 [1692_constructive.cpp](1692_constructive.cpp), [1692_constructive.java](1692_constructive.java), [1692_constructive.py](1692_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 232 KB |
-| [1692_constructive.go](1692_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 1152 KB |
-| [1692_constructive.java](1692_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1796 KB |
-| [1692_constructive.py](1692_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 464 KB |
-| [1692_constructive.rs](1692_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 232 KB | 11288948 |
+| [1692_constructive.go](1692_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 1152 KB | 11288949 |
+| [1692_constructive.java](1692_constructive.java) \* | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1796 KB | 11288952 |
+| [1692_constructive.py](1692_constructive.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 464 KB | 11288950 |
+| [1692_constructive.rs](1692_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 264 KB | 11288953 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1692_constructive_optimized.go](1692_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 780 KB | 11311145 |
+| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

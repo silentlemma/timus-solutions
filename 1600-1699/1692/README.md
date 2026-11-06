@@ -61,12 +61,29 @@ The checker checks the count, the ranges, the pairwise common colors
 and the at-most-two rule; the answers of an independent accepted
 implementation pass it for every n up to 300.
 
+## Optimized solutions
+
+Go and Rust generate each flag directly from the indices of the other flags. For a zero-based pair a < b among k flags, the colour is a(2k−a−1)/2 + b−a. The first term counts earlier pairs and the second locates this pair. Thus the same colour appears on exactly the two flags without storing a matrix of pair colours. Both versions use fixed byte buffers for input and output, without scanner or string conversion.
+
+The accepted base implementations [1692_constructive.cpp](1692_constructive.cpp), [1692_constructive.java](1692_constructive.java), [1692_constructive.py](1692_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 232 KB |
-| [1692_constructive.go](1692_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 1152 KB |
-| [1692_constructive.java](1692_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1796 KB |
-| [1692_constructive.py](1692_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 464 KB |
-| [1692_constructive.rs](1692_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 232 KB | 11288948 |
+| [1692_constructive.go](1692_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 1152 KB | 11288949 |
+| [1692_constructive.java](1692_constructive.java) \* | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1796 KB | 11288952 |
+| [1692_constructive.py](1692_constructive.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 464 KB | 11288950 |
+| [1692_constructive.rs](1692_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 264 KB | 11288953 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1692_constructive_optimized.go](1692_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 780 KB | 11311145 |
+| [1692_constructive_optimized.rs](1692_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 180 KB | 11311155 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
