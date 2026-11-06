@@ -101,16 +101,36 @@
 - 删除时丢失的可能是最后一个字符：末尾之后的位置也要尝试；
 - 对每个候选词重新构造并计算权重的暴力做法每个词需要 `O(N^2)`，总计可达 `4·10^9` 步。
 
+## 优化解法
+
+C++、Go 和 Rust 版本复用同一缓冲区逐个读取并原地修复码字。先求一次校验和对 N + 1 的余数。从右向左尝试位置时，每越过一个 1，修正后的余数就加一或减一，并在模的边界处回绕。因此只需比较和增减，无需反复做除法。找到修复位置后，最多移动一次后缀。时间与输入总长度成正比，工作空间为 O(N)。
+
+已通过评测的基础实现 [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 各语言都使用同样的线性扫描。Python 用字符串切片构造答案；每个词只需两次 `O(N)` 扫描，CPython 也足够快。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1007_math.cpp](1007_math.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 2420 KB |
-| [1007_math.go](1007_math.go) | Go 1.14 x64 | math | O(total length) | AC | 0.015 s | 3336 KB |
-| [1007_math.java](1007_math.java) | Java 1.8 | math | O(total length) | AC | 0.109 s | 13200 KB |
-| [1007_math.py](1007_math.py) | Python 3.12 x64 | math | O(total length) | AC | 0.281 s | 4516 KB |
-| [1007_math.rs](1007_math.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 3104 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1007_math.cpp](1007_math.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 2420 KB | 11277687 |
+| [1007_math.go](1007_math.go) | Go 1.14 x64 | math | O(total length) | AC | 0.015 s | 3336 KB | 11277693 |
+| [1007_math.java](1007_math.java) \* | Java 1.8 | math | O(total length) | AC | 0.109 s | 13200 KB | 11277697 |
+| [1007_math.py](1007_math.py) \* | Python 3.12 x64 | math | O(total length) | AC | 0.281 s | 4516 KB | 11277696 |
+| [1007_math.rs](1007_math.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 3104 KB | 11277700 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
+| [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
+| [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

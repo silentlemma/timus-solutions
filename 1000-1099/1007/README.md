@@ -113,17 +113,37 @@ Pitfalls:
 - a brute force that rebuilds and re-weighs every candidate word is
   `O(N^2)` per word, up to `4·10^9` steps in total.
 
+## Optimized solutions
+
+The C++, Go and Rust variants reuse one buffer for successive words and correct each word in place. Compute the checksum modulo N + 1 once. While testing positions from right to left, crossing a one changes the adjusted remainder by one, with wraparound at N + 1. This replaces repeated divisions with a comparison and an increment or decrement. After the correction is found, shift the affected suffix at most once. Time is linear in total input length and working memory is O(N).
+
+The accepted base implementations [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 The same linear pass everywhere. Python builds the answer with string slices;
 the work per word is two `O(N)` passes, fast enough for CPython.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1007_math.cpp](1007_math.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 2420 KB |
-| [1007_math.go](1007_math.go) | Go 1.14 x64 | math | O(total length) | AC | 0.015 s | 3336 KB |
-| [1007_math.java](1007_math.java) | Java 1.8 | math | O(total length) | AC | 0.109 s | 13200 KB |
-| [1007_math.py](1007_math.py) | Python 3.12 x64 | math | O(total length) | AC | 0.281 s | 4516 KB |
-| [1007_math.rs](1007_math.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 3104 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1007_math.cpp](1007_math.cpp) | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 2420 KB | 11277687 |
+| [1007_math.go](1007_math.go) | Go 1.14 x64 | math | O(total length) | AC | 0.015 s | 3336 KB | 11277693 |
+| [1007_math.java](1007_math.java) \* | Java 1.8 | math | O(total length) | AC | 0.109 s | 13200 KB | 11277697 |
+| [1007_math.py](1007_math.py) \* | Python 3.12 x64 | math | O(total length) | AC | 0.281 s | 4516 KB | 11277696 |
+| [1007_math.rs](1007_math.rs) | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 3104 KB | 11277700 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
+| [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
+| [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
