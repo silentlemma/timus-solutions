@@ -84,7 +84,15 @@ Las respuestas se compararon con recorrer cada racha desde cada celda
 en 1200 campos aleatorios de hasta doce celdas de lado y en los 530
 campos posibles de una a tres celdas de lado.
 
+## Soluciones optimizadas
+
+C++ usa SSE2 para actualizar ocho columnas a la vez en las rachas verticales y diagonales. La máscara de comparación conserva la longitud anterior donde coinciden las letras. Las rachas horizontales se recorren por separado. Go empaqueta longitud y letra en un entero de 16 bits y actualiza los tres vectores en el sitio, guardando el valor superior izquierdo para la siguiente columna. Ambas versiones usan O(N²) tiempo y O(N) espacio.
+
+Las implementaciones base aceptadas [1287_dp.java](1287_dp.java), [1287_dp.py](1287_dp.py), [1287_dp.rs](1287_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - C++, Go, Java y Rust guardan tres arreglos de rachas para cada una
   de dos filas y un contador para la racha horizontal. C++, Go y Java
@@ -101,10 +109,21 @@ campos posibles de una a tres celdas de lado.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1287_dp.cpp](1287_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.093 s | 232 KB |
-| [1287_dp.go](1287_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.109 s | 6276 KB |
-| [1287_dp.java](1287_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.171 s | 4624 KB |
-| [1287_dp.py](1287_dp.py) | Python 3.12 x64 | dp | O(N² log N) | AC | 0.406 s | 25392 KB |
-| [1287_dp.rs](1287_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 3160 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1287_dp.cpp](1287_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.093 s | 232 KB | 11284526 |
+| [1287_dp.go](1287_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.109 s | 6276 KB | 11284528 |
+| [1287_dp.java](1287_dp.java) \* | Java 1.8 | dp | O(N²) | AC | 0.171 s | 4624 KB | 11284535 |
+| [1287_dp.py](1287_dp.py) \* | Python 3.12 x64 | dp | O(N² log N) | AC | 0.406 s | 25392 KB | 11284533 |
+| [1287_dp.rs](1287_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 3160 KB | 11284536 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N²) | AC | 0.062 s | 124 KB | 11311205 |
+| [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

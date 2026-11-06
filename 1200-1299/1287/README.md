@@ -81,7 +81,15 @@ The answers were compared with walking every run from every cell on
 1,200 random fields of up to twelve cells a side and all 530 fields
 with sides from one to three cells.
 
+## Optimized solutions
+
+C++ uses SSE2 to update eight columns at a time for the vertical and diagonal runs. Comparing letters gives a mask that keeps the previous run only where the letters match. Horizontal runs are scanned separately. Go packs a run length and its letter into a 16-bit value and updates the three arrays in place, saving the old upper-left entry for the next column. Both take O(N²) time and O(N) space.
+
+The accepted base implementations [1287_dp.java](1287_dp.java), [1287_dp.py](1287_dp.py), [1287_dp.rs](1287_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - C++, Go, Java and Rust keep three run arrays for each of two rows
   and a scalar for the horizontal run. C++, Go and Java use `O(N)`
@@ -97,10 +105,21 @@ with sides from one to three cells.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1287_dp.cpp](1287_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.093 s | 232 KB |
-| [1287_dp.go](1287_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.109 s | 6276 KB |
-| [1287_dp.java](1287_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.171 s | 4624 KB |
-| [1287_dp.py](1287_dp.py) | Python 3.12 x64 | dp | O(N² log N) | AC | 0.406 s | 25392 KB |
-| [1287_dp.rs](1287_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 3160 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1287_dp.cpp](1287_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.093 s | 232 KB | 11284526 |
+| [1287_dp.go](1287_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.109 s | 6276 KB | 11284528 |
+| [1287_dp.java](1287_dp.java) \* | Java 1.8 | dp | O(N²) | AC | 0.171 s | 4624 KB | 11284535 |
+| [1287_dp.py](1287_dp.py) \* | Python 3.12 x64 | dp | O(N² log N) | AC | 0.406 s | 25392 KB | 11284533 |
+| [1287_dp.rs](1287_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 3160 KB | 11284536 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N²) | AC | 0.062 s | 124 KB | 11311205 |
+| [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
