@@ -74,12 +74,30 @@ Sandro_(USU) ML 3
 Ответы совпадают с независимой принятой реализацией на 600 случайных
 тестах.
 
+## Оптимизированные решения
+
+C++, Go и Rust отбрасывают неизменные вердикты, сортируют оставшиеся записи по автору и считают каждую группу один раз. Письмо обязательно, если хотя бы одна запись в группе требует его отправить. C++ хранит смещения имён в буфере, Rust берёт срезы из входа, а Go хранит каждое имя в поле из 30 байт.
+
+Принятые базовые реализации [1718_implementation.java](1718_implementation.java), [1718_implementation.py](1718_implementation.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1718_implementation.cpp](1718_implementation.cpp) | G++ 13.2 x64 | implementation | O(n log n) | AC | 0.015 s | 596 KB |
-| [1718_implementation.go](1718_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1344 KB |
-| [1718_implementation.java](1718_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 1140 KB |
-| [1718_implementation.py](1718_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 724 KB |
-| [1718_implementation.rs](1718_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 532 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1718_implementation.cpp](1718_implementation.cpp) | G++ 13.2 x64 | implementation | O(n log n) | AC | 0.015 s | 596 KB | 11289295 |
+| [1718_implementation.go](1718_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1344 KB | 11289298 |
+| [1718_implementation.java](1718_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 1140 KB | 11289301 |
+| [1718_implementation.py](1718_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 724 KB | 11289299 |
+| [1718_implementation.rs](1718_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 532 KB | 11289303 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1718_sorting.cpp](1718_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 204 KB | 11310341 |
+| [1718_sorting.rs](1718_sorting.rs) \* | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 360 KB | 11310402 |
+| [1718_sorting.go](1718_sorting.go) \* | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 916 KB | 11310848 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
