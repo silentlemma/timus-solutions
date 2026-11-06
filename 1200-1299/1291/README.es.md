@@ -78,17 +78,35 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una propagación directa de fracciones
 exactas en 40 bosques aleatorios.
 
+## Soluciones optimizadas
+
+Go procesa los engranajes al leerlos con unión de conjuntos y paridad del sentido de giro. Una entrada negativa de 16 bits guarda el tamaño del componente raíz; las demás empaquetan el padre y un bit de sentido relativo. La compresión de caminos y unión por tamaño evitan listas de adyacencia. Dentro del componente impulsado las velocidades de los dientes tienen igual magnitud, así que cada velocidad angular es ±speed·teeth[driven]/teeth[gear], reducida con el máximo común divisor. Los otros componentes quedan inmóviles. Usa búferes fijos de bytes. El envío aceptado usa 800 KB frente a 1192 KB del BFS, un 32,9% menos; ambos tardan 0,015 s. Se conservan las versiones sencillas con búsqueda en anchura.
+
+Las implementaciones base aceptadas [1291_bfs.cpp](1291_bfs.cpp), [1291_bfs.java](1291_bfs.java), [1291_bfs.py](1291_bfs.py), [1291_bfs.rs](1291_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - La búsqueda usa una cola explícita, así que un camino de 1000
   engranajes no necesita recursión profunda.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1291_bfs.cpp](1291_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + L) | AC | 0.015 s | 248 KB |
-| [1291_bfs.go](1291_bfs.go) | Go 1.14 x64 | bfs | O(N + L) | AC | 0.015 s | 1192 KB |
-| [1291_bfs.java](1291_bfs.java) | Java 1.8 | bfs | O(N + L) | AC | 0.078 s | 784 KB |
-| [1291_bfs.py](1291_bfs.py) | Python 3.12 x64 | bfs | O(N + L) | AC | 0.078 s | 988 KB |
-| [1291_bfs.rs](1291_bfs.rs) | Rust 1.75 x64 | bfs | O(N + L) | AC | 0.015 s | 264 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1291_bfs.cpp](1291_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + L) | AC | 0.015 s | 248 KB | 11284578 |
+| [1291_bfs.go](1291_bfs.go) | Go 1.14 x64 | bfs | O(N + L) | AC | 0.015 s | 1192 KB | 11284580 |
+| [1291_bfs.java](1291_bfs.java) | Java 1.8 | bfs | O(N + L) | AC | 0.078 s | 784 KB | 11284584 |
+| [1291_bfs.py](1291_bfs.py) \* | Python 3.12 x64 | bfs | O(N + L) | AC | 0.078 s | 988 KB | 11284582 |
+| [1291_bfs.rs](1291_bfs.rs) | Rust 1.75 x64 | bfs | O(N + L) | AC | 0.015 s | 264 KB | 11284587 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1291_dsu.go](1291_dsu.go) | Go 1.14 x64 | dsu | O((N + L) α(N)) | AC | 0.015 s | 800 KB | 11310858 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

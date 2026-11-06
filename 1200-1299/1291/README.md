@@ -76,17 +76,35 @@ Pitfalls:
 The answers were compared with a direct propagation of exact fractions
 on 40 random forests.
 
+## Optimized solutions
+
+Go processes mesh links as they arrive with a disjoint-set union structure carrying direction parity. A negative 16-bit entry stores a root component size; other entries pack the parent index and relative direction bit. Path compression and union by size avoid storing adjacency lists. In the driven component every gear has the same signed rim speed up to parity, so its angular speed is ±speed·teeth[driven]/teeth[gear], reduced by gcd. Other components stay still. Fixed byte buffers handle input and output. The Accepted run uses 800 KB versus 1192 KB for BFS, a 32.9% reduction; both take 0.015 s. The simple breadth-first versions remain.
+
+The accepted base implementations [1291_bfs.cpp](1291_bfs.cpp), [1291_bfs.java](1291_bfs.java), [1291_bfs.py](1291_bfs.py), [1291_bfs.rs](1291_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - The search uses an explicit queue, so a path of 1000 gears needs no
   deep recursion.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1291_bfs.cpp](1291_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + L) | AC | 0.015 s | 248 KB |
-| [1291_bfs.go](1291_bfs.go) | Go 1.14 x64 | bfs | O(N + L) | AC | 0.015 s | 1192 KB |
-| [1291_bfs.java](1291_bfs.java) | Java 1.8 | bfs | O(N + L) | AC | 0.078 s | 784 KB |
-| [1291_bfs.py](1291_bfs.py) | Python 3.12 x64 | bfs | O(N + L) | AC | 0.078 s | 988 KB |
-| [1291_bfs.rs](1291_bfs.rs) | Rust 1.75 x64 | bfs | O(N + L) | AC | 0.015 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1291_bfs.cpp](1291_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + L) | AC | 0.015 s | 248 KB | 11284578 |
+| [1291_bfs.go](1291_bfs.go) | Go 1.14 x64 | bfs | O(N + L) | AC | 0.015 s | 1192 KB | 11284580 |
+| [1291_bfs.java](1291_bfs.java) | Java 1.8 | bfs | O(N + L) | AC | 0.078 s | 784 KB | 11284584 |
+| [1291_bfs.py](1291_bfs.py) \* | Python 3.12 x64 | bfs | O(N + L) | AC | 0.078 s | 988 KB | 11284582 |
+| [1291_bfs.rs](1291_bfs.rs) | Rust 1.75 x64 | bfs | O(N + L) | AC | 0.015 s | 264 KB | 11284587 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1291_dsu.go](1291_dsu.go) | Go 1.14 x64 | dsu | O((N + L) α(N)) | AC | 0.015 s | 800 KB | 11310858 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
