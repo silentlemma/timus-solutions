@@ -74,17 +74,39 @@
 
 另一种做法是容斥原理给出的显式公式 `W = Σ (−1)^k C(N, k) C(S/2 − 10k + N − 1, N − 1)`；测试用它核对过。
 
+## 优化解法
+
+三个版本都将每个数字补到 9，把目标和换成两个互补和中较小的一个。C++ 和 Rust 保留两行动态规划，每格用六个以 10⁹ 为基数的数位块表示。滑动窗口加入新项并移除旧项，每格只需一次加法和最多一次减法。Go 使用上面的容斥公式，并复用大整数。最后都将一半的方案数平方。通过评测的 C++、Go 和 Rust 版本分别使用了 116 KB、1204 KB 和 220 KB。
+
+Rust 1.75 x64 的实测时间从 0.015 秒增至 0.046 秒。
+
+已通过评测的基础实现 [1036_dp.java](1036_dp.java), [1036_dp.py](1036_dp.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - **C++**、**Rust**：一个以 `10^9` 为基数、支持加法和乘法的小型高精度类型。
 - **Go**：`math/big`；**Java**：`BigInteger`；**Python**：内置整数。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1036_dp.cpp](1036_dp.cpp) | G++ 13.2 x64 | dp | O(N·S) big additions | AC | 0.031 s | 280 KB |
-| [1036_dp.go](1036_dp.go) | Go 1.14 x64 | dp | O(N·S) big additions | AC | 0.015 s | 2728 KB |
-| [1036_dp.java](1036_dp.java) | Java 1.8 | dp | O(N·S) big additions | AC | 0.140 s | 5728 KB |
-| [1036_dp.py](1036_dp.py) | Python 3.12 x64 | dp | O(N·S) big additions | AC | 0.093 s | 512 KB |
-| [1036_dp.rs](1036_dp.rs) | Rust 1.75 x64 | dp | O(N·S) big additions | AC | 0.015 s | 336 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1036_dp.cpp](1036_dp.cpp) | G++ 13.2 x64 | dp | O(N·S) big additions | AC | 0.031 s | 280 KB | 11278472 |
+| [1036_dp.go](1036_dp.go) | Go 1.14 x64 | dp | O(N·S) big additions | AC | 0.015 s | 2728 KB | 11278473 |
+| [1036_dp.java](1036_dp.java) \* | Java 1.8 | dp | O(N·S) big additions | AC | 0.140 s | 5728 KB | 11278476 |
+| [1036_dp.py](1036_dp.py) \* | Python 3.12 x64 | dp | O(N·S) big additions | AC | 0.093 s | 512 KB | 11278474 |
+| [1036_dp.rs](1036_dp.rs) | Rust 1.75 x64 | dp | O(N·S) big additions | AC | 0.015 s | 336 KB | 11278477 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
+| [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
+| [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

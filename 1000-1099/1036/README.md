@@ -84,7 +84,17 @@ An alternative is the closed form by inclusion–exclusion,
 `W = Σ (−1)^k C(N, k) C(S/2 − 10k + N − 1, N − 1)`; the tests were checked
 with it.
 
+## Optimized solutions
+
+All three variants use digit complementation to replace the target sum by the smaller of the two complementary sums. C++ and Rust keep two DP rows with six base-10⁹ limbs per entry. A sliding window adds the new term and subtracts the outgoing one, so each entry needs only one addition and at most one subtraction. Go uses the inclusion–exclusion formula above with reusable big integers. Each variant squares the count of one half. The Accepted runs used 116 KB in C++, 1204 KB in Go and 220 KB in Rust.
+
+Measured time for Rust 1.75 x64 increases from 0.015 to 0.046 s.
+
+The accepted base implementations [1036_dp.java](1036_dp.java), [1036_dp.py](1036_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - **C++**, **Rust**: a small big-integer type in base `10^9` with addition
   and multiplication.
@@ -93,10 +103,22 @@ with it.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1036_dp.cpp](1036_dp.cpp) | G++ 13.2 x64 | dp | O(N·S) big additions | AC | 0.031 s | 280 KB |
-| [1036_dp.go](1036_dp.go) | Go 1.14 x64 | dp | O(N·S) big additions | AC | 0.015 s | 2728 KB |
-| [1036_dp.java](1036_dp.java) | Java 1.8 | dp | O(N·S) big additions | AC | 0.140 s | 5728 KB |
-| [1036_dp.py](1036_dp.py) | Python 3.12 x64 | dp | O(N·S) big additions | AC | 0.093 s | 512 KB |
-| [1036_dp.rs](1036_dp.rs) | Rust 1.75 x64 | dp | O(N·S) big additions | AC | 0.015 s | 336 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1036_dp.cpp](1036_dp.cpp) | G++ 13.2 x64 | dp | O(N·S) big additions | AC | 0.031 s | 280 KB | 11278472 |
+| [1036_dp.go](1036_dp.go) | Go 1.14 x64 | dp | O(N·S) big additions | AC | 0.015 s | 2728 KB | 11278473 |
+| [1036_dp.java](1036_dp.java) \* | Java 1.8 | dp | O(N·S) big additions | AC | 0.140 s | 5728 KB | 11278476 |
+| [1036_dp.py](1036_dp.py) \* | Python 3.12 x64 | dp | O(N·S) big additions | AC | 0.093 s | 512 KB | 11278474 |
+| [1036_dp.rs](1036_dp.rs) | Rust 1.75 x64 | dp | O(N·S) big additions | AC | 0.015 s | 336 KB | 11278477 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
+| [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
+| [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
