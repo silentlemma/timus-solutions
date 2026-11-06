@@ -124,7 +124,15 @@ Detalles a tener en cuenta:
   bajo de todos;
 - un vecino se escribe una sola vez, por el píxel que lo descubre primero.
 
+## Soluciones optimizadas
+
+C++, Go y Rust codifican cada píxel con un índice en un mapa plano de 12 × 12 con borde de ceros y usan una cola de índices de un byte. Al codificar, borran la marca al encolarlo para descubrirlo una sola vez. Al decodificar, marcan los píxeles y recorren el mapa en orden de coordenadas, sin ordenación adicional. S = 10 es el lado y P ≤ 100 el número de píxeles negros. Go lee la cabecera y los tokens de forma incremental con un búfer fijo de bytes y escribe las cifras decimales directamente. Accede directamente a los descriptores estándar, reintenta llamadas interrumpidas y completa las escrituras parciales.
+
+Las implementaciones base aceptadas [1008_bfs.java](1008_bfs.java), [1008_bfs.py](1008_bfs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 El mismo BFS en todos los lenguajes. La versión en Java, al reproducir la
 descripción, rellena una cuadrícula y la imprime columna a columna, lo que da
@@ -132,10 +140,22 @@ el orden correcto sin ordenar.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1008_bfs.cpp](1008_bfs.cpp) | G++ 13.2 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.015 s | 380 KB |
-| [1008_bfs.go](1008_bfs.go) | Go 1.14 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.015 s | 1112 KB |
-| [1008_bfs.java](1008_bfs.java) | Java 1.8 | bfs | O(P + W·H) | AC | 0.093 s | 536 KB |
-| [1008_bfs.py](1008_bfs.py) | Python 3.12 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.078 s | 624 KB |
-| [1008_bfs.rs](1008_bfs.rs) | Rust 1.75 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.046 s | 252 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1008_bfs.cpp](1008_bfs.cpp) | G++ 13.2 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.015 s | 380 KB | 11277704 |
+| [1008_bfs.go](1008_bfs.go) | Go 1.14 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.015 s | 1112 KB | 11277706 |
+| [1008_bfs.java](1008_bfs.java) | Java 1.8 | bfs | O(P + W·H) | AC | 0.093 s | 536 KB | 11277711 |
+| [1008_bfs.py](1008_bfs.py) \* | Python 3.12 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.078 s | 624 KB | 11277709 |
+| [1008_bfs.rs](1008_bfs.rs) | Rust 1.75 x64 | bfs | O(P log P), P ≤ 100 pixels | AC | 0.046 s | 252 KB | 11277716 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1008_bfs_optimized.cpp](1008_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 124 KB | 11311046 |
+| [1008_bfs_optimized.go](1008_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 320 KB | 11311215 |
+| [1008_bfs_optimized.rs](1008_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(P + S²), S = 10 | AC | 0.015 s | 192 KB | 11310787 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
