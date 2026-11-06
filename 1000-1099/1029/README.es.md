@@ -103,18 +103,37 @@ Detalles a tener en cuenta:
 - la garantía de llegar por `10^9` mantiene las sumas intermedias en 32 bits
   con signo; estas soluciones usan enteros más amplios.
 
+## Soluciones optimizadas
+
+Las versiones en C++ y Rust hacen las mismas tres pasadas por planta. La fila de costes se actualiza en el sitio y las tarifas de la planta actual se reutilizan en ambas pasadas horizontales. Cada oficina guarda en un byte la dirección de su predecesora. Desde la oficina más barata de la última planta se siguen las direcciones hacia atrás y se imprimen los números en orden inverso. El tiempo sigue siendo O(M·N).
+
+Las implementaciones base aceptadas [1029_dp.go](1029_dp.go), [1029_dp.java](1029_dp.java), [1029_dp.py](1029_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - **C++**, **Go**, **Python**, **Java**, **Rust**: la programación dinámica.
 - **C++** tiene además Dijkstra sobre la cuadrícula.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1029_dijkstra.cpp](1029_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(M·N log(M·N)) | AC | 0.046 s | 1156 KB |
-| [1029_dp.cpp](1029_dp.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.046 s | 1160 KB |
-| [1029_dp.go](1029_dp.go) | Go 1.14 x64 | dp | O(M·N) | AC | 0.046 s | 4596 KB |
-| [1029_dp.java](1029_dp.java) | Java 1.8 | dp | O(M·N) | AC | 0.125 s | 3564 KB |
-| [1029_dp.py](1029_dp.py) | Python 3.12 x64 | dp | O(M·N) | AC | 0.140 s | 6036 KB |
-| [1029_dp.rs](1029_dp.rs) | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 2628 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1029_dijkstra.cpp](1029_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(M·N log(M·N)) | AC | 0.046 s | 1156 KB | 11278329 |
+| [1029_dp.cpp](1029_dp.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.046 s | 1160 KB | 11278328 |
+| [1029_dp.go](1029_dp.go) \* | Go 1.14 x64 | dp | O(M·N) | AC | 0.046 s | 4596 KB | 11278330 |
+| [1029_dp.java](1029_dp.java) \* | Java 1.8 | dp | O(M·N) | AC | 0.125 s | 3564 KB | 11278333 |
+| [1029_dp.py](1029_dp.py) \* | Python 3.12 x64 | dp | O(M·N) | AC | 0.140 s | 6036 KB | 11278331 |
+| [1029_dp.rs](1029_dp.rs) | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 2628 KB | 11278336 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1029_dp_optimized.cpp](1029_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(M·N) | AC | 0.046 s | 240 KB | 11310383 |
+| [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
