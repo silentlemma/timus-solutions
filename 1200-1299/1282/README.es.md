@@ -119,17 +119,35 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con un minimax recursivo sencillo en 149
 árboles generados.
 
+## Soluciones optimizadas
+
+Go evalúa el árbol desde las hojas y guarda un resultado para cada jugador al turno. El resultado del hijo para el segundo jugador aporta al máximo del padre y el del primero a su mínimo. Un nodo queda listo al terminar su último hijo. Entonces su contador de hijos se reutiliza como enlace de la pila de nodos listos, evitando otra pila o listas de adyacencia.
+
+Las implementaciones base aceptadas [1282_games.cpp](1282_games.cpp), [1282_games.java](1282_games.java), [1282_games.py](1282_games.py), [1282_games.rs](1282_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes recorren al revés el mismo orden en anchura.
 - Java quita el signo más antes de leer un resultado.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1282_games.cpp](1282_games.cpp) | G++ 13.2 x64 | games | O(N) | AC | 0.015 s | 240 KB |
-| [1282_games.go](1282_games.go) | Go 1.14 x64 | games | O(N) | AC | 0.031 s | 1208 KB |
-| [1282_games.java](1282_games.java) | Java 1.8 | games | O(N) | AC | 0.140 s | 1656 KB |
-| [1282_games.py](1282_games.py) | Python 3.12 x64 | games | O(N) | AC | 0.093 s | 780 KB |
-| [1282_games.rs](1282_games.rs) | Rust 1.75 x64 | games | O(N) | AC | 0.015 s | 284 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1282_games.cpp](1282_games.cpp) | G++ 13.2 x64 | games | O(N) | AC | 0.015 s | 240 KB | 11284458 |
+| [1282_games.go](1282_games.go) | Go 1.14 x64 | games | O(N) | AC | 0.031 s | 1208 KB | 11284463 |
+| [1282_games.java](1282_games.java) \* | Java 1.8 | games | O(N) | AC | 0.140 s | 1656 KB | 11284474 |
+| [1282_games.py](1282_games.py) \* | Python 3.12 x64 | games | O(N) | AC | 0.093 s | 780 KB | 11284470 |
+| [1282_games.rs](1282_games.rs) | Rust 1.75 x64 | games | O(N) | AC | 0.015 s | 284 KB | 11284475 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
