@@ -88,21 +88,38 @@ fractions: the four corners are built explicitly, containment is tested
 by cross products, and the distance is the least distance to the four
 sides as segments. Hundreds of random sets, many with ties, agreed.
 
+## Optimized solutions
+
+C++, Go and Rust preserve exact squared-distance fractions and sort by cross multiplication, breaking ties by input index. Comparison products reuse their backing buffers. C++ and Rust also parse the unrestricted query coordinates directly in groups of nine decimal digits, matching their base-10⁹ limbs. Go stores signed arbitrary-precision integers in 30-bit limbs, parses query coordinates directly from bytes and merges the sorted indices. Its arithmetic and comparison buffers are reused. Rust parses byte tokens, stores square coordinates and indices in fixed arrays and writes the result through one fixed byte buffer. Rust reads and writes through the C runtime.
+
+The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 800 KB versus 1288 KB.
+
+The accepted base implementations [1111_geometry.java](1111_geometry.java), [1111_geometry.py](1111_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- C++ and Rust use small signed limb-based integer implementations;
-  Go uses `math/big.Int`, Java uses `BigInteger`, and Python uses its own
-  integers with the decimal-input digit limit disabled. All use the same
-  projection formula and compare exact fractions, then input indices.
-- Go uses `sort.Slice` with an explicit index tie-break, avoiding the
-  extra swaps of `sort.SliceStable`.
+- The simple C++ and Rust versions use their own signed limb arithmetic. The simple Go version uses `math/big.Int` and `sort.Slice` with an explicit index tie-break.
+- The optimized Go version uses 30-bit limbs, reads coordinates directly from bytes and merges indices with reusable comparison products.
+- Java uses `BigInteger`; Python uses its own integers with the decimal-input digit limit disabled. All versions compare exact squared-distance fractions and then input indices.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 444 KB |
-| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1288 KB |
-| [1111_geometry.java](1111_geometry.java) | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.156 s | 3956 KB |
-| [1111_geometry.py](1111_geometry.py) | Python 3.12 x64 | geometry | O(n L² + n log n L) | AC | 0.078 s | 624 KB |
-| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 444 KB | 11298020 |
+| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1288 KB | 11298022 |
+| [1111_geometry.java](1111_geometry.java) \* | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.156 s | 3956 KB | 11298023 |
+| [1111_geometry.py](1111_geometry.py) \* | Python 3.12 x64 | geometry | O(n L² + n log n L) | AC | 0.078 s | 624 KB | 11298025 |
+| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 240 KB | 11298026 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1111_geometry_optimized.cpp](1111_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 208 KB | 11310910 |
+| [1111_geometry_optimized.go](1111_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 800 KB | 11311126 |
+| [1111_geometry_optimized.rs](1111_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 80 KB | 11311247 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
