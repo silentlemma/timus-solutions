@@ -59,12 +59,29 @@ Pitfalls:
 - the subtraction needs the line of i − K − 2 words even when that is
   −1 words, the case of K + 1 lemons in a row (test 01, gen3).
 
+## Optimized solutions
+
+The Go and Rust versions use the same recurrence with a circular history. Once a count has been subtracted, its slot can be reused. Only counts that will be needed before position N enter the history, so it has at most min(K + 2, N − K) slots. Go updates a big integer in place. Rust stores each limb in 32 bits and reuses two buffers for consecutive counts. The Accepted Go run used 5652 KB instead of 9884 KB and took 0.031 s instead of 0.062 s. Rust used 2564 KB instead of 15176 KB and took 0.031 s in both versions.
+
+The accepted base implementations [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1513_dp.java), [1513_dp.py](1513_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1513_dp.cpp](1513_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.046 s | 14844 KB |
-| [1513_dp.go](1513_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.062 s | 9884 KB |
-| [1513_dp.java](1513_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 12788 KB |
-| [1513_dp.py](1513_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 8152 KB |
-| [1513_dp.rs](1513_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 15176 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1513_dp.cpp](1513_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.046 s | 14844 KB | 11287323 |
+| [1513_dp.go](1513_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.062 s | 9884 KB | 11287324 |
+| [1513_dp.java](1513_dp.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 12788 KB | 11287326 |
+| [1513_dp.py](1513_dp.py) \* | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 8152 KB | 11287325 |
+| [1513_dp.rs](1513_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 15176 KB | 11287327 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1513_dp_optimized.go](1513_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 5652 KB | 11310357 |
+| [1513_dp_optimized.rs](1513_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 2564 KB | 11310364 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
