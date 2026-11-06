@@ -71,12 +71,28 @@ con dos decimales.
 En el primer ejemplo S = 21000, así que declarar cuesta 10500 más y el
 efectivo 10000 más: Cash, por 500.
 
+## Soluciones optimizadas
+
+Rust compara 100b con el recargo entero p·k·(2c+d(k+1))/2. La diferencia absoluta ya representa el ahorro en centésimas y se imprime como parte entera y dos cifras decimales. Un empate elige Insurance. Los cálculos usan enteros de 64 bits y no necesitan formatear números en coma flotante. Los búferes fijos de bytes guardan la entrada y la respuesta completa. Rust lee y escribe mediante la biblioteca de ejecución de C.
+
+Las implementaciones base aceptadas [2098_math.cpp](2098_math.cpp), [2098_math.go](2098_math.go), [2098_math.java](2098_math.java), [2098_math.py](2098_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2098_math.cpp](2098_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 136 KB |
-| [2098_math.go](2098_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB |
-| [2098_math.java](2098_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1744 KB |
-| [2098_math.py](2098_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB |
-| [2098_math.rs](2098_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2098_math.cpp](2098_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 136 KB | 11294670 |
+| [2098_math.go](2098_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
+| [2098_math.java](2098_math.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 1744 KB | 11294675 |
+| [2098_math.py](2098_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
+| [2098_math.rs](2098_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB | 11294676 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2098_math_optimized.rs](2098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11311232 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
