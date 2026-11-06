@@ -114,7 +114,15 @@ Trampas:
 - No confundir equilibrio por tipos con existencia de una solución sin cruces.
 - Emitir las parejas en orden de mayúsculas y escribir exactamente `Impossible`.
 
+## Soluciones optimizadas
+
+C++ y Go usan la misma regla de cancelación con pila, con vectores separados para letras e índices de 16 bits. C++ lee letra por letra. Go reutiliza la parte ya procesada del búfer de entrada como pila de letras. Una inserción no escribe más allá de la posición actual, de modo que las letras aún sin leer quedan intactas.
+
+Las implementaciones base aceptadas [2019_greedy.java](2019_greedy.java), [2019_greedy.py](2019_greedy.py), [2019_greedy.rs](2019_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Se usan bytes o caracteres ASCII; los dos casos de una letra difieren en el
 bit 32. C++ y Go usan estructuras de extremos, Rust y Python usan pares,
@@ -123,10 +131,21 @@ los índices caben en enteros ordinarios.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2019_greedy.cpp](2019_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 468 KB |
-| [2019_greedy.go](2019_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1412 KB |
-| [2019_greedy.java](2019_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.140 s | 912 KB |
-| [2019_greedy.py](2019_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 1200 KB |
-| [2019_greedy.rs](2019_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 396 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2019_greedy.cpp](2019_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 468 KB | 11292657 |
+| [2019_greedy.go](2019_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1412 KB | 11292663 |
+| [2019_greedy.java](2019_greedy.java) \* | Java 1.8 | greedy | O(n) | AC | 0.140 s | 912 KB | 11292672 |
+| [2019_greedy.py](2019_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 1200 KB | 11292667 |
+| [2019_greedy.rs](2019_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 396 KB | 11292677 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
+| [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
