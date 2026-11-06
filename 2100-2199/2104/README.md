@@ -92,12 +92,32 @@ at most 2ᵏ strips of length n / 2ᵏ, so the work is O(n log n).
 In the first example both folds of Alice leave strips that Bob folds
 into B/B, so Bob wins.
 
+## Optimized solutions
+
+The C++, Go and Rust variants represent a face by a slice of the original strip and a reversal flag. A fold takes two subslices and flips the orientation of one. The exposed halves together contain exactly the cells of the chosen face, so a single scan of that face detects a uniform color. The minimax still takes O(n log n) time and uses only O(log n) stack space beyond the input.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 1 152 KB versus 2132 KB.
+
+The accepted base implementations [2104_games.java](2104_games.java), [2104_games.py](2104_games.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB |
-| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB |
-| [2104_games.java](2104_games.java) | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB |
-| [2104_games.py](2104_games.py) | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB |
-| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB | 11294756 |
+| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB | 11294757 |
+| [2104_games.java](2104_games.java) \* | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB | 11294763 |
+| [2104_games.py](2104_games.py) \* | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB | 11294760 |
+| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB | 11294764 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
+| [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
+| [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

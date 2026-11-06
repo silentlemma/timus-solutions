@@ -95,12 +95,32 @@ es O(n log n).
 En el primer ejemplo los dos dobleces de Alice dejan tiras que Bob dobla
 en B/B, así que gana Bob.
 
+## Soluciones optimizadas
+
+C++, Go y Rust representan cada cara mediante un tramo de la tira original y un indicador de inversión. Al doblar toman dos subtramos e invierten la orientación de uno. Las dos mitades expuestas contienen justo las celdas de la cara elegida, así que basta recorrer esa cara para comprobar si tiene un color uniforme. El minimax sigue usando O(n log n) tiempo y O(log n) de pila además de la entrada.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y usa 1 152 KB frente a 2132 KB.
+
+Las implementaciones base aceptadas [2104_games.java](2104_games.java), [2104_games.py](2104_games.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB |
-| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB |
-| [2104_games.java](2104_games.java) | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB |
-| [2104_games.py](2104_games.py) | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB |
-| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB | 11294756 |
+| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB | 11294757 |
+| [2104_games.java](2104_games.java) \* | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB | 11294763 |
+| [2104_games.py](2104_games.py) \* | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB | 11294760 |
+| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB | 11294764 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
+| [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
+| [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

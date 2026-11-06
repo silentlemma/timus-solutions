@@ -76,12 +76,32 @@ Alice
 
 第一个样例中 Alice 的两种折法留下的纸条 Bob 都能折成 B/B，所以 Bob 获胜。
 
+## 优化解法
+
+C++、Go 和 Rust 用原纸条的切片与反向标志表示一面。折叠时取两个子切片并翻转其中一个的方向。两个外露半面恰好包含所选面上的所有格子，所以扫描该面一次即可检查是否同色。极小极大搜索仍需 O(n log n) 时间，输入之外只需 O(log n) 栈空间。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.015 秒，内存为 1 152 KB，基础版为 2132 KB。
+
+已通过评测的基础实现 [2104_games.java](2104_games.java), [2104_games.py](2104_games.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB |
-| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB |
-| [2104_games.java](2104_games.java) | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB |
-| [2104_games.py](2104_games.py) | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB |
-| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB | 11294756 |
+| [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB | 11294757 |
+| [2104_games.java](2104_games.java) \* | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB | 11294763 |
+| [2104_games.py](2104_games.py) \* | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB | 11294760 |
+| [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB | 11294764 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
+| [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
+| [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
