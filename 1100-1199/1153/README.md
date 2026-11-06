@@ -65,7 +65,15 @@ Pitfalls:
 The answers were checked on every test by computing `N(N + 1)/2` back
 with Python integers.
 
+## Optimized solutions
+
+Both versions invert the same identity 8S + 1 = (2N + 1)² with an exact integer square root. Go uses fixed decimal arrays and brings down pairs of digits. For the root prefix r, it chooses the largest digit x with (20r + x)x at most the remainder, subtracts that contribution and appends x. It then subtracts one and halves the root. This takes O(L²) time and O(L) space, without general-purpose big integers or temporary strings. Python starts above the root at a power of two and applies integer Newton steps until they stop decreasing. With L input digits, O(L² log(L+1)) is a conservative bound using quadratic division.
+
+The accepted base implementations [1153_math.cpp](1153_math.cpp), [1153_math.java](1153_math.java), [1153_math.rs](1153_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python uses `math.isqrt` on its built-in integers and Go uses
   `big.Int.Sqrt`.
@@ -76,10 +84,21 @@ with Python integers.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1153_math.cpp](1153_math.cpp) | G++ 13.2 x64 | math | O(L²) | AC | 0.015 s | 504 KB |
-| [1153_math.go](1153_math.go) | Go 1.14 x64 | math | O(L²) | AC | 0.031 s | 1212 KB |
-| [1153_math.java](1153_math.java) | Java 1.8 | math | O(L²) | AC | 0.140 s | 1676 KB |
-| [1153_math.py](1153_math.py) | Python 3.12 x64 | math | O(L²) | AC | 0.093 s | 480 KB |
-| [1153_math.rs](1153_math.rs) | Rust 1.75 x64 | math | O(L²) | AC | 0.046 s | 456 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1153_math.cpp](1153_math.cpp) | G++ 13.2 x64 | math | O(L²) | AC | 0.015 s | 504 KB | 11280703 |
+| [1153_math.go](1153_math.go) | Go 1.14 x64 | math | O(L²) | AC | 0.031 s | 1212 KB | 11280739 |
+| [1153_math.java](1153_math.java) \* | Java 1.8 | math | O(L²) | AC | 0.140 s | 1676 KB | 11280808 |
+| [1153_math.py](1153_math.py) | Python 3.12 x64 | math | O(L²) | AC | 0.093 s | 480 KB | 11280773 |
+| [1153_math.rs](1153_math.rs) \* | Rust 1.75 x64 | math | O(L²) | AC | 0.046 s | 456 KB | 11280829 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1153_math_greedy.go](1153_math_greedy.go) \* | Go 1.14 x64 | math, greedy | O(L²) | AC | 0.031 s | 800 KB | 11311117 |
+| [1153_math_optimized.py](1153_math_optimized.py) \* | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
