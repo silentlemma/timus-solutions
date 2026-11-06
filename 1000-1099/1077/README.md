@@ -82,7 +82,17 @@ Pitfalls:
 The checker computes `M − N + C` with a disjoint-set union and checks
 every tour independently of the solutions.
 
+## Optimized solutions
+
+Go and Rust store roads in a byte matrix, marking forest edges during breadth-first search. Each remaining road closes one fundamental cycle with its tree path. Two reusable arrays collect the endpoints' paths to their common ancestor, and each cycle is written immediately through buffered output. Matrix scans take O(N²) time, plus the output size.
+
+The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 984 KB versus 2400 KB.
+
+The accepted base implementations [1077_bfs.cpp](1077_bfs.cpp), [1077_bfs.java](1077_bfs.java), [1077_bfs.py](1077_bfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python reads all numbers at once and pairs them with slices;
   `zip(rest[0::2], rest[1::2])` gives the roads.
@@ -91,10 +101,21 @@ every tour independently of the solutions.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1077_bfs.cpp](1077_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M + output) | AC | 0.015 s | 304 KB |
-| [1077_bfs.go](1077_bfs.go) | Go 1.14 x64 | bfs | O(N + M + output) | AC | 0.015 s | 2400 KB |
-| [1077_bfs.java](1077_bfs.java) | Java 1.8 | bfs | O(N + M + output) | AC | 0.140 s | 2716 KB |
-| [1077_bfs.py](1077_bfs.py) | Python 3.12 x64 | bfs | O(N + M + output) | AC | 0.109 s | 2524 KB |
-| [1077_bfs.rs](1077_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M + output) | AC | 0.031 s | 804 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1077_bfs.cpp](1077_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M + output) | AC | 0.015 s | 304 KB | 11278981 |
+| [1077_bfs.go](1077_bfs.go) | Go 1.14 x64 | bfs | O(N + M + output) | AC | 0.015 s | 2400 KB | 11278982 |
+| [1077_bfs.java](1077_bfs.java) | Java 1.8 | bfs | O(N + M + output) | AC | 0.140 s | 2716 KB | 11278984 |
+| [1077_bfs.py](1077_bfs.py) \* | Python 3.12 x64 | bfs | O(N + M + output) | AC | 0.109 s | 2524 KB | 11278983 |
+| [1077_bfs.rs](1077_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M + output) | AC | 0.031 s | 804 KB | 11278986 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

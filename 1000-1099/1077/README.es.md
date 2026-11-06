@@ -87,7 +87,17 @@ Detalles a tener en cuenta:
 El comprobador calcula `M − N + C` con conjuntos disjuntos y comprueba
 cada recorrido de forma independiente de las soluciones.
 
+## Soluciones optimizadas
+
+Go y Rust guardan las carreteras en una matriz de bytes y marcan las aristas del bosque durante la búsqueda en anchura. Cada carretera restante cierra un ciclo fundamental con su camino en el árbol. Dos vectores reutilizables recogen los caminos hasta el antepasado común y cada ciclo se escribe inmediatamente con salida almacenada en búfer. Los recorridos de la matriz cuestan O(N²), más el tamaño de la salida.
+
+El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y usa 984 KB frente a 2400 KB.
+
+Las implementaciones base aceptadas [1077_bfs.cpp](1077_bfs.cpp), [1077_bfs.java](1077_bfs.java), [1077_bfs.py](1077_bfs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python lee todos los números de una vez y los empareja con cortes:
   `zip(rest[0::2], rest[1::2])` da las carreteras.
@@ -96,10 +106,21 @@ cada recorrido de forma independiente de las soluciones.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1077_bfs.cpp](1077_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M + output) | AC | 0.015 s | 304 KB |
-| [1077_bfs.go](1077_bfs.go) | Go 1.14 x64 | bfs | O(N + M + output) | AC | 0.015 s | 2400 KB |
-| [1077_bfs.java](1077_bfs.java) | Java 1.8 | bfs | O(N + M + output) | AC | 0.140 s | 2716 KB |
-| [1077_bfs.py](1077_bfs.py) | Python 3.12 x64 | bfs | O(N + M + output) | AC | 0.109 s | 2524 KB |
-| [1077_bfs.rs](1077_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M + output) | AC | 0.031 s | 804 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1077_bfs.cpp](1077_bfs.cpp) | G++ 13.2 x64 | bfs | O(N + M + output) | AC | 0.015 s | 304 KB | 11278981 |
+| [1077_bfs.go](1077_bfs.go) | Go 1.14 x64 | bfs | O(N + M + output) | AC | 0.015 s | 2400 KB | 11278982 |
+| [1077_bfs.java](1077_bfs.java) | Java 1.8 | bfs | O(N + M + output) | AC | 0.140 s | 2716 KB | 11278984 |
+| [1077_bfs.py](1077_bfs.py) \* | Python 3.12 x64 | bfs | O(N + M + output) | AC | 0.109 s | 2524 KB | 11278983 |
+| [1077_bfs.rs](1077_bfs.rs) | Rust 1.75 x64 | bfs | O(N + M + output) | AC | 0.031 s | 804 KB | 11278986 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1077_bfs_optimized.go](1077_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N² + output) | AC | 0.031 s | 984 KB | 11310535 |
+| [1077_bfs_optimized.rs](1077_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(N² + output) | AC | 0.015 s | 228 KB | 11310559 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
