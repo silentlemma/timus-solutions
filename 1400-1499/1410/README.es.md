@@ -72,12 +72,28 @@ Detalles a tener en cuenta:
 - tomar primero la palabra más larga es un error: en «tiny Enormous
   small» ganan las dos cortas (prueba 08).
 
+## Soluciones optimizadas
+
+La versión optimizada en Rust lee la frase en bloques de tamaño acotado. Conserva la longitud de la palabra actual entre bloques y actualiza los dos estados de programación dinámica al encontrar un separador. También procesa la última palabra si la entrada termina sin separador. El tiempo es O(L) y el espacio adicional es O(1). El envío aceptado usó 208 KB en lugar de 1240 KB y tardó 0,031 s en lugar de 0,046 s.
+
+Las implementaciones base aceptadas [1410_dp.cpp](1410_dp.cpp), [1410_dp.go](1410_dp.go), [1410_dp.java](1410_dp.java), [1410_dp.py](1410_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1410_dp.cpp](1410_dp.cpp) | G++ 13.2 x64 | dp | O(L) | AC | 0.015 s | 108 KB |
-| [1410_dp.go](1410_dp.go) | Go 1.14 x64 | dp | O(L) | AC | 0.031 s | 3180 KB |
-| [1410_dp.java](1410_dp.java) | Java 1.8 | dp | O(L) | AC | 0.109 s | 568 KB |
-| [1410_dp.py](1410_dp.py) | Python 3.12 x64 | dp | O(L) | AC | 0.078 s | 2012 KB |
-| [1410_dp.rs](1410_dp.rs) | Rust 1.75 x64 | dp | O(L) | AC | 0.046 s | 1240 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1410_dp.cpp](1410_dp.cpp) | G++ 13.2 x64 | dp | O(L) | AC | 0.015 s | 108 KB | 11286073 |
+| [1410_dp.go](1410_dp.go) | Go 1.14 x64 | dp | O(L) | AC | 0.031 s | 3180 KB | 11286075 |
+| [1410_dp.java](1410_dp.java) | Java 1.8 | dp | O(L) | AC | 0.109 s | 568 KB | 11286078 |
+| [1410_dp.py](1410_dp.py) \* | Python 3.12 x64 | dp | O(L) | AC | 0.078 s | 2012 KB | 11286077 |
+| [1410_dp.rs](1410_dp.rs) | Rust 1.75 x64 | dp | O(L) | AC | 0.046 s | 1240 KB | 11286079 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1410_dp_optimized.rs](1410_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(L) | AC | 0.031 s | 208 KB | 11310350 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

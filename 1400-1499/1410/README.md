@@ -69,12 +69,28 @@ Pitfalls:
 - taking the longest word first is wrong: in "tiny Enormous small" the
   two short words win (test 08).
 
+## Optimized solutions
+
+The optimized Rust version reads the phrase in bounded blocks. It keeps the length of the current word across block boundaries and updates the two dynamic-programming totals when a separator ends that word. The final word is also counted when the input ends without a separator. Time is O(L), with O(1) additional space. The Accepted run used 208 KB instead of 1240 KB and took 0.031 s instead of 0.046 s.
+
+The accepted base implementations [1410_dp.cpp](1410_dp.cpp), [1410_dp.go](1410_dp.go), [1410_dp.java](1410_dp.java), [1410_dp.py](1410_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1410_dp.cpp](1410_dp.cpp) | G++ 13.2 x64 | dp | O(L) | AC | 0.015 s | 108 KB |
-| [1410_dp.go](1410_dp.go) | Go 1.14 x64 | dp | O(L) | AC | 0.031 s | 3180 KB |
-| [1410_dp.java](1410_dp.java) | Java 1.8 | dp | O(L) | AC | 0.109 s | 568 KB |
-| [1410_dp.py](1410_dp.py) | Python 3.12 x64 | dp | O(L) | AC | 0.078 s | 2012 KB |
-| [1410_dp.rs](1410_dp.rs) | Rust 1.75 x64 | dp | O(L) | AC | 0.046 s | 1240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1410_dp.cpp](1410_dp.cpp) | G++ 13.2 x64 | dp | O(L) | AC | 0.015 s | 108 KB | 11286073 |
+| [1410_dp.go](1410_dp.go) | Go 1.14 x64 | dp | O(L) | AC | 0.031 s | 3180 KB | 11286075 |
+| [1410_dp.java](1410_dp.java) | Java 1.8 | dp | O(L) | AC | 0.109 s | 568 KB | 11286078 |
+| [1410_dp.py](1410_dp.py) \* | Python 3.12 x64 | dp | O(L) | AC | 0.078 s | 2012 KB | 11286077 |
+| [1410_dp.rs](1410_dp.rs) | Rust 1.75 x64 | dp | O(L) | AC | 0.046 s | 1240 KB | 11286079 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1410_dp_optimized.rs](1410_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(L) | AC | 0.031 s | 208 KB | 11310350 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
