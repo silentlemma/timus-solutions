@@ -77,18 +77,37 @@ bwww
 - 边上和角上的格子翻转的棋子更少；
 - 已经同色的局面需要 0 步。
 
+## 优化解法
+
+Go 对两种目标颜色分别枚举首行的 16 种按压掩码。某行剩余的每个不同色格都强制按压正下方的格子，因此其余行被唯一确定。统计按压位数，只有最后一行之后不再需要按压时才接受该方案。棋盘每行仅占一个字节。Python 把 16 格分成两半，枚举各半按压子集的 XOR 效果，并为每种效果保留最少按压次数。对于每个单色目标和左半效果，查表即可找到所需右半效果。C = 16 时，时间和空间均为 O(2^(C/2))。Go 使用小型固定字节缓冲区并直接访问标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1060_bruteforce_bitmask.cpp](1060_bruteforce_bitmask.cpp), [1060_bruteforce_bitmask.java](1060_bruteforce_bitmask.java), [1060_bruteforce_bitmask.rs](1060_bruteforce_bitmask.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - **C++**、**Go**、**Java**、**Rust**：遍历全部 65536 个集合。
 - **Python**：逐个格子构造所有集合对应的棋盘，每次把列表加倍（新格子把自己的掩码异或到已有的每个棋盘上），
   从而避免对每个集合的 16 位做 Python 循环。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1060_bruteforce_bitmask.cpp](1060_bruteforce_bitmask.cpp) | G++ 13.2 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.015 s | 124 KB |
-| [1060_bruteforce_bitmask.go](1060_bruteforce_bitmask.go) | Go 1.14 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.031 s | 1068 KB |
-| [1060_bruteforce_bitmask.java](1060_bruteforce_bitmask.java) | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 1580 KB |
-| [1060_bruteforce_bitmask.py](1060_bruteforce_bitmask.py) | Python 3.12 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 4840 KB |
-| [1060_bruteforce_bitmask.rs](1060_bruteforce_bitmask.rs) | Rust 1.75 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.015 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1060_bruteforce_bitmask.cpp](1060_bruteforce_bitmask.cpp) | G++ 13.2 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.015 s | 124 KB | 11278793 |
+| [1060_bruteforce_bitmask.go](1060_bruteforce_bitmask.go) | Go 1.14 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.031 s | 1068 KB | 11278795 |
+| [1060_bruteforce_bitmask.java](1060_bruteforce_bitmask.java) \* | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 1580 KB | 11278797 |
+| [1060_bruteforce_bitmask.py](1060_bruteforce_bitmask.py) | Python 3.12 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 4840 KB | 11278796 |
+| [1060_bruteforce_bitmask.rs](1060_bruteforce_bitmask.rs) | Rust 1.75 x64 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.015 s | 232 KB | 11278798 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1060_bitmask.go](1060_bitmask.go) \* | Go 1.14 x64 | bitmask | O(H·2^W), H = W = 4 | AC | 0.015 s | 284 KB | 11311214 |
+| [1060_bitmask_meet_in_middle.py](1060_bitmask_meet_in_middle.py) | Python 3.12 x64 | bitmask, meet_in_middle | O(2^(C/2)), C = 16 | AC | 0.078 s | 624 KB | 11310331 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
