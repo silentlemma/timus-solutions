@@ -73,17 +73,37 @@ Hierholzer 算法用显式栈构造回路。从栈顶星球沿未使用的通道
 每条输出的路线都已在 100 个随机小帝国以及有一千个星球、32,000 条缺少通道的生成
 数据上与缺少的通道核对。
 
+## 优化解法
+
+C++、Go 和 Rust 版本为每个星球保存尚未建成的入向通道，在反向图上运行 Hierholzer 算法。出栈顺序反转了反向图上的回路，因此相邻出栈的星球已经给出所需方向的通道，可以直接输出。列表和栈中的星球编号只需 16 位。读取矩阵与构造路线的总时间仍为 O(N² + M)。
+
+已通过评测的基础实现 [1176_graphs.java](1176_graphs.java), [1176_graphs.py](1176_graphs.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - C++ 和 Rust 用各自常规的方式读矩阵，Go 用按词扫描器，Java 用手写的字节
   读取，Python 则一次性切分整个输入。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1176_graphs.cpp](1176_graphs.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.531 s | 368 KB |
-| [1176_graphs.go](1176_graphs.go) | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.062 s | 5968 KB |
-| [1176_graphs.java](1176_graphs.java) | Java 1.8 | graphs | O(N² + M) | AC | 0.156 s | 2608 KB |
-| [1176_graphs.py](1176_graphs.py) | Python 3.12 x64 | graphs | O(N² + M) | AC | 0.203 s | 18940 KB |
-| [1176_graphs.rs](1176_graphs.rs) | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 3560 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1176_graphs.cpp](1176_graphs.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.531 s | 368 KB | 11283205 |
+| [1176_graphs.go](1176_graphs.go) | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.062 s | 5968 KB | 11283209 |
+| [1176_graphs.java](1176_graphs.java) \* | Java 1.8 | graphs | O(N² + M) | AC | 0.156 s | 2608 KB | 11283233 |
+| [1176_graphs.py](1176_graphs.py) \* | Python 3.12 x64 | graphs | O(N² + M) | AC | 0.203 s | 18940 KB | 11283224 |
+| [1176_graphs.rs](1176_graphs.rs) | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 3560 KB | 11283239 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1176_graphs_optimized.cpp](1176_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + M) | AC | 0.062 s | 340 KB | 11310387 |
+| [1176_graphs_optimized.go](1176_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N² + M) | AC | 0.031 s | 1180 KB | 11310389 |
+| [1176_graphs_optimized.rs](1176_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N² + M) | AC | 0.031 s | 364 KB | 11310388 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
