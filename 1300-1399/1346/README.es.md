@@ -65,16 +65,35 @@ Detalles a tener en cuenta:
 Los conteos se compararon con una programación dinámica sobre todos los
 repartos en 500 funciones aleatorias de hasta 12 puntos.
 
+## Soluciones optimizadas
+
+Las versiones en C++ y Go conservan el recorrido voraz y procesan cada valor al leerlo. Solo guardan el valor anterior, la dirección del intervalo actual y el número de intervalos. El búfer de entrada tiene tamaño fijo, así que el recorrido tarda O(B − A + 1) y requiere O(1) espacio adicional. El envío aceptado de C++ tardó 0,031 s y usó 84 KB, frente a 0,062 s y 588 KB de la versión base. Go usó 1588 KB en lugar de 2512 KB, con 0,031 s en ambas versiones.
+
+Las implementaciones base aceptadas [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Las cinco soluciones hacen la misma pasada.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB |
-| [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB |
-| [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB |
-| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB |
-| [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
+| [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
+| [1346_greedy.java](1346_greedy.java) \* | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
+| [1346_greedy.py](1346_greedy.py) \* | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.rs](1346_greedy.rs) \* | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 84 KB | 11310334 |
+| [1346_greedy_optimized.go](1346_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -65,16 +65,35 @@ Pitfalls:
 The counts were compared with a dynamic program over all splits on 500
 random functions of up to 12 points.
 
+## Optimized solutions
+
+The C++ and Go versions keep the greedy scan and process each value as it arrives. They retain the previous value, the direction of the current interval and the interval count. The input buffer has fixed size, so the scan takes O(B − A + 1) time and O(1) additional space. The Accepted C++ run took 0.031 s and used 84 KB, compared with 0.062 s and 588 KB for the baseline. Go used 1588 KB instead of 2512 KB, with 0.031 s in both versions.
+
+The accepted base implementations [1346_greedy.java](1346_greedy.java), [1346_greedy.py](1346_greedy.py), [1346_greedy.rs](1346_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All five solutions make the same single pass.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB |
-| [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB |
-| [1346_greedy.java](1346_greedy.java) | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB |
-| [1346_greedy.py](1346_greedy.py) | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB |
-| [1346_greedy.rs](1346_greedy.rs) | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1346_greedy.cpp](1346_greedy.cpp) | G++ 13.2 x64 | greedy | O(B - A) | AC | 0.062 s | 588 KB | 11285122 |
+| [1346_greedy.go](1346_greedy.go) | Go 1.14 x64 | greedy | O(B - A) | AC | 0.031 s | 2512 KB | 11285125 |
+| [1346_greedy.java](1346_greedy.java) \* | Java 1.8 | greedy | O(B - A) | AC | 0.109 s | 900 KB | 11285127 |
+| [1346_greedy.py](1346_greedy.py) \* | Python 3.12 x64 | greedy | O(B - A) | AC | 0.140 s | 11140 KB | 11285126 |
+| [1346_greedy.rs](1346_greedy.rs) \* | Rust 1.75 x64 | greedy | O(B - A) | AC | 0.015 s | 2632 KB | 11285128 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1346_greedy_optimized.cpp](1346_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 84 KB | 11310334 |
+| [1346_greedy_optimized.go](1346_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(B - A + 1) | AC | 0.031 s | 1588 KB | 11310367 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
