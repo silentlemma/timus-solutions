@@ -66,7 +66,15 @@ cheapest[s] = 对所有包含 s 最低位瓶盖的报价 o，取 price(o) + chea
 
 在 400 个最多 6 个瓶盖、7 个套装的随机例子上，与尝试所有购买组合的结果比较过。
 
+## 优化解法
+
+Go 和 Rust 先把每个报价限制在所需瓶盖内。如果另一报价以相同或更低的价格覆盖其全部瓶盖，就丢弃该报价。完全相同的报价只保留一个。报价较少的瓶盖分配到低位，因为最低缺失位决定转移列表。逐个购买所需瓶盖的费用不超过 20 000，因此动态规划表可以用 16 位整数存储费用。
+
+已通过评测的基础实现 [1326_bitmask.cpp](1326_bitmask.cpp), [1326_bitmask.java](1326_bitmask.java), [1326_bitmask.py](1326_bitmask.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - Python 把出现在最少报价中的瓶盖放在最低位，因为 s 的最低位瓶盖决定要尝试哪些报价；它还会去掉被其他报价
   压制的报价，即另一个报价以不高的价格包含同样多的瓶盖。即便如此，在各套装价值相近时 CPython 仍需约 4 秒，
@@ -74,10 +82,21 @@ cheapest[s] = 对所有包含 s 最低位瓶盖的报价 o，取 price(o) + chea
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1326_bitmask.cpp](1326_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 3884 KB |
-| [1326_bitmask.go](1326_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K·(N + M)) | AC | 0.125 s | 10076 KB |
-| [1326_bitmask.java](1326_bitmask.java) | Java 1.8 | bitmask | O(2^K·(N + M)) | AC | 0.218 s | 4428 KB |
-| [1326_bitmask.py](1326_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K·(N + M)) | AC | 0.296 s | 11124 KB |
-| [1326_bitmask.rs](1326_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 8308 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1326_bitmask.cpp](1326_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 3884 KB | 11284976 |
+| [1326_bitmask.go](1326_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K·(N + M)) | AC | 0.125 s | 10076 KB | 11284977 |
+| [1326_bitmask.java](1326_bitmask.java) | Java 1.8 | bitmask | O(2^K·(N + M)) | AC | 0.218 s | 4428 KB | 11284979 |
+| [1326_bitmask.py](1326_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K·(N + M)) | AC | 0.296 s | 11124 KB | 11284978 |
+| [1326_bitmask.rs](1326_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 8308 KB | 11284980 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
+| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

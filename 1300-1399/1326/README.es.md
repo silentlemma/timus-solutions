@@ -79,7 +79,15 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con probar todas las combinaciones de
 ofertas en 400 casos aleatorios de hasta 6 chapas y 7 lotes.
 
+## Soluciones optimizadas
+
+Go y Rust restringen cada oferta a las tapas buscadas y descartan una oferta si otra cubre todas sus tapas por el mismo precio o menos. Entre ofertas idénticas conservan una. Las tapas con menos ofertas se colocan en los bits bajos, porque el menor bit pendiente determina las transiciones. Comprar las tapas por separado cuesta como máximo 20 000, así que la tabla de programación dinámica guarda costes de 16 bits.
+
+Las implementaciones base aceptadas [1326_bitmask.cpp](1326_bitmask.cpp), [1326_bitmask.java](1326_bitmask.java), [1326_bitmask.py](1326_bitmask.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python pone en los bits bajos las chapas que están en menos ofertas,
   porque la chapa más baja de s decide qué ofertas se prueban. También
@@ -90,10 +98,21 @@ ofertas en 400 casos aleatorios de hasta 6 chapas y 7 lotes.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1326_bitmask.cpp](1326_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 3884 KB |
-| [1326_bitmask.go](1326_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K·(N + M)) | AC | 0.125 s | 10076 KB |
-| [1326_bitmask.java](1326_bitmask.java) | Java 1.8 | bitmask | O(2^K·(N + M)) | AC | 0.218 s | 4428 KB |
-| [1326_bitmask.py](1326_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K·(N + M)) | AC | 0.296 s | 11124 KB |
-| [1326_bitmask.rs](1326_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 8308 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1326_bitmask.cpp](1326_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 3884 KB | 11284976 |
+| [1326_bitmask.go](1326_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K·(N + M)) | AC | 0.125 s | 10076 KB | 11284977 |
+| [1326_bitmask.java](1326_bitmask.java) | Java 1.8 | bitmask | O(2^K·(N + M)) | AC | 0.218 s | 4428 KB | 11284979 |
+| [1326_bitmask.py](1326_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K·(N + M)) | AC | 0.296 s | 11124 KB | 11284978 |
+| [1326_bitmask.rs](1326_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K·(N + M)) | AC | 0.078 s | 8308 KB | 11284980 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1326_bitmask_optimized.go](1326_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.062 s | 3140 KB | 11310415 |
+| [1326_bitmask_optimized.rs](1326_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O((N + M)^2 + 2^K·(N + M)) | AC | 0.078 s | 2188 KB | 11310414 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
