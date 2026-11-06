@@ -65,17 +65,35 @@
 
 答案已在 200 个随机城堡和所有测试上与另一份独立编写的解答比对。
 
+## 优化解法
+
+Go 版本先给两个坐标各加 10 000，再打包到一个 32 位整数中，x 在高位。对整数排序就得到字典序。沿两个方向扫描该顺序，两条单调链共用一个栈。周长仍需加上偏移项 2πL。
+
+已通过评测的基础实现 [1185_geometry.cpp](1185_geometry.cpp), [1185_geometry.java](1185_geometry.java), [1185_geometry.py](1185_geometry.py), [1185_geometry.rs](1185_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都以同样方式在整数坐标上求凸包（Python 使用任意精度整数，其余语言
   使用 64 位整数），并用浮点数累加边长。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1185_geometry.cpp](1185_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 236 KB |
-| [1185_geometry.go](1185_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1204 KB |
-| [1185_geometry.java](1185_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 3144 KB |
-| [1185_geometry.py](1185_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 752 KB |
-| [1185_geometry.rs](1185_geometry.rs) | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1185_geometry.cpp](1185_geometry.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 236 KB | 11283368 |
+| [1185_geometry.go](1185_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1204 KB | 11283369 |
+| [1185_geometry.java](1185_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 3144 KB | 11283377 |
+| [1185_geometry.py](1185_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.078 s | 752 KB | 11283372 |
+| [1185_geometry.rs](1185_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.031 s | 264 KB | 11283379 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1185_geometry_optimized.go](1185_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
