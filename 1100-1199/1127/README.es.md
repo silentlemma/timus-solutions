@@ -76,17 +76,38 @@ Las respuestas se comprobaron con una construcción aparte de las 24
 rotaciones como matrices de permutación con signo y determinante +1 que
 actúan sobre las normales de las caras, en todas las pruebas.
 
+## Soluciones optimizadas
+
+Go y Rust cuentan los tres anillos laterales obtenidos al elegir cada pareja de caras opuestas como arriba y abajo. Los seis colores de cada cubo son distintos, por lo que el mínimo del anillo es único. Se gira hasta ese color y se elige el sentido menor para identificar anillos equivalentes. Los cuatro colores se codifican en base C = 10 y se cuentan en un vector plano de contadores de 16 bits.
+
+El envío aceptado en Go 1.14 x64 tarda 0.046 s frente a 0.031 s de la base y usa 896 KB frente a 1344 KB.
+
+Las implementaciones base aceptadas [1127_bruteforce.cpp](1127_bruteforce.cpp), [1127_bruteforce.java](1127_bruteforce.java), [1127_bruteforce.py](1127_bruteforce.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes generan las orientaciones con una pequeña búsqueda
   sobre los dos giros; C++ cuenta los anillos en un mapa ordenado y los demás en una tabla hash.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1127_bruteforce.cpp](1127_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(24·N) | AC | 0.015 s | 300 KB |
-| [1127_bruteforce.go](1127_bruteforce.go) | Go 1.14 x64 | bruteforce | O(24·N) | AC | 0.031 s | 1344 KB |
-| [1127_bruteforce.java](1127_bruteforce.java) | Java 1.8 | bruteforce | O(24·N) | AC | 0.171 s | 6664 KB |
-| [1127_bruteforce.py](1127_bruteforce.py) | Python 3.12 x64 | bruteforce | O(24·N) | AC | 0.093 s | 768 KB |
-| [1127_bruteforce.rs](1127_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(24·N) | AC | 0.031 s | 440 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1127_bruteforce.cpp](1127_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(24·N) | AC | 0.015 s | 300 KB | 11279333 |
+| [1127_bruteforce.go](1127_bruteforce.go) | Go 1.14 x64 | bruteforce | O(24·N) | AC | 0.031 s | 1344 KB | 11279335 |
+| [1127_bruteforce.java](1127_bruteforce.java) \* | Java 1.8 | bruteforce | O(24·N) | AC | 0.171 s | 6664 KB | 11279344 |
+| [1127_bruteforce.py](1127_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(24·N) | AC | 0.093 s | 768 KB | 11279338 |
+| [1127_bruteforce.rs](1127_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(24·N) | AC | 0.031 s | 440 KB | 11279345 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1127_bruteforce_optimized.go](1127_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(N + C⁴) | AC | 0.046 s | 896 KB | 11311096 |
+| [1127_bruteforce_optimized.rs](1127_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(N + C⁴) | AC | 0.015 s | 220 KB | 11311098 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
