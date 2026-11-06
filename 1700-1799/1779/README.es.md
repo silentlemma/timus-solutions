@@ -65,12 +65,31 @@ Trampas:
 La construcción pasa el verificador para todo n de 3 a 200, y también
 una implementación aceptada independiente.
 
+## Soluciones optimizadas
+
+Go y Rust imprimen directamente floor(n/2) · ceil(n/2) pares y enumeran i < j con i + j > n. Cada par se escribe a través de un búfer de tamaño fijo, con espacio auxiliar constante.
+
+El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y usa 912 KB frente a 2140 KB.
+
+Las implementaciones base aceptadas [1779_constructive.cpp](1779_constructive.cpp), [1779_constructive.java](1779_constructive.java), [1779_constructive.py](1779_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB |
-| [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB |
-| [1779_constructive.java](1779_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB |
-| [1779_constructive.py](1779_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB |
-| [1779_constructive.rs](1779_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.015 s | 644 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB | 11289747 |
+| [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB | 11289749 |
+| [1779_constructive.java](1779_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB | 11289754 |
+| [1779_constructive.py](1779_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB | 11289751 |
+| [1779_constructive.rs](1779_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.015 s | 644 KB | 11289755 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1779_constructive_optimized.go](1779_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 912 KB | 11311102 |
+| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

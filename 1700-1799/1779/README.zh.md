@@ -52,12 +52,31 @@ n（3 ≤ n ≤ 200）。
 
 对 3 到 200 的每个 n，这一构造都通过了检查器，一个独立的已通过实现也是如此。
 
+## 优化解法
+
+Go 和 Rust 直接输出配对数 floor(n/2) · ceil(n/2)，然后枚举满足 i < j 且 i + j > n 的配对。每一对立即写入固定大小的输出缓冲区，辅助空间为常数。
+
+通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 912 KB，基础版为 2140 KB。
+
+已通过评测的基础实现 [1779_constructive.cpp](1779_constructive.cpp), [1779_constructive.java](1779_constructive.java), [1779_constructive.py](1779_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB |
-| [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB |
-| [1779_constructive.java](1779_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB |
-| [1779_constructive.py](1779_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB |
-| [1779_constructive.rs](1779_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.015 s | 644 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB | 11289747 |
+| [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB | 11289749 |
+| [1779_constructive.java](1779_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB | 11289754 |
+| [1779_constructive.py](1779_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB | 11289751 |
+| [1779_constructive.rs](1779_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.015 s | 644 KB | 11289755 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1779_constructive_optimized.go](1779_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 912 KB | 11311102 |
+| [1779_constructive_optimized.rs](1779_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 216 KB | 11310555 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
