@@ -73,16 +73,35 @@ Pitfalls:
 The answers were compared with a separately written solution on 200
 files of 16 random tests of every kind.
 
+## Optimized solutions
+
+C++ and Go process accusations as they arrive using union–find. When an accusation joins vertices already connected, it closes an undirected cycle. Every vertex in such a cycle has at most one outgoing accusation, so each must supply exactly one cycle edge and the cycle is directed. This also covers a self-accusation or two mutual accusations. Require exactly one confession and no cycle. The component array stores either a parent index or a negative size in each signed 16-bit entry.
+
+The accepted base implementations [1211_graphs.java](1211_graphs.java), [1211_graphs.py](1211_graphs.py), [1211_graphs.rs](1211_graphs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages walk the chains iteratively with the same three states.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1211_graphs.cpp](1211_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) per test | AC | 0.265 s | 592 KB |
-| [1211_graphs.go](1211_graphs.go) | Go 1.14 x64 | graphs | O(N) per test | AC | 0.218 s | 6820 KB |
-| [1211_graphs.java](1211_graphs.java) | Java 1.8 | graphs | O(N) per test | AC | 0.156 s | 5760 KB |
-| [1211_graphs.py](1211_graphs.py) | Python 3.12 x64 | graphs | O(N) per test | AC | 0.343 s | 26364 KB |
-| [1211_graphs.rs](1211_graphs.rs) | Rust 1.75 x64 | graphs | O(N) per test | AC | 0.031 s | 5212 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1211_graphs.cpp](1211_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) per test | AC | 0.265 s | 592 KB | 11283637 |
+| [1211_graphs.go](1211_graphs.go) | Go 1.14 x64 | graphs | O(N) per test | AC | 0.218 s | 6820 KB | 11283638 |
+| [1211_graphs.java](1211_graphs.java) \* | Java 1.8 | graphs | O(N) per test | AC | 0.156 s | 5760 KB | 11283643 |
+| [1211_graphs.py](1211_graphs.py) \* | Python 3.12 x64 | graphs | O(N) per test | AC | 0.343 s | 26364 KB | 11283642 |
+| [1211_graphs.rs](1211_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N) per test | AC | 0.031 s | 5212 KB | 11283644 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1211_dsu.cpp](1211_dsu.cpp) | G++ 13.2 x64 | dsu | O(N α(N)) per test | AC | 0.015 s | 136 KB | 11310412 |
+| [1211_dsu.go](1211_dsu.go) \* | Go 1.14 x64 | dsu | O(N α(N)) per test | AC | 0.046 s | 3228 KB | 11310413 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

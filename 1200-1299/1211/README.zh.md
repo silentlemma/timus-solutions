@@ -67,16 +67,35 @@ NO
 
 答案已在 200 个文件、每个 16 组各类随机测试上与另一份独立解答比对。
 
+## 优化解法
+
+C++ 和 Go 版本用并查集边读边处理指认。如果两个孩子已经连通，新增的指认会闭合一个无向环。环中每个孩子至多发出一次指认，因此每个孩子恰好提供一条环上的边，整个环必然有向。自我指认和互相指认也同样处理。要求恰好一人认错且没有环。每个有符号 16 位条目保存父节点编号或负的分量大小。
+
+已通过评测的基础实现 [1211_graphs.java](1211_graphs.java), [1211_graphs.py](1211_graphs.py), [1211_graphs.rs](1211_graphs.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都用相同的三种状态迭代地走链。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1211_graphs.cpp](1211_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) per test | AC | 0.265 s | 592 KB |
-| [1211_graphs.go](1211_graphs.go) | Go 1.14 x64 | graphs | O(N) per test | AC | 0.218 s | 6820 KB |
-| [1211_graphs.java](1211_graphs.java) | Java 1.8 | graphs | O(N) per test | AC | 0.156 s | 5760 KB |
-| [1211_graphs.py](1211_graphs.py) | Python 3.12 x64 | graphs | O(N) per test | AC | 0.343 s | 26364 KB |
-| [1211_graphs.rs](1211_graphs.rs) | Rust 1.75 x64 | graphs | O(N) per test | AC | 0.031 s | 5212 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1211_graphs.cpp](1211_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) per test | AC | 0.265 s | 592 KB | 11283637 |
+| [1211_graphs.go](1211_graphs.go) | Go 1.14 x64 | graphs | O(N) per test | AC | 0.218 s | 6820 KB | 11283638 |
+| [1211_graphs.java](1211_graphs.java) \* | Java 1.8 | graphs | O(N) per test | AC | 0.156 s | 5760 KB | 11283643 |
+| [1211_graphs.py](1211_graphs.py) \* | Python 3.12 x64 | graphs | O(N) per test | AC | 0.343 s | 26364 KB | 11283642 |
+| [1211_graphs.rs](1211_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N) per test | AC | 0.031 s | 5212 KB | 11283644 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1211_dsu.cpp](1211_dsu.cpp) | G++ 13.2 x64 | dsu | O(N α(N)) per test | AC | 0.015 s | 136 KB | 11310412 |
+| [1211_dsu.go](1211_dsu.go) \* | Go 1.14 x64 | dsu | O(N α(N)) per test | AC | 0.046 s | 3228 KB | 11310413 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
