@@ -63,12 +63,29 @@ n（2 ≤ n ≤ 100），然后是 n 个通过时间，均为不超过 600 的�
 
 在至多 7 人的小组上，答案与对所有状态的 Dijkstra 搜索一致，并在随机小组上与一个独立的已通过实现一致。
 
+## 优化解法
+
+Go 和 Rust 在固定大小的数组中排序过河时间，每步送走剩余最慢的两人。设最快两人的时间为 a、b，剩余最慢两人为 y、z，则增加 z + min(2a+y, a+2b)。剩两人时增加 b，剩三人时增加 a+b+c。两个版本都用 16 位保存输入时间。Go 使用原地堆排序，Rust 用 32 位累加总时间。两个版本都用固定字节缓冲区进行输入和十进制输出。Go 直接访问标准输入和输出句柄，Rust 通过 C 运行库读写。
+
+已通过评测的基础实现 [1826_greedy.cpp](1826_greedy.cpp), [1826_greedy.java](1826_greedy.java), [1826_greedy.py](1826_greedy.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 192 KB |
-| [1826_greedy.go](1826_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1096 KB |
-| [1826_greedy.java](1826_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.109 s | 1764 KB |
-| [1826_greedy.py](1826_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 464 KB |
-| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 192 KB | 11290370 |
+| [1826_greedy.go](1826_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1096 KB | 11290377 |
+| [1826_greedy.java](1826_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.109 s | 1764 KB | 11290382 |
+| [1826_greedy.py](1826_greedy.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 464 KB | 11290379 |
+| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB | 11290384 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1826_greedy_optimized.go](1826_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 284 KB | 11311235 |
+| [1826_greedy_optimized.rs](1826_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 52 KB | 11311229 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

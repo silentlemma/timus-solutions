@@ -75,12 +75,29 @@ The answers agree with a Dijkstra search over all states for squads
 of up to 7 and with an independent accepted implementation on random
 squads.
 
+## Optimized solutions
+
+Go and Rust sort the crossing times in fixed-size arrays and remove the two slowest soldiers per step. With fastest times a, b and slowest remaining times y, z, add z + min(2a+y, a+2b). Finish with b for two soldiers or a+b+c for three. Both store input times in 16 bits. Go uses in-place heap sort; Rust accumulates the total in 32 bits. Both versions use fixed byte buffers for input and decimal output. Go accesses standard handles directly, and Rust uses the C runtime.
+
+The accepted base implementations [1826_greedy.cpp](1826_greedy.cpp), [1826_greedy.java](1826_greedy.java), [1826_greedy.py](1826_greedy.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 192 KB |
-| [1826_greedy.go](1826_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1096 KB |
-| [1826_greedy.java](1826_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.109 s | 1764 KB |
-| [1826_greedy.py](1826_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 464 KB |
-| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 192 KB | 11290370 |
+| [1826_greedy.go](1826_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1096 KB | 11290377 |
+| [1826_greedy.java](1826_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.109 s | 1764 KB | 11290382 |
+| [1826_greedy.py](1826_greedy.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 464 KB | 11290379 |
+| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB | 11290384 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1826_greedy_optimized.go](1826_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 284 KB | 11311235 |
+| [1826_greedy_optimized.rs](1826_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 52 KB | 11311229 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
