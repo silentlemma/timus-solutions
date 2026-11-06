@@ -77,12 +77,30 @@
 - 移动零个字符也算（第三个样例）；
 - 不平衡的行答案只能是 0，即使某个移位让所有平衡值都非负（测试 04、05）。
 
+## 优化解法
+
+C++、Go 和 Rust 版本在读入时统计最小前缀平衡值的出现次数。遇到更小的平衡值时将计数重置为 1。统计长度从 1 到 n 的前缀。总平衡值为零时，完整前缀代替空前缀，两者对应同一个循环切分点。C++ 使用带缓冲的标准输入，Go 读取定长块，Rust 直接使用标准输入缓冲区。时间 O(n)，额外空间 O(1)。
+
+已通过评测的基础实现 [1574_strings.java](1574_strings.java), [1574_strings.py](1574_strings.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1574_strings.cpp](1574_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 500 KB |
-| [1574_strings.go](1574_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1768 KB |
-| [1574_strings.java](1574_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 1196 KB |
-| [1574_strings.py](1574_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 5252 KB |
-| [1574_strings.rs](1574_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 2068 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1574_strings.cpp](1574_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 500 KB | 11287829 |
+| [1574_strings.go](1574_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 1768 KB | 11287832 |
+| [1574_strings.java](1574_strings.java) \* | Java 1.8 | strings | O(n) | AC | 0.125 s | 1196 KB | 11287835 |
+| [1574_strings.py](1574_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 5252 KB | 11287834 |
+| [1574_strings.rs](1574_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 2068 KB | 11287836 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1574_strings_optimized.cpp](1574_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 88 KB | 11310381 |
+| [1574_strings_optimized.go](1574_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 824 KB | 11310380 |
+| [1574_strings_optimized.rs](1574_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 208 KB | 11310379 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
