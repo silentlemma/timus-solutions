@@ -77,7 +77,15 @@ Detalles a tener en cuenta:
 El comprobador halla la mayor longitud con una búsqueda memorizada sobre
 todos los segmentos y comprueba la cadena listada.
 
+## Soluciones optimizadas
+
+Go ordena por extremo izquierdo decreciente y busca una subsecuencia estrictamente creciente de extremos derechos. Si hay empate a la izquierda, ordena por extremo derecho decreciente para impedir que ambos entren en la cadena. Rust invierte las dos comparaciones y busca una subsecuencia estrictamente decreciente. Ambas versiones buscan por bisección y guardan predecesores para reconstruir la cadena. Rust usa matrices fijas con extremos e índices de 16 bits, suficientes para las cotas de entrada, y búferes de bytes para entrada y salida.
+
+Las implementaciones base aceptadas [1078_dp.cpp](1078_dp.cpp), [1078_dp.java](1078_dp.java), [1078_dp.py](1078_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python lee los extremos con cortes con paso y construye `left` y
   `right` con `min` y `max`.
@@ -85,10 +93,21 @@ todos los segmentos y comprueba la cadena listada.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1078_dp.cpp](1078_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 204 KB |
-| [1078_dp.go](1078_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 3448 KB |
-| [1078_dp.java](1078_dp.java) | Java 1.8 | dp | O(N^2) | AC | 0.140 s | 4608 KB |
-| [1078_dp.py](1078_dp.py) | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 888 KB |
-| [1078_dp.rs](1078_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 292 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1078_dp.cpp](1078_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.015 s | 204 KB | 11278988 |
+| [1078_dp.go](1078_dp.go) | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 3448 KB | 11278990 |
+| [1078_dp.java](1078_dp.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.140 s | 4608 KB | 11278994 |
+| [1078_dp.py](1078_dp.py) \* | Python 3.12 x64 | dp | O(N^2) | AC | 0.093 s | 888 KB | 11278993 |
+| [1078_dp.rs](1078_dp.rs) | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 292 KB | 11278995 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
+| [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
