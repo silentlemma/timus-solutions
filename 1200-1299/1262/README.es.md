@@ -67,17 +67,36 @@ Detalles a tener en cuenta:
 Dos "cincos" iguales tienen el mismo valor que una cifra de la siguiente
 potencia de diez, así que permitir esa pareja no acorta la forma habitual.
 
+## Soluciones optimizadas
+
+C++ y Go suman los símbolos romanos de cada cifra decimal con una tabla fija de diez entradas. C++ consume las cifras directamente del flujo de entrada. Go procesa bloques de bytes de tamaño fijo sin guardar el número y formatea la respuesta directamente en un pequeño búfer de bytes. Go usa los descriptores estándar directamente, reintenta llamadas interrumpidas y completa escrituras parciales. No se construye la representación romana como cadena.
+
+Las implementaciones base aceptadas [1262_strings.java](1262_strings.java), [1262_strings.py](1262_strings.py), [1262_strings.rs](1262_strings.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes suman una tabla sobre los caracteres de la
   entrada.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB |
-| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB |
-| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB |
-| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB |
-| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB | 11284141 |
+| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB | 11284146 |
+| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB | 11284150 |
+| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB | 11284147 |
+| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB | 11284151 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1262_strings_optimized.cpp](1262_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.015 s | 84 KB | 11310628 |
+| [1262_strings_optimized.go](1262_strings_optimized.go) \* | Go 1.14 x64 | strings | O(log N) | AC | 0.015 s | 272 KB | 11311217 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

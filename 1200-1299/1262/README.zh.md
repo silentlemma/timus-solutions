@@ -58,16 +58,35 @@ N。
 两个相同的“5 类”数字的值等于下一个 10 的幂对应的单个数字，因此允许这样的数字对并不会
 使通常写法更短。
 
+## 优化解法
+
+C++ 和 Go 用固定十项表累加各十进制数字对应的罗马字符数。C++ 直接处理输入流中的数字。Go 读取固定大小的字节块，不保存整个数，并直接在小字节缓冲区中格式化答案。Go 直接访问标准句柄，重试中断调用并完成部分写入。两个版本都无需构造罗马数字字符串。
+
+已通过评测的基础实现 [1262_strings.java](1262_strings.java), [1262_strings.py](1262_strings.py), [1262_strings.rs](1262_strings.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都对输入的每个字符查表求和。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB |
-| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB |
-| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB |
-| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB |
-| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB | 11284141 |
+| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB | 11284146 |
+| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB | 11284150 |
+| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB | 11284147 |
+| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB | 11284151 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1262_strings_optimized.cpp](1262_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.015 s | 84 KB | 11310628 |
+| [1262_strings_optimized.go](1262_strings_optimized.go) \* | Go 1.14 x64 | strings | O(log N) | AC | 0.015 s | 272 KB | 11311217 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -64,16 +64,35 @@ Pitfalls:
 Two equal "fives" have the same value as one digit for the next power of
 ten, so allowing that pair does not shorten the usual form.
 
+## Optimized solutions
+
+C++ and Go sum the Roman-symbol count for each decimal digit using a fixed ten-entry table. C++ consumes digits directly from the input stream. Go consumes fixed-size byte blocks without storing the number and formats the answer directly into a small byte buffer. Go reads and writes through the standard handles directly, retrying interrupted calls and finishing short writes. No Roman numeral string is constructed.
+
+The accepted base implementations [1262_strings.java](1262_strings.java), [1262_strings.py](1262_strings.py), [1262_strings.rs](1262_strings.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages sum a table over the characters of the input.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB |
-| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB |
-| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB |
-| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB |
-| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1262_strings.cpp](1262_strings.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.031 s | 384 KB | 11284141 |
+| [1262_strings.go](1262_strings.go) | Go 1.14 x64 | strings | O(log N) | AC | 0.031 s | 1096 KB | 11284146 |
+| [1262_strings.java](1262_strings.java) | Java 1.8 | strings | O(log N) | AC | 0.078 s | 456 KB | 11284150 |
+| [1262_strings.py](1262_strings.py) | Python 3.12 x64 | strings | O(log N) | AC | 0.078 s | 400 KB | 11284147 |
+| [1262_strings.rs](1262_strings.rs) | Rust 1.75 x64 | strings | O(log N) | AC | 0.015 s | 240 KB | 11284151 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1262_strings_optimized.cpp](1262_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(log N) | AC | 0.015 s | 84 KB | 11310628 |
+| [1262_strings_optimized.go](1262_strings_optimized.go) \* | Go 1.14 x64 | strings | O(log N) | AC | 0.015 s | 272 KB | 11311217 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
