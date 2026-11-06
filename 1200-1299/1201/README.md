@@ -94,16 +94,35 @@ Pitfalls:
 The calendars were compared with a separately written solution on 605
 dates, among them the ends of the range and several Februaries.
 
+## Optimized solutions
+
+C++ and Go compute the first weekday with the Gregorian leap-year formula and render calendar cells directly into fixed-size byte buffers. Each cell preserves the required spacing and brackets around the selected day. C++ writes one weekday row at a time. Go prepares the seven rows in one output buffer and parses the date from a fixed byte buffer. It uses standard handles directly and completes short writes.
+
+The accepted base implementations [1201_implementation.java](1201_implementation.java), [1201_implementation.py](1201_implementation.py), [1201_implementation.rs](1201_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages build each row cell by cell with the same widths.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB |
-| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB |
-| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB |
-| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
+| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
+| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

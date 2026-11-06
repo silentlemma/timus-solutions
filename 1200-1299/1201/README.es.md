@@ -98,17 +98,36 @@ Detalles a tener en cuenta:
 Los calendarios se compararon con una solución escrita aparte en 605
 fechas, entre ellas los extremos del rango y varios febreros.
 
+## Soluciones optimizadas
+
+C++ y Go calculan el primer día de la semana con la fórmula gregoriana de años bisiestos y generan las celdas directamente en búferes de bytes de tamaño fijo. Conservan los espacios y los corchetes del día elegido. C++ escribe una fila por vez. Go prepara las siete filas en un búfer y lee la fecha en un búfer fijo de bytes. Usa los descriptores estándar directamente y completa las escrituras parciales.
+
+Las implementaciones base aceptadas [1201_implementation.java](1201_implementation.java), [1201_implementation.py](1201_implementation.py), [1201_implementation.rs](1201_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes construyen cada fila casilla a casilla con los
   mismos anchos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB |
-| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB |
-| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB |
-| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
+| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
+| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

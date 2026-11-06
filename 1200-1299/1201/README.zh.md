@@ -85,16 +85,35 @@ sun   3   10   17   24   31
 
 月历已在 605 个日期上与另一份独立解答比对，其中包括范围的两端和若干个二月。
 
+## 优化解法
+
+C++ 和 Go 用公历闰年公式计算当月首日的星期，并直接在固定大小的字节缓冲区中生成日历单元。每个单元保留要求的空格和所选日期的括号。C++ 逐行输出。Go 在一个缓冲区生成七行日历，并用固定字节缓冲区读取日期。它直接访问标准句柄并完成部分写入。
+
+已通过评测的基础实现 [1201_implementation.java](1201_implementation.java), [1201_implementation.py](1201_implementation.py), [1201_implementation.rs](1201_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都按相同的宽度逐格拼出每一行。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB |
-| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB |
-| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB |
-| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
+| [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
+| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
