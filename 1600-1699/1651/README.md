@@ -70,12 +70,29 @@ Pitfalls:
 The Python solution and checker agree with exhaustive edge-subset
 enumeration on 2000 random small walks and 1155 exhaustive cases.
 
+## Optimized solutions
+
+The C++ and Go versions compute the same suffix recurrence with one scalar for the distance at the next position. Only the chosen jump is saved for each position. Vertex numbers and distances fit in 16 bits: if a shortest walk visited a vertex twice, the segment between those visits could be omitted and the remaining edges would still occur in input order. When the endpoints coincide, no jump table is needed. The running time stays O(n).
+
+The accepted base implementations [1651_dp.java](1651_dp.java), [1651_dp.py](1651_dp.py), [1651_dp.rs](1651_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1448 KB |
-| [1651_dp.go](1651_dp.go) | Go 1.14 x64 | dp | O(n) | AC | 0.078 s | 4176 KB |
-| [1651_dp.java](1651_dp.java) | Java 1.8 | dp | O(n) | AC | 0.125 s | 2188 KB |
-| [1651_dp.py](1651_dp.py) | Python 3.12 x64 | dp | O(n) | AC | 0.156 s | 16708 KB |
-| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.031 s | 3840 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1448 KB | 11288521 |
+| [1651_dp.go](1651_dp.go) | Go 1.14 x64 | dp | O(n) | AC | 0.078 s | 4176 KB | 11288522 |
+| [1651_dp.java](1651_dp.java) | Java 1.8 | dp | O(n) | AC | 0.125 s | 2188 KB | 11288524 |
+| [1651_dp.py](1651_dp.py) \* | Python 3.12 x64 | dp | O(n) | AC | 0.156 s | 16708 KB | 11288523 |
+| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.031 s | 3840 KB | 11288525 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1651_dp_optimized.cpp](1651_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 732 KB | 11310342 |
+| [1651_dp_optimized.go](1651_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.015 s | 2072 KB | 11310392 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

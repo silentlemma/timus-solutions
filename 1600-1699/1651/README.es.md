@@ -73,12 +73,29 @@ La solución en Python y el comprobador se verificaron por enumeración
 exhaustiva de subconjuntos de aristas en 2000 caminos pequeños aleatorios
 y 1155 casos exhaustivos.
 
+## Soluciones optimizadas
+
+Las versiones en C++ y Go aplican la misma recurrencia por sufijos con una variable para la distancia en la posición siguiente. Para cada posición solo se guarda el salto elegido. Los vértices y las distancias caben en 16 bits: si un recorrido mínimo visitara dos veces un vértice, se podría omitir el tramo entre ambas visitas y las aristas restantes conservarían el orden de entrada. Si coinciden los extremos, no hace falta la tabla de saltos. El tiempo sigue siendo O(n).
+
+Las implementaciones base aceptadas [1651_dp.java](1651_dp.java), [1651_dp.py](1651_dp.py), [1651_dp.rs](1651_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1448 KB |
-| [1651_dp.go](1651_dp.go) | Go 1.14 x64 | dp | O(n) | AC | 0.078 s | 4176 KB |
-| [1651_dp.java](1651_dp.java) | Java 1.8 | dp | O(n) | AC | 0.125 s | 2188 KB |
-| [1651_dp.py](1651_dp.py) | Python 3.12 x64 | dp | O(n) | AC | 0.156 s | 16708 KB |
-| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.031 s | 3840 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1448 KB | 11288521 |
+| [1651_dp.go](1651_dp.go) | Go 1.14 x64 | dp | O(n) | AC | 0.078 s | 4176 KB | 11288522 |
+| [1651_dp.java](1651_dp.java) | Java 1.8 | dp | O(n) | AC | 0.125 s | 2188 KB | 11288524 |
+| [1651_dp.py](1651_dp.py) \* | Python 3.12 x64 | dp | O(n) | AC | 0.156 s | 16708 KB | 11288523 |
+| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.031 s | 3840 KB | 11288525 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1651_dp_optimized.cpp](1651_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 732 KB | 11310342 |
+| [1651_dp_optimized.go](1651_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.015 s | 2072 KB | 11310392 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
