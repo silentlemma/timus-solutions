@@ -67,12 +67,28 @@ The answers were compared with a search over all subsets on 1000 random
 small cases. The tests are judged by a checker that finds the best total
 another way, placing the most rewarding orders on the latest free days.
 
+## Optimized solutions
+
+Go visits orders by decreasing reward and places each on the latest free day at or before its deadline. If an optimal schedule used an earlier day for that order, any order displaced from the later day can take the earlier one. If it omitted the current order, the current order can replace the occupant without lowering the reward. A predecessor array with path compression finds the free day and redirects it to its predecessor once occupied.
+
+The accepted base implementations [1403_greedy.cpp](1403_greedy.cpp), [1403_greedy.java](1403_greedy.java), [1403_greedy.py](1403_greedy.py), [1403_greedy.rs](1403_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1403_greedy.cpp](1403_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 228 KB |
-| [1403_greedy.go](1403_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1348 KB |
-| [1403_greedy.java](1403_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 2860 KB |
-| [1403_greedy.py](1403_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB |
-| [1403_greedy.rs](1403_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1403_greedy.cpp](1403_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 228 KB | 11286033 |
+| [1403_greedy.go](1403_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1348 KB | 11286034 |
+| [1403_greedy.java](1403_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 2860 KB | 11286036 |
+| [1403_greedy.py](1403_greedy.py) \* | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB | 11286035 |
+| [1403_greedy.rs](1403_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB | 11286037 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1403_dsu_greedy.go](1403_dsu_greedy.go) \* | Go 1.14 x64 | dsu, greedy | O(N log N) | AC | 0.031 s | 936 KB | 11310421 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

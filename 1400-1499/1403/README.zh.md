@@ -59,12 +59,28 @@ N（1 ≤ N ≤ 1000），然后是每个订单的整数截止日期和报酬，
 在 1000 个随机小规模数据上与枚举所有子集的结果做了比较。测试由检查程序判定，
 它用另一种方法求最佳总额：把报酬最高的订单放在最晚的空闲日。
 
+## 优化解法
+
+Go 按报酬从高到低处理订单，把每个订单安排在期限内最晚的空闲日。若最优安排把当前订单放在更早的日期，被挤出的订单可以移到那一天。若最优安排原先没有当前订单，用它替换当日订单也不会减少报酬。用带路径压缩的前驱数组查找空闲日，占用后把该日指向其前驱。
+
+已通过评测的基础实现 [1403_greedy.cpp](1403_greedy.cpp), [1403_greedy.java](1403_greedy.java), [1403_greedy.py](1403_greedy.py), [1403_greedy.rs](1403_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1403_greedy.cpp](1403_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 228 KB |
-| [1403_greedy.go](1403_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1348 KB |
-| [1403_greedy.java](1403_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 2860 KB |
-| [1403_greedy.py](1403_greedy.py) | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB |
-| [1403_greedy.rs](1403_greedy.rs) | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1403_greedy.cpp](1403_greedy.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 228 KB | 11286033 |
+| [1403_greedy.go](1403_greedy.go) | Go 1.14 x64 | greedy | O(N log N) | AC | 0.031 s | 1348 KB | 11286034 |
+| [1403_greedy.java](1403_greedy.java) | Java 1.8 | greedy | O(N log N) | AC | 0.140 s | 2860 KB | 11286036 |
+| [1403_greedy.py](1403_greedy.py) \* | Python 3.12 x64 | greedy | O(N log N) | AC | 0.078 s | 812 KB | 11286035 |
+| [1403_greedy.rs](1403_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 268 KB | 11286037 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1403_dsu_greedy.go](1403_dsu_greedy.go) \* | Go 1.14 x64 | dsu, greedy | O(N log N) | AC | 0.031 s | 936 KB | 11310421 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
