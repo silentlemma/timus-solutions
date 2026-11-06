@@ -92,17 +92,36 @@ Detalles a tener en cuenta:
 - una respuesta negativa entre −1 y 0 debe imprimirse como `-0.35`, no
   como `0.35` ni `-0.-35`.
 
+## Soluciones optimizadas
+
+Go y Rust leen los valores de dos decimales como centésimas enteras con signo. Acumulan la suma ponderada al leer y dividen N·a₀ + aₙ₊₁ − 2Σ(N+1−i)cᵢ entre N+1. Redondean la magnitud a la centésima más cercana, alejándose de cero en los empates, y recuperan el signo. El cero redondeado se imprime sin signo negativo. Ambas versiones leen y formatean mediante búferes fijos de bytes, sin conversiones de cadenas.
+
+Las implementaciones base aceptadas [1047_math.cpp](1047_math.cpp), [1047_math.java](1047_math.java), [1047_math.py](1047_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - **C++**, **Go**, **Java**, **Rust**: enteros de 64 bits en centésimas.
 - **Python**: `Fraction` exactas leídas de las cadenas decimales.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1047_math.cpp](1047_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 156 KB |
-| [1047_math.go](1047_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1140 KB |
-| [1047_math.java](1047_math.java) | Java 1.8 | math | O(N) | AC | 0.093 s | 1460 KB |
-| [1047_math.py](1047_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.109 s | 1068 KB |
-| [1047_math.rs](1047_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 264 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1047_math.cpp](1047_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 156 KB | 11278637 |
+| [1047_math.go](1047_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1140 KB | 11278638 |
+| [1047_math.java](1047_math.java) \* | Java 1.8 | math | O(N) | AC | 0.093 s | 1460 KB | 11278641 |
+| [1047_math.py](1047_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.109 s | 1068 KB | 11278640 |
+| [1047_math.rs](1047_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 264 KB | 11278644 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1047_math_optimized.go](1047_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 788 KB | 11311159 |
+| [1047_math_optimized.rs](1047_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 176 KB | 11311170 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
