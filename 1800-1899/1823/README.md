@@ -76,12 +76,29 @@ Pitfalls:
   exposes Java's default formatting, which can print `0,000000` instead
   of `0.000000`.
 
+## Optimized solutions
+
+Go and Rust index p, V, n and T in four fixed slots and use 1000pV = 8314nT to isolate the missing value with integer arithmetic. A zero numerator and denominator give undefined. A zero denominator, or a forced zero volume or temperature, gives error. Otherwise round the rational value to six decimal places using 64-bit integers.
+
+The accepted base implementations [1823_math.cpp](1823_math.cpp), [1823_math.java](1823_math.java), [1823_math.py](1823_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1823_math.cpp](1823_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB |
-| [1823_math.go](1823_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1116 KB |
-| [1823_math.java](1823_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1736 KB |
-| [1823_math.py](1823_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 572 KB |
-| [1823_math.rs](1823_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 432 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1823_math.cpp](1823_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 396 KB | 11298045 |
+| [1823_math.go](1823_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1116 KB | 11298046 |
+| [1823_math.java](1823_math.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 1736 KB | 11298047 |
+| [1823_math.py](1823_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 572 KB | 11298048 |
+| [1823_math.rs](1823_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 432 KB | 11298049 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1823_math_optimized.go](1823_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 776 KB | 11311181 |
+| [1823_math_optimized.rs](1823_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 208 KB | 11310736 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
