@@ -84,16 +84,37 @@ The formula was compared for every N from 3 to 299 with summing the unit
 steps for each candidate angle and noting when the sum first returns
 to zero.
 
+## Optimized solutions
+
+Both versions compute half of Euler's totient by removing prime factors from the remaining value and updating the totient once per distinct factor. Go removes two first and then checks odd divisors. Rust removes two and three first and checks only divisors congruent to one or five modulo six. Both stop when the divisor squared exceeds the remaining value. Both read and write the single integer through small fixed byte buffers, without `Scanner` or string formatting. Go accesses standard handles directly, retrying interrupted calls and completing partial writes. Rust reads and writes through the C runtime.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 48 KB versus 224 KB.
+
+The accepted base implementations [1259_math.cpp](1259_math.cpp), [1259_math.java](1259_math.java), [1259_math.py](1259_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages compute the totient by trial division.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1259_math.cpp](1259_math.cpp) | G++ 13.2 x64 | math | O(√N) | AC | 0.015 s | 128 KB |
-| [1259_math.go](1259_math.go) | Go 1.14 x64 | math | O(√N) | AC | 0.031 s | 1076 KB |
-| [1259_math.java](1259_math.java) | Java 1.8 | math | O(√N) | AC | 0.125 s | 1580 KB |
-| [1259_math.py](1259_math.py) | Python 3.12 x64 | math | O(√N) | AC | 0.062 s | 424 KB |
-| [1259_math.rs](1259_math.rs) | Rust 1.75 x64 | math | O(√N) | AC | 0.015 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1259_math.cpp](1259_math.cpp) | G++ 13.2 x64 | math | O(√N) | AC | 0.015 s | 128 KB | 11284111 |
+| [1259_math.go](1259_math.go) | Go 1.14 x64 | math | O(√N) | AC | 0.031 s | 1076 KB | 11284112 |
+| [1259_math.java](1259_math.java) \* | Java 1.8 | math | O(√N) | AC | 0.125 s | 1580 KB | 11284116 |
+| [1259_math.py](1259_math.py) \* | Python 3.12 x64 | math | O(√N) | AC | 0.062 s | 424 KB | 11284113 |
+| [1259_math.rs](1259_math.rs) | Rust 1.75 x64 | math | O(√N) | AC | 0.015 s | 224 KB | 11284119 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1259_math_optimized.go](1259_math_optimized.go) \* | Go 1.14 x64 | math | O(√N) | AC | 0.015 s | 268 KB | 11311211 |
+| [1259_math_optimized.rs](1259_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√N) | AC | 0.046 s | 48 KB | 11311236 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
