@@ -70,17 +70,36 @@ Pitfalls:
 The answers were compared with a separately written solution on 300
 random targets with shots outside, inside and at the corners.
 
+## Optimized solutions
+
+Go and Rust process polygon edges as their vertices arrive, retaining only the first and previous vertices. Integer cross products test which side of each edge contains the point, and dot products select the nearest endpoint or the interior projection. Squared distances stay as integer fractions, compared with 128-bit cross-products. After finding the minimum, an integer-corrected square root and an exact half-unit comparison round the diameter to three decimal places. Both versions use fixed byte I/O buffers and constant auxiliary space. Go transfers its buffers directly through the standard handles.
+
+The accepted base implementations [1215_geometry.cpp](1215_geometry.cpp), [1215_geometry.java](1215_geometry.java), [1215_geometry.py](1215_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages test the inside case with exact integer cross products
   and print with three decimals; Java formats with `Locale.US`.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB |
-| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB |
-| [1215_geometry.java](1215_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB |
-| [1215_geometry.py](1215_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB |
-| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB | 11283661 |
+| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB | 11283662 |
+| [1215_geometry.java](1215_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB | 11283664 |
+| [1215_geometry.py](1215_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB | 11283663 |
+| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB | 11283665 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry_optimized.go](1215_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 284 KB | 11311224 |
+| [1215_geometry_optimized.rs](1215_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

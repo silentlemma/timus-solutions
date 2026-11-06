@@ -62,17 +62,36 @@
 
 答案已在 300 个随机目标上与另一份独立解答比对，落点分别在外部、内部和顶点上。
 
+## 优化解法
+
+Go 和 Rust 随顶点输入处理多边形边，只保留首个和前一个顶点。整数叉积判断点位于边的哪侧，点积决定最近点是端点还是内部投影。距离平方保留为整数分数，通过 128 位交叉乘积比较。取得最小值后，先用整数检查修正平方根，再精确比较半单位阈值，将直径舍入到三位小数。两个版本均使用固定字节输入输出缓冲区，辅助空间为常数。Go 直接通过标准句柄传输缓冲区。
+
+已通过评测的基础实现 [1215_geometry.cpp](1215_geometry.cpp), [1215_geometry.java](1215_geometry.java), [1215_geometry.py](1215_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都用精确的整数叉积判断是否在内部，并输出三位小数；Java 用 `Locale.US`
   格式化。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB |
-| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB |
-| [1215_geometry.java](1215_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB |
-| [1215_geometry.py](1215_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB |
-| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB | 11283661 |
+| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB | 11283662 |
+| [1215_geometry.java](1215_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB | 11283664 |
+| [1215_geometry.py](1215_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB | 11283663 |
+| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB | 11283665 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry_optimized.go](1215_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 284 KB | 11311224 |
+| [1215_geometry_optimized.rs](1215_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

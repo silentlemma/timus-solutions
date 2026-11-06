@@ -70,7 +70,15 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 300
 blancos aleatorios con disparos fuera, dentro y en los vértices.
 
+## Soluciones optimizadas
+
+Go y Rust procesan las aristas al leer los vértices y conservan solo el primero y el anterior. Los productos cruzados enteros determinan el lado de cada arista y los escalares eligen el extremo más cercano o la proyección interior. Conservan las distancias al cuadrado como fracciones y las comparan por multiplicación cruzada con valores intermedios de 128 bits. Tras hallar el mínimo, corrigen la raíz con comprobaciones enteras y comparan exactamente con el umbral de media unidad para redondear el diámetro a tres decimales. Ambas versiones usan búferes fijos de bytes y espacio auxiliar constante. Go transfiere sus búferes directamente mediante los descriptores estándar.
+
+Las implementaciones base aceptadas [1215_geometry.cpp](1215_geometry.cpp), [1215_geometry.java](1215_geometry.java), [1215_geometry.py](1215_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes comprueban si el punto está dentro con productos
   vectoriales enteros exactos e imprimen tres decimales; Java formatea
@@ -78,10 +86,21 @@ blancos aleatorios con disparos fuera, dentro y en los vértices.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB |
-| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB |
-| [1215_geometry.java](1215_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB |
-| [1215_geometry.py](1215_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB |
-| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry.cpp](1215_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 220 KB | 11283661 |
+| [1215_geometry.go](1215_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1084 KB | 11283662 |
+| [1215_geometry.java](1215_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.109 s | 2004 KB | 11283664 |
+| [1215_geometry.py](1215_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 568 KB | 11283663 |
+| [1215_geometry.rs](1215_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.031 s | 268 KB | 11283665 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1215_geometry_optimized.go](1215_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 284 KB | 11311224 |
+| [1215_geometry_optimized.rs](1215_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
