@@ -72,7 +72,15 @@ persona responsable por ronda no basta sin que cada participante dirija
 una vez. Reetiquetar rondas o participantes cambia la matriz manteniendo
 su validez; comprobar propiedades en vez de igualdad textual.
 
+## Soluciones optimizadas
+
+C++, Go y Rust generan el mismo calendario directamente en la salida con búfer. En la fila i, la etiqueta inicial es i, con cero sustituido por R, y avanza de uno en uno con vuelta al inicio. En la diagonal se imprime cero y la etiqueta avanza igualmente. Así se evalúa la fórmula modular sin guardar la matriz.
+
+Las implementaciones base aceptadas [1933_constructive.java](1933_constructive.java), [1933_constructive.py](1933_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 R≤201, etiquetas≤201 e i+j+R−1≤600; bastan enteros ordinarios.
 C++ usa matriz de vectores y flujos sin sincronización; Go escribe
@@ -81,10 +89,22 @@ Todos imprimen R filas sin espacios finales.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1933_constructive.cpp](1933_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 492 KB |
-| [1933_constructive.go](1933_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 1836 KB |
-| [1933_constructive.java](1933_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.125 s | 2592 KB |
-| [1933_constructive.py](1933_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.109 s | 744 KB |
-| [1933_constructive.rs](1933_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 640 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1933_constructive.cpp](1933_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 492 KB | 11291736 |
+| [1933_constructive.go](1933_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 1836 KB | 11291741 |
+| [1933_constructive.java](1933_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.125 s | 2592 KB | 11291752 |
+| [1933_constructive.py](1933_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.109 s | 744 KB | 11291745 |
+| [1933_constructive.rs](1933_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 640 KB | 11291760 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1933_constructive_optimized.cpp](1933_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 104 KB | 11310472 |
+| [1933_constructive_optimized.go](1933_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 912 KB | 11310477 |
+| [1933_constructive_optimized.rs](1933_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 232 KB | 11310484 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

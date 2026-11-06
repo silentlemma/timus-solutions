@@ -60,7 +60,15 @@ L_i=((2i+R−1) mod R)+1。R为奇数，因此模R乘以2可逆，所有
 相同。每轮一名负责人还不够，还要每人负责一次。轮号或成员重排
 会改变矩阵却保持正确性，应检查结构属性而非与保存的矩阵逐字比较。
 
+## 优化解法
+
+C++、Go 和 Rust 直接将同一赛程写入缓冲输出。第 i 行的轮次标签从 i 开始，零改用 R，之后每列递增并循环回绕。对角线输出零，但标签仍正常递增。这样逐项实现原来的模公式，无需保存矩阵。
+
+已通过评测的基础实现 [1933_constructive.java](1933_constructive.java), [1933_constructive.py](1933_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 R≤201，轮号≤201，i+j+R−1≤600，普通整数足够。C++使用向量矩阵与
 关闭同步的流；Go使用缓冲输出；Java、Rust构建输出字符串；Python
@@ -68,10 +76,22 @@ R≤201，轮号≤201，i+j+R−1≤600，普通整数足够。C++使用向量�
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1933_constructive.cpp](1933_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 492 KB |
-| [1933_constructive.go](1933_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 1836 KB |
-| [1933_constructive.java](1933_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.125 s | 2592 KB |
-| [1933_constructive.py](1933_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.109 s | 744 KB |
-| [1933_constructive.rs](1933_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 640 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1933_constructive.cpp](1933_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 492 KB | 11291736 |
+| [1933_constructive.go](1933_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 1836 KB | 11291741 |
+| [1933_constructive.java](1933_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.125 s | 2592 KB | 11291752 |
+| [1933_constructive.py](1933_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.109 s | 744 KB | 11291745 |
+| [1933_constructive.rs](1933_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 640 KB | 11291760 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1933_constructive_optimized.cpp](1933_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 104 KB | 11310472 |
+| [1933_constructive_optimized.go](1933_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 912 KB | 11310477 |
+| [1933_constructive_optimized.rs](1933_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 232 KB | 11310484 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
