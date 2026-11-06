@@ -76,17 +76,36 @@ Cada salida se comprobó con el verificador, y las de una solución escrita
 aparte también lo pasan, en 100 primeras capas aleatorias obtenidas
 girando pares de ladrillos.
 
+## Soluciones optimizadas
+
+Go y Rust leen dos filas a la vez y guardan una bandera de orientación por bloque de 2 × 2. Si alguna fila contiene un ladrillo horizontal de la primera capa, los dos nuevos se colocan verticales. En caso contrario se colocan horizontales. Las dos filas de salida se generan directamente a partir de las banderas y los números de bloque. Go sustituye Scanner, las conversiones de cadenas y el writer por búferes fijos de entrada y salida de 1 KiB y conversión decimal directa. El espacio auxiliar es O(M).
+
+Las implementaciones base aceptadas [1229_constructive.cpp](1229_constructive.cpp), [1229_constructive.java](1229_constructive.java), [1229_constructive.py](1229_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes recorren los bloques de 2 × 2 en el mismo orden y
   numeran los ladrillos igual.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1229_constructive.cpp](1229_constructive.cpp) | G++ 13.2 x64 | constructive | O(NM) | AC | 0.015 s | 296 KB |
-| [1229_constructive.go](1229_constructive.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 1304 KB |
-| [1229_constructive.java](1229_constructive.java) | Java 1.8 | constructive | O(NM) | AC | 0.093 s | 960 KB |
-| [1229_constructive.py](1229_constructive.py) | Python 3.12 x64 | constructive | O(NM) | AC | 0.062 s | 1384 KB |
-| [1229_constructive.rs](1229_constructive.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.015 s | 432 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1229_constructive.cpp](1229_constructive.cpp) | G++ 13.2 x64 | constructive | O(NM) | AC | 0.015 s | 296 KB | 11283741 |
+| [1229_constructive.go](1229_constructive.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 1304 KB | 11283742 |
+| [1229_constructive.java](1229_constructive.java) | Java 1.8 | constructive | O(NM) | AC | 0.093 s | 960 KB | 11283747 |
+| [1229_constructive.py](1229_constructive.py) | Python 3.12 x64 | constructive | O(NM) | AC | 0.062 s | 1384 KB | 11283744 |
+| [1229_constructive.rs](1229_constructive.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.015 s | 432 KB | 11283748 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1229_constructive_optimized.go](1229_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 792 KB | 11311210 |
+| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

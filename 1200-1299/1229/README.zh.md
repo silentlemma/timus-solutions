@@ -63,16 +63,35 @@
 每个输出都经过评测程序检查，另一份独立解答的输出也能通过，测试用的是 100 个通过
 翻转成对砖块得到的随机第一层。
 
+## 优化解法
+
+Go 和 Rust 每次读取两行，每个 2 × 2 块只保存一个方向标记。若块内任一行存在第一层的水平砖，两块新砖都竖放，否则都横放。依据方向标记和块编号直接生成两行输出。Go 以各 1 KiB 的固定输入、输出缓冲区及直接十进制解析和格式化，替代 Scanner、字符串转换和缓冲 writer。辅助空间为 O(M)。
+
+已通过评测的基础实现 [1229_constructive.cpp](1229_constructive.cpp), [1229_constructive.java](1229_constructive.java), [1229_constructive.py](1229_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都按相同顺序扫描 2 × 2 块，并用相同方式给砖编号。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1229_constructive.cpp](1229_constructive.cpp) | G++ 13.2 x64 | constructive | O(NM) | AC | 0.015 s | 296 KB |
-| [1229_constructive.go](1229_constructive.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 1304 KB |
-| [1229_constructive.java](1229_constructive.java) | Java 1.8 | constructive | O(NM) | AC | 0.093 s | 960 KB |
-| [1229_constructive.py](1229_constructive.py) | Python 3.12 x64 | constructive | O(NM) | AC | 0.062 s | 1384 KB |
-| [1229_constructive.rs](1229_constructive.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.015 s | 432 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1229_constructive.cpp](1229_constructive.cpp) | G++ 13.2 x64 | constructive | O(NM) | AC | 0.015 s | 296 KB | 11283741 |
+| [1229_constructive.go](1229_constructive.go) | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 1304 KB | 11283742 |
+| [1229_constructive.java](1229_constructive.java) | Java 1.8 | constructive | O(NM) | AC | 0.093 s | 960 KB | 11283747 |
+| [1229_constructive.py](1229_constructive.py) | Python 3.12 x64 | constructive | O(NM) | AC | 0.062 s | 1384 KB | 11283744 |
+| [1229_constructive.rs](1229_constructive.rs) | Rust 1.75 x64 | constructive | O(NM) | AC | 0.015 s | 432 KB | 11283748 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1229_constructive_optimized.go](1229_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(NM) | AC | 0.031 s | 792 KB | 11311210 |
+| [1229_constructive_optimized.rs](1229_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(NM) | AC | 0.001 s | 188 KB | 11310586 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
