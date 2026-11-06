@@ -76,7 +76,15 @@ The answers were compared with a breadth-first search from every free
 cell on 120 small random mazes, which also checked that the free cells
 form a tree.
 
+## Optimized solutions
+
+The C++ depth-first version still finds the diameter with two searches. A tree has one path between any two cells, so the current depth gives the distance from the starting cell. While descending, store the direction back to the parent in the current cell byte. On ascent, restore that byte and resume the next direction at the parent. This keeps the O(n·m) time bound and uses O(1) extra space beyond the grid. The Accepted run used 772 KB instead of 6112 KB and took 0.015 s instead of 0.046 s.
+
+The accepted base implementations [1145_bfs.go](1145_bfs.go), [1145_bfs.java](1145_bfs.java), [1145_bfs.py](1145_bfs.py), [1145_bfs.rs](1145_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages run the same two searches over a padded flat grid.
 - Python takes about a quarter of a second on the largest mazes in our
@@ -86,10 +94,20 @@ form a tree.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1145_bfs.cpp](1145_bfs.cpp) | G++ 13.2 x64 | bfs | O(n·m) | AC | 0.046 s | 6112 KB |
-| [1145_bfs.go](1145_bfs.go) | Go 1.14 x64 | bfs | O(n·m) | AC | 0.062 s | 21300 KB |
-| [1145_bfs.java](1145_bfs.java) | Java 1.8 | bfs | O(n·m) | AC | 0.125 s | 9544 KB |
-| [1145_bfs.py](1145_bfs.py) | PyPy 3.10 x64 | bfs | O(n·m) | AC | 0.218 s | 11572 KB |
-| [1145_bfs.rs](1145_bfs.rs) | Rust 1.75 x64 | bfs | O(n·m) | AC | 0.031 s | 9556 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1145_bfs.cpp](1145_bfs.cpp) | G++ 13.2 x64 | bfs | O(n·m) | AC | 0.046 s | 6112 KB | 11279477 |
+| [1145_bfs.go](1145_bfs.go) | Go 1.14 x64 | bfs | O(n·m) | AC | 0.062 s | 21300 KB | 11279478 |
+| [1145_bfs.java](1145_bfs.java) \* | Java 1.8 | bfs | O(n·m) | AC | 0.125 s | 9544 KB | 11279482 |
+| [1145_bfs.py](1145_bfs.py) \* | PyPy 3.10 x64 | bfs | O(n·m) | AC | 0.218 s | 11572 KB | 11279480 |
+| [1145_bfs.rs](1145_bfs.rs) | Rust 1.75 x64 | bfs | O(n·m) | AC | 0.031 s | 9556 KB | 11279485 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1145_dfs.cpp](1145_dfs.cpp) | G++ 13.2 x64 | dfs | O(n·m) | AC | 0.015 s | 772 KB | 11310346 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
