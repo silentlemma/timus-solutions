@@ -87,16 +87,34 @@ Detalles a tener en cuenta:
 - en la salida van los valores, no sus posiciones;
 - `N = 1`: cualquier número sirve.
 
+## Soluciones optimizadas
+
+La versión compacta en Python usa el mismo algoritmo de sumas de prefijos. Un arreglo denso guarda las primeras posiciones y reserva el cero para restos aún no vistos. Las posiciones y los valores caben en enteros sin signo de 16 bits. Lee hasta el primer resto repetido e imprime el bloque correspondiente. El tiempo y el espacio adicional son O(N). El envío aceptado usó 1068 KB en lugar de 2608 KB, un 59,0% menos. El tiempo subió de 0,093 s a 0,109 s.
+
+Las implementaciones base aceptadas [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 La misma pasada en todos los lenguajes.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB |
-| [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB |
-| [1032_prefix_sums.java](1032_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB |
-| [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB |
-| [1032_prefix_sums.rs](1032_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB | 11278431 |
+| [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB | 11278432 |
+| [1032_prefix_sums.java](1032_prefix_sums.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
+| [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB | 11278433 |
+| [1032_prefix_sums.rs](1032_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

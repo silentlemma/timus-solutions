@@ -79,16 +79,34 @@
 - 输出的是数值，而不是位置；
 - `N = 1`：任意一个数都可以。
 
+## 优化解法
+
+紧凑的 Python 版本使用相同的前缀和算法。用稠密数组记录首次出现的位置，零表示余数尚未出现。位置和输入值都可用 16 位无符号整数保存。读到首个重复余数时输出对应的连续区间。时间和额外空间均为 O(N)。通过评测的提交使用 1068 KB，基础版使用 2608 KB，内存减少 59.0%。耗时从 0.093 秒增至 0.109 秒。
+
+已通过评测的基础实现 [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 各语言都是同样的一遍扫描。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB |
-| [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB |
-| [1032_prefix_sums.java](1032_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB |
-| [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB |
-| [1032_prefix_sums.rs](1032_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1032_prefix_sums.cpp](1032_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 232 KB | 11278431 |
+| [1032_prefix_sums.go](1032_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1368 KB | 11278432 |
+| [1032_prefix_sums.java](1032_prefix_sums.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.156 s | 944 KB | 11278435 |
+| [1032_prefix_sums.py](1032_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 2608 KB | 11278433 |
+| [1032_prefix_sums.rs](1032_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.046 s | 464 KB | 11278437 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
