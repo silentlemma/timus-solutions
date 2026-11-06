@@ -98,7 +98,17 @@ participants, but do not create alternative reliable subsets of one size.
 Do not replace the single-addition definition with global maximality,
 or omit the output term R from complexity.
 
+## Optimized solutions
+
+The C++, Go and Rust variants pack each threshold and original index into one integer. The index occupies the low ten bits, so sorting the packed integers sorts by threshold first. The boundary test stays the same. Store only the sizes of reliable teams, then print each sorted prefix directly. For R printed indices, the running time is O(n log n + R) and the memory usage is O(n).
+
+The accepted G++ 13.2 x64 run takes 0.046 s versus 0.015 s for the base and uses 180 KB versus 1452 KB.
+
+The accepted base implementations [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All counts and indices fit ordinary integers. Every port retains original
 indices while sorting thresholds. C++, Go, Java and Rust accumulate the
@@ -108,10 +118,22 @@ Buffered output keeps the potentially long listing efficient.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB |
-| [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB |
-| [1922_sorting.java](1922_sorting.java) | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.140 s | 9488 KB |
-| [1922_sorting.py](1922_sorting.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7764 KB |
-| [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
+| [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
+| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.140 s | 9488 KB | 11291511 |
+| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7764 KB | 11291510 |
+| [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.046 s | 180 KB | 11310394 |
+| [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
+| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
