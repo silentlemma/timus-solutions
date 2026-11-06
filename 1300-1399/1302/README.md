@@ -76,17 +76,37 @@ Pitfalls:
 The formula was compared with a breadth-first search over a board of
 30 rows, for every pair of a start below 120 and a target below 625.
 
+## Optimized solutions
+
+C++, Go and Rust obtain the row from the square root of the cell number and correct it with an integer square comparison. The position within the row gives three strip coordinates directly. The answer is the sum of their absolute differences. For cell numbers up to 10⁹, all relevant integer squares are exactly representable in double precision. Rust uses fixed byte buffers for input and decimal output through the C runtime. Go transfers fixed byte buffers directly through the standard handles.
+
+The accepted base implementations [1302_math.java](1302_math.java), [1302_math.py](1302_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python uses `math.isqrt`; the other languages adjust a
   floating-point root up or down until it is exact.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1302_math.cpp](1302_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 132 KB |
-| [1302_math.go](1302_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1068 KB |
-| [1302_math.java](1302_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1576 KB |
-| [1302_math.py](1302_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 504 KB |
-| [1302_math.rs](1302_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1302_math.cpp](1302_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 132 KB | 11284779 |
+| [1302_math.go](1302_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1068 KB | 11284783 |
+| [1302_math.java](1302_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 1576 KB | 11284790 |
+| [1302_math.py](1302_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 504 KB | 11284786 |
+| [1302_math.rs](1302_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB | 11284793 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1302_math_optimized.cpp](1302_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11310791 |
+| [1302_math_optimized.go](1302_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
+| [1302_math_optimized.rs](1302_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
