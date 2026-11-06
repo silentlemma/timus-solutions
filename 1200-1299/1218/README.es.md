@@ -74,7 +74,15 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 200
 torneos aleatorios y en todas las pruebas.
 
+## Soluciones optimizadas
+
+C++ y Go buscan primero un jedi que alcance a todos. Mantienen un candidato y lo sustituyen solo si el siguiente jedi lo vence. El ganador de esa comparación alcanza a todos los ya vistos. Después ejecutan una búsqueda en anchura desde el candidato por las aristas invertidas. Cada jedi encontrado alcanza al candidato y por tanto a todos los demás. Se calculan las aristas según se necesitan, con tiempo O(N²) y espacio O(N). Go usa vectores fijos, parámetros de 32 bits y entradas de cola de un byte, con una sola escritura almacenada en búfer para los nombres.
+
+Las implementaciones base aceptadas [1218_graphs.java](1218_graphs.java), [1218_graphs.py](1218_graphs.py), [1218_graphs.rs](1218_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python guarda cada fila del cierre como un entero grande, así que una
   fila se combina en una sola operación; los demás lenguajes usan
@@ -82,10 +90,21 @@ torneos aleatorios y en todas las pruebas.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB |
-| [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB |
-| [1218_graphs.java](1218_graphs.java) | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB |
-| [1218_graphs.py](1218_graphs.py) | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB |
-| [1218_graphs.rs](1218_graphs.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB | 11283678 |
+| [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB | 11283679 |
+| [1218_graphs.java](1218_graphs.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
+| [1218_graphs.py](1218_graphs.py) \* | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
+| [1218_graphs.rs](1218_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1218_bfs.cpp](1218_bfs.cpp) | G++ 13.2 x64 | bfs | O(N²) | AC | 0.015 s | 112 KB | 11310617 |
+| [1218_bfs.go](1218_bfs.go) \* | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -74,17 +74,36 @@ Pitfalls:
 The answers were compared with a separately written solution on 200
 random tournaments and on every test.
 
+## Optimized solutions
+
+C++ and Go first find one Jedi who reaches everybody. Keep a candidate and replace them only when the next Jedi beats them. The winner of this comparison can reach all Jedi seen so far. Then run breadth-first search from the candidate along reversed edges. Every Jedi found can reach the candidate and therefore everybody else. Compute each edge when needed, for O(N²) time and O(N) space. Go uses fixed arrays, 32-bit parameters and byte-sized queue entries, with one buffered write for the names.
+
+The accepted base implementations [1218_graphs.java](1218_graphs.java), [1218_graphs.py](1218_graphs.py), [1218_graphs.rs](1218_graphs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python keeps each row of the closure as one big integer, so a row is
   merged in one operation; the other languages use boolean matrices.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB |
-| [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB |
-| [1218_graphs.java](1218_graphs.java) | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB |
-| [1218_graphs.py](1218_graphs.py) | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB |
-| [1218_graphs.rs](1218_graphs.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB | 11283678 |
+| [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB | 11283679 |
+| [1218_graphs.java](1218_graphs.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
+| [1218_graphs.py](1218_graphs.py) \* | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
+| [1218_graphs.rs](1218_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1218_bfs.cpp](1218_bfs.cpp) | G++ 13.2 x64 | bfs | O(N²) | AC | 0.015 s | 112 KB | 11310617 |
+| [1218_bfs.go](1218_bfs.go) \* | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
