@@ -69,12 +69,29 @@
 
 在 2 000 个至多五位的随机数上与逐个往上数的方法做了比较。
 
+## 优化解法
+
+C++ 和 Go 从右向左扫描并维护后缀数字和。找到第一个小于九且右侧数字和为正的数字，将它加一，再从最右端分配剩余数字和，使后缀最小。两个版本都原地修改输入数字，输入缓冲区之外只需常数空间。Go 使用固定字节数组读取和保存数字，不使用扫描器词元，直接访问标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1406_greedy.java](1406_greedy.java), [1406_greedy.py](1406_greedy.py), [1406_greedy.rs](1406_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB |
-| [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB |
-| [1406_greedy.java](1406_greedy.java) | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB |
-| [1406_greedy.py](1406_greedy.py) | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB |
-| [1406_greedy.rs](1406_greedy.rs) | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB | 11286049 |
+| [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB | 11286050 |
+| [1406_greedy.java](1406_greedy.java) \* | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
+| [1406_greedy.py](1406_greedy.py) \* | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
+| [1406_greedy.rs](1406_greedy.rs) \* | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
+| [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

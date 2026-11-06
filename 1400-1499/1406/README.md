@@ -76,12 +76,29 @@ Pitfalls:
 The answers were compared with counting up number by number on 2 000
 random numbers of up to five digits.
 
+## Optimized solutions
+
+C++ and Go scan right to left while keeping the suffix digit sum. The first digit below nine with a positive suffix sum is increased by one. Distribute the remaining sum from the right end to make the suffix as small as possible. Both versions update the input digits in place, using constant space beyond the input buffer. Go uses fixed byte arrays for reading and storing the digits, without scanner tokens. It accesses standard handles directly, retrying interrupted calls and completing partial writes.
+
+The accepted base implementations [1406_greedy.java](1406_greedy.java), [1406_greedy.py](1406_greedy.py), [1406_greedy.rs](1406_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB |
-| [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB |
-| [1406_greedy.java](1406_greedy.java) | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB |
-| [1406_greedy.py](1406_greedy.py) | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB |
-| [1406_greedy.rs](1406_greedy.rs) | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB | 11286049 |
+| [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB | 11286050 |
+| [1406_greedy.java](1406_greedy.java) \* | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
+| [1406_greedy.py](1406_greedy.py) \* | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
+| [1406_greedy.rs](1406_greedy.rs) \* | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
+| [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
