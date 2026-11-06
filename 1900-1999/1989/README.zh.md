@@ -75,12 +75,34 @@ Yes
 
 测试生成的陷阱：第 26–29 个生成器用例（`generated_exhaustive5` 至 `generated_exhaustive8`）只使用 `5..8` 的长度。二元模式 `exhaustiveN` 生成 `m=N·2^N·(1+N(N+1)/2)` 次操作。因此 `exhaustive4` 违反 `n≥5`，而 `exhaustive9` 生成 211968 次操作，超过 `m≤100000`。生成器会在构造操作序列前拒绝 `5..8` 以外的长度。
 
+## 优化解法
+
+C++ 和 Go 保存原串与反串，精确比较镜像的两半，并统计相邻但不同的字符对。一次修改最多影响两对，计数为零时所有询问都立即成立。PyPy 用树状数组维护两个素数模数下的正向和反向多项式和，两个基数独立随机选择。修改更新四组和。查询通过前缀差取得区间和，再将两个方向对齐到相同指数。哈希可能碰撞，因此比较是概率性的。PyPy 以字节形式保留输入命令，并分批输出答案。
+
+通过评测的 Go 1.14 x64 版本耗时 0.281 秒，基础版为 0.265 秒，内存为 1 364 KB，基础版为 10216 KB。
+
+通过评测的 PyPy 3.10 x64 版本耗时 0.234 秒，基础版为 0.500 秒，内存为 11 204 KB，基础版为 9896 KB。
+
+已通过评测的基础实现 [1989_strings.java](1989_strings.java), [1989_strings.rs](1989_strings.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB |
-| [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB |
-| [1989_strings.java](1989_strings.java) | Java 1.8 | strings | O(n+m log n) | AC | 0.156 s | 10448 KB |
-| [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB |
-| [1989_strings.rs](1989_strings.rs) | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB | 11292373 |
+| [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB | 11292374 |
+| [1989_strings.java](1989_strings.java) \* | Java 1.8 | strings | O(n+m log n) | AC | 0.156 s | 10448 KB | 11294029 |
+| [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB | 11292375 |
+| [1989_strings.rs](1989_strings.rs) \* | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
+| [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
+| [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

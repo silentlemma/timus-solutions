@@ -140,12 +140,34 @@ Test-generation pitfall: the numbered generator cases 26–29
 and `exhaustive9` emits 211968 operations, exceeding `m≤100000`.
 The generator rejects sizes outside `5..8` before constructing a trace.
 
+## Optimized solutions
+
+C++ and Go keep the word and its reverse and compare mirrored halves exactly. They count unequal adjacent pairs. A change affects at most two pairs, and zero pairs makes every query succeed immediately. PyPy stores forward and reverse polynomial sums in Fenwick trees over two prime fields with independently randomized bases. A change updates four sums. A query obtains the interval sums by subtracting prefixes and shifts the two orientations to matching exponents. The comparison is probabilistic because hashes can collide. PyPy retains the command input as bytes and writes answers in bounded batches.
+
+The accepted Go 1.14 x64 run takes 0.281 s versus 0.265 s for the base and uses 1 364 KB versus 10216 KB.
+
+The accepted PyPy 3.10 x64 run takes 0.234 s versus 0.500 s for the base and uses 11 204 KB versus 9896 KB.
+
+The accepted base implementations [1989_strings.java](1989_strings.java), [1989_strings.rs](1989_strings.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB |
-| [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB |
-| [1989_strings.java](1989_strings.java) | Java 1.8 | strings | O(n+m log n) | AC | 0.156 s | 10448 KB |
-| [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB |
-| [1989_strings.rs](1989_strings.rs) | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB | 11292373 |
+| [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB | 11292374 |
+| [1989_strings.java](1989_strings.java) \* | Java 1.8 | strings | O(n+m log n) | AC | 0.156 s | 10448 KB | 11294029 |
+| [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB | 11292375 |
+| [1989_strings.rs](1989_strings.rs) \* | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
+| [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
+| [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
