@@ -123,7 +123,17 @@ la raíz de un cuadrado, truncar respuestas a 32 bits, olvidar la fuente
 uno ni imprimir respuestas para actualizaciones. Las mediciones
 repetidas y la potencia cero son válidas.
 
+## Soluciones optimizadas
+
+C++ y Go rellenan cada tramo de divisores hacia atrás. Así, el desplazamiento final pasa a ser el inicial sin un segundo vector de cursores. Las cargas iniciales usan 32 bits y el árbol de Fenwick y las sumas conservan 64 bits. PyPy guarda los menores factores primos y enumera divisores al medir. La medición se puede reutilizar hasta la siguiente actualización no nula del árbol.
+
+El envío aceptado en G++ 13.2 x64 tarda 0.453 s frente a 0.437 s de la base y usa 8 152 KB frente a 10720 KB.
+
+Las implementaciones base aceptadas [2062_fenwick.java](2062_fenwick.java), [2062_fenwick.rs](2062_fenwick.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Las cargas y celdas Fenwick son enteros de 64 bits con signo. Una cota
 segura, aunque holgada, es `1000000+q·n·1000000≤90000000001000000<2⁶³`:
@@ -143,10 +153,22 @@ porque CPython es demasiado lento en las pruebas más grandes.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB |
-| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB |
-| [2062_fenwick.java](2062_fenwick.java) | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB |
-| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB |
-| [2062_fenwick.rs](2062_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
+| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
+| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB | 11294057 |
+| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
+| [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
+| [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
+| [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

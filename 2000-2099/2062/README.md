@@ -125,7 +125,17 @@ advances. Do not double-count a square root, truncate a large answer to
 32 bits, omit source one, or print an extra answer for an update.
 Repeated measurements and zero-power updates remain valid.
 
+## Optimized solutions
+
+C++ and Go fill the divisor slices backwards, turning each end offset into a start offset without a second cursor array. Initial charges use 32 bits and the Fenwick tree and totals retain 64 bits. PyPy instead stores the smallest prime factors and enumerates divisors when measuring a particle. A cached measurement is reused until a nonzero update changes the version of the tree.
+
+The accepted G++ 13.2 x64 run takes 0.453 s versus 0.437 s for the base and uses 8 152 KB versus 10720 KB.
+
+The accepted base implementations [2062_fenwick.java](2062_fenwick.java), [2062_fenwick.rs](2062_fenwick.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All charges and Fenwick cells are signed 64-bit values. A safe loose
 bound on a charge is `1000000+q·n·1000000≤90000000001000000<2⁶³`: at
@@ -146,10 +156,22 @@ too slow for the largest tests.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB |
-| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB |
-| [2062_fenwick.java](2062_fenwick.java) | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB |
-| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB |
-| [2062_fenwick.rs](2062_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
+| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
+| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB | 11294057 |
+| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
+| [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
+| [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
+| [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

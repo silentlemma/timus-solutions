@@ -77,7 +77,17 @@
 
 不能对初始电荷求约数和；更新的是源强度。右端点包含在内，因此负增量位于 `r+1`，若 `r=n` 则省略树外操作。索引从一开始，零位置更新不会前进。不要重复计算平方根、用 32 位截断答案、漏掉源一，或为更新输出答案。重复查询、零强度都合法。
 
+## 优化解法
+
+C++ 和 Go 从后向前填充每段除数，把结束偏移量变成起始偏移量，无需第二个游标数组。初始电荷用 32 位保存，树状数组和总量仍用 64 位。PyPy 保存最小质因子，在测量时枚举除数。下一次非零更新前可复用缓存的测量结果。
+
+通过评测的 G++ 13.2 x64 版本耗时 0.453 秒，基础版为 0.437 秒，内存为 8 152 KB，基础版为 10720 KB。
+
+已通过评测的基础实现 [2062_fenwick.java](2062_fenwick.java), [2062_fenwick.rs](2062_fenwick.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 电荷与树状数组单元均为有符号 64 位。安全的宽松上界是 `1000000+q·n·1000000≤90000000001000000<2⁶³`，因为一次操作最多有 `n` 个源。差分值可能为负，即使实际累计强度非负。索引及 `d²` 仍能用 32 位表示。
 
@@ -85,10 +95,22 @@
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB |
-| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB |
-| [2062_fenwick.java](2062_fenwick.java) | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB |
-| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB |
-| [2062_fenwick.rs](2062_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
+| [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
+| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB | 11294057 |
+| [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
+| [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2062_fenwick_optimized.cpp](2062_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.453 s | 8152 KB | 11310424 |
+| [2062_fenwick_optimized.go](2062_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.812 s | 10192 KB | 11310366 |
+| [2062_fenwick_optimized.py](2062_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(n log log n + q tau_max log n) | AC | 1.234 s | 16884 KB | 11310432 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
