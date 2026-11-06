@@ -53,12 +53,29 @@ L 不起作用，因为书总能放在书架上。`O(1)`。
 
 在 100 个随机输入上公式与扫描 200001 个下端位置的结果一致，在另外 300 个输入上与一个独立的已通过实现一致。
 
+## 优化解法
+
+Go 和 Rust 用比值 q = cbrt(H/(2h)) 改写同一最优公式。H ≤ 2h 时位移为零。否则令 f = (q−1)(q+1)，计算 h·f·sqrt(f)。公共因子只算一次，也避免了两个较大长度平方相减。结果直接保留六位小数输出。两个版本都使用固定字节缓冲区，先舍入到百万分之一，再写出十进制数字。Go 直接访问标准句柄。Rust 通过 C main 启动，通过 C 运行库传输缓冲区。
+
+已通过评测的基础实现 [1753_geometry.cpp](1753_geometry.cpp), [1753_geometry.java](1753_geometry.java), [1753_geometry.py](1753_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1753_geometry.go](1753_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB |
-| [1753_geometry.java](1753_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1816 KB |
-| [1753_geometry.py](1753_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 400 KB |
-| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 244 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB | 11289560 |
+| [1753_geometry.go](1753_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11289561 |
+| [1753_geometry.java](1753_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1816 KB | 11289563 |
+| [1753_geometry.py](1753_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 400 KB | 11289562 |
+| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 244 KB | 11289564 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
+| [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

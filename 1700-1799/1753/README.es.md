@@ -69,12 +69,29 @@ La fórmula coincide con un barrido de 200001 posiciones del pie en 100
 entradas aleatorias y con una implementación aceptada independiente en
 otras 300.
 
+## Soluciones optimizadas
+
+Go y Rust reescriben el mismo óptimo con la razón q = cbrt(H/(2h)). Si H ≤ 2h, el desplazamiento es cero. En otro caso toman f = (q−1)(q+1) y calculan h·f·sqrt(f). El factor compartido se calcula una vez y se evita restar cuadrados de longitudes grandes. El resultado se imprime directamente con seis decimales. Ambas versiones usan búferes fijos de bytes y redondean a millonésimas antes de escribir las cifras decimales. Go usa directamente los descriptores estándar. Rust arranca mediante C main y transfiere los búferes con la biblioteca de C.
+
+Las implementaciones base aceptadas [1753_geometry.cpp](1753_geometry.cpp), [1753_geometry.java](1753_geometry.java), [1753_geometry.py](1753_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1753_geometry.go](1753_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB |
-| [1753_geometry.java](1753_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1816 KB |
-| [1753_geometry.py](1753_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 400 KB |
-| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB | 11289560 |
+| [1753_geometry.go](1753_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11289561 |
+| [1753_geometry.java](1753_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1816 KB | 11289563 |
+| [1753_geometry.py](1753_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 400 KB | 11289562 |
+| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 244 KB | 11289564 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
+| [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
