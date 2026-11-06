@@ -63,16 +63,35 @@ infinity
 
 每个位置的同一质数只计一次：`[4,8,1]` 仍需两步。整个数组的最大公约数为 1 不保证终止，例如 `[2,2,2,3]` 为无限。反之 `[6,10,15]` 每对都有公因数，却只需两步。相同输入值仍代表不同位置。1 不贡献因数，输出 `infinity` 的大小写必须准确。
 
+## 优化解法
+
+C++ 和 Rust 读入一个数就立即分解。小质数的计数只需一个字节，出现三次即可判定无限。不超过 10⁷ 的数最多有一个大于 3162 的质因子。只保存这些大质因子，排序后统计相等段的长度。排序最多增加 O(n log n) 时间，筛表上限 B = 3162 时空间为 O(B + n)。
+
+已通过评测的基础实现 [2003_number_theory.go](2003_number_theory.go), [2003_number_theory.java](2003_number_theory.java), [2003_number_theory.py](2003_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 五种实现均使用小质数试除与稀疏计数。C++、Go、Java 和 Rust 用整数运算确定平方根界，Python 使用 `isqrt`。限制内乘积均适合有符号 32 位整数。Java 使用缓冲输入，Python 一次读取并解析整数。在最大输入上测量完整程序后选择 CPython。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2003_number_theory.cpp](2003_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 568 KB |
-| [2003_number_theory.go](2003_number_theory.go) | Go 1.14 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.078 s | 2048 KB |
-| [2003_number_theory.java](2003_number_theory.java) | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.156 s | 1480 KB |
-| [2003_number_theory.py](2003_number_theory.py) | Python 3.12 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.578 s | 2024 KB |
-| [2003_number_theory.rs](2003_number_theory.rs) | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 1008 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2003_number_theory.cpp](2003_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 568 KB | 11292449 |
+| [2003_number_theory.go](2003_number_theory.go) | Go 1.14 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.078 s | 2048 KB | 11292450 |
+| [2003_number_theory.java](2003_number_theory.java) \* | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.156 s | 1480 KB | 11292452 |
+| [2003_number_theory.py](2003_number_theory.py) \* | Python 3.12 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.578 s | 2024 KB | 11292451 |
+| [2003_number_theory.rs](2003_number_theory.rs) | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 1008 KB | 11292453 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2003_number_theory_optimized.cpp](2003_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1) + n log n) | AC | 0.031 s | 224 KB | 11310488 |
+| [2003_number_theory_optimized.rs](2003_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1) + n log n) | AC | 0.031 s | 248 KB | 11310496 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

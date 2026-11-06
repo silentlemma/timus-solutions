@@ -100,7 +100,15 @@ Conversely `[6,10,15]` needs two steps even though every original pair
 shares a factor. Repeated input values remain separate positions. Handle
 1 without adding a factor and spell `infinity` exactly.
 
+## Optimized solutions
+
+C++ and Rust read and factor each number immediately. Counts for small primes use one byte each, since a count of three already proves infinity. A number up to 10⁷ has at most one prime factor greater than 3162. Keep only those larger factors, sort them and count equal runs. The sort adds at most O(n log n) time and storage is O(B + n) for the sieve bound B = 3162.
+
+The accepted base implementations [2003_number_theory.go](2003_number_theory.go), [2003_number_theory.java](2003_number_theory.java), [2003_number_theory.py](2003_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All five ports use the same small-prime trial division and sparse
 counters. C++, Go, Java and Rust derive the square-root bound with
@@ -111,10 +119,21 @@ maximum-input measurement.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2003_number_theory.cpp](2003_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 568 KB |
-| [2003_number_theory.go](2003_number_theory.go) | Go 1.14 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.078 s | 2048 KB |
-| [2003_number_theory.java](2003_number_theory.java) | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.156 s | 1480 KB |
-| [2003_number_theory.py](2003_number_theory.py) | Python 3.12 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.578 s | 2024 KB |
-| [2003_number_theory.rs](2003_number_theory.rs) | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 1008 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2003_number_theory.cpp](2003_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 568 KB | 11292449 |
+| [2003_number_theory.go](2003_number_theory.go) | Go 1.14 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.078 s | 2048 KB | 11292450 |
+| [2003_number_theory.java](2003_number_theory.java) \* | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.156 s | 1480 KB | 11292452 |
+| [2003_number_theory.py](2003_number_theory.py) \* | Python 3.12 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.578 s | 2024 KB | 11292451 |
+| [2003_number_theory.rs](2003_number_theory.rs) | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 1008 KB | 11292453 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2003_number_theory_optimized.cpp](2003_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1) + n log n) | AC | 0.031 s | 224 KB | 11310488 |
+| [2003_number_theory_optimized.rs](2003_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1) + n log n) | AC | 0.031 s | 248 KB | 11310496 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
