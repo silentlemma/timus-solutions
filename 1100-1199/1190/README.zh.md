@@ -68,16 +68,35 @@ NO
 答案已在 2000 份随机配料表和全部六个已保存测试上与精确的动态规划判定程序比对，
 生成的测试也已检查。
 
+## 优化解法
+
+C++ 和 Go 读到下一个已知配料占比时，立即处理此前连续未知的占比。当前已知值是这段的下界，前一个已知值是上界。末尾未知段的下界为一。只保留段长、前一个占比和总和的两个边界，辅助空间为常数。
+
+已通过评测的基础实现 [1190_greedy.java](1190_greedy.java), [1190_greedy.py](1190_greedy.py), [1190_greedy.rs](1190_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都从两端各扫一遍，并记住最近的标出值。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1190_greedy.cpp](1190_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 432 KB |
-| [1190_greedy.go](1190_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 1336 KB |
-| [1190_greedy.java](1190_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.171 s | 6296 KB |
-| [1190_greedy.py](1190_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.062 s | 1372 KB |
-| [1190_greedy.rs](1190_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 448 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1190_greedy.cpp](1190_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 432 KB | 11283432 |
+| [1190_greedy.go](1190_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 1336 KB | 11283435 |
+| [1190_greedy.java](1190_greedy.java) \* | Java 1.8 | greedy | O(N) | AC | 0.171 s | 6296 KB | 11283438 |
+| [1190_greedy.py](1190_greedy.py) \* | Python 3.12 x64 | greedy | O(N) | AC | 0.062 s | 1372 KB | 11283437 |
+| [1190_greedy.rs](1190_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 448 KB | 11283442 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
+| [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

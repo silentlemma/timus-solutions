@@ -81,17 +81,36 @@ The answers were compared with an exact dynamic-programming oracle on
 2000 random labels and all six stored tests; generated cases were also
 checked.
 
+## Optimized solutions
+
+C++ and Go process each run of unknown ingredient shares as soon as its next printed share is read. That share is the run's lower bound and the preceding printed share is its upper bound. The trailing run has lower bound one. Only the run length, preceding share and two total bounds are retained, so auxiliary space is constant.
+
+The accepted base implementations [1190_greedy.java](1190_greedy.java), [1190_greedy.py](1190_greedy.py), [1190_greedy.rs](1190_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages make two passes, one from each end, keeping the nearest
   printed value.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1190_greedy.cpp](1190_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 432 KB |
-| [1190_greedy.go](1190_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 1336 KB |
-| [1190_greedy.java](1190_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.171 s | 6296 KB |
-| [1190_greedy.py](1190_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.062 s | 1372 KB |
-| [1190_greedy.rs](1190_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 448 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1190_greedy.cpp](1190_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 432 KB | 11283432 |
+| [1190_greedy.go](1190_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 1336 KB | 11283435 |
+| [1190_greedy.java](1190_greedy.java) \* | Java 1.8 | greedy | O(N) | AC | 0.171 s | 6296 KB | 11283438 |
+| [1190_greedy.py](1190_greedy.py) \* | Python 3.12 x64 | greedy | O(N) | AC | 0.062 s | 1372 KB | 11283437 |
+| [1190_greedy.rs](1190_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 448 KB | 11283442 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
+| [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
