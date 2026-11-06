@@ -84,17 +84,39 @@ Pitfalls:
 The answers were compared with a separately written solution on 200
 random maps with and without cycles, with `S` around the diameter.
 
+## Optimized solutions
+
+The Go, Rust and Python versions still detect cycles with union–find. In the forest, one traversal per tree finds its diameter. Each child supplies its deepest downward path. Before keeping the larger branch, combine the new branch with the best already seen at the same city. Every path through that city uses two different branches or starts at the city itself, so these sums suffice. Python records a traversal order and processes it backwards to combine child branches before their parents. Go keeps adjacency in a flat array with byte-sized vertex and edge indices. The traversal is linear in the size of the forest.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 212 KB versus 464 KB.
+
+The accepted base implementations [1227_graphs.cpp](1227_graphs.cpp), [1227_graphs.java](1227_graphs.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages use union–find with path halving and an explicit stack
   for the distances.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1227_graphs.cpp](1227_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M²) | AC | 0.015 s | 204 KB |
-| [1227_graphs.go](1227_graphs.go) | Go 1.14 x64 | graphs | O(N + M²) | AC | 0.031 s | 1268 KB |
-| [1227_graphs.java](1227_graphs.java) | Java 1.8 | graphs | O(N + M²) | AC | 0.093 s | 800 KB |
-| [1227_graphs.py](1227_graphs.py) | Python 3.12 x64 | graphs | O(N + M log M) | AC | 0.078 s | 2608 KB |
-| [1227_graphs.rs](1227_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M²) | AC | 0.015 s | 464 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1227_graphs.cpp](1227_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M²) | AC | 0.015 s | 204 KB | 11283720 |
+| [1227_graphs.go](1227_graphs.go) | Go 1.14 x64 | graphs | O(N + M²) | AC | 0.031 s | 1268 KB | 11283721 |
+| [1227_graphs.java](1227_graphs.java) | Java 1.8 | graphs | O(N + M²) | AC | 0.093 s | 800 KB | 11283729 |
+| [1227_graphs.py](1227_graphs.py) | Python 3.12 x64 | graphs | O(N + M log M) | AC | 0.078 s | 2608 KB | 11283726 |
+| [1227_graphs.rs](1227_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M²) | AC | 0.015 s | 464 KB | 11283730 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1227_dsu_dp.go](1227_dsu_dp.go) \* | Go 1.14 x64 | dsu, dp | O(N + M²) | AC | 0.015 s | 792 KB | 11310847 |
+| [1227_dsu_dp.rs](1227_dsu_dp.rs) \* | Rust 1.75 x64 | dsu, dp | O(N + M²) | AC | 0.031 s | 212 KB | 11310397 |
+| [1227_dsu_dp.py](1227_dsu_dp.py) \* | Python 3.12 x64 | dsu, dp | O(N + M²) | AC | 0.078 s | 720 KB | 11310339 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

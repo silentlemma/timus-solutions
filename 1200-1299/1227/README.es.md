@@ -88,17 +88,39 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 200
 mapas aleatorios con y sin ciclos, con `S` cerca del diámetro.
 
+## Soluciones optimizadas
+
+Las versiones en Go, Rust y Python siguen detectando ciclos con conjuntos disjuntos. En el bosque basta un recorrido por árbol. Cada hijo aporta su camino descendente más largo. Antes de guardar la mayor rama, se combina la nueva con la mejor ya vista en esa ciudad. Un camino que pasa por la ciudad usa dos ramas distintas o empieza en la propia ciudad, así que basta comprobar esas sumas. Python guarda el orden del recorrido y lo procesa al revés para combinar las ramas de los hijos antes que las de sus padres. Go guarda las listas de adyacencia en un solo vector con índices de vértice y de arista de un byte. El recorrido es lineal en el tamaño del bosque.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 212 KB frente a 464 KB.
+
+Las implementaciones base aceptadas [1227_graphs.cpp](1227_graphs.cpp), [1227_graphs.java](1227_graphs.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes usan conjuntos disjuntos con compresión de caminos
   a la mitad y una pila explícita para las distancias.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1227_graphs.cpp](1227_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M²) | AC | 0.015 s | 204 KB |
-| [1227_graphs.go](1227_graphs.go) | Go 1.14 x64 | graphs | O(N + M²) | AC | 0.031 s | 1268 KB |
-| [1227_graphs.java](1227_graphs.java) | Java 1.8 | graphs | O(N + M²) | AC | 0.093 s | 800 KB |
-| [1227_graphs.py](1227_graphs.py) | Python 3.12 x64 | graphs | O(N + M log M) | AC | 0.078 s | 2608 KB |
-| [1227_graphs.rs](1227_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M²) | AC | 0.015 s | 464 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1227_graphs.cpp](1227_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M²) | AC | 0.015 s | 204 KB | 11283720 |
+| [1227_graphs.go](1227_graphs.go) | Go 1.14 x64 | graphs | O(N + M²) | AC | 0.031 s | 1268 KB | 11283721 |
+| [1227_graphs.java](1227_graphs.java) | Java 1.8 | graphs | O(N + M²) | AC | 0.093 s | 800 KB | 11283729 |
+| [1227_graphs.py](1227_graphs.py) | Python 3.12 x64 | graphs | O(N + M log M) | AC | 0.078 s | 2608 KB | 11283726 |
+| [1227_graphs.rs](1227_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M²) | AC | 0.015 s | 464 KB | 11283730 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1227_dsu_dp.go](1227_dsu_dp.go) \* | Go 1.14 x64 | dsu, dp | O(N + M²) | AC | 0.015 s | 792 KB | 11310847 |
+| [1227_dsu_dp.rs](1227_dsu_dp.rs) \* | Rust 1.75 x64 | dsu, dp | O(N + M²) | AC | 0.031 s | 212 KB | 11310397 |
+| [1227_dsu_dp.py](1227_dsu_dp.py) \* | Python 3.12 x64 | dsu, dp | O(N + M²) | AC | 0.078 s | 720 KB | 11310339 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
