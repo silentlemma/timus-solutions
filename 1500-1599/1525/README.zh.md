@@ -82,12 +82,31 @@ uudlbdrruffbr
 - 程序可能为空，这时每个格子都算（测试 05）；
 - 足够长的一串同向步骤会把所有起点推到墙边（测试 01、06）。
 
+## 优化解法
+
+对每个轴记录无墙限制时的位移 s，以及包含零在内的前缀最小值 lo 和最大值 hi。坐标为 0 到 L − 1 时，可达区间两端在相遇前为 s − lo 和 L − 1 + s − hi。新的最小值使第一端贴到零，新的最大值使第二端贴到 L − 1。两端相遇后不会再分开。位置数为 max(1, L − (hi − lo))，一次扫描后相乘三个轴的结果。
+
+已通过评测的基础实现 [1525_implementation.java](1525_implementation.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1525_implementation.cpp](1525_implementation.cpp) | G++ 13.2 x64 | implementation | O(len) | AC | 0.015 s | 528 KB |
-| [1525_implementation.go](1525_implementation.go) | Go 1.14 x64 | implementation | O(len) | AC | 0.015 s | 1748 KB |
-| [1525_implementation.java](1525_implementation.java) | Java 1.8 | implementation | O(len) | AC | 0.140 s | 2212 KB |
-| [1525_implementation.py](1525_implementation.py) | Python 3.12 x64 | implementation | O(len) | AC | 0.109 s | 692 KB |
-| [1525_implementation.rs](1525_implementation.rs) | Rust 1.75 x64 | implementation | O(len) | AC | 0.046 s | 468 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1525_implementation.cpp](1525_implementation.cpp) | G++ 13.2 x64 | implementation | O(len) | AC | 0.015 s | 528 KB | 11287395 |
+| [1525_implementation.go](1525_implementation.go) | Go 1.14 x64 | implementation | O(len) | AC | 0.015 s | 1748 KB | 11287396 |
+| [1525_implementation.java](1525_implementation.java) \* | Java 1.8 | implementation | O(len) | AC | 0.140 s | 2212 KB | 11287401 |
+| [1525_implementation.py](1525_implementation.py) | Python 3.12 x64 | implementation | O(len) | AC | 0.109 s | 692 KB | 11287398 |
+| [1525_implementation.rs](1525_implementation.rs) | Rust 1.75 x64 | implementation | O(len) | AC | 0.046 s | 468 KB | 11287405 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1525_math.cpp](1525_math.cpp) | G++ 13.2 x64 | math | O(len) | AC | 0.015 s | 112 KB | 11310466 |
+| [1525_math.go](1525_math.go) \* | Go 1.14 x64 | math | O(len) | AC | 0.015 s | 932 KB | 11310467 |
+| [1525_math.py](1525_math.py) | Python 3.12 x64 | math | O(len) | AC | 0.078 s | 520 KB | 11310470 |
+| [1525_math.rs](1525_math.rs) \* | Rust 1.75 x64 | math | O(len) | AC | 0.031 s | 216 KB | 11310469 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

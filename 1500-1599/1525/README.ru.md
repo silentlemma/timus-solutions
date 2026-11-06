@@ -87,12 +87,31 @@ uudlbdrruffbr
 - достаточно длинная серия одинаковых ходов прижимает все начала к стене
   (тесты 01, 06).
 
+## Оптимизированные решения
+
+На каждой оси храним смещение s без учёта стен и его минимум lo и максимум hi на префиксах, включая нулевой. При координатах от 0 до L − 1 границы достижимого интервала равны s − lo и L − 1 + s − hi, пока они не встретились. Новый минимум прижимает первую границу к нулю, новый максимум — вторую к L − 1. После встречи границы уже не разойдутся. Число позиций равно max(1, L − (hi − lo)). Перемножаем три результата после одного прохода.
+
+Принятые базовые реализации [1525_implementation.java](1525_implementation.java) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1525_implementation.cpp](1525_implementation.cpp) | G++ 13.2 x64 | implementation | O(len) | AC | 0.015 s | 528 KB |
-| [1525_implementation.go](1525_implementation.go) | Go 1.14 x64 | implementation | O(len) | AC | 0.015 s | 1748 KB |
-| [1525_implementation.java](1525_implementation.java) | Java 1.8 | implementation | O(len) | AC | 0.140 s | 2212 KB |
-| [1525_implementation.py](1525_implementation.py) | Python 3.12 x64 | implementation | O(len) | AC | 0.109 s | 692 KB |
-| [1525_implementation.rs](1525_implementation.rs) | Rust 1.75 x64 | implementation | O(len) | AC | 0.046 s | 468 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1525_implementation.cpp](1525_implementation.cpp) | G++ 13.2 x64 | implementation | O(len) | AC | 0.015 s | 528 KB | 11287395 |
+| [1525_implementation.go](1525_implementation.go) | Go 1.14 x64 | implementation | O(len) | AC | 0.015 s | 1748 KB | 11287396 |
+| [1525_implementation.java](1525_implementation.java) \* | Java 1.8 | implementation | O(len) | AC | 0.140 s | 2212 KB | 11287401 |
+| [1525_implementation.py](1525_implementation.py) | Python 3.12 x64 | implementation | O(len) | AC | 0.109 s | 692 KB | 11287398 |
+| [1525_implementation.rs](1525_implementation.rs) | Rust 1.75 x64 | implementation | O(len) | AC | 0.046 s | 468 KB | 11287405 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1525_math.cpp](1525_math.cpp) | G++ 13.2 x64 | math | O(len) | AC | 0.015 s | 112 KB | 11310466 |
+| [1525_math.go](1525_math.go) \* | Go 1.14 x64 | math | O(len) | AC | 0.015 s | 932 KB | 11310467 |
+| [1525_math.py](1525_math.py) | Python 3.12 x64 | math | O(len) | AC | 0.078 s | 520 KB | 11310470 |
+| [1525_math.rs](1525_math.rs) \* | Rust 1.75 x64 | math | O(len) | AC | 0.031 s | 216 KB | 11310469 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
