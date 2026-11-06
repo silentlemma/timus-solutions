@@ -106,7 +106,17 @@ Pitfalls:
 - negative ratings: inviting nobody (total 0) is allowed;
 - the root is not given explicitly: it is the employee without a boss.
 
+## Optimized solutions
+
+Go and Rust evaluate the tree DP from the leaves up. Each employee keeps a parent, a count of direct reports still to process, and two scores for attending or skipping the party. When an employee is processed, their scores go directly to their boss, who joins the queue after the last report. Parent IDs, counters and queue entries fit in 16 bits.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 276 KB versus 528 KB.
+
+The accepted base implementations [1039_dp.cpp](1039_dp.cpp), [1039_dp.java](1039_dp.java), [1039_dp.py](1039_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - **C++**, **Go**, **Java**, **Rust**: the children are kept as linked
   lists in two arrays (`first`, `next`), which suits the 8 MB limit.
@@ -115,10 +125,21 @@ Pitfalls:
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1039_dp.cpp](1039_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 296 KB |
-| [1039_dp.go](1039_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1588 KB |
-| [1039_dp.java](1039_dp.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 656 KB |
-| [1039_dp.py](1039_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.093 s | 3120 KB |
-| [1039_dp.rs](1039_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 528 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1039_dp.cpp](1039_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 296 KB | 11278499 |
+| [1039_dp.go](1039_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1588 KB | 11278507 |
+| [1039_dp.java](1039_dp.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 656 KB | 11278510 |
+| [1039_dp.py](1039_dp.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.093 s | 3120 KB | 11278509 |
+| [1039_dp.rs](1039_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 528 KB | 11278514 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1039_dp_optimized.go](1039_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1060 KB | 11311108 |
+| [1039_dp_optimized.rs](1039_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 276 KB | 11310577 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
