@@ -99,18 +99,37 @@ Pitfalls:
   length `X ≤ L1` costs `C1`, not `C3`;
 - the answer fits in 32 bits, but use 64-bit integers for sums anyway.
 
+## Optimized solutions
+
+Go and Rust keep one moving pointer per fare, to the earliest station still within its range. The minimum cost of reaching a station is nondecreasing, so that pointer gives the cheapest predecessor for the fare. Both versions read positions in order and keep only the interval between the two endpoints. The bound on the answer allows positions and costs to use 32-bit integers. Go uses fixed arrays for at most 10000 stations and direct byte input and output.
+
+The accepted base implementations [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp), [1031_dp_two_pointers.java](1031_dp_two_pointers.java), [1031_dp_two_pointers.py](1031_dp_two_pointers.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - **C++**, **Go**, **Python**, **Java**, **Rust**: three pointers.
 - **C++** also has the quadratic DP.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1031_dp.cpp](1031_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.078 s | 284 KB |
-| [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(N) | AC | 0.015 s | 280 KB |
-| [1031_dp_two_pointers.go](1031_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 1440 KB |
-| [1031_dp_two_pointers.java](1031_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(N) | AC | 0.093 s | 668 KB |
-| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB |
-| [1031_dp_two_pointers.rs](1031_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 516 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1031_dp.cpp](1031_dp.cpp) | G++ 13.2 x64 | dp | O(N^2) | AC | 0.078 s | 284 KB | 11278426 |
+| [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(N) | AC | 0.015 s | 280 KB | 11278425 |
+| [1031_dp_two_pointers.go](1031_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 1440 KB | 11278427 |
+| [1031_dp_two_pointers.java](1031_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(N) | AC | 0.093 s | 668 KB | 11278429 |
+| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) \* | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB | 11278428 |
+| [1031_dp_two_pointers.rs](1031_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 516 KB | 11278430 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
+| [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) \* | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
