@@ -73,16 +73,34 @@ Pitfalls:
 Every N from 1 to 3000 and the two largest were run through the
 checker.
 
+## Optimized solutions
+
+Go scans the balanced ternary digits using only the remaining amount, current power, payment and tip. A digit one adds a bill to the payment. A digit two adds that bill to the tip and carries one to the next digit. Remember the lowest unused bill so that a zero tip can be made positive by adding the same unused bill to both sums. Fixed byte buffers handle input and decimal output without a general-purpose scanner or number formatter. Go accesses the standard input and output handles directly.
+
+The accepted base implementations [1261_number_theory.cpp](1261_number_theory.cpp), [1261_number_theory.java](1261_number_theory.java), [1261_number_theory.py](1261_number_theory.py), [1261_number_theory.rs](1261_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages build the balanced ternary digits in one loop.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1261_number_theory.cpp](1261_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log N) | AC | 0.015 s | 128 KB |
-| [1261_number_theory.go](1261_number_theory.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 1068 KB |
-| [1261_number_theory.java](1261_number_theory.java) | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB |
-| [1261_number_theory.py](1261_number_theory.py) | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB |
-| [1261_number_theory.rs](1261_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1261_number_theory.cpp](1261_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log N) | AC | 0.015 s | 128 KB | 11284132 |
+| [1261_number_theory.go](1261_number_theory.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 1068 KB | 11284133 |
+| [1261_number_theory.java](1261_number_theory.java) \* | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB | 11284139 |
+| [1261_number_theory.py](1261_number_theory.py) \* | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB | 11284137 |
+| [1261_number_theory.rs](1261_number_theory.rs) \* | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB | 11284140 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1261_number_theory_optimized.go](1261_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 308 KB | 11311230 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

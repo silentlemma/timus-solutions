@@ -73,17 +73,35 @@ Detalles a tener en cuenta:
 
 Todos los N de 1 a 3000 y los dos mayores se pasaron por el evaluador.
 
+## Soluciones optimizadas
+
+Go recorre los dígitos ternarios equilibrados conservando solo el importe restante, la potencia actual, el pago y la propina. Un uno añade el billete al pago. Un dos lo añade a la propina y lleva uno a la siguiente cifra. Recuerda el menor billete sin usar para añadirlo a ambas sumas cuando la propina sea cero. La entrada y la salida decimal usan búferes fijos de bytes, sin un analizador ni un formateador numérico general. Go accede directamente a los descriptores de entrada y salida estándar.
+
+Las implementaciones base aceptadas [1261_number_theory.cpp](1261_number_theory.cpp), [1261_number_theory.java](1261_number_theory.java), [1261_number_theory.py](1261_number_theory.py), [1261_number_theory.rs](1261_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes obtienen los dígitos del ternario equilibrado en
   un solo bucle.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1261_number_theory.cpp](1261_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log N) | AC | 0.015 s | 128 KB |
-| [1261_number_theory.go](1261_number_theory.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 1068 KB |
-| [1261_number_theory.java](1261_number_theory.java) | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB |
-| [1261_number_theory.py](1261_number_theory.py) | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB |
-| [1261_number_theory.rs](1261_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1261_number_theory.cpp](1261_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log N) | AC | 0.015 s | 128 KB | 11284132 |
+| [1261_number_theory.go](1261_number_theory.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 1068 KB | 11284133 |
+| [1261_number_theory.java](1261_number_theory.java) \* | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB | 11284139 |
+| [1261_number_theory.py](1261_number_theory.py) \* | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB | 11284137 |
+| [1261_number_theory.rs](1261_number_theory.rs) \* | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB | 11284140 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1261_number_theory_optimized.go](1261_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 308 KB | 11311230 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
