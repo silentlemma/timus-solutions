@@ -58,16 +58,36 @@
 公式已用枚举全部六位车票验证，并且 2 到 20 的每个偶数 `N` 都与另一份独立解答比对
 过。
 
+## 优化解法
+
+Go、Java 和 Rust 无需建表即可计算两组各 k 位且数字和相同的方案数。把第二组每位补到九，新的 2k 位总和必须为 9k。先用隔板法计算无上界的非负整数解，再用容斥排除数值至少为十的位置。选中 j 个违规位置时，每处减十，目标和变为 9k − 10j。最后相乘两组独立计数。Go 复用输入缓冲区，从右向左写入答案的十进制数字。syscall.Read 和 syscall.Write 使用标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1217_combinatorics.cpp](1217_combinatorics.cpp), [1217_combinatorics.py](1217_combinatorics.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都用同样的方式构建数字和表；Python 使用任意精度整数，其余语言使用 64 位整数。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1217_combinatorics.cpp](1217_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N²) | AC | 0.001 s | 192 KB |
-| [1217_combinatorics.go](1217_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N²) | AC | 0.031 s | 1072 KB |
-| [1217_combinatorics.java](1217_combinatorics.java) | Java 1.8 | combinatorics | O(N²) | AC | 0.109 s | 1592 KB |
-| [1217_combinatorics.py](1217_combinatorics.py) | Python 3.12 x64 | combinatorics | O(N²) | AC | 0.078 s | 436 KB |
-| [1217_combinatorics.rs](1217_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N²) | AC | 0.031 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1217_combinatorics.cpp](1217_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N²) | AC | 0.001 s | 192 KB | 11283672 |
+| [1217_combinatorics.go](1217_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N²) | AC | 0.031 s | 1072 KB | 11283673 |
+| [1217_combinatorics.java](1217_combinatorics.java) | Java 1.8 | combinatorics | O(N²) | AC | 0.109 s | 1592 KB | 11283675 |
+| [1217_combinatorics.py](1217_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(N²) | AC | 0.078 s | 436 KB | 11283674 |
+| [1217_combinatorics.rs](1217_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N²) | AC | 0.031 s | 224 KB | 11283677 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1217_math.go](1217_math.go) \* | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 276 KB | 11311207 |
+| [1217_math.java](1217_math.java) \* | Java 1.8 | math | O(N²) | AC | 0.093 s | 292 KB | 11310353 |
+| [1217_math.rs](1217_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 196 KB | 11310720 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

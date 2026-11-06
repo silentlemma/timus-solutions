@@ -67,17 +67,37 @@ The formula was checked by brute force over all six-digit tickets, and
 every even `N` from 2 to 20 was compared with a separately written
 solution.
 
+## Optimized solutions
+
+Go, Java and Rust count a pair of k-digit groups of equal sum without building a table. Complement every digit in the second group to nine. The new 2k digits must then sum to 9k. Count unrestricted nonnegative solutions by stars and bars, and use inclusion–exclusion to remove digits of at least ten. For j chosen invalid digits, subtract ten from each and use target 9k − 10j. Multiply the counts for the two independent groups. Go reuses its input buffer to write the decimal answer from right to left. Standard-handle syscall.Read and syscall.Write retry interrupted calls and complete partial writes.
+
+The accepted base implementations [1217_combinatorics.cpp](1217_combinatorics.cpp), [1217_combinatorics.py](1217_combinatorics.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages build the digit-sum tables the same way; Python uses
   arbitrary-precision integers, the others use 64-bit integers.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1217_combinatorics.cpp](1217_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N²) | AC | 0.001 s | 192 KB |
-| [1217_combinatorics.go](1217_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N²) | AC | 0.031 s | 1072 KB |
-| [1217_combinatorics.java](1217_combinatorics.java) | Java 1.8 | combinatorics | O(N²) | AC | 0.109 s | 1592 KB |
-| [1217_combinatorics.py](1217_combinatorics.py) | Python 3.12 x64 | combinatorics | O(N²) | AC | 0.078 s | 436 KB |
-| [1217_combinatorics.rs](1217_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N²) | AC | 0.031 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1217_combinatorics.cpp](1217_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N²) | AC | 0.001 s | 192 KB | 11283672 |
+| [1217_combinatorics.go](1217_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N²) | AC | 0.031 s | 1072 KB | 11283673 |
+| [1217_combinatorics.java](1217_combinatorics.java) | Java 1.8 | combinatorics | O(N²) | AC | 0.109 s | 1592 KB | 11283675 |
+| [1217_combinatorics.py](1217_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(N²) | AC | 0.078 s | 436 KB | 11283674 |
+| [1217_combinatorics.rs](1217_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N²) | AC | 0.031 s | 224 KB | 11283677 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1217_math.go](1217_math.go) \* | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 276 KB | 11311207 |
+| [1217_math.java](1217_math.java) \* | Java 1.8 | math | O(N²) | AC | 0.093 s | 292 KB | 11310353 |
+| [1217_math.rs](1217_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 196 KB | 11310720 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
