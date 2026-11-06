@@ -62,12 +62,28 @@ Detalles a tener en cuenta:
 - las dos respuestas se optimizan por separado, no en la misma liga
   (prueba 03).
 
+## Soluciones optimizadas
+
+Go conserva las fórmulas n−1 y floor(3(n−1)/2). Lee el número de equipos con un pequeño búfer de bytes y lo reutiliza para formatear ambas respuestas sin entrada ni salida de formato general. Usa los descriptores estándar mediante syscall.Read y syscall.Write, reintenta llamadas interrumpidas y completa escrituras parciales.
+
+Las implementaciones base aceptadas [1483_math.cpp](1483_math.cpp), [1483_math.java](1483_math.java), [1483_math.py](1483_math.py), [1483_math.rs](1483_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1483_math.cpp](1483_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 128 KB |
-| [1483_math.go](1483_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1084 KB |
-| [1483_math.java](1483_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1588 KB |
-| [1483_math.py](1483_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB |
-| [1483_math.rs](1483_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1483_math.cpp](1483_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 128 KB | 11286749 |
+| [1483_math.go](1483_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1084 KB | 11286751 |
+| [1483_math.java](1483_math.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 1588 KB | 11286754 |
+| [1483_math.py](1483_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11286753 |
+| [1483_math.rs](1483_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 232 KB | 11286756 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

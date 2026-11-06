@@ -62,12 +62,28 @@ Pitfalls:
 - the two answers are optimised separately, not in one tournament
   (test 03).
 
+## Optimized solutions
+
+Go keeps the same two formulas n−1 and floor(3(n−1)/2). It reads the team count into a small byte buffer and reuses that buffer to format both answers, avoiding general formatted input and output. It uses the standard handles through syscall.Read and syscall.Write, retrying interrupted calls and completing partial writes.
+
+The accepted base implementations [1483_math.cpp](1483_math.cpp), [1483_math.java](1483_math.java), [1483_math.py](1483_math.py), [1483_math.rs](1483_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1483_math.cpp](1483_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 128 KB |
-| [1483_math.go](1483_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1084 KB |
-| [1483_math.java](1483_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1588 KB |
-| [1483_math.py](1483_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB |
-| [1483_math.rs](1483_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1483_math.cpp](1483_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 128 KB | 11286749 |
+| [1483_math.go](1483_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1084 KB | 11286751 |
+| [1483_math.java](1483_math.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 1588 KB | 11286754 |
+| [1483_math.py](1483_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11286753 |
+| [1483_math.rs](1483_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 232 KB | 11286756 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
