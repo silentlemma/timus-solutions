@@ -72,17 +72,37 @@ s · (num div den) + (s · (num mod den)) div den，其中 s = 4 · 1000²。
 - AD · AC = BD · BC 并不总是意味着数据矛盾，有时意味着答案有很多个（测试 02 和 03）；
 - 余弦在 [−1, 1] 内并不足以保证轨道有效：还要排除退化三角形并检查顶点顺序（测试 07）。
 
+## 优化解法
+
+Rust 检查几何条件是否能唯一确定答案后，将弦长平方分解为整数分子和分母。先拆分商和余数再缩放，得到以千米计的两倍距离的平方。用整数平方比较修正浮点平方根估计，其整数部分决定最终舍入，无需浮点格式化。固定字节缓冲区保存输入和完整输出。Rust 通过 C 运行库读写。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 56 KB，基础版为 236 KB。
+
+已通过评测的基础实现 [1294_geometry.cpp](1294_geometry.cpp), [1294_geometry.go](1294_geometry.go), [1294_geometry.java](1294_geometry.java), [1294_geometry.py](1294_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - Python 的 `round` 把一半舍入到偶数。五种解法都用精确整数比较半公里边界的平方，
   因此恰好一半时都一致地向上舍入。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB |
-| [1294_geometry.go](1294_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB |
-| [1294_geometry.java](1294_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1648 KB |
-| [1294_geometry.py](1294_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 448 KB |
-| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11297933 |
+| [1294_geometry.go](1294_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11297936 |
+| [1294_geometry.java](1294_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1648 KB | 11297937 |
+| [1294_geometry.py](1294_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 448 KB | 11297939 |
+| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB | 11284630 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1294_geometry_optimized.rs](1294_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 56 KB | 11311233 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
