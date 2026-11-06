@@ -69,17 +69,37 @@ Pitfalls:
 The rule was compared with a search over all reachable orders for every
 K on 300 random rows of up to 7 stones.
 
+## Optimized solutions
+
+C++, Java and Rust use a table indexed by weight. Since weights are distinct, each cell holds either the stone’s original position or zero. Scanning the occupied cells in weight order gives the increasing rank r and the decreasing rank N + 1 − r, so both gcds are updated in one pass. W is the size of the weight table.
+
+The accepted base implementations [1252_number_theory.go](1252_number_theory.go), [1252_number_theory.py](1252_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Java sorts weights packed with their positions in one `long` array
   instead of sorting boxed indices with a comparator.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB |
-| [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB |
-| [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB |
-| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB |
-| [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB | 11284003 |
+| [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB | 11284006 |
+| [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB | 11284010 |
+| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB | 11284007 |
+| [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB | 11284011 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 604 KB | 11310440 |
+| [1252_sorting.java](1252_sorting.java) \* | Java 1.8 | sorting | O(W + N log N) | AC | 0.078 s | 972 KB | 11310354 |
+| [1252_sorting.rs](1252_sorting.rs) \* | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11310439 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

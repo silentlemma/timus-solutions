@@ -70,7 +70,15 @@ Detalles a tener en cuenta:
 La regla se comparó con una búsqueda de todos los órdenes alcanzables
 para cada K en 300 filas aleatorias de hasta 7 piedras.
 
+## Soluciones optimizadas
+
+C++, Java y Rust usan una tabla indexada por peso. Como los pesos son distintos, cada celda guarda la posición original de la piedra o cero. Al recorrer las celdas ocupadas por peso se obtienen el rango ascendente r y el descendente N + 1 − r. Así se actualizan ambos máximos comunes divisores en una sola pasada. W es el tamaño de la tabla.
+
+Las implementaciones base aceptadas [1252_number_theory.go](1252_number_theory.go), [1252_number_theory.py](1252_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Java ordena los pesos empaquetados con sus posiciones en un solo
   arreglo `long`, en vez de ordenar índices en objetos con un
@@ -78,10 +86,22 @@ para cada K en 300 filas aleatorias de hasta 7 piedras.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB |
-| [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB |
-| [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB |
-| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB |
-| [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1252_number_theory.cpp](1252_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.093 s | 1212 KB | 11284003 |
+| [1252_number_theory.go](1252_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.125 s | 4012 KB | 11284006 |
+| [1252_number_theory.java](1252_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.093 s | 1596 KB | 11284010 |
+| [1252_number_theory.py](1252_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.140 s | 13612 KB | 11284007 |
+| [1252_number_theory.rs](1252_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.031 s | 3652 KB | 11284011 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1252_sorting.cpp](1252_sorting.cpp) | G++ 13.2 x64 | sorting | O(W + N log N) | AC | 0.015 s | 604 KB | 11310440 |
+| [1252_sorting.java](1252_sorting.java) \* | Java 1.8 | sorting | O(W + N log N) | AC | 0.078 s | 972 KB | 11310354 |
+| [1252_sorting.rs](1252_sorting.rs) \* | Rust 1.75 x64 | sorting | O(W + N log N) | AC | 0.015 s | 712 KB | 11310439 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
