@@ -77,7 +77,15 @@ s,t在边记录之前。顶点数优先于概率：更长的零风险路线不�
 测试06说明了路线风险允许的误差。两项容差应分别应用：输出的
 概率描述所选路线，因此它与最优值的差可能超过10⁻⁶。
 
+## 优化解法
+
+Go 和 Rust 版本沿用广度优先搜索，并将所有有向边存入一个数组。第一个 32 位字保存终点和 7 位风险百分比，第二个 32 位字指向同一顶点的下一条出边。重建路径时复用搜索队列。时间和空间复杂度仍为 O(n + m)。Go 版本从 0.187 秒、15636 KB 降至 0.046 秒、5368 KB。Rust 版本的内存从 14136 KB 降至 4676 KB，耗时从 0.046 秒升至 0.062 秒。
+
+已通过评测的基础实现 [1934_shortest_paths.cpp](1934_shortest_paths.cpp), [1934_shortest_paths.java](1934_shortest_paths.java), [1934_shortest_paths.py](1934_shortest_paths.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 以零起始编号将边编码为100·相邻顶点+p，最大9,999,999，可用
 32位整数。C++、Go和Rust使用编码边的动态数组。Java使用
@@ -87,10 +95,21 @@ s,t在边记录之前。顶点数优先于概率：更长的零风险路线不�
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB |
-| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB |
-| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB |
-| [1934_shortest_paths.py](1934_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB |
-| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB | 11291762 |
+| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB | 11291768 |
+| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB | 11291777 |
+| [1934_shortest_paths.py](1934_shortest_paths.py) \* | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB | 11291770 |
+| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB | 11291781 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
+| [1934_shortest_paths_optimized.rs](1934_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.062 s | 4676 KB | 11310369 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

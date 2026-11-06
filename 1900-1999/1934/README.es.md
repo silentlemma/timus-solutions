@@ -89,7 +89,15 @@ El test 06 ilustra la tolerancia permitida para el riesgo de la ruta.
 Las dos tolerancias se aplican por separado: el valor impreso describe
 la ruta elegida y puede diferir del óptimo en más de 10⁻⁶.
 
+## Soluciones optimizadas
+
+Las versiones en Go y Rust conservan la búsqueda en anchura y guardan todas las aristas dirigidas en un solo arreglo. La primera palabra de 32 bits codifica el destino y el porcentaje de riesgo en siete bits. La segunda indica la siguiente arista del mismo vértice. Se reutiliza la cola de búsqueda para reconstruir la ruta. El tiempo y el espacio siguen siendo O(n + m). Go pasó de 0,187 s y 15636 KB a 0,046 s y 5368 KB. Rust usó 4676 KB en lugar de 14136 KB, y el tiempo aumentó de 0,046 s a 0,062 s.
+
+Las implementaciones base aceptadas [1934_shortest_paths.cpp](1934_shortest_paths.cpp), [1934_shortest_paths.java](1934_shortest_paths.java), [1934_shortest_paths.py](1934_shortest_paths.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Cada arista se codifica como 100·vecino+p, con índices desde cero;
 el máximo 9 999 999 cabe en 32 bits. C++, Go y Rust usan vectores
@@ -100,10 +108,21 @@ Todas las versiones reconstruyen sin recursión y almacenan la salida.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB |
-| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB |
-| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB |
-| [1934_shortest_paths.py](1934_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB |
-| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB | 11291762 |
+| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB | 11291768 |
+| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB | 11291777 |
+| [1934_shortest_paths.py](1934_shortest_paths.py) \* | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB | 11291770 |
+| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB | 11291781 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
+| [1934_shortest_paths_optimized.rs](1934_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.062 s | 4676 KB | 11310369 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

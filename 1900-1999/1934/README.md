@@ -87,7 +87,15 @@ Test 06 illustrates the permitted route-risk tolerance. Apply the two
 tolerances separately: the printed value describes the selected route,
 so it can differ from the optimum by more than 10⁻⁶.
 
+## Optimized solutions
+
+The Go and Rust versions keep the same breadth-first search and store all directed edges in a single array. Each 32-bit word packs a destination and a seven-bit risk percentage. A second 32-bit word points to the next edge from the same vertex. The search queue is reused to reconstruct the route. Time and space remain O(n + m). Go went from 0.187 s and 15636 KB to 0.046 s and 5368 KB. Rust used 4676 KB instead of 14136 KB, with runtime rising from 0.046 s to 0.062 s.
+
+The accepted base implementations [1934_shortest_paths.cpp](1934_shortest_paths.cpp), [1934_shortest_paths.java](1934_shortest_paths.java), [1934_shortest_paths.py](1934_shortest_paths.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Adjacency packs a neighbor and its percentage as 100·neighbor+p using
 zero-based identifiers; the largest value is 9,999,999, safe in 32 bits.
@@ -98,10 +106,21 @@ parents and costs. All versions reconstruct iteratively and buffer output.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB |
-| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB |
-| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB |
-| [1934_shortest_paths.py](1934_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB |
-| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB | 11291762 |
+| [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB | 11291768 |
+| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB | 11291777 |
+| [1934_shortest_paths.py](1934_shortest_paths.py) \* | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB | 11291770 |
+| [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB | 11291781 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1934_shortest_paths_optimized.go](1934_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 5368 KB | 11310370 |
+| [1934_shortest_paths_optimized.rs](1934_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.062 s | 4676 KB | 11310369 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
