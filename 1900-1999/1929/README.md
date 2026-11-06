@@ -67,7 +67,15 @@ If m<n/3 the answer is zero. At m=n/3 every team has exactly one special;
 the formula handles this without a separate branch. C(0,0) must equal 1.
 Keep reading all identifiers even after finding person 1.
 
+## Optimized solutions
+
+Go and Rust read special identifiers only until person one is found or the list ends. They keep that single membership flag and directly add the feasible counts for zero, one or two special partners. The selected triple must contain a special person and leave one for every remaining team. No identifier set or list of triples is stored. Go uses fixed byte buffers and standard handles directly, retrying interrupted calls and completing partial writes.
+
+The accepted base implementations [1929_combinatorics.cpp](1929_combinatorics.cpp), [1929_combinatorics.java](1929_combinatorics.java), [1929_combinatorics.py](1929_combinatorics.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Signed 32-bit integers suffice: the answer is at most C(998,2)=497503
 and the intermediate product a(a−1) is below one million. Go uses int,
@@ -77,10 +85,21 @@ No factorials, modular arithmetic, floating point or large integers are needed.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB |
-| [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB |
-| [1929_combinatorics.java](1929_combinatorics.java) | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB |
-| [1929_combinatorics.py](1929_combinatorics.py) | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB |
-| [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB | 11291652 |
+| [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB | 11291659 |
+| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB | 11291673 |
+| [1929_combinatorics.py](1929_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB | 11291667 |
+| [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB | 11291675 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
+| [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

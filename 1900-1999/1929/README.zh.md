@@ -60,7 +60,15 @@ C(a,0)=1、C(a,1)=a、C(a,2)=a(a−1)/2。三个情况互不重叠，
 m<n/3 时答案为零；m=n/3 时每队恰好一名，公式自动涵盖。
 C(0,0)=1。找到 1 号后仍应读取剩余编号。
 
+## 优化解法
+
+Go 和 Rust 读取特殊成员编号，直到找到一号成员或读完列表，只保留这一归属标记。随后直接累加搭档中有零、一或两名特殊成员的可行数量。选出的三人组必须包含特殊成员，并为每个剩余队伍留下一名。无需保存编号集合或三人组列表。Go 使用固定字节缓冲区并直接访问标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1929_combinatorics.cpp](1929_combinatorics.cpp), [1929_combinatorics.java](1929_combinatorics.java), [1929_combinatorics.py](1929_combinatorics.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 有符号 32 位整数足够，答案不超过 C(998,2)=497503，中间乘积
 a(a−1) 小于一百万。Go 使用 int，Rust 计数使用 i32，Python 使用整数。
@@ -69,10 +77,21 @@ a(a−1) 小于一百万。Go 使用 int，Rust 计数使用 i32，Python 使用
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB |
-| [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB |
-| [1929_combinatorics.java](1929_combinatorics.java) | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB |
-| [1929_combinatorics.py](1929_combinatorics.py) | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB |
-| [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB | 11291652 |
+| [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB | 11291659 |
+| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB | 11291673 |
+| [1929_combinatorics.py](1929_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB | 11291667 |
+| [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB | 11291675 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
+| [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
