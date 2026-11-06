@@ -61,17 +61,36 @@ Pitfalls:
 - each term reaches 5·10⁹, beyond 32 bits, so use 64-bit or
   arbitrary-precision integers.
 
+## Optimized solutions
+
+C++ and Rust accumulate the signed doubled area while reading the vertices. They keep the first and previous points, add each edge's cross product once, and then close the polygon. Products and the sum use signed 64-bit integers. The input buffer and geometric state take constant space.
+
+The accepted base implementations [1246_geometry.go](1246_geometry.go), [1246_geometry.java](1246_geometry.java), [1246_geometry.py](1246_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python multiplies the coordinate lists with a rotated copy using `map`;
   the other languages run one loop.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1246_geometry.cpp](1246_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.265 s | 128 KB |
-| [1246_geometry.go](1246_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.062 s | 4120 KB |
-| [1246_geometry.java](1246_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.156 s | 3584 KB |
-| [1246_geometry.py](1246_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.218 s | 41236 KB |
-| [1246_geometry.rs](1246_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.062 s | 10468 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1246_geometry.cpp](1246_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.265 s | 128 KB | 11283934 |
+| [1246_geometry.go](1246_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.062 s | 4120 KB | 11283936 |
+| [1246_geometry.java](1246_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.156 s | 3584 KB | 11283939 |
+| [1246_geometry.py](1246_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.218 s | 41236 KB | 11283937 |
+| [1246_geometry.rs](1246_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.062 s | 10468 KB | 11283943 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
+| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

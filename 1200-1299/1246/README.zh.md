@@ -55,16 +55,35 @@ cw
   （测试 04 和 05）；
 - 每一项可达 5·10⁹，超过 32 位，所以要用 64 位或任意精度整数。
 
+## 优化解法
+
+C++ 和 Rust 在读取顶点时累加有向面积的两倍，只保留首个点和前一个点。每条边的叉积只累加一次，最后补上闭合边。乘积和总和使用有符号 64 位整数，输入缓冲区和几何状态占用常数空间。
+
+已通过评测的基础实现 [1246_geometry.go](1246_geometry.go), [1246_geometry.java](1246_geometry.java), [1246_geometry.py](1246_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - Python 用 `map` 把坐标列表与其循环移位后的副本相乘；其他语言用一个循环。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1246_geometry.cpp](1246_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.265 s | 128 KB |
-| [1246_geometry.go](1246_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.062 s | 4120 KB |
-| [1246_geometry.java](1246_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.156 s | 3584 KB |
-| [1246_geometry.py](1246_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.218 s | 41236 KB |
-| [1246_geometry.rs](1246_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.062 s | 10468 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1246_geometry.cpp](1246_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.265 s | 128 KB | 11283934 |
+| [1246_geometry.go](1246_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.062 s | 4120 KB | 11283936 |
+| [1246_geometry.java](1246_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.156 s | 3584 KB | 11283939 |
+| [1246_geometry.py](1246_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.218 s | 41236 KB | 11283937 |
+| [1246_geometry.rs](1246_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.062 s | 10468 KB | 11283943 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
+| [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
