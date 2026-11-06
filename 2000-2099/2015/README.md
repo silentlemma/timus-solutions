@@ -118,7 +118,15 @@ ordinary signed integers suffice. An alternative is sorting friends by
 budget and querying the largest affordable benefit, but enumeration
 already fits these bounds.
 
+## Optimized solutions
+
+C++ and Rust sort friends by budget and precompute the friend with the greatest benefit in each suffix. For a two-room apartment, binary search finds the first friend who can afford half its rent. The suffix summary then gives the best eligible companion. C++ stores separate suffix indices. Rust keeps the budget order and overwrites benefit and identifier fields with the best suffix choice. Rust stores friends in a fixed array with 16-bit identifiers and uses fixed byte buffers for input and decimal output through the C runtime.
+
+The accepted base implementations [2015_bruteforce.go](2015_bruteforce.go), [2015_bruteforce.java](2015_bruteforce.java), [2015_bruteforce.py](2015_bruteforce.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Sharing a one-room apartment is forbidden. Check both budgets; a rich
 friend cannot pay more than half for the other person. Do not floor an
@@ -130,10 +138,21 @@ Python uses CPython and needs no optimization for the bounded search.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB |
-| [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB |
-| [2015_bruteforce.java](2015_bruteforce.java) | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB |
-| [2015_bruteforce.py](2015_bruteforce.py) | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB |
-| [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB | 11292526 |
+| [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB | 11292536 |
+| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB | 11292554 |
+| [2015_bruteforce.py](2015_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB | 11292543 |
+| [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB | 11292565 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
+| [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

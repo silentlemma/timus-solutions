@@ -74,16 +74,35 @@ Forget about apartments. Live in the dormitory.
 
 至多检查 `m(n+1) ≤ 65,792` 个候选，时间 `O(m(n+1))`，也包含 `n=0`。输入占空间 `O(n+m)`，选择状态额外 `O(1)`。得分与加倍预算至多 200,000，普通有符号整数足够。另一做法是按预算排序朋友并查询可负担的最大收益，但本题范围下枚举已足够。
 
+## 优化解法
+
+C++ 和 Rust 按预算排序朋友，并预计算每个后缀中收益最高的朋友。对两居室，二分找到首个能负担一半租金的朋友，后缀摘要即可给出最佳合格室友。C++ 单独保存后缀编号。Rust 保持预算顺序，用后缀最佳选择覆盖收益和朋友编号字段。Rust 用固定数组保存朋友，编号为 16 位，并通过 C 运行库和固定字节缓冲区处理输入和十进制输出。
+
+已通过评测的基础实现 [2015_bruteforce.go](2015_bruteforce.go), [2015_bruteforce.java](2015_bruteforce.java), [2015_bruteforce.py](2015_bruteforce.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 一室不能合住，双方预算都要检查，朋友不能代付另一半。奇数租金不可向下取整，共享得分不可再加独住收益。独住收益取决于房间数。允许零朋友和零收益。五份程序均用精确整数比较与相同枚举顺序；无方案状态和独住状态分开。Python 使用 CPython，这个有限搜索无需优化。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB |
-| [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB |
-| [2015_bruteforce.java](2015_bruteforce.java) | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB |
-| [2015_bruteforce.py](2015_bruteforce.py) | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB |
-| [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB | 11292526 |
+| [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB | 11292536 |
+| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB | 11292554 |
+| [2015_bruteforce.py](2015_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB | 11292543 |
+| [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB | 11292565 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
+| [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
