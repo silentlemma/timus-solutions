@@ -70,12 +70,28 @@ Pitfalls:
 - the far ends of the column and of the flaps all become edges of the
   lid or of the side faces (tests 04, 05).
 
+## Optimized solutions
+
+The Go version reads the coordinates directly as integer hundredths and applies the same face formulas. Face selection and the squared distance stay exact. Only the square root uses floating point. The result is rounded to eight decimal places in a fixed buffer. syscall.Read and syscall.Write use standard handles, retry interrupted calls and complete partial writes.
+
+The accepted base implementations [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB |
-| [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB |
-| [1489_geometry.java](1489_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB |
-| [1489_geometry.py](1489_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB |
-| [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB | 11287173 |
+| [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB | 11287175 |
+| [1489_geometry.java](1489_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
+| [1489_geometry.py](1489_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
+| [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB | 11287180 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

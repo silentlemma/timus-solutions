@@ -60,12 +60,28 @@ A、B 和 C，然后是两个点 x y。
 - 展开图上两个不同的点可能被粘成盒子上的同一点，此时答案为 0（测试 02、05）；
 - 这一列和两侧翼的远端都会成为盒盖或侧面的边（测试 04、05）。
 
+## 优化解法
+
+Go 版本直接把坐标读成以百分之一为单位的整数，并沿用各面的映射公式。选面和距离平方都精确计算，只有开平方使用浮点数。结果在固定缓冲区中舍入到八位小数。syscall.Read 和 syscall.Write 使用标准句柄，重试中断调用并完成部分写入。
+
+已通过评测的基础实现 [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB |
-| [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB |
-| [1489_geometry.java](1489_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB |
-| [1489_geometry.py](1489_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB |
-| [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1489_geometry.cpp](1489_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 208 KB | 11287173 |
+| [1489_geometry.go](1489_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1120 KB | 11287175 |
+| [1489_geometry.java](1489_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1892 KB | 11287179 |
+| [1489_geometry.py](1489_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 572 KB | 11287178 |
+| [1489_geometry.rs](1489_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 256 KB | 11287180 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
