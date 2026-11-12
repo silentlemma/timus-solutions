@@ -69,7 +69,17 @@ Pitfalls:
 The answers were compared with a brute force over all orders for
 `N ≤ 3` and with a separately written solution for every `N` up to 30.
 
+The teaching Python version builds island patterns one position at a time. A dictionary counts prefixes by the three used counts and the last island. To extend a prefix, choose any different island with a free slot and add its count to the next layer. Only the current and next lengths are kept. At full length discard prefixes ending at home, then assign the labelled cities and divide by two. There are O(N²) states per length because the three counts sum to that length, so the DP takes O(N³) big-integer additions and O(N²) counters.
+
+## Optimized solutions
+
+The Go version keeps the same two-plane DP but stores pattern counts in three base-10⁹ limbs rather than allocating math/big objects for every cell. After fixing the starting island, a walk of at most 90 positions has at most 2⁸⁹ possible island words; this is below 10²⁷, so three limbs suffice even for intermediate counts. The two fixed planes occupy 69192 bytes of digit storage. The final factorial multiplications use fourteen limbs: 126 decimal digits cover the at-most-122-digit value before halving. Each small multiplier is at most 30²·29, so 64-bit products and carries suffice. All values are computed; there is no answer table. Time remains O(N³) fixed-limb additions. Standard handles replace fmt I/O, while the ordinary math/big base and the other four accepted language versions are preserved.
+
+The accepted base implementations [1172_combinatorics.cpp](1172_combinatorics.cpp), [1172_combinatorics.java](1172_combinatorics.java), [1172_combinatorics.py](1172_combinatorics.py), [1172_combinatorics.rs](1172_combinatorics.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python, Go and Java use their big integers; C++ and Rust keep numbers
   as arrays of base-10⁹ digits with addition, multiplication by a small
@@ -77,10 +87,21 @@ The answers were compared with a brute force over all orders for
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1172_combinatorics.cpp](1172_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 376 KB |
-| [1172_combinatorics.go](1172_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 6024 KB |
-| [1172_combinatorics.java](1172_combinatorics.java) | Java 1.8 | combinatorics | O(N³) big additions | AC | 0.125 s | 4580 KB |
-| [1172_combinatorics.py](1172_combinatorics.py) | Python 3.12 x64 | combinatorics | O(N³) big additions | AC | 0.093 s | 884 KB |
-| [1172_combinatorics.rs](1172_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N³) big additions | AC | 0.031 s | 568 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1172_combinatorics.cpp](1172_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 376 KB | 11283141 |
+| [1172_combinatorics.go](1172_combinatorics.go) | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 6024 KB | 11283143 |
+| [1172_combinatorics.java](1172_combinatorics.java) | Java 1.8 | combinatorics | O(N³) big additions | AC | 0.125 s | 4580 KB | 11283148 |
+| [1172_combinatorics.py](1172_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(N³) big additions | AC | 0.093 s | 884 KB | 11283145 |
+| [1172_combinatorics.rs](1172_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(N³) big additions | AC | 0.031 s | 568 KB | 11283151 |
+| [1172_dp.py](1172_dp.py) | Python 3.12 x64 | dp | O(N³) big additions | AC | 0.14 s | 920 KB | 11315936 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1172_combinatorics_optimized.go](1172_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(N³) big additions | AC | 0.015 s | 404 KB | 11314877 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
