@@ -65,51 +65,34 @@ Salida:
 
 ## Solución
 
-**Compresión de coordenadas.** Solo importan los puntos `0`, `10^9` y todos
-los `a_i`, `b_i`: entre dos puntos vecinos de este conjunto ordenado el color
-no cambia. Cortan la recta en como mucho `2N + 1` trozos `[x_k, x_{k+1})`, y
-repintar `[a, b]` cubre exactamente los trozos desde el índice de `a` hasta
-el índice de `b`, sin incluir este último.
+Se reúnen 0, 10⁹ y todos los extremos, se ordenan y eliminan duplicados. Cada tramo entre coordenadas consecutivas tiene color uniforme. Se pintan los tramos en orden y después se unen los blancos contiguos al recorrerlos de izquierda a derecha. Se comparan longitudes reales, no cantidades de tramos, y solo se actualiza ante una mejora estricta para mantener el empate más a la izquierda. Hay hasta 2N+1 tramos: ordenar cuesta O(N log N), pintar O(N²), y el espacio es O(N). Con N ≤ 5000 son como máximo 50005000 asignaciones. Python usa rebanadas bytearray cuya copia interna es nativa; así el algoritmo sencillo pasa en los cinco lenguajes. Se unen los blancos que se tocan y se incluyen 0 y 10⁹. El prefijo intacto [0,min a) garantiza una respuesta blanca.
 
-**Pintar.** Se aplican los repintados a los trozos en orden: como mucho
-`5000 · 10 001 = 50 005 000` asignaciones simples, bien para lenguajes
-compilados.
+## Soluciones optimizadas
 
-**Pintar hacia atrás con DSU.** El color de un trozo es el del último
-repintado que lo cubre. Se recorren los repintados desde el último y solo se
-pintan los trozos aún sin pintar; un arreglo de punteros «siguiente trozo
-sin pintar» con compresión de caminos (un DSU sobre la recta) salta los ya
-pintados. Cada trozo se pinta como mucho una vez: `O((N + M) log M)` tras
-ordenar, donde `M` es el número de trozos. Los trozos a los que no llega
-ningún repintado quedan blancos.
-
-**La respuesta.** Se recorren los trozos de izquierda a derecha uniendo los
-blancos vecinos en tramos; un tramo `[x_i, x_j)` mide `x_j - x_i`. El mejor
-tramo se actualiza solo con una longitud estrictamente mayor, lo que deja el
-de más a la izquierda entre los iguales. Siempre hay un tramo blanco: el
-trozo `[0, min a)` nunca se repinta.
-
-Detalles a tener en cuenta:
-
-- segmentos blancos que se tocan, como `[10, 20]` y `[20, 30]`, forman un
-  solo intervalo;
-- un segmento negro dentro de uno blanco lo parte;
-- los extremos `0` y `10^9` pertenecen a la recta aunque ningún repintado
-  los mencione.
+Las variantes DSU procesan los repintados al revés. Una estructura de sucesores encuentra el primer tramo aún no asignado por una operación posterior; tras pintarlo lo enlaza al siguiente. Cada tramo se pinta una sola vez. Ordenar y buscar extremos cuesta O(N log N), con O(N) de espacio. Go Accepted usa 592 KB y 0.031 s, frente a 1784 KB y 0.031 s de la versión directa: 66.8% menos memoria. Se conservan los DSU aceptados de C++ y Python. Python DSU usa 3560 KB y 0.078 s; el nuevo sencillo, 5 464 KB y 0.093 s. Se conserva para enseñar aunque ambas métricas empeoren. C++ DSU usa 212 KB frente a 208 KB del directo; 0.031 frente a 0.015 s es un solo salto del temporizador, así que su admisión rápida se basa en la clasificación guardada y no en un supuesto 30% de mejora temporal. Java y Rust reutilizan los archivos directos de Sencillas para su cobertura rápida, sin copias idénticas.
 
 ## Notas por lenguaje
 
-- **C++**, **Go**, **Java**, **Rust**: compresión y pintado directo.
-- **C++** y **Python** también pintan hacia atrás con el DSU, lo que mantiene
-  la versión en Python en `O(N log N)`.
+El pintado directo sencillo ya tiene Accepted en los cinco lenguajes. DSU es otro algoritmo con nombres propios. El nuevo DSU Go usa manejadores estándar y arreglos primitivos compactos. Se conservan todos los archivos anteriores y sus métricas Accepted históricas. Los asteriscos señalan fuentes del conjunto rápido que aún no alcanzan la meta de su lenguaje.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB |
-| [1019_dsu_sorting.py](1019_dsu_sorting.py) | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB |
-| [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB |
-| [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB |
-| [1019_sorting.java](1019_sorting.java) | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB |
-| [1019_sorting.rs](1019_sorting.rs) | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB | 11278218 |
+| [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB | 11278227 |
+| [1019_sorting.java](1019_sorting.java) \* | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
+| [1019_sorting.py](1019_sorting.py) | Python 3.12 x64 | sorting | O(N²) after sorting | AC | 0.093 s | 5 464 KB | 11314812 |
+| [1019_sorting.rs](1019_sorting.rs) \* | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
+| [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
+| [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

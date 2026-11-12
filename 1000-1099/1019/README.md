@@ -65,49 +65,34 @@ Output:
 
 ## Solution
 
-**Coordinate compression.** Only the points `0`, `10^9` and all `a_i`,
-`b_i` matter: between two neighbouring points of this sorted set the colour
-never changes. They cut the line into at most `2N + 1` pieces
-`[x_k, x_{k+1})`, and a repainting of `[a, b]` covers exactly the pieces from
-the index of `a` up to the index of `b`, excluding the latter.
+Collect 0, 10⁹ and every repainting endpoint, then sort and deduplicate them. Between two consecutive coordinates the colour is uniform. Paint these pieces in chronological order, then scan them from left to right, joining adjacent white pieces. Compare physical lengths, not the number of pieces, and update only for a strictly longer run to retain the leftmost tie. There are at most 2N+1 pieces, so direct repainting takes O(N²) time after O(N log N) sorting and O(N) space. At N ≤ 5000 this is at most 50005000 piece assignments. Python performs each repaint with a bytearray slice, whose inner copying runs in native code; this makes the same simple algorithm pass in all five languages. Touching white pieces must merge. The endpoints 0 and 10⁹ must be included, and the untouched prefix [0,min a) guarantees a white answer.
 
-**Painting.** Apply the repaintings to the pieces in order: at most
-`5000 · 10 001 = 50 005 000` simple assignments, fine in compiled languages.
+## Optimized solutions
 
-**Painting backwards with a DSU.** The colour of a piece is the colour of the
-last repainting that covers it. Go through the repaintings from the last one
-and paint only pieces that are still unpainted; a "next unpainted piece"
-pointer array with path compression (a DSU on a line) jumps over painted
-ones. Every piece is painted at most once: `O((N + M) log M)` after sorting,
-where `M` is the number of pieces. Pieces that no repainting reaches stay
-white.
-
-**The answer.** Scan the pieces from left to right, joining neighbouring
-white pieces into runs; a run `[x_i, x_j)` has length `x_j - x_i`. Update
-the best run only on a strictly greater length, which keeps the leftmost of
-equal ones. A white run always exists: the piece `[0, min a)` is never
-repainted.
-
-Pitfalls:
-
-- touching white segments, like `[10, 20]` and `[20, 30]`, form one interval;
-- a black segment inside a white one splits it;
-- the ends `0` and `10^9` belong to the line even if no repainting mentions
-  them.
+The DSU variants process repaintings backwards. A successor structure finds the first piece not yet assigned by a later repainting; after assigning it, link it to its next piece. Every piece is painted at most once. Sorting and endpoint searches give O(N log N) time and O(N) space. The accepted Go source uses 592 KB at 0.031 s, versus 1784 KB at 0.031 s for direct painting: 66.8% less memory. C++ and Python retain their original accepted DSU sources. Python DSU uses 3560 KB at 0.078 s; the new elementary Python uses 5 464 KB at 0.093 s. The simpler algorithm is kept for teaching despite both worse measurements. C++ DSU uses 212 KB versus 208 KB for direct painting; its 0.031-to-0.015 s difference is one timer tick, so its fast-set admission comes from the saved ranking rule rather than a claimed 30% timing gain. Java and Rust already cover their fast families with the same direct-painting files listed under Simple, without duplicate copies.
 
 ## Language notes
 
-- **C++**, **Go**, **Java**, **Rust**: compression and direct painting.
-- **C++** and **Python** also paint backwards with the DSU, which keeps the
-  Python version at `O(N log N)`.
+Simple direct painting now has Accepted in all five languages. DSU is an alternative algorithm with its own names. The new Go DSU uses standard handles and compact primitive arrays. All previous files and their historical Accepted metrics are preserved. Stars mark only sources selected for the fast set that still miss the language rating target.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB |
-| [1019_dsu_sorting.py](1019_dsu_sorting.py) | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB |
-| [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB |
-| [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB |
-| [1019_sorting.java](1019_sorting.java) | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB |
-| [1019_sorting.rs](1019_sorting.rs) | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1019_sorting.cpp](1019_sorting.cpp) | G++ 13.2 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 208 KB | 11278218 |
+| [1019_sorting.go](1019_sorting.go) | Go 1.14 x64 | sorting | O(N^2) after sorting | AC | 0.031 s | 1784 KB | 11278227 |
+| [1019_sorting.java](1019_sorting.java) \* | Java 1.8 | sorting | O(N^2) after sorting | AC | 0.203 s | 3960 KB | 11278235 |
+| [1019_sorting.py](1019_sorting.py) | Python 3.12 x64 | sorting | O(N²) after sorting | AC | 0.093 s | 5 464 KB | 11314812 |
+| [1019_sorting.rs](1019_sorting.rs) \* | Rust 1.75 x64 | sorting | O(N^2) after sorting | AC | 0.046 s | 692 KB | 11278240 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
+| [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
+| [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
