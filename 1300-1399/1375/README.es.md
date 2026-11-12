@@ -60,17 +60,34 @@ Detalles a tener en cuenta:
 La respuesta se comprobó para todo k y todo primo menor que 300, y las
 pruebas se juzgan con un verificador que acepta cualquier par.
 
+## Soluciones optimizadas
+
+C++, Go y Rust sustituyen tabla O(p) por aritmética de campo con espacio constante. Para p=2 o k=0, (k,0). Si p≡1 mod4, buscar no residuo z con Euler, i=z^((p−1)/4) da i²=−1. Elegir t impar igual a k o k+p: a=(t+1)/2,b=(t−1)/2 dan a²−b²=t, respuesta (a mod p,ib mod p). Si p≡3 mod4, probar x=0…(p−1)/2 y y=r^((p+1)/4) para r=k−x², verificando el cuadrado. Si r es un residuo cuadrático distinto de cero, y²=r·r^((p−1)/2)=r por Euler. Para r=0 la raíz es cero. El recorrido cubre cada cuadrado una vez. El conjunto de cuadrados S y k−S tienen (p+1)/2 elementos, así que se intersecan y el recorrido encuentra un par. Productos64<10^12. T ensayos cuestan O(1+T log p), peor O(p log p), espacio O(1); no se promete mejor tiempo asintótico que la tabla. Memoria y envíos medidos deciden inclusión. Rust usa I/O C. Se conservan tablas sencillas; Java/Python reutilizan admitidas.
+
+Las implementaciones base aceptadas [1375_number_theory.java](1375_number_theory.java), [1375_number_theory.py](1375_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- Las cinco soluciones guardan la tabla de raíces en un arreglo de p
-  números.
+Los cinco archivos originales usan un arreglo indexado por residuo. C++, Go y Rust optimizados usan potencias modulares y un número fijo de enteros. El juez comprueba la ecuación, así que los enfoques pueden imprimir pares distintos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1375_number_theory.cpp](1375_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(p) | AC | 0.031 s | 3656 KB |
-| [1375_number_theory.go](1375_number_theory.go) | Go 1.14 x64 | number_theory | O(p) | AC | 0.062 s | 9624 KB |
-| [1375_number_theory.java](1375_number_theory.java) | Java 1.8 | number_theory | O(p) | AC | 0.156 s | 5172 KB |
-| [1375_number_theory.py](1375_number_theory.py) | Python 3.12 x64 | number_theory | O(p) | AC | 0.359 s | 23992 KB |
-| [1375_number_theory.rs](1375_number_theory.rs) | Rust 1.75 x64 | number_theory | O(p) | AC | 0.046 s | 7892 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1375_number_theory.cpp](1375_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(p) | AC | 0.031 s | 3656 KB | 11285686 |
+| [1375_number_theory.go](1375_number_theory.go) | Go 1.14 x64 | number_theory | O(p) | AC | 0.062 s | 9624 KB | 11285689 |
+| [1375_number_theory.java](1375_number_theory.java) | Java 1.8 | number_theory | O(p) | AC | 0.156 s | 5172 KB | 11285695 |
+| [1375_number_theory.py](1375_number_theory.py) \* | Python 3.12 x64 | number_theory | O(p) | AC | 0.359 s | 23992 KB | 11285693 |
+| [1375_number_theory.rs](1375_number_theory.rs) | Rust 1.75 x64 | number_theory | O(p) | AC | 0.046 s | 7892 KB | 11285697 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1375_math.cpp](1375_math.cpp) | G++ 13.2 x64 | math | O(1 + T log p) | AC | 0.015 s | 108 KB | 11315721 |
+| [1375_math.go](1375_math.go) \* | Go 1.14 x64 | math | O(1 + T log p) | AC | 0.031 s | 916 KB | 11315726 |
+| [1375_math.rs](1375_math.rs) \* | Rust 1.75 x64 | math | O(1 + T log p) | AC | 0.046 s | 64 KB | 11315729 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
