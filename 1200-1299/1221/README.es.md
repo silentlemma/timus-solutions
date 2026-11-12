@@ -81,17 +81,37 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con una solución escrita aparte en 300
 archivos de hojas aleatorias, con figuras plantadas y de un solo color.
 
+## Soluciones optimizadas
+
+Go usa dos tablas de prefijos 2D de celdas blancas: la cuadrícula original y la transformación u=row+column, v=row−column+N−1. El rombo de radio r se convierte en rectángulo; los huecos de paridad aportan cero. Contiene A=2r(r+1)+1 celdas reales. Se exigen A blancas en ese rectángulo y exactamente A en el cuadrado exterior de lado 2r+1. Así el rombo es totalmente blanco y el resto negro. Cada comprobación cuesta O(1); todos los centros y radios, O(N³), con preparación y espacio O(N²). Los conteos ≤10000 caben en uint16. Se conservan las bases O(N⁴) por filas y las otras cuatro también cubren el conjunto rápido.
+
+El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.001 s de la base y usa 352 KB frente a 2116 KB.
+
+Las implementaciones base aceptadas [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes leen las casillas cifra a cifra, así que valen las
   filas con o sin espacios.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB |
-| [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB |
-| [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB |
-| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB |
-| [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
+| [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
+| [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
+| [1221_implementation.py](1221_implementation.py) \* | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1221_prefix_sums.go](1221_prefix_sums.go) \* | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

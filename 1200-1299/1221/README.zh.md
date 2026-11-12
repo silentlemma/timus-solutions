@@ -71,16 +71,36 @@ No solution
 答案已在 300 个包含随机纸张、植入图形的纸张和单色纸张的文件上与另一份独立解答
 比对。
 
+## 优化解法
+
+新 Go 算法使用原网格及 u=row+column、v=row−column+N−1 变换后的两张二维白格前缀和表。半径 r 的菱形变成轴对齐矩形，未使用的另一奇偶性位置为零。菱形实际包含 A=2r(r+1)+1 格。要求变换矩形及外围边长 2r+1 的正方形各有 A 个白格：前者保证菱形全白，后者保证其余格全黑。每次检查 O(1)，全部中心与半径 O(N³)，预处理及空间 O(N²)。计数最多 10000，可用 uint16。保留 O(N⁴) 的逐行基础版，其他四种语言已有合格基础版也覆盖快速集合。
+
+通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.001 秒，内存为 352 KB，基础版为 2116 KB。
+
+已通过评测的基础实现 [1221_implementation.cpp](1221_implementation.cpp), [1221_implementation.java](1221_implementation.java), [1221_implementation.py](1221_implementation.py), [1221_implementation.rs](1221_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都逐个数字读取格子，所以行内有无空格都可以。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB |
-| [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB |
-| [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB |
-| [1221_implementation.py](1221_implementation.py) | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB |
-| [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1221_implementation.cpp](1221_implementation.cpp) | G++ 13.2 x64 | implementation | O(N⁴) | AC | 0.015 s | 316 KB | 11283690 |
+| [1221_implementation.go](1221_implementation.go) | Go 1.14 x64 | implementation | O(N⁴) | AC | 0.001 s | 2116 KB | 11283691 |
+| [1221_implementation.java](1221_implementation.java) | Java 1.8 | implementation | O(N⁴) | AC | 0.062 s | 936 KB | 11283693 |
+| [1221_implementation.py](1221_implementation.py) \* | Python 3.12 x64 | implementation | O(N⁴) | AC | 0.140 s | 1908 KB | 11283692 |
+| [1221_implementation.rs](1221_implementation.rs) | Rust 1.75 x64 | implementation | O(N⁴) | AC | 0.031 s | 500 KB | 11283694 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1221_prefix_sums.go](1221_prefix_sums.go) \* | Go 1.14 x64 | prefix_sums | O(N³) | AC | 0.031 s | 352 KB | 11314933 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
