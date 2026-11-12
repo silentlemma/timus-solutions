@@ -82,12 +82,29 @@ whole bottom row but never the cells of height 5 and 6. The hare steps
 from height 1 to height 2 and then climbs three units to height 5 just
 before the water reaches it.
 
+## Optimized solutions
+
+The new Go and Rust sources preserve the water BFS and monotone binary search on jump height. Flat padded arrays use 32-bit signed heights and 16-bit flood/arrival times and queue entries. There are at most 10000 real cells and 10404 padded positions, so all identifiers and real shortest-path lengths fit; 65535 marks unreached cells. Border flood times are zero, making them fail every positive-arrival deadline without extra boundary branches. One arrival array and queue serve all survival checks; Go also avoids the old per-check allocations. Rust already reused its buffers and now packs them and streams input. The strict test arrival<flood remains: the hare moves before water, but must survive that same water turn. Reaching a permanently dry cell suffices; waiting earlier cannot improve a route. Time remains O(n·m log H), storage O(n·m). Simple files remain; C++, Java and Python reuse admitted bases in the fast set.
+
+The accepted base implementations [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp), [2113_bfs_binary_search.java](2113_bfs_binary_search.java), [2113_bfs_binary_search.py](2113_bfs_binary_search.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp) | G++ 13.2 x64 | bfs, binary_search | O(n m log H) | AC | 0.015 s | 432 KB |
-| [2113_bfs_binary_search.go](2113_bfs_binary_search.go) | Go 1.14 x64 | bfs, binary_search | O(n m log H) | AC | 0.031 s | 3712 KB |
-| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 648 KB |
-| [2113_bfs_binary_search.py](2113_bfs_binary_search.py) | Python 3.12 x64 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 2492 KB |
-| [2113_bfs_binary_search.rs](2113_bfs_binary_search.rs) | Rust 1.75 x64 | bfs, binary_search | O(n m log H) | AC | 0.046 s | 364 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp) | G++ 13.2 x64 | bfs, binary_search | O(n m log H) | AC | 0.015 s | 432 KB | 11294935 |
+| [2113_bfs_binary_search.go](2113_bfs_binary_search.go) | Go 1.14 x64 | bfs, binary_search | O(n m log H) | AC | 0.031 s | 3712 KB | 11294936 |
+| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) \* | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 648 KB | 11294938 |
+| [2113_bfs_binary_search.py](2113_bfs_binary_search.py) \* | Python 3.12 x64 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 2492 KB | 11294937 |
+| [2113_bfs_binary_search.rs](2113_bfs_binary_search.rs) | Rust 1.75 x64 | bfs, binary_search | O(n m log H) | AC | 0.046 s | 364 KB | 11294939 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2113_bfs_binary_search_optimized.go](2113_bfs_binary_search_optimized.go) \* | Go 1.14 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 364 KB | 11315082 |
+| [2113_bfs_binary_search_optimized.rs](2113_bfs_binary_search_optimized.rs) \* | Rust 1.75 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 164 KB | 11315092 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

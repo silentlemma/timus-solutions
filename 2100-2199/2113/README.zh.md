@@ -63,12 +63,29 @@ n 和 m（1 ≤ n, m ≤ 100，n · m ≠ 1），高度 0 ≤ hᵢⱼ ≤ 10⁵�
 
 第一个样例中，右上角的水会淹没整个下面一行，但永远淹不到高度 5 和 6 的格子。兔子从高度 1 走到高度 2，然后恰好在水到来之前向上爬三个单位到高度 5。
 
+## 优化解法
+
+新 Go、Rust 保留水的 BFS 与跳高二分。带边框的平坦数组用有符号 32 位存高度，16 位存洪水时间、到达时间及队列编号。最多 10000 个实格、10404 个含边框位置，编号和最短路径长度均可容纳，65535 表示未到达。边框淹水时间为零，任何正到达时间都会失败，无需额外边界分支。所有生存检查复用同一到达数组及队列；Go 避免旧版每次分配。Rust 原本已复用缓冲，现在压缩存储并流式输入。保留严格 arrival<flood：兔子先动，但须活过同一轮洪水。到达永久干燥格即足够，提前等待无益。时间 O(n·m log H)，空间 O(n·m)。保留简单版，C++、Java、Python 复用合格基础版覆盖快速集合。
+
+已通过评测的基础实现 [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp), [2113_bfs_binary_search.java](2113_bfs_binary_search.java), [2113_bfs_binary_search.py](2113_bfs_binary_search.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp) | G++ 13.2 x64 | bfs, binary_search | O(n m log H) | AC | 0.015 s | 432 KB |
-| [2113_bfs_binary_search.go](2113_bfs_binary_search.go) | Go 1.14 x64 | bfs, binary_search | O(n m log H) | AC | 0.031 s | 3712 KB |
-| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 648 KB |
-| [2113_bfs_binary_search.py](2113_bfs_binary_search.py) | Python 3.12 x64 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 2492 KB |
-| [2113_bfs_binary_search.rs](2113_bfs_binary_search.rs) | Rust 1.75 x64 | bfs, binary_search | O(n m log H) | AC | 0.046 s | 364 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp) | G++ 13.2 x64 | bfs, binary_search | O(n m log H) | AC | 0.015 s | 432 KB | 11294935 |
+| [2113_bfs_binary_search.go](2113_bfs_binary_search.go) | Go 1.14 x64 | bfs, binary_search | O(n m log H) | AC | 0.031 s | 3712 KB | 11294936 |
+| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) \* | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 648 KB | 11294938 |
+| [2113_bfs_binary_search.py](2113_bfs_binary_search.py) \* | Python 3.12 x64 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 2492 KB | 11294937 |
+| [2113_bfs_binary_search.rs](2113_bfs_binary_search.rs) | Rust 1.75 x64 | bfs, binary_search | O(n m log H) | AC | 0.046 s | 364 KB | 11294939 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2113_bfs_binary_search_optimized.go](2113_bfs_binary_search_optimized.go) \* | Go 1.14 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 364 KB | 11315082 |
+| [2113_bfs_binary_search_optimized.rs](2113_bfs_binary_search_optimized.rs) \* | Rust 1.75 x64 | bfs, binary_search | O(n·m log H) | AC | 0.031 s | 164 KB | 11315092 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
