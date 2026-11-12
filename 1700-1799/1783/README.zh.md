@@ -51,12 +51,29 @@ x₁、…、xₙ。
 
 在 60 个随机情形上（从几个月到 10000 个月，计划为随机、波浪形或稀疏尖峰），答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+C++/Go 保留原有 m 个带符号向上取整的精确最大值，改用至多50整数的环形前瞻窗口。先读 m 项，每次实际调整后以新计划替换过期槽并前移，始终对应当前窗口。遍历以边界检查回绕，不逐项取余。非负 delta 用 (delta+t−1)/t，负数向零截断就是向上取整。计划与库存保持0…100000，32位有符号足够。时间 O(nm)，计划空间从 O(n+m) 降至 O(m)，输入输出有界。保留普通文件；Java、Python、Rust 复用符合标准的基础版。
+
+已通过评测的基础实现 [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 280 KB |
-| [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB |
-| [1783_simulation.java](1783_simulation.java) | Java 1.8 | simulation | O(n m) | AC | 0.156 s | 2388 KB |
-| [1783_simulation.py](1783_simulation.py) | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2472 KB |
-| [1783_simulation.rs](1783_simulation.rs) | Rust 1.75 x64 | simulation | O(n m) | AC | 0.046 s | 840 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 280 KB | 11289782 |
+| [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
+| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.156 s | 2388 KB | 11289785 |
+| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2472 KB | 11289784 |
+| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.046 s | 840 KB | 11289786 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.031 s | 88 KB | 11315303 |
+| [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
