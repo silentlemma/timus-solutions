@@ -105,7 +105,17 @@ Test the left boundary before indexing; Python negative indices would
 otherwise silently access the wrong character. Long words require the
 tree rather than enumerating their quadratic number of occurrences.
 
+## Optimized solutions
+
+The new C++, Go and Rust eertrees retain lengths, suffix links and the two roots, but store only existing transitions. Every nonempty palindrome has one unique inner palindrome and wrapping letter, hence one incoming edge. Store that edge’s letter and next-sibling index in the child node itself, and a first-child index in the parent. Transition lookup scans at most 26 children. The original suffix-link argument is unchanged, so time is O(26n), linear for this alphabet. A node has four 32-bit fields and one byte instead of 26 native-index slots. Node identifiers are at most 100001; lengths range from −1 to 100000. Counts are emitted as prefixes are processed, without a separate answer vector. All dense simple versions remain; Java and Python reuse admitted bases in the fast set.
+
+The accepted G++ 13.2 x64 run takes 0.046 s versus 0.031 s for the base and uses 2 160 KB versus 11464 KB.
+
+The accepted base implementations [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 C++ uses arrays inside nodes. Go 1.14 and Rust 1.75 use native integer
 indices; Java 8 uses one flat int transition array to avoid per-node
@@ -115,10 +125,22 @@ resource measurements.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB |
-| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB |
-| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB |
-| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB |
-| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
+| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
+| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB | 11292175 |
+| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(26n) | AC | 0.046 s | 2160 KB | 11315098 |
+| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

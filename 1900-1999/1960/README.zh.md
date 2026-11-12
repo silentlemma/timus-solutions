@@ -80,7 +80,17 @@ q_new−2，界 q_old−q_new+2 同样消去。不新增节点时不做第二次
 取字符前必须检查左界，Python 负下标会静默读取错误位置。逐个枚举全部
 回文出现可达平方规模，不适合长串。
 
+## 优化解法
+
+新的 C++、Go、Rust 回文树保留长度、后缀链接及两个根，只存实际转移。每个非空回文有唯一内部回文和包裹字符，故只有一条入边。把入边字符及下一兄弟编号存在子节点内，父节点仅存首个孩子。查询最多扫描 26 个孩子。后缀链接的原证明不变，时间 O(26n)，固定字母表下为线性。每节点用四个 32 位字段和一字节代替 26 个机器字索引。编号最多 100001，长度 −1..100000。逐前缀输出计数，无独立答案向量。保留全部稠密简单版，Java、Python 复用合格基础版覆盖快速集合。
+
+通过评测的 G++ 13.2 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 2 160 KB，基础版为 11464 KB。
+
+已通过评测的基础实现 [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 C++ 用节点内数组；Go 1.14、Rust 1.75 用机器整数下标；Java 8 用单个
 扁平 int 转移数组，避免逐节点对象。Python 用 bytes 和稀疏整数键。
@@ -88,10 +98,22 @@ Rust 仅用标准库，资源测量选择 CPython。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB |
-| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB |
-| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB |
-| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB |
-| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
+| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
+| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB | 11292175 |
+| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(26n) | AC | 0.046 s | 2160 KB | 11315098 |
+| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

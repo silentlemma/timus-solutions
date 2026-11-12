@@ -96,7 +96,17 @@ suponer un aumento en cada paso: `abca` termina en 3. Comprobar límite
 izquierdo antes de indexar; índices negativos de Python leen silenciosamente
 otra posición. Enumerar todas las ocurrencias puede ser cuadrático.
 
+## Soluciones optimizadas
+
+Los eertrees C++, Go y Rust mantienen longitudes, enlaces de sufijo y dos raíces, almacenando solo transiciones existentes. Cada palíndromo no vacío tiene un interior y letra envolvente únicos: una sola arista entrante. Su letra y enlace al siguiente hermano viven en el propio hijo; el padre guarda el primer hijo. Buscar una transición recorre como máximo 26 hijos. La prueba de enlaces de sufijo se conserva: O(26n), lineal con este alfabeto. Cada nodo usa cuatro campos de 32 bits y un byte en vez de 26 índices nativos. Identificadores ≤100001, longitudes −1..100000. Se emiten conteos al procesar prefijos, sin vector de respuestas. Se conservan las bases densas; Java y Python reutilizan las admitidas en el conjunto rápido.
+
+El envío aceptado en G++ 13.2 x64 tarda 0.046 s frente a 0.031 s de la base y usa 2 160 KB frente a 11464 KB.
+
+Las implementaciones base aceptadas [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 C++ guarda arrays dentro de nodos. Go 1.14 y Rust 1.75 usan índices enteros
 nativos. Java 8 usa un array int plano, sin objetos por nodo. Python usa
@@ -105,10 +115,22 @@ Se selecciona CPython mediante pruebas de recursos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB |
-| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB |
-| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB |
-| [1960_strings.py](1960_strings.py) | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB |
-| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
+| [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
+| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB | 11292175 |
+| [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
+| [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(26n) | AC | 0.046 s | 2160 KB | 11315098 |
+| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
+| [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
