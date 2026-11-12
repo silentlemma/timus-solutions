@@ -55,16 +55,36 @@ K，然后是 K 对 Y1 Y2。
 
 在 119 个最多 12 根枕木的随机数据上，与枚举所有子集的结果比较过。
 
+## 优化解法
+
+排序加二分版本仍先按左端点排序，再求右端点的最长严格递增子序列。用 tails[i] 记录长度为 i+1 的递增子序列能够取得的最小末尾，代替平方动态规划。对下一个坐标，替换首个不小于它的末尾；若不存在则延长数组。更小的末尾保留所有可行的后续扩展，因此已使用的长度就是最优值，答案为 K 减去该长度。排序及二分共耗时 O(K log K)，空间 O(K)；K = 0 时输出 0。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 56 KB，基础版为 232 KB。
+
 ## 各语言说明
 
-- 所有语言都对数对排序并执行同样的 DP。
+所有简单版本保留平方动态规划。新的 Go 和 Java 实现把两个平移后的坐标打包为一个整数；每个坐标在 0..2000 内，占 11 位。对打包值排序即可按左端点排序，用掩码还原右端点。C++、Rust 使用 K ≤ 100 的定长数组，Python 使用 bisect_left。Go 使用标准句柄，Rust 使用有界 C runtime 输入输出及 C 入口。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1273_dp.cpp](1273_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 192 KB |
-| [1273_dp.go](1273_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.015 s | 1140 KB |
-| [1273_dp.java](1273_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.140 s | 2780 KB |
-| [1273_dp.py](1273_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.093 s | 392 KB |
-| [1273_dp.rs](1273_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.015 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1273_dp.cpp](1273_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 192 KB | 11284277 |
+| [1273_dp.go](1273_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.015 s | 1140 KB | 11284281 |
+| [1273_dp.java](1273_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.140 s | 2780 KB | 11284285 |
+| [1273_dp.py](1273_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.093 s | 392 KB | 11284283 |
+| [1273_dp.rs](1273_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.015 s | 232 KB | 11284290 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1273_binary_search_sorting.cpp](1273_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O(K log K) | AC | 0.001 s | 116 KB | 11314674 |
+| [1273_binary_search_sorting.go](1273_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(K log K) | AC | 0.015 s | 260 KB | 11314678 |
+| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
+| [1273_binary_search_sorting.py](1273_binary_search_sorting.py) \* | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
+| [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) \* | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

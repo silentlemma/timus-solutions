@@ -60,16 +60,36 @@ Pitfalls:
 The answers were compared with trying every subset of sleepers on 119
 random cases of up to 12 sleepers.
 
+## Optimized solutions
+
+The sorting and binary-search version keeps the same reduction to a longest strictly increasing subsequence of right endpoints after sorting by left endpoints. Instead of quadratic DP, tails[i] stores the smallest possible ending coordinate of an increasing subsequence of length i+1. Replace the first tail not smaller than the next coordinate, or extend the array if none exists. Smaller tails preserve every possible continuation, so the occupied length is the optimum. The answer is K minus that length. Both sorting and the searches take O(K log K) time; storage is O(K). The empty input set returns 0.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 56 KB versus 232 KB.
+
 ## Language notes
 
-- All languages sort the pairs and run the same DP.
+The simple files retain quadratic DP in every language. The new Go and Java versions pack two shifted coordinates into one integer: each is in 0..2000 and fits 11 bits. Sorting packed values orders the left endpoints; the right endpoint is recovered with a mask. C++ and Rust use fixed arrays bounded by K ≤ 100; Python uses bisect_left. Go uses standard handles and Rust uses bounded C-runtime I/O with a C entry point.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1273_dp.cpp](1273_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 192 KB |
-| [1273_dp.go](1273_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.015 s | 1140 KB |
-| [1273_dp.java](1273_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.140 s | 2780 KB |
-| [1273_dp.py](1273_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.093 s | 392 KB |
-| [1273_dp.rs](1273_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.015 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1273_dp.cpp](1273_dp.cpp) | G++ 13.2 x64 | dp | O(K²) | AC | 0.015 s | 192 KB | 11284277 |
+| [1273_dp.go](1273_dp.go) | Go 1.14 x64 | dp | O(K²) | AC | 0.015 s | 1140 KB | 11284281 |
+| [1273_dp.java](1273_dp.java) | Java 1.8 | dp | O(K²) | AC | 0.140 s | 2780 KB | 11284285 |
+| [1273_dp.py](1273_dp.py) | Python 3.12 x64 | dp | O(K²) | AC | 0.093 s | 392 KB | 11284283 |
+| [1273_dp.rs](1273_dp.rs) | Rust 1.75 x64 | dp | O(K²) | AC | 0.015 s | 232 KB | 11284290 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1273_binary_search_sorting.cpp](1273_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O(K log K) | AC | 0.001 s | 116 KB | 11314674 |
+| [1273_binary_search_sorting.go](1273_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(K log K) | AC | 0.015 s | 260 KB | 11314678 |
+| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
+| [1273_binary_search_sorting.py](1273_binary_search_sorting.py) \* | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
+| [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) \* | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
