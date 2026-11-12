@@ -87,12 +87,28 @@ Detalles a tener en cuenta:
   1–2.5 s con CPython frente a un límite de 1 s, y unos 0.15 s con
   PyPy.
 
+## Soluciones optimizadas
+
+Go sobrescribe una fila DP en vez de mantener cuatro arreglos para dos filas de longitudes y conteos. Antes de modificar una celda guarda sus valores anteriores en dos escalares, que serán la diagonal inferior derecha de la columna siguiente. La recurrencia usa esa diagonal, la celda antigua inferior y la derecha ya actualizada. Las longitudes no superan 4000 y caben en uint16. Los conteos reducidos caben en uint32; sumar dos da menos del doble del módulo y basta una resta condicional sin desbordamiento. Los dos arreglos fijos reservan 2001 elementos cada uno. El tiempo sigue siendo O(|a|·|b|). La E/S por manejadores estándar evita el arranque de fmt/os. Se conservan todas las bases, incluida la versión PyPy aceptada.
+
+Las implementaciones base aceptadas [1577_dp.cpp](1577_dp.cpp), [1577_dp.java](1577_dp.java), [1577_dp.py](1577_dp.py), [1577_dp.rs](1577_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1577_dp.cpp](1577_dp.cpp) | G++ 13.2 x64 | dp | O(len(a) · len(b)) | AC | 0.031 s | 424 KB |
-| [1577_dp.go](1577_dp.go) | Go 1.14 x64 | dp | O(len(a) · len(b)) | AC | 0.046 s | 1180 KB |
-| [1577_dp.java](1577_dp.java) | Java 1.8 | dp | O(len(a) · len(b)) | AC | 0.187 s | 632 KB |
-| [1577_dp.py](1577_dp.py) | PyPy 3.10 x64 | dp | O(len(a) · len(b)) | AC | 0.218 s | 8184 KB |
-| [1577_dp.rs](1577_dp.rs) | Rust 1.75 x64 | dp | O(len(a) · len(b)) | AC | 0.031 s | 280 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1577_dp.cpp](1577_dp.cpp) | G++ 13.2 x64 | dp | O(len(a) · len(b)) | AC | 0.031 s | 424 KB | 11287861 |
+| [1577_dp.go](1577_dp.go) | Go 1.14 x64 | dp | O(len(a) · len(b)) | AC | 0.046 s | 1180 KB | 11287865 |
+| [1577_dp.java](1577_dp.java) | Java 1.8 | dp | O(len(a) · len(b)) | AC | 0.187 s | 632 KB | 11287873 |
+| [1577_dp.py](1577_dp.py) \* | PyPy 3.10 x64 | dp | O(len(a) · len(b)) | AC | 0.218 s | 8184 KB | 11287869 |
+| [1577_dp.rs](1577_dp.rs) | Rust 1.75 x64 | dp | O(len(a) · len(b)) | AC | 0.031 s | 280 KB | 11287874 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1577_dp_optimized.go](1577_dp_optimized.go) \* | Go 1.14 x64 | dp | O(len(a) · len(b)) | AC | 0.031 s | 352 KB | 11314862 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
