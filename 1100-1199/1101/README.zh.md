@@ -77,16 +77,35 @@ NOT((A OR NOT B) AND (A OR B)) OR NOT (A AND NOT B OR TRUE)
 
 答案与另一种走法做了核对：把表达式翻译成 Python 中优先级相同的 `not`、`and`、`or`，再用 `eval` 计算。
 
+## 优化解法
+
+C++ 和 Go 按 NOT > AND > OR 的优先级递归下降，生成后缀字节码，并收集表达式读取的寄存器掩码。寄存器状态占 26 位。到达路口时，如果相关位与已缓存的掩码一致，就复用上次结果，否则用布尔栈执行全部字节码。每格占一字节，路径经 8192 字节缓冲区逐步输出。先输出当前坐标，再切换寄存器或转向。E 为表达式长度，S 为输出的格数，F 为需要求值的路口访问次数。准备网格需要 O(N²) 时间，总时间为 O(N² + E + S + FE)，空间为 O(N² + E)。Java、Python 和 Rust 继续使用已达标的基础版。
+
+通过评测的 G++ 13.2 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 224 KB，基础版为 628 KB。
+
+已通过评测的基础实现 [1101_parsing.java](1101_parsing.java), [1101_parsing.py](1101_parsing.py), [1101_parsing.rs](1101_parsing.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- Rust 用带 `Box` 子节点的 `enum` 保存语法树；Go 使用结点结构体，Java 使用结点类；C++ 把结点存放在 vector 中。
+原文件保留语法树及自身 Accepted。新 C++/Go 用固定后缀码、字节网格和有界路径输出，只缓存相关寄存器。即使对象稀少网格仍占 O(N²)，但不累计路径。实际收益依据对应评测，不声称每种表达式都更快。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1101_parsing.cpp](1101_parsing.cpp) | G++ 13.2 x64 | parsing | O(L·len(E)) | AC | 0.015 s | 628 KB |
-| [1101_parsing.go](1101_parsing.go) | Go 1.14 x64 | parsing | O(L·len(E)) | AC | 0.031 s | 1780 KB |
-| [1101_parsing.java](1101_parsing.java) | Java 1.8 | parsing | O(L·len(E)) | AC | 0.093 s | 2192 KB |
-| [1101_parsing.py](1101_parsing.py) | Python 3.12 x64 | parsing | O(L·len(E)) | AC | 0.078 s | 1408 KB |
-| [1101_parsing.rs](1101_parsing.rs) | Rust 1.75 x64 | parsing | O(L·len(E)) | AC | 0.015 s | 552 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1101_parsing.cpp](1101_parsing.cpp) | G++ 13.2 x64 | parsing | O(L·len(E)) | AC | 0.015 s | 628 KB | 11279157 |
+| [1101_parsing.go](1101_parsing.go) | Go 1.14 x64 | parsing | O(L·len(E)) | AC | 0.031 s | 1780 KB | 11279158 |
+| [1101_parsing.java](1101_parsing.java) \* | Java 1.8 | parsing | O(L·len(E)) | AC | 0.093 s | 2192 KB | 11279160 |
+| [1101_parsing.py](1101_parsing.py) \* | Python 3.12 x64 | parsing | O(L·len(E)) | AC | 0.078 s | 1408 KB | 11279159 |
+| [1101_parsing.rs](1101_parsing.rs) \* | Rust 1.75 x64 | parsing | O(L·len(E)) | AC | 0.015 s | 552 KB | 11279161 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1101_parsing_optimized.cpp](1101_parsing_optimized.cpp) \* | G++ 13.2 x64 | parsing | O(N² + E + S + FE) | AC | 0.031 s | 224 KB | 11315671 |
+| [1101_parsing_optimized.go](1101_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(N² + E + S + FE) | AC | 0.031 s | 912 KB | 11315890 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
