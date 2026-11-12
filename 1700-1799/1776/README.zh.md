@@ -55,12 +55,31 @@ done(i, j) = (1/i) · Σ done(l, j − 1) · done(i − 1 − l, j − 1)。
 
 对 400 以内的许多 n，答案与一个独立的已通过实现（对全部轮次求和）的结果在 10⁻⁹ 内一致。
 
+## 优化解法
+
+Go 和 Rust 复用上述递推中的两行完成概率 done(i, j)，把 l 与 i−1−l 的相等卷积项配对，奇数 i 才加中间项的平方。令 m = n − 2，求和范围是 j = 0, …, m − 1。每一轮后续发射至少消耗一枚剩余火箭，因此从 j = m 起继续发射的概率为零。递推相同，时间 O(m³)，对称配对减少常数。空间 O(m)，不逐轮分配。该版节省存储，但轮数可能多于提前停止基础版。输出九位小数，格式舍入误差至多 0.5·10⁻⁹，低于容差。Go 使用标准句柄，Rust 使用 C 标准输入输出。C++、Java、Python 继续使用已达标的基础版。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.015 秒，内存为 52 KB，基础版为 240 KB。
+
+已通过评测的基础实现 [1776_dp.cpp](1776_dp.cpp), [1776_dp.java](1776_dp.java), [1776_dp.py](1776_dp.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1776_dp.cpp](1776_dp.cpp) | G++ 13.2 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 216 KB |
-| [1776_dp.go](1776_dp.go) | Go 1.14 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.031 s | 1228 KB |
-| [1776_dp.java](1776_dp.java) | Java 1.8 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.125 s | 1932 KB |
-| [1776_dp.py](1776_dp.py) | Python 3.12 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.250 s | 1328 KB |
-| [1776_dp.rs](1776_dp.rs) | Rust 1.75 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 240 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1776_dp.cpp](1776_dp.cpp) | G++ 13.2 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 216 KB | 11289720 |
+| [1776_dp.go](1776_dp.go) | Go 1.14 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.031 s | 1228 KB | 11289721 |
+| [1776_dp.java](1776_dp.java) | Java 1.8 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.125 s | 1932 KB | 11289725 |
+| [1776_dp.py](1776_dp.py) \* | Python 3.12 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.250 s | 1328 KB | 11289724 |
+| [1776_dp.rs](1776_dp.rs) | Rust 1.75 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 240 KB | 11289726 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1776_dp_optimized.go](1776_dp_optimized.go) \* | Go 1.14 x64 | dp | O(m³) | AC | 0.015 s | 308 KB | 11315269 |
+| [1776_dp_optimized.rs](1776_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(m³) | AC | 0.046 s | 52 KB | 11315900 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
