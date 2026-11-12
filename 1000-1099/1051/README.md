@@ -97,16 +97,74 @@ Pitfalls:
 - `2 × 3` leaves 2, while `2 × 4` leaves 1;
 - `M` and `N` can be given in any order.
 
+## Optimized solutions
+
+Rust keeps the exact same constant-time rectangle formula as its Accepted standard-library base: a one-cell-wide row leaves ceil(longerSide/2); otherwise a side divisible by3 gives2, and the remaining cases give1. Read two numbers directly, use min/max instead of a heap vector and sorting, and print through a five-digit stack buffer with C-runtime character I/O and a C entry point. Dimensions≤10000 imply answer≤5000, so the buffer is sufficient. This is a representation/I/O change, not a new game theorem or a stronger complexity claim. Time and extra space remain O(1). All simple sources and their original proof explanation remain; C++/Go/Java/Python reuse their admitted bases.
+
+For a row, each legal jump uses the first or last two stones of the remaining contiguous block. It leaves an isolated stone beyond that end, at least three positions from the new block. Later jumps only shrink the block, so exactly floor(n/2) jumps are possible.
+
+For a rectangle, the first three sequences below reduce four occupied columns to their rightmost column. Their heights are 2, 3 and 4. For a height divisible by 3, use groups of three rows. With remainder 1 use a first group of four rows, and with remainder 2 use a first group of two rows. The two-row sequence uses the empty row above the board. The other sequences stay within their groups. This removes the left three columns. Use the same construction after transposing to remove three rows. Repeat until both dimensions lie between 2 and 4. The six base sequences then reach one stone, or two when a dimension is 3. Every jump leaves a stone, and the colour parity bound above supplies the lower bound of two. In the sequences, the initial top-left stone is at (0,0), with x along columns and y along rows.
+
+```text
+4×2 → 1×2
+  (0,1)→(0,-1)  (1,1)→(1,-1)  (0,-1)→(2,-1)  (3,1)→(1,1)
+  (2,-1)→(2,1)  (1,1)→(3,1)
+4×3 → 1×3
+  (1,0)→(-1,0)  (3,0)→(1,0)  (0,2)→(0,0)  (0,0)→(2,0)
+  (2,1)→(0,1)  (2,2)→(0,2)  (0,2)→(0,0)  (-1,0)→(1,0)
+  (1,0)→(3,0)
+4×4 → 1×4
+  (1,0)→(-1,0)  (3,0)→(1,0)  (1,1)→(-1,1)  (-1,0)→(-1,2)
+  (2,2)→(2,0)  (1,0)→(3,0)  (1,3)→(1,1)  (-1,2)→(1,2)
+  (3,3)→(1,3)  (0,3)→(2,3)  (1,1)→(1,3)  (1,3)→(3,3)
+```
+
+```text
+2×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (0,2)→(2,2)
+3×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (2,0)→(2,2)  (1,2)→(3,2)
+4×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (3,0)→(3,2)  (0,2)→(2,2)
+  (3,2)→(1,2)  (2,0)→(2,2)  (1,2)→(3,2)
+3×3
+  (1,0)→(3,0)  (0,1)→(0,3)  (1,1)→(1,3)  (2,2)→(2,0)
+  (3,0)→(1,0)  (0,0)→(2,0)  (0,3)→(2,3)
+4×3
+  (1,0)→(-1,0)  (2,0)→(4,0)  (0,1)→(0,3)  (1,1)→(1,3)
+  (2,1)→(4,1)  (4,0)→(4,2)  (0,3)→(2,3)  (2,3)→(2,1)
+  (4,2)→(2,2)  (2,1)→(2,3)
+4×4
+  (1,0)→(-1,0)  (2,0)→(4,0)  (1,1)→(-1,1)  (-1,0)→(-1,2)
+  (2,1)→(4,1)  (4,0)→(4,2)  (0,2)→(0,4)  (2,3)→(0,3)
+  (3,3)→(3,1)  (1,2)→(3,2)  (4,2)→(2,2)  (0,4)→(0,2)
+  (-1,2)→(1,2)  (1,2)→(3,2)  (3,1)→(3,3)
+```
+
+The accepted base implementations [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages evaluate the same formula.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB |
-| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB |
-| [1051_games_math.java](1051_games_math.java) | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB |
-| [1051_games_math.py](1051_games_math.py) | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB |
-| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB | 11278686 |
+| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB | 11278689 |
+| [1051_games_math.java](1051_games_math.java) \* | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB | 11278691 |
+| [1051_games_math.py](1051_games_math.py) \* | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB | 11278690 |
+| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB | 11278693 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) \* | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

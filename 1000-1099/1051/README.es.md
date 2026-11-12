@@ -98,16 +98,74 @@ Detalles a tener en cuenta:
 - `2 × 3` deja 2, mientras que `2 × 4` deja 1;
 - `M` y `N` pueden venir en cualquier orden.
 
+## Soluciones optimizadas
+
+Rust conserva la fórmula O(1) del original Accepted: fila de ancho uno deja ceil(ladoMayor/2); en2D un lado múltiplo de3 da2 y el resto1. Leer dos números directamente, min/max sin vector/ordenar y salida C con búfer de cinco dígitos y entrada C. Lados≤10000 implican respuesta≤5000. Cambian representación y E/S, no el teorema ni el orden: tiempo/espacio extra O(1). Se conservan fuentes sencillas y argumento original; C++/Go/Java/Python reutilizan bases.
+
+En una fila cada salto usa las dos fichas de un extremo del bloque contiguo restante. Deja una ficha aislada al menos a tres posiciones del nuevo bloque. Como los saltos siguientes solo acortan ese bloque, se pueden hacer exactamente floor(n/2) saltos.
+
+Las primeras tres secuencias reducen cuatro columnas ocupadas a la columna derecha, con alturas 2, 3 y 4. Si la altura es múltiplo de 3, se usan grupos de tres filas. Con resto 1 el primer grupo tiene cuatro filas, y con resto 2 tiene dos. La secuencia de dos filas usa la fila vacía superior. Las demás se limitan a sus grupos. Así se eliminan tres columnas izquierdas. Al transponer, la misma construcción elimina tres filas. Se repite hasta que ambos lados miden entre 2 y 4. Las seis secuencias base dejan una ficha, o dos si un lado mide 3. Cada salto deja una ficha y la paridad de colores de arriba da la cota inferior de dos. La esquina superior izquierda inicial es (0,0), con x para columnas e y para filas.
+
+```text
+4×2 → 1×2
+  (0,1)→(0,-1)  (1,1)→(1,-1)  (0,-1)→(2,-1)  (3,1)→(1,1)
+  (2,-1)→(2,1)  (1,1)→(3,1)
+4×3 → 1×3
+  (1,0)→(-1,0)  (3,0)→(1,0)  (0,2)→(0,0)  (0,0)→(2,0)
+  (2,1)→(0,1)  (2,2)→(0,2)  (0,2)→(0,0)  (-1,0)→(1,0)
+  (1,0)→(3,0)
+4×4 → 1×4
+  (1,0)→(-1,0)  (3,0)→(1,0)  (1,1)→(-1,1)  (-1,0)→(-1,2)
+  (2,2)→(2,0)  (1,0)→(3,0)  (1,3)→(1,1)  (-1,2)→(1,2)
+  (3,3)→(1,3)  (0,3)→(2,3)  (1,1)→(1,3)  (1,3)→(3,3)
+```
+
+```text
+2×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (0,2)→(2,2)
+3×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (2,0)→(2,2)  (1,2)→(3,2)
+4×2
+  (0,0)→(0,2)  (1,0)→(1,2)  (3,0)→(3,2)  (0,2)→(2,2)
+  (3,2)→(1,2)  (2,0)→(2,2)  (1,2)→(3,2)
+3×3
+  (1,0)→(3,0)  (0,1)→(0,3)  (1,1)→(1,3)  (2,2)→(2,0)
+  (3,0)→(1,0)  (0,0)→(2,0)  (0,3)→(2,3)
+4×3
+  (1,0)→(-1,0)  (2,0)→(4,0)  (0,1)→(0,3)  (1,1)→(1,3)
+  (2,1)→(4,1)  (4,0)→(4,2)  (0,3)→(2,3)  (2,3)→(2,1)
+  (4,2)→(2,2)  (2,1)→(2,3)
+4×4
+  (1,0)→(-1,0)  (2,0)→(4,0)  (1,1)→(-1,1)  (-1,0)→(-1,2)
+  (2,1)→(4,1)  (4,0)→(4,2)  (0,2)→(0,4)  (2,3)→(0,3)
+  (3,3)→(3,1)  (1,2)→(3,2)  (4,2)→(2,2)  (0,4)→(0,2)
+  (-1,2)→(1,2)  (1,2)→(3,2)  (3,1)→(3,3)
+```
+
+Las implementaciones base aceptadas [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes evalúan la misma fórmula.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB |
-| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB |
-| [1051_games_math.java](1051_games_math.java) | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB |
-| [1051_games_math.py](1051_games_math.py) | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB |
-| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1051_games_math.cpp](1051_games_math.cpp) | G++ 13.2 x64 | games, math | O(1) | AC | 0.015 s | 128 KB | 11278686 |
+| [1051_games_math.go](1051_games_math.go) | Go 1.14 x64 | games, math | O(1) | AC | 0.015 s | 1068 KB | 11278689 |
+| [1051_games_math.java](1051_games_math.java) \* | Java 1.8 | games, math | O(1) | AC | 0.125 s | 1632 KB | 11278691 |
+| [1051_games_math.py](1051_games_math.py) \* | Python 3.12 x64 | games, math | O(1) | AC | 0.078 s | 328 KB | 11278690 |
+| [1051_games_math.rs](1051_games_math.rs) | Rust 1.75 x64 | games, math | O(1) | AC | 0.031 s | 224 KB | 11278693 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1051_games_math_optimized.rs](1051_games_math_optimized.rs) \* | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
