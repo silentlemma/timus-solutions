@@ -40,29 +40,56 @@ N。
 
 ## 解法
 
-花费是经过 1 … N 所有数的环上相邻两数乘积之和，所以两行都是环形排列。
+环的代价是相邻标号乘积之和，包含回到城市1的末边。令 D(i,j)=N²−ij，
+矩阵非负且对称。对 i<j<k<l，
 
-最贵的排列让大小相近的数相邻：1, 3, 5, … 递增排列，再沿偶数递减回到 2。
-这是使这种环形和最大的经典"管风琴"排列。
+(Dᵢⱼ+Dₖₗ)−(Dᵢₖ+Dⱼₗ)=(k−j)(i−l)<0，
 
-最便宜的排列让大数与小数相邻。从 N 开始读这个环，一侧是 2, N − 2, 4, N − 4, 6, …，另一
-侧是 1, N − 1, 3, N − 3, 5, …；第 k 步两侧分别取 k + 1 和 k（k 为奇数）或 N − k 和
-N − k + 1（k 为偶数），直到某一对会重复使用某个数。若剩下一个数，就放在两侧相遇之处。对
-N ≤ 10 的穷举表明，在不计翻转的意义下这是唯一的最便宜环，评测系统对所有 N 都接受它；我们
-没有证明。把环转到以 1 开头就是第一行。`O(N)`。
+(Dᵢₖ+Dⱼₗ)−(Dᵢₗ+Dⱼₖ)=(j−i)(k−l)<0。
 
-注意事项：
+这满足 Supnick 不等式。最小 D 环先按升序排列奇数，再按降序排列偶数。
+最大 D 环由两条交替的分支组成。每个 D 环的代价为 N³ 减去原乘积和，
+所以这两个环分别使原乘积和最大和最小。[极值环定理](https://doi.org/10.1016/S0166-218X(99)00148-1)
 
-- 简单交替 1, N, 2, N − 1, … 并非最优：N = 5 时它花费 38，而 1, 5, 2, 3, 4 花费 37（测试 04）；
-- 两侧相遇时可能剩一个城市（测试 05），也可能不剩（测试 06）；
-- 两行都必须以城市 1 开头（所有测试）。
+最大乘积和按 1、3、5、… 升序排列，再将偶数降序排列到 2。构造最小值时
+从 N 出发，令 q=⌊(N−1)/2⌋。当 k=1…q 时，一条分支 aₖ 在 k 为奇数时取
+k+1，在 k 为偶数时取 N−k。另一条分支 bₖ 在 k 为奇数时取 k，在 k 为偶数时
+取 N−k+1。依次连接 N、a₁、…、a_q，若 N 为偶数则插入唯一剩余值
+2⌊N/4⌋+1，最后连接 b_q、…、b₁。旋转环使其从 1 开始。反向读取即得最大
+D 环 1、N−1、3、N−3、…、N−2、2、N，从而使原乘积和最小。N 为 2 或 3 时，
+无向环的边集唯一。
+
+简单版显式存两臂并旋转环，O(N)时间与额外空间；不同的快速版本
+直接生成同样的索引并使用有界输出缓冲。
+
+两行均以 1 开始。计算代价时包含闭合边，每个城市只输出一次。
+
+## 优化解法
+
+C++、Go、Rust 直接按索引输出旧的双臂环，不存访问标记、两臂、环、旋转排列或字符串。令 q=⌊(N−1)/2⌋，先输出 1,N，再输出 k=1…q 的 aₖ：奇 k 为 k+1，偶 k 为 N−k。偶数 N>2 时唯一剩余中值是 2⌊N/4⌋+1。再按 k=q…2 输出 bₖ：奇 k 为 k，偶 k 为 N−k+1；b₁=1 已在首位。N=2 只输出 1,2。它与原双臂构造相同，只是不存两臂。最大代价排列仍是奇数递增、偶数递减。8192 字节块给出 O(N) 时间、O(1) 额外空间。保留简单版；Java/Python 复用达标基础版。独立子集 DP 验证 N≤14 的两个全局极值；一般最优性来自简单解法中的 Supnick 归约。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 232 KB，基础版为 4376 KB。
+
+已通过评测的基础实现 [1535_constructive.java](1535_constructive.java), [1535_constructive.py](1535_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1535_constructive.cpp](1535_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 1700 KB |
-| [1535_constructive.go](1535_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 7060 KB |
-| [1535_constructive.java](1535_constructive.java) | Java 1.8 | constructive | O(N) | AC | 0.140 s | 11176 KB |
-| [1535_constructive.py](1535_constructive.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.109 s | 8752 KB |
-| [1535_constructive.rs](1535_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 4376 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1535_constructive.cpp](1535_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 1700 KB | 11287470 |
+| [1535_constructive.go](1535_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 7060 KB | 11287471 |
+| [1535_constructive.java](1535_constructive.java) \* | Java 1.8 | constructive | O(N) | AC | 0.140 s | 11176 KB | 11287473 |
+| [1535_constructive.py](1535_constructive.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.109 s | 8752 KB | 11287472 |
+| [1535_constructive.rs](1535_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 4376 KB | 11287474 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1535_constructive_optimized.cpp](1535_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 100 KB | 11315377 |
+| [1535_constructive_optimized.go](1535_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 936 KB | 11315379 |
+| [1535_constructive_optimized.rs](1535_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 232 KB | 11315380 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
