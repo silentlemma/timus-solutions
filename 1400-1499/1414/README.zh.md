@@ -66,12 +66,33 @@ ea
 - 名字中可以有数字，数字排在字母之前（测试 12）；
 - 样例中用点表示两个缩进空格。
 
+## 优化解法
+
+新 C++、Rust 保留有序集合与前缀下界查询，仍按字典序输出前二十个不同名字。不再累计全部查询输出。C++ 通过 C stdio 逐行写出。Rust 将名字补零到二十字节，直接存入 BTreeSet；零小于所有合法数字、字母，因此保留普通字符串及真前缀的字典序。只比较指定的前缀长度。完整回答最多 21+20·23=481 字节，512 字节缓冲足够。空间取决于名字而非累计输出。保留原始版本，Go、Java、Python 复用合格基础版覆盖快速集合。
+
+通过评测的 G++ 13.2 x64 版本耗时 0.125 秒，基础版为 0.031 秒，内存为 924 KB，基础版为 5748 KB。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.062 秒，基础版为 0.031 秒，内存为 292 KB，基础版为 6144 KB。
+
+已通过评测的基础实现 [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1414_sorting.cpp](1414_sorting.cpp) | G++ 13.2 x64 | sorting | O(Q log Q) | AC | 0.031 s | 5748 KB |
-| [1414_sorting.go](1414_sorting.go) | Go 1.14 x64 | sorting | O(Q^2) | AC | 0.031 s | 1868 KB |
-| [1414_sorting.java](1414_sorting.java) | Java 1.8 | sorting | O(Q log Q) | AC | 0.156 s | 24264 KB |
-| [1414_sorting.py](1414_sorting.py) | Python 3.12 x64 | sorting | O(Q^2) | AC | 0.156 s | 19372 KB |
-| [1414_sorting.rs](1414_sorting.rs) | Rust 1.75 x64 | sorting | O(Q log Q) | AC | 0.031 s | 6144 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1414_sorting.cpp](1414_sorting.cpp) | G++ 13.2 x64 | sorting | O(Q log Q) | AC | 0.031 s | 5748 KB | 11286098 |
+| [1414_sorting.go](1414_sorting.go) | Go 1.14 x64 | sorting | O(Q^2) | AC | 0.031 s | 1868 KB | 11286100 |
+| [1414_sorting.java](1414_sorting.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.156 s | 24264 KB | 11286104 |
+| [1414_sorting.py](1414_sorting.py) \* | Python 3.12 x64 | sorting | O(Q^2) | AC | 0.156 s | 19372 KB | 11286103 |
+| [1414_sorting.rs](1414_sorting.rs) | Rust 1.75 x64 | sorting | O(Q log Q) | AC | 0.031 s | 6144 KB | 11286105 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
+| [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
