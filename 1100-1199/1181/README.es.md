@@ -80,17 +80,36 @@ Cada corte impreso pasó el comprobador en 200 polígonos aleatorios de
 hasta 33 vértices y en todas las pruebas, incluidos polígonos de mil
 vértices.
 
+## Soluciones optimizadas
+
+La versión lineal conserva la prueba de las orejas tricolores y el abanico final desde un vértice de color único. Los arreglos left y right forman una lista circular doblemente enlazada, de modo que cada eliminación cuesta O(1). Se actualizan los contadores de colores tras cada corte. La cola empieza con los vértices cuyos vecinos tienen colores distintos; solo los dos vecinos supervivientes pueden cambiar después. Se omiten las entradas obsoletas o eliminadas. Mientras cada color aparece dos veces, existe una oreja válida: de lo contrario, solo alternarían dos colores. Al quedar un color único, se termina con su abanico. Hay como máximo N entradas iniciales y dos nuevas por corte, por lo que tiempo y espacio son O(N). Se conservan los números originales.
+
+El envío aceptado en Python 3.12 x64 tarda 0.093 s frente a 0.203 s de la base y usa 900 KB frente a 760 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes guardan los vértices restantes en una lista y
-  borran de ella el vértice cortado.
+Las implementaciones originales con listas se conservan como versiones sencillas O(N²). Todas las nuevas usan la cola lineal y vecinos enlazados. C++, Go y Rust dimensionan sus arreglos con N ≤ 1000; bastan 3N entradas de cola. Go y Rust almacenan la salida en 12000 bytes, suficientes para N−3 parejas de índices de cuatro dígitos. Go usa manejadores estándar y Rust E/S acotada del C runtime con entrada C. Python usa deque y Java una cola en un arreglo de enteros. Se acepta cualquier triangulación tricolor válida.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB |
-| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB |
-| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB |
-| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB |
-| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB | 11283313 |
+| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB | 11283315 |
+| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB | 11283326 |
+| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB | 11283321 |
+| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB | 11283329 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive_optimized.cpp](1181_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 132 KB | 11314704 |
+| [1181_constructive_optimized.go](1181_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 388 KB | 11314727 |
+| [1181_constructive_optimized.java](1181_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 552 KB | 11314749 |
+| [1181_constructive_optimized.py](1181_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.093 s | 900 KB | 11314762 |
+| [1181_constructive_optimized.rs](1181_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 92 KB | 11314780 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

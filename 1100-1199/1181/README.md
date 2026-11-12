@@ -77,17 +77,36 @@ Pitfalls:
 Every printed cut passed the checker on 200 random polygons of up to 33
 vertices and on all tests, including thousand-vertex polygons.
 
+## Optimized solutions
+
+The linear version keeps the same rainbow-ear proof and the final fan from a uniquely coloured vertex. Arrays left and right form a cyclic doubly linked list, so removing an ear takes O(1). Colour counts are updated after each cut. Initially enqueue every vertex whose neighbours have different colours; after a removal, only its two surviving neighbours can change eligibility. Ignore stale or removed queue entries. While each colour occurs at least twice, a suitable ear exists, since otherwise the remaining polygon would alternate only two colours. When one colour becomes unique, finish with a fan from its vertex. There are at most N initial entries and two additions per cut, so the total time and space are O(N). Original vertex numbers are preserved.
+
+The accepted Python 3.12 x64 run takes 0.093 s versus 0.203 s for the base and uses 900 KB versus 760 KB.
+
 ## Language notes
 
-- All languages keep the remaining vertices in a list and remove the cut
-  vertex from it.
+The original list-based implementations remain the simple O(N²) versions. All new implementations use the linear queue and linked neighbours. C++, Go and Rust bound their arrays using N ≤ 1000; the queue needs at most 3N entries. Go and Rust buffer output in 12000 bytes, enough for N−3 pairs of four-digit indices. Go uses standard handles and Rust bounded C-runtime I/O with a C entry point. Python uses deque; Java uses a primitive array queue. Any valid rainbow triangulation is accepted.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB |
-| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB |
-| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB |
-| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB |
-| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB | 11283313 |
+| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB | 11283315 |
+| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB | 11283326 |
+| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB | 11283321 |
+| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB | 11283329 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive_optimized.cpp](1181_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 132 KB | 11314704 |
+| [1181_constructive_optimized.go](1181_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 388 KB | 11314727 |
+| [1181_constructive_optimized.java](1181_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 552 KB | 11314749 |
+| [1181_constructive_optimized.py](1181_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.093 s | 900 KB | 11314762 |
+| [1181_constructive_optimized.rs](1181_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 92 KB | 11314780 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -69,16 +69,36 @@ RBGBRGB
 每个输出的切法都在 200 个至多 33 个顶点的随机多边形和所有测试（包括一千个顶点
 的多边形）上通过了检查程序。
 
+## 优化解法
+
+线性版本保留三色耳的正确性证明，以及某种颜色只剩一个顶点时的扇形收尾。left、right 数组构成循环双向链表，每次删耳只需 O(1)，同时更新颜色计数。先把左右邻居颜色不同的顶点加入队列；每次删除后，只有两个幸存邻居的资格可能改变。过期或已删除的队列项直接跳过。只要每种颜色至少出现两次，就必有合适的耳，否则多边形只能交替使用两种颜色。某种颜色唯一时，从该顶点作扇形剖分。初始至多 N 项，每刀只添加两项，因此总时间和空间为 O(N)，并保留原始顶点编号。
+
+通过评测的 Python 3.12 x64 版本耗时 0.093 秒，基础版为 0.203 秒，内存为 900 KB，基础版为 760 KB。
+
 ## 各语言说明
 
-- 所有语言都把剩余顶点存在列表中，并从中删除被切下的顶点。
+原有列表实现作为 O(N²) 的简单版本保留。所有新版本使用线性队列和邻接链。C++、Go、Rust 按 N ≤ 1000 确定数组上限，队列至多需要 3N 项。Go、Rust 的 12000 字节输出缓冲足够保存 N−3 对四位数编号。Go 使用标准句柄，Rust 使用有界 C runtime 输入输出和 C 入口。Python 使用 deque，Java 使用基本类型数组队列。任意正确的三色三角剖分均可通过。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB |
-| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB |
-| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB |
-| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB |
-| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive.cpp](1181_constructive.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 408 KB | 11283313 |
+| [1181_constructive.go](1181_constructive.go) | Go 1.14 x64 | constructive | O(N²) | AC | 0.031 s | 1188 KB | 11283315 |
+| [1181_constructive.java](1181_constructive.java) | Java 1.8 | constructive | O(N²) | AC | 0.218 s | 6632 KB | 11283326 |
+| [1181_constructive.py](1181_constructive.py) | Python 3.12 x64 | constructive | O(N²) | AC | 0.203 s | 760 KB | 11283321 |
+| [1181_constructive.rs](1181_constructive.rs) | Rust 1.75 x64 | constructive | O(N²) | AC | 0.031 s | 476 KB | 11283329 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1181_constructive_optimized.cpp](1181_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 132 KB | 11314704 |
+| [1181_constructive_optimized.go](1181_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 388 KB | 11314727 |
+| [1181_constructive_optimized.java](1181_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 552 KB | 11314749 |
+| [1181_constructive_optimized.py](1181_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.093 s | 900 KB | 11314762 |
+| [1181_constructive_optimized.rs](1181_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 92 KB | 11314780 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
