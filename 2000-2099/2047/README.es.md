@@ -113,7 +113,15 @@ permitidas, así que todo primer éxito ocurre como máximo en esa suma. El
 programa mantiene el límite completo `300n` y no incorpora ni la cadena
 ni su extremo como corte fijo.
 
+## Soluciones optimizadas
+
+Go conserva factorización segmentada y el límite probado completo M=300n. Cada bloque uint16 pasa a ser historia inmutable; la reconstrucción usa bloque y desplazamiento sin copiar un gran slice creciente. Se reutilizan 65536 restos uint32; primos caben en uint16 por sqrt(M)≤5477 y τ(s)<11000. El anillo301 usa profundidades uint32 hasta100000 y la respuesta términos uint16. Se lee el predecesor antes de sobrescribir, sin cambiar la recurrencia. E/S acotada sustituye fmt por término. Espacio O(B+K+sqrt(M)+n), sin testigo incrustado ni corte reducido. Se conservan bases; las otras cuatro familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [2047_number_theory.cpp](2047_number_theory.cpp), [2047_number_theory.java](2047_number_theory.java), [2047_number_theory.py](2047_number_theory.py), [2047_number_theory.rs](2047_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 La condición comienza en `k=2`. Contar divisores positivos distintos, no
 factores primos. No extender un predecesor inaccesible. El anillo de 301
@@ -132,10 +140,20 @@ acepta en 0.437 s.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB |
-| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB |
-| [2047_number_theory.java](2047_number_theory.java) | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB |
-| [2047_number_theory.py](2047_number_theory.py) | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB |
-| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB | 11293483 |
+| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB | 11293485 |
+| [2047_number_theory.java](2047_number_theory.java) \* | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB | 11293491 |
+| [2047_number_theory.py](2047_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB | 11295874 |
+| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB | 11293497 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory_optimized.go](2047_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(M log M + n) | AC | 0.062 s | 4100 KB | 11315346 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

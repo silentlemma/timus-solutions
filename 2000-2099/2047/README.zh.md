@@ -62,7 +62,15 @@
 
 独立普通筛构造出长度 100000、终点总和 `1568617` 的合法链，并逐个前缀以约数枚举核验。其前缀证明所有合法长度均存在答案，因此首次成功终点均不超过该和。程序仍使用完整上界 `300n`，没有把该链或终点作为硬编码截止条件。
 
+## 优化解法
+
+Go 保留分段分解及完整已证明界 M=300n。每个 uint16 约数计数块直接成为不可变历史块，回溯按块号和偏移访问，避免增长复制整段历史。复用 65536 个 uint32 余数；sqrt(M)≤5477，质数适合 uint16，τ(s)<11000 也适合 uint16。301 项深度环用 uint32 支持长度100000，答案项用 uint16。覆盖槽前读取前驱，递推不变。有界 I/O 代替逐项 fmt。空间仍 O(B+K+sqrt(M)+n)，没有嵌入见证或缩小截止。保留普通源码；其他四类语言复用符合标准的基础版。
+
+已通过评测的基础实现 [2047_number_theory.cpp](2047_number_theory.cpp), [2047_number_theory.java](2047_number_theory.java), [2047_number_theory.py](2047_number_theory.py), [2047_number_theory.rs](2047_number_theory.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 条件从 `k=2` 开始；统计正约数而非素因子。前驱深度零不可转移。301 格循环数组使当前槽位与全部 300 种前驱槽位不同；写入当前深度前先读取前驱。重建需要约数历史，不只有深度环。不要对零进行除因子循环。
 
@@ -72,10 +80,20 @@ Python 解答在 PyPy 下运行：在 CPython 3.12 下它在评测的第 13 个�
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB |
-| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB |
-| [2047_number_theory.java](2047_number_theory.java) | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB |
-| [2047_number_theory.py](2047_number_theory.py) | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB |
-| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB | 11293483 |
+| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB | 11293485 |
+| [2047_number_theory.java](2047_number_theory.java) \* | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB | 11293491 |
+| [2047_number_theory.py](2047_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB | 11295874 |
+| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB | 11293497 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory_optimized.go](2047_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(M log M + n) | AC | 0.062 s | 4100 KB | 11315346 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -120,7 +120,15 @@ existence for every legal length. Consequently every first successful
 endpoint is at most this sum; the programs still use the complete cap
 `300n`, without embedding that witness or endpoint as a cutoff.
 
+## Optimized solutions
+
+Go retains segmented factorization and the complete proven cap M=300n. Each computed uint16 divisor-count block becomes one immutable history chunk; reconstruction indexes chunk and offset instead of growing and copying a single history slice. Reuse one 65536-entry uint32 factor buffer; primes fit uint16 because sqrt(M)≤5477, counts fit uint16 because τ(s)<11000. The 301-entry depth ring uses uint32 for requested lengths up to100000, while returned terms fit uint16. Reading a predecessor before overwriting the ring keeps the original recurrence exact. Bounded command I/O replaces fmt calls per output term. Storage remains O(B+K+sqrt(M)+n) for scanned sum B and block size K, with no embedded witness or shortened cutoff. All ordinary files remain; the other four families reuse their admitted bases.
+
+The accepted base implementations [2047_number_theory.cpp](2047_number_theory.cpp), [2047_number_theory.java](2047_number_theory.java), [2047_number_theory.py](2047_number_theory.py), [2047_number_theory.rs](2047_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Do not impose the prefix condition at `k=1`. A divisor count is a count
 of different positive divisors, not prime factors. Preserve zero for an
@@ -141,10 +149,20 @@ time limit on the judge's test 13, while PyPy 3.10 is accepted in
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB |
-| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB |
-| [2047_number_theory.java](2047_number_theory.java) | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB |
-| [2047_number_theory.py](2047_number_theory.py) | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB |
-| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory.cpp](2047_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(M log M+n) | AC | 0.078 s | 4972 KB | 11293483 |
+| [2047_number_theory.go](2047_number_theory.go) | Go 1.14 x64 | number_theory | O(M log M+n) | AC | 0.140 s | 15940 KB | 11293485 |
+| [2047_number_theory.java](2047_number_theory.java) \* | Java 1.8 | number_theory | O(M log M+n) | AC | 0.171 s | 13508 KB | 11293491 |
+| [2047_number_theory.py](2047_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(M log M+n) | AC | 0.437 s | 11296 KB | 11295874 |
+| [2047_number_theory.rs](2047_number_theory.rs) | Rust 1.75 x64 | number_theory | O(M log M+n) | AC | 0.093 s | 5644 KB | 11293497 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2047_number_theory_optimized.go](2047_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(M log M + n) | AC | 0.062 s | 4100 KB | 11315346 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
