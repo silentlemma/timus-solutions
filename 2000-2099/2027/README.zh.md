@@ -117,18 +117,39 @@ TIME LIMIT EXCEEDED
 - 先完成百万步的指令与移动，再判断时间上限。
 - 大量输出不能省略；立即结束甚至不应添加多余换行。
 
+Python 教学版保留字符网格，用 match 分派指令，并分别记录行和列。执行 ? 时才用 int 转换下一个输入记号。输入耗尽时 next(values, last) 返回最后读入的值。StringIO 保存输出与终止消息。停止指令立即返回，其余步骤执行指令、检查溢出、移动并检查边界。N 为输入记号数，T 为执行步数，B 为输出字节数。时间 O(HW + N + T + B)，空间 O(HW + N + B)。
+
+## 优化解法
+
+C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指令，外加零边框和四个线性方向偏移。每步从网格内开始，一次移动最多到达外围边框。边框使用保留的零指令码，检查目的地即可在下一步前发现越界。仅执行 ? 时读取下个输入；耗尽后重用最后的源输入值，不受寄存器交换或当前累加器影响。固定缓冲流式输出（Rust 用 C 字符 I/O），不保存完整输入列表或长输出。每条指令先判溢出，再移动并立即判越界；第1,000,000步也先报告这些错误，# 在移动前结束，第1,000,001步不执行。T≤1,000,000，时间 O(HW+T)，空间 O(HW) 加固定缓冲和26寄存器，不随输入数或输出行数增长。保留简单解释器，Java/Python 复用达标基础文件。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.078 秒，基础版为 0.031 秒，内存为 72 KB，基础版为 6264 KB。
+
+已通过评测的基础实现 [2027_simulation.java](2027_simulation.java), [2027_simulation.py](2027_simulation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-普通有符号整数足够覆盖合法值及一步越界。C++ 用字符串缓冲，Go 用 `strings.Builder`，Java 用
-`StringBuilder`，Rust 用 `String`，Python 用 `StringIO`，避免保存近百万个独立数字字符串。
-所有版本缓冲输入并完整执行规定时钟上限，不跳过循环。
+原解释器用 C++ 字符串、Go 的 strings.Builder、Java 的 StringBuilder、Rust 的 String 或 Python 的 StringIO 累积输出。优化的 C++、Go 和 Rust 在执行指令时流式输出。有符号整数足以表示合法值及检查单步溢出时的中间结果。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2027_simulation.cpp](2027_simulation.cpp) | G++ 13.2 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 8132 KB |
-| [2027_simulation.go](2027_simulation.go) | Go 1.14 x64 | simulation | O(HW + N + S + B) | AC | 0.093 s | 11016 KB |
-| [2027_simulation.java](2027_simulation.java) | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.140 s | 21408 KB |
-| [2027_simulation.py](2027_simulation.py) | Python 3.12 x64 | simulation | O(HW + N + S + B) | AC | 0.875 s | 21712 KB |
-| [2027_simulation.rs](2027_simulation.rs) | Rust 1.75 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 6264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2027_simulation.cpp](2027_simulation.cpp) | G++ 13.2 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 8132 KB | 11293002 |
+| [2027_simulation.go](2027_simulation.go) | Go 1.14 x64 | simulation | O(HW + N + S + B) | AC | 0.093 s | 11016 KB | 11298002 |
+| [2027_simulation.java](2027_simulation.java) \* | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.140 s | 21408 KB | 11298003 |
+| [2027_simulation.py](2027_simulation.py) \* | Python 3.12 x64 | simulation | O(HW + N + S + B) | AC | 0.875 s | 21712 KB | 11298005 |
+| [2027_simulation.rs](2027_simulation.rs) | Rust 1.75 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 6264 KB | 11298006 |
+| [2027_implementation.py](2027_implementation.py) | Python 3.12 x64 | implementation | O(HW + N + T + B) | AC | 0.937 s | 20624 KB | 11315921 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
+| [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
+| [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

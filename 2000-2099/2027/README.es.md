@@ -150,20 +150,39 @@ Trampas:
 - Conserva salidas grandes; terminar inmediatamente ni siquiera exige un
   salto de línea.
 
+El intérprete didáctico en Python guarda la rejilla de caracteres y usa match para ejecutar cada instrucción. Mantiene la fila y columna por separado. El iterador convierte con int el siguiente valor cuando ? lo pide. next(values, last) repite el último valor al agotarse. StringIO reúne la salida y el mensaje final. La instrucción de parada termina de inmediato. Los demás pasos ejecutan la instrucción, comprueban desbordamiento, se mueven y comprueban el borde. Con N valores de entrada, T pasos y B bytes de salida, el tiempo es O(HW + N + T + B) y el espacio O(HW + N + B).
+
+## Soluciones optimizadas
+
+C++, Go y Rust conservan la semántica, pero compilan una vez la rejilla H×W a opcodes de un byte con marco cero y cuatro desplazamientos lineales. Cada paso empieza dentro de la rejilla y un movimiento solo puede alcanzar el marco circundante. El marco tiene el código cero reservado. Comprobar el destino detecta una salida antes del próximo paso. Solo leen un valor al ejecutar ?; agotados, repiten el último valor de entrada, independiente del acumulador o intercambios. Salida por búferes fijos (Rust usa caracteres C), sin guardar toda la entrada o respuesta. Cada instrucción comprueba primero desbordamiento, luego mueve y comprueba inmediatamente la salida del tablero. Esos errores preceden TIME LIMIT EXCEEDED incluso en el paso1,000,000; # termina antes de mover y el paso1,000,001 no se ejecuta. Para T≤1,000,000, tiempo O(HW+T), espacio O(HW) más búferes y26 registros fijos, sin depender de las cantidades de entrada/salida. Se conservan intérpretes sencillos; Java/Python reutilizan bases admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.078 s frente a 0.031 s de la base y usa 72 KB frente a 6264 KB.
+
+Las implementaciones base aceptadas [2027_simulation.java](2027_simulation.java), [2027_simulation.py](2027_simulation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-Bastan enteros ordinarios con signo para los valores y la detección de
-desbordamiento en un paso. C++ usa una cadena, Go `strings.Builder`,
-Java `StringBuilder`, Rust `String`, y Python `StringIO` en vez de casi
-un millón de cadenas numéricas separadas. Todos usan lectura con búfer y
-ejecutan el límite completo sin saltarse ciclos.
+Los intérpretes originales acumulan la salida en una cadena de C++, strings.Builder de Go, StringBuilder de Java, String de Rust o StringIO de Python. Las versiones optimizadas en C++, Go y Rust escriben a medida que ejecutan las instrucciones. Los enteros con signo representan los valores válidos y el resultado intermedio que permite detectar el desbordamiento.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2027_simulation.cpp](2027_simulation.cpp) | G++ 13.2 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 8132 KB |
-| [2027_simulation.go](2027_simulation.go) | Go 1.14 x64 | simulation | O(HW + N + S + B) | AC | 0.093 s | 11016 KB |
-| [2027_simulation.java](2027_simulation.java) | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.140 s | 21408 KB |
-| [2027_simulation.py](2027_simulation.py) | Python 3.12 x64 | simulation | O(HW + N + S + B) | AC | 0.875 s | 21712 KB |
-| [2027_simulation.rs](2027_simulation.rs) | Rust 1.75 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 6264 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2027_simulation.cpp](2027_simulation.cpp) | G++ 13.2 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 8132 KB | 11293002 |
+| [2027_simulation.go](2027_simulation.go) | Go 1.14 x64 | simulation | O(HW + N + S + B) | AC | 0.093 s | 11016 KB | 11298002 |
+| [2027_simulation.java](2027_simulation.java) \* | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.140 s | 21408 KB | 11298003 |
+| [2027_simulation.py](2027_simulation.py) \* | Python 3.12 x64 | simulation | O(HW + N + S + B) | AC | 0.875 s | 21712 KB | 11298005 |
+| [2027_simulation.rs](2027_simulation.rs) | Rust 1.75 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 6264 KB | 11298006 |
+| [2027_implementation.py](2027_implementation.py) | Python 3.12 x64 | implementation | O(HW + N + T + B) | AC | 0.937 s | 20624 KB | 11315921 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
+| [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
+| [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
