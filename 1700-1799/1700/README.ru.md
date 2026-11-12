@@ -68,12 +68,32 @@ No solution.
 
 Ответы совпадают с независимой принятой реализацией.
 
+## Оптимизированные решения
+
+C++/Go интернируют ассоциации в общие целые ID и хранят для объекта отсортированный список без повторов. Запрос копирует самый короткий список, пересекает остальные двумя индексами, затем сортирует сохранившиеся написания для вывода. Исходные списки не меняются; повторы членов группы и ассоциаций результата не меняют. Python читает определения потоком во frozenset интернированных строк и пересекает копию самого маленького множества. Ответы выводятся потоком. T — символы входа, A — максимум ассоциаций, K — размер группы, W — длина слова: пересечения ID стоят O(KA), сортировка написаний O(A log A·W), хеширование имеет обычные ожидаемые оценки. Написания разделяются между объектами, весь ввод и вывод не накапливаются. Простые множества сохранены; Java/Rust используют подходящие базы.
+
+Принятая версия Go 1.14 x64 заняла 0.062 с при 0.765 с у базовой и использовала 10 348 KB при 8908 KB у базовой.
+
+Принятые базовые реализации [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 7788 KB |
-| [1700_implementation.go](1700_implementation.go) | Go 1.14 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.765 s | 8908 KB |
-| [1700_implementation.java](1700_implementation.java) | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB |
-| [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.390 s | 13524 KB |
-| [1700_implementation.rs](1700_implementation.rs) | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 7788 KB | 11289069 |
+| [1700_implementation.go](1700_implementation.go) | Go 1.14 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.765 s | 8908 KB | 11289071 |
+| [1700_implementation.java](1700_implementation.java) \* | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
+| [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.390 s | 13524 KB | 11289073 |
+| [1700_implementation.rs](1700_implementation.rs) \* | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
+| [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
+| [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
