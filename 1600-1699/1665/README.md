@@ -74,12 +74,28 @@ Pitfalls:
 The answers match an exhaustive search over all factor sequences for
 every N up to 3000, and an independent accepted implementation.
 
+## Optimized solutions
+
+The new Go source keeps the factor-count parity classification but sieves odd trial primes once for the whole batch. Primality is needed only when the exponent of two is odd, hence at least one factor two was removed: the remaining odd value is below 2²⁴ and its square root below R=4096. Every composite residual therefore has a prime divisor in the prepared list. Compare p²≤residual so prime squares are classified correctly. A pure power of two is handled before this test; one application on day one still gives NO. The sieve and 16-bit prime list use O(R) storage, with O(R log log R+T·π(R)) work. Standard-handle I/O replaces fmt. All ordinary sources remain; the other four admitted bases also cover the fast set.
+
+The accepted base implementations [1665_number_theory.cpp](1665_number_theory.cpp), [1665_number_theory.java](1665_number_theory.java), [1665_number_theory.py](1665_number_theory.py), [1665_number_theory.rs](1665_number_theory.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1665_number_theory.cpp](1665_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 128 KB |
-| [1665_number_theory.go](1665_number_theory.go) | Go 1.14 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 1084 KB |
-| [1665_number_theory.java](1665_number_theory.java) | Java 1.8 | number_theory | O(T sqrt N) | AC | 0.125 s | 448 KB |
-| [1665_number_theory.py](1665_number_theory.py) | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.093 s | 412 KB |
-| [1665_number_theory.rs](1665_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.031 s | 208 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1665_number_theory.cpp](1665_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 128 KB | 11288646 |
+| [1665_number_theory.go](1665_number_theory.go) | Go 1.14 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 1084 KB | 11288647 |
+| [1665_number_theory.java](1665_number_theory.java) | Java 1.8 | number_theory | O(T sqrt N) | AC | 0.125 s | 448 KB | 11288649 |
+| [1665_number_theory.py](1665_number_theory.py) \* | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.093 s | 412 KB | 11288648 |
+| [1665_number_theory.rs](1665_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.031 s | 208 KB | 11288650 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1665_number_theory_optimized.go](1665_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(R log log R + T·π(R)) | AC | 0.015 s | 288 KB | 11315121 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

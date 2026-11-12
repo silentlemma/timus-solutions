@@ -61,12 +61,28 @@ YES
 
 对不超过 3000 的每个 N，答案都与穷举所有因子序列的结果一致，也与一个独立的已通过实现一致。
 
+## 优化解法
+
+新 Go 保留因子数量奇偶性分类，为整批输入只筛一次奇素数。仅在因子 2 的指数为奇数时检查余数素性，因此已去掉至少一个 2，奇余数小于 2²⁴，平方根小于 R=4096。合数余数必有准备列表中的素因子。使用 p²≤余数，正确包含素数平方。纯二次幂提前处理，第一天的一份申请仍为 NO。筛表及 16 位素数列表占 O(R)，工作量 O(R log log R+T·π(R))。标准句柄代替 fmt。保留所有普通源码，其他四种语言合格基础版继续覆盖快速集合。
+
+已通过评测的基础实现 [1665_number_theory.cpp](1665_number_theory.cpp), [1665_number_theory.java](1665_number_theory.java), [1665_number_theory.py](1665_number_theory.py), [1665_number_theory.rs](1665_number_theory.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1665_number_theory.cpp](1665_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 128 KB |
-| [1665_number_theory.go](1665_number_theory.go) | Go 1.14 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 1084 KB |
-| [1665_number_theory.java](1665_number_theory.java) | Java 1.8 | number_theory | O(T sqrt N) | AC | 0.125 s | 448 KB |
-| [1665_number_theory.py](1665_number_theory.py) | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.093 s | 412 KB |
-| [1665_number_theory.rs](1665_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.031 s | 208 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1665_number_theory.cpp](1665_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 128 KB | 11288646 |
+| [1665_number_theory.go](1665_number_theory.go) | Go 1.14 x64 | number_theory | O(T sqrt N) | AC | 0.015 s | 1084 KB | 11288647 |
+| [1665_number_theory.java](1665_number_theory.java) | Java 1.8 | number_theory | O(T sqrt N) | AC | 0.125 s | 448 KB | 11288649 |
+| [1665_number_theory.py](1665_number_theory.py) \* | Python 3.12 x64 | number_theory | O(T sqrt N) | AC | 0.093 s | 412 KB | 11288648 |
+| [1665_number_theory.rs](1665_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T sqrt N) | AC | 0.031 s | 208 KB | 11288650 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1665_number_theory_optimized.go](1665_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(R log log R + T·π(R)) | AC | 0.015 s | 288 KB | 11315121 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
