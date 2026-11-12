@@ -67,17 +67,35 @@ Las respuestas se compararon con sumar todas las distancias con una
 búsqueda desde cada sucursal, en 300 árboles aleatorios de hasta 30
 sucursales.
 
+## Soluciones optimizadas
+
+C++ conserva la suma por cortes con estrella plana. Cada arista dirigida tiene siguiente32, destino y peso16; padres, costes paternos, orden y tamaños también caben en16 pues N≤50000 y peso≤1000. Procesar al revés un orden iterativo padres-primero; multiplicar weight·s·(N−s) tras promover a64 bits. Suma doble y N(N−1) caben en64 con signo. Se divide primero por el denominador d para obtener la parte entera y el resto r. Las cuatro cifras decimales se calculan con floor((10000r+floor(d/2))/d). Si el resultado es 10000, se lleva uno a la parte entera. El resto escalado es menor que 2.5·10¹³ y el error no supera 0.00005. Tiempo y espacio O(N), sin recursión ni contenedores por vértice. Se conservan bases; las otras familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Java guarda el árbol en arreglos planos; todos los lenguajes imprimen
   con punto decimal.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1371_dp.cpp](1371_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.078 s | 3976 KB |
-| [1371_dp.go](1371_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB |
-| [1371_dp.java](1371_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 3308 KB |
-| [1371_dp.py](1371_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB |
-| [1371_dp.rs](1371_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.046 s | 9444 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1371_dp.cpp](1371_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.078 s | 3976 KB | 11285601 |
+| [1371_dp.go](1371_dp.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.109 s | 10604 KB | 11285602 |
+| [1371_dp.java](1371_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 3308 KB | 11285604 |
+| [1371_dp.py](1371_dp.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.218 s | 29648 KB | 11285603 |
+| [1371_dp.rs](1371_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.046 s | 9444 KB | 11285607 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1371_dp_optimized.cpp](1371_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 1120 KB | 11315476 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
