@@ -61,12 +61,29 @@ Pitfalls:
   litres cannot be made (test 01);
 - three equal cans are always empty or full (test 05).
 
+## Optimized solutions
+
+C++ and Go keep every original fill/pour transition but store visited states only on the boundary of the capacity box. Each move fills a can, empties its donor, or fills its receiver. Choose the first empty/full can as a canonical face and encode the two other amounts; edges and corners therefore get only one visited bit. With U=256, six U² faces need 49152 bytes of bitmap. A 24-bit amount triple fits uint32; the fixed queue has at most six U² entries (1572864 bytes). A 766-byte flag array replaces the volume set. All seven subset sums are checked, zero excluded; no petrol is discarded during search. For S reached states, time O(U²+S), space O(U²), including fixed-array initialization. All simple implementations remain; Java, Python and Rust reuse admitted bases.
+
+The accepted base implementations [1437_bfs.java](1437_bfs.java), [1437_bfs.py](1437_bfs.py), [1437_bfs.rs](1437_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1437_bfs.cpp](1437_bfs.cpp) | G++ 13.2 x64 | bfs | O(P + S log V) | AC | 0.031 s | 16164 KB |
-| [1437_bfs.go](1437_bfs.go) | Go 1.14 x64 | bfs | O(P) | AC | 0.046 s | 10572 KB |
-| [1437_bfs.java](1437_bfs.java) | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB |
-| [1437_bfs.py](1437_bfs.py) | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB |
-| [1437_bfs.rs](1437_bfs.rs) | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1437_bfs.cpp](1437_bfs.cpp) | G++ 13.2 x64 | bfs | O(P + S log V) | AC | 0.031 s | 16164 KB | 11286236 |
+| [1437_bfs.go](1437_bfs.go) | Go 1.14 x64 | bfs | O(P) | AC | 0.046 s | 10572 KB | 11286237 |
+| [1437_bfs.java](1437_bfs.java) \* | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB | 11286239 |
+| [1437_bfs.py](1437_bfs.py) \* | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB | 11286238 |
+| [1437_bfs.rs](1437_bfs.rs) \* | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB | 11286240 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1437_bfs_optimized.cpp](1437_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(U² + S) | AC | 0.015 s | 332 KB | 11315367 |
+| [1437_bfs_optimized.go](1437_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
