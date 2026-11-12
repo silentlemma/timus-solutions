@@ -80,7 +80,17 @@ For the sample, reversing a₃=2 gives [1,3]. Reversing a₂=4 gives
 [1,3] and [5,7]. Reversing a₁=0 adds their negative reflections,
 producing the four shown components.
 
+## Optimized solutions
+
+The C++/Rust alternatives remove sorting from interval reversal. Clip desired intervals to nonnegative outputs first. The negative preimages [a−r,a−l] become increasing when traversing the old list backwards, and all end at or left of a. Positive preimages [a+l,a+r] increase in forward order and start at or right of a. Concatenate these two traversals and merge overlaps/touching endpoints as they are emitted. This preserves exactly the old union, including isolated points and negative original inputs. The first reversal of [0,1] is one interval; each later step at most doubles the count, so k≤10 needs at most512 intervals. Endpoints lie within±10001 and fit int16. Two fixed512-entry buffers use4096 bytes of endpoint fields. Time O(2^k), space O(2^k). All simple sorting versions remain; Go, Java and Python reuse their admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 52 KB versus 260 KB.
+
+The accepted base implementations [1904_math_sorting.go](1904_math_sorting.go), [1904_math_sorting.java](1904_math_sorting.java), [1904_math_sorting.py](1904_math_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All five sources sort interval pairs by left, then right endpoint.
 Python uses CPython 3.12. Parse signed references in every language.
@@ -97,10 +107,21 @@ largest tests have 512 separate intervals.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB |
-| [1904_math_sorting.go](1904_math_sorting.go) | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB |
-| [1904_math_sorting.java](1904_math_sorting.java) | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB |
-| [1904_math_sorting.py](1904_math_sorting.py) | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB |
-| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB | 11291258 |
+| [1904_math_sorting.go](1904_math_sorting.go) \* | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
+| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB | 11291267 |
+| [1904_math_sorting.py](1904_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
+| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB | 11291269 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1904_math.cpp](1904_math.cpp) | G++ 13.2 x64 | math | O(2^k) | AC | 0.015 s | 76 KB | 11315316 |
+| [1904_math.rs](1904_math.rs) \* | Rust 1.75 x64 | math | O(2^k) | AC | 0.031 s | 52 KB | 11315317 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

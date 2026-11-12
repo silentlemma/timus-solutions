@@ -67,7 +67,17 @@ Original problem by Alexander Ipatov, from Ural Championship 2012.
 示例中反演 a₃=2 得到 [1,3]，反演 a₂=4 得到 [1,3] 与 [5,7]，
 再反演 a₁=0，加入负方向反射，得到所示四个区间。
 
+## 优化解法
+
+C++/Rust 去掉反演中的排序。先把期望输出裁到非负半轴；反向遍历原有序区间时，负分支 [a−r,a−l] 递增且均在 a 左侧；正向遍历得到递增的 [a+l,a+r]，均在 a 右侧。连接两遍并即时合并相交或接触区间，精确保留并集、孤立点与负的原始输入。首次反演 [0,1] 为一个区间，之后每步最多倍增，k≤10 至多512。端点在±10001，适合 int16；两组512记录字段共4096字节。时间与空间 O(2^k)。保留排序基础版；Go、Java、Python 复用符合标准的基础版。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 52 KB，基础版为 260 KB。
+
+已通过评测的基础实现 [1904_math_sorting.go](1904_math_sorting.go), [1904_math_sorting.java](1904_math_sorting.java), [1904_math_sorting.py](1904_math_sorting.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 五种实现均先按左端点、再按右端点排序。Python 使用 CPython 3.12。
 所有语言都必须读取有符号常数。Java 只修改新建合并区间的右端点。
@@ -79,10 +89,21 @@ Original problem by Alexander Ipatov, from Ural Championship 2012.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB |
-| [1904_math_sorting.go](1904_math_sorting.go) | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB |
-| [1904_math_sorting.java](1904_math_sorting.java) | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB |
-| [1904_math_sorting.py](1904_math_sorting.py) | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB |
-| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB | 11291258 |
+| [1904_math_sorting.go](1904_math_sorting.go) \* | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
+| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB | 11291267 |
+| [1904_math_sorting.py](1904_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
+| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB | 11291269 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1904_math.cpp](1904_math.cpp) | G++ 13.2 x64 | math | O(2^k) | AC | 0.015 s | 76 KB | 11315316 |
+| [1904_math.rs](1904_math.rs) \* | Rust 1.75 x64 | math | O(2^k) | AC | 0.031 s | 52 KB | 11315317 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

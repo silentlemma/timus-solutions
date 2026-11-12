@@ -76,7 +76,17 @@ candidatos; al ordenar cada nivel, el tiempo es `O(k·2^k)` y el espacio
 En el ejemplo, invertir a₃=2 da [1,3]; invertir a₂=4 da [1,3] y [5,7].
 Invertir a₁=0 añade sus reflejos negativos y produce los cuatro intervalos.
 
+## Soluciones optimizadas
+
+C++/Rust eliminan ordenar las preimágenes. Tras recortar salidas no negativas, recorrer la lista al revés ordena [a−r,a−l], todas a la izquierda de a; recorrer hacia delante ordena [a+l,a+r], todas a la derecha. Concatenar y fusionar al emitir conserva exactamente la unión, puntos aislados y entradas negativas. La primera inversión de[0,1] es un intervalo; después como máximo se duplica: k≤10 necesita512. Extremos en±10001 caben en int16; dos búferes512 ocupan4096 bytes de campos. Tiempo y espacio O(2^k). Se conservan bases ordenadas; Go, Java y Python reutilizan las admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 52 KB frente a 260 KB.
+
+Las implementaciones base aceptadas [1904_math_sorting.go](1904_math_sorting.go), [1904_math_sorting.java](1904_math_sorting.java), [1904_math_sorting.py](1904_math_sorting.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Las cinco fuentes ordenan por extremo izquierdo y luego derecho. Python
 usa CPython 3.12. Lee referencias con signo. Java solo modifica el extremo
@@ -93,10 +103,21 @@ pruebas más grandes tienen 512 intervalos separados.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB |
-| [1904_math_sorting.go](1904_math_sorting.go) | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB |
-| [1904_math_sorting.java](1904_math_sorting.java) | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB |
-| [1904_math_sorting.py](1904_math_sorting.py) | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB |
-| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB | 11291258 |
+| [1904_math_sorting.go](1904_math_sorting.go) \* | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
+| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB | 11291267 |
+| [1904_math_sorting.py](1904_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
+| [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB | 11291269 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1904_math.cpp](1904_math.cpp) | G++ 13.2 x64 | math | O(2^k) | AC | 0.015 s | 76 KB | 11315316 |
+| [1904_math.rs](1904_math.rs) \* | Rust 1.75 x64 | math | O(2^k) | AC | 0.031 s | 52 KB | 11315317 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
