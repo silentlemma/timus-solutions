@@ -89,17 +89,37 @@ Detalles a tener en cuenta:
 - el primer jugador solo gana moviendo a un hijo *perdedor*; un hijo
   ganador para el siguiente jugador es un mal movimiento.
 
+La versión didáctica en C++ aplica directamente la recurrencia con un recorrido en profundidad. En el árbol, el aeropuerto anterior es el único vecino destruido. Si una jugada deja al rival en una posición perdedora, la posición actual es ganadora. Si no existe tal jugada, es perdedora. Desde el origen se elige el aeropuerto de menor número entre las jugadas ganadoras. Los subárboles recorridos son disjuntos, así que el tiempo es O(n). La pila contiene un camino de profundidad a lo sumo n ≤ 1000.
+
+## Soluciones optimizadas
+
+Go conserva el DP de victoria/derrota, pero elimina hojas distintas de la raíz en vez de guardar listas, padres y orden. Cada vértice almacena XOR de vecinos restantes, grado de 8 bits y victoria. Una FIFO de 16 bits lo procesa una vez. Con grado uno, XOR es su único padre. Un hijo perdedor vuelve ganador al padre; eliminarlo con XOR y reducir el grado permite encolar la nueva hoja no raíz. La raíz nunca se encola y los demás vértices se procesan después de sus hijos. Si el padre es el aeropuerto inicial, elegir el menor hijo perdedor satisface el desempate. Un solo aeropuerto pierde. IDs≤1000 caben en 16 bits y grado≤20 en 8. Los arreglos estáticos y el acceso directo a los descriptores estándar reducen la memoria del programa. La respuesta corta se escribe en un búfer fijo. Tiempo y espacio O(n). Se conservan bases; las otras cuatro familias reutilizan las admitidas.
+
+El envío aceptado en Go 1.14 x64 tarda 0.062 s frente a 0.031 s de la base y usa 348 KB frente a 1216 KB.
+
+Las implementaciones base aceptadas [1045_games.cpp](1045_games.cpp), [1045_games.java](1045_games.java), [1045_games.py](1045_games.py), [1045_games.rs](1045_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes usan el mismo orden en anchura en lugar de
-  recursión.
+Los archivos originales construyen un orden en anchura y lo recorren al revés. Go optimizado evalúa la misma recurrencia eliminando hojas distintas de la raíz.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1045_games.cpp](1045_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 252 KB |
-| [1045_games.go](1045_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1216 KB |
-| [1045_games.java](1045_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 716 KB |
-| [1045_games.py](1045_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.078 s | 624 KB |
-| [1045_games.rs](1045_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 284 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1045_games.cpp](1045_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 252 KB | 11278624 |
+| [1045_games.go](1045_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1216 KB | 11278625 |
+| [1045_games.java](1045_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 716 KB | 11278627 |
+| [1045_games.py](1045_games.py) \* | Python 3.12 x64 | games | O(n) | AC | 0.078 s | 624 KB | 11278626 |
+| [1045_games.rs](1045_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 284 KB | 11278628 |
+| [1045_dfs.cpp](1045_dfs.cpp) | G++ 13.2 x64 | dfs | O(n) | AC | 0.015 s | 224 KB | 11315853 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1045_games_optimized.go](1045_games_optimized.go) \* | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 348 KB | 11315879 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

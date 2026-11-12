@@ -89,16 +89,37 @@ Pitfalls:
 - the first player wins only by moving to a *losing* child; a child that
   is winning for the next player is a bad move.
 
+The teaching C++ version follows the recurrence directly with depth-first search. The previous airport is the only destroyed neighbor in a tree. A call returns true as soon as it finds a child that is losing for the next player. If no such child exists, the position is losing. From the start, keep the smallest move that leaves a losing position. The searched subtrees are disjoint, so the time is O(n). The call stack follows one path and has depth at most n ≤ 1000.
+
+## Optimized solutions
+
+Go keeps the same winning/losing tree DP but removes non-root leaves instead of building adjacency lists and a parent/order traversal. Store only the XOR of remaining neighbour IDs, an 8-bit degree and a winning flag per vertex. A 16-bit FIFO holds each removed vertex once. At degree one, XOR is exactly the remaining parent. Removing a losing child makes its parent winning; XOR the child out and decrement the parent degree, queuing it when it becomes a non-root leaf. The root is never queued, and every other vertex is processed after its rooted children. When the remaining parent is the initial airport, track the smallest losing child ID, preserving the required tie break. A singleton correctly loses. IDs≤1000 fit 16 bits and degree≤20 fits 8 bits. Static arrays and direct standard handles keep the runtime storage small. A fixed byte buffer formats the short answer. Time O(n), storage O(n). All simple programs remain; the other four families reuse admitted bases.
+
+The accepted Go 1.14 x64 run takes 0.062 s versus 0.031 s for the base and uses 348 KB versus 1216 KB.
+
+The accepted base implementations [1045_games.cpp](1045_games.cpp), [1045_games.java](1045_games.java), [1045_games.py](1045_games.py), [1045_games.rs](1045_games.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- All languages use the same breadth-first order instead of recursion.
+The original files build a breadth-first order and process it backward. The optimized Go file processes the same tree recurrence by removing non-root leaves.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1045_games.cpp](1045_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 252 KB |
-| [1045_games.go](1045_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1216 KB |
-| [1045_games.java](1045_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 716 KB |
-| [1045_games.py](1045_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.078 s | 624 KB |
-| [1045_games.rs](1045_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 284 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1045_games.cpp](1045_games.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 252 KB | 11278624 |
+| [1045_games.go](1045_games.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1216 KB | 11278625 |
+| [1045_games.java](1045_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 716 KB | 11278627 |
+| [1045_games.py](1045_games.py) \* | Python 3.12 x64 | games | O(n) | AC | 0.078 s | 624 KB | 11278626 |
+| [1045_games.rs](1045_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 284 KB | 11278628 |
+| [1045_dfs.cpp](1045_dfs.cpp) | G++ 13.2 x64 | dfs | O(n) | AC | 0.015 s | 224 KB | 11315853 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1045_games_optimized.go](1045_games_optimized.go) \* | Go 1.14 x64 | games | O(n) | AC | 0.062 s | 348 KB | 11315879 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
