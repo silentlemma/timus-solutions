@@ -86,12 +86,28 @@ doble trata los dos pesos en O(6N).
 En el segundo ejemplo un seis desde la casilla 1 cae en la 7, baja a la
 6, y un cuatro desde allí llega a la 10 en el mismo turno.
 
+## Soluciones optimizadas
+
+C++ calcula land[i] al leer cada salto izquierdo, sin arreglo jump. Por turno, completar primero todos los caminos gratuitos de seis, ampliando la frontera actual; solo después añadir resultados uno a cinco al turno siguiente. Por inducción, la primera visita usa el mínimo de turnos: un mapa de bits sustituye distancias. Si alguna tirada permite llegar a N, un seis también llega o lo rebasa. Basta comprobar el seis en el turno actual para detectar cualquier victoria. Las celdas viejas ya expandieron sus movimientos antes. Cada celda entra una vez en la cola uint32; dos arreglos O(N), bits O(N/64) palabras, tiempo O(6N)=O(N). Se conservan los BFS 0–1 con deque; las otras cuatro familias reutilizan las bases admitidas.
+
+Las implementaciones base aceptadas [2194_bfs.go](2194_bfs.go), [2194_bfs.java](2194_bfs.java), [2194_bfs.py](2194_bfs.py), [2194_bfs.rs](2194_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2194_bfs.cpp](2194_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.156 s | 2552 KB |
-| [2194_bfs.go](2194_bfs.go) | Go 1.14 x64 | bfs | O(N) | AC | 0.156 s | 8952 KB |
-| [2194_bfs.java](2194_bfs.java) | Java 1.8 | bfs | O(N) | AC | 0.140 s | 6640 KB |
-| [2194_bfs.py](2194_bfs.py) | Python 3.12 x64 | bfs | O(N) | AC | 0.312 s | 21612 KB |
-| [2194_bfs.rs](2194_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.046 s | 7656 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2194_bfs.cpp](2194_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.156 s | 2552 KB | 11295294 |
+| [2194_bfs.go](2194_bfs.go) \* | Go 1.14 x64 | bfs | O(N) | AC | 0.156 s | 8952 KB | 11295296 |
+| [2194_bfs.java](2194_bfs.java) \* | Java 1.8 | bfs | O(N) | AC | 0.140 s | 6640 KB | 11295299 |
+| [2194_bfs.py](2194_bfs.py) \* | Python 3.12 x64 | bfs | O(N) | AC | 0.312 s | 21612 KB | 11295297 |
+| [2194_bfs.rs](2194_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.046 s | 7656 KB | 11295301 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2194_bfs_optimized.cpp](2194_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.015 s | 1196 KB | 11315428 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
