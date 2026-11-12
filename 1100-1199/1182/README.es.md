@@ -102,17 +102,33 @@ Las respuestas se compararon con una solución escrita aparte en 300
 grupos aleatorios de hasta 41 personas, doce de ellos sin solución, y
 cada reparto impreso pasó el comprobador.
 
+## Soluciones optimizadas
+
+Go y Rust conservan bipartición y mochila de orientaciones. Una pareja es incompatible salvo conocimiento en ambas direcciones. Cada fila usa dos palabras64 en Go o u128 en Rust. BFS detecta conflicto por intersección con su color y enumera solo vecinos nuevos con ceros finales. Cada componente guarda dos máscaras y tamaños a,b; tamaños alcanzables (old<<a)|(old<<b), una historia por capa. Al intercambiar los nombres de los equipos se puede tomar el primer tamaño s≤floor(N/2). La diferencia es N−2s, así que se elige el mayor s alcanzable con s≥1. Si no existe, no hay dos equipos no vacíos. Las orientaciones se recuperan con la historia anterior. N≤100 cabe en 128 bits. Tiempo O(N²), dominado por entrada y parejas; máscaras sustituyen matrices. Se conservan bases; las otras familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1182_graphs.cpp](1182_graphs.cpp), [1182_graphs.java](1182_graphs.java), [1182_graphs.py](1182_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes colorean el grafo de desconocidos directamente
-  desde la matriz de conocidos y hacen la misma mochila.
+Las bases usan matriz y mochila escalar. Go/Rust nuevos usan filas e historias empaquetadas; Go maneja desplazamientos sobre64 bits y Rust u128. La recuperación conserva miembros y excluye equipos vacíos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB |
-| [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB |
-| [1182_graphs.java](1182_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB |
-| [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB |
-| [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB | 11283330 |
+| [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB | 11283331 |
+| [1182_graphs.java](1182_graphs.java) \* | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
+| [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB | 11283339 |
+| [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB | 11283341 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1182_graphs_bitmask.go](1182_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(N²) | AC | 0.031 s | 816 KB | 11315485 |
+| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

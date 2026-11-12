@@ -97,17 +97,33 @@ The answers were compared with a separately written solution on 300
 random groups of up to 41 persons, twelve of them without a solution, and
 every printed split passed the checker.
 
+## Optimized solutions
+
+Go and Rust keep the same complement-graph bipartition and component-orientation knapsack. A pair is incompatible unless both directed acquaintance entries exist. Store each row in two 64-bit words in Go or one u128 in Rust. During BFS, intersect a row with its own colour mask to detect a conflict; enumerate only unseen neighbours with trailing-zero scans. Each component stores its two member masks and sizes a,b. Update reachable sizes as (old<<a)|(old<<b), retaining one small history mask per component. Swapping the team names lets us take the first team size s≤floor(N/2). Its size difference is N−2s, so choose the largest reachable s≥1. If none exists there is no split into two nonempty teams. Recover each orientation by checking the preceding history. N≤100 fits all size masks in 128 bits. Time O(N²), dominated by input/pair checks; packed rows and history replace bool and integer matrices. All simple sources remain; the other three families reuse admitted bases.
+
+The accepted base implementations [1182_graphs.cpp](1182_graphs.cpp), [1182_graphs.java](1182_graphs.java), [1182_graphs.py](1182_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- All languages colour the strangers graph straight from the
-  acquaintance matrix and run the same knapsack.
+Original ports keep the acquaintance matrix and scalar knapsack. New Go/Rust use packed rows and reachability histories; Go explicitly handles shifts across64 bits, Rust uses u128. Reconstruction retains component membership, tests mutual acquaintance, and excludes empty teams.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB |
-| [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB |
-| [1182_graphs.java](1182_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB |
-| [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB |
-| [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB | 11283330 |
+| [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB | 11283331 |
+| [1182_graphs.java](1182_graphs.java) \* | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
+| [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB | 11283339 |
+| [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB | 11283341 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1182_graphs_bitmask.go](1182_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(N²) | AC | 0.031 s | 816 KB | 11315485 |
+| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
