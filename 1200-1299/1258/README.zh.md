@@ -68,16 +68,34 @@ dx = first + (k − 1) · W + last
 在 200 组数据上与构造每个随机测试所用直线段的长度比较过（线段与镜像网格的交点给出
 撞墙序列）。
 
+## 优化解法
+
+新 Python 版本按碰撞的逆序反射终点：L 将 x 变成 −x，R 变成 2W−x，F 将 y 变成 −y，B 变成 2D−y。每次反射撤销一次反弹并保持长度，最终得到起点到展开终点的直线段。无需分别保存水平、垂直碰撞列表，也无需导入 math；用 0.5 次幂开平方，输出四位小数。时间 O(K)，分词输入空间 O(K)。保留普通 Python 版与其他基础版，其余四种语言的基础版已覆盖快速集合。
+
+已通过评测的基础实现 [1258_geometry.cpp](1258_geometry.cpp), [1258_geometry.go](1258_geometry.go), [1258_geometry.java](1258_geometry.java), [1258_geometry.rs](1258_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言都按方向统计撞击并使用同一公式。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB |
-| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB |
-| [1258_geometry.java](1258_geometry.java) | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB |
-| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB |
-| [1258_geometry.rs](1258_geometry.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB | 11284098 |
+| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB | 11284100 |
+| [1258_geometry.java](1258_geometry.java) \* | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
+| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB | 11284104 |
+| [1258_geometry.rs](1258_geometry.rs) \* | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry_optimized.py](1258_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(K) | AC | 0.093 s | 396 KB | 11314897 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

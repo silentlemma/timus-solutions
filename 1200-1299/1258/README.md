@@ -78,16 +78,34 @@ The answers were compared with the length of the straight segment from
 which each random test was built (its crossings of the mirrored grid
 give the hits) on 200 cases.
 
+## Optimized solutions
+
+The new Python implementation unfolds the path by reflecting its endpoint through the walls in reverse hit order: L maps x to −x, R to 2W−x, F maps y to −y and B to 2D−y. Each reflection undoes one bounce and preserves length, leaving one straight segment from the start. This removes the separate lists of horizontal and vertical hits and the math import; the square root uses exponent 0.5 and prints four decimals. Time is O(K), and the tokenized input occupies O(K) space. The ordinary Python implementation and all other language bases are preserved; the other four bases already cover the fast set.
+
+The accepted base implementations [1258_geometry.cpp](1258_geometry.cpp), [1258_geometry.go](1258_geometry.go), [1258_geometry.java](1258_geometry.java), [1258_geometry.rs](1258_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages count the hits per axis and use the same formula.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB |
-| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB |
-| [1258_geometry.java](1258_geometry.java) | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB |
-| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB |
-| [1258_geometry.rs](1258_geometry.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB | 11284098 |
+| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB | 11284100 |
+| [1258_geometry.java](1258_geometry.java) \* | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
+| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB | 11284104 |
+| [1258_geometry.rs](1258_geometry.rs) \* | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry_optimized.py](1258_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(K) | AC | 0.093 s | 396 KB | 11314897 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -81,17 +81,35 @@ Las respuestas se compararon en 200 casos con la longitud del segmento
 recto a partir del cual se construyó cada prueba aleatoria (sus cortes
 con la cuadrícula reflejada dan los choques).
 
+## Soluciones optimizadas
+
+La nueva versión Python refleja el destino siguiendo los choques al revés: L cambia x por −x, R por 2W−x, F cambia y por −y y B por 2D−y. Cada reflexión deshace un rebote y conserva la longitud, dejando un segmento recto desde el inicio. Desaparecen las listas separadas de choques por eje y la importación de math; se usa la potencia 0.5 y se imprimen cuatro decimales. Tiempo O(K) y espacio O(K) para la entrada dividida en palabras. Se conservan Python ordinario y las demás bases, cuatro de las cuales ya cubren el conjunto rápido.
+
+Las implementaciones base aceptadas [1258_geometry.cpp](1258_geometry.cpp), [1258_geometry.go](1258_geometry.go), [1258_geometry.java](1258_geometry.java), [1258_geometry.rs](1258_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes cuentan los choques por eje y usan la misma
   fórmula.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB |
-| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB |
-| [1258_geometry.java](1258_geometry.java) | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB |
-| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB |
-| [1258_geometry.rs](1258_geometry.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB | 11284098 |
+| [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB | 11284100 |
+| [1258_geometry.java](1258_geometry.java) \* | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
+| [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB | 11284104 |
+| [1258_geometry.rs](1258_geometry.rs) \* | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1258_geometry_optimized.py](1258_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(K) | AC | 0.093 s | 396 KB | 11314897 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
