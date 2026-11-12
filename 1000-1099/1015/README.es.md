@@ -100,18 +100,32 @@ Detalles a tener en cuenta:
   junta imágenes especulares;
 - hasta `10^5` números de dados en la salida: constrúyela en un búfer.
 
+## Soluciones optimizadas
+
+El nuevo C++ genera una vez las mismas 24 rotaciones propias y clasifica las 720 permutaciones. El rango por inversiones indexa una tabla de 720 bytes: cada dado requiere un rango y consulta, sin probar todas las rotaciones. Los grupos se numeran al aparecer; se guarda un byte de grupo por dado. Un recorrido por grupo (hasta 30) imprime índices crecientes y grupos en orden de aparición. Los recorridos adicionales evitan vectores de índices y la cadena completa de salida. Ambas versiones son lineales en N; cambian constantes y almacenamiento. Las clases se calculan al ejecutar. Se conservan las bases; las otras cuatro familias reutilizan las ya admitidas.
+
+Las implementaciones base aceptadas [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- **C++**, **Go**, **Java**, **Rust**: 24 rotaciones por dado.
-- **Python**: una tabla con las claves de los 720 dados y luego una búsqueda
-  en el diccionario por dado.
+Las bases C++, Go, Java y Rust prueban24 rotaciones por dado; Python ya precalcula720 claves. El nuevo C++ también precalcula las permutaciones, guarda un byte por dado e imprime mediante recorridos por grupo.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB |
-| [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB |
-| [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB |
-| [1015_hashing.py](1015_hashing.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB |
-| [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB | 11278124 |
+| [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB | 11278132 |
+| [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB | 11278141 |
+| [1015_hashing.py](1015_hashing.py) \* | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
+| [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB | 11278146 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

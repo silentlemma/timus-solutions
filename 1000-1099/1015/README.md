@@ -98,18 +98,32 @@ Pitfalls:
   merges mirror images;
 - up to `10^5` die indices in the output: build it in a buffer.
 
+## Optimized solutions
+
+The new C++ version generates the same 24 proper rotations once, then assigns a rotation class to every one of the 720 face permutations. The inversion-based permutation rank indexes a 720-byte table, so every input die needs one rank calculation and lookup instead of testing all 24 rotations. Group numbers are assigned on first appearance. Store just that one-byte group per die, then scan the byte array once per group (at most 30) to print increasing indices in first-appearance group order. This trades extra linear scans for avoiding index vectors and a complete output string. Both versions are linear in N; the change reduces constants/storage, with all classes computed at runtime. All five ordinary files remain; the other four families reuse admitted bases.
+
+The accepted base implementations [1015_hashing.go](1015_hashing.go), [1015_hashing.java](1015_hashing.java), [1015_hashing.py](1015_hashing.py), [1015_hashing.rs](1015_hashing.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- **C++**, **Go**, **Java**, **Rust**: 24 rotations per die.
-- **Python**: a table of the keys of all 720 dice, then one dictionary
-  lookup per die.
+Ordinary C++, Go, Java and Rust test 24 rotations per die. Ordinary Python already precomputes 720 keys. The new C++ lookup also precomputes every permutation, then stores one byte per die and streams output in group scans.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB |
-| [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB |
-| [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB |
-| [1015_hashing.py](1015_hashing.py) | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB |
-| [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1015_hashing.cpp](1015_hashing.cpp) | G++ 13.2 x64 | hashing | O(24 · 6 · N) | AC | 0.031 s | 356 KB | 11278124 |
+| [1015_hashing.go](1015_hashing.go) | Go 1.14 x64 | hashing | O(24 · 6 · N) | AC | 0.001 s | 1280 KB | 11278132 |
+| [1015_hashing.java](1015_hashing.java) | Java 1.8 | hashing | O(24 · 6 · N) | AC | 0.093 s | 1524 KB | 11278141 |
+| [1015_hashing.py](1015_hashing.py) \* | Python 3.12 x64 | hashing | O(N) after a 720-entry table | AC | 0.093 s | 2748 KB | 11278138 |
+| [1015_hashing.rs](1015_hashing.rs) | Rust 1.75 x64 | hashing | O(24 · 6 · N) | AC | 0.015 s | 856 KB | 11278146 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1015_hashing_optimized.cpp](1015_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(720 + 30N) | AC | 0.015 s | 104 KB | 11315195 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
