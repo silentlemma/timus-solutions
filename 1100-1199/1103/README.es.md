@@ -90,19 +90,32 @@ Las respuestas se comprobaron con un determinante exacto de punto en
 circunferencia en todas las pruebas, incluidos conjuntos aleatorios de
 miles de lápices en todo el rango de coordenadas.
 
+## Soluciones optimizadas
+
+Go conserva la arista AB de la envolvente convexa y ordena los demás puntos por ángulo creciente, así que la cotangente mayor va primero. Los productos cruzados son positivos. Se comparan primero los signos de los productos escalares y se trata el cero como no negativo. Si coinciden los signos, math/bits.Mul64 da las palabras alta y baja de las magnitudes exactas. Se compara primero la palabra alta y se invierte el orden si ambos signos son negativos. Las coordenadas y los productos comparten un arreglo. Cada partición usa la mediana de tres muestras. Si el intervalo se reduce geométricamente, el trabajo es O(N). Tras como máximo 2·bit_length(N−2) particiones se ordena el intervalo restante. El peor tiempo es O(N log N) y el espacio es O(N). Los otros cuatro lenguajes reutilizan sus versiones base admitidas.
+
+Las implementaciones base aceptadas [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- C++ y Rust comparan los productos en enteros de 128 bits y eligen el
-  elemento central con `nth_element` y `select_nth_unstable_by`.
-- Go y Java no tienen un tipo de 128 bits en estas versiones y comparan
-  los productos como enteros grandes al ordenar.
+C++/Rust usan productos nativos128 y selección; Go original y Java ordenan con enteros grandes. Go nuevo usa productos exactos de dos bloques128 y selección protegida; Python conserva enteros exactos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB |
-| [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB |
-| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB |
-| [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB |
-| [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
+| [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
+| [1103_geometry.java](1103_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
+| [1103_geometry.rs](1103_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.031 s | 960 KB | 11315430 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

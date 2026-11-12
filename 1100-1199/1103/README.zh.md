@@ -75,12 +75,32 @@
 - C++ 和 Rust 用 128 位整数比较乘积，并分别用 `nth_element` 和 `select_nth_unstable_by` 选出中间元素。
 - 这些版本的 Go 和 Java 没有 128 位类型，排序时把乘积当作大整数比较。
 
+## 优化解法
+
+Go 保留凸包边 AB，并按角度从小到大排列其余点，因此余切较大的点在前。叉积均为正，先比较点积的符号，零视为非负。同号时用 math/bits.Mul64 得到乘积绝对值的高位和低位，先比较高位。两符号均为负时反转顺序。坐标、点积和叉积共用一个数组。每次分割以三个样本的中位数为枢轴。若剩余区间按固定比例缩小，工作量为 O(N)。至多分割 2·bit_length(N−2) 次后对剩余区间排序，最坏时间为 O(N log N)，空间为 O(N)。其余四种语言复用达标基础版。
+
+已通过评测的基础实现 [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
+## 各语言说明
+
+C++/Rust 用原生128位乘积及中位选择；原 Go、Java 用大整数排序，新 Go 用精确双段128位乘积及有深度保护的选择；Python 保留精确整数版。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB |
-| [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB |
-| [1103_geometry.java](1103_geometry.java) | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB |
-| [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB |
-| [1103_geometry.rs](1103_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1103_geometry.cpp](1103_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 444 KB | 11279167 |
+| [1103_geometry.go](1103_geometry.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 2628 KB | 11279168 |
+| [1103_geometry.java](1103_geometry.java) \* | Java 1.8 | geometry | O(N log N) | AC | 0.140 s | 7336 KB | 11279170 |
+| [1103_geometry.py](1103_geometry.py) | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 1548 KB | 11279169 |
+| [1103_geometry.rs](1103_geometry.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1160 KB | 11279171 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.031 s | 960 KB | 11315430 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
