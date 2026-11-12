@@ -54,12 +54,36 @@ The Machinegunners played home game, scored 1 goals, and conceded 1 goals.
 
 在 600 个随机的第一场比赛以及两种场地上所有极端和接近的比分上，答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+快速实现仍按总进球数、客场进球数的字典序比较，但只检查对手的两个极端比分。固定我方进球 g 后，增加对手进球不会改善我方处境。因此，有晋级机会当且仅当对手进 0 球时有机会；有被淘汰的可能当且仅当对手进 30 球时可能被淘汰。遍历我方的 31 种进球数，记录首个可能晋级和最后一个可能出局的数值。完全相等时由硬币决定，所以两种结果都可能。每组需要 62 次比较，而非最多 961 对比分；进球上限固定时总时间为 O(t)。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 44 KB，基础版为 268 KB。
+
+## 各语言说明
+
+五个基础文件仍枚举第二场的所有比分。快速文件保留相同的比较规则，只检查对手的两个极端比分。Java、Python 逐行解析固定句式。Go 使用标准句柄，Rust 使用有界 C runtime 输入输出和 C 入口。2048 字节输出缓冲足够存放全部 200 组答案，每组含两个 0 到 30 的数字及分隔符。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1804_implementation.cpp](1804_implementation.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.031 s | 388 KB |
-| [1804_implementation.go](1804_implementation.go) | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 1216 KB |
-| [1804_implementation.java](1804_implementation.java) | Java 1.8 | implementation | O(t) | AC | 0.109 s | 2600 KB |
-| [1804_implementation.py](1804_implementation.py) | Python 3.12 x64 | implementation | O(t) | AC | 0.156 s | 520 KB |
-| [1804_implementation.rs](1804_implementation.rs) | Rust 1.75 x64 | implementation | O(t) | AC | 0.015 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1804_implementation.cpp](1804_implementation.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.031 s | 388 KB | 11289985 |
+| [1804_implementation.go](1804_implementation.go) | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 1216 KB | 11289992 |
+| [1804_implementation.java](1804_implementation.java) | Java 1.8 | implementation | O(t) | AC | 0.109 s | 2600 KB | 11289995 |
+| [1804_implementation.py](1804_implementation.py) | Python 3.12 x64 | implementation | O(t) | AC | 0.156 s | 520 KB | 11289993 |
+| [1804_implementation.rs](1804_implementation.rs) | Rust 1.75 x64 | implementation | O(t) | AC | 0.015 s | 268 KB | 11289996 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1804_implementation_optimized.cpp](1804_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.015 s | 116 KB | 11314652 |
+| [1804_implementation_optimized.go](1804_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 336 KB | 11314653 |
+| [1804_implementation_optimized.java](1804_implementation_optimized.java) | Java 1.8 | implementation | O(t) | AC | 0.093 s | 1088 KB | 11314657 |
+| [1804_implementation_optimized.py](1804_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(t) | AC | 0.078 s | 420 KB | 11314659 |
+| [1804_implementation_optimized.rs](1804_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(t) | AC | 0.031 s | 44 KB | 11314666 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

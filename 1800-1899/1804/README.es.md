@@ -74,12 +74,36 @@ Las respuestas coinciden con una implementación aceptada independiente
 en 600 primeros partidos aleatorios y en todos los resultados extremos
 y ajustados en ambos campos.
 
+## Soluciones optimizadas
+
+La implementación rápida conserva la comparación lexicográfica de goles totales y goles fuera de casa, pero solo prueba los extremos del rival. Fijados nuestros goles g, aumentar los del rival nunca mejora nuestra situación. Por tanto, existe una posibilidad de avanzar exactamente si existe contra 0 goles, y una posibilidad de quedar eliminado exactamente si existe contra 30. Se recorren nuestros 31 resultados y se conservan el primero que permite avanzar y el último que permite perder. El empate completo permite ambos desenlaces por la moneda. Son 62 comparaciones por caso en lugar de hasta 961 parejas; con el límite de goles fijo, el tiempo sigue siendo O(t).
+
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 44 KB frente a 268 KB.
+
+## Notas por lenguaje
+
+Los cinco archivos base siguen enumerando todos los resultados del segundo partido. Los rápidos conservan las reglas de comparación y solo prueban los dos extremos del rival. Java y Python analizan la frase fija línea por línea. Go usa manejadores estándar y Rust E/S acotada del C runtime con entrada C. Sus búferes de 2048 bytes contienen las 200 respuestas, cada una con dos números entre 0 y 30 y separadores.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1804_implementation.cpp](1804_implementation.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.031 s | 388 KB |
-| [1804_implementation.go](1804_implementation.go) | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 1216 KB |
-| [1804_implementation.java](1804_implementation.java) | Java 1.8 | implementation | O(t) | AC | 0.109 s | 2600 KB |
-| [1804_implementation.py](1804_implementation.py) | Python 3.12 x64 | implementation | O(t) | AC | 0.156 s | 520 KB |
-| [1804_implementation.rs](1804_implementation.rs) | Rust 1.75 x64 | implementation | O(t) | AC | 0.015 s | 268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1804_implementation.cpp](1804_implementation.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.031 s | 388 KB | 11289985 |
+| [1804_implementation.go](1804_implementation.go) | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 1216 KB | 11289992 |
+| [1804_implementation.java](1804_implementation.java) | Java 1.8 | implementation | O(t) | AC | 0.109 s | 2600 KB | 11289995 |
+| [1804_implementation.py](1804_implementation.py) | Python 3.12 x64 | implementation | O(t) | AC | 0.156 s | 520 KB | 11289993 |
+| [1804_implementation.rs](1804_implementation.rs) | Rust 1.75 x64 | implementation | O(t) | AC | 0.015 s | 268 KB | 11289996 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1804_implementation_optimized.cpp](1804_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(t) | AC | 0.015 s | 116 KB | 11314652 |
+| [1804_implementation_optimized.go](1804_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(t) | AC | 0.015 s | 336 KB | 11314653 |
+| [1804_implementation_optimized.java](1804_implementation_optimized.java) | Java 1.8 | implementation | O(t) | AC | 0.093 s | 1088 KB | 11314657 |
+| [1804_implementation_optimized.py](1804_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(t) | AC | 0.078 s | 420 KB | 11314659 |
+| [1804_implementation_optimized.rs](1804_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(t) | AC | 0.031 s | 44 KB | 11314666 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
