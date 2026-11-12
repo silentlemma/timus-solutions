@@ -65,16 +65,38 @@
 - 长度一、二须单独处理。
 - 检查器应接受与示例和实现构造不同的合法答案。
 
+## 优化解法
+
+新 C++、Go、Rust 从复用的 a 前缀和周期 bcd 缓冲区输出相同 Accepted 构造，不逐行分配前缀、尾部切片和拼接词。C++ 直接以 C stdio 写两个片段；Go/Rust 使用8192字节块，下一行放不下前先刷新。含标签每行最多 n+16 字节，安全覆盖 n≤2000。小 n 与无解目标规则不变，原回文证明仍成立。时间 O(n²)，已由输出规模强制；空间 O(n)，无逐词分配。保留普通源码；Java/Python 复用符合标准的基础版。
+
+通过评测的 Go 1.14 x64 版本耗时 0.078 秒，基础版为 0.046 秒，内存为 348 KB，基础版为 5888 KB。
+
+已通过评测的基础实现 [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 五个实现都只建立一次周期尾串，随后逐行输出。C++、Go、Python、Rust 拼接重复前缀和尾串前缀；Java 为当前行填充字符数组。缓冲输出避免逐字符系统写入，内存不保存整个平方大小的答案。选择 CPython 3.12。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB |
-| [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB |
-| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB |
-| [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB |
-| [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
+| [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
+| [2045_constructive.java](2045_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.py](2045_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
+| [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
+| [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
+| [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

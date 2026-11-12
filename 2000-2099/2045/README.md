@@ -107,7 +107,17 @@ Pitfalls:
 - A checker must accept valid words different from the example or the
   production construction.
 
+## Optimized solutions
+
+New C++, Go and Rust emit the identical accepted construction from reusable a-run and periodic bcd buffers, instead of allocating a prefix, tail substring and combined word each row. C++ writes the two slices directly through C stdio; Go/Rust collect bounded 8192-byte output blocks and flush before a row no longer fits. A row is at most n+16 bytes, including its label, so the buffers cover n≤2000 safely. Small n and impossible targets keep the same rules. No palindrome-generation logic changes: the original proof still applies. Time O(n²), already required by output size, and O(n) bounded storage without per-word allocation. All ordinary sources remain; Java/Python reuse their admitted bases.
+
+The accepted Go 1.14 x64 run takes 0.078 s versus 0.046 s for the base and uses 348 KB versus 5888 KB.
+
+The accepted base implementations [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All five ports build a periodic tail once and write one row at a time.
 C++, Go, Python and Rust combine a repeated prefix with a tail prefix.
@@ -117,10 +127,22 @@ memory. CPython 3.12 is selected.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB |
-| [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB |
-| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB |
-| [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB |
-| [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
+| [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
+| [2045_constructive.java](2045_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.py](2045_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
+| [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
+| [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
+| [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
