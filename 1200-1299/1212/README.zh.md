@@ -60,16 +60,42 @@
 答案已在 450 个随机小棋盘上与逐格的暴力解法比对，并在所有测试上与另一份独立
 解答比对。
 
+Python 教学版直接数非法起点。横放时把每条已有船的禁区向左扩展 K − 1 列，再裁到合法起点域。把所有得到的起点加入集合，重叠部分只计一次。用全部起点数减去集合大小。竖放时转置棋盘，K = 1 时只算一次。每条旧船在每个方向最多贡献 36 格，期望时间 O(L)，空间 O(L)。
+
+## 优化解法
+
+C++、Go 和 Rust 统计非法起点。横放时把每个禁区向左扩展 K − 1 列，再裁到合法起点域。每条已有船最多贡献 36 格。用 (row − 1)M + column − 1 编码，排序后统计不同编号。竖放时转置棋盘。
+
+省内存的 PyPy 版本统计非法终点。横船终点在第 x 列时，与禁区间 [a,b] 相交的充要条件是 x ≥ a 且 x − K + 1 ≤ b。按禁区矩形的左边界排序一次。横放时向右扩展 K − 1 格，竖放时向下扩展，再裁到合法终点域。对每个受影响的行记录最右覆盖端点，只减去新覆盖的格子。每个矩形最多涉及九行。两种方法在 K = 1 时只计一次，时间 O(L log L)，空间 O(L)。
+
+通过评测的 PyPy 3.10 x64 版本耗时 0.14 秒，基础版为 0.078 秒，内存为 340 KB，基础版为 684 KB。
+
+已通过评测的基础实现 [1212_geometry.java](1212_geometry.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- 所有语言都给禁止矩形使用具名字段，两个方向共用同一个计数函数。
+C++、Go 和 Rust 在定长数组中排序起点编号。Go 用 uint32 保存编号，并通过标准句柄与固定缓冲区读写。PyPy 每行只保存一个最右端点，两个方向共用同一矩形顺序。Java 保留原有的行条带算法。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1212_geometry.cpp](1212_geometry.cpp) | G++ 13.2 x64 | geometry | O(L² log L) | AC | 0.031 s | 432 KB |
-| [1212_geometry.go](1212_geometry.go) | Go 1.14 x64 | geometry | O(L² log L) | AC | 0.031 s | 1144 KB |
-| [1212_geometry.java](1212_geometry.java) | Java 1.8 | geometry | O(L² log L) | AC | 0.140 s | 1940 KB |
-| [1212_geometry.py](1212_geometry.py) | Python 3.12 x64 | geometry | O(L² log L) | AC | 0.078 s | 684 KB |
-| [1212_geometry.rs](1212_geometry.rs) | Rust 1.75 x64 | geometry | O(L² log L) | AC | 0.046 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1212_geometry.cpp](1212_geometry.cpp) | G++ 13.2 x64 | geometry | O(L² log L) | AC | 0.031 s | 432 KB | 11283646 |
+| [1212_geometry.go](1212_geometry.go) | Go 1.14 x64 | geometry | O(L² log L) | AC | 0.031 s | 1144 KB | 11283647 |
+| [1212_geometry.java](1212_geometry.java) \* | Java 1.8 | geometry | O(L² log L) | AC | 0.140 s | 1940 KB | 11283649 |
+| [1212_geometry.py](1212_geometry.py) | Python 3.12 x64 | geometry | O(L² log L) | AC | 0.078 s | 684 KB | 11283648 |
+| [1212_geometry.rs](1212_geometry.rs) | Rust 1.75 x64 | geometry | O(L² log L) | AC | 0.046 s | 232 KB | 11283650 |
+| [1212_hashing.py](1212_hashing.py) | Python 3.12 x64 | hashing | O(L) expected | AC | 0.093 s | 580 KB | 11315800 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1212_sorting.cpp](1212_sorting.cpp) | G++ 13.2 x64 | sorting | O(L log L) | AC | 0.015 s | 124 KB | 11315806 |
+| [1212_sorting.rs](1212_sorting.rs) \* | Rust 1.75 x64 | sorting | O(L log L) | AC | 0.015 s | 220 KB | 11315821 |
+| [1212_sorting.go](1212_sorting.go) \* | Go 1.14 x64 | sorting | O(L log L) | AC | 0.015 s | 308 KB | 11315959 |
+| [1212_sorting.py](1212_sorting.py) \* | PyPy 3.10 x64 | sorting | O(L log L) | AC | 0.14 s | 340 KB | 11316273 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
