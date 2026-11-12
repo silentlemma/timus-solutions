@@ -78,12 +78,28 @@ In the first example the levels hold the runs {1} at height 4, {1} and
 
 Sorting makes it O(N log N).
 
+## Optimized solutions
+
+The Go version sums the same level-by-level run cost using a monotone stack, implicitly building a minimum Cartesian tree. Each entry stores a height and the number of positions already merged into its left part. When the next height h is no greater, pop entries and accumulate their widths into span. A popped height t contributes (t−max(h,remaining-top-height))·ceil(span/2): across precisely those levels, its completed contiguous component has span nails. Equal heights merge with zero additional height cost. A zero sentinel finishes all remaining components. Every entry is pushed and popped once, giving O(N) time and O(N) storage without sorting or DSU. Heights and widths fit uint32; the answer needs int64. All original DSU versions remain, with the other four also covering the fast set.
+
+The accepted base implementations [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp), [2225_dsu_sorting.java](2225_dsu_sorting.java), [2225_dsu_sorting.py](2225_dsu_sorting.py), [2225_dsu_sorting.rs](2225_dsu_sorting.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB |
-| [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB |
-| [2225_dsu_sorting.java](2225_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.187 s | 2624 KB |
-| [2225_dsu_sorting.py](2225_dsu_sorting.py) | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB |
-| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB | 11295843 |
+| [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB | 11295845 |
+| [2225_dsu_sorting.java](2225_dsu_sorting.java) \* | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.187 s | 2624 KB | 11295850 |
+| [2225_dsu_sorting.py](2225_dsu_sorting.py) \* | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB | 11295847 |
+| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) \* | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB | 11295852 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2225_trees.go](2225_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1136 KB | 11314953 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

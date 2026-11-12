@@ -60,12 +60,28 @@ N（2 ≤ N ≤ 10⁵），然后是 l₁ … l_N（1 ≤ lᵢ ≤ 10⁹）。
 
 排序使复杂度为 O(N log N)。
 
+## 优化解法
+
+Go 用单调栈累计同样的逐层连续段代价，隐式构建最小笛卡尔树。每项保存高度及已合并到左侧的宽度。新高度 h 不大于栈顶时弹出项目，把宽度累加为 span。弹出高度 t 的贡献为 (t−max(h,剩余栈顶高度))·ceil(span/2)：这些层中，完成的连通段恰有 span 枚钉。相同高度以零高度差合并。末尾的零哨兵清空栈。每项只进出一次，因此时间、空间均为 O(N)，无需排序或 DSU。高度和宽度用 uint32，答案用 int64。保留全部 DSU 基础版，其他四种语言也覆盖快速集合。
+
+已通过评测的基础实现 [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp), [2225_dsu_sorting.java](2225_dsu_sorting.java), [2225_dsu_sorting.py](2225_dsu_sorting.py), [2225_dsu_sorting.rs](2225_dsu_sorting.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB |
-| [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB |
-| [2225_dsu_sorting.java](2225_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.187 s | 2624 KB |
-| [2225_dsu_sorting.py](2225_dsu_sorting.py) | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB |
-| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB | 11295843 |
+| [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB | 11295845 |
+| [2225_dsu_sorting.java](2225_dsu_sorting.java) \* | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.187 s | 2624 KB | 11295850 |
+| [2225_dsu_sorting.py](2225_dsu_sorting.py) \* | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB | 11295847 |
+| [2225_dsu_sorting.rs](2225_dsu_sorting.rs) \* | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB | 11295852 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2225_trees.go](2225_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1136 KB | 11314953 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
