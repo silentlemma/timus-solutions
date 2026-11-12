@@ -56,16 +56,36 @@ Look for second hamburger at computer and chairs.790
 
 答案与另一个用字典保存已写格子的模拟程序做了核对。
 
+## 优化解法
+
+新的 C++、Go、Rust 流式读取按键，只保存 80 个显示格和光标，不保留整行。零位置左移仍为零；最后一格右移或写入后回零。空格是普通写入。首个行尾或 EOF 后停止，输出全部 80 格，包括尾部空格。时间 O(L)、额外存储 O(80)，Go 输入缓冲有界。C++/Rust 使用 C runtime 字符输入输出，Rust 用 C 入口；Go 使用标准句柄。保留简单文件；Java/Python 复用符合标准的基础版。
+
+已通过评测的基础实现 [1094_simulation.java](1094_simulation.java), [1094_simulation.py](1094_simulation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 五种语言都读取一行，并输出全部 80 个字符，包括末尾的空格。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB |
-| [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB |
-| [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB |
-| [1094_simulation.py](1094_simulation.py) | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB |
-| [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB | 11279111 |
+| [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB | 11279112 |
+| [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB | 11279114 |
+| [1094_simulation.py](1094_simulation.py) \* | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
+| [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB | 11279115 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
+| [1094_simulation_optimized.go](1094_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
+| [1094_simulation_optimized.rs](1094_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

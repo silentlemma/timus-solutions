@@ -68,17 +68,37 @@ Detalles a tener en cuenta:
 Las respuestas se comprobaron con una simulación aparte que guarda las
 casillas escritas en un diccionario.
 
+## Soluciones optimizadas
+
+C++, Go y Rust consumen las teclas como flujo, conservando solo las 80 celdas y el cursor. La izquierda desde cero queda en cero; avanzar o escribir en la última celda vuelve a cero. Los espacios son escrituras normales. Se termina al primer fin de línea o EOF y se imprimen las 80 celdas, incluidos blancos finales. Tiempo O(L), espacio O(80) con entrada Go acotada. C++/Rust usan caracteres del C runtime, Rust con entrada C; Go manejadores estándar. Se conservan las bases; Java/Python reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1094_simulation.java](1094_simulation.java), [1094_simulation.py](1094_simulation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Los cinco lenguajes leen una línea e imprimen los 80 caracteres,
   incluidos los espacios del final.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB |
-| [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB |
-| [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB |
-| [1094_simulation.py](1094_simulation.py) | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB |
-| [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB | 11279111 |
+| [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB | 11279112 |
+| [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB | 11279114 |
+| [1094_simulation.py](1094_simulation.py) \* | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
+| [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB | 11279115 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
+| [1094_simulation_optimized.go](1094_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
+| [1094_simulation_optimized.rs](1094_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
