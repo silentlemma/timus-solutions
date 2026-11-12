@@ -77,12 +77,30 @@ Detalles a tener en cuenta:
 - se aceptan otras respuestas, como un triángulo de pares directos para
   tres equipos, así que un verificador comprueba la privacidad.
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++, Go y Rust ordenan una tabla acotada de hasta 100 nombres de 11 bytes, incluido el terminador cero. Los vecinos iguales detectan duplicados. Para al menos tres equipos distintos, se marcan los nombres de una y dos letras y se elige un centro libre entre 26+26² candidatos: 100 equipos no pueden ocuparlos todos. Conectar cada equipo a ese idioma mantiene la construcción privada y el número óptimo de intérpretes. El almacenamiento acotado sustituye conjuntos, mapas y listas temporales. Ordenar cuesta O(N log N), con nombres de hasta diez letras; no mejora asintóticamente las bases con hash. C++/Rust usan el C runtime, Go manejadores estándar. Se conservan las bases; Java/Python reutilizan las ya admitidas sin duplicarlas.
+
+Las implementaciones base aceptadas [1571_constructive.java](1571_constructive.java), [1571_constructive.py](1571_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1571_constructive.cpp](1571_constructive.cpp) | G++ 13.2 x64 | constructive | O(N log N) | AC | 0.015 s | 436 KB |
-| [1571_constructive.go](1571_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 1144 KB |
-| [1571_constructive.java](1571_constructive.java) | Java 1.8 | constructive | O(N) | AC | 0.156 s | 1712 KB |
-| [1571_constructive.py](1571_constructive.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 548 KB |
-| [1571_constructive.rs](1571_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 456 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1571_constructive.cpp](1571_constructive.cpp) | G++ 13.2 x64 | constructive | O(N log N) | AC | 0.015 s | 436 KB | 11287792 |
+| [1571_constructive.go](1571_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 1144 KB | 11287793 |
+| [1571_constructive.java](1571_constructive.java) \* | Java 1.8 | constructive | O(N) | AC | 0.156 s | 1712 KB | 11287796 |
+| [1571_constructive.py](1571_constructive.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 548 KB | 11287794 |
+| [1571_constructive.rs](1571_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 456 KB | 11287797 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1571_constructive_sorting.cpp](1571_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(N log N) | AC | 0.015 s | 128 KB | 11315139 |
+| [1571_constructive_sorting.go](1571_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(N log N) | AC | 0.015 s | 304 KB | 11315142 |
+| [1571_constructive_sorting.rs](1571_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(N log N) | AC | 0.031 s | 48 KB | 11315152 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
