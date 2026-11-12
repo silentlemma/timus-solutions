@@ -87,12 +87,28 @@ coordenadas de P se imprimen con nueve decimales.
 En el primer ejemplo w = (0, −14) apunta hacia abajo desde C = (4, 7),
 así que P = (4, 4).
 
+## Soluciones optimizadas
+
+C++ conserva el punto de reflexión de la bisectriz. Para a=A−C, b=B−C, w=a+b, las distancias iguales dan a·w=|w|²/2: la visibilidad estricta equivale a |w|²>4r². La prueba entera rechaza oposición y tangencia antes de la raíz. Se mantiene la escala r/|w|; redondear a 10⁻⁹ y emitir dígitos enteros evita el formateador flotante printf. Coordenadas escaladas hasta 6·10¹² caben en 64 bits con signo; bastan 64 bytes de salida. Tiempo y espacio O(1). Se conserva el C++ sencillo; las otras cuatro familias reutilizan las bases admitidas.
+
+Las implementaciones base aceptadas [2148_geometry.go](2148_geometry.go), [2148_geometry.java](2148_geometry.java), [2148_geometry.py](2148_geometry.py), [2148_geometry.rs](2148_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB |
-| [2148_geometry.go](2148_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB |
-| [2148_geometry.java](2148_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB |
-| [2148_geometry.py](2148_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB |
-| [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2148_geometry.cpp](2148_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 144 KB | 11295009 |
+| [2148_geometry.go](2148_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1136 KB | 11295011 |
+| [2148_geometry.java](2148_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.140 s | 1800 KB | 11295013 |
+| [2148_geometry.py](2148_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 524 KB | 11295012 |
+| [2148_geometry.rs](2148_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 260 KB | 11295014 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
