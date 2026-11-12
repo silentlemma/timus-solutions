@@ -60,17 +60,39 @@ Pitfalls:
 - every byte prints as two uppercase digits, with a leading zero below
   16 (test gen3).
 
+## Optimized solutions
+
+Let P be the plaintext, K the key, S the shorter ciphertext and L the longer one. The added leading space gives `K[0] = L[0] XOR space`. At index i, `S[i] = P[i] XOR K[i]` and `L[i+1] = P[i] XOR K[i+1]`. Their XOR cancels P[i], so `K[i+1] = K[i] XOR S[i] XOR L[i+1]`. Each key byte is emitted as soon as it is recovered. C++, Go, Java and Rust store only the shorter ciphertext in a 10000-byte array and use 4096-byte input and output blocks. Java expands signed bytes with mask 255. The scan takes O(N) time. Python reuses its base implementation.
+
+The accepted Java 1.8 run takes 0.125 s versus 0.109 s for the base and uses 408 KB versus 1756 KB.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 208 KB versus 368 KB.
+
+The accepted base implementations [1236_math.py](1236_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- Go and Python decode and encode hexadecimal with library functions;
-  C++, Java and Rust convert the digit pairs themselves.
+Original Go/Python use library hex conversion; the new C++/Go/Java/Rust variants parse digits and stream the recurrence. Java masks stored bytes with255. Python retains its original library implementation.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1236_math.cpp](1236_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 376 KB |
-| [1236_math.go](1236_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1364 KB |
-| [1236_math.java](1236_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1756 KB |
-| [1236_math.py](1236_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 488 KB |
-| [1236_math.rs](1236_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 368 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1236_math.cpp](1236_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 376 KB | 11283792 |
+| [1236_math.go](1236_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1364 KB | 11283795 |
+| [1236_math.java](1236_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1756 KB | 11283798 |
+| [1236_math.py](1236_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 488 KB | 11283796 |
+| [1236_math.rs](1236_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 368 KB | 11283799 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1236_math_optimized.cpp](1236_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 76 KB | 11315388 |
+| [1236_math_optimized.go](1236_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
+| [1236_math_optimized.java](1236_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
+| [1236_math_optimized.rs](1236_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 208 KB | 11315404 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

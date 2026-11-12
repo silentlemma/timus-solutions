@@ -55,16 +55,39 @@ C[i] = S[i] xor K[i],   K[i+1] = L[i+1] xor C[i] = L[i+1] xor S[i] xor K[i]
 
 - 每个字节都输出为两位大写数字，小于 16 时要补前导零（测试 gen3）。
 
+## 优化解法
+
+设明文为 P，密钥为 K，短密文为 S，长密文为 L。开头新增的空格给出 `K[0] = L[0] XOR 空格`。对位置 i，`S[i] = P[i] XOR K[i]`，`L[i+1] = P[i] XOR K[i+1]`。两式异或消去 P[i]，得到 `K[i+1] = K[i] XOR S[i] XOR L[i+1]`。恢复一个密钥字节就立即输出。C++、Go、Java 和 Rust 将短密文存入 10000 字节数组，输入和输出各使用 4096 字节缓冲区。Java 用掩码 255 将有符号字节转为无符号值。扫描耗时 O(N)。Python 复用基础实现。
+
+通过评测的 Java 1.8 版本耗时 0.125 秒，基础版为 0.109 秒，内存为 408 KB，基础版为 1756 KB。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.015 秒，内存为 208 KB，基础版为 368 KB。
+
+已通过评测的基础实现 [1236_math.py](1236_math.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- Go 和 Python 用库函数做十六进制编解码；C++、Java 和 Rust 自己转换每对数字。
+原 Go/Python 使用库十六进制转换；新 C++/Go/Java/Rust 解析数位并流式递推。Java 用掩码255扩展字节。Python 保留原库实现。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1236_math.cpp](1236_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 376 KB |
-| [1236_math.go](1236_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1364 KB |
-| [1236_math.java](1236_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1756 KB |
-| [1236_math.py](1236_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 488 KB |
-| [1236_math.rs](1236_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 368 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1236_math.cpp](1236_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 376 KB | 11283792 |
+| [1236_math.go](1236_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1364 KB | 11283795 |
+| [1236_math.java](1236_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1756 KB | 11283798 |
+| [1236_math.py](1236_math.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 488 KB | 11283796 |
+| [1236_math.rs](1236_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 368 KB | 11283799 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1236_math_optimized.cpp](1236_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 76 KB | 11315388 |
+| [1236_math_optimized.go](1236_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 824 KB | 11315392 |
+| [1236_math_optimized.java](1236_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11315395 |
+| [1236_math_optimized.rs](1236_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 208 KB | 11315404 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
