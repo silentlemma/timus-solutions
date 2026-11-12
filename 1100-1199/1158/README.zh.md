@@ -63,18 +63,36 @@ Q
 答案已在 200 个小型随机输入上与枚举所有句子的结果比对；测试中大于 127 的字母
 以 Latin-1 字符的形式用 UTF-8 存储，运行程序会把它们以单字节交给解答。
 
+Python 教学版直接用禁词的真前缀表示状态。添加一个字母后，若后缀为禁词，则丢弃该转移。否则选择存储的前缀中最长的后缀，空前缀也可选。任何可能补成禁词的更短前缀一定也是当前状态的后缀，所以直接检查与失配链接得到相同转移。设禁词数为 P、最大词长为 L，构建转移表耗时 O(SN(P+S)L)，计数需要 O(MSN) 次加法。
+
+## 优化解法
+
+Go、Rust 保留 Aho–Corasick 与精确计数。至多 101 个状态、50 个字母，转移 ID 用字节，BFS 队列定长。先传播禁后缀并补完全部失配转移，再将到相同安全状态的字母合并为带重数边。复用两层 DP，逐边加上计数乘重数。计数至多 50⁵⁰<10⁸⁵，十个 10⁹ 进制位足够精确；单段乘至多 50 适合 uint64。保留零计数与继承禁状态，大于 127 的字节按字母读取。设 W 为禁词总长度、S 为状态数、N 为字母数、E 为合并边数、D≤10 为数位数。每行扫描所有目标计数，建表与合并共耗时 O(W+S(S+N))。清空、检查和更新 DP 层共耗时 O(M(S+E)D)。空间为 O(SN+SD)，输入输出缓冲区定长。C++、Java、Python 复用达标基础版。
+
+已通过评测的基础实现 [1158_strings.cpp](1158_strings.cpp), [1158_strings.java](1158_strings.java), [1158_strings.py](1158_strings.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- Python、Go 和 Java 使用各自的大整数；C++ 和 Rust 对以九位十进制为一块存储的
-  数做加法，计数只需要加法。
-- Java 把整个输入读成字节，并把每个字节转换到 `0..255`。
+原 Go/Python/Java 用大整数，原 C++/Rust 用动态九位分段；新 Go/Rust 用两个固定十段层及字节自动机，保留 Latin-1 原字节，不取模、不查答案表。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1158_strings.cpp](1158_strings.cpp) | G++ 13.2 x64 | strings | O(M·S·N) | AC | 0.015 s | 472 KB |
-| [1158_strings.go](1158_strings.go) | Go 1.14 x64 | strings | O(M·S·N) | AC | 0.031 s | 1684 KB |
-| [1158_strings.java](1158_strings.java) | Java 1.8 | strings | O(M·S·N) | AC | 0.109 s | 5476 KB |
-| [1158_strings.py](1158_strings.py) | Python 3.12 x64 | strings | O(M·S·N) | AC | 0.093 s | 768 KB |
-| [1158_strings.rs](1158_strings.rs) | Rust 1.75 x64 | strings | O(M·S·N) | AC | 0.031 s | 340 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1158_strings.cpp](1158_strings.cpp) | G++ 13.2 x64 | strings | O(M·S·N) | AC | 0.015 s | 472 KB | 11281469 |
+| [1158_strings.go](1158_strings.go) | Go 1.14 x64 | strings | O(M·S·N) | AC | 0.031 s | 1684 KB | 11281489 |
+| [1158_strings.java](1158_strings.java) \* | Java 1.8 | strings | O(M·S·N) | AC | 0.109 s | 5476 KB | 11281536 |
+| [1158_strings.py](1158_strings.py) \* | Python 3.12 x64 | strings | O(M·S·N) | AC | 0.093 s | 768 KB | 11281520 |
+| [1158_strings.rs](1158_strings.rs) | Rust 1.75 x64 | strings | O(M·S·N) | AC | 0.031 s | 340 KB | 11281554 |
+| [1158_dp_strings.py](1158_dp_strings.py) | Python 3.12 x64 | dp, strings | O(SN(P+S)L + MSN) | AC | 0.156 s | 584 KB | 11315835 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1158_strings_optimized.go](1158_strings_optimized.go) \* | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
+| [1158_strings_optimized.rs](1158_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -73,18 +73,36 @@ The answers were compared with listing every sentence on 200 small random
 inputs; the tests store letters above 127 as Latin-1 characters in
 UTF-8, and the runner hands them to the solutions as single bytes.
 
+The teaching Python version stores each state as a proper prefix of a forbidden word. After appending a letter, discard the transition if a forbidden word is a suffix. Otherwise take the longest suffix among the stored prefixes, including the empty prefix. Any shorter prefix that can finish a word is already a suffix of the current state, so these direct checks give the same transitions as the failure links. With P forbidden words and maximum word length L, building the table takes O(SN(P+S)L) time. Counting uses O(MSN) additions.
+
+## Optimized solutions
+
+Go and Rust retain Aho–Corasick and exact counting. At most 1+10·10=101 states and 50 letters allow byte transition IDs and a fixed BFS queue. Propagate forbidden suffixes first, finish every failure transition, then group safe letters with the same destination into one edge with multiplicity. Two reused DP layers add count·multiplicity per edge. Each count is at most 50⁵⁰<10⁸⁵, so ten base-10⁹ limbs are exact; a limb product with multiplicity≤50 fits uint64. Zero counts and inherited forbidden suffixes are retained. Codes above 127 are read as alphabet bytes. Let W be the total length of the forbidden words, S the number of states, N the alphabet size, E the number of grouped edges and D≤10 the limb count. Building and grouping takes O(W+S(S+N)) time because each row scans the target counts. Clearing, checking and updating the DP layers takes O(M(S+E)D) time. Storage is O(SN+SD) with fixed I/O blocks. C++, Java and Python use their admitted bases.
+
+The accepted base implementations [1158_strings.cpp](1158_strings.cpp), [1158_strings.java](1158_strings.java), [1158_strings.py](1158_strings.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- Python, Go and Java use their big integers; C++ and Rust add numbers
-  kept in limbs of nine decimal digits, which is all the counting needs.
-- Java reads the whole input as bytes and masks each byte to `0..255`.
+Original Go/Python/Java use arbitrary-precision integers; original C++/Rust use dynamic nine-digit limbs. New Go/Rust use two fixed ten-limb layers and byte automata, preserving raw Latin-1 alphabet bytes. No modular arithmetic or answer lookup is used.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1158_strings.cpp](1158_strings.cpp) | G++ 13.2 x64 | strings | O(M·S·N) | AC | 0.015 s | 472 KB |
-| [1158_strings.go](1158_strings.go) | Go 1.14 x64 | strings | O(M·S·N) | AC | 0.031 s | 1684 KB |
-| [1158_strings.java](1158_strings.java) | Java 1.8 | strings | O(M·S·N) | AC | 0.109 s | 5476 KB |
-| [1158_strings.py](1158_strings.py) | Python 3.12 x64 | strings | O(M·S·N) | AC | 0.093 s | 768 KB |
-| [1158_strings.rs](1158_strings.rs) | Rust 1.75 x64 | strings | O(M·S·N) | AC | 0.031 s | 340 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1158_strings.cpp](1158_strings.cpp) | G++ 13.2 x64 | strings | O(M·S·N) | AC | 0.015 s | 472 KB | 11281469 |
+| [1158_strings.go](1158_strings.go) | Go 1.14 x64 | strings | O(M·S·N) | AC | 0.031 s | 1684 KB | 11281489 |
+| [1158_strings.java](1158_strings.java) \* | Java 1.8 | strings | O(M·S·N) | AC | 0.109 s | 5476 KB | 11281536 |
+| [1158_strings.py](1158_strings.py) \* | Python 3.12 x64 | strings | O(M·S·N) | AC | 0.093 s | 768 KB | 11281520 |
+| [1158_strings.rs](1158_strings.rs) | Rust 1.75 x64 | strings | O(M·S·N) | AC | 0.031 s | 340 KB | 11281554 |
+| [1158_dp_strings.py](1158_dp_strings.py) | Python 3.12 x64 | dp, strings | O(SN(P+S)L + MSN) | AC | 0.156 s | 584 KB | 11315835 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1158_strings_optimized.go](1158_strings_optimized.go) \* | Go 1.14 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.015 s | 812 KB | 11315420 |
+| [1158_strings_optimized.rs](1158_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(W + S(S+N) + M(S+E)D) | AC | 0.031 s | 204 KB | 11315424 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
