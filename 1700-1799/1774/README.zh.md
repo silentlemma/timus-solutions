@@ -76,12 +76,34 @@ No
 
 在 300 个最多 5 人的随机情形上，答案与枚举所有分钟对的搜索一致；在 100 个最多 100 人的情形上与一个独立的已通过实现一致，且双向检查。
 
+C++ 教学版为 0 到 1999 的每一分钟建立一个顶点。源点向每人发送两单位流，每人向其停留期间的每一分钟连容量为一的边，每分钟向汇点的容量为 k。因此 2n 的整数流给每人恰好两个不同的合法时刻。用深度优先搜索每次增广一单位，没有增广路时得到最大流。直接从人到分钟的饱和边读出答案。正向边数 E=n+2000+Σsᵢ，时间 O(nE)，空间 O(E)。
+
+## 优化解法
+
+C++/Go/Java/Rust 保持原端点压缩 Dinic 与循环分配时间。残量边改成三个16位字段：终点、后继、容量；扁平表头代替邻接列表。端点至多 2n 个，因此区间数 B≤2n−1、顶点数至多 301。含两个哨兵的边记录至多 2(nB+n+B+1)≤40400，16 位索引足够。区间到汇的容量截到总需求 2n≤200，完整安排只用 2n 单位，因而保留满流可行性并限制残量。先数人–区间边以精确分配一次，复用 BFS/层次/当前边缓冲。直接读每人的区间边反向容量恢复两时刻，无需恢复链接或动态结果列表。2001 项端点表代替排序和集合。长度为 L 的区间中，每人按循环顺序连续获得至多 min(L,2) 个位置，所以时刻不同。总位置数至多 kL，因此每分钟至多 k 次。时间 O(n³)，空间 O(n²)。保留所有简单版，Python 复用已达标基础版。
+
+已通过评测的基础实现 [1774_matching.py](1774_matching.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.031 s | 580 KB |
-| [1774_matching.go](1774_matching.go) | Go 1.14 x64 | matching | O(n^3) | AC | 0.031 s | 3476 KB |
-| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.156 s | 3652 KB |
-| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.093 s | 4024 KB |
-| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 964 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.031 s | 580 KB | 11289698 |
+| [1774_matching.go](1774_matching.go) | Go 1.14 x64 | matching | O(n^3) | AC | 0.031 s | 3476 KB | 11289701 |
+| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.156 s | 3652 KB | 11289704 |
+| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.093 s | 4024 KB | 11289702 |
+| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 964 KB | 11289706 |
+| [1774_flow.cpp](1774_flow.cpp) | G++ 13.2 x64 | flow | O(nE) | AC | 0.015 s | 3584 KB | 11315880 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1774_matching_optimized.cpp](1774_matching_optimized.cpp) | G++ 13.2 x64 | matching | O(n³) | AC | 0.015 s | 300 KB | 11315516 |
+| [1774_matching_optimized.go](1774_matching_optimized.go) \* | Go 1.14 x64 | matching | O(n³) | AC | 0.031 s | 1020 KB | 11315517 |
+| [1774_matching_optimized.java](1774_matching_optimized.java) \* | Java 1.8 | matching | O(n³) | AC | 0.093 s | 572 KB | 11315518 |
+| [1774_matching_optimized.rs](1774_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(n³) | AC | 0.015 s | 312 KB | 11315519 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

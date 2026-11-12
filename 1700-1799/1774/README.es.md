@@ -97,12 +97,34 @@ minutos en 300 casos aleatorios de hasta 5 personas y con una
 implementación aceptada independiente, comprobadas en ambos sentidos,
 en 100 casos de hasta 100 personas.
 
+La versión didáctica en C++ crea un vértice para cada minuto de 0 a 1999. La fuente envía dos unidades a cada persona. Una arista de capacidad uno conecta a la persona con cada minuto de su estancia, y cada minuto envía como máximo k unidades al sumidero. Un flujo entero de 2n asigna exactamente dos minutos válidos y distintos a cada persona. Las rutas aumentantes se buscan en profundidad y añaden una unidad. Si no queda ninguna, el flujo es máximo. Los minutos elegidos se leen directamente de las aristas saturadas de persona a minuto. Para E=n+2000+Σsᵢ aristas directas, tiempo O(nE), espacio O(E).
+
+## Soluciones optimizadas
+
+C++, Go, Java y Rust conservan Dinic comprimido por extremos y recuperación cíclica. Cada arista residual usa tres campos de 16 bits para destino, siguiente y capacidad. Las cabeceras planas sustituyen las listas. Como hay a lo sumo 2n extremos, B≤2n−1 bloques y 301 vértices, y como máximo 2(nB+n+B+1)≤40 400 registros con dos centinelas. Los índices caben en 16 bits. Limitar la capacidad intervalo–sumidero a la demanda 2n≤200 preserva la factibilidad, pues un horario completo solo usa 2n unidades, y acota los residuos. Contar primero aristas persona/intervalo permite reservar exactamente una vez; reutilizar BFS, niveles y cursores. Recuperar los dos tiempos desde capacidades inversas elimina enlaces auxiliares y listas por persona. Una tabla de 2001 instantes evita ordenar y usar conjuntos. En un bloque de L minutos, cada persona obtiene a lo sumo min(L,2) posiciones consecutivas del reparto cíclico, así que son distintas. Con a lo sumo kL posiciones totales, cada minuto recibe como máximo k. Tiempo O(n³), memoria O(n²). Se conservan bases; Python reutiliza la admitida.
+
+Las implementaciones base aceptadas [1774_matching.py](1774_matching.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.031 s | 580 KB |
-| [1774_matching.go](1774_matching.go) | Go 1.14 x64 | matching | O(n^3) | AC | 0.031 s | 3476 KB |
-| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.156 s | 3652 KB |
-| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.093 s | 4024 KB |
-| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 964 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.031 s | 580 KB | 11289698 |
+| [1774_matching.go](1774_matching.go) | Go 1.14 x64 | matching | O(n^3) | AC | 0.031 s | 3476 KB | 11289701 |
+| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.156 s | 3652 KB | 11289704 |
+| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.093 s | 4024 KB | 11289702 |
+| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 964 KB | 11289706 |
+| [1774_flow.cpp](1774_flow.cpp) | G++ 13.2 x64 | flow | O(nE) | AC | 0.015 s | 3584 KB | 11315880 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1774_matching_optimized.cpp](1774_matching_optimized.cpp) | G++ 13.2 x64 | matching | O(n³) | AC | 0.015 s | 300 KB | 11315516 |
+| [1774_matching_optimized.go](1774_matching_optimized.go) \* | Go 1.14 x64 | matching | O(n³) | AC | 0.031 s | 1020 KB | 11315517 |
+| [1774_matching_optimized.java](1774_matching_optimized.java) \* | Java 1.8 | matching | O(n³) | AC | 0.093 s | 572 KB | 11315518 |
+| [1774_matching_optimized.rs](1774_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(n³) | AC | 0.015 s | 312 KB | 11315519 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
