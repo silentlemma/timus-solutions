@@ -91,16 +91,37 @@ Pitfalls:
 - move 32 can never lose: by then every dark square is taken and there
   is nowhere to land, so move 31 is the last one that can (test 07).
 
+## Optimized solutions
+
+Go and Rust check only triples affected by the new checker. Before a nonterminal move there is no capture anywhere. An unchanged triple cannot become a capture, and the newly occupied square cannot be an empty landing square. Thus the new checker is either the attacker or the captured middle checker. For each of four diagonal offsets d, require an opponent at cell+d; a capture exists if cell+2d is empty (new attacker) or cell−d is empty (new middle). This detects either player’s opportunity, including backward captures. A two-cell wall frame turns the8×8 board into a144-byte array; wall255 matches neither checker color nor empty, and every two-step access stays inside. Alternate colors, accept ASCII upper/lowercase files and report the first losing move or Draw. For M placements time O(M) instead of rescanning the board each time; extra space is fixed. Go reads through standard handles into a 64-byte buffer and formats the move into a three-byte array. Rust uses bounded C-runtime I/O. All full-scan simple programs remain; C++/Java/Python reuse admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.062 s versus 0.046 s for the base and uses 60 KB versus 208 KB.
+
+The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 276 KB versus 1036 KB.
+
+The accepted base implementations [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- All five solutions check the whole board after every move.
+The original files scan the whole board after each placement. The optimized Go and Rust files inspect four diagonal directions from the new checker.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB |
-| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB |
-| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB |
-| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB |
-| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
+| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
+| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
+| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

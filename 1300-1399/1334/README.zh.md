@@ -81,16 +81,37 @@ h8
 - 走棋的一方可能因为给自己创造了吃子机会而输（测试 05）；
 - 第 32 步不可能输：那时所有深色格都已被占，无处落子，所以最后一个可能输的是第 31 步（测试 07）。
 
+## 优化解法
+
+Go/Rust 只查新棋子影响的三元组。未终局时原来没有可吃子；不变三元组不会新产生，新占格也不可能是空落点。因此新子只会是攻击者或被跨过的中子。四个对角 d 各查 cell+d 有异色子，且 cell+2d 空（新攻击者）或 cell−d 空（新中子）。涵盖双方及后退方向。两格墙框把8×8 变成144字节，墙255 不等于颜色/空，二步访问始终在界内。交替颜色、字母大小写均可，输出首个败步或 Draw。M 步时间 O(M)，不再逐步扫全盘，额外空间固定。Go 通过标准句柄读入 64 字节缓冲，用三字节数组输出步数。Rust 用 C I/O。保留全扫描简单版，C++/Java/Python 复用已达标基础版。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.062 秒，基础版为 0.046 秒，内存为 60 KB，基础版为 208 KB。
+
+通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 276 KB，基础版为 1036 KB。
+
+已通过评测的基础实现 [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- 五种解答都在每一步之后检查整个棋盘。
+原版每次落子后扫描整个棋盘。优化的 Go 和 Rust 只检查经过新棋子的四条对角方向。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB |
-| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB |
-| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB |
-| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB |
-| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
+| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
+| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
+| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

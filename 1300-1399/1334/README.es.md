@@ -92,16 +92,37 @@ Detalles a tener en cuenta:
   están ocupadas y no hay donde caer, así que la 31 es la última que
   puede perder (prueba 07).
 
+## Soluciones optimizadas
+
+Go/Rust inspeccionan solo ternas afectadas por la ficha nueva. Antes de una jugada no terminal no existe captura; una terna intacta no cambia y la casilla recién ocupada no puede ser destino vacío. La nueva ficha es atacante o central capturada. Para cuatro diagonales d, exigir rival en cell+d y vacío en cell+2d (nuevo atacante) o cell−d (nuevo centro). Incluye oportunidades de ambos y direcciones hacia atrás. Marco de dos celdas da144 bytes para8×8, pared255 distinta de colores/vacío y accesos de dos pasos seguros. Alternar colores, aceptar letras mayúsculas/minúsculas, primer paso perdedor o Draw. M jugadas cuestan O(M), con espacio fijo. Go lee por los descriptores estándar en un búfer de 64 bytes y escribe la jugada desde un arreglo de tres bytes. Rust usa E/S de C. Se conservan escaneos sencillos; C++/Java/Python reutilizan admitidos.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.062 s frente a 0.046 s de la base y usa 60 KB frente a 208 KB.
+
+El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y usa 276 KB frente a 1036 KB.
+
+Las implementaciones base aceptadas [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- Las cinco soluciones revisan todo el tablero tras cada jugada.
+Los archivos originales revisan todo el tablero tras cada jugada. Go y Rust optimizados revisan cuatro direcciones diagonales desde la ficha nueva.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB |
-| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB |
-| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB |
-| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB |
-| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
+| [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
+| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
+| [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
