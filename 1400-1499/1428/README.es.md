@@ -53,12 +53,28 @@ Detalles a tener en cuenta:
 - el ejemplo imprime otra terna, así que las pruebas usan un
   verificador con enteros grandes (prueba 01).
 
+## Soluciones optimizadas
+
+Go conserva X=2^((C−1)/A), Y=2^((C−1)/B), Z=2. Los exponentes van de cero a 31 y caben en desplazamientos uint64. Lee los tres enteros por el descriptor de entrada estándar y escribe los dígitos decimales en un búfer de 64 bytes. Tiempo y espacio O(1). Los 1537 triples válidos se comprueban con potencias enteras exactas. Los otros cuatro lenguajes reutilizan las bases admitidas.
+
+Las implementaciones base aceptadas [1428_math.cpp](1428_math.cpp), [1428_math.java](1428_math.java), [1428_math.py](1428_math.py), [1428_math.rs](1428_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1428_math.cpp](1428_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB |
-| [1428_math.go](1428_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1064 KB |
-| [1428_math.java](1428_math.java) | Java 1.8 | math | O(1) | AC | 0.156 s | 1600 KB |
-| [1428_math.py](1428_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 408 KB |
-| [1428_math.rs](1428_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 208 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1428_math.cpp](1428_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 128 KB | 11286190 |
+| [1428_math.go](1428_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1064 KB | 11286191 |
+| [1428_math.java](1428_math.java) \* | Java 1.8 | math | O(1) | AC | 0.156 s | 1600 KB | 11286193 |
+| [1428_math.py](1428_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 408 KB | 11286192 |
+| [1428_math.rs](1428_math.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 208 KB | 11286194 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
