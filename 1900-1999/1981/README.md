@@ -91,7 +91,17 @@ Pitfalls:
 - The requested counts concern diagonals, not unordered pairs of diagonals.
 - Promote before multiplying; intermediate products also exceed 32 bits.
 
+## Optimized solutions
+
+The new C++, Go and Rust sources keep exactly the same direction-class formulas and 64-bit products as the simple versions. Only input/output storage changes: C++ uses C stdio, Go bounded buffers and standard handles, and Rust bounded digit storage with a C entry point and C-runtime character I/O. These are constant-factor and memory changes, not a faster asymptotic algorithm. The five simple sources remain unchanged; Java and Python reuse their already-admitted bases in the fast set.
+
+The accepted G++ 13.2 x64 run takes 0.031 s versus 0.015 s for the base and uses 108 KB versus 440 KB.
+
+The accepted base implementations [1981_math.java](1981_math.java), [1981_math.py](1981_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Python uses exact integers. C++, Go and Java use signed 64-bit values
 throughout the formulas; Rust uses `u64`. No trigonometry is used in the
@@ -99,10 +109,22 @@ submitted programs.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1981_math.cpp](1981_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 440 KB |
-| [1981_math.go](1981_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1100 KB |
-| [1981_math.java](1981_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 448 KB |
-| [1981_math.py](1981_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 460 KB |
-| [1981_math.rs](1981_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1981_math.cpp](1981_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 440 KB | 11292331 |
+| [1981_math.go](1981_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1100 KB | 11292332 |
+| [1981_math.java](1981_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 448 KB | 11292334 |
+| [1981_math.py](1981_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 460 KB | 11292333 |
+| [1981_math.rs](1981_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB | 11292335 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1981_math_optimized.cpp](1981_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 108 KB | 11315134 |
+| [1981_math_optimized.go](1981_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 332 KB | 11315136 |
+| [1981_math_optimized.rs](1981_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11315137 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
