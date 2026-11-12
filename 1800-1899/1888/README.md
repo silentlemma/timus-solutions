@@ -93,12 +93,29 @@ Pitfalls:
 The answers agree with an independent accepted implementation, and the
 experiences pass a checker, on 200 random sets of flights.
 
+## Optimized solutions
+
+Go and Rust store each adjacency set in one 64-bit word because p≤50. BFS processes whole distance layers; OR-ing the adjacency words of the current layer gives the next frontier after removing visited vertices. An edge inside a layer detects a bipartite contradiction. With one component, run BFS from every vertex and keep the largest eccentricity and its distance assignment; two BFS runs would not suffice on general graphs. With several components use their layer parity and shift one to 1/2 and the rest to 50/49. Repeated flights disappear in the masks. Each BFS visits at most p adjacency words: O(n+p²) word operations and O(p) words. All basic files remain; C++, Java and Python reuse admitted bases.
+
+The accepted base implementations [1888_bfs.cpp](1888_bfs.cpp), [1888_bfs.java](1888_bfs.java), [1888_bfs.py](1888_bfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1888_bfs.cpp](1888_bfs.cpp) | G++ 13.2 x64 | bfs | O(p (p + n)) | AC | 0.015 s | 204 KB |
-| [1888_bfs.go](1888_bfs.go) | Go 1.14 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 1196 KB |
-| [1888_bfs.java](1888_bfs.java) | Java 1.8 | bfs | O(p (p + n)) | AC | 0.109 s | 716 KB |
-| [1888_bfs.py](1888_bfs.py) | Python 3.12 x64 | bfs | O(p (p + n)) | AC | 0.109 s | 760 KB |
-| [1888_bfs.rs](1888_bfs.rs) | Rust 1.75 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 256 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1888_bfs.cpp](1888_bfs.cpp) | G++ 13.2 x64 | bfs | O(p (p + n)) | AC | 0.015 s | 204 KB | 11291113 |
+| [1888_bfs.go](1888_bfs.go) | Go 1.14 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 1196 KB | 11291114 |
+| [1888_bfs.java](1888_bfs.java) | Java 1.8 | bfs | O(p (p + n)) | AC | 0.109 s | 716 KB | 11291116 |
+| [1888_bfs.py](1888_bfs.py) \* | Python 3.12 x64 | bfs | O(p (p + n)) | AC | 0.109 s | 760 KB | 11291115 |
+| [1888_bfs.rs](1888_bfs.rs) | Rust 1.75 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 256 KB | 11291117 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1888_bfs_bitmask.go](1888_bfs_bitmask.go) \* | Go 1.14 x64 | bfs, bitmask | O(n + p²) | AC | 0.031 s | 312 KB | 11315257 |
+| [1888_bfs_bitmask.rs](1888_bfs_bitmask.rs) \* | Rust 1.75 x64 | bfs, bitmask | O(n + p²) | AC | 0.015 s | 68 KB | 11315673 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
