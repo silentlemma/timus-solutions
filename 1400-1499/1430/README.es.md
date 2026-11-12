@@ -57,12 +57,30 @@ Detalles a tener en cuenta:
 - la respuesta no es única, así que las pruebas usan un verificador
   (prueba 02).
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++, Go y Rust mantienen la enumeración acotada. Con A≥B y g=gcd(A,B), B/g artículos de precio A se cambian por A/g de precio B sin alterar el coste; basta 0≤x≤min(floor(N/A),B/g−1). El sobrante r=(N−xA) mod B parte de N mod B y se actualiza restando A mod B, sumando B al hacerse negativo: no hay división dentro del bucle. Se conserva el menor sobrante y se recupera y al final. Todo coste es múltiplo de g: N mod g es una cota inferior demostrada que permite salir pronto. El peor caso sigue O(√N), más Euclides; mejoran aritmética y constantes. La E/S acotada de Go y el C runtime de Rust reducen almacenamiento. Se conservan las bases; Java/Python reutilizan las ya admitidas.
+
+Las implementaciones base aceptadas [1430_number_theory.java](1430_number_theory.java), [1430_number_theory.py](1430_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1430_number_theory.cpp](1430_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 128 KB |
-| [1430_number_theory.go](1430_number_theory.go) | Go 1.14 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 1068 KB |
-| [1430_number_theory.java](1430_number_theory.java) | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 1684 KB |
-| [1430_number_theory.py](1430_number_theory.py) | Python 3.12 x64 | number_theory | O(sqrt N) | AC | 0.109 s | 468 KB |
-| [1430_number_theory.rs](1430_number_theory.rs) | Rust 1.75 x64 | number_theory | O(sqrt N) | AC | 0.062 s | 220 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1430_number_theory.cpp](1430_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 128 KB | 11286201 |
+| [1430_number_theory.go](1430_number_theory.go) | Go 1.14 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 1068 KB | 11286202 |
+| [1430_number_theory.java](1430_number_theory.java) \* | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 1684 KB | 11286204 |
+| [1430_number_theory.py](1430_number_theory.py) \* | Python 3.12 x64 | number_theory | O(sqrt N) | AC | 0.109 s | 468 KB | 11286203 |
+| [1430_number_theory.rs](1430_number_theory.rs) | Rust 1.75 x64 | number_theory | O(sqrt N) | AC | 0.062 s | 220 KB | 11286205 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1430_number_theory_optimized.cpp](1430_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.015 s | 108 KB | 11315180 |
+| [1430_number_theory_optimized.go](1430_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.031 s | 292 KB | 11315184 |
+| [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

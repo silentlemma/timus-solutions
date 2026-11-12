@@ -55,12 +55,30 @@ B ≤ √N, либо N / A < √N, так что значений x не бол�
 - если обе цены больше N, ничего не покупается (тест 12);
 - ответ не единственный, поэтому тесты проверяет чекер (тест 02).
 
+## Оптимизированные решения
+
+Новые C++, Go и Rust сохраняют ограниченный перебор покупок. При A≥B и g=gcd(A,B) заменяем B/g товаров цены A на A/g товаров цены B без изменения стоимости. Поэтому достаточно 0≤x≤min(floor(N/A),B/g−1). Неизрасходованный остаток r=(N−xA) mod B начинается с N mod B; на следующем шаге вычитаем A mod B и при уходе ниже нуля прибавляем B. Внутри цикла делений нет. Сохраняем минимальный остаток, y восстанавливаем один раз в конце. Все стоимости кратны g, поэтому N mod g — доказанная нижняя граница остатка и условие раннего выхода. Перебор остаётся O(√N) плюс алгоритм Евклида; улучшаются арифметика и константы. Ограниченный ввод-вывод Go и C runtime Rust дополнительно уменьшают расходы памяти. Простые исходники сохранены; Java/Python используют подходящие базы.
+
+Принятые базовые реализации [1430_number_theory.java](1430_number_theory.java), [1430_number_theory.py](1430_number_theory.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1430_number_theory.cpp](1430_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 128 KB |
-| [1430_number_theory.go](1430_number_theory.go) | Go 1.14 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 1068 KB |
-| [1430_number_theory.java](1430_number_theory.java) | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 1684 KB |
-| [1430_number_theory.py](1430_number_theory.py) | Python 3.12 x64 | number_theory | O(sqrt N) | AC | 0.109 s | 468 KB |
-| [1430_number_theory.rs](1430_number_theory.rs) | Rust 1.75 x64 | number_theory | O(sqrt N) | AC | 0.062 s | 220 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1430_number_theory.cpp](1430_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 128 KB | 11286201 |
+| [1430_number_theory.go](1430_number_theory.go) | Go 1.14 x64 | number_theory | O(sqrt N) | AC | 0.031 s | 1068 KB | 11286202 |
+| [1430_number_theory.java](1430_number_theory.java) \* | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 1684 KB | 11286204 |
+| [1430_number_theory.py](1430_number_theory.py) \* | Python 3.12 x64 | number_theory | O(sqrt N) | AC | 0.109 s | 468 KB | 11286203 |
+| [1430_number_theory.rs](1430_number_theory.rs) | Rust 1.75 x64 | number_theory | O(sqrt N) | AC | 0.062 s | 220 KB | 11286205 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [1430_number_theory_optimized.cpp](1430_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.015 s | 108 KB | 11315180 |
+| [1430_number_theory_optimized.go](1430_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.031 s | 292 KB | 11315184 |
+| [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
