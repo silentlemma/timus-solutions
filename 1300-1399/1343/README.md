@@ -46,34 +46,41 @@ Output:
 
 ## Solution
 
-Fill the free digits with zeros and count upwards until the number is
-prime. Primes near 10¹² lie about 28 apart on average, and no gap below
-10¹² is longer than a few hundred, so only a few hundred numbers are
-ever tried. Each one is tested with the Miller–Rabin test using the
-bases 2, 3, 5, 7, 11 and 13, which make no mistakes below 3 · 10¹².
-With all 12 digits given, the number itself is the answer. The
-number is printed with leading zeros, as a prefix of zeros asks for.
+The preferred teaching version is C++ trial division. Fill the remaining digits with zeros, test 2 separately and then try odd candidates. A candidate is prime exactly when it has no divisor up to its integer square root. Test 2 and 3 first; every larger prime is 6q−1 or 6q+1, so the loop checks these pairs. All products fit 64 bits because N<10¹². For G candidates this is O(G·sqrt(N)) time and O(1) auxiliary space, without modular exponentiation or a prime table. The answer guarantee ensures that a prime is found before leaving the given prefix. Print exactly twelve digits with leading zeros. If all twelve digits are supplied, echo the guaranteed-valid value directly, including 000000000001. This elementary algorithm is retained on C++; the more advanced accepted implementations remain available separately.
 
-Pitfalls:
+## Optimized solutions
 
-- the given digits can start with zeros, and the answer must keep them,
-  like `000000000002` (tests 04 and 05);
-- the squares inside the test reach 10²⁴, past 64 bits, so the
-  multiplication modulo n needs care;
-- with k = 0 the second line is empty (test 02).
+Miller–Rabin uses the six bases 2,3,5,7,11,13. After small-prime checks, write N−1=2ˢd with d odd. For each base, compute x=aᵈ mod N; accept that base if x is 1 or N−1, or if one of its next s−1 modular squares is N−1. Otherwise reject the candidate. [Jaeschke’s six-base bound](https://doi.org/10.1090/S0025-5718-1993-1192971-8) is 3474749660383, above every value here, so the test is deterministic in this task. It takes O(G log N) word operations for G candidates. The new Go and Rust sources use bounded I/O; Go multiplies via bits.Mul64/bits.Rem64 and Rust via u128. Java and Python reuse their already-admitted original files. C++ fast coverage shares the elementary [trial-division file](1343_bruteforce.cpp) listed under Simple: its exact Accepted receipt meets the inclusion rule, without a duplicate optimized copy. That measured admission does not claim better asymptotic complexity than Miller–Rabin. Original C++/Go/Rust Miller–Rabin bases are retained under Other Accepted approaches.
+
+The accepted base implementations [1343_number_theory.java](1343_number_theory.java), [1343_number_theory.py](1343_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-- C++ and Rust multiply in 128 bits, and Go uses `bits.Mul64` and
-  `bits.Rem64`. Java splits one factor into 20-bit halves, which keeps
-  every product below 2⁶⁰ for n below 2⁴⁰.
+The elementary base needs no wide modular products. Miller–Rabin C++/Rust use 128-bit products, Go uses math/bits and Java splits a product into 20-bit halves. Python retains its actual accepted CPython interpreter. Original files and their source-bound measurements remain unchanged. Stars apply only to selected fast sources below their language rating target.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1343_number_theory.cpp](1343_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(G·log N) | AC | 0.015 s | 392 KB |
-| [1343_number_theory.go](1343_number_theory.go) | Go 1.14 x64 | number_theory | O(G·log N) | AC | 0.031 s | 1024 KB |
-| [1343_number_theory.java](1343_number_theory.java) | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB |
-| [1343_number_theory.py](1343_number_theory.py) | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB |
-| [1343_number_theory.rs](1343_number_theory.rs) | Rust 1.75 x64 | number_theory | O(G·log N) | AC | 0.046 s | 216 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1343_bruteforce.cpp](1343_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(G sqrt N) | AC | 0.015 s | 112 KB | 11314926 |
+
+### Other Accepted approaches
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1343_number_theory.cpp](1343_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(G·log N) | AC | 0.015 s | 392 KB | 11285094 |
+| [1343_number_theory.go](1343_number_theory.go) | Go 1.14 x64 | number_theory | O(G·log N) | AC | 0.031 s | 1024 KB | 11285096 |
+| [1343_number_theory.rs](1343_number_theory.rs) | Rust 1.75 x64 | number_theory | O(G·log N) | AC | 0.046 s | 216 KB | 11285099 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1343_number_theory_optimized.go](1343_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(G log N) | AC | 0.015 s | 312 KB | 11314932 |
+| [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
+| [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
+| [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
