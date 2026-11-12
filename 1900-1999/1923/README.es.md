@@ -93,7 +93,15 @@ no deben saltar entre filas. El color original no puede anular propietario.
 No añadir un turno ficticio si l es impar. Las secuencias de prueba deben
 excluir ambos colores actuales.
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++, Go y Rust mantienen una cola de frontera por bando y color original. Al conquistar una celda, ofrecen sus vecinos neutrales a las colas de sus colores. Cada movimiento consume solo el color elegido, incluidas las entradas añadidas durante esa expansión. Los cursores persistentes procesan cada entrada una vez; comprobar el dueño descarta duplicados y celdas del rival. Cada celda ofrece como máximo cuatro vecinos: tiempo total O(n·m+l) y espacio O(n·m), sin recorrer todo el territorio en cada turno. Se expanden ambos países iniciales completos antes de los movimientos. Los identificadores caben en 16 bits para hasta 2500 celdas; colores y dueños, en bytes. Go usa manejadores estándar y Rust E/S acotada del C runtime con entrada C. Se conservan todas las bases; Java y Python también reutilizan sus bases ya admitidas para el conjunto rápido.
+
+Las implementaciones base aceptadas [1923_bfs.java](1923_bfs.java), [1923_bfs.py](1923_bfs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 La celda (r,c) se codifica como r·m+c desde cero. C++, Go, Java y Rust
 usan un cursor cuyo límite sigue el crecimiento de la lista. La iteración
@@ -103,10 +111,22 @@ listas o vectores dinámicos. Todos los recorridos son iterativos.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB |
-| [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB |
-| [1923_bfs.java](1923_bfs.java) | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 652 KB |
-| [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB |
-| [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB | 11291513 |
+| [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB | 11291514 |
+| [1923_bfs.java](1923_bfs.java) \* | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 652 KB | 11291519 |
+| [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB | 11291518 |
+| [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB | 11291522 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
+| [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
+| [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

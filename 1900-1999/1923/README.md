@@ -98,7 +98,15 @@ rows. A cell's original color cannot override its nonneutral owner.
 Handle odd l without inventing an extra move. Test sequences must exclude
 both current alliance colors at each turn.
 
+## Optimized solutions
+
+The new C++, Go and Rust versions keep a separate frontier queue for each side and original colour. Claiming a cell offers its neutral neighbours to their colour queues. A move consumes only the selected-colour queue, including entries appended during the same flood. Persistent heads ensure that every offered entry is considered once; an owner check discards duplicates and entries taken by the opponent. Every claimed cell offers at most four neighbours, so total work is O(n·m+l) and storage O(n·m), instead of rescanning all owned cells every turn. Both complete initial countries are flooded before processing moves. Cell identifiers fit 16 bits because there are at most 2500 cells; colours and owners fit bytes. Go uses standard handles and Rust bounded C-runtime I/O with a C entry point. All simple files remain; Java and Python also retain their already-admitted base implementations for the fast set.
+
+The accepted base implementations [1923_bfs.java](1923_bfs.java), [1923_bfs.py](1923_bfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Cell (r,c) is encoded as r·m+c with zero-based coordinates. C++, Go,
 Java and Rust use a cursor whose bound follows the growing territory.
@@ -108,10 +116,22 @@ use dynamic lists or vectors. All searches are iterative.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB |
-| [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB |
-| [1923_bfs.java](1923_bfs.java) | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 652 KB |
-| [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB |
-| [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1923_bfs.cpp](1923_bfs.cpp) | G++ 13.2 x64 | bfs | O(l*n*m) | AC | 0.015 s | 544 KB | 11291513 |
+| [1923_bfs.go](1923_bfs.go) | Go 1.14 x64 | bfs | O(l*n*m) | AC | 0.015 s | 1404 KB | 11291514 |
+| [1923_bfs.java](1923_bfs.java) \* | Java 1.8 | bfs | O(l*n*m) | AC | 0.109 s | 652 KB | 11291519 |
+| [1923_bfs.py](1923_bfs.py) | Python 3.12 x64 | bfs | O(l*n*m) | AC | 0.078 s | 1308 KB | 11291518 |
+| [1923_bfs.rs](1923_bfs.rs) | Rust 1.75 x64 | bfs | O(l*n*m) | AC | 0.062 s | 396 KB | 11291522 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1923_bfs_optimized.cpp](1923_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m + l) | AC | 0.015 s | 200 KB | 11314868 |
+| [1923_bfs_optimized.go](1923_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m + l) | AC | 0.015 s | 384 KB | 11314870 |
+| [1923_bfs_optimized.rs](1923_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(n·m + l) | AC | 0.046 s | 80 KB | 11314872 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
