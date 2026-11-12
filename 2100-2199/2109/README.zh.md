@@ -82,12 +82,34 @@ n（1 ≤ n ≤ 2 · 10⁵），n − 1 条边，然后是 q（0 ≤ q ≤ 10⁶
 
 第一个样例中路线 4 → 5 → 6 停留在顶点 2 之下，而路线 3 → 4 和 5 → 6 → 7 经过根。
 
+C++ 教学版用广度优先搜索求深度和父节点，再建立距离为 1、2、4 等的祖先表。求 LCA(i, i + 1) 时，先把较深的节点提升到相同深度。若两点重合，该点就是 LCA。否则同时用尽可能长且保持两点不同的跳跃，最后取它们的父节点。把相邻对的 LCA 按深度建立线段树。查询 [L, R] 时取起点从 L 到 R − 1 的相邻对中的最小值。如果 L = R，则答案为 L。时间 O((n + q) log(n + 1))，空间 O(n log(n + 1))。
+
+## 优化解法
+
+Go/CPython 保持原迭代 Tarjan/DSU 计算相邻编号 LCA，再以先序位置 sparse table 求最小值。子树退出时指向最近活跃祖先，查询已访问的相邻编号得到 LCA。令 a 为 [L, R] 中城市的最近公共祖先。当 L < R 时，若 a 在区间内，取含 a 的相邻对。否则必有相邻两座城市分属 a 的不同子树，这一对的 LCA 就是 a。所有相邻对的 LCA 都位于 a 的子树，因此 a 的先序编号最小。新版本把表头、边、父节点、代表、先序位置、遍历顺序和 RMQ 数据放入 32 位数组。有符号 32 位栈记录进入和退出事件。先序位置 0 表示尚未访问，存入 RMQ 时转换为从 0 开始的下标。图和 DFS 的临时数组仅在预处理阶段使用。查询和答案均分块读写。L = R 时直接返回 L，q = 0 时跳过 DFS 和 RMQ。Go 用 bits.Len 计算查询层数。Python 每次拆分 65,536 字节，保留末尾未读完的数字，每 8192 条答案输出一次。稀疏表使用无符号整数数组。边下标至多 399,998，事件的绝对值至多 200,000。时间 O(n log n + q)，空间 O(n log n)。C++、Java 和 Rust 继续使用已达标的基础版。
+
+通过评测的 Python 3.12 x64 版本耗时 2.984 秒，基础版为 2.875 秒，内存为 19 348 KB，基础版为 222288 KB。
+
+已通过评测的基础实现 [2109_trees_dp.cpp](2109_trees_dp.cpp), [2109_trees_dp.java](2109_trees_dp.java), [2109_trees_dp.rs](2109_trees_dp.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2109_trees_dp.cpp](2109_trees_dp.cpp) | G++ 13.2 x64 | trees, dp | O(n log n + q) | AC | 0.406 s | 26432 KB |
-| [2109_trees_dp.go](2109_trees_dp.go) | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.296 s | 98064 KB |
-| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.468 s | 17584 KB |
-| [2109_trees_dp.py](2109_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.875 s | 222288 KB |
-| [2109_trees_dp.rs](2109_trees_dp.rs) | Rust 1.75 x64 | trees, dp | O(n log n + q) | AC | 0.359 s | 77192 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2109_trees_dp.cpp](2109_trees_dp.cpp) | G++ 13.2 x64 | trees, dp | O(n log n + q) | AC | 0.406 s | 26432 KB | 11294864 |
+| [2109_trees_dp.go](2109_trees_dp.go) | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.296 s | 98064 KB | 11294866 |
+| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.468 s | 17584 KB | 11294871 |
+| [2109_trees_dp.py](2109_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.875 s | 222288 KB | 11294869 |
+| [2109_trees_dp.rs](2109_trees_dp.rs) \* | Rust 1.75 x64 | trees, dp | O(n log n + q) | AC | 0.359 s | 77192 KB | 11294872 |
+| [2109_trees_segment_tree.cpp](2109_trees_segment_tree.cpp) | G++ 13.2 x64 | trees, segment_tree | O((n + q) log(n + 1)) | AC | 0.953 s | 29604 KB | 11315899 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2109_trees_dp_optimized.go](2109_trees_dp_optimized.go) \* | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.25 s | 21888 KB | 11315683 |
+| [2109_trees_dp_optimized.py](2109_trees_dp_optimized.py) \* | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.984 s | 19348 KB | 11315684 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

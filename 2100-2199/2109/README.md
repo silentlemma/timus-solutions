@@ -99,12 +99,34 @@ vertices. The total time is O(n log n + q).
 In the first example the route 4 → 5 → 6 stays below vertex 2, and the
 routes 3 → 4 and 5 → 6 → 7 go through the root.
 
+The teaching C++ version finds depths and parents by breadth-first search. It builds a table of ancestors at distances 1, 2, 4, and so on. To find LCA(i, i + 1), first lift the deeper vertex to the same depth. If they meet, that vertex is the LCA. Otherwise lift both with the largest jumps that keep them distinct, then take their parent. Put each adjacent pair’s LCA in a segment tree ordered by depth. The query [L, R] takes the minimum over pairs starting at L through R − 1. If L = R, the answer is L. The time is O((n + q) log(n + 1)) and space is O(n log(n + 1)).
+
+## Optimized solutions
+
+Go and CPython retain the original iterative adjacent-city Tarjan/DSU preprocessing and sparse-table minimum of preorder positions. A visited subtree points to its nearest active ancestor on exit, so querying an already seen numeric neighbor obtains their LCA. Let a be the lowest common ancestor of the cities in [L, R]. For L < R, some adjacent pair has LCA a. If a is in the range, use a pair containing it. Otherwise the sequence of cities must cross from one child subtree of a to another. Every adjacent-pair LCA lies in the subtree of a, so a has the smallest preorder number and is the answer. The new ports store graph heads/edges, parent/representative/preorder, order and RMQ values in 32-bit arrays. A signed 32-bit event stack handles entry and exit. Preorder zero means unseen, and stored positions are converted back to zero-based for RMQ. Temporary graph/DFS arrays become unnecessary before RMQ allocation. Query tokens and answers use bounded buffers. For L = R, return L directly. With q = 0, skip DFS and RMQ construction. Go computes the table level with bits.Len. Python splits 65,536-byte chunks, carries an unfinished token forward, and flushes every 8192 answers. Its sparse table uses typed unsigned arrays. Edge indices reach at most 399,998, and event magnitudes at most 200,000. Time is O(n log n + q) and space is O(n log n). C++, Java and Rust reuse their admitted bases.
+
+The accepted Python 3.12 x64 run takes 2.984 s versus 2.875 s for the base and uses 19 348 KB versus 222288 KB.
+
+The accepted base implementations [2109_trees_dp.cpp](2109_trees_dp.cpp), [2109_trees_dp.java](2109_trees_dp.java), [2109_trees_dp.rs](2109_trees_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2109_trees_dp.cpp](2109_trees_dp.cpp) | G++ 13.2 x64 | trees, dp | O(n log n + q) | AC | 0.406 s | 26432 KB |
-| [2109_trees_dp.go](2109_trees_dp.go) | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.296 s | 98064 KB |
-| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.468 s | 17584 KB |
-| [2109_trees_dp.py](2109_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.875 s | 222288 KB |
-| [2109_trees_dp.rs](2109_trees_dp.rs) | Rust 1.75 x64 | trees, dp | O(n log n + q) | AC | 0.359 s | 77192 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2109_trees_dp.cpp](2109_trees_dp.cpp) | G++ 13.2 x64 | trees, dp | O(n log n + q) | AC | 0.406 s | 26432 KB | 11294864 |
+| [2109_trees_dp.go](2109_trees_dp.go) | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.296 s | 98064 KB | 11294866 |
+| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.468 s | 17584 KB | 11294871 |
+| [2109_trees_dp.py](2109_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.875 s | 222288 KB | 11294869 |
+| [2109_trees_dp.rs](2109_trees_dp.rs) \* | Rust 1.75 x64 | trees, dp | O(n log n + q) | AC | 0.359 s | 77192 KB | 11294872 |
+| [2109_trees_segment_tree.cpp](2109_trees_segment_tree.cpp) | G++ 13.2 x64 | trees, segment_tree | O((n + q) log(n + 1)) | AC | 0.953 s | 29604 KB | 11315899 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2109_trees_dp_optimized.go](2109_trees_dp_optimized.go) \* | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.25 s | 21888 KB | 11315683 |
+| [2109_trees_dp_optimized.py](2109_trees_dp_optimized.py) \* | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.984 s | 19348 KB | 11315684 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
