@@ -89,17 +89,39 @@ Detalles a tener en cuenta:
   iguales (prueba 04) requieren una comparación completa para cada divisor
   propio, lo que aporta el factor logarítmico en el peor caso.
 
+La versión didáctica en Python memoriza el texto plegado más corto de cada subcadena. Parte del texto literal, prueba todos los cortes y todos los bloques cuya repetición reproduce el texto, y conserva la codificación más corta contando los dígitos y paréntesis. El resultado de la entrada ya se puede imprimir. Para N caracteres, copiar, calcular hashes y comparar cadenas cuesta O(N⁴) tiempo, y guardar las cadenas requiere O(N³) espacio en el peor caso.
+
+## Soluciones optimizadas
+
+Las nuevas versiones C++ y Go mantienen la DP por intervalos y precalculan el prefijo común más largo de cada par de sufijos. Un intervalo de longitud L admite período p exactamente si p divide L y LCP[left][left+p]≥L−p: comprobación O(1). Se prueban cortes y períodos, contando los dígitos decimales y los dos paréntesis de cada repetición. Tiempo O(n³) y espacio O(n²). Para n≤100, longitudes y LCP caben en bytes; decisiones con signo codifican un corte positivo, un período negativo o cero para texto literal. La salida reconstruida tiene como máximo 100 caracteres. Se conservan las bases; Java, Python y Rust reutilizan las ya admitidas en el conjunto rápido.
+
+Las implementaciones base aceptadas [1238_dp.java](1238_dp.java), [1238_dp.py](1238_dp.py), [1238_dp.rs](1238_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes comparan las subcadenas desplazadas con una sola
   llamada de biblioteca.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1238_dp.cpp](1238_dp.cpp) | G++ 13.2 x64 | dp | O(n³ log n) | AC | 0.031 s | 460 KB |
-| [1238_dp.go](1238_dp.go) | Go 1.14 x64 | dp | O(n³ log n) | AC | 0.031 s | 1264 KB |
-| [1238_dp.java](1238_dp.java) | Java 1.8 | dp | O(n³ log n) | AC | 0.125 s | 1108 KB |
-| [1238_dp.py](1238_dp.py) | Python 3.12 x64 | dp | O(n³ log n) | AC | 0.125 s | 696 KB |
-| [1238_dp.rs](1238_dp.rs) | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1238_dp.cpp](1238_dp.cpp) | G++ 13.2 x64 | dp | O(n³ log n) | AC | 0.031 s | 460 KB | 11283813 |
+| [1238_dp.go](1238_dp.go) | Go 1.14 x64 | dp | O(n³ log n) | AC | 0.031 s | 1264 KB | 11283814 |
+| [1238_dp.java](1238_dp.java) | Java 1.8 | dp | O(n³ log n) | AC | 0.125 s | 1108 KB | 11283817 |
+| [1238_dp.py](1238_dp.py) | Python 3.12 x64 | dp | O(n³ log n) | AC | 0.125 s | 696 KB | 11283815 |
+| [1238_dp.rs](1238_dp.rs) \* | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB | 11283818 |
+| [1238_strings.py](1238_strings.py) | Python 3.12 x64 | strings | O(N⁴) | AC | 0.203 s | 1312 KB | 11315944 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1238_dp_optimized.cpp](1238_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n³) | AC | 0.015 s | 144 KB | 11314905 |
+| [1238_dp_optimized.go](1238_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n³) | AC | 0.031 s | 320 KB | 11314912 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

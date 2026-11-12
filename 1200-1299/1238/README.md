@@ -86,16 +86,38 @@ Pitfalls:
   require full comparisons for every proper divisor, giving the logarithmic
   factor in the worst-case time bound.
 
+The teaching Python version memoizes the shortest folded string itself for each substring. Start with the literal text, then try each split and each unit whose repetitions rebuild the text. Keep the shortest encoded candidate, including the count and parentheses for a repetition. The memoized result for the input is already printable. With N input characters, copying, hashing and comparing strings give O(N⁴) time and the stored strings take O(N³) space in the worst case.
+
+## Optimized solutions
+
+The new C++ and Go versions keep interval DP but precompute the longest common prefix of each pair of suffixes. An interval of length L has period p precisely when p divides L and LCP[left][left+p]≥L−p, giving constant-time repetition checks. Try all splits and all possible periods; include the decimal digit count and two brackets in a repetition’s cost. Time is O(n³) and tables use O(n²) space. With n≤100, lengths and LCP values fit bytes; signed-byte decisions distinguish a positive split, a negative period and zero for literal text. Reconstruction produces at most 100 characters. The simple versions remain, and Java, Python and Rust reuse their admitted base implementations in the fast set.
+
+The accepted base implementations [1238_dp.java](1238_dp.java), [1238_dp.py](1238_dp.py), [1238_dp.rs](1238_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages compare the shifted substrings with one library call.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1238_dp.cpp](1238_dp.cpp) | G++ 13.2 x64 | dp | O(n³ log n) | AC | 0.031 s | 460 KB |
-| [1238_dp.go](1238_dp.go) | Go 1.14 x64 | dp | O(n³ log n) | AC | 0.031 s | 1264 KB |
-| [1238_dp.java](1238_dp.java) | Java 1.8 | dp | O(n³ log n) | AC | 0.125 s | 1108 KB |
-| [1238_dp.py](1238_dp.py) | Python 3.12 x64 | dp | O(n³ log n) | AC | 0.125 s | 696 KB |
-| [1238_dp.rs](1238_dp.rs) | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1238_dp.cpp](1238_dp.cpp) | G++ 13.2 x64 | dp | O(n³ log n) | AC | 0.031 s | 460 KB | 11283813 |
+| [1238_dp.go](1238_dp.go) | Go 1.14 x64 | dp | O(n³ log n) | AC | 0.031 s | 1264 KB | 11283814 |
+| [1238_dp.java](1238_dp.java) | Java 1.8 | dp | O(n³ log n) | AC | 0.125 s | 1108 KB | 11283817 |
+| [1238_dp.py](1238_dp.py) | Python 3.12 x64 | dp | O(n³ log n) | AC | 0.125 s | 696 KB | 11283815 |
+| [1238_dp.rs](1238_dp.rs) \* | Rust 1.75 x64 | dp | O(n³ log n) | AC | 0.046 s | 316 KB | 11283818 |
+| [1238_strings.py](1238_strings.py) | Python 3.12 x64 | strings | O(N⁴) | AC | 0.203 s | 1312 KB | 11315944 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1238_dp_optimized.cpp](1238_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n³) | AC | 0.015 s | 144 KB | 11314905 |
+| [1238_dp_optimized.go](1238_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n³) | AC | 0.031 s | 320 KB | 11314912 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
