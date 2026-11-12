@@ -94,12 +94,29 @@ Detalles a tener en cuenta:
 Un verificador acepta cualquier plan válido; los planes del programa lo
 pasan en las 1866 entradas factibles con n ≤ 12.
 
+## Soluciones optimizadas
+
+C++ y Java conservan la asignación equilibrada i mod k. Con tamaños sᵢ, hay (n²−Σsᵢ²)/2 parejas de salas distintas. Si dos salas difieren en al menos dos alumnos, trasladar uno de la mayor a la menor reduce Σsᵢ². Así se admite cualquier m factible. Primero se emiten parejas disjuntas de índices vecinos; con n impar, el último se une a cero o uno de habitación distinta. ceil(n/2) semillas cubren todos y son cota mínima de días. Después se recorren parejas cruzadas no ordenadas, saltando semillas por sus índices hasta m. Sin conjunto/matriz usada, arreglo de habitaciones ni lista completa. Un búfer de 8192 bytes sustituye el StringBuilder y Java evita Scanner. Peor O(n²), espacio extra O(1). Se conservan bases; Go/Python/Rust reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1641_constructive.go](1641_constructive.go), [1641_constructive.py](1641_constructive.py), [1641_constructive.rs](1641_constructive.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1641_constructive.cpp](1641_constructive.cpp) | G++ 13.2 x64 | constructive | O(n² log n) | AC | 0.031 s | 300 KB |
-| [1641_constructive.go](1641_constructive.go) | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 1576 KB |
-| [1641_constructive.java](1641_constructive.java) | Java 1.8 | constructive | O(n²) | AC | 0.125 s | 2048 KB |
-| [1641_constructive.py](1641_constructive.py) | Python 3.12 x64 | constructive | O(n²) | AC | 0.078 s | 1312 KB |
-| [1641_constructive.rs](1641_constructive.rs) | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 644 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1641_constructive.cpp](1641_constructive.cpp) | G++ 13.2 x64 | constructive | O(n² log n) | AC | 0.031 s | 300 KB | 11288471 |
+| [1641_constructive.go](1641_constructive.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 1576 KB | 11288472 |
+| [1641_constructive.java](1641_constructive.java) | Java 1.8 | constructive | O(n²) | AC | 0.125 s | 2048 KB | 11288474 |
+| [1641_constructive.py](1641_constructive.py) \* | Python 3.12 x64 | constructive | O(n²) | AC | 0.078 s | 1312 KB | 11288473 |
+| [1641_constructive.rs](1641_constructive.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 644 KB | 11288475 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1641_constructive_optimized.cpp](1641_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315496 |
+| [1641_constructive_optimized.java](1641_constructive_optimized.java) \* | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

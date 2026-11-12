@@ -81,12 +81,29 @@ n 行，给出每名学生负责的教室；然后 m 行，给出每天值日的
 
 检查器接受任何合法计划；在 n ≤ 12 的全部 1866 个可行输入上，程序的计划都能通过。
 
+## 优化解法
+
+C++、Java 保持 i mod k 的均衡房间分配。各房间人数为 sᵢ 时，跨房间对数为 (n²−Σsᵢ²)/2。若两房间相差至少两人，从大房间向小房间移动一人会减少 Σsᵢ²。因此均衡分配足够任何可行 m。先输出不相交的相邻编号对；奇 n 时最后学生与零或一号中异房间者配对。ceil(n/2) 初始对覆盖全部学生，也是必要天数下界。再枚举无序跨房间对，以索引公式跳过初始对，直至 m 天。不存已用集合/矩阵、房间数组或全部天数。8192 字节输出替代 Java 增长 builder，Java 也不用 Scanner。最坏 O(n²)、额外空间 O(1)。保留简单版；Go、Python、Rust 复用达标基础版。
+
+已通过评测的基础实现 [1641_constructive.go](1641_constructive.go), [1641_constructive.py](1641_constructive.py), [1641_constructive.rs](1641_constructive.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1641_constructive.cpp](1641_constructive.cpp) | G++ 13.2 x64 | constructive | O(n² log n) | AC | 0.031 s | 300 KB |
-| [1641_constructive.go](1641_constructive.go) | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 1576 KB |
-| [1641_constructive.java](1641_constructive.java) | Java 1.8 | constructive | O(n²) | AC | 0.125 s | 2048 KB |
-| [1641_constructive.py](1641_constructive.py) | Python 3.12 x64 | constructive | O(n²) | AC | 0.078 s | 1312 KB |
-| [1641_constructive.rs](1641_constructive.rs) | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 644 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1641_constructive.cpp](1641_constructive.cpp) | G++ 13.2 x64 | constructive | O(n² log n) | AC | 0.031 s | 300 KB | 11288471 |
+| [1641_constructive.go](1641_constructive.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 1576 KB | 11288472 |
+| [1641_constructive.java](1641_constructive.java) | Java 1.8 | constructive | O(n²) | AC | 0.125 s | 2048 KB | 11288474 |
+| [1641_constructive.py](1641_constructive.py) \* | Python 3.12 x64 | constructive | O(n²) | AC | 0.078 s | 1312 KB | 11288473 |
+| [1641_constructive.rs](1641_constructive.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 644 KB | 11288475 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1641_constructive_optimized.cpp](1641_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315496 |
+| [1641_constructive_optimized.java](1641_constructive_optimized.java) \* | Java 1.8 | constructive | O(n²) | AC | 0.109 s | 388 KB | 11315497 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
