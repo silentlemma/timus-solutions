@@ -82,17 +82,39 @@ Pitfalls:
 The answers were compared with a search over all ways to make calls,
 minute by minute, on 400 random trees of up to 8 employees.
 
+## Optimized solutions
+
+The new C++, Go and Rust sources retain decreasing-child-time scheduling. Store the input tree with one original-boss index, first-child index and next-sibling index per employee. Together they enumerate every undirected neighbour without per-vertex containers or duplicate edge objects. Root at the informer using a flat breadth-first order and parent array; the original boss is an ordinary neighbour and the original director may differ. Process that order backwards, collecting child finish times into one reused scratch prefix, sorting descending and taking max(time[i]+i+1). Leaves take zero. All identifiers and times fit 32 bits: a sequential schedule always finishes within N−1 minutes. Time remains O(N log N), packed tree storage O(N), with no recursive traversal. C++ and Go stream input; Rust retains its input string, so its complete storage is O(N+input bytes). All simple files remain; Java and Python reuse admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 3 948 KB versus 15320 KB.
+
+The accepted base implementations [1362_dp.java](1362_dp.java), [1362_dp.py](1362_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Java keeps the tree in flat arrays and reads the input byte by byte;
   Go reads it byte by byte too.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1362_dp.cpp](1362_dp.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.171 s | 8896 KB |
-| [1362_dp.go](1362_dp.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.093 s | 17784 KB |
-| [1362_dp.java](1362_dp.java) | Java 1.8 | dp | O(N log N) | AC | 0.093 s | 6848 KB |
-| [1362_dp.py](1362_dp.py) | Python 3.12 x64 | dp | O(N log N) | AC | 0.468 s | 33988 KB |
-| [1362_dp.rs](1362_dp.rs) | Rust 1.75 x64 | dp | O(N log N) | AC | 0.031 s | 15320 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1362_dp.cpp](1362_dp.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.171 s | 8896 KB | 11285481 |
+| [1362_dp.go](1362_dp.go) | Go 1.14 x64 | dp | O(N log N) | AC | 0.093 s | 17784 KB | 11285489 |
+| [1362_dp.java](1362_dp.java) | Java 1.8 | dp | O(N log N) | AC | 0.093 s | 6848 KB | 11285508 |
+| [1362_dp.py](1362_dp.py) \* | Python 3.12 x64 | dp | O(N log N) | AC | 0.468 s | 33988 KB | 11285503 |
+| [1362_dp.rs](1362_dp.rs) | Rust 1.75 x64 | dp | O(N log N) | AC | 0.031 s | 15320 KB | 11285514 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1362_dp_optimized.cpp](1362_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N log N) | AC | 0.015 s | 2824 KB | 11315122 |
+| [1362_dp_optimized.go](1362_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N log N) | AC | 0.015 s | 4256 KB | 11315125 |
+| [1362_dp_optimized.rs](1362_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N log N) | AC | 0.046 s | 3948 KB | 11315130 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
