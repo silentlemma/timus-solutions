@@ -94,7 +94,17 @@ Test 01 checks only the format, but command tokens must still be exactly
 The example only shows the format: in its first game the claim (2, 1)
 is wrong, in the second it is right.
 
+## Optimized solutions
+
+C++, Go and Rust replace the bubble comparisons with Batcher’s [odd-even merge sorting network](https://doi.org/10.1145/1468075.1468121). Pad to the next power of two with virtual black balls, then omit comparisons whose right endpoint is virtual. Every comparator points from a smaller index to a larger one, so a virtual black ball can never change: comparing any real value with a right-hand black padding value is a no-op. The real prefix therefore sorts exactly as in the full network. Odd and even subsequences are merged recursively, followed by the intervening adjacent comparisons; each game uses O(n log² n) commands rather than O(n²). The original FNV seed over all raw input bytes and one splitmix64 claim per game are preserved. Both networks finish with the same sorted row and the same claim, so the result on each fixed input is unchanged. This does not turn input-derived seeding into independent randomness. Go hashes input in bounded chunks and formats commands into a fixed output buffer without allocating strings per command; C++ and Rust still accumulate the smaller command text. Ordinary bubble files remain; Java and Python reuse admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 1 124 KB versus 3212 KB.
+
+The accepted base implementations [2063_constructive.java](2063_constructive.java), [2063_constructive.py](2063_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 The hash and the generator use unsigned 64-bit arithmetic: wrapping
 multiplications in Rust, unsigned remainder in Java. Go streams the output
@@ -102,10 +112,22 @@ through a buffered writer; the other programs accumulate it before writing.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB |
-| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB |
-| [2063_constructive.java](2063_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB |
-| [2063_constructive.py](2063_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB |
-| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB | 11294258 |
+| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB | 11294278 |
+| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB | 11294310 |
+| [2063_constructive.py](2063_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB | 11294295 |
+| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB | 11294312 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
+| [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

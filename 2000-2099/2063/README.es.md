@@ -97,7 +97,17 @@ exactamente `?` o `!`; se debe rechazar el comando inválido `?!`.
 El ejemplo solo muestra el formato: en la primera partida la afirmación
 (2, 1) es errónea y en la segunda es correcta.
 
+## Soluciones optimizadas
+
+C++, Go y Rust sustituyen burbuja por la [red odd-even merge de Batcher](https://doi.org/10.1145/1468075.1468121). Se completa a la siguiente potencia de dos con bolas negras virtuales y se omiten comparaciones cuyo extremo derecho sea virtual. Cada comparador va del índice menor al mayor: ningún valor real cambia el relleno negro de su derecha. La parte real queda ordenada como en la red completa. Se fusionan recursivamente subsecuencias pares e impares y luego se comparan pares intermedios adyacentes: O(n log² n) comandos por juego. Se mantienen la semilla FNV de todos los bytes originales y una elección splitmix64 por juego. El orden final y la pareja declarada coinciden con la base, conservando el resultado de cada entrada fija; el hash no implica aleatoriedad independiente. Go calcula el hash por bloques y formatea comandos en un búfer fijo sin asignar cadenas por comando; C++ y Rust acumulan el texto reducido. Se conservan las burbujas; Java y Python reutilizan bases admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.031 s de la base y usa 1 124 KB frente a 3212 KB.
+
+Las implementaciones base aceptadas [2063_constructive.java](2063_constructive.java), [2063_constructive.py](2063_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 El hash y el generador usan aritmética de 64 bits sin signo:
 multiplicaciones con desbordamiento en Rust y resto sin signo en Java.
@@ -106,10 +116,22 @@ programas la acumulan antes de escribirla.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB |
-| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB |
-| [2063_constructive.java](2063_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB |
-| [2063_constructive.py](2063_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB |
-| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB | 11294258 |
+| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB | 11294278 |
+| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB | 11294310 |
+| [2063_constructive.py](2063_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB | 11294295 |
+| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB | 11294312 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
+| [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -60,16 +60,38 @@ m 局游戏的描述：每局若干行 `? v u`，最后一行 `! v u`，其中 1
 
 样例只展示格式：第一局的断言 (2, 1) 错误，第二局正确。
 
+## 优化解法
+
+C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1468075.1468121) 代替冒泡比较。补虚拟黑球到下一个二次幂，省略右端在虚拟区的比较。所有比较均从较小下标指向较大下标，任何实值与右侧黑色填充比较都不改变填充，因此真实前缀与完整网络一样排序。递归归并奇数、偶数子序列，再比较交错的相邻对，每局 O(n log² n) 条命令而非 O(n²)。保留基于全部原始输入字节的 FNV 种子与每局一次 splitmix64 声明选择。两种网络得到相同排序结果与声明，故固定输入上的胜负完全不变；输入哈希仍不意味着独立随机性。Go 分块哈希输入，以固定输出缓冲格式化命令，不逐命令分配字符串；C++、Rust 仍累积更小的命令文本。保留冒泡基础版，Java、Python 复用合格基础版。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 1 124 KB，基础版为 3212 KB。
+
+已通过评测的基础实现 [2063_constructive.java](2063_constructive.java), [2063_constructive.py](2063_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 哈希和生成器使用无符号 64 位运算：Rust 用回绕乘法，Java 用无符号取余。Go 通过带缓冲的写入器逐步输出；其他程序先收集全部输出再写出。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB |
-| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB |
-| [2063_constructive.java](2063_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB |
-| [2063_constructive.py](2063_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB |
-| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB | 11294258 |
+| [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB | 11294278 |
+| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB | 11294310 |
+| [2063_constructive.py](2063_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB | 11294295 |
+| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB | 11294312 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
+| [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
