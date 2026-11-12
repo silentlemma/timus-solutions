@@ -88,12 +88,34 @@ Pitfalls:
 - a one-way link between two parts, or a vertex with no edge out or no
   edge in, gives zeros (tests 04, 08, gen3).
 
+## Optimized solutions
+
+The graph version tests strong connectivity by reaching every vertex from vertex 0 in both the graph and its transpose. This is sufficient for the original matrix formula: for any vertices u and v, choose a simple path of length p ≤ n−1 and a directed cycle through u of length c ≤ n. Put L = n(n−1). Repeating that cycle before the path gives a walk of length p + k·c; choose the smallest nonnegative k making it at least L. Its length is less than L + c and therefore lies inside [n(n−1), n(n+1)]. Conversely, a positive entry for each pair implies reachability and hence strong connectivity. Scanning the matrix takes O(n²) time. The two searches use O(n) machine words of graph storage because n ≤ 50, so each row fits one bitmask.
+
+## Language notes
+
+The matrix-power base files are preserved in all five languages. The graph versions store rows as bitmasks. Python reads all input tokens at once, so its input buffering takes O(n²) space despite the O(n) graph representation. Go uses standard handles; Rust uses bounded C-runtime I/O and a C entry point to avoid standard-library startup. The exact Go and Rust sources also passed Windows-target compilation before submission.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1507_math.cpp](1507_math.cpp) | G++ 13.2 x64 | math | O(n^3) | AC | 0.015 s | 188 KB |
-| [1507_math.go](1507_math.go) | Go 1.14 x64 | math | O(n^3) | AC | 0.031 s | 1184 KB |
-| [1507_math.java](1507_math.java) | Java 1.8 | math | O(n^3) | AC | 0.171 s | 524 KB |
-| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.140 s | 740 KB |
-| [1507_math.rs](1507_math.rs) | Rust 1.75 x64 | math | O(n^3) | AC | 0.046 s | 256 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1507_math.cpp](1507_math.cpp) | G++ 13.2 x64 | math | O(n^3) | AC | 0.015 s | 188 KB | 11287289 |
+| [1507_math.go](1507_math.go) | Go 1.14 x64 | math | O(n^3) | AC | 0.031 s | 1184 KB | 11287290 |
+| [1507_math.java](1507_math.java) | Java 1.8 | math | O(n^3) | AC | 0.171 s | 524 KB | 11287292 |
+| [1507_math.py](1507_math.py) | Python 3.12 x64 | math | O(n^3) | AC | 0.140 s | 740 KB | 11287291 |
+| [1507_math.rs](1507_math.rs) | Rust 1.75 x64 | math | O(n^3) | AC | 0.046 s | 256 KB | 11287293 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1507_graphs.cpp](1507_graphs.cpp) | G++ 13.2 x64 | graphs | O(n²) | AC | 0.015 s | 108 KB | 11314642 |
+| [1507_graphs.go](1507_graphs.go) \* | Go 1.14 x64 | graphs | O(n²) | AC | 0.015 s | 288 KB | 11314641 |
+| [1507_graphs.java](1507_graphs.java) | Java 1.8 | graphs | O(n²) | AC | 0.093 s | 392 KB | 11314637 |
+| [1507_graphs.py](1507_graphs.py) \* | Python 3.12 x64 | graphs | O(n²) | AC | 0.093 s | 584 KB | 11314647 |
+| [1507_graphs.rs](1507_graphs.rs) \* | Rust 1.75 x64 | graphs | O(n²) | AC | 0.046 s | 48 KB | 11314650 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
