@@ -79,16 +79,37 @@ OK, fine.
 - 数字不是字母，所以 `3Rd` 中的单词是以大写字母开头的 `Rd`，没有错误；
 - 整个输入都是文本：要读到结尾，包括换行符。
 
+## 优化解法
+
+Go/Python 保留两标志扫描，改读有界4096字节块，标志跨块保留，词或句首跨块仍精确。Go 直接判断 ASCII 范围；Python 用256字节分类表 translate 后扫描小整数类别，表表示 ASCII 而非题目答案。数字空白结束单词，只有 .?! 开新句。时间 O(L)，额外存储固定。收录仍由真实判题指标决定，尤其 Python 启动可能占主导。保留简单文件；C++、Java、Rust 复用符合标准的基础版。
+
+通过评测的 Python 3.12 x64 版本耗时 0.078 秒，基础版为 0.109 秒，内存为 496 KB，基础版为 364 KB。
+
+已通过评测的基础实现 [1038_implementation.cpp](1038_implementation.cpp), [1038_implementation.java](1038_implementation.java), [1038_implementation.rs](1038_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 各语言都整体读入输入（逐字节或作为一个字符串），并执行同样的双标志扫描。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1038_implementation.cpp](1038_implementation.cpp) | G++ 13.2 x64 | implementation | O(L) | AC | 0.015 s | 108 KB |
-| [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB |
-| [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB |
-| [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB |
-| [1038_implementation.rs](1038_implementation.rs) | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1038_implementation.cpp](1038_implementation.cpp) | G++ 13.2 x64 | implementation | O(L) | AC | 0.015 s | 108 KB | 11278488 |
+| [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB | 11278490 |
+| [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB | 11278493 |
+| [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB | 11278492 |
+| [1038_implementation.rs](1038_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1038_implementation_optimized.go](1038_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
+| [1038_implementation_optimized.py](1038_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -88,17 +88,38 @@ Pitfalls:
   capital — no error;
 - the whole input is the text: read it to the end, line breaks included.
 
+## Optimized solutions
+
+Go/Python preserve the two-flag scan but read bounded 4096-byte chunks instead of retaining the text. Flags persist between chunks, so a split word or pending sentence is handled exactly. Go classifies ASCII letters directly. Python translates each chunk through a 256-byte alphabet-class table and scans the resulting small integer classes; the table describes ASCII, not problem answers. Digits and whitespace end words but only .?! start a new sentence. Time O(L), fixed auxiliary storage; actual judge metrics decide admission, especially for Python where startup can dominate. All simple files remain; C++, Java and Rust reuse their admitted bases.
+
+The accepted Python 3.12 x64 run takes 0.078 s versus 0.109 s for the base and uses 496 KB versus 364 KB.
+
+The accepted base implementations [1038_implementation.cpp](1038_implementation.cpp), [1038_implementation.java](1038_implementation.java), [1038_implementation.rs](1038_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages read the whole input byte by byte (or as one string) and
   run the same two-flag scan.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1038_implementation.cpp](1038_implementation.cpp) | G++ 13.2 x64 | implementation | O(L) | AC | 0.015 s | 108 KB |
-| [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB |
-| [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB |
-| [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB |
-| [1038_implementation.rs](1038_implementation.rs) | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1038_implementation.cpp](1038_implementation.cpp) | G++ 13.2 x64 | implementation | O(L) | AC | 0.015 s | 108 KB | 11278488 |
+| [1038_implementation.go](1038_implementation.go) | Go 1.14 x64 | implementation | O(L) | AC | 0.031 s | 1052 KB | 11278490 |
+| [1038_implementation.java](1038_implementation.java) | Java 1.8 | implementation | O(L) | AC | 0.109 s | 392 KB | 11278493 |
+| [1038_implementation.py](1038_implementation.py) | Python 3.12 x64 | implementation | O(L) | AC | 0.109 s | 364 KB | 11278492 |
+| [1038_implementation.rs](1038_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L) | AC | 0.031 s | 252 KB | 11278496 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1038_implementation_optimized.go](1038_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L) | AC | 0.015 s | 292 KB | 11315352 |
+| [1038_implementation_optimized.py](1038_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(L) | AC | 0.078 s | 496 KB | 11315358 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
