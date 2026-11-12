@@ -75,7 +75,17 @@ the fixed ring never requires an O(m) shift. Do not scan the entire
 alphabet to compare each window. When m>n there are no windows (test 03),
 so the upper bound must be clamped to zero.
 
+## Optimized solutions
+
+The new Go, Python and Rust sources keep the exact base-90 triplet encoding and missing-occurrence invariant. Since both pattern and current-window frequencies lie in 0..m and m≤8000, every deficit fits signed 16 bits, halving the 729000-entry table to 1458000 bytes. The ring stores exact triplet codes in 32 bits. Go and Rust stream triplets through bounded buffers, with O(U+m) total storage. Python retains the text bytes but parses triplets directly, avoiding a list of up to 500000 bytes objects; its total space remains O(U+m+n), with much smaller constants. Removal tests ≥0 and insertion >0 before updating the deficit. The first newline still separates the pattern from the text, including CRLF input. All simple sources remain; C++ and Java reuse admitted bases in the fast set.
+
+The accepted Python 3.12 x64 run takes 0.89 s versus 0.734 s for the base and uses 8 604 KB versus 33664 KB.
+
+The accepted base implementations [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Signed deficits are necessary because a letter may occur in excess.
 Python uses a packed signed-int array instead of 729000 boxed integers.
@@ -85,10 +95,22 @@ once and iterates slices. No probabilistic fingerprint or map is needed.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB |
-| [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB |
-| [1941_two_pointers.java](1941_two_pointers.java) | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB |
-| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB |
-| [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB | 11291874 |
+| [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB | 11291875 |
+| [1941_two_pointers.java](1941_two_pointers.java) \* | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB | 11291879 |
+| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB | 11291878 |
+| [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB | 11291881 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1941_two_pointers_optimized.go](1941_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 1864 KB | 11315003 |
+| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.89 s | 8604 KB | 11314998 |
+| [1941_two_pointers_optimized.rs](1941_two_pointers_optimized.rs) \* | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.015 s | 1364 KB | 11315010 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

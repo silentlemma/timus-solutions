@@ -72,7 +72,17 @@ no desplazar el anillo completo ni recorrer todo el alfabeto en cada paso.
 Si m>n no hay ventanas (prueba 03), por lo que la cota superior debe
 tomar el máximo con cero.
 
+## Soluciones optimizadas
+
+Go, Python y Rust mantienen la codificación exacta base 90 y el invariante de ocurrencias faltantes. Las frecuencias del patrón y ventana están en 0..m, m≤8000: cada déficit cabe en 16 bits con signo y la tabla de 729000 posiciones baja a 1458000 bytes. El anillo usa códigos exactos de 32 bits. Go y Rust leen con búferes acotados: espacio total O(U+m). Python retiene los bytes del texto, pero analiza tripletes sin crear hasta 500000 objetos bytes: espacio O(U+m+n) con constantes menores. Antes de actualizar, quitar comprueba ≥0 y añadir >0. El primer salto sigue separando patrón y texto, también con CRLF. Se conservan las bases; C++ y Java reutilizan las admitidas en el conjunto rápido.
+
+El envío aceptado en Python 3.12 x64 tarda 0.89 s frente a 0.734 s de la base y usa 8 604 KB frente a 33664 KB.
+
+Las implementaciones base aceptadas [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Los déficits necesitan signo para representar exceso. Python usa un
 array compacto signed int; Go usa int32 y campos de bytes; Java analiza
@@ -81,10 +91,22 @@ una vez e itera sus segmentos. No hay huellas probabilísticas ni mapas.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB |
-| [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB |
-| [1941_two_pointers.java](1941_two_pointers.java) | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB |
-| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB |
-| [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB | 11291874 |
+| [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB | 11291875 |
+| [1941_two_pointers.java](1941_two_pointers.java) \* | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB | 11291879 |
+| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB | 11291878 |
+| [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB | 11291881 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1941_two_pointers_optimized.go](1941_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 1864 KB | 11315003 |
+| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.89 s | 8604 KB | 11314998 |
+| [1941_two_pointers_optimized.rs](1941_two_pointers_optimized.rs) \* | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.015 s | 1364 KB | 11315010 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
