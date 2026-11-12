@@ -90,12 +90,29 @@ Pitfalls:
 The answers match an independent accepted implementation on 180 random
 maps.
 
+## Optimized solutions
+
+The new C++ and Go versions store the grid and three distance arrays flat, with 16-bit cell identifiers and distances. At most 10000 cells give shortest distances below 10000; 65535 is the unreachable sentinel. On first discovering a teleport letter at day d, assign d and enqueue every cell of that letter immediately. This implicitly contracts its zero-cost component before ordinary BFS proceeds, so all remaining edges cost one day. Each cell is discovered once, bounding the queue by n·m entries. A linked array stores each letter’s membership without per-cell heap objects. Two searches forbid the fortress; the third starts there with it open. Minimise max(d₁,d₂)+d₃ over reachable non-fortress meeting cells: the earlier army waits, and reversibility makes the third distance the onward route. Time and storage are O(n·m). All ordinary sources remain; Java, Python and Rust reuse their admitted bases in the fast set.
+
+The accepted base implementations [1643_bfs.java](1643_bfs.java), [1643_bfs.py](1643_bfs.py), [1643_bfs.rs](1643_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1643_bfs.cpp](1643_bfs.cpp) | G++ 13.2 x64 | bfs | O(n · m) | AC | 0.015 s | 1088 KB |
-| [1643_bfs.go](1643_bfs.go) | Go 1.14 x64 | bfs | O(n · m) | AC | 0.031 s | 4792 KB |
-| [1643_bfs.java](1643_bfs.java) | Java 1.8 | bfs | O(n · m) | AC | 0.109 s | 2224 KB |
-| [1643_bfs.py](1643_bfs.py) | Python 3.12 x64 | bfs | O(n · m) | AC | 0.125 s | 2176 KB |
-| [1643_bfs.rs](1643_bfs.rs) | Rust 1.75 x64 | bfs | O(n · m) | AC | 0.031 s | 1140 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1643_bfs.cpp](1643_bfs.cpp) | G++ 13.2 x64 | bfs | O(n · m) | AC | 0.015 s | 1088 KB | 11288481 |
+| [1643_bfs.go](1643_bfs.go) | Go 1.14 x64 | bfs | O(n · m) | AC | 0.031 s | 4792 KB | 11288482 |
+| [1643_bfs.java](1643_bfs.java) | Java 1.8 | bfs | O(n · m) | AC | 0.109 s | 2224 KB | 11288484 |
+| [1643_bfs.py](1643_bfs.py) | Python 3.12 x64 | bfs | O(n · m) | AC | 0.125 s | 2176 KB | 11288483 |
+| [1643_bfs.rs](1643_bfs.rs) | Rust 1.75 x64 | bfs | O(n · m) | AC | 0.031 s | 1140 KB | 11288485 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1643_bfs_optimized.cpp](1643_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m) | AC | 0.015 s | 220 KB | 11314974 |
+| [1643_bfs_optimized.go](1643_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m) | AC | 0.015 s | 388 KB | 11314986 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

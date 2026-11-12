@@ -92,12 +92,29 @@ Detalles a tener en cuenta:
 Las respuestas coinciden con una implementación aceptada independiente
 en 180 mapas aleatorios.
 
+## Soluciones optimizadas
+
+C++ y Go guardan cuadrícula y tres distancias en arreglos planos de 16 bits. Hasta 10000 celdas implican distancias menores que 10000; 65535 señala inalcanzable. Al descubrir una letra el día d, asignan d y encolan inmediatamente todas sus celdas. Así contraen su componente gratuito antes de continuar BFS; las aristas restantes cuestan un día. Cada celda se descubre una vez y bastan n·m entradas de cola. Un arreglo enlazado guarda los grupos sin objetos por celda. Dos búsquedas cierran la fortaleza; la tercera parte de ella abierta. Se minimiza max(d₁,d₂)+d₃ en encuentros alcanzables fuera de la fortaleza: la primera tropa espera y la reversibilidad da la ruta posterior. Tiempo y espacio O(n·m). Se conservan todas las bases; Java, Python y Rust reutilizan las admitidas para la cobertura rápida.
+
+Las implementaciones base aceptadas [1643_bfs.java](1643_bfs.java), [1643_bfs.py](1643_bfs.py), [1643_bfs.rs](1643_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1643_bfs.cpp](1643_bfs.cpp) | G++ 13.2 x64 | bfs | O(n · m) | AC | 0.015 s | 1088 KB |
-| [1643_bfs.go](1643_bfs.go) | Go 1.14 x64 | bfs | O(n · m) | AC | 0.031 s | 4792 KB |
-| [1643_bfs.java](1643_bfs.java) | Java 1.8 | bfs | O(n · m) | AC | 0.109 s | 2224 KB |
-| [1643_bfs.py](1643_bfs.py) | Python 3.12 x64 | bfs | O(n · m) | AC | 0.125 s | 2176 KB |
-| [1643_bfs.rs](1643_bfs.rs) | Rust 1.75 x64 | bfs | O(n · m) | AC | 0.031 s | 1140 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1643_bfs.cpp](1643_bfs.cpp) | G++ 13.2 x64 | bfs | O(n · m) | AC | 0.015 s | 1088 KB | 11288481 |
+| [1643_bfs.go](1643_bfs.go) | Go 1.14 x64 | bfs | O(n · m) | AC | 0.031 s | 4792 KB | 11288482 |
+| [1643_bfs.java](1643_bfs.java) | Java 1.8 | bfs | O(n · m) | AC | 0.109 s | 2224 KB | 11288484 |
+| [1643_bfs.py](1643_bfs.py) | Python 3.12 x64 | bfs | O(n · m) | AC | 0.125 s | 2176 KB | 11288483 |
+| [1643_bfs.rs](1643_bfs.rs) | Rust 1.75 x64 | bfs | O(n · m) | AC | 0.031 s | 1140 KB | 11288485 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1643_bfs_optimized.cpp](1643_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(n·m) | AC | 0.015 s | 220 KB | 11314974 |
+| [1643_bfs_optimized.go](1643_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(n·m) | AC | 0.015 s | 388 KB | 11314986 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
