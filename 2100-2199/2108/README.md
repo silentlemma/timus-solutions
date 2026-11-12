@@ -60,7 +60,19 @@ The total work is O(n · m · n / 64), about 6 · 10⁷ word operations.
 In the example the owned figures 2 and 4 enable the third wish, which
 adds 1; then the second wish adds 3, and the result is 111100.
 
+## Optimized solutions
+
+The new C++, Go and Rust versions transpose prerequisite sets into packed bitsets of rules per figure and keep a missing-prerequisite count per rule. Queue each newly acquired figure exactly once. Processing it decrements the rules containing it; a count reaching zero fires that rule once and queues its previously unowned consequences. Empty prerequisites fire after reading all input. This computes the least closure: only enabled rules add figures, and at termination every enabled rule has fired. No rule or figure is repeatedly rescanned in closure rounds. Including input, time is O(nm+n+m); packed storage is O(n⌈m/64⌉+m⌈n/64⌉+n+m). At the limits the two matrices hold 1016000 bytes, not millions of individual dependency edges. Go/C++ allocate bounded maximum arrays; Rust sizes vectors to input dimensions and uses bounded C-runtime I/O instead of retaining input text. All simple files remain; Java/Python reuse admitted bases.
+
+The accepted G++ 13.2 x64 run takes 0.093 s versus 0.046 s for the base and uses 1 080 KB versus 1808 KB.
+
+The accepted Go 1.14 x64 run takes 0.125 s versus 0.062 s for the base and uses 1 284 KB versus 18712 KB.
+
+The accepted base implementations [2108_bitmask.java](2108_bitmask.java), [2108_bitmask.py](2108_bitmask.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 The Python solution transposes the problem, because the passes are too
 slow there when a chain of wishes is listed in reverse order. For every
@@ -87,10 +99,22 @@ O(n^2 m / 64) bound therefore does not describe the Python solution.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2108_bitmask.cpp](2108_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(n^2 m / 64) | AC | 0.046 s | 1808 KB |
-| [2108_bitmask.go](2108_bitmask.go) | Go 1.14 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 18712 KB |
-| [2108_bitmask.java](2108_bitmask.java) | Java 1.8 | bitmask | O(n^2 m / 64) | AC | 0.234 s | 1792 KB |
-| [2108_bitmask.py](2108_bitmask.py) | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.171 s | 17336 KB |
-| [2108_bitmask.rs](2108_bitmask.rs) | Rust 1.75 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 9312 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2108_bitmask.cpp](2108_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(n^2 m / 64) | AC | 0.046 s | 1808 KB | 11294887 |
+| [2108_bitmask.go](2108_bitmask.go) | Go 1.14 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 18712 KB | 11294892 |
+| [2108_bitmask.java](2108_bitmask.java) | Java 1.8 | bitmask | O(n^2 m / 64) | AC | 0.234 s | 1792 KB | 11294899 |
+| [2108_bitmask.py](2108_bitmask.py) \* | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.171 s | 17336 KB | 11294894 |
+| [2108_bitmask.rs](2108_bitmask.rs) | Rust 1.75 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 9312 KB | 11294901 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2108_graphs_bitmask.cpp](2108_graphs_bitmask.cpp) \* | G++ 13.2 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.093 s | 1080 KB | 11315229 |
+| [2108_graphs_bitmask.go](2108_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.125 s | 1284 KB | 11315237 |
+| [2108_graphs_bitmask.rs](2108_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.046 s | 1072 KB | 11315242 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

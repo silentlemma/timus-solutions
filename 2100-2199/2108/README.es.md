@@ -64,7 +64,19 @@ operaciones de palabra. El trabajo total es O(n · m · n / 64), unas
 En el ejemplo las figuras obtenidas 2 y 4 activan el tercer deseo, que
 añade 1; luego el segundo deseo añade 3, y el resultado es 111100.
 
+## Soluciones optimizadas
+
+C++, Go y Rust transponen las premisas en bitsets de reglas por figura y guardan cuántas premisas faltan por regla. Cada figura nueva entra una vez en la cola; al procesarla se decrementan sus reglas. Un contador cero dispara la regla una vez y añade consecuencias aún desconocidas. Las premisas vacías se disparan tras leer la entrada. Solo reglas habilitadas añaden figuras y todas se han disparado al terminar: se obtiene el cierre mínimo sin pasadas completas repetidas. Tiempo con lectura O(nm+n+m), almacenamiento O(n⌈m/64⌉+m⌈n/64⌉+n+m). Las dos matrices máximas ocupan 1016000 bytes. Go/C++ usan arreglos máximos acotados; Rust dimensiona vectores y usa E/S acotada del C runtime sin retener la entrada. Se conservan las bases; Java/Python reutilizan las admitidas.
+
+El envío aceptado en G++ 13.2 x64 tarda 0.093 s frente a 0.046 s de la base y usa 1 080 KB frente a 1808 KB.
+
+El envío aceptado en Go 1.14 x64 tarda 0.125 s frente a 0.062 s de la base y usa 1 284 KB frente a 18712 KB.
+
+Las implementaciones base aceptadas [2108_bitmask.java](2108_bitmask.java), [2108_bitmask.py](2108_bitmask.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 La solución en Python traspone el problema, porque las pasadas son
 demasiado lentas allí cuando una cadena de deseos aparece en orden
@@ -95,10 +107,22 @@ repetidas no describe la solución en Python.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2108_bitmask.cpp](2108_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(n^2 m / 64) | AC | 0.046 s | 1808 KB |
-| [2108_bitmask.go](2108_bitmask.go) | Go 1.14 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 18712 KB |
-| [2108_bitmask.java](2108_bitmask.java) | Java 1.8 | bitmask | O(n^2 m / 64) | AC | 0.234 s | 1792 KB |
-| [2108_bitmask.py](2108_bitmask.py) | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.171 s | 17336 KB |
-| [2108_bitmask.rs](2108_bitmask.rs) | Rust 1.75 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 9312 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2108_bitmask.cpp](2108_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(n^2 m / 64) | AC | 0.046 s | 1808 KB | 11294887 |
+| [2108_bitmask.go](2108_bitmask.go) | Go 1.14 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 18712 KB | 11294892 |
+| [2108_bitmask.java](2108_bitmask.java) | Java 1.8 | bitmask | O(n^2 m / 64) | AC | 0.234 s | 1792 KB | 11294899 |
+| [2108_bitmask.py](2108_bitmask.py) \* | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.171 s | 17336 KB | 11294894 |
+| [2108_bitmask.rs](2108_bitmask.rs) | Rust 1.75 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 9312 KB | 11294901 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2108_graphs_bitmask.cpp](2108_graphs_bitmask.cpp) \* | G++ 13.2 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.093 s | 1080 KB | 11315229 |
+| [2108_graphs_bitmask.go](2108_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.125 s | 1284 KB | 11315237 |
+| [2108_graphs_bitmask.rs](2108_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.046 s | 1072 KB | 11315242 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
