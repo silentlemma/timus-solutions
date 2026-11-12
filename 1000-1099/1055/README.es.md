@@ -82,17 +82,35 @@ exactamente cuando sumar `M` y `N − M` en base `p` produce un acarreo.
 Las pruebas se comprobaron con él y, para `N ≤ 3000`, factorizando el
 coeficiente exacto.
 
+## Soluciones optimizadas
+
+Go conserva la criba y la comparación de exponentes de Legendre. Trata el primo 2 aparte y guarda un bit por impar, marcando múltiplos desde p² con paso 2p. Para N≤50000, los 391 bloques ocupan 3128 bytes; un impar x corresponde al bit x/2. Un primo se cuenta una vez si su exponente en N! supera la suma de los de M! y (N−M)!. El tiempo sigue siendo O(N log log N); los manejadores estándar sustituyen fmt sin cambiar las matemáticas. Se conservan las bases y las otras cuatro también cubren el conjunto rápido.
+
+Las implementaciones base aceptadas [1055_number_theory.cpp](1055_number_theory.cpp), [1055_number_theory.java](1055_number_theory.java), [1055_number_theory.py](1055_number_theory.py), [1055_number_theory.rs](1055_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes usan la misma criba; Python marca los múltiplos de
   un primo con una sola asignación de corte sobre un `bytearray`.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1055_number_theory.cpp](1055_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 184 KB |
-| [1055_number_theory.go](1055_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 1112 KB |
-| [1055_number_theory.java](1055_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.093 s | 1680 KB |
-| [1055_number_theory.py](1055_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.078 s | 580 KB |
-| [1055_number_theory.rs](1055_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.031 s | 268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1055_number_theory.cpp](1055_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 184 KB | 11278720 |
+| [1055_number_theory.go](1055_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 1112 KB | 11278721 |
+| [1055_number_theory.java](1055_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.093 s | 1680 KB | 11278729 |
+| [1055_number_theory.py](1055_number_theory.py) \* | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.078 s | 580 KB | 11278723 |
+| [1055_number_theory.rs](1055_number_theory.rs) \* | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.031 s | 268 KB | 11278731 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

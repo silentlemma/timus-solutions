@@ -75,16 +75,34 @@ e_p(x!) = ⌊x/p⌋ + ⌊x/p²⌋ + ⌊x/p³⌋ + …
 等价的判断是库默尔定理：`p` 整除 `C(N, M)` 当且仅当在 `p` 进制下计算 `M` 加 `N − M` 时产生进位。测试用它核对过，
 `N ≤ 3000` 时还通过分解精确的系数核对过。
 
+## 优化解法
+
+新 Go 版保留筛法与勒让德阶乘指数比较。单独处理素数 2，每个奇数只存一位合数标记，从 p² 开始以 2p 为步长标记。N≤50000，固定 391 个机器字共 3128 字节。奇数 x 对应位下标 x/2。若素数在 N! 中的指数大于在 M! 与 (N−M)! 中指数之和，就计一次。时间仍为 O(N log log N)，标准句柄代替 fmt 而不改变数学。保留全部原始版本，其他四种语言的合格基础版也覆盖快速集合。
+
+已通过评测的基础实现 [1055_number_theory.cpp](1055_number_theory.cpp), [1055_number_theory.java](1055_number_theory.java), [1055_number_theory.py](1055_number_theory.py), [1055_number_theory.rs](1055_number_theory.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 各语言都用同样的筛法；Python 用一次 `bytearray` 切片赋值标记一个素数的所有倍数。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1055_number_theory.cpp](1055_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 184 KB |
-| [1055_number_theory.go](1055_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 1112 KB |
-| [1055_number_theory.java](1055_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.093 s | 1680 KB |
-| [1055_number_theory.py](1055_number_theory.py) | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.078 s | 580 KB |
-| [1055_number_theory.rs](1055_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.031 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1055_number_theory.cpp](1055_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log log N) | AC | 0.015 s | 184 KB | 11278720 |
+| [1055_number_theory.go](1055_number_theory.go) | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 1112 KB | 11278721 |
+| [1055_number_theory.java](1055_number_theory.java) | Java 1.8 | number_theory | O(N log log N) | AC | 0.093 s | 1680 KB | 11278729 |
+| [1055_number_theory.py](1055_number_theory.py) \* | Python 3.12 x64 | number_theory | O(N log log N) | AC | 0.078 s | 580 KB | 11278723 |
+| [1055_number_theory.rs](1055_number_theory.rs) \* | Rust 1.75 x64 | number_theory | O(N log log N) | AC | 0.031 s | 268 KB | 11278731 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1055_number_theory_optimized.go](1055_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
