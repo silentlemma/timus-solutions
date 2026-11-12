@@ -74,12 +74,32 @@ pruebas se juzgan con un verificador que exige el número esperado de
 carreteras, cada una escrita como en la entrada, en el orden de la
 entrada y sin ninguna ciudad en dos de ellas.
 
+## Soluciones optimizadas
+
+C++/Go/Rust conservan matching de hojas en BFS inverso: un vértice libre más profundo puede emparejarse con su padre libre por intercambio. Arreglos uint32 head/to/next sustituyen listas por vértice y extremos duplicados. Carretera i usa2i (a→b original) y2i+1 (b→a), xor1 invierte; los mismos registros recuperan orientación original. Arista padre+1 con centinela0 permite omitir su inversa sin arreglo adicional de padre/visitado. Orden BFS preasignado, ocupación un byte. Tras BFS no se vuelven a recorrer enlaces: sus bits altos libres marcan carreteras elegidas. Pasada final conserva orden/orientación de entrada. Enlaces<200000, lejos de bit31; camino100000 iterativo. Tiempo/espacio O(N), E/S acotada sin texto completo ni respuesta retenida. Bases conservadas; Java/Python reutilizan admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.078 s frente a 0.031 s de la base y usa 2 768 KB frente a 16272 KB.
+
+Las implementaciones base aceptadas [1389_dp.java](1389_dp.java), [1389_dp.py](1389_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1389_dp.cpp](1389_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.156 s | 6968 KB |
-| [1389_dp.go](1389_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.078 s | 16820 KB |
-| [1389_dp.java](1389_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 7304 KB |
-| [1389_dp.py](1389_dp.py) | Python 3.12 x64 | dp | O(N) | AC | 0.343 s | 49940 KB |
-| [1389_dp.rs](1389_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 16272 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1389_dp.cpp](1389_dp.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.156 s | 6968 KB | 11285891 |
+| [1389_dp.go](1389_dp.go) | Go 1.14 x64 | dp | O(N) | AC | 0.078 s | 16820 KB | 11285893 |
+| [1389_dp.java](1389_dp.java) | Java 1.8 | dp | O(N) | AC | 0.125 s | 7304 KB | 11285902 |
+| [1389_dp.py](1389_dp.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.343 s | 49940 KB | 11285897 |
+| [1389_dp.rs](1389_dp.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 16272 KB | 11285909 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1389_dp_optimized.cpp](1389_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 2536 KB | 11315786 |
+| [1389_dp_optimized.go](1389_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.046 s | 3948 KB | 11315793 |
+| [1389_dp_optimized.rs](1389_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.078 s | 2768 KB | 11315796 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
