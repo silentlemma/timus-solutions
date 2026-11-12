@@ -80,36 +80,43 @@ Fail
 
 ## Solution
 
-Keep every earlier team as a set of names. For each candidate c: if
-{Efremov, Kantorov, c} is new, all three play and the strength is the
-sum of three ratings; otherwise, if {Kantorov, c} is new, the two play
-without Efremov; otherwise c is no use. Take the strongest of the
-candidates left, or `Fail` if none is. Expected `O(n + m)` time;
-`O((n + m) log n)` in C++.
+The preferred simpler C++, Go and Rust variants use two sets of third surnames. Every historical team contains Kantorov and every triple also contains Efremov, so a third surname uniquely identifies the only relevant pair or triple. Insert it into the full-team set for a triple or the pair set for a two-person team; singleton Kantorov and the Efremov/Kantorov pair are irrelevant to any candidate. For a candidate absent from the full set, Efremov joins and the strength is re+rk+r. If the full set contains it but the pair set does not, strength is rk+r; if both contain it, disqualify. Choose any candidate of maximum strength. Case-sensitive names and equality of the whole surname matter. Expected time O((n+m)L) for surname length L≤50; set storage O(nL). The original general approach sorts up to three surnames to make a canonical complete-lineup key, queries the triple, removes Efremov if repeated and then queries the pair. All five such original Accepted programs remain; Java/Python retain that approach as bases.
 
-In the first example Fominykh brings 100 + 10 + 200 = 310. Pervukhin
-has played with both and also with Kantorov alone, so that team would
-be disqualified.
+## Optimized solutions
 
-Pitfalls:
+The fast Go version keeps the two surname sets and uses direct standard handles, fixed input and output buffers, and a 50-byte token buffer. Fast Rust reads names through standard C input and stores both team-size flags in one fixed open-addressed table. It compares the full names on collisions. The C++ surname sets also provide fast coverage. Java and Python reuse their admitted original programs. The older C++, Go and Rust programs that store canonical lineups are listed under Other Accepted approaches. A star marks a fast source below its language-specific rating target.
 
-- a team compares as a set of names, not by the candidate alone: a
-  candidate who played only with Kantorov still brings Efremov along;
-- the two-person teams of Efremov and Kantorov, or Kantorov alone, never
-  match a team with a candidate;
-- a stronger candidate who keeps Efremov away can lose to a weaker one
-  who does not.
+The accepted base implementations [1728_implementation.java](1728_implementation.java), [1728_implementation.py](1728_implementation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
-The checker recomputes every candidate's strength and accepts any best
-one. Answers match an independent accepted implementation on 200
-random cases.
+## Language notes
+
+C++ stores owned surname strings in unordered sets. Go uses word scanning and two surname maps. Each surname is at most 50 characters. Rust retains the input in O((n+m)L) space and borrows surname slices from it. Hash-table complexity is expected, not a worst-case guarantee. The unchanged Java/Python sources continue to canonicalize complete historical lineups; their actual accepted compiler/interpreter and original metrics are preserved.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB |
-| [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB |
-| [1728_implementation.java](1728_implementation.java) | Java 1.8 | implementation | O(n + m) | AC | 0.140 s | 2172 KB |
-| [1728_implementation.py](1728_implementation.py) | Python 3.12 x64 | implementation | O(n + m) | AC | 0.109 s | 548 KB |
-| [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1728_hashing.cpp](1728_hashing.cpp) | G++ 13.2 x64 | hashing | O((n + m)L) | AC | 0.015 s | 204 KB | 11315520 |
+| [1728_hashing.go](1728_hashing.go) | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 952 KB | 11315664 |
+| [1728_implementation.java](1728_implementation.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.140 s | 2172 KB | 11289394 |
+| [1728_implementation.py](1728_implementation.py) \* | Python 3.12 x64 | implementation | O(n + m) | AC | 0.109 s | 548 KB | 11289392 |
+| [1728_hashing.rs](1728_hashing.rs) | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 420 KB | 11315666 |
+
+### Other Accepted approaches
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB | 11289389 |
+| [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB | 11289390 |
+| [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB | 11289397 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
+| [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

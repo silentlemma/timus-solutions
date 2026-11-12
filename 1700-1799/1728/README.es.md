@@ -80,37 +80,43 @@ Fail
 
 ## Solución
 
-Cada equipo anterior se guarda como un conjunto de apellidos. Para cada
-candidato c: si {Efremov, Kantorov, c} es nuevo, juegan los tres y la
-fuerza es la suma de tres puntuaciones; si no, y {Kantorov, c} es
-nuevo, juegan los dos sin Efremov; si no, c no sirve. Se toma el más
-fuerte de los candidatos que quedan, o `Fail` si no queda ninguno.
-Tiempo esperado `O(n + m)`; `O((n + m) log n)` en C++.
+Las variantes didácticas C++, Go y Rust usan dos conjuntos de terceros apellidos. Toda formación histórica incluye Kantorov y toda terna también Efremov; el tercer apellido determina el par o terna relevante. Insertarlo en full para ternas y pairs para parejas; Kantorov solo y Efremov/Kantorov no afectan candidatos. Fuera de full: fuerza re+rk+r; en full pero no pairs: rk+r; en ambos: descalificado. Elegir cualquier máximo. Comparar apellidos completos respetando mayúsculas. Tiempo esperado O((n+m)L), L≤50, conjuntos O(nL). El método general original ordena hasta tres apellidos como clave canónica completa, consulta terna y, si repetida, elimina Efremov y consulta pareja. Se conservan los cinco Accepted originales; Java/Python mantienen ese método base.
 
-En el primer ejemplo Fominykh aporta 100 + 10 + 200 = 310. Pervukhin
-ya jugó con ambos y también solo con Kantorov, así que ese equipo
-quedaría descalificado.
+## Soluciones optimizadas
 
-Trampas:
+La versión rápida de Go conserva los dos conjuntos de apellidos y usa los descriptores estándar, búferes fijos de entrada y salida y un búfer de 50 bytes por apellido. Rust rápido lee los apellidos por la entrada estándar de C y guarda ambas marcas de tamaño en una tabla fija con direccionamiento abierto. Si hay una colisión, compara los apellidos completos. Los conjuntos de apellidos en C++ también cubren la versión rápida. Java y Python reutilizan los programas originales admitidos. Los programas anteriores de C++, Go y Rust con formaciones canónicas figuran en Otros enfoques aceptados. El asterisco marca una versión rápida por debajo de su objetivo de clasificación.
 
-- un equipo se compara como conjunto de apellidos, no solo por el
-  candidato: un candidato que jugó solo con Kantorov sigue trayendo a
-  Efremov;
-- los equipos de Efremov con Kantorov, o de Kantorov solo, nunca
-  coinciden con un equipo con candidato;
-- un candidato más fuerte que aleja a Efremov puede perder ante uno más
-  débil con el que Efremov sí acude.
+Las implementaciones base aceptadas [1728_implementation.java](1728_implementation.java), [1728_implementation.py](1728_implementation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
-El comprobador recalcula la fuerza de cada candidato y acepta
-cualquiera óptimo. Las respuestas coinciden con una implementación
-aceptada independiente en 200 casos aleatorios.
+## Notas por lenguaje
+
+C++ posee cadenas en unordered_set. Go escanea palabras y usa dos mapas; los apellidos tienen hasta 50 caracteres. Rust guarda la entrada en O((n+m)L) espacio y toma vistas de ella. La complejidad hash es esperada. Java/Python siguen canonicalizando formaciones completas y conservan compilador/intérprete realmente aceptado y métricas originales.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB |
-| [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB |
-| [1728_implementation.java](1728_implementation.java) | Java 1.8 | implementation | O(n + m) | AC | 0.140 s | 2172 KB |
-| [1728_implementation.py](1728_implementation.py) | Python 3.12 x64 | implementation | O(n + m) | AC | 0.109 s | 548 KB |
-| [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1728_hashing.cpp](1728_hashing.cpp) | G++ 13.2 x64 | hashing | O((n + m)L) | AC | 0.015 s | 204 KB | 11315520 |
+| [1728_hashing.go](1728_hashing.go) | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 952 KB | 11315664 |
+| [1728_implementation.java](1728_implementation.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.140 s | 2172 KB | 11289394 |
+| [1728_implementation.py](1728_implementation.py) \* | Python 3.12 x64 | implementation | O(n + m) | AC | 0.109 s | 548 KB | 11289392 |
+| [1728_hashing.rs](1728_hashing.rs) | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 420 KB | 11315666 |
+
+### Otros enfoques Accepted
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB | 11289389 |
+| [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB | 11289390 |
+| [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB | 11289397 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
+| [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
