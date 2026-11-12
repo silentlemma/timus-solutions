@@ -58,12 +58,31 @@ XOR тем меньше, чем больше старших битов p сов�
 
 В примере 5 простое, 6 XOR 1 = 7 и 1 XOR 2 = 3.
 
+Учебная версия C++ сначала строит решето простых чисел меньше U = 2²⁰. Для каждого a перебираем ключи по возрастанию до первого простого a XOR k. Этот ключ и есть минимальный. Ключ меньше U существует, потому что ключ a XOR 2 даёт простое число 2. Полная сверка всех U входных значений дала максимальный ответ 95. Решето занимает O(U) памяти и O(U log log U) времени. В этом диапазоне на запрос нужно не более 96 обращений к решету.
+
+## Оптимизированные решения
+
+C++ упаковывает прежнее дерево префиксов простых чисел в один бит на вершину двоичной кучи. При U=2²⁰ массив 2U бит занимает 262144 байта. Листья сами служат решетом: начинаем с нечётных кандидатов и двойки, вычёркиваем единицу и нечётные составные. Маска чётности не является таблицей простых чисел или ответов. Внутренний бит — OR детей. Запрос идёт от корня один, предпочитая бит входа, если в таком ребёнке есть простое. Так старший ещё не выбранный бит XOR становится нулём при первой возможности. Если ветвь пуста, остаётся соседняя. Номер листа минус U даёт простое p, а ответ равен XOR входного числа с p. Ограниченные буферы заменяют растущую строку ответа. Время O(U log log U+T log U), память O(U) бит. Простые версии сохранены; остальные семейства используют подходящие базы.
+
+Принятые базовые реализации [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go), [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java), [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py), [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.109 s | 2300 KB |
-| [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB |
-| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.140 s | 4904 KB |
-| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.671 s | 16692 KB |
-| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 4172 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.109 s | 2300 KB | 11295058 |
+| [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB | 11295059 |
+| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.140 s | 4904 KB | 11295061 |
+| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.671 s | 16692 KB | 11295060 |
+| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 4172 KB | 11295062 |
+| [2167_number_theory.cpp](2167_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(U log log U + 96 T) | AC | 0.109 s | 1136 KB | 11315938 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---|---|---|---|---|---|---|---|
+| [2167_bitmask_number_theory_optimized.cpp](2167_bitmask_number_theory_optimized.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(U log log U + T log U) | AC | 0.031 s | 336 KB | 11315846 |
+
+\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.

@@ -59,12 +59,31 @@ preparación de O(2²⁰ log log 2²⁰).
 
 En el ejemplo 5 es primo, 6 XOR 1 = 7 y 1 XOR 2 = 3.
 
+La versión didáctica en C++ criba los primos menores que U = 2²⁰. Para cada a prueba claves en orden creciente hasta que a XOR k sea primo. La primera es la mínima. Existe una clave menor que U porque a XOR 2 permite obtener el primo 2. La comprobación exhaustiva de los U valores dio 95 como respuesta máxima. La criba requiere O(U log log U) tiempo y O(U) espacio. En este rango cada consulta hace como máximo 96 accesos a la tabla.
+
+## Soluciones optimizadas
+
+C++ empaqueta el mismo árbol de prefijos en un bit por nodo de montón. U=2²⁰ exige 2U bits, 262144 bytes. Las hojas son la criba: iniciar impares y dos, borrar uno y compuestos impares. La máscara de paridad no almacena primos ni respuestas. Cada bit interno es OR de hijos. Desde la raíz uno se prefiere el hijo con el bit de entrada si contiene algún primo. Así el bit XOR pendiente más alto queda a cero cuando es posible. Si esa rama está vacía, se toma la otra. El índice de la hoja menos U da el primo p y se imprime el XOR de la consulta con p. Búferes acotados sustituyen la cadena creciente. Tiempo O(U log log U+T log U), espacio O(U) bits. Se conservan bases; las otras familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go), [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java), [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py), [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.109 s | 2300 KB |
-| [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB |
-| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.140 s | 4904 KB |
-| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.671 s | 16692 KB |
-| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 4172 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.109 s | 2300 KB | 11295058 |
+| [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB | 11295059 |
+| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.140 s | 4904 KB | 11295061 |
+| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.671 s | 16692 KB | 11295060 |
+| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 4172 KB | 11295062 |
+| [2167_number_theory.cpp](2167_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(U log log U + 96 T) | AC | 0.109 s | 1136 KB | 11315938 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2167_bitmask_number_theory_optimized.cpp](2167_bitmask_number_theory_optimized.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(U log log U + T log U) | AC | 0.031 s | 336 KB | 11315846 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
