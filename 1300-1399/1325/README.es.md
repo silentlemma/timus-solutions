@@ -106,18 +106,35 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con el algoritmo de Dijkstra sobre el par
 (cambios, pasos) en 500 pisos aleatorios de hasta 8 × 8 celdas.
 
+La versión didáctica en C++ aplica Dijkstra a pares (cambios, pasos). Moverse sobre el mismo tipo de suelo suma (0,1) y cambiarlo suma (1,1). Sumar el mismo par conserva el orden lexicográfico y todo movimiento aumenta el coste. La primera entrada vigente del destino da el par óptimo. Se suma uno a los pasos para contar la casilla inicial. Un marco de paredes permite los mismos ocho desplazamientos en cada casilla. Con V=N·M hay O(V) aristas, tiempo O(V log V) y espacio O(V).
+
+## Soluciones optimizadas
+
+Go separa los objetivos en dos pasadas. Primero, BFS 0–1 calcula los cambios mínimos, con coste 0 para el mismo suelo y 1 al cambiar. Al procesar la distancia d, una celda nueva recibe d o d + 1. Su etiqueta puede bajar una vez, de d + 1 a d, antes de quedar fijada. Basta una cola doble circular con 2NM + 1 índices uint32. Luego BFS unitario solo sigue changes[v]=changes[u]+edgeCost: costes telescopan al mínimo final. Todo prefijo de una ruta de cambios mínimos también es óptimo, pues reemplazarlo mejoraría la ruta. La segunda pasada minimiza longitud entre esas rutas. Reutilizar deque como FIFO, una etiqueta uint32 por celda y bit visitado en rejilla byte elimina semillas dinámicas y arreglo de pasos. Marco de paredes, ocho vecinos incluyendo paso diagonal entre esquinas. Contar inicio: mismo punto 1 0, imposible0 0. Tiempo/espacio O(NM). Se conservan bases; las otras familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1325_bfs.cpp](1325_bfs.cpp), [1325_bfs.java](1325_bfs.java), [1325_bfs.py](1325_bfs.py), [1325_bfs.rs](1325_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- CPython necesita unos 0,3 segundos con un piso completo de 500 × 500,
-  demasiado cerca del límite de 0,5 segundos, así que la solución en
-  Python se envía con PyPy 3.10.
+Go nuevo usa búferes tipados compactos y E/S numérica; Go anterior conserva capas lexicográficas. Otros puertos y envíos no cambian. Python mantiene el PyPy3.10 realmente aceptado.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1325_bfs.cpp](1325_bfs.cpp) | G++ 13.2 x64 | bfs | O(N·M) | AC | 0.031 s | 3860 KB |
-| [1325_bfs.go](1325_bfs.go) | Go 1.14 x64 | bfs | O(N·M) | AC | 0.078 s | 17476 KB |
-| [1325_bfs.java](1325_bfs.java) | Java 1.8 | bfs | O(N·M) | AC | 0.156 s | 9092 KB |
-| [1325_bfs.py](1325_bfs.py) | PyPy 3.10 x64 | bfs | O(N·M) | AC | 0.250 s | 16492 KB |
-| [1325_bfs.rs](1325_bfs.rs) | Rust 1.75 x64 | bfs | O(N·M) | AC | 0.046 s | 7628 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1325_bfs.cpp](1325_bfs.cpp) | G++ 13.2 x64 | bfs | O(N·M) | AC | 0.031 s | 3860 KB | 11284971 |
+| [1325_bfs.go](1325_bfs.go) | Go 1.14 x64 | bfs | O(N·M) | AC | 0.078 s | 17476 KB | 11284972 |
+| [1325_bfs.java](1325_bfs.java) | Java 1.8 | bfs | O(N·M) | AC | 0.156 s | 9092 KB | 11284974 |
+| [1325_bfs.py](1325_bfs.py) | PyPy 3.10 x64 | bfs | O(N·M) | AC | 0.250 s | 16492 KB | 11284973 |
+| [1325_bfs.rs](1325_bfs.rs) | Rust 1.75 x64 | bfs | O(N·M) | AC | 0.046 s | 7628 KB | 11284975 |
+| [1325_dijkstra.cpp](1325_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(N·M log(N·M)) | AC | 0.046 s | 4500 KB | 11315868 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1325_graphs_bfs.go](1325_graphs_bfs.go) \* | Go 1.14 x64 | graphs, bfs | O(N·M) | AC | 0.031 s | 3572 KB | 11315686 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

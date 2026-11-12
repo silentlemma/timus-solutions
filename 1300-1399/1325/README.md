@@ -101,18 +101,35 @@ Pitfalls:
 The answers were compared with Dijkstra's algorithm on (changes, steps)
 on 500 random flats of up to 8 × 8 cells.
 
+The teaching C++ version runs Dijkstra directly on pairs (changes, steps). A move adds (0,1) on the same surface or (1,1) when it changes. Lexicographic order is preserved when the same pair is added, and every move increases the cost, so the first current entry for the target gives its optimal pair. Add one to the steps to count the starting cell. A frame of walls allows the same eight offsets at every cell. With V=N·M, the grid has O(V) edges, so the heap takes O(V log V) time and O(V) space.
+
+## Optimized solutions
+
+Go separates the two objectives into two passes. First, 0–1 BFS finds the minimum shoe changes to every reachable cell. Moving on the same floor type costs 0 and changing type costs 1. When processing distance d, a newly queued cell receives d or d + 1. Its label can only decrease once before it is settled, from d + 1 to d. A circular deque with 2NM + 1 uint32 slots therefore suffices. Next, unit BFS uses only edges u→v satisfying changes[v]=changes[u]+edgeCost. Along such a path, costs telescope to the minimum changes of its endpoint. Every minimum-change path has minimum-change prefixes, otherwise replacing a prefix improves the whole path. Therefore unit BFS on these edges minimizes length among exactly the minimum-change routes. Reuse the deque as its FIFO, store one uint32 change label per padded cell and reuse a bit in the byte grid for visitation. A wall frame removes bounds checks; all eight touching neighbors, including diagonal corner passage, are allowed. Count the starting cell, handle equal endpoints as 1 0, and unreachable as 0 0. Time and space are O(NM), without dynamic per-layer seed records or a separate step-distance array. All simple sources remain; other families reuse admitted bases.
+
+The accepted base implementations [1325_bfs.cpp](1325_bfs.cpp), [1325_bfs.java](1325_bfs.java), [1325_bfs.py](1325_bfs.py), [1325_bfs.rs](1325_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- CPython needs about 0.3 seconds on a full 500 × 500 flat, too close
-  to the 0.5-second limit, so the Python solution is submitted under
-  PyPy 3.10.
+New Go uses typed compact buffers and bounded integer I/O; original Go keeps the one-pass layered lexicographic algorithm. Other original ports retain their own algorithms and receipts. The preserved Python file keeps its actual Accepted PyPy3.10 interpreter.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1325_bfs.cpp](1325_bfs.cpp) | G++ 13.2 x64 | bfs | O(N·M) | AC | 0.031 s | 3860 KB |
-| [1325_bfs.go](1325_bfs.go) | Go 1.14 x64 | bfs | O(N·M) | AC | 0.078 s | 17476 KB |
-| [1325_bfs.java](1325_bfs.java) | Java 1.8 | bfs | O(N·M) | AC | 0.156 s | 9092 KB |
-| [1325_bfs.py](1325_bfs.py) | PyPy 3.10 x64 | bfs | O(N·M) | AC | 0.250 s | 16492 KB |
-| [1325_bfs.rs](1325_bfs.rs) | Rust 1.75 x64 | bfs | O(N·M) | AC | 0.046 s | 7628 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1325_bfs.cpp](1325_bfs.cpp) | G++ 13.2 x64 | bfs | O(N·M) | AC | 0.031 s | 3860 KB | 11284971 |
+| [1325_bfs.go](1325_bfs.go) | Go 1.14 x64 | bfs | O(N·M) | AC | 0.078 s | 17476 KB | 11284972 |
+| [1325_bfs.java](1325_bfs.java) | Java 1.8 | bfs | O(N·M) | AC | 0.156 s | 9092 KB | 11284974 |
+| [1325_bfs.py](1325_bfs.py) | PyPy 3.10 x64 | bfs | O(N·M) | AC | 0.250 s | 16492 KB | 11284973 |
+| [1325_bfs.rs](1325_bfs.rs) | Rust 1.75 x64 | bfs | O(N·M) | AC | 0.046 s | 7628 KB | 11284975 |
+| [1325_dijkstra.cpp](1325_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(N·M log(N·M)) | AC | 0.046 s | 4500 KB | 11315868 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1325_graphs_bfs.go](1325_graphs_bfs.go) \* | Go 1.14 x64 | graphs, bfs | O(N·M) | AC | 0.031 s | 3572 KB | 11315686 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
