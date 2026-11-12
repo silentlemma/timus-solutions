@@ -41,36 +41,43 @@
 11
 ```
 
-## 题解
+## 解法
 
-所有数都是 `d` 的倍数的集合共有 `C(⌊S/d⌋, K)` 个。公因数大于 1 的集合一定有一个公共的素因数，所以答案是这些
-集合族在所有素数上的并集大小。对无平方因子的 `d > 1` 做容斥得到
+首选教学 Go 版按精确 gcd 计数，无需 Möbius。K>floor(S/2) 时任何除数≥2 都无足够倍数。只算 K≤m≤floor(S/2) 的 C(m,K)，从1用 C(m−1,K)·m/(m−K) 推进。d 从 D=floor(S/K) 降到2，以 C(floor(S/d),K) 减去已知 gcd 为2d、3d… 的数量。每集合只有一个 gcd，类别不交，d≥2 的总和即答案。K=3、S=10 时，精确 gcd 为 3 的集合有 C(3,3)=1 个，gcd 为 2 的有 C(5,3)=10 个，共 11 个。若某组合数达到10000，前 m 个偶数的 K 子集已经给出足够的合法集合，可以返回 10,000。在此之前，递推中小于 10,000 的值乘以 m ≤ 25。每个精确计数至多等于对应组合数，加到小于 10,000 的累计值后小于 20,000。答案上限为 10,000。时间 O(S + D log D)，空间 O(S)。原 Möbius 实现用完整 Pascal 表计算 Σ−μ(d)C(floor(S/d),K)，只截断最终答案。
 
-`答案 = Σ −μ(d) · C(⌊S/d⌋, K)`，
+## 优化解法
 
-其中莫比乌斯函数 `μ(d)` 对无平方因子的 `d` 等于 `(−1)^(素因子个数)`，否则为 0：奇数个素数之积加上，偶数个减去。
-用一个小筛法求出 `S` 以内的 `μ`，二项式系数取自杨辉三角。`O(S²)`。
+Go 快速版保留精确 gcd 递推，直接使用标准句柄，答案缓冲区为六字节。 Rust 快速版用相同精确 gcd 算法、固定32位数组、C 字符输入输出和 C 入口。C++/Java/Python 复用已达标原版。D=floor(S/K)≤25，不存预计算答案表。旧 Go 保留于其他 Accepted 方法，旧 Rust 仍为标准库简单版。星号只涉及语言排名目标。
 
-注意事项：
-
-- 真实的个数可能远大于 10000，例如 `K = 5` 时仅由偶数组成的集合就有 `C(25, 5)` 个，所以只对最终结果取上限，
-  Python 以外的实现用 64 位保存中间的和；
-- 对 `d = 2` 和 `d = 3` 都计数的集合，对 `d = 6` 也计数了，这就是符号交替的原因；
-- 各数必须不同，所以 `m < K` 时 `C(m, K)` 为 0。
-
-答案对所有 `K ≤ S ≤ 50` 的数对，与“最大公因数恰为 `g` 的集合数”（从最大的 `g` 往下，减去 `g` 的倍数的计数）
-做了核对；`S ≤ 20` 时还与枚举所有集合的结果做了核对。
+已通过评测的基础实现 [1091_number_theory.cpp](1091_number_theory.cpp), [1091_number_theory.java](1091_number_theory.java), [1091_number_theory.py](1091_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-- Python 使用 `math.comb`；其他语言填写二项式系数表。
+教学 Go 用普通缓冲输入和两个26元素整数数组。Rust 用两个26元素 u32 数组与无指针 getchar/putchar，答案≤10000 最多五位。原五种程序的精确 Accepted/指标不变，Python 保留实际评测解释器。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1091_number_theory.cpp](1091_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(S^2) | AC | 0.015 s | 232 KB |
-| [1091_number_theory.go](1091_number_theory.go) | Go 1.14 x64 | number_theory | O(S^2) | AC | 0.015 s | 1088 KB |
-| [1091_number_theory.java](1091_number_theory.java) | Java 1.8 | number_theory | O(S^2) | AC | 0.109 s | 1640 KB |
-| [1091_number_theory.py](1091_number_theory.py) | Python 3.12 x64 | number_theory | O(S^2) | AC | 0.078 s | 424 KB |
-| [1091_number_theory.rs](1091_number_theory.rs) | Rust 1.75 x64 | number_theory | O(S^2) | AC | 0.046 s | 228 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1091_number_theory.cpp](1091_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(S^2) | AC | 0.015 s | 232 KB | 11279091 |
+| [1091_dp.go](1091_dp.go) | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 912 KB | 11315680 |
+| [1091_number_theory.java](1091_number_theory.java) | Java 1.8 | number_theory | O(S^2) | AC | 0.109 s | 1640 KB | 11279094 |
+| [1091_number_theory.py](1091_number_theory.py) \* | Python 3.12 x64 | number_theory | O(S^2) | AC | 0.078 s | 424 KB | 11279093 |
+| [1091_number_theory.rs](1091_number_theory.rs) | Rust 1.75 x64 | number_theory | O(S^2) | AC | 0.046 s | 228 KB | 11279095 |
+
+### 其他 Accepted 实现
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1091_number_theory.go](1091_number_theory.go) | Go 1.14 x64 | number_theory | O(S^2) | AC | 0.015 s | 1088 KB | 11279092 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
+| [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
