@@ -127,6 +127,12 @@ Trampas:
   ponderadas y productos como y·size[x]; los enteros de Python bastan;
 - escribir por número de vértice, no por posición de recorrido.
 
+La versión didáctica en C++ divide el mismo arreglo en preorden en bloques de unos √N empleados. Cada bloque guarda su suma y un incremento común a todos sus salarios. Un incremento de bloque completo solo actualiza esos dos valores. En los extremos del intervalo se procesan salarios individuales. La suma ya incluye el incremento común y al leer un salario se añade ese incremento al valor guardado. Cada solicitud visita O(√N) bloques y salarios individuales. Para Q solicitudes, tiempo O(N + Q√N) y espacio O(N).
+
+## Soluciones optimizadas
+
+Las cinco implementaciones con árboles de Fenwick usan la fórmula de suma de intervalo anterior. Inicializan y recuperan los salarios en O(N) y procesan cada solicitud en O(log N). Las cinco cubren el conjunto optimizado según los criterios de clasificación guardados.
+
 ## Notas por lenguaje
 
 Usar entrada y salida con búfer. En los lenguajes con enteros de ancho
@@ -139,10 +145,20 @@ independiente en 37 casos generados.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB |
-| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB |
-| [1890_fenwick.java](1890_fenwick.java) | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB |
-| [1890_fenwick.py](1890_fenwick.py) | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB |
-| [1890_fenwick.rs](1890_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1890_sqrt_decomposition.cpp](1890_sqrt_decomposition.cpp) | G++ 13.2 x64 | sqrt_decomposition | O(N + Q√N) | AC | 0.203 s | 1600 KB | 11315962 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB | 11291127 |
+| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB | 11291128 |
+| [1890_fenwick.java](1890_fenwick.java) \* | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB | 11291133 |
+| [1890_fenwick.py](1890_fenwick.py) \* | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB | 11291131 |
+| [1890_fenwick.rs](1890_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB | 11291135 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

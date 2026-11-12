@@ -104,6 +104,12 @@ department 0 10 1
   Python 整数可以直接处理；
 - 按顶点编号输出，而不是按遍历顺序输出。
 
+C++ 教学版把同一个前序数组分成大小约为 √N 的块。每块保存工资总和及所有成员共用的增量。整块增加时只更新这两个值，区间边缘则逐个处理员工。块的总和已计入公共增量，读取单个工资时把该增量加到存储值上。每条请求访问 O(√N) 个块和单个工资，Q 条请求用时 O(N + Q√N)，空间 O(N)。
+
+## 优化解法
+
+五种树状数组实现使用上文的双树区间和公式。工资的初始化与恢复用时 O(N)，每条请求用时 O(log N)。按保存的排名标准，五种实现都纳入优化版本。
+
 ## 各语言说明
 
 使用缓冲输入输出。对于使用固定宽度整数的语言，树状数组元素应为
@@ -113,10 +119,20 @@ department 0 10 1
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB |
-| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB |
-| [1890_fenwick.java](1890_fenwick.java) | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB |
-| [1890_fenwick.py](1890_fenwick.py) | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB |
-| [1890_fenwick.rs](1890_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1890_sqrt_decomposition.cpp](1890_sqrt_decomposition.cpp) | G++ 13.2 x64 | sqrt_decomposition | O(N + Q√N) | AC | 0.203 s | 1600 KB | 11315962 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB | 11291127 |
+| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB | 11291128 |
+| [1890_fenwick.java](1890_fenwick.java) \* | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB | 11291133 |
+| [1890_fenwick.py](1890_fenwick.py) \* | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB | 11291131 |
+| [1890_fenwick.rs](1890_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB | 11291135 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

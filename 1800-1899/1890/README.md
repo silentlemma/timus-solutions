@@ -121,6 +121,12 @@ Pitfalls:
   and products such as y·size[x]; Python integers already handle these;
 - print by vertex number, not by traversal position.
 
+The teaching C++ version divides the same preorder array into blocks of about √N employees. Each block stores its sum and an increment shared by every salary in the block. A full-block increment updates only those two values. At the ends of a range, read or update the individual salaries. The sum already includes the shared increment, and a point read adds it to the stored salary. Each request visits O(√N) blocks and individual salaries. With Q requests, time is O(N + Q√N) and space is O(N).
+
+## Optimized solutions
+
+The five Fenwick implementations use the two-tree range sum formula above. They initialize and recover salaries in O(N) time and process each request in O(log N) time. All five cover the optimized set under the saved ranking criteria.
+
 ## Language notes
 
 Use buffered input and output. Fixed-width implementations need 64-bit
@@ -132,10 +138,20 @@ ones.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB |
-| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB |
-| [1890_fenwick.java](1890_fenwick.java) | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB |
-| [1890_fenwick.py](1890_fenwick.py) | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB |
-| [1890_fenwick.rs](1890_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1890_sqrt_decomposition.cpp](1890_sqrt_decomposition.cpp) | G++ 13.2 x64 | sqrt_decomposition | O(N + Q√N) | AC | 0.203 s | 1600 KB | 11315962 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1890_fenwick.cpp](1890_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n + q log n) | AC | 0.062 s | 2728 KB | 11291127 |
+| [1890_fenwick.go](1890_fenwick.go) | Go 1.14 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 11840 KB | 11291128 |
+| [1890_fenwick.java](1890_fenwick.java) \* | Java 1.8 | fenwick | O(n + q log n) | AC | 0.187 s | 6316 KB | 11291133 |
+| [1890_fenwick.py](1890_fenwick.py) \* | Python 3.12 x64 | fenwick | O(n + q log n) | AC | 0.843 s | 29672 KB | 11291131 |
+| [1890_fenwick.rs](1890_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n + q log n) | AC | 0.046 s | 7924 KB | 11291135 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
