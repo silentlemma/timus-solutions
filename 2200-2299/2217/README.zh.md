@@ -77,7 +77,7 @@ S 后 k 个字符中 0 的个数 ≥ 前 k 个字符中 0 的个数。
 
 从两端同时扫描一次，维护两个 0 计数的差，一旦为负就输出 NO。
 
-易错点（测试 12）：仅满足配对要求并不能保证目标可达。S = "1001" 本身就是回文，所以答案为 YES；但把 0 在配对允许的范围内尽量左移得到的 "0110" 不可达，因为它的前两个字符中 0 的个数少于 S。
+易错点（测试 12）：仅满足配对要求并不能保证目标可达。S = "1001" 本身就是回文，所以答案为 YES；但把 0 在配对允许的范围内尽量左移得到的 "0110" 不可达，因为它的前三个字符中 0 的个数少于 S 的前三个字符。
 
 第三个样例中 "10" 只有一个 0，偶数长度下个数为奇数，所以答案为 NO。
 
@@ -85,10 +85,14 @@ S 后 k 个字符中 0 的个数 ≥ 前 k 个字符中 0 的个数。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB |
-| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB |
-| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB |
-| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB |
-| [2217_prefix_sums.rs](2217_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB |
+已有的 Accepted 实现覆盖全部五种语言的快速版本：在保存的比较快照中，每个实现的时间和内存均符合前 15% 或前十名的收录规则。同一源文件同时作为基础版和快速版，不添加完全相同的 optimized 副本。星号表示尚未达到该语言的目标排名；收录标准与目标排名分别检查。
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB | 11295832 |
+| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB | 11295835 |
+| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB | 11295838 |
+| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB | 11295836 |
+| [2217_prefix_sums.rs](2217_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB | 11295841 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

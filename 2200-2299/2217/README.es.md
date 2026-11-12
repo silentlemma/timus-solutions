@@ -100,8 +100,8 @@ dos cuentas de ceros y responde NO cuando se vuelve negativa.
 Trampa (test 12): el emparejamiento por sí solo no garantiza que un
 objetivo sea alcanzable. Para S = "1001", la respuesta es YES porque
 S ya es un palíndromo, pero "0110", con los ceros lo más a la izquierda
-que permite el emparejamiento, es inalcanzable: sus dos primeros
-caracteres contienen menos ceros que los de S.
+que permite el emparejamiento, es inalcanzable: sus tres primeros
+caracteres contienen menos ceros que los tres primeros de S.
 
 En el tercer ejemplo "10" tiene un cero, una cuenta impar con longitud
 par, así que la respuesta es NO.
@@ -110,10 +110,14 @@ Esto cuesta O(N).
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB |
-| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB |
-| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB |
-| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB |
-| [2217_prefix_sums.rs](2217_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB |
+Las implementaciones existentes con Accepted cubren las cinco familias de lenguajes del conjunto rápido: en la instantánea de comparación guardada, cada una está en el 15% superior o entre las diez primeras tanto en tiempo como en memoria. Los mismos archivos sirven como versiones sencillas y rápidas, sin copias optimized idénticas. Un asterisco indica que una implementación aún no alcanza el objetivo específico de su lenguaje; la inclusión y ese objetivo se comprueban por separado.
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB | 11295832 |
+| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB | 11295835 |
+| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB | 11295838 |
+| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB | 11295836 |
+| [2217_prefix_sums.rs](2217_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB | 11295841 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

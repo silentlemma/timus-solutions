@@ -99,7 +99,7 @@ counts and fails when it turns negative.
 Pitfall (test 12): pairing alone does not determine a reachable target.
 For S = "1001", the answer is YES because S is already a palindrome,
 but "0110", with zeros placed as far left as pairing permits, is
-unreachable: its first two characters contain fewer zeros than S.
+unreachable: its first three characters contain fewer zeros than the first three of S.
 
 In the third example "10" has one zero, an odd count on an even length,
 so the answer is NO.
@@ -108,10 +108,14 @@ This takes O(N).
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB |
-| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB |
-| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB |
-| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB |
-| [2217_prefix_sums.rs](2217_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB |
+The existing Accepted implementations cover all five language families in the fast set: each meets the top-15% or top-ten admission rule for both time and memory in the saved comparison snapshot. The same source files serve as the simple and fast versions; no identical optimized copies are added. A star marks an implementation that has not yet reached its language-specific rating target. Admission and that target are separate checks.
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2217_prefix_sums.cpp](2217_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 436 KB | 11295832 |
+| [2217_prefix_sums.go](2217_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 1552 KB | 11295835 |
+| [2217_prefix_sums.java](2217_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 996 KB | 11295838 |
+| [2217_prefix_sums.py](2217_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.093 s | 388 KB | 11295836 |
+| [2217_prefix_sums.rs](2217_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.031 s | 244 KB | 11295841 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
