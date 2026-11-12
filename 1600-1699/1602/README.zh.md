@@ -55,12 +55,29 @@ n、k、u 和 v。
 - 一路走到底也是一种选择，在矮楼里常常是最优的（测试 02）；
 - 平局时选较高的楼层，所以比较时遇到相同总时间要保留后面的楼层。
 
+## 优化解法
+
+新的 C++、Go 版本只检查四个候选楼层。对 f≥2，以百分之一秒计的精确时间为 max((n−f)u,R)+2(f−1)v+500，其中 R=(k−1)v+1500。在 f=n−R/u 两侧，函数分别为斜率 2v−u 与 2v>0 的线性函数。整数楼层最小值必在端点或折点两侧相邻整数。令 q=n−floor(R/u)，把 2,n,q−1,q 限制到 [2,n] 后检查，并与步行到 1 楼比较。整数百分秒精确保留平局；同时间明确选更高楼层。时间及额外空间均为 O(1)。保留全部 O(n) 简单枚举；Java、Python、Rust 复用已符合标准的基础版。
+
+已通过评测的基础实现 [1602_implementation.java](1602_implementation.java), [1602_implementation.py](1602_implementation.py), [1602_implementation.rs](1602_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB |
-| [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB |
-| [1602_implementation.java](1602_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB |
-| [1602_implementation.py](1602_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB |
-| [1602_implementation.rs](1602_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB | 11288118 |
+| [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB | 11288119 |
+| [1602_implementation.java](1602_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
+| [1602_implementation.py](1602_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
+| [1602_implementation.rs](1602_implementation.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
+| [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

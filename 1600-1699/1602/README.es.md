@@ -70,12 +70,29 @@ Detalles a tener en cuenta:
 - a igualdad gana la planta más alta, así que la comparación se queda
   con las plantas posteriores cuando los totales coinciden.
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++ y Go evalúan cuatro candidatos. Para f≥2 el tiempo exacto en centésimas es max((n−f)u,R)+2(f−1)v+500, con R=(k−1)v+1500. A cada lado de f=n−R/u es lineal: pendiente 2v−u a la izquierda y 2v>0 a la derecha. El mínimo entero está en un extremo o en uno de los dos enteros junto al quiebre. Con q=n−floor(R/u), se comprueban 2,n,q−1,q limitados a [2,n] y se compara con bajar andando al piso 1. Las centésimas enteras preservan empates, resueltos explícitamente a favor del piso más alto. Tiempo y espacio adicional O(1). Se conservan las bases O(n); Java, Python y Rust reutilizan sus bases ya admitidas.
+
+Las implementaciones base aceptadas [1602_implementation.java](1602_implementation.java), [1602_implementation.py](1602_implementation.py), [1602_implementation.rs](1602_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB |
-| [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB |
-| [1602_implementation.java](1602_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB |
-| [1602_implementation.py](1602_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB |
-| [1602_implementation.rs](1602_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1602_implementation.cpp](1602_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 416 KB | 11288118 |
+| [1602_implementation.go](1602_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.015 s | 1096 KB | 11288119 |
+| [1602_implementation.java](1602_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1680 KB | 11288121 |
+| [1602_implementation.py](1602_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 464 KB | 11288120 |
+| [1602_implementation.rs](1602_implementation.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.062 s | 236 KB | 11288123 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
+| [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
