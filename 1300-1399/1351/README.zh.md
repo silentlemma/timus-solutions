@@ -68,17 +68,37 @@ NO
 
 在 18 个生成的测试上与用 `atan2` 比较角度的检查结果对比过，并在 300 个随机扇形（包括宽度为零的扇形）上与独立实现对比过。
 
+## 优化解法
+
+C++、Go、Rust 保留距离平方与两个叉积判断。扇区宽度大于 0° 且小于 180° 时，两个闭半平面的交集恰好是扇区。两条边界射线重合时，叉积判断会保留整条直线，此时用负点积排除原点后方的点。坐标绝对值至多 30000，两个坐标乘积的和或差的绝对值至多 2·30000² = 1.8·10⁹，适用有符号 32 位整数。逐点处理，输入和输出缓冲区分别为 4096 和 8192 字节，消除 Rust 增长字符串、C++ 答案累计及 Go Scanner 字符串解析。时间 O(N)，额外空间常数；不依赖浮点角度。保留全部简单版，Java/Python 复用已达标基础版。
+
+已通过评测的基础实现 [1351_geometry.java](1351_geometry.java), [1351_geometry.py](1351_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - C++、Go、Java 和 Rust 用 64 位整数计算叉积和平方，Python 用任意精度整数。
 - Java 用 `StreamTokenizer` 读入；其 double 值能精确表示这些整数。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB |
-| [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB |
-| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB |
-| [1351_geometry.py](1351_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB |
-| [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB | 11285165 |
+| [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB | 11285171 |
+| [1351_geometry.java](1351_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
+| [1351_geometry.py](1351_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
+| [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB | 11285179 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1351_geometry_optimized.cpp](1351_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 76 KB | 11315502 |
+| [1351_geometry_optimized.go](1351_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
+| [1351_geometry_optimized.rs](1351_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

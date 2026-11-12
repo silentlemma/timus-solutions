@@ -88,7 +88,15 @@ Las respuestas se compararon con una comprobación de ángulos con `atan2`
 en 18 pruebas generadas y con una solución independiente en 300
 sectores aleatorios, incluidos los de ancho cero.
 
+## Soluciones optimizadas
+
+C++, Go y Rust conservan la distancia al cuadrado y las dos pruebas de producto cruzado. Cuando el sector mide más de 0° y menos de 180°, la intersección de los semiplanos cerrados coincide con el sector. Si los rayos coinciden, esas pruebas admiten toda su recta. Un producto escalar negativo excluye los puntos de la recta situados detrás del origen. Cada coordenada tiene magnitud máxima 30 000. La suma o diferencia de dos productos de coordenadas está acotada en valor absoluto por 2·30 000² = 1,8·10⁹ y cabe en 32 bits con signo. Procesar los puntos con búferes de entrada y salida de 4096 y 8192 bytes elimina las cadenas crecientes de Rust, las respuestas acumuladas de C++ y Scanner/conversión Go. Tiempo O(N), memoria extra constante, sin ángulos aproximados. Se conservan bases; Java/Python reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1351_geometry.java](1351_geometry.java), [1351_geometry.py](1351_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - C++, Go, Java y Rust usan enteros de 64 bits para los productos
   cruzados y los cuadrados; Python usa enteros de precisión arbitraria.
@@ -97,10 +105,22 @@ sectores aleatorios, incluidos los de ancho cero.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB |
-| [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB |
-| [1351_geometry.java](1351_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB |
-| [1351_geometry.py](1351_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB |
-| [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1351_geometry.cpp](1351_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.031 s | 320 KB | 11285165 |
+| [1351_geometry.go](1351_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1392 KB | 11285171 |
+| [1351_geometry.java](1351_geometry.java) \* | Java 1.8 | geometry | O(N) | AC | 0.140 s | 1328 KB | 11285176 |
+| [1351_geometry.py](1351_geometry.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 6832 KB | 11285173 |
+| [1351_geometry.rs](1351_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 1236 KB | 11285179 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1351_geometry_optimized.cpp](1351_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 76 KB | 11315502 |
+| [1351_geometry_optimized.go](1351_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 904 KB | 11315507 |
+| [1351_geometry_optimized.rs](1351_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 188 KB | 11315506 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
