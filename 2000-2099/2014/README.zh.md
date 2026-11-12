@@ -53,16 +53,38 @@
 
 排序与全部更新耗时 `O(n log n)`，迭代树和输入数组用空间 `O(n)`。总和与欠款的绝对值可达 `100,000·50,000=5,000,000,000`，必须使用 64 位整数。另一种办法是对时间前缀余额做后缀加法，并维护全局最小值。
 
+C++ 教学版按月、日、时、分的顺序为每个可能的分钟键分配一个叶子。收到报告时直接写入该叶子，再向根合并区间和与最小前缀。根立即给出债务。未使用的键及补齐叶子金额为零，最小前缀保持一致。分钟键共有 U = 12 × 32 × 24 × 60 个位置，树数组占 32 MiB。对于 N 份报告，时间 O(U + N log U)，空间 O(U)。
+
+## 优化解法
+
+新 C++/Go 保留按时间排序和最小前缀树。uint64打包时间、到达索引、amount+50000；后两者各17位，分钟键<20位，共54位。排名数组恢复到达顺序，未来金额虽预读但轮到前不激活。二次幂叶数的树，每叶只存 int32金额，仅内部节点存 int64总和/最小前缀；最底父节点由两叶直接计算，再通常合并。省去冗余宽叶摘要、完整输入文本和答案列表。补齐叶为零，单项直接处理。总额可达5×10^9，仍须 int64。时间 O(N log N)、空间 O(N)，含打包排序/排名；固定缓冲流式I/O。保留简单版，Java/Python/Rust复用达标版；Python保持PyPy3.10。
+
+已通过评测的基础实现 [2014_segment_tree.java](2014_segment_tree.java), [2014_segment_tree.py](2014_segment_tree.py), [2014_segment_tree.rs](2014_segment_tree.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 收到顺序不同于发生顺序；晚收入不还款，新发现的早收入却可能修正欠款。保留零前缀、负的输出符号，并让月先于日参与比较。时刻唯一，所以叶子可以直接赋值。Python 使用排名数组及两份树列表，在 PyPy 下运行：在 CPython 3.12 下它在评测的第 15 个测试上超时，而在 PyPy 3.10 下以 0.39 秒通过。C++、Go、Java、Rust 使用宽整数。Java 将时间键与事件下标打包进原生 long 数组排序，不使用装箱对象；打包运算也必须是 64 位。输入解析处理正负号及日期时间分隔符。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB |
-| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB |
-| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB |
-| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB |
-| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB | 11292513 |
+| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB | 11292514 |
+| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB | 11292516 |
+| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB | 11295869 |
+| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB | 11292518 |
+| [2014_segment_tree_prefix_sums.cpp](2014_segment_tree_prefix_sums.cpp) | G++ 13.2 x64 | segment_tree, prefix_sums | O(U + N log U) | AC | 0.14 s | 17048 KB | 11315932 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree_optimized.cpp](2014_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O(N log N) | AC | 0.062 s | 3444 KB | 11315777 |
+| [2014_segment_tree_optimized.go](2014_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O(N log N) | AC | 0.078 s | 4692 KB | 11315779 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

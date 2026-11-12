@@ -91,7 +91,17 @@ input arrays use `O(n)` space. Totals and debt can reach magnitude
 is lazy suffix addition over chronological prefix balances, maintaining
 their global minimum.
 
+The teaching C++ tree assigns a leaf to each possible minute key, ordered by month, day, hour and minute. On each report, write the amount directly to that leaf and combine sums and minimum prefixes up to the root. The root gives the debt immediately. Unused keys and padding have zero amounts, which preserve all prefix minima. The minute key uses U = 12 × 32 × 24 × 60 slots. The tree array occupies 32 MiB. With fixed calendar storage and N reports, time is O(U + N log U) and space is O(U).
+
+## Optimized solutions
+
+The new C++/Go files keep chronological sorting and minimum-prefix segment summaries. Pack timestamp, original receipt index and amount+50000 into a uint64: index and amount code each need17 bits; the minute key uses fewer than20, so the whole record fits54 bits. The rank array restores receipt order; pre-read future amounts remain inactive until their turn. A power-of-two tree stores each leaf as one int32 amount, and only internal nodes get int64 sum and minimum-prefix pairs. Recompute the lowest parent directly from its two leaves, then merge internal summaries normally. This avoids wide redundant leaf summaries and retained input/output strings or result lists. Padded leaves stay zero; handle a single event directly. Totals up to5×10^9 require int64 even though individual amounts fit int32. Time O(N log N), space O(N), including packed sorting/ranks; bounded streaming I/O. All simple versions remain; Java/Python/Rust reuse admitted files, with the original Python interpreter PyPy3.10.
+
+The accepted base implementations [2014_segment_tree.java](2014_segment_tree.java), [2014_segment_tree.py](2014_segment_tree.py), [2014_segment_tree.rs](2014_segment_tree.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 Receipt order differs from transaction order. Later income does not
 repay existing debt, while newly discovered earlier income can revise
@@ -106,10 +116,22 @@ handle both signs and the date/time separators.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB |
-| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB |
-| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB |
-| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB |
-| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB | 11292513 |
+| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB | 11292514 |
+| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB | 11292516 |
+| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB | 11295869 |
+| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB | 11292518 |
+| [2014_segment_tree_prefix_sums.cpp](2014_segment_tree_prefix_sums.cpp) | G++ 13.2 x64 | segment_tree, prefix_sums | O(U + N log U) | AC | 0.14 s | 17048 KB | 11315932 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree_optimized.cpp](2014_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O(N log N) | AC | 0.062 s | 3444 KB | 11315777 |
+| [2014_segment_tree_optimized.go](2014_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O(N log N) | AC | 0.078 s | 4692 KB | 11315779 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

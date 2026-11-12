@@ -88,7 +88,17 @@ alcanzar `100 000·50 000=5 000 000 000`, por lo que se necesitan enteros
 de 64 bits. Otra opción es sumar sobre sufijos de los saldos prefijos
 cronológicos y mantener su mínimo global.
 
+El árbol didáctico en C++ asigna una hoja a cada clave de minuto, ordenada por mes, día, hora y minuto. Cada informe escribe su importe directamente en la hoja y combina sumas y mínimos de prefijo hasta la raíz. La raíz da la deuda de inmediato. Las claves sin usar y el relleno tienen importe cero y conservan los mínimos de prefijo. La clave usa U = 12 × 32 × 24 × 60 posiciones. El árbol ocupa 32 MiB. Con N informes, el tiempo es O(U + N log U) y el espacio es O(U).
+
+## Soluciones optimizadas
+
+C++/Go conservan orden cronológico y resúmenes de prefijo mínimo. Empaquetan tiempo, índice de recepción y amount+50000 en uint64: 17 bits para cada uno de los dos últimos y menos de20 para el tiempo,54 en total. Rangos recuperan recepción; los importes futuros preleídos quedan inactivos. Árbol con hojas potencia de dos: cada hoja solo int32, pares int64 suma/prefijo solo en nodos internos. Calcular primer padre desde sus dos hojas y luego combinar normalmente. Evita resúmenes anchos redundantes, texto completo y lista de respuestas. Hojas de relleno cero, caso unitario directo. Totales hasta5×10^9 requieren int64. Tiempo O(N log N), espacio O(N), incluida ordenación/rangos y E/S acotada. Bases conservadas; Java/Python/Rust reutilizan admitidas, Python con su PyPy3.10 original.
+
+Las implementaciones base aceptadas [2014_segment_tree.java](2014_segment_tree.java), [2014_segment_tree.py](2014_segment_tree.py), [2014_segment_tree.rs](2014_segment_tree.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 El orden de recepción no es el cronológico. Un ingreso posterior no
 amortiza crédito, pero descubrir uno anterior puede corregirlo. Incluye
@@ -103,10 +113,22 @@ admiten ambos signos y los separadores de fecha y hora.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB |
-| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB |
-| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB |
-| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB |
-| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB | 11292513 |
+| [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB | 11292514 |
+| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB | 11292516 |
+| [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB | 11295869 |
+| [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB | 11292518 |
+| [2014_segment_tree_prefix_sums.cpp](2014_segment_tree_prefix_sums.cpp) | G++ 13.2 x64 | segment_tree, prefix_sums | O(U + N log U) | AC | 0.14 s | 17048 KB | 11315932 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2014_segment_tree_optimized.cpp](2014_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O(N log N) | AC | 0.062 s | 3444 KB | 11315777 |
+| [2014_segment_tree_optimized.go](2014_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O(N log N) | AC | 0.078 s | 4692 KB | 11315779 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
