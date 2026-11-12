@@ -72,17 +72,38 @@ Las respuestas se compararon con una búsqueda directa sobre todos los `X`
 para cada `N` hasta 1199 y para 150 `N` aleatorios hasta 200000, y con una
 solución escrita aparte en todas las pruebas.
 
+## Soluciones optimizadas
+
+Go y Rust conservan dos acarreos por posición decimal. N≤10⁹ tiene hasta diez posiciones y veinte candidatos: inserción ordenada en arreglo fijo elimina duplicados sin map/BTreeSet. División entera obtiene el ancho y Y se imprime con exactamente digits(X)−1 cifras, incluidos ceros iniciales. En Go el conteo y hasta veinte pares caben en 1024 bytes porque cada línea de un par ocupa a lo sumo 36 bytes. Go usa directamente los manejadores estándar, lee en un bloque fijo y escribe los dígitos en el búfer. Rust usa entrada C y E/S de caracteres bufferizada por CRT, arreglos de dígitos sin formatos. Tiempo O((log N)²), espacio O(log N). Se conservan bases; C++/Java/Python reutilizan las admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y usa 60 KB frente a 236 KB.
+
+Las implementaciones base aceptadas [1189_math.cpp](1189_math.cpp), [1189_math.java](1189_math.java), [1189_math.py](1189_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes imprimen `Y` con un ancho tomado de la longitud de
   `X` y relleno de ceros.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1189_math.cpp](1189_math.cpp) | G++ 13.2 x64 | math | O((log N)^2) | AC | 0.015 s | 188 KB |
-| [1189_math.go](1189_math.go) | Go 1.14 x64 | math | O((log N)^2) | AC | 0.031 s | 1124 KB |
-| [1189_math.java](1189_math.java) | Java 1.8 | math | O((log N)^2) | AC | 0.109 s | 1872 KB |
-| [1189_math.py](1189_math.py) | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB |
-| [1189_math.rs](1189_math.rs) | Rust 1.75 x64 | math | O((log N)^2) | AC | 0.015 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1189_math.cpp](1189_math.cpp) | G++ 13.2 x64 | math | O((log N)^2) | AC | 0.015 s | 188 KB | 11283417 |
+| [1189_math.go](1189_math.go) | Go 1.14 x64 | math | O((log N)^2) | AC | 0.031 s | 1124 KB | 11283420 |
+| [1189_math.java](1189_math.java) | Java 1.8 | math | O((log N)^2) | AC | 0.109 s | 1872 KB | 11283428 |
+| [1189_math.py](1189_math.py) \* | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB | 11283427 |
+| [1189_math.rs](1189_math.rs) | Rust 1.75 x64 | math | O((log N)^2) | AC | 0.015 s | 236 KB | 11283431 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1189_math_optimized.rs](1189_math_optimized.rs) \* | Rust 1.75 x64 | math | O((log N)²) | AC | 0.046 s | 60 KB | 11315434 |
+| [1189_math_optimized.go](1189_math_optimized.go) \* | Go 1.14 x64 | math | O((log N)²) | AC | 0.015 s | 312 KB | 11315840 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

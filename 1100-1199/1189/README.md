@@ -73,17 +73,38 @@ The answers were compared with a direct search over all `X` for every `N`
 up to 1199 and for 150 random `N` up to 200000, and with a separately
 written solution on every test.
 
+## Optimized solutions
+
+Go and Rust keep the same two carry cases per decimal place. N≤10⁹ has at most ten places, hence at most twenty generated candidates; insert them into a fixed sorted array, rejecting duplicates, instead of a map or BTreeSet. Compute the second field width by integer division and emit exactly digits(X)−1 digits for Y, including leading zeroes. In Go, the count and at most twenty pairs fit in 1024 bytes because each pair line uses at most 36 bytes. Go uses the standard handles directly with a fixed input block and emits decimal digits into that output buffer. Rust uses a C-runtime entry and buffered CRT character I/O, with fixed decimal digit arrays rather than format strings. Time remains O((log N)²), storage O(log N). All simple sources remain; C++/Java/Python reuse admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 60 KB versus 236 KB.
+
+The accepted base implementations [1189_math.cpp](1189_math.cpp), [1189_math.java](1189_math.java), [1189_math.py](1189_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages print `Y` with a width taken from the length of `X` and
   zero padding.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1189_math.cpp](1189_math.cpp) | G++ 13.2 x64 | math | O((log N)^2) | AC | 0.015 s | 188 KB |
-| [1189_math.go](1189_math.go) | Go 1.14 x64 | math | O((log N)^2) | AC | 0.031 s | 1124 KB |
-| [1189_math.java](1189_math.java) | Java 1.8 | math | O((log N)^2) | AC | 0.109 s | 1872 KB |
-| [1189_math.py](1189_math.py) | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB |
-| [1189_math.rs](1189_math.rs) | Rust 1.75 x64 | math | O((log N)^2) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1189_math.cpp](1189_math.cpp) | G++ 13.2 x64 | math | O((log N)^2) | AC | 0.015 s | 188 KB | 11283417 |
+| [1189_math.go](1189_math.go) | Go 1.14 x64 | math | O((log N)^2) | AC | 0.031 s | 1124 KB | 11283420 |
+| [1189_math.java](1189_math.java) | Java 1.8 | math | O((log N)^2) | AC | 0.109 s | 1872 KB | 11283428 |
+| [1189_math.py](1189_math.py) \* | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB | 11283427 |
+| [1189_math.rs](1189_math.rs) | Rust 1.75 x64 | math | O((log N)^2) | AC | 0.015 s | 236 KB | 11283431 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1189_math_optimized.rs](1189_math_optimized.rs) \* | Rust 1.75 x64 | math | O((log N)²) | AC | 0.046 s | 60 KB | 11315434 |
+| [1189_math_optimized.go](1189_math_optimized.go) \* | Go 1.14 x64 | math | O((log N)²) | AC | 0.015 s | 312 KB | 11315840 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
