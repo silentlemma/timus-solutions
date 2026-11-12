@@ -93,21 +93,34 @@ Pitfalls:
 The path lengths were checked against Floyd–Warshall on the same graph,
 built separately with the masks checked for the ones-then-zeros form.
 
+## Optimized solutions
+
+The Go incidence-list BFS indexes each subnet value by its member computers instead of comparing all pairs of interfaces. When a computer is taken from the BFS queue, expand each of its subnets and visit every unvisited member. The first expansion comes from a computer of minimum distance, so all members receive their shortest possible next-step distance. Delete that subnet’s membership list afterwards; a later expansion cannot improve any route. Each interface is processed a constant number of times, giving expected O(N·K) time with the hash map and O(N·K) space. Parents recover a shortest path. Duplicate interfaces are harmless, and identical endpoints return the one-computer path.
+
+The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 280 KB versus 1180 KB.
+
+The accepted base implementations [1072_bfs.cpp](1072_bfs.cpp), [1072_bfs.java](1072_bfs.java), [1072_bfs.py](1072_bfs.py), [1072_bfs.rs](1072_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- C++ reads an address with `scanf("%u")` and `".%u"` for the four parts;
-  the other languages split the token at the dots.
-- Java keeps the addresses in `int`, which overflows into negative values
-  for high addresses, but `AND` and equality do not care.
-- Python stores the subnets of a computer in a set and tests
-  `isdisjoint`.
+All five ordinary-input BFS base files are preserved. The new Go version parses addresses directly into unsigned 32-bit values and uses standard input/output handles. Equality compares IP AND its own mask, not the pair (IP AND mask, mask); different masks may therefore describe matching subnet values. The existing C++, Java, Python and Rust files also cover the fast set under the saved ranking admission rules.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1072_bfs.cpp](1072_bfs.cpp) | G++ 13.2 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 208 KB |
-| [1072_bfs.go](1072_bfs.go) | Go 1.14 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 1180 KB |
-| [1072_bfs.java](1072_bfs.java) | Java 1.8 | bfs | O(N^2 · K^2) | AC | 0.078 s | 776 KB |
-| [1072_bfs.py](1072_bfs.py) | Python 3.12 x64 | bfs | O(N^2 · K^2) | AC | 0.078 s | 612 KB |
-| [1072_bfs.rs](1072_bfs.rs) | Rust 1.75 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1072_bfs.cpp](1072_bfs.cpp) | G++ 13.2 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 208 KB | 11278927 |
+| [1072_bfs.go](1072_bfs.go) | Go 1.14 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 1180 KB | 11278929 |
+| [1072_bfs.java](1072_bfs.java) | Java 1.8 | bfs | O(N^2 · K^2) | AC | 0.078 s | 776 KB | 11278935 |
+| [1072_bfs.py](1072_bfs.py) \* | Python 3.12 x64 | bfs | O(N^2 · K^2) | AC | 0.078 s | 612 KB | 11278931 |
+| [1072_bfs.rs](1072_bfs.rs) | Rust 1.75 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 224 KB | 11278936 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1072_bfs_optimized.go](1072_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -95,22 +95,34 @@ Las longitudes de los caminos se comprobaron con Floyd–Warshall sobre el
 mismo grafo, construido por separado y comprobando que las máscaras
 tienen la forma de unos seguidos de ceros.
 
+## Soluciones optimizadas
+
+El BFS de Go mantiene una lista de computadoras por valor de subred, en vez de comparar todos los pares de interfaces. Al extraer una computadora de la cola, expande sus subredes y visita a cada miembro aún no visitado. La primera expansión procede de una computadora de distancia mínima, por lo que todos los miembros reciben su menor distancia posible en el siguiente salto. Después se elimina la lista de esa subred: una expansión posterior no mejora ninguna ruta. Cada interfaz se procesa un número constante de veces: tiempo esperado O(N·K) con la tabla hash y espacio O(N·K). Los padres reconstruyen un camino mínimo; los duplicados son inocuos y, si los extremos coinciden, basta una computadora.
+
+El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y usa 280 KB frente a 1180 KB.
+
+Las implementaciones base aceptadas [1072_bfs.cpp](1072_bfs.cpp), [1072_bfs.java](1072_bfs.java), [1072_bfs.py](1072_bfs.py), [1072_bfs.rs](1072_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- C++ lee una dirección con `scanf("%u")` y `".%u"` para las cuatro
-  partes; los demás lenguajes parten el token por los puntos.
-- Java guarda las direcciones en `int`, que se desborda a valores
-  negativos para direcciones altas, pero a `AND` y a la igualdad no les
-  importa.
-- Python guarda las subredes de un ordenador en un conjunto y prueba
-  `isdisjoint`.
+Se conservan las cinco bases BFS con entrada habitual. La nueva versión Go analiza las direcciones como valores sin signo de 32 bits y usa manejadores estándar de E/S. Se comparan los valores IP AND su propia máscara, no los pares (IP AND máscara, máscara); máscaras distintas pueden producir la misma subred. Los archivos existentes de C++, Java, Python y Rust también cubren el conjunto rápido según las reglas de admisión de la instantánea guardada.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1072_bfs.cpp](1072_bfs.cpp) | G++ 13.2 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 208 KB |
-| [1072_bfs.go](1072_bfs.go) | Go 1.14 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 1180 KB |
-| [1072_bfs.java](1072_bfs.java) | Java 1.8 | bfs | O(N^2 · K^2) | AC | 0.078 s | 776 KB |
-| [1072_bfs.py](1072_bfs.py) | Python 3.12 x64 | bfs | O(N^2 · K^2) | AC | 0.078 s | 612 KB |
-| [1072_bfs.rs](1072_bfs.rs) | Rust 1.75 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 224 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1072_bfs.cpp](1072_bfs.cpp) | G++ 13.2 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 208 KB | 11278927 |
+| [1072_bfs.go](1072_bfs.go) | Go 1.14 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 1180 KB | 11278929 |
+| [1072_bfs.java](1072_bfs.java) | Java 1.8 | bfs | O(N^2 · K^2) | AC | 0.078 s | 776 KB | 11278935 |
+| [1072_bfs.py](1072_bfs.py) \* | Python 3.12 x64 | bfs | O(N^2 · K^2) | AC | 0.078 s | 612 KB | 11278931 |
+| [1072_bfs.rs](1072_bfs.rs) | Rust 1.75 x64 | bfs | O(N^2 · K^2) | AC | 0.015 s | 224 KB | 11278936 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1072_bfs_optimized.go](1072_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N·K) | AC | 0.031 s | 280 KB | 11314790 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
