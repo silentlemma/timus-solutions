@@ -102,19 +102,32 @@ coordenadas pueden ser semienteras. Mantener el orden del borde: deben
 preservarse las aristas, además del conjunto de vértices. No hacen falta
 flotantes ni epsilon; las cuatro permutaciones inversas completan la lista.
 
+## Soluciones optimizadas
+
+Rust conserva las cuatro permutaciones de reflexión y pruebas enteras exactas. Hay como máximo ocho puntos de borde: un arreglo fijo y una búsqueda lineal corta sustituyen BTreeSet. Los extremos de la arista complementaria se indexan sin asignar Vec. Los puntos medios siguen duplicados como enteros; se conservan concavidades, direcciones nulas y puntos repetidos. Tiempo y espacio O(1), sin colecciones geométricas dinámicas. Una entrada C y getchar/putchar sustituyen también el String completo y la salida formateada. Se conservan las versiones sencillas; las otras cuatro familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-C++, Go 1.14, Java 8 y Rust 1.75 usan enteros de 64 bits para productos.
-Python 3.12 usa enteros exactos. C++/Go/Python/Rust guardan puntos dobles
-en conjuntos; Java busca duplicados en una lista de hasta ocho puntos.
-No hacen falta recursión ni bibliotecas geométricas.
+C++, Go, Java y Rust calculan productos cruzados y escalares con 64 bits. Python usa enteros exactos. C++, Go, Python y Rust originales eliminan duplicados con conjuntos. Java recorre una lista breve y Rust optimizado un arreglo fijo.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB |
-| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB |
-| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB |
-| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB |
-| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
+| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB | 11292201 |
+| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB | 11292200 |
+| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

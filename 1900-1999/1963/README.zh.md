@@ -90,18 +90,32 @@ s 为偶数时，两个对顶点固定，候选轴经过这两个顶点。s 为�
 重要，中点可能为半整数。保留输入的边界顺序，需要保持边而不仅是顶点
 集合。无需浮点或 epsilon；四个反转循环顺序的置换保证候选完整。
 
+## 优化解法
+
+Rust 仍检查四种反射置换并使用精确整数运算。边界点最多八个，因此以八点定长数组及短线性去重替代 BTreeSet；互补边端点直接按索引取得，不再分配 Vec。中点继续用加倍整数表示，凹四边形、零方向候选轴及重复边界点的处理不变。时间、空间 O(1)，无动态几何集合。C入口及getchar/putchar还替代完整String解析和格式化输出。保留所有简单版，其余四种语言复用已达标实现。
+
+已通过评测的基础实现 [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-C++、Go 1.14、Java 8、Rust 1.75 使用 64 位整数做叉积和点积，
-Python 3.12 使用精确整数。C++/Go/Python/Rust 以集合去重双倍坐标；
-Java 扫描至多八点的列表去重。不需要递归或几何库。
+C++、Go、Java 和 Rust 用 64 位整数计算叉积与点积，Python 用精确整数。原 C++、Go、Python 和 Rust 用集合去重，Java 扫描短列表，优化的 Rust 扫描定长数组。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB |
-| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB |
-| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB |
-| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB |
-| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
+| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB | 11292201 |
+| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB | 11292200 |
+| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

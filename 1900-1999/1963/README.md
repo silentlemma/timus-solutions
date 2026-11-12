@@ -104,19 +104,32 @@ be half-integers. Keep the input boundary order. Reflection must preserve
 edges as well as the vertex set. No floating point or epsilon is needed;
 the four possible reversed cyclic permutations make the test complete.
 
+## Optimized solutions
+
+The Rust alternative keeps the same four possible reflection permutations and exact integer tests. At most eight boundary points can be produced, so a fixed eight-point array and a short linear duplicate check replace BTreeSet. The two complementary edge endpoints are indexed directly instead of allocating a Vec. Midpoints remain doubled integers; concave outlines, zero-length candidate directions and coincident boundary points keep the same handling. Time and space are O(1), with no dynamic geometry collections. A C entry point and getchar/putchar also replace whole-input String parsing and formatted output. All simple sources remain; the other four families reuse their admitted implementations.
+
+The accepted base implementations [1963_geometry.cpp](1963_geometry.cpp), [1963_geometry.go](1963_geometry.go), [1963_geometry.java](1963_geometry.java), [1963_geometry.py](1963_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-C++, Go 1.14, Java 8 and Rust 1.75 use 64-bit integers for cross and dot
-products. Python 3.12 uses exact integers. C++/Go/Python/Rust store the
-doubled points in sets; Java scans a list of at most eight points to
-deduplicate coordinates. No recursion or geometry library is needed.
+C++, Go, Java and Rust use 64-bit cross and dot products. Python uses exact integers. Original C++, Go, Python and Rust deduplicate doubled points with sets. Java scans a short list, and optimized Rust scans a fixed array.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB |
-| [1963_geometry.go](1963_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB |
-| [1963_geometry.java](1963_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB |
-| [1963_geometry.py](1963_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB |
-| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry.cpp](1963_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 396 KB | 11292196 |
+| [1963_geometry.go](1963_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB | 11292198 |
+| [1963_geometry.java](1963_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1676 KB | 11292201 |
+| [1963_geometry.py](1963_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 712 KB | 11292200 |
+| [1963_geometry.rs](1963_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 232 KB | 11292202 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1963_geometry_optimized.rs](1963_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 44 KB | 11315825 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
