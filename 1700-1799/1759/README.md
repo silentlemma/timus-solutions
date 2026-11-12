@@ -70,12 +70,31 @@ with an independent accepted implementation on 160 random lists,
 including lists with ties and dates around the end of February in
 1800, 1900 and 2000.
 
+## Optimized solutions
+
+The Go/Rust alternatives parse the three numeric components of each date directly, avoiding token splitting and per-date allocations. A day number counts completed ordinary years, Gregorian leap years, a fixed cumulative month table and a leap-day correction after February. This is ordinary calendar arithmetic, not a table of problem answers. Stream one record at a time; ignore the middle date for lifetime comparison and update the winner only on a strictly longer inclusive life. Death dates increase in input order, so equal lives keep the earlier death. Time stays O(n), auxiliary storage O(1); Go uses bounded handle I/O, Rust C-runtime character I/O with a C entry point. All ordinary sources remain; the other three families reuse their admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 52 KB versus 232 KB.
+
+The accepted base implementations [1759_implementation.cpp](1759_implementation.cpp), [1759_implementation.java](1759_implementation.java), [1759_implementation.py](1759_implementation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1759_implementation.cpp](1759_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB |
-| [1759_implementation.go](1759_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1128 KB |
-| [1759_implementation.java](1759_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1804 KB |
-| [1759_implementation.py](1759_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 520 KB |
-| [1759_implementation.rs](1759_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1759_implementation.cpp](1759_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11289590 |
+| [1759_implementation.go](1759_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1128 KB | 11289591 |
+| [1759_implementation.java](1759_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1804 KB | 11289593 |
+| [1759_implementation.py](1759_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 520 KB | 11289592 |
+| [1759_implementation.rs](1759_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11289594 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1759_implementation_optimized.go](1759_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
+| [1759_implementation_optimized.rs](1759_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 52 KB | 11315247 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

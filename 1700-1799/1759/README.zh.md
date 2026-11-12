@@ -55,12 +55,31 @@ n（1 ≤ n ≤ 100），然后 n 行，每行三个格式为 `dd.mm.yyyy` 的�
 
 在 160 个随机名单上（包括并列以及 1800、1900、2000 年二月末附近的日期），答案与基于标准日期库的计数以及一个独立的已通过实现一致。
 
+## 优化解法
+
+Go/Rust 直接读取日期三个数字部分，避免拆分字符串和逐日期分配。日编号由完整年份、格里高利闰年数、月前累计天数表及二月后的闰日修正组成；这是日历常量而非题目答案表。逐条处理，比较寿命无需中间日期；只在包含首尾的寿命严格更长时更新。死亡日期递增，相等时自然保留更早死亡者。时间 O(n)、额外空间 O(1)。Go 使用有界句柄输入输出，Rust 使用 C 入口和 C runtime 字符输入输出。保留普通文件；其余三类语言复用符合标准的基础版。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 52 KB，基础版为 232 KB。
+
+已通过评测的基础实现 [1759_implementation.cpp](1759_implementation.cpp), [1759_implementation.java](1759_implementation.java), [1759_implementation.py](1759_implementation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1759_implementation.cpp](1759_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB |
-| [1759_implementation.go](1759_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1128 KB |
-| [1759_implementation.java](1759_implementation.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1804 KB |
-| [1759_implementation.py](1759_implementation.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 520 KB |
-| [1759_implementation.rs](1759_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1759_implementation.cpp](1759_implementation.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11289590 |
+| [1759_implementation.go](1759_implementation.go) | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 1128 KB | 11289591 |
+| [1759_implementation.java](1759_implementation.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 1804 KB | 11289593 |
+| [1759_implementation.py](1759_implementation.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 520 KB | 11289592 |
+| [1759_implementation.rs](1759_implementation.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11289594 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1759_implementation_optimized.go](1759_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 280 KB | 11315254 |
+| [1759_implementation_optimized.rs](1759_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.046 s | 52 KB | 11315247 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
