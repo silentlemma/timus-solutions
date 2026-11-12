@@ -66,12 +66,35 @@ g[j] ≤ x + j，即 g[j] − j ≤ x；由于 g 中的编号互不相同，g[j]
 - 反复摧毁同一个门牌号，每次都会藏起一个新房间（测试 03、07、gen3）；
 - 编号可达十亿，无法为每个房间开数组（测试 05、gen1）。
 
+## 优化解法
+
+这些实现保留已删除房间的有序数组及前缀二分查找；插入仍需移动元素，因此时间仍为 O(M log D + D²)。改进在于紧凑存储和流式输入输出。C++ 使用 32 位原始编号 （N ≤ 10⁹ 足够）并预留最多 10000 次删除的容量。Go、Rust 使用有界输入输出缓冲；Rust 也使用 32 位编号及 C runtime 入口。Python 处理后即释放输入行，并保存输出字节，而非保留所有输入标记和输出整数。Python 空间为 O(D + 输出字节数)，其他新版本为 O(D) 加固定缓冲区。原有直接实现均保留。
+
+通过评测的 Python 3.12 x64 版本耗时 0.437 秒，基础版为 0.421 秒，内存为 2 376 KB，基础版为 21004 KB。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 96 KB，基础版为 4664 KB。
+
+已通过评测的基础实现 [1439_binary_search.java](1439_binary_search.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1439_binary_search.cpp](1439_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D^2) | AC | 0.156 s | 424 KB |
-| [1439_binary_search.go](1439_binary_search.go) | Go 1.14 x64 | binary_search | O(M log D + D^2) | AC | 0.171 s | 5708 KB |
-| [1439_binary_search.java](1439_binary_search.java) | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB |
-| [1439_binary_search.py](1439_binary_search.py) | Python 3.12 x64 | binary_search | O(M log D + D^2) | AC | 0.421 s | 21004 KB |
-| [1439_binary_search.rs](1439_binary_search.rs) | Rust 1.75 x64 | binary_search | O(M log D + D^2) | AC | 0.031 s | 4664 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1439_binary_search.cpp](1439_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D^2) | AC | 0.156 s | 424 KB | 11286248 |
+| [1439_binary_search.go](1439_binary_search.go) | Go 1.14 x64 | binary_search | O(M log D + D^2) | AC | 0.171 s | 5708 KB | 11286251 |
+| [1439_binary_search.java](1439_binary_search.java) \* | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB | 11286253 |
+| [1439_binary_search.py](1439_binary_search.py) | Python 3.12 x64 | binary_search | O(M log D + D^2) | AC | 0.421 s | 21004 KB | 11286252 |
+| [1439_binary_search.rs](1439_binary_search.rs) | Rust 1.75 x64 | binary_search | O(M log D + D^2) | AC | 0.031 s | 4664 KB | 11286256 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) \* | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.156 s | 216 KB | 11314844 |
+| [1439_binary_search_optimized.go](1439_binary_search_optimized.go) \* | Go 1.14 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 404 KB | 11314850 |
+| [1439_binary_search_optimized.py](1439_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
+| [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) \* | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

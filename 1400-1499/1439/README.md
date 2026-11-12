@@ -75,12 +75,35 @@ Pitfalls:
 - numbers go up to a billion, beyond any per-room array (tests 05,
   gen1).
 
+## Optimized solutions
+
+These implementations retain the sorted destroyed-room array and its prefix binary search; insertion still shifts entries, so time remains O(M log D + D²). The change is compact storage and streaming I/O. C++ stores 32-bit original labels, sufficient because N ≤ 10⁹, and reserves the maximum 10000 destroyed entries. Go and Rust use bounded input/output buffers; Rust also uses 32-bit entries and a C-runtime entry point. Python discards each input line after processing and stores output bytes instead of retaining all input tokens and output integers. It needs O(D + output bytes) storage; the other new versions need O(D) storage plus fixed buffers. The existing straightforward implementations remain available.
+
+The accepted Python 3.12 x64 run takes 0.437 s versus 0.421 s for the base and uses 2 376 KB versus 21004 KB.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 96 KB versus 4664 KB.
+
+The accepted base implementations [1439_binary_search.java](1439_binary_search.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1439_binary_search.cpp](1439_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D^2) | AC | 0.156 s | 424 KB |
-| [1439_binary_search.go](1439_binary_search.go) | Go 1.14 x64 | binary_search | O(M log D + D^2) | AC | 0.171 s | 5708 KB |
-| [1439_binary_search.java](1439_binary_search.java) | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB |
-| [1439_binary_search.py](1439_binary_search.py) | Python 3.12 x64 | binary_search | O(M log D + D^2) | AC | 0.421 s | 21004 KB |
-| [1439_binary_search.rs](1439_binary_search.rs) | Rust 1.75 x64 | binary_search | O(M log D + D^2) | AC | 0.031 s | 4664 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1439_binary_search.cpp](1439_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D^2) | AC | 0.156 s | 424 KB | 11286248 |
+| [1439_binary_search.go](1439_binary_search.go) | Go 1.14 x64 | binary_search | O(M log D + D^2) | AC | 0.171 s | 5708 KB | 11286251 |
+| [1439_binary_search.java](1439_binary_search.java) \* | Java 1.8 | binary_search | O(M log D + D^2) | AC | 0.171 s | 10132 KB | 11286253 |
+| [1439_binary_search.py](1439_binary_search.py) | Python 3.12 x64 | binary_search | O(M log D + D^2) | AC | 0.421 s | 21004 KB | 11286252 |
+| [1439_binary_search.rs](1439_binary_search.rs) | Rust 1.75 x64 | binary_search | O(M log D + D^2) | AC | 0.031 s | 4664 KB | 11286256 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) \* | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.156 s | 216 KB | 11314844 |
+| [1439_binary_search_optimized.go](1439_binary_search_optimized.go) \* | Go 1.14 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 404 KB | 11314850 |
+| [1439_binary_search_optimized.py](1439_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
+| [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) \* | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
