@@ -71,16 +71,35 @@ need(h) = Σ max(0, h − 高度) 个集装箱，它随 h 递增。所以答案�
 
 在 199 个小仓库上，与用堆逐个放置集装箱的结果比较过。
 
+## 优化解法
+
+新的 Go、Rust 利用初始高度 H=1000 的上界。统计各高度的堆数，从高度 1 逐层提高水位。在离开高度 h 前把该高度的堆加入活跃数；下一完整层需要每个活跃堆各一个集装箱。预算不足则最终最小值就是 h。所有堆活跃后，用剩余预算除以 N·M 直接跳跃，不完整的一层不影响最小值。时间 O(N·M+H)、空间 O(H)，无需排序或重复可行性扫描。预算使用 64 位整数。保留二分基础版，C++、Java、Python 的基础版也覆盖快速集合。
+
+已通过评测的基础实现 [1279_binary_search.cpp](1279_binary_search.cpp), [1279_binary_search.java](1279_binary_search.java), [1279_binary_search.py](1279_binary_search.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - 所有语言的二分查找相同；Python 用任意精度整数求和，其余用 64 位整数。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1279_binary_search.cpp](1279_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N · M · log K) | AC | 0.015 s | 280 KB |
-| [1279_binary_search.go](1279_binary_search.go) | Go 1.14 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 1208 KB |
-| [1279_binary_search.java](1279_binary_search.java) | Java 1.8 | binary_search | O(N · M · log K) | AC | 0.109 s | 600 KB |
-| [1279_binary_search.py](1279_binary_search.py) | Python 3.12 x64 | binary_search | O(N · M · log K) | AC | 0.109 s | 1344 KB |
-| [1279_binary_search.rs](1279_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 512 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1279_binary_search.cpp](1279_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(N · M · log K) | AC | 0.015 s | 280 KB | 11284386 |
+| [1279_binary_search.go](1279_binary_search.go) | Go 1.14 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 1208 KB | 11284389 |
+| [1279_binary_search.java](1279_binary_search.java) | Java 1.8 | binary_search | O(N · M · log K) | AC | 0.109 s | 600 KB | 11284396 |
+| [1279_binary_search.py](1279_binary_search.py) \* | Python 3.12 x64 | binary_search | O(N · M · log K) | AC | 0.109 s | 1344 KB | 11284394 |
+| [1279_binary_search.rs](1279_binary_search.rs) | Rust 1.75 x64 | binary_search | O(N · M · log K) | AC | 0.031 s | 512 KB | 11284398 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1279_greedy.go](1279_greedy.go) \* | Go 1.14 x64 | greedy | O(N·M + H) | AC | 0.015 s | 320 KB | 11314936 |
+| [1279_greedy.rs](1279_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N·M + H) | AC | 0.031 s | 56 KB | 11314955 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
