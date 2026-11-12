@@ -78,21 +78,32 @@ Pitfalls:
 The answers were checked the other way round: the printed tree, encoded
 again by the definition, gives back the input.
 
+## Optimized solutions
+
+Go removes both the leaf heap and adjacency sorting. A monotone pointer scans to the next label absent from the remaining code. After attaching that leaf to the next code label, use that label immediately if its last occurrence vanished and it lies below the pointer. All earlier labels were removed or still occurred in the code, and only this counter changed. Otherwise advance the pointer to find the smallest available leaf. Store each removed leaf’s parent. The last code symbol is N, so N remains the root. Descending vertex IDs prepended to parent child-lists make every child-list increasing. Merge each list with its one parent while printing, so sorted adjacency also takes linear time. Labels and counts fit uint16 for N≤7500. Time and storage O(N), bounded I/O. All heap-based teaching sources remain; the other four families reuse admitted bases.
+
+The accepted base implementations [1069_trees.cpp](1069_trees.cpp), [1069_trees.java](1069_trees.java), [1069_trees.py](1069_trees.py), [1069_trees.rs](1069_trees.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- C++ makes `std::priority_queue` a min-heap with `std::greater`; Rust
-  does the same with `Reverse` in a `BinaryHeap`.
-- Go uses `container/heap` with a small `[]int` type.
-- Java keeps every adjacency list in an `int` array sized by its initial counter,
-  and the leaves in a `PriorityQueue`.
-- Python uses `heapq`.
+C++/Rust retain min-heaps, Java PriorityQueue and sized adjacency arrays, Python heapq. Original Go uses container/heap; new Go uses a monotone leaf pointer and sorted child/parent merging, with uint16 labels/counts and bounded standard-handle I/O.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB |
-| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB |
-| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB |
-| [1069_trees.py](1069_trees.py) | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB |
-| [1069_trees.rs](1069_trees.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB | 11278893 |
+| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB | 11278897 |
+| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB | 11278900 |
+| [1069_trees.py](1069_trees.py) \* | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
+| [1069_trees.rs](1069_trees.rs) \* | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) \* | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

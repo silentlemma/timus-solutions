@@ -78,21 +78,32 @@ Detalles a tener en cuenta:
 Las respuestas se comprobaron al revés: el árbol impreso, codificado de
 nuevo según la definición, devuelve la entrada.
 
+## Soluciones optimizadas
+
+Go elimina montón de hojas y ordenar adyacencias. Un puntero monótono busca la siguiente etiqueta ausente del código restante. Tras conectar la hoja, usar inmediatamente la etiqueta del código si se agotó y es menor que el puntero. Las etiquetas anteriores ya se quitaron o aún aparecían en el código, y solo cambió ese contador. En otro caso se avanza hasta la menor hoja disponible. Se guarda el padre de cada hoja retirada. El código termina en N, que queda como raíz. Preinsertar vértices en orden decreciente deja hijos crecientes; fusionarlos con el padre al imprimir produce adyacencias ordenadas en tiempo lineal. N≤7500 permite uint16. Tiempo y espacio O(N), E/S acotada. Se conservan versiones de montón; las otras familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1069_trees.cpp](1069_trees.cpp), [1069_trees.java](1069_trees.java), [1069_trees.py](1069_trees.py), [1069_trees.rs](1069_trees.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-- C++ convierte `std::priority_queue` en un montículo de mínimos con
-  `std::greater`; Rust hace lo mismo con `Reverse` en un `BinaryHeap`.
-- Go usa `container/heap` con un pequeño tipo `[]int`.
-- Java guarda cada lista de adyacencia en un arreglo `int` del tamaño del
-  contador inicial, y las hojas en una `PriorityQueue`.
-- Python usa `heapq`.
+C++/Rust conservan montones mínimos, Java PriorityQueue y arreglos ajustados, Python heapq. Go original usa container/heap; Go nuevo usa puntero monótono y fusión de hijos/padre, uint16 y E/S acotada.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB |
-| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB |
-| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB |
-| [1069_trees.py](1069_trees.py) | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB |
-| [1069_trees.rs](1069_trees.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB | 11278893 |
+| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB | 11278897 |
+| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB | 11278900 |
+| [1069_trees.py](1069_trees.py) \* | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
+| [1069_trees.rs](1069_trees.rs) \* | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) \* | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

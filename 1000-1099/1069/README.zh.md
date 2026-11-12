@@ -65,19 +65,32 @@
 
 答案反向做了核对：把输出的树按定义重新编码，得到的正是输入。
 
+## 优化解法
+
+Go 同时去掉叶堆与邻接排序。单调指针找剩余编码中不再出现的最小候选标签；连接当前叶后，若代码标签最后一次出现已消失且小于指针，立即取它。更小的标签此前要么已删除，要么仍在编码中出现，而本步只改了这一个计数。否则向前找最小可用叶。保存每个移除叶的父。编码最后一个符号为 N，因此 N 留作根。按顶点编号递减前插子链表，得到递增子列表；输出时与唯一父节点合并，邻接排序也为线性。N≤7500 时标签及计数适合 uint16。时间空间 O(N)，输入输出有界。保留堆教学版；其余四种语言复用达标基础版。
+
+已通过评测的基础实现 [1069_trees.cpp](1069_trees.cpp), [1069_trees.java](1069_trees.java), [1069_trees.py](1069_trees.py), [1069_trees.rs](1069_trees.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-- C++ 用 `std::greater` 把 `std::priority_queue` 变成最小堆；Rust 用 `BinaryHeap` 中的 `Reverse` 做到同样的事。
-- Go 使用 `container/heap` 和一个小的 `[]int` 类型。
-- Java 把每个邻接表放在长度等于初始计数器的 `int` 数组里，叶子放在 `PriorityQueue` 中。
-- Python 使用 `heapq`。
+C++/Rust 保留最小堆，Java 保留 PriorityQueue 与定长邻接数组，Python 保留 heapq；原 Go 用 container/heap，新 Go 用单调叶指针及子列表/父合并，uint16 标签计数与有界标准句柄输入输出。
 
-## 题解代码
+## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB |
-| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB |
-| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB |
-| [1069_trees.py](1069_trees.py) | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB |
-| [1069_trees.rs](1069_trees.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB | 11278893 |
+| [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB | 11278897 |
+| [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB | 11278900 |
+| [1069_trees.py](1069_trees.py) \* | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
+| [1069_trees.rs](1069_trees.rs) \* | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) \* | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
