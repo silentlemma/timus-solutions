@@ -115,7 +115,17 @@ las pruebas; el propio comprobador se contrastó con una comparación de
 cada par de multiconjuntos en un centenar de entradas pequeñas, con
 asignaciones correctas y aleatorias.
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++, Go, Python y Rust mantienen la construcción por suma módulo N+1. Quitar un elemento cambia la suma en 1..N; reemplazarlo, en un valor no nulo de magnitud máxima N−1. Ninguno es múltiplo de N+1, por lo que un grupo no contiene pares prohibidos. Se procesa cada colección sin guardar todos sus elementos. C++, Go y Rust usan búferes acotados; Python lee una colección por línea y acumula solo los grupos en bytearray. Para S elementos, el tiempo es O(S). Python guarda una línea y O(K) bytes de salida; las otras versiones usan espacio auxiliar acotado. Se conservan las bases y Java, ya admitida.
+
+El envío aceptado en G++ 13.2 x64 tarda 0.062 s frente a 0.015 s de la base y usa 92 KB frente a 404 KB.
+
+Las implementaciones base aceptadas [1107_math.java](1107_math.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - C++, Go y Java leen los bytes con sus propios lectores de números con
   búfer.
@@ -125,10 +135,23 @@ asignaciones correctas y aleatorias.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1107_math.cpp](1107_math.cpp) | G++ 13.2 x64 | math | O(total size) | AC | 0.015 s | 404 KB |
-| [1107_math.go](1107_math.go) | Go 1.14 x64 | math | O(total size) | AC | 0.046 s | 980 KB |
-| [1107_math.java](1107_math.java) | Java 1.8 | math | O(total size) | AC | 0.078 s | 1608 KB |
-| [1107_math.py](1107_math.py) | Python 3.12 x64 | math | O(total size) | AC | 0.562 s | 16972 KB |
-| [1107_math.rs](1107_math.rs) | Rust 1.75 x64 | math | O(total size) | AC | 0.031 s | 9300 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1107_math.cpp](1107_math.cpp) | G++ 13.2 x64 | math | O(total size) | AC | 0.015 s | 404 KB | 11279187 |
+| [1107_math.go](1107_math.go) | Go 1.14 x64 | math | O(total size) | AC | 0.046 s | 980 KB | 11279188 |
+| [1107_math.java](1107_math.java) | Java 1.8 | math | O(total size) | AC | 0.078 s | 1608 KB | 11279190 |
+| [1107_math.py](1107_math.py) | Python 3.12 x64 | math | O(total size) | AC | 0.562 s | 16972 KB | 11279189 |
+| [1107_math.rs](1107_math.rs) | Rust 1.75 x64 | math | O(total size) | AC | 0.031 s | 9300 KB | 11279191 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1107_math_optimized.cpp](1107_math_optimized.cpp) | G++ 13.2 x64 | math | O(S) | AC | 0.062 s | 92 KB | 11314882 |
+| [1107_math_optimized.go](1107_math_optimized.go) \* | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
+| [1107_math_optimized.py](1107_math_optimized.py) \* | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
+| [1107_math_optimized.rs](1107_math_optimized.rs) \* | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

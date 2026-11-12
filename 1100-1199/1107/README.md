@@ -111,7 +111,17 @@ The answers were checked by the hash checker on every test; the checker
 itself was compared with a pairwise test of every two multisets on a
 hundred small inputs, with correct and random assignments.
 
+## Optimized solutions
+
+The new C++, Go, Python and Rust implementations keep the sum-modulo-(N+1) construction. Removing an item changes the sum by 1..N; replacing one changes it by a nonzero value of absolute magnitude at most N−1. Neither change vanishes modulo N+1, so each group contains no forbidden pair. Process each collection once without retaining all its items. C++, Go and Rust use bounded input/output buffers; Python reads one collection per line and accumulates only the group labels in a bytearray. For S input items, time is O(S). Python additionally stores one input line and O(K) output bytes; the other versions use bounded auxiliary storage. The ordinary implementations and already-admitted Java base remain available.
+
+The accepted G++ 13.2 x64 run takes 0.062 s versus 0.015 s for the base and uses 92 KB versus 404 KB.
+
+The accepted base implementations [1107_math.java](1107_math.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - C++, Go and Java read the bytes through their own buffered number
   readers.
@@ -121,10 +131,23 @@ hundred small inputs, with correct and random assignments.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1107_math.cpp](1107_math.cpp) | G++ 13.2 x64 | math | O(total size) | AC | 0.015 s | 404 KB |
-| [1107_math.go](1107_math.go) | Go 1.14 x64 | math | O(total size) | AC | 0.046 s | 980 KB |
-| [1107_math.java](1107_math.java) | Java 1.8 | math | O(total size) | AC | 0.078 s | 1608 KB |
-| [1107_math.py](1107_math.py) | Python 3.12 x64 | math | O(total size) | AC | 0.562 s | 16972 KB |
-| [1107_math.rs](1107_math.rs) | Rust 1.75 x64 | math | O(total size) | AC | 0.031 s | 9300 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1107_math.cpp](1107_math.cpp) | G++ 13.2 x64 | math | O(total size) | AC | 0.015 s | 404 KB | 11279187 |
+| [1107_math.go](1107_math.go) | Go 1.14 x64 | math | O(total size) | AC | 0.046 s | 980 KB | 11279188 |
+| [1107_math.java](1107_math.java) | Java 1.8 | math | O(total size) | AC | 0.078 s | 1608 KB | 11279190 |
+| [1107_math.py](1107_math.py) | Python 3.12 x64 | math | O(total size) | AC | 0.562 s | 16972 KB | 11279189 |
+| [1107_math.rs](1107_math.rs) | Rust 1.75 x64 | math | O(total size) | AC | 0.031 s | 9300 KB | 11279191 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1107_math_optimized.cpp](1107_math_optimized.cpp) | G++ 13.2 x64 | math | O(S) | AC | 0.062 s | 92 KB | 11314882 |
+| [1107_math_optimized.go](1107_math_optimized.go) \* | Go 1.14 x64 | math | O(S) | AC | 0.046 s | 284 KB | 11314885 |
+| [1107_math_optimized.py](1107_math_optimized.py) \* | Python 3.12 x64 | math | O(S) | AC | 0.531 s | 608 KB | 11314887 |
+| [1107_math_optimized.rs](1107_math_optimized.rs) \* | Rust 1.75 x64 | math | O(S) | AC | 0.015 s | 44 KB | 11314890 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
