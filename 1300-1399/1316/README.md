@@ -83,17 +83,40 @@ Pitfalls:
 The totals were compared with a plain count over all active bids on
 300 random logs.
 
+## Optimized solutions
+
+The new C++, Go and Rust implementations compress only prices occurring in BID operations. Store the log, sort and deduplicate those prices, then replay the operations with a Fenwick tree. A sale at X subtracts the number of strictly cheaper bids from the total active count, so equal-price bids remain eligible; a sale never removes bids. Prices are parsed as integer cents, and earnings use a 64-bit integer or a Python integer. For at most N operations this takes O(N log N) time and O(N) storage instead of a million price slots. C++, Go and Rust reserve capacity for the 100000-operation bound. Python instead streams operations straight into a dense Python-list Fenwick over P=1000000 cent values, using reversed index P−price+1. This simpler online version needs no operation log, sorting, dictionary or binary search. Its O(P+N log P) time and O(P) slots trade a fixed table for much less retained input, and list access avoids typed-array boxing. Go uses standard handles; Rust uses bounded C-runtime I/O and a C entry point. The ordinary implementations and the already-admitted Java base are retained.
+
+The accepted Python 3.12 x64 run takes 0.5 s versus 0.437 s for the base and uses 8 324 KB versus 32560 KB.
+
+The accepted base implementations [1316_fenwick.java](1316_fenwick.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Python ranks only the prices that appear in the log, which keeps the
   tree small; the other languages index all million prices directly.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB |
-| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB |
-| [1316_fenwick.java](1316_fenwick.java) | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB |
-| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB |
-| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB | 11284923 |
+| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB | 11284924 |
+| [1316_fenwick.java](1316_fenwick.java) \* | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB | 11284926 |
+| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB | 11284925 |
+| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB | 11284927 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.156 s | 1344 KB | 11314823 |
+| [1316_fenwick_optimized.go](1316_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
+| [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
+| [1316_fenwick_optimized.py](1316_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(P + N log P) | AC | 0.5 s | 8324 KB | 11315039 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

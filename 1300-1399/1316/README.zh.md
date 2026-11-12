@@ -71,16 +71,39 @@ X 的有多少”。
 
 在 300 份随机日志上与直接统计所有有效出价的结果比较过。
 
+## 优化解法
+
+新的 C++、Go、Rust 实现只压缩 BID 中出现的价格。保存日志，排序去重这些价格，再用树状数组重放操作。售价为 X 时，从有效报价总数中减去严格低于 X 的数量，因此等价报价仍可购买；销售不会删除报价。价格按整数分解析，利润使用 64 位整数或 Python 整数。最多 N 次操作需要 O(N log N) 时间、O(N) 空间，替代一百万个价格槽。C++、Go、Rust 预留 100000 次操作的容量。Python 直接流式更新覆盖 P=1000000 分值的稠密列表 Fenwick，反向索引为 P−价格+1。这个更简单的在线版本无需日志、排序、字典或二分，时间 O(P+N log P)、空间 O(P)。固定表换取不保留输入，列表访问也避免类型化数组装箱。Go 使用标准句柄，Rust 使用有界 C runtime 输入输出及 C 入口。保留普通实现以及已满足收录规则的 Java 基础版本。
+
+通过评测的 Python 3.12 x64 版本耗时 0.5 秒，基础版为 0.437 秒，内存为 8 324 KB，基础版为 32560 KB。
+
+已通过评测的基础实现 [1316_fenwick.java](1316_fenwick.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
+
+以下说明针对基础实现。
 
 - Python 只给日志中出现的价格编号，树因此很小；其他语言直接按全部一百万个价格建索引。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB |
-| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB |
-| [1316_fenwick.java](1316_fenwick.java) | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB |
-| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB |
-| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB | 11284923 |
+| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB | 11284924 |
+| [1316_fenwick.java](1316_fenwick.java) \* | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB | 11284926 |
+| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB | 11284925 |
+| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB | 11284927 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.156 s | 1344 KB | 11314823 |
+| [1316_fenwick_optimized.go](1316_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
+| [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
+| [1316_fenwick_optimized.py](1316_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(P + N log P) | AC | 0.5 s | 8324 KB | 11315039 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

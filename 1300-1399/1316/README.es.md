@@ -85,7 +85,17 @@ Detalles a tener en cuenta:
 Los totales se compararon con un conteo directo sobre todas las ofertas
 activas en 300 registros aleatorios.
 
+## Soluciones optimizadas
+
+Las nuevas versiones C++, Go y Rust comprimen solo los precios de BID. Guardan el registro, ordenan y deduplican esos precios, y reproducen las operaciones con un árbol Fenwick. Una venta a X resta los compradores estrictamente más baratos del total activo: los de precio igual participan y la venta no retira ofertas. Los precios se leen como céntimos enteros y los ingresos usan 64 bits o enteros Python. Para como máximo N operaciones, tiempo O(N log N) y espacio O(N) sustituyen al millón de posiciones. C++, Go y Rust reservan capacidad para 100000 operaciones. Python procesa directamente una lista Fenwick densa sobre P=1000000 céntimos con índice P−precio+1. La versión online más sencilla no retiene operaciones ni ordena, busca rangos o construye un diccionario. Tiempo O(P+N log P), espacio O(P): la tabla fija sustituye la entrada retenida y evita el empaquetado por acceso. Go usa manejadores estándar; Rust E/S acotada del C runtime y entrada C. Se conservan las versiones habituales y la base Java ya admitida.
+
+El envío aceptado en Python 3.12 x64 tarda 0.5 s frente a 0.437 s de la base y usa 8 324 KB frente a 32560 KB.
+
+Las implementaciones base aceptadas [1316_fenwick.java](1316_fenwick.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - Python numera solo los precios que aparecen en el registro, lo que
   mantiene pequeño el árbol; los demás lenguajes indexan directamente
@@ -93,10 +103,23 @@ activas en 300 registros aleatorios.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB |
-| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB |
-| [1316_fenwick.java](1316_fenwick.java) | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB |
-| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB |
-| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick.cpp](1316_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(P + N log P) | AC | 0.171 s | 3652 KB | 11284923 |
+| [1316_fenwick.go](1316_fenwick.go) | Go 1.14 x64 | fenwick | O(P + N log P) | AC | 0.062 s | 11012 KB | 11284924 |
+| [1316_fenwick.java](1316_fenwick.java) \* | Java 1.8 | fenwick | O(P + N log P) | AC | 0.156 s | 9428 KB | 11284926 |
+| [1316_fenwick.py](1316_fenwick.py) | Python 3.12 x64 | fenwick | O(N log P) | AC | 0.437 s | 32560 KB | 11284925 |
+| [1316_fenwick.rs](1316_fenwick.rs) | Rust 1.75 x64 | fenwick | O(P + N log P) | AC | 0.031 s | 10996 KB | 11284927 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.156 s | 1344 KB | 11314823 |
+| [1316_fenwick_optimized.go](1316_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
+| [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
+| [1316_fenwick_optimized.py](1316_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(P + N log P) | AC | 0.5 s | 8324 KB | 11315039 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
