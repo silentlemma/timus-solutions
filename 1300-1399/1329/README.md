@@ -85,17 +85,39 @@ Pitfalls:
 The answers were compared with walking up the parents on 300 random
 trees of up to 12 milestones.
 
+## Optimized solutions
+
+The new C++, Go and Rust sources keep DFS entry/exit intervals but store five 16-bit fields per possible milestone: parent, first child, next sibling, entry and exit. IDs are at most 40000 and the clock at most 40000, so 65535 is a distinct sentinel even for milestone zero. The table has U=40001 entries and 400010 bytes of fields. On entering a vertex, descend to its first child; after finishing a subtree, use a sibling or climb the stored parents until a sibling exists. Each edge is traversed at most twice, without recursion or an event stack. Read all edges before walking, so children may precede parents. Initializing the indexed table costs O(U); traversal and queries cost O(N+L). C++ uses bounded C stdio input, Go bounded standard-handle buffers; Rust additionally retains the input text. All five simple files remain; Java/Python reuse their admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.062 s versus 0.046 s for the base and uses 2 116 KB versus 5376 KB.
+
+The accepted base implementations [1329_dfs.java](1329_dfs.java), [1329_dfs.py](1329_dfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - Java reads the input through its own byte buffer, since a buffered
   stream that is locked on every byte is noticeably slower here.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1329_dfs.cpp](1329_dfs.cpp) | G++ 13.2 x64 | dfs | O(N + L) | AC | 0.078 s | 2064 KB |
-| [1329_dfs.go](1329_dfs.go) | Go 1.14 x64 | dfs | O(N + L) | AC | 0.031 s | 5948 KB |
-| [1329_dfs.java](1329_dfs.java) | Java 1.8 | dfs | O(N + L) | AC | 0.140 s | 2420 KB |
-| [1329_dfs.py](1329_dfs.py) | Python 3.12 x64 | dfs | O(N + L) | AC | 0.156 s | 17292 KB |
-| [1329_dfs.rs](1329_dfs.rs) | Rust 1.75 x64 | dfs | O(N + L) | AC | 0.046 s | 5376 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1329_dfs.cpp](1329_dfs.cpp) | G++ 13.2 x64 | dfs | O(N + L) | AC | 0.078 s | 2064 KB | 11284994 |
+| [1329_dfs.go](1329_dfs.go) | Go 1.14 x64 | dfs | O(N + L) | AC | 0.031 s | 5948 KB | 11284995 |
+| [1329_dfs.java](1329_dfs.java) | Java 1.8 | dfs | O(N + L) | AC | 0.140 s | 2420 KB | 11284997 |
+| [1329_dfs.py](1329_dfs.py) \* | Python 3.12 x64 | dfs | O(N + L) | AC | 0.156 s | 17292 KB | 11284996 |
+| [1329_dfs.rs](1329_dfs.rs) | Rust 1.75 x64 | dfs | O(N + L) | AC | 0.046 s | 5376 KB | 11284998 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1329_dfs_optimized.cpp](1329_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(U + N + L) | AC | 0.015 s | 468 KB | 11315161 |
+| [1329_dfs_optimized.go](1329_dfs_optimized.go) \* | Go 1.14 x64 | dfs | O(U + N + L) | AC | 0.031 s | 692 KB | 11315171 |
+| [1329_dfs_optimized.rs](1329_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(U + N + L) | AC | 0.062 s | 2116 KB | 11315177 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
