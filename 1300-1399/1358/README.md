@@ -72,7 +72,17 @@ The tests are judged by a checker that tests the bounds, every pair of
 points and every pair of cables, including cables that share an end and
 overlap.
 
+The teaching C++ version assigns a point when the recursive DFS enters a vertex. Its column starts at −999 and advances by two on each entry. The row is the depth passed to the call. It recurses on each neighbor except the parent. Since the input is a tree, this visits each vertex once and assigns all columns of one subtree consecutively. The time and storage are O(N), with at most N recursive calls on the stack.
+
+## Optimized solutions
+
+Go and Rust keep x=2·preorder−999 and y=depth. Each vertex has a distinct column spaced by 2, so every pair is farther than 1. N ≤ 1000 gives x in [−999,999] and y in [0,999]. An edge stays in the strip between consecutive depths and within its parent’s subtree columns. Different parents on the same row have disjoint column intervals. Edges from one parent have distinct endpoints on the next row and meet only at that parent. The new versions use flat 16-bit arrays for adjacency heads, destinations, next edges, preorder, depth and the stack. Edge indices are at most 1998, vertex IDs at most 1000, and stored depth plus one at most 1000. Zero depth means undiscovered, so a separate seen or parent array is unnecessary. Prepending input edges and pushing their chain onto LIFO retains the original child order. Both use fixed arrays for the 1000-vertex limit. Go reads and writes fixed 256-byte buffers through standard handles. Rust uses C-runtime character I/O and a C entry point. Time and space are O(N) under the fixed maximum. All simple files remain; C++/Java/Python reuse admitted bases.
+
+The accepted base implementations [1358_graphs.cpp](1358_graphs.cpp), [1358_graphs.java](1358_graphs.java), [1358_graphs.py](1358_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages visit children in input order and produce the same
   placement; a checker accepts other valid answers too.
@@ -81,10 +91,22 @@ overlap.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1358_graphs.cpp](1358_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) | AC | 0.015 s | 260 KB |
-| [1358_graphs.go](1358_graphs.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.031 s | 1208 KB |
-| [1358_graphs.java](1358_graphs.java) | Java 1.8 | graphs | O(N) | AC | 0.140 s | 624 KB |
-| [1358_graphs.py](1358_graphs.py) | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB |
-| [1358_graphs.rs](1358_graphs.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.046 s | 308 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1358_graphs.cpp](1358_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) | AC | 0.015 s | 260 KB | 11285300 |
+| [1358_graphs.go](1358_graphs.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.031 s | 1208 KB | 11285313 |
+| [1358_graphs.java](1358_graphs.java) | Java 1.8 | graphs | O(N) | AC | 0.140 s | 624 KB | 11285343 |
+| [1358_graphs.py](1358_graphs.py) \* | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
+| [1358_graphs.rs](1358_graphs.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.046 s | 308 KB | 11285353 |
+| [1358_dfs.cpp](1358_dfs.cpp) | G++ 13.2 x64 | dfs | O(N) | AC | 0.015 s | 564 KB | 11315912 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
+| [1358_graphs_optimized.go](1358_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
