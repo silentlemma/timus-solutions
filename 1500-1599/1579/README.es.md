@@ -68,12 +68,30 @@ Detalles a tener en cuenta:
 - hay varias respuestas válidas, así que un verificador comprueba los
   viajes.
 
+## Soluciones optimizadas
+
+C++, Go y Rust usan la misma ventana de dos punteros y el reparto cíclico. Los tamaños y sus diferencias no negativas son a lo sumo 10⁹, así que el arreglo ocupa 4N bytes. En el viaje t, numerado desde cero, los números de las prendas empiezan en t+1 y crecen de K en K mientras no superen N. Hay ⌊(N−1−t)/K⌋+1 prendas, así que se puede imprimir la cantidad antes de enumerarlas. La entrada se lee en bloques de 4096 bytes y la salida usa un búfer de 8192 bytes. La búsqueda de la ventana y la enumeración cuestan O(N) tiempo y el arreglo ocupa O(N) espacio. Java y Python reutilizan las versiones base admitidas.
+
+Las implementaciones base aceptadas [1579_greedy.java](1579_greedy.java), [1579_greedy.py](1579_greedy.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1579_greedy.cpp](1579_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.109 s | 984 KB |
-| [1579_greedy.go](1579_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 4040 KB |
-| [1579_greedy.java](1579_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 9960 KB |
-| [1579_greedy.py](1579_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 19332 KB |
-| [1579_greedy.rs](1579_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 7672 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1579_greedy.cpp](1579_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.109 s | 984 KB | 11287884 |
+| [1579_greedy.go](1579_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 4040 KB | 11287886 |
+| [1579_greedy.java](1579_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 9960 KB | 11287889 |
+| [1579_greedy.py](1579_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 19332 KB | 11287887 |
+| [1579_greedy.rs](1579_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 7672 KB | 11287890 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1579_greedy_optimized.cpp](1579_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 512 KB | 11315408 |
+| [1579_greedy_optimized.go](1579_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.015 s | 1232 KB | 11315410 |
+| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

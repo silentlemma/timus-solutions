@@ -56,12 +56,30 @@ K + 1 件放不进同一个窗口，所以第 i + K 件的尺寸比第 i 件大�
 - R = 0 时相同尺寸需要不同的趟（测试 03、gen2）；
 - 合法答案不止一个，所以检查器检验各趟。
 
+## 优化解法
+
+C++、Go 和 Rust 仍用双指针滑动窗口与循环分组。尺寸及其非负差至多为 10⁹，因此尺寸数组占 4N 字节。出行编号 t 从零开始，衣服编号从 t+1 起，每次加 K，直到超过 N。衣服件数为 ⌊(N−1−t)/K⌋+1，可先输出件数再逐个输出编号。输入块为 4096 字节，输出缓冲为 8192 字节。寻找窗口并枚举编号共耗时 O(N)，尺寸数组占 O(N) 空间。Java 和 Python 复用达标的基础版。
+
+已通过评测的基础实现 [1579_greedy.java](1579_greedy.java), [1579_greedy.py](1579_greedy.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1579_greedy.cpp](1579_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.109 s | 984 KB |
-| [1579_greedy.go](1579_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 4040 KB |
-| [1579_greedy.java](1579_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 9960 KB |
-| [1579_greedy.py](1579_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 19332 KB |
-| [1579_greedy.rs](1579_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 7672 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1579_greedy.cpp](1579_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.109 s | 984 KB | 11287884 |
+| [1579_greedy.go](1579_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.093 s | 4040 KB | 11287886 |
+| [1579_greedy.java](1579_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 9960 KB | 11287889 |
+| [1579_greedy.py](1579_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 19332 KB | 11287887 |
+| [1579_greedy.rs](1579_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 7672 KB | 11287890 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1579_greedy_optimized.cpp](1579_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 512 KB | 11315408 |
+| [1579_greedy_optimized.go](1579_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.015 s | 1232 KB | 11315410 |
+| [1579_greedy_optimized.rs](1579_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.015 s | 600 KB | 11315417 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
