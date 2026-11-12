@@ -137,12 +137,31 @@ before arrivals. Finding an edge for every vertex is insufficient:
 several arrivals may need the same departure. Reset DFS cursors every
 BFS phase and update both sides when augmenting.
 
+The teaching C++ version builds the same duration graph and searches for one augmenting path per arrival. For each allowed departure, DFS takes it if free or tries to move its current owner to another departure. Each search visits a departure at most once. If no path exists, the arrivals processed so far cannot all be matched, so the full log is impossible. The final owners reconstruct the visits. With V arrivals and E edges, time is O(V² + VE) and space is O(V + E).
+
+## Optimized solutions
+
+Go retains Hopcroft–Karp but never allocates its potentially dense adjacency lists. Arrivals and exits are already sorted. For arrival e, allowed exit indices form two intervals: e<x≤e+b and x≥e+a. Three monotone pointers find all interval boundaries in linear time. BFS and per-vertex DFS cursors enumerate the first interval, jump over the forbidden gap, then enumerate the second. These are exactly the same edges as the explicit graph, so the usual shortest augmenting path proof is unchanged. With at most500 visitors, uint16 indices and int16 partners/distances (−1 unmatched) suffice; the BFS queue is reused and no records/answer list or fmt conversions are retained. Threshold sums are≤2×10^9, safe in int32. E implicit edges and V visitors give O(E sqrt V) matching work plus O(n) preprocessing, O(V+n) memory instead of O(E+V). Unequal counts still fail and every output pair uses a positive allowed duration. Simple explicit graph programs remain; the other four languages reuse admitted bases.
+
+The accepted base implementations [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB |
-| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB |
-| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB |
-| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB |
-| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
+| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
+| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB | 11292421 |
+| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

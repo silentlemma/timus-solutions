@@ -134,12 +134,31 @@ anteriores están prohibidos. Que cada vértice tenga una arista no basta:
 varias entradas pueden necesitar la misma salida. Reiniciar cursores por
 fase y actualizar ambas parejas al aumentar.
 
+La versión didáctica en C++ construye el mismo grafo de duraciones y busca un camino aumentante por entrada. DFS toma una salida permitida si está libre o intenta reasignar su pareja actual a otra salida. Cada búsqueda visita cada salida como máximo una vez. Si no hay camino, las entradas procesadas ya no se pueden emparejar todas y el registro completo es imposible. Las parejas finales reconstruyen las visitas. Con V entradas y E aristas, tiempo O(V² + VE) y espacio O(V + E).
+
+## Soluciones optimizadas
+
+Go conserva Hopcroft–Karp sin listas de adyacencia densas. Entradas y salidas ya ordenadas; para entrada e, índices permitidos forman e<x≤e+b y x≥e+a. Tres punteros monótonos hallan todos los límites linealmente. BFS y cursores DFS recorren primer intervalo, saltan hueco prohibido y recorren segundo. Son exactamente las aristas explícitas: misma prueba de caminos aumentantes mínimos. Hasta500 visitantes permiten uint16 para índices e int16 para parejas y distancias con−1. Cola reutilizada, sin listas de registros/resultado ni fmt; sumas de umbrales≤2×10^9 caben en int32. V visitantes y E aristas implícitas: O(E sqrt V) para matching, O(n) preparación y O(V+n) espacio en lugar de O(E+V). Cantidades desiguales fallan y duraciones son positivas y permitidas. Se conservan grafos sencillos; otros cuatro lenguajes reutilizan bases admitidas.
+
+Las implementaciones base aceptadas [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB |
-| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB |
-| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB |
-| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB |
-| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
+| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
+| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB | 11292421 |
+| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

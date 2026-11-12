@@ -80,12 +80,31 @@ DFS 只沿相邻 BFS 层前进，并且只在该最短距离的空闲右点结�
 
 每侧最多 500 点、最多 250000 条边。建图 `O(n²)`，匹配 `O(E sqrt V)`，总时间 `O(n² sqrt n)`、空间 `O(n²)`，五种语言相同。递归每次前进一个左层，深度最多 500。时间差适合有符号 32 位；Rust 也使用 64 位时间。
 
+C++ 教学版构建相同的合法时长图，为每次进入寻找一条增广路。DFS 遇到合法的离开事件时，若该事件空闲就直接匹配，否则尝试为当前匹配的进入事件另找一个离开事件。每次搜索至多访问每个离开事件一次。若找不到增广路，已处理的进入事件就无法全部匹配，整个记录也无解。最终的匹配可以恢复全部来访。设有 V 次进入和 E 条边，时间 O(V² + VE)，空间 O(V + E)。
+
+## 优化解法
+
+Go 保留 Hopcroft–Karp，但不分配稠密邻接表。进出时间已排序；入口 e 的合法出口是 e<x≤e+b 与 x≥e+a 两段，三个单调指针在线性时间找全部边界。BFS和DFS游标枚举首段、跳过禁区、再枚举后段，边与显式图完全一致，最短增广路证明不变。最多500访客，uint16索引、int16伙伴/距离及−1标记足够。复用BFS队列，不存完整记录/答案列表，无fmt；阈值和≤2×10^9适合int32。V访客、E隐式边，匹配 O(E sqrt V)，预处理O(n)，空间O(V+n)替代O(E+V)。不等进出数仍拒绝，每对时长严格正且合法。保留简单显式图，其余四语言复用达标版。
+
+已通过评测的基础实现 [1997_matching.cpp](1997_matching.cpp), [1997_matching.java](1997_matching.java), [1997_matching.py](1997_matching.py), [1997_matching.rs](1997_matching.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB |
-| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB |
-| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB |
-| [1997_matching.py](1997_matching.py) | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB |
-| [1997_matching.rs](1997_matching.rs) | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
+| [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
+| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB | 11292421 |
+| [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
+| [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
+| [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1997_matching_optimized.go](1997_matching_optimized.go) \* | Go 1.14 x64 | matching | O(E sqrt V) | AC | 0.015 s | 928 KB | 11315782 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。
