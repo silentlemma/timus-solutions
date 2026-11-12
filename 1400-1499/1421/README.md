@@ -74,12 +74,34 @@ Pitfalls:
 - a row needing more than 100 per column is impossible at once
   (tests 03, 08).
 
+## Optimized solutions
+
+Rust keeps the same balanced water-level greedy and its exchange proof. Store input/residual sums in16 bits (at most32000) and each matrix credit in a byte (at most100). Fixed arrays need10000 matrix bytes and400 bytes for row/column sums at N≤100, without row vectors or per-number strings. Reject a row/column above100N as a necessary check, still perform every subsequent feasibility check, and skip zero rows. For each nonzero row, binary search up to the current largest residual, compute its capped takes, distribute the small tie remainder and reduce the columns immediately. If the level L is positive, lowering it to L − 1 gives one extra unit from each eligible column. Minimality of L guarantees enough such units. At L = 0 the row already receives exactly its required sum.
+
+To see why the exact chosen row preserves feasibility, compare its target residuals with those of any feasible matrix after this row. A residual above its target is at least L, and one below its target is at most L − 1. This follows by clamping L or L − 1 to the interval allowed by each column and the cell cap. Some later row therefore has more in the excess column than in the deficit column. Exchange one unit between these two columns in the current and later rows, in opposite directions. The bounds and margins hold, and the two residuals approach their targets. Repeat to reach the exact greedy residual vector.
+
+Require all residual columns to vanish before printing YES; no partial matrix is printed if a row fails. C-runtime character I/O with a C entry point streams bounded integers directly. Complexity remains O(N² log S), with S=max(2, largest initial column sum), storage O(N²) bounded by the fixed limits. All simple files remain; C++/Go/Java/Python reuse their admitted bases.
+
+The accepted Rust 1.75 x64 run takes 0.062 s versus 0.031 s for the base and uses 84 KB versus 336 KB.
+
+The accepted base implementations [1421_greedy.cpp](1421_greedy.cpp), [1421_greedy.go](1421_greedy.go), [1421_greedy.java](1421_greedy.java), [1421_greedy.py](1421_greedy.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1421_greedy.cpp](1421_greedy.cpp) | G++ 13.2 x64 | greedy | O(N^2 log S) | AC | 0.015 s | 268 KB |
-| [1421_greedy.go](1421_greedy.go) | Go 1.14 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 1188 KB |
-| [1421_greedy.java](1421_greedy.java) | Java 1.8 | greedy | O(N^2 log S) | AC | 0.093 s | 832 KB |
-| [1421_greedy.py](1421_greedy.py) | Python 3.12 x64 | greedy | O(N^2 log S) | AC | 0.171 s | 760 KB |
-| [1421_greedy.rs](1421_greedy.rs) | Rust 1.75 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 336 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1421_greedy.cpp](1421_greedy.cpp) | G++ 13.2 x64 | greedy | O(N^2 log S) | AC | 0.015 s | 268 KB | 11286140 |
+| [1421_greedy.go](1421_greedy.go) | Go 1.14 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 1188 KB | 11286141 |
+| [1421_greedy.java](1421_greedy.java) | Java 1.8 | greedy | O(N^2 log S) | AC | 0.093 s | 832 KB | 11286146 |
+| [1421_greedy.py](1421_greedy.py) \* | Python 3.12 x64 | greedy | O(N^2 log S) | AC | 0.171 s | 760 KB | 11286142 |
+| [1421_greedy.rs](1421_greedy.rs) | Rust 1.75 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 336 KB | 11286147 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -78,12 +78,34 @@ Detalles a tener en cuenta:
 - una fila que necesita más de 100 por columna es imposible de entrada
   (pruebas 03, 08).
 
+## Soluciones optimizadas
+
+Rust conserva greedy por nivel y prueba de intercambio. Sumas≤32000 usan16 bits, créditos≤100 un byte. N≤100 permite matriz fija10000 bytes y márgenes400, sin vectores por fila ni cadenas por número. Rechazar margen>100N es necesario pero no suficiente; conservar las demás comprobaciones y omitir filas cero. Buscar nivel hasta el máximo residual actual, repartir contribuciones/resto empatado y restar columnas inmediatamente. Si L > 0, al bajar a L − 1 cada columna elegible aporta una unidad más. La minimalidad de L garantiza que bastan. Con L = 0 la suma de la fila ya es exacta.
+
+Compárese el objetivo con los residuos tras esta fila en una matriz factible. Un exceso respecto al objetivo implica un residuo de al menos L, y un defecto uno de como máximo L − 1, porque cada objetivo ajusta L o L − 1 al intervalo de su columna. Alguna fila posterior tiene más en la columna con exceso que en la deficitaria. Intercambiar una unidad entre ambas columnas en las dos filas, en sentidos opuestos, mantiene sumas y cotas y acerca los residuos a sus objetivos. Repetir hasta alcanzar el vector exacto.
+
+Exigir residuos cero antes de YES, sin matriz parcial al fallar. E/S C de caracteres y entrada C imprimen enteros directos. Tiempo O(N² log S), S=max(2,máximo inicial), memoria O(N²) con límites fijos. Se conservan bases; C++/Go/Java/Python reutilizan las admitidas.
+
+El envío aceptado en Rust 1.75 x64 tarda 0.062 s frente a 0.031 s de la base y usa 84 KB frente a 336 KB.
+
+Las implementaciones base aceptadas [1421_greedy.cpp](1421_greedy.cpp), [1421_greedy.go](1421_greedy.go), [1421_greedy.java](1421_greedy.java), [1421_greedy.py](1421_greedy.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1421_greedy.cpp](1421_greedy.cpp) | G++ 13.2 x64 | greedy | O(N^2 log S) | AC | 0.015 s | 268 KB |
-| [1421_greedy.go](1421_greedy.go) | Go 1.14 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 1188 KB |
-| [1421_greedy.java](1421_greedy.java) | Java 1.8 | greedy | O(N^2 log S) | AC | 0.093 s | 832 KB |
-| [1421_greedy.py](1421_greedy.py) | Python 3.12 x64 | greedy | O(N^2 log S) | AC | 0.171 s | 760 KB |
-| [1421_greedy.rs](1421_greedy.rs) | Rust 1.75 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 336 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1421_greedy.cpp](1421_greedy.cpp) | G++ 13.2 x64 | greedy | O(N^2 log S) | AC | 0.015 s | 268 KB | 11286140 |
+| [1421_greedy.go](1421_greedy.go) | Go 1.14 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 1188 KB | 11286141 |
+| [1421_greedy.java](1421_greedy.java) | Java 1.8 | greedy | O(N^2 log S) | AC | 0.093 s | 832 KB | 11286146 |
+| [1421_greedy.py](1421_greedy.py) \* | Python 3.12 x64 | greedy | O(N^2 log S) | AC | 0.171 s | 760 KB | 11286142 |
+| [1421_greedy.rs](1421_greedy.rs) | Rust 1.75 x64 | greedy | O(N^2 log S) | AC | 0.031 s | 336 KB | 11286147 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1421_greedy_optimized.rs](1421_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N² log S) | AC | 0.062 s | 84 KB | 11315704 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
