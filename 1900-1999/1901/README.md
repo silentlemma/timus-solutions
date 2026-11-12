@@ -123,7 +123,15 @@ Pitfalls:
 The greedy agrees with a search over all 2 601 556 queues of 4 998 small
 multisets, and with a separate DP on 5003 random cases.
 
+## Optimized solutions
+
+Rust retains the sorted two-pointer greedy and its original exchange argument. If the smallest and largest remaining values cannot share the lift, emit them and count two trips; otherwise emit the two smallest and count one. A final employee takes one trip. First run the choices without emitting to obtain the trip count, then repeat the O(n) scan while streaming the queue. This adds one linear scan and removes the separate n-element recovered queue. Fixed input and output buffers use 4096 and 8192 bytes. Values are parsed and formatted as decimal digits. Values and capacity≤10⁹ make a pair sum≤2·10⁹ safe in u32. The only large array is the sorted values; total time O(n log n), storage O(n). All simple programs remain; the other four families reuse admitted bases.
+
+The accepted base implementations [1901_greedy.cpp](1901_greedy.cpp), [1901_greedy.go](1901_greedy.go), [1901_greedy.java](1901_greedy.java), [1901_greedy.py](1901_greedy.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All versions sort once and buffer the constructed queue. Python uses
 CPython 3.12. Even the sum of two maximum input weights fits a signed
@@ -131,10 +139,20 @@ CPython 3.12. Even the sum of two maximum input weights fits a signed
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1224 KB |
-| [1901_greedy.go](1901_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.046 s | 5640 KB |
-| [1901_greedy.java](1901_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 6444 KB |
-| [1901_greedy.py](1901_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.281 s | 11644 KB |
-| [1901_greedy.rs](1901_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 2108 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1224 KB | 11291214 |
+| [1901_greedy.go](1901_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.046 s | 5640 KB | 11291215 |
+| [1901_greedy.java](1901_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 6444 KB | 11291218 |
+| [1901_greedy.py](1901_greedy.py) \* | Python 3.12 x64 | greedy | O(n log n) | AC | 0.281 s | 11644 KB | 11291216 |
+| [1901_greedy.rs](1901_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 2108 KB | 11291219 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

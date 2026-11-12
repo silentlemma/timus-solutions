@@ -123,7 +123,15 @@ Trampas:
 El voraz coincide con una búsqueda sobre las 2 601 556 colas de 4998
 multiconjuntos pequeños y con una DP aparte en 5003 casos aleatorios.
 
+## Soluciones optimizadas
+
+Rust conserva la ordenación, dos punteros y el argumento original de intercambio. Si mínimo y máximo no caben juntos, emitir ambos y contar dos viajes; de otro modo emitir los dos mínimos y contar uno. El último va solo. Una pasada sin salida cuenta viajes y otra repite las decisiones imprimiendo la cola. Cuesta una pasada lineal adicional y elimina la segunda cola de n valores. Los búferes fijos de entrada y salida ocupan 4096 y 8192 bytes. Los números se leen y escriben por dígitos decimales. Valores y capacidad≤10⁹ dan una suma≤2·10⁹ segura en u32. El único arreglo grande contiene los valores ordenados. Tiempo O(n log n), memoria O(n). Se conservan bases; las otras cuatro familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1901_greedy.cpp](1901_greedy.cpp), [1901_greedy.go](1901_greedy.go), [1901_greedy.java](1901_greedy.java), [1901_greedy.py](1901_greedy.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Cada versión ordena una vez y acumula la cola construida. Python usa
 CPython 3.12. La suma de dos pesos máximos cabe en un entero de 32 bits
@@ -131,10 +139,20 @@ con signo; el número de viajes nunca supera n.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1224 KB |
-| [1901_greedy.go](1901_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.046 s | 5640 KB |
-| [1901_greedy.java](1901_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 6444 KB |
-| [1901_greedy.py](1901_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.281 s | 11644 KB |
-| [1901_greedy.rs](1901_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 2108 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1224 KB | 11291214 |
+| [1901_greedy.go](1901_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.046 s | 5640 KB | 11291215 |
+| [1901_greedy.java](1901_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 6444 KB | 11291218 |
+| [1901_greedy.py](1901_greedy.py) \* | Python 3.12 x64 | greedy | O(n log n) | AC | 0.281 s | 11644 KB | 11291216 |
+| [1901_greedy.rs](1901_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 2108 KB | 11291219 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1901_greedy_optimized.rs](1901_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 588 KB | 11315515 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
