@@ -102,19 +102,34 @@ Trampas:
 - Admitir cualquier óptimo, incluidos todos los órdenes cuando empatan
   los totales.
 
+## Soluciones optimizadas
+
+C++, Go y Rust sustituyen la comparación por S=7 cubetas de puntuación. Una lista enlazada por puntuación guarda un siguiente de 16 bits por participante. Según los totales finales, el ganador recorre cubetas crecientes y el perdedor decrecientes; con empate ambos crecientes. Cada equipo mantiene un cursor y extrae un ID por ronda: cada cubeta y participante se visita una vez, tiempo y espacio O(n+S). Sigue vigente la prueba de minimizar prefijos; el orden entre empates es libre. Go/Rust reservan 10000 bytes de salida, suficientes para 1000 filas de dos IDs de hasta cuatro cifras. Se conservan las bases; Java/Python reutilizan las admitidas.
+
+Las implementaciones base aceptadas [2021_sorting.java](2021_sorting.java), [2021_sorting.py](2021_sorting.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-Las cinco versiones ordenan por `(puntos, índice)` e invierten al futuro
-perdedor. El desempate por índice solo hace determinista la salida. C++ y
-Go usan ordenación por comparaciones; Python, claves; Rust, claves de tupla;
-Java 8 ordena índices encapsulados con un comparador.
+Las bases ordenan IDs por comparación de puntuaciones, con desempate por ID. Los nuevos C++/Go/Rust usan siete cubetas enlazadas; otro orden entre puntuaciones iguales sigue siendo válido.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB |
-| [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB |
-| [2021_sorting.java](2021_sorting.java) | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB |
-| [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB |
-| [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB | 11292703 |
+| [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB | 11292708 |
+| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB | 11292721 |
+| [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB | 11292714 |
+| [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB | 11292728 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2021_sorting_greedy.cpp](2021_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 88 KB | 11315199 |
+| [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
+| [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

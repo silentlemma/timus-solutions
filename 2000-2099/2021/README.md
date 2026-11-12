@@ -103,19 +103,34 @@ Pitfalls:
 - Accept any optimal order, including arbitrary orders when the final
   totals tie.
 
+## Optimized solutions
+
+The new C++, Go and Rust sources replace comparison sorting with S=7 score buckets. Prepending original IDs to a linked list per score uses one 16-bit next pointer per participant. Compare final totals, enumerate the winner’s buckets increasingly and the loser’s decreasingly; for a draw enumerate both increasingly. Maintain a bucket cursor per team and pop one ID per round, so each participant and bucket is visited once: O(n+S) time and O(n+S) storage. The original prefix-minimization proof still applies; within equal scores any ID order is valid. Go/Rust use bounded output buffers of 10000 bytes, enough for 1000 rows of two at-most-four-digit IDs. All simple files remain; Java/Python reuse their admitted bases.
+
+The accepted base implementations [2021_sorting.java](2021_sorting.java), [2021_sorting.py](2021_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-All five programs sort IDs by `(score, ID)` and reverse the eventual loser's
-order. Tie handling by ID only makes their output deterministic. C++ and Go
-use comparison sorts, Python uses key sorting, Rust sorts tuple keys, and
-Java 8 sorts boxed ID arrays with a comparator.
+All ordinary versions comparison-sort original IDs by score, using ID tie breaks for deterministic output. New C++/Go/Rust use seven linked score buckets; their order among equal scores can differ and remains valid.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB |
-| [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB |
-| [2021_sorting.java](2021_sorting.java) | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB |
-| [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB |
-| [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB | 11292703 |
+| [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB | 11292708 |
+| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB | 11292721 |
+| [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB | 11292714 |
+| [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB | 11292728 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2021_sorting_greedy.cpp](2021_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 88 KB | 11315199 |
+| [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
+| [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
