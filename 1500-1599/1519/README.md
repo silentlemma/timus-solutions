@@ -96,17 +96,39 @@ Pitfalls:
 - holes scattered one by one usually leave no track, so the generated
   tests mostly cut out whole 2 × 2 blocks (gen1, gen2, gen3).
 
+## Optimized solutions
+
+All new versions keep the same balanced-bracket profile transitions and allow closing a cycle only at the last free cell with no remaining plugs. After transposing as needed, the height is H = max(N, M) and the profile width is W = min(N, M). C++, Go and Rust use two reusable dense arrays of 32-bit states and 64-bit counts, indexed during merging by one 65536-slot table of 16-bit positions. Linear probing compares full keys. A profile has at most 13 slots. For t pairs, choose the 2t occupied slots and fill them with a balanced bracket word. Summing binom(13, 2t) times the t-th Catalan number gives 41,835 states. Each layer starts with space for 16,384 entries and grows as needed. Row shifts are injective and change keys in place without another hash map. Python additionally rejects disconnected, colour-unbalanced or degree-below-two free graphs, inlines bracket matching and reuses two dictionaries. These necessary rejections do not approximate the count. With S the maximum number of states in a layer, expected transition work is O(H·W²·S). Native packed storage reduces allocation and key overhead. All five original files remain; Java reuses its admitted base. Each Python row reports its actual accepted runtime.
+
+The new Python row uses CPython and the original row uses PyPy. The new implementation removes fully blocked borders before choosing a scan direction. If the resulting field has even height and its halves mirror across the middle, Python builds profiles for just the top half. Reflection gives the same pairing counts for the bottom half. Only profiles using the same cut columns can join. With more than two endpoints, any shared pair forms a separate two-edge cycle. A bit mask rejects such pairs before traversal. Alternate top and bottom partners from one endpoint and count the pair precisely when the loop visits all endpoints. Multiply the two counts, counting both orders for distinct profiles. With four or six endpoints and no common pair, only one cycle is possible. Column reflection also gives equal contributions for reflected groups when both axes are symmetric. For wide asymmetric fields, choose the cut in the middle third with the fewest available crossings and scan each side toward it. The cropped field has free cells on both sides, so fewer than two crossing edges rules out a cycle. Narrow asymmetric fields use a full scan. If P is the sum of squared combined group sizes by cut-column mask, joining costs O(W·P).
+
+The accepted Python 3.12 x64 run takes 0.703 s versus 0.609 s for the base and uses 4 880 KB versus 10768 KB.
+
+The accepted base implementations [1519_dp.java](1519_dp.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-- Python runs under PyPy: CPython exceeds the 1 s limit on the judge's
-  test 18.
+The ordinary Python file was Accepted under PyPy; its CPython execution exceeded the judge limit on test18. The new Python source is checked separately and its own Accepted interpreter is recorded in the table. An Accepted for one source/runtime is not transferred to another.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1519_dp.cpp](1519_dp.cpp) | G++ 13.2 x64 | dp | O(N * M^2 * S) | AC | 0.203 s | 2076 KB |
-| [1519_dp.go](1519_dp.go) | Go 1.14 x64 | dp | O(N * M^2 * S) | AC | 0.203 s | 10420 KB |
-| [1519_dp.java](1519_dp.java) | Java 1.8 | dp | O(N * M^2 * S) | AC | 0.328 s | 18436 KB |
-| [1519_dp.py](1519_dp.py) | PyPy 3.10 x64 | dp | O(N * M^2 * S) | AC | 0.609 s | 10768 KB |
-| [1519_dp.rs](1519_dp.rs) | Rust 1.75 x64 | dp | O(N * M^2 * S) | AC | 0.062 s | 1600 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1519_dp.cpp](1519_dp.cpp) | G++ 13.2 x64 | dp | O(N * M^2 * S) | AC | 0.203 s | 2076 KB | 11287360 |
+| [1519_dp.go](1519_dp.go) | Go 1.14 x64 | dp | O(N * M^2 * S) | AC | 0.203 s | 10420 KB | 11287361 |
+| [1519_dp.java](1519_dp.java) \* | Java 1.8 | dp | O(N * M^2 * S) | AC | 0.328 s | 18436 KB | 11287364 |
+| [1519_dp.py](1519_dp.py) | PyPy 3.10 x64 | dp | O(N * M^2 * S) | AC | 0.609 s | 10768 KB | 11287363 |
+| [1519_dp.rs](1519_dp.rs) | Rust 1.75 x64 | dp | O(N * M^2 * S) | AC | 0.062 s | 1600 KB | 11287365 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1519_dp_optimized.cpp](1519_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(H·W²·S) | AC | 0.031 s | 444 KB | 11315274 |
+| [1519_dp_optimized.go](1519_dp_optimized.go) \* | Go 1.14 x64 | dp | O(H·W²·S) | AC | 0.031 s | 848 KB | 11315276 |
+| [1519_dp_optimized.rs](1519_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(H·W²·S) | AC | 0.046 s | 440 KB | 11315281 |
+| [1519_dp_optimized.py](1519_dp_optimized.py) \* | Python 3.12 x64 | dp | O(H·W²·S + W·P) | AC | 0.703 s | 4880 KB | 11316056 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
