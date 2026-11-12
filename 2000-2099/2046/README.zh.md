@@ -72,18 +72,33 @@ Thursday 4
 
 令 `L` 为名称总长度，`C=3`、`W=10`，`H≤20` 为内容高度之和。包含输出缓冲的时间和空间为 `O(L+WCH)`；流式版本所需输出存储更少。本题 `L≤648`，完整输出至多 875 字节。
 
+## 优化解法
+
+C++、Go 保持贪心换行，但直接写入定长字符格：四节、三天、至多五行、宽十，仅 600 个填空格字符。每行高度从一开始，随换行增加；每个词只复制一次到最终位置。复用 35 字节输出行及边框。单词与填充空格共用格数组。整行读取课程名，保留大小写、空行和所有右侧空格。输入 L 字节、输出 B 字节时，时间 O(L+B)。表格和行缓冲区大小固定。C++ 逐名读取、逐行输出。Go 通过标准句柄将输入读入 1024 字节缓冲区，收集至多 875 字节结果后写出。Java、Python 和 Rust 复用达标基础版。
+
+已通过评测的基础实现 [2046_implementation.java](2046_implementation.java), [2046_implementation.py](2046_implementation.py), [2046_implementation.rs](2046_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
 ## 各语言说明
 
-完整读取名称行；容纳判断包含分隔空格，长度恰为十可以保留。星期顺序固定，不随输入排列改变。保留完整空行、较短单元格的补空行及右侧空格，不裁剪绘制结果。保留字母大小写。
-
-五个版本使用相同的贪心换行和网格。Go Scanner 足以处理受限名称长度，Java 使用类型化列表和小输出缓冲，Rust 保存拥有所有权的字符串。Python 的各格列表独立，并补齐空格。选择 CPython 3.12。
+原 Go 用 scanner，新 C++/Go 整行读名称并填入定长补空格字符格。换行计入词间空格，保留 Tuesday/Thursday/Saturday 顺序、空行、大小写及右侧填充。Java 用类型列表和小 builder，Rust 用自有字符串，Python 在 CPython3.12 下用独立列表。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB |
-| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB |
-| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB |
-| [2046_implementation.py](2046_implementation.py) | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB |
-| [2046_implementation.rs](2046_implementation.rs) | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB | 11293468 |
+| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB | 11293471 |
+| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB | 11293476 |
+| [2046_implementation.py](2046_implementation.py) \* | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB | 11293472 |
+| [2046_implementation.rs](2046_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB | 11293480 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+
+\* 已接受；尚未达到排名目标，此版本仍可继续优化。

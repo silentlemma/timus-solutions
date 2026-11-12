@@ -116,25 +116,33 @@ suma de alturas. El tiempo y espacio son `O(L+WCH)` incluyendo la salida
 almacenada; los puertos con salida progresiva usan menos almacenamiento.
 Aquí `L≤648` y la salida tiene como máximo 875 bytes.
 
+## Soluciones optimizadas
+
+C++ y Go conservan el ajuste voraz, dibujando en celdas fijas: cuatro clases, tres días, cinco líneas como máximo y ancho diez requieren 600 caracteres. Alturas desde uno, cada palabra copiada una vez a su lugar final; se reutilizan línea y borde de 35 bytes. Las palabras y el relleno comparten el arreglo de celdas. Leer nombres enteros y conservar mayúsculas, filas vacías y espacios finales. Con L bytes de entrada y B de salida, el tiempo es O(L+B). La cuadrícula y el búfer de línea tienen tamaño fijo. C++ lee un nombre y escribe una línea cada vez. Go lee del manejador estándar en un búfer de 1024 bytes y reúne hasta 875 bytes de salida antes de escribirlos. Java, Python y Rust reutilizan sus bases admitidas.
+
+Las implementaciones base aceptadas [2046_implementation.java](2046_implementation.java), [2046_implementation.py](2046_implementation.py), [2046_implementation.rs](2046_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
 
-Leer el nombre completo, no un solo token. Contar el espacio al
-comprobar si cabe una palabra; exactamente diez sí cabe. Respetar el
-orden fijo de días aunque la entrada esté desordenada. Conservar filas
-vacías, líneas vacías en celdas cortas y relleno derecho; no recortar
-las líneas dibujadas. Mantener las mayúsculas y minúsculas.
-
-Los cinco puertos usan el mismo ajuste y cuadrícula. Scanner de Go
-admite los nombres acotados; Java utiliza listas tipadas y un pequeño
-búfer; Rust guarda cadenas propias. Python crea listas independientes
-por celda y rellena con espacios. Se selecciona CPython 3.12.
+Go original usa scanner; C++/Go nuevos leen nombres completos y celdas fijas. Contar espacios al envolver, conservar orden Tuesday/Thursday/Saturday, filas vacías, caja y relleno derecho. Java usa listas tipadas y builder pequeño; Rust, cadenas propias; Python, listas independientes bajo CPython3.12.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB |
-| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB |
-| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB |
-| [2046_implementation.py](2046_implementation.py) | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB |
-| [2046_implementation.rs](2046_implementation.rs) | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB | 11293468 |
+| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB | 11293471 |
+| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB | 11293476 |
+| [2046_implementation.py](2046_implementation.py) \* | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB | 11293472 |
+| [2046_implementation.rs](2046_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB | 11293480 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

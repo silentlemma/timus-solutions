@@ -115,27 +115,33 @@ row heights. Time and space are `O(L+WCH)`, including buffered output;
 streaming ports use less output storage. Here `L≤648` and output is at
 most 875 bytes.
 
+## Optimized solutions
+
+C++ and Go keep the same greedy word wrapping, but render into fixed character cells. Four lessons, three days, at most five lines and width ten require only 600 padded characters. Row heights start at one and grow with wrapped names. Copy each word once into its final cell; reuse a 35-byte line and border for output. Words and padding share the cell array. Read full names as lines and preserve case, blank rows and every right-padding space. For L input bytes and B output bytes, time is O(L+B). The grid and line buffers have fixed size. C++ reads one name and writes one line at a time. Go reads from the standard handle into a 1024-byte input buffer and collects the output in at most 875 bytes before writing it. Java, Python and Rust reuse their admitted bases.
+
+The accepted base implementations [2046_implementation.java](2046_implementation.java), [2046_implementation.py](2046_implementation.py), [2046_implementation.rs](2046_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
 
-Read each full name line, not one whitespace-delimited token. Account
-for the separator when testing whether a word fits; equality with ten
-still fits. Keep the fixed day order regardless of input order. Preserve
-blank rows, extra blank lines within shorter cells and all right
-padding; do not trim rendered lines. Uppercase and lowercase letters
-remain unchanged.
-
-All five ports use the same greedy wrapping and grid. Go's scanner
-safely handles the bounded name length; Java uses typed lists and a
-small output builder; Rust copies each wrapped string into owned
-storage. Python builds independent cell lists and uses space padding.
-CPython 3.12 is selected.
+Original Go uses a scanner; new C++/Go read full name lines and use fixed padded cells. Preserve separator spaces when wrapping, the Tuesday/Thursday/Saturday order, blank rows, case and right padding. Java uses typed lists and a small builder, Rust owned strings, Python independent lists under CPython3.12.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB |
-| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB |
-| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB |
-| [2046_implementation.py](2046_implementation.py) | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB |
-| [2046_implementation.rs](2046_implementation.rs) | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB | 11293468 |
+| [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB | 11293471 |
+| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB | 11293476 |
+| [2046_implementation.py](2046_implementation.py) \* | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB | 11293472 |
+| [2046_implementation.rs](2046_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB | 11293480 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2046_implementation_optimized.cpp](2046_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(L+B) | AC | 0.015 s | 112 KB | 11315447 |
+| [2046_implementation_optimized.go](2046_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(L+B) | AC | 0.015 s | 276 KB | 11315843 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
