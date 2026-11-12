@@ -98,12 +98,28 @@ Detalles a tener en cuenta:
 - en los lenguajes tipo C el resto de un número negativo es negativo,
   así que al plegar hay que restar en el orden correcto.
 
+## Soluciones optimizadas
+
+Go calcula los mismos primeros200 Grundy y conserva el plegado periódico de la base Accepted. Un arreglo booleano256 sustituye el mapa por mex. Hasta200 posiciones hay hasta200 movimientos: mex≤200 y XOR de bytes≤255. Todo se calcula al ejecutar, sin lista de ganadores ni hipótesis periódica nueva. E/S acotada sustituye fmt. La precomputación fija no depende de N: consulta y espacio O(1). Se conservan bases; las otras cuatro familias reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1465_games.cpp](1465_games.cpp), [1465_games.java](1465_games.java), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB |
-| [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB |
-| [1465_games.java](1465_games.java) | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB |
-| [1465_games.py](1465_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB |
-| [1465_games.rs](1465_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB | 11286506 |
+| [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB | 11286511 |
+| [1465_games.java](1465_games.java) \* | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
+| [1465_games.py](1465_games.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
+| [1465_games.rs](1465_games.rs) \* | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -95,12 +95,28 @@ Pitfalls:
 - in C-like languages the remainder of a negative number is negative,
   so the folding must subtract in the right order.
 
+## Optimized solutions
+
+Go computes the same first200 Grundy values and keeps the same period folding as the ordinary accepted implementation. A fixed 256-entry boolean array replaces a new map for each mex. At size≤200 there are at most200 moves, hence mex≤200; byte-valued Grundy numbers have XOR at most255, so both arrays are safe. All values are computed at runtime, with no stored winner list and no new periodicity assumption. Bounded standard-handle I/O replaces fmt. The fixed precomputation is independent of N, giving O(1) query time/storage. All ordinary sources remain; the other four families reuse their admitted bases.
+
+The accepted base implementations [1465_games.cpp](1465_games.cpp), [1465_games.java](1465_games.java), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB |
-| [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB |
-| [1465_games.java](1465_games.java) | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB |
-| [1465_games.py](1465_games.py) | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB |
-| [1465_games.rs](1465_games.rs) | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1465_games.cpp](1465_games.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 172 KB | 11286506 |
+| [1465_games.go](1465_games.go) | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 1144 KB | 11286511 |
+| [1465_games.java](1465_games.java) \* | Java 1.8 | games | O(1) | AC | 0.140 s | 1720 KB | 11286514 |
+| [1465_games.py](1465_games.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.109 s | 444 KB | 11286512 |
+| [1465_games.rs](1465_games.rs) \* | Rust 1.75 x64 | games | O(1) | AC | 0.046 s | 440 KB | 11286517 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
