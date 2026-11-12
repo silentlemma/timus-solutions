@@ -79,16 +79,34 @@ Pitfalls:
 The answers were checked by the checker on every test and 60 random
 graphs, among them groups of four children who all quarrel.
 
+## Optimized solutions
+
+The C++ version caches each vertex’s count of enemies on its own side. Move a vertex when that count is at least two, updating only its at-most-three neighbours. Every move strictly decreases the number of same-side edges; the moved vertex has at most one same-side neighbour afterwards. Thus there are O(N) moves and O(N) total work. A queued flag bounds the circular work queue by N entries. Vertex identifiers fit uint16_t for N≤7163; counts, degrees and sides fit bytes. Choose the smaller side, breaking a size tie in favour of the side containing child 1. All ordinary versions remain, and the other four admitted bases also serve as fast coverage.
+
+The accepted base implementations [1128_greedy.go](1128_greedy.go), [1128_greedy.java](1128_greedy.java), [1128_greedy.py](1128_greedy.py), [1128_greedy.rs](1128_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 - All languages run the same work-list search.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1128_greedy.cpp](1128_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 500 KB |
-| [1128_greedy.go](1128_greedy.go) | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB |
-| [1128_greedy.java](1128_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.109 s | 2072 KB |
-| [1128_greedy.py](1128_greedy.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB |
-| [1128_greedy.rs](1128_greedy.rs) | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1128_greedy.cpp](1128_greedy.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 500 KB | 11279347 |
+| [1128_greedy.go](1128_greedy.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 2704 KB | 11279348 |
+| [1128_greedy.java](1128_greedy.java) | Java 1.8 | greedy | O(N) | AC | 0.109 s | 2072 KB | 11279358 |
+| [1128_greedy.py](1128_greedy.py) \* | Python 3.12 x64 | greedy | O(N) | AC | 0.109 s | 3948 KB | 11279352 |
+| [1128_greedy.rs](1128_greedy.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.046 s | 1048 KB | 11279359 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1128_greedy_optimized.cpp](1128_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 176 KB | 11314894 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
