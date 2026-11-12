@@ -79,7 +79,17 @@ Las respuestas se compararon con una solución escrita aparte, basada en
 el cierre transitivo con conjuntos de bits, en 300 grafos pequeños
 aleatorios y en todas las pruebas.
 
+La versión didáctica en C++ guarda una matriz booleana de adyacencia. El recorrido directo lee una fila y el inverso lee una columna de la misma matriz. Una arista repetida vuelve a marcar la misma entrada. Se comprueba la última raíz mediante un recorrido directo y luego se buscan en sentido inverso todos los vértices que la alcanzan. En cada pasada cada vértice entra en la cola como máximo una vez y se examinan N entradas. Tiempo O(N² + M), espacio O(N²).
+
+## Soluciones optimizadas
+
+C++, Go y Rust comprimen filas de ambos grafos en palabras64. Duplicados y bucles solo vuelven a poner el mismo bit. Se intersecta con no visitados y se borran bits antes de encolar: cada vértice entra una vez. Se toma la última raíz, se verifica que llega a todos y se recorre el grafo inverso. Si existe una fuente universal, la última raíz llega a todos; verificada esta, otro vértice es universal exactamente si llega a ella. Tres recorridos cuestan O(N⌈N/64⌉) palabras, más lectura O(M). Con N=2000 las matrices ocupan 1024000 bytes; IDs16 bastan. Se conservan bases CSR; Java/Python reutilizan las admitidas.
+
+Las implementaciones base aceptadas [1198_graphs.java](1198_graphs.java), [1198_graphs.py](1198_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 - C++, Go, Java y Rust guardan ambos grafos como arreglos planos con
   desplazamientos y construyen el invertido contando.
@@ -93,10 +103,23 @@ aleatorios y en todas las pruebas.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1198_graphs.cpp](1198_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M) | AC | 0.140 s | 32064 KB |
-| [1198_graphs.go](1198_graphs.go) | Go 1.14 x64 | graphs | O(N + M) | AC | 0.296 s | 50472 KB |
-| [1198_graphs.java](1198_graphs.java) | Java 1.8 | graphs | O(N + M) | AC | 0.250 s | 37092 KB |
-| [1198_graphs.py](1198_graphs.py) | Python 3.12 x64 | graphs | O(N² + M) | AC | 1.281 s | 36148 KB |
-| [1198_graphs.rs](1198_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M) | AC | 0.281 s | 64220 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1198_graphs.cpp](1198_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + M) | AC | 0.140 s | 32064 KB | 11283511 |
+| [1198_graphs.go](1198_graphs.go) | Go 1.14 x64 | graphs | O(N + M) | AC | 0.296 s | 50472 KB | 11283512 |
+| [1198_graphs.java](1198_graphs.java) \* | Java 1.8 | graphs | O(N + M) | AC | 0.250 s | 37092 KB | 11283514 |
+| [1198_graphs.py](1198_graphs.py) \* | Python 3.12 x64 | graphs | O(N² + M) | AC | 1.281 s | 36148 KB | 11283513 |
+| [1198_graphs.rs](1198_graphs.rs) | Rust 1.75 x64 | graphs | O(N + M) | AC | 0.281 s | 64220 KB | 11283517 |
+| [1198_bfs.cpp](1198_bfs.cpp) | G++ 13.2 x64 | bfs | O(N² + M) | AC | 0.609 s | 4228 KB | 11315851 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1198_graphs_bitmask.cpp](1198_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.078 s | 1092 KB | 11315333 |
+| [1198_graphs_bitmask.go](1198_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1320 KB | 11315339 |
+| [1198_graphs_bitmask.rs](1198_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(M + N⌈N/64⌉) | AC | 0.062 s | 1092 KB | 11315334 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
