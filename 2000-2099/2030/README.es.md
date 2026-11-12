@@ -151,7 +151,17 @@ Trampas:
 - Usa recorrido iterativo ante una cadena de 100000 vértices.
 - Sin consultas no se debe imprimir un cero extra.
 
+La versión didáctica de Python enraíza el árbol con un recorrido en anchura. En un árbol, todo vecino salvo el padre es un hijo. El valor de v es direct[v] + broadcast[parent[v]] módulo P. Al copiar, se suma ese valor a broadcast[v] para los hijos y a direct[parent[v]] para el padre. El padre de la raíz es cero. broadcast[0] permanece en cero y direct[0] nunca se lee, así que las mismas actualizaciones sirven para la raíz. Antes de procesar las consultas se liberan las listas de adyacencia y el orden del recorrido. Tiempo O(n+m), espacio O(n).
+
+## Soluciones optimizadas
+
+C++ y Rust conservan value(v)=direct[v]+broadcast[parent[v]] módulo10⁹+7. Copiar añade a broadcast[v] para hijos y direct[parent[v]] para padre. Cero es centinela: direct[0] no se lee y broadcast[0] queda cero, sin rama especial para raíz o árbol de un solo nodo. Los valores iniciales son como máximo 10⁹, por debajo del módulo. La suma de dos residuos alcanza como máximo 2(10⁹+6), cabe en uint32 y requiere restar el módulo a lo sumo una vez. Los índices de padres y aristas también caben en uint32. Construir padres iterativamente con estrella plana, liberar head/edges/order antes de consultas y asignar broadcast. Solo sobreviven tres arreglos, sin copiar iniciales, pares de arista ni entrada completa. E/S acotada; tiempo O(n+m), espacio O(n). Se conservan bases; Go/Java/Python reutilizan las admitidas.
+
+Las implementaciones base aceptadas [2030_dfs.go](2030_dfs.go), [2030_dfs.java](2030_dfs.java), [2030_dfs.py](2030_dfs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
 ## Notas por lenguaje
+
+Estas notas describen las implementaciones sencillas.
 
 Normaliza después de cada suma: dos residuos suman como máximo `2000000012`,
 seguro incluso en los arreglos `int` de Java. C++, Go y Rust usan campos más
@@ -162,10 +172,22 @@ de grado ni estructura logarítmica.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2030_dfs.cpp](2030_dfs.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.109 s | 9368 KB |
-| [2030_dfs.go](2030_dfs.go) | Go 1.14 x64 | dfs | O(n+m) | AC | 0.062 s | 14016 KB |
-| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.156 s | 8516 KB |
-| [2030_dfs.py](2030_dfs.py) | Python 3.12 x64 | dfs | O(n+m) | AC | 0.546 s | 26824 KB |
-| [2030_dfs.rs](2030_dfs.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.062 s | 18652 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2030_dfs.cpp](2030_dfs.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.109 s | 9368 KB | 11293074 |
+| [2030_dfs.go](2030_dfs.go) | Go 1.14 x64 | dfs | O(n+m) | AC | 0.062 s | 14016 KB | 11293076 |
+| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.156 s | 8516 KB | 11293080 |
+| [2030_dfs.py](2030_dfs.py) | Python 3.12 x64 | dfs | O(n+m) | AC | 0.546 s | 26824 KB | 11293078 |
+| [2030_dfs.rs](2030_dfs.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.062 s | 18652 KB | 11293082 |
+| [2030_bfs.py](2030_bfs.py) | Python 3.12 x64 | bfs | O(n+m) | AC | 0.64 s | 25132 KB | 11315850 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [2030_dfs_optimized.cpp](2030_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.031 s | 2800 KB | 11315500 |
+| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

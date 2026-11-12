@@ -155,7 +155,17 @@ Pitfalls:
 - Use iterative traversal: a path can have 100000 vertices.
 - Queries may be absent; do not emit a fabricated zero.
 
+The teaching Python version roots the tree in breadth-first order. In a tree, every neighbor other than the parent is a child. At query time the value at v is direct[v] plus broadcast[parent[v]], modulo P. A copy of this value increments broadcast[v] for the children and direct[parent[v]] for the parent. The root has parent zero. broadcast[0] stays zero and direct[0] is never read, so the same two updates apply at the root. The adjacency lists and traversal order are released before processing requests. Time O(n+m), space O(n).
+
+## Optimized solutions
+
+C++ and Rust preserve value(v)=direct[v]+broadcast[parent[v]] modulo 10⁹+7. Copying v adds that value to broadcast[v] for all children and to direct[parent[v]] for the parent. Parent zero is a sentinel: direct[0] is never read, broadcast[0] stays zero, so the root and singleton require no special update branch. Initial values are at most 10⁹, below the modulus. Adding two residues gives at most 2(10⁹+6), which fits uint32 and needs at most one subtraction of the modulus. Parents and edge fields also fit uint32. Build the parent array iteratively with flat forward-star edges, then release head/edges/order before queries and allocate broadcast. Only three packed arrays survive, without a duplicate initial vector, edge-pair list or retained full input. Bounded I/O streams requests and answers. Time O(n+m), space O(n). All simple sources remain; Go, Java and Python reuse admitted bases.
+
+The accepted base implementations [2030_dfs.go](2030_dfs.go), [2030_dfs.java](2030_dfs.java), [2030_dfs.py](2030_dfs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
 ## Language notes
+
+These notes describe the simple implementations.
 
 All ports normalize after every addition; adding two residues is at most
 `2000000012`, which fits a signed 32-bit integer, including Java's `int`
@@ -167,10 +177,22 @@ degree threshold or logarithmic data structure is needed.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2030_dfs.cpp](2030_dfs.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.109 s | 9368 KB |
-| [2030_dfs.go](2030_dfs.go) | Go 1.14 x64 | dfs | O(n+m) | AC | 0.062 s | 14016 KB |
-| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.156 s | 8516 KB |
-| [2030_dfs.py](2030_dfs.py) | Python 3.12 x64 | dfs | O(n+m) | AC | 0.546 s | 26824 KB |
-| [2030_dfs.rs](2030_dfs.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.062 s | 18652 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2030_dfs.cpp](2030_dfs.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.109 s | 9368 KB | 11293074 |
+| [2030_dfs.go](2030_dfs.go) | Go 1.14 x64 | dfs | O(n+m) | AC | 0.062 s | 14016 KB | 11293076 |
+| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.156 s | 8516 KB | 11293080 |
+| [2030_dfs.py](2030_dfs.py) | Python 3.12 x64 | dfs | O(n+m) | AC | 0.546 s | 26824 KB | 11293078 |
+| [2030_dfs.rs](2030_dfs.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.062 s | 18652 KB | 11293082 |
+| [2030_bfs.py](2030_bfs.py) | Python 3.12 x64 | bfs | O(n+m) | AC | 0.64 s | 25132 KB | 11315850 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2030_dfs_optimized.cpp](2030_dfs_optimized.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.031 s | 2800 KB | 11315500 |
+| [2030_dfs_optimized.rs](2030_dfs_optimized.rs) \* | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.046 s | 3172 KB | 11315501 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
