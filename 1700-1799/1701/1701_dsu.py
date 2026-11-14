@@ -1,6 +1,6 @@
 import sys
 
-MOST = 10 ** 9  # nobody but Vasily earns more than this; nobody earns less than 0
+MOST = 10**9  # nobody but Vasily earns more than this; nobody earns less than 0
 FIELDS = 3  # i j d
 
 
@@ -31,7 +31,7 @@ def main():
         return x
 
     for k in range(m):
-        i, j, d = (int(w) for w in data[2 + FIELDS * k:2 + FIELDS * (k + 1)])
+        i, j, d = (int(w) for w in data[2 + FIELDS * k : 2 + FIELDS * (k + 1)])
         ri, rj = find(i), find(j)
         oi = offset[i] if i != ri else 0
         oj = offset[j] if j != rj else 0

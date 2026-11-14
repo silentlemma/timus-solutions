@@ -5,7 +5,7 @@
 
 typedef long long ll;
 
-const ll MOST = 1000000000;  // nobody but Vasily earns more; nobody earns less than 0
+const ll MOST = 1000000000; // nobody but Vasily earns more; nobody earns less than 0
 
 std::vector<int> parent, sizes;
 std::vector<ll> offset;

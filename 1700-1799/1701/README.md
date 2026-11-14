@@ -118,12 +118,42 @@ The checker verifies Vasily's 0, the ranges and every statement, or the
 exact Impossible line; an independent accepted implementation passes it
 on the same tests.
 
+## Optimized solutions
+
+The C++ version uses one record per employee. At a root, the parent field stores the negative component size. At other nodes it stores the parent index. Path compression accumulates the salary difference up to the root, and union by size keeps the recursion shallow. A byte buffer reads the comparisons without creating input tokens. Time is O((n + m) α(n)), and space is O(n). The metrics come from submission 11316975.
+
+The Python version reads the statements one line at a time and uses path halving in the weighted disjoint-set structure. It keeps only the component data and the salaries needed for output. This uses O(n) space. Metrics come from submission 11317043.
+
+Rust reads one comparison at a time and reuses the line buffer. Each disjoint-set record stores the parent or negative size, the offset to the parent, and the feasible salary interval for a root. Submission 11317269 took 0.046 s and used 992 KB, versus 0.031 s and 5152 KB for the base.
+
+Go reads comparisons through a buffered byte parser. The weighted disjoint set uses one record of four 32-bit integers per employee and writes salaries through a reusable digit buffer. Submission 11317271 took 0.015 s and used 1712 KB, versus 0.109 s and 5968 KB for the base.
+
+Java parses comparisons directly from a byte buffer and stores the disjoint-set data in four integer arrays. It reuses a digit buffer for salary output. Submission 11317272 took 0.125 s and used 1320 KB, versus 0.14 s and 6400 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11318326 · Java 1.8 №11318331 · Python 3.12 x64 №11318337 · Rust 1.75 x64 №11318346.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1701_dsu.cpp](1701_dsu.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.093 s | 2784 KB |
-| [1701_dsu.go](1701_dsu.go) | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.125 s | 5940 KB |
-| [1701_dsu.java](1701_dsu.java) | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.109 s | 6448 KB |
-| [1701_dsu.py](1701_dsu.py) | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.343 s | 18488 KB |
-| [1701_dsu.rs](1701_dsu.rs) | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 5124 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1701_dsu.cpp](1701_dsu.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.109 s | 2768 KB | 11318326 |
+| [1701_dsu.go](1701_dsu.go) | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.109 s | 5968 KB | 11322029 |
+| [1701_dsu.java](1701_dsu.java) | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.14 s | 6400 KB | 11318331 |
+| [1701_dsu.py](1701_dsu.py) | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.343 s | 18168 KB | 11318337 |
+| [1701_dsu.rs](1701_dsu.rs) | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.031 s | 5152 KB | 11318346 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1701_dsu_optimized.cpp](1701_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 928 KB | 11316975 |
+| [1701_dsu_optimized.go](1701_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 1712 KB | 11317271 |
+| [1701_dsu_optimized.java](1701_dsu_optimized.java) \* | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.125 s | 1320 KB | 11317272 |
+| [1701_dsu_optimized.py](1701_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.234 s | 7652 KB | 11317043 |
+| [1701_dsu_optimized.rs](1701_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 992 KB | 11317269 |
+
+\* Accepted. The Python rating target remains open. The Rust rating target remains open. The Go rating target remains open. The Java rating target remains open.

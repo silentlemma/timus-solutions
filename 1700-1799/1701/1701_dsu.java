@@ -34,9 +34,9 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         in.nextToken();
-        int m = (int) in.nval;
+        int m = (int)in.nval;
         // a weighted union-find: salary[x] = salary[root] + offset[x], and every
         // root keeps the range its own salary may take so that all salaries of
         // its set stay in [0, MOST]; Vasily (0) is pinned to 0
@@ -53,11 +53,11 @@ public class Main {
         high[0] = 0;
         for (int k = 1; k <= m; k++) {
             in.nextToken();
-            int i = (int) in.nval;
+            int i = (int)in.nval;
             in.nextToken();
-            int j = (int) in.nval;
+            int j = (int)in.nval;
             in.nextToken();
-            long d = (long) in.nval;
+            long d = (long)in.nval;
             int ri = find(i);
             int rj = find(j);
             // salary[i] - salary[j] = d means salary[rj] = salary[ri] + shift

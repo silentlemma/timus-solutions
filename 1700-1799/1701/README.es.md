@@ -120,12 +120,42 @@ El verificador comprueba el 0 de Vasili, los rangos y cada afirmación,
 o la línea Impossible exacta; una implementación aceptada independiente
 lo pasa con las mismas pruebas.
 
+## Soluciones optimizadas
+
+La versión en C++ guarda un registro por empleado. En la raíz, el campo del padre contiene el tamaño negativo del componente. En los demás nodos contiene el índice del padre. La compresión de caminos acumula la diferencia salarial hasta la raíz y la unión por tamaño limita la profundidad de la recursión. Un búfer de bytes lee las comparaciones sin crear cadenas para los números. El tiempo es O((n + m) α(n)) y el espacio es O(n). Las métricas corresponden al envío 11316975.
+
+La versión en Python lee las afirmaciones línea por línea y acorta los caminos a la mitad en la estructura de conjuntos disjuntos con pesos. Conserva los datos de los componentes y los sueldos para la salida. Usa O(n) de espacio. Las métricas corresponden al envío 11317043.
+
+Rust lee una comparación por vez y reutiliza el búfer de línea. Cada registro de la estructura de conjuntos disjuntos guarda el padre o el tamaño negativo, el desplazamiento al padre y el intervalo salarial factible de una raíz. El envío 11317269 tardó 0,046 s y usó 992 KB frente a 0,031 s y 5152 KB en la base.
+
+Go analiza las comparaciones byte a byte desde un búfer. La estructura de conjuntos disjuntos con pesos guarda cuatro enteros de 32 bits por empleado y reutiliza un búfer de dígitos al escribir los salarios. El envío 11317271 tardó 0,015 s y usó 1712 KB frente a 0,109 s y 5968 KB en la base.
+
+Java analiza las comparaciones desde un búfer de bytes y guarda los datos de los conjuntos disjuntos en cuatro arreglos de enteros. Reutiliza un búfer de dígitos para los salarios. El envío 11317272 tardó 0,125 s y usó 1320 KB frente a 0,14 s y 6400 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11318326 · Java 1.8 №11318331 · Python 3.12 x64 №11318337 · Rust 1.75 x64 №11318346.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1701_dsu.cpp](1701_dsu.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.093 s | 2784 KB |
-| [1701_dsu.go](1701_dsu.go) | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.125 s | 5940 KB |
-| [1701_dsu.java](1701_dsu.java) | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.109 s | 6448 KB |
-| [1701_dsu.py](1701_dsu.py) | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.343 s | 18488 KB |
-| [1701_dsu.rs](1701_dsu.rs) | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 5124 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1701_dsu.cpp](1701_dsu.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.109 s | 2768 KB | 11318326 |
+| [1701_dsu.go](1701_dsu.go) | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.109 s | 5968 KB | 11322029 |
+| [1701_dsu.java](1701_dsu.java) | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.14 s | 6400 KB | 11318331 |
+| [1701_dsu.py](1701_dsu.py) | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.343 s | 18168 KB | 11318337 |
+| [1701_dsu.rs](1701_dsu.rs) | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.031 s | 5152 KB | 11318346 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1701_dsu_optimized.cpp](1701_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 928 KB | 11316975 |
+| [1701_dsu_optimized.go](1701_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O((n + m) α(n)) | AC | 0.015 s | 1712 KB | 11317271 |
+| [1701_dsu_optimized.java](1701_dsu_optimized.java) \* | Java 1.8 | dsu | O((n + m) α(n)) | AC | 0.125 s | 1320 KB | 11317272 |
+| [1701_dsu_optimized.py](1701_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((n + m) α(n)) | AC | 0.234 s | 7652 KB | 11317043 |
+| [1701_dsu_optimized.rs](1701_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O((n + m) α(n)) | AC | 0.046 s | 992 KB | 11317269 |
+
+\* Aceptada. Aún queda por alcanzar el objetivo de clasificación de Python. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente.

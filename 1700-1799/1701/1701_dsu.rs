@@ -30,12 +30,19 @@ impl Dsu {
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let v: Vec<i64> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let v: Vec<i64> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let (n, m) = (v[0] as usize, v[1] as usize);
     // a weighted union-find: salary[x] = salary[root] + offset[x], and every
     // root keeps the range its own salary may take so that all salaries of
     // its set stay in [0, MOST]; Vasily (0) is pinned to 0
-    let mut dsu = Dsu { parent: (0..n).collect(), size: vec![1; n], offset: vec![0; n] };
+    let mut dsu = Dsu {
+        parent: (0..n).collect(),
+        size: vec![1; n],
+        offset: vec![0; n],
+    };
     let mut low = vec![0i64; n];
     let mut high = vec![MOST; n];
     high[0] = 0;
