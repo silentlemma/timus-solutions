@@ -67,12 +67,42 @@ Pitfalls:
 - minutes and seconds are printed with two digits, the hour without a
   leading zero.
 
+## Optimized solutions
+
+The optimized C++ version counts the watches at each second of the dial. Sweeping the occupied seconds in order gives the number of watches strictly later than each candidate. For a target t, compare N·t + D·later, where D = 43,200; the sum of initial times is common to every target. The sweep takes O(N + D) time and O(D) extra space. Metrics for this version come from submission 11316963.
+
+The Java version uses the same sweep with a fixed array of 16-bit counts and reads the time fields directly from buffered input. Extra space is O(D). Metrics come from submission 11317056.
+
+The Rust version uses the same sweep with a fixed array of 16-bit counts and reads the time fields directly from buffered input. Extra space is O(D). Metrics come from submission 11317053.
+
+The Go version uses the same sweep with a fixed array of 16-bit counts and reads the time fields directly from buffered input. Extra space is O(D). Metrics come from submission 11317046.
+
+The Python version uses the same sweep with a compact array of 16-bit counts. It reads watch times one line at a time, so the extra space stays O(D). Metrics come from submission 11317035.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322161 · Go 1.14 x64 №11322418 · Java 1.8 №11322419 · Python 3.12 x64 №11322420 · Rust 1.75 x64 №11322422.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1592_math.cpp](1592_math.cpp) | G++ 13.2 x64 | math | O(n log n) | AC | 0.062 s | 584 KB |
-| [1592_math.go](1592_math.go) | Go 1.14 x64 | math | O(n log n) | AC | 0.046 s | 5708 KB |
-| [1592_math.java](1592_math.java) | Java 1.8 | math | O(n log n) | AC | 0.109 s | 6124 KB |
-| [1592_math.py](1592_math.py) | Python 3.12 x64 | math | O(n log n) | AC | 0.156 s | 6344 KB |
-| [1592_math.rs](1592_math.rs) | Rust 1.75 x64 | math | O(n log n) | AC | 0.046 s | 1268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1592_math.cpp](1592_math.cpp) | G++ 13.2 x64 | math | O(n log n) | AC | 0.062 s | 568 KB | 11322161 |
+| [1592_math.go](1592_math.go) | Go 1.14 x64 | math | O(n log n) | AC | 0.046 s | 5704 KB | 11322418 |
+| [1592_math.java](1592_math.java) | Java 1.8 | math | O(n log n) | AC | 0.125 s | 6084 KB | 11322419 |
+| [1592_math.py](1592_math.py) | Python 3.12 x64 | math | O(n log n) | AC | 0.14 s | 6420 KB | 11322420 |
+| [1592_math.rs](1592_math.rs) | Rust 1.75 x64 | math | O(n log n) | AC | 0.031 s | 1248 KB | 11322422 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1592_math_optimized.cpp](1592_math_optimized.cpp) | G++ 13.2 x64 | math | O(N + D) | AC | 0.015 s | 168 KB | 11316963 |
+| [1592_math_optimized.java](1592_math_optimized.java) | Java 1.8 | math | O(N + D) | AC | 0.093 s | 528 KB | 11317056 |
+| [1592_math_optimized.rs](1592_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N + D) | AC | 0.031 s | 292 KB | 11317053 |
+| [1592_math_optimized.go](1592_math_optimized.go) \* | Go 1.14 x64 | math | O(N + D) | AC | 0.031 s | 1212 KB | 11317046 |
+| [1592_math_optimized.py](1592_math_optimized.py) \* | Python 3.12 x64 | math | O(N + D) | AC | 0.125 s | 592 KB | 11317035 |
+
+\* Accepted. The Python rating target remains open. Accepted. The Go rating target remains open. Accepted. The Rust rating target remains open.
