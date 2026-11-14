@@ -53,12 +53,42 @@ H 和 W，然后是 X 和 Y，然后是 R。
 - 体积可达约 3·10¹¹，双精度仍能远小于 10⁻³ 的误差表示它（测试 04）；
 - C++ 没有标准的 M_PI，评测系统的编译器也没有，所以 C++ 解法使用 acos(−1)。
 
+## 优化解法
+
+优化后的 C++ 版本沿用同一公式，使用编译期常量 π 和 C 的输入输出函数。计算使用 long double，结果保留五位小数。提交 11317021 耗时 0.015 秒，使用 136 KB。简单版本耗时 0.015 秒，使用 444 KB。
+
+Java 使用相同的体积公式，直接解析十进制数并以固定精度输出。提交 11318321 耗时 0.093 秒，使用 464 KB；简单版本耗时 0.093 秒，使用 1964 KB。
+
+Go 沿用相同的体积公式，并使用小缓冲区解析十进制输入和写出定点精度结果。 Go 1.14 x64（提交 11322933）的运行时间从 0.031 秒变为 0.015 秒，内存从 1080 KB 变为 320 KB。
+
+Python 版本从字节流读取五个数，并根据到最近底边的距离求出高度比例。 Python 3.12 x64（提交 11322022）的运行时间从 0.093 秒变为 0.109 秒，内存从 444 KB 变为 452 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322273 · Go 1.14 x64 №11322275 · Java 1.8 №11322277 · Python 3.12 x64 №11322278 · Rust 1.75 x64 №11322279.
+
+Rust 保留体积公式，并用固定缓冲区读取常规输入、输出五位小数。 Rust 1.75 x64（提交 11323247）的运行时间从 0.015 秒变为 0.031 秒，内存从 244 KB 变为 68 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1550_geometry.cpp](1550_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 456 KB |
-| [1550_geometry.go](1550_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB |
-| [1550_geometry.java](1550_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1964 KB |
-| [1550_geometry.py](1550_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 460 KB |
-| [1550_geometry.rs](1550_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1550_geometry.cpp](1550_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 444 KB | 11322273 |
+| [1550_geometry.go](1550_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1080 KB | 11322275 |
+| [1550_geometry.java](1550_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 1964 KB | 11322277 |
+| [1550_geometry.py](1550_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11322278 |
+| [1550_geometry.rs](1550_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 244 KB | 11322279 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1550_geometry_optimized.cpp](1550_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 136 KB | 11317021 |
+| [1550_geometry_optimized.go](1550_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 320 KB | 11322933 |
+| [1550_geometry_optimized.java](1550_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 464 KB | 11318321 |
+| [1550_geometry_optimized.py](1550_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 452 KB | 11322022 |
+| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+
+\* Go 尚未达到排名目标。

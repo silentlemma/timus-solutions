@@ -61,12 +61,42 @@ Detalles a tener en cuenta:
 - C++ no tiene un M_PI estándar, y el compilador del juez no lo tiene,
   así que la solución en C++ usa acos(−1).
 
+## Soluciones optimizadas
+
+La versión optimizada en C++ usa la misma fórmula con una constante de compilación para π y funciones de entrada y salida de C. Calcula en long double e imprime cinco decimales. El envío 11317021 tardó 0,015 s y usó 136 KB. La versión sencilla tardó 0,015 s y usó 444 KB.
+
+Java usa la misma fórmula de volumen, con lectura decimal directa y salida de precisión fija. El envío 11318321 tardó 0,093 s y usó 464 KB frente a 0,093 s y 1964 KB de la versión sencilla.
+
+Go aplica la misma fórmula de volumen y usa búferes pequeños para leer números y escribir el resultado con precisión fija. Go 1.14 x64, envío 11322933. Tiempo 0,031 → 0,015 s, memoria 1080 → 320 KB.
+
+La versión de Python lee los cinco valores de un flujo de bytes y calcula la fracción de la altura a partir de la distancia al lado más cercano de la base. Python 3.12 x64, envío 11322022. Tiempo 0,093 → 0,109 s, memoria 444 → 452 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322273 · Go 1.14 x64 №11322275 · Java 1.8 №11322277 · Python 3.12 x64 №11322278 · Rust 1.75 x64 №11322279.
+
+Rust conserva la fórmula del volumen y usa búferes fijos para las entradas habituales y la salida de cinco decimales. Rust 1.75 x64, envío 11323247. Tiempo 0,015 → 0,031 s, memoria 244 → 68 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1550_geometry.cpp](1550_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 456 KB |
-| [1550_geometry.go](1550_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB |
-| [1550_geometry.java](1550_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1964 KB |
-| [1550_geometry.py](1550_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 460 KB |
-| [1550_geometry.rs](1550_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1550_geometry.cpp](1550_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 444 KB | 11322273 |
+| [1550_geometry.go](1550_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1080 KB | 11322275 |
+| [1550_geometry.java](1550_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 1964 KB | 11322277 |
+| [1550_geometry.py](1550_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11322278 |
+| [1550_geometry.rs](1550_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 244 KB | 11322279 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1550_geometry_optimized.cpp](1550_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 136 KB | 11317021 |
+| [1550_geometry_optimized.go](1550_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 320 KB | 11322933 |
+| [1550_geometry_optimized.java](1550_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 464 KB | 11318321 |
+| [1550_geometry_optimized.py](1550_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 452 KB | 11322022 |
+| [1550_geometry_optimized.rs](1550_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 68 KB | 11323247 |
+
+\* El objetivo de clasificación de Go sigue pendiente.
