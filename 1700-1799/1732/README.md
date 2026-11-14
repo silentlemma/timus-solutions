@@ -94,12 +94,49 @@ result reads as the wanted saying. The answers match an exhaustive
 search over all erasures on 300 short sayings, and an independent
 accepted implementation on long ones.
 
+## Optimized solutions
+
+The Python variant searches the entire byte string using CPython’s substring search. A word
+cannot match across an original space. After a match, skipping one byte leaves a separator
+before the next match. The output starts with every letter erased, then restores each
+matched span. The search advances through the input and the buffer uses O(L) memory.
+Submission 11316946 took 0.093 s and 2168 KB versus 0.156 s and 6212 KB for the base.
+
+The C++ variant runs KMP over the full source. An original space breaks any partial word
+match. It reuses the prefix table for successive target words and masks each gap directly in
+the source string. Both passes together take O(L) time and O(L) memory. Submission 11316951
+took 0.031 s and 1000 KB, down from 0.046 s and 2676 KB.
+
+Rust runs KMP over one input byte buffer and erases the gaps in place. It reuses a 32-bit prefix table and writes the resulting slice directly. Submission 11317256 took 0.031 s and used 1096 KB, versus 0.046 s and 2188 KB for the base.
+
+Go also edits the source in place and grows the reusable 32-bit prefix table only when necessary. Submission 11317266 took 0.031 s and used 1836 KB, versus 0.031 s and 3248 KB for the base.
+
+Java uses one byte buffer for both input lines, erases gaps in place, and reuses the KMP prefix table. Submission 11317268 took 0.125 s and used 1036 KB, versus 0.125 s and 6420 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11318250 · Java 1.8 №11318255 · Rust 1.75 x64 №11318260.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2676 KB |
-| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3296 KB |
-| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.156 s | 6484 KB |
-| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6320 KB |
-| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 2184 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2660 KB | 11318250 |
+| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3248 KB | 11322033 |
+| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.125 s | 6420 KB | 11318255 |
+| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6212 KB | 11322034 |
+| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.046 s | 2188 KB | 11318260 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1732_strings_optimized.cpp](1732_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.031 s | 1000 KB | 11316951 |
+| [1732_strings_optimized.go](1732_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1836 KB | 11317266 |
+| [1732_strings_optimized.java](1732_strings_optimized.java) \* | Java 1.8 | strings | O(L) | AC | 0.125 s | 1036 KB | 11317268 |
+| [1732_strings_optimized.py](1732_strings_optimized.py) | Python 3.12 x64 | strings | O(L) | AC | 0.093 s | 2168 KB | 11316946 |
+| [1732_strings_optimized.rs](1732_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 1096 KB | 11317256 |
+
+\* The saved ratings have no comparable Go or Rust submissions from other authors. Java ranks second by time and first by memory in the saved rating.

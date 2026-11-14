@@ -73,12 +73,45 @@ I HAVE FAILED!!!
 
 检查程序验证只有字母变成了下划线，且结果读起来是目标格言。在 300 个短格言上答案与穷举所有擦除方式一致，在长格言上与一个独立的已通过实现一致。
 
+## 优化解法
+
+Python 版本使用 CPython
+的内置子串搜索在整个字节串中查找。目标单词无法跨过原有空格。每次匹配后跳过一个字节作为分隔符。先擦除输出缓冲区中的所有字母，再恢复匹配片段。搜索位置始终向前移动，缓冲区占用 O(L)
+空间。提交 11316946 耗时 0.093 秒、使用 2168 KB；基础版本为 0.156 秒和 6212 KB。
+
+C++ 版本对整个源串执行 KMP。原有空格会中断未完成的单词匹配。不同目标单词复用前缀表，匹配之间的字母直接在源串中擦除。时间和空间复杂度均为 O(L)。提交 11316951 耗时
+0.031 秒、使用 1000 KB；基础版本为 0.046 秒和 2676 KB。
+
+Rust 直接在同一个输入字节缓冲区上运行 KMP，并原地擦除匹配之间的字母。它复用 32 位前缀表并直接输出结果切片。提交 11317256 耗时 0.031 秒，使用 1096 KB；基础版耗时 0.046 秒，使用 2188 KB。
+
+Go 也直接修改输入缓冲区，只在必要时扩大可复用的 32 位前缀表。提交 11317266 耗时 0.031 秒，使用 1836 KB；基础版耗时 0.031 秒，使用 3248 KB。
+
+Java 将两行输入存入同一个字节缓冲区，原地擦除匹配之间的字母，并复用 KMP 前缀表。提交 11317268 耗时 0.125 秒，使用 1036 KB；基础版耗时 0.125 秒，使用 6420 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11318250 · Java 1.8 №11318255 · Rust 1.75 x64 №11318260.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2676 KB |
-| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3296 KB |
-| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.156 s | 6484 KB |
-| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6320 KB |
-| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 2184 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2660 KB | 11318250 |
+| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3248 KB | 11322033 |
+| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.125 s | 6420 KB | 11318255 |
+| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6212 KB | 11322034 |
+| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.046 s | 2188 KB | 11318260 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1732_strings_optimized.cpp](1732_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.031 s | 1000 KB | 11316951 |
+| [1732_strings_optimized.go](1732_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1836 KB | 11317266 |
+| [1732_strings_optimized.java](1732_strings_optimized.java) \* | Java 1.8 | strings | O(L) | AC | 0.125 s | 1036 KB | 11317268 |
+| [1732_strings_optimized.py](1732_strings_optimized.py) | Python 3.12 x64 | strings | O(L) | AC | 0.093 s | 2168 KB | 11316946 |
+| [1732_strings_optimized.rs](1732_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 1096 KB | 11317256 |
+
+\* Go 和 Rust 的排名快照中都没有其他作者的可比提交。 在排名快照中，Java 用时第二，内存第一。

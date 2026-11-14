@@ -98,12 +98,49 @@ coinciden con una búsqueda exhaustiva de todos los borrados en 300
 dichos cortos, y con una implementación aceptada independiente en los
 largos.
 
+## Soluciones optimizadas
+
+La versión Python busca en toda la secuencia de bytes con la búsqueda de subcadenas de
+CPython. Una palabra no puede cruzar un espacio original. Después de cada coincidencia se
+salta un byte como separador. El búfer empieza con todas las letras borradas y luego se
+restauran los fragmentos encontrados. La búsqueda avanza y el búfer ocupa O(L). El envío
+11316946 tardó 0,093 s y usó 2168 KB frente a 0,156 s y 6212 KB en la base.
+
+La variante C++ aplica KMP al texto fuente completo. Un espacio original interrumpe
+cualquier coincidencia parcial. Reutiliza la tabla de prefijos para las palabras siguientes
+y borra los huecos en la misma cadena. El tiempo y el espacio son O(L). El envío 11316951
+tardó 0,031 s y usó 1000 KB frente a 0,046 s y 2676 KB en la base.
+
+Rust ejecuta KMP sobre un único búfer de entrada y borra los huecos en el mismo búfer. Reutiliza una tabla de prefijos de 32 bits y escribe directamente el segmento resultante. El envío 11317256 tardó 0,031 s y usó 1096 KB frente a 0,046 s y 2188 KB en la base.
+
+Go también modifica la entrada en el mismo búfer y amplía la tabla de prefijos reutilizable de 32 bits solo cuando hace falta. El envío 11317266 tardó 0,031 s y usó 1836 KB frente a 0,031 s y 3248 KB en la base.
+
+Java guarda las dos líneas de entrada en un búfer de bytes, borra los huecos en ese mismo búfer y reutiliza la tabla de prefijos de KMP. El envío 11317268 tardó 0,125 s y usó 1036 KB frente a 0,125 s y 6420 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11318250 · Java 1.8 №11318255 · Rust 1.75 x64 №11318260.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2676 KB |
-| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3296 KB |
-| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.156 s | 6484 KB |
-| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6320 KB |
-| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 2184 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1732_strings.cpp](1732_strings.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.046 s | 2660 KB | 11318250 |
+| [1732_strings.go](1732_strings.go) | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 3248 KB | 11322033 |
+| [1732_strings.java](1732_strings.java) | Java 1.8 | strings | O(L) | AC | 0.125 s | 6420 KB | 11318255 |
+| [1732_strings.py](1732_strings.py) | Python 3.12 x64 | strings | O(L) | AC | 0.156 s | 6212 KB | 11322034 |
+| [1732_strings.rs](1732_strings.rs) | Rust 1.75 x64 | strings | O(L) | AC | 0.046 s | 2188 KB | 11318260 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1732_strings_optimized.cpp](1732_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.031 s | 1000 KB | 11316951 |
+| [1732_strings_optimized.go](1732_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L) | AC | 0.031 s | 1836 KB | 11317266 |
+| [1732_strings_optimized.java](1732_strings_optimized.java) \* | Java 1.8 | strings | O(L) | AC | 0.125 s | 1036 KB | 11317268 |
+| [1732_strings_optimized.py](1732_strings_optimized.py) | Python 3.12 x64 | strings | O(L) | AC | 0.093 s | 2168 KB | 11316946 |
+| [1732_strings_optimized.rs](1732_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) | AC | 0.031 s | 1096 KB | 11317256 |
+
+\* Los cortes de clasificación no contienen envíos comparables en Go o Rust de otros autores. En el corte de clasificación, Java ocupa el segundo lugar en tiempo y el primero en memoria.

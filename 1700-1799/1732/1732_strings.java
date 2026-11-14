@@ -41,12 +41,12 @@ public class Main {
         // each wanted word goes to its earliest place in the current word,
         // at least one erased letter after the previous one there; if it
         // does not fit, the next word of the source is tried
-        for (int begin = 0; begin < source.length() && j < target.length; ) {
+        for (int begin = 0; begin < source.length() && j < target.length;) {
             int end = source.indexOf(' ', begin);
             if (end < 0) {
                 end = source.length();
             }
-            for (int pos = begin; j < target.length && end - pos >= target[j].length(); ) {
+            for (int pos = begin; j < target.length && end - pos >= target[j].length();) {
                 int at = find(source, pos, end, target[j], p);
                 if (at < 0) {
                     break;

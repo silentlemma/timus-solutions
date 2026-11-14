@@ -61,7 +61,9 @@ fn main() {
             match find(source, pos, end, target[j], &p) {
                 None => break,
                 Some(at) => {
-                    keep[at..at + target[j].len()].iter_mut().for_each(|k| *k = true);
+                    keep[at..at + target[j].len()]
+                        .iter_mut()
+                        .for_each(|k| *k = true);
                     pos = at + target[j].len() + 1;
                     j += 1;
                     if j < target.len() {
