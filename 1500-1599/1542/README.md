@@ -78,12 +78,39 @@ Pitfalls:
 - a query may equal a whole word, or be longer than every word
   (test 05).
 
+## Optimized solutions
+
+Python packs the inverted frequency into three big-endian bytes ahead of each word. Sorting these byte strings gives the required ranking without tuples, and the scan checks only prefix lengths that occur in queries. Submission 11317220 took 0.562 s and used 17632 KB, versus 0.656 s and 33184 KB for the base.
+
+Rust packs frequency and letters into a 128-bit sorting key, scans only queried prefix lengths, and stores completed suggestions as bytes. Submission 11317222 took 0.062 s and used 9652 KB, versus 0.109 s and 15020 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321809 · Go 1.14 x64 №11321811 · Java 1.8 №11321814 · Python 3.12 x64 №11322065 · Rust 1.75 x64 №11322067.
+
+C++ stores words in fixed-size records, looks up only queried prefix lengths by string view, and streams the suggestions. G++ 13.2 x64, submission 11322388. Time 0.171 → 0.093 s, memory 11168 → 4104 KB.
+
+Go stores words in fixed-size records, looks up only queried prefix lengths by string view, and streams the suggestions. Go 1.14 x64, submission 11322389. Time 0.187 → 0.109 s, memory 11308 → 10108 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1542_sorting.cpp](1542_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.187 s | 11212 KB |
-| [1542_sorting.go](1542_sorting.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.203 s | 11304 KB |
-| [1542_sorting.java](1542_sorting.java) | Java 1.8 | sorting | O(N log N + 15 N + M) | AC | 0.468 s | 36636 KB |
-| [1542_sorting.py](1542_sorting.py) | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.593 s | 32604 KB |
-| [1542_sorting.rs](1542_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.093 s | 15136 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1542_sorting.cpp](1542_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.171 s | 11168 KB | 11321809 |
+| [1542_sorting.go](1542_sorting.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.187 s | 11308 KB | 11321811 |
+| [1542_sorting.java](1542_sorting.java) | Java 1.8 | sorting | O(N log N + 15 N + M) | AC | 0.484 s | 36648 KB | 11321814 |
+| [1542_sorting.py](1542_sorting.py) | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.656 s | 33184 KB | 11322065 |
+| [1542_sorting.rs](1542_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.109 s | 15020 KB | 11322067 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1542_sorting_optimized.py](1542_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.562 s | 17632 KB | 11317220 |
+| [1542_sorting_optimized.rs](1542_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.062 s | 9652 KB | 11317222 |
+| [1542_sorting_optimized.cpp](1542_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.093 s | 4104 KB | 11322388 |
+| [1542_sorting_optimized.go](1542_sorting_optimized.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.109 s | 10108 KB | 11322389 |
+
+\* Python ranks sixth by time and first by memory in the saved rating. It meets the memory improvement criterion.

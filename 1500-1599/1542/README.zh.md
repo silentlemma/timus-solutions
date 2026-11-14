@@ -69,12 +69,39 @@ karetachi
 - 频率相同时按字母顺序，所以 a 在 ab 之前（测试 03）；
 - 查询可能恰好等于某个单词，也可能比所有单词都长（测试 05）。
 
+## 优化解法
+
+Python 版本在每个单词前用三个大端字节保存反向频率。排序这些字节串即可得到所需顺序，并且扫描时只检查查询中出现的前缀长度。提交 11317220 耗时 0.562 秒，使用 17632 KB；基础版耗时 0.656 秒，使用 33184 KB。
+
+Rust 版本把频率和字母打包为 128 位排序键，只检查查询中出现的前缀长度，并以字节形式保存已生成的建议。提交 11317222 耗时 0.062 秒，使用 9652 KB；基础版耗时 0.109 秒，使用 15020 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321809 · Go 1.14 x64 №11321811 · Java 1.8 №11321814 · Python 3.12 x64 №11322065 · Rust 1.75 x64 №11322067.
+
+C++ 使用定长记录保存单词，只查找请求中的前缀长度，并通过字符串视图免去复制，逐条输出建议。 G++ 13.2 x64（提交 11322388）的运行时间从 0.171 秒变为 0.093 秒，内存从 11168 KB 变为 4104 KB。
+
+Go 使用定长记录保存单词，只查找请求中的前缀长度，并通过字符串视图免去复制，逐条输出建议。 Go 1.14 x64（提交 11322389）的运行时间从 0.187 秒变为 0.109 秒，内存从 11308 KB 变为 10108 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1542_sorting.cpp](1542_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.187 s | 11212 KB |
-| [1542_sorting.go](1542_sorting.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.203 s | 11304 KB |
-| [1542_sorting.java](1542_sorting.java) | Java 1.8 | sorting | O(N log N + 15 N + M) | AC | 0.468 s | 36636 KB |
-| [1542_sorting.py](1542_sorting.py) | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.593 s | 32604 KB |
-| [1542_sorting.rs](1542_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.093 s | 15136 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1542_sorting.cpp](1542_sorting.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.171 s | 11168 KB | 11321809 |
+| [1542_sorting.go](1542_sorting.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.187 s | 11308 KB | 11321811 |
+| [1542_sorting.java](1542_sorting.java) | Java 1.8 | sorting | O(N log N + 15 N + M) | AC | 0.484 s | 36648 KB | 11321814 |
+| [1542_sorting.py](1542_sorting.py) | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.656 s | 33184 KB | 11322065 |
+| [1542_sorting.rs](1542_sorting.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.109 s | 15020 KB | 11322067 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1542_sorting_optimized.py](1542_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(N log N + 15 N + M) | AC | 0.562 s | 17632 KB | 11317220 |
+| [1542_sorting_optimized.rs](1542_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(N log N + 15 N + M) | AC | 0.062 s | 9652 KB | 11317222 |
+| [1542_sorting_optimized.cpp](1542_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N log N + 15 N + M) | AC | 0.093 s | 4104 KB | 11322388 |
+| [1542_sorting_optimized.go](1542_sorting_optimized.go) | Go 1.14 x64 | sorting | O(N log N + 15 N + M) | AC | 0.109 s | 10108 KB | 11322389 |
+
+\* 在排名快照中，Python 版本的用时排名第六，内存排名第一。该版本满足内存优化标准。
