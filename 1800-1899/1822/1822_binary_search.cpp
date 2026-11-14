@@ -20,7 +20,8 @@ bool readyBy(long long num, long long den) {
         long long need = (num * c + den - 1) / den, wait = 0;
         if (need > 0) {
             times.clear();
-            for (int w : children[v]) times.push_back(ready[w]);
+            for (int w : children[v])
+                times.push_back(ready[w]);
             std::nth_element(times.begin(), times.begin() + need - 1, times.end());
             wait = times[need - 1];
         }
@@ -30,7 +31,8 @@ bool readyBy(long long num, long long den) {
 }
 
 int main() {
-    if (scanf("%d %lld", &n, &limit) != 2) return 0;
+    if (scanf("%d %lld", &n, &limit) != 2)
+        return 0;
     own.assign(n + 1, 0);
     children.assign(n + 1, {});
     for (int i = 2; i <= n; i++) {
@@ -40,22 +42,25 @@ int main() {
     }
     order.push_back(1);
     for (size_t i = 0; i < order.size(); i++) {
-        for (int w : children[order[i]]) order.push_back(w);
+        for (int w : children[order[i]])
+            order.push_back(w);
     }
     std::reverse(order.begin(), order.end());
     // the answer is a largest fraction m/c over the vassal counts c
     std::set<int> counts;
     for (int v = 1; v <= n; v++) {
-        if (!children[v].empty()) counts.insert(children[v].size());
+        if (!children[v].empty())
+            counts.insert(children[v].size());
     }
     std::vector<std::pair<long long, long long>> fractions;
     for (int c : counts) {
-        for (int m = 0; m <= c; m++) fractions.push_back({m, c});
+        for (int m = 0; m <= c; m++)
+            fractions.push_back({m, c});
     }
-    if (fractions.empty()) fractions.push_back({1, 1});
-    std::sort(fractions.begin(), fractions.end(), [](const auto &a, const auto &b) {
-        return a.first * b.second < b.first * a.second;
-    });
+    if (fractions.empty())
+        fractions.push_back({1, 1});
+    std::sort(fractions.begin(), fractions.end(),
+              [](const auto &a, const auto &b) { return a.first * b.second < b.first * a.second; });
     int lo = 0, hi = fractions.size() - 1;
     while (lo < hi) {
         int mid = (lo + hi + 1) / 2;
@@ -65,8 +70,8 @@ int main() {
             hi = mid - 1;
         }
     }
-    long long answer = (PERCENT * fractions[lo].first * OUTPUT_SCALE + fractions[lo].second / 2)
-                       / fractions[lo].second;
+    long long answer = (PERCENT * fractions[lo].first * OUTPUT_SCALE + fractions[lo].second / 2) /
+                       fractions[lo].second;
     printf("%lld.%08lld\n", answer / OUTPUT_SCALE, answer % OUTPUT_SCALE);
     return 0;
 }

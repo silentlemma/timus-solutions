@@ -29,7 +29,7 @@ public class Main {
                     times[j] = ready[kids[start[v] + j]];
                 }
                 Arrays.sort(times);
-                wait = times[(int) need - 1];
+                wait = times[(int)need - 1];
             }
             ready[v] = wait + own[v];
         }
@@ -38,19 +38,19 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         StreamTokenizer in =
-                new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         in.nextToken();
-        n = (int) in.nval;
+        n = (int)in.nval;
         in.nextToken();
-        limit = (long) in.nval;
+        limit = (long)in.nval;
         own = new int[n + 1];
         int[] parent = new int[n + 1];
         start = new int[n + 2];
         for (int i = 2; i <= n; i++) {
             in.nextToken();
-            parent[i] = (int) in.nval;
+            parent[i] = (int)in.nval;
             in.nextToken();
-            own[i] = (int) in.nval;
+            own[i] = (int)in.nval;
             start[parent[i] + 1]++;
         }
         // vassals of v are kids[start[v] .. start[v + 1])

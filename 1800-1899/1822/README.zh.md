@@ -63,12 +63,41 @@ C++、Go、Java 和 Rust 用交叉相乘排序；Python 按浮点数 m/c 排序�
 - 输出必须使用小数点，不受区域设置影响：测试 10 在俄语区域设置下暴露了 Java 默认输出小数逗号的问题，因此格式化时显式使用 `Locale.US`；
 - 国王没有附庸时立即出征，答案为 100。
 
+## 优化解法
+
+树形动态规划先累计从国王到各节点的路径耗时，再自底向上对直属封臣可支持的比例上限排序。取前 r 名时，比例同时受第 r 个上限以及 r 除以封臣总数的约束。
+
+Python 3.12 x64（提交 11318642）的运行时间从 0.125 秒变为 0.109 秒，内存从 4116 KB 变为 3356 KB。
+
+Rust 1.75 x64（提交 11318846）的运行时间从 0.015 秒变为 0.062 秒，内存从 1368 KB 变为 552 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321968 · Java 1.8 №11321961 · Rust 1.75 x64 №11321962 · Go 1.14 x64 №11322431 · Python 3.12 x64 №11322432.
+
+Go 1.14 x64（提交 11321995）的运行时间从 0.031 秒变为 0.031 秒，内存从 3820 KB 变为 1608 KB。
+
+Java 1.8（提交 11321996）的运行时间从 0.156 秒变为 0.093 秒，内存从 6636 KB 变为 808 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1822_binary_search.cpp](1822_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 564 KB |
-| [1822_binary_search.go](1822_binary_search.go) | Go 1.14 x64 | binary_search | O(n log^2 n) | AC | 0.046 s | 3832 KB |
-| [1822_binary_search.java](1822_binary_search.java) | Java 1.8 | binary_search | O(n log^2 n) | AC | 0.156 s | 6648 KB |
-| [1822_binary_search.py](1822_binary_search.py) | Python 3.12 x64 | binary_search | O(n log^2 n) | AC | 0.140 s | 3968 KB |
-| [1822_binary_search.rs](1822_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log^2 n) | AC | 0.046 s | 1376 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1822_binary_search.cpp](1822_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 552 KB | 11321968 |
+| [1822_binary_search.go](1822_binary_search.go) | Go 1.14 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 3820 KB | 11322431 |
+| [1822_binary_search.java](1822_binary_search.java) | Java 1.8 | binary_search | O(n log^2 n) | AC | 0.156 s | 6636 KB | 11321961 |
+| [1822_binary_search.py](1822_binary_search.py) | Python 3.12 x64 | binary_search | O(n log^2 n) | AC | 0.125 s | 4116 KB | 11322432 |
+| [1822_binary_search.rs](1822_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log^2 n) | AC | 0.015 s | 1368 KB | 11321962 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1822_trees_dp.py](1822_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n) | AC | 0.109 s | 3356 KB | 11318642 |
+| [1822_trees_dp.rs](1822_trees_dp.rs) \* | Rust 1.75 x64 | trees, dp | O(n log n) | AC | 0.062 s | 552 KB | 11318846 |
+| [1822_trees_dp.go](1822_trees_dp.go) \* | Go 1.14 x64 | trees, dp | O(n log n) | AC | 0.031 s | 1608 KB | 11321995 |
+| [1822_trees_dp.java](1822_trees_dp.java) | Java 1.8 | trees, dp | O(n log n) | AC | 0.093 s | 808 KB | 11321996 |
+
+\* 带星号的版本仍有提升排名的空间。

@@ -85,12 +85,41 @@ Pitfalls:
   formatter explicitly uses `Locale.US`;
 - with no vassals at all the king leaves at once and the answer is 100.
 
+## Optimized solutions
+
+The tree DP first accumulates the time along each path from the king. It then works from the leaves up, sorting the limits of the direct vassals. At rank r, the supported share is bounded by both the r-th limit and r divided by the number of vassals.
+
+Python 3.12 x64, submission 11318642. Time 0.125 → 0.109 s, memory 4116 → 3356 KB.
+
+Rust 1.75 x64, submission 11318846. Time 0.015 → 0.062 s, memory 1368 → 552 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321968 · Java 1.8 №11321961 · Rust 1.75 x64 №11321962 · Go 1.14 x64 №11322431 · Python 3.12 x64 №11322432.
+
+Go 1.14 x64, submission 11321995. Time 0.031 → 0.031 s, memory 3820 → 1608 KB.
+
+Java 1.8, submission 11321996. Time 0.156 → 0.093 s, memory 6636 → 808 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1822_binary_search.cpp](1822_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 564 KB |
-| [1822_binary_search.go](1822_binary_search.go) | Go 1.14 x64 | binary_search | O(n log^2 n) | AC | 0.046 s | 3832 KB |
-| [1822_binary_search.java](1822_binary_search.java) | Java 1.8 | binary_search | O(n log^2 n) | AC | 0.156 s | 6648 KB |
-| [1822_binary_search.py](1822_binary_search.py) | Python 3.12 x64 | binary_search | O(n log^2 n) | AC | 0.140 s | 3968 KB |
-| [1822_binary_search.rs](1822_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log^2 n) | AC | 0.046 s | 1376 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1822_binary_search.cpp](1822_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 552 KB | 11321968 |
+| [1822_binary_search.go](1822_binary_search.go) | Go 1.14 x64 | binary_search | O(n log^2 n) | AC | 0.031 s | 3820 KB | 11322431 |
+| [1822_binary_search.java](1822_binary_search.java) | Java 1.8 | binary_search | O(n log^2 n) | AC | 0.156 s | 6636 KB | 11321961 |
+| [1822_binary_search.py](1822_binary_search.py) | Python 3.12 x64 | binary_search | O(n log^2 n) | AC | 0.125 s | 4116 KB | 11322432 |
+| [1822_binary_search.rs](1822_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log^2 n) | AC | 0.015 s | 1368 KB | 11321962 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1822_trees_dp.py](1822_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n) | AC | 0.109 s | 3356 KB | 11318642 |
+| [1822_trees_dp.rs](1822_trees_dp.rs) \* | Rust 1.75 x64 | trees, dp | O(n log n) | AC | 0.062 s | 552 KB | 11318846 |
+| [1822_trees_dp.go](1822_trees_dp.go) \* | Go 1.14 x64 | trees, dp | O(n log n) | AC | 0.031 s | 1608 KB | 11321995 |
+| [1822_trees_dp.java](1822_trees_dp.java) | Java 1.8 | trees, dp | O(n log n) | AC | 0.093 s | 808 KB | 11321996 |
+
+\* The marked versions have room to improve in the ratings.
