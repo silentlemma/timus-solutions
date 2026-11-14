@@ -77,17 +77,35 @@ Pitfalls:
 The answers were compared with a search over all 24 orientations of a
 labelled cube on 120 random fields.
 
+## Optimized solutions
+
+Go tracks the side holding the initial top face and processes BFS one layer at a time. Each cell stores a bit mask of visited sides and a separate mask for walls. Go 1.14 x64, submission 11322929. Time 0.015 → 0.015 s, memory 1160 → 296 KB.
+
 ## Language notes
 
 - The wall sections are read word by word, so the input layout
   (line breaks, extra spaces) does not matter.
 
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321838 · Java 1.8 №11321840 · Python 3.12 x64 №11321841 · Rust 1.75 x64 №11321842.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1301_bfs.cpp](1301_bfs.cpp) | G++ 13.2 x64 | bfs | O(X * Y) | AC | 0.015 s | 200 KB |
-| [1301_bfs.go](1301_bfs.go) | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.031 s | 1172 KB |
-| [1301_bfs.java](1301_bfs.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.109 s | 564 KB |
-| [1301_bfs.py](1301_bfs.py) | Python 3.12 x64 | bfs | O(X * Y) | AC | 0.078 s | 680 KB |
-| [1301_bfs.rs](1301_bfs.rs) | Rust 1.75 x64 | bfs | O(X * Y) | AC | 0.015 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1301_bfs.cpp](1301_bfs.cpp) | G++ 13.2 x64 | bfs | O(X * Y) | AC | 0.015 s | 184 KB | 11321838 |
+| [1301_bfs.go](1301_bfs.go) | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 1160 KB | 11322052 |
+| [1301_bfs.java](1301_bfs.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.109 s | 528 KB | 11321840 |
+| [1301_bfs.py](1301_bfs.py) | Python 3.12 x64 | bfs | O(X * Y) | AC | 0.062 s | 648 KB | 11321841 |
+| [1301_bfs.rs](1301_bfs.rs) | Rust 1.75 x64 | bfs | O(X * Y) | AC | 0.015 s | 236 KB | 11321842 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1301_bfs_optimized.go](1301_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 296 KB | 11322929 |
+
+\* The saved rating has no comparable Go submissions from other authors.

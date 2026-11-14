@@ -79,17 +79,35 @@ Las respuestas se compararon con una búsqueda sobre las 24
 orientaciones de un cubo con caras etiquetadas en 120 campos
 aleatorios.
 
+## Soluciones optimizadas
+
+Go sigue la cara que era la superior y ejecuta BFS por capas. En cada casilla una máscara indica las caras visitadas y otra indica los muros. Go 1.14 x64, envío 11322929. Tiempo 0,015 → 0,015 s, memoria 1160 → 296 KB.
+
 ## Notas por lenguaje
 
 - Las secciones de paredes se leen palabra a palabra, así que la forma
   de la entrada (saltos de línea, espacios de más) no importa.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321838 · Java 1.8 №11321840 · Python 3.12 x64 №11321841 · Rust 1.75 x64 №11321842.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1301_bfs.cpp](1301_bfs.cpp) | G++ 13.2 x64 | bfs | O(X * Y) | AC | 0.015 s | 200 KB |
-| [1301_bfs.go](1301_bfs.go) | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.031 s | 1172 KB |
-| [1301_bfs.java](1301_bfs.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.109 s | 564 KB |
-| [1301_bfs.py](1301_bfs.py) | Python 3.12 x64 | bfs | O(X * Y) | AC | 0.078 s | 680 KB |
-| [1301_bfs.rs](1301_bfs.rs) | Rust 1.75 x64 | bfs | O(X * Y) | AC | 0.015 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1301_bfs.cpp](1301_bfs.cpp) | G++ 13.2 x64 | bfs | O(X * Y) | AC | 0.015 s | 184 KB | 11321838 |
+| [1301_bfs.go](1301_bfs.go) | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 1160 KB | 11322052 |
+| [1301_bfs.java](1301_bfs.java) | Java 1.8 | bfs | O(X * Y) | AC | 0.109 s | 528 KB | 11321840 |
+| [1301_bfs.py](1301_bfs.py) | Python 3.12 x64 | bfs | O(X * Y) | AC | 0.062 s | 648 KB | 11321841 |
+| [1301_bfs.rs](1301_bfs.rs) | Rust 1.75 x64 | bfs | O(X * Y) | AC | 0.015 s | 236 KB | 11321842 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1301_bfs_optimized.go](1301_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(X * Y) | AC | 0.015 s | 296 KB | 11322929 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores.
