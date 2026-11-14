@@ -108,12 +108,42 @@ Java fixes the output locale. Each program prints nine fractional digits,
 introducing at most 5·10⁻¹⁰ rounding error. Only the final square root uses
 floating point; group membership and tie comparisons are exact.
 
+## Optimized solutions
+
+The C++ version packs each pair of residues into one integer. It sorts these keys and counts equal runs, comparing squared distances to break ties. Only the final distance uses a square root. Time is O(L + N log N) for input length L and N points, with O(N) extra space. The metrics come from submission 11316985.
+
+Java 1.8 also packs each pair into an integer and counts runs after sorting. Submission 11317110 took 0.109 s and 804 KB; the base took 0.125 s and 6036 KB.
+
+Python 3.12 x64 also packs each pair into an integer and counts runs after sorting. Submission 11317108 took 0.203 s and 3384 KB; the base took 0.281 s and 11584 KB.
+
+Rust 1.75 x64 also packs each pair into an integer and counts runs after sorting. Submission 11317104 took 0.015 s and 412 KB; the base took 0.031 s and 6016 KB.
+
+Go 1.14 x64 also packs each pair into an integer and counts runs after sorting. Submission 11317099 took 0.031 s and 1260 KB; the base took 0.078 s and 8908 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322162 · Go 1.14 x64 №11322163 · Java 1.8 №11322164 · Python 3.12 x64 №11322165 · Rust 1.75 x64 №11322166.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.015 s | 4800 KB |
-| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8924 KB |
-| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.156 s | 6096 KB |
-| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.250 s | 10772 KB |
-| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.046 s | 6024 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.031 s | 4788 KB | 11322162 |
+| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8908 KB | 11322163 |
+| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.125 s | 6036 KB | 11322164 |
+| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.281 s | 11584 KB | 11322165 |
+| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.031 s | 6016 KB | 11322166 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1942_geometry_optimized.cpp](1942_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(L + N log N) | AC | 0.015 s | 344 KB | 11316985 |
+| [1942_geometry_optimized.go](1942_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(L + N log N) | AC | 0.031 s | 1260 KB | 11317099 |
+| [1942_geometry_optimized.rs](1942_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(L + N log N) | AC | 0.015 s | 412 KB | 11317104 |
+| [1942_geometry_optimized.py](1942_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(L + N log N) | AC | 0.203 s | 3384 KB | 11317108 |
+| [1942_geometry_optimized.java](1942_geometry_optimized.java) | Java 1.8 | geometry | O(L + N log N) | AC | 0.109 s | 804 KB | 11317110 |
+
+\* The Go version is accepted and remains outside the rating target. The Rust version is accepted and remains outside the rating target. The Python version is accepted and remains outside the rating target.

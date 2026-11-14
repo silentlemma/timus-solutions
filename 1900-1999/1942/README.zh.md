@@ -88,12 +88,42 @@ C++、Go、Java显式归一化负余数；Python正模及Rust rem_euclid
 紧凑32位频率数组；Java固定输出区域设置。输出九位小数，舍入
 误差≤5·10⁻¹⁰。只有最终平方根使用浮点，分组和并列决策都精确。
 
+## 优化解法
+
+C++ 版本把每一对余数编码为一个整数。将这些键排序后统计相同键的连续段，频次相同则比较距离的平方。只有输出距离时才开平方。输入长度为 L、点数为 N 时，时间复杂度为 O(L + N log N)，额外空间为 O(N)。评测数据来自提交 11316985。
+
+Java 1.8 版本也将每对余数编码为一个整数，排序后统计连续段。提交 11317110 耗时 0.109 秒，使用 804 KB；基础版耗时 0.125 秒，使用 6036 KB。
+
+Python 3.12 x64 版本也将每对余数编码为一个整数，排序后统计连续段。提交 11317108 耗时 0.203 秒，使用 3384 KB；基础版耗时 0.281 秒，使用 11584 KB。
+
+Rust 1.75 x64 版本也将每对余数编码为一个整数，排序后统计连续段。提交 11317104 耗时 0.015 秒，使用 412 KB；基础版耗时 0.031 秒，使用 6016 KB。
+
+Go 1.14 x64 版本也将每对余数编码为一个整数，排序后统计连续段。提交 11317099 耗时 0.031 秒，使用 1260 KB；基础版耗时 0.078 秒，使用 8908 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322162 · Go 1.14 x64 №11322163 · Java 1.8 №11322164 · Python 3.12 x64 №11322165 · Rust 1.75 x64 №11322166.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.015 s | 4800 KB |
-| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8924 KB |
-| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.156 s | 6096 KB |
-| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.250 s | 10772 KB |
-| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.046 s | 6024 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.031 s | 4788 KB | 11322162 |
+| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8908 KB | 11322163 |
+| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.125 s | 6036 KB | 11322164 |
+| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.281 s | 11584 KB | 11322165 |
+| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.031 s | 6016 KB | 11322166 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1942_geometry_optimized.cpp](1942_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(L + N log N) | AC | 0.015 s | 344 KB | 11316985 |
+| [1942_geometry_optimized.go](1942_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(L + N log N) | AC | 0.031 s | 1260 KB | 11317099 |
+| [1942_geometry_optimized.rs](1942_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(L + N log N) | AC | 0.015 s | 412 KB | 11317104 |
+| [1942_geometry_optimized.py](1942_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(L + N log N) | AC | 0.203 s | 3384 KB | 11317108 |
+| [1942_geometry_optimized.java](1942_geometry_optimized.java) | Java 1.8 | geometry | O(L + N log N) | AC | 0.109 s | 804 KB | 11317110 |
+
+\* Go 版本已通过评测，尚未达到排名目标。 Rust 版本已通过评测，尚未达到排名目标。 Python 版本已通过评测，尚未达到排名目标。

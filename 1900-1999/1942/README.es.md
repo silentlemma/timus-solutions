@@ -104,12 +104,42 @@ frecuencias compactas de 32 bits; Java fija la configuración regional.
 Se imprimen nueve decimales, error de redondeo≤5·10⁻¹⁰. Solo la raíz final
 usa flotantes; pertenencia de clase y desempates son exactos.
 
+## Soluciones optimizadas
+
+La versión en C++ codifica cada par de residuos en un entero. Ordena las claves y cuenta los tramos iguales. Si dos frecuencias coinciden, compara las distancias al cuadrado y solo calcula la raíz para la respuesta. El tiempo es O(L + N log N), con L como longitud de entrada y N puntos. El espacio adicional es O(N). Las métricas corresponden al envío 11316985.
+
+La versión para Java 1.8 también codifica cada par con un entero y cuenta los grupos tras ordenarlos. El envío 11317110 tardó 0.109 s y usó 804 KB frente a 0.125 s y 6036 KB de la base.
+
+La versión para Python 3.12 x64 también codifica cada par con un entero y cuenta los grupos tras ordenarlos. El envío 11317108 tardó 0.203 s y usó 3384 KB frente a 0.281 s y 11584 KB de la base.
+
+La versión para Rust 1.75 x64 también codifica cada par con un entero y cuenta los grupos tras ordenarlos. El envío 11317104 tardó 0.015 s y usó 412 KB frente a 0.031 s y 6016 KB de la base.
+
+La versión para Go 1.14 x64 también codifica cada par con un entero y cuenta los grupos tras ordenarlos. El envío 11317099 tardó 0.031 s y usó 1260 KB frente a 0.078 s y 8908 KB de la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322162 · Go 1.14 x64 №11322163 · Java 1.8 №11322164 · Python 3.12 x64 №11322165 · Rust 1.75 x64 №11322166.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.015 s | 4800 KB |
-| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8924 KB |
-| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.156 s | 6096 KB |
-| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.250 s | 10772 KB |
-| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.046 s | 6024 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1942_geometry.cpp](1942_geometry.cpp) | G++ 13.2 x64 | geometry | O(S^2+L) | AC | 0.031 s | 4788 KB | 11322162 |
+| [1942_geometry.go](1942_geometry.go) | Go 1.14 x64 | geometry | O(S^2+L) | AC | 0.078 s | 8908 KB | 11322163 |
+| [1942_geometry.java](1942_geometry.java) | Java 1.8 | geometry | O(S^2+L) | AC | 0.125 s | 6036 KB | 11322164 |
+| [1942_geometry.py](1942_geometry.py) | Python 3.12 x64 | geometry | O(S^2+L) | AC | 0.281 s | 11584 KB | 11322165 |
+| [1942_geometry.rs](1942_geometry.rs) | Rust 1.75 x64 | geometry | O(S^2+L) | AC | 0.031 s | 6016 KB | 11322166 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1942_geometry_optimized.cpp](1942_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(L + N log N) | AC | 0.015 s | 344 KB | 11316985 |
+| [1942_geometry_optimized.go](1942_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(L + N log N) | AC | 0.031 s | 1260 KB | 11317099 |
+| [1942_geometry_optimized.rs](1942_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(L + N log N) | AC | 0.015 s | 412 KB | 11317104 |
+| [1942_geometry_optimized.py](1942_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(L + N log N) | AC | 0.203 s | 3384 KB | 11317108 |
+| [1942_geometry_optimized.java](1942_geometry_optimized.java) | Java 1.8 | geometry | O(L + N log N) | AC | 0.109 s | 804 KB | 11317110 |
+
+\* La versión en Go está aceptada y aún queda por alcanzar el objetivo de clasificación. La versión en Rust está aceptada y aún queda por alcanzar el objetivo de clasificación. La versión en Python está aceptada y aún queda por alcanzar el objetivo de clasificación.
