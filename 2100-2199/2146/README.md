@@ -96,12 +96,36 @@ has at most 128 divisors.
 In the first example period 3 keeps the classes "ad", "be" and "cf" at
 one letter each with three changes, and periods 1 and 2 need more.
 
+## Optimized solutions
+
+The optimized C++ version counts one residue class at a time and reuses the alphabet counters. It rejects a divisor as soon as the accumulated edits exceed the budget. Only one period is stored, then repeated directly to the output. The metrics come from submission 11317091.
+
+Go, Java and Rust also count one residue class at a time with a small alphabet table. Python takes strided byte slices and counts their letters with byte-string operations. The accepted submissions were 11317238, 11317242, 11317237 and 11317245, respectively.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11318161 · Java 1.8 №11318171.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2146_strings.cpp](2146_strings.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.078 s | 10424 KB |
-| [2146_strings.go](2146_strings.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.171 s | 51828 KB |
-| [2146_strings.java](2146_strings.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.171 s | 15144 KB |
-| [2146_strings.py](2146_strings.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.343 s | 2108 KB |
-| [2146_strings.rs](2146_strings.rs) | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.078 s | 20772 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2146_strings.cpp](2146_strings.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.046 s | 10404 KB | 11318161 |
+| [2146_strings.go](2146_strings.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.203 s | 51504 KB | 11322045 |
+| [2146_strings.java](2146_strings.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.156 s | 15172 KB | 11318171 |
+| [2146_strings.py](2146_strings.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.375 s | 2528 KB | 11322046 |
+| [2146_strings.rs](2146_strings.rs) | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.109 s | 20756 KB | 11322048 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2146_strings_optimized.cpp](2146_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.031 s | 264 KB | 11317091 |
+| [2146_strings_optimized.go](2146_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
+| [2146_strings_optimized.java](2146_strings_optimized.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.109 s | 680 KB | 11317242 |
+| [2146_strings_optimized.py](2146_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
+| [2146_strings_optimized.rs](2146_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.031 s | 368 KB | 11317237 |
+
+\* The saved comparison has no Go or Rust submissions from other authors with the same compiler. Python ranks second by time and first by memory and meets the memory improvement criterion.

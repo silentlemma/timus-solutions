@@ -80,12 +80,36 @@ aaab
 
 第一个样例中周期 3 用三次修改使 "ad"、"be"、"cf" 三个类各只剩一种字母，而周期 1 和 2 需要更多次修改。
 
+## 优化解法
+
+优化后的 C++ 版本逐个处理余数类并复用字母计数器。累计修改次数一旦超过预算，就跳过该约数。只保存一个周期，输出时直接重复。评测数据来自提交 11317091。
+
+Go、Java 和 Rust 版本也逐个处理余数类，并使用小型字母计数表。Python 版本按步长切出字节串，再用字节串操作统计字母。对应的通过提交依次为 11317238、11317242、11317237 和 11317245。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11318161 · Java 1.8 №11318171.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2146_strings.cpp](2146_strings.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.078 s | 10424 KB |
-| [2146_strings.go](2146_strings.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.171 s | 51828 KB |
-| [2146_strings.java](2146_strings.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.171 s | 15144 KB |
-| [2146_strings.py](2146_strings.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.343 s | 2108 KB |
-| [2146_strings.rs](2146_strings.rs) | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.078 s | 20772 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2146_strings.cpp](2146_strings.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.046 s | 10404 KB | 11318161 |
+| [2146_strings.go](2146_strings.go) | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.203 s | 51504 KB | 11322045 |
+| [2146_strings.java](2146_strings.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.156 s | 15172 KB | 11318171 |
+| [2146_strings.py](2146_strings.py) | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.375 s | 2528 KB | 11322046 |
+| [2146_strings.rs](2146_strings.rs) | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.109 s | 20756 KB | 11322048 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2146_strings_optimized.cpp](2146_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n d(n)) | AC | 0.031 s | 264 KB | 11317091 |
+| [2146_strings_optimized.go](2146_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n d(n)) | AC | 0.031 s | 1360 KB | 11317238 |
+| [2146_strings_optimized.java](2146_strings_optimized.java) | Java 1.8 | strings | O(n d(n)) | AC | 0.109 s | 680 KB | 11317242 |
+| [2146_strings_optimized.py](2146_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n d(n)) | AC | 1.046 s | 924 KB | 11317245 |
+| [2146_strings_optimized.rs](2146_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n d(n)) | AC | 0.031 s | 368 KB | 11317237 |
+
+\* 排名快照中没有使用同一编译器的其他作者的 Go 或 Rust 提交。Python 的用时排名第二，内存排名第一，满足内存优化标准。
