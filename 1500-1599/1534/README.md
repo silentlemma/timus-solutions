@@ -113,12 +113,39 @@ Pitfalls:
 - 1:1 in a single match can only be a draw (test 09);
 - 3·10⁹ − 3 overflows 32-bit integers (test 06).
 
+## Optimized solutions
+
+Java reads the three integers into a fixed-size buffer and uses the same point formulas. Submission 11318275 took 0.109 s and used 480 KB.
+
+Rust evaluates the score bounds directly and writes the two integers into a fixed buffer. Rust 1.75 x64, submission 11323307. Time 0.031 → 0.046 s, memory 216 → 48 KB.
+
+Python computes the minimum and maximum points directly. When both teams scored, it also considers reserving one match for the opposite outcome. Python 3.12 x64, submission 11320787. Time 0.093 → 0.093 s, memory 488 → 484 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321851 · Go 1.14 x64 №11322271 · Java 1.8 №11322272 · Python 3.12 x64 №11322274 · Rust 1.75 x64 №11322276.
+
+Go reads the three integers into a fixed buffer and writes both point totals in one call. Go 1.14 x64, submission 11322414. Time 0.031 → 0.046 s, memory 1152 → 796 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1534_math.cpp](1534_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB |
-| [1534_math.go](1534_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1084 KB |
-| [1534_math.java](1534_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1680 KB |
-| [1534_math.py](1534_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 488 KB |
-| [1534_math.rs](1534_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1534_math.cpp](1534_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 388 KB | 11321851 |
+| [1534_math.go](1534_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1152 KB | 11322271 |
+| [1534_math.java](1534_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1656 KB | 11322272 |
+| [1534_math.py](1534_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.109 s | 456 KB | 11322274 |
+| [1534_math.rs](1534_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 216 KB | 11322276 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1534_math_optimized.java](1534_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 480 KB | 11318275 |
+| [1534_math_optimized.rs](1534_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 48 KB | 11323307 |
+| [1534_math_optimized.py](1534_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 484 KB | 11320787 |
+| [1534_math_optimized.go](1534_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.046 s | 796 KB | 11322414 |
+
+\* The marked versions have room to improve in the ratings.
