@@ -66,12 +66,40 @@ Pitfalls:
 - one gift is enough when the largest company is no bigger than the
   rest plus one (tests 05, 06, 08).
 
+## Optimized solutions
+
+Go and Java read each company size once and keep only the total and the largest size. They write both answers without general-purpose formatting.
+
+Go reads the groups once and computes both limits from their sum and maximum size. Go 1.14 x64, submission 11322860. Time 0.031 → 0.015 s, memory 1080 → 424 KB.
+
+Java submission 11317352 took 0.125 s and used 376 KB, compared with 0.14 s and 1960 KB for the simple version.
+
+Python submission 11317966 took 0.093 s and used 344 KB, compared with 0.078 s and 480 KB for the simple version.
+
+Python converts each size and updates the total and maximum as it goes, without keeping a separate list of parsed integers.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321765 · Go 1.14 x64 №11322086 · Rust 1.75 x64 №11321769 · Java 1.8 №11322087 · Python 3.12 x64 №11322088.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1445_math.cpp](1445_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 128 KB |
-| [1445_math.go](1445_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.046 s | 1112 KB |
-| [1445_math.java](1445_math.java) | Java 1.8 | math | O(N) | AC | 0.140 s | 1988 KB |
-| [1445_math.py](1445_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 468 KB |
-| [1445_math.rs](1445_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1445_math.cpp](1445_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11321765 |
+| [1445_math.go](1445_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1080 KB | 11322086 |
+| [1445_math.java](1445_math.java) | Java 1.8 | math | O(N) | AC | 0.14 s | 1960 KB | 11322087 |
+| [1445_math.py](1445_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 480 KB | 11322088 |
+| [1445_math.rs](1445_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 224 KB | 11321769 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1445_math_optimized.go](1445_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 424 KB | 11322860 |
+| [1445_math_optimized.java](1445_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 376 KB | 11317352 |
+| [1445_math_optimized.py](1445_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 344 KB | 11317966 |
+
+\* The marked solutions can improve their target rankings.

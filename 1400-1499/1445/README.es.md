@@ -68,12 +68,40 @@ Detalles a tener en cuenta:
 - un regalo basta cuando el grupo mayor no supera al resto más uno
   (pruebas 05, 06, 08).
 
+## Soluciones optimizadas
+
+Go y Java leen una vez el tamaño de cada grupo y solo guardan la suma y el máximo. Escriben las dos respuestas sin formato genérico.
+
+Go lee una vez los tamaños de los grupos y calcula ambos límites con su suma y su máximo. Go 1.14 x64, envío 11322860. Tiempo 0,031 → 0,015 s, memoria 1080 → 424 KB.
+
+El envío de Java 11317352 tardó 0,125 s y usó 376 KB, frente a 0,14 s y 1960 KB de la versión sencilla.
+
+El envío de Python 11317966 tardó 0,093 s y usó 344 KB, frente a 0,078 s y 480 KB de la versión sencilla.
+
+Python convierte cada tamaño y actualiza la suma y el máximo en el momento, sin construir una lista de enteros aparte.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321765 · Go 1.14 x64 №11322086 · Rust 1.75 x64 №11321769 · Java 1.8 №11322087 · Python 3.12 x64 №11322088.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1445_math.cpp](1445_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 128 KB |
-| [1445_math.go](1445_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.046 s | 1112 KB |
-| [1445_math.java](1445_math.java) | Java 1.8 | math | O(N) | AC | 0.140 s | 1988 KB |
-| [1445_math.py](1445_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 468 KB |
-| [1445_math.rs](1445_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1445_math.cpp](1445_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11321765 |
+| [1445_math.go](1445_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1080 KB | 11322086 |
+| [1445_math.java](1445_math.java) | Java 1.8 | math | O(N) | AC | 0.14 s | 1960 KB | 11322087 |
+| [1445_math.py](1445_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 480 KB | 11322088 |
+| [1445_math.rs](1445_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 224 KB | 11321769 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1445_math_optimized.go](1445_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 424 KB | 11322860 |
+| [1445_math_optimized.java](1445_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 376 KB | 11317352 |
+| [1445_math_optimized.py](1445_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 344 KB | 11317966 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
