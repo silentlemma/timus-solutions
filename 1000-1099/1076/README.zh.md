@@ -68,12 +68,44 @@
 - 五种语言实现的是同一个匈牙利算法，势从 1 开始编号，并使用 `owner` 和 `way` 数组。
 - Java 用 `StreamTokenizer` 读取矩阵，对 22 500 个数来说它比 `Scanner` 快得多。
 
+## 优化解法
+
+矩阵元素用字节存储，先在每行的最大值处匹配空闲列。随后匈牙利算法从未匹配行开始增广，只扫描当前交替树之外的列。
+
+Python 提交 11317809 耗时 0.14 秒，使用 2208 KB。简单版本耗时 0.546 s，使用 2524 KB。
+
+C++ 提交 11317819 耗时 0.046 秒，使用 140 KB。简单版本耗时 0.015 s，使用 236 KB。
+
+Go 提交 11317826 耗时 0.031 秒，使用 960 KB。简单版本耗时 0.031 s，使用 1592 KB。
+
+Rust 提交 11317838 耗时 0.015 秒，使用 360 KB。简单版本耗时 0.062 s，使用 800 KB。
+
+Java 提交 11317844 耗时 0.125 秒，使用 484 KB。简单版本耗时 0.125 s，使用 780 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322109 · Go 1.14 x64 №11322110 · Java 1.8 №11322111 · Python 3.12 x64 №11322113 · Rust 1.75 x64 №11322114.
+
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1076_matching.cpp](1076_matching.cpp) | G++ 13.2 x64 | matching | O(N^3) | AC | 0.031 s | 252 KB |
-| [1076_matching.go](1076_matching.go) | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 1612 KB |
-| [1076_matching.java](1076_matching.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 804 KB |
-| [1076_matching.py](1076_matching.py) | Python 3.12 x64 | matching | O(N^3) | AC | 0.515 s | 2460 KB |
-| [1076_matching.rs](1076_matching.rs) | Rust 1.75 x64 | matching | O(N^3) | AC | 0.046 s | 796 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1076_matching.cpp](1076_matching.cpp) | G++ 13.2 x64 | matching | O(N^3) | AC | 0.015 s | 236 KB | 11322109 |
+| [1076_matching.go](1076_matching.go) | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 1592 KB | 11322110 |
+| [1076_matching.java](1076_matching.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 780 KB | 11322111 |
+| [1076_matching.py](1076_matching.py) | Python 3.12 x64 | matching | O(N^3) | AC | 0.546 s | 2524 KB | 11322113 |
+| [1076_matching.rs](1076_matching.rs) | Rust 1.75 x64 | matching | O(N^3) | AC | 0.062 s | 800 KB | 11322114 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1076_matching_optimized.py](1076_matching_optimized.py) \* | Python 3.12 x64 | matching | O(N^3) | AC | 0.14 s | 2208 KB | 11317809 |
+| [1076_matching_optimized.cpp](1076_matching_optimized.cpp) \* | G++ 13.2 x64 | matching | O(N^3) | AC | 0.046 s | 140 KB | 11317819 |
+| [1076_matching_optimized.go](1076_matching_optimized.go) \* | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 960 KB | 11317826 |
+| [1076_matching_optimized.rs](1076_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(N^3) | AC | 0.015 s | 360 KB | 11317838 |
+| [1076_matching_optimized.java](1076_matching_optimized.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 484 KB | 11317844 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

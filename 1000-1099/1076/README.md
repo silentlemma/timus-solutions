@@ -83,12 +83,44 @@ SPFA, and for `N ≤ 7` against all assignments.
 - Java reads the matrix with `StreamTokenizer`, which is much faster than
   `Scanner` for 22 500 numbers.
 
+## Optimized solutions
+
+Store the matrix entries in bytes and first match free columns at row maxima. The Hungarian algorithm then augments from the remaining rows and scans only columns outside the current alternating tree.
+
+Python submission 11317809 took 0.14 s and used 2208 KB. The simple version took 0.546 s and used 2524 KB.
+
+C++ submission 11317819 took 0.046 s and used 140 KB. The simple version took 0.015 s and used 236 KB.
+
+Go submission 11317826 took 0.031 s and used 960 KB. The simple version took 0.031 s and used 1592 KB.
+
+Rust submission 11317838 took 0.015 s and used 360 KB. The simple version took 0.062 s and used 800 KB.
+
+Java submission 11317844 took 0.125 s and used 484 KB. The simple version took 0.125 s and used 780 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322109 · Go 1.14 x64 №11322110 · Java 1.8 №11322111 · Python 3.12 x64 №11322113 · Rust 1.75 x64 №11322114.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1076_matching.cpp](1076_matching.cpp) | G++ 13.2 x64 | matching | O(N^3) | AC | 0.031 s | 252 KB |
-| [1076_matching.go](1076_matching.go) | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 1612 KB |
-| [1076_matching.java](1076_matching.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 804 KB |
-| [1076_matching.py](1076_matching.py) | Python 3.12 x64 | matching | O(N^3) | AC | 0.515 s | 2460 KB |
-| [1076_matching.rs](1076_matching.rs) | Rust 1.75 x64 | matching | O(N^3) | AC | 0.046 s | 796 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1076_matching.cpp](1076_matching.cpp) | G++ 13.2 x64 | matching | O(N^3) | AC | 0.015 s | 236 KB | 11322109 |
+| [1076_matching.go](1076_matching.go) | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 1592 KB | 11322110 |
+| [1076_matching.java](1076_matching.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 780 KB | 11322111 |
+| [1076_matching.py](1076_matching.py) | Python 3.12 x64 | matching | O(N^3) | AC | 0.546 s | 2524 KB | 11322113 |
+| [1076_matching.rs](1076_matching.rs) | Rust 1.75 x64 | matching | O(N^3) | AC | 0.062 s | 800 KB | 11322114 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1076_matching_optimized.py](1076_matching_optimized.py) \* | Python 3.12 x64 | matching | O(N^3) | AC | 0.14 s | 2208 KB | 11317809 |
+| [1076_matching_optimized.cpp](1076_matching_optimized.cpp) \* | G++ 13.2 x64 | matching | O(N^3) | AC | 0.046 s | 140 KB | 11317819 |
+| [1076_matching_optimized.go](1076_matching_optimized.go) \* | Go 1.14 x64 | matching | O(N^3) | AC | 0.031 s | 960 KB | 11317826 |
+| [1076_matching_optimized.rs](1076_matching_optimized.rs) \* | Rust 1.75 x64 | matching | O(N^3) | AC | 0.015 s | 360 KB | 11317838 |
+| [1076_matching_optimized.java](1076_matching_optimized.java) | Java 1.8 | matching | O(N^3) | AC | 0.125 s | 484 KB | 11317844 |
+
+\* The marked solutions can improve their target rankings.
