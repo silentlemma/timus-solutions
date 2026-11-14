@@ -95,12 +95,38 @@ n, затем координаты флажков.
 - если x вниз по склону только растёт, коснуться можно не более
   двух флажков (тест 05).
 
+## Оптимизированные решения
+
+Раскладываем флажки по высоте и идём от линии старта к финишу. На каждом участке движения в одну сторону сохраняем только крайний флажок.
+
+**Посылки Timus для оптимизированных версий**
+
+`1606_sorting_greedy.cpp` (G++ 13.2 x64) №11321028 · `1606_sorting_greedy.go` (Go 1.14 x64) №11317457 · `1606_sorting_greedy.java` (Java 1.8) №11317468.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322284 · Python 3.12 x64 №11321792 · Rust 1.75 x64 №11321797 · Go 1.14 x64 №11322427 · Java 1.8 №11322428.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1606_greedy.cpp](1606_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.062 s | 1388 KB |
-| [1606_greedy.go](1606_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.078 s | 7300 KB |
-| [1606_greedy.java](1606_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.171 s | 7232 KB |
-| [1606_greedy.py](1606_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.187 s | 18416 KB |
-| [1606_greedy.rs](1606_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 6028 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1606_greedy.cpp](1606_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.062 s | 1372 KB | 11322284 |
+| [1606_greedy.go](1606_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.109 s | 7556 KB | 11322427 |
+| [1606_greedy.java](1606_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.187 s | 7152 KB | 11322428 |
+| [1606_greedy.py](1606_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.187 s | 18324 KB | 11321792 |
+| [1606_greedy.rs](1606_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 5976 KB | 11321797 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1606_sorting_greedy.go](1606_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 1544 KB | 11317457 |
+| [1606_sorting_greedy.java](1606_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
+| [1606_sorting_greedy.cpp](1606_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 604 KB | 11321028 |
+| [1606_sorting_greedy.py](1606_sorting_greedy.py) | Python 3.12 x64 | sorting, greedy | O(n + H) | AC | 0.14 s | 2996 KB | 11322429 |
+| [1606_sorting_greedy.rs](1606_sorting_greedy.rs) | Rust 1.75 x64 | sorting, greedy | O(n + H) | AC | 0.046 s | 596 KB | 11322430 |
+
+\* Отмеченные решения пока не достигли целевого рейтинга.

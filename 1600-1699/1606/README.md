@@ -93,12 +93,38 @@ Pitfalls:
 - if x only grows down the slope, at most two flags can
   be touched (test 05).
 
+## Optimized solutions
+
+Index flags by height and scan from the start line down to the finish. For each run in the same lateral direction, keep only the flag at its farthest end.
+
+**Timus submissions for the optimized versions**
+
+`1606_sorting_greedy.cpp` (G++ 13.2 x64) №11321028 · `1606_sorting_greedy.go` (Go 1.14 x64) №11317457 · `1606_sorting_greedy.java` (Java 1.8) №11317468.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322284 · Python 3.12 x64 №11321792 · Rust 1.75 x64 №11321797 · Go 1.14 x64 №11322427 · Java 1.8 №11322428.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1606_greedy.cpp](1606_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.062 s | 1388 KB |
-| [1606_greedy.go](1606_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.078 s | 7300 KB |
-| [1606_greedy.java](1606_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.171 s | 7232 KB |
-| [1606_greedy.py](1606_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.187 s | 18416 KB |
-| [1606_greedy.rs](1606_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 6028 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1606_greedy.cpp](1606_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.062 s | 1372 KB | 11322284 |
+| [1606_greedy.go](1606_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.109 s | 7556 KB | 11322427 |
+| [1606_greedy.java](1606_greedy.java) | Java 1.8 | greedy | O(n log n) | AC | 0.187 s | 7152 KB | 11322428 |
+| [1606_greedy.py](1606_greedy.py) | Python 3.12 x64 | greedy | O(n log n) | AC | 0.187 s | 18324 KB | 11321792 |
+| [1606_greedy.rs](1606_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 5976 KB | 11321797 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1606_sorting_greedy.go](1606_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 1544 KB | 11317457 |
+| [1606_sorting_greedy.java](1606_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(n + H) | AC | 0.14 s | 2936 KB | 11317468 |
+| [1606_sorting_greedy.cpp](1606_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + H) | AC | 0.031 s | 604 KB | 11321028 |
+| [1606_sorting_greedy.py](1606_sorting_greedy.py) | Python 3.12 x64 | sorting, greedy | O(n + H) | AC | 0.14 s | 2996 KB | 11322429 |
+| [1606_sorting_greedy.rs](1606_sorting_greedy.rs) | Rust 1.75 x64 | sorting, greedy | O(n + H) | AC | 0.046 s | 596 KB | 11322430 |
+
+\* The marked solutions can improve their target rankings.
