@@ -21,7 +21,8 @@ bool layers(int left) {
     std::vector<int> queue;
     for (int u = 0; u < left; u++) {
         dist[u] = mateLeft[u] < 0 ? 0 : -1;
-        if (mateLeft[u] < 0) queue.push_back(u);
+        if (mateLeft[u] < 0)
+            queue.push_back(u);
     }
     bool found = false;
     for (size_t h = 0; h < queue.size(); h++) {
@@ -55,7 +56,8 @@ bool augment(int u) {
 int main() {
     std::ios::sync_with_stdio(false);
     int n;
-    if (!(std::cin >> n)) return 0;
+    if (!(std::cin >> n))
+        return 0;
     std::vector<Person> people(n);
     std::vector<int> side[SIDES];
     for (int i = 0; i < n; i++) {
@@ -83,12 +85,14 @@ int main() {
     int total = 0;
     while (layers(left.size())) {
         for (size_t u = 0; u < left.size(); u++) {
-            if (mateLeft[u] < 0 && augment(u)) total++;
+            if (mateLeft[u] < 0 && augment(u))
+                total++;
         }
     }
     printf("%d\n", total);
     for (size_t u = 0; u < left.size(); u++) {
-        if (mateLeft[u] < 0) continue;
+        if (mateLeft[u] < 0)
+            continue;
         const Person &a = people[left[u]], &b = people[right[mateLeft[u]]];
         if (a.writes && b.tests) {
             printf("%s %s\n", a.name.c_str(), b.name.c_str());

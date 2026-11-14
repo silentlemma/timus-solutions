@@ -86,12 +86,38 @@ match an exhaustive search over all plans for 300 random sets of up to
 8 people, and an independent accepted implementation on 60 random sets
 of 1000.
 
+## Optimized solutions
+
+People with the same rank and specialization have the same eligible partners. The flow network replaces each such group with one vertex and limits its total flow to the group size. Here V and E are the numbers of vertices and edges in the grouped network. Dinic's algorithm finds the maximum flow. A unit of flow between two groups becomes one problem: take one unused name from each group and assign their roles. This replaces all edges between individual people in two compatible groups with a single flow edge.
+
+Go submission 11317338 used 1512 KB compared with 4440 KB for the simple version.
+
+Python submission 11317340 used 1668 KB compared with 2840 KB for the simple version.
+
+Rust submission 11317341 used 584 KB compared with 1780 KB for the simple version.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321920 · Go 1.14 x64 №11322071 · Java 1.8 №11321740 · Python 3.12 x64 №11321913 · Rust 1.75 x64 №11322072.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1721_matching.cpp](1721_matching.cpp) | G++ 13.2 x64 | matching | O(n² + E √n) | AC | 0.015 s | 924 KB |
-| [1721_matching.go](1721_matching.go) | Go 1.14 x64 | matching | O(n² + E √n) | AC | 0.031 s | 4476 KB |
-| [1721_matching.java](1721_matching.java) | Java 1.8 | matching | O(n² + E √n) | AC | 0.156 s | 6132 KB |
-| [1721_matching.py](1721_matching.py) | Python 3.12 x64 | matching | O(n² + E √n) | AC | 0.171 s | 2840 KB |
-| [1721_matching.rs](1721_matching.rs) | Rust 1.75 x64 | matching | O(n² + E √n) | AC | 0.031 s | 1800 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1721_matching.cpp](1721_matching.cpp) | G++ 13.2 x64 | matching | O(n² + E √n) | AC | 0.015 s | 916 KB | 11321920 |
+| [1721_matching.go](1721_matching.go) | Go 1.14 x64 | matching | O(n² + E √n) | AC | 0.046 s | 4440 KB | 11322071 |
+| [1721_matching.java](1721_matching.java) | Java 1.8 | matching | O(n² + E √n) | AC | 0.156 s | 6104 KB | 11321740 |
+| [1721_matching.py](1721_matching.py) | Python 3.12 x64 | matching | O(n² + E √n) | AC | 0.171 s | 2840 KB | 11321913 |
+| [1721_matching.rs](1721_matching.rs) | Rust 1.75 x64 | matching | O(n² + E √n) | AC | 0.015 s | 1780 KB | 11322072 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1721_flow.go](1721_flow.go) \* | Go 1.14 x64 | flow | O(V^2 E + n) | AC | 0.031 s | 1512 KB | 11317338 |
+| [1721_flow.py](1721_flow.py) | Python 3.12 x64 | flow | O(V^2 E + n) | AC | 0.109 s | 1668 KB | 11317340 |
+| [1721_flow.rs](1721_flow.rs) \* | Rust 1.75 x64 | flow | O(V^2 E + n) | AC | 0.015 s | 584 KB | 11317341 |
+
+\* The Go rating target remains open. The Rust rating target remains open.

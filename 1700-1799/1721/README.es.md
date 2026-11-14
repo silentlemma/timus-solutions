@@ -86,12 +86,38 @@ números coinciden con una búsqueda exhaustiva de todos los planes en
 300 conjuntos aleatorios de hasta 8 personas, y con una implementación
 aceptada independiente en 60 conjuntos aleatorios de 1000.
 
+## Soluciones optimizadas
+
+Las personas con el mismo rango y especialidad tienen los mismos compañeros compatibles. La red de flujo representa cada grupo con un vértice y limita su flujo total al tamaño del grupo. V y E son los números de vértices y aristas de la red agrupada. El algoritmo de Dinic calcula el flujo máximo. Cada unidad de flujo entre dos grupos da un problema: se toma una persona libre de cada grupo y se asignan los roles. Una sola arista sustituye todas las aristas entre personas de dos grupos compatibles.
+
+El envío de Go 11317338 usó 1512 KB frente a 4440 KB de la versión sencilla.
+
+El envío de Python 11317340 usó 1668 KB frente a 2840 KB de la versión sencilla.
+
+El envío de Rust 11317341 usó 584 KB frente a 1780 KB de la versión sencilla.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321920 · Go 1.14 x64 №11322071 · Java 1.8 №11321740 · Python 3.12 x64 №11321913 · Rust 1.75 x64 №11322072.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1721_matching.cpp](1721_matching.cpp) | G++ 13.2 x64 | matching | O(n² + E √n) | AC | 0.015 s | 924 KB |
-| [1721_matching.go](1721_matching.go) | Go 1.14 x64 | matching | O(n² + E √n) | AC | 0.031 s | 4476 KB |
-| [1721_matching.java](1721_matching.java) | Java 1.8 | matching | O(n² + E √n) | AC | 0.156 s | 6132 KB |
-| [1721_matching.py](1721_matching.py) | Python 3.12 x64 | matching | O(n² + E √n) | AC | 0.171 s | 2840 KB |
-| [1721_matching.rs](1721_matching.rs) | Rust 1.75 x64 | matching | O(n² + E √n) | AC | 0.031 s | 1800 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1721_matching.cpp](1721_matching.cpp) | G++ 13.2 x64 | matching | O(n² + E √n) | AC | 0.015 s | 916 KB | 11321920 |
+| [1721_matching.go](1721_matching.go) | Go 1.14 x64 | matching | O(n² + E √n) | AC | 0.046 s | 4440 KB | 11322071 |
+| [1721_matching.java](1721_matching.java) | Java 1.8 | matching | O(n² + E √n) | AC | 0.156 s | 6104 KB | 11321740 |
+| [1721_matching.py](1721_matching.py) | Python 3.12 x64 | matching | O(n² + E √n) | AC | 0.171 s | 2840 KB | 11321913 |
+| [1721_matching.rs](1721_matching.rs) | Rust 1.75 x64 | matching | O(n² + E √n) | AC | 0.015 s | 1780 KB | 11322072 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1721_flow.go](1721_flow.go) \* | Go 1.14 x64 | flow | O(V^2 E + n) | AC | 0.031 s | 1512 KB | 11317338 |
+| [1721_flow.py](1721_flow.py) | Python 3.12 x64 | flow | O(V^2 E + n) | AC | 0.109 s | 1668 KB | 11317340 |
+| [1721_flow.rs](1721_flow.rs) \* | Rust 1.75 x64 | flow | O(V^2 E + n) | AC | 0.015 s | 584 KB | 11317341 |
+
+\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente.

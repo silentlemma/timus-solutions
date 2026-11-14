@@ -62,7 +62,7 @@ def main():
     names, writes, tests, ranks = [], [], [], []
     for i in range(n):
         k = 1 + FIELDS * i
-        name, kind, rank = words[k:k + FIELDS]
+        name, kind, rank = words[k : k + FIELDS]
         names.append(name)
         writes.append(kind != "testdata")
         tests.append(kind != "statements")
