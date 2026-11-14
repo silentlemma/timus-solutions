@@ -56,12 +56,33 @@
 
 检查器检验布局，并把移动土豆的个数与期望答案比较。所有解答在随机布局、拥挤的角落、一条直线以及接近正确的布局上都能通过检查，并与一个枚举所有格子对的独立已通过实现对照。
 
+## 优化解法
+
+Java 版本在尝试移动一个土豆时复用坐标和邻居计数数组。每次检查统计可见邻居，并排除坐标重合的布局。提交 11317164 耗时 0.109 秒，使用 384 KB；基础版耗时 0.156 秒，使用 1780 KB。
+
+**简单版本的 Timus 提交记录**
+
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+
+Rust 对固定位置之间的每个区间只测试一个坐标。合法布局的同一直线上至多有两个土豆，因此只需统计每个土豆同行或同列的其他土豆。 Rust 1.75 x64（提交 11322514）的运行时间从 0.062 秒变为 0.046 秒，内存从 236 KB 变为 228 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 204 KB |
-| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1820 KB |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.125 s | 876 KB |
-| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 244 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
+| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
+| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
+
+\* 排名快照中没有其他作者的可比 Java 提交。

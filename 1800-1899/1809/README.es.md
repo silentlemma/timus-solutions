@@ -74,12 +74,33 @@ superan en disposiciones aleatorias, esquinas abarrotadas, una sola
 línea y disposiciones casi válidas, frente a una implementación
 aceptada independiente que prueba todos los pares de celdas.
 
+## Soluciones optimizadas
+
+Java reutiliza los arreglos de coordenadas y de vecinos al probar casillas para un solo movimiento. Cada prueba cuenta los vecinos visibles y rechaza las posiciones superpuestas. El envío 11317164 tardó 0,109 s y usó 384 KB frente a 0,156 s y 1780 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+
+Rust prueba una coordenada por cada intervalo entre posiciones fijas. En una disposición válida ninguna línea puede contener tres patatas, así que basta con contar las otras patatas de la misma fila o columna. Rust 1.75 x64, envío 11322514. Tiempo 0,062 → 0,046 s, memoria 236 → 228 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 204 KB |
-| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1820 KB |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.125 s | 876 KB |
-| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
+| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
+| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
+
+\* El corte de clasificación no contiene envíos comparables en Java de otros autores.

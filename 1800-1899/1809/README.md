@@ -72,12 +72,33 @@ with that of the expected answer. All solutions pass it on random
 layouts, crowded corners, single lines and nearly valid layouts, against
 an independent accepted implementation that tries every pair of cells.
 
+## Optimized solutions
+
+Java reuses coordinate and neighbour arrays when testing positions for a single move. Each test counts visible neighbours and rejects overlapping potatoes. Submission 11317164 took 0.109 s and used 384 KB, versus 0.156 s and 1780 KB for the base.
+
+**Timus submissions for the simple versions**
+
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+
+Rust tests one coordinate in every gap between fixed positions. In a valid layout no line can contain three potatoes, so it suffices to count how many other potatoes share a row or column with each one. Rust 1.75 x64, submission 11322514. Time 0.062 → 0.046 s, memory 236 → 228 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 204 KB |
-| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB |
-| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1820 KB |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.125 s | 876 KB |
-| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
+| [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
+| [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1809_implementation_optimized.java](1809_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 384 KB | 11317164 |
+| [1809_implementation_optimized.rs](1809_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 228 KB | 11322514 |
+
+\* The saved rating has no comparable Java submissions from other authors.

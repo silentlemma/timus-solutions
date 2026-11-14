@@ -13,12 +13,7 @@ fn sees(p: &[Cell], a: usize, b: usize) -> bool {
         return false;
     }
     !p.iter().enumerate().any(|(k, &(x, y))| {
-        k != a
-            && k != b
-            && xa.min(xb) <= x
-            && x <= xa.max(xb)
-            && ya.min(yb) <= y
-            && y <= ya.max(yb)
+        k != a && k != b && xa.min(xb) <= x && x <= xa.max(xb) && ya.min(yb) <= y && y <= ya.max(yb)
     })
 }
 
@@ -51,8 +46,10 @@ fn solve(start: &[Cell]) -> Vec<Cell> {
     // their own in rows and columns nobody else uses
     for k in 0..COUNT {
         for l in k + 1..COUNT {
-            let kept: Vec<Cell> =
-                (0..COUNT).filter(|&i| i != k && i != l).map(|i| start[i]).collect();
+            let kept: Vec<Cell> = (0..COUNT)
+                .filter(|&i| i != k && i != l)
+                .map(|i| start[i])
+                .collect();
             let near: Vec<Cell> = kept
                 .iter()
                 .flat_map(|&(x, y)| STEPS.iter().map(move |&(dx, dy)| (x + dx, y + dy)))
@@ -84,7 +81,10 @@ fn solve(start: &[Cell]) -> Vec<Cell> {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i32> = input.split_ascii_whitespace().map(|x| x.parse().unwrap()).collect();
+    let v: Vec<i32> = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
     let start: Vec<Cell> = v.chunks(2).take(COUNT).map(|c| (c[0], c[1])).collect();
     for (x, y) in solve(&start) {
         println!("{} {}", x, y);
