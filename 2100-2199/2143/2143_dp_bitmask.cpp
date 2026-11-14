@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-constexpr int SIDE = 3;  // seats on each side of the aisle
+constexpr int SIDE = 3; // seats on each side of the aisle
 constexpr int MASKS = 1 << SIDE;
-constexpr int RIGHT_START = 6;  // the right seats in a row description
+constexpr int RIGHT_START = 6; // the right seats in a row description
 const char *LETTERS = "ABCDEF";
 
 int n, k;
@@ -21,13 +21,17 @@ std::vector<int> bestSide(int offset) {
     for (int r = 0; r < n; r++) {
         int freeMask = 0;
         for (int s = 0; s < SIDE; s++)
-            if (rows[r][offset + s] == '.') freeMask |= 1 << s;
+            if (rows[r][offset + s] == '.')
+                freeMask |= 1 << s;
         for (int cur = 0; cur < MASKS; cur++) {
-            if ((cur & ~freeMask) || (cur & (cur << 1))) continue;
+            if ((cur & ~freeMask) || (cur & (cur << 1)))
+                continue;
             int count = __builtin_popcount(cur);
             for (int prev = 0; prev < MASKS; prev++) {
-                if (best[r][prev] < 0) continue;
-                if ((prev | prev << 1 | prev >> 1) & cur) continue;
+                if (best[r][prev] < 0)
+                    continue;
+                if ((prev | prev << 1 | prev >> 1) & cur)
+                    continue;
                 if (best[r][prev] + count > best[r + 1][cur]) {
                     best[r + 1][cur] = best[r][prev] + count;
                     from[r + 1][cur] = prev;
@@ -37,7 +41,8 @@ std::vector<int> bestSide(int offset) {
     }
     int mask = 0;
     for (int m = 0; m < MASKS; m++)
-        if (best[n][m] > best[n][mask]) mask = m;
+        if (best[n][m] > best[n][mask])
+            mask = m;
     std::vector<int> chosen(n);
     for (int r = n; r > 0; r--) {
         chosen[r - 1] = mask;
@@ -49,7 +54,8 @@ std::vector<int> bestSide(int offset) {
 int main() {
     std::cin >> n >> k;
     rows.resize(n);
-    for (auto &row : rows) std::cin >> row;
+    for (auto &row : rows)
+        std::cin >> row;
     std::vector<std::string> seats;
     for (int side = 0; side < 2; side++) {
         std::vector<int> chosen = bestSide(side * RIGHT_START);
@@ -63,6 +69,7 @@ int main() {
         return 0;
     }
     puts("POBEDA");
-    for (int i = 0; i < k; i++) puts(seats[i].c_str());
+    for (int i = 0; i < k; i++)
+        puts(seats[i].c_str());
     return 0;
 }

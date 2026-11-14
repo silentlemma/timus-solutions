@@ -14,7 +14,9 @@ fn best_side(rows: &[&[u8]], offset: usize) -> Vec<usize> {
     let mut from = vec![[0usize; MASKS]; n + 1];
     best[0][0] = 0;
     for (r, row) in rows.iter().enumerate() {
-        let free = (0..SIDE).filter(|&s| row[offset + s] == b'.').fold(0, |m, s| m | 1 << s);
+        let free = (0..SIDE)
+            .filter(|&s| row[offset + s] == b'.')
+            .fold(0, |m, s| m | 1 << s);
         for cur in 0..MASKS {
             if cur & !free != 0 || cur & (cur << 1) != 0 {
                 continue;
@@ -31,7 +33,9 @@ fn best_side(rows: &[&[u8]], offset: usize) -> Vec<usize> {
             }
         }
     }
-    let mut mask = (0..MASKS).max_by_key(|&m| (best[n][m], std::cmp::Reverse(m))).unwrap();
+    let mut mask = (0..MASKS)
+        .max_by_key(|&m| (best[n][m], std::cmp::Reverse(m)))
+        .unwrap();
     let mut chosen = vec![0; n];
     for r in (1..=n).rev() {
         chosen[r - 1] = mask;

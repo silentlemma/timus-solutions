@@ -66,12 +66,44 @@ PORAZHENIE
 
 第二个样例中三个空座 1A、1B、1C 至多坐两人，即 1A 和 1C，所以三人无法安排。
 
+## 优化解法
+
+优化版只保留一行的得分。每行每侧只有五种合法掩码，每行每个掩码用一个字节记录前驱以恢复座位方案。
+
+C++ 提交 11317658 耗时 0.015 秒，使用 120 KB。简单版本耗时 0.015 s，使用 396 KB。
+
+Python 提交 11317670 耗时 0.078 秒，使用 716 KB。简单版本耗时 0.078 s，使用 808 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321394 · Java 1.8 №11321629 · Python 3.12 x64 №11321450 · Rust 1.75 x64 №11321543 · Go 1.14 x64 №11322325.
+
+Java 提交 11322363 耗时 0.125 秒，使用 520 KB。简单版本耗时 0.125 s，使用 1752 KB。
+
+Go 提交 11322373 耗时 0.031 秒，使用 316 KB。简单版本耗时 0.031 s，使用 1168 KB。
+
+Rust 1.75 x64（提交 11317691）的运行时间从 0.046 秒变为 0.015 秒，内存从 252 KB 变为 232 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2143_dp_bitmask.cpp](2143_dp_bitmask.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 412 KB |
-| [2143_dp_bitmask.go](2143_dp_bitmask.go) | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 1184 KB |
-| [2143_dp_bitmask.java](2143_dp_bitmask.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.140 s | 1756 KB |
-| [2143_dp_bitmask.py](2143_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.109 s | 780 KB |
-| [2143_dp_bitmask.rs](2143_dp_bitmask.rs) | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.015 s | 264 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2143_dp_bitmask.cpp](2143_dp_bitmask.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 396 KB | 11321394 |
+| [2143_dp_bitmask.go](2143_dp_bitmask.go) | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 1168 KB | 11322325 |
+| [2143_dp_bitmask.java](2143_dp_bitmask.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.125 s | 1752 KB | 11321629 |
+| [2143_dp_bitmask.py](2143_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.078 s | 808 KB | 11321450 |
+| [2143_dp_bitmask.rs](2143_dp_bitmask.rs) | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.046 s | 252 KB | 11321543 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2143_dp_bitmask_optimized.cpp](2143_dp_bitmask_optimized.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 120 KB | 11317658 |
+| [2143_dp_bitmask_optimized.py](2143_dp_bitmask_optimized.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.078 s | 716 KB | 11317670 |
+| [2143_dp_bitmask_optimized.java](2143_dp_bitmask_optimized.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.125 s | 520 KB | 11322363 |
+| [2143_dp_bitmask_optimized.go](2143_dp_bitmask_optimized.go) \* | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 316 KB | 11322373 |
+| [2143_dp_bitmask_optimized.rs](2143_dp_bitmask_optimized.rs) \* | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.015 s | 232 KB | 11317691 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

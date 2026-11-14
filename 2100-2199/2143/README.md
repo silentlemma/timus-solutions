@@ -84,12 +84,44 @@ last row. There are 8 masks, so the work is O(64 n).
 In the second example the three free seats 1A, 1B and 1C hold at most
 two people, 1A and 1C, so three cannot be seated.
 
+## Optimized solutions
+
+The optimized versions keep scores for just one row at a time. Only five masks are legal on each side of a row, and a byte per mask and row stores the predecessor for reconstruction.
+
+C++ submission 11317658 took 0.015 s and used 120 KB. The simple version took 0.015 s and used 396 KB.
+
+Python submission 11317670 took 0.078 s and used 716 KB. The simple version took 0.078 s and used 808 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321394 · Java 1.8 №11321629 · Python 3.12 x64 №11321450 · Rust 1.75 x64 №11321543 · Go 1.14 x64 №11322325.
+
+Java submission 11322363 took 0.125 s and used 520 KB. The simple version took 0.125 s and used 1752 KB.
+
+Go submission 11322373 took 0.031 s and used 316 KB. The simple version took 0.031 s and used 1168 KB.
+
+Rust 1.75 x64, submission 11317691. Time 0.046 → 0.015 s, memory 252 → 232 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2143_dp_bitmask.cpp](2143_dp_bitmask.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 412 KB |
-| [2143_dp_bitmask.go](2143_dp_bitmask.go) | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 1184 KB |
-| [2143_dp_bitmask.java](2143_dp_bitmask.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.140 s | 1756 KB |
-| [2143_dp_bitmask.py](2143_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.109 s | 780 KB |
-| [2143_dp_bitmask.rs](2143_dp_bitmask.rs) | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.015 s | 264 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2143_dp_bitmask.cpp](2143_dp_bitmask.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 396 KB | 11321394 |
+| [2143_dp_bitmask.go](2143_dp_bitmask.go) | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 1168 KB | 11322325 |
+| [2143_dp_bitmask.java](2143_dp_bitmask.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.125 s | 1752 KB | 11321629 |
+| [2143_dp_bitmask.py](2143_dp_bitmask.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.078 s | 808 KB | 11321450 |
+| [2143_dp_bitmask.rs](2143_dp_bitmask.rs) | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.046 s | 252 KB | 11321543 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2143_dp_bitmask_optimized.cpp](2143_dp_bitmask_optimized.cpp) | G++ 13.2 x64 | dp, bitmask | O(n) | AC | 0.015 s | 120 KB | 11317658 |
+| [2143_dp_bitmask_optimized.py](2143_dp_bitmask_optimized.py) | Python 3.12 x64 | dp, bitmask | O(n) | AC | 0.078 s | 716 KB | 11317670 |
+| [2143_dp_bitmask_optimized.java](2143_dp_bitmask_optimized.java) | Java 1.8 | dp, bitmask | O(n) | AC | 0.125 s | 520 KB | 11322363 |
+| [2143_dp_bitmask_optimized.go](2143_dp_bitmask_optimized.go) \* | Go 1.14 x64 | dp, bitmask | O(n) | AC | 0.031 s | 316 KB | 11322373 |
+| [2143_dp_bitmask_optimized.rs](2143_dp_bitmask_optimized.rs) \* | Rust 1.75 x64 | dp, bitmask | O(n) | AC | 0.015 s | 232 KB | 11317691 |
+
+\* The marked solutions can improve their target rankings.

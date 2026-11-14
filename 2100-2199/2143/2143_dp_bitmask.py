@@ -37,7 +37,7 @@ def best_side(rows, offset):
 def main():
     data = sys.stdin.read().split()
     n, k = int(data[0]), int(data[1])
-    rows = data[2:2 + n]
+    rows = data[2 : 2 + n]
     seats = []
     for side in range(2):
         chosen = best_side(rows, side * RIGHT_START)
