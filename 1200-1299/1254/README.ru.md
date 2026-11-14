@@ -84,12 +84,33 @@ N, M, K и V; карта — M строк по N символов; начало;
 - Python здесь медленнее всех: около 1.5 с на самой большой извилистой
   улице при проверке, при пределе в 5 секунд.
 
+## Оптимизированные решения
+
+Go использует типизированную кучу для A* и переиспользует её и массивы расстояний между поисками. Номер поиска отличает устаревшие расстояния. В городе без зданий октильное расстояние даёт точный ответ. Посылка 11317201 заняла 0,171 с и 1376 КБ против 0,359 с и 6564 КБ у базы.
+
+Java хранит позиции клеток в индексированной куче. Если найден более короткий путь, приоритет клетки обновляется на месте. Массивы примитивных типов переиспользуются между поисками. Посылка 11317202 заняла 0,218 с и 1980 КБ против 0,375 с и 7200 КБ у базы.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321821 · Python 3.12 x64 №11321822 · Rust 1.75 x64 №11321824 · Go 1.14 x64 №11322060 · Java 1.8 №11322061.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 312 KB |
-| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.328 s | 6896 KB |
-| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.531 s | 7204 KB |
-| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.906 s | 1740 KB |
-| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 808 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.109 s | 288 KB | 11321821 |
+| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.359 s | 6564 KB | 11322060 |
+| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.375 s | 7200 KB | 11322061 |
+| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.875 s | 1684 KB | 11321822 |
+| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.14 s | 796 KB | 11321824 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1254_shortest_paths_optimized.go](1254_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.171 s | 1376 KB | 11317201 |
+| [1254_shortest_paths_optimized.java](1254_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.218 s | 1980 KB | 11317202 |
+
+\* В сохранённом срезе нет сопоставимых посылок Go от других авторов.

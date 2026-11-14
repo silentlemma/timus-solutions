@@ -87,12 +87,33 @@ pequeñas aleatorias con edificios y bombas inalcanzables.
 - Python es aquí el más lento: alrededor de 1.5 s en la calle sinuosa
   más grande de las pruebas, con un límite de 5 segundos.
 
+## Soluciones optimizadas
+
+Go usa un montículo de tipo específico para A* y reutiliza el montículo y los arreglos de distancias entre búsquedas. El número de búsqueda distingue las distancias anteriores. En una ciudad sin edificios, la distancia octil es exacta y se usa directamente. El envío 11317201 tardó 0,171 s y usó 1376 KB frente a 0,359 s y 6564 KB en la base.
+
+Java guarda las posiciones de las celdas en un montículo indexado. Si aparece una ruta más corta, actualiza directamente la prioridad de la celda en la cola. Reutiliza los arreglos de tipos primitivos entre búsquedas. El envío 11317202 tardó 0,218 s y usó 1980 KB frente a 0,375 s y 7200 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321821 · Python 3.12 x64 №11321822 · Rust 1.75 x64 №11321824 · Go 1.14 x64 №11322060 · Java 1.8 №11322061.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 312 KB |
-| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.328 s | 6896 KB |
-| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.531 s | 7204 KB |
-| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.906 s | 1740 KB |
-| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 808 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.109 s | 288 KB | 11321821 |
+| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.359 s | 6564 KB | 11322060 |
+| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.375 s | 7200 KB | 11322061 |
+| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.875 s | 1684 KB | 11321822 |
+| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.14 s | 796 KB | 11321824 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1254_shortest_paths_optimized.go](1254_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.171 s | 1376 KB | 11317201 |
+| [1254_shortest_paths_optimized.java](1254_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.218 s | 1980 KB | 11317202 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores.

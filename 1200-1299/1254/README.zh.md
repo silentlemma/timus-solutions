@@ -74,12 +74,33 @@ N、M、K 和 V；地图为 M 行、每行 N 个字符；起点；K 颗炸弹，
 
 - 这里 Python 最慢：测试中最大的蜿蜒街道约需 1.5 秒，时限为 5 秒。
 
+## 优化解法
+
+Go 版本为 A* 使用专用堆，并在各次搜索之间复用堆和距离数组。搜索编号用于区分旧距离。城市没有建筑时，可以直接使用精确的八方向距离。提交 11317201 耗时 0.171 秒，使用 1376 KB；基础版耗时 0.359 秒，使用 6564 KB。
+
+Java 版本在索引堆中保存各格子的位置，找到更短路径时直接更新已入队格子的优先级，并在各次搜索之间复用基本类型数组。提交 11317202 耗时 0.218 秒，使用 1980 KB；基础版耗时 0.375 秒，使用 7200 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321821 · Python 3.12 x64 №11321822 · Rust 1.75 x64 №11321824 · Go 1.14 x64 №11322060 · Java 1.8 №11322061.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 312 KB |
-| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.328 s | 6896 KB |
-| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.531 s | 7204 KB |
-| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.906 s | 1740 KB |
-| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.140 s | 808 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1254_shortest_paths.cpp](1254_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(K · NM log NM) | AC | 0.109 s | 288 KB | 11321821 |
+| [1254_shortest_paths.go](1254_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.359 s | 6564 KB | 11322060 |
+| [1254_shortest_paths.java](1254_shortest_paths.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.375 s | 7200 KB | 11322061 |
+| [1254_shortest_paths.py](1254_shortest_paths.py) | Python 3.12 x64 | shortest_paths | O(K · NM log NM) | AC | 2.875 s | 1684 KB | 11321822 |
+| [1254_shortest_paths.rs](1254_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(K · NM log NM) | AC | 0.14 s | 796 KB | 11321824 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1254_shortest_paths_optimized.go](1254_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(K · NM log NM) | AC | 0.171 s | 1376 KB | 11317201 |
+| [1254_shortest_paths_optimized.java](1254_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(K · NM log NM) | AC | 0.218 s | 1980 KB | 11317202 |
+
+\* 排名快照中没有其他作者的可比 Go 提交。
