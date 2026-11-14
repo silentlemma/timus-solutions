@@ -77,12 +77,42 @@
 - C++ перебирает порядки через `std::next_permutation`; Go, Java и Rust
   строят их рекурсивно; Python использует `itertools.permutations`.
 
+## Оптимизированные решения
+
+Версия C++ заранее сохраняет один порядок цифр 1, 2, 3 и 4 для каждого остатка по модулю 7. За один проход она выделяет эти четыре цифры, считает нули и вычисляет остаток числа из остальных ненулевых цифр. По этому остатку нужный порядок берётся из таблицы. Время остаётся O(N·L), буферы имеют фиксированный размер. Метрики взяты из посылки 11316960.
+
+Посылка Python №11317754 заняла 0.125 с и использовала 436 КБ. У простого решения — 0.171 s и 2676 KB.
+
+Посылка Go №11317765 заняла 0.031 с и использовала 1276 КБ. У простого решения — 0.046 s и 4660 KB.
+
+Посылка Rust №11317775 заняла 0.015 с и использовала 192 КБ. У простого решения — 0.031 s и 936 KB.
+
+Посылка Java №11317780 заняла 0.093 с и использовала 1240 КБ. У простого решения — 0.171 s и 7408 KB.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322115 · Go 1.14 x64 №11322116 · Java 1.8 №11322117 · Python 3.12 x64 №11322118 · Rust 1.75 x64 №11322119.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1095_number_theory.cpp](1095_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.031 s | 668 KB |
-| [1095_number_theory.go](1095_number_theory.go) | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 4712 KB |
-| [1095_number_theory.java](1095_number_theory.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.140 s | 7436 KB |
-| [1095_number_theory.py](1095_number_theory.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.171 s | 2740 KB |
-| [1095_number_theory.rs](1095_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.046 s | 944 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1095_number_theory.cpp](1095_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.015 s | 648 KB | 11322115 |
+| [1095_number_theory.go](1095_number_theory.go) | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.046 s | 4660 KB | 11322116 |
+| [1095_number_theory.java](1095_number_theory.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.171 s | 7408 KB | 11322117 |
+| [1095_number_theory.py](1095_number_theory.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.171 s | 2676 KB | 11322118 |
+| [1095_number_theory.rs](1095_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.031 s | 936 KB | 11322119 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1095_number_theory_optimized.cpp](1095_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.015 s | 112 KB | 11316960 |
+| [1095_number_theory_optimized.py](1095_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.125 s | 436 KB | 11317754 |
+| [1095_number_theory_optimized.go](1095_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 1276 KB | 11317765 |
+| [1095_number_theory_optimized.rs](1095_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.015 s | 192 KB | 11317775 |
+| [1095_number_theory_optimized.java](1095_number_theory_optimized.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.093 s | 1240 KB | 11317780 |
+
+\* Отмеченные решения пока не достигли целевого рейтинга.

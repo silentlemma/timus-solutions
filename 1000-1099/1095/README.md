@@ -77,12 +77,42 @@ big integers.
 - C++ lists the orders with `std::next_permutation`; Go, Java and Rust
   build them recursively; Python uses `itertools.permutations`.
 
+## Optimized solutions
+
+The C++ version precomputes one order of 1, 2, 3 and 4 for each remainder modulo 7. A single pass over each number reserves the four digits, counts the zeros and computes the remainder of the remaining nonzero digits. That remainder gives the required order by table lookup. The time stays O(N·L) and the version uses fixed-size buffers. Metrics for this version come from submission 11316960.
+
+Python submission 11317754 took 0.125 s and used 436 KB. The simple version took 0.171 s and used 2676 KB.
+
+Go submission 11317765 took 0.031 s and used 1276 KB. The simple version took 0.046 s and used 4660 KB.
+
+Rust submission 11317775 took 0.015 s and used 192 KB. The simple version took 0.031 s and used 936 KB.
+
+Java submission 11317780 took 0.093 s and used 1240 KB. The simple version took 0.171 s and used 7408 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322115 · Go 1.14 x64 №11322116 · Java 1.8 №11322117 · Python 3.12 x64 №11322118 · Rust 1.75 x64 №11322119.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1095_number_theory.cpp](1095_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.031 s | 668 KB |
-| [1095_number_theory.go](1095_number_theory.go) | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 4712 KB |
-| [1095_number_theory.java](1095_number_theory.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.140 s | 7436 KB |
-| [1095_number_theory.py](1095_number_theory.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.171 s | 2740 KB |
-| [1095_number_theory.rs](1095_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.046 s | 944 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1095_number_theory.cpp](1095_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.015 s | 648 KB | 11322115 |
+| [1095_number_theory.go](1095_number_theory.go) | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.046 s | 4660 KB | 11322116 |
+| [1095_number_theory.java](1095_number_theory.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.171 s | 7408 KB | 11322117 |
+| [1095_number_theory.py](1095_number_theory.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.171 s | 2676 KB | 11322118 |
+| [1095_number_theory.rs](1095_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.031 s | 936 KB | 11322119 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1095_number_theory_optimized.cpp](1095_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(N·L) | AC | 0.015 s | 112 KB | 11316960 |
+| [1095_number_theory_optimized.py](1095_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(N·L) | AC | 0.125 s | 436 KB | 11317754 |
+| [1095_number_theory_optimized.go](1095_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N·L) | AC | 0.031 s | 1276 KB | 11317765 |
+| [1095_number_theory_optimized.rs](1095_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N·L) | AC | 0.015 s | 192 KB | 11317775 |
+| [1095_number_theory_optimized.java](1095_number_theory_optimized.java) | Java 1.8 | number_theory | O(N·L) | AC | 0.093 s | 1240 KB | 11317780 |
+
+\* The marked solutions can improve their target rankings.
