@@ -133,12 +133,39 @@ shifting. Python integers are exact. Peg indices fit ordinary integers;
 Rust's unsigned third-peg calculation is safe inside the distinct-peg
 branch. No floating-point powers are needed.
 
+## Optimized solutions
+
+The optimized C++ version uses a fixed buffer for the at most 50 peg labels. Scanning from the largest disk down, it appends one bit to the answer at each step. That bit is one exactly when the target peg differs from the current source peg. The time is O(n), with O(1) state besides the input buffer. The metrics come from submission 11316969.
+
+**Timus submissions for the simple versions**
+
+Java 1.8 №11317028 · G++ 13.2 x64 №11322304 · Go 1.14 x64 №11322305 · Python 3.12 x64 №11322306 · Rust 1.75 x64 №11322307.
+
+The Python version reads the peg labels as bytes and builds the answer one bit at a time, from the largest disk to the smallest. Python 3.12 x64, submission 11320817. Time 0.078 → 0.093 s, memory 460 → 360 KB.
+
+Go scans the peg labels backwards and constructs the move count one bit at a time. Go 1.14 x64, submission 11322415. Time 0.031 → 0.031 s, memory 1228 → 804 KB.
+
+Rust determines the answer one bit at a time, processing the target pegs from the largest disk down. Rust 1.75 x64, submission 11323324. Time 0.031 → 0.031 s, memory 236 → 52 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2029_math.cpp](2029_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 436 KB |
-| [2029_math.go](2029_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1080 KB |
-| [2029_math.java](2029_math.java) | Java 1.8 | math | O(n) | AC | 0.093 s | 400 KB |
-| [2029_math.py](2029_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 484 KB |
-| [2029_math.rs](2029_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2029_math.cpp](2029_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 420 KB | 11322304 |
+| [2029_math.go](2029_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1228 KB | 11322305 |
+| [2029_math.java](2029_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 344 KB | 11317028 |
+| [2029_math.py](2029_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 460 KB | 11322306 |
+| [2029_math.rs](2029_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB | 11322307 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2029_math_optimized.cpp](2029_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 116 KB | 11316969 |
+| [2029_math_optimized.py](2029_math_optimized.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 360 KB | 11320817 |
+| [2029_math_optimized.go](2029_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 804 KB | 11322415 |
+| [2029_math_optimized.rs](2029_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 52 KB | 11323324 |
+
+\* The marked versions have room to improve in the ratings.

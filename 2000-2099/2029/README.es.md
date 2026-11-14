@@ -129,12 +129,39 @@ desplazamiento. Python tiene enteros exactos. Los postes usan enteros
 ordinarios; la resta sin signo de Rust es segura en la rama de postes
 distintos. No hacen falta potencias en coma flotante.
 
+## Soluciones optimizadas
+
+La versión optimizada en C++ usa un búfer fijo para las etiquetas de los 50 discos como máximo. Al recorrer los discos desde el mayor, añade un bit a la respuesta en cada paso. Ese bit vale uno si la clavija de destino difiere de la clavija de origen actual. El tiempo es O(n) y el espacio adicional al búfer de entrada es O(1). Las métricas corresponden al envío 11316969.
+
+**Envíos de las versiones sencillas en Timus**
+
+Java 1.8 №11317028 · G++ 13.2 x64 №11322304 · Go 1.14 x64 №11322305 · Python 3.12 x64 №11322306 · Rust 1.75 x64 №11322307.
+
+La versión de Python lee las etiquetas de las clavijas como bytes y construye la respuesta bit a bit, del disco mayor al menor. Python 3.12 x64, envío 11320817. Tiempo 0,078 → 0,093 s, memoria 460 → 360 KB.
+
+Go recorre las etiquetas de las clavijas al revés y construye el número de movimientos bit a bit. Go 1.14 x64, envío 11322415. Tiempo 0,031 → 0,031 s, memoria 1228 → 804 KB.
+
+Rust determina la respuesta bit a bit, procesando las varillas de destino desde el disco mayor hasta el menor. Rust 1.75 x64, envío 11323324. Tiempo 0,031 → 0,031 s, memoria 236 → 52 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2029_math.cpp](2029_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 436 KB |
-| [2029_math.go](2029_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1080 KB |
-| [2029_math.java](2029_math.java) | Java 1.8 | math | O(n) | AC | 0.093 s | 400 KB |
-| [2029_math.py](2029_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 484 KB |
-| [2029_math.rs](2029_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2029_math.cpp](2029_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 420 KB | 11322304 |
+| [2029_math.go](2029_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1228 KB | 11322305 |
+| [2029_math.java](2029_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 344 KB | 11317028 |
+| [2029_math.py](2029_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.078 s | 460 KB | 11322306 |
+| [2029_math.rs](2029_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 236 KB | 11322307 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2029_math_optimized.cpp](2029_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 116 KB | 11316969 |
+| [2029_math_optimized.py](2029_math_optimized.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 360 KB | 11320817 |
+| [2029_math_optimized.go](2029_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 804 KB | 11322415 |
+| [2029_math_optimized.rs](2029_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 52 KB | 11323324 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.
