@@ -18,7 +18,8 @@ int main() {
     // s is bad when Egor's time in the car's lane overlaps that
     for (int lane = 0; lane < 2; lane++) {
         int count;
-        if (scanf("%d", &count) != 1) return 0;
+        if (scanf("%d", &count) != 1)
+            return 0;
         for (int i = 0; i < count; i++) {
             int d;
             scanf("%d", &d);
@@ -29,7 +30,8 @@ int main() {
     sort(blocked.begin(), blocked.end());
     int start = 0;
     for (auto [low, high] : blocked) {
-        if (low >= start) break;
+        if (low >= start)
+            break;
         start = max(start, high);
     }
     printf("%.6f\n", start / UNITS);

@@ -51,12 +51,42 @@ n（1 ≤ n ≤ 300）和到左边各车的距离，然后是 m（1 ≤ m ≤ 30
 
 在 26 条随机道路上，等待时间与以 1/50 秒为步长枚举所有出发时刻的结果一致；在 100 条道路上与一个独立的已通过实现一致。
 
+## 优化解法
+
+C++ 版本归并两条车道中已经按顺序排列的区间起点，并维护最早可能的出发时间。如果下一个开区间的起点不早于该时刻，就可以出发；否则该区间可能把时间推迟到右端点。归并耗时 O(n + m)，存储两条车道的数据需要 O(n + m) 空间。评测数据来自提交 11317001。
+
+Java 1.8 版本合并两个有序的开区间列表，仅当区间覆盖当前出发时刻时才推迟出发。提交 11317148 耗时 0.234 秒，使用 392 KB；基础版耗时 0.171 秒，使用 3200 KB。
+
+Rust 保存近侧车道的区间，并在读取远侧车道的区间时进行归并。 Rust 1.75 x64（提交 11323323）的运行时间从 0.015 秒变为 0.046 秒，内存从 268 KB 变为 56 KB。
+
+Python 3.12 x64 版本合并两个有序的开区间列表，仅当区间覆盖当前出发时刻时才推迟出发。提交 11317139 耗时 0.062 秒，使用 552 KB；基础版耗时 0.078 秒，使用 472 KB。
+
+Go 1.14 x64 版本合并两个有序的开区间列表，仅当区间覆盖当前出发时刻时才推迟出发。提交 11317133 耗时 0.015 秒，使用 1136 KB；基础版耗时 0.046 秒，使用 1192 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · Python 3.12 x64 №11322076 · Rust 1.75 x64 №11321926.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1884_sorting.cpp](1884_sorting.cpp) | G++ 13.2 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 216 KB |
-| [1884_sorting.go](1884_sorting.go) | Go 1.14 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 1196 KB |
-| [1884_sorting.java](1884_sorting.java) | Java 1.8 | sorting | O((n + m) log(n + m)) | AC | 0.171 s | 3200 KB |
-| [1884_sorting.py](1884_sorting.py) | Python 3.12 x64 | sorting | O((n + m) log(n + m)) | AC | 0.093 s | 524 KB |
-| [1884_sorting.rs](1884_sorting.rs) | Rust 1.75 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 280 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1884_sorting.cpp](1884_sorting.cpp) | G++ 13.2 x64 | sorting | O((n + m) log(n + m)) | AC | 0.015 s | 196 KB | 11321924 |
+| [1884_sorting.go](1884_sorting.go) | Go 1.14 x64 | sorting | O((n + m) log(n + m)) | AC | 0.046 s | 1192 KB | 11322075 |
+| [1884_sorting.java](1884_sorting.java) | Java 1.8 | sorting | O((n + m) log(n + m)) | AC | 0.14 s | 3228 KB | 11321925 |
+| [1884_sorting.py](1884_sorting.py) | Python 3.12 x64 | sorting | O((n + m) log(n + m)) | AC | 0.078 s | 472 KB | 11322076 |
+| [1884_sorting.rs](1884_sorting.rs) | Rust 1.75 x64 | sorting | O((n + m) log(n + m)) | AC | 0.015 s | 268 KB | 11321926 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1884_two_pointers.cpp](1884_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n + m) | AC | 0.001 s | 124 KB | 11317001 |
+| [1884_two_pointers.go](1884_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
+| [1884_two_pointers.py](1884_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
+| [1884_two_pointers.rs](1884_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
+| [1884_two_pointers.java](1884_two_pointers.java) \* | Java 1.8 | two_pointers | O(n + m) | AC | 0.234 s | 392 KB | 11317148 |
+
+\* Go 版本已通过评测，尚未达到排名目标。 Python 版本已通过评测，尚未达到排名目标。 Rust 版本已通过评测，尚未达到排名目标。 Java 版本已通过评测，尚未达到排名目标。

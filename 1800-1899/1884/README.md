@@ -75,12 +75,42 @@ Pitfalls:
 The waits match a search over every start time in 1/50 s steps on 26
 random roads, and an independent accepted implementation on 100.
 
+## Optimized solutions
+
+The C++ variant merges the already sorted lists of interval starts from both lanes. It keeps the earliest possible start time. If the next open interval starts at or after that time, the time is feasible. Otherwise the interval can move the time forward to its right endpoint. The merge takes O(n + m) time and uses O(n + m) space to store the lane data. The metrics come from submission 11317001.
+
+Java 1.8 also merges the two ordered lists of open intervals and advances the earliest starting time only when an interval covers it. Submission 11317148 took 0.234 s and 392 KB; the base took 0.171 s and 3200 KB.
+
+Rust stores the intervals of the near lane and merges them with the far lane as its intervals are read. Rust 1.75 x64, submission 11323323. Time 0.015 → 0.046 s, memory 268 → 56 KB.
+
+Python 3.12 x64 also merges the two ordered lists of open intervals and advances the earliest starting time only when an interval covers it. Submission 11317139 took 0.062 s and 552 KB; the base took 0.078 s and 472 KB.
+
+Go 1.14 x64 also merges the two ordered lists of open intervals and advances the earliest starting time only when an interval covers it. Submission 11317133 took 0.015 s and 1136 KB; the base took 0.046 s and 1192 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · Python 3.12 x64 №11322076 · Rust 1.75 x64 №11321926.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1884_sorting.cpp](1884_sorting.cpp) | G++ 13.2 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 216 KB |
-| [1884_sorting.go](1884_sorting.go) | Go 1.14 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 1196 KB |
-| [1884_sorting.java](1884_sorting.java) | Java 1.8 | sorting | O((n + m) log(n + m)) | AC | 0.171 s | 3200 KB |
-| [1884_sorting.py](1884_sorting.py) | Python 3.12 x64 | sorting | O((n + m) log(n + m)) | AC | 0.093 s | 524 KB |
-| [1884_sorting.rs](1884_sorting.rs) | Rust 1.75 x64 | sorting | O((n + m) log(n + m)) | AC | 0.031 s | 280 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1884_sorting.cpp](1884_sorting.cpp) | G++ 13.2 x64 | sorting | O((n + m) log(n + m)) | AC | 0.015 s | 196 KB | 11321924 |
+| [1884_sorting.go](1884_sorting.go) | Go 1.14 x64 | sorting | O((n + m) log(n + m)) | AC | 0.046 s | 1192 KB | 11322075 |
+| [1884_sorting.java](1884_sorting.java) | Java 1.8 | sorting | O((n + m) log(n + m)) | AC | 0.14 s | 3228 KB | 11321925 |
+| [1884_sorting.py](1884_sorting.py) | Python 3.12 x64 | sorting | O((n + m) log(n + m)) | AC | 0.078 s | 472 KB | 11322076 |
+| [1884_sorting.rs](1884_sorting.rs) | Rust 1.75 x64 | sorting | O((n + m) log(n + m)) | AC | 0.015 s | 268 KB | 11321926 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1884_two_pointers.cpp](1884_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n + m) | AC | 0.001 s | 124 KB | 11317001 |
+| [1884_two_pointers.go](1884_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
+| [1884_two_pointers.py](1884_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
+| [1884_two_pointers.rs](1884_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
+| [1884_two_pointers.java](1884_two_pointers.java) \* | Java 1.8 | two_pointers | O(n + m) | AC | 0.234 s | 392 KB | 11317148 |
+
+\* The Go version is accepted and remains outside the rating target. The Python version is accepted and remains outside the rating target. The Rust version is accepted and remains outside the rating target. The Java version is accepted and remains outside the rating target.

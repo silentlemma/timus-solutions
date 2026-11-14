@@ -10,7 +10,9 @@ const UNITS: f64 = 50.0;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<i64>().unwrap());
     let mut blocked: Vec<(i64, i64)> = Vec::new();
     // a car is on the crossing from METRE d to METRE (d + CAR); a start time
     // s is bad when Egor's time in the car's lane overlaps that

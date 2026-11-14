@@ -21,11 +21,11 @@ public class Main {
         // s is bad when Egor's time in the car's lane overlaps that
         for (int lane = 0; lane < 2; lane++) {
             in.nextToken();
-            int count = (int) in.nval;
+            int count = (int)in.nval;
             int[][] more = Arrays.copyOf(blocked, blocked.length + count);
             for (int i = 0; i < count; i++) {
                 in.nextToken();
-                int d = (int) in.nval;
+                int d = (int)in.nval;
                 int enter = lane * LANE;
                 more[blocked.length + i] =
                     new int[] {METRE * d - enter - LANE, METRE * (d + CAR) - enter};
