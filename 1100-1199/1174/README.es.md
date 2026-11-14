@@ -79,12 +79,41 @@ elementos.
   posición en dígitos de base 10⁹ con una sola operación: multiplicar y
   sumar un número pequeño.
 
+## Soluciones optimizadas
+
+Un árbol de Fenwick cuenta las posiciones ya insertadas a la izquierda en O(log N) por elemento. La actualización multiplica un entero de hasta O(N log N) dígitos por un número pequeño y suma el desplazamiento. La tabla incluye esa aritmética.
+
+**Envíos de las versiones optimizadas en Timus**
+
+`1174_fenwick_math.java` (Java 1.8) №11318411 · `1174_fenwick_math.py` (Python 3.12 x64) №11318414.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321892 · Go 1.14 x64 №11322234 · Java 1.8 №11322236 · Python 3.12 x64 №11322237 · Rust 1.75 x64 №11322238.
+
+Go 1.14 x64, envío 11321990. Tiempo 0,015 → 0,031 s, memoria 1204 → 840 KB.
+
+Rust cuenta los números menores con máscaras de bits y actualiza el rango por grupos de dígitos de base mixta. Rust 1.75 x64, envío 11323143. Tiempo 0,031 → 0,046 s, memoria 232 → 60 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1174_math.cpp](1174_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.015 s | 196 KB |
-| [1174_math.go](1174_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1176 KB |
-| [1174_math.java](1174_math.java) | Java 1.8 | math | O(N²) | AC | 0.140 s | 1832 KB |
-| [1174_math.py](1174_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.062 s | 408 KB |
-| [1174_math.rs](1174_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1174_math.cpp](1174_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 180 KB | 11321892 |
+| [1174_math.go](1174_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1204 KB | 11322234 |
+| [1174_math.java](1174_math.java) | Java 1.8 | math | O(N²) | AC | 0.125 s | 1748 KB | 11322236 |
+| [1174_math.py](1174_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.078 s | 380 KB | 11322237 |
+| [1174_math.rs](1174_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.031 s | 232 KB | 11322238 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1174_fenwick_math.java](1174_fenwick_math.java) \* | Java 1.8 | fenwick, math | O(N² log N) | AC | 0.125 s | 404 KB | 11318411 |
+| [1174_fenwick_math.py](1174_fenwick_math.py) \* | Python 3.12 x64 | fenwick, math | O(N² log N) | AC | 0.093 s | 508 KB | 11318414 |
+| [1174_fenwick_math.go](1174_fenwick_math.go) \* | Go 1.14 x64 | fenwick, math | O(N² log N) | AC | 0.031 s | 840 KB | 11321990 |
+| [1174_bitmask_math.rs](1174_bitmask_math.rs) \* | Rust 1.75 x64 | bitmask, math | O(N² log N) | AC | 0.046 s | 60 KB | 11323143 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

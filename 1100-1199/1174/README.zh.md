@@ -67,12 +67,41 @@
 - Python、Go 和 Java 使用各自的大整数；C++ 和 Rust 以 10⁹ 为基存储编号，只
   需一种运算：乘以并加上一个小整数。
 
+## 优化解法
+
+树状数组用 O(log N) 时间统计每个元素左侧已插入的位置。更新排名时，将最多 O(N log N) 位的整数乘以一个小整数，再加上偏移量。表中计入这部分运算。
+
+**优化版本的 Timus 提交记录**
+
+`1174_fenwick_math.java` (Java 1.8) №11318411 · `1174_fenwick_math.py` (Python 3.12 x64) №11318414.
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321892 · Go 1.14 x64 №11322234 · Java 1.8 №11322236 · Python 3.12 x64 №11322237 · Rust 1.75 x64 №11322238.
+
+Go 1.14 x64（提交 11321990）的运行时间从 0.015 秒变为 0.031 秒，内存从 1204 KB 变为 840 KB。
+
+Rust 用位掩码统计较小的数，并批量处理混合进制数位来更新排名。 Rust 1.75 x64（提交 11323143）的运行时间从 0.031 秒变为 0.046 秒，内存从 232 KB 变为 60 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1174_math.cpp](1174_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.015 s | 196 KB |
-| [1174_math.go](1174_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1176 KB |
-| [1174_math.java](1174_math.java) | Java 1.8 | math | O(N²) | AC | 0.140 s | 1832 KB |
-| [1174_math.py](1174_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.062 s | 408 KB |
-| [1174_math.rs](1174_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1174_math.cpp](1174_math.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 180 KB | 11321892 |
+| [1174_math.go](1174_math.go) | Go 1.14 x64 | math | O(N²) | AC | 0.015 s | 1204 KB | 11322234 |
+| [1174_math.java](1174_math.java) | Java 1.8 | math | O(N²) | AC | 0.125 s | 1748 KB | 11322236 |
+| [1174_math.py](1174_math.py) | Python 3.12 x64 | math | O(N²) | AC | 0.078 s | 380 KB | 11322237 |
+| [1174_math.rs](1174_math.rs) | Rust 1.75 x64 | math | O(N²) | AC | 0.031 s | 232 KB | 11322238 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1174_fenwick_math.java](1174_fenwick_math.java) \* | Java 1.8 | fenwick, math | O(N² log N) | AC | 0.125 s | 404 KB | 11318411 |
+| [1174_fenwick_math.py](1174_fenwick_math.py) \* | Python 3.12 x64 | fenwick, math | O(N² log N) | AC | 0.093 s | 508 KB | 11318414 |
+| [1174_fenwick_math.go](1174_fenwick_math.go) \* | Go 1.14 x64 | fenwick, math | O(N² log N) | AC | 0.031 s | 840 KB | 11321990 |
+| [1174_bitmask_math.rs](1174_bitmask_math.rs) \* | Rust 1.75 x64 | bitmask, math | O(N² log N) | AC | 0.046 s | 60 KB | 11323143 |
+
+\* 带星号的版本仍有提升排名的空间。
