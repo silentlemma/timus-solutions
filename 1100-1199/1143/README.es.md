@@ -82,12 +82,44 @@ en un arco corto.
 - Java formatea la respuesta con `Locale.US` para que el separador
   decimal sea un punto.
 
+## Soluciones optimizadas
+
+Go actualiza in situ los dos arreglos de programación dinámica por arcos. Guarda el primer par de valores antes de cada pasada para que la última actualización aún pueda usar los datos del arco anterior. El envío 11317228 usó 948 KB y tardó 0,046 s frente a 1856 KB y 0,031 s en la base.
+
+El envío 11318126 en Python tardó 0.125 s y usó 736 KB. La versión sencilla tardó 0.156 s y usó 2176 KB.
+
+Se precalculan las distancias entre vértices consecutivos para reutilizarlas en todas las longitudes. Los dos arreglos se actualizan en el sitio y se guardan los primeros valores para el último arco, que pasa por el comienzo del polígono.
+
+El envío 11318129 en Java tardó 0.125 s y usó 1560 KB. La versión sencilla tardó 0.156 s y usó 1804 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321852 · Go 1.14 x64 №11322217 · Java 1.8 №11322218 · Python 3.12 x64 №11322219 · Rust 1.75 x64 №11322220.
+
+C++ duplica el ciclo, precalcula las distancias entre vecinos y actualiza en el mismo arreglo los costes de los dos extremos. G++ 13.2 x64, envío 11322408. Tiempo 0,015 → 0,015 s, memoria 228 → 148 KB.
+
+Rust actualiza en el mismo lugar dos filas de costes para intervalos circulares y guarda el valor del extremo antes de cada barrido. Rust 1.75 x64, envío 11323271. Tiempo 0,031 → 0,046 s, memoria 288 → 144 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1143_dp.cpp](1143_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 240 KB |
-| [1143_dp.go](1143_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 1864 KB |
-| [1143_dp.java](1143_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.203 s | 1836 KB |
-| [1143_dp.py](1143_dp.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.156 s | 2244 KB |
-| [1143_dp.rs](1143_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 272 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1143_dp.cpp](1143_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 228 KB | 11321852 |
+| [1143_dp.go](1143_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 1856 KB | 11322217 |
+| [1143_dp.java](1143_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.156 s | 1804 KB | 11322218 |
+| [1143_dp.py](1143_dp.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.156 s | 2176 KB | 11322219 |
+| [1143_dp.rs](1143_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.031 s | 288 KB | 11322220 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1143_dp_optimized.go](1143_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 948 KB | 11317228 |
+| [1143_dp_optimized.py](1143_dp_optimized.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.125 s | 736 KB | 11318126 |
+| [1143_dp_optimized.java](1143_dp_optimized.java) | Java 1.8 | dp | O(N²) | AC | 0.125 s | 1560 KB | 11318129 |
+| [1143_dp_optimized.cpp](1143_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 148 KB | 11322408 |
+| [1143_dp_optimized.rs](1143_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 144 KB | 11323271 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores.

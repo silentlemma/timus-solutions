@@ -79,12 +79,44 @@ vertices, including thin ellipses and vertices crowded on a short arc.
 - Java formats the answer with `Locale.US` so that the decimal separator
   is a point.
 
+## Optimized solutions
+
+Go updates the two arc-DP arrays in place. It saves the first pair of values before each pass so the final update can still use the previous span. Submission 11317228 used 948 KB and took 0.046 s, versus 1856 KB and 0.031 s for the base.
+
+Python submission 11318126 took 0.125 s and used 736 KB. The simple version took 0.156 s and used 2176 KB.
+
+Precompute the distances between consecutive vertices and reuse them at every span. Update the two DP arrays in place, saving the first values for the last arc, which wraps around the polygon.
+
+Java submission 11318129 took 0.125 s and used 1560 KB. The simple version took 0.156 s and used 1804 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321852 · Go 1.14 x64 №11322217 · Java 1.8 №11322218 · Python 3.12 x64 №11322219 · Rust 1.75 x64 №11322220.
+
+C++ duplicates the cycle, precomputes adjacent distances and updates the two endpoint costs in place. G++ 13.2 x64, submission 11322408. Time 0.015 → 0.015 s, memory 228 → 148 KB.
+
+Rust updates two rows of circular-interval costs in place and keeps the wraparound value before each sweep. Rust 1.75 x64, submission 11323271. Time 0.031 → 0.046 s, memory 288 → 144 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1143_dp.cpp](1143_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 240 KB |
-| [1143_dp.go](1143_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 1864 KB |
-| [1143_dp.java](1143_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.203 s | 1836 KB |
-| [1143_dp.py](1143_dp.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.156 s | 2244 KB |
-| [1143_dp.rs](1143_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 272 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1143_dp.cpp](1143_dp.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 228 KB | 11321852 |
+| [1143_dp.go](1143_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 1856 KB | 11322217 |
+| [1143_dp.java](1143_dp.java) | Java 1.8 | dp | O(N²) | AC | 0.156 s | 1804 KB | 11322218 |
+| [1143_dp.py](1143_dp.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.156 s | 2176 KB | 11322219 |
+| [1143_dp.rs](1143_dp.rs) | Rust 1.75 x64 | dp | O(N²) | AC | 0.031 s | 288 KB | 11322220 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1143_dp_optimized.go](1143_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 948 KB | 11317228 |
+| [1143_dp_optimized.py](1143_dp_optimized.py) | Python 3.12 x64 | dp | O(N²) | AC | 0.125 s | 736 KB | 11318126 |
+| [1143_dp_optimized.java](1143_dp_optimized.java) | Java 1.8 | dp | O(N²) | AC | 0.125 s | 1560 KB | 11318129 |
+| [1143_dp_optimized.cpp](1143_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 148 KB | 11322408 |
+| [1143_dp_optimized.rs](1143_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N²) | AC | 0.046 s | 144 KB | 11323271 |
+
+\* The saved rating has no comparable Go submissions from other authors.
