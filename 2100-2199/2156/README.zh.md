@@ -51,12 +51,46 @@ YES
 
 样例中数值只在从 3 回到 1 时下降，所以谈话 3（有趣度 2）与谈话 1 和 2（各为 1）平衡。
 
+## 优化解法
+
+按顺序读取数值，只保留首项和上一项。用位集记录下降的边，再扫描位集两次，分别输出两组边，无需保存输入数组或下标列表。
+
+Go 为每条边保存一个布尔标记，使用固定大小的缓冲区输出下标。
+
+Python 分块读写数据，每条边只占一个字节。
+
+Rust 为每条边保存一个布尔标记，使用固定大小的缓冲区输出下标。
+
+Java 使用缓冲输入输出，每条边保留一个布尔标记。内存从 9008 KB 降至 656 KB，耗时从 0.140 s 增至 0.156 s。
+
+**优化版本的 Timus 提交记录**
+
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 · Rust 1.75 x64 №11321931.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2668 KB |
-| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.125 s | 9912 KB |
-| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.140 s | 9008 KB |
-| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.140 s | 21040 KB |
-| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 9448 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2652 KB | 11321927 |
+| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.109 s | 8676 KB | 11322054 |
+| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.171 s | 8996 KB | 11321928 |
+| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.156 s | 21304 KB | 11321930 |
+| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.078 s | 8860 KB | 11321931 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
+| [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
+| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
+| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) \* | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |
+
+\* C++ 版本已通过评测，尚未达到目标排名，仍可优化。 此快照中没有其他参赛者的可比较 Go 提交。 此快照中没有其他参赛者的可比较 Rust 提交。 Java 达到内存优化标准，耗时排名仍可提升。

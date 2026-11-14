@@ -65,12 +65,46 @@ otras n − 1. El trabajo es O(n).
 En el ejemplo el valor solo baja de 3 a 1, así que la conversación 3
 (interés 2) equilibra las conversaciones 1 y 2 (interés 1 cada una).
 
+## Soluciones optimizadas
+
+Se leen los valores en orden y solo se guardan el primero y el anterior. Un conjunto de bits marca los descensos. Se recorre dos veces para imprimir ambos grupos sin guardar la entrada ni las listas de índices.
+
+Go guarda un indicador booleano por arista y escribe los índices en un búfer de tamaño fijo.
+
+Python lee y escribe por bloques y guarda un byte por arista.
+
+Rust guarda un indicador booleano por arista y escribe los índices en un búfer de tamaño fijo.
+
+Java usa búferes de entrada y salida y guarda un indicador booleano por arista. La memoria baja de 9008 a 656 KB y el tiempo sube de 0.140 a 0.156 s.
+
+**Envíos de las versiones optimizadas en Timus**
+
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 · Rust 1.75 x64 №11321931.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2668 KB |
-| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.125 s | 9912 KB |
-| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.140 s | 9008 KB |
-| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.140 s | 21040 KB |
-| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 9448 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2652 KB | 11321927 |
+| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.109 s | 8676 KB | 11322054 |
+| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.171 s | 8996 KB | 11321928 |
+| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.156 s | 21304 KB | 11321930 |
+| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.078 s | 8860 KB | 11321931 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
+| [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
+| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
+| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) \* | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |
+
+\* La versión aceptada en C++ aún puede mejorar en la clasificación objetivo. Esta instantánea carece de envíos comparables en Go de otros participantes. Esta instantánea carece de envíos comparables en Rust de otros participantes. Java cumple el criterio de memoria y puede mejorar su puesto por tiempo.

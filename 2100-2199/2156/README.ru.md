@@ -64,12 +64,46 @@ aᵢ − aᵢ₊₁ в сумме дают 0. Поэтому разговоры,
 В примере значение падает только с 3 обратно до 1, так что разговор 3
 (интересность 2) уравновешивает разговоры 1 и 2 (по 1).
 
+## Оптимизированные решения
+
+Читаем значения по порядку и храним только первое и предыдущее. В битовом наборе отмечаем переходы с убыванием. Два прохода по набору выводят обе группы без массива входных значений и списков индексов.
+
+Go хранит по одному логическому флагу на переход и выводит индексы через буфер фиксированного размера.
+
+Python читает и выводит данные блоками и хранит один байт на переход.
+
+Rust хранит по одному логическому флагу на переход и выводит индексы через буфер фиксированного размера.
+
+Java буферизует ввод и вывод и хранит один логический флаг на переход. Память снизилась с 9008 до 656 КБ, время выросло с 0.140 до 0.156 с.
+
+**Посылки Timus для оптимизированных версий**
+
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 · Rust 1.75 x64 №11321931.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2668 KB |
-| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.125 s | 9912 KB |
-| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.140 s | 9008 KB |
-| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.140 s | 21040 KB |
-| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 9448 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2156_math_constructive.cpp](2156_math_constructive.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.093 s | 2652 KB | 11321927 |
+| [2156_math_constructive.go](2156_math_constructive.go) | Go 1.14 x64 | math, constructive | O(n) | AC | 0.109 s | 8676 KB | 11322054 |
+| [2156_math_constructive.java](2156_math_constructive.java) | Java 1.8 | math, constructive | O(n) | AC | 0.171 s | 8996 KB | 11321928 |
+| [2156_math_constructive.py](2156_math_constructive.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.156 s | 21304 KB | 11321930 |
+| [2156_math_constructive.rs](2156_math_constructive.rs) | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.078 s | 8860 KB | 11321931 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
+| [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
+| [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
+| [2156_math_constructive_optimized.java](2156_math_constructive_optimized.java) \* | Java 1.8 | math, constructive | O(n) | AC | 0.156 s | 656 KB | 11317394 |
+
+\* Принятая версия на C++ пока не достигла целевого рейтинга. В этом срезе для Go нет сопоставимых посылок других участников. В этом срезе для Rust нет сопоставимых посылок других участников. Java проходит по памяти, рейтинг по времени ещё можно улучшить.

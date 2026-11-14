@@ -4,7 +4,7 @@ import sys
 def main():
     data = sys.stdin.buffer.read().split()
     n = int(data[0])
-    a = list(map(int, data[1:n + 1]))
+    a = list(map(int, data[1 : n + 1]))
     # Around the circle the rises and the falls cancel out, so the
     # conversations where the next friend is less interesting sum to the same
     # as those where the next one is more interesting; equal neighbours add 0.
