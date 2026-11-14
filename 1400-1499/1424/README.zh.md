@@ -63,12 +63,40 @@ N、M、K 和 P，然后 K 行 S F。
 - 没有人时答案是 0 和一个空列表（测试 02）；
 - 多人可能想走完全相同的行程（测试 04、gen3）。
 
+## 优化解法
+
+按终点站递增处理行程。每次分配一个在上车时已经空出的座位，优先选择最近才空出的座位。
+
+用紧凑数组按上车站对行程分组。堆键同时保存终点站和乘客编号，座位不足时移除终点最远的行程。
+
+**优化版本的 Timus 提交记录**
+
+`1424_sorting_greedy.cpp` (G++ 13.2 x64) №11317526 · `1424_greedy_optimized.go` (Go 1.14 x64) №11317540 · `1424_greedy_optimized.java` (Java 1.8) №11317543 · `1424_greedy_optimized.py` (Python 3.12 x64) №11317528 · `1424_greedy_optimized.rs` (Rust 1.75 x64) №11317532.
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322134 · Go 1.14 x64 №11322135 · Java 1.8 №11322136 · Python 3.12 x64 №11322137 · Rust 1.75 x64 №11322139.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1424_greedy.cpp](1424_greedy.cpp) | G++ 13.2 x64 | greedy | O(N + K log K) | AC | 0.093 s | 4752 KB |
-| [1424_greedy.go](1424_greedy.go) | Go 1.14 x64 | greedy | O(N + K log K) | AC | 0.109 s | 12376 KB |
-| [1424_greedy.java](1424_greedy.java) | Java 1.8 | greedy | O(N + K log K) | AC | 0.187 s | 13932 KB |
-| [1424_greedy.py](1424_greedy.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.218 s | 30352 KB |
-| [1424_greedy.rs](1424_greedy.rs) | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.031 s | 10376 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1424_greedy.cpp](1424_greedy.cpp) | G++ 13.2 x64 | greedy | O(N + K log K) | AC | 0.078 s | 4772 KB | 11322134 |
+| [1424_greedy.go](1424_greedy.go) | Go 1.14 x64 | greedy | O(N + K log K) | AC | 0.109 s | 12396 KB | 11322135 |
+| [1424_greedy.java](1424_greedy.java) | Java 1.8 | greedy | O(N + K log K) | AC | 0.218 s | 13936 KB | 11322136 |
+| [1424_greedy.py](1424_greedy.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.203 s | 30052 KB | 11322137 |
+| [1424_greedy.rs](1424_greedy.rs) | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 10368 KB | 11322139 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1424_sorting_greedy.cpp](1424_sorting_greedy.cpp) \* | G++ 13.2 x64 | sorting, greedy | O(N + M + K log M) | AC | 0.078 s | 1032 KB | 11317526 |
+| [1424_greedy_optimized.py](1424_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.203 s | 3804 KB | 11317528 |
+| [1424_greedy_optimized.rs](1424_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 1752 KB | 11317532 |
+| [1424_greedy_optimized.go](1424_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + K log K) | AC | 0.031 s | 3916 KB | 11317540 |
+| [1424_greedy_optimized.java](1424_greedy_optimized.java) | Java 1.8 | greedy | O(N + K log K) | AC | 0.14 s | 4604 KB | 11317543 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
