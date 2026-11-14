@@ -6,15 +6,15 @@ import java.io.StreamTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         StreamTokenizer in =
-                new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         in.nextToken();
-        long length = (long) in.nval;
+        long length = (long)in.nval;
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         long[] s = new long[n];
         for (int i = 0; i < n; i++) {
             in.nextToken();
-            s[i] = (long) in.nval;
+            s[i] = (long)in.nval;
         }
         // a cut at x between supports s[i] and s[i + 1] leaves both parts
         // standing when the left centre x/2 lies in [s[0], s[i]] and the

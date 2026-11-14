@@ -70,12 +70,44 @@ The answers agree with a fine-grid count of the falling cuts on a few
 hundred small stalks and with an independent accepted implementation
 on the large tests.
 
+## Optimized solutions
+
+The optimized versions use the first and last supports to restrict the range of cuts to check. They stop scanning gaps once the left endpoint reaches the upper bound of that range.
+
+Python 3.12 x64, submission 11319948. Time 0.156 → 0.156 s, memory 10892 → 8196 KB.
+
+Rust 1.75 x64, submission 11319998. Time 0.015 → 0.015 s, memory 2664 → 596 KB.
+
+Go 1.14 x64, submission 11320023. Time 0.078 → 0.031 s, memory 3336 → 1320 KB.
+
+G++ 13.2 x64, submission 11320066. Time 0.093 → 0.015 s, memory 968 → 520 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321963 · Java 1.8 №11321964 · Python 3.12 x64 №11321965 · Rust 1.75 x64 №11321966 · Go 1.14 x64 №11322291.
+
+Java 1.8, submission 11322007. Time 0.109 → 0.125 s, memory 1268 → 828 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1838_math.cpp](1838_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.093 s | 984 KB |
-| [1838_math.go](1838_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.078 s | 3324 KB |
-| [1838_math.java](1838_math.java) | Java 1.8 | math | O(n) | AC | 0.093 s | 1300 KB |
-| [1838_math.py](1838_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.171 s | 11024 KB |
-| [1838_math.rs](1838_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 2668 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1838_math.cpp](1838_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.093 s | 968 KB | 11321963 |
+| [1838_math.go](1838_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.078 s | 3336 KB | 11322291 |
+| [1838_math.java](1838_math.java) | Java 1.8 | math | O(n) | AC | 0.109 s | 1268 KB | 11321964 |
+| [1838_math.py](1838_math.py) | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 10892 KB | 11321965 |
+| [1838_math.rs](1838_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 2664 KB | 11321966 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1838_math_optimized.py](1838_math_optimized.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.156 s | 8196 KB | 11319948 |
+| [1838_math_optimized.rs](1838_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 596 KB | 11319998 |
+| [1838_math_optimized.go](1838_math_optimized.go) \* | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1320 KB | 11320023 |
+| [1838_math_optimized.cpp](1838_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 520 KB | 11320066 |
+| [1838_math_optimized.java](1838_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 828 KB | 11322007 |
+
+\* The marked versions have room to improve in the ratings.

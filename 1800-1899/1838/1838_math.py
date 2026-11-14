@@ -4,7 +4,7 @@ import sys
 def main():
     data = list(map(int, sys.stdin.read().split()))
     length, n = data[0], data[1]
-    s = data[2:2 + n]
+    s = data[2 : 2 + n]
     # a cut at x between supports s[i] and s[i + 1] leaves both parts
     # standing when the left centre x/2 lies in [s[0], s[i]] and the right
     # centre (x + length)/2 lies in [s[i + 1], s[-1]]
