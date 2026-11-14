@@ -74,12 +74,48 @@ Detalles a tener en cuenta:
 - Python se ejecuta con PyPy: la cadena que necesita las 20 categorías
   tarda unos 1,25 s con CPython y unos 0,14 s con PyPy.
 
+## Soluciones optimizadas
+
+La versión optimizada en C++ divide las categorías de vías en cuatro grupos de cinco. Una tabla guarda los vecinos de cada cruce para cualquier subconjunto de un grupo. Cuatro consultas permiten reunirlos. Las máscaras se enumeran por número creciente de categorías hasta encontrar la primera que conecta la casa y el trabajo. Las métricas corresponden al envío 11317075.
+
+Go precalcula los vecinos de cuatro grupos de categorías e identifica aquellas cuya eliminación desconecta los extremos. Después enumera solo combinaciones de categorías opcionales.
+
+El envío 11318111 en Rust tardó 0.031 s y usó 472 KB. La versión sencilla tardó 0.171 s y usó 664 KB.
+
+Una categoría es obligatoria si eliminarla del conjunto completo desconecta los extremos. Una vez fijadas esas categorías, enumerar por número de categorías opcionales sigue dando el mínimo.
+
+El envío 11318116 en Java tardó 0.109 s y usó 428 KB. La versión sencilla tardó 0.312 s y usó 6096 KB.
+
+El envío 11318122 en PyPy tardó 0.25 s y usó 3572 KB. La versión sencilla tardó 0.75 s y usó 4452 KB.
+
+**Envíos de las versiones optimizadas en Timus**
+
+`1500_bitmask_optimized.go` (Go 1.14 x64) №11317225.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322153 · Go 1.14 x64 №11322156 · Java 1.8 №11322157 · Rust 1.75 x64 №11322158 · PyPy 3.10 x64 №11322159.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1500_bitmask.cpp](1500_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.093 s | 576 KB |
-| [1500_bitmask.go](1500_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.171 s | 1596 KB |
-| [1500_bitmask.java](1500_bitmask.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.343 s | 6136 KB |
-| [1500_bitmask.py](1500_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.718 s | 4484 KB |
-| [1500_bitmask.rs](1500_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.140 s | 680 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1500_bitmask.cpp](1500_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.125 s | 560 KB | 11322153 |
+| [1500_bitmask.go](1500_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.187 s | 1616 KB | 11322156 |
+| [1500_bitmask.java](1500_bitmask.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.312 s | 6096 KB | 11322157 |
+| [1500_bitmask.py](1500_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.75 s | 4452 KB | 11322159 |
+| [1500_bitmask.rs](1500_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.171 s | 664 KB | 11322158 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1500_bitmask_optimized.cpp](1500_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.062 s | 128 KB | 11317075 |
+| [1500_bitmask_optimized.go](1500_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.031 s | 1388 KB | 11317225 |
+| [1500_bitmask_optimized.rs](1500_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.031 s | 472 KB | 11318111 |
+| [1500_bitmask_optimized.java](1500_bitmask_optimized.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.109 s | 428 KB | 11318116 |
+| [1500_bitmask_optimized.py](1500_bitmask_optimized.py) \* | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.25 s | 3572 KB | 11318122 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores. Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

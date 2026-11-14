@@ -63,12 +63,48 @@ K、N 和 M，然后是 M 行，每行两个路口和一个类别。
 - Python 在 PyPy 下运行：需要全部 20 个类别的链，CPython 约需 1.25 秒，PyPy 约
   0.14 秒。
 
+## 优化解法
+
+优化后的 C++ 版本把道路类别分成四组，每组五类。对每个路口，预先计算每组任意子集对应的邻居。四次查表即可合并邻居。按类别数量递增枚举掩码，找到第一个能连接家和工作地点的掩码即停止。评测数据来自提交 11317075。
+
+Go 版本为四组类别预计算邻居，找出删除后会使起终点断开的必选类别，再枚举其余类别的组合。
+
+Rust 提交 11318111 耗时 0.031 秒，使用 472 KB。简单版本耗时 0.171 s，使用 664 KB。
+
+从全集中删除后会使起终点断开的类别是必选的。固定这些类别后，按其余类别的数量递增枚举，仍能求得最小值。
+
+Java 提交 11318116 耗时 0.109 秒，使用 428 KB。简单版本耗时 0.312 s，使用 6096 KB。
+
+PyPy 提交 11318122 耗时 0.25 秒，使用 3572 KB。简单版本耗时 0.75 s，使用 4452 KB。
+
+**优化版本的 Timus 提交记录**
+
+`1500_bitmask_optimized.go` (Go 1.14 x64) №11317225.
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322153 · Go 1.14 x64 №11322156 · Java 1.8 №11322157 · Rust 1.75 x64 №11322158 · PyPy 3.10 x64 №11322159.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1500_bitmask.cpp](1500_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.093 s | 576 KB |
-| [1500_bitmask.go](1500_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.171 s | 1596 KB |
-| [1500_bitmask.java](1500_bitmask.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.343 s | 6136 KB |
-| [1500_bitmask.py](1500_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.718 s | 4484 KB |
-| [1500_bitmask.rs](1500_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.140 s | 680 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1500_bitmask.cpp](1500_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.125 s | 560 KB | 11322153 |
+| [1500_bitmask.go](1500_bitmask.go) | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.187 s | 1616 KB | 11322156 |
+| [1500_bitmask.java](1500_bitmask.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.312 s | 6096 KB | 11322157 |
+| [1500_bitmask.py](1500_bitmask.py) | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.75 s | 4452 KB | 11322159 |
+| [1500_bitmask.rs](1500_bitmask.rs) | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.171 s | 664 KB | 11322158 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1500_bitmask_optimized.cpp](1500_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(2^K N) | AC | 0.062 s | 128 KB | 11317075 |
+| [1500_bitmask_optimized.go](1500_bitmask_optimized.go) \* | Go 1.14 x64 | bitmask | O(2^K N) | AC | 0.031 s | 1388 KB | 11317225 |
+| [1500_bitmask_optimized.rs](1500_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(2^K N) | AC | 0.031 s | 472 KB | 11318111 |
+| [1500_bitmask_optimized.java](1500_bitmask_optimized.java) | Java 1.8 | bitmask | O(2^K N) | AC | 0.109 s | 428 KB | 11318116 |
+| [1500_bitmask_optimized.py](1500_bitmask_optimized.py) \* | PyPy 3.10 x64 | bitmask | O(2^K N) | AC | 0.25 s | 3572 KB | 11318122 |
+
+\* 排名快照中没有其他作者的可比 Go 提交。 带星号的解法尚未达到目标排名，仍可优化。
