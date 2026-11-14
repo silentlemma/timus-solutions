@@ -9,20 +9,23 @@ using namespace std;
 constexpr size_t CALL_PREFIX = 3;
 
 vector<string> words(string line) {
-    for (char& letter : line) {
+    for (char &letter : line) {
         bool alphabetic = (letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z');
-        if (!alphabetic) letter = ' ';
+        if (!alphabetic)
+            letter = ' ';
     }
     istringstream input(line);
     vector<string> result;
     string token;
-    while (input >> token) result.push_back(token);
+    while (input >> token)
+        result.push_back(token);
     return result;
 }
 
-string signature(const string& name, const vector<string>& arguments) {
+string signature(const string &name, const vector<string> &arguments) {
     string result = name + ':';
-    for (const string& argument : arguments) result += argument + ',';
+    for (const string &argument : arguments)
+        result += argument + ',';
     return result;
 }
 
@@ -46,8 +49,8 @@ int main() {
     for (int number = 1; number <= line_count; ++number) {
         getline(cin, line);
         auto tokens = words(line);
-        const string& declared = tokens[0];
-        const string& name = tokens[1];
+        const string &declared = tokens[0];
+        const string &name = tokens[1];
         string error;
         vector<string> argument_types;
         if (variables.count(name)) {
@@ -70,7 +73,8 @@ int main() {
                 error = "Invalid initialization";
             } else {
                 variables[name] = function->second;
-                if (declared == "auto") inferred += name + " : " + function->second + '\n';
+                if (declared == "auto")
+                    inferred += name + " : " + function->second + '\n';
             }
         }
         if (!error.empty()) {

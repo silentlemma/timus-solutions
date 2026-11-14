@@ -156,12 +156,43 @@ Error on line 4: No such function
 
 在 237 个测试上，答案与按规则单独编写的解释器一致，测试涵盖合法程序和全部四种错误。
 
+## 优化解法
+
+每个参数类型用两位编码，通过函数名和打包的签名查找重载。直接从每一行读取标识符，并保持原有的错误检查顺序。
+
+C++ 提交 11317599 耗时 0.015 秒，使用 444 KB。简单版本耗时 0.015 s，使用 512 KB。
+
+Go 把每个名字无损地编码为两个机器字，并用定长哈希表处理声明和重载。 Go 1.14 x64（提交 11322931）的运行时间从 0.015 秒变为 0.031 秒，内存从 1300 KB 变为 332 KB。
+
+Rust 将标识符精确编码为 128 位整数，并用固定容量的哈希表查找变量和重载。 Rust 1.75 x64（提交 11323109）的运行时间从 0.031 秒变为 0.046 秒，内存从 480 KB 变为 212 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321281 · Java 1.8 №11321204 · Python 3.12 x64 №11321164 · Go 1.14 x64 №11322077 · Rust 1.75 x64 №11322078.
+
+Python 将每行字节串中的标点替换为空格，并用函数名和参数类型组成的元组查找重载。
+
+Python 提交 11322360 耗时 0.078 秒，使用 576 KB。简单版本耗时 0.093 s，使用 652 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 516 KB |
-| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.046 s | 1180 KB |
-| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1288 KB |
-| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 644 KB |
-| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.062 s | 492 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 512 KB | 11321281 |
+| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.015 s | 1300 KB | 11322077 |
+| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1224 KB | 11321204 |
+| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.093 s | 652 KB | 11321164 |
+| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.031 s | 480 KB | 11322078 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1891_parsing_optimized.cpp](1891_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 444 KB | 11317599 |
+| [1891_parsing_optimized.go](1891_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 332 KB | 11322931 |
+| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
+| [1891_parsing_optimized.py](1891_parsing_optimized.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 576 KB | 11322360 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

@@ -181,12 +181,43 @@ Trampas:
 Las respuestas coinciden con un intérprete aparte de las reglas en 237
 casos que cubren programas válidos y los cuatro tipos de error.
 
+## Soluciones optimizadas
+
+Se codifica cada tipo de argumento en dos bits y se busca la sobrecarga por el nombre de la función y la firma empaquetada. Los identificadores se leen directamente de cada línea y se conserva el orden de comprobación de errores.
+
+El envío 11317599 en C++ tardó 0.015 s y usó 444 KB. La versión sencilla tardó 0.015 s y usó 512 KB.
+
+Go codifica cada nombre sin pérdidas en dos palabras y resuelve declaraciones y sobrecargas con tablas hash de tamaño fijo. Go 1.14 x64, envío 11322931. Tiempo 0,015 → 0,031 s, memoria 1300 → 332 KB.
+
+Rust codifica cada identificador exactamente en 128 bits y usa tablas hash de capacidad fija para variables y sobrecargas. Rust 1.75 x64, envío 11323109. Tiempo 0,031 → 0,046 s, memoria 480 → 212 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321281 · Java 1.8 №11321204 · Python 3.12 x64 №11321164 · Go 1.14 x64 №11322077 · Rust 1.75 x64 №11322078.
+
+Python sustituye la puntuación por espacios en cada cadena de bytes y usa tuplas con el nombre y los tipos de los argumentos como claves de sobrecarga.
+
+El envío 11322360 en Python tardó 0.078 s y usó 576 KB. La versión sencilla tardó 0.093 s y usó 652 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 516 KB |
-| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.046 s | 1180 KB |
-| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1288 KB |
-| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 644 KB |
-| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.062 s | 492 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 512 KB | 11321281 |
+| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.015 s | 1300 KB | 11322077 |
+| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1224 KB | 11321204 |
+| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.093 s | 652 KB | 11321164 |
+| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.031 s | 480 KB | 11322078 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1891_parsing_optimized.cpp](1891_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 444 KB | 11317599 |
+| [1891_parsing_optimized.go](1891_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 332 KB | 11322931 |
+| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
+| [1891_parsing_optimized.py](1891_parsing_optimized.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 576 KB | 11322360 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

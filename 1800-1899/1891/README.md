@@ -174,12 +174,43 @@ Pitfalls:
 The answers agree with a separate interpreter of the rules on 237 cases
 covering valid programs and all four kinds of errors.
 
+## Optimized solutions
+
+Encode each argument type in two bits and use the packed signature with the function name to find its overload. Read identifiers directly from each line and preserve the original error order.
+
+C++ submission 11317599 took 0.015 s and used 444 KB. The simple version took 0.015 s and used 512 KB.
+
+Go packs each name exactly into two words and resolves declarations and overloads with fixed hash tables. Go 1.14 x64, submission 11322931. Time 0.015 → 0.031 s, memory 1300 → 332 KB.
+
+Rust encodes identifiers exactly in 128 bits and uses fixed hash tables for variables and overloads. Rust 1.75 x64, submission 11323109. Time 0.031 → 0.046 s, memory 480 → 212 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321281 · Java 1.8 №11321204 · Python 3.12 x64 №11321164 · Go 1.14 x64 №11322077 · Rust 1.75 x64 №11322078.
+
+Python replaces punctuation with spaces in each byte string and uses tuples of names and argument types as overload keys.
+
+Python submission 11322360 took 0.078 s and used 576 KB. The simple version took 0.093 s and used 652 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 516 KB |
-| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.046 s | 1180 KB |
-| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1288 KB |
-| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 644 KB |
-| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.062 s | 492 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1891_parsing.cpp](1891_parsing.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 512 KB | 11321281 |
+| [1891_parsing.go](1891_parsing.go) | Go 1.14 x64 | parsing | O(L) | AC | 0.015 s | 1300 KB | 11322077 |
+| [1891_parsing.java](1891_parsing.java) | Java 1.8 | parsing | O(L) | AC | 0.109 s | 1224 KB | 11321204 |
+| [1891_parsing.py](1891_parsing.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.093 s | 652 KB | 11321164 |
+| [1891_parsing.rs](1891_parsing.rs) | Rust 1.75 x64 | parsing | O(L) | AC | 0.031 s | 480 KB | 11322078 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1891_parsing_optimized.cpp](1891_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) | AC | 0.015 s | 444 KB | 11317599 |
+| [1891_parsing_optimized.go](1891_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(L) | AC | 0.031 s | 332 KB | 11322931 |
+| [1891_parsing_optimized.rs](1891_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) | AC | 0.046 s | 212 KB | 11323109 |
+| [1891_parsing_optimized.py](1891_parsing_optimized.py) | Python 3.12 x64 | parsing | O(L) | AC | 0.078 s | 576 KB | 11322360 |
+
+\* The marked solutions can improve their target rankings.
