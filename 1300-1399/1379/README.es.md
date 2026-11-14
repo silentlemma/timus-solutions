@@ -82,6 +82,15 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con probar todos los caminos simples en
 400 grafos aleatorios de hasta 6 cruces.
 
+## Soluciones optimizadas
+
+La versión C++ optimizada busca por bisección entre cargas distintas expresadas en tazas
+enteras. Para cada carga, Dijkstra usa un cubo por minuto de 0 a 1440. Si mejora la llegada
+a un cruce, se mueve su entrada al cubo anterior que corresponda. Una carretera de duración
+cero puede añadir cruces al cubo actual, que se procesa hasta quedar vacío. Cada búsqueda
+tarda O(N + M + D), con D = 1440, y usa O(N + M + D) de espacio. El envío 11316958 tardó
+0,031 s y usó 3464 KB frente a 0,281 s y 7564 KB de la base.
+
 ## Notas por lenguaje
 
 - Python necesita PyPy: una cadena de carreteras cortas dentro de un
@@ -92,12 +101,40 @@ Las respuestas se compararon con probar todos los caminos simples en
   y el vértice empaquetados en un número: una cola de prioridad de
   arreglos pequeños excedía el límite de tiempo en la prueba 46 del juez.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322140 · Go 1.14 x64 №11322141 · Java 1.8 №11322142 · Rust 1.75 x64 №11322143 · PyPy 3.10 x64 №11322144.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1379_graphs.cpp](1379_graphs.cpp) | G++ 13.2 x64 | graphs | O((N + M log M) · log M) | AC | 0.265 s | 7532 KB |
-| [1379_graphs.go](1379_graphs.go) | Go 1.14 x64 | graphs | O((N + M log M) · log M) | AC | 0.515 s | 23772 KB |
-| [1379_graphs.java](1379_graphs.java) | Java 1.8 | graphs | O((N + M log M) · log M) | AC | 0.500 s | 11512 KB |
-| [1379_graphs.py](1379_graphs.py) | PyPy 3.10 x64 | graphs | O((N + M log M) · log M) | AC | 0.500 s | 58564 KB |
-| [1379_graphs.rs](1379_graphs.rs) | Rust 1.75 x64 | graphs | O((N + M log M) · log M) | AC | 0.046 s | 15788 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1379_graphs.cpp](1379_graphs.cpp) | G++ 13.2 x64 | graphs | O((N + M log M) · log M) | AC | 0.281 s | 7564 KB | 11322140 |
+| [1379_graphs.go](1379_graphs.go) | Go 1.14 x64 | graphs | O((N + M log M) · log M) | AC | 0.562 s | 24828 KB | 11322141 |
+| [1379_graphs.java](1379_graphs.java) | Java 1.8 | graphs | O((N + M log M) · log M) | AC | 0.5 s | 11552 KB | 11322142 |
+| [1379_graphs.py](1379_graphs.py) | PyPy 3.10 x64 | graphs | O((N + M log M) · log M) | AC | 0.453 s | 58612 KB | 11322144 |
+| [1379_graphs.rs](1379_graphs.rs) | Rust 1.75 x64 | graphs | O((N + M log M) · log M) | AC | 0.046 s | 14532 KB | 11322143 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1379_graphs_optimized.cpp](1379_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O((N + M + D) log(M + 1)) | AC | 0.031 s | 3464 KB | 11316958 |
+| [1379_graphs_optimized.go](1379_graphs_optimized.go) | Go 1.14 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.093 s | 5748 KB | 11317150 |
+| [1379_graphs_optimized.java](1379_graphs_optimized.java) | Java 1.8 | graphs | O((N + M + D) log(M + 2)) | AC | 0.140 s | 6740 KB | 11317007 |
+| [1379_graphs_optimized.py](1379_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.250 s | 16008 KB | 11317003 |
+| [1379_graphs_optimized.rs](1379_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O((N + M + D) log(M + 2)) | AC | 0.031 s | 8372 KB | 11317009 |
+
+La versión en PyPy empaqueta el destino, el tiempo de viaje y la carga en un entero por arista. Las listas de adyacencia se ordenan por carga, de modo que el recorrido puede detenerse en la primera arista que no soporta el camión. Las cubetas por minuto omiten entradas sustituidas por rutas más cortas. Las métricas corresponden al envío 11317003.
+
+La versión Java también empaqueta cada arista en un entero y ordena las listas de adyacencia por carga. Cuando encuentra una llegada más temprana, mueve la entrada a la cubeta correspondiente. Cada cruce ocupa como máximo una entrada. Las métricas corresponden al envío 11317007.
+
+La versión Rust ordena las aristas compactas por carga y deja de recorrer la lista al llegar a la primera arista que no soporta la carga. Mover las entradas entre cubetas por minuto conserva una por cruce. Las métricas corresponden al envío 11317009.
+
+La versión en Go empaqueta cada arista en un entero y ordena las listas de adyacencia por carga. La búsqueda deja de recorrer una lista cuando encuentra una arista con carga insuficiente. El envío 11317150 tardó 0,093 s y usó 5748 KB frente a 0,562 s y 24828 KB en la base.
+
+\* El juez aceptó el envío. Aún queda por alcanzar el objetivo de clasificación de Python.
+
+\* El juez aceptó el envío. El corte de la clasificación carece de envíos comparables de Rust de otros autores.
