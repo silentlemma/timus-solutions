@@ -91,12 +91,38 @@ derechos en total.
   Counter en Python, mapas ordenados en C++ y Rust, tablas hash en Go y
   Java.
 
+## Soluciones optimizadas
+
+Se lee cada término de derecha a izquierda para conocer el multiplicador del grupo antes de visitar sus elementos. Un código numérico identifica el contador de cada elemento.
+
+El envío 11317912 en Java tardó 0.093 s y usó 420 KB. La versión sencilla tardó 0.156 s y usó 4148 KB.
+
+Python recorre la fórmula de derecha a izquierda. Lee el multiplicador de cada grupo antes de sus elementos y acumula sus cantidades en un solo diccionario. En la clasificación guardada comparte el tercer puesto en tiempo y el primero en memoria. Usa más memoria que la versión sencilla. Python 3.12 x64, envío 11317903. Tiempo 0,078 → 0,078 s, memoria 532 → 588 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321888 · Go 1.14 x64 №11321889 · Java 1.8 №11322193 · Python 3.12 x64 №11322194 · Rust 1.75 x64 №11322195.
+
+Rust recorre la fórmula de derecha a izquierda para conocer el multiplicador de cada grupo antes de contar sus átomos. Rust 1.75 x64, envío 11323410. Tiempo 0,031 → 0,015 s, memoria 248 → 52 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1186_strings.cpp](1186_strings.cpp) | G++ 13.2 x64 | strings | O(L) per formula | AC | 0.015 s | 404 KB |
-| [1186_strings.go](1186_strings.go) | Go 1.14 x64 | strings | O(L) per formula | AC | 0.015 s | 1288 KB |
-| [1186_strings.java](1186_strings.java) | Java 1.8 | strings | O(L) per formula | AC | 0.187 s | 4096 KB |
-| [1186_strings.py](1186_strings.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 524 KB |
-| [1186_strings.rs](1186_strings.rs) | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.031 s | 252 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1186_strings.cpp](1186_strings.cpp) | G++ 13.2 x64 | strings | O(L) per formula | AC | 0.001 s | 392 KB | 11321888 |
+| [1186_strings.go](1186_strings.go) | Go 1.14 x64 | strings | O(L) per formula | AC | 0.015 s | 1264 KB | 11321889 |
+| [1186_strings.java](1186_strings.java) | Java 1.8 | strings | O(L) per formula | AC | 0.156 s | 4148 KB | 11322193 |
+| [1186_strings.py](1186_strings.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 532 KB | 11322194 |
+| [1186_strings.rs](1186_strings.rs) | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.031 s | 248 KB | 11322195 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1186_strings_optimized.java](1186_strings_optimized.java) | Java 1.8 | strings | O(L) per formula | AC | 0.093 s | 420 KB | 11317912 |
+| [1186_strings_optimized.py](1186_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
+| [1186_strings_optimized.rs](1186_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.015 s | 52 KB | 11323410 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

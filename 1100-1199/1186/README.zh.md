@@ -81,12 +81,38 @@ C2H5OH+3O2+3(SiO2)!=2CO+3H2O+3O2+3Si
 - 所有语言的解析方式相同，并比较各自的计数映射：Python 用 Counter，C++ 和
   Rust 用有序映射，Go 和 Java 用哈希表。
 
+## 优化解法
+
+从右向左读取每一项，在处理元素之前先取得所在分组的乘数。用数值编码选择元素的计数器。
+
+Java 提交 11317912 耗时 0.093 秒，使用 420 KB。简单版本耗时 0.156 s，使用 4148 KB。
+
+Python 从右向左扫描公式，先读到基团的倍数，再将元素数量直接累加到同一个字典。保存的排名中，运行时间并列第三，内存并列第一。实测内存高于简单版。 Python 3.12 x64（提交 11317903）的运行时间从 0.078 秒变为 0.078 秒，内存从 532 KB 变为 588 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321888 · Go 1.14 x64 №11321889 · Java 1.8 №11322193 · Python 3.12 x64 №11322194 · Rust 1.75 x64 №11322195.
+
+Rust 从右向左扫描公式，在统计组内原子前先读到组的倍数。 Rust 1.75 x64（提交 11323410）的运行时间从 0.031 秒变为 0.015 秒，内存从 248 KB 变为 52 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1186_strings.cpp](1186_strings.cpp) | G++ 13.2 x64 | strings | O(L) per formula | AC | 0.015 s | 404 KB |
-| [1186_strings.go](1186_strings.go) | Go 1.14 x64 | strings | O(L) per formula | AC | 0.015 s | 1288 KB |
-| [1186_strings.java](1186_strings.java) | Java 1.8 | strings | O(L) per formula | AC | 0.187 s | 4096 KB |
-| [1186_strings.py](1186_strings.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 524 KB |
-| [1186_strings.rs](1186_strings.rs) | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.031 s | 252 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1186_strings.cpp](1186_strings.cpp) | G++ 13.2 x64 | strings | O(L) per formula | AC | 0.001 s | 392 KB | 11321888 |
+| [1186_strings.go](1186_strings.go) | Go 1.14 x64 | strings | O(L) per formula | AC | 0.015 s | 1264 KB | 11321889 |
+| [1186_strings.java](1186_strings.java) | Java 1.8 | strings | O(L) per formula | AC | 0.156 s | 4148 KB | 11322193 |
+| [1186_strings.py](1186_strings.py) | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 532 KB | 11322194 |
+| [1186_strings.rs](1186_strings.rs) | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.031 s | 248 KB | 11322195 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1186_strings_optimized.java](1186_strings_optimized.java) | Java 1.8 | strings | O(L) per formula | AC | 0.093 s | 420 KB | 11317912 |
+| [1186_strings_optimized.py](1186_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) per formula | AC | 0.078 s | 588 KB | 11317903 |
+| [1186_strings_optimized.rs](1186_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L) per formula | AC | 0.015 s | 52 KB | 11323410 |
+
+\* 带星号的版本仍有提升排名的空间。
