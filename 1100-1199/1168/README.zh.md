@@ -72,12 +72,38 @@
 - C++、Go、Java 和 Rust 先用浮点开方求整数平方根，必要时再修正一步；Python 用
   `math.isqrt`。
 
+## 优化解法
+
+略过覆盖球包含最小球的基站。每个基站在同一行的距离分量只算一次；如果它覆盖当前高度区间的两个端点，就不用开平方。仍不计入基站所在的格子。
+
+Python 提交 11318011 耗时 0.437 秒，使用 1452 KB。简单版本耗时 0.781 s，使用 1076 KB。
+
+Java 提交 11318028 耗时 0.093 秒，使用 732 KB。简单版本耗时 0.125 s，使用 1208 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321897 · Rust 1.75 x64 №11321898 · Go 1.14 x64 №11322196 · Java 1.8 №11322197 · Python 3.12 x64 №11322198.
+
+Go 使用固定大小的数组存储地形和电台数据，并复用各行的覆盖掩码。 Go 1.14 x64（提交 11321943）的运行时间从 0.046 秒变为 0.015 秒，内存从 1172 KB 变为 392 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 256 KB |
-| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.031 s | 1180 KB |
-| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.171 s | 1176 KB |
-| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.765 s | 940 KB |
-| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.046 s | 288 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 244 KB | 11321897 |
+| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.046 s | 1172 KB | 11322196 |
+| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.125 s | 1208 KB | 11322197 |
+| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.781 s | 1076 KB | 11322198 |
+| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.031 s | 280 KB | 11321898 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1168_geometry_optimized.py](1168_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.437 s | 1452 KB | 11318011 |
+| [1168_geometry_optimized.java](1168_geometry_optimized.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.093 s | 732 KB | 11318028 |
+| [1168_geometry_optimized.go](1168_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.015 s | 392 KB | 11321943 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

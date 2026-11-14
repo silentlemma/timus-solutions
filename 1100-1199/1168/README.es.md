@@ -86,12 +86,38 @@ los radios, y en una de las pruebas generadas.
   coma flotante y la corrigen un paso si hace falta; Python usa
   `math.isqrt`.
 
+## Soluciones optimizadas
+
+Se omiten las estaciones cuya esfera de cobertura contiene la esfera más pequeña. Se reutiliza la contribución de cada fila y se evita la raíz cuadrada si ambos extremos del intervalo ya están cubiertos. Las celdas con estaciones siguen excluidas.
+
+El envío 11318011 en Python tardó 0.437 s y usó 1452 KB. La versión sencilla tardó 0.781 s y usó 1076 KB.
+
+El envío 11318028 en Java tardó 0.093 s y usó 732 KB. La versión sencilla tardó 0.125 s y usó 1208 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321897 · Rust 1.75 x64 №11321898 · Go 1.14 x64 №11322196 · Java 1.8 №11322197 · Python 3.12 x64 №11322198.
+
+Go guarda el terreno y los datos de las estaciones en arreglos fijos y reutiliza las máscaras de cobertura por fila. Go 1.14 x64, envío 11321943. Tiempo 0,046 → 0,015 s, memoria 1172 → 392 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 256 KB |
-| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.031 s | 1180 KB |
-| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.171 s | 1176 KB |
-| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.765 s | 940 KB |
-| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.046 s | 288 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 244 KB | 11321897 |
+| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.046 s | 1172 KB | 11322196 |
+| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.125 s | 1208 KB | 11322197 |
+| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.781 s | 1076 KB | 11322198 |
+| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.031 s | 280 KB | 11321898 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1168_geometry_optimized.py](1168_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.437 s | 1452 KB | 11318011 |
+| [1168_geometry_optimized.java](1168_geometry_optimized.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.093 s | 732 KB | 11318028 |
+| [1168_geometry_optimized.go](1168_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.015 s | 392 KB | 11321943 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

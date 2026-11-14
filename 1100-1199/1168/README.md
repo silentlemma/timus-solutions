@@ -85,12 +85,38 @@ generated tests.
 - C++, Go, Java and Rust compute the integer square root from a floating-point one
   and correct it by a step if needed; Python uses `math.isqrt`.
 
+## Optimized solutions
+
+Skip stations whose coverage contains the smallest sphere. Reuse each station's row contribution across columns and skip the square root if both ends of the current altitude interval are already covered. Station cells are still excluded from the count.
+
+Python submission 11318011 took 0.437 s and used 1452 KB. The simple version took 0.781 s and used 1076 KB.
+
+Java submission 11318028 took 0.093 s and used 732 KB. The simple version took 0.125 s and used 1208 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321897 · Rust 1.75 x64 №11321898 · Go 1.14 x64 №11322196 · Java 1.8 №11322197 · Python 3.12 x64 №11322198.
+
+Go stores the terrain and station data in fixed arrays and reuses the row coverage masks. Go 1.14 x64, submission 11321943. Time 0.046 → 0.015 s, memory 1172 → 392 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 256 KB |
-| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.031 s | 1180 KB |
-| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.171 s | 1176 KB |
-| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.765 s | 940 KB |
-| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.046 s | 288 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1168_geometry.cpp](1168_geometry.cpp) | G++ 13.2 x64 | geometry | O(M·N·K) | AC | 0.015 s | 244 KB | 11321897 |
+| [1168_geometry.go](1168_geometry.go) | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.046 s | 1172 KB | 11322196 |
+| [1168_geometry.java](1168_geometry.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.125 s | 1208 KB | 11322197 |
+| [1168_geometry.py](1168_geometry.py) | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.781 s | 1076 KB | 11322198 |
+| [1168_geometry.rs](1168_geometry.rs) | Rust 1.75 x64 | geometry | O(M·N·K) | AC | 0.031 s | 280 KB | 11321898 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1168_geometry_optimized.py](1168_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(M·N·K) | AC | 0.437 s | 1452 KB | 11318011 |
+| [1168_geometry_optimized.java](1168_geometry_optimized.java) | Java 1.8 | geometry | O(M·N·K) | AC | 0.093 s | 732 KB | 11318028 |
+| [1168_geometry_optimized.go](1168_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(M·N·K) | AC | 0.015 s | 392 KB | 11321943 |
+
+\* The marked solutions can improve their target rankings.
