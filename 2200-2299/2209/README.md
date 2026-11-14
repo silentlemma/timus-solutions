@@ -87,12 +87,39 @@ In the second example M − 1 = 2 = 10 in binary on two digits: right to
 
 This takes O(log M).
 
+## Optimized solutions
+
+Python reads the path from the least significant bit, building the coefficients of the two initial bounds. Leading left moves are folded into the denominator in one step. Submission 11317193 took 0.093 s and used 428 KB, versus 0.093 s and 456 KB for the base. It ranks 10th by time and 3rd by memory among comparable runs in the saved snapshot.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321834 · Go 1.14 x64 №11321835 · Java 1.8 №11322409 · Rust 1.75 x64 №11321837 · Python 3.12 x64 №11322446.
+
+This variant reads the path from the least significant bit, accumulates the coefficients of the initial bounds, and counts the leading left moves in one step. G++ 13.2 x64, submission 11322447. Time 0.015 → 0.015 s, memory 424 → 112 KB.
+
+This variant reads the path from the least significant bit, accumulates the coefficients of the initial bounds, and counts the leading left moves in one step. Go 1.14 x64, submission 11322448. Time 0.031 → 0.031 s, memory 1112 → 796 KB.
+
+This variant reads the path from the least significant bit, accumulates the coefficients of the initial bounds, and counts the leading left moves in one step. Rust 1.75 x64, submission 11322449. Time 0.062 → 0.046 s, memory 224 → 212 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2209_math.cpp](2209_math.cpp) | G++ 13.2 x64 | math | O(log M) | AC | 0.015 s | 228 KB |
-| [2209_math.go](2209_math.go) | Go 1.14 x64 | math | O(log M) | AC | 0.031 s | 896 KB |
-| [2209_math.java](2209_math.java) | Java 1.8 | math | O(log M) | AC | 0.109 s | 204 KB |
-| [2209_math.py](2209_math.py) | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 248 KB |
-| [2209_math.rs](2209_math.rs) | Rust 1.75 x64 | math | O(log M) | AC | 0.046 s | 24 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2209_math.cpp](2209_math.cpp) | G++ 13.2 x64 | math | O(log M) | AC | 0.015 s | 424 KB | 11321834 |
+| [2209_math.go](2209_math.go) | Go 1.14 x64 | math | O(log M) | AC | 0.031 s | 1112 KB | 11321835 |
+| [2209_math.java](2209_math.java) | Java 1.8 | math | O(log M) | AC | 0.109 s | 368 KB | 11322409 |
+| [2209_math.py](2209_math.py) | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 456 KB | 11322446 |
+| [2209_math.rs](2209_math.rs) | Rust 1.75 x64 | math | O(log M) | AC | 0.062 s | 224 KB | 11321837 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2209_math_optimized.py](2209_math_optimized.py) \* | Python 3.12 x64 | math | O(log M) | AC | 0.093 s | 428 KB | 11317193 |
+| [2209_math_optimized.cpp](2209_math_optimized.cpp) | G++ 13.2 x64 | math | O(log M) | AC | 0.015 s | 112 KB | 11322447 |
+| [2209_math_optimized.go](2209_math_optimized.go) | Go 1.14 x64 | math | O(log M) | AC | 0.031 s | 796 KB | 11322448 |
+| [2209_math_optimized.rs](2209_math_optimized.rs) | Rust 1.75 x64 | math | O(log M) | AC | 0.046 s | 212 KB | 11322449 |
+
+\* The accepted Python version can improve in the target ranking.

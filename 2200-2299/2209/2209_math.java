@@ -40,7 +40,7 @@ public class Main {
             }
         }
 
-        System.out.println((leftNumerator + rightNumerator) + " "
-                + (leftDenominator + rightDenominator));
+        System.out.println((leftNumerator + rightNumerator) + " " +
+                           (leftDenominator + rightDenominator));
     }
 }
