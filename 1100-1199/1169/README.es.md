@@ -90,12 +90,39 @@ red impresa pasó el comprobador.
   que una parte se añade con un desplazamiento; Go, Java y Rust usan
   tablas booleanas normales.
 
+## Soluciones optimizadas
+
+Go usa una mochila ilimitada unidimensional. Para cada número de pares no críticos, minimiza los vértices que pertenecen a ciclos. Los restantes quedan aislados en sus componentes, y los tamaños guardados permiten reconstruir la solución. El envío 11317280 tardó 0.031 s y usó 1104 KB frente a 0.062 s y 1680 KB en la base.
+
+Rust usa una mochila ilimitada unidimensional. Para cada número de pares no críticos, minimiza los vértices que pertenecen a ciclos. Los restantes quedan aislados en sus componentes, y los tamaños guardados permiten reconstruir la solución. El envío 11317285 tardó 0.015 s y usó 200 KB frente a 0.031 s y 616 KB en la base.
+
+Java usa una mochila ilimitada unidimensional. Para cada número de pares no críticos, minimiza los vértices que pertenecen a ciclos. Los restantes quedan aislados en sus componentes, y los tamaños guardados permiten reconstruir la solución. El envío 11317286 tardó 0.109 s y usó 492 KB frente a 0.343 s y 2136 KB en la base.
+
+Python prueba tamaños de ciclos en orden decreciente y memoriza los estados fallidos por vértices y pares restantes y tamaño máximo del ciclo. El envío 11317371 usó 692 KB frente a 572 KB de la versión sencilla. En la clasificación guardada, el envío quedó segundo en tiempo y primero en memoria. Ambas versiones tardaron 0,078580 KB de la versión sencilla. En la clasificación guardada, el envío quedó segundo en tiempo y primero en memoria. Ambas versiones tardaron 0,093 s.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11322178 · Rust 1.75 x64 №11322180.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 252 KB |
-| [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1676 KB |
-| [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.250 s | 2152 KB |
-| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.093 s | 572 KB |
-| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.046 s | 620 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 236 KB | 11321735 |
+| [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1680 KB | 11322174 |
+| [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.343 s | 2136 KB | 11322176 |
+| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.078 s | 580 KB | 11322178 |
+| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.031 s | 616 KB | 11322180 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1169_dp.go](1169_dp.go) \* | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
+| [1169_dp.rs](1169_dp.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
+| [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
+| [1169_backtracking.py](1169_backtracking.py) \* | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
+
+\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Python sigue pendiente.

@@ -80,12 +80,39 @@
 - C++ 把每个 `reach[m]` 存为 bitset，Python 存为大整数，所以加入一个部分只需
   一次移位；Go、Java 和 Rust 用普通的布尔表。
 
+## 优化解法
+
+Go 使用一维完全背包。对于每个非关键点对数，它最小化环内的顶点数。其余顶点作为单点分量，记录的环大小用于还原方案。提交 11317280 耗时 0.031 秒，使用 1104 KB；基础版耗时 0.062 秒，使用 1680 KB。
+
+Rust 使用一维完全背包。对于每个非关键点对数，它最小化环内的顶点数。其余顶点作为单点分量，记录的环大小用于还原方案。提交 11317285 耗时 0.015 秒，使用 200 KB；基础版耗时 0.031 秒，使用 616 KB。
+
+Java 使用一维完全背包。对于每个非关键点对数，它最小化环内的顶点数。其余顶点作为单点分量，记录的环大小用于还原方案。提交 11317286 耗时 0.109 秒，使用 492 KB；基础版耗时 0.343 秒，使用 2136 KB。
+
+Python 按从大到小的顺序搜索环长，并按剩余顶点数、剩余点对数和最大环长记录失败状态。提交 11317371 使用 692 KB，基础版使用 572 KB。 在保存的排行榜中，这次提交的用时排第二，内存排第一。两个版本的用时均为 0.078580 KB。 在保存的排行榜中，这次提交的用时排第二，内存排第一。两个版本的用时均为 0.093 秒。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11322178 · Rust 1.75 x64 №11322180.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 252 KB |
-| [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1676 KB |
-| [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.250 s | 2152 KB |
-| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.093 s | 572 KB |
-| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.046 s | 620 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 236 KB | 11321735 |
+| [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1680 KB | 11322174 |
+| [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.343 s | 2136 KB | 11322176 |
+| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.078 s | 580 KB | 11322178 |
+| [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.031 s | 616 KB | 11322180 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1169_dp.go](1169_dp.go) \* | Go 1.14 x64 | dp | O(N³) | AC | 0.031 s | 1104 KB | 11317280 |
+| [1169_dp.rs](1169_dp.rs) \* | Rust 1.75 x64 | dp | O(N³) | AC | 0.015 s | 200 KB | 11317285 |
+| [1169_dp.java](1169_dp.java) | Java 1.8 | dp | O(N³) | AC | 0.109 s | 492 KB | 11317286 |
+| [1169_backtracking.py](1169_backtracking.py) \* | Python 3.12 x64 | backtracking | O(N^5) | AC | 0.093 s | 692 KB | 11317371 |
+
+\* Go 仍有提升排名的空间。 Rust 仍有提升排名的空间。 Python 仍有提升排名的空间。
