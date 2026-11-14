@@ -21,7 +21,7 @@ public class Main {
             for (int i = 1; i < d; i++) {
                 total += digits[i] * digits[d - i];
             }
-            int c = (int) (total % BASE);
+            int c = (int)(total % BASE);
             digits[d] = c;
             carry = (total + 2 * FIVE * c) / BASE;
         }

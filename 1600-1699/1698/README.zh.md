@@ -54,12 +54,39 @@ x 与 x − 1 互素，所以每个素数幂只整除其中之一，于是模 10
 
 对所有检验过的 n（直到 2000），答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+中国剩余定理版本直接算出能被 5ⁿ 整除且模 2ⁿ 余一的后缀。另一个后缀的高位数字与它逐位相加为九，因此一次扫描就能统计两者。运行时间主要取决于模逆和大整数运算。 Python 3.12 x64（提交 11318471）的运行时间从 0.312 秒变为 0.078 秒，内存从 440 KB 变为 480 KB。
+
+中国剩余定理版本直接算出能被 5ⁿ 整除且模 2ⁿ 余一的后缀。另一个后缀的高位数字与它逐位相加为九，因此一次扫描就能统计两者。运行时间主要取决于模逆和大整数运算。 Java 1.8（提交 11318473）的运行时间从 0.125 秒变为 0.109 秒，内存从 1600 KB 变为 1132 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322463 · Go 1.14 x64 №11322477 · Java 1.8 №11322443 · Python 3.12 x64 №11322483 · Rust 1.75 x64 №11322488.
+
+Rust 将每一位上成对的对称乘积合并，只计算一次并将贡献加倍。算出最高位后立即统计符合条件的后缀。 Rust 1.75 x64（提交 11318475）的运行时间从 0.046 秒变为 0.015 秒，内存从 228 KB 变为 220 KB。
+
+优化版本每次将平方同余提升六位十进制数字。首块为 890625，218751 是 1 − 2·890625 模 10⁶ 的逆元，因此可由进位和已知乘积求出下一块。 Go 1.14 x64（提交 11322496）的运行时间从 0.015 秒变为 0.015 秒，内存从 1144 KB 变为 800 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1698_number_theory.cpp](1698_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n²) | AC | 0.015 s | 204 KB |
-| [1698_number_theory.go](1698_number_theory.go) | Go 1.14 x64 | number_theory | O(n²) | AC | 0.031 s | 1168 KB |
-| [1698_number_theory.java](1698_number_theory.java) | Java 1.8 | number_theory | O(n²) | AC | 0.125 s | 1600 KB |
-| [1698_number_theory.py](1698_number_theory.py) | Python 3.12 x64 | number_theory | O(n²) | AC | 0.296 s | 436 KB |
-| [1698_number_theory.rs](1698_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1698_number_theory.cpp](1698_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n²) | AC | 0.031 s | 188 KB | 11322463 |
+| [1698_number_theory.go](1698_number_theory.go) | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 1144 KB | 11322477 |
+| [1698_number_theory.java](1698_number_theory.java) | Java 1.8 | number_theory | O(n²) | AC | 0.093 s | 1576 KB | 11322443 |
+| [1698_number_theory.py](1698_number_theory.py) | Python 3.12 x64 | number_theory | O(n²) | AC | 0.312 s | 440 KB | 11322483 |
+| [1698_number_theory.rs](1698_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.046 s | 228 KB | 11322488 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1698_number_theory_math.py](1698_number_theory_math.py) \* | Python 3.12 x64 | number_theory, math | O(n²) | AC | 0.078 s | 480 KB | 11318471 |
+| [1698_number_theory_math.java](1698_number_theory_math.java) \* | Java 1.8 | number_theory, math | O(n²) | AC | 0.109 s | 1132 KB | 11318473 |
+| [1698_number_theory_optimized.rs](1698_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n²) | AC | 0.015 s | 220 KB | 11318475 |
+| [1698_number_theory_optimized.go](1698_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n²) | AC | 0.015 s | 800 KB | 11322496 |
+
+\* 带星号的版本仍有提升排名的空间。
