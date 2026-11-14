@@ -63,16 +63,48 @@ No
 
 - 答案取决于 n 模 6，而不是 n 是否为素数：35 有放置，9 和 8 没有；
 - 步长 2 是最小可行的；步长 1 会把所有皇后放在同一条对角线上；
-- 输出多达 10⁵ 个数，最好一次性拼好再输出。
+- 输出多达 10⁵ 个数，可以通过缓冲区分批写出。
 
 对 4 到 400 的每个 n 以及最大的 n，放置都通过了检查器，"No" 的判断与一个独立的已通过实现一致。
 
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321969 · Java 1.8 №11321970 · Go 1.14 x64 №11322301 · Python 3.12 x64 №11322302 · Rust 1.75 x64 №11322303.
+
+## 优化解法
+
+优化版本用小缓冲区先输出奇数行号，再输出偶数行号。这正是 2i 模 n 后改用从一开始编号的顺序，无需保存整个布局。
+
+Rust 1.75 x64（提交 11322002）的运行时间从 0.031 秒变为 0.015 秒，内存从 5812 KB 变为 200 KB。
+
+Python 3.12 x64（提交 11322003）的运行时间从 0.093 秒变为 0.109 秒，内存从 6424 KB 变为 824 KB。
+
+Go 1.14 x64（提交 11322004）的运行时间从 0.031 秒变为 0.031 秒，内存从 1632 KB 变为 924 KB。
+
+Java 1.8（提交 11322005）的运行时间从 0.109 秒变为 0.093 秒，内存从 5368 KB 变为 504 KB。
+
+G++ 13.2 x64（提交 11322006）的运行时间从 0.015 秒变为 0.015 秒，内存从 1504 KB 变为 112 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1520 KB |
-| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1656 KB |
-| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5372 KB |
-| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.125 s | 7276 KB |
-| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 5832 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1504 KB | 11321969 |
+| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1632 KB | 11322301 |
+| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5368 KB | 11321970 |
+| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.093 s | 6424 KB | 11322302 |
+| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 5812 KB | 11322303 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
+| [1870_constructive_optimized.py](1870_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
+| [1870_constructive_optimized.go](1870_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 924 KB | 11322004 |
+| [1870_constructive_optimized.java](1870_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
+| [1870_constructive_optimized.cpp](1870_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 112 KB | 11322006 |
+
+\* 带星号的版本仍有提升排名的空间。

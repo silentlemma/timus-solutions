@@ -10,7 +10,8 @@ int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     if (gcd(n, BAD) != 1) {
         puts("No");
         return 0;

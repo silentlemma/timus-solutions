@@ -6,9 +6,7 @@ public class Main {
     // 2 * 3: both must be invertible modulo n
     static final int BAD = 6;
 
-    static int gcd(int a, int b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
+    static int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
 
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));

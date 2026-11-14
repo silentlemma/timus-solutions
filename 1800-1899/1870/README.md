@@ -81,18 +81,50 @@ Pitfalls:
   placement, 9 and 8 do not;
 - the step 2 is the smallest that works; step 1 puts all queens on one
   diagonal;
-- the output has up to 10⁵ numbers, so it should be built in one piece.
+- the output has up to 10⁵ numbers. A buffer can write them in batches.
 
 The placements pass a checker for every n from 4 to 400 and for the
 largest n, and the "No" answers agree with an independent accepted
 implementation.
 
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321969 · Java 1.8 №11321970 · Go 1.14 x64 №11322301 · Python 3.12 x64 №11322302 · Rust 1.75 x64 №11322303.
+
+## Optimized solutions
+
+The optimized versions print the odd row numbers and then the even ones using a small output buffer. This is the order of 2i modulo n (with one-based output) and requires no array of all placements.
+
+Rust 1.75 x64, submission 11322002. Time 0.031 → 0.015 s, memory 5812 → 200 KB.
+
+Python 3.12 x64, submission 11322003. Time 0.093 → 0.109 s, memory 6424 → 824 KB.
+
+Go 1.14 x64, submission 11322004. Time 0.031 → 0.031 s, memory 1632 → 924 KB.
+
+Java 1.8, submission 11322005. Time 0.109 → 0.093 s, memory 5368 → 504 KB.
+
+G++ 13.2 x64, submission 11322006. Time 0.015 → 0.015 s, memory 1504 → 112 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1520 KB |
-| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1656 KB |
-| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5372 KB |
-| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.125 s | 7276 KB |
-| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 5832 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1504 KB | 11321969 |
+| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1632 KB | 11322301 |
+| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5368 KB | 11321970 |
+| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.093 s | 6424 KB | 11322302 |
+| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 5812 KB | 11322303 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
+| [1870_constructive_optimized.py](1870_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
+| [1870_constructive_optimized.go](1870_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 924 KB | 11322004 |
+| [1870_constructive_optimized.java](1870_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
+| [1870_constructive_optimized.cpp](1870_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 112 KB | 11322006 |
+
+\* The marked versions have room to improve in the ratings.

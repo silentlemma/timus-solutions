@@ -81,19 +81,51 @@ Trampas:
   colocación, 9 y 8 no;
 - el paso 2 es el menor que funciona; el paso 1 pone todas las reinas
   en una diagonal;
-- la salida tiene hasta 10⁵ números, así que conviene construirla de
-  una vez.
+- la salida tiene hasta 10⁵ números. Un búfer permite escribirlos
+  por bloques.
 
 Las colocaciones pasan un comprobador para cada n de 4 a 400 y para los
 n más grandes, y las respuestas "No" coinciden con una implementación
 aceptada independiente.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321969 · Java 1.8 №11321970 · Go 1.14 x64 №11322301 · Python 3.12 x64 №11322302 · Rust 1.75 x64 №11322303.
+
+## Soluciones optimizadas
+
+Las versiones optimizadas imprimen los números de fila impares y luego los pares mediante un búfer pequeño. Es el orden de 2i módulo n con numeración desde uno y no requiere guardar toda la disposición.
+
+Rust 1.75 x64, envío 11322002. Tiempo 0,031 → 0,015 s, memoria 5812 → 200 KB.
+
+Python 3.12 x64, envío 11322003. Tiempo 0,093 → 0,109 s, memoria 6424 → 824 KB.
+
+Go 1.14 x64, envío 11322004. Tiempo 0,031 → 0,031 s, memoria 1632 → 924 KB.
+
+Java 1.8, envío 11322005. Tiempo 0,109 → 0,093 s, memoria 5368 → 504 KB.
+
+G++ 13.2 x64, envío 11322006. Tiempo 0,015 → 0,015 s, memoria 1504 → 112 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1520 KB |
-| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1656 KB |
-| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5372 KB |
-| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.125 s | 7276 KB |
-| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 5832 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1504 KB | 11321969 |
+| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1632 KB | 11322301 |
+| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5368 KB | 11321970 |
+| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.093 s | 6424 KB | 11322302 |
+| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 5812 KB | 11322303 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
+| [1870_constructive_optimized.py](1870_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
+| [1870_constructive_optimized.go](1870_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 924 KB | 11322004 |
+| [1870_constructive_optimized.java](1870_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
+| [1870_constructive_optimized.cpp](1870_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 112 KB | 11322006 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

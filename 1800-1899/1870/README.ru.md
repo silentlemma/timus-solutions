@@ -81,17 +81,49 @@ S = (n − 1)n(2n − 1)/6 для этого 3 должно делить (n − 
   расстановка есть, для 9 и 8 нет;
 - шаг 2 — наименьший подходящий; шаг 1 ставит всех ферзей на одну
   диагональ;
-- в выводе до 10⁵ чисел, так что его лучше собирать целиком.
+- в выводе до 10⁵ чисел. Буфер позволяет выводить их порциями.
 
 Расстановки проходят чекер для каждого n от 4 до 400 и для самых
 больших n, а ответы «No» совпадают с независимой принятой реализацией.
 
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321969 · Java 1.8 №11321970 · Go 1.14 x64 №11322301 · Python 3.12 x64 №11322302 · Rust 1.75 x64 №11322303.
+
+## Оптимизированные решения
+
+Оптимизированные версии выводят нечётные номера строк, затем чётные через небольшой буфер. Это порядок 2i по модулю n при нумерации с единицы. Массив всей расстановки не нужен.
+
+Rust 1.75 x64, посылка 11322002. Время 0,031 → 0,015 с, память 5812 → 200 КБ.
+
+Python 3.12 x64, посылка 11322003. Время 0,093 → 0,109 с, память 6424 → 824 КБ.
+
+Go 1.14 x64, посылка 11322004. Время 0,031 → 0,031 с, память 1632 → 924 КБ.
+
+Java 1.8, посылка 11322005. Время 0,109 → 0,093 с, память 5368 → 504 КБ.
+
+G++ 13.2 x64, посылка 11322006. Время 0,015 → 0,015 с, память 1504 → 112 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1520 KB |
-| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1656 KB |
-| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5372 KB |
-| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.125 s | 7276 KB |
-| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 5832 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1870_constructive.cpp](1870_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 1504 KB | 11321969 |
+| [1870_constructive.go](1870_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 1632 KB | 11322301 |
+| [1870_constructive.java](1870_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.109 s | 5368 KB | 11321970 |
+| [1870_constructive.py](1870_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.093 s | 6424 KB | 11322302 |
+| [1870_constructive.rs](1870_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 5812 KB | 11322303 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1870_constructive_optimized.rs](1870_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.015 s | 200 KB | 11322002 |
+| [1870_constructive_optimized.py](1870_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.109 s | 824 KB | 11322003 |
+| [1870_constructive_optimized.go](1870_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 924 KB | 11322004 |
+| [1870_constructive_optimized.java](1870_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.093 s | 504 KB | 11322005 |
+| [1870_constructive_optimized.cpp](1870_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 112 KB | 11322006 |
+
+\* У отмеченных версий есть запас для улучшения рейтинга.
