@@ -53,12 +53,38 @@ O(N log N) 步，约 10⁵。结果已按定义直接验证。
 - 处处为 1 的函数的逆是莫比乌斯函数（测试 01），恒等函数的逆是 n·μ(n)（测试 03），刘维尔函
   数的逆是 |μ|（测试 04）。
 
+## 优化解法
+
+每次更新都对 2007 取模，因此数组中只保存 0 到 2006 的数，16 位就足够。取模前用更宽的整数类型进行乘法。系数为零时对后续倍数没有贡献，可以跳过这些更新。
+
+Go 提交 11317288 耗时 0.031 秒，使用 968 KB；基础版耗时 0.031 秒，使用 1676 KB。
+
+Rust 提交 11317290 耗时 0.015 秒，使用 240 KB；基础版耗时 0.015 秒，使用 940 KB。
+
+Java 提交 11317291 耗时 0.109 秒，使用 528 KB；基础版耗时 0.109 秒，使用 1152 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321745 · Go 1.14 x64 №11322093 · Java 1.8 №11322412 · Python 3.12 x64 №11321746 · Rust 1.75 x64 №11322455.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 280 KB |
-| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1680 KB |
-| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1156 KB |
-| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.093 s | 2632 KB |
-| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 936 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 264 KB | 11321745 |
+| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1676 KB | 11322093 |
+| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1152 KB | 11322412 |
+| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.109 s | 2636 KB | 11321746 |
+| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 940 KB | 11322455 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1554_number_theory_optimized.go](1554_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 968 KB | 11317288 |
+| [1554_number_theory_optimized.rs](1554_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 240 KB | 11317290 |
+| [1554_number_theory_optimized.java](1554_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 528 KB | 11317291 |
+
+\* Go 仍有提升排名的空间。 Rust 仍有提升排名的空间。 Java 仍有提升排名的空间。

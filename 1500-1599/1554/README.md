@@ -60,12 +60,38 @@ Pitfalls:
 - the inverse of 1 everywhere is the Möbius function (test 01), of the
   identity n·μ(n) (test 03), of Liouville's function |μ| (test 04).
 
+## Optimized solutions
+
+The arrays only need to store values from 0 to 2006 because each update is reduced modulo 2007. This allows 16-bit storage. The multiplication uses a wider integer before reduction. A zero coefficient contributes nothing to later multiples, so the sieve skips those updates.
+
+Go submission 11317288 took 0.031 s and used 968 KB, versus 0.031 s and 1676 KB for the base.
+
+Rust submission 11317290 took 0.015 s and used 240 KB, versus 0.015 s and 940 KB for the base.
+
+Java submission 11317291 took 0.109 s and used 528 KB, versus 0.109 s and 1152 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321745 · Go 1.14 x64 №11322093 · Java 1.8 №11322412 · Python 3.12 x64 №11321746 · Rust 1.75 x64 №11322455.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 280 KB |
-| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1680 KB |
-| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1156 KB |
-| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.093 s | 2632 KB |
-| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 936 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 264 KB | 11321745 |
+| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1676 KB | 11322093 |
+| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1152 KB | 11322412 |
+| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.109 s | 2636 KB | 11321746 |
+| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 940 KB | 11322455 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1554_number_theory_optimized.go](1554_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 968 KB | 11317288 |
+| [1554_number_theory_optimized.rs](1554_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 240 KB | 11317290 |
+| [1554_number_theory_optimized.java](1554_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 528 KB | 11317291 |
+
+\* The Go rating target remains open. The Rust rating target remains open. The Java rating target remains open.

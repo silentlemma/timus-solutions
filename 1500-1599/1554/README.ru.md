@@ -61,12 +61,38 @@ k ≥ 2; когда цикл доходит до n, в его накопител
 - обратная к единице всюду — функция Мёбиуса (тест 01), к тождественной
   — n·μ(n) (тест 03), к функции Лиувилля — |μ| (тест 04).
 
+## Оптимизированные решения
+
+После каждого обновления берём остаток по модулю 2007, поэтому в массивах хранятся только числа от 0 до 2006 и достаточно 16 бит. Перед взятием остатка умножение выполняется в более широком типе. Нулевой коэффициент ничего не добавляет к последующим кратным, поэтому эти обновления можно пропустить.
+
+Посылка Go №11317288 заняла 0,031 с и 968 КБ против 0,031 с и 1676 КБ у базы.
+
+Посылка Rust №11317290 заняла 0,015 с и 240 КБ против 0,015 с и 940 КБ у базы.
+
+Посылка Java №11317291 заняла 0,109 с и 528 КБ против 0,109 с и 1152 КБ у базы.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321745 · Go 1.14 x64 №11322093 · Java 1.8 №11322412 · Python 3.12 x64 №11321746 · Rust 1.75 x64 №11322455.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 280 KB |
-| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1680 KB |
-| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1156 KB |
-| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.093 s | 2632 KB |
-| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 936 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1554_number_theory.cpp](1554_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N log N) | AC | 0.015 s | 264 KB | 11321745 |
+| [1554_number_theory.go](1554_number_theory.go) | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 1676 KB | 11322093 |
+| [1554_number_theory.java](1554_number_theory.java) | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 1152 KB | 11322412 |
+| [1554_number_theory.py](1554_number_theory.py) | Python 3.12 x64 | number_theory | O(N log N) | AC | 0.109 s | 2636 KB | 11321746 |
+| [1554_number_theory.rs](1554_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 940 KB | 11322455 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1554_number_theory_optimized.go](1554_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log N) | AC | 0.031 s | 968 KB | 11317288 |
+| [1554_number_theory_optimized.rs](1554_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log N) | AC | 0.015 s | 240 KB | 11317290 |
+| [1554_number_theory_optimized.java](1554_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log N) | AC | 0.109 s | 528 KB | 11317291 |
+
+\* Рейтинговая цель для Go остаётся открытой. Рейтинговая цель для Rust остаётся открытой. Рейтинговая цель для Java остаётся открытой.
