@@ -92,12 +92,38 @@
 - **C++**, **Go**, **Java**, **Rust**: треугольник Паскаля до 32.
   **Python**: `math.comb`, который возвращает 0 при `k > n`.
 
+## Оптимизированные решения
+
+Rust перебирает цифры в основании B и использует заранее вычисленную таблицу Паскаля для оставшихся вариантов. Rust 1.75 x64, посылка 11323261. Время 0,015 → 0,015 с, память 236 → 44 КБ.
+
+Посылка Python №11321721 заняла 0.093 с и использовала 460 КБ. У простого решения — 0.078 s и 500 KB.
+
+Python обходит цифры границы от старших к младшим и вычисляет биномиальные коэффициенты по мере необходимости. На цифре больше единицы обход заканчивается, поскольку все оставшиеся комбинации нулей и единиц меньше границы.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321895 · Java 1.8 №11321896 · Go 1.14 x64 №11322186 · Python 3.12 x64 №11322187 · Rust 1.75 x64 №11322188.
+
+Go просматривает цифры от старших к младшим и по ходу обновляет биномиальный коэффициент для оставшихся разрядов. Go 1.14 x64, посылка 11322843. Время 0,031 → 0,015 с, память 1072 → 276 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1057_combinatorics.cpp](1057_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(log Y) | AC | 0.001 s | 204 KB |
-| [1057_combinatorics.go](1057_combinatorics.go) | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 1080 KB |
-| [1057_combinatorics.java](1057_combinatorics.java) | Java 1.8 | combinatorics | O(log Y) | AC | 0.125 s | 1656 KB |
-| [1057_combinatorics.py](1057_combinatorics.py) | Python 3.12 x64 | combinatorics | O(log Y) | AC | 0.078 s | 512 KB |
-| [1057_combinatorics.rs](1057_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(log Y) | AC | 0.046 s | 252 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1057_combinatorics.cpp](1057_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(log Y) | AC | 0.015 s | 188 KB | 11321895 |
+| [1057_combinatorics.go](1057_combinatorics.go) | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.031 s | 1072 KB | 11322186 |
+| [1057_combinatorics.java](1057_combinatorics.java) | Java 1.8 | combinatorics | O(log Y) | AC | 0.109 s | 1624 KB | 11321896 |
+| [1057_combinatorics.py](1057_combinatorics.py) | Python 3.12 x64 | combinatorics | O(log Y) | AC | 0.078 s | 500 KB | 11322187 |
+| [1057_combinatorics.rs](1057_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(log Y) | AC | 0.015 s | 236 KB | 11322188 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O((log Y)²) | AC | 0.093 s | 460 KB | 11321721 |
+| [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+
+\* Отмеченные решения пока не достигли целевого рейтинга.

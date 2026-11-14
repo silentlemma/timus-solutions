@@ -94,12 +94,38 @@ Detalles a tener en cuenta:
 - **C++**, **Go**, **Java**, **Rust**: un triángulo de Pascal hasta 32.
   **Python**: `math.comb`, que devuelve 0 cuando `k > n`.
 
+## Soluciones optimizadas
+
+Rust recorre los dígitos en base B y usa un triángulo de Pascal precalculado para las opciones restantes. Rust 1.75 x64, envío 11323261. Tiempo 0,015 → 0,015 s, memoria 236 → 44 KB.
+
+El envío 11321721 en Python tardó 0.093 s y usó 460 KB. La versión sencilla tardó 0.078 s y usó 500 KB.
+
+Python recorre los dígitos del límite desde el más significativo y calcula los coeficientes binomiales cuando hacen falta. Un dígito mayor que uno termina el recorrido porque todas las combinaciones restantes quedan por debajo del límite.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321895 · Java 1.8 №11321896 · Go 1.14 x64 №11322186 · Python 3.12 x64 №11322187 · Rust 1.75 x64 №11322188.
+
+Go recorre los dígitos del más al menos significativo y actualiza en cada paso el coeficiente binomial para las posiciones restantes. Go 1.14 x64, envío 11322843. Tiempo 0,031 → 0,015 s, memoria 1072 → 276 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1057_combinatorics.cpp](1057_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(log Y) | AC | 0.001 s | 204 KB |
-| [1057_combinatorics.go](1057_combinatorics.go) | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 1080 KB |
-| [1057_combinatorics.java](1057_combinatorics.java) | Java 1.8 | combinatorics | O(log Y) | AC | 0.125 s | 1656 KB |
-| [1057_combinatorics.py](1057_combinatorics.py) | Python 3.12 x64 | combinatorics | O(log Y) | AC | 0.078 s | 512 KB |
-| [1057_combinatorics.rs](1057_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(log Y) | AC | 0.046 s | 252 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1057_combinatorics.cpp](1057_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(log Y) | AC | 0.015 s | 188 KB | 11321895 |
+| [1057_combinatorics.go](1057_combinatorics.go) | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.031 s | 1072 KB | 11322186 |
+| [1057_combinatorics.java](1057_combinatorics.java) | Java 1.8 | combinatorics | O(log Y) | AC | 0.109 s | 1624 KB | 11321896 |
+| [1057_combinatorics.py](1057_combinatorics.py) | Python 3.12 x64 | combinatorics | O(log Y) | AC | 0.078 s | 500 KB | 11322187 |
+| [1057_combinatorics.rs](1057_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(log Y) | AC | 0.015 s | 236 KB | 11322188 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O((log Y)²) | AC | 0.093 s | 460 KB | 11321721 |
+| [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
