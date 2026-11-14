@@ -62,12 +62,39 @@ O(N)，符合 16 MB 限制。只有一个不同的值时答案是一个元素。
 
 - Python 在 CPython 上运行，并对数对剪枝：先删去部分不是任何三项等差数列端点的极端值；只有当从 x 出发、公差为 y − x 的数列仍可能超过目前最优时才遍历数对 x < y，即它在该长度处的那一项必须不超过最大值并且在表中存在。遍历所有数对的早期版本在 CPython 下于评测第 9 个测试、在 PyPy 下于第 28 个测试超过 0.25 秒的限制。
 
+## 优化解法
+
+优化后的 C++ 版本用固定大小的开放寻址哈希表保存每个不同的数及其首次出现的位置。只有当刷新最优答案所需的项可能存在、且输入中不存在该数列的前一项时，才检查这个公差。根据首项和公差还原答案。评测数据来自提交 11317031。
+
+Rust 将数值和原始下标分别存在两个数组中，其中下标使用 16 位整数。提交 11318214 耗时 0.031 秒，使用 292 KB；简单版本耗时 0.093 秒，使用 620 KB。
+
+Java 使用固定大小的开放寻址哈希表，并跳过不能延长最优等差数列的公差。提交 11318310 耗时 0.187 秒，使用 492 KB；简单版本耗时 0.187 秒，使用 924 KB。
+
+Go 使用固定大小的开放寻址哈希表，并跳过不能延长最优等差数列的公差。提交 11321984 耗时 0.062 秒，使用 864 KB；简单版本耗时 0.125 秒，使用 1376 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · Python 3.12 x64 №11322330 · Rust 1.75 x64 №11322331.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1452_hashing.cpp](1452_hashing.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.093 s | 264 KB |
-| [1452_hashing.go](1452_hashing.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.125 s | 1380 KB |
-| [1452_hashing.java](1452_hashing.java) | Java 1.8 | hashing | O(N + m^2) | AC | 0.203 s | 952 KB |
-| [1452_hashing.py](1452_hashing.py) | Python 3.12 x64 | hashing | O(N + m^2) | AC | 0.187 s | 1300 KB |
-| [1452_hashing.rs](1452_hashing.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.109 s | 632 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1452_hashing.cpp](1452_hashing.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.093 s | 248 KB | 11322326 |
+| [1452_hashing.go](1452_hashing.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.125 s | 1376 KB | 11322327 |
+| [1452_hashing.java](1452_hashing.java) | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 924 KB | 11322328 |
+| [1452_hashing.py](1452_hashing.py) | Python 3.12 x64 | hashing | O(N + m^2) | AC | 0.14 s | 1608 KB | 11322330 |
+| [1452_hashing.rs](1452_hashing.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.093 s | 620 KB | 11322331 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) \* | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.046 s | 156 KB | 11317031 |
+| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
+| [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
+| [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
+
+\* 已通过评测，尚未达到 C++ 排名目标。 Rust 尚未达到排名目标。 Go 尚未达到排名目标。 Java 尚未达到排名目标。

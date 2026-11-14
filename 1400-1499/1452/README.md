@@ -77,12 +77,39 @@ Pitfalls:
   walked every pair exceeded the 0.25 s limit on the judge's test 9
   under CPython and on test 28 under PyPy.
 
+## Optimized solutions
+
+The optimized C++ version stores each distinct value and its first input index in a fixed open-addressing table. It tests a candidate difference only when the term needed to beat the current best can exist and the progression has no predecessor in the input. The answer is rebuilt from its first value and difference. The metrics come from submission 11317031.
+
+Rust keeps values and their original indices in separate arrays, with 16-bit integers for indices. Submission 11318214 took 0.031 s and used 292 KB. The simple version took 0.093 s and used 620 KB.
+
+Java uses a fixed-size hash table with open addressing and skips differences that cannot improve the longest progression. Submission 11318310 took 0.187 s and used 492 KB, versus 0.187 s and 924 KB for the simple version.
+
+Go uses a fixed-size hash table with open addressing and skips differences that cannot improve the longest progression. Submission 11321984 took 0.062 s and used 864 KB, versus 0.125 s and 1376 KB for the simple version.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · Python 3.12 x64 №11322330 · Rust 1.75 x64 №11322331.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1452_hashing.cpp](1452_hashing.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.093 s | 264 KB |
-| [1452_hashing.go](1452_hashing.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.125 s | 1380 KB |
-| [1452_hashing.java](1452_hashing.java) | Java 1.8 | hashing | O(N + m^2) | AC | 0.203 s | 952 KB |
-| [1452_hashing.py](1452_hashing.py) | Python 3.12 x64 | hashing | O(N + m^2) | AC | 0.187 s | 1300 KB |
-| [1452_hashing.rs](1452_hashing.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.109 s | 632 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1452_hashing.cpp](1452_hashing.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.093 s | 248 KB | 11322326 |
+| [1452_hashing.go](1452_hashing.go) | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.125 s | 1376 KB | 11322327 |
+| [1452_hashing.java](1452_hashing.java) | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 924 KB | 11322328 |
+| [1452_hashing.py](1452_hashing.py) | Python 3.12 x64 | hashing | O(N + m^2) | AC | 0.14 s | 1608 KB | 11322330 |
+| [1452_hashing.rs](1452_hashing.rs) | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.093 s | 620 KB | 11322331 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) \* | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.046 s | 156 KB | 11317031 |
+| [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
+| [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
+| [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
+
+\* Accepted. The C++ rating target remains open. The Rust rating target remains open. The Go rating target remains open. The Java rating target remains open.
