@@ -107,6 +107,22 @@ No solution.
 - кандидатов в циклы нужно проверять до релаксации через `k`, иначе путь
   `i..j` может проходить через саму `k`.
 
+## Оптимизированные решения
+
+Оптимизированная версия C++ сохраняет рекуррентную формулу Флойда–Уоршелла. Она обновляет
+каждую неупорядоченную пару вершин один раз, сохраняя симметрию матрицы. При положительных
+весах путь длиной не меньше уже найденного цикла не поможет найти более короткий цикл.
+Расстояния помещаются в 16 бит, номера следующих вершин — в 8 бит. Посылка 11316956 заняла
+0,015 с и 136 КБ против 0,046 с и 360 КБ у базы.
+
+Версия Go так же использует симметричные обновления и отсекает слишком длинные пути. Расстояния хранятся в 16 битах, номера следующих вершин — в 8 битах. Ввод и вывод буферизованы. Посылка 11317015 заняла 0,015 с и 988 КБ против 0,031 с и 3356 КБ у базовой версии.
+
+Версия Rust обновляет расстояния симметрично и отсекает пути, которые не улучшают лучший цикл. Расстояния хранятся в 16 битах, номера следующих вершин — в 8 битах. Посылка 11317149 заняла 0,015 с и 244 КБ против 0,015 с и 1096 КБ у базовой версии.
+
+Версия PyPy обновляет расстояния симметрично, отсекает пути, которые не улучшают лучший цикл, и хранит следующие вершины в массивах байтов. Посылка 11317152 заняла 0,187 с и 4452 КБ против 0,187 с и 9912 КБ у базовой версии под PyPy.
+
+Версия Java обновляет расстояния симметрично и отсекает пути, которые не улучшают лучший цикл. Расстояния хранятся в массивах short, следующие вершины — в массивах байтов. Посылка 11317153 заняла 0,109 с и 844 КБ против 0,125 с и 1384 КБ у базы.
+
 ## Особенности языков
 
 - **C++**, **Go**, **Rust**: простые циклы `O(N^3)` с большим запасом
@@ -121,10 +137,24 @@ No solution.
 
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1004_shortest_paths_graphs.cpp](1004_shortest_paths_graphs.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.046 s | 360 KB |
-| [1004_shortest_paths_graphs.go](1004_shortest_paths_graphs.go) | Go 1.14 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.031 s | 3356 KB |
-| [1004_shortest_paths_graphs.java](1004_shortest_paths_graphs.java) | Java 1.8 | shortest_paths, graphs | O(N^3) per test | AC | 0.125 s | 1384 KB |
-| [1004_shortest_paths_graphs.py](1004_shortest_paths_graphs.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.187 s | 9912 KB |
-| [1004_shortest_paths_graphs.rs](1004_shortest_paths_graphs.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.015 s | 1096 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1004_shortest_paths_graphs.cpp](1004_shortest_paths_graphs.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.046 s | 360 KB | 11277433 |
+| [1004_shortest_paths_graphs.go](1004_shortest_paths_graphs.go) | Go 1.14 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.031 s | 3356 KB | 11277584 |
+| [1004_shortest_paths_graphs.java](1004_shortest_paths_graphs.java) | Java 1.8 | shortest_paths, graphs | O(N^3) per test | AC | 0.125 s | 1384 KB | 11277599 |
+| [1004_shortest_paths_graphs.py](1004_shortest_paths_graphs.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.187 s | 9912 KB | 11277592 |
+| [1004_shortest_paths_graphs.rs](1004_shortest_paths_graphs.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.015 s | 1096 KB | 11277603 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1004_shortest_paths_graphs_optimized.cpp](1004_shortest_paths_graphs_optimized.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 136 KB | 11316956 |
+| [1004_shortest_paths_graphs_optimized.go](1004_shortest_paths_graphs_optimized.go) \* | Go 1.14 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 988 KB | 11317015 |
+| [1004_shortest_paths_graphs_optimized.rs](1004_shortest_paths_graphs_optimized.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 244 KB | 11317149 |
+| [1004_shortest_paths_graphs_optimized.py](1004_shortest_paths_graphs_optimized.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) | AC | 0.187 s | 4452 KB | 11317152 |
+| [1004_shortest_paths_graphs_optimized.java](1004_shortest_paths_graphs_optimized.java) | Java 1.8 | shortest_paths, graphs | O(N^3) | AC | 0.109 s | 844 KB | 11317153 |
+
+\* Решение принято. Целевой рейтинг остаётся открытым: в срезе нет сопоставимых посылок Go от других авторов.

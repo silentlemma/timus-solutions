@@ -98,6 +98,19 @@ No solution.
 - 平行边中只应使用最短的那条；
 - 必须在经过 `k` 松弛之前检查候选环，否则路径 `i..j` 可能经过 `k` 本身。
 
+## 优化解法
+
+优化后的 C++ 版本沿用 Floyd–Warshall 递推。每对顶点只更新一次，并保持距离矩阵对称。由于边权为正，长度不小于已知最短环的路径无法帮助找到更短的环。距离用 16
+位存储，下一顶点编号用 8 位存储。提交 11316956 耗时 0.015 秒、使用 136 KB；基础版本为 0.046 秒和 360 KB。
+
+Go 版本同样对称更新距离，并跳过过长的路径。距离用 16 位存储，下一顶点编号用 8 位存储，输入和输出均使用缓冲。提交 11317015 耗时 0.015 秒、使用 988 KB；基础版本为 0.031 秒和 3356 KB。
+
+Rust 版本对称更新距离，并跳过无法改进最短环的路径。距离用 16 位存储，下一顶点编号用 8 位存储。提交 11317149 耗时 0.015 秒、使用 244 KB；基础版本为 0.015 秒和 1096 KB。
+
+PyPy 版本对称更新距离，跳过无法改进最短环的路径，并用字节数组存储下一顶点。提交 11317152 耗时 0.187 秒，使用 4452 KB；基础版在 PyPy 下耗时 0.187 秒，使用 9912 KB。
+
+Java 版本对称更新距离，并跳过无法改进最短环的路径。距离用 short 数组存储，下一顶点用字节数组存储。提交 11317153 耗时 0.109 秒，使用 844 KB；基础版耗时 0.125 秒，使用 1384 KB。
+
 ## 各语言说明
 
 - **C++**、**Go**、**Rust**：普通的 `O(N^3)` 循环远低于时间限制。
@@ -108,10 +121,24 @@ No solution.
 
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1004_shortest_paths_graphs.cpp](1004_shortest_paths_graphs.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.046 s | 360 KB |
-| [1004_shortest_paths_graphs.go](1004_shortest_paths_graphs.go) | Go 1.14 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.031 s | 3356 KB |
-| [1004_shortest_paths_graphs.java](1004_shortest_paths_graphs.java) | Java 1.8 | shortest_paths, graphs | O(N^3) per test | AC | 0.125 s | 1384 KB |
-| [1004_shortest_paths_graphs.py](1004_shortest_paths_graphs.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.187 s | 9912 KB |
-| [1004_shortest_paths_graphs.rs](1004_shortest_paths_graphs.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.015 s | 1096 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1004_shortest_paths_graphs.cpp](1004_shortest_paths_graphs.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.046 s | 360 KB | 11277433 |
+| [1004_shortest_paths_graphs.go](1004_shortest_paths_graphs.go) | Go 1.14 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.031 s | 3356 KB | 11277584 |
+| [1004_shortest_paths_graphs.java](1004_shortest_paths_graphs.java) | Java 1.8 | shortest_paths, graphs | O(N^3) per test | AC | 0.125 s | 1384 KB | 11277599 |
+| [1004_shortest_paths_graphs.py](1004_shortest_paths_graphs.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.187 s | 9912 KB | 11277592 |
+| [1004_shortest_paths_graphs.rs](1004_shortest_paths_graphs.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) per test | AC | 0.015 s | 1096 KB | 11277603 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1004_shortest_paths_graphs_optimized.cpp](1004_shortest_paths_graphs_optimized.cpp) | G++ 13.2 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 136 KB | 11316956 |
+| [1004_shortest_paths_graphs_optimized.go](1004_shortest_paths_graphs_optimized.go) \* | Go 1.14 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 988 KB | 11317015 |
+| [1004_shortest_paths_graphs_optimized.rs](1004_shortest_paths_graphs_optimized.rs) | Rust 1.75 x64 | shortest_paths, graphs | O(N^3) | AC | 0.015 s | 244 KB | 11317149 |
+| [1004_shortest_paths_graphs_optimized.py](1004_shortest_paths_graphs_optimized.py) | PyPy 3.10 x64 | shortest_paths, graphs | O(N^3) | AC | 0.187 s | 4452 KB | 11317152 |
+| [1004_shortest_paths_graphs_optimized.java](1004_shortest_paths_graphs_optimized.java) | Java 1.8 | shortest_paths, graphs | O(N^3) | AC | 0.109 s | 844 KB | 11317153 |
+
+\* 已通过评测。排名快照中没有其他作者的可比 Go 提交，因而尚未确认达到排名目标。
