@@ -76,15 +76,44 @@ YES
 
 ## 各语言说明
 
-- 所有语言都先把每个长度四舍五入成十分之一单位（浮点数中 `x · 10` 不一定是整数），
+- 简单版本先把每个长度四舍五入成十分之一单位（浮点数中 `x · 10` 不一定是整数），
   之后只用整数。
+
+## 优化解法
+
+优化版本直接将输入尺寸读成十分之一单位，再使用同样的整数判定。
+
+Go 直接将尺寸读成十分之一单位，并用精确的整数算术执行几何判定。 Go 1.14 x64（提交 11322881）的运行时间从 0.015 秒变为 0.015 秒，内存从 1080 KB 变为 308 KB。
+
+Python 3.12 x64（提交 11318418）的运行时间从 0.078 秒变为 0.062 秒，内存从 420 KB 变为 464 KB。
+
+Java 1.8（提交 11318424）的运行时间从 0.109 秒变为 0.109 秒，内存从 536 KB 变为 364 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321887 · Go 1.14 x64 №11322221 · Java 1.8 №11322222 · Python 3.12 x64 №11322223 · Rust 1.75 x64 №11322224.
+
+Rust 以十分之一为单位读取砖块最小的两个尺寸，并用整数不等式判断旋转后能否通过。 Rust 1.75 x64（提交 11323284）的运行时间从 0.015 秒变为 0.046 秒，内存从 236 KB 变为 52 KB。
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1234_geometry.cpp](1234_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 140 KB |
-| [1234_geometry.go](1234_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1108 KB |
-| [1234_geometry.java](1234_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 532 KB |
-| [1234_geometry.py](1234_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 440 KB |
-| [1234_geometry.rs](1234_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1234_geometry.cpp](1234_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11321887 |
+| [1234_geometry.go](1234_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1080 KB | 11322221 |
+| [1234_geometry.java](1234_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 536 KB | 11322222 |
+| [1234_geometry.py](1234_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 420 KB | 11322223 |
+| [1234_geometry.rs](1234_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB | 11322224 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1234_geometry_optimized.go](1234_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 308 KB | 11322881 |
+| [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
+| [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
+| [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+
+\* 带星号的版本仍有提升排名的空间。

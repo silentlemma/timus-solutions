@@ -84,15 +84,44 @@ within 2·10⁻⁴ of 2.
 
 ## Language notes
 
-- All languages convert each length to tenths with rounding (`x · 10`
+- The simple versions convert each length to tenths with rounding (`x · 10`
   is not always a whole number in floating point) and then use integers.
+
+## Optimized solutions
+
+Optimized versions read tenths directly from the input and use the same integer test.
+
+Go reads dimensions directly in tenths and applies the exact integer geometric test. Go 1.14 x64, submission 11322881. Time 0.015 → 0.015 s, memory 1080 → 308 KB.
+
+Python 3.12 x64, submission 11318418. Time 0.078 → 0.062 s, memory 420 → 464 KB.
+
+Java 1.8, submission 11318424. Time 0.109 → 0.109 s, memory 536 → 364 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321887 · Go 1.14 x64 №11322221 · Java 1.8 №11322222 · Python 3.12 x64 №11322223 · Rust 1.75 x64 №11322224.
+
+Rust checks the two smallest brick dimensions in tenths with an integer inequality for the rotated fit. Rust 1.75 x64, submission 11323284. Time 0.015 → 0.046 s, memory 236 → 52 KB.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1234_geometry.cpp](1234_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 140 KB |
-| [1234_geometry.go](1234_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1108 KB |
-| [1234_geometry.java](1234_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 532 KB |
-| [1234_geometry.py](1234_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 440 KB |
-| [1234_geometry.rs](1234_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1234_geometry.cpp](1234_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11321887 |
+| [1234_geometry.go](1234_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1080 KB | 11322221 |
+| [1234_geometry.java](1234_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.109 s | 536 KB | 11322222 |
+| [1234_geometry.py](1234_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 420 KB | 11322223 |
+| [1234_geometry.rs](1234_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB | 11322224 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1234_geometry_optimized.go](1234_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 308 KB | 11322881 |
+| [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
+| [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
+| [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+
+\* The marked versions have room to improve in the ratings.
