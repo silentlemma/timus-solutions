@@ -85,12 +85,41 @@ listed swaps with the plates changing hands.
 - Every language removes a route's group from its map once it is used
   (`pop`, `erase`, `delete`, `remove`), so no bus enters the queue twice.
 
+## Optimized solutions
+
+Group buses by their front route in compact arrays. Run breadth-first search on route numbers, storing the bus that first reaches each route to reconstruct the swaps.
+
+Python submission 11317785 took 0.062 s and used 960 KB. The simple version took 0.078 s and used 756 KB.
+
+Go submission 11317790 took 0.031 s and used 892 KB. The simple version took 0.031 s and used 1396 KB.
+
+Rust submission 11317798 took 0.015 s and used 256 KB. The simple version took 0.062 s and used 492 KB.
+
+Java submission 11317805 took 0.109 s and used 432 KB. The simple version took 0.171 s and used 5620 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321827 · Go 1.14 x64 №11322170 · Java 1.8 №11322171 · Python 3.12 x64 №11322172 · Rust 1.75 x64 №11322173.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1096_bfs.cpp](1096_bfs.cpp) | G++ 13.2 x64 | bfs | O(K log K) | AC | 0.015 s | 368 KB |
-| [1096_bfs.go](1096_bfs.go) | Go 1.14 x64 | bfs | O(K) | AC | 0.015 s | 1388 KB |
-| [1096_bfs.java](1096_bfs.java) | Java 1.8 | bfs | O(K) | AC | 0.187 s | 5636 KB |
-| [1096_bfs.py](1096_bfs.py) | Python 3.12 x64 | bfs | O(K) | AC | 0.078 s | 796 KB |
-| [1096_bfs.rs](1096_bfs.rs) | Rust 1.75 x64 | bfs | O(K) | AC | 0.031 s | 504 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1096_bfs.cpp](1096_bfs.cpp) | G++ 13.2 x64 | bfs | O(K log K) | AC | 0.015 s | 352 KB | 11321827 |
+| [1096_bfs.go](1096_bfs.go) | Go 1.14 x64 | bfs | O(K) | AC | 0.031 s | 1396 KB | 11322170 |
+| [1096_bfs.java](1096_bfs.java) | Java 1.8 | bfs | O(K) | AC | 0.171 s | 5620 KB | 11322171 |
+| [1096_bfs.py](1096_bfs.py) | Python 3.12 x64 | bfs | O(K) | AC | 0.078 s | 756 KB | 11322172 |
+| [1096_bfs.rs](1096_bfs.rs) | Rust 1.75 x64 | bfs | O(K) | AC | 0.062 s | 492 KB | 11322173 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1096_bfs_optimized.py](1096_bfs_optimized.py) | Python 3.12 x64 | bfs | O(K + R) | AC | 0.062 s | 960 KB | 11317785 |
+| [1096_bfs_optimized.go](1096_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(K + R) | AC | 0.031 s | 892 KB | 11317790 |
+| [1096_bfs_optimized.rs](1096_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(K + R) | AC | 0.015 s | 256 KB | 11317798 |
+| [1096_bfs_optimized.java](1096_bfs_optimized.java) | Java 1.8 | bfs | O(K + R) | AC | 0.109 s | 432 KB | 11317805 |
+
+\* The marked solutions can improve their target rankings.

@@ -89,12 +89,41 @@ los cambios listados con las placas cambiando de manos.
   (`pop`, `erase`, `delete`, `remove`), para que ningún autobús entre dos
   veces en la cola.
 
+## Soluciones optimizadas
+
+Se agrupan los autobuses por la ruta delantera en arreglos compactos. La búsqueda en anchura recorre las rutas y registra el autobús que alcanza primero cada una para reconstruir los intercambios.
+
+El envío 11317785 en Python tardó 0.062 s y usó 960 KB. La versión sencilla tardó 0.078 s y usó 756 KB.
+
+El envío 11317790 en Go tardó 0.031 s y usó 892 KB. La versión sencilla tardó 0.031 s y usó 1396 KB.
+
+El envío 11317798 en Rust tardó 0.015 s y usó 256 KB. La versión sencilla tardó 0.062 s y usó 492 KB.
+
+El envío 11317805 en Java tardó 0.109 s y usó 432 KB. La versión sencilla tardó 0.171 s y usó 5620 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321827 · Go 1.14 x64 №11322170 · Java 1.8 №11322171 · Python 3.12 x64 №11322172 · Rust 1.75 x64 №11322173.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1096_bfs.cpp](1096_bfs.cpp) | G++ 13.2 x64 | bfs | O(K log K) | AC | 0.015 s | 368 KB |
-| [1096_bfs.go](1096_bfs.go) | Go 1.14 x64 | bfs | O(K) | AC | 0.015 s | 1388 KB |
-| [1096_bfs.java](1096_bfs.java) | Java 1.8 | bfs | O(K) | AC | 0.187 s | 5636 KB |
-| [1096_bfs.py](1096_bfs.py) | Python 3.12 x64 | bfs | O(K) | AC | 0.078 s | 796 KB |
-| [1096_bfs.rs](1096_bfs.rs) | Rust 1.75 x64 | bfs | O(K) | AC | 0.031 s | 504 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1096_bfs.cpp](1096_bfs.cpp) | G++ 13.2 x64 | bfs | O(K log K) | AC | 0.015 s | 352 KB | 11321827 |
+| [1096_bfs.go](1096_bfs.go) | Go 1.14 x64 | bfs | O(K) | AC | 0.031 s | 1396 KB | 11322170 |
+| [1096_bfs.java](1096_bfs.java) | Java 1.8 | bfs | O(K) | AC | 0.171 s | 5620 KB | 11322171 |
+| [1096_bfs.py](1096_bfs.py) | Python 3.12 x64 | bfs | O(K) | AC | 0.078 s | 756 KB | 11322172 |
+| [1096_bfs.rs](1096_bfs.rs) | Rust 1.75 x64 | bfs | O(K) | AC | 0.062 s | 492 KB | 11322173 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1096_bfs_optimized.py](1096_bfs_optimized.py) | Python 3.12 x64 | bfs | O(K + R) | AC | 0.062 s | 960 KB | 11317785 |
+| [1096_bfs_optimized.go](1096_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(K + R) | AC | 0.031 s | 892 KB | 11317790 |
+| [1096_bfs_optimized.rs](1096_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(K + R) | AC | 0.015 s | 256 KB | 11317798 |
+| [1096_bfs_optimized.java](1096_bfs_optimized.java) | Java 1.8 | bfs | O(K + R) | AC | 0.109 s | 432 KB | 11317805 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
