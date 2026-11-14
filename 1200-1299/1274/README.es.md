@@ -73,12 +73,39 @@ generados.
 - Todos los lenguajes analizan la fracción por palabras, aparte el
   signo, e imprimen con los mismos tres casos.
 
+## Soluciones optimizadas
+
+Go analiza los dígitos directamente desde los bytes del búfer de entrada. Go 1.14 x64, envío 11318448. Tiempo 0,031 → 0,015 s, memoria 1068 → 968 KB.
+
+Python lee cadenas de bytes y simplifica el resto fraccionario después de extraer la parte entera. Python 3.12 x64, envío 11318456. Tiempo 0,078 → 0,093 s, memoria 544 → 540 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321879 · Go 1.14 x64 №11322040 · Java 1.8 №11322043 · Python 3.12 x64 №11322042 · Rust 1.75 x64 №11322044.
+
+Java reutiliza un búfer fijo de bytes para leer cada línea y analiza los dígitos en el búfer. Java 1.8, envío 11321991. Tiempo 0,109 → 0,078 s, memoria 784 → 356 KB.
+
+Rust simplifica la fracción con el algoritmo de Euclides y escribe los enteros en un búfer fijo. Rust 1.75 x64, envío 11323303. Tiempo 0,046 → 0,062 s, memoria 232 → 44 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1274_math.cpp](1274_math.cpp) | G++ 13.2 x64 | math | O(log 30000) | AC | 0.015 s | 424 KB |
-| [1274_math.go](1274_math.go) | Go 1.14 x64 | math | O(log 30000) | AC | 0.031 s | 1068 KB |
-| [1274_math.java](1274_math.java) | Java 1.8 | math | O(log 30000) | AC | 0.109 s | 784 KB |
-| [1274_math.py](1274_math.py) | Python 3.12 x64 | math | O(log 30000) | AC | 0.078 s | 544 KB |
-| [1274_math.rs](1274_math.rs) | Rust 1.75 x64 | math | O(log 30000) | AC | 0.031 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1274_math.cpp](1274_math.cpp) | G++ 13.2 x64 | math | O(log 30000) | AC | 0.015 s | 408 KB | 11321879 |
+| [1274_math.go](1274_math.go) | Go 1.14 x64 | math | O(log 30000) | AC | 0.046 s | 1048 KB | 11322040 |
+| [1274_math.java](1274_math.java) | Java 1.8 | math | O(log 30000) | AC | 0.093 s | 740 KB | 11322043 |
+| [1274_math.py](1274_math.py) | Python 3.12 x64 | math | O(log 30000) | AC | 0.078 s | 556 KB | 11322042 |
+| [1274_math.rs](1274_math.rs) | Rust 1.75 x64 | math | O(log 30000) | AC | 0.046 s | 232 KB | 11322044 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1274_math_optimized.go](1274_math_optimized.go) \* | Go 1.14 x64 | math | O(log 30000) | AC | 0.015 s | 968 KB | 11318448 |
+| [1274_math_optimized.py](1274_math_optimized.py) \* | Python 3.12 x64 | math | O(log 30000) | AC | 0.093 s | 540 KB | 11318456 |
+| [1274_math_optimized.java](1274_math_optimized.java) | Java 1.8 | math | O(log 30000) | AC | 0.078 s | 356 KB | 11321991 |
+| [1274_math_optimized.rs](1274_math_optimized.rs) \* | Rust 1.75 x64 | math | O(log 30000) | AC | 0.062 s | 44 KB | 11323303 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.
