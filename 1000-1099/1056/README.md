@@ -92,17 +92,39 @@ Another way is to peel off all leaves layer by layer until one or two
 vertices remain; the tests were checked with it and, for small trees, by
 the distances from every vertex.
 
+## Optimized solutions
+
+Process vertices in decreasing order, since every parent has a smaller number. Keep the longest downward arm and its endpoint for each vertex. Each child offers a new arm; joining it to the longest previous arm through the parent gives the longest path using that child and an already processed branch. The maximum of these paths is the diameter. Starting from the end of the longer arm, climb half the diameter to find the middle vertex, or the two adjacent middle vertices when the diameter is odd. Time and space are O(N).
+
+Every path between two vertices has a highest vertex where its two arms meet. When the later of those branches is processed, the algorithm checks it against the longest earlier branch at that vertex. The middle of the diameter lies on the longer arm or at the fork, so following parent links from the longer arm's endpoint is enough.
+
 ## Language notes
 
-- All languages run the same two breadth-first searches with an array as
-  the queue.
+The five BFS implementations use an array as their queue. The Python tree version stores parents and downward arms instead of adjacency lists. Submission 11316948 used 1,532 KB versus 3,040 KB for BFS and took 0.093 s versus 0.062 s.
+
+Go stores the parent, longest downward arm and its endpoint in 16-bit arrays. Submission 11317158 took 0.031 s and used 1196 KB, versus 0.015 s and 2972 KB for the BFS version.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321750 · Java 1.8 №11321752 · Rust 1.75 x64 №11321755 · Go 1.14 x64 №11322056 · Python 3.12 x64 №11322057.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1056_bfs.cpp](1056_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.015 s | 596 KB |
-| [1056_bfs.go](1056_bfs.go) | Go 1.14 x64 | bfs | O(N) | AC | 0.015 s | 2964 KB |
-| [1056_bfs.java](1056_bfs.java) | Java 1.8 | bfs | O(N) | AC | 0.093 s | 2536 KB |
-| [1056_bfs.py](1056_bfs.py) | Python 3.12 x64 | bfs | O(N) | AC | 0.078 s | 3088 KB |
-| [1056_bfs.rs](1056_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.015 s | 1380 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1056_bfs.cpp](1056_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.001 s | 580 KB | 11321750 |
+| [1056_bfs.go](1056_bfs.go) | Go 1.14 x64 | bfs | O(N) | AC | 0.015 s | 2972 KB | 11322056 |
+| [1056_bfs.java](1056_bfs.java) | Java 1.8 | bfs | O(N) | AC | 0.078 s | 2548 KB | 11321752 |
+| [1056_bfs.py](1056_bfs.py) | Python 3.12 x64 | bfs | O(N) | AC | 0.062 s | 3040 KB | 11322057 |
+| [1056_bfs.rs](1056_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.015 s | 1376 KB | 11321755 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1056_trees.py](1056_trees.py) \* | Python 3.12 x64 | trees | O(N) | AC | 0.093 s | 1532 KB | 11316948 |
+| [1056_trees.go](1056_trees.go) \* | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1196 KB | 11317158 |
+
+\* Accepted; the Python rating target is still open. The saved rating has no comparable Go submissions from other authors.
