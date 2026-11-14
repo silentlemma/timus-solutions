@@ -9,9 +9,11 @@ public class Main {
         // the numbers are kept in limbs of base k^m, the largest power of k up
         // to a million, and digitSum[v] is the sum of the base-k digits of a limb
         int base = 1;
-        while (base <= LIMB_LIMIT / k) base *= k;
+        while (base <= LIMB_LIMIT / k)
+            base *= k;
         int[] digitSum = new int[base];
-        for (int v = 1; v < base; v++) digitSum[v] = digitSum[v / k] + v % k;
+        for (int v = 1; v < base; v++)
+            digitSum[v] = digitSum[v / k] + v % k;
 
         int[] cost = new int[n];
         cost[0] = cost[1] = 1;
@@ -40,15 +42,20 @@ public class Main {
         }
         // counting sort by cost keeps equal costs in order of number
         int top = 0;
-        for (int c : cost) top = Math.max(top, c);
+        for (int c : cost)
+            top = Math.max(top, c);
         int[] start = new int[top + 2];
-        for (int c : cost) start[c + 1]++;
-        for (int c = 1; c <= top + 1; c++) start[c] += start[c - 1];
+        for (int c : cost)
+            start[c + 1]++;
+        for (int c = 1; c <= top + 1; c++)
+            start[c] += start[c - 1];
         int[] order = new int[n];
-        for (int i = 0; i < n; i++) order[start[cost[i]]++] = i + 1;
+        for (int i = 0; i < n; i++)
+            order[start[cost[i]]++] = i + 1;
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < n; i++) {
-            if (i > 0) out.append(' ');
+            if (i > 0)
+                out.append(' ');
             out.append(order[i]);
         }
         System.out.println(out);

@@ -5,7 +5,10 @@ const LIMB_LIMIT: usize = 1_000_000;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<usize> = input.split_ascii_whitespace().map(|x| x.parse().unwrap()).collect();
+    let v: Vec<usize> = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
     let (k, n) = (v[0], v[1]);
     // the numbers are kept in limbs of base k^m, the largest power of k up
     // to a million, and digit_sum[v] is the sum of the base-k digits of a limb
