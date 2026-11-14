@@ -55,12 +55,46 @@ ALARM!
 - 相对速度很小时时间可能很大，测试 07 中接近 10⁶ 秒，所以不能预先给时间设上限；
 - 用半判别式 b = p·v 和 b² − a·c，就不必处理因子 4。
 
+简单版 C++ 将十进制输入缩放为整数，精确计算判别式的符号。简单版 Java 将十进制输入缩放为整数，精确计算判别式的符号。
+
+简单版 Rust 将十进制输入缩放为整数，精确计算判别式的符号。
+
+## 优化解法
+
+Python 按 x 坐标排序，并跳过在这一轴上的间距无法缩短到临界距离的物体对。找到一次接近后，用其时间的整数上界限制枚举。其余物体对的判别式符号均用整数精确计算。 Python 3.12 x64（提交 11322507）的运行时间从 0.203 秒变为 0.078 秒，内存从 1492 KB 变为 1084 KB。
+
+Java 提交 11321903 耗时 0.125 秒，使用 1780 KB。当前简单版耗时 0.281 秒，使用 7020 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322335 · Go 1.14 x64 №11322334 · Java 1.8 №11322333 · Python 3.12 x64 №11322332 · Rust 1.75 x64 №11322336.
+
+Go 跳过正在远离的飞机对。对于接近相切的飞机对，直接从原始十进制数用有理数运算重新计算判别式，再用稳定的公式求进入时刻。
+
+C++ 用叉积计算最短距离，并以四倍精度复核接近相切的轨迹。
+
+Rust 将十进制输入缩放为整数。若缩放后各数的绝对值均不超过 500,000,000，则用 128 位整数精确计算判别式，否则使用任意精度整数。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1600_geometry.cpp](1600_geometry.cpp) | G++ 13.2 x64 | geometry | O(n²) | AC | 0.015 s | 272 KB |
-| [1600_geometry.go](1600_geometry.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.015 s | 1156 KB |
-| [1600_geometry.java](1600_geometry.java) | Java 1.8 | geometry | O(n²) | AC | 0.109 s | 1068 KB |
-| [1600_geometry.py](1600_geometry.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.156 s | 928 KB |
-| [1600_geometry.rs](1600_geometry.rs) | Rust 1.75 x64 | geometry | O(n²) | AC | 0.062 s | 328 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1600_geometry.cpp](1600_geometry.cpp) | G++ 13.2 x64 | geometry | O(n²) | AC | 0.328 s | 664 KB | 11322335 |
+| [1600_geometry.go](1600_geometry.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.093 s | 2428 KB | 11322334 |
+| [1600_geometry.java](1600_geometry.java) | Java 1.8 | geometry | O(n²) | AC | 0.281 s | 7020 KB | 11322333 |
+| [1600_geometry.py](1600_geometry.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.203 s | 1492 KB | 11322332 |
+| [1600_geometry.rs](1600_geometry.rs) | Rust 1.75 x64 | geometry | O(n²) | AC | 0.234 s | 616 KB | 11322336 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
+| [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
+| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |
+| [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

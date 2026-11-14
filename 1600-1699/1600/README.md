@@ -67,12 +67,46 @@ Pitfalls:
 - with half the discriminant, b = p·v and b² − a·c, there is no factor
   4 to carry around.
 
+The simple C++ version scales the decimal inputs to integers and computes the sign of the discriminant exactly. The simple Java version scales the decimal inputs to integers and computes the sign of the discriminant exactly.
+
+The simple Rust version scales the decimal inputs to integers and computes the sign of the discriminant exactly.
+
+## Optimized solutions
+
+Python orders the objects by x and skips pairs whose separation on that axis cannot fall to the critical distance. Once an encounter is found, an integer upper bound on its time limits the scan. The sign of each remaining discriminant is computed exactly. Python 3.12 x64, submission 11322507. Time 0.203 → 0.078 s, memory 1492 → 1084 KB.
+
+Java submission 11321903 took 0.125 s and used 1780 KB. The current simple version took 0.281 s and used 7020 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322335 · Go 1.14 x64 №11322334 · Java 1.8 №11322333 · Python 3.12 x64 №11322332 · Rust 1.75 x64 №11322336.
+
+Go skips pairs that are moving apart. For pairs close to tangency it recomputes the discriminant from the original decimal values using rational arithmetic, then uses the stable entry-time formula.
+
+C++ uses the cross product to compute the closest separation and rechecks near-tangent trajectories in quadruple precision.
+
+Rust scales the decimal input to integers. It computes the discriminant exactly using 128-bit integers when every scaled input has magnitude at most 500,000,000, and uses arbitrary-precision integers otherwise.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1600_geometry.cpp](1600_geometry.cpp) | G++ 13.2 x64 | geometry | O(n²) | AC | 0.015 s | 272 KB |
-| [1600_geometry.go](1600_geometry.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.015 s | 1156 KB |
-| [1600_geometry.java](1600_geometry.java) | Java 1.8 | geometry | O(n²) | AC | 0.109 s | 1068 KB |
-| [1600_geometry.py](1600_geometry.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.156 s | 928 KB |
-| [1600_geometry.rs](1600_geometry.rs) | Rust 1.75 x64 | geometry | O(n²) | AC | 0.062 s | 328 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1600_geometry.cpp](1600_geometry.cpp) | G++ 13.2 x64 | geometry | O(n²) | AC | 0.328 s | 664 KB | 11322335 |
+| [1600_geometry.go](1600_geometry.go) | Go 1.14 x64 | geometry | O(n²) | AC | 0.093 s | 2428 KB | 11322334 |
+| [1600_geometry.java](1600_geometry.java) | Java 1.8 | geometry | O(n²) | AC | 0.281 s | 7020 KB | 11322333 |
+| [1600_geometry.py](1600_geometry.py) | Python 3.12 x64 | geometry | O(n²) | AC | 0.203 s | 1492 KB | 11322332 |
+| [1600_geometry.rs](1600_geometry.rs) | Rust 1.75 x64 | geometry | O(n²) | AC | 0.234 s | 616 KB | 11322336 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
+| [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
+| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |
+| [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
+
+\* The marked solutions can improve their target rankings.

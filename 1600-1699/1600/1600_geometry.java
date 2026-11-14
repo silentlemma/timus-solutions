@@ -1,55 +1,88 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedInputStream;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
-    static final int DIM = 3; // x, y, z, then vx, vy, vz
-    static final int COORDS = 2 * DIM;
+    private static final int DIMENSIONS = 3;
+    private static final int COMPONENTS = 2 * DIMENSIONS;
 
-    public static void main(String[] args) throws IOException {
-        StreamTokenizer in =
-            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
-        if (in.nextToken() == StreamTokenizer.TT_EOF)
-            return;
-        int n = (int)in.nval;
-        in.nextToken();
-        double d = in.nval;
-        double[][] obj = new double[n][COORDS];
-        for (double[] o : obj)
-            for (int k = 0; k < COORDS; k++) {
-                in.nextToken();
-                o[k] = in.nval;
+    private static double ratio(BigInteger numerator, BigInteger denominator) {
+        double a = numerator.doubleValue();
+        double b = denominator.doubleValue();
+        if (Double.isFinite(a) && Double.isFinite(b)) {
+            return a / b;
+        }
+        return new BigDecimal(numerator)
+            .divide(new BigDecimal(denominator), MathContext.DECIMAL128)
+            .doubleValue();
+    }
+
+    private static double entry(BigInteger[] first, BigInteger[] second,
+                                BigInteger distanceSquared) {
+        BigInteger speedSquared = BigInteger.ZERO;
+        BigInteger projection = BigInteger.ZERO;
+        BigInteger gap = distanceSquared.negate();
+        for (int axis = 0; axis < DIMENSIONS; axis++) {
+            BigInteger position = second[axis].subtract(first[axis]);
+            BigInteger velocity = second[axis + DIMENSIONS].subtract(first[axis + DIMENSIONS]);
+            projection = projection.add(position.multiply(velocity));
+            speedSquared = speedSquared.add(velocity.multiply(velocity));
+            gap = gap.add(position.multiply(position));
+        }
+        if (projection.signum() >= 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+
+        BigInteger projectionSquared = projection.multiply(projection);
+        BigInteger discriminant = projectionSquared.subtract(speedSquared.multiply(gap));
+        if (discriminant.signum() < 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+        // Take the square root only after the exact comparison and normalization.
+        double root = Math.sqrt(ratio(discriminant, projectionSquared));
+        return ratio(gap, projection.negate()) / (1 + root);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(new BufferedInputStream(System.in));
+        int count = input.nextInt();
+        BigDecimal distance = new BigDecimal(input.next());
+        BigDecimal[][] decimal = new BigDecimal[count][COMPONENTS];
+        int scale = distance.scale();
+        for (BigDecimal[] object : decimal) {
+            for (int axis = 0; axis < COMPONENTS; axis++) {
+                object[axis] = new BigDecimal(input.next()).stripTrailingZeros();
+                scale = Math.max(scale, object[axis].scale());
             }
+        }
+
+        BigInteger[][] objects = new BigInteger[count][COMPONENTS];
+        for (int i = 0; i < count; i++) {
+            for (int axis = 0; axis < COMPONENTS; axis++) {
+                objects[i][axis] = decimal[i][axis].setScale(scale).unscaledValue();
+            }
+        }
+        BigInteger limit = distance.setScale(scale).unscaledValue();
+        BigInteger distanceSquared = limit.multiply(limit);
         double best = Double.POSITIVE_INFINITY;
-        int bestA = -1, bestB = -1;
-        for (int i = 0; i < n; i++)
-            for (int j = i + 1; j < n; j++) {
-                double[] p = obj[i], q = obj[j];
-                // |p + v t| = d for the relative position p and velocity v:
-                // (v.v) t^2 + 2 (p.v) t + (p.p - d^2) = 0
-                double a = 0, b = 0, c = -d * d;
-                for (int k = 0; k < DIM; k++) {
-                    double dp = q[k] - p[k], dv = q[DIM + k] - p[DIM + k];
-                    a += dv * dv;
-                    b += dp * dv;
-                    c += dp * dp;
-                }
-                if (a == 0)
-                    continue;
-                double disc = b * b - a * c;
-                if (disc < 0)
-                    continue;
-                // the earlier root; the pair starts apart, so a negative one
-                // means they are moving away
-                double t = (-b - Math.sqrt(disc)) / a;
-                if (t >= 0 && t < best) {
-                    best = t;
-                    bestA = i + 1;
-                    bestB = j + 1;
+        int first = 0, second = 0;
+        for (int i = 0; i < count; i++) {
+            for (int j = i + 1; j < count; j++) {
+                double time = entry(objects[i], objects[j], distanceSquared);
+                if (time < best) {
+                    best = time;
+                    first = i + 1;
+                    second = j + 1;
                 }
             }
-        if (bestA < 0)
+        }
+        if (first == 0) {
             System.out.println("OK");
-        else
-            System.out.printf(Locale.US, "ALARM!%n%.3f %d %d%n", best, bestA, bestB);
+        } else {
+            System.out.printf(Locale.US, "ALARM!%n%.3f %d %d%n", best, first, second);
+        }
     }
 }
