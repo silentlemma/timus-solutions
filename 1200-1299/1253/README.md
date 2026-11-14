@@ -83,12 +83,42 @@ Pitfalls:
   the other languages walk the characters and write the text straight
   into one buffer.
 
+## Optimized solutions
+
+The C++ variant measures the expansion first and then writes literal spans directly to buffered output. It skips references whose expansion is empty and keeps no buffer for the full result. With S input characters, L output characters and N templates, the running time is O(S + NL) and the extra space is O(S + N). The metrics come from submission 11317000.
+
+Java 1.8 stores templates as byte arrays, measures the expansion, then writes literal spans through a buffer without building the complete result. Submission 11317131 took 0.062 s and 432 KB; the base took 0.109 s and 6088 KB.
+
+Rust 1.75 x64 parses templates into literal spans and references, measures the expansion, then writes spans through a buffer without materializing the result. Submission 11317130 took 0.015 s and 212 KB; the base took 0.015 s and 2032 KB.
+
+Python 3.12 x64 computes lengths before output, caches expansions of at most 4096 bytes and writes longer expansions in pieces. Submission 11317128 took 0.062 s and 660 KB; the base took 0.078 s and 4356 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322206 · Go 1.14 x64 №11322207 · Java 1.8 №11322208 · Python 3.12 x64 №11322209 · Rust 1.75 x64 №11322210.
+
+Go computes expansion lengths before writing and streams literal spans and references. When the output is large, it caches expansions that fit in a fixed buffer. Go 1.14 x64, submission 11322833. Time 0.015 → 0.015 s, memory 940 → 400 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1253_strings.cpp](1253_strings.cpp) | G++ 13.2 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2280 KB |
-| [1253_strings.go](1253_strings.go) | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 972 KB |
-| [1253_strings.java](1253_strings.java) | Java 1.8 | strings | O(S + L + 10^N) | AC | 0.093 s | 6120 KB |
-| [1253_strings.py](1253_strings.py) | Python 3.12 x64 | strings | O(N(S + L)) | AC | 0.078 s | 4556 KB |
-| [1253_strings.rs](1253_strings.rs) | Rust 1.75 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2080 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1253_strings.cpp](1253_strings.cpp) | G++ 13.2 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2264 KB | 11322206 |
+| [1253_strings.go](1253_strings.go) | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 940 KB | 11322207 |
+| [1253_strings.java](1253_strings.java) | Java 1.8 | strings | O(S + L + 10^N) | AC | 0.109 s | 6088 KB | 11322208 |
+| [1253_strings.py](1253_strings.py) | Python 3.12 x64 | strings | O(N(S + L)) | AC | 0.078 s | 4356 KB | 11322209 |
+| [1253_strings.rs](1253_strings.rs) | Rust 1.75 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2032 KB | 11322210 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1253_strings_optimized.cpp](1253_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(S + NL) | AC | 0.015 s | 172 KB | 11317000 |
+| [1253_strings_optimized.py](1253_strings_optimized.py) | Python 3.12 x64 | strings | O(S + NL) | AC | 0.062 s | 660 KB | 11317128 |
+| [1253_strings_optimized.rs](1253_strings_optimized.rs) | Rust 1.75 x64 | strings | O(S + NL) | AC | 0.015 s | 212 KB | 11317130 |
+| [1253_strings_optimized.java](1253_strings_optimized.java) | Java 1.8 | strings | O(S + NL) | AC | 0.062 s | 432 KB | 11317131 |
+| [1253_strings_optimized.go](1253_strings_optimized.go) \* | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 400 KB | 11322833 |
+
+\* The marked versions have room to improve in the ratings.

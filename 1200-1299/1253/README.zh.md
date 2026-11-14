@@ -71,12 +71,42 @@ We will miss her very much.
 - Python 把每个模板按 `*` 拆分一次并记住展开结果；其他语言逐字符处理，直接把文本写入
   一个缓冲区。
 
+## 优化解法
+
+C++ 版本先计算展开长度，再把字面文本片段直接写入输出缓冲区。它跳过展开结果为空的引用，无需保存完整结果。输入长度为 S、输出长度为 L、模板数为 N 时，时间复杂度为 O(S + NL)，额外空间为 O(S + N)。评测数据来自提交 11317000。
+
+Java 1.8 版本使用字节数组存储模板，先计算展开长度，再通过缓冲区逐段输出，无需保存完整结果。提交 11317131 耗时 0.062 秒，使用 432 KB；基础版耗时 0.109 秒，使用 6088 KB。
+
+Rust 1.75 x64 版本将模板拆成文本片段与引用，先计算展开长度，再通过缓冲区逐段输出，无需保存完整结果。提交 11317130 耗时 0.015 秒，使用 212 KB；基础版耗时 0.015 秒，使用 2032 KB。
+
+Python 3.12 x64 版本先计算长度，缓存不超过 4096 字节的展开结果，并分段输出较长的展开结果。提交 11317128 耗时 0.062 秒，使用 660 KB；基础版耗时 0.078 秒，使用 4356 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322206 · Go 1.14 x64 №11322207 · Java 1.8 №11322208 · Python 3.12 x64 №11322209 · Rust 1.75 x64 №11322210.
+
+Go 先计算展开长度，再逐段输出文本和引用。输出较大时，把能放入固定缓冲区的展开结果缓存起来。 Go 1.14 x64（提交 11322833）的运行时间从 0.015 秒变为 0.015 秒，内存从 940 KB 变为 400 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1253_strings.cpp](1253_strings.cpp) | G++ 13.2 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2280 KB |
-| [1253_strings.go](1253_strings.go) | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 972 KB |
-| [1253_strings.java](1253_strings.java) | Java 1.8 | strings | O(S + L + 10^N) | AC | 0.093 s | 6120 KB |
-| [1253_strings.py](1253_strings.py) | Python 3.12 x64 | strings | O(N(S + L)) | AC | 0.078 s | 4556 KB |
-| [1253_strings.rs](1253_strings.rs) | Rust 1.75 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2080 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1253_strings.cpp](1253_strings.cpp) | G++ 13.2 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2264 KB | 11322206 |
+| [1253_strings.go](1253_strings.go) | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 940 KB | 11322207 |
+| [1253_strings.java](1253_strings.java) | Java 1.8 | strings | O(S + L + 10^N) | AC | 0.109 s | 6088 KB | 11322208 |
+| [1253_strings.py](1253_strings.py) | Python 3.12 x64 | strings | O(N(S + L)) | AC | 0.078 s | 4356 KB | 11322209 |
+| [1253_strings.rs](1253_strings.rs) | Rust 1.75 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 2032 KB | 11322210 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1253_strings_optimized.cpp](1253_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(S + NL) | AC | 0.015 s | 172 KB | 11317000 |
+| [1253_strings_optimized.py](1253_strings_optimized.py) | Python 3.12 x64 | strings | O(S + NL) | AC | 0.062 s | 660 KB | 11317128 |
+| [1253_strings_optimized.rs](1253_strings_optimized.rs) | Rust 1.75 x64 | strings | O(S + NL) | AC | 0.015 s | 212 KB | 11317130 |
+| [1253_strings_optimized.java](1253_strings_optimized.java) | Java 1.8 | strings | O(S + NL) | AC | 0.062 s | 432 KB | 11317131 |
+| [1253_strings_optimized.go](1253_strings_optimized.go) \* | Go 1.14 x64 | strings | O(S + L + 10^N) | AC | 0.015 s | 400 KB | 11322833 |
+
+\* 带星号的版本仍有提升排名的空间。
