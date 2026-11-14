@@ -76,14 +76,46 @@ minX ≤ x ≤ maxX，minY ≤ y ≤ maxY，minS ≤ x + y ≤ maxS，minD ≤ x
 
 ## 各语言说明
 
-- C++、Go 和 Java 读入时只保留八个极值；Python 和 Rust 先读入所有点，内存也绰绰有余。
+- 简单版 C++、Go 和 Java 读入时只保留八个极值；Python 和 Rust 先读入所有点，内存也绰绰有余。
+
+## 优化解法
+
+优化版本在读取点的同时更新八个极值，只保存输入缓冲区、极值和输出顶点。
+
+Python 3.12 x64（提交 11319476）的运行时间从 0.093 秒变为 0.156 秒，内存从 25612 KB 变为 540 KB。
+
+G++ 13.2 x64（提交 11319478）的运行时间从 0.093 秒变为 0.015 秒，内存从 180 KB 变为 88 KB。
+
+Rust 1.75 x64（提交 11319507）的运行时间从 0.015 秒变为 0.015 秒，内存从 3692 KB 变为 204 KB。
+
+Go 1.14 x64（提交 11319554）的运行时间从 0.031 秒变为 0.015 秒，内存从 1664 KB 变为 908 KB。
+
+Java 1.8（提交 11322001）的运行时间从 0.109 秒变为 0.062 秒，内存从 492 KB 变为 400 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322246 · Go 1.14 x64 №11322247 · Java 1.8 №11322248 · Python 3.12 x64 №11322250 · Rust 1.75 x64 №11322251.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1305_geometry.cpp](1305_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.109 s | 196 KB |
-| [1305_geometry.go](1305_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 1680 KB |
-| [1305_geometry.java](1305_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.125 s | 544 KB |
-| [1305_geometry.py](1305_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.078 s | 26160 KB |
-| [1305_geometry.rs](1305_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 3716 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1305_geometry.cpp](1305_geometry.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.093 s | 180 KB | 11322246 |
+| [1305_geometry.go](1305_geometry.go) | Go 1.14 x64 | geometry | O(N) | AC | 0.031 s | 1664 KB | 11322247 |
+| [1305_geometry.java](1305_geometry.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 492 KB | 11322248 |
+| [1305_geometry.py](1305_geometry.py) | Python 3.12 x64 | geometry | O(N) | AC | 0.093 s | 25612 KB | 11322250 |
+| [1305_geometry.rs](1305_geometry.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 3692 KB | 11322251 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1305_geometry_optimized.py](1305_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N) | AC | 0.156 s | 540 KB | 11319476 |
+| [1305_geometry_optimized.cpp](1305_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 88 KB | 11319478 |
+| [1305_geometry_optimized.rs](1305_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 204 KB | 11319507 |
+| [1305_geometry_optimized.go](1305_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 908 KB | 11319554 |
+| [1305_geometry_optimized.java](1305_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.062 s | 400 KB | 11322001 |
+
+\* 带星号的版本仍有提升排名的空间。
