@@ -81,12 +81,42 @@ La búsqueda de vértices se comparó con una rejilla fina sobre la región
 en 3 000 casos aleatorios, y los ejemplos del foro dan las respuestas
 esperadas.
 
+## Soluciones optimizadas
+
+Se calculan los límites de las cuerdas con distancias al cuadrado y se ordenan de mayor a menor. Se omiten los pares cuyos límites no pueden mejorar el área. Si se pueden usar ambas longitudes máximas, se toman. En otro caso se prueban los dos extremos en que se tocan.
+
+**Envíos de las versiones optimizadas en Timus**
+
+Go ordena los árboles por coordenada horizontal y usa esa distancia para terminar antes la búsqueda del vecino más cercano.
+
+`1405_geometry_optimized.cpp` (G++ 13.2 x64) №11317478 · `1405_geometry_optimized.go` (Go 1.14 x64) №11322346 · `1405_geometry_optimized.java` (Java 1.8) №11317519 · `1405_geometry_optimized.py` (Python 3.12 x64) №11317508 · `1405_geometry_optimized.rs` (Rust 1.75 x64) №11323258.
+
+Rust ordena los árboles por x para detener antes la búsqueda de vecinos y examina primero los mayores radios posibles. Rust 1.75 x64, envío 11323258. Tiempo 0,031 → 0,015 s, memoria 308 → 76 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322120 · Go 1.14 x64 №11322121 · Java 1.8 №11322122 · Python 3.12 x64 №11322132 · Rust 1.75 x64 №11322133.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1405_geometry.cpp](1405_geometry.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.046 s | 240 KB |
-| [1405_geometry.go](1405_geometry.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.078 s | 1152 KB |
-| [1405_geometry.java](1405_geometry.java) | Java 1.8 | geometry | O(N^2) | AC | 0.140 s | 5560 KB |
-| [1405_geometry.py](1405_geometry.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.640 s | 1248 KB |
-| [1405_geometry.rs](1405_geometry.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.046 s | 304 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1405_geometry.cpp](1405_geometry.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.046 s | 224 KB | 11322120 |
+| [1405_geometry.go](1405_geometry.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.062 s | 1136 KB | 11322121 |
+| [1405_geometry.java](1405_geometry.java) | Java 1.8 | geometry | O(N^2) | AC | 0.14 s | 5548 KB | 11322122 |
+| [1405_geometry.py](1405_geometry.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.625 s | 1236 KB | 11322132 |
+| [1405_geometry.rs](1405_geometry.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.031 s | 308 KB | 11322133 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1405_geometry_optimized.cpp](1405_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.015 s | 232 KB | 11317478 |
+| [1405_geometry_optimized.go](1405_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
+| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
+| [1405_geometry_optimized.py](1405_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.125 s | 1064 KB | 11317508 |
+| [1405_geometry_optimized.java](1405_geometry_optimized.java) \* | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo. La versión Go tardó 0,031 s frente a los 0,062 s de la sencilla y usó 1016 KB frente a 1136 KB. La clasificación guardada no tiene envíos Go comparables de otros autores. La versión Rust tardó 0,031 s frente a los 0,031 s de la sencilla y usó 324 KB frente a 308 KB. La clasificación guardada no tiene envíos Rust comparables de otros autores. La versión Java usó 3204 KB frente a los 5548 KB de la sencilla y tardó 0,171 s frente a 0,14 s.

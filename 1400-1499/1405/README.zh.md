@@ -71,12 +71,42 @@ topᵢ = min(50, 到最近另一棵树的距离)。对于拴在相距 d 的树 i
 在 3 000 个随机情形上把顶点枚举与区域上的细网格做了比较，论坛中的例子也给出
 了预期的答案。
 
+## 优化解法
+
+用距离平方计算每棵树的绳长上限，再按上限降序排列。若一对树的两个上限无法改进当前面积，就跳过。若能同时取到两个上限，则直接使用，否则检查两根绳子恰好相接的两个端点。
+
+**优化版本的 Timus 提交记录**
+
+Go 按横坐标排序，并用水平距离提前结束最近邻扫描。
+
+`1405_geometry_optimized.cpp` (G++ 13.2 x64) №11317478 · `1405_geometry_optimized.go` (Go 1.14 x64) №11322346 · `1405_geometry_optimized.java` (Java 1.8) №11317519 · `1405_geometry_optimized.py` (Python 3.12 x64) №11317508 · `1405_geometry_optimized.rs` (Rust 1.75 x64) №11323258.
+
+Rust 按横坐标排序以提前停止最近邻扫描，并优先检查允许半径较大的点对。 Rust 1.75 x64（提交 11323258）的运行时间从 0.031 秒变为 0.015 秒，内存从 308 KB 变为 76 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322120 · Go 1.14 x64 №11322121 · Java 1.8 №11322122 · Python 3.12 x64 №11322132 · Rust 1.75 x64 №11322133.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1405_geometry.cpp](1405_geometry.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.046 s | 240 KB |
-| [1405_geometry.go](1405_geometry.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.078 s | 1152 KB |
-| [1405_geometry.java](1405_geometry.java) | Java 1.8 | geometry | O(N^2) | AC | 0.140 s | 5560 KB |
-| [1405_geometry.py](1405_geometry.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.640 s | 1248 KB |
-| [1405_geometry.rs](1405_geometry.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.046 s | 304 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1405_geometry.cpp](1405_geometry.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.046 s | 224 KB | 11322120 |
+| [1405_geometry.go](1405_geometry.go) | Go 1.14 x64 | geometry | O(N^2) | AC | 0.062 s | 1136 KB | 11322121 |
+| [1405_geometry.java](1405_geometry.java) | Java 1.8 | geometry | O(N^2) | AC | 0.14 s | 5548 KB | 11322122 |
+| [1405_geometry.py](1405_geometry.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.625 s | 1236 KB | 11322132 |
+| [1405_geometry.rs](1405_geometry.rs) | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.031 s | 308 KB | 11322133 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1405_geometry_optimized.cpp](1405_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N^2) | AC | 0.015 s | 232 KB | 11317478 |
+| [1405_geometry_optimized.go](1405_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N^2) | AC | 0.031 s | 1016 KB | 11322346 |
+| [1405_geometry_optimized.rs](1405_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N^2) | AC | 0.015 s | 76 KB | 11323258 |
+| [1405_geometry_optimized.py](1405_geometry_optimized.py) | Python 3.12 x64 | geometry | O(N^2) | AC | 0.125 s | 1064 KB | 11317508 |
+| [1405_geometry_optimized.java](1405_geometry_optimized.java) \* | Java 1.8 | geometry | O(N^2) | AC | 0.171 s | 3204 KB | 11317519 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。 Go 版耗时从 0.062 秒变为 0.031 秒，内存从 1136 KB 变为 1016 KB。保存的排名中没有其他作者的可比 Go 提交。 Rust 版耗时从 0.031 秒变为 0.031 秒，内存从 308 KB 变为 324 KB。保存的排名中没有其他作者的可比 Rust 提交。 Java 版内存从 5548 KB 变为 3204 KB，耗时从 0.14 秒变为 0.171 秒。
