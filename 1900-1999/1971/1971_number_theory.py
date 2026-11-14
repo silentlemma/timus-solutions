@@ -29,14 +29,14 @@ def classify(width, height, power, counts, primes):
     area = width * height
     limit = power // (LOW_FPS * area)
     if limit == 0:
-        return 'Slideshow'
+        return "Slideshow"
     product = 1
     for prime in primes:
         for _ in range(counts[prime]):
             if product > limit // prime:
-                return 'Slideshow'
+                return "Slideshow"
             product *= prime
-    return 'Perfect' if product <= power // (HIGH_FPS * area) else 'So-so'
+    return "Perfect" if product <= power // (HIGH_FPS * area) else "So-so"
 
 
 def main():
@@ -54,15 +54,15 @@ def main():
     answer = [classify(width, height, power, counts, primes)]
     for _ in range(int(read())):
         command = read().split()
-        if command[0] == b'Resolution':
+        if command[0] == b"Resolution":
             width, height = map(int, command[1:])
         else:
-            change = 1 if command[0] == b'On' else -1
+            change = 1 if command[0] == b"On" else -1
             for prime, exponent in factors[options[command[1]]]:
                 counts[prime] += change * exponent
         answer.append(classify(width, height, power, counts, primes))
-    sys.stdout.write('\n'.join(answer) + '\n')
+    sys.stdout.write("\n".join(answer) + "\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

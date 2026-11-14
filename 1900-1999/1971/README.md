@@ -122,12 +122,40 @@ Java uses a byte buffer and encodes names as base-27 digits 1…26 in a
 long: lengths at most ten fit, and nonzero digits preserve prefixes.
 Java scans the 25 primes on updates; other versions store sparse factors.
 
+## Optimized solutions
+
+Keep counts of active options by their multiplier. With more than ten active options, even the minimum possible cost yields Slideshow. On crossing back into the small range, restore the product from the counts; subsequent changes can multiply or divide it directly while it is exact.
+
+Python submission 11318058 took 0.296 s and used 12456 KB. The simple version took 0.343 s and used 15812 KB.
+
+Go submission 11318061 took 0.078 s and used 2824 KB. The simple version took 0.312 s and used 12816 KB.
+
+With a fixed cap on the product, reaching the cap means Slideshow even on the strongest hardware at the smallest resolution. On removal, divide by the multiplier while the product is exact. If it reached the cap, rebuild it from the counts when at most ten options remain.
+
+Rust submission 11318063 took 0.046 s and used 2436 KB. The simple version took 0.078 s and used 10176 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321877 · Java 1.8 №11321942 · Python 3.12 x64 №11321941 · Go 1.14 x64 №11322079 · Rust 1.75 x64 №11322080.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1971_number_theory.cpp](1971_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n+m) | AC | 0.093 s | 7212 KB |
-| [1971_number_theory.go](1971_number_theory.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.328 s | 12744 KB |
-| [1971_number_theory.java](1971_number_theory.java) | Java 1.8 | number_theory | O(n+m) | AC | 0.187 s | 14272 KB |
-| [1971_number_theory.py](1971_number_theory.py) | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.375 s | 16372 KB |
-| [1971_number_theory.rs](1971_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.046 s | 10220 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1971_number_theory.cpp](1971_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n+m) | AC | 0.093 s | 7196 KB | 11321877 |
+| [1971_number_theory.go](1971_number_theory.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.312 s | 12816 KB | 11322079 |
+| [1971_number_theory.java](1971_number_theory.java) | Java 1.8 | number_theory | O(n+m) | AC | 0.171 s | 14264 KB | 11321942 |
+| [1971_number_theory.py](1971_number_theory.py) | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.343 s | 15812 KB | 11321941 |
+| [1971_number_theory.rs](1971_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.078 s | 10176 KB | 11322080 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1971_number_theory_optimized.py](1971_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.296 s | 12456 KB | 11318058 |
+| [1971_number_theory_optimized.go](1971_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.078 s | 2824 KB | 11318061 |
+| [1971_number_theory_optimized.rs](1971_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.046 s | 2436 KB | 11318063 |
+
+\* The marked solutions can improve their target rankings.

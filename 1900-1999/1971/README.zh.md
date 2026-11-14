@@ -99,12 +99,40 @@ Python 按行读，键为字节串；C++、Go 使用缓冲流。Rust 保留一�
 数字 1…26 编入 long，十字母以内可容纳，非零数字区分前缀。Java
 更新扫描 25 质数，其他版本使用稀疏分解。
 
+## 优化解法
+
+按倍率统计已启用的选项。启用的选项超过十个时，即便最低开销也只能得到 Slideshow。回到较小范围时用计数重建乘积；乘积精确时可直接乘除更新。
+
+Python 提交 11318058 耗时 0.296 秒，使用 12456 KB。简单版本耗时 0.343 s，使用 15812 KB。
+
+Go 提交 11318061 耗时 0.078 秒，使用 2824 KB。简单版本耗时 0.312 s，使用 12816 KB。
+
+用固定上限限制乘积。达到上限时，即使使用最高性能的硬件和最低分辨率，结果也是 Slideshow。乘积精确时，关闭选项只需除以其倍率。若已达到上限，剩余选项不超过十个时再从计数重建乘积。
+
+Rust 提交 11318063 耗时 0.046 秒，使用 2436 KB。简单版本耗时 0.078 s，使用 10176 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321877 · Java 1.8 №11321942 · Python 3.12 x64 №11321941 · Go 1.14 x64 №11322079 · Rust 1.75 x64 №11322080.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1971_number_theory.cpp](1971_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n+m) | AC | 0.093 s | 7212 KB |
-| [1971_number_theory.go](1971_number_theory.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.328 s | 12744 KB |
-| [1971_number_theory.java](1971_number_theory.java) | Java 1.8 | number_theory | O(n+m) | AC | 0.187 s | 14272 KB |
-| [1971_number_theory.py](1971_number_theory.py) | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.375 s | 16372 KB |
-| [1971_number_theory.rs](1971_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.046 s | 10220 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1971_number_theory.cpp](1971_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n+m) | AC | 0.093 s | 7196 KB | 11321877 |
+| [1971_number_theory.go](1971_number_theory.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.312 s | 12816 KB | 11322079 |
+| [1971_number_theory.java](1971_number_theory.java) | Java 1.8 | number_theory | O(n+m) | AC | 0.171 s | 14264 KB | 11321942 |
+| [1971_number_theory.py](1971_number_theory.py) | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.343 s | 15812 KB | 11321941 |
+| [1971_number_theory.rs](1971_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.078 s | 10176 KB | 11322080 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1971_number_theory_optimized.py](1971_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(n+m) | AC | 0.296 s | 12456 KB | 11318058 |
+| [1971_number_theory_optimized.go](1971_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n+m) | AC | 0.078 s | 2824 KB | 11318061 |
+| [1971_number_theory_optimized.rs](1971_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n+m) | AC | 0.046 s | 2436 KB | 11318063 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
