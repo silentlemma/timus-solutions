@@ -63,12 +63,37 @@ Pitfalls:
 - the answer reaches 179 000 001 for a million tens brought down to 1.0
   (test 04).
 
+## Optimized solutions
+
+Python represents displayed averages as integer tenths. It finds the greatest original vote sum allowed by rounding, then uses the strict upper rounding bound to compute the number of new votes.
+
+Python submission 11321720 took 0.062 s and used 420 KB. The simple version took 0.078 s and used 464 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322393 · Java 1.8 №11321717 · Go 1.14 x64 №11322437 · Python 3.12 x64 №11322438 · Rust 1.75 x64 №11322436.
+
+Go submission 11322439 took 0.015 s and used 320 KB. The simple version took 0.031 s and used 1072 KB.
+
+Go reads the three numbers into a small byte buffer and writes the result as decimal digits, avoiding general-purpose input and output formatting.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1484_math.cpp](1484_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 132 KB |
-| [1484_math.go](1484_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB |
-| [1484_math.java](1484_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1636 KB |
-| [1484_math.py](1484_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 456 KB |
-| [1484_math.rs](1484_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1484_math.cpp](1484_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11322393 |
+| [1484_math.go](1484_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1072 KB | 11322437 |
+| [1484_math.java](1484_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1624 KB | 11321717 |
+| [1484_math.py](1484_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 464 KB | 11322438 |
+| [1484_math.rs](1484_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 232 KB | 11322436 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1484_math_optimized.py](1484_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
+| [1484_math_optimized.go](1484_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
+
+\* The marked solutions can improve their target rankings.

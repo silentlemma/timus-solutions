@@ -65,12 +65,37 @@ Detalles a tener en cuenta:
 - la respuesta llega a 179 000 001 al bajar a 1.0 un millón de dieces
   (prueba 04).
 
+## Soluciones optimizadas
+
+Python representa las medias mostradas como décimas enteras. Calcula la suma original máxima compatible con el redondeo y usa el límite superior estricto para obtener el número de votos nuevos.
+
+El envío 11321720 en Python tardó 0.062 s y usó 420 KB. La versión sencilla tardó 0.078 s y usó 464 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322393 · Java 1.8 №11321717 · Go 1.14 x64 №11322437 · Python 3.12 x64 №11322438 · Rust 1.75 x64 №11322436.
+
+El envío 11322439 en Go tardó 0.015 s y usó 320 KB. La versión sencilla tardó 0.031 s y usó 1072 KB.
+
+Go lee los tres números en un pequeño búfer de bytes y escribe directamente los dígitos decimales del resultado, sin usar formato genérico de entrada y salida.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1484_math.cpp](1484_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 132 KB |
-| [1484_math.go](1484_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1076 KB |
-| [1484_math.java](1484_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1636 KB |
-| [1484_math.py](1484_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 456 KB |
-| [1484_math.rs](1484_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1484_math.cpp](1484_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11322393 |
+| [1484_math.go](1484_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1072 KB | 11322437 |
+| [1484_math.java](1484_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 1624 KB | 11321717 |
+| [1484_math.py](1484_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 464 KB | 11322438 |
+| [1484_math.rs](1484_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 232 KB | 11322436 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1484_math_optimized.py](1484_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
+| [1484_math_optimized.go](1484_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
