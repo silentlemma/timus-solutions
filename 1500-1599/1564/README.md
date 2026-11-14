@@ -77,12 +77,41 @@ Pitfalls:
 - a count one short of the total at a floor full of ones is a lie
   (test 08).
 
+## Optimized solutions
+
+The digit DP constructs the floor from left to right. For each possible next digit, it counts the ones contributed by the whole block of completions and either skips the block or descends into it. A floor can add several ones at once, so the final count must match exactly.
+
+Python 3.12 x64, submission 11318528. Time 0.078 → 0.078 s, memory 428 → 436 KB.
+
+Java 1.8, submission 11318559. Time 0.109 → 0.125 s, memory 1564 → 396 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321883 · Go 1.14 x64 №11322261 · Java 1.8 №11322262 · Python 3.12 x64 №11322264 · Rust 1.75 x64 №11322265.
+
+Go constructs the floor number one decimal digit at a time, skipping whole blocks by counting the occurrences of the digit one. Go 1.14 x64, submission 11322873. Time 0.015 → 0.031 s, memory 1060 → 316 KB.
+
+Rust reconstructs the floor digit by digit, counting how many ones each skipped decimal prefix contributes. Rust 1.75 x64, submission 11323309. Time 0.015 → 0.031 s, memory 216 → 44 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 128 KB |
-| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.031 s | 1072 KB |
-| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.125 s | 1608 KB |
-| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 424 KB |
-| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 220 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.001 s | 112 KB | 11321883 |
+| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 1060 KB | 11322261 |
+| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.109 s | 1564 KB | 11322262 |
+| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 428 KB | 11322264 |
+| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 216 KB | 11322265 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1564_dp.py](1564_dp.py) \* | Python 3.12 x64 | dp | O(log k) | AC | 0.078 s | 436 KB | 11318528 |
+| [1564_dp.java](1564_dp.java) | Java 1.8 | dp | O(log k) | AC | 0.125 s | 396 KB | 11318559 |
+| [1564_dp.go](1564_dp.go) \* | Go 1.14 x64 | dp | O(log k) | AC | 0.031 s | 316 KB | 11322873 |
+| [1564_dp.rs](1564_dp.rs) \* | Rust 1.75 x64 | dp | O(log k) | AC | 0.031 s | 44 KB | 11323309 |
+
+\* The marked versions have room to improve in the ratings.

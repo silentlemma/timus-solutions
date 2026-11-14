@@ -80,12 +80,41 @@ Detalles a tener en cuenta:
 - una cuenta uno menor que el total en un piso lleno de unos es mentira
   (prueba 08).
 
+## Soluciones optimizadas
+
+La programación dinámica de dígitos construye el piso de izquierda a derecha. Para cada dígito candidato cuenta los unos de todo su bloque y decide si saltar el bloque o continuar dentro de él. Un piso puede añadir varios unos de golpe, por lo que el recuento final debe coincidir exactamente.
+
+Python 3.12 x64, envío 11318528. Tiempo 0,078 → 0,078 s, memoria 428 → 436 KB.
+
+Java 1.8, envío 11318559. Tiempo 0,109 → 0,125 s, memoria 1564 → 396 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321883 · Go 1.14 x64 №11322261 · Java 1.8 №11322262 · Python 3.12 x64 №11322264 · Rust 1.75 x64 №11322265.
+
+Go construye el número de planta dígito a dígito y salta bloques completos contando las apariciones del dígito uno. Go 1.14 x64, envío 11322873. Tiempo 0,015 → 0,031 s, memoria 1060 → 316 KB.
+
+Rust reconstruye el piso dígito a dígito y cuenta cuántos unos aporta cada prefijo decimal descartado. Rust 1.75 x64, envío 11323309. Tiempo 0,015 → 0,031 s, memoria 216 → 44 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 128 KB |
-| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.031 s | 1072 KB |
-| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.125 s | 1608 KB |
-| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 424 KB |
-| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 220 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.001 s | 112 KB | 11321883 |
+| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 1060 KB | 11322261 |
+| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.109 s | 1564 KB | 11322262 |
+| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 428 KB | 11322264 |
+| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 216 KB | 11322265 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1564_dp.py](1564_dp.py) \* | Python 3.12 x64 | dp | O(log k) | AC | 0.078 s | 436 KB | 11318528 |
+| [1564_dp.java](1564_dp.java) | Java 1.8 | dp | O(log k) | AC | 0.125 s | 396 KB | 11318559 |
+| [1564_dp.go](1564_dp.go) \* | Go 1.14 x64 | dp | O(log k) | AC | 0.031 s | 316 KB | 11322873 |
+| [1564_dp.rs](1564_dp.rs) \* | Rust 1.75 x64 | dp | O(log k) | AC | 0.031 s | 44 KB | 11323309 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

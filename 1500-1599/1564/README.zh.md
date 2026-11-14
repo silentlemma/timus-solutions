@@ -67,12 +67,41 @@ f 只增不减，所以数到第 k 个 1 的楼层是第一个使 f(x) ≥ k 的
 - k = 10¹⁸ 时答案约为 5.2·10¹⁷，数位到达 10¹⁷，所以使用定长整数的解答需要 64 位运算（测试 05）；
 - 比全是 1 的楼层处的总数少一的个数是谎言（测试 08）。
 
+## 优化解法
+
+数位动态规划从左到右构造楼层号。对每个候选数字，先计算该前缀下所有楼层贡献的数字 1 的总数，再跳过整块或在块内继续查找。同一楼层可能增加多个 1，因此最后必须核对计数是否恰好相等。
+
+Python 3.12 x64（提交 11318528）的运行时间从 0.078 秒变为 0.078 秒，内存从 428 KB 变为 436 KB。
+
+Java 1.8（提交 11318559）的运行时间从 0.109 秒变为 0.125 秒，内存从 1564 KB 变为 396 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321883 · Go 1.14 x64 №11322261 · Java 1.8 №11322262 · Python 3.12 x64 №11322264 · Rust 1.75 x64 №11322265.
+
+Go 逐位构造楼层编号，并通过统计数字 1 出现的次数跳过整块编号。 Go 1.14 x64（提交 11322873）的运行时间从 0.015 秒变为 0.031 秒，内存从 1060 KB 变为 316 KB。
+
+Rust 逐位构造楼层号，并计算每个跳过的十进制前缀所贡献的数字 1 的数量。 Rust 1.75 x64（提交 11323309）的运行时间从 0.015 秒变为 0.031 秒，内存从 216 KB 变为 44 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 128 KB |
-| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.031 s | 1072 KB |
-| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.125 s | 1608 KB |
-| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 424 KB |
-| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 220 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1564_binary_search.cpp](1564_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(log^2 k) | AC | 0.001 s | 112 KB | 11321883 |
+| [1564_binary_search.go](1564_binary_search.go) | Go 1.14 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 1060 KB | 11322261 |
+| [1564_binary_search.java](1564_binary_search.java) | Java 1.8 | binary_search | O(log^2 k) | AC | 0.109 s | 1564 KB | 11322262 |
+| [1564_binary_search.py](1564_binary_search.py) | Python 3.12 x64 | binary_search | O(log^2 k) | AC | 0.078 s | 428 KB | 11322264 |
+| [1564_binary_search.rs](1564_binary_search.rs) | Rust 1.75 x64 | binary_search | O(log^2 k) | AC | 0.015 s | 216 KB | 11322265 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1564_dp.py](1564_dp.py) \* | Python 3.12 x64 | dp | O(log k) | AC | 0.078 s | 436 KB | 11318528 |
+| [1564_dp.java](1564_dp.java) | Java 1.8 | dp | O(log k) | AC | 0.125 s | 396 KB | 11318559 |
+| [1564_dp.go](1564_dp.go) \* | Go 1.14 x64 | dp | O(log k) | AC | 0.031 s | 316 KB | 11322873 |
+| [1564_dp.rs](1564_dp.rs) \* | Rust 1.75 x64 | dp | O(log k) | AC | 0.031 s | 44 KB | 11323309 |
+
+\* 带星号的版本仍有提升排名的空间。
