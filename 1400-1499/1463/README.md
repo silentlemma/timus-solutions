@@ -92,12 +92,42 @@ Pitfalls:
 - a long chain makes recursion overflow (gen2);
 - with zero joys every route is a best one (test 05).
 
+## Optimized solutions
+
+The C++ version removes leaves until each tree is exhausted. At each city it keeps the current degree and the XOR of its remaining neighbors and flight weights. At a leaf these two XOR values give the only remaining flight. The two best removed branches through each city suffice to score and reconstruct the best route. This takes O(N + K) time and O(N) extra space. The metrics come from submission 11317012.
+
+The Python version uses the same leaf removal. It combines each removed branch with the best branch already found at its parent, then updates that best branch. The ends of the two branches are enough to reconstruct the best route. It also takes O(N + K) time and O(N) extra space. The metrics come from submission 11317010.
+
+Go removes leaves using a compact array of city records. XOR keeps track of the remaining neighbour and edge weight without adjacency lists. Submission 11317154 took 0.078 s and used 1976 KB, versus 0.125 s and 11580 KB for the base.
+
+Rust removes leaves with compact city records and recovers the remaining neighbour and edge weight by XOR. Submission 11317155 took 0.015 s and used 980 KB, versus 0.031 s and 10112 KB for the base.
+
+Java removes leaves and uses XOR to recover the remaining neighbour and edge weight. Submission 11317156 took 0.140 s and used 1276 KB, versus 0.156 s and 3896 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322150 · Go 1.14 x64 №11322151 · Java 1.8 №11322152 · Python 3.12 x64 №11322154 · Rust 1.75 x64 №11322155.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1463_dp.cpp](1463_dp.cpp) | G++ 13.2 x64 | dp | O(N + K) | AC | 0.125 s | 5364 KB |
-| [1463_dp.go](1463_dp.go) | Go 1.14 x64 | dp | O(N + K) | AC | 0.109 s | 11948 KB |
-| [1463_dp.java](1463_dp.java) | Java 1.8 | dp | O(N + K) | AC | 0.140 s | 3888 KB |
-| [1463_dp.py](1463_dp.py) | Python 3.12 x64 | dp | O(N + K) | AC | 0.265 s | 35104 KB |
-| [1463_dp.rs](1463_dp.rs) | Rust 1.75 x64 | dp | O(N + K) | AC | 0.031 s | 10112 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1463_dp.cpp](1463_dp.cpp) | G++ 13.2 x64 | dp | O(N + K) | AC | 0.14 s | 5372 KB | 11322150 |
+| [1463_dp.go](1463_dp.go) | Go 1.14 x64 | dp | O(N + K) | AC | 0.125 s | 11580 KB | 11322151 |
+| [1463_dp.java](1463_dp.java) | Java 1.8 | dp | O(N + K) | AC | 0.156 s | 3896 KB | 11322152 |
+| [1463_dp.py](1463_dp.py) | Python 3.12 x64 | dp | O(N + K) | AC | 0.312 s | 34776 KB | 11322154 |
+| [1463_dp.rs](1463_dp.rs) | Rust 1.75 x64 | dp | O(N + K) | AC | 0.031 s | 10112 KB | 11322155 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1463_trees.cpp](1463_trees.cpp) \* | G++ 13.2 x64 | trees | O(N + K) | AC | 0.109 s | 1504 KB | 11317012 |
+| [1463_trees.py](1463_trees.py) | Python 3.12 x64 | trees | O(N + K) | AC | 0.203 s | 10696 KB | 11317010 |
+| [1463_trees.go](1463_trees.go) | Go 1.14 x64 | trees | O(N + K) | AC | 0.078 s | 1976 KB | 11317154 |
+| [1463_trees.rs](1463_trees.rs) \* | Rust 1.75 x64 | trees | O(N + K) | AC | 0.015 s | 980 KB | 11317155 |
+| [1463_trees.java](1463_trees.java) | Java 1.8 | trees | O(N + K) | AC | 0.140 s | 1276 KB | 11317156 |
+
+\* Accepted. The C++ rating target is still open. Accepted. The saved rating has no comparable Rust submissions from other authors.
