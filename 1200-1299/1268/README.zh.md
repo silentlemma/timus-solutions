@@ -68,12 +68,44 @@ g 是原根，当且仅当对 N − 1 的每个素因子 q 都有 g^((N−1)/q) 
 
 - 所有语言都建立同样的筛，并按 N 保存答案表。
 
+## 优化解法
+
+优化版本只筛选奇数，并单独处理质因数 2。遇到相同的模数时直接使用缓存的答案。
+
+Python 3.12 x64（提交 11322010）的运行时间从 0.156 秒变为 0.125 秒，内存从 4400 KB 变为 2368 KB。
+
+Rust 1.75 x64（提交 11322011）的运行时间从 0.031 秒变为 0.031 秒，内存从 1420 KB 变为 312 KB。
+
+Go 1.14 x64（提交 11322012）的运行时间从 0.015 秒变为 0.031 秒，内存从 2420 KB 变为 1004 KB。
+
+G++ 13.2 x64（提交 11322013）的运行时间从 0.031 秒变为 0.031 秒，内存从 692 KB 变为 212 KB。
+
+Java 1.8（提交 11322014）的运行时间从 0.109 秒变为 0.078 秒，内存从 2928 KB 变为 920 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · Python 3.12 x64 №11322244 · Rust 1.75 x64 №11322245.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1268_number_theory.cpp](1268_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 708 KB |
-| [1268_number_theory.go](1268_number_theory.go) | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 2440 KB |
-| [1268_number_theory.java](1268_number_theory.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.093 s | 2884 KB |
-| [1268_number_theory.py](1268_number_theory.py) | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.109 s | 4508 KB |
-| [1268_number_theory.rs](1268_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 1420 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1268_number_theory.cpp](1268_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 692 KB | 11322241 |
+| [1268_number_theory.go](1268_number_theory.go) | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 2420 KB | 11322242 |
+| [1268_number_theory.java](1268_number_theory.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.109 s | 2928 KB | 11322243 |
+| [1268_number_theory.py](1268_number_theory.py) | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.156 s | 4400 KB | 11322244 |
+| [1268_number_theory.rs](1268_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1420 KB | 11322245 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1268_number_theory_optimized.py](1268_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.125 s | 2368 KB | 11322010 |
+| [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
+| [1268_number_theory_optimized.go](1268_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1004 KB | 11322012 |
+| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 212 KB | 11322013 |
+| [1268_number_theory_optimized.java](1268_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.078 s | 920 KB | 11322014 |
+
+\* 带星号的版本仍有提升排名的空间。

@@ -80,12 +80,44 @@ g = N − 1, N − 2, …, пока одно не подойдёт. Первоо
 
 - Все языки строят одно и то же решето и хранят таблицу ответов по N.
 
+## Оптимизированные решения
+
+Оптимизированные версии строят решето только для нечётных чисел и отдельно проверяют множитель 2. Для повторного модуля берётся сохранённый ответ.
+
+Python 3.12 x64, посылка 11322010. Время 0,156 → 0,125 с, память 4400 → 2368 КБ.
+
+Rust 1.75 x64, посылка 11322011. Время 0,031 → 0,031 с, память 1420 → 312 КБ.
+
+Go 1.14 x64, посылка 11322012. Время 0,015 → 0,031 с, память 2420 → 1004 КБ.
+
+G++ 13.2 x64, посылка 11322013. Время 0,031 → 0,031 с, память 692 → 212 КБ.
+
+Java 1.8, посылка 11322014. Время 0,109 → 0,078 с, память 2928 → 920 КБ.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · Python 3.12 x64 №11322244 · Rust 1.75 x64 №11322245.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1268_number_theory.cpp](1268_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 708 KB |
-| [1268_number_theory.go](1268_number_theory.go) | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 2440 KB |
-| [1268_number_theory.java](1268_number_theory.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.093 s | 2884 KB |
-| [1268_number_theory.py](1268_number_theory.py) | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.109 s | 4508 KB |
-| [1268_number_theory.rs](1268_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 1420 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1268_number_theory.cpp](1268_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 692 KB | 11322241 |
+| [1268_number_theory.go](1268_number_theory.go) | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 2420 KB | 11322242 |
+| [1268_number_theory.java](1268_number_theory.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.109 s | 2928 KB | 11322243 |
+| [1268_number_theory.py](1268_number_theory.py) | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.156 s | 4400 KB | 11322244 |
+| [1268_number_theory.rs](1268_number_theory.rs) | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1420 KB | 11322245 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1268_number_theory_optimized.py](1268_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.125 s | 2368 KB | 11322010 |
+| [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
+| [1268_number_theory_optimized.go](1268_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1004 KB | 11322012 |
+| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 212 KB | 11322013 |
+| [1268_number_theory_optimized.java](1268_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.078 s | 920 KB | 11322014 |
+
+\* У отмеченных версий есть запас для улучшения рейтинга.
