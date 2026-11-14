@@ -68,15 +68,47 @@ Detalles a tener en cuenta:
   dejar atascadas dos ranas del mismo color una tras otra (02; el
   comprobador reproduce cada movimiento);
 - −1 nunca es la respuesta (todas las pruebas);
-- con N = 499 se escriben 249 999 índices de salida, que conviene
-  reunir en un solo búfer (gen4).
+- con N = 499 se escriben 249 999 índices de salida. Conviene usar
+  salida con búfer (gen4).
+
+## Soluciones optimizadas
+
+Las versiones optimizadas calculan directamente la siguiente posición del hueco. El paso corto cierra cada tanda creciente y abre cada tanda decreciente. La tanda central contiene solo saltos. Se reutiliza la representación decimal de cada posición.
+
+G++ 13.2 x64, envío 11320508. Tiempo 0,031 → 0,015 s, memoria 1524 → 224 KB.
+
+Go 1.14 x64, envío 11320528. Tiempo 0,046 → 0,046 s, memoria 10276 → 1152 KB.
+
+Java 1.8, envío 11320556. Tiempo 0,14 → 0,109 s, memoria 8416 → 772 KB.
+
+Python 3.12 x64, envío 11320580. Tiempo 0,25 → 0,109 s, memoria 23792 → 2044 KB.
+
+Rust 1.75 x64, envío 11320607. Tiempo 0,031 → 0,015 s, memoria 14900 → 248 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322266 · Go 1.14 x64 №11322267 · Java 1.8 №11322268 · Python 3.12 x64 №11322269 · Rust 1.75 x64 №11322270.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1474_constructive.cpp](1474_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 1536 KB |
-| [1474_constructive.go](1474_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.031 s | 11672 KB |
-| [1474_constructive.java](1474_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 8428 KB |
-| [1474_constructive.py](1474_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.234 s | 24648 KB |
-| [1474_constructive.rs](1474_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.062 s | 14840 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1474_constructive.cpp](1474_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 1524 KB | 11322266 |
+| [1474_constructive.go](1474_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.046 s | 10276 KB | 11322267 |
+| [1474_constructive.java](1474_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.14 s | 8416 KB | 11322268 |
+| [1474_constructive.py](1474_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.25 s | 23792 KB | 11322269 |
+| [1474_constructive.rs](1474_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 14900 KB | 11322270 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1474_constructive_optimized.cpp](1474_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.015 s | 224 KB | 11320508 |
+| [1474_constructive_optimized.go](1474_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N^2) | AC | 0.046 s | 1152 KB | 11320528 |
+| [1474_constructive_optimized.java](1474_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 772 KB | 11320556 |
+| [1474_constructive_optimized.py](1474_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.109 s | 2044 KB | 11320580 |
+| [1474_constructive_optimized.rs](1474_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.015 s | 248 KB | 11320607 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

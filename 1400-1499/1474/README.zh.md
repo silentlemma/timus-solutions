@@ -57,14 +57,46 @@ K，然后是 K 个出发土墩。任何正确的序列都可以。
 - 顺序很重要：不按轮次的贪心走法可能让两只同色青蛙一前一后被困住（02，检
   查程序会重放每一步）；
 - 答案永远不会是 −1（所有测试）；
-- N = 499 时要输出 249 999 个出发土墩编号，最好在一个缓冲区里拼好（gen4）。
+- N = 499 时要输出 249 999 个出发土墩编号，适合使用缓冲输出（gen4）。
+
+## 优化解法
+
+优化版本直接计算下一个空位。递增长度的一组动作最后走一步，递减长度的一组动作最先走一步。中间一组只包含跳跃。输出时复用位置的十进制表示。
+
+G++ 13.2 x64（提交 11320508）的运行时间从 0.031 秒变为 0.015 秒，内存从 1524 KB 变为 224 KB。
+
+Go 1.14 x64（提交 11320528）的运行时间从 0.046 秒变为 0.046 秒，内存从 10276 KB 变为 1152 KB。
+
+Java 1.8（提交 11320556）的运行时间从 0.14 秒变为 0.109 秒，内存从 8416 KB 变为 772 KB。
+
+Python 3.12 x64（提交 11320580）的运行时间从 0.25 秒变为 0.109 秒，内存从 23792 KB 变为 2044 KB。
+
+Rust 1.75 x64（提交 11320607）的运行时间从 0.031 秒变为 0.015 秒，内存从 14900 KB 变为 248 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322266 · Go 1.14 x64 №11322267 · Java 1.8 №11322268 · Python 3.12 x64 №11322269 · Rust 1.75 x64 №11322270.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1474_constructive.cpp](1474_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 1536 KB |
-| [1474_constructive.go](1474_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.031 s | 11672 KB |
-| [1474_constructive.java](1474_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 8428 KB |
-| [1474_constructive.py](1474_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.234 s | 24648 KB |
-| [1474_constructive.rs](1474_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.062 s | 14840 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1474_constructive.cpp](1474_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 1524 KB | 11322266 |
+| [1474_constructive.go](1474_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.046 s | 10276 KB | 11322267 |
+| [1474_constructive.java](1474_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.14 s | 8416 KB | 11322268 |
+| [1474_constructive.py](1474_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.25 s | 23792 KB | 11322269 |
+| [1474_constructive.rs](1474_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 14900 KB | 11322270 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1474_constructive_optimized.cpp](1474_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.015 s | 224 KB | 11320508 |
+| [1474_constructive_optimized.go](1474_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N^2) | AC | 0.046 s | 1152 KB | 11320528 |
+| [1474_constructive_optimized.java](1474_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.109 s | 772 KB | 11320556 |
+| [1474_constructive_optimized.py](1474_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.109 s | 2044 KB | 11320580 |
+| [1474_constructive_optimized.rs](1474_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.015 s | 248 KB | 11320607 |
+
+\* 带星号的版本仍有提升排名的空间。
