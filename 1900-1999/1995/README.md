@@ -111,12 +111,41 @@ weights needs a tree only in the checker; the construction itself is
 linear. The exchanges above prove a normal form; the
 implementation does not perform the exchanges.
 
+## Optimized solutions
+
+The optimized versions generate each run of equal weights from its endpoint and write the weights in batches without storing the full sequence.
+
+Python 3.12 x64, submission 11318477. Time 0.109 → 0.078 s, memory 11060 → 912 KB.
+
+Rust 1.75 x64, submission 11318480. Time 0.031 → 0.015 s, memory 2212 → 228 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322391 · Go 1.14 x64 №11322479 · Java 1.8 №11322434 · Python 3.12 x64 №11322485 · Rust 1.75 x64 №11322491.
+
+Go 1.14 x64, submission 11322456. Time 0.015 → 0.031 s, memory 2716 → 1072 KB.
+
+Java 1.8, submission 11322474. Time 0.109 → 0.093 s, memory 6036 → 5024 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 816 KB |
-| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.046 s | 2740 KB |
-| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 6100 KB |
-| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.093 s | 10976 KB |
-| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2220 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 800 KB | 11322391 |
+| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.015 s | 2716 KB | 11322479 |
+| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.109 s | 6036 KB | 11322434 |
+| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.109 s | 11060 KB | 11322485 |
+| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2212 KB | 11322491 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1995_greedy_constructive_optimized.py](1995_greedy_constructive_optimized.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.078 s | 912 KB | 11318477 |
+| [1995_greedy_constructive_optimized.rs](1995_greedy_constructive_optimized.rs) \* | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.015 s | 228 KB | 11318480 |
+| [1995_greedy_constructive_optimized.go](1995_greedy_constructive_optimized.go) \* | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.031 s | 1072 KB | 11322456 |
+| [1995_greedy_constructive_optimized.java](1995_greedy_constructive_optimized.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 5024 KB | 11322474 |
+
+\* The marked versions have room to improve in the ratings.

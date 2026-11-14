@@ -66,12 +66,41 @@
 
 分母不能包括当前项，不能只数先前保留项，也不能把相等当较小或将 `≥` 改成 `>`。统计较小重量所需的树只在检查器中使用，构造本身是线性的。交换是证明工具，程序直接生成结果。
 
+## 优化解法
+
+优化版本根据边界生成每段相同的重量，并分批输出，无需保存完整序列。
+
+Python 3.12 x64（提交 11318477）的运行时间从 0.109 秒变为 0.078 秒，内存从 11060 KB 变为 912 KB。
+
+Rust 1.75 x64（提交 11318480）的运行时间从 0.031 秒变为 0.015 秒，内存从 2212 KB 变为 228 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322391 · Go 1.14 x64 №11322479 · Java 1.8 №11322434 · Python 3.12 x64 №11322485 · Rust 1.75 x64 №11322491.
+
+Go 1.14 x64（提交 11322456）的运行时间从 0.015 秒变为 0.031 秒，内存从 2716 KB 变为 1072 KB。
+
+Java 1.8（提交 11322474）的运行时间从 0.109 秒变为 0.093 秒，内存从 6036 KB 变为 5024 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 816 KB |
-| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.046 s | 2740 KB |
-| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 6100 KB |
-| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.093 s | 10976 KB |
-| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2220 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 800 KB | 11322391 |
+| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.015 s | 2716 KB | 11322479 |
+| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.109 s | 6036 KB | 11322434 |
+| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.109 s | 11060 KB | 11322485 |
+| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2212 KB | 11322491 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1995_greedy_constructive_optimized.py](1995_greedy_constructive_optimized.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.078 s | 912 KB | 11318477 |
+| [1995_greedy_constructive_optimized.rs](1995_greedy_constructive_optimized.rs) \* | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.015 s | 228 KB | 11318480 |
+| [1995_greedy_constructive_optimized.go](1995_greedy_constructive_optimized.go) \* | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.031 s | 1072 KB | 11322456 |
+| [1995_greedy_constructive_optimized.java](1995_greedy_constructive_optimized.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 5024 KB | 11322474 |
+
+\* 带星号的版本仍有提升排名的空间。

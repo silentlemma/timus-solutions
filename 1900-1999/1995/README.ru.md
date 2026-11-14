@@ -109,12 +109,41 @@
 само построение линейное. Обмены доказывают вид оптимума, но программа их не
 выполняет.
 
+## Оптимизированные решения
+
+Оптимизированные версии вычисляют границы блоков равных весов и выводят веса порциями, не сохраняя всю последовательность.
+
+Python 3.12 x64, посылка 11318477. Время 0,109 → 0,078 с, память 11060 → 912 КБ.
+
+Rust 1.75 x64, посылка 11318480. Время 0,031 → 0,015 с, память 2212 → 228 КБ.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322391 · Go 1.14 x64 №11322479 · Java 1.8 №11322434 · Python 3.12 x64 №11322485 · Rust 1.75 x64 №11322491.
+
+Go 1.14 x64, посылка 11322456. Время 0,015 → 0,031 с, память 2716 → 1072 КБ.
+
+Java 1.8, посылка 11322474. Время 0,109 → 0,093 с, память 6036 → 5024 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 816 KB |
-| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.046 s | 2740 KB |
-| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 6100 KB |
-| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.093 s | 10976 KB |
-| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2220 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1995_greedy_constructive.cpp](1995_greedy_constructive.cpp) | G++ 13.2 x64 | greedy, constructive | O(n) | AC | 0.015 s | 800 KB | 11322391 |
+| [1995_greedy_constructive.go](1995_greedy_constructive.go) | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.015 s | 2716 KB | 11322479 |
+| [1995_greedy_constructive.java](1995_greedy_constructive.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.109 s | 6036 KB | 11322434 |
+| [1995_greedy_constructive.py](1995_greedy_constructive.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.109 s | 11060 KB | 11322485 |
+| [1995_greedy_constructive.rs](1995_greedy_constructive.rs) | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.031 s | 2212 KB | 11322491 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1995_greedy_constructive_optimized.py](1995_greedy_constructive_optimized.py) | Python 3.12 x64 | greedy, constructive | O(n) | AC | 0.078 s | 912 KB | 11318477 |
+| [1995_greedy_constructive_optimized.rs](1995_greedy_constructive_optimized.rs) \* | Rust 1.75 x64 | greedy, constructive | O(n) | AC | 0.015 s | 228 KB | 11318480 |
+| [1995_greedy_constructive_optimized.go](1995_greedy_constructive_optimized.go) \* | Go 1.14 x64 | greedy, constructive | O(n) | AC | 0.031 s | 1072 KB | 11322456 |
+| [1995_greedy_constructive_optimized.java](1995_greedy_constructive_optimized.java) | Java 1.8 | greedy, constructive | O(n) | AC | 0.093 s | 5024 KB | 11322474 |
+
+\* У отмеченных версий есть запас для улучшения рейтинга.
