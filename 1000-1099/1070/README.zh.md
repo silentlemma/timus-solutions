@@ -64,12 +64,38 @@
 - C++ 用 `scanf("%d.%d")` 读取每个时间；其他语言在点处拆分记号。
 - Python、Java（`Math.floorMod`）和 Rust（`rem_euclid`）的取模结果从不为负；C++ 和 Go 在第二次 `%` 前加上一天。
 
+## 优化解法
+
+将两段航程的钟面时间差相减，再按一天取模映射到 −12 至 12 小时。结果是时区差的两倍加上至多十分钟的飞行时长差。将绝对值舍入到最接近的两小时倍数。
+
+Java 提交 11317998 耗时 0.093 秒，使用 324 KB。简单版本耗时 0.093 s，使用 1540 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322403 · Go 1.14 x64 №11322484 · Python 3.12 x64 №11322478 · Rust 1.75 x64 №11322445 · Java 1.8 №11322489.
+
+Go 1.14 x64（提交 11322471）的运行时间从 0.015 秒变为 0.015 秒，内存从 1072 KB 变为 276 KB。
+
+PyPy 版本先将两段当地时间之差折算到零点附近，再将其舍入到最接近的两小时倍数。 PyPy 3.10 x64（提交 11322490）的运行时间从 0.062 秒变为 0.14 秒，内存从 352 KB 变为 240 KB。
+
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1070_bruteforce.cpp](1070_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.001 s | 128 KB |
-| [1070_bruteforce.go](1070_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.015 s | 1080 KB |
-| [1070_bruteforce.java](1070_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1552 KB |
-| [1070_bruteforce.py](1070_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.078 s | 368 KB |
-| [1070_bruteforce.rs](1070_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.015 s | 208 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1070_bruteforce.cpp](1070_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 112 KB | 11322403 |
+| [1070_bruteforce.go](1070_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.015 s | 1072 KB | 11322484 |
+| [1070_bruteforce.java](1070_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 1540 KB | 11322489 |
+| [1070_bruteforce.py](1070_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.062 s | 352 KB | 11322478 |
+| [1070_bruteforce.rs](1070_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.015 s | 204 KB | 11322445 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1070_math.java](1070_math.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 324 KB | 11317998 |
+| [1070_math.go](1070_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 276 KB | 11322471 |
+| [1070_math.py](1070_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 240 KB | 11322490 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

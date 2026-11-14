@@ -79,12 +79,38 @@ return flight, with the shift found to be unique.
 - Python, Java (`Math.floorMod`) and Rust (`rem_euclid`) have a modulo
   that is never negative; C++ and Go add a day before the second `%`.
 
+## Optimized solutions
+
+Subtract the two clock differences and wrap the result into the interval from −12 to 12 hours. It equals twice the time-zone shift plus the difference in flight durations, which is at most ten minutes in magnitude. Round the absolute value to the nearest multiple of two hours.
+
+Java submission 11317998 took 0.093 s and used 324 KB. The simple version took 0.093 s and used 1540 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322403 · Go 1.14 x64 №11322484 · Python 3.12 x64 №11322478 · Rust 1.75 x64 №11322445 · Java 1.8 №11322489.
+
+Go 1.14 x64, submission 11322471. Time 0.015 → 0.015 s, memory 1072 → 276 KB.
+
+The PyPy version reduces the difference of the two local durations to the interval around zero and rounds it to the nearest multiple of two hours. PyPy 3.10 x64, submission 11322490. Time 0.062 → 0.14 s, memory 352 → 240 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1070_bruteforce.cpp](1070_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.001 s | 128 KB |
-| [1070_bruteforce.go](1070_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.015 s | 1080 KB |
-| [1070_bruteforce.java](1070_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 1552 KB |
-| [1070_bruteforce.py](1070_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.078 s | 368 KB |
-| [1070_bruteforce.rs](1070_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.015 s | 208 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1070_bruteforce.cpp](1070_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 112 KB | 11322403 |
+| [1070_bruteforce.go](1070_bruteforce.go) | Go 1.14 x64 | bruteforce | O(1) | AC | 0.015 s | 1072 KB | 11322484 |
+| [1070_bruteforce.java](1070_bruteforce.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 1540 KB | 11322489 |
+| [1070_bruteforce.py](1070_bruteforce.py) | Python 3.12 x64 | bruteforce | O(1) | AC | 0.062 s | 352 KB | 11322478 |
+| [1070_bruteforce.rs](1070_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.015 s | 204 KB | 11322445 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1070_math.java](1070_math.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 324 KB | 11317998 |
+| [1070_math.go](1070_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 276 KB | 11322471 |
+| [1070_math.py](1070_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 240 KB | 11322490 |
+
+\* The marked solutions can improve their target rankings.
