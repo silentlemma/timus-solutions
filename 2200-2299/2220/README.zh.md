@@ -79,12 +79,36 @@ N（1 ≤ N ≤ 10⁷）。
 
 调和数需要 O(N) 次乘法，欧拉函数前缀和约需 O(N^(3/4))。
 
+## 优化解法
+
+Go 版本把阶乘和调和和的四次连续更新合并为一组。它用乘积法则求出这一组的乘积及其导数，再更新一次加权和。提交 11317204 耗时 0.046 秒，使用 1504 KB；基础版耗时 0.078 秒，使用 1908 KB。
+
+PyPy 将每组八个连续因子从两端配成四对，再用这四对因子计算整组的乘积及其导数。对较大的整除商，按参数递增的顺序计算欧拉函数前缀和并存入数组。提交 11317253 耗时 0.343 秒，使用 4016 KB；基础版耗时 1.328 秒，使用 5096 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321803 · Go 1.14 x64 №11322081 · Java 1.8 №11318205 · Rust 1.75 x64 №11321807 · PyPy 3.10 x64 №11322169.
+
+Rust 将四次调和和更新合并为一组，并用 32 位整数保存小参数的欧拉函数前缀和模值。 Rust 1.75 x64（提交 11322387）的运行时间从 0.062 秒变为 0.046 秒，内存从 1000 KB 变为 612 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2220_number_theory.cpp](2220_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 1000 KB |
-| [2220_number_theory.go](2220_number_theory.go) | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.093 s | 1704 KB |
-| [2220_number_theory.java](2220_number_theory.java) | Java 1.8 | number_theory | O(N + N^(3/4)) | AC | 0.437 s | 1064 KB |
-| [2220_number_theory.py](2220_number_theory.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 1.265 s | 4892 KB |
-| [2220_number_theory.rs](2220_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 800 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2220_number_theory.cpp](2220_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 1196 KB | 11321803 |
+| [2220_number_theory.go](2220_number_theory.go) | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.078 s | 1908 KB | 11322081 |
+| [2220_number_theory.java](2220_number_theory.java) | Java 1.8 | number_theory | O(N + N^(3/4)) | AC | 0.421 s | 1252 KB | 11318205 |
+| [2220_number_theory.py](2220_number_theory.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 1.328 s | 5096 KB | 11322169 |
+| [2220_number_theory.rs](2220_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 1000 KB | 11321807 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2220_number_theory_optimized.go](2220_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 1504 KB | 11317204 |
+| [2220_number_theory_optimized.py](2220_number_theory_optimized.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 0.343 s | 4016 KB | 11317253 |
+| [2220_number_theory_optimized.rs](2220_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 612 KB | 11322387 |
+
+\* 排名快照中没有其他作者的可比 Go 提交。

@@ -93,12 +93,36 @@ En el primer ejemplo los pares (1, 1), (1, 2) y (2, 2) dan
 Esto cuesta O(N) multiplicaciones para los números armónicos más unas
 O(N^(3/4)) para las sumas de la función de Euler.
 
+## Soluciones optimizadas
+
+Go agrupa cuatro actualizaciones consecutivas del factorial y de la suma armónica. Usa la regla del producto para hallar el producto del bloque y su derivada, y actualiza una sola vez la suma ponderada. El envío 11317204 tardó 0,046 s y usó 1504 KB frente a 0,078 s y 1908 KB en la base.
+
+PyPy empareja los factores de los extremos de cada bloque de ocho y usa los cuatro pares para calcular el producto del bloque y su derivada. Calcula las sumas de la función de Euler para los cocientes grandes en orden creciente y las guarda en un arreglo. El envío 11317253 tardó 0,343 s y usó 4016 KB frente a 1,328 s y 5096 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321803 · Go 1.14 x64 №11322081 · Java 1.8 №11318205 · Rust 1.75 x64 №11321807 · PyPy 3.10 x64 №11322169.
+
+Rust agrupa cuatro actualizaciones de la suma armónica y guarda las sumas de totientes pequeñas como residuos de 32 bits. Rust 1.75 x64, envío 11322387. Tiempo 0,062 → 0,046 s, memoria 1000 → 612 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2220_number_theory.cpp](2220_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 1000 KB |
-| [2220_number_theory.go](2220_number_theory.go) | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.093 s | 1704 KB |
-| [2220_number_theory.java](2220_number_theory.java) | Java 1.8 | number_theory | O(N + N^(3/4)) | AC | 0.437 s | 1064 KB |
-| [2220_number_theory.py](2220_number_theory.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 1.265 s | 4892 KB |
-| [2220_number_theory.rs](2220_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 800 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2220_number_theory.cpp](2220_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 1196 KB | 11321803 |
+| [2220_number_theory.go](2220_number_theory.go) | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.078 s | 1908 KB | 11322081 |
+| [2220_number_theory.java](2220_number_theory.java) | Java 1.8 | number_theory | O(N + N^(3/4)) | AC | 0.421 s | 1252 KB | 11318205 |
+| [2220_number_theory.py](2220_number_theory.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 1.328 s | 5096 KB | 11322169 |
+| [2220_number_theory.rs](2220_number_theory.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.062 s | 1000 KB | 11321807 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2220_number_theory_optimized.go](2220_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 1504 KB | 11317204 |
+| [2220_number_theory_optimized.py](2220_number_theory_optimized.py) | PyPy 3.10 x64 | number_theory | O(N + N^(3/4)) | AC | 0.343 s | 4016 KB | 11317253 |
+| [2220_number_theory_optimized.rs](2220_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(N + N^(3/4)) | AC | 0.046 s | 612 KB | 11322387 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores.

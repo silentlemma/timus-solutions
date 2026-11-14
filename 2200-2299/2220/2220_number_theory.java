@@ -46,19 +46,17 @@ public class Main {
             for (int index = count; index >= 1; --index) {
                 long x = n / index;
                 long total = x * (x + 1) / 2;
-                for (long left = 2; left <= x; ) {
+                for (long left = 2; left <= x;) {
                     long quotient = x / left;
                     long right = x / quotient;
-                    total -= (right - left + 1) * get((int) quotient);
+                    total -= (right - left + 1) * get((int)quotient);
                     left = right + 1;
                 }
                 large[index] = total;
             }
         }
 
-        long get(int x) {
-            return x <= limit ? small[x] : large[n / x];
-        }
+        long get(int x) { return x <= limit ? small[x] : large[n / x]; }
     }
 
     public static void main(String[] args) throws IOException {
@@ -77,7 +75,7 @@ public class Main {
         long weighted = 0;
         long previous = 0;
         long total = 0;
-        for (int left = 1; left <= n; ) {
+        for (int left = 1; left <= n;) {
             int quotient = n / left;
             int right = n / quotient;
             // weighted is factorial times the current harmonic sum.
@@ -91,7 +89,7 @@ public class Main {
             previous = harmonic;
             left = right + 1;
         }
-        long pairs = (long) n * (n + 1) / 2 % MOD;
+        long pairs = (long)n * (n + 1) / 2 % MOD;
         System.out.println(total * power(pairs, MOD - 2) % MOD);
     }
 }
