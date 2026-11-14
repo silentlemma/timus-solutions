@@ -16,7 +16,9 @@ fn possible(a: &[i64], smallest: i64, x: i64) -> bool {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<i64>().unwrap());
     let n = it.next().unwrap() as usize;
     let a: Vec<i64> = it.take(n).collect();
     let smallest = *a.iter().min().unwrap();

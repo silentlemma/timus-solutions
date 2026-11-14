@@ -62,12 +62,37 @@ x 越大检查只会越难，所以在 −10⁹ 到 10⁹ 上对 x 二分查找�
 
 - Python 解法不用二分：从左到右扫描一次，分别记录变号尚未开始、正在进行和已经结束时前缀最小值的最佳值，复杂度 O(n)。
 
+## 优化解法
+
+流式动态规划保存三种前缀最小值：尚未翻转、翻转区间在当前位置结束、翻转区间在前缀任意位置结束。只需一次遍历和常数额外空间。
+
+**优化版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11317399 · Go 1.14 x64 №11317402 · Java 1.8 №11317412 · Rust 1.75 x64 №11317407.
+
+**简单版本的 Timus 提交记录**
+
+Python 3.12 x64 №11321738 · G++ 13.2 x64 №11321929 · Java 1.8 №11321932 · Rust 1.75 x64 №11321934.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2183_binary_search.cpp](2183_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log C) | AC | 0.093 s | 984 KB |
-| [2183_binary_search.go](2183_binary_search.go) | Go 1.14 x64 | binary_search | O(n log C) | AC | 0.031 s | 3496 KB |
-| [2183_binary_search.java](2183_binary_search.java) | Java 1.8 | binary_search | O(n log C) | AC | 0.156 s | 1320 KB |
-| [2183_binary_search.rs](2183_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log C) | AC | 0.031 s | 3708 KB |
-| [2183_dp.py](2183_dp.py) | Python 3.12 x64 | dp | O(n) | AC | 0.125 s | 7524 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2183_binary_search.cpp](2183_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(n log C) | AC | 0.093 s | 964 KB | 11321929 |
+| [2183_binary_search.go](2183_binary_search.go) | Go 1.14 x64 | binary_search | O(n log C) | AC | 0.031 s | 3500 KB | 11322055 |
+| [2183_binary_search.java](2183_binary_search.java) | Java 1.8 | binary_search | O(n log C) | AC | 0.14 s | 1296 KB | 11321932 |
+| [2183_binary_search.rs](2183_binary_search.rs) | Rust 1.75 x64 | binary_search | O(n log C) | AC | 0.046 s | 3660 KB | 11321934 |
+| [2183_dp.py](2183_dp.py) | Python 3.12 x64 | dp | O(n) | AC | 0.109 s | 8144 KB | 11321738 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2183_dp.cpp](2183_dp.cpp) \* | G++ 13.2 x64 | dp | O(n) | AC | 0.093 s | 116 KB | 11317399 |
+| [2183_dp.go](2183_dp.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1008 KB | 11317402 |
+| [2183_dp.rs](2183_dp.rs) \* | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 208 KB | 11317407 |
+| [2183_dp.java](2183_dp.java) \* | Java 1.8 | dp | O(n) | AC | 0.14 s | 416 KB | 11317412 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
