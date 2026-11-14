@@ -80,12 +80,38 @@ Las respuestas coinciden con una búsqueda directa desde la gramática
 para todas las subcadenas de 300 cadenas cortas aleatorias, y con una
 implementación aceptada independiente en las largas.
 
+## Soluciones optimizadas
+
+La posición de la letra de apertura también identifica el nodo de la pila. Su padre es el estado guardado justo antes de esa letra, de modo que el arreglo de prefijos también guarda los enlaces de la pila.
+
+Go usa un arreglo de 32 bits para los estados de prefijo y los enlaces de la pila, y escribe cada respuesta al procesarla. El envío 11317325 usó 2360 KB frente a 6968 KB de la versión sencilla.
+
+Rust usa un arreglo de 32 bits para los estados de prefijo y los enlaces de la pila, y escribe cada respuesta al procesarla. El envío 11317330 usó 888 KB frente a 3416 KB de la versión sencilla.
+
+Python guarda los estados de prefijo y los enlaces de la pila en un arreglo de 32 bits, lee las consultas línea a línea y acumula las respuestas en un arreglo de bytes. El envío 11317334 usó 1120 KB frente a 13616 KB de la versión sencilla.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321922 · Java 1.8 №11321749 · Rust 1.75 x64 №11321912 · Go 1.14 x64 №11322069 · Python 3.12 x64 №11322070.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1604 KB |
-| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.093 s | 6976 KB |
-| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5808 KB |
-| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.140 s | 13904 KB |
-| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.031 s | 3420 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1592 KB | 11321922 |
+| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.078 s | 6968 KB | 11322069 |
+| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5816 KB | 11321749 |
+| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.14 s | 13616 KB | 11322070 |
+| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.046 s | 3416 KB | 11321912 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1724_strings_optimized.go](1724_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
+| [1724_strings_optimized.rs](1724_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
+| [1724_strings_optimized.py](1724_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |
+
+\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Python sigue pendiente.

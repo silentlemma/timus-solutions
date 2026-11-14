@@ -36,7 +36,8 @@ int main() {
     for (int k = 0; k < q; k++) {
         int left, right;
         std::cin >> left >> right;
-        if (state[left - 1] == state[right]) out[k] = '1';
+        if (state[left - 1] == state[right])
+            out[k] = '1';
     }
     printf("%s\n", out.c_str());
 }

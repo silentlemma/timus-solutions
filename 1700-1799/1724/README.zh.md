@@ -63,12 +63,38 @@ caAgtGTtgAacCc
 
 在 300 个短随机串的所有子串上，答案与直接按文法的搜索一致；在长串上与一个独立的已通过实现一致。
 
+## 优化解法
+
+开括号字母的位置同时是栈节点的编号。该节点的父节点就是这个字母之前的状态，因此前缀状态数组也存储了栈的链接。
+
+Go 使用一个 32 位整数数组存储前缀状态和栈链接，并逐个输出查询结果。提交 11317325 使用 2360 KB，基础版使用 6968 KB。
+
+Rust 使用一个 32 位整数数组存储前缀状态和栈链接，并逐个输出查询结果。提交 11317330 使用 888 KB，基础版使用 3416 KB。
+
+Python 使用一个 32 位整数数组存储前缀状态和栈链接，逐行读取查询，并将答案存入字节数组。提交 11317334 使用 1120 KB，基础版使用 13616 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321922 · Java 1.8 №11321749 · Rust 1.75 x64 №11321912 · Go 1.14 x64 №11322069 · Python 3.12 x64 №11322070.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1604 KB |
-| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.093 s | 6976 KB |
-| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5808 KB |
-| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.140 s | 13904 KB |
-| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.031 s | 3420 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1592 KB | 11321922 |
+| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.078 s | 6968 KB | 11322069 |
+| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5816 KB | 11321749 |
+| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.14 s | 13616 KB | 11322070 |
+| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.046 s | 3416 KB | 11321912 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1724_strings_optimized.go](1724_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
+| [1724_strings_optimized.rs](1724_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
+| [1724_strings_optimized.py](1724_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |
+
+\* Go 仍有提升排名的空间。 Rust 仍有提升排名的空间。 Python 仍有提升排名的空间。

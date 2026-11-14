@@ -31,7 +31,11 @@ fn main() {
     for _ in 0..q {
         let left: usize = it.next().unwrap().parse().unwrap();
         let right: usize = it.next().unwrap().parse().unwrap();
-        out.push(if state[left - 1] == state[right] { '1' } else { '0' });
+        out.push(if state[left - 1] == state[right] {
+            '1'
+        } else {
+            '0'
+        });
     }
     println!("{}", out);
 }

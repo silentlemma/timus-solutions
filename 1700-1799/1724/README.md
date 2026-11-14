@@ -81,12 +81,38 @@ The answers match a search straight from the grammar for every
 substring of 300 short random strings, and an independent accepted
 implementation on long ones.
 
+## Optimized solutions
+
+The index of the opening letter doubles as the stack node ID. Its parent is the state stored immediately before that letter, so the prefix array also stores the stack links.
+
+Go uses a 32-bit prefix state that also stores each stack link, and streams query answers. Submission 11317325 used 2360 KB compared with 6968 KB for the simple version.
+
+Rust uses a 32-bit prefix state that also stores each stack link, and streams query answers. Submission 11317330 used 888 KB compared with 3416 KB for the simple version.
+
+Python stores prefix states and stack links in one 32-bit array, reads queries line by line, and accumulates the answers in a byte array. Submission 11317334 used 1120 KB compared with 13616 KB for the simple version.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321922 · Java 1.8 №11321749 · Rust 1.75 x64 №11321912 · Go 1.14 x64 №11322069 · Python 3.12 x64 №11322070.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1604 KB |
-| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.093 s | 6976 KB |
-| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5808 KB |
-| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.140 s | 13904 KB |
-| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.031 s | 3420 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1724_strings.cpp](1724_strings.cpp) | G++ 13.2 x64 | strings | O(L + q) | AC | 0.031 s | 1592 KB | 11321922 |
+| [1724_strings.go](1724_strings.go) | Go 1.14 x64 | strings | O(L + q) | AC | 0.078 s | 6968 KB | 11322069 |
+| [1724_strings.java](1724_strings.java) | Java 1.8 | strings | O(L + q) | AC | 0.125 s | 5816 KB | 11321749 |
+| [1724_strings.py](1724_strings.py) | Python 3.12 x64 | strings | O(L + q) | AC | 0.14 s | 13616 KB | 11322070 |
+| [1724_strings.rs](1724_strings.rs) | Rust 1.75 x64 | strings | O(L + q) | AC | 0.046 s | 3416 KB | 11321912 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1724_strings_optimized.go](1724_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L + q) | AC | 0.031 s | 2360 KB | 11317325 |
+| [1724_strings_optimized.rs](1724_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L + q) | AC | 0.062 s | 888 KB | 11317330 |
+| [1724_strings_optimized.py](1724_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L + q) | AC | 0.171 s | 1120 KB | 11317334 |
+
+\* The Go rating target remains open. The Rust rating target remains open. The Python rating target remains open.
