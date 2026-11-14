@@ -1,8 +1,16 @@
 use std::io::{self, Read};
 
 const DIGITS: [&str; 10] = [
-    "._.|.||_|", ".....|..|", "._.._||_.", "._.._|._|", "...|_|..|",
-    "._.|_.._|", "._.|_.|_|", "._...|..|", "._.|_||_|", "._.|_|._|",
+    "._.|.||_|",
+    ".....|..|",
+    "._.._||_.",
+    "._.._|._|",
+    "...|_|..|",
+    "._.|_.._|",
+    "._.|_.|_|",
+    "._...|..|",
+    "._.|_||_|",
+    "._.|_|._|",
 ];
 const COLUMNS: [usize; 4] = [0, 4, 10, 14]; // where the four digits start
 const WIDTH: usize = 3;
@@ -10,7 +18,10 @@ const SECONDS: usize = 60; // MM:SS runs from 00:00 to 59:59
 
 // every lit segment must belong to the digit
 fn fits(shown: &[u8], digit: usize) -> bool {
-    shown.iter().zip(DIGITS[digit].bytes()).all(|(&c, d)| c == b'.' || c == d)
+    shown
+        .iter()
+        .zip(DIGITS[digit].bytes())
+        .all(|(&c, d)| c == b'.' || c == d)
 }
 
 fn main() {
@@ -21,12 +32,16 @@ fn main() {
     let mut out = String::new();
     let mut previous = SECONDS * SECONDS;
     for _ in 0..n {
-        let rows: Vec<&[u8]> = (0..WIDTH).map(|_| words.next().unwrap().as_bytes()).collect();
+        let rows: Vec<&[u8]> = (0..WIDTH)
+            .map(|_| words.next().unwrap().as_bytes())
+            .collect();
         let ok: Vec<Vec<bool>> = COLUMNS
             .iter()
             .map(|&c| {
-                let cell: Vec<u8> =
-                    rows.iter().flat_map(|row| row[c..c + WIDTH].iter().copied()).collect();
+                let cell: Vec<u8> = rows
+                    .iter()
+                    .flat_map(|row| row[c..c + WIDTH].iter().copied())
+                    .collect();
                 (0..10).map(|d| fits(&cell, d)).collect()
             })
             .collect();

@@ -69,12 +69,38 @@ pasos por lectura.
 En el ejemplo la primera lectura encaja tanto con 09:48 como con 03:12,
 así que la salida puede diferir del ejemplo.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321978 · Java 1.8 №11321972 · Python 3.12 x64 №11321979 · Rust 1.75 x64 №11321974 · Go 1.14 x64 №11322308.
+
+## Soluciones optimizadas
+
+Dos máscaras de bits representan por separado los minutos y los segundos posibles. El bit activo más alto da el mayor valor dentro del límite actual. Si el minuto actual no admite ningún segundo, se elige el minuto válido anterior y su mayor segundo.
+
+Go 1.14 x64, envío 11322015. Tiempo 0,031 → 0,031 s, memoria 1128 → 928 KB.
+
+Java 1.8, envío 11322017. Tiempo 0,14 → 0,156 s, memoria 2372 → 536 KB.
+
+Rust asigna a cada patrón de celdas encendidas una máscara de dígitos y elige el mayor tiempo inferior a la lectura anterior. Rust 1.75 x64, envío 11323256. Tiempo 0,062 → 0,046 s, memoria 252 → 64 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2081_greedy.cpp](2081_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 392 KB |
-| [2081_greedy.go](2081_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1272 KB |
-| [2081_greedy.java](2081_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.187 s | 2448 KB |
-| [2081_greedy.py](2081_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 564 KB |
-| [2081_greedy.rs](2081_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 256 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2081_greedy.cpp](2081_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 372 KB | 11321978 |
+| [2081_greedy.go](2081_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1128 KB | 11322308 |
+| [2081_greedy.java](2081_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.14 s | 2372 KB | 11321972 |
+| [2081_greedy.py](2081_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 596 KB | 11321979 |
+| [2081_greedy.rs](2081_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.062 s | 252 KB | 11321974 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2081_bitmask.go](2081_bitmask.go) | Go 1.14 x64 | bitmask | O(n) | AC | 0.031 s | 928 KB | 11322015 |
+| [2081_bitmask.java](2081_bitmask.java) \* | Java 1.8 | bitmask | O(n) | AC | 0.156 s | 536 KB | 11322017 |
+| [2081_bitmask.rs](2081_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(N) | AC | 0.046 s | 64 KB | 11323256 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

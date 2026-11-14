@@ -1,8 +1,16 @@
 import sys
 
 DIGITS = [
-    "._.|.||_|", ".....|..|", "._.._||_.", "._.._|._|", "...|_|..|",
-    "._.|_.._|", "._.|_.|_|", "._...|..|", "._.|_||_|", "._.|_|._|",
+    "._.|.||_|",
+    ".....|..|",
+    "._.._||_.",
+    "._.._|._|",
+    "...|_|..|",
+    "._.|_.._|",
+    "._.|_.|_|",
+    "._...|..|",
+    "._.|_||_|",
+    "._.|_|._|",
 ]
 COLUMNS = [0, 4, 10, 14]  # where the four digits start
 WIDTH = 3
@@ -21,8 +29,8 @@ def main():
     out = []
     previous = TOP
     for r in range(n):
-        rows = lines[1 + WIDTH * r:1 + WIDTH * (r + 1)]
-        cells = ["".join(row[c:c + WIDTH] for row in rows) for c in COLUMNS]
+        rows = lines[1 + WIDTH * r : 1 + WIDTH * (r + 1)]
+        cells = ["".join(row[c : c + WIDTH] for row in rows) for c in COLUMNS]
         ok = [[fits(cell, d) for d in range(10)] for cell in cells]
         # the largest time that fits and stays below the previous one leaves the
         # most room for the rest, so it never spoils a solution
