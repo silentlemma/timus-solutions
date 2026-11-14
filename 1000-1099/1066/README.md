@@ -95,12 +95,36 @@ one of them at exactly 0.
 - Java reads `A` with `Locale.US`, so a decimal point is accepted whatever
   the system locale is.
 
+## Optimized solutions
+
+Java finds the binding lamp from the integer minimum of A/k + k near the square root of A. It then computes the final height directly. Submission 11317218 took 0.093 s and used 508 KB, versus 0.109 s and 1992 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321845 · Python 3.12 x64 №11321849 · Rust 1.75 x64 №11321850 · Go 1.14 x64 №11322191 · Java 1.8 №11322192.
+
+Python finds the binding lamp in constant time by comparing the two integer indices around the square root of the first height. Python 3.12 x64, submission 11322406. Time 0.062 → 0.078 s, memory 452 → 404 KB.
+
+Go finds the minimum of the height constraint around the square root of the first height, then computes the last height in factored form. Go 1.14 x64, submission 11322851. Time 0.031 → 0.031 s, memory 1100 → 300 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1066_math.cpp](1066_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 156 KB |
-| [1066_math.go](1066_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1084 KB |
-| [1066_math.java](1066_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 2008 KB |
-| [1066_math.py](1066_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 392 KB |
-| [1066_math.rs](1066_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 272 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1066_math.cpp](1066_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 140 KB | 11321845 |
+| [1066_math.go](1066_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1100 KB | 11322191 |
+| [1066_math.java](1066_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1992 KB | 11322192 |
+| [1066_math.py](1066_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 452 KB | 11321849 |
+| [1066_math.rs](1066_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 268 KB | 11321850 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1066_math_optimized.java](1066_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
+| [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
+| [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+
+\* Java ranks second by time and first by memory in the saved rating. It meets the memory improvement criterion.

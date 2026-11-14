@@ -95,12 +95,36 @@ avanzada desde la segunda altura elegida deja todas las lámparas a altura
 - Java lee `A` con `Locale.US`, así que el punto decimal se acepta sea
   cual sea la configuración regional del sistema.
 
+## Soluciones optimizadas
+
+Java halla la lámpara que toca el suelo mediante el mínimo entero de A/k + k cerca de la raíz cuadrada de A. Luego calcula directamente la altura final. El envío 11317218 tardó 0,093 s y usó 508 KB frente a 0,109 s y 1992 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321845 · Python 3.12 x64 №11321849 · Rust 1.75 x64 №11321850 · Go 1.14 x64 №11322191 · Java 1.8 №11322192.
+
+Python identifica en tiempo constante la lámpara que toca el suelo al comparar los dos índices enteros cercanos a la raíz cuadrada de la primera altura. Python 3.12 x64, envío 11322406. Tiempo 0,062 → 0,078 s, memoria 452 → 404 KB.
+
+Go localiza el mínimo de la restricción de altura cerca de la raíz cuadrada de la primera altura y calcula la última con la fórmula factorizada. Go 1.14 x64, envío 11322851. Tiempo 0,031 → 0,031 s, memoria 1100 → 300 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1066_math.cpp](1066_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 156 KB |
-| [1066_math.go](1066_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1084 KB |
-| [1066_math.java](1066_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 2008 KB |
-| [1066_math.py](1066_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 392 KB |
-| [1066_math.rs](1066_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 272 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1066_math.cpp](1066_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.001 s | 140 KB | 11321845 |
+| [1066_math.go](1066_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1100 KB | 11322191 |
+| [1066_math.java](1066_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1992 KB | 11322192 |
+| [1066_math.py](1066_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 452 KB | 11321849 |
+| [1066_math.rs](1066_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 268 KB | 11321850 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1066_math_optimized.java](1066_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 508 KB | 11317218 |
+| [1066_math_optimized.py](1066_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322406 |
+| [1066_math_optimized.go](1066_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 300 KB | 11322851 |
+
+\* En el corte de clasificación, Java ocupa el segundo lugar en tiempo y el primero en memoria. La versión cumple el criterio de ahorro de memoria.
