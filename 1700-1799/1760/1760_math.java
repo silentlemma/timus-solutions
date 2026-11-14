@@ -3,13 +3,9 @@ import java.util.Scanner;
 public class Main {
     static long big, small;
 
-    static long pairs(long k) {
-        return k * (k - 1) / 2;
-    }
+    static long pairs(long k) { return k * (k - 1) / 2; }
 
-    static long gcd(long x, long y) {
-        return y == 0 ? x : gcd(y, x % y);
-    }
+    static long gcd(long x, long y) { return y == 0 ? x : gcd(y, x % y); }
 
     // pairs among the first m sleepers on one page of both notebooks: walk the
     // pages of the larger size, each cut by the smaller pages into a head,

@@ -85,12 +85,38 @@ Las respuestas coinciden con un recuento par a par en 300 casos
 pequeños, un recuento lineal en 60 más grandes y una implementación
 aceptada independiente en 100 casos hasta los límites.
 
+## Soluciones optimizadas
+
+Se cuentan primero las parejas de las páginas pequeñas. Un corte de página grande dentro de una pequeña descarta el producto de las longitudes de ambos lados. Se suma ese producto por fórmula en cada período completo y solo se recorren los cortes del prefijo restante.
+
+El envío 11318053 en Java tardó 0.109 s y usó 404 KB. La versión sencilla tardó 0.156 s y usó 1572 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321937 · Java 1.8 №11321939 · Python 3.12 x64 №11321885 · Rust 1.75 x64 №11321938 · Go 1.14 x64 №11322287.
+
+Go suma con una fórmula las contribuciones de los períodos completos y recorre los cortes restantes. Go 1.14 x64, envío 11321947. Tiempo 0,031 → 0,015 s, memoria 1132 → 288 KB.
+
+Rust cuenta los pares con sumas recursivas de valores redondeados hacia abajo, de sus cuadrados y de sus productos por los índices. Rust 1.75 x64, envío 11323414. Tiempo 0,046 → 0,046 s, memoria 212 → 60 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1760_math.cpp](1760_math.cpp) | G++ 13.2 x64 | math | O(sqrt(n)) | AC | 0.015 s | 128 KB |
-| [1760_math.go](1760_math.go) | Go 1.14 x64 | math | O(sqrt(n)) | AC | 0.031 s | 1064 KB |
-| [1760_math.java](1760_math.java) | Java 1.8 | math | O(sqrt(n)) | AC | 0.140 s | 1600 KB |
-| [1760_math.py](1760_math.py) | Python 3.12 x64 | math | O(sqrt(n)) | AC | 0.078 s | 528 KB |
-| [1760_math.rs](1760_math.rs) | Rust 1.75 x64 | math | O(sqrt(n)) | AC | 0.031 s | 236 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1760_math.cpp](1760_math.cpp) | G++ 13.2 x64 | math | O(sqrt(n)) | AC | 0.015 s | 112 KB | 11321937 |
+| [1760_math.go](1760_math.go) | Go 1.14 x64 | math | O(sqrt(n)) | AC | 0.031 s | 1132 KB | 11322287 |
+| [1760_math.java](1760_math.java) | Java 1.8 | math | O(sqrt(n)) | AC | 0.156 s | 1572 KB | 11321939 |
+| [1760_math.py](1760_math.py) | Python 3.12 x64 | math | O(sqrt(n)) | AC | 0.093 s | 552 KB | 11321885 |
+| [1760_math.rs](1760_math.rs) | Rust 1.75 x64 | math | O(sqrt(n)) | AC | 0.046 s | 212 KB | 11321938 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1760_math_optimized.java](1760_math_optimized.java) | Java 1.8 | math | O(sqrt(n)) | AC | 0.109 s | 404 KB | 11318053 |
+| [1760_math_optimized.go](1760_math_optimized.go) \* | Go 1.14 x64 | math | O(sqrt(n)) | AC | 0.015 s | 288 KB | 11321947 |
+| [1760_number_theory_math.rs](1760_number_theory_math.rs) \* | Rust 1.75 x64 | number_theory, math | O(log n) | AC | 0.046 s | 60 KB | 11323414 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

@@ -29,7 +29,8 @@ ll shared(ll m) {
 
 int main() {
     ll a, b, n;
-    if (scanf("%lld %lld %lld", &a, &b, &n) < 1) return 0;
+    if (scanf("%lld %lld %lld", &a, &b, &n) < 1)
+        return 0;
     big = std::max(a, b);
     small = std::min(a, b);
     // both page breaks repeat every lcm(a, b) sleepers, and so do the pairs

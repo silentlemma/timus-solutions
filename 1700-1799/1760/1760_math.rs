@@ -35,7 +35,9 @@ fn shared(m: i64, big: i64, small: i64) -> i64 {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut words = input.split_ascii_whitespace().map(|w| w.parse::<i64>().unwrap());
+    let mut words = input
+        .split_ascii_whitespace()
+        .map(|w| w.parse::<i64>().unwrap());
     let mut next = || words.next().unwrap();
     let (a, b, n) = (next(), next(), next());
     let (big, small) = (a.max(b), a.min(b));
