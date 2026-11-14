@@ -92,12 +92,36 @@ donde dos paradas de una misma línea están a un viaje de distancia.
 - Los cinco lenguajes guardan para cada parada la lista de líneas que
   pasan por ella y marcan las líneas ya abiertas en cada búsqueda.
 
+## Soluciones optimizadas
+
+Java representa con máscaras de bits las paradas alcanzables en un viaje y hace una sola búsqueda en anchura por parada de origen (U en la tabla). Cada grupo usa el presupuesto más ajustado de los viajeros sin abono. El envío 11317236 tardó 0,125 s y usó 432 KB frente a 0,109 s y 1020 KB en la base.
+
+Python construye las máscaras de paradas al leer las rutas y comprueba primero los presupuestos más ajustados. El envío 11318373 tardó 0,078 s y usó 760 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321815 · Go 1.14 x64 №11321818 · Rust 1.75 x64 №11321820 · Java 1.8 №11322058 · Python 3.12 x64 №11322059.
+
+Rust agrupa a los pasajeros por parada de origen y representa cada nivel de la búsqueda en anchura con una máscara de 128 bits. Rust 1.75 x64, envío 11322390. Tiempo 0,031 → 0,015 s, memoria 232 → 216 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1085_bfs.cpp](1085_bfs.cpp) | G++ 13.2 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 220 KB |
-| [1085_bfs.go](1085_bfs.go) | Go 1.14 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 1384 KB |
-| [1085_bfs.java](1085_bfs.java) | Java 1.8 | bfs | O(K · (N + ΣL)) | AC | 0.109 s | 1020 KB |
-| [1085_bfs.py](1085_bfs.py) | Python 3.12 x64 | bfs | O(K · (N + ΣL)) | AC | 0.078 s | 756 KB |
-| [1085_bfs.rs](1085_bfs.rs) | Rust 1.75 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 244 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1085_bfs.cpp](1085_bfs.cpp) | G++ 13.2 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 204 KB | 11321815 |
+| [1085_bfs.go](1085_bfs.go) | Go 1.14 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 1376 KB | 11321818 |
+| [1085_bfs.java](1085_bfs.java) | Java 1.8 | bfs | O(K · (N + ΣL)) | AC | 0.109 s | 1020 KB | 11322058 |
+| [1085_bfs.py](1085_bfs.py) | Python 3.12 x64 | bfs | O(K · (N + ΣL)) | AC | 0.078 s | 780 KB | 11322059 |
+| [1085_bfs.rs](1085_bfs.rs) | Rust 1.75 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 232 KB | 11321820 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1085_bfs_optimized.java](1085_bfs_optimized.java) \* | Java 1.8 | bfs | O(ΣL + U N) | AC | 0.125 s | 432 KB | 11317236 |
+| [1085_bfs_optimized.py](1085_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
+| [1085_bfs_optimized.rs](1085_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(ΣL + U N) | AC | 0.015 s | 216 KB | 11322390 |
+
+\* Java aún no alcanza el objetivo en la clasificación guardada. Python aún no alcanza el objetivo en la clasificación guardada.

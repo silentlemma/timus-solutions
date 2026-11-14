@@ -88,12 +88,36 @@ where two stops on a common route are one ride apart.
 - All five languages keep for each stop the list of routes through it and
   mark the routes already opened in each search.
 
+## Optimized solutions
+
+Java represents stops reachable in one ride as bit masks and runs a single breadth-first search for each distinct starting stop (U in the table). At each start it uses the tightest budget of the paying friends. Submission 11317236 took 0.125 s and used 432 KB, versus 0.109 s and 1020 KB for the base.
+
+Python builds the stop masks as it reads the routes and checks the tightest budgets first. Submission 11318373 took 0.078 s and used 760 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321815 · Go 1.14 x64 №11321818 · Rust 1.75 x64 №11321820 · Java 1.8 №11322058 · Python 3.12 x64 №11322059.
+
+Rust groups friends by starting stop and uses a 128-bit mask for each breadth-first search layer. Rust 1.75 x64, submission 11322390. Time 0.031 → 0.015 s, memory 232 → 216 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1085_bfs.cpp](1085_bfs.cpp) | G++ 13.2 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 220 KB |
-| [1085_bfs.go](1085_bfs.go) | Go 1.14 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 1384 KB |
-| [1085_bfs.java](1085_bfs.java) | Java 1.8 | bfs | O(K · (N + ΣL)) | AC | 0.109 s | 1020 KB |
-| [1085_bfs.py](1085_bfs.py) | Python 3.12 x64 | bfs | O(K · (N + ΣL)) | AC | 0.078 s | 756 KB |
-| [1085_bfs.rs](1085_bfs.rs) | Rust 1.75 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 244 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1085_bfs.cpp](1085_bfs.cpp) | G++ 13.2 x64 | bfs | O(K · (N + ΣL)) | AC | 0.015 s | 204 KB | 11321815 |
+| [1085_bfs.go](1085_bfs.go) | Go 1.14 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 1376 KB | 11321818 |
+| [1085_bfs.java](1085_bfs.java) | Java 1.8 | bfs | O(K · (N + ΣL)) | AC | 0.109 s | 1020 KB | 11322058 |
+| [1085_bfs.py](1085_bfs.py) | Python 3.12 x64 | bfs | O(K · (N + ΣL)) | AC | 0.078 s | 780 KB | 11322059 |
+| [1085_bfs.rs](1085_bfs.rs) | Rust 1.75 x64 | bfs | O(K · (N + ΣL)) | AC | 0.031 s | 232 KB | 11321820 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1085_bfs_optimized.java](1085_bfs_optimized.java) \* | Java 1.8 | bfs | O(ΣL + U N) | AC | 0.125 s | 432 KB | 11317236 |
+| [1085_bfs_optimized.py](1085_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(ΣL + U N) | AC | 0.078 s | 760 KB | 11318373 |
+| [1085_bfs_optimized.rs](1085_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(ΣL + U N) | AC | 0.015 s | 216 KB | 11322390 |
+
+\* The Java rating target remains open in the saved comparison. The Python rating target remains open in the saved comparison.
