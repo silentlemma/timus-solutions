@@ -85,17 +85,49 @@ Detalles a tener en cuenta:
 Las respuestas se compararon con la lista de todas las rutas más cortas
 desde s en 400 redes aleatorias pequeñas.
 
+## Soluciones optimizadas
+
+Se comprimen los números de estación en orden y se guardan las listas de vecinos en un
+arreglo plano. Un BFS desde la primera estación registrada obtiene las capas de distancia.
+Tras validar el prefijo, se marca la última estación registrada y se propagan las marcas por
+aristas hacia la siguiente capa en orden BFS. Exactamente las estaciones marcadas admiten
+una continuación mínima. La compresión cuesta O((V + E) log(V + E)) en tiempo y los arreglos
+usan O(V + E) en espacio. El envío 11316949 tardó 0,015 s y usó 224 KB. La versión sencilla tardó 0,015 s y usó 1256 KB.
+
+Go comprime los números de estación con un conjunto de bits y guarda la adyacencia y la cola de BFS en arreglos fijos. El bit alto de cada distancia marca qué estaciones pueden continuar el camino mínimo registrado. Go 1.14 x64, envío 11322926. Tiempo 0,015 → 0,015 s, memoria 1844 → 376 KB.
+
+Rust asigna índices compactos a las estaciones y guarda sus vecinos en un único arreglo contiguo. El envío 11317248 tardó 0,062 s y usó 320 KB frente a 0,046 s y 1532 KB en la base.
+
+Java guarda los índices compactos de las estaciones y los enlaces de adyacencia en arreglos de enteros cortos. El envío 11317252 tardó 0,109 s y usó 636 KB frente a 0,093 s y 2864 KB en la base.
+
 ## Notas por lenguaje
 
 - Los números de estación indexan arreglos directamente, porque son
   menores que 32 768; Python usa un diccionario.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322317 · Go 1.14 x64 №11322318 · Python 3.12 x64 №11321737 · Java 1.8 №11322321 · Rust 1.75 x64 №11322322.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1314_bfs.cpp](1314_bfs.cpp) | G++ 13.2 x64 | bfs | O(V + E) | AC | 0.015 s | 1272 KB |
-| [1314_bfs.go](1314_bfs.go) | Go 1.14 x64 | bfs | O(V + E) | AC | 0.015 s | 1920 KB |
-| [1314_bfs.java](1314_bfs.java) | Java 1.8 | bfs | O(V + E) | AC | 0.093 s | 2884 KB |
-| [1314_bfs.py](1314_bfs.py) | Python 3.12 x64 | bfs | O(V log V + E) | AC | 0.062 s | 1980 KB |
-| [1314_bfs.rs](1314_bfs.rs) | Rust 1.75 x64 | bfs | O(V + E) | AC | 0.031 s | 1532 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1314_bfs.cpp](1314_bfs.cpp) | G++ 13.2 x64 | bfs | O(V + E) | AC | 0.015 s | 1256 KB | 11322317 |
+| [1314_bfs.go](1314_bfs.go) | Go 1.14 x64 | bfs | O(V + E) | AC | 0.015 s | 1844 KB | 11322318 |
+| [1314_bfs.java](1314_bfs.java) | Java 1.8 | bfs | O(V + E) | AC | 0.093 s | 2864 KB | 11322321 |
+| [1314_bfs.py](1314_bfs.py) | Python 3.12 x64 | bfs | O(V log V + E) | AC | 0.078 s | 1884 KB | 11321737 |
+| [1314_bfs.rs](1314_bfs.rs) | Rust 1.75 x64 | bfs | O(V + E) | AC | 0.046 s | 1532 KB | 11322322 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1314_bfs_optimized.cpp](1314_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O((V + E) log(V + E)) | AC | 0.015 s | 224 KB | 11316949 |
+| [1314_bfs_optimized.go](1314_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(S + V + E) | AC | 0.015 s | 376 KB | 11322926 |
+| [1314_bfs_optimized.rs](1314_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
+| [1314_bfs_optimized.java](1314_bfs_optimized.java) \* | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+
+\* Aceptada. No hay envíos comparables en Go de otros autores en el corte, así que el objetivo de clasificación sigue abierto. En el corte de clasificación, Rust ocupa el segundo lugar en tiempo y el primero en memoria. La versión cumple el criterio de ahorro de memoria. Java cumple el criterio de mejora de recursos. Su objetivo de clasificación sigue pendiente.

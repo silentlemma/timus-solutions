@@ -83,17 +83,48 @@ Pitfalls:
 The answers were compared with listing every shortest route from s
 on 400 small random networks.
 
+## Optimized solutions
+
+Compress station numbers in sorted order and store the neighbor lists in one flat array. A
+single BFS from the first recorded station gives the distance layers. Once the recorded
+prefix is verified, mark the last station and propagate the marks along edges to the next
+layer in BFS order. Exactly those marked stations admit a shortest continuation. Compression
+takes O((V + E) log(V + E)) time and all arrays use O(V + E) space. Submission 11316949 took 0.015 s and used 224 KB. The simple version took 0.015 s and used 1256 KB.
+
+Go assigns compact station indices with a bitset and stores the adjacency array and BFS queue in fixed arrays. A high bit in each distance marks stations that can continue the recorded shortest path. Go 1.14 x64, submission 11322926. Time 0.015 → 0.015 s, memory 1844 → 376 KB.
+
+Rust maps station IDs to compact indices and stores adjacent stations in one contiguous array. Submission 11317248 took 0.062 s and used 320 KB, versus 0.046 s and 1532 KB for the base.
+
+Java stores compact station indices and adjacency links in short arrays. Submission 11317252 took 0.109 s and used 636 KB, versus 0.093 s and 2864 KB for the base.
+
 ## Language notes
 
 - The station numbers index arrays directly, since they are below
   32 768; Python keeps a dictionary instead.
 
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322317 · Go 1.14 x64 №11322318 · Python 3.12 x64 №11321737 · Java 1.8 №11322321 · Rust 1.75 x64 №11322322.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1314_bfs.cpp](1314_bfs.cpp) | G++ 13.2 x64 | bfs | O(V + E) | AC | 0.015 s | 1272 KB |
-| [1314_bfs.go](1314_bfs.go) | Go 1.14 x64 | bfs | O(V + E) | AC | 0.015 s | 1920 KB |
-| [1314_bfs.java](1314_bfs.java) | Java 1.8 | bfs | O(V + E) | AC | 0.093 s | 2884 KB |
-| [1314_bfs.py](1314_bfs.py) | Python 3.12 x64 | bfs | O(V log V + E) | AC | 0.062 s | 1980 KB |
-| [1314_bfs.rs](1314_bfs.rs) | Rust 1.75 x64 | bfs | O(V + E) | AC | 0.031 s | 1532 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1314_bfs.cpp](1314_bfs.cpp) | G++ 13.2 x64 | bfs | O(V + E) | AC | 0.015 s | 1256 KB | 11322317 |
+| [1314_bfs.go](1314_bfs.go) | Go 1.14 x64 | bfs | O(V + E) | AC | 0.015 s | 1844 KB | 11322318 |
+| [1314_bfs.java](1314_bfs.java) | Java 1.8 | bfs | O(V + E) | AC | 0.093 s | 2864 KB | 11322321 |
+| [1314_bfs.py](1314_bfs.py) | Python 3.12 x64 | bfs | O(V log V + E) | AC | 0.078 s | 1884 KB | 11321737 |
+| [1314_bfs.rs](1314_bfs.rs) | Rust 1.75 x64 | bfs | O(V + E) | AC | 0.046 s | 1532 KB | 11322322 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1314_bfs_optimized.cpp](1314_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O((V + E) log(V + E)) | AC | 0.015 s | 224 KB | 11316949 |
+| [1314_bfs_optimized.go](1314_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(S + V + E) | AC | 0.015 s | 376 KB | 11322926 |
+| [1314_bfs_optimized.rs](1314_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
+| [1314_bfs_optimized.java](1314_bfs_optimized.java) \* | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+
+\* Accepted. The snapshot has no comparable Go submissions by other authors, so the rating target remains open. Rust ranks second by time and first by memory in the saved rating. It meets the memory improvement criterion. The Java version qualifies by its resource improvement. Its rating target remains open.
