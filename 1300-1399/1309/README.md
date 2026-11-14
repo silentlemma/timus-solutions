@@ -78,12 +78,38 @@ to the q-th power by repeated squaring.
 - Java uses `Math.floorMod` and Rust `rem_euclid` for the non-negative
   remainder; C++ and Go add 9973 before the last `%`.
 
+## Optimized solutions
+
+Rust composes the affine map of one period by repeated squaring, then evaluates the remaining steps. Submission 11317191 took 0.015 s and used 204 KB, versus 0.046 s and 216 KB for the base.
+
+Go raises the affine transform for one full period by binary exponentiation and handles the remaining steps directly. Go 1.14 x64, submission 11322858. Time 0.031 → 0.031 s, memory 1120 → 312 KB.
+
+Go reads and writes decimal digits directly. It applies the affine map of a full period by repeated squaring, then evaluates the remaining recurrence.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321826 · Java 1.8 №11321828 · Python 3.12 x64 №11321829 · Go 1.14 x64 №11322062 · Rust 1.75 x64 №11322063.
+
+Python composes the affine map for complete periods by repeated squaring and then processes the remaining terms directly. Python 3.12 x64, submission 11322405. Time 0.109 → 0.093 s, memory 448 → 396 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1309_math.cpp](1309_math.cpp) | G++ 13.2 x64 | math | O(9973 + n / 9973) | AC | 0.015 s | 128 KB |
-| [1309_math.go](1309_math.go) | Go 1.14 x64 | math | O(9973 + n / 9973) | AC | 0.031 s | 1092 KB |
-| [1309_math.java](1309_math.java) | Java 1.8 | math | O(9973 + n / 9973) | AC | 0.125 s | 2148 KB |
-| [1309_math.py](1309_math.py) | Python 3.12 x64 | math | O(9973 + n / 9973) | AC | 0.078 s | 464 KB |
-| [1309_math.rs](1309_math.rs) | Rust 1.75 x64 | math | O(9973 + n / 9973) | AC | 0.046 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1309_math.cpp](1309_math.cpp) | G++ 13.2 x64 | math | O(9973 + n / 9973) | AC | 0.015 s | 112 KB | 11321826 |
+| [1309_math.go](1309_math.go) | Go 1.14 x64 | math | O(9973 + n / 9973) | AC | 0.031 s | 1120 KB | 11322062 |
+| [1309_math.java](1309_math.java) | Java 1.8 | math | O(9973 + n / 9973) | AC | 0.093 s | 2180 KB | 11321828 |
+| [1309_math.py](1309_math.py) | Python 3.12 x64 | math | O(9973 + n / 9973) | AC | 0.109 s | 448 KB | 11321829 |
+| [1309_math.rs](1309_math.rs) | Rust 1.75 x64 | math | O(9973 + n / 9973) | AC | 0.046 s | 216 KB | 11322063 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1309_math_optimized.rs](1309_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.015 s | 204 KB | 11317191 |
+| [1309_math_optimized.go](1309_math_optimized.go) \* | Go 1.14 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.031 s | 312 KB | 11322858 |
+| [1309_math_optimized.py](1309_math_optimized.py) \* | Python 3.12 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.093 s | 396 KB | 11322405 |
+
+\* The marked solutions can improve their target rankings.

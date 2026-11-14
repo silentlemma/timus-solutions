@@ -79,12 +79,38 @@ aplicación del bloque a la potencia q por cuadrados sucesivos.
 - Java usa `Math.floorMod` y Rust `rem_euclid` para el resto no
   negativo; C++ y Go suman 9973 antes del último `%`.
 
+## Soluciones optimizadas
+
+Rust eleva por cuadrados sucesivos la transformación afín de un período y luego evalúa los pasos restantes. El envío 11317191 tardó 0,015 s y usó 204 KB frente a 0,046 s y 216 KB en la base.
+
+Go eleva la transformación afín de un período completo mediante exponenciación binaria y calcula directamente los pasos restantes. Go 1.14 x64, envío 11322858. Tiempo 0,031 → 0,031 s, memoria 1120 → 312 KB.
+
+Go lee y escribe los dígitos directamente. Eleva por cuadrados sucesivos la transformación afín de un período completo y calcula los pasos restantes.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321826 · Java 1.8 №11321828 · Python 3.12 x64 №11321829 · Go 1.14 x64 №11322062 · Rust 1.75 x64 №11322063.
+
+Python compone la transformación afín de los períodos completos por cuadrados sucesivos y luego procesa directamente los términos restantes. Python 3.12 x64, envío 11322405. Tiempo 0,109 → 0,093 s, memoria 448 → 396 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1309_math.cpp](1309_math.cpp) | G++ 13.2 x64 | math | O(9973 + n / 9973) | AC | 0.015 s | 128 KB |
-| [1309_math.go](1309_math.go) | Go 1.14 x64 | math | O(9973 + n / 9973) | AC | 0.031 s | 1092 KB |
-| [1309_math.java](1309_math.java) | Java 1.8 | math | O(9973 + n / 9973) | AC | 0.125 s | 2148 KB |
-| [1309_math.py](1309_math.py) | Python 3.12 x64 | math | O(9973 + n / 9973) | AC | 0.078 s | 464 KB |
-| [1309_math.rs](1309_math.rs) | Rust 1.75 x64 | math | O(9973 + n / 9973) | AC | 0.046 s | 224 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1309_math.cpp](1309_math.cpp) | G++ 13.2 x64 | math | O(9973 + n / 9973) | AC | 0.015 s | 112 KB | 11321826 |
+| [1309_math.go](1309_math.go) | Go 1.14 x64 | math | O(9973 + n / 9973) | AC | 0.031 s | 1120 KB | 11322062 |
+| [1309_math.java](1309_math.java) | Java 1.8 | math | O(9973 + n / 9973) | AC | 0.093 s | 2180 KB | 11321828 |
+| [1309_math.py](1309_math.py) | Python 3.12 x64 | math | O(9973 + n / 9973) | AC | 0.109 s | 448 KB | 11321829 |
+| [1309_math.rs](1309_math.rs) | Rust 1.75 x64 | math | O(9973 + n / 9973) | AC | 0.046 s | 216 KB | 11322063 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1309_math_optimized.rs](1309_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.015 s | 204 KB | 11317191 |
+| [1309_math_optimized.go](1309_math_optimized.go) \* | Go 1.14 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.031 s | 312 KB | 11322858 |
+| [1309_math_optimized.py](1309_math_optimized.py) \* | Python 3.12 x64 | math | O(n mod 9973 + log(n / 9973 + 1)) | AC | 0.093 s | 396 KB | 11322405 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
