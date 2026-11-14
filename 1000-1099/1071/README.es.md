@@ -85,12 +85,38 @@ para pares grandes aleatorios.
 - Python comprueba la subsecuencia con el modismo `d in it` sobre un solo
   iterador, que avanza por las cifras de `x`.
 
+## Soluciones optimizadas
+
+Para las bases pequeñas se comparan los dígitos de derecha a izquierda. Para las grandes se acota el cociente y se buscan divisores de la diferencia para encontrar la menor base candidata.
+
+El envío 11317873 en Python tardó 0.078 s y usó 516 KB. La versión sencilla tardó 0.078 s y usó 524 KB.
+
+El envío 11317892 en Java tardó 0.093 s y usó 388 KB. La versión sencilla tardó 0.109 s y usó 1652 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322392 · Go 1.14 x64 №11322458 · Rust 1.75 x64 №11322435 · Java 1.8 №11322459 · Python 3.12 x64 №11322460.
+
+Go omite intervalos de bases en los que ambos números tienen la misma cantidad de dígitos. En las demás bases pequeñas compara los dígitos de derecha a izquierda y obtiene las bases mayores mediante divisiones. Go 1.14 x64, envío 11322927. Tiempo 0,015 → 0,015 s, memoria 1172 → 336 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1071_math.cpp](1071_math.cpp) | G++ 13.2 x64 | math | O(√x · log x) | AC | 0.015 s | 188 KB |
-| [1071_math.go](1071_math.go) | Go 1.14 x64 | math | O(√x · log x) | AC | 0.031 s | 1192 KB |
-| [1071_math.java](1071_math.java) | Java 1.8 | math | O(√x · log x) | AC | 0.125 s | 1636 KB |
-| [1071_math.py](1071_math.py) | Python 3.12 x64 | math | O(√x · log x) | AC | 0.062 s | 572 KB |
-| [1071_math.rs](1071_math.rs) | Rust 1.75 x64 | math | O(√x · log x) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1071_math.cpp](1071_math.cpp) | G++ 13.2 x64 | math | O(√x · log x) | AC | 0.015 s | 172 KB | 11322392 |
+| [1071_math.go](1071_math.go) | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 1172 KB | 11322458 |
+| [1071_math.java](1071_math.java) | Java 1.8 | math | O(√x · log x) | AC | 0.109 s | 1652 KB | 11322459 |
+| [1071_math.py](1071_math.py) | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 524 KB | 11322460 |
+| [1071_math.rs](1071_math.rs) | Rust 1.75 x64 | math | O(√x · log x) | AC | 0.031 s | 216 KB | 11322435 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1071_math_optimized.py](1071_math_optimized.py) \* | Python 3.12 x64 | math | O(√x · log x) | AC | 0.078 s | 516 KB | 11317873 |
+| [1071_math_optimized.java](1071_math_optimized.java) | Java 1.8 | math | O(√x · log x) | AC | 0.093 s | 388 KB | 11317892 |
+| [1071_math_optimized.go](1071_math_optimized.go) \* | Go 1.14 x64 | math | O(√x · log x) | AC | 0.015 s | 336 KB | 11322927 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
