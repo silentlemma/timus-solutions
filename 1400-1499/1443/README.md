@@ -67,12 +67,41 @@ Pitfalls:
 - five lines with two short pieces per rail need three extra rails, not
   the two that the total length suggests (test 07).
 
+## Optimized solutions
+
+The optimized versions convert the lengths to integer units of 0.0001 m and count full rails and offcuts by integer division.
+
+Java 1.8, submission 11319248. Time 0.109 → 0.093 s, memory 1652 → 512 KB.
+
+Rust 1.75 x64, submission 11319421. Time 0.015 → 0.015 s, memory 228 → 244 KB.
+
+Python 3.12 x64, submission 11319468. Time 0.078 → 0.093 s, memory 404 → 396 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321871 · Go 1.14 x64 №11322257 · Java 1.8 №11322258 · Python 3.12 x64 №11322259 · Rust 1.75 x64 №11322260.
+
+Go reads both lengths as scaled integers and counts full rails and the rails needed for the remaining pieces separately. Go 1.14 x64, submission 11322863. Time 0.031 → 0.015 s, memory 1068 → 300 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1443_math.cpp](1443_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB |
-| [1443_math.go](1443_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1088 KB |
-| [1443_math.java](1443_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1652 KB |
-| [1443_math.py](1443_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 432 KB |
-| [1443_math.rs](1443_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1443_math.cpp](1443_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 388 KB | 11321871 |
+| [1443_math.go](1443_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1068 KB | 11322257 |
+| [1443_math.java](1443_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1652 KB | 11322258 |
+| [1443_math.py](1443_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11322259 |
+| [1443_math.rs](1443_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 228 KB | 11322260 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1443_math_optimized.java](1443_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 512 KB | 11319248 |
+| [1443_math_optimized.rs](1443_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 244 KB | 11319421 |
+| [1443_math_optimized.py](1443_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 396 KB | 11319468 |
+| [1443_math_optimized.go](1443_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 300 KB | 11322863 |
+
+\* The marked versions have room to improve in the ratings.
