@@ -92,12 +92,41 @@ NO
   Java и Rust используют знаковые 64-битные целые числа, Python — целые
   числа произвольной точности.
 
+## Оптимизированные решения
+
+Оптимизированные версии проверяют чётность через остатки по удвоенному НОД. Координаты и длины шагов остаются в исходных единицах.
+
+Python 3.12 x64, посылка 11318499. Время 0,109 → 0,078 с, память 400 → 436 КБ.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322401 · Go 1.14 x64 №11322465 · Java 1.8 №11322466 · Python 3.12 x64 №11322467 · Rust 1.75 x64 №11322468.
+
+Java 1.8, посылка 11322444. Время 0,093 → 0,093 с, память 1560 → 360 КБ.
+
+Go 1.14 x64, посылка 11322469. Время 0,015 → 0,015 с, память 1068 → 304 КБ.
+
+Rust проверяет делимость с помощью двоичного НОД и сравнивает степени двойки, чтобы определить, нечётны ли оба нормализованных шага. Rust 1.75 x64, посылка 11323306. Время 0,015 → 0,015 с, память 208 → 52 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1286_number_theory.cpp](1286_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 124 KB |
-| [1286_number_theory.go](1286_number_theory.go) | Go 1.14 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 1092 KB |
-| [1286_number_theory.java](1286_number_theory.java) | Java 1.8 | number_theory | O(log max(abs p, abs q)) | AC | 0.125 s | 1588 KB |
-| [1286_number_theory.py](1286_number_theory.py) | Python 3.12 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.109 s | 464 KB |
-| [1286_number_theory.rs](1286_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.031 s | 212 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1286_number_theory.cpp](1286_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 112 KB | 11322401 |
+| [1286_number_theory.go](1286_number_theory.go) | Go 1.14 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 1068 KB | 11322465 |
+| [1286_number_theory.java](1286_number_theory.java) | Java 1.8 | number_theory | O(log max(abs p, abs q)) | AC | 0.093 s | 1560 KB | 11322466 |
+| [1286_number_theory.py](1286_number_theory.py) | Python 3.12 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.109 s | 400 KB | 11322467 |
+| [1286_number_theory.rs](1286_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 208 KB | 11322468 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1286_number_theory_optimized.py](1286_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.078 s | 436 KB | 11318499 |
+| [1286_number_theory_optimized.java](1286_number_theory_optimized.java) | Java 1.8 | number_theory | O(log max(abs p, abs q)) | AC | 0.093 s | 360 KB | 11322444 |
+| [1286_number_theory_optimized.go](1286_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 304 KB | 11322469 |
+| [1286_number_theory_optimized.rs](1286_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(log max(abs p, abs q)) | AC | 0.015 s | 52 KB | 11323306 |
+
+\* У отмеченных версий есть запас для улучшения рейтинга.
