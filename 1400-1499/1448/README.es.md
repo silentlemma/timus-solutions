@@ -59,12 +59,45 @@ Detalles a tener en cuenta:
   por cifra (gen1 a gen7);
 - la fila del ejemplo es solo una de muchas respuestas válidas.
 
+## Soluciones optimizadas
+
+La variante C++ genera un período manteniendo el resto módulo 100. Lo copia en un búfer fijo
+de longitud múltiplo de 100 e imprime bloques completos y el prefijo final. La secuencia es
+la misma, con tiempo O(N) y memoria adicional O(1). El envío 11316954 usó 112 KB frente a
+1164 KB en la versión base, ambos en 0,0151144 KB en la versión base, ambos en 0,015 s.
+
+Go llena el bloque de salida de tamaño fijo duplicando con `copy` el prefijo ya generado. El envío 11317198 tardó 0,015 s y usó 924 KB frente a 0,031 s y 2056 KB en la base.
+
+Java repite el período con `System.arraycopy` y escribe bloques de tamaño fijo directamente en el flujo de salida. El envío 11317199 usó 364 KB frente a 3036 KB en la base, ambos en 0,1253076 KB en la base, ambos en 0,109 s.
+
+Python repite un período de 100 lámparas para formar un bloque de bytes de tamaño fijo, luego escribe los bloques completos y el prefijo final. El envío 11317212 usó 432 KB frente a 2244 KB en la base, ambos en 0,0782276 KB en la base, ambos en 0,078 s.
+
+Rust llena un bloque fijo duplicando el período de 100 lámparas y escribe los bloques completos y el prefijo final. El envío 11317214 usó 204 KB y tardó 0,046 s frente a 2048 KB y 0,031 s en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322145 · Go 1.14 x64 №11322146 · Java 1.8 №11322147 · Python 3.12 x64 №11322148 · Rust 1.75 x64 №11322149.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1448_constructive.cpp](1448_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 1164 KB |
-| [1448_constructive.go](1448_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 2088 KB |
-| [1448_constructive.java](1448_constructive.java) | Java 1.8 | constructive | O(N) | AC | 0.109 s | 3036 KB |
-| [1448_constructive.py](1448_constructive.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 2244 KB |
-| [1448_constructive.rs](1448_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 2056 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1448_constructive.cpp](1448_constructive.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 1144 KB | 11322145 |
+| [1448_constructive.go](1448_constructive.go) | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 2056 KB | 11322146 |
+| [1448_constructive.java](1448_constructive.java) | Java 1.8 | constructive | O(N) | AC | 0.125 s | 3076 KB | 11322147 |
+| [1448_constructive.py](1448_constructive.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 2276 KB | 11322148 |
+| [1448_constructive.rs](1448_constructive.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 2048 KB | 11322149 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1448_constructive_optimized.cpp](1448_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 112 KB | 11316954 |
+| [1448_constructive_optimized.go](1448_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 924 KB | 11317198 |
+| [1448_constructive_optimized.java](1448_constructive_optimized.java) | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11317199 |
+| [1448_constructive_optimized.py](1448_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 432 KB | 11317212 |
+| [1448_constructive_optimized.rs](1448_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 204 KB | 11317214 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores. En el corte de clasificación, Rust ocupa el segundo lugar en tiempo y el primero en memoria. La versión cumple el criterio de ahorro de memoria.
