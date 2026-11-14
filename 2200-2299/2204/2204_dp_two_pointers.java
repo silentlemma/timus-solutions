@@ -76,9 +76,9 @@ public class Main {
                 int best = tripCount + 1;
                 for (int previous = 0; previous < OPTIONS; previous++) {
                     // Only one trip can intersect two separated exam intervals.
-                    boolean shared = first < end
-                            && previousFirst[previous] < previousEnd[previous]
-                            && previousEnd[previous] - 1 == first;
+                    boolean shared = first < end &&
+                                     previousFirst[previous] < previousEnd[previous] &&
+                                     previousEnd[previous] - 1 == first;
                     int cost = previousCost[previous] - (shared ? 1 : 0);
                     best = Math.min(best, cost);
                 }

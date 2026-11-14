@@ -72,12 +72,38 @@ n и m, 1 ≤ n, m ≤ 10⁵, затем два промежутка каждо�
 
 Это O(n + m).
 
+## Оптимизированные решения
+
+Оптимизированные версии хранят границы отрезков в компактных массивах, а в динамике держат только два варианта предыдущего экзамена.
+
+Python 3.12 x64, посылка 11318457. Время 0,562 → 0,578 с, память 62936 → 5308 КБ.
+
+Rust 1.75 x64, посылка 11318466. Время 0,031 → 0,046 с, память 13984 → 2416 КБ.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322394 · Go 1.14 x64 №11322481 · Java 1.8 №11322461 · Python 3.12 x64 №11322486 · Rust 1.75 x64 №11322492.
+
+Go 1.14 x64, посылка 11322475. Время 0,031 → 0,078 с, память 20324 → 3348 КБ.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2204_dp_two_pointers.cpp](2204_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(n + m) | AC | 0.109 s | 2084 KB |
-| [2204_dp_two_pointers.go](2204_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.062 s | 20120 KB |
-| [2204_dp_two_pointers.java](2204_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(n + m) | AC | 0.125 s | 2716 KB |
-| [2204_dp_two_pointers.py](2204_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.546 s | 62660 KB |
-| [2204_dp_two_pointers.rs](2204_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.062 s | 13792 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2204_dp_two_pointers.cpp](2204_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(n + m) | AC | 0.109 s | 2280 KB | 11322394 |
+| [2204_dp_two_pointers.go](2204_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.031 s | 20324 KB | 11322481 |
+| [2204_dp_two_pointers.java](2204_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(n + m) | AC | 0.125 s | 2916 KB | 11322461 |
+| [2204_dp_two_pointers.py](2204_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.562 s | 62936 KB | 11322486 |
+| [2204_dp_two_pointers.rs](2204_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.031 s | 13984 KB | 11322492 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2204_dp_two_pointers_optimized.py](2204_dp_two_pointers_optimized.py) \* | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.578 s | 5308 KB | 11318457 |
+| [2204_dp_two_pointers_optimized.rs](2204_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.046 s | 2416 KB | 11318466 |
+| [2204_dp_two_pointers_optimized.go](2204_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.078 s | 3348 KB | 11322475 |
+
+\* У отмеченных версий есть запас для улучшения рейтинга.

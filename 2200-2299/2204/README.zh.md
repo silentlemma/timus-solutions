@@ -52,12 +52,38 @@ DP 对当前考试的每个选项保存到目前为止最少损失的旅行数�
 
 复杂度 O(n + m)。
 
+## 优化解法
+
+优化版本将区间端点存入紧凑数组，动态规划只保留上一场考试的两个选项。
+
+Python 3.12 x64（提交 11318457）的运行时间从 0.562 秒变为 0.578 秒，内存从 62936 KB 变为 5308 KB。
+
+Rust 1.75 x64（提交 11318466）的运行时间从 0.031 秒变为 0.046 秒，内存从 13984 KB 变为 2416 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322394 · Go 1.14 x64 №11322481 · Java 1.8 №11322461 · Python 3.12 x64 №11322486 · Rust 1.75 x64 №11322492.
+
+Go 1.14 x64（提交 11322475）的运行时间从 0.031 秒变为 0.078 秒，内存从 20324 KB 变为 3348 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2204_dp_two_pointers.cpp](2204_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(n + m) | AC | 0.109 s | 2084 KB |
-| [2204_dp_two_pointers.go](2204_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.062 s | 20120 KB |
-| [2204_dp_two_pointers.java](2204_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(n + m) | AC | 0.125 s | 2716 KB |
-| [2204_dp_two_pointers.py](2204_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.546 s | 62660 KB |
-| [2204_dp_two_pointers.rs](2204_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.062 s | 13792 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2204_dp_two_pointers.cpp](2204_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(n + m) | AC | 0.109 s | 2280 KB | 11322394 |
+| [2204_dp_two_pointers.go](2204_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.031 s | 20324 KB | 11322481 |
+| [2204_dp_two_pointers.java](2204_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(n + m) | AC | 0.125 s | 2916 KB | 11322461 |
+| [2204_dp_two_pointers.py](2204_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.562 s | 62936 KB | 11322486 |
+| [2204_dp_two_pointers.rs](2204_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.031 s | 13984 KB | 11322492 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2204_dp_two_pointers_optimized.py](2204_dp_two_pointers_optimized.py) \* | Python 3.12 x64 | dp, two_pointers | O(n + m) | AC | 0.578 s | 5308 KB | 11318457 |
+| [2204_dp_two_pointers_optimized.rs](2204_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(n + m) | AC | 0.046 s | 2416 KB | 11318466 |
+| [2204_dp_two_pointers_optimized.go](2204_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(n + m) | AC | 0.078 s | 3348 KB | 11322475 |
+
+\* 带星号的版本仍有提升排名的空间。
