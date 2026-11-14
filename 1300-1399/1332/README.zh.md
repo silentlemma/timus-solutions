@@ -81,14 +81,43 @@ N，然后 N 行圆心，然后是 R 和 r。
 
 ## 各语言说明
 
-- 五种解答尝试同样的位置，并比较距离的平方。
+- 五种简单解答尝试同样的位置，并比较距离的平方。
+
+## 优化解法
+
+固定一个位于圆盘边界上的城市。与它距离不超过 2D 的其他城市各自确定一个闭角度区间，在这个区间内圆盘能够覆盖该城市。排序端点即可找到最大重叠数。跨过零角度的区间计入初始值，同一角度先处理起点再处理终点。
+
+Python 使用上述扫描。提交 11318349 耗时 0.093 秒，使用 676 KB。
+
+Go 使用上述扫描。提交 11318350 耗时 0.031 秒，使用 916 KB。
+
+Java 使用上述扫描。提交 11318354 耗时 0.125 秒，使用 456 KB。
+
+Rust 使用上述扫描。提交 11318359 耗时 0.046 秒，使用 220 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321855 · Go 1.14 x64 №11322297 · Java 1.8 №11322298 · Python 3.12 x64 №11322299 · Rust 1.75 x64 №11322300.
 
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 348 KB |
-| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1348 KB |
-| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.125 s | 1956 KB |
-| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.203 s | 1016 KB |
-| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 400 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 340 KB | 11321855 |
+| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1328 KB | 11322297 |
+| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.156 s | 1972 KB | 11322298 |
+| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.234 s | 1044 KB | 11322299 |
+| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 384 KB | 11322300 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1332_geometry_sorting.py](1332_geometry_sorting.py) | Python 3.12 x64 | geometry, sorting | O(N² log N) | AC | 0.093 s | 676 KB | 11318349 |
+| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 916 KB | 11318350 |
+| [1332_geometry_sorting.java](1332_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N² log N) | AC | 0.125 s | 456 KB | 11318354 |
+| [1332_geometry_sorting.rs](1332_geometry_sorting.rs) \* | Rust 1.75 x64 | geometry, sorting | O(N² log N) | AC | 0.046 s | 220 KB | 11318359 |
+
+\* Go 尚未达到排名目标。 Java 尚未达到排名目标。 Rust 尚未达到排名目标。

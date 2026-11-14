@@ -94,15 +94,44 @@ The answers were compared with an angular sweep around each center on
 
 ## Language notes
 
-- All five solutions try the same places and compare squared
+- The five simple solutions try the same places and compare squared
   distances.
+
+## Optimized solutions
+
+Fix a city on the boundary of the disc. Every other city within distance 2D determines a closed interval of angles at which the disc covers it. Sorting the endpoints finds the largest overlap. An interval that crosses angle zero contributes to the initial count, and starts count before ends at the same angle.
+
+Python uses this sweep. Submission 11318349 took 0.093 s and used 676 KB.
+
+Go uses this sweep. Submission 11318350 took 0.031 s and used 916 KB.
+
+Java uses this sweep. Submission 11318354 took 0.125 s and used 456 KB.
+
+Rust uses this sweep. Submission 11318359 took 0.046 s and used 220 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321855 · Go 1.14 x64 №11322297 · Java 1.8 №11322298 · Python 3.12 x64 №11322299 · Rust 1.75 x64 №11322300.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 348 KB |
-| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1348 KB |
-| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.125 s | 1956 KB |
-| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.203 s | 1016 KB |
-| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 400 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 340 KB | 11321855 |
+| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1328 KB | 11322297 |
+| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.156 s | 1972 KB | 11322298 |
+| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.234 s | 1044 KB | 11322299 |
+| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 384 KB | 11322300 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1332_geometry_sorting.py](1332_geometry_sorting.py) | Python 3.12 x64 | geometry, sorting | O(N² log N) | AC | 0.093 s | 676 KB | 11318349 |
+| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 916 KB | 11318350 |
+| [1332_geometry_sorting.java](1332_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N² log N) | AC | 0.125 s | 456 KB | 11318354 |
+| [1332_geometry_sorting.rs](1332_geometry_sorting.rs) \* | Rust 1.75 x64 | geometry, sorting | O(N² log N) | AC | 0.046 s | 220 KB | 11318359 |
+
+\* The Go rating target remains open. The Java rating target remains open. The Rust rating target remains open.

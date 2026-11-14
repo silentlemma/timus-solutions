@@ -97,15 +97,44 @@ centro en 400 casos pequeños aleatorios.
 
 ## Notas por lenguaje
 
-- Las cinco soluciones prueban los mismos lugares y comparan distancias
+- Las cinco soluciones sencillas sencillas sencillas sencillas sencillas prueban los mismos lugares y comparan distancias
   al cuadrado.
+
+## Soluciones optimizadas
+
+Fijamos una ciudad en el borde del disco. Cada otra ciudad a una distancia de hasta 2D determina un intervalo cerrado de ángulos en los que el disco la cubre. Al ordenar los extremos se obtiene el máximo solapamiento. Los intervalos que cruzan el ángulo cero se cuentan al inicio y, para ángulos iguales, los inicios se procesan primero.
+
+Python usa este barrido. El envío 11318349 tardó 0,093 s y usó 676 KB.
+
+Go usa este barrido. El envío 11318350 tardó 0,031 s y usó 916 KB.
+
+Java usa este barrido. El envío 11318354 tardó 0,125 s y usó 456 KB.
+
+Rust usa este barrido. El envío 11318359 tardó 0,046 s y usó 220 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321855 · Go 1.14 x64 №11322297 · Java 1.8 №11322298 · Python 3.12 x64 №11322299 · Rust 1.75 x64 №11322300.
 
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 348 KB |
-| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1348 KB |
-| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.125 s | 1956 KB |
-| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.203 s | 1016 KB |
-| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 400 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1332_geometry.cpp](1332_geometry.cpp) | G++ 13.2 x64 | geometry | O(N³) | AC | 0.015 s | 340 KB | 11321855 |
+| [1332_geometry.go](1332_geometry.go) | Go 1.14 x64 | geometry | O(N³) | AC | 0.031 s | 1328 KB | 11322297 |
+| [1332_geometry.java](1332_geometry.java) | Java 1.8 | geometry | O(N³) | AC | 0.156 s | 1972 KB | 11322298 |
+| [1332_geometry.py](1332_geometry.py) | Python 3.12 x64 | geometry | O(N³) | AC | 0.234 s | 1044 KB | 11322299 |
+| [1332_geometry.rs](1332_geometry.rs) | Rust 1.75 x64 | geometry | O(N³) | AC | 0.046 s | 384 KB | 11322300 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1332_geometry_sorting.py](1332_geometry_sorting.py) | Python 3.12 x64 | geometry, sorting | O(N² log N) | AC | 0.093 s | 676 KB | 11318349 |
+| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 916 KB | 11318350 |
+| [1332_geometry_sorting.java](1332_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N² log N) | AC | 0.125 s | 456 KB | 11318354 |
+| [1332_geometry_sorting.rs](1332_geometry_sorting.rs) \* | Rust 1.75 x64 | geometry, sorting | O(N² log N) | AC | 0.046 s | 220 KB | 11318359 |
+
+\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente. El objetivo de clasificación de Rust sigue pendiente.
