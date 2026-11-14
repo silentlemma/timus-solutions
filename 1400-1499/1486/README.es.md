@@ -73,6 +73,10 @@ Detalles a tener en cuenta:
   cuadrados N × N coincidirían; una alargada admite min(N, M) (gen4,
   prueba 06).
 
+## Soluciones optimizadas
+
+Go clasifica los cuadrados por las clases de sus cuatro esquinas, como Python. La tabla de direccionamiento abierto compara las cuatro etiquetas, de modo que una colisión no mezcla clases distintas. El envío 11317159 tardó 0,062 s y usó 6296 KB frente a 0,734 s y 27468 KB en la base.
+
 ## Notas por lenguaje
 
 - Los demás lenguajes juntan dos hashes módulo 10⁹ + 7 y 998244353 en
@@ -92,12 +96,26 @@ Detalles a tener en cuenta:
   el límite de 2 s en las pruebas 10 y 23 del juez, y una con un
   diccionario por grupo excedía los 128 MB en la prueba 23.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321843 · Java 1.8 №11321844 · PyPy 3.10 x64 №11322025 · Rust 1.75 x64 №11321847.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7924 KB |
-| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.718 s | 25556 KB |
-| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.671 s | 17900 KB |
-| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.406 s | 21008 KB |
-| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.125 s | 7980 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7908 KB | 11321843 |
+| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.734 s | 27468 KB | 11322053 |
+| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.656 s | 17868 KB | 11321844 |
+| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.421 s | 20876 KB | 11322025 |
+| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.156 s | 7960 KB | 11321847 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1486_hashing_optimized.go](1486_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores.

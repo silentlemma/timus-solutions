@@ -70,6 +70,10 @@ Pitfalls:
 - a square matrix of one letter allows only K = N − 1, since two N × N
   squares would coincide; a longer one allows min(N, M) (gen4, test 06).
 
+## Optimized solutions
+
+Go labels squares by their four corner classes, as the Python solution does. Its open-addressing table compares all four labels, so a hash collision does not merge different classes. Submission 11317159 took 0.062 s and used 6296 KB, versus 0.734 s and 27468 KB for the base.
+
 ## Language notes
 
 - The other languages pack two hashes modulo 10⁹ + 7 and 998244353 into
@@ -88,12 +92,26 @@ Pitfalls:
   the 2 s limit on the judge's tests 10 and 23, and one with a
   dictionary per group exceeded the 128 MB on test 23.
 
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321843 · Java 1.8 №11321844 · PyPy 3.10 x64 №11322025 · Rust 1.75 x64 №11321847.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7924 KB |
-| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.718 s | 25556 KB |
-| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.671 s | 17900 KB |
-| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.406 s | 21008 KB |
-| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.125 s | 7980 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7908 KB | 11321843 |
+| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.734 s | 27468 KB | 11322053 |
+| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.656 s | 17868 KB | 11321844 |
+| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.421 s | 20876 KB | 11322025 |
+| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.156 s | 7960 KB | 11321847 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1486_hashing_optimized.go](1486_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
+
+\* The saved rating has no comparable Go submissions from other authors.

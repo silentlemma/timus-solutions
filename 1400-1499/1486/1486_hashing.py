@@ -126,8 +126,12 @@ def solve(grid, n, m):
             # Hash collisions probe another slot; equality always compares all four labels.
             while table[slot]:
                 old = abs(table[slot]) - 1
-                if (ranks[old] == a and ranks[old + d] == b
-                        and ranks[old + down] == cc and ranks[old + diagonal] == dd):
+                if (
+                    ranks[old] == a
+                    and ranks[old + d] == b
+                    and ranks[old + down] == cc
+                    and ranks[old + diagonal] == dd
+                ):
                     break
                 slot = (slot + 1) & mask
             old = table[slot]

@@ -63,18 +63,36 @@ lnpglkfkjl
 - 全是同一字母的方阵只能取 K = N − 1，因为两个 N × N 正方形会重合；非方阵则可取
   min(N, M)（gen4、测试 06）。
 
+## 优化解法
+
+Go 与 Python 一样用四个角的类别为正方形分类。开放寻址表会比较全部四个标签，因此哈希冲突不会合并不同类别。提交 11317159 耗时 0.062 秒，使用 6296 KB；基础版耗时 0.734 秒，使用 27468 KB。
+
 ## 语言说明
 
 - 其他语言把模 10⁹ + 7 和 998244353 的两个哈希打包成一个 64 位键。
 
 - Python 不对正方形做哈希，而是精确编号。每个 2 × 2 正方形得到其等价类的编号，边长 2s 的正方形取其四个边长为 s 的角上正方形的类；类中只有一个成员的正方形被丢弃，因为没有更大的重复正方形以它为角。在有重复的最大边长 p = 2ʲ 之后，在 p 与 2p 之间二分，用边长为 p 的四个互相重叠、覆盖整体的角给每个 K × K 正方形编号。等价类存放在基于扁平数组的开放寻址表中，比较全部四个编号，因此冲突不会导致错误答案。它在 PyPy 下运行，评测用时 0.41 秒、内存 21 MB；使用滚动哈希的早期版本在评测第 10 和第 23 个测试上超过 2 秒的限制，每组一个字典的版本在第 23 个测试上超过 128 MB。
 
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321843 · Java 1.8 №11321844 · PyPy 3.10 x64 №11322025 · Rust 1.75 x64 №11321847.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7924 KB |
-| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.718 s | 25556 KB |
-| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.671 s | 17900 KB |
-| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.406 s | 21008 KB |
-| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.125 s | 7980 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1486_hashing.cpp](1486_hashing.cpp) | G++ 13.2 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.234 s | 7908 KB | 11321843 |
+| [1486_hashing.go](1486_hashing.go) | Go 1.14 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.734 s | 27468 KB | 11322053 |
+| [1486_hashing.java](1486_hashing.java) | Java 1.8 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.656 s | 17868 KB | 11321844 |
+| [1486_hashing.py](1486_hashing.py) | PyPy 3.10 x64 | hashing | O(NM log min(N, M)) | AC | 0.421 s | 20876 KB | 11322025 |
+| [1486_hashing.rs](1486_hashing.rs) | Rust 1.75 x64 | hashing | O(NM log(NM) log min(N, M)) | AC | 0.156 s | 7960 KB | 11321847 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1486_hashing_optimized.go](1486_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(NM log min(N, M)) expected | AC | 0.062 s | 6296 KB | 11317159 |
+
+\* 排名快照中没有其他作者的可比 Go 提交。
