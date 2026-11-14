@@ -12,13 +12,18 @@ fn main() {
     let mut glasses: Vec<Vec<usize>> = vec![Vec::new(); KINDS];
     for i in 1..=n {
         let word = it.next().unwrap();
-        let mask = word.chars().fold(0usize, |m, c| m | 1 << JUICES.find(c).unwrap());
+        let mask = word
+            .chars()
+            .fold(0usize, |m, c| m | 1 << JUICES.find(c).unwrap());
         glasses[mask].push(i);
     }
     // equal cocktails stand together; the cocktails present are ordered by a DP over
     // subsets, where best[used][last] counts the pourings, and a juice needs a new pouring
     // when a cocktail contains it and the previous one does not
-    let present: usize = (1..KINDS).filter(|&k| !glasses[k].is_empty()).map(|k| 1 << k).sum();
+    let present: usize = (1..KINDS)
+        .filter(|&k| !glasses[k].is_empty())
+        .map(|k| 1 << k)
+        .sum();
     let mut best = vec![[INF; KINDS]; 1 << KINDS];
     let mut from = vec![[0usize; KINDS]; 1 << KINDS];
     for k in 1..KINDS {
@@ -54,8 +59,11 @@ fn main() {
         used ^= 1 << last;
         last = prev;
     }
-    let arrangement: Vec<String> =
-        order.iter().rev().flat_map(|&k| glasses[k].iter().map(|g| g.to_string())).collect();
+    let arrangement: Vec<String> = order
+        .iter()
+        .rev()
+        .flat_map(|&k| glasses[k].iter().map(|g| g.to_string()))
+        .collect();
     out.push_str(&arrangement.join(" "));
     out.push('\n');
     io::stdout().write_all(out.as_bytes()).unwrap();

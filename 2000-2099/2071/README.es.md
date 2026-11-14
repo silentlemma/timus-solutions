@@ -55,9 +55,9 @@ Salida:
 Con la fila fija, cada zumo necesita un vertido por cada tramo maximal de
 vasos que lo contienen, así que el coste es el número de lugares donde
 un zumo está en un vaso pero no en el anterior (el primer vaso cuenta
-todos sus zumos). Mover un vaso junto a otro igual nunca añade tramos,
-así que todos los vasos de un cóctel pueden ir juntos, y solo importa el
-orden de a lo sumo siete cócteles distintos.
+todos sus zumos). Quitar un vaso no crea nuevos tramos. Colocarlo junto a otro del
+mismo tipo solo alarga los tramos existentes. Así, se pueden agrupar
+los vasos por tipo de cóctel y ordenar como máximo siete grupos.
 
 Se ordenan con una DP sobre subconjuntos: best[S][last] es el menor
 número de vertidos para una fila hecha de los cócteles de S que termina
@@ -70,12 +70,45 @@ imprimir.
 En el ejemplo el orden B, ABP, A necesita tres vertidos: un tramo por
 zumo.
 
+## Soluciones optimizadas
+
+La versión en C++ enumera los órdenes de hasta siete tipos de cóctel. Los índices de los vasos de cada tipo forman una lista enlazada en un único arreglo. La entrada y la salida cuestan O(n), enumerar k tipos cuesta O(k! · k) y se usan O(n) de memoria. El envío 11317118 tardó 0.046 s y usó 560 KB frente a 0.078 s y 420 KB de la base.
+
+Java analiza la entrada byte a byte, guarda los costes y predecesores en arreglos de bytes y enlaza los índices mediante un arreglo de enteros. El envío 11317279 tardó 0,125 s y usó 832 KB frente a 0,14 s y 8836 KB en la base.
+
+Go lee un elemento a la vez y enlaza los índices de los vasos mediante un arreglo de 32 bits. La programación dinámica por subconjuntos usa arreglos de bytes para los costes y los predecesores. El envío 11317277 tardó 0,031 s y usó 1288 KB frente a 0,031 s y 8040 KB en la base.
+
+Python usa arreglos de bytes para los costes y los predecesores, lee los pedidos línea por línea y escribe por bloques los índices almacenados en arreglos compactos. El envío 11317276 tardó 0,109 s y usó 1408 KB frente a 0,171 s y 16872 KB en la base.
+
+Rust guarda el coste y el predecesor de cada estado de la programación dinámica en un byte cada uno. Los índices de los vasos de cada tipo se enlazan mediante un arreglo común de 32 bits. El envío 11317274 tardó 0,046 s y usó 584 KB frente a 0,046 s y 7676 KB en la base.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11318364 · Java 1.8 №11318369 · Rust 1.75 x64 №11318371.
+
+La DP por subconjuntos de C++ lee y escribe por bloques y enlaza en un solo arreglo los índices de cada tipo de cóctel. G++ 13.2 x64, envío 11321988. Tiempo 0,078 → 0,015 s, memoria 420 → 516 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2071_bitmask_dp.cpp](2071_bitmask_dp.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.078 s | 440 KB |
-| [2071_bitmask_dp.go](2071_bitmask_dp.go) | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.046 s | 7572 KB |
-| [2071_bitmask_dp.java](2071_bitmask_dp.java) | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 8848 KB |
-| [2071_bitmask_dp.py](2071_bitmask_dp.py) | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.140 s | 17408 KB |
-| [2071_bitmask_dp.rs](2071_bitmask_dp.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.062 s | 7116 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2071_bitmask_dp.cpp](2071_bitmask_dp.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.078 s | 420 KB | 11318364 |
+| [2071_bitmask_dp.go](2071_bitmask_dp.go) | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 8040 KB | 11322036 |
+| [2071_bitmask_dp.java](2071_bitmask_dp.java) | Java 1.8 | bitmask, dp | O(n) | AC | 0.14 s | 8836 KB | 11318369 |
+| [2071_bitmask_dp.py](2071_bitmask_dp.py) | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.171 s | 16872 KB | 11322037 |
+| [2071_bitmask_dp.rs](2071_bitmask_dp.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.046 s | 7676 KB | 11318371 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2071_bruteforce.cpp](2071_bruteforce.cpp) \* | G++ 13.2 x64 | bruteforce | O(n) | AC | 0.046 s | 560 KB | 11317118 |
+| [2071_bitmask_dp_optimized.go](2071_bitmask_dp_optimized.go) \* | Go 1.14 x64 | bitmask, dp | O(n) | AC | 0.031 s | 1288 KB | 11317277 |
+| [2071_bitmask_dp_optimized.java](2071_bitmask_dp_optimized.java) \* | Java 1.8 | bitmask, dp | O(n) | AC | 0.125 s | 832 KB | 11317279 |
+| [2071_bitmask_dp_optimized.py](2071_bitmask_dp_optimized.py) \* | Python 3.12 x64 | bitmask, dp | O(n) | AC | 0.109 s | 1408 KB | 11317276 |
+| [2071_bitmask_dp_optimized.rs](2071_bitmask_dp_optimized.rs) | Rust 1.75 x64 | bitmask, dp | O(n) | AC | 0.046 s | 584 KB | 11317274 |
+| [2071_bitmask_dp_optimized.cpp](2071_bitmask_dp_optimized.cpp) | G++ 13.2 x64 | bitmask, dp | O(n) | AC | 0.015 s | 516 KB | 11321988 |
+
+\* Aceptada. Aún queda por alcanzar el objetivo de clasificación de C++. El objetivo de clasificación de Python sigue pendiente. El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente.
