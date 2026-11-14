@@ -82,12 +82,38 @@ ambos necesitan cámara.
 
 Esto cuesta O(N + K).
 
+## Soluciones optimizadas
+
+Se leen los intervalos de los ascensores en flujo y se registran sus extremos en un arreglo compacto de diferencias. La menor suma prefija entre pisos consecutivos es la respuesta.
+
+El envío 11317733 en Python tardó 0.156 s y usó 1560 KB. La versión sencilla tardó 0.14 s y usó 14948 KB.
+
+El envío 11317737 en Go tardó 0.031 s y usó 1312 KB. La versión sencilla tardó 0.015 s y usó 5784 KB.
+
+El envío 11317747 en Rust tardó 0.015 s y usó 596 KB. La versión sencilla tardó 0.062 s y usó 3156 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · Python 3.12 x64 №11322090 · Rust 1.75 x64 №11322092.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [2216_prefix_sums.cpp](2216_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 604 KB |
-| [2216_prefix_sums.go](2216_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.046 s | 5596 KB |
-| [2216_prefix_sums.java](2216_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + K) | AC | 0.093 s | 784 KB |
-| [2216_prefix_sums.py](2216_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.140 s | 15108 KB |
-| [2216_prefix_sums.rs](2216_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 2948 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2216_prefix_sums.cpp](2216_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + K) | AC | 0.046 s | 800 KB | 11321723 |
+| [2216_prefix_sums.go](2216_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 5784 KB | 11322089 |
+| [2216_prefix_sums.java](2216_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + K) | AC | 0.125 s | 960 KB | 11321729 |
+| [2216_prefix_sums.py](2216_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.14 s | 14948 KB | 11322090 |
+| [2216_prefix_sums.rs](2216_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.062 s | 3156 KB | 11322092 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [2216_prefix_sums_optimized.py](2216_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.156 s | 1560 KB | 11317733 |
+| [2216_prefix_sums_optimized.go](2216_prefix_sums_optimized.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 1312 KB | 11317737 |
+| [2216_prefix_sums_optimized.rs](2216_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 596 KB | 11317747 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

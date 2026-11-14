@@ -82,12 +82,38 @@ a camera.
 
 This takes O(N + K).
 
+## Optimized solutions
+
+Read elevator intervals as a stream and accumulate their endpoint updates in a compact difference array. The minimum prefix sum over gaps between floors is the answer.
+
+Python submission 11317733 took 0.156 s and used 1560 KB. The simple version took 0.14 s and used 14948 KB.
+
+Go submission 11317737 took 0.031 s and used 1312 KB. The simple version took 0.015 s and used 5784 KB.
+
+Rust submission 11317747 took 0.015 s and used 596 KB. The simple version took 0.062 s and used 3156 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321723 · Java 1.8 №11321729 · Go 1.14 x64 №11322089 · Python 3.12 x64 №11322090 · Rust 1.75 x64 №11322092.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2216_prefix_sums.cpp](2216_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 604 KB |
-| [2216_prefix_sums.go](2216_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.046 s | 5596 KB |
-| [2216_prefix_sums.java](2216_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + K) | AC | 0.093 s | 784 KB |
-| [2216_prefix_sums.py](2216_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.140 s | 15108 KB |
-| [2216_prefix_sums.rs](2216_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 2948 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2216_prefix_sums.cpp](2216_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N + K) | AC | 0.046 s | 800 KB | 11321723 |
+| [2216_prefix_sums.go](2216_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 5784 KB | 11322089 |
+| [2216_prefix_sums.java](2216_prefix_sums.java) | Java 1.8 | prefix_sums | O(N + K) | AC | 0.125 s | 960 KB | 11321729 |
+| [2216_prefix_sums.py](2216_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.14 s | 14948 KB | 11322090 |
+| [2216_prefix_sums.rs](2216_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.062 s | 3156 KB | 11322092 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2216_prefix_sums_optimized.py](2216_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + K) | AC | 0.156 s | 1560 KB | 11317733 |
+| [2216_prefix_sums_optimized.go](2216_prefix_sums_optimized.go) | Go 1.14 x64 | prefix_sums | O(N + K) | AC | 0.031 s | 1312 KB | 11317737 |
+| [2216_prefix_sums_optimized.rs](2216_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + K) | AC | 0.015 s | 596 KB | 11317747 |
+
+\* The marked solutions can improve their target rankings.
