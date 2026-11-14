@@ -5,7 +5,9 @@ const SMALL: u64 = 60; // only boxes up to the number of bits can receive extra 
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<u64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<u64>().unwrap());
     let n = it.next().unwrap() as usize;
     let q = it.next().unwrap() as usize;
     let mut binom = vec![vec![0u64; n + 1]; n + 1];
@@ -33,7 +35,14 @@ fn main() {
     }
     let answers: Vec<String> = it
         .take(q)
-        .map(|a| if a <= last as u64 { count[a as usize] } else { 1 }.to_string())
+        .map(|a| {
+            if a <= last as u64 {
+                count[a as usize]
+            } else {
+                1
+            }
+            .to_string()
+        })
         .collect();
     println!("{}", answers.join(" "));
 }

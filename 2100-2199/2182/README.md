@@ -59,12 +59,36 @@ in 64 bits, and each query is a lookup.
 In the example box 4 gets its own bottle and one from each of the
 C(5, 4) = 5 boxes 15, 23, 27, 29 and 30.
 
+## Optimized solutions
+
+Compute successive binomial coefficients without a Pascal table. Each small box sends its extra bottles to the single smaller box indexed by its population count. Cache the formatted counts and answer queries as they are read.
+
+**Timus submissions for the optimized versions**
+
+`2182_dp_combinatorics_optimized.cpp` (G++ 13.2 x64) №11320975 · `2182_dp_combinatorics_optimized.java` (Java 1.8) №11317427 · `2182_dp_combinatorics_optimized.py` (Python 3.12 x64) №11317438.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321973 · Go 1.14 x64 №11321784 · Java 1.8 №11321975 · Python 3.12 x64 №11321977 · Rust 1.75 x64 №11321980.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2182_dp_combinatorics.cpp](2182_dp_combinatorics.cpp) | G++ 13.2 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.140 s | 692 KB |
-| [2182_dp_combinatorics.go](2182_dp_combinatorics.go) | Go 1.14 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.031 s | 4308 KB |
-| [2182_dp_combinatorics.java](2182_dp_combinatorics.java) | Java 1.8 | dp, combinatorics | O(60^2 + q) | AC | 0.187 s | 24904 KB |
-| [2182_dp_combinatorics.py](2182_dp_combinatorics.py) | Python 3.12 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.109 s | 13712 KB |
-| [2182_dp_combinatorics.rs](2182_dp_combinatorics.rs) | Rust 1.75 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.046 s | 6904 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2182_dp_combinatorics.cpp](2182_dp_combinatorics.cpp) | G++ 13.2 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.125 s | 668 KB | 11321973 |
+| [2182_dp_combinatorics.go](2182_dp_combinatorics.go) | Go 1.14 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.031 s | 4308 KB | 11321784 |
+| [2182_dp_combinatorics.java](2182_dp_combinatorics.java) | Java 1.8 | dp, combinatorics | O(60^2 + q) | AC | 0.14 s | 24916 KB | 11321975 |
+| [2182_dp_combinatorics.py](2182_dp_combinatorics.py) | Python 3.12 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.109 s | 12936 KB | 11321977 |
+| [2182_dp_combinatorics.rs](2182_dp_combinatorics.rs) | Rust 1.75 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.046 s | 6904 KB | 11321980 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2182_dp_combinatorics_optimized.java](2182_dp_combinatorics_optimized.java) | Java 1.8 | dp, combinatorics | O(n + q) | AC | 0.14 s | 500 KB | 11317427 |
+| [2182_dp_combinatorics_optimized.py](2182_dp_combinatorics_optimized.py) | Python 3.12 x64 | dp, combinatorics | O(n + q) | AC | 0.109 s | 1876 KB | 11317438 |
+| [2182_dp_combinatorics_optimized.cpp](2182_dp_combinatorics_optimized.cpp) | G++ 13.2 x64 | dp, combinatorics | O(n + q) | AC | 0.031 s | 160 KB | 11320975 |
+| [2182_dp_combinatorics_optimized.go](2182_dp_combinatorics_optimized.go) | Go 1.14 x64 | dp, combinatorics | O(n + q) | AC | 0.046 s | 924 KB | 11322385 |
+| [2182_dp_combinatorics_optimized.rs](2182_dp_combinatorics_optimized.rs) | Rust 1.75 x64 | dp, combinatorics | O(n + q) | AC | 0.031 s | 212 KB | 11322386 |

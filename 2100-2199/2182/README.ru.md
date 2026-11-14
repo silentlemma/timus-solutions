@@ -61,12 +61,36 @@ k ≤ 60 коробок j с popcount(j) = k ровно C(n, k); все, кро�
 В примере коробка 4 получает свою бутылку и по одной из каждой из
 C(5, 4) = 5 коробок 15, 23, 27, 29 и 30.
 
+## Оптимизированные решения
+
+Вычисляем биномиальные коэффициенты по очереди без таблицы Паскаля. Каждая малая коробка передаёт дополнительные бутылки в единственную меньшую коробку с номером, равным числу единиц в двоичной записи. Сохраняем текст ответов и выводим их по мере чтения запросов.
+
+**Посылки Timus для оптимизированных версий**
+
+`2182_dp_combinatorics_optimized.cpp` (G++ 13.2 x64) №11320975 · `2182_dp_combinatorics_optimized.java` (Java 1.8) №11317427 · `2182_dp_combinatorics_optimized.py` (Python 3.12 x64) №11317438.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11321973 · Go 1.14 x64 №11321784 · Java 1.8 №11321975 · Python 3.12 x64 №11321977 · Rust 1.75 x64 №11321980.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [2182_dp_combinatorics.cpp](2182_dp_combinatorics.cpp) | G++ 13.2 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.140 s | 692 KB |
-| [2182_dp_combinatorics.go](2182_dp_combinatorics.go) | Go 1.14 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.031 s | 4308 KB |
-| [2182_dp_combinatorics.java](2182_dp_combinatorics.java) | Java 1.8 | dp, combinatorics | O(60^2 + q) | AC | 0.187 s | 24904 KB |
-| [2182_dp_combinatorics.py](2182_dp_combinatorics.py) | Python 3.12 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.109 s | 13712 KB |
-| [2182_dp_combinatorics.rs](2182_dp_combinatorics.rs) | Rust 1.75 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.046 s | 6904 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2182_dp_combinatorics.cpp](2182_dp_combinatorics.cpp) | G++ 13.2 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.125 s | 668 KB | 11321973 |
+| [2182_dp_combinatorics.go](2182_dp_combinatorics.go) | Go 1.14 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.031 s | 4308 KB | 11321784 |
+| [2182_dp_combinatorics.java](2182_dp_combinatorics.java) | Java 1.8 | dp, combinatorics | O(60^2 + q) | AC | 0.14 s | 24916 KB | 11321975 |
+| [2182_dp_combinatorics.py](2182_dp_combinatorics.py) | Python 3.12 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.109 s | 12936 KB | 11321977 |
+| [2182_dp_combinatorics.rs](2182_dp_combinatorics.rs) | Rust 1.75 x64 | dp, combinatorics | O(60^2 + q) | AC | 0.046 s | 6904 KB | 11321980 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [2182_dp_combinatorics_optimized.java](2182_dp_combinatorics_optimized.java) | Java 1.8 | dp, combinatorics | O(n + q) | AC | 0.14 s | 500 KB | 11317427 |
+| [2182_dp_combinatorics_optimized.py](2182_dp_combinatorics_optimized.py) | Python 3.12 x64 | dp, combinatorics | O(n + q) | AC | 0.109 s | 1876 KB | 11317438 |
+| [2182_dp_combinatorics_optimized.cpp](2182_dp_combinatorics_optimized.cpp) | G++ 13.2 x64 | dp, combinatorics | O(n + q) | AC | 0.031 s | 160 KB | 11320975 |
+| [2182_dp_combinatorics_optimized.go](2182_dp_combinatorics_optimized.go) | Go 1.14 x64 | dp, combinatorics | O(n + q) | AC | 0.046 s | 924 KB | 11322385 |
+| [2182_dp_combinatorics_optimized.rs](2182_dp_combinatorics_optimized.rs) | Rust 1.75 x64 | dp, combinatorics | O(n + q) | AC | 0.031 s | 212 KB | 11322386 |

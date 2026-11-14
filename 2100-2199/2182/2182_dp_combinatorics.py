@@ -7,7 +7,7 @@ SMALL = 60  # only boxes up to the number of bits can receive extra bottles
 def main():
     data = sys.stdin.buffer.read().split()
     n, q = int(data[0]), int(data[1])
-    boxes = list(map(int, data[2:2 + q]))
+    boxes = list(map(int, data[2 : 2 + q]))
     top = (1 << n) - 1
     last = min(SMALL, top)
     # Box k gets one bottle for every bottle placed in a box j != k with
