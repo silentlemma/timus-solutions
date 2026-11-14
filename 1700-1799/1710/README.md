@@ -93,12 +93,41 @@ of 1000. The verdicts match an independent accepted implementation on
 900 random triangles, except for the touching ones, where it prints C
 again.
 
+## Optimized solutions
+
+The optimized versions read integer coordinates and print A and B directly as integers. Only the reflected point needs decimal output.
+
+Python 3.12 x64, submission 11319471. Time 0.078 → 0.109 s, memory 456 → 436 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322295 · Go 1.14 x64 №11321873 · Java 1.8 №11321949 · Rust 1.75 x64 №11321952 · Python 3.12 x64 №11322296.
+
+Java 1.8, submission 11321999. Time 0.125 → 0.093 s, memory 1780 → 480 KB.
+
+G++ 13.2 x64, submission 11322000. Time 0.031 → 0.015 s, memory 124 → 124 KB.
+
+Rust computes coordinates from integer numerators and denominators and formats the results into a fixed buffer. Rust 1.75 x64, submission 11323313. Time 0.046 → 0.046 s, memory 260 → 60 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 140 KB |
-| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1104 KB |
-| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.171 s | 1800 KB |
-| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 428 KB |
-| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 124 KB | 11322295 |
+| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11321873 |
+| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1780 KB | 11321949 |
+| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 456 KB | 11322296 |
+| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 260 KB | 11321952 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1710_geometry_optimized.py](1710_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 436 KB | 11319471 |
+| [1710_geometry_optimized.java](1710_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 480 KB | 11321999 |
+| [1710_geometry_optimized.cpp](1710_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11322000 |
+| [1710_geometry_optimized.rs](1710_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 60 KB | 11323313 |
+
+\* The marked versions have room to improve in the ratings.

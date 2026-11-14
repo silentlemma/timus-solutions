@@ -76,12 +76,41 @@ NO
 检查程序接受任何反例：它检查两条边和 A 处的角、不同的第三边、非零面积以及 1000 的界限。
 在 900 个随机三角形上，结论与一个独立的已通过实现一致，只有相切的情形例外，那里它会再次输出 C。
 
+## 优化解法
+
+优化版本读取整数坐标，直接以整数输出 A 和 B。只有反射得到的点需要用小数表示。
+
+Python 3.12 x64（提交 11319471）的运行时间从 0.078 秒变为 0.109 秒，内存从 456 KB 变为 436 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322295 · Go 1.14 x64 №11321873 · Java 1.8 №11321949 · Rust 1.75 x64 №11321952 · Python 3.12 x64 №11322296.
+
+Java 1.8（提交 11321999）的运行时间从 0.125 秒变为 0.093 秒，内存从 1780 KB 变为 480 KB。
+
+G++ 13.2 x64（提交 11322000）的运行时间从 0.031 秒变为 0.015 秒，内存从 124 KB 变为 124 KB。
+
+Rust 用整数分子和分母计算坐标，并在定长缓冲区中格式化结果。 Rust 1.75 x64（提交 11323313）的运行时间从 0.046 秒变为 0.046 秒，内存从 260 KB 变为 60 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 140 KB |
-| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1104 KB |
-| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.171 s | 1800 KB |
-| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 428 KB |
-| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 124 KB | 11322295 |
+| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11321873 |
+| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1780 KB | 11321949 |
+| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 456 KB | 11322296 |
+| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 260 KB | 11321952 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1710_geometry_optimized.py](1710_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 436 KB | 11319471 |
+| [1710_geometry_optimized.java](1710_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 480 KB | 11321999 |
+| [1710_geometry_optimized.cpp](1710_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11322000 |
+| [1710_geometry_optimized.rs](1710_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 60 KB | 11323313 |
+
+\* 带星号的版本仍有提升排名的空间。

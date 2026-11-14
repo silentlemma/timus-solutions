@@ -93,12 +93,41 @@ el ángulo en A, un tercer lado distinto, un área no nula y la cota de
 independiente en 900 triángulos aleatorios, salvo en los de tangencia,
 donde aquella imprime C otra vez.
 
+## Soluciones optimizadas
+
+Las versiones optimizadas leen coordenadas enteras e imprimen A y B directamente como enteros. Solo el punto reflejado requiere decimales.
+
+Python 3.12 x64, envío 11319471. Tiempo 0,078 → 0,109 s, memoria 456 → 436 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322295 · Go 1.14 x64 №11321873 · Java 1.8 №11321949 · Rust 1.75 x64 №11321952 · Python 3.12 x64 №11322296.
+
+Java 1.8, envío 11321999. Tiempo 0,125 → 0,093 s, memoria 1780 → 480 KB.
+
+G++ 13.2 x64, envío 11322000. Tiempo 0,031 → 0,015 s, memoria 124 → 124 KB.
+
+Rust obtiene las coordenadas con numeradores y denominadores enteros y formatea el resultado en un búfer fijo. Rust 1.75 x64, envío 11323313. Tiempo 0,046 → 0,046 s, memoria 260 → 60 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 140 KB |
-| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1104 KB |
-| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.171 s | 1800 KB |
-| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 428 KB |
-| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1710_geometry.cpp](1710_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 124 KB | 11322295 |
+| [1710_geometry.go](1710_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11321873 |
+| [1710_geometry.java](1710_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1780 KB | 11321949 |
+| [1710_geometry.py](1710_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 456 KB | 11322296 |
+| [1710_geometry.rs](1710_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 260 KB | 11321952 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1710_geometry_optimized.py](1710_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 436 KB | 11319471 |
+| [1710_geometry_optimized.java](1710_geometry_optimized.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 480 KB | 11321999 |
+| [1710_geometry_optimized.cpp](1710_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11322000 |
+| [1710_geometry_optimized.rs](1710_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 60 KB | 11323313 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

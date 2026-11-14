@@ -19,10 +19,10 @@ public class Main {
             System.out.println("YES");
             return;
         }
-        double k = (double) (2 * dot - side) / side;
+        double k = (double)(2 * dot - side) / side;
         StringBuilder out = new StringBuilder("NO\n");
-        out.append(String.format(Locale.US, "%.10f %.10f%n", (double) ax, (double) ay));
-        out.append(String.format(Locale.US, "%.10f %.10f%n", (double) bx, (double) by));
+        out.append(String.format(Locale.US, "%.10f %.10f%n", (double)ax, (double)ay));
+        out.append(String.format(Locale.US, "%.10f %.10f%n", (double)bx, (double)by));
         double x = ax + (cx - ax) * k;
         double y = ay + (cy - ay) * k;
         out.append(String.format(Locale.US, "%.10f %.10f%n", x, y));
