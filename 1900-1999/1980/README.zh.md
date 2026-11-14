@@ -87,12 +87,40 @@
 
 C++、Go、Python 和 Rust 使用标准二叉堆。Java 使用基本类型数组存储邻接表与堆，并在多次检查之间复用。每次检查只计算一次每条道路的代价。Python 根据区间宽度提前停止无用迭代。所有版本均保留前驱道路编号，并加入小的向上数值余量。
 
+## 优化解法
+
+用按路程计算的最短路径和道路限速确定速度增量的搜索区间。用速度倒数计算各路段耗时，并舍弃无法按时到达的部分路径。 Python 用 A* 检验时限是否可行。将各点到终点的最短距离除以可能达到的最高速度，即得剩余时间的下界。若所有道路的限速相同，或路网是一棵树，只需考虑一条路线。
+
+Python 提交 11318067 耗时 0.14 秒，使用 8452 KB。简单版本耗时 0.359 s，使用 8004 KB。
+
+Go 提交 11318076 耗时 0.046 秒，使用 2940 KB。简单版本耗时 0.109 s，使用 8272 KB。
+
+Rust 提交 11318086 耗时 0.015 秒，使用 756 KB。简单版本耗时 0.046 s，使用 1940 KB。
+
+Rust 用 16 位整数存储端点、长度和邻接链表中的索引。各轮可行性检查复用图、距离数组和堆。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322395 · Go 1.14 x64 №11322476 · Java 1.8 №11322462 · Python 3.12 x64 №11322482 · Rust 1.75 x64 №11322487.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1064 KB |
-| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.093 s | 7196 KB |
-| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 2008 KB |
-| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.406 s | 8356 KB |
-| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1948 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1052 KB | 11322395 |
+| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 8272 KB | 11322476 |
+| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.14 s | 2052 KB | 11322462 |
+| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.359 s | 8004 KB | 11322482 |
+| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1940 KB | 11322487 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1980_binary_search_astar.py](1980_binary_search_astar.py) \* | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
+| [1980_binary_search_dijkstra_optimized.go](1980_binary_search_dijkstra_optimized.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 2940 KB | 11318076 |
+| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) \* | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

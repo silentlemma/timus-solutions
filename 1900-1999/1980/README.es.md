@@ -145,12 +145,40 @@ detiene bisecciones innecesarias según el ancho del intervalo. Todas las
 versiones guardan los índices predecesores y añaden el pequeño margen
 numérico ascendente.
 
+## Soluciones optimizadas
+
+La ruta de menor distancia y los límites de velocidad acotan el intervalo de búsqueda del incremento. Se reutilizan los recíprocos de las velocidades al calcular los tiempos y se descartan las rutas parciales que no pueden cumplir el plazo. Python usa A* en la prueba de viabilidad. La distancia mínima restante desde cada vértice, dividida por la mayor velocidad posible, da una cota inferior del tiempo restante. Si todos los límites de velocidad coinciden o la red es un árbol, basta con una ruta.
+
+El envío 11318067 en Python tardó 0.14 s y usó 8452 KB. La versión sencilla tardó 0.359 s y usó 8004 KB.
+
+El envío 11318076 en Go tardó 0.046 s y usó 2940 KB. La versión sencilla tardó 0.109 s y usó 8272 KB.
+
+El envío 11318086 en Rust tardó 0.015 s y usó 756 KB. La versión sencilla tardó 0.046 s y usó 1940 KB.
+
+Rust guarda los extremos, las longitudes y los enlaces de adyacencia en enteros de 16 bits. El grafo, las distancias y el montículo se reutilizan entre pruebas de viabilidad.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322395 · Go 1.14 x64 №11322476 · Java 1.8 №11322462 · Python 3.12 x64 №11322482 · Rust 1.75 x64 №11322487.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1064 KB |
-| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.093 s | 7196 KB |
-| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 2008 KB |
-| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.406 s | 8356 KB |
-| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1948 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1052 KB | 11322395 |
+| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 8272 KB | 11322476 |
+| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.14 s | 2052 KB | 11322462 |
+| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.359 s | 8004 KB | 11322482 |
+| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1940 KB | 11322487 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1980_binary_search_astar.py](1980_binary_search_astar.py) \* | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
+| [1980_binary_search_dijkstra_optimized.go](1980_binary_search_dijkstra_optimized.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 2940 KB | 11318076 |
+| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) \* | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

@@ -143,12 +143,40 @@ uses a bracket-width stopping test to avoid unnecessary bisections. All
 versions retain predecessor road indices and include the small upward
 numerical guard.
 
+## Optimized solutions
+
+Use the shortest route by physical distance and the road speed limits to bound the range of speed allowances. Reuse reciprocal speeds for road travel times and discard partial routes that cannot meet the deadline. The Python version uses A* in the feasibility check. Dividing each vertex's shortest remaining distance by the fastest possible speed gives a lower bound on the remaining time. If all road limits coincide or the graph is a tree, a single physical route suffices.
+
+Python submission 11318067 took 0.14 s and used 8452 KB. The simple version took 0.359 s and used 8004 KB.
+
+Go submission 11318076 took 0.046 s and used 2940 KB. The simple version took 0.109 s and used 8272 KB.
+
+Rust submission 11318086 took 0.015 s and used 756 KB. The simple version took 0.046 s and used 1940 KB.
+
+Rust stores endpoints, lengths and adjacency links in 16-bit integers. The graph, distances and heap are reused across feasibility checks.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322395 · Go 1.14 x64 №11322476 · Java 1.8 №11322462 · Python 3.12 x64 №11322482 · Rust 1.75 x64 №11322487.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1064 KB |
-| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.093 s | 7196 KB |
-| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 2008 KB |
-| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.406 s | 8356 KB |
-| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1948 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1052 KB | 11322395 |
+| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 8272 KB | 11322476 |
+| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.14 s | 2052 KB | 11322462 |
+| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.359 s | 8004 KB | 11322482 |
+| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1940 KB | 11322487 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1980_binary_search_astar.py](1980_binary_search_astar.py) \* | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
+| [1980_binary_search_dijkstra_optimized.go](1980_binary_search_dijkstra_optimized.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 2940 KB | 11318076 |
+| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) \* | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
+
+\* The marked solutions can improve their target rankings.

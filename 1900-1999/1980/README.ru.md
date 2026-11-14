@@ -144,12 +144,40 @@ C++, Go, Python и Rust используют стандартные двоичн
 версии сохраняют номера дорог-предков и добавляют небольшой численный
 запас вверх.
 
+## Оптимизированные решения
+
+Кратчайший путь по длине и ограничения скорости на дорогах задают границы поиска прибавки к скорости. Обратные скорости переиспользуем для расчёта времени на дорогах. Частичные маршруты, которые не укладываются в срок, отбрасываем. В Python проверку выполнимости ускоряет A*. Делим кратчайшее оставшееся расстояние от вершины на наибольшую возможную скорость и получаем нижнюю оценку оставшегося времени. Если все ограничения скорости одинаковы или граф является деревом, достаточно одного маршрута.
+
+Посылка Python №11318067 заняла 0.14 с и использовала 8452 КБ. У простого решения — 0.359 s и 8004 KB.
+
+Посылка Go №11318076 заняла 0.046 с и использовала 2940 КБ. У простого решения — 0.109 s и 8272 KB.
+
+Посылка Rust №11318086 заняла 0.015 с и использовала 756 КБ. У простого решения — 0.046 s и 1940 KB.
+
+В Rust концы рёбер, длины и ссылки в списках смежности хранятся в 16-битных целых. Граф, массив расстояний и куча переиспользуются при проверках.
+
+**Посылки Timus для простых версий**
+
+G++ 13.2 x64 №11322395 · Go 1.14 x64 №11322476 · Java 1.8 №11322462 · Python 3.12 x64 №11322482 · Rust 1.75 x64 №11322487.
+
 ## Решения
 
-| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память |
-|---------|------|--------|-------------|---------|-------|--------|
-| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1064 KB |
-| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.093 s | 7196 KB |
-| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 2008 KB |
-| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.406 s | 8356 KB |
-| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1948 KB |
+### Простые
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1980_binary_search_dijkstra.cpp](1980_binary_search_dijkstra.cpp) | G++ 13.2 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.031 s | 1052 KB | 11322395 |
+| [1980_binary_search_dijkstra.go](1980_binary_search_dijkstra.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.109 s | 8272 KB | 11322476 |
+| [1980_binary_search_dijkstra.java](1980_binary_search_dijkstra.java) | Java 1.8 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.14 s | 2052 KB | 11322462 |
+| [1980_binary_search_dijkstra.py](1980_binary_search_dijkstra.py) | Python 3.12 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.359 s | 8004 KB | 11322482 |
+| [1980_binary_search_dijkstra.rs](1980_binary_search_dijkstra.rs) | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 1940 KB | 11322487 |
+
+### Оптимизированные
+
+| Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
+|---------|------|--------|-------------|---------|-------|--------|---|
+| [1980_binary_search_astar.py](1980_binary_search_astar.py) \* | Python 3.12 x64 | binary_search, astar | O(B(n+m)log(n+m)) | AC | 0.14 s | 8452 KB | 11318067 |
+| [1980_binary_search_dijkstra_optimized.go](1980_binary_search_dijkstra_optimized.go) | Go 1.14 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.046 s | 2940 KB | 11318076 |
+| [1980_binary_search_dijkstra_optimized.rs](1980_binary_search_dijkstra_optimized.rs) \* | Rust 1.75 x64 | binary_search, dijkstra | O(B(n+m)log(n+m)) | AC | 0.015 s | 756 KB | 11318086 |
+
+\* Отмеченные решения пока не достигли целевого рейтинга.
