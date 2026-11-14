@@ -99,12 +99,44 @@ Pitfalls:
 - the months have different lengths: September 30 and October 1 are
   neighbours (tests 11, 12).
 
+## Optimized solutions
+
+In the formula-based versions, each weekday occurs either w or w + 1 times. For each possible number of selected weekdays, count how many must come from the more frequent group. Submission 11317373 used 120 KB compared with 388 KB for the simple version.
+
+Go separates the full weeks from the extra days, then computes the minimum number of frequent weekdays needed for each candidate schedule size. Go 1.14 x64, submission 11322935. Time 0.031 → 0.015 s, memory 1076 → 276 KB.
+
+Java submission 11317578 took 0.078 s and used 512 KB. The simple version took 0.125 s and used 1652 KB.
+
+**Timus submissions for the optimized versions**
+
+`1440_math.rs` (Rust 1.75 x64) №11317560.
+
+Python splits the calendar into complete weeks and a remainder. For each possible number of weekdays, it checks how many must come from the remainder. The saved ranking puts both metrics in the top ten, with higher measured memory than the simple version. Python 3.12 x64, submission 11321075. Time 0.093 → 0.078 s, memory 468 → 548 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322309 · Go 1.14 x64 №11322310 · Java 1.8 №11322311 · Python 3.12 x64 №11322312 · Rust 1.75 x64 №11322313.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1440_bruteforce.cpp](1440_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.015 s | 404 KB |
-| [1440_bruteforce.go](1440_bruteforce.go) | Go 1.14 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.031 s | 1164 KB |
-| [1440_bruteforce.java](1440_bruteforce.java) | Java 1.8 | bruteforce | O(D + 2^7 · 7) | AC | 0.109 s | 1708 KB |
-| [1440_bruteforce.py](1440_bruteforce.py) | Python 3.12 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.078 s | 428 KB |
-| [1440_bruteforce.rs](1440_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.031 s | 220 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1440_bruteforce.cpp](1440_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.015 s | 388 KB | 11322309 |
+| [1440_bruteforce.go](1440_bruteforce.go) | Go 1.14 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.031 s | 1076 KB | 11322310 |
+| [1440_bruteforce.java](1440_bruteforce.java) | Java 1.8 | bruteforce | O(D + 2^7 · 7) | AC | 0.125 s | 1652 KB | 11322311 |
+| [1440_bruteforce.py](1440_bruteforce.py) | Python 3.12 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.093 s | 468 KB | 11322312 |
+| [1440_bruteforce.rs](1440_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(D + 2^7 · 7) | AC | 0.015 s | 212 KB | 11322313 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1440_math.cpp](1440_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 120 KB | 11317373 |
+| [1440_math.rs](1440_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11317560 |
+| [1440_math.go](1440_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 276 KB | 11322935 |
+| [1440_math.java](1440_math.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 512 KB | 11317578 |
+| [1440_math.py](1440_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 548 KB | 11321075 |
+
+\* The marked solutions can improve their target rankings.
