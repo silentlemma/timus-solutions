@@ -113,12 +113,39 @@ C++ 使用 int64_t，Go 1.14 使用 int64，Java 8 使用 long，Rust 1.75
 使用 i64 进行几何运算。Python 3.12 使用精确整数。所有版本直接比较
 符号，迭代压缩路径并按分量大小合并，不需要递归、平面图或浮点数。
 
+## 优化解法
+
+Python 按左端 x 坐标排序线段，并在检查相交前排除包围盒互不相交的线段对。提交 11317361 使用 836 KB，基础版使用 816 KB。
+
+Rust 按左端 x 坐标排序线段，并在检查相交前排除包围盒互不相交的线段对。提交 11317367 耗时 0.015 秒，使用 224 KB；简单版本耗时 0.015 秒，使用 220 KB。这组测量结果尚未达到优化标准。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321790 · Java 1.8 №11321976 · Python 3.12 x64 №11321971 · Go 1.14 x64 №11322323 · Rust 1.75 x64 №11322324.
+
+Go 对相连的线段进行广度优先搜索，并用整数叉积判断线段相交。 Go 1.14 x64（提交 11323106）的运行时间从 0.015 秒变为 0.031 秒，内存从 1096 KB 变为 292 KB。
+
+Rust 对相连的线段进行广度优先搜索，并用整数叉积判断线段相交。 Rust 1.75 x64（提交 11323254）的运行时间从 0.015 秒变为 0.015 秒，内存从 220 KB 变为 52 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1966_dsu_geometry.cpp](1966_dsu_geometry.cpp) | G++ 13.2 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 412 KB |
-| [1966_dsu_geometry.go](1966_dsu_geometry.go) | Go 1.14 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.031 s | 1116 KB |
-| [1966_dsu_geometry.java](1966_dsu_geometry.java) | Java 1.8 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.140 s | 2260 KB |
-| [1966_dsu_geometry.py](1966_dsu_geometry.py) | Python 3.12 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.140 s | 784 KB |
-| [1966_dsu_geometry.rs](1966_dsu_geometry.rs) | Rust 1.75 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.046 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1966_dsu_geometry.cpp](1966_dsu_geometry.cpp) | G++ 13.2 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 396 KB | 11321790 |
+| [1966_dsu_geometry.go](1966_dsu_geometry.go) | Go 1.14 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 1096 KB | 11322323 |
+| [1966_dsu_geometry.java](1966_dsu_geometry.java) | Java 1.8 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.125 s | 2180 KB | 11321976 |
+| [1966_dsu_geometry.py](1966_dsu_geometry.py) | Python 3.12 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.14 s | 816 KB | 11321971 |
+| [1966_dsu_geometry.rs](1966_dsu_geometry.rs) | Rust 1.75 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 220 KB | 11322324 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1966_dsu_geometry_optimized.py](1966_dsu_geometry_optimized.py) | Python 3.12 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.078 s | 836 KB | 11317361 |
+| [1966_dsu_geometry_optimized.rs](1966_dsu_geometry_optimized.rs) \* | Rust 1.75 x64 | dsu, geometry | O((n*m+m*m)*alpha(n)) | AC | 0.015 s | 224 KB | 11317367 |
+| [1966_bfs_geometry.go](1966_bfs_geometry.go) \* | Go 1.14 x64 | bfs, geometry | O(M(N + M)) | AC | 0.031 s | 292 KB | 11323106 |
+| [1966_bfs_geometry.rs](1966_bfs_geometry.rs) \* | Rust 1.75 x64 | bfs, geometry | O(M(N + M)) | AC | 0.015 s | 52 KB | 11323254 |
+
+\* Rust 仍有提升排名的空间。

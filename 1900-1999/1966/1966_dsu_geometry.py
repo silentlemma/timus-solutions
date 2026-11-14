@@ -6,9 +6,11 @@ def cross(a, b, c):
 
 
 def on_segment(point, a, b):
-    return (cross(a, b, point) == 0
-            and min(a[0], b[0]) <= point[0] <= max(a[0], b[0])
-            and min(a[1], b[1]) <= point[1] <= max(a[1], b[1]))
+    return (
+        cross(a, b, point) == 0
+        and min(a[0], b[0]) <= point[0] <= max(a[0], b[0])
+        and min(a[1], b[1]) <= point[1] <= max(a[1], b[1])
+    )
 
 
 def straddles(first, second):
@@ -61,8 +63,8 @@ def main():
     size, count = next(data), next(data)
     points = [(next(data), next(data)) for _ in range(size)]
     edges = [(next(data) - 1, next(data) - 1) for _ in range(count)]
-    print('YES' if all_reachable(points, edges) else 'NO')
+    print("YES" if all_reachable(points, edges) else "NO")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
