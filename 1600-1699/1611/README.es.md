@@ -84,12 +84,44 @@ Detalles a tener en cuenta:
 - la respuesta no es única: en el primer ejemplo se ponen dos amigos,
   pero uno delante es igual de bueno.
 
+## Soluciones optimizadas
+
+La programación dinámica solo se actualiza en los puestos múltiplos de diez, donde puede haber multa. Una cola monótona elige el estado anterior de menor coste entre los números de amigos factibles y se guarda un byte por estado para reconstruir la fila.
+
+El envío 11317970 en Python tardó 0.093 s y usó 848 KB. La versión sencilla tardó 0.375 s y usó 13328 KB.
+
+El envío 11317975 en Go tardó 0.015 s y usó 1248 KB. La versión sencilla tardó 0.031 s y usó 6184 KB.
+
+El envío 11317985 en Java tardó 0.093 s y usó 660 KB. La versión sencilla tardó 0.125 s y usó 2792 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321890 · Go 1.14 x64 №11322096 · Rust 1.75 x64 №11321891 · Java 1.8 №11322098 · Python 3.12 x64 №11322099.
+
+La versión compacta guarda una fila de costes y un bit por estado para reconstruir la colocación. Rust 1.75 x64, envío 11322342. Tiempo 0,046 → 0,046 s, memoria 4520 → 224 KB.
+
+La versión compacta guarda una fila de costes y un bit por estado para reconstruir la colocación. G++ 13.2 x64, envío 11322343. Tiempo 0,015 → 0,015 s, memoria 2412 → 204 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1611_dp.cpp](1611_dp.cpp) | G++ 13.2 x64 | dp | O(n·(k + 1)) | AC | 0.015 s | 2428 KB |
-| [1611_dp.go](1611_dp.go) | Go 1.14 x64 | dp | O(n·(k + 1)) | AC | 0.031 s | 6200 KB |
-| [1611_dp.java](1611_dp.java) | Java 1.8 | dp | O(n·(k + 1)) | AC | 0.109 s | 2812 KB |
-| [1611_dp.py](1611_dp.py) | Python 3.12 x64 | dp | O(n·(k + 1)) | AC | 0.328 s | 12976 KB |
-| [1611_dp.rs](1611_dp.rs) | Rust 1.75 x64 | dp | O(n·(k + 1)) | AC | 0.015 s | 4524 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1611_dp.cpp](1611_dp.cpp) | G++ 13.2 x64 | dp | O(n·(k + 1)) | AC | 0.015 s | 2412 KB | 11321890 |
+| [1611_dp.go](1611_dp.go) | Go 1.14 x64 | dp | O(n·(k + 1)) | AC | 0.031 s | 6184 KB | 11322096 |
+| [1611_dp.java](1611_dp.java) | Java 1.8 | dp | O(n·(k + 1)) | AC | 0.125 s | 2792 KB | 11322098 |
+| [1611_dp.py](1611_dp.py) | Python 3.12 x64 | dp | O(n·(k + 1)) | AC | 0.375 s | 13328 KB | 11322099 |
+| [1611_dp.rs](1611_dp.rs) | Rust 1.75 x64 | dp | O(n·(k + 1)) | AC | 0.046 s | 4520 KB | 11321891 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1611_dp_optimized.py](1611_dp_optimized.py) \* | Python 3.12 x64 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 848 KB | 11317970 |
+| [1611_dp_optimized.go](1611_dp_optimized.go) \* | Go 1.14 x64 | dp | O((n + k)·(k + 1)) | AC | 0.015 s | 1248 KB | 11317975 |
+| [1611_dp_optimized.java](1611_dp_optimized.java) \* | Java 1.8 | dp | O((n + k)·(k + 1)) | AC | 0.093 s | 660 KB | 11317985 |
+| [1611_dp_optimized.rs](1611_dp_optimized.rs) | Rust 1.75 x64 | dp | O(n·(k + 1)) | AC | 0.046 s | 224 KB | 11322342 |
+| [1611_dp_optimized.cpp](1611_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n·(k + 1)) | AC | 0.015 s | 204 KB | 11322343 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
