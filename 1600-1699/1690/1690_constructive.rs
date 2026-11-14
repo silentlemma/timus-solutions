@@ -6,7 +6,9 @@ const CANDIDATES_PER_PLACE: usize = 5; // 5n names for n places
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let mut it = text.split_ascii_whitespace().map(|w| w.parse::<i64>().unwrap());
+    let mut it = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse::<i64>().unwrap());
     let n = it.next().unwrap() as usize;
     let mut groups: Vec<Vec<String>> = vec![Vec::new(); CLASSES];
     for i in 1..=CANDIDATES_PER_PLACE * n {

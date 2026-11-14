@@ -61,12 +61,42 @@ OK
 
 检查器接受任意 n 名互不相同、两两尊重的候选人：若不在同一奇偶类则逐对检查。一个独立的已通过实现给出的答案也能通过。
 
+## 优化解法
+
+C++ 版本输出第一个包含 n 栋房屋的奇偶类别。前 4(n − 1) + 1 栋房屋中至少有一个类别达到这个数量，因此可以跳过剩余坐标。下标用 16 位整数存储。时间和空间复杂度均为 O(n)。评测数据来自提交 11316979。
+
+Java 版本同样在第一个奇偶类别收集到 n 座房屋时停止。坐标直接从缓冲区解析，编号存入一个紧凑的 16 位数组。时间和额外空间均为 O(n)。评测数据来自提交 11317072。
+
+Rust 版本同样在第一个奇偶类别收集到 n 座房屋时停止。坐标直接从缓冲区解析，编号存入一个紧凑的 16 位数组。时间和额外空间均为 O(n)。评测数据来自提交 11317069。
+
+Go 版本同样在第一个奇偶类别收集到 n 座房屋时停止。坐标直接从缓冲区解析，编号存入一个紧凑的 16 位数组。时间和额外空间均为 O(n)。评测数据来自提交 11317064。
+
+Python 版本同样在第一个奇偶类别收集到 n 座房屋时停止。坐标逐行读取，编号保存在紧凑的 16 位数组中。时间和额外空间均为 O(n)。评测数据来自提交 11317060。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11317205 · Java 1.8 №11317207 · Rust 1.75 x64 №11317211.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1690_constructive.cpp](1690_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.046 s | 304 KB |
-| [1690_constructive.go](1690_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.062 s | 4412 KB |
-| [1690_constructive.java](1690_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.140 s | 1840 KB |
-| [1690_constructive.py](1690_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.093 s | 6088 KB |
-| [1690_constructive.rs](1690_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 2120 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1690_constructive.cpp](1690_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.031 s | 292 KB | 11317205 |
+| [1690_constructive.go](1690_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 4436 KB | 11322031 |
+| [1690_constructive.java](1690_constructive.java) | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1832 KB | 11317207 |
+| [1690_constructive.py](1690_constructive.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.125 s | 6128 KB | 11322032 |
+| [1690_constructive.rs](1690_constructive.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 2116 KB | 11317211 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1690_constructive_optimized.cpp](1690_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 132 KB | 11316979 |
+| [1690_constructive_optimized.py](1690_constructive_optimized.py) | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 952 KB | 11317060 |
+| [1690_constructive_optimized.go](1690_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 948 KB | 11317064 |
+| [1690_constructive_optimized.rs](1690_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 248 KB | 11317069 |
+| [1690_constructive_optimized.java](1690_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.125 s | 744 KB | 11317072 |
+
+\* 已通过评测，尚未达到 Go 排名目标。 已通过评测，尚未达到 Java 排名目标。
