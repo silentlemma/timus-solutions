@@ -150,12 +150,42 @@ process ASCII bytes, and Python uses characters. Buffered input handles
 a 100000-character token; Go uses `fmt.Fscan`, avoiding Scanner's
 default token-size limit. CPython needs no alternative runtime.
 
+## Optimized solutions
+
+The C++ version counts free positions of each parity on the first pass. Once the greedy split is known, a second pass fills the same character buffer in place, using the missing letters from the corresponding end of the alphabet. It takes O(n + σ) time, and the buffer for the input and output needs O(n) space with only O(σ) additional storage. The metrics come from submission 11316965.
+
+The Rust version also counts the free positions by parity and fills the input buffer in place. It uses O(n + σ) time and O(σ) storage apart from the input and output buffer. Metrics come from submission 11317093.
+
+The Java version counts the holes by parity and fills a single byte buffer in place. Submission 11317096 used 628 KB instead of 2448 KB and took 0.125 s instead of 0.109 s.
+
+The Python version also counts the free positions by parity and fills a bytearray in place. It uses O(n + σ) time and O(σ) storage apart from the input and output buffer. Metrics come from submission 11317086.
+
+The Go version also counts the free positions by parity and fills the input buffer in place. It uses O(n + σ) time and O(σ) storage apart from the input and output buffer. Metrics come from submission 11317080.
+
+**Timus submissions for the simple versions**
+
+Java 1.8 №11317029.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2026_greedy.cpp](2026_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 1024 KB |
-| [2026_greedy.go](2026_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 6184 KB |
-| [2026_greedy.java](2026_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.125 s | 2436 KB |
-| [2026_greedy.py](2026_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.125 s | 5476 KB |
-| [2026_greedy.rs](2026_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 1800 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2026_greedy.cpp](2026_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 1008 KB | 11322047 |
+| [2026_greedy.go](2026_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 6072 KB | 11322049 |
+| [2026_greedy.java](2026_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 2448 KB | 11317029 |
+| [2026_greedy.py](2026_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 5432 KB | 11322050 |
+| [2026_greedy.rs](2026_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 2088 KB | 11322051 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2026_greedy_optimized.cpp](2026_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n + σ) | AC | 0.015 s | 204 KB | 11316965 |
+| [2026_greedy_optimized.go](2026_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n + σ) | AC | 0.031 s | 1172 KB | 11317080 |
+| [2026_greedy_optimized.py](2026_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n + σ) | AC | 0.093 s | 800 KB | 11317086 |
+| [2026_greedy_optimized.rs](2026_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n + σ) | AC | 0.046 s | 456 KB | 11317093 |
+| [2026_greedy_optimized.java](2026_greedy_optimized.java) | Java 1.8 | greedy | O(n + σ) | AC | 0.125 s | 628 KB | 11317096 |
+
+\* Accepted. The Go rating target remains open. Accepted. The Rust rating target remains open.

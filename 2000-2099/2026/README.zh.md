@@ -110,12 +110,42 @@ aza
 Go 和 Rust 按 ASCII 字节处理，Python 使用字符。缓冲输入支持长度 100000 的 token；
 Go 使用 `fmt.Fscan`，不受 Scanner 默认 token 长度上限限制。CPython 无需替代运行时。
 
+## 优化解法
+
+优化版 C++ 首先统计两种奇偶位置各有多少空位。确定贪心分配后，再扫描一遍并原地填充字符缓冲区，从字母表相应的一端取缺少的字母。时间复杂度为 O(n + σ)，输入输出共用 O(n) 的缓冲区，另需 O(σ) 空间。评测数据来自提交 11316965。
+
+Rust 版本同样按奇偶性统计空位，并原地填充输入缓冲区。时间复杂度为 O(n + σ)，除输入输出缓冲区外只需 O(σ) 空间。评测数据来自提交 11317093。
+
+Java 版本按奇偶性统计空位，并原地填充单个字节缓冲区。提交 11317096 使用了 628 KB 内存，原版本使用 2448 KB；耗时从 0.109 秒增至 0.125 秒。
+
+Python 版本同样按奇偶性统计空位，并原地填充字节数组。时间复杂度为 O(n + σ)，除输入输出缓冲区外只需 O(σ) 空间。评测数据来自提交 11317086。
+
+Go 版本同样按奇偶性统计空位，并原地填充输入缓冲区。时间复杂度为 O(n + σ)，除输入输出缓冲区外只需 O(σ) 空间。评测数据来自提交 11317080。
+
+**简单版本的 Timus 提交记录**
+
+Java 1.8 №11317029.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2026_greedy.cpp](2026_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 1024 KB |
-| [2026_greedy.go](2026_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 6184 KB |
-| [2026_greedy.java](2026_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.125 s | 2436 KB |
-| [2026_greedy.py](2026_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.125 s | 5476 KB |
-| [2026_greedy.rs](2026_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 1800 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2026_greedy.cpp](2026_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 1008 KB | 11322047 |
+| [2026_greedy.go](2026_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 6072 KB | 11322049 |
+| [2026_greedy.java](2026_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 2448 KB | 11317029 |
+| [2026_greedy.py](2026_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 5432 KB | 11322050 |
+| [2026_greedy.rs](2026_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 2088 KB | 11322051 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2026_greedy_optimized.cpp](2026_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n + σ) | AC | 0.015 s | 204 KB | 11316965 |
+| [2026_greedy_optimized.go](2026_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n + σ) | AC | 0.031 s | 1172 KB | 11317080 |
+| [2026_greedy_optimized.py](2026_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n + σ) | AC | 0.093 s | 800 KB | 11317086 |
+| [2026_greedy_optimized.rs](2026_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n + σ) | AC | 0.046 s | 456 KB | 11317093 |
+| [2026_greedy_optimized.java](2026_greedy_optimized.java) | Java 1.8 | greedy | O(n + σ) | AC | 0.125 s | 628 KB | 11317096 |
+
+\* 已通过评测，尚未达到 Go 排名目标。 已通过评测，尚未达到 Rust 排名目标。
