@@ -66,12 +66,38 @@ a + b + c = 0。取内部点 t·a、t·b、t·c，外部点 −s·a、−s·b、
 - 大三角形的外部点远远超出输入坐标所在的方框，题目允许这样；
 - 答案不是比对，而是检查：检查器会数出正三角形并检验所有距离。
 
+## 优化解法
+
+保留以重心为中心的构造。保存三个顶点，并直接输出各缩放比例下的坐标，保留十位小数。
+
+Python 提交 11318089 耗时 0.062 秒，使用 364 KB。简单版本耗时 0.093 s，使用 476 KB。
+
+Rust 提交 11318101 耗时 0.015 秒，使用 240 KB。简单版本耗时 0.001 s，使用 272 KB。
+
+Go 提交 11318105 耗时 0.031 秒，使用 940 KB。简单版本耗时 0.015 s，使用 1116 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321944 · Java 1.8 №11321945 · Rust 1.75 x64 №11321946 · Go 1.14 x64 №11322066 · Python 3.12 x64 №11322068.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1124 KB |
-| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 1084 KB |
-| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 480 KB |
-| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 136 KB | 11321944 |
+| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1116 KB | 11322066 |
+| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.078 s | 1056 KB | 11321945 |
+| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 476 KB | 11322068 |
+| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.001 s | 272 KB | 11321946 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1659_geometry_optimized.py](1659_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 364 KB | 11318089 |
+| [1659_geometry_optimized.rs](1659_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 240 KB | 11318101 |
+| [1659_geometry_optimized.go](1659_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 940 KB | 11318105 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

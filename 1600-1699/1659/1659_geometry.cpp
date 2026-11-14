@@ -2,8 +2,8 @@
 #include <initializer_list>
 
 const int CORNERS = 3;
-const double INNER = 0.5;  // inner points go this share of the way from the centre to a vertex
-const double OUTER = 1 + INNER;  // outer points go this far the opposite way
+const double INNER = 0.5;       // inner points go this share of the way from the centre to a vertex
+const double OUTER = 1 + INNER; // outer points go this far the opposite way
 
 int main() {
     double x[CORNERS], y[CORNERS], gx = 0, gy = 0;

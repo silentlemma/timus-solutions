@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 public class Main {
     static final int CORNERS = 3;
-    static final double INNER = 0.5; // share of the way from the centre to a vertex
+    static final double INNER = 0.5;       // share of the way from the centre to a vertex
     static final double OUTER = 1 + INNER; // outer points go this far the opposite way
 
     public static void main(String[] args) throws IOException {

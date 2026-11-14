@@ -83,12 +83,38 @@ Detalles a tener en cuenta:
 - la respuesta no se compara sino que se verifica: el comprobador cuenta
   los triángulos regulares y revisa todas las distancias.
 
+## Soluciones optimizadas
+
+Se conserva la construcción alrededor del centroide. Se guardan los tres vértices y se escriben directamente las coordenadas para cada escala con diez cifras decimales.
+
+El envío 11318089 en Python tardó 0.062 s y usó 364 KB. La versión sencilla tardó 0.093 s y usó 476 KB.
+
+El envío 11318101 en Rust tardó 0.015 s y usó 240 KB. La versión sencilla tardó 0.001 s y usó 272 KB.
+
+El envío 11318105 en Go tardó 0.031 s y usó 940 KB. La versión sencilla tardó 0.015 s y usó 1116 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321944 · Java 1.8 №11321945 · Rust 1.75 x64 №11321946 · Go 1.14 x64 №11322066 · Python 3.12 x64 №11322068.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1124 KB |
-| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 1084 KB |
-| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 480 KB |
-| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 136 KB | 11321944 |
+| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1116 KB | 11322066 |
+| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.078 s | 1056 KB | 11321945 |
+| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 476 KB | 11322068 |
+| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.001 s | 272 KB | 11321946 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1659_geometry_optimized.py](1659_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 364 KB | 11318089 |
+| [1659_geometry_optimized.rs](1659_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 240 KB | 11318101 |
+| [1659_geometry_optimized.go](1659_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 940 KB | 11318105 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

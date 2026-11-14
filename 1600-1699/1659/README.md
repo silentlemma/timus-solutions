@@ -82,12 +82,38 @@ Pitfalls:
 - the answer is checked rather than compared, by a checker that counts
   the regular triangles and tests every distance.
 
+## Optimized solutions
+
+Keep the same construction about the centroid. Store the three vertices once and write the coordinates for each scale directly, using decimal formatting with ten digits after the point.
+
+Python submission 11318089 took 0.062 s and used 364 KB. The simple version took 0.093 s and used 476 KB.
+
+Rust submission 11318101 took 0.015 s and used 240 KB. The simple version took 0.001 s and used 272 KB.
+
+Go submission 11318105 took 0.031 s and used 940 KB. The simple version took 0.015 s and used 1116 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321944 · Java 1.8 №11321945 · Rust 1.75 x64 №11321946 · Go 1.14 x64 №11322066 · Python 3.12 x64 №11322068.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB |
-| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1124 KB |
-| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.093 s | 1084 KB |
-| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 480 KB |
-| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 268 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1659_geometry.cpp](1659_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 136 KB | 11321944 |
+| [1659_geometry.go](1659_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1116 KB | 11322066 |
+| [1659_geometry.java](1659_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.078 s | 1056 KB | 11321945 |
+| [1659_geometry.py](1659_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 476 KB | 11322068 |
+| [1659_geometry.rs](1659_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.001 s | 272 KB | 11321946 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1659_geometry_optimized.py](1659_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 364 KB | 11318089 |
+| [1659_geometry_optimized.rs](1659_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 240 KB | 11318101 |
+| [1659_geometry_optimized.go](1659_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 940 KB | 11318105 |
+
+\* The marked solutions can improve their target rankings.
