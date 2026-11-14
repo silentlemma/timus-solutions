@@ -70,12 +70,41 @@ Detalles a tener en cuenta:
   cifras con signo por cada potencia de diez y reparten los acarreos al
   final.
 
+## Soluciones optimizadas
+
+
+Java guarda los factores de escala y acumula los sumandos escalados con BigInteger. Java 1.8, envío 11318438. Tiempo 0,109 → 0,109 s, memoria 1696 → 1932 KB.
+
+Rust acumula los números decimales por bloques de tamaño fijo, propaga los acarreos y redondea los primeros 19 dígitos significativos. Rust 1.75 x64, envío 11323295. Tiempo 0,015 → 0,015 s, memoria 280 → 68 KB.
+
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321870 · Go 1.14 x64 №11322253 · Java 1.8 №11322254 · Python 3.12 x64 №11322255 · Rust 1.75 x64 №11322256.
+
+Go suma los dígitos con signo por columnas decimales y propaga los acarreos al terminar de leer los sumandos. Go 1.14 x64, envío 11322027. Tiempo 0,015 → 0,015 s, memoria 2076 → 908 KB.
+
+Python lee un sumando a la vez y lo escala hasta la menor posición decimal posible. Python 3.12 x64, envío 11322028. Tiempo 0,078 → 0,078 s, memoria 468 → 512 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1248_math.cpp](1248_math.cpp) | G++ 13.2 x64 | math | O(N · L) | AC | 0.015 s | 404 KB |
-| [1248_math.go](1248_math.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 2084 KB |
-| [1248_math.java](1248_math.java) | Java 1.8 | math | O(N · L) | AC | 0.125 s | 1716 KB |
-| [1248_math.py](1248_math.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.093 s | 536 KB |
-| [1248_math.rs](1248_math.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.031 s | 252 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1248_math.cpp](1248_math.cpp) | G++ 13.2 x64 | math | O(N · L) | AC | 0.015 s | 388 KB | 11321870 |
+| [1248_math.go](1248_math.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 2076 KB | 11322253 |
+| [1248_math.java](1248_math.java) | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1696 KB | 11322254 |
+| [1248_math.py](1248_math.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 468 KB | 11322255 |
+| [1248_math.rs](1248_math.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 280 KB | 11322256 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1248_math_optimized.java](1248_math_optimized.java) \* | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1932 KB | 11318438 |
+| [1248_math_optimized.rs](1248_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
+| [1248_math_optimized.go](1248_math_optimized.go) \* | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
+| [1248_math_optimized.py](1248_math_optimized.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 512 KB | 11322028 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

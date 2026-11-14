@@ -68,12 +68,41 @@ Pitfalls:
   keep one signed digit sum per power of ten and settle the carries at
   the end.
 
+## Optimized solutions
+
+
+Java caches the scaling factors and accumulates the scaled terms as BigIntegers. Java 1.8, submission 11318438. Time 0.109 → 0.109 s, memory 1696 → 1932 KB.
+
+Rust accumulates the decimal inputs in fixed-size blocks, propagates carries, and rounds the leading 19 digits. Rust 1.75 x64, submission 11323295. Time 0.015 → 0.015 s, memory 280 → 68 KB.
+
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321870 · Go 1.14 x64 №11322253 · Java 1.8 №11322254 · Python 3.12 x64 №11322255 · Rust 1.75 x64 №11322256.
+
+Go adds signed digits in decimal columns and propagates carries once after reading all terms. Go 1.14 x64, submission 11322027. Time 0.015 → 0.015 s, memory 2076 → 908 KB.
+
+Python reads one term at a time and scales to the smallest possible decimal place. Python 3.12 x64, submission 11322028. Time 0.078 → 0.078 s, memory 468 → 512 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1248_math.cpp](1248_math.cpp) | G++ 13.2 x64 | math | O(N · L) | AC | 0.015 s | 404 KB |
-| [1248_math.go](1248_math.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 2084 KB |
-| [1248_math.java](1248_math.java) | Java 1.8 | math | O(N · L) | AC | 0.125 s | 1716 KB |
-| [1248_math.py](1248_math.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.093 s | 536 KB |
-| [1248_math.rs](1248_math.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.031 s | 252 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1248_math.cpp](1248_math.cpp) | G++ 13.2 x64 | math | O(N · L) | AC | 0.015 s | 388 KB | 11321870 |
+| [1248_math.go](1248_math.go) | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 2076 KB | 11322253 |
+| [1248_math.java](1248_math.java) | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1696 KB | 11322254 |
+| [1248_math.py](1248_math.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 468 KB | 11322255 |
+| [1248_math.rs](1248_math.rs) | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 280 KB | 11322256 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1248_math_optimized.java](1248_math_optimized.java) \* | Java 1.8 | math | O(N · L) | AC | 0.109 s | 1932 KB | 11318438 |
+| [1248_math_optimized.rs](1248_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N · L) | AC | 0.015 s | 68 KB | 11323295 |
+| [1248_math_optimized.go](1248_math_optimized.go) \* | Go 1.14 x64 | math | O(N · L) | AC | 0.015 s | 908 KB | 11322027 |
+| [1248_math_optimized.py](1248_math_optimized.py) | Python 3.12 x64 | math | O(N · L) | AC | 0.078 s | 512 KB | 11322028 |
+
+\* The marked versions have room to improve in the ratings.
