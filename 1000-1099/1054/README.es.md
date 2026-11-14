@@ -103,12 +103,41 @@ Detalles a tener en cuenta:
 - Todos los lenguajes recorren los discos con el mismo bucle y tres
   variables para los papeles de las varillas.
 
+## Soluciones optimizadas
+
+La versión en C++ guarda las posiciones de hasta 31 discos en un búfer fijo. Al recorrerlos desde el mayor añade un bit al número de movimientos. El bit vale cero en la clavija de origen y uno en la de destino. Un disco en la clavija auxiliar indica que la posición es inalcanzable. El tiempo es O(N) y el espacio adicional al búfer es O(1). Las métricas corresponden al envío 11316991.
+
+Python elimina los espacios en blanco de los bytes de entrada y construye el número de movimientos con un bit por disco, del mayor al menor. En la clasificación guardada ocupa el décimo puesto en tiempo y el séptimo en memoria. Python 3.12 x64, envío 11317960. Tiempo 0,078 → 0,093 s, memoria 400 → 432 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11322200 · Go 1.14 x64 №11322203 · Python 3.12 x64 №11321923 · Rust 1.75 x64 №11322205 · Java 1.8 №11321869.
+
+El envío 11317962 en Rust tardó 0.015 s y usó 204 KB. La versión sencilla tardó 0.046 s y usó 204 KB.
+
+Se leen los números de las varillas como dígitos ASCII y se recorren los discos de mayor a menor. Cada disco añade un bit al número de movimientos. Un disco en la varilla auxiliar indica una posición inalcanzable.
+
+Go guarda las posiciones de los discos en un arreglo fijo y recorre del mayor al menor. Cada posición determina el siguiente bit del número de movimientos o demuestra que la configuración es inalcanzable. Go 1.14 x64, envío 11322837. Tiempo 0,031 → 0,015 s, memoria 1076 → 276 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1054_math.cpp](1054_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.031 s | 196 KB |
-| [1054_math.go](1054_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 1084 KB |
-| [1054_math.java](1054_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1620 KB |
-| [1054_math.py](1054_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 396 KB |
-| [1054_math.rs](1054_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 216 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1054_math.cpp](1054_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 180 KB | 11322200 |
+| [1054_math.go](1054_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1076 KB | 11322203 |
+| [1054_math.java](1054_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1608 KB | 11321869 |
+| [1054_math.py](1054_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 400 KB | 11321923 |
+| [1054_math.rs](1054_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 204 KB | 11322205 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1054_math_optimized.cpp](1054_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11316991 |
+| [1054_math_optimized.py](1054_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 432 KB | 11317960 |
+| [1054_math_optimized.rs](1054_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 204 KB | 11317962 |
+| [1054_math_optimized.go](1054_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 276 KB | 11322837 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.
