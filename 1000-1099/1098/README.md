@@ -105,12 +105,39 @@ The answers were checked against a direct simulation that deletes every
 - Rust folds the recurrence over `2..=L`.
 - Java and C++ read the input byte by byte, which keeps every space.
 
+## Optimized solutions
+
+The Python variant removes carriage returns and line feeds with two byte-string operations.
+The filtered string gives both the length for the Josephus recurrence and the final byte, so
+the code no longer scans the input again in Python. Submission 11316943 used 348 KB versus
+500 KB for the base version and took 0.078 s versus 0.078 s.
+
+Go stores question marks and spaces in separate bit sets and skips line endings during input. The Josephus recurrence gives the final position, whose two bits determine the answer. Submission 11317592 took 0.015 s and used 900 KB, compared with 0.015 s and 1304 KB for the simple version.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321759 · Go 1.14 x64 №11322213 · Java 1.8 №11321761 · Python 3.12 x64 №11322214 · Rust 1.75 x64 №11322215.
+
+Rust stores two bitsets for question marks and spaces and resumes the Josephus recurrence from a precomputed checkpoint. Rust 1.75 x64, submission 11323266. Time 0.015 → 0.015 s, memory 224 → 56 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1098_math.cpp](1098_math.cpp) | G++ 13.2 x64 | math | O(L) | AC | 0.001 s | 188 KB |
-| [1098_math.go](1098_math.go) | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 1300 KB |
-| [1098_math.java](1098_math.java) | Java 1.8 | math | O(L) | AC | 0.093 s | 496 KB |
-| [1098_math.py](1098_math.py) | Python 3.12 x64 | math | O(L) | AC | 0.062 s | 496 KB |
-| [1098_math.rs](1098_math.rs) | Rust 1.75 x64 | math | O(L) | AC | 0.015 s | 236 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1098_math.cpp](1098_math.cpp) | G++ 13.2 x64 | math | O(L) | AC | 0.015 s | 184 KB | 11321759 |
+| [1098_math.go](1098_math.go) | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 1304 KB | 11322213 |
+| [1098_math.java](1098_math.java) | Java 1.8 | math | O(L) | AC | 0.093 s | 488 KB | 11321761 |
+| [1098_math.py](1098_math.py) | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 500 KB | 11322214 |
+| [1098_math.rs](1098_math.rs) | Rust 1.75 x64 | math | O(L) | AC | 0.015 s | 224 KB | 11322215 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1098_math_optimized.py](1098_math_optimized.py) \* | Python 3.12 x64 | math | O(L) | AC | 0.078 s | 348 KB | 11316943 |
+| [1098_math_optimized.go](1098_math_optimized.go) \* | Go 1.14 x64 | math | O(L) | AC | 0.015 s | 900 KB | 11317592 |
+| [1098_math_optimized.rs](1098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11323266 |
+
+\* The marked solutions can improve their target rankings.
