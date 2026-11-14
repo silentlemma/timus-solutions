@@ -58,12 +58,36 @@ Yuno
 
 在 180 个随机网络上（包括转推次数较少的路径反而给出较长消息的情况），用户集合与一个独立的已通过实现一致。
 
+## 优化解法
+
+Go 版本用位掩码保存关注者集合，并按消息长度分桶处理发送者。每个发送者只在最短长度时处理一次。提交 11317173 耗时 0.031 秒，使用 1024 KB；基础版耗时 0.031 秒，使用 1524 KB。
+
+Rust 将名字映射为整数编号，并用 128 位掩码表示每个关注者集合和消息长度桶。 Rust 1.75 x64（提交 11323125）的运行时间从 0.031 秒变为 0.031 秒，内存从 552 KB 变为 204 KB。
+
+Python 只解析能转发消息的用户的关注者列表，并在所有用户都收到消息时结束遍历。提交 11322813 耗时 0.078 秒，使用 628 KB；简单版本耗时 0.093 秒，使用 1096 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321936 · Go 1.14 x64 №11322073 · Java 1.8 №11321776 · Python 3.12 x64 №11321779 · Rust 1.75 x64 №11322074.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1871_dijkstra.cpp](1871_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(n^2 log n) | AC | 0.015 s | 684 KB |
-| [1871_dijkstra.go](1871_dijkstra.go) | Go 1.14 x64 | dijkstra | O(n^2) | AC | 0.031 s | 1556 KB |
-| [1871_dijkstra.java](1871_dijkstra.java) | Java 1.8 | dijkstra | O(n^2) | AC | 0.125 s | 1616 KB |
-| [1871_dijkstra.py](1871_dijkstra.py) | Python 3.12 x64 | dijkstra | O(n^2) | AC | 0.078 s | 1228 KB |
-| [1871_dijkstra.rs](1871_dijkstra.rs) | Rust 1.75 x64 | dijkstra | O(n^2) | AC | 0.046 s | 564 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1871_dijkstra.cpp](1871_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(n^2 log n) | AC | 0.015 s | 672 KB | 11321936 |
+| [1871_dijkstra.go](1871_dijkstra.go) | Go 1.14 x64 | dijkstra | O(n^2) | AC | 0.031 s | 1524 KB | 11322073 |
+| [1871_dijkstra.java](1871_dijkstra.java) | Java 1.8 | dijkstra | O(n^2) | AC | 0.109 s | 1600 KB | 11321776 |
+| [1871_dijkstra.py](1871_dijkstra.py) | Python 3.12 x64 | dijkstra | O(n^2) | AC | 0.093 s | 1096 KB | 11321779 |
+| [1871_dijkstra.rs](1871_dijkstra.rs) | Rust 1.75 x64 | dijkstra | O(n^2) | AC | 0.031 s | 552 KB | 11322074 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1871_dijkstra_optimized.go](1871_dijkstra_optimized.go) \* | Go 1.14 x64 | dijkstra | O(E + (n + L) ceil(n / 64)) | AC | 0.031 s | 1024 KB | 11317173 |
+| [1871_dijkstra_optimized.rs](1871_dijkstra_optimized.rs) \* | Rust 1.75 x64 | dijkstra | O(E + n + L) | AC | 0.031 s | 204 KB | 11323125 |
+| [1871_dijkstra_optimized.py](1871_dijkstra_optimized.py) | Python 3.12 x64 | dijkstra | O(E + n + L) | AC | 0.078 s | 628 KB | 11322813 |
+
+\* 排名快照中没有其他作者的可比 Go 提交。 排名快照中也没有其他作者的可比 Rust 提交。

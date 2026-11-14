@@ -83,12 +83,36 @@ Los usuarios coinciden con una implementación aceptada independiente en
 180 redes aleatorias, incluidas algunas donde el camino con menos
 retuits da el mensaje más largo.
 
+## Soluciones optimizadas
+
+Go guarda los seguidores en máscaras de bits y agrupa los remitentes por longitud del mensaje. Cada remitente se procesa en su longitud mínima. El envío 11317173 tardó 0,031 s y usó 1024 KB frente a 0,031 s y 1524 KB en la base.
+
+Rust asigna identificadores enteros a los nombres y usa máscaras de 128 bits para seguidores y grupos por longitud del mensaje. Rust 1.75 x64, envío 11323125. Tiempo 0,031 → 0,031 s, memoria 552 → 204 KB.
+
+Python solo lee las listas de seguidores de los usuarios que pueden reenviar el mensaje y termina el recorrido cuando todos lo han recibido. El envío 11322813 tardó 0,078 s y usó 628 KB. La versión sencilla tardó 0,093 s y usó 1096 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321936 · Go 1.14 x64 №11322073 · Java 1.8 №11321776 · Python 3.12 x64 №11321779 · Rust 1.75 x64 №11322074.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1871_dijkstra.cpp](1871_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(n^2 log n) | AC | 0.015 s | 684 KB |
-| [1871_dijkstra.go](1871_dijkstra.go) | Go 1.14 x64 | dijkstra | O(n^2) | AC | 0.031 s | 1556 KB |
-| [1871_dijkstra.java](1871_dijkstra.java) | Java 1.8 | dijkstra | O(n^2) | AC | 0.125 s | 1616 KB |
-| [1871_dijkstra.py](1871_dijkstra.py) | Python 3.12 x64 | dijkstra | O(n^2) | AC | 0.078 s | 1228 KB |
-| [1871_dijkstra.rs](1871_dijkstra.rs) | Rust 1.75 x64 | dijkstra | O(n^2) | AC | 0.046 s | 564 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1871_dijkstra.cpp](1871_dijkstra.cpp) | G++ 13.2 x64 | dijkstra | O(n^2 log n) | AC | 0.015 s | 672 KB | 11321936 |
+| [1871_dijkstra.go](1871_dijkstra.go) | Go 1.14 x64 | dijkstra | O(n^2) | AC | 0.031 s | 1524 KB | 11322073 |
+| [1871_dijkstra.java](1871_dijkstra.java) | Java 1.8 | dijkstra | O(n^2) | AC | 0.109 s | 1600 KB | 11321776 |
+| [1871_dijkstra.py](1871_dijkstra.py) | Python 3.12 x64 | dijkstra | O(n^2) | AC | 0.093 s | 1096 KB | 11321779 |
+| [1871_dijkstra.rs](1871_dijkstra.rs) | Rust 1.75 x64 | dijkstra | O(n^2) | AC | 0.031 s | 552 KB | 11322074 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1871_dijkstra_optimized.go](1871_dijkstra_optimized.go) \* | Go 1.14 x64 | dijkstra | O(E + (n + L) ceil(n / 64)) | AC | 0.031 s | 1024 KB | 11317173 |
+| [1871_dijkstra_optimized.rs](1871_dijkstra_optimized.rs) \* | Rust 1.75 x64 | dijkstra | O(E + n + L) | AC | 0.031 s | 204 KB | 11323125 |
+| [1871_dijkstra_optimized.py](1871_dijkstra_optimized.py) | Python 3.12 x64 | dijkstra | O(E + n + L) | AC | 0.078 s | 628 KB | 11322813 |
+
+\* El corte de clasificación no contiene envíos comparables en Go de otros autores. El corte de clasificación tampoco contiene envíos comparables en Rust de otros autores.
