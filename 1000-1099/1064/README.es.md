@@ -92,12 +92,41 @@ Detalles a tener en cuenta:
 
 - Todos los lenguajes simulan el mismo camino para cada longitud.
 
+## Soluciones optimizadas
+
+Para una ruta de búsqueda fija, el índice del punto medio no disminuye al crecer la longitud. Dos búsquedas binarias dividen las longitudes según si ese índice es menor, igual o mayor que el buscado. Se guardan las longitudes que lo alcanzan por primera vez en el paso `L` y se unen los intervalos contiguos.
+
+Los dos intervalos exteriores siguen ramas distintas. Si el pivote está por debajo del índice buscado, la búsqueda va a la derecha. Si está por encima, va a la izquierda. El intervalo central ya ha encontrado el objetivo y solo se conserva en el paso L.
+
+**Envíos de las versiones optimizadas en Timus**
+
+`1064_binary_search.cpp` (G++ 13.2 x64) №11317375 · `1064_binary_search.go` (Go 1.14 x64) №11322862 · `1064_binary_search.py` (Python 3.12 x64) №11317377 · `1064_binary_search.rs` (Rust 1.75 x64) №11322383.
+
+Go busca por binario los límites de cada intervalo válido y sigue solo las ramas compatibles con las posiciones observadas. Go 1.14 x64, envío 11322862. Tiempo 0,015 → 0,015 s, memoria 1128 → 416 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 · Go 1.14 x64 №11322101 · Python 3.12 x64 №11322103.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1064_simulation.cpp](1064_simulation.cpp) | G++ 13.2 x64 | simulation | O(10000 · log 10000) | AC | 0.031 s | 204 KB |
-| [1064_simulation.go](1064_simulation.go) | Go 1.14 x64 | simulation | O(10000 · log 10000) | AC | 0.031 s | 1136 KB |
-| [1064_simulation.java](1064_simulation.java) | Java 1.8 | simulation | O(10000 · log 10000) | AC | 0.109 s | 1704 KB |
-| [1064_simulation.py](1064_simulation.py) | Python 3.12 x64 | simulation | O(10000 · log 10000) | AC | 0.078 s | 656 KB |
-| [1064_simulation.rs](1064_simulation.rs) | Rust 1.75 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 280 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1064_simulation.cpp](1064_simulation.cpp) | G++ 13.2 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 188 KB | 11322100 |
+| [1064_simulation.go](1064_simulation.go) | Go 1.14 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 1128 KB | 11322101 |
+| [1064_simulation.java](1064_simulation.java) | Java 1.8 | simulation | O(10000 · log 10000) | AC | 0.109 s | 1700 KB | 11321771 |
+| [1064_simulation.py](1064_simulation.py) | Python 3.12 x64 | simulation | O(10000 · log 10000) | AC | 0.109 s | 516 KB | 11322103 |
+| [1064_simulation.rs](1064_simulation.rs) | Rust 1.75 x64 | simulation | O(10000 · log 10000) | AC | 0.046 s | 268 KB | 11321773 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1064_binary_search.cpp](1064_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 192 KB | 11317375 |
+| [1064_binary_search.py](1064_binary_search.py) \* | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
+| [1064_binary_search.go](1064_binary_search.go) \* | Go 1.14 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 416 KB | 11322862 |
+| [1064_binary_search.rs](1064_binary_search.rs) \* | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.031 s | 240 KB | 11322383 |
+
+\* La solución en Python fue aceptada y aún puede mejorar en la clasificación objetivo. La solución en Go fue aceptada y aún puede mejorar en la clasificación objetivo. La solución en Rust fue aceptada y aún puede mejorar en la clasificación objetivo.

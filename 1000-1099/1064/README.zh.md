@@ -80,12 +80,41 @@
 
 - 各语言对每个长度模拟同样的路径。
 
+## 优化解法
+
+固定查找路径后，中点下标随数组长度单调不减。两次二分查找按中点与目标下标的大小关系将长度区间分成三段。只保留恰在第 `L` 步首次命中目标的长度，并合并相邻答案区间。
+
+两侧区间分别进入不同的分支。中点小于目标下标时向右搜索，大于目标下标时向左搜索。中间区间已经找到目标，因此仅在第 L 步保留。
+
+**优化版本的 Timus 提交记录**
+
+`1064_binary_search.cpp` (G++ 13.2 x64) №11317375 · `1064_binary_search.go` (Go 1.14 x64) №11322862 · `1064_binary_search.py` (Python 3.12 x64) №11317377 · `1064_binary_search.rs` (Rust 1.75 x64) №11322383.
+
+Go 用二分查找确定可行区间的边界，只探索与观测位置相符的分支。 Go 1.14 x64（提交 11322862）的运行时间从 0.015 秒变为 0.015 秒，内存从 1128 KB 变为 416 KB。
+
+**简单版本的 Timus 提交记录**
+
+Java 1.8 №11321771 · Rust 1.75 x64 №11321773 · G++ 13.2 x64 №11322100 · Go 1.14 x64 №11322101 · Python 3.12 x64 №11322103.
+
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1064_simulation.cpp](1064_simulation.cpp) | G++ 13.2 x64 | simulation | O(10000 · log 10000) | AC | 0.031 s | 204 KB |
-| [1064_simulation.go](1064_simulation.go) | Go 1.14 x64 | simulation | O(10000 · log 10000) | AC | 0.031 s | 1136 KB |
-| [1064_simulation.java](1064_simulation.java) | Java 1.8 | simulation | O(10000 · log 10000) | AC | 0.109 s | 1704 KB |
-| [1064_simulation.py](1064_simulation.py) | Python 3.12 x64 | simulation | O(10000 · log 10000) | AC | 0.078 s | 656 KB |
-| [1064_simulation.rs](1064_simulation.rs) | Rust 1.75 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 280 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1064_simulation.cpp](1064_simulation.cpp) | G++ 13.2 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 188 KB | 11322100 |
+| [1064_simulation.go](1064_simulation.go) | Go 1.14 x64 | simulation | O(10000 · log 10000) | AC | 0.015 s | 1128 KB | 11322101 |
+| [1064_simulation.java](1064_simulation.java) | Java 1.8 | simulation | O(10000 · log 10000) | AC | 0.109 s | 1700 KB | 11321771 |
+| [1064_simulation.py](1064_simulation.py) | Python 3.12 x64 | simulation | O(10000 · log 10000) | AC | 0.109 s | 516 KB | 11322103 |
+| [1064_simulation.rs](1064_simulation.rs) | Rust 1.75 x64 | simulation | O(10000 · log 10000) | AC | 0.046 s | 268 KB | 11321773 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1064_binary_search.cpp](1064_binary_search.cpp) | G++ 13.2 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 192 KB | 11317375 |
+| [1064_binary_search.py](1064_binary_search.py) \* | Python 3.12 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.078 s | 696 KB | 11317377 |
+| [1064_binary_search.go](1064_binary_search.go) \* | Go 1.14 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.015 s | 416 KB | 11322862 |
+| [1064_binary_search.rs](1064_binary_search.rs) \* | Rust 1.75 x64 | binary_search | O(2^L · L · log 10000) | AC | 0.031 s | 240 KB | 11322383 |
+
+\* Python 版本已通过评测，尚未达到目标排名，仍可优化。 Go 版本已通过评测，尚未达到目标排名，仍可优化。 Rust 版本已通过评测，尚未达到目标排名，仍可优化。
