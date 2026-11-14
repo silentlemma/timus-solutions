@@ -96,17 +96,40 @@ Pitfalls:
   not;
 - on Windows the line breaks may be `\r\n`: treat `\r` like `\n`.
 
+## Optimized solutions
+
+Python uses byte-string searches to skip plain text and comments, then validates arithmetic expressions byte by byte. Submission 11317183 took 0.078 s and used 480 KB, versus 0.093 s and 436 KB for the base.
+
 ## Language notes
 
 The same scan in every language; the text is read as raw bytes or as a
 whole string.
 
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321698 · Go 1.14 x64 №11322293 · Java 1.8 №11321711 · Rust 1.75 x64 №11321701 · Python 3.12 x64 №11322294.
+
+Go submission 11322375 took 0.015 s and used 280 KB. The simple version took 0.031 s and used 1072 KB.
+
+Go reads 512-byte blocks and preserves the pending opening parenthesis, comment state and expression depth across block boundaries.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 160 KB |
-| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1080 KB |
-| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.093 s | 452 KB |
-| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 408 KB |
-| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 140 KB | 11321698 |
+| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1072 KB | 11322293 |
+| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.125 s | 444 KB | 11321711 |
+| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 436 KB | 11322294 |
+| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 236 KB | 11321701 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
+| [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+
+\* The marked solutions can improve their target rankings.

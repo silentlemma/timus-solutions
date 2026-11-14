@@ -83,16 +83,39 @@ NO
 - 表达式内部的空格使程序错误，换行则不会；
 - 在 Windows 下换行可能是 `\r\n`：把 `\r` 当作 `\n` 处理。
 
+## 优化解法
+
+Python 版本使用字节串查找跳过普通文本和注释，并逐字节检查算术表达式。提交 11317183 耗时 0.078 秒，使用 480 KB；基础版耗时 0.093 秒，使用 436 KB。
+
 ## 各语言说明
 
 各语言使用同样的扫描；文本按原始字节或整段字符串读入。
 
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321698 · Go 1.14 x64 №11322293 · Java 1.8 №11321711 · Rust 1.75 x64 №11321701 · Python 3.12 x64 №11322294.
+
+Go 提交 11322375 耗时 0.015 秒，使用 280 KB。简单版本耗时 0.031 s，使用 1072 KB。
+
+Go 每次读入 512 字节，在块之间保留尚未处理的左括号、注释状态和表达式深度。
+
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 160 KB |
-| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1080 KB |
-| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.093 s | 452 KB |
-| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 408 KB |
-| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 232 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 140 KB | 11321698 |
+| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1072 KB | 11322293 |
+| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.125 s | 444 KB | 11321711 |
+| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 436 KB | 11322294 |
+| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 236 KB | 11321701 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
+| [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

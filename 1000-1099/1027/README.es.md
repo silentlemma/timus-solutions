@@ -97,17 +97,40 @@ Detalles a tener en cuenta:
   de línea no;
 - en Windows los saltos de línea pueden ser `\r\n`: trata `\r` como `\n`.
 
+## Soluciones optimizadas
+
+Python busca en la cadena de bytes para saltar el texto y los comentarios, y valida las expresiones aritméticas byte a byte. El envío 11317183 tardó 0,078 s y usó 480 KB frente a 0,093 s y 436 KB en la base.
+
 ## Notas por lenguaje
 
 La misma pasada en todos los lenguajes; el texto se lee como bytes crudos o
 como una cadena entera.
 
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321698 · Go 1.14 x64 №11322293 · Java 1.8 №11321711 · Rust 1.75 x64 №11321701 · Python 3.12 x64 №11322294.
+
+El envío 11322375 en Go tardó 0.015 s y usó 280 KB. La versión sencilla tardó 0.031 s y usó 1072 KB.
+
+Go lee bloques de 512 bytes y conserva el paréntesis de apertura pendiente, el estado del comentario y la profundidad de la expresión entre bloques.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 160 KB |
-| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1080 KB |
-| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.093 s | 452 KB |
-| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 408 KB |
-| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1027_parsing.cpp](1027_parsing.cpp) | G++ 13.2 x64 | parsing | O(length) | AC | 0.015 s | 140 KB | 11321698 |
+| [1027_parsing.go](1027_parsing.go) | Go 1.14 x64 | parsing | O(length) | AC | 0.031 s | 1072 KB | 11322293 |
+| [1027_parsing.java](1027_parsing.java) | Java 1.8 | parsing | O(length) | AC | 0.125 s | 444 KB | 11321711 |
+| [1027_parsing.py](1027_parsing.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.093 s | 436 KB | 11322294 |
+| [1027_parsing.rs](1027_parsing.rs) | Rust 1.75 x64 | parsing | O(length) | AC | 0.015 s | 236 KB | 11321701 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
+| [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
