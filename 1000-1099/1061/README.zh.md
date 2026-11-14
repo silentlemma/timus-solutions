@@ -78,12 +78,42 @@
 - **C++**、**Go**、**Java**：在读完两个数之后逐字符读取状态。
 - **Python**、**Rust**：把全部输入按空白切分，再把各行拼接起来。
 
+## 优化解法
+
+Python 版本将输入分为连续的未锁定区间。在每个区间内滑动长度为 K 的窗口，减去离开窗口的值并加上进入窗口的值。只有总和严格减小时才更新答案，因此并列时保留最早的位置。时间复杂度为 O(N)，包含输入和区间的空间复杂度为 O(N)。提交 11317122 耗时 0.093 秒、使用 1048 KB；基础版为 0.125 秒和 9992 KB。
+
+Go 版本流式读取状态，并用字节环形缓冲区保存最近 K 个值。遇到锁定缓冲区时清空窗口。时间复杂度为 O(N)，空间复杂度为 O(K)。提交 11317123 耗时 0.015 秒、使用 1088 KB；基础版为 0.031 秒和 2704 KB。
+
+Rust 版本流式读取状态，并用字节环形缓冲区保存最近 K 个值。遇到锁定缓冲区时清空窗口。时间复杂度为 O(N)，空间复杂度为 O(K)。提交 11317124 耗时 0.015 秒、使用 204 KB；基础版为 0.015 秒和 2196 KB。
+
+C++ 版本流式读取状态，并用字节环形缓冲区保存最近 K 个值。遇到锁定缓冲区时清空窗口。时间复杂度为 O(N)，空间复杂度为 O(K)。提交 11317125 耗时 0.015 秒、使用 184 KB；基础版为 0.015 秒和 1356 KB。
+
+Java 版本流式读取状态，并用字节环形缓冲区保存最近 K 个值。遇到锁定缓冲区时清空窗口。时间复杂度为 O(N)，空间复杂度为 O(K)。提交 11317126 耗时 0.093 秒、使用 408 KB；基础版为 0.109 秒和 1592 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322104 · Go 1.14 x64 №11322105 · Java 1.8 №11322106 · Python 3.12 x64 №11322107 · Rust 1.75 x64 №11322108.
+
 ## 题解代码
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1061_prefix_sums.cpp](1061_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 1372 KB |
-| [1061_prefix_sums.go](1061_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 2700 KB |
-| [1061_prefix_sums.java](1061_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.093 s | 1600 KB |
-| [1061_prefix_sums.py](1061_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 9248 KB |
-| [1061_prefix_sums.rs](1061_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.015 s | 2196 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1061_prefix_sums.cpp](1061_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 1356 KB | 11322104 |
+| [1061_prefix_sums.go](1061_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 2704 KB | 11322105 |
+| [1061_prefix_sums.java](1061_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 1592 KB | 11322106 |
+| [1061_prefix_sums.py](1061_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.125 s | 9992 KB | 11322107 |
+| [1061_prefix_sums.rs](1061_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.015 s | 2196 KB | 11322108 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1061_two_pointers.py](1061_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.093 s | 1048 KB | 11317122 |
+| [1061_two_pointers.go](1061_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(N) | AC | 0.015 s | 1088 KB | 11317123 |
+| [1061_two_pointers.rs](1061_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.015 s | 204 KB | 11317124 |
+| [1061_two_pointers.cpp](1061_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 184 KB | 11317125 |
+| [1061_two_pointers.java](1061_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.093 s | 408 KB | 11317126 |
+
+\* 已通过评测，尚未达到 Go 排名目标。

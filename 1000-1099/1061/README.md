@@ -88,12 +88,42 @@ Pitfalls:
 - **Python**, **Rust**: the whole input is split into words and the rows
   are joined.
 
+## Optimized solutions
+
+The Python version divides the input into runs of unlocked buffers. Within each run it slides a window of K buffers, subtracting the value that leaves and adding the value that enters. A strictly smaller sum updates the answer, preserving the first position in a tie. The search takes O(N) time and O(N) space including the input and runs. Submission 11317122 took 0.093 s and 1048 KB, compared with 0.125 s and 9992 KB for the base.
+
+Go reads the states as a stream and keeps the last K values in a byte ring buffer. A locked buffer clears the window. The scan takes O(N) time and O(K) space. Submission 11317123 took 0.015 s and 1088 KB, compared with 0.031 s and 2704 KB for the base.
+
+Rust reads the states as a stream and keeps the last K values in a byte ring buffer. A locked buffer clears the window. The scan takes O(N) time and O(K) space. Submission 11317124 took 0.015 s and 204 KB, compared with 0.015 s and 2196 KB for the base.
+
+C++ reads the states as a stream and keeps the last K values in a byte ring buffer. A locked buffer clears the window. The scan takes O(N) time and O(K) space. Submission 11317125 took 0.015 s and 184 KB, compared with 0.015 s and 1356 KB for the base.
+
+Java reads the states as a stream and keeps the last K values in a byte ring buffer. A locked buffer clears the window. The scan takes O(N) time and O(K) space. Submission 11317126 took 0.093 s and 408 KB, compared with 0.109 s and 1592 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322104 · Go 1.14 x64 №11322105 · Java 1.8 №11322106 · Python 3.12 x64 №11322107 · Rust 1.75 x64 №11322108.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1061_prefix_sums.cpp](1061_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 1372 KB |
-| [1061_prefix_sums.go](1061_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 2700 KB |
-| [1061_prefix_sums.java](1061_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.093 s | 1600 KB |
-| [1061_prefix_sums.py](1061_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 9248 KB |
-| [1061_prefix_sums.rs](1061_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.015 s | 2196 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1061_prefix_sums.cpp](1061_prefix_sums.cpp) | G++ 13.2 x64 | prefix_sums | O(N) | AC | 0.015 s | 1356 KB | 11322104 |
+| [1061_prefix_sums.go](1061_prefix_sums.go) | Go 1.14 x64 | prefix_sums | O(N) | AC | 0.031 s | 2704 KB | 11322105 |
+| [1061_prefix_sums.java](1061_prefix_sums.java) | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 1592 KB | 11322106 |
+| [1061_prefix_sums.py](1061_prefix_sums.py) | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.125 s | 9992 KB | 11322107 |
+| [1061_prefix_sums.rs](1061_prefix_sums.rs) | Rust 1.75 x64 | prefix_sums | O(N) | AC | 0.015 s | 2196 KB | 11322108 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1061_two_pointers.py](1061_two_pointers.py) | Python 3.12 x64 | two_pointers | O(N) | AC | 0.093 s | 1048 KB | 11317122 |
+| [1061_two_pointers.go](1061_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(N) | AC | 0.015 s | 1088 KB | 11317123 |
+| [1061_two_pointers.rs](1061_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.015 s | 204 KB | 11317124 |
+| [1061_two_pointers.cpp](1061_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 184 KB | 11317125 |
+| [1061_two_pointers.java](1061_two_pointers.java) | Java 1.8 | two_pointers | O(N) | AC | 0.093 s | 408 KB | 11317126 |
+
+\* Accepted. The Go rating target remains open.
