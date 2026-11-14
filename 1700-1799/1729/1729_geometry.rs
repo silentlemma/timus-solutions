@@ -13,7 +13,11 @@ fn thousandths(text: &str) -> i64 {
         None => (text, ""),
     };
     let part = format!("{}000", part);
-    let w: i64 = if whole.is_empty() { 0 } else { whole.parse().unwrap() };
+    let w: i64 = if whole.is_empty() {
+        0
+    } else {
+        whole.parse().unwrap()
+    };
     w * SCALE + part[..DIGITS].parse::<i64>().unwrap()
 }
 

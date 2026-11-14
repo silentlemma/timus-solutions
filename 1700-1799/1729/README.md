@@ -71,12 +71,42 @@ Pitfalls:
 The answers match an independent accepted implementation in all seven
 printed digits on 300 random cases.
 
+## Optimized solutions
+
+The C++ version uses standard C input and output. The input angle has at most three fractional digits. Multiplying by 1000 and rounding recovers the integer number of thousandths before division and remainder. The same chord formula then takes constant time and space. The metrics come from submission 11316978.
+
+The angle is converted to integer thousandths before computing the number of full chords and the remainder. Rust 1.75 x64, submission 11318489. Time 0.046 → 0.031 s, memory 260 → 256 KB.
+
+The angle is converted to integer thousandths before computing the number of full chords and the remainder. Python 3.12 x64, submission 11318496. Time 0.109 → 0.078 s, memory 464 → 520 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322451 · Rust 1.75 x64 №11321953 · Go 1.14 x64 №11322452 · Java 1.8 №11322453 · Python 3.12 x64 №11322454.
+
+The angle is converted to integer thousandths before computing the number of full chords and the remainder. Java 1.8, submission 11322411. Time 0.14 → 0.125 s, memory 1800 → 392 KB.
+
+Go computes the distance with the chord formula and writes a fixed-precision result from a small buffer. Go 1.14 x64, submission 11322864. Time 0.031 → 0.031 s, memory 1088 → 304 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1729_geometry.cpp](1729_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 468 KB |
-| [1729_geometry.go](1729_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB |
-| [1729_geometry.java](1729_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1840 KB |
-| [1729_geometry.py](1729_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB |
-| [1729_geometry.rs](1729_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 260 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1729_geometry.cpp](1729_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 452 KB | 11322451 |
+| [1729_geometry.go](1729_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11322452 |
+| [1729_geometry.java](1729_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.14 s | 1800 KB | 11322453 |
+| [1729_geometry.py](1729_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 464 KB | 11322454 |
+| [1729_geometry.rs](1729_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 256 KB | 11321953 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
+| [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
+| [1729_geometry_optimized.py](1729_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
+| [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
+| [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |
+
+\* Accepted. The C++ rating target is still open.

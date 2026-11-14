@@ -54,12 +54,42 @@ r 和 a（1 ≤ r ≤ 1000，0.001 ≤ a ≤ 45），小数点后至多三位。
 
 在 300 个随机数据上，答案与一个独立的已通过实现在全部七位输出数字上一致。
 
+## 优化解法
+
+C++ 版本使用 C 标准库进行输入和输出。输入角度最多有三位小数，乘以 1000 后取整即可恢复以千分之一度为单位的整数，再做除法和取余。弦长公式仍只需常数时间和空间。评测数据来自提交 11316978。
+
+先把角度换算成千分之一度的整数，再计算完整弦的数量和余角。 Rust 1.75 x64（提交 11318489）的运行时间从 0.046 秒变为 0.031 秒，内存从 260 KB 变为 256 KB。
+
+先把角度换算成千分之一度的整数，再计算完整弦的数量和余角。 Python 3.12 x64（提交 11318496）的运行时间从 0.109 秒变为 0.078 秒，内存从 464 KB 变为 520 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11322451 · Rust 1.75 x64 №11321953 · Go 1.14 x64 №11322452 · Java 1.8 №11322453 · Python 3.12 x64 №11322454.
+
+先把角度换算成千分之一度的整数，再计算完整弦的数量和余角。 Java 1.8（提交 11322411）的运行时间从 0.14 秒变为 0.125 秒，内存从 1800 KB 变为 392 KB。
+
+Go 用弦长公式计算距离，然后从小缓冲区输出固定精度的结果。 Go 1.14 x64（提交 11322864）的运行时间从 0.031 秒变为 0.031 秒，内存从 1088 KB 变为 304 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1729_geometry.cpp](1729_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 468 KB |
-| [1729_geometry.go](1729_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1100 KB |
-| [1729_geometry.java](1729_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1840 KB |
-| [1729_geometry.py](1729_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB |
-| [1729_geometry.rs](1729_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 260 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1729_geometry.cpp](1729_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 452 KB | 11322451 |
+| [1729_geometry.go](1729_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11322452 |
+| [1729_geometry.java](1729_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.14 s | 1800 KB | 11322453 |
+| [1729_geometry.py](1729_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 464 KB | 11322454 |
+| [1729_geometry.rs](1729_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 256 KB | 11321953 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
+| [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
+| [1729_geometry_optimized.py](1729_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
+| [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
+| [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |
+
+\* 已通过评测，尚未达到 C++ 排名目标。
