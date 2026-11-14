@@ -7,8 +7,10 @@ const int CORNERS = 3, POINTS = 5;
 
 int main() {
     ll mana, h, top, x[POINTS], y[POINTS];
-    if (scanf("%lld %lld %lld", &mana, &h, &top) < 1) return 0;
-    for (int i = 0; i < POINTS; i++) scanf("%lld %lld", &x[i], &y[i]);
+    if (scanf("%lld %lld %lld", &mana, &h, &top) < 1)
+        return 0;
+    for (int i = 0; i < POINTS; i++)
+        scanf("%lld %lld", &x[i], &y[i]);
     // after flying up, mana - h is left for the radius, and the field must
     // reach the nearest of the floor and the three walls
     ll spare = mana - h;
@@ -21,7 +23,8 @@ int main() {
         ll reach = nx * (x[0] - x[i]) + ny * (y[0] - y[i]) + nz * h;
         // the distance to the wall is reach / |normal|, compared exactly
         big length = (big)nx * nx + (big)ny * ny + (big)nz * nz;
-        if ((big)reach * reach <= (big)spare * spare * length) ok = true;
+        if ((big)reach * reach <= (big)spare * spare * length)
+            ok = true;
     }
     puts(ok && spare >= 0 ? "YES" : "NO");
     return 0;

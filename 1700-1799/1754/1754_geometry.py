@@ -12,15 +12,14 @@ def main():
     # reach the nearest of the floor and the three walls
     spare = mana - h
     ok = spare >= h
-    corners = [(x, y, 0) for x, y in pts[1:CORNERS + 1]]
+    corners = [(x, y, 0) for x, y in pts[1 : CORNERS + 1]]
     apex = pts[CORNERS + 1] + (top,)
     centre = pts[0] + (h,)
     for i in range(len(corners)):
         a, b = corners[i], corners[i - 1]
         u = [b[j] - a[j] for j in range(len(a))]
         w = [apex[j] - a[j] for j in range(len(a))]
-        normal = (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2],
-                  u[0] * w[1] - u[1] * w[0])
+        normal = (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0])
         reach = sum(normal[j] * (centre[j] - a[j]) for j in range(len(a)))
         # the distance to the wall is reach / |normal|, compared exactly
         if spare >= 0 and reach * reach <= spare * spare * sum(c * c for c in normal):

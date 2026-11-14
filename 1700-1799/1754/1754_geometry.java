@@ -25,7 +25,8 @@ public class Main {
             // the distance to the wall is reach / |normal|, compared exactly
             BigInteger length = BigInteger.valueOf(nx * nx + ny * ny + nz * nz);
             BigInteger budget = BigInteger.valueOf(spare * spare).multiply(length);
-            if (reach.multiply(reach).compareTo(budget) <= 0) ok = true;
+            if (reach.multiply(reach).compareTo(budget) <= 0)
+                ok = true;
         }
         System.out.println(ok && spare >= 0 ? "YES" : "NO");
     }

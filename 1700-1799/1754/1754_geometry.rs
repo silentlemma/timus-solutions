@@ -6,7 +6,10 @@ const HEADER: usize = 3;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i64> = input.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let v: Vec<i64> = input
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let (mana, h, top) = (v[0], v[1], v[2]);
     let x: Vec<i64> = v[HEADER..].iter().step_by(2).cloned().collect();
     let y: Vec<i64> = v[HEADER + 1..].iter().step_by(2).cloned().collect();

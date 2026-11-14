@@ -95,12 +95,41 @@ The answers agree with an independent accepted implementation on 450
 random pyramids, a third of them with upright walls at whole-number
 distances and the mana set near the threshold.
 
+## Optimized solutions
+
+The optimized versions form each side-plane normal directly in coordinates and compare squared products to test the remaining reach.
+
+Python 3.12 x64, submission 11318516. Time 0.078 → 0.109 s, memory 592 → 508 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321958 · Java 1.8 №11321955 · Python 3.12 x64 №11321956 · Rust 1.75 x64 №11321957 · Go 1.14 x64 №11322211.
+
+Go checks each face of the pyramid using exact integer comparisons for the relevant distances. Go 1.14 x64, submission 11322932. Time 0.015 → 0.015 s, memory 1092 → 276 KB.
+
+Java 1.8, submission 11321993. Time 0.14 → 0.125 s, memory 1664 → 376 KB.
+
+Rust compares squared distances to the plane without dividing by the length of its normal. Rust 1.75 x64, submission 11323317. Time 0.031 → 0.046 s, memory 224 → 48 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1754_geometry.cpp](1754_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB |
-| [1754_geometry.go](1754_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1084 KB |
-| [1754_geometry.java](1754_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1688 KB |
-| [1754_geometry.py](1754_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 596 KB |
-| [1754_geometry.rs](1754_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1754_geometry.cpp](1754_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 108 KB | 11321958 |
+| [1754_geometry.go](1754_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1092 KB | 11322211 |
+| [1754_geometry.java](1754_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.14 s | 1664 KB | 11321955 |
+| [1754_geometry.py](1754_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 592 KB | 11321956 |
+| [1754_geometry.rs](1754_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 224 KB | 11321957 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1754_geometry_optimized.py](1754_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 508 KB | 11318516 |
+| [1754_geometry_optimized.go](1754_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 276 KB | 11322932 |
+| [1754_geometry_optimized.java](1754_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 376 KB | 11321993 |
+| [1754_geometry_optimized.rs](1754_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323317 |
+
+\* The marked versions have room to improve in the ratings.

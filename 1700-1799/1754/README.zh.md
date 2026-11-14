@@ -77,12 +77,41 @@ NO
 
 在 450 个随机金字塔上答案与一个独立的已通过实现一致，其中三分之一带有整数距离的竖直墙，法力恰好在临界值附近。
 
+## 优化解法
+
+优化版本直接计算各侧面法向量的坐标，并比较乘积的平方以判断剩余作用半径是否足够。
+
+Python 3.12 x64（提交 11318516）的运行时间从 0.078 秒变为 0.109 秒，内存从 592 KB 变为 508 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321958 · Java 1.8 №11321955 · Python 3.12 x64 №11321956 · Rust 1.75 x64 №11321957 · Go 1.14 x64 №11322211.
+
+Go 逐个检查金字塔的各个面，用精确的整数运算比较相关距离。 Go 1.14 x64（提交 11322932）的运行时间从 0.015 秒变为 0.015 秒，内存从 1092 KB 变为 276 KB。
+
+Java 1.8（提交 11321993）的运行时间从 0.14 秒变为 0.125 秒，内存从 1664 KB 变为 376 KB。
+
+Rust 比较到平面的距离平方，省去了除以法向量长度的步骤。 Rust 1.75 x64（提交 11323317）的运行时间从 0.031 秒变为 0.046 秒，内存从 224 KB 变为 48 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1754_geometry.cpp](1754_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB |
-| [1754_geometry.go](1754_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 1084 KB |
-| [1754_geometry.java](1754_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1688 KB |
-| [1754_geometry.py](1754_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 596 KB |
-| [1754_geometry.rs](1754_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 224 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1754_geometry.cpp](1754_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 108 KB | 11321958 |
+| [1754_geometry.go](1754_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1092 KB | 11322211 |
+| [1754_geometry.java](1754_geometry.java) | Java 1.8 | geometry | O(1) | AC | 0.14 s | 1664 KB | 11321955 |
+| [1754_geometry.py](1754_geometry.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 592 KB | 11321956 |
+| [1754_geometry.rs](1754_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 224 KB | 11321957 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1754_geometry_optimized.py](1754_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.109 s | 508 KB | 11318516 |
+| [1754_geometry_optimized.go](1754_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 276 KB | 11322932 |
+| [1754_geometry_optimized.java](1754_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 376 KB | 11321993 |
+| [1754_geometry_optimized.rs](1754_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 48 KB | 11323317 |
+
+\* 带星号的版本仍有提升排名的空间。
