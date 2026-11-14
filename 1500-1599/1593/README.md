@@ -79,12 +79,44 @@ Pitfalls:
   in generator mode 2, and reserve the +7 before multiplying by 4ᵃ in
   mode 4. Neither boundary issue affects a stored numbered test.
 
+## Optimized solutions
+
+The optimized versions check for a square and apply Legendre's test before factoring. Miller–Rabin identifies prime factors, and Pollard's rho splits remaining composite factors. Square factors can be dropped because they contribute even exponents.
+
+G++ 13.2 x64, submission 11322019. Time 0.171 → 0.031 s, memory 116 → 172 KB.
+
+Go 1.14 x64, submission 11322020. Time 0.203 → 0.031 s, memory 1072 → 1104 KB.
+
+Java 1.8, submission 11322021. Time 0.578 → 0.109 s, memory 1624 → 524 KB.
+
+Python 3.12 x64, submission 11322023. Time 0.109 → 0.093 s, memory 944 → 780 KB.
+
+Rust 1.75 x64, submission 11322024. Time 0.156 → 0.046 s, memory 220 → 216 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11322314 · Go 1.14 x64 №11322315 · Java 1.8 №11322316 · Python 3.12 x64 №11322319 · Rust 1.75 x64 №11322320.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1593_math.cpp](1593_math.cpp) | G++ 13.2 x64 | math | O(√N) | AC | 0.171 s | 132 KB |
-| [1593_math.go](1593_math.go) | Go 1.14 x64 | math | O(√N) | AC | 0.203 s | 1080 KB |
-| [1593_math.java](1593_math.java) | Java 1.8 | math | O(√N) | AC | 0.546 s | 1632 KB |
-| [1593_math.py](1593_math.py) | Python 3.12 x64 | math | O(√N) expected | AC | 0.109 s | 928 KB |
-| [1593_math.rs](1593_math.rs) | Rust 1.75 x64 | math | O(√N) | AC | 0.171 s | 224 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1593_math.cpp](1593_math.cpp) | G++ 13.2 x64 | math | O(√N) | AC | 0.171 s | 116 KB | 11322314 |
+| [1593_math.go](1593_math.go) | Go 1.14 x64 | math | O(√N) | AC | 0.203 s | 1072 KB | 11322315 |
+| [1593_math.java](1593_math.java) | Java 1.8 | math | O(√N) | AC | 0.578 s | 1624 KB | 11322316 |
+| [1593_math.py](1593_math.py) | Python 3.12 x64 | math | O(√N) expected | AC | 0.109 s | 944 KB | 11322319 |
+| [1593_math.rs](1593_math.rs) | Rust 1.75 x64 | math | O(√N) | AC | 0.156 s | 220 KB | 11322320 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1593_math_optimized.cpp](1593_math_optimized.cpp) | G++ 13.2 x64 | math | O(n^1/4 log n) expected | AC | 0.031 s | 172 KB | 11322019 |
+| [1593_math_optimized.go](1593_math_optimized.go) \* | Go 1.14 x64 | math | O(n^1/4 log n) expected | AC | 0.031 s | 1104 KB | 11322020 |
+| [1593_math_optimized.java](1593_math_optimized.java) | Java 1.8 | math | O(n^1/4 log n) expected | AC | 0.109 s | 524 KB | 11322021 |
+| [1593_math_optimized.py](1593_math_optimized.py) | Python 3.12 x64 | math | O(n^1/4 log n) expected | AC | 0.093 s | 780 KB | 11322023 |
+| [1593_math_optimized.rs](1593_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^1/4 log n) expected | AC | 0.046 s | 216 KB | 11322024 |
+
+\* The marked versions have room to improve in the ratings.
