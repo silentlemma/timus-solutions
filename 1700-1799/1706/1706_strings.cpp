@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-const int COPIES = 4;  // the text repeated so that every comparison below stays inside it
+const int COPIES = 4; // the text repeated so that every comparison below stays inside it
 const int MAX_LEN = 4096;
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
     // its lengths up to a + k - j minus the longest common prefix of j with an
     // earlier start of the window, best[j]; going down over a adds start a
     int top = n + 2 * k;
-    std::vector<int> common(k, 0);  // common[d] = lcp of positions a and a + d
+    std::vector<int> common(k, 0); // common[d] = lcp of positions a and a + d
     std::vector<int> best(top + k, 0);
     std::vector<long long> answers(n);
     for (int a = top; a >= 0; a--) {

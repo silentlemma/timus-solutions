@@ -57,12 +57,36 @@ abaccc
 
 在由两个、三个和全部字母组成的随机字符串、斐波那契串以及周期串上，答案与一个独立的已通过实现一致。
 
+## 优化解法
+
+PyPy 在滑动窗口时复用公共前缀数据，并直接处理单字符窗口和由相同字符组成的字符串。提交 11318443 耗时 0.171 秒，使用 3140 KB；基础版耗时 1.703 秒，使用 1112 KB。
+
+Rust 在滑动窗口时复用公共前缀数据，并直接处理单字符窗口和由相同字符组成的字符串。提交 11317312 耗时 0.031 秒，使用 264 KB；基础版耗时 0.031 秒，使用 396 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11318452 · Java 1.8 №11321788.
+
+Go 版本在窗口滑动时复用公共前缀的长度。长度使用 16 位整数，答案写入同一个缓冲区。 Go 1.14 x64（提交 11320883）的运行时间从 0.031 秒变为 0.031 秒，内存从 1308 KB 变为 900 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1706_strings.cpp](1706_strings.cpp) | G++ 13.2 x64 | strings | O((n + k) k) | AC | 0.015 s | 272 KB |
-| [1706_strings.go](1706_strings.go) | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.046 s | 1292 KB |
-| [1706_strings.java](1706_strings.java) | Java 1.8 | strings | O((n + k) k) | AC | 0.109 s | 972 KB |
-| [1706_strings.py](1706_strings.py) | Python 3.12 x64 | strings | O((n + k) k) | AC | 1.734 s | 1224 KB |
-| [1706_strings.rs](1706_strings.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 408 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1706_strings.cpp](1706_strings.cpp) | G++ 13.2 x64 | strings | O((n + k) k) | AC | 0.031 s | 260 KB | 11318452 |
+| [1706_strings.go](1706_strings.go) | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 1308 KB | 11322038 |
+| [1706_strings.java](1706_strings.java) | Java 1.8 | strings | O((n + k) k) | AC | 0.125 s | 948 KB | 11321788 |
+| [1706_strings.py](1706_strings.py) | Python 3.12 x64 | strings | O((n + k) k) | AC | 1.703 s | 1112 KB | 11322039 |
+| [1706_strings.rs](1706_strings.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 396 KB | 11322041 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1706_strings_optimized.py](1706_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O((n + k) k) | AC | 0.171 s | 3140 KB | 11318443 |
+| [1706_strings_optimized.rs](1706_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
+| [1706_strings_optimized.go](1706_strings_optimized.go) \* | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 900 KB | 11320883 |
+
+\* PyPy 仍有提升排名的空间。 Rust 仍有提升排名的空间。

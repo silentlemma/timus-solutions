@@ -71,12 +71,36 @@ The answers match an independent accepted implementation on random
 strings over two, three and all letters, a Fibonacci word and periodic
 strings.
 
+## Optimized solutions
+
+PyPy reuses the common-prefix data as the window moves and handles a constant string or a width of one directly. Submission 11318443 took 0.171 s and used 3140 KB, versus 1.703 s and 1112 KB for the base.
+
+Rust reuses the common-prefix data as the window moves and handles a constant string or a width of one directly. Submission 11317312 took 0.031 s and used 264 KB, versus 0.031 s and 396 KB for the base.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11318452 · Java 1.8 №11321788.
+
+Go reuses the common-prefix lengths as the window moves. The prefix lengths fit in 16-bit integers, and the answers are written in one buffer. Go 1.14 x64, submission 11320883. Time 0.031 → 0.031 s, memory 1308 → 900 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1706_strings.cpp](1706_strings.cpp) | G++ 13.2 x64 | strings | O((n + k) k) | AC | 0.015 s | 272 KB |
-| [1706_strings.go](1706_strings.go) | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.046 s | 1292 KB |
-| [1706_strings.java](1706_strings.java) | Java 1.8 | strings | O((n + k) k) | AC | 0.109 s | 972 KB |
-| [1706_strings.py](1706_strings.py) | Python 3.12 x64 | strings | O((n + k) k) | AC | 1.734 s | 1224 KB |
-| [1706_strings.rs](1706_strings.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 408 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1706_strings.cpp](1706_strings.cpp) | G++ 13.2 x64 | strings | O((n + k) k) | AC | 0.031 s | 260 KB | 11318452 |
+| [1706_strings.go](1706_strings.go) | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 1308 KB | 11322038 |
+| [1706_strings.java](1706_strings.java) | Java 1.8 | strings | O((n + k) k) | AC | 0.125 s | 948 KB | 11321788 |
+| [1706_strings.py](1706_strings.py) | Python 3.12 x64 | strings | O((n + k) k) | AC | 1.703 s | 1112 KB | 11322039 |
+| [1706_strings.rs](1706_strings.rs) | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 396 KB | 11322041 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1706_strings_optimized.py](1706_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O((n + k) k) | AC | 0.171 s | 3140 KB | 11318443 |
+| [1706_strings_optimized.rs](1706_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O((n + k) k) | AC | 0.031 s | 264 KB | 11317312 |
+| [1706_strings_optimized.go](1706_strings_optimized.go) \* | Go 1.14 x64 | strings | O((n + k) k) | AC | 0.031 s | 900 KB | 11320883 |
+
+\* The PyPy rating target remains open. The Rust rating target remains open.
