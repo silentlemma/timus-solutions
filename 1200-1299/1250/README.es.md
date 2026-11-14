@@ -107,12 +107,41 @@ Los recuentos se compararon con una segunda solución que construye el
 - Python inunda con arreglos de bytes de casillas «aún libres», que la
   inundación va borrando.
 
+## Soluciones optimizadas
+
+Las inundaciones comparten un byte de estado por casilla. Un borde protector impide salir del mapa, por lo que cada vecina se obtiene con un desplazamiento fijo sin comprobar los límites de fila y columna en cada paso.
+
+Go 1.14 x64, envío 11318425. Tiempo 0,046 → 0,031 s, memoria 6644 → 4280 KB.
+
+Rust 1.75 x64, envío 11318428. Tiempo 0,046 → 0,015 s, memoria 4948 → 1684 KB.
+
+Python 3.12 x64, envío 11318431. Tiempo 0,468 → 0,328 s, memoria 14592 → 6444 KB.
+
+Java 1.8, envío 11318433. Tiempo 0,093 → 0,125 s, memoria 3184 → 1620 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321900 · Go 1.14 x64 №11322182 · Java 1.8 №11322183 · Python 3.12 x64 №11322184 · Rust 1.75 x64 №11322185.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1250_graphs.cpp](1250_graphs.cpp) | G++ 13.2 x64 | graphs | O(W·H) | AC | 0.015 s | 2428 KB |
-| [1250_graphs.go](1250_graphs.go) | Go 1.14 x64 | graphs | O(W·H) | AC | 0.031 s | 7352 KB |
-| [1250_graphs.java](1250_graphs.java) | Java 1.8 | graphs | O(W·H) | AC | 0.125 s | 3172 KB |
-| [1250_graphs.py](1250_graphs.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.468 s | 14428 KB |
-| [1250_graphs.rs](1250_graphs.rs) | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.015 s | 4108 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1250_graphs.cpp](1250_graphs.cpp) | G++ 13.2 x64 | graphs | O(W·H) | AC | 0.015 s | 2408 KB | 11321900 |
+| [1250_graphs.go](1250_graphs.go) | Go 1.14 x64 | graphs | O(W·H) | AC | 0.046 s | 6644 KB | 11322182 |
+| [1250_graphs.java](1250_graphs.java) | Java 1.8 | graphs | O(W·H) | AC | 0.093 s | 3184 KB | 11322183 |
+| [1250_graphs.py](1250_graphs.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.468 s | 14592 KB | 11322184 |
+| [1250_graphs.rs](1250_graphs.rs) | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.046 s | 4948 KB | 11322185 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1250_graphs_optimized.go](1250_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(W·H) | AC | 0.031 s | 4280 KB | 11318425 |
+| [1250_graphs_optimized.rs](1250_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.015 s | 1684 KB | 11318428 |
+| [1250_graphs_optimized.py](1250_graphs_optimized.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.328 s | 6444 KB | 11318431 |
+| [1250_graphs_optimized.java](1250_graphs_optimized.java) \* | Java 1.8 | graphs | O(W·H) | AC | 0.125 s | 1620 KB | 11318433 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

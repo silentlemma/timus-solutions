@@ -91,12 +91,41 @@ W、H、X 和 Y，用一个或多个空格分隔，然后是 H 行，每行 W �
 
 - Python 用表示“仍可通行”格子的字节数组做填充，填充过程中逐个清除。
 
+## 优化解法
+
+各轮填充共用每格一个字节的状态。外侧的保护边框阻止搜索越界，因此每一步可以用固定的下标偏移找到相邻格，无需逐次检查行列边界。
+
+Go 1.14 x64（提交 11318425）的运行时间从 0.046 秒变为 0.031 秒，内存从 6644 KB 变为 4280 KB。
+
+Rust 1.75 x64（提交 11318428）的运行时间从 0.046 秒变为 0.015 秒，内存从 4948 KB 变为 1684 KB。
+
+Python 3.12 x64（提交 11318431）的运行时间从 0.468 秒变为 0.328 秒，内存从 14592 KB 变为 6444 KB。
+
+Java 1.8（提交 11318433）的运行时间从 0.093 秒变为 0.125 秒，内存从 3184 KB 变为 1620 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321900 · Go 1.14 x64 №11322182 · Java 1.8 №11322183 · Python 3.12 x64 №11322184 · Rust 1.75 x64 №11322185.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1250_graphs.cpp](1250_graphs.cpp) | G++ 13.2 x64 | graphs | O(W·H) | AC | 0.015 s | 2428 KB |
-| [1250_graphs.go](1250_graphs.go) | Go 1.14 x64 | graphs | O(W·H) | AC | 0.031 s | 7352 KB |
-| [1250_graphs.java](1250_graphs.java) | Java 1.8 | graphs | O(W·H) | AC | 0.125 s | 3172 KB |
-| [1250_graphs.py](1250_graphs.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.468 s | 14428 KB |
-| [1250_graphs.rs](1250_graphs.rs) | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.015 s | 4108 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1250_graphs.cpp](1250_graphs.cpp) | G++ 13.2 x64 | graphs | O(W·H) | AC | 0.015 s | 2408 KB | 11321900 |
+| [1250_graphs.go](1250_graphs.go) | Go 1.14 x64 | graphs | O(W·H) | AC | 0.046 s | 6644 KB | 11322182 |
+| [1250_graphs.java](1250_graphs.java) | Java 1.8 | graphs | O(W·H) | AC | 0.093 s | 3184 KB | 11322183 |
+| [1250_graphs.py](1250_graphs.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.468 s | 14592 KB | 11322184 |
+| [1250_graphs.rs](1250_graphs.rs) | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.046 s | 4948 KB | 11322185 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1250_graphs_optimized.go](1250_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(W·H) | AC | 0.031 s | 4280 KB | 11318425 |
+| [1250_graphs_optimized.rs](1250_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(W·H) | AC | 0.015 s | 1684 KB | 11318428 |
+| [1250_graphs_optimized.py](1250_graphs_optimized.py) | Python 3.12 x64 | graphs | O(W·H) | AC | 0.328 s | 6444 KB | 11318431 |
+| [1250_graphs_optimized.java](1250_graphs_optimized.java) \* | Java 1.8 | graphs | O(W·H) | AC | 0.125 s | 1620 KB | 11318433 |
+
+\* 带星号的版本仍有提升排名的空间。
