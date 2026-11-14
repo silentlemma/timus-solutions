@@ -16,7 +16,7 @@ def common(a, b):
 def main():
     data = sys.stdin.read().split()
     n = int(data[0])
-    words = data[1:1 + n]
+    words = data[1 : 1 + n]
     # every suffix of every command, sorted; a substring starting at some
     # position is in another command exactly when it is a prefix of another
     # command's suffix, and the nearest such suffixes in the order share most

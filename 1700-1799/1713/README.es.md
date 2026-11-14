@@ -75,12 +75,42 @@ otro, y tenga la longitud mínima. Las longitudes coinciden con una
 implementación aceptada independiente en 200 conjuntos pequeños
 aleatorios y en otros grandes.
 
+## Soluciones optimizadas
+
+Go almacena cada posición de sufijo en 32 bits y guarda las longitudes de los prefijos comunes en arreglos de bytes. El envío 11317316 usó 1728 KB frente a 10568 KB de la versión sencilla.
+
+Rust almacena cada posición de sufijo en 32 bits y guarda las longitudes de los prefijos comunes en arreglos de bytes. El envío 11317319 usó 800 KB frente a 5644 KB de la versión sencilla.
+
+Java almacena cada posición de sufijo en 32 bits y guarda las longitudes de los prefijos comunes en arreglos de bytes. El envío 11317320 usó 2000 KB frente a 20308 KB de la versión sencilla.
+
+Python empaqueta cada sufijo y su posición en un entero. Cada letra minúscula ocupa cinco bits. El relleno con ceros coloca primero el sufijo más corto cuando es prefijo de otro. Al descartar los bits de posición, el bit distinto de mayor peso señala la primera letra diferente. Python 3.12 x64, envío 11319668. Tiempo 0,546 → 0,328 s, memoria 20160 → 12324 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321951 · Python 3.12 x64 №11321948 · Rust 1.75 x64 №11321950 · Go 1.14 x64 №11322285 · Java 1.8 №11322286.
+
+C++ guarda las posiciones de los sufijos en enteros de 32 bits y las longitudes de prefijo en bytes. G++ 13.2 x64, envío 11322344. Tiempo 0,062 → 0,062 s, memoria 1908 → 676 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1713_strings.cpp](1713_strings.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 1940 KB |
-| [1713_strings.go](1713_strings.go) | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.109 s | 11560 KB |
-| [1713_strings.java](1713_strings.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.265 s | 20316 KB |
-| [1713_strings.py](1713_strings.py) | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.593 s | 20308 KB |
-| [1713_strings.rs](1713_strings.rs) | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 5640 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1713_strings.cpp](1713_strings.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 1908 KB | 11321951 |
+| [1713_strings.go](1713_strings.go) | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.14 s | 10568 KB | 11322285 |
+| [1713_strings.java](1713_strings.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.296 s | 20308 KB | 11322286 |
+| [1713_strings.py](1713_strings.py) | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.546 s | 20160 KB | 11321948 |
+| [1713_strings.rs](1713_strings.rs) | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.078 s | 5644 KB | 11321950 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1713_strings_optimized.go](1713_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.078 s | 1728 KB | 11317316 |
+| [1713_strings_optimized.rs](1713_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.046 s | 800 KB | 11317319 |
+| [1713_strings_optimized.java](1713_strings_optimized.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.281 s | 2000 KB | 11317320 |
+| [1713_strings_optimized.py](1713_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.328 s | 12324 KB | 11319668 |
+| [1713_strings_optimized.cpp](1713_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 676 KB | 11322344 |
+
+\* El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Rust sigue pendiente. La clasificación guardada de Python no tiene envíos comparables de otros autores.

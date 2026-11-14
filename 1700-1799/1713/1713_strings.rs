@@ -27,13 +27,21 @@ fn main() {
     let mut run = 0;
     for k in 1..total {
         let other = suffixes[k].1 != suffixes[k - 1].1;
-        run = if other { adjacent[k - 1] } else { run.min(adjacent[k - 1]) };
+        run = if other {
+            adjacent[k - 1]
+        } else {
+            run.min(adjacent[k - 1])
+        };
         shared[k] = run;
     }
     run = 0;
     for k in (0..total.saturating_sub(1)).rev() {
         let other = suffixes[k].1 != suffixes[k + 1].1;
-        run = if other { adjacent[k] } else { run.min(adjacent[k]) };
+        run = if other {
+            adjacent[k]
+        } else {
+            run.min(adjacent[k])
+        };
         shared[k] = shared[k].max(run);
     }
     let mut best: Vec<Option<&[u8]>> = vec![None; n];
@@ -43,6 +51,9 @@ fn main() {
             best[w] = Some(&suffix[..need]);
         }
     }
-    let lines: Vec<&str> = best.iter().map(|b| std::str::from_utf8(b.unwrap()).unwrap()).collect();
+    let lines: Vec<&str> = best
+        .iter()
+        .map(|b| std::str::from_utf8(b.unwrap()).unwrap())
+        .collect();
     println!("{}", lines.join("\n"));
 }

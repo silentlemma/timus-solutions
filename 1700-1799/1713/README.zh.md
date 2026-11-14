@@ -58,12 +58,42 @@ d
 检查程序验证每个关键子串属于自己的命令、不属于其他命令，并且长度最小。
 在 200 个小型随机数据和若干大型数据上，长度与一个独立的已通过实现一致。
 
+## 优化解法
+
+Go 用 32 位整数存储后缀位置，并用字节数组存储公共前缀长度。提交 11317316 使用 1728 KB，基础版使用 10568 KB。
+
+Rust 用 32 位整数存储后缀位置，并用字节数组存储公共前缀长度。提交 11317319 使用 800 KB，基础版使用 5644 KB。
+
+Java 用 32 位整数存储后缀位置，并用字节数组存储公共前缀长度。提交 11317320 使用 2000 KB，基础版使用 20308 KB。
+
+Python 将每个后缀及其位置打包为一个整数。每个小写字母占五位。用零填充后，若一个后缀是另一个后缀的前缀，较短的后缀会排在前面。去掉位置位后，最高不同位指出第一个不同的字母。 Python 3.12 x64（提交 11319668）的运行时间从 0.546 秒变为 0.328 秒，内存从 20160 KB 变为 12324 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321951 · Python 3.12 x64 №11321948 · Rust 1.75 x64 №11321950 · Go 1.14 x64 №11322285 · Java 1.8 №11322286.
+
+C++ 用 32 位整数保存后缀位置，并用字节保存前缀长度。 G++ 13.2 x64（提交 11322344）的运行时间从 0.062 秒变为 0.062 秒，内存从 1908 KB 变为 676 KB。
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [1713_strings.cpp](1713_strings.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 1940 KB |
-| [1713_strings.go](1713_strings.go) | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.109 s | 11560 KB |
-| [1713_strings.java](1713_strings.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.265 s | 20316 KB |
-| [1713_strings.py](1713_strings.py) | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.593 s | 20308 KB |
-| [1713_strings.rs](1713_strings.rs) | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 5640 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1713_strings.cpp](1713_strings.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 1908 KB | 11321951 |
+| [1713_strings.go](1713_strings.go) | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.14 s | 10568 KB | 11322285 |
+| [1713_strings.java](1713_strings.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.296 s | 20308 KB | 11322286 |
+| [1713_strings.py](1713_strings.py) | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.546 s | 20160 KB | 11321948 |
+| [1713_strings.rs](1713_strings.rs) | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.078 s | 5644 KB | 11321950 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [1713_strings_optimized.go](1713_strings_optimized.go) \* | Go 1.14 x64 | strings | O(L log L · ℓ) | AC | 0.078 s | 1728 KB | 11317316 |
+| [1713_strings_optimized.rs](1713_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(L log L · ℓ) | AC | 0.046 s | 800 KB | 11317319 |
+| [1713_strings_optimized.java](1713_strings_optimized.java) | Java 1.8 | strings | O(L log L · ℓ) | AC | 0.281 s | 2000 KB | 11317320 |
+| [1713_strings_optimized.py](1713_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L log L · ℓ) | AC | 0.328 s | 12324 KB | 11319668 |
+| [1713_strings_optimized.cpp](1713_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L log L · ℓ) | AC | 0.062 s | 676 KB | 11322344 |
+
+\* Go 仍有提升排名的空间。Rust 仍有提升排名的空间。已保存的 Python 排行榜中没有其他作者的可比提交。
