@@ -98,12 +98,38 @@ Detalles a tener en cuenta:
 - Todos los lenguajes imprimen las mismas líneas; con `N = 1000` son 4001
   líneas, así que la salida va por un búfer.
 
+## Soluciones optimizadas
+
+Se escriben los mismos pasos de Horner como bytes ASCII, añadiendo cada coeficiente directamente al búfer de salida.
+
+El envío 11317923 en Rust tardó 0.015 s y usó 184 KB. La versión sencilla tardó 0.015 s y usó 228 KB.
+
+Python escribe cada paso del método de Horner directamente en el búfer de salida. Usa O(1) espacio auxiliar y no almacena la expresión completa. Python 3.12 x64, envío 11317951. Tiempo 0,093 → 0,062 s, memoria 336 → 352 KB.
+
+**Envíos de las versiones sencillas en Timus**
+
+G++ 13.2 x64 №11321881 · Java 1.8 №11321882 · Python 3.12 x64 №11321916 · Go 1.14 x64 №11322189 · Rust 1.75 x64 №11322190.
+
+Go construye la salida del método de Horner en un búfer fijo de bytes y la escribe en un solo bloque. Go 1.14 x64, envío 11321909. Tiempo 0,031 → 0,015 s, memoria 1080 → 344 KB.
+
 ## Soluciones
 
-| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria |
-|----------|----------|---------|-------------|-----------|--------|---------|
-| [1059_math.cpp](1059_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 128 KB |
-| [1059_math.go](1059_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1084 KB |
-| [1059_math.java](1059_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1588 KB |
-| [1059_math.py](1059_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 356 KB |
-| [1059_math.rs](1059_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 232 KB |
+### Sencillas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1059_math.cpp](1059_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11321881 |
+| [1059_math.go](1059_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1080 KB | 11322189 |
+| [1059_math.java](1059_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1572 KB | 11321882 |
+| [1059_math.py](1059_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 336 KB | 11321916 |
+| [1059_math.rs](1059_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 228 KB | 11322190 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1059_math_optimized.rs](1059_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 184 KB | 11317923 |
+| [1059_math_optimized.py](1059_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
+| [1059_math_optimized.go](1059_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 344 KB | 11321909 |
+
+\* Las versiones marcadas aún pueden mejorar su clasificación.

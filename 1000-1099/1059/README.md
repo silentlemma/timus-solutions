@@ -97,12 +97,38 @@ Pitfalls:
 - All languages print the same lines; the output of `N = 1000` has 4001
   lines, so it goes through buffered output.
 
+## Optimized solutions
+
+Write the same Horner steps as ASCII bytes, appending each coefficient directly to buffered output.
+
+Rust submission 11317923 took 0.015 s and used 184 KB. The simple version took 0.015 s and used 228 KB.
+
+Python writes each Horner step directly to the output buffer. This uses O(1) auxiliary space instead of storing the full expression. Python 3.12 x64, submission 11317951. Time 0.093 → 0.062 s, memory 336 → 352 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321881 · Java 1.8 №11321882 · Python 3.12 x64 №11321916 · Go 1.14 x64 №11322189 · Rust 1.75 x64 №11322190.
+
+Go builds the output for Horner's method in a fixed byte buffer and writes it in one batch. Go 1.14 x64, submission 11321909. Time 0.031 → 0.015 s, memory 1080 → 344 KB.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1059_math.cpp](1059_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 128 KB |
-| [1059_math.go](1059_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1084 KB |
-| [1059_math.java](1059_math.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 1588 KB |
-| [1059_math.py](1059_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 356 KB |
-| [1059_math.rs](1059_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 232 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1059_math.cpp](1059_math.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11321881 |
+| [1059_math.go](1059_math.go) | Go 1.14 x64 | math | O(N) | AC | 0.031 s | 1080 KB | 11322189 |
+| [1059_math.java](1059_math.java) | Java 1.8 | math | O(N) | AC | 0.125 s | 1572 KB | 11321882 |
+| [1059_math.py](1059_math.py) | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 336 KB | 11321916 |
+| [1059_math.rs](1059_math.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 228 KB | 11322190 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [1059_math_optimized.rs](1059_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 184 KB | 11317923 |
+| [1059_math_optimized.py](1059_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 352 KB | 11317951 |
+| [1059_math_optimized.go](1059_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 344 KB | 11321909 |
+
+\* The marked versions have room to improve in the ratings.
