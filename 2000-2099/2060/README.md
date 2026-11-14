@@ -115,12 +115,43 @@ The Python solution runs under PyPy: under CPython 3.12 it exceeds the
 time limit on the judge's test 49, while PyPy 3.10 is accepted in
 0.234 s.
 
+## Optimized solutions
+
+A single radius array is reused for the odd and even Manacher passes. Two arrays of 32-bit differences count palindrome endings and starts. Accumulate their products in 64 bits.
+
+Go submission 11318179 took 0.031 s and used 5284 KB. The simple version took 0.031 s and used 9872 KB.
+
+Rust packs Manacher radii into 18 bits and reconstructs prefix sums from low words and checkpoints. Submission 11322337 used 2832 KB versus 4580 KB for the simple version. Both ran in 0.031 s.
+
+Rust counts constant and strictly alternating strings directly, using the sets of possible palindrome lengths.
+
+PyPy applies direct formulas to constant and alternating strings. Submission 11318375 took 0.218 s and used 7120 KB.
+
+Java applies direct formulas to constant and alternating strings. Submission 11318382 took 0.093 s and used 6404 KB.
+
+**Timus submissions for the simple versions**
+
+G++ 13.2 x64 №11321876 · Go 1.14 x64 №11322094 · Java 1.8 №11318388 · Rust 1.75 x64 №11322097 · PyPy 3.10 x64 №11322167.
+
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [2060_strings.cpp](2060_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 4268 KB |
-| [2060_strings.go](2060_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 9932 KB |
-| [2060_strings.java](2060_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 5140 KB |
-| [2060_strings.py](2060_strings.py) | PyPy 3.10 x64 | strings | O(n) | AC | 0.234 s | 6988 KB |
-| [2060_strings.rs](2060_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 4596 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2060_strings.cpp](2060_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 4248 KB | 11321876 |
+| [2060_strings.go](2060_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 9872 KB | 11322094 |
+| [2060_strings.java](2060_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 5128 KB | 11318388 |
+| [2060_strings.py](2060_strings.py) | PyPy 3.10 x64 | strings | O(n) | AC | 0.203 s | 7200 KB | 11322167 |
+| [2060_strings.rs](2060_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 4580 KB | 11322097 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|----------|----------|----------|------------|---------|------|--------|---|
+| [2060_strings_optimized.go](2060_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 5284 KB | 11318179 |
+| [2060_strings_optimized.py](2060_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(n) | AC | 0.218 s | 7120 KB | 11318375 |
+| [2060_strings_optimized.java](2060_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 6404 KB | 11318382 |
+| [2060_strings_optimized.rs](2060_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 2832 KB | 11322337 |
+
+\* The marked solutions can improve their target rankings.

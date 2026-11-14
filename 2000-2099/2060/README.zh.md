@@ -62,12 +62,43 @@ abaa
 
 Python 解答在 PyPy 下运行：在 CPython 3.12 下它在评测的第 49 个测试上超时，而在 PyPy 3.10 下以 0.234 秒通过。
 
+## 优化解法
+
+奇数和偶数长度的 Manacher 扫描复用同一个半径数组。用两个 32 位差分数组统计回文的起点和终点，用 64 位整数累加乘积。
+
+Go 提交 11318179 耗时 0.031 秒，使用 5284 KB。简单版本耗时 0.031 s，使用 9872 KB。
+
+Rust 用 18 位存储 Manacher 半径，并通过低位字和检查点恢复前缀和。提交 11322337 使用 2832 KB，简单版使用 4580 KB，两者均耗时 0.031 秒。
+
+Rust 对恒定字符串和严格交替的字符串按可行的回文长度直接计数。
+
+PyPy 用公式直接计算相同字母串和交替字母串。提交 11318375 耗时 0.218 秒，使用 7120 KB。
+
+Java 用公式直接计算相同字母串和交替字母串。提交 11318382 耗时 0.093 秒，使用 6404 KB。
+
+**简单版本的 Timus 提交记录**
+
+G++ 13.2 x64 №11321876 · Go 1.14 x64 №11322094 · Java 1.8 №11318388 · Rust 1.75 x64 №11322097 · PyPy 3.10 x64 №11322167.
+
 ## 解答
 
-| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 |
-|----|----|----|-----|------|----|----|
-| [2060_strings.cpp](2060_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 4268 KB |
-| [2060_strings.go](2060_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 9932 KB |
-| [2060_strings.java](2060_strings.java) | Java 1.8 | strings | O(n) | AC | 0.109 s | 5140 KB |
-| [2060_strings.py](2060_strings.py) | PyPy 3.10 x64 | strings | O(n) | AC | 0.234 s | 6988 KB |
-| [2060_strings.rs](2060_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 4596 KB |
+### 简单版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2060_strings.cpp](2060_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 4248 KB | 11321876 |
+| [2060_strings.go](2060_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 9872 KB | 11322094 |
+| [2060_strings.java](2060_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 5128 KB | 11318388 |
+| [2060_strings.py](2060_strings.py) | PyPy 3.10 x64 | strings | O(n) | AC | 0.203 s | 7200 KB | 11322167 |
+| [2060_strings.rs](2060_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 4580 KB | 11322097 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|----|----|----|-----|------|----|----|---|
+| [2060_strings_optimized.go](2060_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 5284 KB | 11318179 |
+| [2060_strings_optimized.py](2060_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(n) | AC | 0.218 s | 7120 KB | 11318375 |
+| [2060_strings_optimized.java](2060_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 6404 KB | 11318382 |
+| [2060_strings_optimized.rs](2060_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.031 s | 2832 KB | 11322337 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
