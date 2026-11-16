@@ -86,6 +86,8 @@ of `Scanner` and counts the pigeons straight from the bytes of the first
 line, at every fifth column, without making a `String` of it; the other
 two lines are read and dropped: {2149_implementation_optimized.java}.
 
+The Python variant counts left-facing pigeons directly in the top line. Each target pattern and its opposite have complementary costs, so only the imbalances between halves and between even and odd positions are needed.
+
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -98,6 +100,8 @@ asterisk concerns the rating target only.
 
 - `2149_implementation_optimized.java`: time reduction -12.00%; memory
   reduction +75.13%; base: `2149_implementation.java`.
+
+- `2149_implementation_optimized.py`: 244 KB on PyPy 3.10 x64 versus 412 KB on Python 3.12 x64 for the simple version, a 40.78% memory reduction. Runtime rises from 0.078 s to 0.125 s.
 
 ## Language notes
 
@@ -126,5 +130,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
 | [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

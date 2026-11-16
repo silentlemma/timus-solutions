@@ -70,6 +70,8 @@ n（2 ≤ n ≤ 100），然后是三行、每行 5n − 1 个字符的鸽子图
 节、每隔五列数鸽子，不为它创建 `String`；另外两行读入后直接丢弃：
 {2149_implementation_optimized.java}。
 
+Python 优化版直接在首行统计朝左的鸽子。每种目标排列与其相反排列所需的翻转次数之和为鸽子总数，因此只需求两半之间以及奇偶位置之间的数量差。
+
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
@@ -77,6 +79,8 @@ n（2 ≤ n ≤ 100），然后是三行、每行 5n − 1 个字符的鸽子图
 - `2149_implementation_optimized.cpp`: 时间降低 +0.00%; 内存降低 +73.47%; 基础版本: `2149_implementation.cpp`.
 
 - `2149_implementation_optimized.java`: 时间降低 -12.00%; 内存降低 +75.13%; 基础版本: `2149_implementation.java`.
+
+- `2149_implementation_optimized.py` 在 PyPy 3.10 x64 上占用 244 KB，简单版在 Python 3.12 x64 上占用 412 KB，内存减少 40.78%。运行时间从 0.078 秒增至 0.125 秒。
 
 ## 各语言说明
 
@@ -102,5 +106,6 @@ n（2 ≤ n ≤ 100），然后是三行、每行 5n − 1 个字符的鸽子图
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
 | [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

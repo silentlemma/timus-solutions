@@ -91,6 +91,8 @@ la primera línea, cada cinco columnas, sin crear un `String` con ella;
 las otras dos líneas se leen y se descartan:
 {2149_implementation_optimized.java}.
 
+La variante de Python cuenta en la primera línea las palomas que miran a la izquierda. Los costes de cada patrón y de su opuesto son complementarios, así que basta comparar el desequilibrio entre las mitades y entre las posiciones pares e impares.
+
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -103,6 +105,8 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `2149_implementation_optimized.java`: reducción de tiempo -12.00%;
   reducción de memoria +75.13%; base: `2149_implementation.java`.
+
+- `2149_implementation_optimized.py` usa 244 KB con PyPy 3.10 x64 frente a 412 KB de la versión sencilla con Python 3.12 x64, un 40.78% menos de memoria. El tiempo sube de 0.078 s a 0.125 s.
 
 ## Notas por lenguaje
 
@@ -131,5 +135,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
 | [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
