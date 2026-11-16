@@ -101,15 +101,18 @@ IMPOSSIBLE
 标的固定数组中，而不是哈希表，并把每个操作直接写入 `BufWriter`，而不是把全部输出
 先拼成字符串：{1155_constructive_optimized.rs}。
 
+优化版 Python 使用固定的立方体棱表和对角顶点之间的路径表，并以预先构建的字节序列批量输出操作。
+
 ### 实测改进
 
-每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+每个优化版本均已获 Accepted，并且符合排名条件，或相对基础版本减少至少 30% 的时间或内存。基础源代码均保留。星号只表示尚未达到排名目标。
 
 - `1155_constructive_optimized.cpp`: 时间降低 -106.67%; 内存降低 +75.25%; 基础版本: `1155_constructive.cpp`.
 
 - `1155_constructive_optimized.java`: 时间降低 +40.38%; 内存降低 +88.26%; 基础版本: `1155_constructive.java`.
 
 - `1155_constructive_optimized.rs`: 时间降低 +0.00%; 内存降低 +50.46%; 基础版本: `1155_constructive.rs`.
+- `1155_constructive_optimized.py` 用时 0.078 秒，占用 580 KB；基础版本为 0.078 秒和 612 KB。在现行 Python/PyPy 解释器的排名中，时间在 131 个结果中排第 18，内存在 131 个结果中排第 18，基础版本分别排第 18 和第 24。
 
 ## 各语言说明
 
@@ -134,5 +137,6 @@ IMPOSSIBLE
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
 | [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

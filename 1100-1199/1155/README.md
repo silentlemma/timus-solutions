@@ -120,12 +120,11 @@ by the letter of the corner instead of hash maps, and writes every
 operation straight to a `BufWriter` instead of collecting the whole
 output in a string: {1155_constructive_optimized.rs}.
 
+The optimized Python version uses a fixed table of cube edges and routes between opposite corners. It writes prebuilt byte sequences for each batch of operations.
+
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Each optimized version has Accepted and qualifies by ranking or by a reduction of at least 30% in time or memory against the base version. The base sources are retained. The asterisk concerns the rating target only.
 
 - `1155_constructive_optimized.cpp`: time reduction -106.67%; memory
   reduction +75.25%; base: `1155_constructive.cpp`.
@@ -135,6 +134,7 @@ asterisk concerns the rating target only.
 
 - `1155_constructive_optimized.rs`: time reduction +0.00%; memory
   reduction +50.46%; base: `1155_constructive.rs`.
+- `1155_constructive_optimized.py`: 0.078 s and 580 KB, versus 0.078 s and 612 KB for the simple version. On current Python/PyPy interpreters it ranks 18/131 by time and 18/131 by memory, versus 18/131 and 24/131 for the simple version.
 
 ## Language notes
 
@@ -160,5 +160,6 @@ asterisk concerns the rating target only.
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
 | [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

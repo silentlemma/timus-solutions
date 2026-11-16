@@ -123,12 +123,11 @@ fijos indexados por la letra del vértice en lugar de tablas hash, y
 escribe cada operación directamente en un `BufWriter` en lugar de juntar
 toda la salida en una cadena: {1155_constructive_optimized.rs}.
 
+La versión optimizada de Python usa tablas fijas de aristas y de rutas entre vértices opuestos. Imprime cada bloque de operaciones como una secuencia de bytes ya preparada.
+
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada obtuvo Accepted y satisface el criterio de clasificación o reduce al menos un 30% el tiempo o la memoria frente a la versión básica. Se conservan los fuentes básicos. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1155_constructive_optimized.cpp`: reducción de tiempo -106.67%;
   reducción de memoria +75.25%; base: `1155_constructive.cpp`.
@@ -138,6 +137,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1155_constructive_optimized.rs`: reducción de tiempo +0.00%;
   reducción de memoria +50.46%; base: `1155_constructive.rs`.
+- `1155_constructive_optimized.py` usa 580 KB y tarda 0.078 s, frente a 612 KB y 0.078 s de la versión básica. En la clasificación de los intérpretes vigentes de Python/PyPy ocupa el puesto 18 de 131 por tiempo y el 18 de 131 por memoria. La versión básica ocupa los puestos 18 y 24, respectivamente.
 
 ## Notas por lenguaje
 
@@ -163,5 +163,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
 | [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
