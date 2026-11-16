@@ -78,15 +78,15 @@ data cost more than printing a thousand numbers; the output is built in
 one `StringBuilder`, as in the simple solution:
 {1082_constructive_optimized.java}.
 
+The Python version writes the same sorted sequence in batches of at most 128 numbers, limiting the size of each temporary string.
+
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Each optimized version has Accepted and qualifies by ranking or by a reduction of at least 30% in time or memory against the base version. The base sources are retained. The asterisk concerns the rating target only.
 
 - `1082_constructive_optimized.java`: time reduction -17.20%; memory
   reduction +77.14%; base: `1082_constructive.java`.
+- `1082_constructive_optimized.py` uses 440 KB versus 452 KB for the base, and takes 0.078 s instead of 0.062 s. In the 2026-11-16 ranking for current Python/PyPy interpreters it places 4th by time and 12th by memory out of 45. It qualifies by top 30% on both metrics and improves the base's 15th place in memory.
 
 ## Language notes
 
@@ -116,5 +116,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1082_constructive_optimized.java](1082_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11304423 |
+| [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

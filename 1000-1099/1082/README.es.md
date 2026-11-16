@@ -80,15 +80,15 @@ configuración regional cuestan más que imprimir mil números; la salida
 se arma en un solo `StringBuilder`, como en la solución simple:
 {1082_constructive_optimized.java}.
 
+La versión de Python imprime la misma secuencia ordenada en bloques de hasta 128 números para limitar el tamaño de cada cadena temporal.
+
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada obtuvo Accepted y satisface el criterio de clasificación o reduce al menos un 30% el tiempo o la memoria frente a la versión básica. Se conservan los fuentes básicos. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1082_constructive_optimized.java`: reducción de tiempo -17.20%;
   reducción de memoria +77.14%; base: `1082_constructive.java`.
+- `1082_constructive_optimized.py` usa 440 KB frente a los 452 KB de la versión básica y tarda 0.078 s en lugar de 0.062 s. En la clasificación del 16 de noviembre de 2026 para los intérpretes vigentes de Python/PyPy ocupa el puesto 4 por tiempo y el 12 por memoria, de 45. Está entre el 30% superior en ambas métricas y mejora el puesto 15 de la versión básica en memoria.
 
 ## Notas por lenguaje
 
@@ -118,5 +118,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1082_constructive_optimized.java](1082_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11304423 |
+| [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
