@@ -63,6 +63,8 @@ ALARM!
 
 Python 按 x 坐标排序，并跳过在这一轴上的间距无法缩短到临界距离的物体对。找到一次接近后，用其时间的整数上界限制枚举。其余物体对的判别式符号均用整数精确计算。 Python 3.12 x64（提交 11322507）的运行时间从 0.203 秒变为 0.078 秒，内存从 1492 KB 变为 1084 KB。
 
+节省内存的 Python 版本枚举所有物体对，并跳过彼此远离的物体。它用等价公式 `c / (−b + √(b² − ac))` 计算首次进入临界距离的时间，避免相近数相减。提交 11316939 用时 0.156 秒、占用 764 KB。按 x 坐标排序的版本检查较少的物体对，用时 0.078 秒、占用 1084 KB。与简单版本相比，枚举版减少 48.8% 的内存，排序版减少 61.6% 的时间。
+
 Java 提交 11321903 耗时 0.125 秒，使用 1780 KB。当前简单版耗时 0.281 秒，使用 7020 KB。
 
 **简单版本的 Timus 提交记录**
@@ -92,6 +94,7 @@ Rust 将十进制输入缩放为整数。若缩放后各数的绝对值均不超
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |

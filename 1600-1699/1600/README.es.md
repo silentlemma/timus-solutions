@@ -78,6 +78,8 @@ La versión sencilla en Rust escala los datos decimales a enteros y calcula exac
 
 Python ordena los objetos por la coordenada x y descarta los pares cuya separación en ese eje no puede llegar a la distancia crítica. Tras encontrar un encuentro, una cota superior entera de su tiempo limita el recorrido. El signo del discriminante se calcula exactamente para los pares restantes. Python 3.12 x64, envío 11322507. Tiempo 0,203 → 0,078 s, memoria 1492 → 1084 KB.
 
+La versión de Python que ahorra memoria recorre todos los pares y omite los que se alejan. Usa la fórmula equivalente `c / (−b + √(b² − ac))` para calcular el instante de entrada sin restar valores casi iguales. El envío 11316939 tardó 0.156 s y usó 764 KB. La versión que ordena por x examina menos pares y tardó 0.078 s con 1084 KB. Frente a la versión sencilla, la enumeración ahorra un 48.8% de memoria y la ordenación reduce el tiempo un 61.6%.
+
 El envío de Java 11321903 tardó 0,125 s y usó 1780 KB. La versión sencilla actual tardó 0,281 s y usó 7020 KB.
 
 **Envíos de las versiones sencillas en Timus**
@@ -107,6 +109,7 @@ Rust escala la entrada decimal a enteros. Si todos los valores escalados tienen 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |

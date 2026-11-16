@@ -75,6 +75,8 @@ The simple Rust version scales the decimal inputs to integers and computes the s
 
 Python orders the objects by x and skips pairs whose separation on that axis cannot fall to the critical distance. Once an encounter is found, an integer upper bound on its time limits the scan. The sign of each remaining discriminant is computed exactly. Python 3.12 x64, submission 11322507. Time 0.203 → 0.078 s, memory 1492 → 1084 KB.
 
+The memory-saving Python version checks every pair, skipping those that are moving apart. It uses the equivalent entry-time formula `c / (−b + √(b² − ac))` to avoid subtracting nearly equal values. Submission 11316939 took 0.156 s and used 764 KB. The x-ordered version processes fewer pairs and took 0.078 s while using 1084 KB. Compared with the simple version, the all-pairs version uses 48.8% less memory and the x-ordered version takes 61.6% less time.
+
 Java submission 11321903 took 0.125 s and used 1780 KB. The current simple version took 0.281 s and used 7020 KB.
 
 **Timus submissions for the simple versions**
@@ -104,6 +106,7 @@ Rust scales the decimal input to integers. It computes the discriminant exactly 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1600_geometry_optimized.py](1600_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n²) | AC | 0.078 s | 1084 KB | 11322507 |
+| [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
 | [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |
