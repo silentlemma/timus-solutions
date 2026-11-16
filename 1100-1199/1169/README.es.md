@@ -98,7 +98,7 @@ Rust usa una mochila ilimitada unidimensional. Para cada número de pares no cr�
 
 Java usa una mochila ilimitada unidimensional. Para cada número de pares no críticos, minimiza los vértices que pertenecen a ciclos. Los restantes quedan aislados en sus componentes, y los tamaños guardados permiten reconstruir la solución. El envío 11317286 tardó 0.109 s y usó 492 KB frente a 0.343 s y 2136 KB en la base.
 
-Python prueba tamaños de ciclos en orden decreciente y memoriza los estados fallidos por vértices y pares restantes y tamaño máximo del ciclo. El envío 11317371 usó 692 KB frente a 572 KB de la versión sencilla. En la clasificación guardada, el envío quedó segundo en tiempo y primero en memoria. Ambas versiones tardaron 0,078580 KB de la versión sencilla. En la clasificación guardada, el envío quedó segundo en tiempo y primero en memoria. Ambas versiones tardaron 0,093 s.
+Python prueba tamaños de ciclos en orden decreciente y memoriza los estados fallidos por vértices y pares restantes y tamaño máximo del ciclo. El envío 11317371 tardó 0.093 s y usó 692 KB, frente a 0.078 s y 580 KB de la versión sencilla. En la clasificación guardada, el envío quedó segundo en tiempo y primero en memoria.
 
 **Envíos de las versiones sencillas en Timus**
 

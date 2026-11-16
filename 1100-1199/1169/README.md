@@ -97,7 +97,7 @@ Rust uses a one-dimensional unbounded knapsack. For each number of non-critical 
 
 Java uses a one-dimensional unbounded knapsack. For each number of non-critical pairs it minimizes the number of vertices in cycles. Remaining vertices become singletons, and stored cycle sizes reconstruct a solution. Submission 11317286 took 0.109 s and used 492 KB, versus 0.343 s and 2136 KB for the base.
 
-Python searches cycle sizes in descending order and memoizes failed states by remaining vertices, remaining pairs and largest cycle size. Submission 11317371 used 692 KB compared with 572 KB for the simple version. In the saved ranking, this submission placed second for time and first for memory. Both versions took 0.078580 KB for the simple version. In the saved ranking, this submission placed second for time and first for memory. Both versions took 0.093 s.
+Python searches cycle sizes in descending order and memoizes failed states by remaining vertices, remaining pairs and largest cycle size. Submission 11317371 took 0.093 s and used 692 KB, compared with 0.078 s and 580 KB for the simple version. In the saved ranking, this submission placed second for time and first for memory.
 
 **Timus submissions for the simple versions**
 
