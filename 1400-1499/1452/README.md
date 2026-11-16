@@ -91,6 +91,8 @@ Go uses a fixed-size hash table with open addressing and skips differences that 
 
 G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · Python 3.12 x64 №11322330 · Rust 1.75 x64 №11322331.
 
+The optimized Python version uses integer bitsets for values in a dense interval. For sparse values it uses hashing to check the necessary endpoint before extending a progression. Submission 11322818 took 0.109 s and used 1884 KB, versus 0.140 s and 1608 KB for the simple version. It ranks first by both metrics in the public Python/PyPy table.
+
 ## Solutions
 
 ### Simple
@@ -111,5 +113,6 @@ G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · P
 | [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
 | [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
+| [1452_bitmask_hashing.py](1452_bitmask_hashing.py) | Python 3.12 x64 | bitmask, hashing | O(N + m^2) | AC | 0.109 s | 1884 KB | 11322818 |
 
 \* Accepted. The C++ rating target remains open. The Rust rating target remains open. The Go rating target remains open. The Java rating target remains open.

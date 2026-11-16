@@ -93,6 +93,8 @@ Go usa una tabla hash de tamaño fijo con direccionamiento abierto y descarta la
 
 G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · Python 3.12 x64 №11322330 · Rust 1.75 x64 №11322331.
 
+La versión optimizada en Python usa conjuntos de bits enteros cuando los valores ocupan un intervalo denso. Con valores dispersos comprueba en una tabla hash que existe el término final necesario antes de extender la progresión. El envío 11322818 tardó 0.109 s y usó 1884 KB, frente a 0.140 s y 1608 KB de la versión sencilla. Ocupa el primer puesto en ambas métricas en la clasificación pública de Python/PyPy.
+
 ## Soluciones
 
 ### Sencillas
@@ -113,5 +115,6 @@ G++ 13.2 x64 №11322326 · Go 1.14 x64 №11322327 · Java 1.8 №11322328 · P
 | [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
 | [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
+| [1452_bitmask_hashing.py](1452_bitmask_hashing.py) | Python 3.12 x64 | bitmask, hashing | O(N + m^2) | AC | 0.109 s | 1884 KB | 11322818 |
 
 \* Aceptada. Aún queda por alcanzar el objetivo de clasificación de C++. El objetivo de clasificación de Rust sigue pendiente. El objetivo de clasificación de Go sigue pendiente. El objetivo de clasificación de Java sigue pendiente.
