@@ -63,14 +63,13 @@ Detalles a tener en cuenta:
 
 La variante C++ genera un período manteniendo el resto módulo 100. Lo copia en un búfer fijo
 de longitud múltiplo de 100 e imprime bloques completos y el prefijo final. La secuencia es
-la misma, con tiempo O(N) y memoria adicional O(1). El envío 11316954 usó 112 KB frente a
-1164 KB en la versión base, ambos en 0,0151144 KB en la versión base, ambos en 0,015 s.
+la misma, con tiempo O(N) y memoria adicional O(1). El envío 11316954 usó 112 KB frente a 1144 KB de la versión sencilla. Ambos tardaron 0.015 s.
 
 Go llena el bloque de salida de tamaño fijo duplicando con `copy` el prefijo ya generado. El envío 11317198 tardó 0,015 s y usó 924 KB frente a 0,031 s y 2056 KB en la base.
 
-Java repite el período con `System.arraycopy` y escribe bloques de tamaño fijo directamente en el flujo de salida. El envío 11317199 usó 364 KB frente a 3036 KB en la base, ambos en 0,1253076 KB en la base, ambos en 0,109 s.
+Java repite el período con `System.arraycopy` y escribe bloques de tamaño fijo directamente en el flujo de salida. El envío 11317199 tardó 0.109 s y usó 364 KB, frente a 0.125 s y 3076 KB de la versión sencilla.
 
-Python repite un período de 100 lámparas para formar un bloque de bytes de tamaño fijo, luego escribe los bloques completos y el prefijo final. El envío 11317212 usó 432 KB frente a 2244 KB en la base, ambos en 0,0782276 KB en la base, ambos en 0,078 s.
+Python repite un período de 100 lámparas para formar un bloque de bytes de tamaño fijo, luego escribe los bloques completos y el prefijo final. El envío 11317212 usó 432 KB frente a 2276 KB de la versión sencilla. Ambos tardaron 0.078 s.
 
 Rust llena un bloque fijo duplicando el período de 100 lámparas y escribe los bloques completos y el prefijo final. El envío 11317214 usó 204 KB y tardó 0,046 s frente a 2048 KB y 0,031 s en la base.
 

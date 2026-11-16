@@ -63,13 +63,13 @@ Pitfalls:
 The C++ variant generates one period using a running remainder modulo 100. It copies that
 period into a fixed buffer whose length is a multiple of 100, then writes as many full
 blocks as needed and a final prefix. This gives the same sequence in O(N) time with O(1)
-extra memory. Submission 11316954 used 112 KB versus 1164 KB for the base, both at 0.0151144 KB for the base, both at 0.015 s.
+extra memory. Submission 11316954 used 112 KB versus 1144 KB for the base, both at 0.015 s.
 
 Go fills the fixed output block by doubling the already generated prefix with `copy`. Submission 11317198 took 0.015 s and used 924 KB, versus 0.031 s and 2056 KB for the base.
 
-Java repeats the period with `System.arraycopy` and writes fixed-size blocks directly to the output stream. Submission 11317199 used 364 KB versus 3036 KB for the base, both at 0.1253076 KB for the base, both at 0.109 s.
+Java repeats the period with `System.arraycopy` and writes fixed-size blocks directly to the output stream. Submission 11317199 took 0.109 s and used 364 KB, versus 0.125 s and 3076 KB for the base.
 
-Python repeats a 100-lamp period to form a fixed-size byte block, then writes the complete blocks and the final prefix. Submission 11317212 used 432 KB versus 2244 KB for the base, both at 0.0782276 KB for the base, both at 0.078 s.
+Python repeats a 100-lamp period to form a fixed-size byte block, then writes the complete blocks and the final prefix. Submission 11317212 used 432 KB versus 2276 KB for the base, both at 0.078 s.
 
 Rust fills a fixed-size block by doubling the 100-lamp period and writes the full blocks and final prefix. Submission 11317214 used 204 KB and took 0.046 s, versus 2048 KB and 0.031 s for the base.
 
