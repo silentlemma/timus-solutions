@@ -73,6 +73,10 @@ with `scanf` and `printf` instead of `iostream`: 128 KB instead of
 
 No language needs anything special.
 
+Read the integers directly as bytes, compute the balanced group sizes, and buffer the answers. Accepted submission 11302162 took 0.140 s and used 372 KB. The simple version took 0.125 s and used 1628 KB. The recorded runtime is higher than for the simple version.
+
+Subtract the within-group pairs from the total. Count the extra pairs contributed by the larger groups separately. Accepted submission 11324249 took 0.140 s and used 224 KB. The simple version took 0.078 s and used 448 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -90,6 +94,8 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2025_math_optimized.cpp](2025_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 128 KB | 11303661 |
+| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 372 KB | 11302162 |
+| [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

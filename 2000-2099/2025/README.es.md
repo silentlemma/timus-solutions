@@ -73,6 +73,10 @@ con `scanf` y `printf` en lugar de `iostream`: 128 KB en lugar de
 
 Ningún lenguaje necesita nada especial.
 
+Leer los enteros directamente de los bytes, calcular los tamaños equilibrados de los grupos y acumular las respuestas. El envío aceptado 11302162 tardó 0.140 s y usó 372 KB. La versión sencilla tardó 0.125 s y usó 1628 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
+Restar del total las parejas del mismo grupo. Contar por separado las parejas adicionales de los grupos mayores. El envío aceptado 11324249 tardó 0.140 s y usó 224 KB. La versión sencilla tardó 0.078 s y usó 448 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -90,6 +94,8 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2025_math_optimized.cpp](2025_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 128 KB | 11303661 |
+| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 372 KB | 11302162 |
+| [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.
