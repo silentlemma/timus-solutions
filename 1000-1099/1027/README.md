@@ -113,6 +113,8 @@ Go submission 11322375 took 0.015 s and used 280 KB. The simple version took 0.0
 
 Go reads 512-byte blocks and preserves the pending opening parenthesis, comment state and expression depth across block boundaries.
 
+Java reads fixed-size byte blocks and keeps the expression depth and pending comment delimiters across block boundaries. Submission 11323976 took 0.093 s and used 368 KB, versus 0.125 s and 444 KB for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -131,5 +133,6 @@ Go reads 512-byte blocks and preserves the pending opening parenthesis, comment 
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
 | [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+| [1027_parsing_optimized.java](1027_parsing_optimized.java) \* | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |
 
 \* The marked solutions can improve their target rankings.

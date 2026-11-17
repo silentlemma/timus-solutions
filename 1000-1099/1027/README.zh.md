@@ -99,6 +99,8 @@ Go 提交 11322375 耗时 0.015 秒，使用 280 KB。简单版本耗时 0.031 s
 
 Go 每次读入 512 字节，在块之间保留尚未处理的左括号、注释状态和表达式深度。
 
+Java 分块读取字节，并在块之间保存表达式的括号深度以及尚未读完的注释分隔符。 提交 11323976 用时 0.093 秒、占用 368 KB，简单版则为 0.125 秒和 444 KB。
+
 ## 题解代码
 
 ### 简单版本
@@ -117,5 +119,6 @@ Go 每次读入 512 字节，在块之间保留尚未处理的左括号、注释
 |----|----|----|-----|------|----|----|---|
 | [1027_parsing_optimized.py](1027_parsing_optimized.py) | Python 3.12 x64 | parsing | O(length) | AC | 0.078 s | 480 KB | 11317183 |
 | [1027_parsing_optimized.go](1027_parsing_optimized.go) \* | Go 1.14 x64 | parsing | O(length) | AC | 0.015 s | 280 KB | 11322375 |
+| [1027_parsing_optimized.java](1027_parsing_optimized.java) \* | Java 1.8 | parsing | O(length) | AC | 0.093 s | 368 KB | 11323976 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。
