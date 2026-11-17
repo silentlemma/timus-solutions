@@ -1,35 +1,31 @@
-def combinations(places, ones):
-    if not 0 <= ones <= places:
+def choose(size, count):
+    if count < 0 or count > size:
         return 0
-    result = 1
-    for chosen in range(1, min(ones, places - ones) + 1):
-        result = result * (places + 1 - chosen) // chosen
-    return result
+    value = 1
+    for i in range(1, min(count, size - count) + 1):
+        value = value * (size + 1 - i) // i
+    return value
 
 
 def count(bound, ones, base):
-    digits = []
-    while bound:
-        bound, digit = divmod(bound, base)
-        digits.append(digit)
-
+    power, lower = 1, 0
+    while power <= bound // base:
+        power *= base
+        lower += 1
     total = 0
-    for places in range(len(digits) - 1, -1, -1):
-        digit = digits[places]
+    while power:
+        digit, bound = divmod(bound, power)
         if digit > 1:
-            return total + combinations(places + 1, ones)
-        if digit == 1:
-            total += combinations(places, ones)
+            return total + choose(lower + 1, ones)
+        if digit:
+            total += choose(lower, ones)
             if ones == 0:
                 return total
             ones -= 1
+        power //= base
+        lower -= 1
     return total + (ones == 0)
 
 
-def main():
-    x, y, ones, base = map(int, open(0, "rb").read().split())
-    print(count(y, ones, base) - count(x - 1, ones, base))
-
-
-if __name__ == "__main__":
-    main()
+x, y, k, b = map(int, open(0, "rb").read().split())
+print(count(y, k, b) - count(x - 1, k, b))

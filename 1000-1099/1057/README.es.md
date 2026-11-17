@@ -98,7 +98,7 @@ Detalles a tener en cuenta:
 
 Rust recorre los dígitos en base B y usa un triángulo de Pascal precalculado para las opciones restantes. Rust 1.75 x64, envío 11323261. Tiempo 0,015 → 0,015 s, memoria 236 → 44 KB.
 
-El envío 11321721 en Python tardó 0.093 s y usó 460 KB. La versión sencilla tardó 0.078 s y usó 500 KB.
+La versión de PyPy recorre el límite con potencias decrecientes de la base y calcula los coeficientes binomiales según se necesitan, sin guardar los dígitos. El envío 11323987 tardó 0.125 s y usó 268 KB, frente a 0.078 s y 500 KB de la versión sencilla.
 
 Python recorre los dígitos del límite desde el más significativo y calcula los coeficientes binomiales cuando hacen falta. Un dígito mayor que uno termina el recorrido porque todas las combinaciones restantes quedan por debajo del límite.
 
@@ -107,6 +107,8 @@ Python recorre los dígitos del límite desde el más significativo y calcula lo
 G++ 13.2 x64 №11321895 · Java 1.8 №11321896 · Go 1.14 x64 №11322186 · Python 3.12 x64 №11322187 · Rust 1.75 x64 №11322188.
 
 Go recorre los dígitos del más al menos significativo y actualiza en cada paso el coeficiente binomial para las posiciones restantes. Go 1.14 x64, envío 11322843. Tiempo 0,031 → 0,015 s, memoria 1072 → 276 KB.
+
+Java lee los cuatro enteros directamente del flujo y recorre el límite con potencias decrecientes de la base. Calcula los coeficientes binomiales cuando son necesarios y usa espacio adicional constante. El envío 11323981 tardó 0.093 s y usó 384 KB, frente a 0.109 s y 1624 KB de la versión sencilla.
 
 ## Soluciones
 
@@ -125,7 +127,8 @@ Go recorre los dígitos del más al menos significativo y actualiza en cada paso
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
-| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O((log Y)²) | AC | 0.093 s | 460 KB | 11321721 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O((log Y)²) | AC | 0.125 s | 268 KB | 11323987 |
 | [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+| [1057_combinatorics_optimized.java](1057_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O((log Y)²) | AC | 0.093 s | 384 KB | 11323981 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

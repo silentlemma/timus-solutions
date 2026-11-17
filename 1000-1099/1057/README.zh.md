@@ -88,7 +88,7 @@
 
 Rust 扫描 B 进制数位，并用预先计算的杨辉三角统计剩余选择。 Rust 1.75 x64（提交 11323261）的运行时间从 0.015 秒变为 0.015 秒，内存从 236 KB 变为 44 KB。
 
-Python 提交 11321721 耗时 0.093 秒，使用 460 KB。简单版本耗时 0.078 s，使用 500 KB。
+PyPy 版按底数的幂从大到小扫描上界，需要时才计算二项式系数，无需保存各位数字。 提交 11323987 用时 0.125 秒、占用 268 KB，简单版则为 0.078 秒和 500 KB。
 
 Python 从高位向低位扫描上界，按需计算二项式系数。遇到大于一的数字时结束扫描，因为剩余的零一组合都小于上界。
 
@@ -97,6 +97,8 @@ Python 从高位向低位扫描上界，按需计算二项式系数。遇到大�
 G++ 13.2 x64 №11321895 · Java 1.8 №11321896 · Go 1.14 x64 №11322186 · Python 3.12 x64 №11322187 · Rust 1.75 x64 №11322188.
 
 Go 从最高位扫到最低位，并随扫描更新剩余数位的二项式系数。 Go 1.14 x64（提交 11322843）的运行时间从 0.031 秒变为 0.015 秒，内存从 1072 KB 变为 276 KB。
+
+Java 直接从输入流读取四个整数，按底数的幂从大到小扫描上界。需要时才计算二项式系数，额外空间为常数。 提交 11323981 用时 0.093 秒、占用 384 KB，简单版则为 0.109 秒和 1624 KB。
 
 ## 题解代码
 
@@ -115,7 +117,8 @@ Go 从最高位扫到最低位，并随扫描更新剩余数位的二项式系�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
-| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O((log Y)²) | AC | 0.093 s | 460 KB | 11321721 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O((log Y)²) | AC | 0.125 s | 268 KB | 11323987 |
 | [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+| [1057_combinatorics_optimized.java](1057_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O((log Y)²) | AC | 0.093 s | 384 KB | 11323981 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。

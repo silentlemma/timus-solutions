@@ -96,7 +96,7 @@ Pitfalls:
 
 Rust scans the digits in base B and uses a precomputed Pascal table for the remaining choices. Rust 1.75 x64, submission 11323261. Time 0.015 → 0.015 s, memory 236 → 44 KB.
 
-Python submission 11321721 took 0.093 s and used 460 KB. The simple version took 0.078 s and used 500 KB.
+The PyPy version scans the bound with descending powers of the base and computes binomial coefficients as needed without storing the digits. Submission 11323987 took 0.125 s and used 268 KB, versus 0.078 s and 500 KB for the simple version.
 
 Python scans the digits of the bound from left to right, computing binomial coefficients only when needed. A digit above one ends the scan because every remaining binary digit pattern is below the bound.
 
@@ -105,6 +105,8 @@ Python scans the digits of the bound from left to right, computing binomial coef
 G++ 13.2 x64 №11321895 · Java 1.8 №11321896 · Go 1.14 x64 №11322186 · Python 3.12 x64 №11322187 · Rust 1.75 x64 №11322188.
 
 Go scans the digits from most significant to least significant and updates the binomial coefficient for the remaining positions as it goes. Go 1.14 x64, submission 11322843. Time 0.031 → 0.015 s, memory 1072 → 276 KB.
+
+Java reads four integers directly from the input stream and scans the bound using descending powers of the base. It computes binomial coefficients as needed, with constant extra space. Submission 11323981 took 0.093 s and used 384 KB, versus 0.109 s and 1624 KB for the simple version.
 
 ## Solutions
 
@@ -123,7 +125,8 @@ Go scans the digits from most significant to least significant and updates the b
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1057_combinatorics_optimized.rs](1057_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(log_B X) | AC | 0.015 s | 44 KB | 11323261 |
-| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O((log Y)²) | AC | 0.093 s | 460 KB | 11321721 |
+| [1057_combinatorics_optimized.py](1057_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O((log Y)²) | AC | 0.125 s | 268 KB | 11323987 |
 | [1057_combinatorics_optimized.go](1057_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(log Y) | AC | 0.015 s | 276 KB | 11322843 |
+| [1057_combinatorics_optimized.java](1057_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O((log Y)²) | AC | 0.093 s | 384 KB | 11323981 |
 
 \* The marked solutions can improve their target rankings.
