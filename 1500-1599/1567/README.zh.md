@@ -70,6 +70,8 @@ pokupaite gvozdi tolko v kompanii gvozdederov i tovarischi!
 字符只需查一次表，而不是在所有按键中查找；它用 `getchar` 代替 `getline` 读取这一
 行：100 KB，而不是 376 KB，时间不变。
 
+按字节统计各按键上每个字符的次数，再乘以相应的按键次数。通过的提交 11324250 用时 0.109 秒、占用 264 KB；简单版用时 0.078 秒、占用 380 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -87,3 +89,6 @@ pokupaite gvozdi tolko v kompanii gvozdederov i tovarischi!
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.109 s | 264 KB | 11324250 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

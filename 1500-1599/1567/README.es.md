@@ -76,6 +76,8 @@ carácter se consulta una sola vez en lugar de buscarlo en todas las
 teclas, y lee la línea con `getchar` en lugar de `getline`: 100 KB en
 lugar de 376 KB, con el mismo tiempo.
 
+Contar los bytes de los caracteres de cada tecla y multiplicarlos por el número de pulsaciones correspondiente. El envío aceptado 11324250 tardó 0.109 s y usó 264 KB. La versión sencilla tardó 0.078 s y usó 380 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -93,3 +95,6 @@ lugar de 376 KB, con el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.109 s | 264 KB | 11324250 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

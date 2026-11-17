@@ -76,6 +76,8 @@ looked up once instead of searching all the keys, and reads the line
 with `getchar` instead of `getline`: 100 KB instead of 376 KB, with the
 same time.
 
+Use byte counts for the characters on each key and multiply by their respective numbers of presses. Accepted submission 11324250 took 0.109 s and used 264 KB. The simple version took 0.078 s and used 380 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -93,3 +95,6 @@ same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.109 s | 264 KB | 11324250 |
+
+\* The marked solutions can improve their target rankings.
