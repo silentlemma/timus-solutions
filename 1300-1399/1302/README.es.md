@@ -81,7 +81,7 @@ que 625.
 
 C++, Go y Rust obtienen la fila con la raíz cuadrada del número de celda y la corrigen comparando cuadrados enteros. La posición en la fila da directamente tres coordenadas de franjas. La respuesta suma sus diferencias absolutas. Para celdas de hasta 10⁹, los cuadrados enteros necesarios son exactamente representables en doble precisión. Rust usa búferes fijos de bytes para la entrada y la salida decimal mediante la biblioteca de ejecución de C. Go transfiere los búferes fijos de bytes directamente mediante los descriptores estándar.
 
-Las implementaciones base aceptadas [1302_math.java](1302_math.java), [1302_math.py](1302_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1302_math.java](1302_math.java), [1302_math.py](1302_math.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
 ## Notas por lenguaje
 
@@ -89,6 +89,8 @@ Estas notas describen las implementaciones sencillas.
 
 - Python usa `math.isqrt`; los demás lenguajes ajustan una raíz en coma
   flotante hacia arriba o hacia abajo hasta que es exacta.
+
+Calcular las tres coordenadas de las franjas con enteros y sumar directamente sus diferencias absolutas. El envío aceptado 11324218 tardó 0.093 s y usó 504 KB. La versión sencilla tardó 0.109 s y usó 1576 KB.
 
 ## Soluciones
 
@@ -109,5 +111,6 @@ Estas notas describen las implementaciones sencillas.
 | [1302_math_optimized.cpp](1302_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11310791 |
 | [1302_math_optimized.go](1302_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
 | [1302_math_optimized.rs](1302_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
+| [1302_math_optimized.java](1302_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

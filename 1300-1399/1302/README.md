@@ -80,7 +80,7 @@ The formula was compared with a breadth-first search over a board of
 
 C++, Go and Rust obtain the row from the square root of the cell number and correct it with an integer square comparison. The position within the row gives three strip coordinates directly. The answer is the sum of their absolute differences. For cell numbers up to 10⁹, all relevant integer squares are exactly representable in double precision. Rust uses fixed byte buffers for input and decimal output through the C runtime. Go transfers fixed byte buffers directly through the standard handles.
 
-The accepted base implementations [1302_math.java](1302_math.java), [1302_math.py](1302_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1302_math.java](1302_math.java), [1302_math.py](1302_math.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
@@ -88,6 +88,8 @@ These notes describe the simple implementations.
 
 - Python uses `math.isqrt`; the other languages adjust a
   floating-point root up or down until it is exact.
+
+Compute the three strip coordinates with bounded integer arithmetic and add their absolute differences directly. Accepted submission 11324218 took 0.093 s and used 504 KB. The simple version took 0.109 s and used 1576 KB.
 
 ## Solutions
 
@@ -108,5 +110,6 @@ These notes describe the simple implementations.
 | [1302_math_optimized.cpp](1302_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11310791 |
 | [1302_math_optimized.go](1302_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 292 KB | 11311228 |
 | [1302_math_optimized.rs](1302_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11311243 |
+| [1302_math_optimized.java](1302_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 504 KB | 11324218 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
