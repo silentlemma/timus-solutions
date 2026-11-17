@@ -70,6 +70,8 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.109 s instead of 0.140 s and
 412 KB instead of 1600 KB.
 
+Select the larger bound by comparing the two counts directly. Accepted submission 11324293 took 0.125 s and used 260 KB. The simple version took 0.093 s and used 376 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -87,3 +89,6 @@ The optimized Java solution parses the numbers byte by byte from
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
+| [1876_math_optimized.py](1876_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 260 KB | 11324293 |
+
+\* The marked solutions can improve their target rankings.
