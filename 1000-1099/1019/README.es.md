@@ -69,11 +69,13 @@ Se reúnen 0, 10⁹ y todos los extremos, se ordenan y eliminan duplicados. Cada
 
 ## Soluciones optimizadas
 
-Las variantes DSU procesan los repintados al revés. Una estructura de sucesores encuentra el primer tramo aún no asignado por una operación posterior; tras pintarlo lo enlaza al siguiente. Cada tramo se pinta una sola vez. Ordenar y buscar extremos cuesta O(N log N), con O(N) de espacio. Go Accepted usa 592 KB y 0.031 s, frente a 1784 KB y 0.031 s de la versión directa: 66.8% menos memoria. Se conservan los DSU aceptados de C++ y Python. Python DSU usa 3560 KB y 0.078 s; el nuevo sencillo, 5 464 KB y 0.093 s. Se conserva para enseñar aunque ambas métricas empeoren. C++ DSU usa 212 KB frente a 208 KB del directo; 0.031 frente a 0.015 s es un solo salto del temporizador, así que su admisión rápida se basa en la clasificación guardada y no en un supuesto 30% de mejora temporal. Java y Rust reutilizan los archivos directos de Sencillas para su cobertura rápida, sin copias idénticas.
+Las variantes DSU procesan los repintados al revés. Una estructura de sucesores encuentra el primer tramo aún no asignado por una operación posterior; tras pintarlo lo enlaza al siguiente. Cada tramo se pinta una sola vez. Ordenar y buscar extremos cuesta O(N log N), con O(N) de espacio. Go Accepted usa 592 KB y 0.031 s, frente a 1784 KB y 0.031 s de la versión directa: 66.8% menos memoria. Se conservan los DSU aceptados de C++ y Python. Python DSU usa 3560 KB y 0.078 s; el nuevo sencillo, 5 464 KB y 0.093 s. Se conserva para enseñar aunque ambas métricas empeoren. C++ DSU usa 212 KB frente a 208 KB del directo; 0.031 frente a 0.015 s es un solo salto del temporizador, así que su admisión rápida se basa en la clasificación guardada y no en un supuesto 30% de mejora temporal.
 
 ## Notas por lenguaje
 
 El pintado directo sencillo ya tiene Accepted en los cinco lenguajes. DSU es otro algoritmo con nombres propios. El nuevo DSU Go usa manejadores estándar y arreglos primitivos compactos. Se conservan todos los archivos anteriores y sus métricas Accepted históricas. Los asteriscos señalan fuentes del conjunto rápido que aún no alcanzan la meta de su lenguaje.
+
+Procesar las operaciones en orden inverso. La estructura de conjuntos disjuntos salta los tramos cuyo color final ya se conoce. El envío aceptado 11324217 tardó 0.109 s y usó 644 KB. La versión sencilla tardó 0.203 s y usó 3960 KB.
 
 ## Soluciones
 
@@ -94,5 +96,6 @@ El pintado directo sencillo ya tiene Accepted en los cinco lenguajes. DSU es otr
 | [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
 | [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
 | [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+| [1019_dsu_sorting.java](1019_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.109 s | 644 KB | 11324217 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

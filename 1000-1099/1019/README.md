@@ -69,11 +69,13 @@ Collect 0, 10⁹ and every repainting endpoint, then sort and deduplicate them. 
 
 ## Optimized solutions
 
-The DSU variants process repaintings backwards. A successor structure finds the first piece not yet assigned by a later repainting; after assigning it, link it to its next piece. Every piece is painted at most once. Sorting and endpoint searches give O(N log N) time and O(N) space. The accepted Go source uses 592 KB at 0.031 s, versus 1784 KB at 0.031 s for direct painting: 66.8% less memory. C++ and Python retain their original accepted DSU sources. Python DSU uses 3560 KB at 0.078 s; the new elementary Python uses 5 464 KB at 0.093 s. The simpler algorithm is kept for teaching despite both worse measurements. C++ DSU uses 212 KB versus 208 KB for direct painting; its 0.031-to-0.015 s difference is one timer tick, so its fast-set admission comes from the saved ranking rule rather than a claimed 30% timing gain. Java and Rust already cover their fast families with the same direct-painting files listed under Simple, without duplicate copies.
+The DSU variants process repaintings backwards. A successor structure finds the first piece not yet assigned by a later repainting; after assigning it, link it to its next piece. Every piece is painted at most once. Sorting and endpoint searches give O(N log N) time and O(N) space. The accepted Go source uses 592 KB at 0.031 s, versus 1784 KB at 0.031 s for direct painting: 66.8% less memory. C++ and Python retain their original accepted DSU sources. Python DSU uses 3560 KB at 0.078 s; the new elementary Python uses 5 464 KB at 0.093 s. The simpler algorithm is kept for teaching despite both worse measurements. C++ DSU uses 212 KB versus 208 KB for direct painting; its 0.031-to-0.015 s difference is one timer tick, so its fast-set admission comes from the saved ranking rule rather than a claimed 30% timing gain.
 
 ## Language notes
 
 Simple direct painting now has Accepted in all five languages. DSU is an alternative algorithm with its own names. The new Go DSU uses standard handles and compact primitive arrays. All previous files and their historical Accepted metrics are preserved. Stars mark only sources selected for the fast set that still miss the language rating target.
+
+Process repaintings in reverse. A disjoint-set structure skips pieces whose final colours are already known. Accepted submission 11324217 took 0.109 s and used 644 KB. The simple version took 0.203 s and used 3960 KB.
 
 ## Solutions
 
@@ -94,5 +96,6 @@ Simple direct painting now has Accepted in all five languages. DSU is an alterna
 | [1019_dsu_sorting.cpp](1019_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.015 s | 212 KB | 11278221 |
 | [1019_dsu_sorting.go](1019_dsu_sorting.go) \* | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 592 KB | 11314801 |
 | [1019_dsu_sorting.py](1019_dsu_sorting.py) \* | Python 3.12 x64 | dsu, sorting | O(N log N) | AC | 0.078 s | 3560 KB | 11278231 |
+| [1019_dsu_sorting.java](1019_dsu_sorting.java) | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.109 s | 644 KB | 11324217 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
