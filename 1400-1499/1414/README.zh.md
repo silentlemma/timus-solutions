@@ -74,7 +74,9 @@ ea
 
 通过评测的 Rust 1.75 x64 版本耗时 0.062 秒，基础版为 0.031 秒，内存为 292 KB，基础版为 6144 KB。
 
-已通过评测的基础实现 [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+在先前的比较快照中，基础实现 [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) 的时间和内存均符合前 15% 或前十名的收录规则。其测量结果保留在简单版本表中。
+
+用缓冲输出逐条写入前缀查询及匹配结果，无需在内存中保留完整输出。通过的提交 11324233 用时 0.125 秒、占用 2 896 KB；简单版用时 0.156 秒、占用 24264 KB。
 
 ## 解答
 
@@ -94,5 +96,6 @@ ea
 |---|---|---|---|---|---|---|---|
 | [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
+| [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

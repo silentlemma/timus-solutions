@@ -84,7 +84,9 @@ El envío aceptado en G++ 13.2 x64 tarda 0.125 s frente a 0.031 s de la base y u
 
 El envío aceptado en Rust 1.75 x64 tarda 0.062 s frente a 0.031 s de la base y usa 292 KB frente a 6144 KB.
 
-Las implementaciones base aceptadas [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
+
+Escribir cada consulta de prefijo y sus coincidencias al procesarlas con un búfer de salida, sin acumular toda la salida en memoria. El envío aceptado 11324233 tardó 0.125 s y usó 2 896 KB. La versión sencilla tardó 0.156 s y usó 24264 KB.
 
 ## Soluciones
 
@@ -104,5 +106,6 @@ Las implementaciones base aceptadas [1414_sorting.go](1414_sorting.go), [1414_so
 |---|---|---|---|---|---|---|---|
 | [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
+| [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

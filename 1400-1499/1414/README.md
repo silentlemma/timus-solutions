@@ -79,7 +79,9 @@ The accepted G++ 13.2 x64 run takes 0.125 s versus 0.031 s for the base and uses
 
 The accepted Rust 1.75 x64 run takes 0.062 s versus 0.031 s for the base and uses 292 KB versus 6144 KB.
 
-The accepted base implementations [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1414_sorting.go](1414_sorting.go), [1414_sorting.java](1414_sorting.java), [1414_sorting.py](1414_sorting.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
+
+Write each prefix query and its matches as they arrive through a buffered writer, instead of keeping the full output in memory. Accepted submission 11324233 took 0.125 s and used 2 896 KB. The simple version took 0.156 s and used 24264 KB.
 
 ## Solutions
 
@@ -99,5 +101,6 @@ The accepted base implementations [1414_sorting.go](1414_sorting.go), [1414_sort
 |---|---|---|---|---|---|---|---|
 | [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
+| [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
