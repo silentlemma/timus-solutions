@@ -67,6 +67,8 @@ La solución optimizada en Java lee las letras byte a byte desde
 `System.in` en lugar de leer la palabra con `Scanner`, y escribe la
 respuesta como un byte: 348 KB en lugar de 1556 KB, con el mismo tiempo.
 
+Contar cada letra minúscula con el recuento de bytes incorporado y conservar la primera que alcanza el máximo. El envío aceptado 11302183 tardó 0.078 s y usó 392 KB. La versión sencilla tardó 0.078 s y usó 404 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -85,6 +87,7 @@ respuesta como un byte: 348 KB en lugar de 1556 KB, con el mismo tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
 | [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.140 s | 348 KB | 11303774 |
+| [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

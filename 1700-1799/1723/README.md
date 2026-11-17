@@ -65,6 +65,8 @@ The optimized Java solution reads the letters byte by byte from
 `System.in` instead of reading the word with `Scanner`, and writes the
 answer as one byte: 348 KB instead of 1556 KB, with the same time.
 
+Count occurrences of each lowercase letter with the built-in byte count and keep the first maximum. Accepted submission 11302183 took 0.078 s and used 392 KB. The simple version took 0.078 s and used 404 KB.
+
 ## Solutions
 
 ### Simple
@@ -83,6 +85,7 @@ answer as one byte: 348 KB instead of 1556 KB, with the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
 | [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.140 s | 348 KB | 11303774 |
+| [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

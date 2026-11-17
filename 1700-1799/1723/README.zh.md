@@ -56,6 +56,8 @@ tebidoh
 优化的 Java 解法直接从 `System.in` 逐字节读取字母，而不是用 `Scanner` 读入整个单
 词，并以一个字节输出答案：348 KB，而不是 1556 KB，时间不变。
 
+用内置字节计数统计每个小写字母的出现次数，并保留第一个最大值。通过的提交 11302183 用时 0.078 秒、占用 392 KB；简单版用时 0.078 秒、占用 404 KB。
+
 ## 解答
 
 ### 简单版本
@@ -74,5 +76,6 @@ tebidoh
 |----|----|----|-----|------|----|----|------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
 | [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.140 s | 348 KB | 11303774 |
+| [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
