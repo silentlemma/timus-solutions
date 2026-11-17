@@ -64,6 +64,8 @@
 
 - Python 使用内置的三参数 `pow`；其他语言自带一个小的幂函数。
 
+在函数中枚举候选值，每找到一个模方程的根就立即输出。通过的提交 11324304 用时 0.078 秒、占用 344 KB；简单版用时 0.078 秒、占用 352 KB。
+
 ## 解答
 
 ### 简单版本
@@ -82,3 +84,6 @@
 |----|----|----|-----|------|----|----|------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
 | [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) | AC | 0.109 s | 412 KB | 11303558 |
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.078 s | 344 KB | 11324304 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

@@ -73,6 +73,8 @@ same time.
 - Python uses the built-in three-argument `pow`; the other languages
   carry a small power function.
 
+Scan the candidate values inside a function and print each modular root as soon as it is found. Accepted submission 11324304 took 0.078 s and used 344 KB. The simple version took 0.078 s and used 352 KB.
+
 ## Solutions
 
 ### Simple
@@ -91,3 +93,6 @@ same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
 | [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) | AC | 0.109 s | 412 KB | 11303558 |
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.078 s | 344 KB | 11324304 |
+
+\* The marked solutions can improve their target rankings.

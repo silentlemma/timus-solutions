@@ -74,6 +74,8 @@ tiempo.
 - Python usa el `pow` de tres argumentos incorporado; los demás lenguajes
   llevan una pequeña función de potencia.
 
+Recorrer los candidatos dentro de una función e imprimir cada raíz modular en cuanto se encuentra. El envío aceptado 11324304 tardó 0.078 s y usó 344 KB. La versión sencilla tardó 0.078 s y usó 352 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -92,3 +94,6 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
 | [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) | AC | 0.109 s | 412 KB | 11303558 |
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.078 s | 344 KB | 11324304 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
