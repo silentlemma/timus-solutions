@@ -93,11 +93,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-The new C++, Go and Rust sources keep exactly the same direction-class formulas and 64-bit products as the simple versions. Only input/output storage changes: C++ uses C stdio, Go bounded buffers and standard handles, and Rust bounded digit storage with a C entry point and C-runtime character I/O. These are constant-factor and memory changes, not a faster asymptotic algorithm. The five simple sources remain unchanged; Java and Python reuse their already-admitted bases in the fast set.
+The new C++, Go and Rust sources keep exactly the same direction-class formulas and 64-bit products as the simple versions. Only input/output storage changes: C++ uses C stdio, Go bounded buffers and standard handles, and Rust bounded digit storage with a C entry point and C-runtime character I/O. These are constant-factor and memory changes, not a faster asymptotic algorithm. The five simple sources remain unchanged; Java reuses its admitted base in the fast set.
 
 The accepted G++ 13.2 x64 run takes 0.031 s versus 0.015 s for the base and uses 108 KB versus 440 KB.
 
-The accepted base implementations [1981_math.java](1981_math.java), [1981_math.py](1981_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1981_math.java](1981_math.java), [1981_math.py](1981_math.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
@@ -106,6 +106,8 @@ These notes describe the simple implementations.
 Python uses exact integers. C++, Go and Java use signed 64-bit values
 throughout the formulas; Rust uses `u64`. No trigonometry is used in the
 submitted programs.
+
+Read the value directly as bytes and evaluate the two counting formulas from its parity and half. Accepted submission 11324245 took 0.062 s and used 504 KB. The simple version took 0.093 s and used 460 KB. The recorded memory use is higher than for the simple version.
 
 ## Solutions
 
@@ -126,5 +128,6 @@ submitted programs.
 | [1981_math_optimized.cpp](1981_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 108 KB | 11315134 |
 | [1981_math_optimized.go](1981_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 332 KB | 11315136 |
 | [1981_math_optimized.rs](1981_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11315137 |
+| [1981_math_optimized.py](1981_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 504 KB | 11324245 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
