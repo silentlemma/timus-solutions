@@ -111,6 +111,8 @@ tiempo.
   `O(1)` de memoria total; las soluciones sencillas en Python y Rust
   usan `O(N)` de memoria total porque almacenan la entrada.
 
+Leer enteros por bloques y actualizar la suma máxima de un segmento a medida que llega cada valor. El envío aceptado 11302135 tardó 0.015 s y usó 100 KB. La versión sencilla tardó 0.046 s y usó 132 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -129,3 +131,4 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1296_dp_optimized.py](1296_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 388 KB | 11303735 |
 | [1296_dp_optimized.rs](1296_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 228 KB | 11303736 |
+| [1296_dp_optimized.cpp](1296_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 100 KB | 11302135 |

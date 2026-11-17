@@ -96,6 +96,8 @@ ending = max(ending + p, 0)。
 - C++、Go、Java 以及优化的 Python 和 Rust 解法的总内存为 `O(1)`；简单的 Python
   和 Rust 解法因缓冲输入，总内存为 `O(N)`。
 
+分块读取整数，在读入每个值时更新最大连续子段和。通过的提交 11302135 用时 0.015 秒、占用 100 KB；简单版用时 0.046 秒、占用 132 KB。
+
 ## 解答
 
 ### 简单版本
@@ -114,3 +116,4 @@ ending = max(ending + p, 0)。
 |----|----|----|-----|------|----|----|------|
 | [1296_dp_optimized.py](1296_dp_optimized.py) | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 388 KB | 11303735 |
 | [1296_dp_optimized.rs](1296_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N) | AC | 0.015 s | 228 KB | 11303736 |
+| [1296_dp_optimized.cpp](1296_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 100 KB | 11302135 |
