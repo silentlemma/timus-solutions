@@ -88,6 +88,8 @@ Tatiana Henrihovna Grotter
 不是 0.125 s；1180 KB，而不是 2324 KB。优化的 Python 解法以字节读取各行，并把每
 个学院的名字收集在一个 `bytearray` 中：812 KB，而不是 1520 KB，时间不变。
 
+将姓名保存在定长字符数组中，并按学院分组保存姓名指针。通过的提交 11303747 用时 0.001 秒、占用 416 KB；简单版用时 0.031 秒、占用 520 KB。
+
 ## 解答
 
 ### 简单版本
@@ -107,5 +109,6 @@ Tatiana Henrihovna Grotter
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
 | [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
+| [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。

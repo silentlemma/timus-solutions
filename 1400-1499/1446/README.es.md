@@ -98,6 +98,8 @@ solución optimizada en Python lee las líneas como bytes y reúne los
 nombres de cada casa en un `bytearray`: 812 KB en lugar de 1520 KB, con
 el mismo tiempo.
 
+Guardar los nombres en arreglos de caracteres de tamaño fijo y agrupar sus punteros por casa. El envío aceptado 11303747 tardó 0.001 s y usó 416 KB. La versión sencilla tardó 0.031 s y usó 520 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -117,6 +119,7 @@ el mismo tiempo.
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
 | [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
+| [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

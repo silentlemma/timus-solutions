@@ -96,6 +96,8 @@ names as bytes into one byte stream per house, with no `String` objects:
 Python solution reads the lines as bytes and gathers the names of each
 house in one `bytearray`: 812 KB instead of 1520 KB, with the same time.
 
+Store names in fixed character arrays and group pointers to the names by house. Accepted submission 11303747 took 0.001 s and used 416 KB. The simple version took 0.031 s and used 520 KB.
+
 ## Solutions
 
 ### Simple
@@ -115,6 +117,7 @@ house in one `bytearray`: 812 KB instead of 1520 KB, with the same time.
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
 | [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
+| [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

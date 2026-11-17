@@ -97,6 +97,8 @@ Tatiana Henrihovna Grotter
 имена каждого факультета в одном `bytearray`: 812 КБ вместо 1520 КБ при
 том же времени.
 
+Храним имена в массивах символов фиксированного размера и группируем указатели по факультетам. Принятая посылка 11303747 заняла 0,001 с и использовала 416 КБ. Простая версия заняла 0,031 с и использовала 520 КБ.
+
 ## Решения
 
 ### Простые
@@ -116,6 +118,7 @@ Tatiana Henrihovna Grotter
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
 | [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
+| [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
 \* Не входит в первые 10 и в лучшие 15% решений на своём языке на
 нынешнем судье; возможно, его можно оптимизировать дальше.
