@@ -73,6 +73,8 @@ cada línea carácter a carácter en un búfer de 30 caracteres en lugar de
 `getline` y reserva el conjunto para `N` nombres de antemano: 300 KB en
 lugar de 512 KB, con el mismo tiempo.
 
+Leer cada nombre como bytes y añadirlo directamente a un conjunto, conservando los espacios del nombre. El envío aceptado 11324219 tardó 0.078 s y usó 456 KB. La versión sencilla tardó 0.078 s y usó 516 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -90,3 +92,6 @@ lugar de 512 KB, con el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1563_hashing_optimized.cpp](1563_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N) | AC | 0.015 s | 300 KB | 11303620 |
+| [1563_hashing_optimized.py](1563_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

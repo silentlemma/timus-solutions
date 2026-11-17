@@ -72,6 +72,8 @@ line character by character into a buffer of 30 characters instead of
 `getline` and sizes the set for `N` names in advance: 300 KB instead of
 512 KB, with the same time.
 
+Read each name as bytes and insert it directly into a set, keeping spaces within the name. Accepted submission 11324219 took 0.078 s and used 456 KB. The simple version took 0.078 s and used 516 KB.
+
 ## Solutions
 
 ### Simple
@@ -89,3 +91,6 @@ line character by character into a buffer of 30 characters instead of
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1563_hashing_optimized.cpp](1563_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N) | AC | 0.015 s | 300 KB | 11303620 |
+| [1563_hashing_optimized.py](1563_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(N) | AC | 0.078 s | 456 KB | 11324219 |
+
+\* The marked solutions can improve their target rankings.
