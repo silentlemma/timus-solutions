@@ -67,17 +67,19 @@
 
 ## 优化解法
 
-新 C++、Go、Rust 从复用的 a 前缀和周期 bcd 缓冲区输出相同 Accepted 构造，不逐行分配前缀、尾部切片和拼接词。C++ 直接以 C stdio 写两个片段；Go/Rust 使用8192字节块，下一行放不下前先刷新。含标签每行最多 n+16 字节，安全覆盖 n≤2000。小 n 与无解目标规则不变，原回文证明仍成立。时间 O(n²)，已由输出规模强制；空间 O(n)，无逐词分配。保留普通源码；Java/Python 复用符合标准的基础版。
+新 C++、Go、Rust 从复用的 a 前缀和周期 bcd 缓冲区输出相同 Accepted 构造，不逐行分配前缀、尾部切片和拼接词。C++ 直接以 C stdio 写两个片段；Go/Rust 使用8192字节块，下一行放不下前先刷新。含标签每行最多 n+16 字节，安全覆盖 n≤2000。小 n 与无解目标规则不变，原回文证明仍成立。时间 O(n²)，已由输出规模强制；空间 O(n)，无逐词分配。保留普通源码；Python 复用符合标准的基础版。
 
 通过评测的 Go 1.14 x64 版本耗时 0.078 秒，基础版为 0.046 秒，内存为 348 KB，基础版为 5888 KB。
 
-已通过评测的基础实现 [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+在先前的比较快照中，基础实现 [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) 的时间和内存均符合前 15% 或前十名的收录规则。其测量结果保留在简单版本表中。
 
 ## 各语言说明
 
 以下说明针对基础实现。
 
 五个实现都只建立一次周期尾串，随后逐行输出。C++、Go、Python、Rust 拼接重复前缀和尾串前缀；Java 为当前行填充字符数组。缓冲输出避免逐字符系统写入，内存不保存整个平方大小的答案。选择 CPython 3.12。
+
+预先构造重复后缀和前缀字母缓冲区，每行直接写出所需区间。通过的提交 11324212 用时 0.140 秒、占用 668 KB；简单版用时 0.156 秒、占用 5140 KB。
 
 ## 解答
 
@@ -98,5 +100,6 @@
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

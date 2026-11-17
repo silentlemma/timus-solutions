@@ -110,11 +110,11 @@ Trampas:
 
 ## Soluciones optimizadas
 
-C++, Go y Rust emiten la misma construcción Accepted con búferes reutilizados de a y bcd periódico, sin asignar prefijo, subcadena y palabra combinada por fila. C++ escribe dos segmentos por C stdio; Go/Rust agrupan8192 bytes y vacían antes de que no quepa otra fila. Cada fila con etiqueta ocupa hasta n+16 bytes: n≤2000 cabe con seguridad. Los casos pequeños e imposibles no cambian y sigue vigente la prueba original. Tiempo O(n²), necesario por salida, y espacio O(n) sin asignación por palabra. Se conservan bases; Java/Python reutilizan las admitidas.
+C++, Go y Rust emiten la misma construcción Accepted con búferes reutilizados de a y bcd periódico, sin asignar prefijo, subcadena y palabra combinada por fila. C++ escribe dos segmentos por C stdio; Go/Rust agrupan8192 bytes y vacían antes de que no quepa otra fila. Cada fila con etiqueta ocupa hasta n+16 bytes: n≤2000 cabe con seguridad. Los casos pequeños e imposibles no cambian y sigue vigente la prueba original. Tiempo O(n²), necesario por salida, y espacio O(n) sin asignación por palabra. Se conservan bases; Python reutiliza su versión base admitida.
 
 El envío aceptado en Go 1.14 x64 tarda 0.078 s frente a 0.046 s de la base y usa 348 KB frente a 5888 KB.
 
-Las implementaciones base aceptadas [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
 ## Notas por lenguaje
 
@@ -125,6 +125,8 @@ línea cada vez. C++, Go, Python y Rust combinan un prefijo repetido con
 el inicio de la cola. Java rellena un arreglo de caracteres por línea.
 La salida con búfer evita escribir carácter por carácter y ningún puerto
 guarda la respuesta cuadrática completa. Se selecciona CPython 3.12.
+
+Preparar el sufijo repetido y un búfer de letras para el prefijo. Escribir directamente las porciones necesarias en cada fila. El envío aceptado 11324212 tardó 0.140 s y usó 668 KB. La versión sencilla tardó 0.156 s y usó 5140 KB.
 
 ## Soluciones
 
@@ -145,5 +147,6 @@ guarda la respuesta cuadrática completa. Se selecciona CPython 3.12.
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

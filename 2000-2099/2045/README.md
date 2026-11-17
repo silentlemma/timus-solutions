@@ -109,11 +109,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-New C++, Go and Rust emit the identical accepted construction from reusable a-run and periodic bcd buffers, instead of allocating a prefix, tail substring and combined word each row. C++ writes the two slices directly through C stdio; Go/Rust collect bounded 8192-byte output blocks and flush before a row no longer fits. A row is at most n+16 bytes, including its label, so the buffers cover n≤2000 safely. Small n and impossible targets keep the same rules. No palindrome-generation logic changes: the original proof still applies. Time O(n²), already required by output size, and O(n) bounded storage without per-word allocation. All ordinary sources remain; Java/Python reuse their admitted bases.
+New C++, Go and Rust emit the identical accepted construction from reusable a-run and periodic bcd buffers, instead of allocating a prefix, tail substring and combined word each row. C++ writes the two slices directly through C stdio; Go/Rust collect bounded 8192-byte output blocks and flush before a row no longer fits. A row is at most n+16 bytes, including its label, so the buffers cover n≤2000 safely. Small n and impossible targets keep the same rules. No palindrome-generation logic changes: the original proof still applies. Time O(n²), already required by output size, and O(n) bounded storage without per-word allocation. All ordinary sources remain; Python reuses its admitted base.
 
 The accepted Go 1.14 x64 run takes 0.078 s versus 0.046 s for the base and uses 348 KB versus 5888 KB.
 
-The accepted base implementations [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
@@ -124,6 +124,8 @@ C++, Go, Python and Rust combine a repeated prefix with a tail prefix.
 Java fills one character array per row. Buffered output avoids
 per-character writes; no port retains the quadratic complete answer in
 memory. CPython 3.12 is selected.
+
+Prebuild the repeated suffix and a buffer of prefix letters. Write slices of these buffers directly for each row. Accepted submission 11324212 took 0.140 s and used 668 KB. The simple version took 0.156 s and used 5140 KB.
 
 ## Solutions
 
@@ -144,5 +146,6 @@ memory. CPython 3.12 is selected.
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
