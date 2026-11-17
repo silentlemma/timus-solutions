@@ -61,6 +61,10 @@ tiempo. Java analiza los números a mano desde `System.in` en lugar de
 usar `Scanner`: 0.125 s en lugar de 0.156 s y 344 KB en lugar de
 1608 KB.
 
+Leer los seis valores con un búfer de bytes y escribir directamente las dos diferencias. El envío aceptado 11301801 tardó 0.015 s y usó 916 KB. La versión sencilla tardó 0.031 s y usó 1088 KB.
+
+Leer los seis valores desde bytes y usar solo los cuatro necesarios para las dos diferencias. El envío aceptado 11301805 tardó 0.078 s y usó 364 KB. La versión sencilla tardó 0.093 s y usó 384 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -79,6 +83,8 @@ usar `Scanner`: 0.125 s en lugar de 0.156 s y 344 KB en lugar de
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
 | [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+| [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
+| [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

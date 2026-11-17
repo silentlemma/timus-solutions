@@ -61,6 +61,10 @@ C++ skips the readings a2 and b3 with `%*d` in `scanf` instead of using
 the numbers by hand from `System.in` instead of using `Scanner`: 0.125 s
 instead of 0.156 s and 344 KB instead of 1608 KB.
 
+Read the six values with a byte buffer and write the two differences directly. Accepted submission 11301801 took 0.015 s and used 916 KB. The simple version took 0.031 s and used 1088 KB.
+
+Parse all six values from bytes and unpack only the four used for the two differences. Accepted submission 11301805 took 0.078 s and used 364 KB. The simple version took 0.093 s and used 384 KB.
+
 ## Solutions
 
 ### Simple
@@ -79,6 +83,8 @@ instead of 0.156 s and 344 KB instead of 1608 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
 | [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+| [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
+| [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.
