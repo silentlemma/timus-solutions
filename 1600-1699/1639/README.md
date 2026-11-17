@@ -72,6 +72,8 @@ The optimized Java solution parses the two numbers by hand with
 with the same time. It tests the parity of `m · n` directly, which is
 the opposite of the parity of the number of moves `m · n − 1`.
 
+Read the two dimensions as bytes and check the parity of the piece count directly. Accepted submission 11301875 took 0.078 s and used 404 KB. The simple version took 0.078 s and used 412 KB.
+
 ## Solutions
 
 ### Simple
@@ -89,3 +91,6 @@ the opposite of the parity of the number of moves `m · n − 1`.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
+| [1639_games_optimized.py](1639_games_optimized.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
+
+\* The marked solutions can improve their target rankings.

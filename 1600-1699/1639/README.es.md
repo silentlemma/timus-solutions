@@ -73,6 +73,8 @@ La solución optimizada en Java analiza los dos números a mano con
 con el mismo tiempo. Comprueba directamente la paridad de `m · n`, que
 es la contraria de la paridad del número de jugadas `m · n − 1`.
 
+Leer las dos dimensiones como bytes y comprobar directamente la paridad del número de piezas. El envío aceptado 11301875 tardó 0.078 s y usó 404 KB. La versión sencilla tardó 0.078 s y usó 412 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -90,3 +92,6 @@ es la contraria de la paridad del número de jugadas `m · n − 1`.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1639_games_optimized.java](1639_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 372 KB | 11303628 |
+| [1639_games_optimized.py](1639_games_optimized.py) \* | Python 3.12 x64 | games | O(1) | AC | 0.078 s | 404 KB | 11301875 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
