@@ -63,6 +63,8 @@ be
 优化的 Java 解法按 1 KB 分块读入，只逐字节测量每个单词的长度，而不是把各行拼起来
 再切成字符串：408 KB，而不是 1336 KB，时间不变。
 
+逐行读取单词，排版时只使用各单词的长度。通过的提交 11303784 用时 0.093 秒、占用 488 KB；简单版用时 0.078 秒、占用 656 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -81,5 +83,6 @@ be
 |----|----|----|-----|------|----|----|------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
 | [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 408 KB | 11303783 |
+| [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。

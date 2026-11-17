@@ -80,6 +80,8 @@ measures each word, byte by byte, instead of joining the lines and
 splitting them into strings: 408 KB instead of 1336 KB, with the same
 time.
 
+Consume the words line by line and use only their lengths when fitting them onto pages. Accepted submission 11303784 took 0.093 s and used 488 KB. The simple version took 0.078 s and used 656 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -98,6 +100,7 @@ time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
 | [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 408 KB | 11303783 |
+| [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.
