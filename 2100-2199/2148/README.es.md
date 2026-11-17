@@ -91,7 +91,9 @@ así que P = (4, 4).
 
 C++ conserva el punto de reflexión de la bisectriz. Para a=A−C, b=B−C, w=a+b, las distancias iguales dan a·w=|w|²/2: la visibilidad estricta equivale a |w|²>4r². La prueba entera rechaza oposición y tangencia antes de la raíz. Se mantiene la escala r/|w|; redondear a 10⁻⁹ y emitir dígitos enteros evita el formateador flotante printf. Coordenadas escaladas hasta 6·10¹² caben en 64 bits con signo; bastan 64 bytes de salida. Tiempo y espacio O(1). Se conserva el C++ sencillo; las otras cuatro familias reutilizan las bases admitidas.
 
-Las implementaciones base aceptadas [2148_geometry.go](2148_geometry.go), [2148_geometry.java](2148_geometry.java), [2148_geometry.py](2148_geometry.py), [2148_geometry.rs](2148_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [2148_geometry.go](2148_geometry.go), [2148_geometry.java](2148_geometry.java), [2148_geometry.py](2148_geometry.py), [2148_geometry.rs](2148_geometry.rs) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
+
+Usar la igualdad de distancias al centro para reducir la prueba de viabilidad a comparar longitudes al cuadrado. El envío aceptado 11324242 tardó 0.093 s y usó 444 KB. La versión sencilla tardó 0.093 s y usó 524 KB.
 
 ## Soluciones
 
@@ -110,5 +112,6 @@ Las implementaciones base aceptadas [2148_geometry.go](2148_geometry.go), [2148_
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2148_geometry_optimized.cpp](2148_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 100 KB | 11315372 |
+| [2148_geometry_optimized.py](2148_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.093 s | 444 KB | 11324242 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
