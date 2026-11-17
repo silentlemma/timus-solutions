@@ -94,10 +94,7 @@ Source-matched Accepted runs: base 0.046 s / 1080 KB; this version 0.015 s / 804
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Every retained optimized version has Accepted. It qualifies through top-ten or top-15% ranks on both metrics, top-30% ranks on both metrics with an improvement over the base in at least one, or at least a 30% reduction in time or memory against the same-language base. Negative reduction means increased cost. A star concerns the separate language rating target.
 
 - `1044_bruteforce_optimized.cpp`: time reduction +0.00%; memory
   reduction +36.73%; base: `1044_bruteforce.cpp`.
@@ -120,6 +117,8 @@ implementation for these languages.
 - All languages run the same count; Python takes digit sums of
   `str(x)`.
 
+Build the digit-sum distribution one digit at a time. A sliding sum combines the ten possible previous sums for each new entry. Accepted submission 11324262 took 0.046 s and used 452 KB. The simple version took 0.078 s and used 288 KB. The recorded memory use is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -139,5 +138,6 @@ implementation for these languages.
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
 | [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.015 s | 804 KB | 11307438 |
 | [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
+| [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

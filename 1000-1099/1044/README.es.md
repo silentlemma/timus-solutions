@@ -98,10 +98,7 @@ Ejecuciones Accepted correspondientes al código: versión básica 0.046 s / 108
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre las diez primeras o el 15% superior en ambas métricas, por estar en el 30% superior en ambas y mejorar la posición base en al menos una, o por reducir al menos un 30% el tiempo o la memoria respecto a la base del mismo lenguaje. Una reducción negativa indica mayor coste. El asterisco se refiere al objetivo de clasificación específico del lenguaje.
 
 - `1044_bruteforce_optimized.cpp`: reducción de tiempo +0.00%; reducción
   de memoria +36.73%; base: `1044_bruteforce.cpp`.
@@ -124,6 +121,8 @@ implementación para alcanzar el objetivo.
 - Todos los lenguajes hacen el mismo recuento; Python suma las cifras de
   `str(x)`.
 
+Construir la distribución de sumas dígito a dígito. Una suma deslizante reúne los diez estados anteriores de cada entrada nueva. El envío aceptado 11324262 tardó 0.046 s y usó 452 KB. La versión sencilla tardó 0.078 s y usó 288 KB. El uso de memoria registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -143,5 +142,6 @@ implementación para alcanzar el objetivo.
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
 | [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.015 s | 804 KB | 11307438 |
 | [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
+| [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
