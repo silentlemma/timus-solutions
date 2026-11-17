@@ -107,7 +107,7 @@ Detalles a tener en cuenta:
 
 La versión en C++ guarda las posiciones de hasta 31 discos en un búfer fijo. Al recorrerlos desde el mayor añade un bit al número de movimientos. El bit vale cero en la clavija de origen y uno en la de destino. Un disco en la clavija auxiliar indica que la posición es inalcanzable. El tiempo es O(N) y el espacio adicional al búfer es O(1). Las métricas corresponden al envío 11316991.
 
-Python elimina los espacios en blanco de los bytes de entrada y construye el número de movimientos con un bit por disco, del mayor al menor. En la clasificación guardada ocupa el décimo puesto en tiempo y el séptimo en memoria. Python 3.12 x64, envío 11317960. Tiempo 0,078 → 0,093 s, memoria 400 → 432 KB.
+La versión de Python que ahorra memoria elimina los espacios de los bytes de entrada y recorre las varillas en orden inverso, añadiendo un bit al número de movimientos por disco. El envío aceptado 11322407 usó 280 KB con PyPy 3.10 x64, un 30% menos que los 400 KB de la versión sencilla con Python 3.12 x64. El tiempo subió de 0.078 s a 0.140 s.
 
 **Envíos de las versiones sencillas en Timus**
 
@@ -118,6 +118,8 @@ El envío 11317962 en Rust tardó 0.015 s y usó 204 KB. La versión sencilla ta
 Se leen los números de las varillas como dígitos ASCII y se recorren los discos de mayor a menor. Cada disco añade un bit al número de movimientos. Un disco en la varilla auxiliar indica una posición inalcanzable.
 
 Go guarda las posiciones de los discos en un arreglo fijo y recorre del mayor al menor. Cada posición determina el siguiente bit del número de movimientos o demuestra que la configuración es inalcanzable. Go 1.14 x64, envío 11322837. Tiempo 0,031 → 0,015 s, memoria 1076 → 276 KB.
+
+Java guarda los números de las varillas en un arreglo de bytes y recorre los discos del mayor al menor, añadiendo un bit al número de movimientos. Calcula la varilla auxiliar a partir de la suma de los tres números. El envío 11323975 tardó 0.109 s y usó 356 KB, frente a 0.125 s y 1608 KB de la versión sencilla.
 
 ## Soluciones
 
@@ -136,8 +138,9 @@ Go guarda las posiciones de los discos en un arreglo fijo y recorre del mayor al
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1054_math_optimized.cpp](1054_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11316991 |
-| [1054_math_optimized.py](1054_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 432 KB | 11317960 |
+| [1054_math_optimized.py](1054_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.140 s | 280 KB | 11322407 |
 | [1054_math_optimized.rs](1054_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 204 KB | 11317962 |
 | [1054_math_optimized.go](1054_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 276 KB | 11322837 |
+| [1054_math_optimized.java](1054_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.109 s | 356 KB | 11323975 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.

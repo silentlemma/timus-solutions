@@ -1,12 +1,14 @@
 import sys
 
+
 SOURCE, TARGET, SPARE = b"123"
+WHITESPACE = b" \t\r\n\v\f"
 
 
 def position(rods):
     source, target, spare = SOURCE, TARGET, SPARE
     moves = 0
-    for rod in reversed(rods):
+    for rod in rods[::-1]:
         if rod == target:
             moves = 2 * moves + 1
             source, spare = spare, source
@@ -19,9 +21,8 @@ def position(rods):
 
 
 def main():
-    # Rod numbers are single ASCII digits. Whitespace only separates tokens.
     _, rods = sys.stdin.buffer.read().split(None, 1)
-    print(position(rods.translate(None, b" \t\r\n\v\f")))
+    print(position(rods.translate(None, WHITESPACE)))
 
 
 if __name__ == "__main__":

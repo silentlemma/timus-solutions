@@ -105,7 +105,7 @@ Pitfalls:
 
 The C++ variant uses a fixed buffer for at most 31 disks. Going from the largest disk down, it appends one bit to the move number. The bit is zero on the source rod and one on the target rod. A disk on the spare rod still makes the position unreachable. The scan takes O(N) time and uses O(1) state apart from the input buffer. The metrics come from submission 11316991.
 
-Python removes whitespace from the input bytes and builds the move number one binary digit per disk, from largest to smallest. It placed tenth by time and seventh by memory in the saved ranking. Python 3.12 x64, submission 11317960. Time 0.078 → 0.093 s, memory 400 → 432 KB.
+The memory-saving Python version strips whitespace from the input bytes and scans the rod numbers in reverse, appending one binary digit to the step count per disk. Accepted submission 11322407 used 280 KB on PyPy 3.10 x64, 30% below the simple Python 3.12 x64 version's 400 KB. Runtime rose from 0.078 s to 0.140 s.
 
 **Timus submissions for the simple versions**
 
@@ -116,6 +116,8 @@ Rust submission 11317962 took 0.015 s and used 204 KB. The simple version took 0
 Read rod numbers as ASCII digits and visit the disks in decreasing size. Append one bit to the move count per disk and stop if a disk is on the spare rod.
 
 Go reads the disk positions into a fixed array and scans from the largest disk to the smallest. Each position either determines the next bit of the move count or rules out the configuration. Go 1.14 x64, submission 11322837. Time 0.031 → 0.015 s, memory 1076 → 276 KB.
+
+Java reads the rod numbers as bytes and walks the disks from largest to smallest, appending one bit to the move count at each step. The spare rod follows from the sum of the three rod numbers. Submission 11323975 took 0.109 s and used 356 KB, versus 0.125 s and 1608 KB for the simple version.
 
 ## Solutions
 
@@ -134,8 +136,9 @@ Go reads the disk positions into a fixed array and scans from the largest disk t
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1054_math_optimized.cpp](1054_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) | AC | 0.015 s | 112 KB | 11316991 |
-| [1054_math_optimized.py](1054_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.093 s | 432 KB | 11317960 |
+| [1054_math_optimized.py](1054_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.140 s | 280 KB | 11322407 |
 | [1054_math_optimized.rs](1054_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 204 KB | 11317962 |
 | [1054_math_optimized.go](1054_math_optimized.go) \* | Go 1.14 x64 | math | O(N) | AC | 0.015 s | 276 KB | 11322837 |
+| [1054_math_optimized.java](1054_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.109 s | 356 KB | 11323975 |
 
 \* The marked versions have room to improve in the ratings.
