@@ -10,7 +10,10 @@ fn main() {
     for _ in 0..n {
         let line = lines.next().unwrap();
         let colon = line.find(':').unwrap();
-        known.insert(&line[..colon], line[colon + 1..].split_whitespace().collect());
+        known.insert(
+            &line[..colon],
+            line[colon + 1..].split_whitespace().collect(),
+        );
     }
     let m: usize = lines.next().unwrap().trim().parse().unwrap();
     let mut out = String::new();

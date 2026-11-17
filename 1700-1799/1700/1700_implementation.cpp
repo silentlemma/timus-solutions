@@ -14,7 +14,7 @@ int main() {
         std::getline(std::cin, line);
         size_t colon = line.find(':');
         std::istringstream words(line.substr(colon + 1));
-        std::set<std::string>& associations = known[line.substr(0, colon)];
+        std::set<std::string> &associations = known[line.substr(0, colon)];
         for (std::string w; words >> w;) {
             associations.insert(w);
         }
@@ -30,7 +30,7 @@ int main() {
         // the common associations are the intersection of the sets
         std::set<std::string> common = known[name];
         while (names >> name) {
-            const std::set<std::string>& other = known[name];
+            const std::set<std::string> &other = known[name];
             for (auto it = common.begin(); it != common.end();) {
                 it = other.count(*it) ? std::next(it) : common.erase(it);
             }
@@ -40,7 +40,7 @@ int main() {
             continue;
         }
         std::string joined;
-        for (const std::string& w : common) {
+        for (const std::string &w : common) {
             joined += (joined.empty() ? "" : " ") + w;
         }
         out += joined + "\n";

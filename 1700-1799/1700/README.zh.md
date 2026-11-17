@@ -66,7 +66,9 @@ C++/Go 将关联词映射为共享整数 ID，每对象保存排序去重的 ID 
 
 通过评测的 Go 1.14 x64 版本耗时 0.062 秒，基础版为 0.765 秒，内存为 10 348 KB，基础版为 8908 KB。
 
-已通过评测的基础实现 [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+在先前的比较快照中，基础实现 [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) 的时间和内存均符合前 15% 或前十名的收录规则。其测量结果保留在简单版本表中。
+
+将各组关联词存入排序数组，用双指针求交集，并逐条输出查询结果。通过的提交 11324225 用时 0.250 秒、占用 8 536 KB；简单版用时 0.437 秒、占用 12376 KB。
 
 ## 解答
 
@@ -87,5 +89,6 @@ C++/Go 将关联词映射为共享整数 ID，每对象保存排序去重的 ID 
 | [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
 | [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
 | [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+| [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

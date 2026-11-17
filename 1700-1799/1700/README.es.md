@@ -76,7 +76,9 @@ C++/Go internan asociaciones en IDs compartidos y guardan listas ordenadas sin d
 
 El envío aceptado en Go 1.14 x64 tarda 0.062 s frente a 0.765 s de la base y usa 10 348 KB frente a 8908 KB.
 
-Las implementaciones base aceptadas [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
+
+Guardar cada conjunto de asociaciones en un arreglo ordenado e intersectarlos con dos punteros. Escribir cada respuesta al procesarla. El envío aceptado 11324225 tardó 0.250 s y usó 8 536 KB. La versión sencilla tardó 0.437 s y usó 12376 KB.
 
 ## Soluciones
 
@@ -97,5 +99,6 @@ Las implementaciones base aceptadas [1700_implementation.java](1700_implementati
 | [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
 | [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
 | [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+| [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

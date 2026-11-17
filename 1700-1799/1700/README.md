@@ -74,7 +74,9 @@ C++/Go intern association spellings into shared integer IDs and keep each object
 
 The accepted Go 1.14 x64 run takes 0.062 s versus 0.765 s for the base and uses 10 348 KB versus 8908 KB.
 
-The accepted base implementations [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1700_implementation.java](1700_implementation.java), [1700_implementation.rs](1700_implementation.rs) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
+
+Store each association set in a sorted array and intersect the arrays with two pointers. Stream the query answers. Accepted submission 11324225 took 0.250 s and used 8 536 KB. The simple version took 0.437 s and used 12376 KB.
 
 ## Solutions
 
@@ -95,5 +97,6 @@ The accepted base implementations [1700_implementation.java](1700_implementation
 | [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
 | [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
 | [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+| [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

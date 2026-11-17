@@ -22,7 +22,7 @@ public class Main {
             String line = in.readLine();
             int colon = line.indexOf(':');
             known.put(line.substring(0, colon),
-                    new HashSet<>(Arrays.asList(words(line.substring(colon + 1)))));
+                      new HashSet<>(Arrays.asList(words(line.substring(colon + 1)))));
         }
         int m = Integer.parseInt(in.readLine().trim());
         StringBuilder out = new StringBuilder();
