@@ -81,6 +81,8 @@ Toropov 1
 中给名字编号，因此图中存的是 `int` 而不是字符串，输出前再对名字排序：964 KB，而
 不是 1420 KB，时间不变。
 
+用列表保存队友，并将新发现的顶点追加到作为广度优先搜索队列的列表。通过的提交 11302148 用时 0.093 秒、占用 532 KB；简单版用时 0.093 秒、占用 604 KB。
+
 ## 解答
 
 ### 简单版本
@@ -101,5 +103,6 @@ Toropov 1
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 532 KB | 11302148 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。

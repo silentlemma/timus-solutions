@@ -94,6 +94,8 @@ The optimized Go solution reads the names with a word scanner over a
 the graph holds `int`s instead of strings, and sorts the names before
 printing: 964 KB instead of 1420 KB, with the same time.
 
+Store team neighbours in lists and append discoveries to the list used as the BFS queue. Accepted submission 11302148 took 0.093 s and used 532 KB. The simple version took 0.093 s and used 604 KB.
+
 ## Solutions
 
 ### Simple
@@ -114,6 +116,7 @@ printing: 964 KB instead of 1420 KB, with the same time.
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 532 KB | 11302148 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

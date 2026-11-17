@@ -98,6 +98,8 @@ hash, así que el grafo guarda `int` en lugar de cadenas, y ordena los
 nombres antes de imprimir: 964 KB en lugar de 1420 KB, con el mismo
 tiempo.
 
+Guardar los compañeros de equipo en listas y añadir cada vértice descubierto a la lista que sirve de cola del BFS. El envío aceptado 11302148 tardó 0.093 s y usó 532 KB. La versión sencilla tardó 0.093 s y usó 604 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -118,6 +120,7 @@ tiempo.
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 532 KB | 11302148 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.
