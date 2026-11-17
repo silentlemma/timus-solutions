@@ -75,6 +75,8 @@ C 完成：0.109 s，而不是 0.171 s，但内存从 452 KB 增加到 464 KB。
 
 - 简单解法整行读入，查找前去掉多余的空白字符，例如末尾的 `\r`。
 
+在同一个字节数组上从各中心向外扩展，并直接输出选中的区间。通过的提交 11303459 用时 0.093 秒、占用 384 KB；简单版用时 0.125 秒、占用 444 KB。
+
 ## 解答
 
 ### 简单版本
@@ -94,3 +96,6 @@ C 完成：0.109 s，而不是 0.171 s，但内存从 452 KB 增加到 464 KB。
 | [1297_greedy.py](1297_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.109 s | 464 KB | 11303737 |
 | [1297_strings_optimized.cpp](1297_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 92 KB | 11303962 |
 | [1297_strings_optimized.rs](1297_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.015 s | 208 KB | 11303738 |
+| [1297_strings_optimized.java](1297_strings_optimized.java) \* | Java 1.8 | strings | O(n^2) | AC | 0.093 s | 384 KB | 11303459 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

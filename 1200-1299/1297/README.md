@@ -91,6 +91,8 @@ does in C: 0.109 s instead of 0.171 s, although the memory grows from
 - The simple solutions read the line whole, and stray whitespace such
   as a final `\r` is dropped before the search.
 
+Expand around each centre using a single byte array and write the chosen interval directly from it. Accepted submission 11303459 took 0.093 s and used 384 KB. The simple version took 0.125 s and used 444 KB.
+
 ## Solutions
 
 ### Simple
@@ -110,3 +112,6 @@ does in C: 0.109 s instead of 0.171 s, although the memory grows from
 | [1297_greedy.py](1297_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.109 s | 464 KB | 11303737 |
 | [1297_strings_optimized.cpp](1297_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 92 KB | 11303962 |
 | [1297_strings_optimized.rs](1297_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.015 s | 208 KB | 11303738 |
+| [1297_strings_optimized.java](1297_strings_optimized.java) \* | Java 1.8 | strings | O(n^2) | AC | 0.093 s | 384 KB | 11303459 |
+
+\* The marked solutions can improve their target rankings.

@@ -94,6 +94,8 @@ aunque la memoria sube de 452 KB a 464 KB.
 - Las soluciones sencillas leen la línea entera y quitan los espacios
   sobrantes, como un `\r` final, antes de buscar.
 
+Expandir desde cada centro en un único arreglo de bytes y escribir directamente el intervalo elegido. El envío aceptado 11303459 tardó 0.093 s y usó 384 KB. La versión sencilla tardó 0.125 s y usó 444 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -113,3 +115,6 @@ aunque la memoria sube de 452 KB a 464 KB.
 | [1297_greedy.py](1297_greedy.py) | Python 3.12 x64 | greedy | O(n^2) | AC | 0.109 s | 464 KB | 11303737 |
 | [1297_strings_optimized.cpp](1297_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n^2) | AC | 0.015 s | 92 KB | 11303962 |
 | [1297_strings_optimized.rs](1297_strings_optimized.rs) | Rust 1.75 x64 | strings | O(n^2) | AC | 0.015 s | 208 KB | 11303738 |
+| [1297_strings_optimized.java](1297_strings_optimized.java) \* | Java 1.8 | strings | O(n^2) | AC | 0.093 s | 384 KB | 11303459 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
