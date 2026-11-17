@@ -60,6 +60,8 @@
 入位置永远不会超过指针。数字用手工解析：C++ 用 `getchar`，Rust 从 1 KB 的缓冲区
 读取。时间不变，C++ 为 108 KB，而不是 240 KB；Rust 为 228 KB，而不是 500 KB。
 
+逐行读取编号，原地更新交集，只保留当前的另一份列表。通过的提交 11301859 用时 0.093 秒、占用 1400 KB；简单版用时 0.078 秒、占用 1860 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -78,3 +80,6 @@
 |----|----|----|-----|------|----|----|------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(n) | AC | 0.093 s | 1400 KB | 11301859 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

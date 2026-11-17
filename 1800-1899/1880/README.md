@@ -73,6 +73,8 @@ hand, with `getchar` in C++ and from a 1 KB buffer in Rust. With the
 same time, C++ takes 108 KB instead of 240 KB and Rust 228 KB instead of
 500 KB.
 
+Read IDs line by line and update the shared set in place, storing only the current additional list. Accepted submission 11301859 took 0.093 s and used 1400 KB. The simple version took 0.078 s and used 1860 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -91,3 +93,6 @@ same time, C++ takes 108 KB instead of 240 KB and Rust 228 KB instead of
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(n) | AC | 0.093 s | 1400 KB | 11301859 |
+
+\* The marked solutions can improve their target rankings.
