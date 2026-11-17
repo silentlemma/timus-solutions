@@ -81,6 +81,8 @@ tiempo. La solución optimizada en Java lee la entrada en bloques de
 caracteres, en lugar de usar `Scanner`: 0.093 s en lugar de 0.156 s y
 428 KB en lugar de 3944 KB.
 
+Ordenar los nombres de equipos e imprimir una vez cada nombre adyacente repetido, sin guardar un diccionario de frecuencias. El envío aceptado 11324351 tardó 0.093 s y usó 220 KB. La versión sencilla tardó 0.062 s y usó 336 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -99,3 +101,6 @@ caracteres, en lugar de usar `Scanner`: 0.093 s en lugar de 0.156 s y
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
+| [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

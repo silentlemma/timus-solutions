@@ -71,6 +71,8 @@ abikbaev
 每个最多 30 个字符的队名，而不是使用 `Scanner`：0.093 s，而不是 0.156 s；
 428 KB，而不是 3944 KB。
 
+排序队名，每个相邻重复名字只输出一次，无需保留频次字典。通过的提交 11324351 用时 0.093 秒、占用 220 KB；简单版用时 0.062 秒、占用 336 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -89,3 +91,6 @@ abikbaev
 |----|----|----|-----|------|----|----|------|
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
+| [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

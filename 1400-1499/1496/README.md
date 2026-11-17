@@ -77,6 +77,8 @@ time. The optimized Java solution reads the input in 256-byte blocks and
 cuts out each team name, at most 30 characters, by hand instead of using
 `Scanner`: 0.093 s instead of 0.156 s and 428 KB instead of 3944 KB.
 
+Sort the team names and report each repeated adjacent name once, without retaining a dictionary of frequencies. Accepted submission 11324351 took 0.093 s and used 220 KB. The simple version took 0.062 s and used 336 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -95,3 +97,6 @@ cuts out each team name, at most 30 characters, by hand instead of using
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1496_implementation_optimized.cpp](1496_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N) | AC | 0.015 s | 184 KB | 11303613 |
 | [1496_implementation_optimized.java](1496_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 428 KB | 11303755 |
+| [1496_sorting.py](1496_sorting.py) \* | PyPy 3.10 x64 | sorting | O(N log N) | AC | 0.093 s | 220 KB | 11324351 |
+
+\* The marked solutions can improve their target rankings.
