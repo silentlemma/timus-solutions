@@ -77,6 +77,8 @@
 - Python 逐行读取学生的年份。若一次性切分全部输入，内存中会同时存在一百万个小字符串，约 62 MB，
   这样的版本在测试 8 上超出了 64 MB 的限制。
 
+直接从字节缓冲区解析年份，在排序后的基本类型数组中查找。通过的提交 11302071 用时 0.218 秒、占用 420 KB；简单版用时 0.328 秒、占用 592 KB。
+
 ## 解答
 
 ### 简单版本
@@ -97,3 +99,6 @@
 | [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.062 s | 996 KB | 11303718 |
 | [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 320 KB | 11303720 |
 | [1196_hashing_optimized.py](1196_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.343 s | 1324 KB | 11303721 |
+| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) \* | Java 1.8 | binary_search | O(N + M log N) | AC | 0.218 s | 420 KB | 11302071 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

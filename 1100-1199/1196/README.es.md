@@ -91,6 +91,8 @@ bucle de Python: 0.343 s en lugar de 0.687 s y 1324 KB en lugar de
   entrada de una vez deja vivas a la vez un millón de cadenas pequeñas,
   unos 62 MB, y esa versión superó el límite de 64 MB en la prueba 8.
 
+Leer los años directamente de un búfer de bytes y buscarlos en el arreglo ordenado de enteros. El envío aceptado 11302071 tardó 0.218 s y usó 420 KB. La versión sencilla tardó 0.328 s y usó 592 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -111,3 +113,6 @@ bucle de Python: 0.343 s en lugar de 0.687 s y 1324 KB en lugar de
 | [1196_binary_search_optimized.go](1196_binary_search_optimized.go) | Go 1.14 x64 | binary_search | O(N + M log N) | AC | 0.062 s | 996 KB | 11303718 |
 | [1196_binary_search_optimized.rs](1196_binary_search_optimized.rs) | Rust 1.75 x64 | binary_search | O(N + M log N) | AC | 0.046 s | 320 KB | 11303720 |
 | [1196_hashing_optimized.py](1196_hashing_optimized.py) | Python 3.12 x64 | hashing | O(N + M) expected | AC | 0.343 s | 1324 KB | 11303721 |
+| [1196_binary_search_optimized.java](1196_binary_search_optimized.java) \* | Java 1.8 | binary_search | O(N + M log N) | AC | 0.218 s | 420 KB | 11302071 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
