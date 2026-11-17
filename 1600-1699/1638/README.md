@@ -71,6 +71,8 @@ The optimized Java solution parses the four numbers by hand from a small
 buffer instead of using `Scanner`, which needs far less memory: 380 KB
 instead of 1616 KB, with the same time. The formula is the same.
 
+Multiply the distance in volume indices by the full thickness, then adjust by one block of pages according to the direction. Accepted submission 11324252 took 0.140 s and used 228 KB. The simple version took 0.078 s and used 364 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -88,6 +90,7 @@ instead of 1616 KB, with the same time. The formula is the same.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+| [1638_math_optimized.py](1638_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 228 KB | 11324252 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

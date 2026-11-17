@@ -72,6 +72,8 @@ un búfer pequeño en lugar de usar `Scanner`, lo que necesita mucha menos
 memoria: 380 KB en lugar de 1616 KB, con el mismo tiempo. La fórmula es
 la misma.
 
+Multiplicar la distancia entre índices por el grosor completo y ajustar el resultado por un bloque de páginas según la dirección. El envío aceptado 11324252 tardó 0.140 s y usó 228 KB. La versión sencilla tardó 0.078 s y usó 364 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -89,6 +91,7 @@ la misma.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+| [1638_math_optimized.py](1638_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 228 KB | 11324252 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.
