@@ -91,13 +91,15 @@ Go and Rust update one running gcd as lengths arrive. Once it becomes one, the a
 
 The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 68 KB versus 244 KB.
 
-The accepted base implementations [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
 These notes describe the simple implementations.
 
 - All languages fold the lengths with Euclid's algorithm.
+
+Read lengths straight from buffered bytes and stop once their greatest common divisor reaches one. Accepted submission 11324215 took 0.109 s and used 356 KB. The simple version took 0.093 s and used 776 KB. The recorded runtime is higher than for the simple version.
 
 ## Solutions
 
@@ -117,5 +119,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
 | [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+| [1053_number_theory_optimized.java](1053_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.109 s | 356 KB | 11324215 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

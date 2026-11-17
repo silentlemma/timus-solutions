@@ -91,7 +91,7 @@ Go y Rust actualizan un único máximo común divisor al leer cada longitud. Al 
 
 El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 68 KB frente a 244 KB.
 
-Las implementaciones base aceptadas [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
 ## Notas por lenguaje
 
@@ -99,6 +99,8 @@ Estas notas describen las implementaciones sencillas.
 
 - Todos los lenguajes pliegan las longitudes con el algoritmo de
   Euclides.
+
+Leer las longitudes directamente del búfer de bytes y detenerse cuando el máximo común divisor llega a uno. El envío aceptado 11324215 tardó 0.109 s y usó 356 KB. La versión sencilla tardó 0.093 s y usó 776 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 ## Soluciones
 
@@ -118,5 +120,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
 | [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+| [1053_number_theory_optimized.java](1053_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.109 s | 356 KB | 11324215 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

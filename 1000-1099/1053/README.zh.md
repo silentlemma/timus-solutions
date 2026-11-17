@@ -83,13 +83,15 @@ Go 和 Rust 每读入一个长度就更新当前最大公约数。一旦变为�
 
 通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 68 KB，基础版为 244 KB。
 
-已通过评测的基础实现 [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+在先前的比较快照中，基础实现 [1053_number_theory.cpp](1053_number_theory.cpp), [1053_number_theory.java](1053_number_theory.java), [1053_number_theory.py](1053_number_theory.py) 的时间和内存均符合前 15% 或前十名的收录规则。其测量结果保留在简单版本表中。
 
 ## 各语言说明
 
 以下说明针对基础实现。
 
 - 各语言都用欧几里得算法依次合并各长度。
+
+直接从字节缓冲区读取长度，最大公约数达到一时即可停止。通过的提交 11324215 用时 0.109 秒、占用 356 KB；简单版用时 0.093 秒、占用 776 KB。记录的运行时间高于简单版。
 
 ## 解答
 
@@ -109,5 +111,6 @@ Go 和 Rust 每读入一个长度就更新当前最大公约数。一旦变为�
 |---|---|---|---|---|---|---|---|
 | [1053_number_theory_optimized.go](1053_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log L) | AC | 0.015 s | 296 KB | 11311219 |
 | [1053_number_theory_optimized.rs](1053_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(N log L) | AC | 0.031 s | 68 KB | 11311238 |
+| [1053_number_theory_optimized.java](1053_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log L) | AC | 0.109 s | 356 KB | 11324215 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
