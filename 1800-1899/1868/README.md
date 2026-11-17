@@ -127,10 +127,7 @@ of all counts: {1868_implementation_optimized.rs}.
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Every retained optimized version has Accepted. It qualifies through top-ten or top-15% ranks on both metrics, top-30% ranks on both metrics with an improvement over the base in at least one, or at least a 30% reduction in time or memory against the same-language base. Negative reduction means increased cost. A star concerns the separate language rating target.
 
 - `1868_implementation_optimized.cpp`: time reduction +0.00%; memory
   reduction +75.45%; base: `1868_implementation.cpp`.
@@ -149,6 +146,8 @@ as the base solutions; the rating target needs no additional
 implementation for these languages.
 
 - [1868_implementation.go](1868_implementation.go).
+
+Map the medallists to their awards and evaluate forecasts a line at a time, retaining only the best score and its tie count. Accepted submission 11305926 took 0.109 s and used 900 KB. The simple version took 0.093 s and used 1196 KB. The recorded runtime is higher than for the simple version.
 
 ## Solutions
 
@@ -169,5 +168,6 @@ implementation for these languages.
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.109 s | 900 KB | 11305926 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

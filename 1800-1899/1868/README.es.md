@@ -131,10 +131,7 @@ veteranos lo alcanzan en lugar de un vector con todos los recuentos:
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre las diez primeras o el 15% superior en ambas métricas, por estar en el 30% superior en ambas y mejorar la posición base en al menos una, o por reducir al menos un 30% el tiempo o la memoria respecto a la base del mismo lenguaje. Una reducción negativa indica mayor coste. El asterisco se refiere al objetivo de clasificación específico del lenguaje.
 
 - `1868_implementation_optimized.cpp`: reducción de tiempo +0.00%;
   reducción de memoria +75.45%; base: `1868_implementation.cpp`.
@@ -153,6 +150,8 @@ archivos en el conjunto básico; estos lenguajes no necesitan otra
 implementación para alcanzar el objetivo.
 
 - [1868_implementation.go](1868_implementation.go).
+
+Asociar los medallistas con sus premios y evaluar las predicciones por líneas, guardando solo la mejor puntuación y el número de empates. El envío aceptado 11305926 tardó 0.109 s y usó 900 KB. La versión sencilla tardó 0.093 s y usó 1196 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 ## Soluciones
 
@@ -173,5 +172,6 @@ implementación para alcanzar el objetivo.
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.109 s | 900 KB | 11305926 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
