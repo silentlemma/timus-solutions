@@ -68,6 +68,8 @@ as `(code − previous + 26) % 26`, which is never negative. C++ takes
 84 KB instead of 360 KB and Java 328 KB instead of 1612 KB, both with
 the same time.
 
+Decode the byte array from right to left so each preceding encoded byte is still available when it is needed. Accepted submission 11324337 took 0.078 s and used 316 KB. The simple version took 0.078 s and used 352 KB.
+
 ## Solutions
 
 ### Simple
@@ -86,3 +88,6 @@ the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 316 KB | 11324337 |
+
+\* The marked solutions can improve their target rankings.

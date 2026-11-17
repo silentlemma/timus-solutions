@@ -68,6 +68,8 @@ cada letra enseguida con `putchar`, Java las reúne en un arreglo de
 lugar de 360 KB y Java 328 KB en lugar de 1612 KB, ambas con el mismo
 tiempo.
 
+Decodificar el arreglo de bytes de derecha a izquierda para que el byte codificado anterior siga disponible cuando se necesita. El envío aceptado 11324337 tardó 0.078 s y usó 316 KB. La versión sencilla tardó 0.078 s y usó 352 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -86,3 +88,6 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 316 KB | 11324337 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
