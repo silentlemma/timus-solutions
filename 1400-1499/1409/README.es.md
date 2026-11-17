@@ -61,6 +61,10 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 336 KB en lugar de 1560 KB, con
 el mismo tiempo.
 
+Leer ambos recuentos con un búfer pequeño y añadir los dos resultados directamente a los bytes de salida. El envío aceptado 11303745 tardó 0.015 s y usó 912 KB. La versión sencilla tardó 0.031 s y usó 1080 KB.
+
+Leer los dos recuentos y restar uno a cada uno antes de imprimirlos en el orden requerido. El envío aceptado 11324298 tardó 0.093 s y usó 248 KB. La versión sencilla tardó 0.046 s y usó 360 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -79,3 +83,7 @@ el mismo tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1409_math_optimized.cpp](1409_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 124 KB | 11303605 |
 | [1409_math_optimized.java](1409_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 336 KB | 11303746 |
+| [1409_math_optimized.go](1409_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
+| [1409_math_optimized.py](1409_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.093 s | 248 KB | 11324298 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

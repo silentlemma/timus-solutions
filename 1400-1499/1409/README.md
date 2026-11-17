@@ -61,6 +61,10 @@ The optimized Java solution parses the two numbers byte by byte from
 `System.in` instead of using `Scanner`: 336 KB instead of 1560 KB, with
 the same time.
 
+Read the two counts through a small byte buffer and append both results directly to the output bytes. Accepted submission 11303745 took 0.015 s and used 912 KB. The simple version took 0.031 s and used 1080 KB.
+
+Read the two counts and subtract one from each before printing them in the required order. Accepted submission 11324298 took 0.093 s and used 248 KB. The simple version took 0.046 s and used 360 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -79,3 +83,7 @@ the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1409_math_optimized.cpp](1409_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.001 s | 124 KB | 11303605 |
 | [1409_math_optimized.java](1409_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 336 KB | 11303746 |
+| [1409_math_optimized.go](1409_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 912 KB | 11303745 |
+| [1409_math_optimized.py](1409_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.093 s | 248 KB | 11324298 |
+
+\* The marked solutions can improve their target rankings.
