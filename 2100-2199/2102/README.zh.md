@@ -83,7 +83,7 @@ Yes
 
 ### 实测改进
 
-每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+每个保留的优化版本均已获 Accepted。收录依据为时间和内存均列前十或前 15%，两项均列前 30% 且至少一项排名优于同语言基础版，或相对同语言基础版时间或内存至少降低 30%。负的降低比例表示开销增加。星号对应单独的语言排名目标。
 
 - `2102_number_theory_optimized.java`: 时间降低 -12.00%; 内存降低 +74.87%; 基础版本: `2102_number_theory.java`.
 
@@ -94,6 +94,8 @@ Yes
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
 
 - [2102_number_theory.rs](2102_number_theory.rs).
+
+试除前先估计剩余因子乘积的下界，以提前排除不可能的情况。通过的提交 11307504 用时 0.031 秒、占用 104 KB；简单版用时 0.031 秒、占用 116 KB。
 
 ## 解答
 
@@ -113,5 +115,6 @@ Yes
 |---|---|---|---|---|---|---|---|
 | [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
 | [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+| [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 104 KB | 11307504 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

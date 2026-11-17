@@ -97,10 +97,7 @@ without the bound B. After 2 it tries only odd divisors:
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Every retained optimized version has Accepted. It qualifies through top-ten or top-15% ranks on both metrics, top-30% ranks on both metrics with an improvement over the base in at least one, or at least a 30% reduction in time or memory against the same-language base. Negative reduction means increased cost. A star concerns the separate language rating target.
 
 - `2102_number_theory_optimized.java`: time reduction -12.00%; memory
   reduction +74.87%; base: `2102_number_theory.java`.
@@ -116,6 +113,8 @@ as the base solutions; the rating target needs no additional
 implementation for these languages.
 
 - [2102_number_theory.rs](2102_number_theory.rs).
+
+Before trial division, bound the product of the remaining factors from below to reject impossible candidates early. Accepted submission 11307504 took 0.031 s and used 104 KB. The simple version took 0.031 s and used 116 KB.
 
 ## Solutions
 
@@ -135,5 +134,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
 | [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+| [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 104 KB | 11307504 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

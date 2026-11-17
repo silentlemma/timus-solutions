@@ -99,10 +99,7 @@ cota B. Después del 2 solo prueba divisores impares:
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre las diez primeras o el 15% superior en ambas métricas, por estar en el 30% superior en ambas y mejorar la posición base en al menos una, o por reducir al menos un 30% el tiempo o la memoria respecto a la base del mismo lenguaje. Una reducción negativa indica mayor coste. El asterisco se refiere al objetivo de clasificación específico del lenguaje.
 
 - `2102_number_theory_optimized.java`: reducción de tiempo -12.00%;
   reducción de memoria +74.87%; base: `2102_number_theory.java`.
@@ -118,6 +115,8 @@ archivos en el conjunto básico; estos lenguajes no necesitan otra
 implementación para alcanzar el objetivo.
 
 - [2102_number_theory.rs](2102_number_theory.rs).
+
+Antes de la división de prueba, acotar por abajo el producto de los factores restantes para descartar pronto los casos imposibles. El envío aceptado 11307504 tardó 0.031 s y usó 104 KB. La versión sencilla tardó 0.031 s y usó 116 KB.
 
 ## Soluciones
 
@@ -137,5 +136,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
 | [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
+| [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 104 KB | 11307504 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
