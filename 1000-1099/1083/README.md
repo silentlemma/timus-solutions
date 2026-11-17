@@ -74,6 +74,8 @@ by hand and counts the exclamation marks byte by byte instead of using
 - The simple C++, Go, Java and Rust solutions read the marks as one token
   and take its length; Python counts the `!` characters after the space.
 
+Parse the starting number and the exclamation marks as bytes, then multiply the factors in a descending range. Accepted submission 11302102 took 0.078 s and used 328 KB. The simple version took 0.093 s and used 340 KB.
+
 ## Solutions
 
 ### Simple
@@ -92,3 +94,6 @@ by hand and counts the exclamation marks byte by byte instead of using
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
+| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+
+\* The marked solutions can improve their target rankings.

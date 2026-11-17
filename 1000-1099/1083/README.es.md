@@ -78,6 +78,8 @@ de 1544 KB.
   solo token y toman su longitud; Python cuenta los caracteres `!` tras el
   espacio.
 
+Leer el número inicial y los signos de exclamación como bytes y multiplicar los factores del rango descendente. El envío aceptado 11302102 tardó 0.078 s y usó 328 KB. La versión sencilla tardó 0.093 s y usó 340 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -96,3 +98,6 @@ de 1544 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
+| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

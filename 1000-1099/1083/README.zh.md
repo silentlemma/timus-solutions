@@ -67,6 +67,8 @@
 - 简单的 C++、Go、Java 和 Rust 解法把感叹号作为一个记号读入并取其长度；Python 统
   计空格后的 `!` 字符个数。
 
+按字节读取起始数和感叹号，再将递减序列中的各项相乘。通过的提交 11302102 用时 0.078 秒、占用 328 KB；简单版用时 0.093 秒、占用 340 KB。
+
 ## 题解代码
 
 ### 简单版本
@@ -85,3 +87,6 @@
 |----|----|----|-----|------|----|----|------|
 | [1083_math_optimized.cpp](1083_math_optimized.cpp) | G++ 13.2 x64 | math | O(n/k) | AC | 0.015 s | 128 KB | 11303546 |
 | [1083_math_optimized.java](1083_math_optimized.java) | Java 1.8 | math | O(n/k) | AC | 0.093 s | 360 KB | 11303706 |
+| [1083_math_optimized.py](1083_math_optimized.py) \* | Python 3.12 x64 | math | O(n/k) | AC | 0.078 s | 328 KB | 11302102 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
