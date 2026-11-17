@@ -110,6 +110,8 @@ instead of 1388 KB and Rust 244 KB instead of 1144 KB.
 - **Python**: the big-integer bitset; a plain double loop over the weights and
   sums would be far too slow.
 
+Sort the subset sums of both halves and sweep them in opposite directions to find the closest split. Accepted submission 11302225 took 0.109 s and used 608 KB. The simple version took 0.093 s and used 920 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -130,3 +132,6 @@ instead of 1388 KB and Rust 244 KB instead of 1144 KB.
 | [1005_meet_in_middle.go](1005_meet_in_middle.go) | Go 1.14 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.046 s | 920 KB | 11303539 |
 | [1005_meet_in_middle.java](1005_meet_in_middle.java) | Java 1.8 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 472 KB | 11303540 |
 | [1005_meet_in_middle.rs](1005_meet_in_middle.rs) | Rust 1.75 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.031 s | 244 KB | 11303541 |
+| [1005_meet_in_middle.py](1005_meet_in_middle.py) \* | Python 3.12 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 608 KB | 11302225 |
+
+\* The marked solutions can improve their target rankings.

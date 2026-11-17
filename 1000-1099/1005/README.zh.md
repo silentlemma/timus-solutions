@@ -98,6 +98,8 @@
   `2 · 10^7` 次简单操作。
 - **Python**：大整数位集；普通的按重量和按和的双重循环会太慢。
 
+排序两半的子集和，再以相反方向扫描，找出最均衡的划分。通过的提交 11302225 用时 0.109 秒、占用 608 KB；简单版用时 0.093 秒、占用 920 KB。记录的运行时间高于简单版。
+
 ## 题解代码
 
 ### 简单版本
@@ -118,3 +120,6 @@
 | [1005_meet_in_middle.go](1005_meet_in_middle.go) | Go 1.14 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.046 s | 920 KB | 11303539 |
 | [1005_meet_in_middle.java](1005_meet_in_middle.java) | Java 1.8 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 472 KB | 11303540 |
 | [1005_meet_in_middle.rs](1005_meet_in_middle.rs) | Rust 1.75 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.031 s | 244 KB | 11303541 |
+| [1005_meet_in_middle.py](1005_meet_in_middle.py) \* | Python 3.12 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 608 KB | 11302225 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

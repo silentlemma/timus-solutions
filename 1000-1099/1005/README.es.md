@@ -112,6 +112,8 @@ Java 472 KB en lugar de 1388 KB y Rust 244 KB en lugar de 1144 KB.
 - **Python**: el bitset sobre un entero grande; un doble bucle simple sobre
   pesos y sumas sería demasiado lento.
 
+Ordenar las sumas de subconjuntos de ambas mitades y recorrerlas en sentidos opuestos para encontrar la división más equilibrada. El envío aceptado 11302225 tardó 0.109 s y usó 608 KB. La versión sencilla tardó 0.093 s y usó 920 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -132,3 +134,6 @@ Java 472 KB en lugar de 1388 KB y Rust 244 KB en lugar de 1144 KB.
 | [1005_meet_in_middle.go](1005_meet_in_middle.go) | Go 1.14 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.046 s | 920 KB | 11303539 |
 | [1005_meet_in_middle.java](1005_meet_in_middle.java) | Java 1.8 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 472 KB | 11303540 |
 | [1005_meet_in_middle.rs](1005_meet_in_middle.rs) | Rust 1.75 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.031 s | 244 KB | 11303541 |
+| [1005_meet_in_middle.py](1005_meet_in_middle.py) \* | Python 3.12 x64 | meet_in_middle | O(n·2^(n/2)) | AC | 0.109 s | 608 KB | 11302225 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
