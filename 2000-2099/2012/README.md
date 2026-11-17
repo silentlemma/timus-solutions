@@ -74,6 +74,10 @@ instead of 236 KB.
 
 No language needs anything special.
 
+Read the count of completed tasks from bytes and compare the projected total contest time with the limit. Accepted submission 11301767 took 0.015 s and used 904 KB. The simple version took 0.015 s and used 1080 KB.
+
+The Python version parses the single input directly from the byte stream and needs no token list. Accepted submission 11301773 took 0.078 s and used 292 KB. The simple version took 0.078 s and used 348 KB.
+
 ## Solutions
 
 ### Simple
@@ -93,3 +97,7 @@ No language needs anything special.
 | [2012_math_optimized.cpp](2012_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303657 |
 | [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
 | [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
+| [2012_math_optimized.go](2012_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
+| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 292 KB | 11301773 |
+
+\* The marked solutions can improve their target rankings.

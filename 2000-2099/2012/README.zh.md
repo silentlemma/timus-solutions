@@ -62,6 +62,10 @@ NO
 
 没有特别需要注意的地方。
 
+从字节流读取已完成的题数，并将预计总用时与比赛时限比较。通过的提交 11301767 用时 0.015 秒、占用 904 KB；简单版用时 0.015 秒、占用 1080 KB。
+
+Python 直接从字节流读取唯一的整数，无需创建词元列表。通过的提交 11301773 用时 0.078 秒、占用 292 KB；简单版用时 0.078 秒、占用 348 KB。
+
 ## 解答
 
 ### 简单版本
@@ -81,3 +85,7 @@ NO
 | [2012_math_optimized.cpp](2012_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303657 |
 | [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
 | [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
+| [2012_math_optimized.go](2012_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
+| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 292 KB | 11301773 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

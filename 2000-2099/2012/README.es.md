@@ -74,6 +74,10 @@ sola llamada en lugar de usar `println!`: 0.015 s en lugar de 0.046 s y
 
 Ningún lenguaje necesita nada especial.
 
+Leer de los bytes el número de tareas resueltas y comparar el tiempo total previsto con el límite de la competición. El envío aceptado 11301767 tardó 0.015 s y usó 904 KB. La versión sencilla tardó 0.015 s y usó 1080 KB.
+
+Python lee directamente el único entero del flujo de bytes sin crear una lista de tokens. El envío aceptado 11301773 tardó 0.078 s y usó 292 KB. La versión sencilla tardó 0.078 s y usó 348 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -93,3 +97,7 @@ Ningún lenguaje necesita nada especial.
 | [2012_math_optimized.cpp](2012_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303657 |
 | [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
 | [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
+| [2012_math_optimized.go](2012_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
+| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 292 KB | 11301773 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
