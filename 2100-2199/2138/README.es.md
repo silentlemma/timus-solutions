@@ -75,10 +75,7 @@ que encuentra; un `long` basta para cualquier valor hasta 2³² − 1:
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
-conservan los fuentes básicos. Una reducción negativa indica mayor
-coste. El asterisco solo se refiere al objetivo de clasificación.
+Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre las diez primeras o el 15% superior en ambas métricas, por estar en el 30% superior en ambas y mejorar la posición base en al menos una, o por reducir al menos un 30% el tiempo o la memoria respecto a la base del mismo lenguaje. Una reducción negativa indica mayor coste. El asterisco se refiere al objetivo de clasificación específico del lenguaje.
 
 - `2138_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +78.23%; base: `2138_math.java`.
@@ -91,6 +88,8 @@ archivos en el conjunto básico; estos lenguajes no necesitan otra
 implementación para alcanzar el objetivo.
 
 - [2138_math.cpp](2138_math.cpp).
+
+Extraer uno a uno los cuatro bytes inferiores y añadirlos al valor invertido con desplazamientos y una máscara. El envío aceptado 11324232 tardó 0.078 s y usó 348 KB. La versión sencilla tardó 0.078 s y usó 424 KB.
 
 ## Soluciones
 
@@ -109,5 +108,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2138_math_optimized.java](2138_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
+| [2138_bitmask.py](2138_bitmask.py) \* | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

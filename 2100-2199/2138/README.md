@@ -74,10 +74,7 @@ contain no digits it simply collects every digit it meets into v, a
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Every retained optimized version has Accepted. It qualifies through top-ten or top-15% ranks on both metrics, top-30% ranks on both metrics with an improvement over the base in at least one, or at least a 30% reduction in time or memory against the same-language base. Negative reduction means increased cost. A star concerns the separate language rating target.
 
 - `2138_math_optimized.java`: time reduction +0.00%; memory reduction
   +78.23%; base: `2138_math.java`.
@@ -90,6 +87,8 @@ as the base solutions; the rating target needs no additional
 implementation for these languages.
 
 - [2138_math.cpp](2138_math.cpp).
+
+Extract the four low bytes one at a time and append them to the reversed value using shifts and a mask. Accepted submission 11324232 took 0.078 s and used 348 KB. The simple version took 0.078 s and used 424 KB.
 
 ## Solutions
 
@@ -108,5 +107,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2138_math_optimized.java](2138_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
+| [2138_bitmask.py](2138_bitmask.py) \* | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
