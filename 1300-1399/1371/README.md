@@ -68,7 +68,7 @@ every branch, on 300 random trees of up to 30 branches.
 
 C++ keeps the same edge-cut sum, storing a flat forward-star tree. Each directed edge has a 32-bit next index, 16-bit target and weight. Parents, parent-edge costs, traversal order and subtree sizes also fit 16 bits because N≤50000 and weights≤1000. An iterative parent-first order is processed backwards; each edge adds weight·s·(N−s), promoted to 64 bits before multiplication. Twice the sum and N(N−1) fit signed 64 bits. Divide into integer part and remainder first. With denominator d and remainder r, the rounded fractional digits are floor((10000r+floor(d/2))/d). A result of 10000 carries into the integer part. This keeps the scaled remainder below 2.5·10¹³ and the rounding error at most 0.00005. Time and space O(N), no recursive traversal or per-vertex edge containers. All simple sources remain; the other four families reuse admitted bases.
 
-The accepted base implementations [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
@@ -76,6 +76,8 @@ These notes describe the simple implementations.
 
 - Java keeps the tree in flat arrays; all languages print with a dot as
   the decimal point.
+
+Peel leaves from the tree. At a leaf, the XOR accumulators recover its last neighbour and edge weight, so there are no adjacency lists to store. Accepted submission 11324213 took 0.156 s and used 5 856 KB. The simple version took 0.218 s and used 29648 KB.
 
 ## Solutions
 
@@ -94,5 +96,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1371_dp_optimized.cpp](1371_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 1120 KB | 11315476 |
+| [1371_graphs.py](1371_graphs.py) | PyPy 3.10 x64 | graphs | O(N) | AC | 0.156 s | 5 856 KB | 11324213 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

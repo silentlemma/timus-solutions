@@ -71,7 +71,7 @@ sucursales.
 
 C++ conserva la suma por cortes con estrella plana. Cada arista dirigida tiene siguiente32, destino y peso16; padres, costes paternos, orden y tamaños también caben en16 pues N≤50000 y peso≤1000. Procesar al revés un orden iterativo padres-primero; multiplicar weight·s·(N−s) tras promover a64 bits. Suma doble y N(N−1) caben en64 con signo. Se divide primero por el denominador d para obtener la parte entera y el resto r. Las cuatro cifras decimales se calculan con floor((10000r+floor(d/2))/d). Si el resultado es 10000, se lleva uno a la parte entera. El resto escalado es menor que 2.5·10¹³ y el error no supera 0.00005. Tiempo y espacio O(N), sin recursión ni contenedores por vértice. Se conservan bases; las otras familias reutilizan las admitidas.
 
-Las implementaciones base aceptadas [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1371_dp.go](1371_dp.go), [1371_dp.java](1371_dp.java), [1371_dp.py](1371_dp.py), [1371_dp.rs](1371_dp.rs) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
 ## Notas por lenguaje
 
@@ -79,6 +79,8 @@ Estas notas describen las implementaciones sencillas.
 
 - Java guarda el árbol en arreglos planos; todos los lenguajes imprimen
   con punto decimal.
+
+Retirar las hojas del árbol. En cada hoja, los acumuladores XOR recuperan su último vecino y el peso de la arista sin guardar listas de adyacencia. El envío aceptado 11324213 tardó 0.156 s y usó 5 856 KB. La versión sencilla tardó 0.218 s y usó 29648 KB.
 
 ## Soluciones
 
@@ -97,5 +99,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1371_dp_optimized.cpp](1371_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N) | AC | 0.015 s | 1120 KB | 11315476 |
+| [1371_graphs.py](1371_graphs.py) | PyPy 3.10 x64 | graphs | O(N) | AC | 0.156 s | 5 856 KB | 11324213 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
