@@ -74,6 +74,8 @@ Mulan
 
 没有特别需要注意的地方。
 
+根据名字的首字节和三组首字母确定柜子。通过的提交 11301966 用时 0.078 秒、占用 352 KB；简单版用时 0.078 秒、占用 400 KB。
+
 ## 解答
 
 ### 简单版本
@@ -93,3 +95,6 @@ Mulan
 | [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
 | [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
 | [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
+| [2023_implementation_optimized.py](2023_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

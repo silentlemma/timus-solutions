@@ -83,6 +83,8 @@ C++: 100 КБ вместо 400 КБ при том же времени; Java: 0.0
 
 Ничего особенного не требуется.
 
+Определяем шкаф по первому байту имени и трём группам начальных букв. Принятая посылка 11301966 заняла 0,078 с и использовала 352 КБ. Простая версия заняла 0,078 с и использовала 400 КБ.
+
 ## Решения
 
 ### Простые
@@ -102,3 +104,6 @@ C++: 100 КБ вместо 400 КБ при том же времени; Java: 0.0
 | [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
 | [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
 | [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
+| [2023_implementation_optimized.py](2023_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+
+\* Отмеченные решения пока не достигли целевого рейтинга.
