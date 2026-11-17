@@ -63,7 +63,9 @@ Pitfalls:
 
 The Go and Rust versions use the same recurrence with a circular history. Once a count has been subtracted, its slot can be reused. Only counts that will be needed before position N enter the history, so it has at most min(K + 2, N − K) slots. Go updates a big integer in place. Rust stores each limb in 32 bits and reuses two buffers for consecutive counts. The Accepted Go run used 5652 KB instead of 9884 KB and took 0.031 s instead of 0.062 s. Rust used 2564 KB instead of 15176 KB and took 0.031 s in both versions.
 
-The accepted base implementations [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1513_dp.java), [1513_dp.py](1513_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1513_dp.java), [1513_dp.py](1513_dp.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
+
+Keep the BigInteger counts still needed by the recurrence in a circular buffer. Accepted submission 11324211 took 0.109 s and used 7 080 KB. The simple version took 0.156 s and used 12788 KB.
 
 ## Solutions
 
@@ -83,5 +85,6 @@ The accepted base implementations [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](151
 |---|---|---|---|---|---|---|---|
 | [1513_dp_optimized.go](1513_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 5652 KB | 11310357 |
 | [1513_dp_optimized.rs](1513_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 2564 KB | 11310364 |
+| [1513_dp_optimized.java](1513_dp_optimized.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 7 080 KB | 11324211 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

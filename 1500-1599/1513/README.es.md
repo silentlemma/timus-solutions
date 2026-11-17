@@ -64,7 +64,9 @@ Detalles a tener en cuenta:
 
 Las versiones en Go y Rust usan la misma recurrencia y guardan los valores anteriores en un búfer circular. Después de restar un valor, se puede reutilizar su posición. Solo se guardan los valores que se usarán antes de terminar la secuencia, con un máximo de min(K + 2, N − K) posiciones. Go actualiza el entero grande en el mismo objeto. Rust guarda los bloques en enteros de 32 bits y alterna dos búferes para valores consecutivos. El envío aceptado de Go usó 5652 KB en lugar de 9884 KB y tardó 0,031 s en lugar de 0,062 s. Rust usó 2564 KB en lugar de 15176 KB, con 0,031 s en ambas versiones.
 
-Las implementaciones base aceptadas [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1513_dp.java), [1513_dp.py](1513_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1513_dp.java), [1513_dp.py](1513_dp.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
+
+Guardar en un búfer circular únicamente los recuentos BigInteger que aún necesita la recurrencia. El envío aceptado 11324211 tardó 0.109 s y usó 7 080 KB. La versión sencilla tardó 0.156 s y usó 12788 KB.
 
 ## Soluciones
 
@@ -84,5 +86,6 @@ Las implementaciones base aceptadas [1513_dp.cpp](1513_dp.cpp), [1513_dp.java](1
 |---|---|---|---|---|---|---|---|
 | [1513_dp_optimized.go](1513_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N^2) | AC | 0.031 s | 5652 KB | 11310357 |
 | [1513_dp_optimized.rs](1513_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N^2) | AC | 0.031 s | 2564 KB | 11310364 |
+| [1513_dp_optimized.java](1513_dp_optimized.java) | Java 1.8 | dp | O(N^2) | AC | 0.109 s | 7 080 KB | 11324211 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
