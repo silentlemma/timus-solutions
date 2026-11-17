@@ -67,6 +67,10 @@
 - Python 的 `%` 本来就给出非负余数；C++、Go 和 Java 先加上模数再取余，Rust 使用
   `rem_euclid`。
 
+维护两个滑动和，用循环缓冲区仅保存将来还需移出窗口的动态规划状态。通过的提交 11292624 用时 0.015 秒、占用 388 KB；简单版用时 0.015 秒、占用 1368 KB。
+
+Python 用两个定长列表实现同一递推式，并在每次更新后按题目要求取模。通过的提交 11292636 用时 0.125 秒、占用 452 KB；简单版用时 0.156 秒、占用 8624 KB。
+
 ## 解答
 
 ### 简单版本
@@ -84,3 +88,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
+| [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

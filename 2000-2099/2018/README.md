@@ -77,6 +77,10 @@ instead of 0.125 s and 408 KB instead of 3140 KB.
   add the modulus before taking the remainder again, and Rust uses
   `rem_euclid`.
 
+Maintain the two prefix-sum windows and keep only the DP entries that can expire, in circular buffers. Accepted submission 11292624 took 0.015 s and used 388 KB. The simple version took 0.015 s and used 1368 KB.
+
+Python applies the same recurrence with two bounded lists, reducing each updated sum modulo the required constant. Accepted submission 11292636 took 0.125 s and used 452 KB. The simple version took 0.156 s and used 8624 KB.
+
 ## Solutions
 
 ### Simple
@@ -94,3 +98,7 @@ instead of 0.125 s and 408 KB instead of 3140 KB.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
+| [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+
+\* The marked solutions can improve their target rankings.

@@ -78,6 +78,10 @@ prefijos. También analiza los tres números a mano en lugar de usar
 - En Python `%` ya da un resto no negativo; C++, Go y Java suman el
   módulo antes de volver a tomar el resto, y Rust usa `rem_euclid`.
 
+Mantener las dos sumas deslizantes y guardar en búferes circulares solo los estados que aún deben salir de las ventanas. El envío aceptado 11292624 tardó 0.015 s y usó 388 KB. La versión sencilla tardó 0.015 s y usó 1368 KB.
+
+Python aplica la misma recurrencia con dos listas acotadas y reduce cada suma actualizada al módulo requerido. El envío aceptado 11292636 tardó 0.125 s y usó 452 KB. La versión sencilla tardó 0.156 s y usó 8624 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -95,3 +99,7 @@ prefijos. También analiza los tres números a mano en lugar de usar
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
+| [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
