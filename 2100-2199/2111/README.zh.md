@@ -55,6 +55,8 @@ n 个城市由长为 dᵢ 的道路与首都相连，城市 i 需要 dᵢ 吨货
 916 KB，而不是 7368 KB，时间不变。优化的 Rust 解法从加锁的标准输入手工解析数字，
 而不是把整个输入读成字符串：216 KB，而不是 2140 KB，时间不变。
 
+分块读取距离，边读边累加，最后将总和平方。通过的提交 11302204 用时 0.125 秒、占用 388 KB；简单版用时 0.156 秒、占用 488 KB。
+
 ## 解答
 
 ### 简单版本
@@ -74,3 +76,6 @@ n 个城市由长为 dᵢ 的道路与首都相连，城市 i 需要 dᵢ 吨货
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
+| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

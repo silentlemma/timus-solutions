@@ -64,6 +64,8 @@ La solución optimizada en Rust analiza los números a mano directamente
 desde `stdin().lock()` en lugar de leer toda la entrada en una cadena:
 216 KB en lugar de 2140 KB, con el mismo tiempo.
 
+Leer las distancias en bloques de bytes, acumularlas al leerlas y elevar el total al cuadrado. El envío aceptado 11302204 tardó 0.125 s y usó 388 KB. La versión sencilla tardó 0.156 s y usó 488 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -83,3 +85,6 @@ desde `stdin().lock()` en lugar de leer toda la entrada en una cadena:
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
+| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

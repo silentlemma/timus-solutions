@@ -64,6 +64,8 @@ numbers by hand from the locked standard input instead of reading the
 whole input into a string: 216 KB instead of 2140 KB, with the same
 time.
 
+Read the distances in fixed byte blocks, summing them as they arrive before squaring the total. Accepted submission 11302204 took 0.125 s and used 388 KB. The simple version took 0.156 s and used 488 KB.
+
 ## Solutions
 
 ### Simple
@@ -83,3 +85,6 @@ time.
 | [2111_math_optimized.cpp](2111_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11303673 |
 | [2111_math_optimized.py](2111_math_optimized.py) | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 916 KB | 11303800 |
 | [2111_math_optimized.rs](2111_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 216 KB | 11303801 |
+| [2111_math_optimized.java](2111_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 388 KB | 11302204 |
+
+\* The marked solutions can improve their target rankings.
