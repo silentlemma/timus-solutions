@@ -81,6 +81,10 @@ C++ one, counts the `+` signs in the replies byte by byte instead of
 using `Scanner` and strings: 0.093 s instead of 0.140 s and 364 KB
 instead of 1572 KB.
 
+Scan the invitations byte by byte and count a companion whenever the plus sign occurs. Accepted submission 11301849 took 0.031 s and used 924 KB. The simple version took 0.031 s and used 1076 KB.
+
+Read the invitations from buffered bytes and count companions by the suffix of each line. Accepted submission 11324260 took 0.125 s and used 264 KB. The simple version took 0.078 s and used 420 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -99,3 +103,7 @@ instead of 1572 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
+| [2100_implementation_optimized.go](2100_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
+| [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
+
+\* The marked solutions can improve their target rankings.

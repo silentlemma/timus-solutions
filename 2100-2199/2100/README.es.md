@@ -83,6 +83,10 @@ la de C++, cuenta byte a byte los signos `+` de las respuestas en lugar
 de usar `Scanner` y cadenas: 0.093 s en lugar de 0.140 s y 364 KB en
 lugar de 1572 KB.
 
+Leer las invitaciones byte por byte y contar un acompañante al encontrar el signo más. El envío aceptado 11301849 tardó 0.031 s y usó 924 KB. La versión sencilla tardó 0.031 s y usó 1076 KB.
+
+Leer las invitaciones desde un búfer de bytes y contar los acompañantes según el sufijo de cada línea. El envío aceptado 11324260 tardó 0.125 s y usó 264 KB. La versión sencilla tardó 0.078 s y usó 420 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -101,3 +105,7 @@ lugar de 1572 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
+| [2100_implementation_optimized.go](2100_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
+| [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

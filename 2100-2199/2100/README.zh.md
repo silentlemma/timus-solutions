@@ -72,6 +72,10 @@ FRED+one
 优化的 Java 解法按 1 KB 分块读入，并和 C++ 解法一样逐字节统计回复中的 `+`，而不
 是使用 `Scanner` 和字符串：0.093 s，而不是 0.140 s；364 KB，而不是 1572 KB。
 
+逐字节扫描邀请名单，每遇到加号就多计一位来宾。通过的提交 11301849 用时 0.031 秒、占用 924 KB；简单版用时 0.031 秒、占用 1076 KB。
+
+从字节缓冲区读取邀请名单，根据每行后缀统计同行人数。通过的提交 11324260 用时 0.125 秒、占用 264 KB；简单版用时 0.078 秒、占用 420 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -90,3 +94,7 @@ FRED+one
 |----|----|----|-----|------|----|----|------|
 | [2100_implementation_optimized.cpp](2100_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303968 |
 | [2100_implementation_optimized.java](2100_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 364 KB | 11303969 |
+| [2100_implementation_optimized.go](2100_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(n) | AC | 0.031 s | 924 KB | 11301849 |
+| [2100_implementation_optimized.py](2100_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 264 KB | 11324260 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
