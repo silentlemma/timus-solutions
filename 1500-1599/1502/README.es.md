@@ -57,6 +57,8 @@ La solución optimizada en Java usa la misma fórmula y analiza el número
 byte a byte desde `System.in` en lugar de usar `Scanner`: 0.078 s en
 lugar de 0.125 s y 344 KB en lugar de 1584 KB.
 
+Leer el entero del flujo de bytes y usar la misma fórmula para el total de puntos. El envío aceptado 11302199 tardó 0.078 s y usó 320 KB. La versión sencilla tardó 0.078 s y usó 368 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -74,3 +76,6 @@ lugar de 0.125 s y 344 KB en lugar de 1584 KB.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
+| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11302199 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

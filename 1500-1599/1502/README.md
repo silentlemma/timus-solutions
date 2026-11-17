@@ -56,6 +56,8 @@ The optimized Java solution uses the same formula and parses the number
 byte by byte from `System.in` instead of using `Scanner`: 0.078 s
 instead of 0.125 s and 344 KB instead of 1584 KB.
 
+Parse the integer from the byte stream and use the same formula for the total number of dots. Accepted submission 11302199 took 0.078 s and used 320 KB. The simple version took 0.078 s and used 368 KB.
+
 ## Solutions
 
 ### Simple
@@ -73,3 +75,6 @@ instead of 0.125 s and 344 KB instead of 1584 KB.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
+| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11302199 |
+
+\* The marked solutions can improve their target rankings.
