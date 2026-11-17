@@ -72,6 +72,8 @@ mismos.
 
 Ningún lenguaje necesita nada especial.
 
+Acumular ambos totales al recorrer el iterador de enteros, sin materializar ni recortar una lista de enteros. El envío aceptado 11302034 tardó 0.078 s y usó 984 KB. La versión sencilla tardó 0.093 s y usó 1380 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -89,3 +91,6 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |
+| [1991_implementation_optimized.py](1991_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 984 KB | 11302034 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

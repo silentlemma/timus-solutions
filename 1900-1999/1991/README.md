@@ -71,6 +71,8 @@ same.
 
 No language needs anything special.
 
+Accumulate the two totals while consuming the integer iterator, without materializing or slicing a list of integers. Accepted submission 11302034 took 0.078 s and used 984 KB. The simple version took 0.093 s and used 1380 KB.
+
 ## Solutions
 
 ### Simple
@@ -88,3 +90,6 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |
+| [1991_implementation_optimized.py](1991_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 984 KB | 11302034 |
+
+\* The marked solutions can improve their target rankings.

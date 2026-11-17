@@ -61,6 +61,8 @@
 
 没有特别需要注意的地方。
 
+遍历整数迭代器时累加两个总数，无需构造或切分整数列表。通过的提交 11302034 用时 0.078 秒、占用 984 KB；简单版用时 0.093 秒、占用 1380 KB。
+
 ## 解答
 
 ### 简单版本
@@ -78,3 +80,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |
+| [1991_implementation_optimized.py](1991_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 984 KB | 11302034 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
