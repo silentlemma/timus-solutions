@@ -98,6 +98,8 @@ La solución optimizada en Java analiza las seis cifras byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.078 s en lugar de 0.140 s y
 308 KB en lugar de 1596 KB.
 
+Calcular las sumas de dígitos mediante divisiones y restos, sin construir cadenas decimales de los números vecinos. El envío aceptado 11302025 tardó 0.078 s y usó 372 KB. La versión sencilla tardó 0.062 s y usó 376 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -116,3 +118,6 @@ La solución optimizada en Java analiza las seis cifras byte a byte desde
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1493_implementation_optimized.java](1493_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.078 s | 308 KB | 11303750 |
 | [1493_implementation_optimized.rs](1493_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 224 KB | 11303611 |
+| [1493_implementation_optimized.py](1493_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

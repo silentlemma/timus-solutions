@@ -89,6 +89,8 @@ Yes
 优化的 Java 解法直接从 `System.in` 逐字节解析六位数字，而不是使用 `Scanner`：
 0.078 s，而不是 0.140 s；308 KB，而不是 1596 KB。
 
+通过整除和取余计算数位和，无需为相邻票号构造十进制字符串。通过的提交 11302025 用时 0.078 秒、占用 372 KB；简单版用时 0.062 秒、占用 376 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -107,3 +109,6 @@ Yes
 |----|----|----|-----|------|----|----|------|
 | [1493_implementation_optimized.java](1493_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.078 s | 308 KB | 11303750 |
 | [1493_implementation_optimized.rs](1493_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 224 KB | 11303611 |
+| [1493_implementation_optimized.py](1493_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
