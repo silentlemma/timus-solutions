@@ -83,7 +83,7 @@ C++ and Rust store adjacency in flat arrays and colour each component with bread
 
 The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 64 KB versus 244 KB.
 
-The accepted base implementations [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+In the earlier comparison snapshot, the base implementations [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) met the top-15% or top-ten admission rule on both metrics. Their measured results are kept in the Simple table.
 
 ## Language notes
 
@@ -91,6 +91,8 @@ These notes describe the simple implementations.
 
 - All languages colour by depth-first search with an explicit stack and
   fill the same subset-sum table; Python keeps each row as a set.
+
+Store the reachable group sizes as bitsets. Each connected component updates the bitset with two shifts, one for each colour class. Accepted submission 11324223 took 0.078 s and used 712 KB. The simple version took 0.078 s and used 892 KB.
 
 ## Solutions
 
@@ -110,5 +112,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1156_graphs_optimized.cpp](1156_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.015 s | 112 KB | 11310650 |
 | [1156_graphs_optimized.rs](1156_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.031 s | 64 KB | 11311218 |
+| [1156_graphs_bitmask.py](1156_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O(N + M + N²) | AC | 0.078 s | 712 KB | 11324223 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

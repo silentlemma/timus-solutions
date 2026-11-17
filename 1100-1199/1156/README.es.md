@@ -83,7 +83,7 @@ C++ y Rust guardan la adyacencia en vectores planos y colorean cada componente p
 
 El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 64 KB frente a 244 KB.
 
-Las implementaciones base aceptadas [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+En la instantánea de comparación anterior, las implementaciones base [1156_graphs.go](1156_graphs.go), [1156_graphs.java](1156_graphs.java), [1156_graphs.py](1156_graphs.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
 ## Notas por lenguaje
 
@@ -92,6 +92,8 @@ Estas notas describen las implementaciones sencillas.
 - Todos los lenguajes colorean con una búsqueda en profundidad con pila
   explícita y llenan la misma tabla de sumas de subconjuntos; Python
   guarda cada fila como un conjunto.
+
+Guardar los tamaños alcanzables en conjuntos de bits. Cada componente actualiza el conjunto con un desplazamiento por clase de color. El envío aceptado 11324223 tardó 0.078 s y usó 712 KB. La versión sencilla tardó 0.078 s y usó 892 KB.
 
 ## Soluciones
 
@@ -111,5 +113,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1156_graphs_optimized.cpp](1156_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.015 s | 112 KB | 11310650 |
 | [1156_graphs_optimized.rs](1156_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N + M), N ≤ 50 | AC | 0.031 s | 64 KB | 11311218 |
+| [1156_graphs_bitmask.py](1156_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O(N + M + N²) | AC | 0.078 s | 712 KB | 11324223 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
