@@ -82,6 +82,8 @@ cola. C++ lee y escribe con `scanf` y `printf` en lugar de `iostream`:
 a mano desde un búfer pequeño en lugar de usar `Scanner`: 364 KB en
 lugar de 1680 KB, con el mismo tiempo.
 
+Consumir los recuentos de coches del iterador y guardar solo el número actual de coches en espera. El envío aceptado 11324248 tardó 0.125 s y usó 244 KB. La versión sencilla tardó 0.078 s y usó 420 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -100,6 +102,7 @@ lugar de 1680 KB, con el mismo tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
 | [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

@@ -69,6 +69,8 @@ k 和 n（1 ≤ k, n ≤ 100），然后是 a₁、…、aₙ（0 ≤ aᵢ ≤ 1
 `iostream`：124 KB，而不是 392 KB，时间不变。Java 从较小的缓冲区中手工解析数字，
 而不是使用 `Scanner`：364 KB，而不是 1680 KB，时间不变。
 
+从输入迭代器逐项读取车流量，仅保留当前等待车辆数。通过的提交 11324248 用时 0.125 秒、占用 244 KB；简单版用时 0.078 秒、占用 420 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -87,5 +89,6 @@ k 和 n（1 ≤ k, n ≤ 100），然后是 a₁、…、aₙ（0 ≤ aᵢ ≤ 1
 |----|----|----|-----|------|----|----|------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
 | [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。

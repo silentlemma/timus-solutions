@@ -78,6 +78,8 @@ instead of 392 KB, with the same time. Java parses the numbers by hand
 from a small buffer instead of using `Scanner`: 364 KB instead of
 1680 KB, with the same time.
 
+Consume the car counts from the input iterator and retain only the current number of waiting cars. Accepted submission 11324248 took 0.125 s and used 244 KB. The simple version took 0.078 s and used 420 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -96,6 +98,7 @@ from a small buffer instead of using `Scanner`: 364 KB instead of
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
 | [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.
