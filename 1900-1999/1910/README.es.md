@@ -64,6 +64,8 @@ actual, como la de C++, y analiza la entrada a mano en lugar de usar
 
 Ningún lenguaje necesita nada especial.
 
+Mantener una ventana de tres valores al leer la secuencia y guardar el primer máximo. El envío aceptado 11324269 tardó 0.140 s y usó 240 KB. La versión sencilla tardó 0.062 s y usó 452 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -82,6 +84,7 @@ Ningún lenguaje necesita nada especial.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
 | [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
 su lenguaje en el juez actual; quizá se pueda optimizar más.

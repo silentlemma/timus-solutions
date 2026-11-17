@@ -66,6 +66,8 @@ of using `Scanner`: 0.125 s instead of 0.156 s and 380 KB instead of
 
 No language needs anything special.
 
+Keep a window of three values while reading the sequence and record the first maximum. Accepted submission 11324269 took 0.140 s and used 240 KB. The simple version took 0.062 s and used 452 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -84,6 +86,7 @@ No language needs anything special.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
 | [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on
 the current judge; it may be optimized further.

@@ -58,6 +58,8 @@
 
 没有特别需要注意的地方。
 
+读取序列时维护三个值的窗口，记录首次达到最大值的位置。通过的提交 11324269 用时 0.140 秒、占用 240 KB；简单版用时 0.062 秒、占用 452 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -76,5 +78,6 @@
 |----|----|----|-----|------|----|----|------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
 | [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
 \* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
