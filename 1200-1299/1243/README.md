@@ -64,6 +64,8 @@ instead of 0.046 s and 912 KB instead of 1060 KB.
 - Python's integers hold N exactly, so it just takes `int(N) % 7`; the
   other languages fold the digits.
 
+Update the remainder digit by digit with Horner’s rule, keeping only the remainder modulo seven. Accepted submission 11324264 took 0.062 s and used 316 KB. The simple version took 0.046 s and used 328 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -82,3 +84,6 @@ instead of 0.046 s and 912 KB instead of 1060 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
+| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+
+\* The marked solutions can improve their target rankings.

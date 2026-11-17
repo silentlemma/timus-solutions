@@ -65,6 +65,8 @@ en lugar de 0.046 s y 912 KB en lugar de 1060 KB.
 - Los enteros de Python guardan N exactamente, así que basta
   `int(N) % 7`; los demás lenguajes van plegando las cifras.
 
+Actualizar el resto dígito a dígito mediante la regla de Horner, conservando solo el resto módulo siete. El envío aceptado 11324264 tardó 0.062 s y usó 316 KB. La versión sencilla tardó 0.046 s y usó 328 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -83,3 +85,6 @@ en lugar de 0.046 s y 912 KB en lugar de 1060 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
+| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

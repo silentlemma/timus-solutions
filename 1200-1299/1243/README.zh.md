@@ -59,6 +59,8 @@ N mod 7。
 
 - Python 的整数能精确表示 N，所以直接用 `int(N) % 7`；其他语言逐位折叠。
 
+用霍纳法逐位更新余数，仅保留模七的当前余数。通过的提交 11324264 用时 0.062 秒、占用 316 KB；简单版用时 0.046 秒、占用 328 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -77,3 +79,6 @@ N mod 7。
 |----|----|----|-----|------|----|----|------|
 | [1243_math_optimized.cpp](1243_math_optimized.cpp) | G++ 13.2 x64 | math | O(len N) | AC | 0.001 s | 84 KB | 11303584 |
 | [1243_math_optimized.go](1243_math_optimized.go) | Go 1.14 x64 | math | O(len N) | AC | 0.015 s | 912 KB | 11303729 |
+| [1243_math_optimized.py](1243_math_optimized.py) \* | Python 3.12 x64 | math | O(len N) | AC | 0.062 s | 316 KB | 11324264 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
