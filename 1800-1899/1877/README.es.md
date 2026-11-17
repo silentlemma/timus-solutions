@@ -81,6 +81,10 @@ La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 336 KB en lugar de 1572 KB, con
 el mismo tiempo.
 
+Leer ambos enteros directamente de los bytes y evaluar la condición de paridad. El envío aceptado 11301778 tardó 0.031 s y usó 904 KB. La versión sencilla tardó 0.031 s y usó 1064 KB.
+
+Python separa la entrada en dos tokens de bytes y aplica la misma condición de paridad. El envío aceptado 11301784 tardó 0.078 s y usó 392 KB. La versión sencilla tardó 0.093 s y usó 404 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -98,3 +102,7 @@ el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1877_implementation_optimized.java](1877_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 336 KB | 11303782 |
+| [1877_implementation_optimized.go](1877_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 904 KB | 11301778 |
+| [1877_implementation_optimized.py](1877_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 392 KB | 11301784 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

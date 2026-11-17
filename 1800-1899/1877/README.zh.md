@@ -68,6 +68,10 @@ yes
 优化的 Java 解法直接从 `System.in` 逐字节解析数字，而不是使用 `Scanner`：336 KB，
 而不是 1572 KB，时间不变。
 
+直接从字节流读取两个整数，并判断奇偶条件。通过的提交 11301778 用时 0.031 秒、占用 904 KB；简单版用时 0.031 秒、占用 1064 KB。
+
+Python 将输入字节拆成两个词元，再判断同一奇偶条件。通过的提交 11301784 用时 0.078 秒、占用 392 KB；简单版用时 0.093 秒、占用 404 KB。
+
 ## 解答
 
 ### 简单版本
@@ -85,3 +89,7 @@ yes
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1877_implementation_optimized.java](1877_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 336 KB | 11303782 |
+| [1877_implementation_optimized.go](1877_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 904 KB | 11301778 |
+| [1877_implementation_optimized.py](1877_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 392 KB | 11301784 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。

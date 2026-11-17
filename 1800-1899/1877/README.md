@@ -79,6 +79,10 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 336 KB instead of 1572 KB, with
 the same time.
 
+Read both values directly as integers and evaluate the parity condition. Accepted submission 11301778 took 0.031 s and used 904 KB. The simple version took 0.031 s and used 1064 KB.
+
+Python splits the raw input into two byte tokens and uses the same parity condition. Accepted submission 11301784 took 0.078 s and used 392 KB. The simple version took 0.093 s and used 404 KB.
+
 ## Solutions
 
 ### Simple
@@ -96,3 +100,7 @@ the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1877_implementation_optimized.java](1877_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 336 KB | 11303782 |
+| [1877_implementation_optimized.go](1877_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 904 KB | 11301778 |
+| [1877_implementation_optimized.py](1877_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 392 KB | 11301784 |
+
+\* The marked solutions can improve their target rankings.
