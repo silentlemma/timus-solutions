@@ -71,6 +71,10 @@ g6
 
 - 简单解法都把八种跳法放在表里循环处理。
 
+把每个棋盘坐标读入两个字节的数组，并用字节缓冲区输出可行步数。通过的提交 11301829 用时 0.001 秒、占用 908 KB；简单版用时 0.015 秒、占用 1072 KB。
+
+查找固定棋盘的步数表，由 1197_math_table.py 根据合法马步生成。直接读取输入字节，刷新答案后调用 os._exit(0)，跳过解释器清理。通过的提交 11324662 用时 0.093 秒、占用 200 KB；简单版用时 0.046 秒、占用 328 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -89,5 +93,7 @@ g6
 |----|----|----|-----|------|----|----|------|
 | [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
 | [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+| [1197_implementation_optimized.go](1197_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
+| [1197_math.py](1197_math.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.093 s | 200 KB | 11324662 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* 带星号的解法在受支持编译器中尚未同时达到时间和内存的目标排名，仍可进一步优化。

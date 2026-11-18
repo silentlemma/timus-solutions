@@ -81,6 +81,10 @@ es una sola cifra, escribe dos bytes por casilla en un solo arreglo:
 - Las soluciones sencillas guardan los ocho saltos en una tabla y la
   recorren.
 
+Leer cada coordenada del tablero en un arreglo de dos bytes y escribir los recuentos en un búfer de bytes. El envío aceptado 11301829 tardó 0.001 s y usó 908 KB. La versión sencilla tardó 0.015 s y usó 1072 KB.
+
+Consultar la tabla del tablero fijo, generada por 1197_math_table.py a partir de los saltos legales del caballo. Leer los bytes directamente y vaciar las respuestas antes de llamar a os._exit(0), omitiendo la limpieza del intérprete. El envío aceptado 11324662 tardó 0.093 s y usó 200 KB. La versión sencilla tardó 0.046 s y usó 328 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -99,6 +103,7 @@ es una sola cifra, escribe dos bytes por casilla en un solo arreglo:
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
 | [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+| [1197_implementation_optimized.go](1197_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
+| [1197_math.py](1197_math.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.093 s | 200 KB | 11324662 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Las soluciones marcadas aún no alcanzan sus objetivos de tiempo y memoria en los compiladores admitidos y pueden optimizarse más.
