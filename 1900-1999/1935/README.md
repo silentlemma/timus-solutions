@@ -70,6 +70,10 @@ requirements: 124 KB instead of 428 KB.
 
 No language needs anything special.
 
+Read integers with a small byte buffer and accumulate the running sum and maximum in one pass. Accepted submission 11302269 took 0.109 s and used 340 KB. The simple version took 0.109 s and used 1720 KB.
+
+Keep the simple sum-plus-maximum algorithm and buffered input. Flush the answer before exiting directly with os._exit(0), skipping interpreter teardown. Accepted submission 11324646 took 0.140 s and used 200 KB. The simple version took 0.078 s and used 332 KB. The recorded runtime is higher than for the simple version.
+
 ## Solutions
 
 ### Simple
@@ -87,3 +91,7 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
+
+\* The marked solutions can improve their target rankings.

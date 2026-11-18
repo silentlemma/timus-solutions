@@ -72,6 +72,10 @@ calcula la suma y el máximo mientras lee, sin guardar los requisitos:
 
 Ningún lenguaje necesita nada especial.
 
+Leer los enteros con un búfer de bytes pequeño y acumular la suma y el máximo en una sola pasada. El envío aceptado 11302269 tardó 0.109 s y usó 340 KB. La versión sencilla tardó 0.109 s y usó 1720 KB.
+
+Conservar el algoritmo sencillo de suma más máximo y la entrada con búfer. Vaciar la salida antes de terminar directamente con os._exit(0), omitiendo la limpieza del intérprete. El envío aceptado 11324646 tardó 0.140 s y usó 200 KB. La versión sencilla tardó 0.078 s y usó 332 KB. El tiempo registrado es mayor que el de la versión sencilla.
+
 ## Soluciones
 
 ### Sencillas
@@ -89,3 +93,7 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
+
+\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

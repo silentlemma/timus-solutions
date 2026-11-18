@@ -63,6 +63,10 @@ Original problem from Open Ural FU Championship 2012 | by Tatiana Sharypova (pre
 
 没有特别需要注意的地方。
 
+使用较小的字节缓冲区读取整数，一次扫描同时求和与最大值。通过的提交 11302269 用时 0.109 秒、占用 340 KB；简单版用时 0.109 秒、占用 1720 KB。
+
+保留简单的总和加最大值算法与缓冲输入，先刷新答案，再调用 os._exit(0) 直接退出，跳过解释器清理。通过的提交 11324646 用时 0.140 秒、占用 200 KB；简单版用时 0.078 秒、占用 332 KB。记录的运行时间高于简单版。
+
 ## 解答
 
 ### 简单版本
@@ -80,3 +84,7 @@ Original problem from Open Ural FU Championship 2012 | by Tatiana Sharypova (pre
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
+
+\* 带星号的解法尚未达到目标排名，仍可优化。
