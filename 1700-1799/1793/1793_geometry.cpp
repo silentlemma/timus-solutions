@@ -3,7 +3,8 @@
 
 int main() {
     long long a, b, d, r1, top1, r2, top2, h;
-    if (!(std::cin >> a >> b >> d >> r1 >> top1 >> r2 >> top2 >> h)) return 0;
+    if (!(std::cin >> a >> b >> d >> r1 >> top1 >> r2 >> top2 >> h))
+        return 0;
     // the widest part of a plate inside the borders, at height min(d, h),
     // scaled by h to stay in integers
     long long low = std::min(d, h);

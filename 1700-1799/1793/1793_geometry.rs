@@ -3,7 +3,10 @@ use std::io::{self, Read};
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i64> = input.split_ascii_whitespace().map(|x| x.parse().unwrap()).collect();
+    let v: Vec<i64> = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().unwrap())
+        .collect();
     let [a, b, d, r1, top1, r2, top2, h] = v[..] else {
         return;
     };

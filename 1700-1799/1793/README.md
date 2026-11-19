@@ -22,6 +22,10 @@ numbers are whole, from 1 to 1000.
 
 "YES" if the plates can be placed, otherwise "NO".
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -89,9 +93,21 @@ diagonal.
 
 ## Optimized solutions
 
+`1793_geometry_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1793_geometry.java`: time 0.156 s → 0.109 s; memory 1592 KB → 504 KB.
+
 C++ and Go keep the same exact scaled-radius test. First check whether each plate fits the shorter tray side at the border height. Only then compare the squared separation of the opposite allowed corners with the squared sum of the top radii. The final products use signed 64-bit arithmetic, and output is the constant string YES or NO. Go reads the eight positive integers through a fixed byte buffer, without scanner tokens or string conversion. It uses standard handles directly, retrying interrupted calls and completing partial writes.
 
 The accepted base implementations [1793_geometry.java](1793_geometry.java), [1793_geometry.py](1793_geometry.py), [1793_geometry.rs](1793_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`1793_geometry_optimized.java`: time place 8/31, memory place 3/31 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -99,11 +115,11 @@ The accepted base implementations [1793_geometry.java](1793_geometry.java), [179
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1793_geometry.cpp](1793_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 384 KB | 11289864 |
+| [1793_geometry.cpp](1793_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 368 KB | 11325581 |
 | [1793_geometry.go](1793_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1076 KB | 11289865 |
 | [1793_geometry.java](1793_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.156 s | 1592 KB | 11289867 |
 | [1793_geometry.py](1793_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 432 KB | 11289866 |
-| [1793_geometry.rs](1793_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 220 KB | 11289870 |
+| [1793_geometry.rs](1793_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 216 KB | 11325607 |
 
 ### Optimized
 
@@ -111,5 +127,6 @@ The accepted base implementations [1793_geometry.java](1793_geometry.java), [179
 |---|---|---|---|---|---|---|---|
 | [1793_geometry_optimized.cpp](1793_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 104 KB | 11310893 |
 | [1793_geometry_optimized.go](1793_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 312 KB | 11311212 |
+| [1793_geometry_optimized.java](1793_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 504 KB | 11324814 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
