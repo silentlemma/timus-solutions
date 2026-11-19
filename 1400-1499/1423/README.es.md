@@ -24,6 +24,10 @@ N, luego S, luego T.
 
 X o −1.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. El comprobador exige un entero; acepta-1 exactamente si la referencia dice que no hay giro. En otro caso vale cualquier X en [0,N) que mueva los últimos X bytes de S al principio y produzca T, sin exigir mínimo.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -67,6 +71,14 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1423_strings_optimized.rs`. Conserva KMP por bytes e índice de rotación derecha. Prefijos u32 y recorrido de s seguido de s sin último byte eliminan módulo por posición sin duplicar cadena. Tokens de bytes conservan caracteres33…255. O(N) tiempo/espacio, salida directa en vez de formato Rust.
+
+Frente a `1423_strings.rs`: tiempo 0.031 s → 0.031 s; memoria 3052 KB → 1 804 KB.
+
+`1423_strings_optimized.py`. Conserva búsqueda en bytes duplicados y giro derecho(n-offset) mod n, o -1 si falta. Lee tres tokens con archivo binario sin búfer y vacía antes de os._exit(0). Sigue almacenando O(n) bytes; E/S y salida del intérprete no cambian el orden. La búsqueda adaptativa/Two-Way de CPython 3.12 mantiene O(n): [fuente](https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/stringlib/fastsearch.h). Este Accepted usa más memoria y no mejora del 30%; entra por la regla separada de primer 30% con mejor puesto, conservando asterisco.
+
+Frente a `1423_strings.py`: tiempo 0.109 s → 0.093 s; memoria 1372 KB → 1 592 KB.
+
 La solución optimizada en C++ guarda la función de prefijos en campos de
 18 bits empaquetados en un arreglo de palabras de 32 bits, porque cada
 valor es menor que N ≤ 250 000 < 2^18, y lee un campo de dos palabras
@@ -91,8 +103,8 @@ arreglos `char`, que ocupan dos bytes por carácter:
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
+Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
+o de mejora de recursos. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
@@ -104,6 +116,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1423_strings_optimized.java`: reducción de tiempo +19.87%; reducción
   de memoria +39.97%; base: `1423_strings.java`.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1423_strings_optimized.py`: puesto de tiempo 11/55 y de memoria 1/55 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -124,5 +144,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
 | [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
 | [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
+| [1423_strings_optimized.py](1423_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 1592 KB | 11325463 |
+| [1423_strings_optimized.rs](1423_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

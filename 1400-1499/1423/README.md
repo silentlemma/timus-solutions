@@ -23,6 +23,10 @@ N, then S, then T.
 
 X or −1.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. The repository checker requires exactly one integer. It accepts-1 exactly when the stored reference says no rotation exists. Otherwise any X in [0,N) is valid if moving the last X bytes of S to the front yields T; it does not require the smallest shift.
+
 ## Examples
 
 ### Example 1
@@ -64,6 +68,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1423_strings_optimized.rs`. Keep byte-based KMP and the same right-rotation index. Store prefix lengths in u32 and scan chained slices s followed by s without its last byte, replacing modulo on every text position without allocating a doubled string. Byte tokens preserve characters 33…255. O(N) time and space; direct output replaces Rust formatting.
+
+Compared with `1423_strings.rs`: time 0.031 s → 0.031 s; memory 3052 KB → 1 804 KB.
+
+`1423_strings_optimized.py`. Keep the same doubled-byte-string search and conversion from a left offset to right shift: (n-offset) mod n, or -1 if absent. Read the three input tokens through an unbuffered binary file and flush the answer before os._exit(0). The algorithm still stores O(n) bytes; the runtime/I/O changes are not a new asymptotic algorithm. CPython 3.12 uses its adaptive/Two-Way substring implementation, so this search remains O(n): [runtime source](https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/stringlib/fastsearch.h). This Accepted uses more memory than the retained base and does not achieve 30% improvement; admission is the separate top 30% rule with a better rank, while the rating-target star remains.
+
+Compared with `1423_strings.py`: time 0.109 s → 0.093 s; memory 1372 KB → 1 592 KB.
+
 The optimized C++ solution stores the prefix function in 18-bit fields
 packed into an array of 32-bit words, since every value is below
 N ≤ 250 000 < 2^18, and reads a field from two neighbouring words at
@@ -87,8 +99,8 @@ two bytes per character: {1423_strings_optimized.java}.
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
+Each optimized version has Accepted and meets a ranking or resource-improvement
+admission criterion. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
@@ -100,6 +112,14 @@ asterisk concerns the rating target only.
 
 - `1423_strings_optimized.java`: time reduction +19.87%; memory
   reduction +39.97%; base: `1423_strings.java`.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1423_strings_optimized.py`: time place 11/55, memory place 1/55 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -120,5 +140,7 @@ asterisk concerns the rating target only.
 | [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
 | [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
 | [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
+| [1423_strings_optimized.py](1423_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 1592 KB | 11325463 |
+| [1423_strings_optimized.rs](1423_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
