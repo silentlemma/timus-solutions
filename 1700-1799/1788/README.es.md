@@ -24,6 +24,10 @@ n y m (1 ≤ n, m ≤ 100), luego g₁, …, gₙ, luego b₁, …, bₘ, todos 
 
 El menor disgusto total.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -94,15 +98,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1788_greedy_optimized.java`: reducción de tiempo +25.60%; reducción
   de memoria +78.62%; base: `1788_greedy.java`.
 
+`1788_greedy_optimized.rs`. Mantiene la misma elección voraz de las k chicas y chicos más sensibles. Tras ordenar, conserva sumas de prefijos sin pareja: al aumentar k quita de cada suma solo el mayor valor restante. Evalúa girls_sum+k*boys_sum en O(1) por k, incluido cero, sin volver a sumar secciones. Tiempo total O(n log n+m log m), espacio O(n+m). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1788_greedy.rs`: tiempo 0.046 s → 0.046 s; memoria 232 KB → 72 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1788_greedy.go](1788_greedy.go).
-- [1788_greedy.rs](1788_greedy.rs).
+`1788_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -122,3 +128,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1788_greedy_optimized.cpp](1788_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O((n + m)^2) | AC | 0.015 s | 172 KB | 11307198 |
 | [1788_greedy_optimized.java](1788_greedy_optimized.java) | Java 1.8 | greedy | O((n + m)^2) | AC | 0.093 s | 396 KB | 11307199 |
+| [1788_greedy_optimized.rs](1788_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n+m log m) | AC | 0.046 s | 72 KB | 11325110 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

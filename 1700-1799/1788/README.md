@@ -23,6 +23,10 @@ to 1000.
 
 The smallest total upset.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -91,15 +95,17 @@ asterisk concerns the rating target only.
 - `1788_greedy_optimized.java`: time reduction +25.60%; memory reduction
   +78.62%; base: `1788_greedy.java`.
 
+`1788_greedy_optimized.rs`. Keep the same greedy choice of the k most sensitive girls and boys. After sorting, maintain sums of the unpaired prefixes: increasing k removes just one largest remaining value from each sum. Evaluate girls_sum+k*boys_sum in O(1) per k, including k=0, rather than resumming two slices. Total time O(n log n+m log m), storage O(n+m). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1788_greedy.rs`: time 0.046 s → 0.046 s; memory 232 KB → 72 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1788_greedy.go](1788_greedy.go).
-- [1788_greedy.rs](1788_greedy.rs).
+`1788_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -119,3 +125,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1788_greedy_optimized.cpp](1788_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O((n + m)^2) | AC | 0.015 s | 172 KB | 11307198 |
 | [1788_greedy_optimized.java](1788_greedy_optimized.java) | Java 1.8 | greedy | O((n + m)^2) | AC | 0.093 s | 396 KB | 11307199 |
+| [1788_greedy_optimized.rs](1788_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n+m log m) | AC | 0.046 s | 72 KB | 11325110 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
