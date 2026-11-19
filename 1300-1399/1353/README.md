@@ -21,6 +21,10 @@ The number S.
 
 The count.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -58,16 +62,51 @@ Pitfalls:
 The same table for 10⁶ in place of 10⁹ was compared with counting the
 digit sums of every number up to 10⁶.
 
+## Optimized solutions
+
+`1353_dp_optimized.java`. Retain the nine-digit DP and the extra number 10^9 when S=1. Replace ten digit transitions per sum by a sliding sum of ten previous states, reusing two long arrays of S+1 cells. The one input integer is parsed through a 1024-byte buffer instead of Scanner. Time O(9S), auxiliary space O(S); the basic ten-transition DP remains unchanged. Admission follows the own Accepted memory measurements, not a first-place claim.
+
+Compared with `1353_dp.java`: time 0.125 s → 0.093 s; memory 1 576 KB → 476 KB.
+
+`1353_dp_optimized.py`. Keep digit DP, but calculate each next row with a sliding sum rather than ten additions per state. Only sums up to min(S,9k) are stored after k digits, using two rows; time O(9S), auxiliary space O(S). The input has one bounded integer. Flush the complete answer before os._exit(0), which skips interpreter teardown; this alone is not an algorithmic speed guarantee. The judge used PyPy 3.10, while the retained simple source was rechecked on CPython 3.12: the displayed measurements belong to those compiler/runtime pairs. Memory improves from 496 KB to 228 KB, while time increases from 0.093 s to 0.125 s. Keep the simple source and mark the unmet rating target.
+
+Compared with `1353_dp.py`: time 0.093 s → 0.125 s; memory 496 KB → 228 KB.
+
+`1353_dp_optimized.rs`. Retain the same digit DP, replacing ten digit transitions by a sliding sum of ten previous states. Two fixed arrays of 82 u32 cells cover all sums through 81; only reachable sums are visited after each digit. For D=9 digits and M=9D, time is O(DM) and auxiliary space O(M), both bounded constants for this task. Counts never exceed the 10^9 possible digit strings and fit u32. C-runtime byte input/output avoids the standard Rust text and formatting allocations. Keep the extra 10^9 for S=1 and retain the simple source. The measured gain is memory; do not infer a speedup from a different historical run.
+
+Compared with `1353_dp.rs`: time 0.062 s → 0.062 s; memory 216 KB → 60 KB.
+
 ## Language notes
 
-- All five solutions build the table digit by digit in the same way.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The five simple source files are unchanged. Their table rows now use the new exact-source Accepted rechecks, including both measurements and the submission ID; the original README tables are retained in the integration backup. These rechecks are not optimization claims.
+
+`1353_dp_optimized.java`: time place 4/94, memory place 10/94 in this comparable sample.
+
+`1353_dp_optimized.py`: time place 71/97, memory place 1/97 in this comparable sample.
+
+`1353_dp_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
-| Solution | Language | Approach | Complexity | Verdict | Time | Memory |
-|----------|----------|----------|------------|---------|------|--------|
-| [1353_dp.cpp](1353_dp.cpp) | G++ 13.2 x64 | dp | O(9·81·10) | AC | 0.015 s | 200 KB |
-| [1353_dp.go](1353_dp.go) | Go 1.14 x64 | dp | O(9·81·10) | AC | 0.031 s | 1124 KB |
-| [1353_dp.java](1353_dp.java) | Java 1.8 | dp | O(9·81·10) | AC | 0.109 s | 1584 KB |
-| [1353_dp.py](1353_dp.py) | Python 3.12 x64 | dp | O(9·81·10) | AC | 0.093 s | 444 KB |
-| [1353_dp.rs](1353_dp.rs) | Rust 1.75 x64 | dp | O(9·81·10) | AC | 0.015 s | 228 KB |
+### Simple
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission ID |
+|----------|----------|----------|------------|---------|------|--------|----------|
+| [1353_dp.cpp](1353_dp.cpp) | G++ 13.2 x64 | dp | O(9·81·10) | AC | 0.015 s | 184 KB | 11325593 |
+| [1353_dp.go](1353_dp.go) | Go 1.14 x64 | dp | O(9·81·10) | AC | 0.031 s | 1096 KB | 11325576 |
+| [1353_dp.java](1353_dp.java) | Java 1.8 | dp | O(9·81·10) | AC | 0.125 s | 1576 KB | 11325572 |
+| [1353_dp.py](1353_dp.py) | Python 3.12 x64 | dp | O(9·81·10) | AC | 0.093 s | 496 KB | 11325599 |
+| [1353_dp.rs](1353_dp.rs) | Rust 1.75 x64 | dp | O(9·81·10) | AC | 0.062 s | 216 KB | 11325616 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission ID |
+|----------|----------|----------|------------|---------|------|--------|----------|
+| [1353_dp_optimized.java](1353_dp_optimized.java) \* | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
+| [1353_dp_optimized.py](1353_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(9S) time; O(S) space | AC | 0.125 s | 228 KB | 11325475 |
+| [1353_dp_optimized.rs](1353_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
+
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
