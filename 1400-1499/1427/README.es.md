@@ -24,6 +24,10 @@ N y M, luego el texto en su propia línea.
 
 El menor número de mensajes.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -61,9 +65,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1427_greedy_optimized.py`. Mantiene elección voraz del alcance máximo e isalpha Unicode. En vez de array de rachas de longitud L, examina solo letras/espacios consumidos por mensaje hasta el máximo. Todo carácter examinado se consume antes de la siguiente iteración: O(L) total. Retiene línea UTF-8: O(L) espacio de entrada y O(1) estado adicional. Quita solo CR/LF, conservando espacios y puntuación.
+
+Frente a `1427_greedy.py`: tiempo 0.093 s → 0.14 s; memoria 4392 KB → 1 852 KB.
+
 C++ y Go amplían el mensaje actual mientras leen el texto. Guardan su longitud y si todos sus caracteres son letras o espacios. Si el carácter siguiente excedería el límite aplicable, cierran el mensaje y usan ese carácter para empezar otro. Es la misma regla voraz y usa tiempo O(L) y espacio adicional O(1).
 
 Las implementaciones base aceptadas [1427_greedy.java](1427_greedy.java), [1427_greedy.py](1427_greedy.py), [1427_greedy.rs](1427_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1427_greedy_optimized.py`: puesto de tiempo 4/11 y de memoria 5/11 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -83,5 +99,6 @@ Las implementaciones base aceptadas [1427_greedy.java](1427_greedy.java), [1427_
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(L) | AC | 0.031 s | 112 KB | 11310456 |
 | [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
+| [1427_greedy_optimized.py](1427_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

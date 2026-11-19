@@ -24,6 +24,10 @@ N and M, then the text on its own line.
 
 The smallest number of messages.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -61,9 +65,21 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1427_greedy_optimized.py`. Keep the same farthest-reach greedy message count and Unicode isalpha semantics. Instead of precomputing a length-L suffix-run array, scan only the letters/spaces consumed by the current message, up to the maximum length. Every scanned character is consumed before the next iteration, so total scanning is O(L). The UTF-8 text line itself is retained: O(L) input storage, with O(1) additional state. Strip only CR/LF, preserving meaningful spaces and punctuation.
+
+Compared with `1427_greedy.py`: time 0.093 s → 0.14 s; memory 4392 KB → 1 852 KB.
+
 C++ and Go extend the current message while reading the text. Keep its length and whether every character so far is a letter or space. Once the next character would exceed the applicable limit, finish the current message and use that character to start the next. This implements the same longest-message rule in O(L) time with O(1) extra space.
 
 The accepted base implementations [1427_greedy.java](1427_greedy.java), [1427_greedy.py](1427_greedy.py), [1427_greedy.rs](1427_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1427_greedy_optimized.py`: time place 4/11, memory place 5/11 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -83,5 +99,6 @@ The accepted base implementations [1427_greedy.java](1427_greedy.java), [1427_gr
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(L) | AC | 0.031 s | 112 KB | 11310456 |
 | [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
+| [1427_greedy_optimized.py](1427_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
