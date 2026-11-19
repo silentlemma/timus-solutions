@@ -24,6 +24,10 @@ N.
 
 "White" or "Black".
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -101,6 +105,10 @@ Go computes the same first200 Grundy values and keeps the same period folding as
 
 The accepted base implementations [1465_games.cpp](1465_games.cpp), [1465_games.java](1465_games.java), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1465_games_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1465_games.java`: time 0.140 s → 0.14 s; memory 1720 KB → 668 KB.
+
 ## Solutions
 
 ### Simple
@@ -118,5 +126,6 @@ The accepted base implementations [1465_games.cpp](1465_games.cpp), [1465_games.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+| [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

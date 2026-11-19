@@ -25,6 +25,10 @@ N.
 
 «White» o «Black».
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -104,6 +108,10 @@ Go calcula los mismos primeros200 Grundy y conserva el plegado periódico de la 
 
 Las implementaciones base aceptadas [1465_games.cpp](1465_games.cpp), [1465_games.java](1465_games.java), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1465_games_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1465_games.java`: tiempo 0.140 s → 0.14 s; memoria 1720 KB → 668 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -121,5 +129,6 @@ Las implementaciones base aceptadas [1465_games.cpp](1465_games.cpp), [1465_game
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
+| [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
