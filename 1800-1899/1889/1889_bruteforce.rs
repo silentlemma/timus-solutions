@@ -27,8 +27,10 @@ fn main() {
     let mut words = input.split_ascii_whitespace();
     let n: usize = words.next().unwrap().parse().unwrap();
     let phrases: Vec<&str> = words.take(n).collect();
-    let counts: Vec<String> =
-        (1..=n).filter(|&k| n % k == 0 && fits(&phrases, n / k)).map(|k| k.to_string()).collect();
+    let counts: Vec<String> = (1..=n)
+        .filter(|&k| n % k == 0 && fits(&phrases, n / k))
+        .map(|k| k.to_string())
+        .collect();
     if counts.is_empty() {
         println!("Igor is wrong.");
     } else {

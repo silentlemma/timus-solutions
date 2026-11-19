@@ -18,6 +18,10 @@ n（2 ≤ n ≤ 1000），然后是 n 行，每行为语言名（4 到 20 个小
 
 按递增顺序列出所有可能的语言数，或者 "Igor is wrong."。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -91,9 +95,21 @@ zulu
 
 ## 优化解法
 
+`1889_bruteforce_optimized.java`. 仍只检查 n 的约数 k，扫描每块是否一致。已知语言一次映射为正整数 ID，unknown 为零。以代际标记 int 数组防止同一已知语言跨块出现，替代每约数新建 HashSet 和反复比较字符串。每块仍最多一个已知 ID，未知块可分配不同未用语言。按 k 递增输出，保留精确失败句。tau(n) 个约数、名字至多20字符时，期望 O(n·tau(n)) 时间、O(n) 空间；哈希是期望代价，不是最坏保证。仍为同一枚举算法，数据更紧凑，输入缓冲256字节。
+
+与 `1889_bruteforce.java` 相比：时间 0.125 s → 0.109 s；内存 684 KB → 708 KB。
+
 Go 将已知短语压缩为连续语言组，保存名称及首尾短语编号。开放寻址表拒绝在其他已知语言之后再次出现的语言。对 n 的每个因数，检查每组均位于同一块内，且不同组使用不同块。d(n) 表示 n 的因数个数。最坏情况下哈希冲突会使分组构建耗时达到平方级。输入输出使用固定字节缓冲区；即使哈希冲突，也在 20 字节数组中精确比较名称。
 
 已通过评测的基础实现 [1889_bruteforce.cpp](1889_bruteforce.cpp), [1889_bruteforce.java](1889_bruteforce.java), [1889_bruteforce.py](1889_bruteforce.py), [1889_bruteforce.rs](1889_bruteforce.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`1889_bruteforce_optimized.java`：在该可比样本中，时间名次 6/22，内存名次 1/22。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -101,16 +117,17 @@ Go 将已知短语压缩为连续语言组，保存名称及首尾短语编号�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.015 s | 532 KB | 11291118 |
+| [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.001 s | 512 KB | 11325660 |
 | [1889_bruteforce.go](1889_bruteforce.go) | Go 1.14 x64 | bruteforce | O(n d(n)) | AC | 0.031 s | 1236 KB | 11291120 |
 | [1889_bruteforce.java](1889_bruteforce.java) | Java 1.8 | bruteforce | O(n d(n)) | AC | 0.125 s | 684 KB | 11291124 |
-| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.093 s | 476 KB | 11291122 |
-| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.015 s | 452 KB | 11291126 |
+| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
+| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
+| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

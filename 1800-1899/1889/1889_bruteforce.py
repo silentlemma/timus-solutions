@@ -8,7 +8,7 @@ def fits(phrases, size):
     # in two blocks
     used = set()
     for start in range(0, len(phrases), size):
-        known = {p for p in phrases[start:start + size] if p != UNKNOWN}
+        known = {p for p in phrases[start : start + size] if p != UNKNOWN}
         if len(known) > 1 or known & used:
             return False
         used |= known

@@ -24,6 +24,10 @@ letras minúsculas) o "unknown"; al menos una frase es conocida.
 Todos los números de idiomas posibles en orden creciente, o
 "Igor is wrong.".
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -108,9 +112,21 @@ en 125 avisos aleatorios.
 
 ## Soluciones optimizadas
 
+`1889_bruteforce_optimized.java`. Sigue probando divisores k de n y coherencia por bloque. Asigna una vez IDs positivos a idiomas conocidos y cero a unknown. int[] con generaciones impide que un conocido aparezca en dos bloques, sin HashSet nuevo ni comparaciones de cadenas por divisor. Cada bloque permite un ID conocido; bloques desconocidos reciben idiomas distintos sin usar. k creciente y frase de fallo exacta. Con tau(n) divisores y nombres<=20, tiempo esperado O(n·tau(n)), espacio O(n); hash esperado, sin promesa peor caso. Mismo algoritmo exhaustivo con datos compactos y entrada256bytes.
+
+Frente a `1889_bruteforce.java`: tiempo 0.125 s → 0.109 s; memoria 684 KB → 708 KB.
+
 Go comprime las frases conocidas en grupos consecutivos de idioma y guarda el nombre y los índices inicial y final. Una tabla de direccionamiento abierto rechaza un idioma que reaparece tras otro conocido. Para cada divisor de n, cada grupo debe ocupar un único bloque y los grupos distintos deben usar bloques distintos. d(n) cuenta los divisores de n. Las colisiones pueden hacer cuadrática la construcción de grupos en el peor caso. La entrada y salida usan búferes fijos de bytes; los nombres se comparan exactamente en matrices de 20 bytes incluso cuando hay colisiones de hash.
 
 Las implementaciones base aceptadas [1889_bruteforce.cpp](1889_bruteforce.cpp), [1889_bruteforce.java](1889_bruteforce.java), [1889_bruteforce.py](1889_bruteforce.py), [1889_bruteforce.rs](1889_bruteforce.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`1889_bruteforce_optimized.java`: puesto de tiempo 6/22 y de memoria 1/22 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -118,16 +134,17 @@ Las implementaciones base aceptadas [1889_bruteforce.cpp](1889_bruteforce.cpp), 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.015 s | 532 KB | 11291118 |
+| [1889_bruteforce.cpp](1889_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(n d(n) log n) | AC | 0.001 s | 512 KB | 11325660 |
 | [1889_bruteforce.go](1889_bruteforce.go) | Go 1.14 x64 | bruteforce | O(n d(n)) | AC | 0.031 s | 1236 KB | 11291120 |
 | [1889_bruteforce.java](1889_bruteforce.java) | Java 1.8 | bruteforce | O(n d(n)) | AC | 0.125 s | 684 KB | 11291124 |
-| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.093 s | 476 KB | 11291122 |
-| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.015 s | 452 KB | 11291126 |
+| [1889_bruteforce.py](1889_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(n d(n)) | AC | 0.078 s | 528 KB | 11325663 |
+| [1889_bruteforce.rs](1889_bruteforce.rs) \* | Rust 1.75 x64 | bruteforce | O(n d(n)) | AC | 0.046 s | 448 KB | 11325666 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1889_bruteforce_optimized.go](1889_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(n² + n d(n)) worst case | AC | 0.031 s | 792 KB | 11311147 |
+| [1889_bruteforce_optimized.java](1889_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(n tau(n)) expected | AC | 0.109 s | 708 KB | 11325437 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
