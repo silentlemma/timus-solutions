@@ -88,6 +88,10 @@ Go conserva la criba y la comparación de exponentes de Legendre. Trata el primo
 
 Las implementaciones base aceptadas [1055_number_theory.cpp](1055_number_theory.cpp), [1055_number_theory.java](1055_number_theory.java), [1055_number_theory.py](1055_number_theory.py), [1055_number_theory.rs](1055_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1055_number_theory_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1055_number_theory.java`: tiempo 0.093 s → 0.109 s; memoria 1680 KB → 520 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -112,5 +116,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1055_number_theory_optimized.go](1055_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(N log log N) | AC | 0.015 s | 352 KB | 11314956 |
+| [1055_number_theory_optimized.java](1055_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(N log log N) | AC | 0.109 s | 520 KB | 11324817 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
