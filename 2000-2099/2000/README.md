@@ -121,6 +121,18 @@ the original player labels when the first start is to the right.
 
 ## Optimized solutions
 
+`2000_prefix_sums.rs`. Build u32 prefix sums while reading the values, then evaluate the same two-start/equal-start score formulas in O(1). The total≤10⁹ bounds every prefix; no value vector or repeated slice sums are needed. Overall O(n) time and O(n) space. This prefix-sum algorithm has its own filename and the original direct-sum version is retained.
+
+Compared with `2000_games.rs`: time 0.046 s → 0.046 s; memory 2916 KB → 456 KB.
+
+`2000_prefix_sums.py`. Keep the same optimal midpoint/equal-start game result, but read integers in 4096-byte chunks and build only prefix sums. The two starting positions appear after all values; once known, a prefix lookup or two-prefix subtraction gives each score, including the midpoint tie favoring the first player. Equal starts take that cell plus the larger outside side. There is no values array or full input-token list. Time remains O(n), storage O(n) Python prefix integers plus bounded input chunks; this is not constant-space streaming. Values and totals use exact integers. The distinct prefix_sums filename describes the changed representation; the simple games source and existing Java optimization remain. Own Accepted memory 6152 KB versus 11780 KB admits the version despite unchanged 0.125 second time.
+
+Compared with `2000_games.py`: time 0.125 s → 0.125 s; memory 11780 KB → 6 152 KB.
+
+`2000_games_optimized.java`. Keep the same optimal-score interval rule and first-player tie advantage, including coincident starting cells. Store the bounded cell values in int[] instead of long[], while keeping total and score in long. Accumulate the total during input, then sum only the selected side or midpoint interval; return the second score as total-score. This removes the extra result array and formatted output concatenation, but retains O(n) storage because the two starts arrive after the values. Time O(n), with no simulation of the alternating game.
+
+Compared with `2000_games.java`: time 0.140 s → 0.125 s; memory 1300 KB → 948 KB.
+
 The optimized C++ solution keeps the values in a global array of 100 000
 `uint16_t` instead of a `vector` of 64-bit integers, since a value is at
 most 10000, and sums them in `int`, since the total is at most
@@ -135,8 +147,8 @@ reader instead of `fmt.Fscan`: {2000_games_optimized.go}.
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
+Each optimized version has Accepted and meets a ranking or resource-improvement
+admission criterion. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
@@ -145,6 +157,16 @@ asterisk concerns the rating target only.
 
 - `2000_games_optimized.go`: time reduction +50.00%; memory reduction
   +50.40%; base: `2000_games.go`.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2000_games_optimized.java`: time place 18/88, memory place 8/88 in this comparable sample.
+
+`2000_prefix_sums.py`: time place 2/19, memory place 1/19 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -164,3 +186,8 @@ asterisk concerns the rating target only.
 |---|---|---|---|---|---|---|---|
 | [2000_games_optimized.cpp](2000_games_optimized.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 276 KB | 11307194 |
 | [2000_games_optimized.go](2000_games_optimized.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1232 KB | 11307195 |
+| [2000_games_optimized.java](2000_games_optimized.java) \* | Java 1.8 | games | O(n) | AC | 0.125 s | 948 KB | 11325024 |
+| [2000_prefix_sums.py](2000_prefix_sums.py) \* | Python 3.12 x64 | prefix_sums | O(n) | AC | 0.125 s | 6152 KB | 11325460 |
+| [2000_prefix_sums.rs](2000_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(n) time; O(n) space | AC | 0.046 s | 456 KB | 11325507 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

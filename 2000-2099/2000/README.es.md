@@ -109,6 +109,18 @@ Conservar las identidades si el primero empieza a la derecha.
 
 ## Soluciones optimizadas
 
+`2000_prefix_sums.rs`. Construye prefijos u32 al leer y evalúa mismas fórmulas de inicios iguales/distintos en O(1). Total≤10⁹ acota prefijos, sin vector de valores ni sumas repetidas. O(n) tiempo/espacio total. Prefijos tienen nombre propio; conserva versión directa.
+
+Frente a `2000_games.rs`: tiempo 0.046 s → 0.046 s; memoria 2916 KB → 456 KB.
+
+`2000_prefix_sums.py`. Mantiene resultado óptimo por punto medio o inicio coincidente, pero lee bloques4096 y construye solo prefijos. Inicios llegan tras los valores: luego basta consulta o resta de prefijos, conservando empate central para primero. Coincidentes toman celda y lado exterior mayor. No guarda valores aparte ni todos los tokens. O(n) tiempo, O(n) enteros Python y bloques acotados; no espacio constante. Enteros exactos. prefix_sums describe representación; conserva games simple y Java optimizado. Accepted6152frente11780KB admite con tiempo igual0.125s.
+
+Frente a `2000_games.py`: tiempo 0.125 s → 0.125 s; memoria 11780 KB → 6 152 KB.
+
+`2000_games_optimized.java`. Conserva la regla de intervalo óptimo y ventaja del primero en empates, incluidos inicios coincidentes. Guarda valores acotados en int[] en vez de long[], manteniendo total y score en long. Suma el total al leer y luego solo el lado o intervalo elegido; el segundo recibe total-score. Elimina arreglo de resultado y concatenación, pero retiene O(n) espacio porque los inicios llegan después. Tiempo O(n), sin simular turnos.
+
+Frente a `2000_games.java`: tiempo 0.140 s → 0.125 s; memoria 1300 KB → 948 KB.
+
 La solución optimizada en C++ guarda los valores en un arreglo global de
 100 000 `uint16_t` en lugar de un `vector` de enteros de 64 bits, ya que
 un valor no pasa de 10000, y los suma en `int`, ya que el total no pasa
@@ -123,8 +135,8 @@ a `int64` al sumar; los números se analizan a mano desde un lector
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
+Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
+o de mejora de recursos. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
@@ -133,6 +145,16 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `2000_games_optimized.go`: reducción de tiempo +50.00%; reducción de
   memoria +50.40%; base: `2000_games.go`.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`2000_games_optimized.java`: puesto de tiempo 18/88 y de memoria 8/88 en esta muestra comparable.
+
+`2000_prefix_sums.py`: puesto de tiempo 2/19 y de memoria 1/19 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -152,3 +174,8 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [2000_games_optimized.cpp](2000_games_optimized.cpp) | G++ 13.2 x64 | games | O(n) | AC | 0.015 s | 276 KB | 11307194 |
 | [2000_games_optimized.go](2000_games_optimized.go) | Go 1.14 x64 | games | O(n) | AC | 0.031 s | 1232 KB | 11307195 |
+| [2000_games_optimized.java](2000_games_optimized.java) \* | Java 1.8 | games | O(n) | AC | 0.125 s | 948 KB | 11325024 |
+| [2000_prefix_sums.py](2000_prefix_sums.py) \* | Python 3.12 x64 | prefix_sums | O(n) | AC | 0.125 s | 6152 KB | 11325460 |
+| [2000_prefix_sums.rs](2000_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(n) time; O(n) space | AC | 0.046 s | 456 KB | 11325507 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
