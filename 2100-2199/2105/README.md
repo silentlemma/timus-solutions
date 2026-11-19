@@ -63,25 +63,25 @@ metres on a path of 10: two meetings.
 
 ## Optimized solutions
 
+`2105_math_optimized.go`. Keep the opposite-direction total-distance formula. Stream each participant/start/duration triple and accumulate two resting totals; start times are unnecessary under the promised nonoverlapping intervals. O(n) time and constant auxiliary storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `2105_math.go`: time 0.015 s → 0.031 s; memory 1084 KB → 284 KB.
+
+`2105_math_optimized.rs`. Keep the same opposite-direction total-distance formula and two accumulated resting durations. Stream each kid/start/duration triple directly, discarding start as before because the promised intervals do not overlap and only total rest matters. Remove retained input text and Rust formatting, without changing meeting-time arithmetic. O(n) time, O(1) auxiliary storage, with the original readable formula source retained.
+
+Compared with `2105_math.rs`: time 0.015 s → 0.031 s; memory 196 KB → 60 KB.
+
 Relative distance is monotone: add (speedA+speedB)*T, then subtract speed*duration for every stop of that rider. Nonoverlapping stops make these subtractions exact regardless of their start times. Each new multiple of track length creates one meeting; a stationary interval at an already reached multiple does not create more. Therefore the quotient of total relative distance by track length is the answer. The compact implementations keep only the running total and discard stop records after reading. Python uses the existing text streams and exact integer arithmetic. Preserve all five readable versions.
 
 - `2105_math_optimized.py`: 0.125 s / 264 KB; base `2105_math.py`: 0.062 s / 440 KB; relative change: time +101.6%, memory -40.0%.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`2105_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `2105_math.cpp`; covering source `2105_math.cpp`; time/memory places 1/2, other-author entries 62/61.
-
-- Go: preferred teaching base `2105_math.go`; covering source `2105_math.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `2105_math.java`; covering source `2105_math.java`; time/memory places 1/1, other-author entries 4/4.
-
-- Python/PyPy: preferred teaching base `2105_math.py`; covering source `2105_math_optimized.py`; time/memory places 95/1, other-author entries 101/101.
-
-- Rust: preferred teaching base `2105_math.rs`; covering source `2105_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -100,5 +100,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2105_math_optimized.py](2105_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.125 s | 264 KB | 11309678 |
+| [2105_math_optimized.rs](2105_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 60 KB | 11325618 |
+| [2105_math_optimized.go](2105_math_optimized.go) \* | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

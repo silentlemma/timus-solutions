@@ -63,25 +63,25 @@ metros en un camino de 10: dos encuentros.
 
 ## Soluciones optimizadas
 
+`2105_math_optimized.go`. Conserva fórmula de distancia total en sentidos opuestos. Lee triples participante/inicio/duración y acumula dos tiempos de descanso; inicios innecesarios por intervalos no solapados garantizados. O(n) tiempo y espacio auxiliar constante. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `2105_math.go`: tiempo 0.015 s → 0.031 s; memoria 1084 KB → 284 KB.
+
+`2105_math_optimized.rs`. Mantiene fórmula de distancia total en sentidos opuestos y dos sumas de descanso. Lee triples participante/inicio/duración en flujo; descarta inicio como antes, pues intervalos no se solapan y solo importa descanso total. Elimina texto retenido y formato Rust sin cambiar cálculo de encuentros. O(n) tiempo, O(1) espacio; conserva fuente legible con fórmula.
+
+Frente a `2105_math.rs`: tiempo 0.015 s → 0.031 s; memoria 196 KB → 60 KB.
+
 La distancia relativa es monótona: (speedA+speedB)*T menos speed*duration de cada parada del ciclista correspondiente. Al no solaparse sus paradas, la resta es exacta sin depender del inicio. Cada nuevo múltiplo de la longitud crea un encuentro; detenerse en un múltiplo ya alcanzado no crea otros. El cociente es la respuesta. Las variantes compactas solo guardan el acumulado y descartan cada parada leída. Python usa los flujos existentes y enteros exactos. Se conservan las cinco bases.
 
 - `2105_math_optimized.py`: 0.125 s / 264 KB; base `2105_math.py`: 0.062 s / 440 KB; cambio respecto a la base: tiempo +101.6%, memoria -40.0%.
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`2105_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `2105_math.cpp`; fuente que cubre `2105_math.cpp`; puestos tiempo/memoria 1/2, registros de otros autores 62/61.
-
-- Go: base didáctica preferida `2105_math.go`; fuente que cubre `2105_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `2105_math.java`; fuente que cubre `2105_math.java`; puestos tiempo/memoria 1/1, registros de otros autores 4/4.
-
-- Python/PyPy: base didáctica preferida `2105_math.py`; fuente que cubre `2105_math_optimized.py`; puestos tiempo/memoria 95/1, registros de otros autores 101/101.
-
-- Rust: base didáctica preferida `2105_math.rs`; fuente que cubre `2105_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -100,5 +100,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2105_math_optimized.py](2105_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.125 s | 264 KB | 11309678 |
+| [2105_math_optimized.rs](2105_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 60 KB | 11325618 |
+| [2105_math_optimized.go](2105_math_optimized.go) \* | Go 1.14 x64 | math | O(n) time; O(1) space | AC | 0.031 s | 284 KB | 11325659 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
