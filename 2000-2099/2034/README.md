@@ -100,6 +100,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2034_bfs_dp_optimized.rs`. Keep two BFS distance arrays and the max–min DP restricted to edges that advance one shortest-path layer. Flat u32 forward-star edges replace nested adjacency vectors and the retained endpoint list; reuse one BFS order vector and direct output. Connected-graph distances fit u32, with MAX reserved for unreached. O(N+M) time and storage, preserving the simple graph/BFS derivation.
+
+Compared with `2034_bfs_dp.rs`: time 0.078 s → 0.062 s; memory 13112 KB → 3 448 KB.
+
+`2034_bfs_dp_optimized.go`. Keep two BFS traversals and the bottleneck DP over edges that increase distance from s by one. In BFS order, best[v] is the largest minimum distance from r attainable along a shortest s-to-v path; propagate min(best[v],clearance[u]) and maximize at u. Store the graph directly in flat int32 first/to/next arrays as edges arrive, avoiding the original separate edge-pair list and nested native-int slices. Distances, queues and DP values use int32, safe for n,m<=100000; both BFS routines still allocate their own arrays. The graph is connected, so every required distance is defined. Time and storage O(n+m). Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+
+Compared with `2034_bfs_dp.go`: time 0.109 s → 0.046 s; memory 11080 KB → 5 264 KB.
+
 After distances from the first origin are known, fuse the second BFS with the bottleneck DP on shortest-path layers. FIFO order ensures that every predecessor layer is complete when a vertex is popped, so its best score is final then. Stop at the destination when popped, not at its first discovery. Flat adjacency arrays and one reusable queue replace nested containers; compact distance and score arrays retain the same linear graph algorithm.
 
 - `2034_bfs_dp_optimized.cpp`: 0.031 s / 3228 KB; base `2034_bfs_dp.cpp`: 0.078 s / 6892 KB; relative change: time -60.3%, memory -53.2%.
@@ -107,17 +115,11 @@ After distances from the first origin are known, fuse the second BFS with the bo
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `2034_bfs_dp.cpp`; covering source `2034_bfs_dp_optimized.cpp`; time/memory places 1/1, other-author entries 137/137.
+`2034_bfs_dp_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `2034_bfs_dp.go`; covering source `2034_bfs_dp.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `2034_bfs_dp.java`; covering source `2034_bfs_dp.java`; time/memory places 1/1, other-author entries 5/5.
-
-- Python/PyPy: preferred teaching base `2034_bfs_dp.py`; covering source `2034_bfs_dp_optimized.py`; time/memory places 5/1, other-author entries 11/11.
-
-- Rust: preferred teaching base `2034_bfs_dp.rs`; covering source `2034_bfs_dp.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -139,5 +141,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
 | [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
+| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.046 s | 5264 KB | 11325053 |
+| [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) \* | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

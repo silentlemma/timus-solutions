@@ -93,6 +93,14 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`2034_bfs_dp_optimized.rs`. Conserva dos BFS y DP max–min solo por aristas que avanzan una capa de camino mínimo. Aristas planas u32 sustituyen vectores anidados/extremos retenidos, reutiliza un orden BFS y salida directa. Distancias de grafo conectado caben u32,MAX para no alcanzado. O(N+M) tiempo/espacio; conserva explicación sencilla.
+
+Frente a `2034_bfs_dp.rs`: tiempo 0.078 s → 0.062 s; memoria 13112 KB → 3 448 KB.
+
+`2034_bfs_dp_optimized.go`. Conserva dos BFS y la DP de cuello de botella por aristas que aumentan en uno la distancia desde s. En orden BFS, best[v] maximiza la mínima distancia desde r entre caminos mínimos s-v; propaga min(best[v],clearance[u]) y maximiza en u. Construye al leer arreglos planos int32 first/to/next, sin lista separada de pares ni listas anidadas de int nativo. Distancias, colas y DP usan int32, seguro con n,m<=100000; ambas BFS aún asignan sus propios arreglos. El grafo conexo define todas las distancias necesarias. Tiempo y espacio O(n+m). os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `2034_bfs_dp.go`: tiempo 0.109 s → 0.046 s; memoria 11080 KB → 5 264 KB.
+
 Tras obtener distancias desde el primer origen, el segundo BFS se fusiona con la DP de cuello de botella por capas de caminos mínimos. FIFO garantiza que al extraer un vértice sus capas predecesoras estén completas y su valor sea definitivo. Se para al extraer el destino, no al descubrirlo. Adyacencia plana, cola reutilizada y distancias compactas conservan el mismo algoritmo lineal.
 
 - `2034_bfs_dp_optimized.cpp`: 0.031 s / 3228 KB; base `2034_bfs_dp.cpp`: 0.078 s / 6892 KB; cambio respecto a la base: tiempo -60.3%, memoria -53.2%.
@@ -100,17 +108,11 @@ Tras obtener distancias desde el primer origen, el segundo BFS se fusiona con la
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `2034_bfs_dp.cpp`; versión que cubre `2034_bfs_dp_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 137/137.
+`2034_bfs_dp_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `2034_bfs_dp.go`; versión que cubre `2034_bfs_dp.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `2034_bfs_dp.java`; versión que cubre `2034_bfs_dp.java`; puestos tiempo/memoria 1/1, registros de otros autores 5/5.
-
-- Python/PyPy: base didáctica preferida `2034_bfs_dp.py`; versión que cubre `2034_bfs_dp_optimized.py`; puestos tiempo/memoria 5/1, registros de otros autores 11/11.
-
-- Rust: base didáctica preferida `2034_bfs_dp.rs`; versión que cubre `2034_bfs_dp.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -132,5 +134,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
 | [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
+| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.046 s | 5264 KB | 11325053 |
+| [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) \* | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
