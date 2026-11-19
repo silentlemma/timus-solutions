@@ -24,6 +24,10 @@ N.
 Dos líneas con N números cada una, empezando por 1: el orden más barato
 y el más caro. Se acepta cualquier orden óptimo.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. El comprobador del repositorio exige dos líneas no vacías, cada una una permutación de 1..N que empieza en1. Cierra el recorrido al primer destino, suma productos de ciudades vecinas y compara con el coste mínimo o máximo de referencia; cualquier óptimo empatado es válido.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -75,11 +79,29 @@ ciudad se imprime una sola vez.
 
 ## Soluciones optimizadas
 
+`1535_constructive_optimized.py`. Mantiene tour mínimo de lados alternos y máximo de impares ascendentes/pares descendentes. Deriva ciudades por índice y paridad, incluido centro único para n par, sin marcas, listas laterales, centro ni tours completos. Emite dos líneas de n ciudades por buffer de 4096 bytes, conservando espacios e inicio 1. O(n) pasos aritméticos y O(n log n) trabajo decimal, O(B+log n) almacenamiento. El checker valida óptimos, no una permutación única.
+
+Frente a `1535_constructive.py`: tiempo 0.109 s → 0.187 s; memoria 8752 KB → 3 184 KB.
+
+`1535_constructive_optimized.java`. Conserva ambas construcciones extremales demostradas, generando ciudades directamente sin used[], listas con objetos, ciclo, sublistas copiadas ni cadenas completas. El recorrido mínimo emite pares de extremos alternos y la ciudad central restante si procede; el máximo, impares ascendentes y pares descendentes. Los mismos bucles cubren N=2. Cada línea empieza en uno e incluye todas las ciudades una vez. Tiempo O(N) para números acotados y espacio auxiliar O(1) aparte de búferes fijos; conserva la construcción didáctica con listas.
+
+Frente a `1535_constructive.java`: tiempo 0.140 s → 0.109 s; memoria 11176 KB → 504 KB.
+
 C++, Go y Rust indexan el mismo ciclo de dos brazos sin guardar marcas, brazos, ciclo, rotación ni cadenas. Sea q=⌊(N−1)/2⌋. Emitir 1,N y aₖ=k+1 para k impar o N−k para k par, k=1…q. Si N>2 es par, queda el centro 2⌊N/4⌋+1. Terminar con bₖ=k para k impar o N−k+1 para k par, k=q…2; b₁=1 ya está primero. Para N=2 se emite 1,2. Es exactamente la construcción anterior sin almacenarla. El máximo conserva impares ascendentes y pares descendentes. Bloques de 8192 bytes dan tiempo O(N) y espacio extra O(1). Se conservan bases; Java/Python reutilizan las admitidas. Una DP exacta independiente verifica ambos extremos hasta N=14 como regresión; la reducción Supnick en la explicación sencilla demuestra la optimalidad general.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.031 s de la base y usa 232 KB frente a 4376 KB.
 
 Las implementaciones base aceptadas [1535_constructive.java](1535_constructive.java), [1535_constructive.py](1535_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1535_constructive_optimized.java`: puesto de tiempo 2/18 y de memoria 1/18 en esta muestra comparable.
+
+`1535_constructive_optimized.py`: puesto de tiempo 16/33 y de memoria 2/33 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -100,5 +122,7 @@ Las implementaciones base aceptadas [1535_constructive.java](1535_constructive.j
 | [1535_constructive_optimized.cpp](1535_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 100 KB | 11315377 |
 | [1535_constructive_optimized.go](1535_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 936 KB | 11315379 |
 | [1535_constructive_optimized.rs](1535_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 232 KB | 11315380 |
+| [1535_constructive_optimized.java](1535_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 504 KB | 11325038 |
+| [1535_constructive_optimized.py](1535_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n log n) output work; O(B+log n) space | AC | 0.187 s | 3184 KB | 11325487 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
