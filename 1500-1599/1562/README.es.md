@@ -25,6 +25,10 @@ a, b y n en una línea; a y b pueden ser fraccionarios.
 
 n líneas, los pesos en gramos con seis cifras tras el punto.
 
+## Evaluación
+
+Las pruebas del repositorio comparan tokens numéricos con |resultado-referencia| <= 0.000001·max(1,|referencia|), rechazan valores no finitos y comparan exactamente los tokens no numéricos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -75,6 +79,10 @@ La versión Go normaliza la coordenada vertical al intervalo [−1, 1]. Para una
 
 Las implementaciones base aceptadas [1562_geometry.cpp](1562_geometry.cpp), [1562_geometry.java](1562_geometry.java), [1562_geometry.py](1562_geometry.py), [1562_geometry.rs](1562_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1562_geometry_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1562_geometry.java`: tiempo 0.109 s → 0.14 s; memoria 2072 KB → 1 116 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -92,5 +100,6 @@ Las implementaciones base aceptadas [1562_geometry.cpp](1562_geometry.cpp), [156
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1562_geometry_optimized.go](1562_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 288 KB | 11311208 |
+| [1562_geometry_optimized.java](1562_geometry_optimized.java) \* | Java 1.8 | geometry | O(n) | AC | 0.14 s | 1116 KB | 11324813 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
