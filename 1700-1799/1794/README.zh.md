@@ -75,6 +75,10 @@ n（2 ≤ n ≤ 10⁵），然后是 a₁、…、aₙ（1 ≤ aᵢ ≤ n）。
 - `1794_implementation_optimized.cpp`: 0.015 s / 520 KB; 基础版 `1794_implementation.cpp`: 0.078 s / 568 KB; 相对基础版的变化: 时间 -80.8%, 内存 -8.5%.
 - `1794_implementation_optimized.py`: 0.187 s / 912 KB; 基础版 `1794_implementation.py`: 0.125 s / 8004 KB; 相对基础版的变化: 时间 +49.6%, 内存 -88.6%.
 
+`1794_implementation_optimized.rs`. 每个期望位置对应一个循环起点，计算为 (index+N+1-wanted) mod N。读取时直接计入 u32 计数数组，再扫描最大值；仅在严格改善时更新答案，以保留并列时最小的起点。时间 O(N)，使用 O(N) 个计数器，无需完整输入字符串或独立请求列表。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1794_implementation.rs` 相比：时间 0.031 s → 0.062 s；内存 2124 KB → 452 KB。
+
 ## 语言说明
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
@@ -109,5 +113,6 @@ n（2 ≤ n ≤ 10⁵），然后是 a₁、…、aₙ（1 ≤ aᵢ ≤ n）。
 |---|---|---|---|---|---|---|---|
 | [1794_implementation_optimized.cpp](1794_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 520 KB | 11308385 |
 | [1794_implementation_optimized.py](1794_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.187 s | 912 KB | 11309462 |
+| [1794_implementation_optimized.rs](1794_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.062 s | 452 KB | 11325113 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -86,6 +86,10 @@ Keep the vote count for each possible starting student. The index difference lie
 - `1794_implementation_optimized.cpp`: 0.015 s / 520 KB; base `1794_implementation.cpp`: 0.078 s / 568 KB; relative change: time -80.8%, memory -8.5%.
 - `1794_implementation_optimized.py`: 0.187 s / 912 KB; base `1794_implementation.py`: 0.125 s / 8004 KB; relative change: time +49.6%, memory -88.6%.
 
+`1794_implementation_optimized.rs`. Each requested position votes for one cyclic starting offset, computed as (index+N+1-wanted) mod N. Read votes directly into a u32 counter array and scan once for the maximum; update only on a strict improvement to keep the smallest tied offset. O(N) time and O(N) counters, without a retained input string or a separate list of requests. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1794_implementation.rs`: time 0.031 s → 0.062 s; memory 2124 KB → 452 KB.
+
 ## Language notes
 
 The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
@@ -120,5 +124,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1794_implementation_optimized.cpp](1794_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 520 KB | 11308385 |
 | [1794_implementation_optimized.py](1794_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.187 s | 912 KB | 11309462 |
+| [1794_implementation_optimized.rs](1794_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.062 s | 452 KB | 11325113 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

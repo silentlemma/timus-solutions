@@ -88,6 +88,10 @@ Se mantiene el número de votos por inicio. La diferencia está estrictamente en
 - `1794_implementation_optimized.cpp`: 0.015 s / 520 KB; base `1794_implementation.cpp`: 0.078 s / 568 KB; cambio respecto a la base: tiempo -80.8%, memoria -8.5%.
 - `1794_implementation_optimized.py`: 0.187 s / 912 KB; base `1794_implementation.py`: 0.125 s / 8004 KB; cambio respecto a la base: tiempo +49.6%, memoria -88.6%.
 
+`1794_implementation_optimized.rs`. Cada posición solicitada vota por un inicio cíclico, (index+N+1-wanted) mod N. Cuenta directamente al leer en un arreglo u32 y recorre una vez el máximo; solo actualiza con mejora estricta para conservar el menor inicio en empates. O(N) tiempo y O(N) contadores, sin cadena completa de entrada ni lista adicional de solicitudes. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1794_implementation.rs`: tiempo 0.031 s → 0.062 s; memoria 2124 KB → 452 KB.
+
 ## Notas por lenguaje
 
 Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
@@ -122,5 +126,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1794_implementation_optimized.cpp](1794_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 520 KB | 11308385 |
 | [1794_implementation_optimized.py](1794_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.187 s | 912 KB | 11309462 |
+| [1794_implementation_optimized.rs](1794_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.062 s | 452 KB | 11325113 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
