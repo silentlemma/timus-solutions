@@ -68,8 +68,20 @@
 
 ## 优化解法
 
+`1000_math_optimized.go`. 仍以两个 int64 求和，存储为常数。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1000_math.go` 相比：时间 0.015 s → 0.001 s；内存 1060 KB → 256 KB。
+
 优化的 Java 解法直接从 `System.in` 逐字节解析两个数，而不是使用 `Scanner`：
 0.046 s，而不是 0.078 s；336 KB，而不是 1548 KB。
+
+新增的 Python 版本直接读取字节，避免把全部输入解码为字符串；显式刷新输出后，
+直接结束进程，跳过解释器的正常清理阶段。该版本自己的 Accepted 提交耗时
+0.046 s，简单版本为 0.078 s，时间减少 41.0%；内存则由 132 KB 增至
+656 KB。因此保留短小易读的基础版本。Rust 版本通过 C 运行库解析和输出有符号
+整数，避免 Rust 输入输出字符串和格式化，内存从 228 KB 降至 52 KB，减少
+77.2%。两者仍采用加法，额外空间均为常数。新增 Python 行带星号，因为它尚未
+达到该语言更严格的排名目标；纳入优化版本的依据是时间改进。
 
 ## 各语言说明
 
@@ -96,3 +108,8 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1000_math_optimized.java](1000_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.046 s | 336 KB | 11303693 |
+| [1000_math_optimized.py](1000_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 656 KB | 11324875 |
+| [1000_math_optimized.rs](1000_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.001 s | 52 KB | 11324851 |
+| [1000_math_optimized.go](1000_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.001 s | 256 KB | 11325648 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

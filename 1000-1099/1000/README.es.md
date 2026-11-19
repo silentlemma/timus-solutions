@@ -72,9 +72,24 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1000_math_optimized.go`. Sigue sumando dos operandos int64 con espacio constante. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1000_math.go`: tiempo 0.015 s → 0.001 s; memoria 1060 KB → 256 KB.
+
 La solución optimizada en Java analiza los dos números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.046 s en lugar de 0.078 s y
 336 KB en lugar de 1548 KB.
+
+La nueva versión de Python lee bytes sin decodificar toda la entrada,
+vacía explícitamente la salida y termina sin la limpieza normal del intérprete.
+Su propio envío Accepted tarda 0.046 s frente a 0.078 s de la versión sencilla:
+reduce el tiempo un 41.0%, aunque la memoria sube de 132 KB a 656 KB.
+Se conserva también la base breve y legible. La variante de Rust analiza e
+imprime enteros con signo mediante el entorno de C, sin cadenas de entrada
+o salida ni formato de Rust: baja de 228 KB a 52 KB, un 77.2% menos.
+Ambas mantienen la suma y el espacio auxiliar constante. La nueva fila de
+Python lleva asterisco porque no alcanza la meta de clasificación más estricta
+del lenguaje; se admite por su mejora de tiempo.
 
 ## Notas por lenguaje
 
@@ -103,3 +118,8 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1000_math_optimized.java](1000_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.046 s | 336 KB | 11303693 |
+| [1000_math_optimized.py](1000_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 656 KB | 11324875 |
+| [1000_math_optimized.rs](1000_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.001 s | 52 KB | 11324851 |
+| [1000_math_optimized.go](1000_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.001 s | 256 KB | 11325648 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
