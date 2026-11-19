@@ -30,6 +30,10 @@ izquierda y superior derecha.
 
 La longitud del camino más corto, o `-1`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -79,15 +83,21 @@ cadenas aleatorias y en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1202_greedy_optimized.py`. Mantiene el ajuste voraz de altura al punto más cercano del solapamiento de rectángulos. Lee cuatro coordenadas por bloques de 4096 bytes, guardando intervalo anterior, altura y recorrido vertical. Elimina lista entera de entrada y lista copiada de rectángulos. Solapamiento vacío da -1; si no, usa límites derecho/superior del último rectángulo como antes. O(n) tiempo, O(B) espacio para tokens acotados y bloque B. Vacía respuesta antes de salir del intérprete.
+
+Frente a `1202_greedy.py`: tiempo 0.328 s → 0.203 s; memoria 39384 KB → 6 920 KB.
+
 C++ y Go mantienen la misma proyección sobre el intervalo de cada borde compartido. Ya bastan el rectángulo anterior, la altura actual y la distancia vertical acumulada; no se añade una lista. C++ sustituye scanf por un lector de 8192 bytes, y Go cambia bufio/fmt por E/S acotada de manejadores estándar. Se analizan signos negativos y se conservan cálculos de 64 bits en los destinos. Un intervalo vacío devuelve −1 inmediatamente. Tiempo O(n), espacio auxiliar acotado. Se conservan las bases; Java, Python y Rust reutilizan las admitidas para el conjunto rápido.
 
 Las implementaciones base aceptadas [1202_greedy.java](1202_greedy.java), [1202_greedy.py](1202_greedy.py), [1202_greedy.rs](1202_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Go y Java leen la entrada con lectores de bytes escritos a mano.
+`1202_greedy_optimized.py`: puesto de tiempo 3/15 y de memoria 8/15 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -107,5 +117,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1202_greedy_optimized.cpp](1202_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 88 KB | 11315050 |
 | [1202_greedy_optimized.go](1202_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 312 KB | 11315069 |
+| [1202_greedy_optimized.py](1202_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) time; O(B) space | AC | 0.203 s | 6920 KB | 11325482 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

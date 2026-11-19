@@ -29,6 +29,10 @@ corners.
 
 The length of the shortest walk, or `-1`.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -76,15 +80,21 @@ random chains and on every test.
 
 ## Optimized solutions
 
+`1202_greedy_optimized.py`. Keep the same shortest-path greedy clamping into each consecutive rectangle overlap. Stream four coordinates per rectangle in 4096-byte chunks, retaining only the previous vertical interval, current height and accumulated vertical motion. This removes both the integer input list and the copied rectangle list. Empty overlap returns -1 immediately; otherwise use the final rectangle’s right/top boundary exactly as before. Time O(n), auxiliary space O(B) for bounded coordinate tokens and chunk B. Flush the complete answer before the standalone interpreter exit.
+
+Compared with `1202_greedy.py`: time 0.328 s → 0.203 s; memory 39384 KB → 6 920 KB.
+
 The new C++ and Go versions preserve the same projection onto each shared-border interval. They already need only the previous rectangle, current height and accumulated vertical distance; no rectangle list is introduced. C++ replaces repeated scanf parsing with an 8192-byte reader. Go replaces bufio/fmt with bounded standard-handle input and output. Negative coordinates are parsed explicitly, and 64-bit arithmetic is retained for coordinates and path totals on the target platforms. An empty crossing interval returns −1 immediately. Time remains O(n), auxiliary storage is bounded. All ordinary sources remain; Java, Python and Rust reuse admitted bases in the fast set.
 
 The accepted base implementations [1202_greedy.java](1202_greedy.java), [1202_greedy.py](1202_greedy.py), [1202_greedy.rs](1202_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- Go and Java read the input with hand-written byte readers.
+`1202_greedy_optimized.py`: time place 3/15, memory place 8/15 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -104,5 +114,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1202_greedy_optimized.cpp](1202_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 88 KB | 11315050 |
 | [1202_greedy_optimized.go](1202_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 312 KB | 11315069 |
+| [1202_greedy_optimized.py](1202_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) time; O(B) space | AC | 0.203 s | 6920 KB | 11325482 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
