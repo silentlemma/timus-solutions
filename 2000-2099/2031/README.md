@@ -76,13 +76,27 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2031_bruteforce_optimized.py`. Keep the fixed scan of targets 1..99 and the statement’s upside-down digit map. After the first run of n valid targets, emit transformed labels in reverse target order; otherwise retain the exact Glupenky Pierre message. The search algorithm is unchanged. Only input/execution overhead changes in Python; the simple solver remains. Time O(99+n), with output bounded by the fixed two-digit domain. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `2031_bruteforce.py`: time 0.078 s → 0.14 s; memory 420 KB → 232 KB.
+
+`2031_bruteforce_optimized.rs`. Retain the 1..99 run scan and exact upside-down digit map. Write each two-byte label directly through the C runtime instead of building an answer String; stream the one input integer without retaining input text. Preserve target reversal, leading zero labels and the exact failure message. Time O(99+n), auxiliary space O(1); the original simple String-based solver is retained.
+
+Compared with `2031_bruteforce.rs`: time 0.015 s → 0.015 s; memory 204 KB → 56 KB.
+
 The optimized C++ solution reads `n` with `getchar` and prints the
 digits one by one with `putchar` instead of using `iostream` and
 building a string: 88 KB instead of 368 KB, with the same time.
 
 ## Language notes
 
-- The turned numbers are built from characters, so a leading zero stays.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2031_bruteforce_optimized.py`: time place 44/46, memory place 3/46 in this comparable sample.
+
+`2031_bruteforce_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -101,3 +115,7 @@ building a string: 88 KB instead of 368 KB, with the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2031_bruteforce_optimized.cpp](2031_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 88 KB | 11303668 |
+| [2031_bruteforce_optimized.py](2031_bruteforce_optimized.py) \* | PyPy 3.10 x64 | bruteforce | O(99+n), fixed two-digit bound | AC | 0.14 s | 232 KB | 11325493 |
+| [2031_bruteforce_optimized.rs](2031_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(99+n) time; O(1) auxiliary space | AC | 0.015 s | 56 KB | 11325510 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

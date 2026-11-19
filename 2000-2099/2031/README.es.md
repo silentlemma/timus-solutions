@@ -76,14 +76,27 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2031_bruteforce_optimized.py`. Mantiene recorrido de objetivos 1..99 y mapa de dígitos invertidos del enunciado. Tras la primera racha de n objetivos válidos emite etiquetas en orden inverso; si no existe, conserva Glupenky Pierre exacto. No cambia la búsqueda; en Python solo cambia entrada/ejecución y conserva la sencilla. O(99+n) tiempo, salida acotada por el dominio de dos dígitos. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `2031_bruteforce.py`: tiempo 0.078 s → 0.14 s; memoria 420 KB → 232 KB.
+
+`2031_bruteforce_optimized.rs`. Conserva recorrido 1..99 y mapa exacto de dígitos invertidos. Emite cada etiqueta de dos bytes por runtime C sin construir String, y lee el entero sin retener texto. Mantiene inversión de objetivos, ceros iniciales y mensaje de fallo exacto. O(99+n) tiempo y O(1) espacio auxiliar; conserva solver sencillo con String.
+
+Frente a `2031_bruteforce.rs`: tiempo 0.015 s → 0.015 s; memoria 204 KB → 56 KB.
+
 La solución optimizada en C++ lee `n` con `getchar` e imprime las cifras
 una a una con `putchar`, sin `iostream` y sin construir una cadena:
 88 KB en lugar de 368 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
-- Los números girados se construyen con caracteres, así que el cero
-  inicial se conserva.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`2031_bruteforce_optimized.py`: puesto de tiempo 44/46 y de memoria 3/46 en esta muestra comparable.
+
+`2031_bruteforce_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -102,3 +115,7 @@ una a una con `putchar`, sin `iostream` y sin construir una cadena:
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2031_bruteforce_optimized.cpp](2031_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(100+n) | AC | 0.015 s | 88 KB | 11303668 |
+| [2031_bruteforce_optimized.py](2031_bruteforce_optimized.py) \* | PyPy 3.10 x64 | bruteforce | O(99+n), fixed two-digit bound | AC | 0.14 s | 232 KB | 11325493 |
+| [2031_bruteforce_optimized.rs](2031_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(99+n) time; O(1) auxiliary space | AC | 0.015 s | 56 KB | 11325510 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
