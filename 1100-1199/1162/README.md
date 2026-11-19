@@ -128,6 +128,10 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 ## Optimized solutions
 
+`1162_shortest_paths_optimized.rs`. Keep exact synchronous Bellman–Ford relaxations and the shared denominator multiplied by 100 each pass. Replace base-100 limbs with base-10⁹ u32 limbs and u64 carries; reuse two amount layers plus subtraction/product scratch buffers. Rates/fees remain exact hundredths, initial decimal precision is retained, and comparisons never use floating point. With D maximum limb length and I input bytes, conservative O(N(N+M)D+I) time and O(ND+M+I) storage; D grows with input precision and passes, not constant-time big integers.
+
+Compared with `1162_shortest_paths.rs`: time 0.046 s → 0.046 s; memory 300 KB → 128 KB.
+
 **C++, Go, Java.** The three optimized versions keep the same exact Jacobi algorithm
 and use `_optimized` filenames. First restrict the graph to the undirected
 component of `S`: exchange points work both ways, so other components
@@ -179,5 +183,6 @@ reduce constants.
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
 | [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

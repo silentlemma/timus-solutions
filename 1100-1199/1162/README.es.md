@@ -122,6 +122,10 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 
 ## Soluciones optimizadas
 
+`1162_shortest_paths_optimized.rs`. Conserva Bellman–Ford síncrono exacto con denominador común multiplicado por 100 por ronda. Dígitos u32 en base 10⁹ y acarreos u64 sustituyen base 100; reutiliza dos capas y buffers de resta/producto. Tasas/comisiones en centésimas exactas, precisión inicial conservada, sin comparación flotante. Con D dígitos máximos e I bytes: cota O(N(N+M)D+I) tiempo y O(ND+M+I) espacio; D depende de precisión y rondas.
+
+Frente a `1162_shortest_paths.rs`: tiempo 0.046 s → 0.046 s; memoria 300 KB → 128 KB.
+
 **C++, Go, Java.** Las tres versiones optimizadas mantienen Jacobi exacto y el sufijo
 `_optimized`. Se restringen a la componente no dirigida de S: los puntos
 son bidireccionales, las otras componentes nunca ayudan. Con C vértices
@@ -170,5 +174,6 @@ asintótica es igual; se reducen dígitos, asignaciones y vértices.
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
 | [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

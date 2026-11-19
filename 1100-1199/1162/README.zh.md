@@ -111,6 +111,10 @@ SHA 的新 Accepted；全部五份原始字节均备份，算法不变。
 
 ## 优化解法
 
+`1162_shortest_paths_optimized.rs`. 保留精确同步 Bellman–Ford 松弛，每轮共同分母乘 100。以基 10⁹ 的 u32 数位和 u64 进位替代基 100，复用两层金额及减乘临时缓冲。汇率费用仍为精确百分位，保留初始小数精度，不用浮点比较。最大数位数 D、输入 I 字节下保守 O(N(N+M)D+I) 时间、O(ND+M+I) 存储；D 随精度及轮数增长。
+
+与 `1162_shortest_paths.rs` 相比：时间 0.046 s → 0.046 s；内存 300 KB → 128 KB。
+
 **C++, Go, Java.** 三份优化版仍为精确 Jacobi 算法，命名 `_optimized`。先只保留 S 所在的
 无向连通分量：兑换点有双向边，其他分量永远无助。保留 C 个顶点后 C 轮足够。
 这只是结构裁剪，并不假定手续费一定付得起。
@@ -151,5 +155,6 @@ C++/Java 改用 `10^9` 进制非负数、九位输入块，复用容量和临时
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
 | [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

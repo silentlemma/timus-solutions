@@ -125,6 +125,10 @@ YES
 
 ## Оптимизированные решения
 
+`1162_shortest_paths_optimized.rs`. Сохраняются точные синхронные релаксации Беллмана–Форда и общий знаменатель, умножаемый на 100 на каждом проходе. Вместо разрядов по основанию 100 используются u32 по основанию 10⁹ с переносами u64; два слоя сумм и рабочие буферы разности/произведения переиспользуются. Курсы и комиссии остаются точными сотыми, вся точность начальной суммы сохраняется, сравнения без float. При максимальной длине D разрядов и I байтах входа консервативно O(N(N+M)D+I) времени и O(ND+M+I) памяти; D растёт с точностью и проходами.
+
+По сравнению с `1162_shortest_paths.rs`: время 0.046 s → 0.046 s; память 300 KB → 128 KB.
+
 **C++, Go, Java.** Три оптимизированные версии сохраняют тот же точный алгоритм Якоби
 и суффикс `_optimized`. Сначала оставляют неориентированную компоненту
 `S`: пункты работают в обе стороны, другие компоненты недоступны.
@@ -176,5 +180,6 @@ C++ и Java хранят неотрицательные числа по осно
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
 | [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
