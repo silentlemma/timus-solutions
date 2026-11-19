@@ -24,6 +24,10 @@ Seven bits: the four disks, then the three petals.
 The seven bits of a valid code that differs from the input in at most
 one place.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant. Print the seven recovered bits in their original order.
+
 ## Examples
 
 ### Example 1
@@ -76,12 +80,30 @@ independent accepted implementation.
 
 ## Optimized solutions
 
+`1792_bitmask.py`. Decode the three parity checks as a syndrome instead of constructing and testing eight seven-bit candidates. A single set syndrome bit identifies a parity bit; syndrome 7 identifies data bit 3; the remaining two-bit syndromes identify the other data bits by their missing check. Under the promised at-most-one error, flip that bit or leave a zero syndrome unchanged. This different bitmask method has its own filename; retain the simple candidate-enumeration source. Both methods have constant size for seven bits. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `1792_implementation.py`: time 0.093 s → 0.14 s; memory 464 KB → 264 KB.
+
 The optimized solutions (C++, Java) read the seven bits as single
 characters with `getchar` and `System.in.read` instead of `iostream` and
 `Scanner`, and write the answer character by character (C++) or as one
 byte array (Java). The search over single changes is the same.
 C++: 84 KB instead of 396 KB, with the same time; Java: 0.109 s instead
 of 0.156 s and 380 KB instead of 1604 KB.
+
+`1792_bitmask.rs`. Replace trial changes with a three-bit parity syndrome. A flipped bit toggles precisely its parity-check column; the seven columns are the distinct nonzero three-bit patterns. A zero syndrome needs no change; otherwise flip the unique bit with that column. With at most one error this restores all checks. One fixed seven-byte word replaces cloned candidate vectors; time and space are O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1792_implementation.rs`: time 0.046 s → 0.046 s; memory 228 KB → 60 KB.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1792_bitmask.py`: time place 63/69, memory place 2/69 in this comparable sample.
+
+`1792_bitmask.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -101,6 +123,7 @@ of 0.156 s and 380 KB instead of 1604 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1792_implementation_optimized.cpp](1792_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 84 KB | 11303639 |
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
+| [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
+| [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.

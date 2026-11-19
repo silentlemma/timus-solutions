@@ -24,6 +24,10 @@ Siete bits: los cuatro discos y luego los tres pétalos.
 Los siete bits de un código válido que difiera de la entrada en a lo
 sumo un lugar.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos. Imprime los siete bits recuperados en el orden original.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -77,6 +81,10 @@ implementación aceptada independiente.
 
 ## Soluciones optimizadas
 
+`1792_bitmask.py`. Decodifica tres paridades mediante síndrome en vez de construir y probar ocho candidatos de siete bits. Un bit de síndrome señala una paridad; 7 señala dato 3; los otros síndromes de dos bits señalan el dato por su comprobación ausente. Bajo a lo sumo un error invierte ese bit, o no cambia un síndrome cero. Este método bitmask distinto tiene nombre propio; conserva la enumeración sencilla. Ambos tienen tamaño constante para siete bits. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `1792_implementation.py`: tiempo 0.093 s → 0.14 s; memoria 464 KB → 264 KB.
+
 Las soluciones optimizadas (C++, Java) leen los siete bits como
 caracteres sueltos con `getchar` y `System.in.read` en lugar de
 `iostream` y `Scanner`, y escriben la respuesta carácter a carácter
@@ -84,6 +92,20 @@ caracteres sueltos con `getchar` y `System.in.read` en lugar de
 cambios de un solo bit es la misma. C++: 84 KB en lugar de 396 KB, con
 el mismo tiempo; Java: 0.109 s en lugar de 0.156 s y 380 KB en lugar de
 1604 KB.
+
+`1792_bitmask.rs`. Sustituye las modificaciones de prueba por un síndrome de paridad de tres bits. Un bit invertido altera exactamente su columna de comprobaciones; las siete columnas son los patrones no nulos distintos de tres bits. El síndrome cero no requiere cambio; en otro caso se invierte el único bit de esa columna. Con como máximo un error se restablecen todas las comprobaciones. Una palabra fija de siete bytes sustituye los vectores candidatos clonados; tiempo y espacio O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1792_implementation.rs`: tiempo 0.046 s → 0.046 s; memoria 228 KB → 60 KB.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1792_bitmask.py`: puesto de tiempo 63/69 y de memoria 2/69 en esta muestra comparable.
+
+`1792_bitmask.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -103,6 +125,7 @@ el mismo tiempo; Java: 0.109 s en lugar de 0.156 s y 380 KB en lugar de
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1792_implementation_optimized.cpp](1792_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 84 KB | 11303639 |
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
+| [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
+| [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
