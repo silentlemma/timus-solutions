@@ -93,6 +93,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1022_bfs_graphs.py`. Usa topológico de Kahn frente a DFS iterativo con iteradores. Lee adyacencias en flujo, cuenta grados de entrada y emplea lista creciente como FIFO/orden de salida. Cada vértice/arista una vez, O(V+E) tiempo/espacio; DAG garantizado emite todos. Algoritmo BFS distinto con nombre propio, conserva DFS. Vacía antes de salida directa PyPy.
+
+Frente a `1022_dfs_graphs.py`: tiempo 0.078 s → 0.093 s; memoria 512 KB → 256 KB.
+
 La solución optimizada en C++ con el algoritmo de Kahn guarda las
 relaciones en una matriz fija de `bool` de 101 × 101 celdas, unos 10 KB
 porque `N ≤ 100`, y la cola en un arreglo fijo, en lugar de un `vector`
@@ -154,5 +158,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
 | [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | PyPy 3.10 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.093 s | 256 KB | 11325700 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -81,6 +81,10 @@
 
 ## 优化解法
 
+`1022_bfs_graphs.py`. 以 Kahn 拓扑排序替代教学迭代 DFS 的逐顶点迭代器。流式邻接表，累计入度，用单个增长列表作 FIFO 及输出序。每顶点边处理一次，O(V+E) 时间空间，保证 DAG 因而全输出。不同 BFS 风格算法独立文件，保留 DFS。刷新后直接退出 PyPy。
+
+与 `1022_dfs_graphs.py` 相比：时间 0.078 s → 0.093 s；内存 512 KB → 256 KB。
+
 优化的 C++ Kahn 算法解法把关系存放在固定的 101 × 101 `bool` 矩阵中，由于
 `N ≤ 100`，只占约 10 KB，队列也放在固定数组里，而不是用随每条关系增长的 `vector`
 嵌套 `vector`。从队列取出一个成员时，它扫描矩阵的整行，总共 `O(N²)`，对 100 个成
@@ -128,5 +132,6 @@
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
 | [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | PyPy 3.10 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.093 s | 256 KB | 11325700 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

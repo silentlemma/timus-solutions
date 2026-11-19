@@ -90,6 +90,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1022_bfs_graphs.py`. Use Kahn topological sorting instead of the teaching iterative DFS with per-node iterators. Stream adjacency lists, count indegrees, and use one growing ready list as both FIFO and output order. Each vertex and edge is processed once. O(V+E) time and storage; the promised DAG ensures every vertex is emitted. The different BFS-style algorithm has a separate filename; preserve DFS. Flush output before direct PyPy exit.
+
+Compared with `1022_dfs_graphs.py`: time 0.078 s → 0.093 s; memory 512 KB → 256 KB.
+
 The optimized C++ solution of Kahn's algorithm keeps the links in a
 fixed `bool` matrix of 101 × 101 cells, about 10 KB since `N ≤ 100`, and
 the queue in a fixed array, instead of a `vector` of `vector`s that
@@ -150,5 +154,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
 | [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | PyPy 3.10 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.093 s | 256 KB | 11325700 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
