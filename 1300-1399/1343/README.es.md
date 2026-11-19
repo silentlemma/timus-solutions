@@ -50,13 +50,21 @@ La base didáctica preferida es división de prueba en C++. Completa el prefijo 
 
 ## Soluciones optimizadas
 
+`1343_number_theory_optimized.java`. Conserva Miller-Rabin de seis bases y multiplicación modular por bloques20 bits: solo reduce la E/S del algoritmo Java ya optimizado. Lee exactamente k dígitos entre separadores, completa numéricamente hasta12 posiciones y busca candidatos consecutivos solo con k<12. La existencia garantizada hace válido el prefijo completo. Emite ceros iniciales y número sin Scanner, StringBuilder ni String.format. Los candidatos están bajo10^12<2^40, con intermedios seguros en long. Para G candidatos bajo P, tiempo O(G log P) pasos modulares de palabra acotada y espacio O(1). No inventa una base Java sencilla: conserva la optimizada previa y admite este Accepted exacto por su propia clasificación top10/top15%.
+
+Frente a `1343_number_theory.java`: tiempo 0.125 s → 0.093 s; memoria 1752 KB → 500 KB.
+
 Miller–Rabin usa bases 2,3,5,7,11,13. Tras probar primos pequeños, escribe N−1=2ˢd con d impar. Calcula x=aᵈ mod N por base; pasa si x es 1 o N−1, o uno de sus s−1 cuadrados modulares siguientes es N−1; de lo contrario rechaza el candidato. [La cota de seis bases de Jaeschke](https://doi.org/10.1090/S0025-5718-1993-1192971-8), 3474749660383, cubre todo el dominio: aquí es determinista. G candidatos requieren O(G log N) operaciones de palabra. Go y Rust nuevos usan E/S acotada, con bits.Mul64/bits.Rem64 y u128 respectivamente. Java y Python reutilizan sus archivos admitidos. La cobertura rápida C++ comparte la [división de prueba](1343_bruteforce.cpp) de Sencillas: su Accepted exacto cumple la inclusión, sin copiar optimized. Esto no afirma que su complejidad sea mejor que Miller–Rabin. Las bases originales C++/Go/Rust permanecen en Otros enfoques Accepted.
 
 Las implementaciones base aceptadas [1343_number_theory.java](1343_number_theory.java), [1343_number_theory.py](1343_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-La base elemental no necesita productos modulares anchos. Miller–Rabin C++/Rust usa 128 bits, Go math/bits y Java partes de 20 bits. Python mantiene el CPython realmente aceptado. Archivos y métricas originales no cambian. Los asteriscos afectan solo a fuentes rápidas seleccionadas que aún no alcanzan la meta de su lenguaje.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1343_number_theory_optimized.java`: puesto de tiempo 1/37 y de memoria 2/37 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -82,5 +90,6 @@ La base elemental no necesita productos modulares anchos. Miller–Rabin C++/Rus
 | [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
 | [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
 | [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

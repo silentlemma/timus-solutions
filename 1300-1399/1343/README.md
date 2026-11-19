@@ -50,13 +50,21 @@ The preferred teaching version is C++ trial division. Fill the remaining digits 
 
 ## Optimized solutions
 
+`1343_number_theory_optimized.java`. Preserve the existing six-base Miller-Rabin routine and 20-bit split modular multiplication; this is a smaller I/O implementation of the already optimized Java algorithm. Read exactly k prefix digits directly across separators, pad numerically to 12 positions and search consecutive candidates only when k<12. The existence promise makes the given full 12-digit prefix already a valid answer. Emit leading zeros and the final number directly, without Scanner, StringBuilder or String.format. Tested values remain below 10^12<2^40, keeping split intermediates safely within long. For G candidates below P, time O(G log P) bounded-word modular steps and O(1) storage. There is no invented simple Java source: the earlier optimized file is retained, and this new exact Accepted is admitted by its own top-ten/top 15% ranking evidence.
+
+Compared with `1343_number_theory.java`: time 0.125 s → 0.093 s; memory 1752 KB → 500 KB.
+
 Miller–Rabin uses the six bases 2,3,5,7,11,13. After small-prime checks, write N−1=2ˢd with d odd. For each base, compute x=aᵈ mod N; accept that base if x is 1 or N−1, or if one of its next s−1 modular squares is N−1. Otherwise reject the candidate. [Jaeschke’s six-base bound](https://doi.org/10.1090/S0025-5718-1993-1192971-8) is 3474749660383, above every value here, so the test is deterministic in this task. It takes O(G log N) word operations for G candidates. The new Go and Rust sources use bounded I/O; Go multiplies via bits.Mul64/bits.Rem64 and Rust via u128. Java and Python reuse their already-admitted original files. C++ fast coverage shares the elementary [trial-division file](1343_bruteforce.cpp) listed under Simple: its exact Accepted receipt meets the inclusion rule, without a duplicate optimized copy. That measured admission does not claim better asymptotic complexity than Miller–Rabin. Original C++/Go/Rust Miller–Rabin bases are retained under Other Accepted approaches.
 
 The accepted base implementations [1343_number_theory.java](1343_number_theory.java), [1343_number_theory.py](1343_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-The elementary base needs no wide modular products. Miller–Rabin C++/Rust use 128-bit products, Go uses math/bits and Java splits a product into 20-bit halves. Python retains its actual accepted CPython interpreter. Original files and their source-bound measurements remain unchanged. Stars apply only to selected fast sources below their language rating target.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1343_number_theory_optimized.java`: time place 1/37, memory place 2/37 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -82,5 +90,6 @@ The elementary base needs no wide modular products. Miller–Rabin C++/Rust use 
 | [1343_number_theory.java](1343_number_theory.java) \* | Java 1.8 | number_theory | O(G·log N) | AC | 0.125 s | 1752 KB | 11285098 |
 | [1343_number_theory.py](1343_number_theory.py) \* | Python 3.12 x64 | number_theory | O(G·log N) | AC | 0.078 s | 524 KB | 11285097 |
 | [1343_number_theory_optimized.rs](1343_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(G log N) | AC | 0.046 s | 56 KB | 11314929 |
+| [1343_number_theory_optimized.java](1343_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(G·log P) | AC | 0.093 s | 500 KB | 11325016 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
