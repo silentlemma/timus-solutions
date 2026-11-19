@@ -22,6 +22,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 `N`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -72,6 +76,10 @@ Ambas versiones invierten la misma identidad 8S + 1 = (2N + 1)² mediante la ra�
 
 Las implementaciones base aceptadas [1153_math.cpp](1153_math.cpp), [1153_math.java](1153_math.java), [1153_math.rs](1153_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1153_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado. Para esta implementación Java se usa la misma cota conservadora que en la variante Python de Newton existente: O(L² log(L+1)) con división cuadrática de enteros grandes, donde L es la longitud decimal de entrada. Comenzar por encima de la raíz da O(log(L+1)) pasos de Newton, cada uno con división de números de O(L) cifras. Se aclara la complejidad tanto del código sencillo Java sin modificar como de la nueva variante que cambia solo la entrada.
+
+Frente a `1153_math.java`: tiempo 0.140 s → 0.125 s; memoria 1676 KB → 736 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -91,7 +99,7 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1153_math.cpp](1153_math.cpp) | G++ 13.2 x64 | math | O(L²) | AC | 0.015 s | 504 KB | 11280703 |
 | [1153_math.go](1153_math.go) | Go 1.14 x64 | math | O(L²) | AC | 0.031 s | 1212 KB | 11280739 |
-| [1153_math.java](1153_math.java) \* | Java 1.8 | math | O(L²) | AC | 0.140 s | 1676 KB | 11280808 |
+| [1153_math.java](1153_math.java) \* | Java 1.8 | math | O(L² log(L+1)) | AC | 0.140 s | 1676 KB | 11280808 |
 | [1153_math.py](1153_math.py) | Python 3.12 x64 | math | O(L²) | AC | 0.093 s | 480 KB | 11280773 |
 | [1153_math.rs](1153_math.rs) \* | Rust 1.75 x64 | math | O(L²) | AC | 0.046 s | 456 KB | 11280829 |
 
@@ -101,5 +109,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1153_math_greedy.go](1153_math_greedy.go) \* | Go 1.14 x64 | math, greedy | O(L²) | AC | 0.031 s | 800 KB | 11311117 |
 | [1153_math_optimized.py](1153_math_optimized.py) \* | Python 3.12 x64 | math | O(L² log(L+1)) | AC | 0.093 s | 408 KB | 11311055 |
+| [1153_math_optimized.java](1153_math_optimized.java) \* | Java 1.8 | math | O(L² log(L+1)) | AC | 0.125 s | 736 KB | 11324796 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
