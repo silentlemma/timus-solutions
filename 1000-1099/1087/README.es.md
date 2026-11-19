@@ -69,6 +69,10 @@ sin cambios las cinco bases Accepted originales.
 
 ## Soluciones optimizadas
 
+`1087_games_optimized.go`. Mantiene DP misère, incluido estado cero ganador y corte en primer movimiento ganador. Un bit por posición en palabras uint64 sustituye bool; conserva K movimientos. O(NK) tiempo y O(N/64+K) palabras para N piedras. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1087_games.go`: tiempo 0.031 s → 0.015 s; memoria 1092 KB → 284 KB.
+
 El método Python con bits procesa las posiciones perdedoras en orden creciente en vez de recorrer cada jugada en cada estado. Un desplazamiento de entero grande marca como ganadoras todas las posiciones que permiten llegar a una perdedora. Las posiciones menores ya están clasificadas, conservando la inducción de la DP escalar. El estado vacío no genera transiciones ganadoras: retirar la última piedra pierde. La normalización por la jugada mínima usa la prueba de la solución simple.
 
 N' es la cantidad normalizada de piedras, M el número de jugadas, L las posiciones perdedoras y w la anchura de palabra del entero grande.
@@ -77,19 +81,17 @@ N' es la cantidad normalizada de piedras, M el número de jugadas, L las posicio
 - `1087_games_optimized.java`: 0.125 s / 440 KB; base `1087_games.java`: 0.109 s / 1652 KB; cambio respecto a la base: tiempo +14.7%, memoria -73.4%.
 - `1087_games_bitmask.py`: 0.062 s / 456 KB; base `1087_games.py`: 0.093 s / 568 KB; cambio respecto a la base: tiempo -33.3%, memoria -19.7%.
 
+`1087_games_optimized.rs`. Conserva el DP escalar del juego y win[0]=true: quien toma la última piedra pierde. Guarda solo los m movimientos y n+1 estados booleanos, sin otro vector con toda la entrada analizada. Tiempo O(n·m), espacio de trabajo O(n+m); reduce la misma recurrencia, no utiliza el algoritmo de bits de algunas otras lenguas. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1087_games.rs`: tiempo 0.015 s → 0.031 s; memoria 228 KB → 88 KB.
+
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1087_games.cpp`; versión que cubre `1087_games_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 92/92.
+`1087_games_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1087_games.go`; versión que cubre `1087_games.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1087_games.java`; versión que cubre `1087_games_optimized.java`; puestos tiempo/memoria 4/1, registros de otros autores 5/5.
-
-- Python/PyPy: base didáctica preferida `1087_games.py`; versión que cubre `1087_games_bitmask.py`; puestos tiempo/memoria 1/1, registros de otros autores 22/22.
-
-- Rust: base didáctica preferida `1087_games.rs`; versión que cubre `1087_games.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -112,5 +114,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1087_games_optimized.cpp](1087_games_optimized.cpp) | G++ 13.2 x64 | games | O((M+L) ceil(N'/w)) | AC | 0.015 s | 132 KB | 11308397 |
 | [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.125 s | 440 KB | 11308400 |
 | [1087_games_bitmask.py](1087_games_bitmask.py) | Python 3.12 x64 | games, bitmask | O((M+L) ceil(N'/w)) | AC | 0.062 s | 456 KB | 11309361 |
+| [1087_games_optimized.rs](1087_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n·m) | AC | 0.031 s | 88 KB | 11325083 |
+| [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 284 KB | 11325650 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
