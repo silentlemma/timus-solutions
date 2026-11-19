@@ -23,6 +23,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The smallest final weight.
 
+## Checking
+
+Repository tests compare numeric tokens with |actual-reference| <= 0.011·max(1,|reference|), reject nonfinite values, and compare nonnumeric tokens exactly.
+
 ## Examples
 
 ### Example 1
@@ -94,11 +98,17 @@ the total is an exact fraction of two `long` values, and the code rounds
 it half to even, as `printf` does: 0.093 s instead of 0.140 s and 444 KB
 instead of 1912 KB.
 
+`1161_greedy_optimized.rs`. Keep the descending-weight greedy order and the f64 fold total=2*sqrt(total*weight). An unstable in-place sort avoids the stable-sort temporary buffer; printf emits two fractional digits without Rust formatting. The weight vector still needs O(N) storage, and time remains O(N log N). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1161_greedy.rs`: time 0.015 s → 0.046 s; memory 248 KB → 104 KB.
+
 ## Language notes
 
-- All languages sort and fold the same way.
-- The simple Java solution rounds the result through `BigDecimal` with
-  ties to even, as `printf` does in C.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1161_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -118,3 +128,6 @@ instead of 1912 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1161_greedy_optimized.cpp](1161_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 136 KB | 11303573 |
 | [1161_greedy_optimized.java](1161_greedy_optimized.java) | Java 1.8 | greedy | O(N log N) | AC | 0.093 s | 444 KB | 11303959 |
+| [1161_greedy_optimized.rs](1161_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 104 KB | 11325086 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

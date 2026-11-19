@@ -23,6 +23,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 El menor peso final.
 
+## Evaluación
+
+Las pruebas del repositorio comparan tokens numéricos con |resultado-referencia| <= 0.011·max(1,|referencia|), rechazan valores no finitos y comparan exactamente los tokens no numéricos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -97,11 +101,17 @@ cabiendo en un `long`. Por eso 100 veces el total es una fracción exacta
 de dos `long`, y el código la redondea con empates al par, como
 `printf`: 0.093 s en lugar de 0.140 s y 444 KB en lugar de 1912 KB.
 
+`1161_greedy_optimized.rs`. Conserva el orden voraz de pesos descendentes y el cálculo f64 total=2*sqrt(total*weight). La ordenación in situ no estable evita el búfer temporal de la estable; printf emite dos decimales sin formato Rust. El vector de pesos sigue ocupando O(N), con tiempo O(N log N). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1161_greedy.rs`: tiempo 0.015 s → 0.046 s; memoria 248 KB → 104 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes ordenan y acumulan de la misma manera.
-- La solución sencilla en Java redondea el resultado mediante
-  `BigDecimal` con empates al par, como `printf` en C.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1161_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -121,3 +131,6 @@ de dos `long`, y el código la redondea con empates al par, como
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1161_greedy_optimized.cpp](1161_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 136 KB | 11303573 |
 | [1161_greedy_optimized.java](1161_greedy_optimized.java) | Java 1.8 | greedy | O(N log N) | AC | 0.093 s | 444 KB | 11303959 |
+| [1161_greedy_optimized.rs](1161_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 104 KB | 11325086 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
