@@ -21,6 +21,10 @@ El número n.
 
 La cantidad de ceros finales.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -100,19 +104,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1295_number_theory_optimized.java`: reducción de tiempo +12.80%;
   reducción de memoria +79.75%; base: `1295_number_theory.java`.
 
+`1295_number_theory_optimized.py`. Conserva el argumento módulo 100 para los ceros finales. Calcula directamente 1+pow(2,n,100)+pow(3,n,100)+pow(4,n,100), sin generador sobre cuatro bases. Las potencias modulares no construyen valores enormes. La cota demostrada de dos ceros hace que resto cero dé dos, divisibilidad por diez dé uno y lo demás cero. Tiempo O(log n) operaciones modulares acotadas y estado O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1295_number_theory.py`: tiempo 0.093 s → 0.125 s; memoria 464 KB → 200 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1295_number_theory.cpp](1295_number_theory.cpp).
-- [1295_number_theory.go](1295_number_theory.go).
-- [1295_number_theory.rs](1295_number_theory.rs).
+`1295_number_theory_optimized.py`: puesto de tiempo 37/57 y de memoria 1/57 en esta muestra comparable.
 
-- Python usa el `pow` de tres argumentos incorporado; los demás
-  lenguajes elevan a la potencia módulo 100 a mano.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -131,3 +133,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log n) | AC | 0.125 s | 200 KB | 11325070 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

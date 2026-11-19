@@ -20,6 +20,10 @@
 
 末尾零的个数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -85,15 +89,17 @@ n 最大时这个和超过 180 000 位，但末尾零的个数受其中 2 的幂
 
 - `1295_number_theory_optimized.java`: 时间降低 +12.80%; 内存降低 +79.75%; 基础版本: `1295_number_theory.java`.
 
+`1295_number_theory_optimized.py`. 保留模 100 判断末尾零数的论证，直接计算 1+pow(2,n,100)+pow(3,n,100)+pow(4,n,100)，不用四个底数的生成器。模幂不构造巨大整数。已证明至多两个末尾零，因此余零对应二，可被十整除对应一，否则零。时间 O(log n) 次有界模运算，状态 O(1)。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1295_number_theory.py` 相比：时间 0.093 s → 0.125 s；内存 464 KB → 200 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1295_number_theory.cpp](1295_number_theory.cpp).
-- [1295_number_theory.go](1295_number_theory.go).
-- [1295_number_theory.rs](1295_number_theory.rs).
+`1295_number_theory_optimized.py`：在该可比样本中，时间名次 37/57，内存名次 1/57。
 
-- Python 使用内置的三参数 `pow`；其他语言手工做模 100 的快速幂。
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -112,3 +118,6 @@ n 最大时这个和超过 180 000 位，但末尾零的个数受其中 2 的幂
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log n) | AC | 0.125 s | 200 KB | 11325070 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

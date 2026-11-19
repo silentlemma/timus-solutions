@@ -21,6 +21,10 @@ The number n.
 
 The number of trailing zeros.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -97,19 +101,17 @@ asterisk concerns the rating target only.
 - `1295_number_theory_optimized.java`: time reduction +12.80%; memory
   reduction +79.75%; base: `1295_number_theory.java`.
 
+`1295_number_theory_optimized.py`. Keep the same modulo-100 argument for the number of trailing zeroes. Compute 1+pow(2,n,100)+pow(3,n,100)+pow(4,n,100) directly rather than a generator over four bases. Modular exponentiation never constructs the huge powers. The proven bound of at most two trailing zeroes makes remainder zero mean two, divisibility by ten mean one, otherwise zero. Time O(log n) bounded modular operations and O(1) state. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1295_number_theory.py`: time 0.093 s → 0.125 s; memory 464 KB → 200 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1295_number_theory.cpp](1295_number_theory.cpp).
-- [1295_number_theory.go](1295_number_theory.go).
-- [1295_number_theory.rs](1295_number_theory.rs).
+`1295_number_theory_optimized.py`: time place 37/57, memory place 1/57 in this comparable sample.
 
-- Python uses the built-in three-argument `pow`; the other languages
-  square and multiply by hand modulo 100.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -128,3 +130,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log n) | AC | 0.125 s | 200 KB | 11325070 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
