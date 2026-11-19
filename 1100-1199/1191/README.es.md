@@ -101,21 +101,17 @@ Ambas versiones se conservan, sin atribuirlo a otra recurrencia o intérprete.
 - `1191_math_optimized.java`: 0.125 s / 408 KB; base `1191_math.java`: 0.125 s / 1636 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.1%.
 - `1191_dp.py`: 0.109 s / 236 KB; base `1191_math.py`: 0.062 s / 352 KB; cambio respecto a la base: tiempo +75.8%, memoria -33.0%.
 
+`1191_math_optimized.rs`. Conserva solo la separación actual y la redondea hacia abajo a un múltiplo de cada intervalo siguiente. Cuando llega a cero, las operaciones posteriores no pueden alterarla y se imprime de inmediato. Tiempo máximo O(N), espacio auxiliar O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1191_math.rs`: tiempo 0.015 s → 0.015 s; memoria 212 KB → 52 KB.
+
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1191_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1191_math.cpp`; fuente que cubre `1191_math.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 38/38.
-
-- Go: base didáctica preferida `1191_math.go`; fuente que cubre `1191_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1191_math.java`; fuente que cubre `1191_math_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1191_math.py`; fuente que cubre `1191_dp.py`; puestos tiempo/memoria 8/1, registros de otros autores 12/12.
-
-- Rust: base didáctica preferida `1191_math.rs`; fuente que cubre `1191_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -135,5 +131,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
 | [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
+| [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

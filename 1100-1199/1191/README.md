@@ -102,21 +102,17 @@ This is an implementation of the same algorithm, hence `_optimized`.
 - `1191_math_optimized.java`: 0.125 s / 408 KB; base `1191_math.java`: 0.125 s / 1636 KB; relative change: time -0.0%, memory -75.1%.
 - `1191_dp.py`: 0.109 s / 236 KB; base `1191_math.py`: 0.062 s / 352 KB; relative change: time +75.8%, memory -33.0%.
 
+`1191_math_optimized.rs`. Keep only the current gap, rounding it down to a multiple of each next interval. Once the gap becomes zero, later operations cannot change it, so the answer can be emitted immediately. Worst-case time is O(N), auxiliary space O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1191_math.rs`: time 0.015 s → 0.015 s; memory 212 KB → 52 KB.
+
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1191_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1191_math.cpp`; covering source `1191_math.cpp`; time/memory places 1/1, other-author entries 38/38.
-
-- Go: preferred teaching base `1191_math.go`; covering source `1191_math.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1191_math.java`; covering source `1191_math_optimized.java`; time/memory places 2/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1191_math.py`; covering source `1191_dp.py`; time/memory places 8/1, other-author entries 12/12.
-
-- Rust: preferred teaching base `1191_math.rs`; covering source `1191_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -136,5 +132,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
 | [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
+| [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
