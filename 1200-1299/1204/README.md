@@ -74,6 +74,10 @@ generated products of all three kinds.
 
 ## Optimized solutions
 
+`1204_number_theory_optimized.rs`. Keep trial factorization of n=pq and the extended-Euclidean CRT construction of the four idempotent roots. The sieve marks only odd composites and stores primes as u16 instead of i64. Stream each query and its roots without full input/output buffers. For R=31623 and Q queries, time O(R log log R+Q(pi(R)+log N)) and storage O(R+pi(R)); the distinct-prime input promise ensures the inverse exists. Root order 0,1,min(x,y),max(x,y) is unchanged.
+
+Compared with `1204_number_theory.rs`: time 0.015 s → 0.015 s; memory 268 KB → 92 KB.
+
 CRT reconstruction is unchanged. Java uses a primitive prime array, integer trial divisions and bounded ASCII output instead of boxed primes and per-answer strings. Python uses a prime-product tree: a GCD tests an entire block, and nontrivial factors are routed down to smaller blocks. At a leaf, ordinary trial division finishes the split. Every returned divisor is verified exactly; there is no probabilistic factorization assumption. Product-tree construction and big-integer GCD/multiplication costs must be counted, rather than treating each large-number operation as constant time.
 
 - `1204_number_theory_optimized.java`: 0.109 s / 484 KB; base `1204_number_theory.java`: 0.171 s / 1088 KB; relative change: time -36.3%, memory -55.5%.
@@ -81,17 +85,11 @@ CRT reconstruction is unchanged. Java uses a primitive prime array, integer tria
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `1204_number_theory.cpp`; covering source `1204_number_theory.cpp`; time/memory places 3/7, other-author entries 75/75.
+`1204_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1204_number_theory.go`; covering source `1204_number_theory.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1204_number_theory.java`; covering source `1204_number_theory_optimized.java`; time/memory places 2/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1204_number_theory.py`; covering source `1204_number_theory_trees.py`; time/memory places 1/2, other-author entries 13/13.
-
-- Rust: preferred teaching base `1204_number_theory.rs`; covering source `1204_number_theory.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -113,5 +111,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1204_number_theory_optimized.java](1204_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
 | [1204_number_theory_trees.py](1204_number_theory_trees.py) \* | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
+| [1204_number_theory_optimized.rs](1204_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(R log log R+Q(pi(R)+log N)) | AC | 0.015 s | 92 KB | 11325500 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -75,6 +75,10 @@ productos generados de los tres tipos.
 
 ## Soluciones optimizadas
 
+`1204_number_theory_optimized.rs`. Conserva factorización por prueba de n=pq y construcción CRT de cuatro raíces idempotentes con Euclides extendido. Criba solo impares compuestos y guarda primos u16 en vez de i64. Procesa consultas y raíces en flujo sin buffers completos. R=31623, Q consultas: O(R log log R+Q(pi(R)+log N)) tiempo, O(R+pi(R)) espacio; primos distintos garantizan inversa. Mantiene orden 0,1,min(x,y),max(x,y).
+
+Frente a `1204_number_theory.rs`: tiempo 0.015 s → 0.015 s; memoria 268 KB → 92 KB.
+
 La reconstrucción mediante CRT no cambia. Java usa un arreglo primitivo de primos, divisiones enteras y salida ASCII acotada en vez de objetos y cadenas por respuesta. Python usa un árbol de productos de primos: un MCD examina un bloque completo y dirige los factores no triviales hacia bloques menores; las hojas terminan por división de prueba. Cada divisor se verifica exactamente, sin hipótesis probabilísticas. Se contabilizan la construcción y los costes del MCD y la multiplicación de enteros grandes, no como operaciones constantes.
 
 - `1204_number_theory_optimized.java`: 0.109 s / 484 KB; base `1204_number_theory.java`: 0.171 s / 1088 KB; cambio respecto a la base: tiempo -36.3%, memoria -55.5%.
@@ -82,17 +86,11 @@ La reconstrucción mediante CRT no cambia. Java usa un arreglo primitivo de prim
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1204_number_theory.cpp`; versión que cubre `1204_number_theory.cpp`; puestos tiempo/memoria 3/7, registros de otros autores 75/75.
+`1204_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1204_number_theory.go`; versión que cubre `1204_number_theory.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1204_number_theory.java`; versión que cubre `1204_number_theory_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1204_number_theory.py`; versión que cubre `1204_number_theory_trees.py`; puestos tiempo/memoria 1/2, registros de otros autores 13/13.
-
-- Rust: base didáctica preferida `1204_number_theory.rs`; versión que cubre `1204_number_theory.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -114,5 +112,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1204_number_theory_optimized.java](1204_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
 | [1204_number_theory_trees.py](1204_number_theory_trees.py) \* | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
+| [1204_number_theory_optimized.rs](1204_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(R log log R+Q(pi(R)+log N)) | AC | 0.015 s | 92 KB | 11325500 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

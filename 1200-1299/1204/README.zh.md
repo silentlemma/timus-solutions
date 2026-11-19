@@ -67,6 +67,10 @@
 
 ## 优化解法
 
+`1204_number_theory_optimized.rs`. 保留 n=pq 试分解及扩展欧几里得/CRT 构造四个幂等根。筛只标奇合数，素数存 u16 而非 i64。逐个处理查询和输出，不留全量输入/输出缓冲。R=31623、Q 查询下时间 O(R log log R+Q(pi(R)+log N))、空间 O(R+pi(R))；输入保证不同素因子使逆元存在。0,1,min(x,y),max(x,y) 顺序不变。
+
+与 `1204_number_theory.rs` 相比：时间 0.015 s → 0.015 s；内存 268 KB → 92 KB。
+
 CRT 重构不变。Java 用基本类型素数数组、整数试除及有界 ASCII 输出，代替装箱对象和逐答案字符串。Python 使用素数乘积树：一次 GCD 检查整个块，再把非平凡因子向更小的块分流；叶子用普通试除完成。所有除数均精确验证，不依赖概率分解。必须计入乘积树构造和大整数 GCD、乘法的代价，不能把大数运算视为常数时间。
 
 - `1204_number_theory_optimized.java`: 0.109 s / 484 KB; 基础版 `1204_number_theory.java`: 0.171 s / 1088 KB; 相对基础版的变化: 时间 -36.3%, 内存 -55.5%.
@@ -74,17 +78,11 @@ CRT 重构不变。Java 用基本类型素数数组、整数试除及有界 ASCI
 
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- C++: 优先教学基础版 `1204_number_theory.cpp`; 覆盖实现 `1204_number_theory.cpp`; 时间/内存名次 3/7, 其他作者记录 75/75.
+`1204_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- Go: 优先教学基础版 `1204_number_theory.go`; 覆盖实现 `1204_number_theory.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Java: 优先教学基础版 `1204_number_theory.java`; 覆盖实现 `1204_number_theory_optimized.java`; 时间/内存名次 2/1, 其他作者记录 3/3.
-
-- Python/PyPy: 优先教学基础版 `1204_number_theory.py`; 覆盖实现 `1204_number_theory_trees.py`; 时间/内存名次 1/2, 其他作者记录 13/13.
-
-- Rust: 优先教学基础版 `1204_number_theory.rs`; 覆盖实现 `1204_number_theory.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -106,5 +104,6 @@ CRT 重构不变。Java 用基本类型素数数组、整数试除及有界 ASCI
 |---|---|---|---|---|---|---|---|
 | [1204_number_theory_optimized.java](1204_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(K sqrt N) | AC | 0.109 s | 484 KB | 11309381 |
 | [1204_number_theory_trees.py](1204_number_theory_trees.py) \* | Python 3.12 x64 | number_theory, trees | O(log P) bigint gcds per query | AC | 0.093 s | 1084 KB | 11309380 |
+| [1204_number_theory_optimized.rs](1204_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(R log log R+Q(pi(R)+log N)) | AC | 0.015 s | 92 KB | 11325500 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
