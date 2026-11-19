@@ -18,6 +18,10 @@ n 和 m（2 ≤ n, m ≤ 50）。
 
 一行 n 个第一种的质量，下一行 m 个第二种的质量。任何符合要求的质量都可以。
 
+## 评测方式
+
+仓库使用语义检查器，接受满足以下条件的任意输出。 仓库检查器要求恰好两行，分别有 n 和 m 个整数质量。全部 n+m 个质量须互异且在 [1,10^9] 内，全部 n*m 个跨组和也须互异。构造总存在，不接受失败信息。
+
 ## 样例
 
 ### 样例 1
@@ -69,12 +73,23 @@ n 和 m（2 ≤ n, m ≤ 50）。
 
 - `1731_constructive_optimized.java`: 时间降低 +45.61%; 内存降低 +76.20%; 基础版本: `1731_constructive.java`.
 
+`1731_constructive_optimized.py`. 保留第一类质量 1..n，第二类 j*n+1（j=1..m）。第一组均小于第二组；相邻第二类质量对应的和占据互不相交的 n 值区间，因此礼物总质量各不相同。n,m<=50 时最大质量为 2501。以 O(n+m) 次有界数字操作输出所需两行。 仍构造并连接每行输出，首行使用 map(str,range(...))。拼接字符串的峰值空间仍为 O(n+m)，并非常数空间流式输出。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1731_constructive.py` 相比：时间 0.093 s → 0.125 s；内存 416 KB → 208 KB。
+
+`1731_constructive_optimized.rs`. 保留第一类质量 1..n，第二类 j*n+1（j=1..m）。第一组均小于第二组；相邻第二类质量对应的和占据互不相交的 n 值区间，因此礼物总质量各不相同。n,m<=50 时最大质量为 2501。以 O(n+m) 次有界数字操作输出所需两行。 生成一个质量即输出，去掉两个 Vec<String> 集合及整行拼接。额外状态 O(1)。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1731_constructive.rs` 相比：时间 0.046 s → 0.031 s；内存 220 KB → 56 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1731_constructive.go](1731_constructive.go).
-- [1731_constructive.rs](1731_constructive.rs).
+`1731_constructive_optimized.py`：在该可比样本中，时间名次 24/40，内存名次 1/40。
+
+`1731_constructive_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -94,3 +109,7 @@ n 和 m（2 ≤ n, m ≤ 50）。
 |---|---|---|---|---|---|---|---|
 | [1731_constructive_optimized.cpp](1731_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n + m) | AC | 0.015 s | 124 KB | 11304262 |
 | [1731_constructive_optimized.java](1731_constructive_optimized.java) | Java 1.8 | constructive | O(n + m) | AC | 0.093 s | 376 KB | 11304040 |
+| [1731_constructive_optimized.py](1731_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n+m) | AC | 0.125 s | 208 KB | 11325001 |
+| [1731_constructive_optimized.rs](1731_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n+m) | AC | 0.031 s | 56 KB | 11325108 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

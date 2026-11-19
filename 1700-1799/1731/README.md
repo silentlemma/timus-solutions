@@ -22,6 +22,10 @@ n and m (2 ≤ n, m ≤ 50).
 The n masses of the first kind on one line and the m masses of the
 second kind on the next. Any fitting masses are accepted.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. The repository checker requires exactly two lines with n and m integer masses. All n+m masses must be distinct and in [1,10^9], and all n*m pair sums must be distinct. A construction always exists, so a failure message is not accepted.
+
 ## Examples
 
 ### Example 1
@@ -86,15 +90,23 @@ asterisk concerns the rating target only.
 - `1731_constructive_optimized.java`: time reduction +45.61%; memory
   reduction +76.20%; base: `1731_constructive.java`.
 
+`1731_constructive_optimized.py`. Keep masses 1..n for the first kind and j*n+1 for j=1..m for the second. The first group is below the second, and the sums for successive second masses occupy disjoint n-value intervals, so every gift sum is unique. n,m<=50 keep every mass at most 2501. Emit the two required lines in O(n+m) bounded-width numeric operations. Construct and join each output line as before; the first line uses map(str,range(...)). The joined strings still require O(n+m) peak storage, rather than constant-space streaming. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1731_constructive.py`: time 0.093 s → 0.125 s; memory 416 KB → 208 KB.
+
+`1731_constructive_optimized.rs`. Keep masses 1..n for the first kind and j*n+1 for j=1..m for the second. The first group is below the second, and the sums for successive second masses occupy disjoint n-value intervals, so every gift sum is unique. n,m<=50 keep every mass at most 2501. Emit the two required lines in O(n+m) bounded-width numeric operations. Print each mass as it is generated, without the two Vec<String> collections and joined lines. Auxiliary state O(1). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1731_constructive.rs`: time 0.046 s → 0.031 s; memory 220 KB → 56 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1731_constructive.go](1731_constructive.go).
-- [1731_constructive.rs](1731_constructive.rs).
+`1731_constructive_optimized.py`: time place 24/40, memory place 1/40 in this comparable sample.
+
+`1731_constructive_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -114,3 +126,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1731_constructive_optimized.cpp](1731_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n + m) | AC | 0.015 s | 124 KB | 11304262 |
 | [1731_constructive_optimized.java](1731_constructive_optimized.java) | Java 1.8 | constructive | O(n + m) | AC | 0.093 s | 376 KB | 11304040 |
+| [1731_constructive_optimized.py](1731_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n+m) | AC | 0.125 s | 208 KB | 11325001 |
+| [1731_constructive_optimized.rs](1731_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n+m) | AC | 0.031 s | 56 KB | 11325108 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

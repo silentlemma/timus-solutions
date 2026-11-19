@@ -22,6 +22,10 @@ n y m (2 ≤ n, m ≤ 50).
 Las n masas de la primera clase en una línea y las m de la segunda en
 la siguiente. Se acepta cualquier elección válida.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. El comprobador del repositorio exige dos líneas con n y m masas enteras. Las n+m masas deben ser distintas y estar en [1,10^9], y las n*m sumas cruzadas ser distintas. Siempre existe una construcción; no se acepta un mensaje de imposibilidad.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -87,15 +91,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1731_constructive_optimized.java`: reducción de tiempo +45.61%;
   reducción de memoria +76.20%; base: `1731_constructive.java`.
 
+`1731_constructive_optimized.py`. Mantiene masas 1..n para el primer tipo y j*n+1, j=1..m, para el segundo. El primer grupo queda por debajo del segundo, y las sumas de masas sucesivas del segundo ocupan intervalos disjuntos de n valores: cada regalo pesa distinto. Con n,m<=50 ninguna masa supera 2501. Emite las dos líneas en O(n+m) operaciones numéricas acotadas. Construye y une cada línea como antes; la primera usa map(str,range(...)). Las cadenas unidas aún requieren O(n+m) espacio máximo, no salida en flujo de espacio constante. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1731_constructive.py`: tiempo 0.093 s → 0.125 s; memoria 416 KB → 208 KB.
+
+`1731_constructive_optimized.rs`. Mantiene masas 1..n para el primer tipo y j*n+1, j=1..m, para el segundo. El primer grupo queda por debajo del segundo, y las sumas de masas sucesivas del segundo ocupan intervalos disjuntos de n valores: cada regalo pesa distinto. Con n,m<=50 ninguna masa supera 2501. Emite las dos líneas en O(n+m) operaciones numéricas acotadas. Imprime cada masa al generarla, sin los dos Vec<String> ni las líneas unidas. Estado auxiliar O(1). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1731_constructive.rs`: tiempo 0.046 s → 0.031 s; memoria 220 KB → 56 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1731_constructive.go](1731_constructive.go).
-- [1731_constructive.rs](1731_constructive.rs).
+`1731_constructive_optimized.py`: puesto de tiempo 24/40 y de memoria 1/40 en esta muestra comparable.
+
+`1731_constructive_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -115,3 +127,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1731_constructive_optimized.cpp](1731_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n + m) | AC | 0.015 s | 124 KB | 11304262 |
 | [1731_constructive_optimized.java](1731_constructive_optimized.java) | Java 1.8 | constructive | O(n + m) | AC | 0.093 s | 376 KB | 11304040 |
+| [1731_constructive_optimized.py](1731_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n+m) | AC | 0.125 s | 208 KB | 11325001 |
+| [1731_constructive_optimized.rs](1731_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n+m) | AC | 0.031 s | 56 KB | 11325108 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
