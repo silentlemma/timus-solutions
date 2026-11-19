@@ -25,6 +25,10 @@ a, b, c and d.
 
 The price of the ride.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -65,6 +69,18 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 316 KB instead of 1600 KB, with
 the same time.
 
+`1607_math.py`. Replace round-by-round bargaining by a closed formula. If a>=c return a. Otherwise q=(c-a-1)//(b+d) is the number of full rounds after which the parties are still apart; the next offer or reply agrees at min(a+(q+1)*b,c-q*d). Positive b,d make the division valid. This is the math variant; keep the simulation source separately. O(1) bounded-integer time and space. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1607_implementation.py`: time 0.093 s → 0.156 s; memory 416 KB → 200 KB.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1607_math.py`: time place 97/97, memory place 1/97 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+
 ## Solutions
 
 ### Simple
@@ -82,6 +98,6 @@ the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1607_implementation_optimized.java](1607_implementation_optimized.java) \* | Java 1.8 | implementation | O(max(1, c - a)) | AC | 0.125 s | 316 KB | 11303763 |
+| [1607_math.py](1607_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.156 s | 200 KB | 11324835 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.

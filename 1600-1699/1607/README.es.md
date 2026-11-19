@@ -25,6 +25,10 @@ a, b, c y d.
 
 El precio del viaje.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -65,6 +69,18 @@ La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 316 KB en lugar de 1600 KB, con
 el mismo tiempo.
 
+`1607_math.py`. Sustituye el regateo por rondas por una fórmula. Si a>=c devuelve a. En otro caso q=(c-a-1)//(b+d) cuenta rondas completas tras las que aún no hay acuerdo; la siguiente oferta o réplica acuerda min(a+(q+1)*b,c-q*d). b,d positivos validan la división. Es la variante math; conserva aparte la simulación. Tiempo y espacio enteros acotados O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1607_implementation.py`: tiempo 0.093 s → 0.156 s; memoria 416 KB → 200 KB.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1607_math.py`: puesto de tiempo 97/97 y de memoria 1/97 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+
 ## Soluciones
 
 ### Sencillas
@@ -82,6 +98,6 @@ el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1607_implementation_optimized.java](1607_implementation_optimized.java) \* | Java 1.8 | implementation | O(max(1, c - a)) | AC | 0.125 s | 316 KB | 11303763 |
+| [1607_math.py](1607_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.156 s | 200 KB | 11324835 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
