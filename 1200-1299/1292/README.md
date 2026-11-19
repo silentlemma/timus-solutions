@@ -27,6 +27,10 @@ T, then T lines with N, K and L.
 
 T lines with the distances.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -72,16 +76,21 @@ The answers were compared with applying F all N − 1 times.
 
 ## Optimized solutions
 
+`1292_math_optimized.py`. Retain repeated digit-cube sums until N-1 steps or the fixed point 153. Precompute ten digit cubes and read queries/output in 4096-byte chunks instead of retaining all queries and answers. For promised multiples of three K<=33333, the already checked finite convergence bound is fourteen steps, so the total is O(Q) under these fixed bounds and O(B) buffer storage. An unchanged intermediate value also stops the loop. Every digit-cube transformation uses exact integer arithmetic.
+
+Compared with `1292_math.py`: time 0.265 s → 0.125 s; memory 7972 KB → 3 344 KB.
+
 Both versions evaluate each query until the requested step or the fixed point 153 and write answers through a bounded buffer. Go looks up each digit's cube in a ten-entry table. C++ combines two precomputed cube sums for three-digit blocks and keeps the ship offset and subtraction in signed 64-bit integers. Go also uses signed 64-bit offsets and direct byte buffers for input and output, without allocating a string per number. Auxiliary space is constant.
 
 The accepted base implementations [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- L has no stated upper bound. Python uses arbitrary-precision integers;
-  the others use 64-bit integers.
+`1292_math_optimized.py`: time place 1/19, memory place 5/19 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -101,5 +110,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
 | [1292_math_optimized.go](1292_math_optimized.go) \* | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
+| [1292_math_optimized.py](1292_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

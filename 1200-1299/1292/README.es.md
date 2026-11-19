@@ -27,6 +27,10 @@ T y luego T líneas con N, K y L.
 
 T líneas con las distancias.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -73,16 +77,21 @@ Las respuestas se compararon con aplicar F las N − 1 veces completas.
 
 ## Soluciones optimizadas
 
+`1292_math_optimized.py`. Mantiene sumas de cubos de dígitos hasta N-1 pasos o punto fijo 153. Precalcula diez cubos y procesa consultas/salida en bloques de 4096 bytes, sin retenerlas completas. Para K<=33333 múltiplo de tres, la cota finita ya comprobada es catorce pasos: O(Q) total bajo esos límites fijos, O(B) buffer. Un valor intermedio sin cambio también termina. Cada transformación de suma de cubos usa aritmética entera exacta.
+
+Frente a `1292_math.py`: tiempo 0.265 s → 0.125 s; memoria 7972 KB → 3 344 KB.
+
 Ambas versiones procesan cada consulta hasta el paso pedido o el punto fijo 153 y escriben con un búfer acotado. Go consulta los cubos de las cifras en una tabla de diez entradas. C++ suma dos resultados precalculados para bloques de tres cifras y mantiene el desplazamiento y la resta en enteros con signo de 64 bits. Go también usa desplazamientos de 64 bits con signo y búferes de bytes para entrada y salida, sin crear una cadena por número. El espacio auxiliar es constante.
 
 Las implementaciones base aceptadas [1292_math.java](1292_math.java), [1292_math.py](1292_math.py), [1292_math.rs](1292_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- L no tiene cota superior indicada. Python usa enteros de precisión
-  arbitraria; los demás lenguajes, enteros de 64 bits.
+`1292_math_optimized.py`: puesto de tiempo 1/19 y de memoria 5/19 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -102,5 +111,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1292_math_optimized.cpp](1292_math_optimized.cpp) | G++ 13.2 x64 | math | O(T · 14 · digits) | AC | 0.015 s | 84 KB | 11310876 |
 | [1292_math_optimized.go](1292_math_optimized.go) \* | Go 1.14 x64 | math | O(T · 14 · digits) | AC | 0.001 s | 800 KB | 11311114 |
+| [1292_math_optimized.py](1292_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q) under fixed K bounds; O(B) space | AC | 0.125 s | 3344 KB | 11325483 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
