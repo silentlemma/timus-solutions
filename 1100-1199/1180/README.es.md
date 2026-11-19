@@ -23,6 +23,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 `2`, o `1` y la menor primera jugada ganadora.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -68,9 +72,23 @@ número como cadena, y escriben la breve respuesta byte a byte. C++:
 88 KB en lugar de 384 KB, con el mismo tiempo; Java: 0.093 s en lugar de
 0.125 s y 328 KB en lugar de 1568 KB.
 
+`1180_games_optimized.py`. Conserva la clasificación del juego de potencias de dos por N módulo tres. Resto cero pierde; en otro caso quitar ese resto, una o dos piedras, es la menor jugada ganadora. Procesa los D dígitos sin convertir el número enorme completo a entero. Suma directamente los códigos de los bytes: el cero ASCII vale 48, divisible por tres, y el resto no cambia. Aún guarda la cadena de bytes: tiempo O(D) y almacenamiento de entrada O(D). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1180_games.py`: tiempo 0.078 s → 0.125 s; memoria 400 KB → 236 KB.
+
+`1180_games_optimized.rs`. Conserva la clasificación del juego de potencias de dos por N módulo tres. Resto cero pierde; en otro caso quitar ese resto, una o dos piedras, es la menor jugada ganadora. Procesa los D dígitos sin convertir el número enorme completo a entero. Actualiza el resto acotado con cada dígito y no conserva la línea de entrada. Tiempo O(D), estado auxiliar O(1). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1180_games.rs`: tiempo 0.015 s → 0.031 s; memoria 212 KB → 56 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes suman los dígitos módulo 3 leyéndolos como texto.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1180_games_optimized.py`: puesto de tiempo 64/77 y de memoria 3/77 en esta muestra comparable.
+
+`1180_games_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -90,6 +108,7 @@ número como cadena, y escriben la breve respuesta byte a byte. C++:
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1180_games_optimized.cpp](1180_games_optimized.cpp) \* | G++ 13.2 x64 | games | O(digits) | AC | 0.031 s | 88 KB | 11303574 |
 | [1180_games_optimized.java](1180_games_optimized.java) | Java 1.8 | games | O(digits) | AC | 0.093 s | 328 KB | 11303452 |
+| [1180_games_optimized.py](1180_games_optimized.py) \* | PyPy 3.10 x64 | games | O(D) | AC | 0.125 s | 236 KB | 11324925 |
+| [1180_games_optimized.rs](1180_games_optimized.rs) \* | Rust 1.75 x64 | games | O(D) | AC | 0.031 s | 56 KB | 11325088 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

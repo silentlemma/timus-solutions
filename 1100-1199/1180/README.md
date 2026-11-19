@@ -23,6 +23,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 `2`, or `1` and the smallest winning first move.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -68,9 +72,23 @@ number as a string, and write the short answer byte by byte. C++:
 88 KB instead of 384 KB, with the same time; Java: 0.093 s instead of
 0.125 s and 328 KB instead of 1568 KB.
 
+`1180_games_optimized.py`. Keep the power-of-two game classification by N modulo three. A zero remainder loses; otherwise taking the remainder, one or two stones, is the smallest winning move. Process the D decimal digits without converting the whole huge number to an integer. Sum the digit byte codes directly: ASCII zero is 48, divisible by three, so the remainder is unchanged. The byte string is still stored: O(D) time and O(D) input storage. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1180_games.py`: time 0.078 s → 0.125 s; memory 400 KB → 236 KB.
+
+`1180_games_optimized.rs`. Keep the power-of-two game classification by N modulo three. A zero remainder loses; otherwise taking the remainder, one or two stones, is the smallest winning move. Process the D decimal digits without converting the whole huge number to an integer. Update the bounded remainder for each incoming digit and retain no input line. Time O(D), auxiliary state O(1). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1180_games.rs`: time 0.015 s → 0.031 s; memory 212 KB → 56 KB.
+
 ## Language notes
 
-- All languages add up the digits modulo 3 while reading them as text.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1180_games_optimized.py`: time place 64/77, memory place 3/77 in this comparable sample.
+
+`1180_games_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -90,6 +108,7 @@ number as a string, and write the short answer byte by byte. C++:
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1180_games_optimized.cpp](1180_games_optimized.cpp) \* | G++ 13.2 x64 | games | O(digits) | AC | 0.031 s | 88 KB | 11303574 |
 | [1180_games_optimized.java](1180_games_optimized.java) | Java 1.8 | games | O(digits) | AC | 0.093 s | 328 KB | 11303452 |
+| [1180_games_optimized.py](1180_games_optimized.py) \* | PyPy 3.10 x64 | games | O(D) | AC | 0.125 s | 236 KB | 11324925 |
+| [1180_games_optimized.rs](1180_games_optimized.rs) \* | Rust 1.75 x64 | games | O(D) | AC | 0.031 s | 56 KB | 11325088 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.
