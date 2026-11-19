@@ -24,6 +24,10 @@ n, m y k, y luego el programa en una línea.
 
 El número de casillas finales posibles.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -91,9 +95,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1525_implementation_optimized.java`. Conserva la imagen de intervalo monótona por eje, actualizando las tres parejas al leer los bytes una sola vez. Un movimiento limita ambos extremos de su eje; los demás no cambian. El programa vacío deja intervalos intactos. Multiplica sus tres longitudes; el máximo 10^15 cabe en long. Tiempo O(L) por L bytes y solo nueve long más búfer fijo; elimina String completo y tres recorridos repetidos. El único número final aún usa println.
+
+Frente a `1525_implementation.java`: tiempo 0.140 s → 0.093 s; memoria 2212 KB → 496 KB.
+
 En cada eje se guarda el desplazamiento sin paredes s y sus extremos de prefijo lo y hi, incluido cero. Con coordenadas de 0 a L − 1, los extremos alcanzables son s − lo y L − 1 + s − hi hasta encontrarse. Un nuevo mínimo fija el primero en cero y un nuevo máximo fija el segundo en L − 1. Una vez juntos no vuelven a separarse. El recuento es max(1, L − (hi − lo)) y los tres recuentos se multiplican tras una sola pasada.
 
 Las implementaciones base aceptadas [1525_implementation.java](1525_implementation.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1525_implementation_optimized.java`: puesto de tiempo 1/15 y de memoria 1/15 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -115,5 +131,6 @@ Las implementaciones base aceptadas [1525_implementation.java](1525_implementati
 | [1525_math.go](1525_math.go) \* | Go 1.14 x64 | math | O(len) | AC | 0.015 s | 932 KB | 11310467 |
 | [1525_math.py](1525_math.py) | Python 3.12 x64 | math | O(len) | AC | 0.078 s | 520 KB | 11310470 |
 | [1525_math.rs](1525_math.rs) \* | Rust 1.75 x64 | math | O(len) | AC | 0.031 s | 216 KB | 11310469 |
+| [1525_implementation_optimized.java](1525_implementation_optimized.java) | Java 1.8 | implementation | O(L) | AC | 0.093 s | 496 KB | 11325017 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
