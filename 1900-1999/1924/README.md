@@ -65,9 +65,17 @@ The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`: 336 KB instead of 1616 KB, with
 the same time.
 
+`1924_math_optimized.py`. Use the four-value parity period instead of constructing N(N+1)/2: its parity is even exactly when N mod 4 is 0 or 3. Changing plus to minus changes a total by an even number, so play cannot affect the winner. This is a smaller form of the same parity argument, with O(1) time and storage. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1924_math.py`: time 0.093 s → 0.125 s; memory 396 KB → 192 KB.
+
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1924_math_optimized.py`: time place 110/125, memory place 2/125 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -87,3 +95,6 @@ No language needs anything special.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1924_math_optimized.cpp](1924_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 116 KB | 11303649 |
 | [1924_math_optimized.java](1924_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 336 KB | 11303788 |
+| [1924_math_optimized.py](1924_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 192 KB | 11325078 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
