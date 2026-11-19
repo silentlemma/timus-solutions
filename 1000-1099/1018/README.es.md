@@ -107,6 +107,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1018_dp_trees_optimized.rs`. Conserva mochila de árbol para Q ramas conectadas a raíz. Fusiona hijo en orden descendente del total, preservando estados menores sin segundo vector. Aristas en estrella directa sustituyen vectores anidados; vértices u8, enlaces i16 y totales i32 seguros para N≤100 y 99·30000 manzanas. Cota conservadora O(NQ²) tiempo, O(NQ+N) memoria viva con vectores recursivos.
+
+Frente a `1018_dp_trees.rs`: tiempo 0.015 s → 0.015 s; memoria 260 KB → 76 KB.
+
 Se conserva la mochila sobre subárboles. El preorden convierte cada vértice no raíz y sus descendientes en[pos,end), con los pesos de sus aristas entrantes. Para maximizar aristas conservadas, tomar la actual avanza una posición; descartarla salta todo el subárbol. Para minimizar eliminadas, conservar cuesta cero eliminaciones, o se quita el intervalo completo con suma prefija. Saltar un ancestro salta sus descendientes: todo estado alcanzado ya conserva sus ancestros. Con K=min(Q,N-1-Q), maximizar Q conservadas o minimizar la pérdida complementaria y restarla del total. Dos transiciones por celda dan O(N(1+K)) tiempo/espacio incluida preparación; conservar todas devuelve directamente la suma. Python usa listas nativas de enteros del PyPy indicado.
 
 - `1018_dp_graphs.java`: 0.125 s / 368 KB; base `1018_dp_trees.java`: 0.140 s / 1912 KB; cambio respecto a la base: tiempo -10.7%, memoria -80.8%.
@@ -146,5 +150,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
 | [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
+| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

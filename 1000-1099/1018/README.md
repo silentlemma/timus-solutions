@@ -104,6 +104,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1018_dp_trees_optimized.rs`. Keep tree knapsack for exactly Q connected root branches. Merge each child into the current vector in descending total order, so lower source states survive without allocating a second merge vector. Flat forward-star edges replace nested adjacency vectors; u8 vertices, i16 links and i32 apple totals are safe for N≤100 and at most 99·30000 apples. Conservative O(NQ²) time and O(NQ+N) live storage, including recursive DP vectors.
+
+Compared with `1018_dp_trees.rs`: time 0.015 s → 0.015 s; memory 260 KB → 76 KB.
+
 Keep the tree-knapsack teaching sources. Flatten the rooted tree in preorder; a nonroot vertex and its descendants form one interval [pos,end), whose incoming edges have exactly that interval's weights. In maximum-kept mode, keep the current edge and advance one position, or skip its entire subtree. In minimum-removed mode, keep it for zero removals, or remove the complete interval and its prefix-sum weight. A skipped ancestor jumps over all descendants, so every reached position already has its ancestors kept; no additional ancestor state is needed. Use K=min(Q,N-1-Q), maximize Q kept edges or minimize the complementary removed weight, then subtract that loss from the total. Each cell has two transitions: O(N(1+K)) time/space including graph/index preparation. Keeping all edges returns the input weight sum directly. Python uses native integer-list storage under the recorded PyPy runtime.
 
 - `1018_dp_graphs.java`: 0.125 s / 368 KB; base `1018_dp_trees.java`: 0.140 s / 1912 KB; relative change: time -10.7%, memory -80.8%.
@@ -143,5 +147,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
 | [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
+| [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
