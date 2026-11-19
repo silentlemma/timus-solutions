@@ -25,6 +25,10 @@ de valor absoluto hasta `10⁵`.
 
 Los posibles ganadores, uno por línea, en el orden de la entrada.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -80,6 +84,10 @@ C++ y Go buscan primero un jedi que alcance a todos. Mantienen un candidato y lo
 
 Las implementaciones base aceptadas [1218_graphs.java](1218_graphs.java), [1218_graphs.py](1218_graphs.py), [1218_graphs.rs](1218_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1218_graphs_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1218_graphs.java`: tiempo 0.171 s → 0.109 s; memoria 2196 KB → 656 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -106,5 +114,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1218_bfs.cpp](1218_bfs.cpp) | G++ 13.2 x64 | bfs | O(N²) | AC | 0.015 s | 112 KB | 11310617 |
 | [1218_bfs.go](1218_bfs.go) \* | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
+| [1218_graphs_optimized.java](1218_graphs_optimized.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.109 s | 656 KB | 11324794 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
