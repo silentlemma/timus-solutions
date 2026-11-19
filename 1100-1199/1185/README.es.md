@@ -23,6 +23,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 La longitud en pies, con un error de a lo sumo 8 pulgadas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -78,17 +82,21 @@ castillos aleatorios y en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1185_geometry_optimized.java`. Conserva la envolvente por cadena monótona y su perímetro más 2πL, redondeando solo al final. Empaqueta cada punto en long: x con signo en los32 bits altos, y con el bit de signo invertido para mantener su orden en la mitad baja. La ordenación primitiva da el mismo orden lexicográfico. La envolvente usa índices int, sin objetos ni listas temporales. Productos cruzados exactos en long; solo longitudes usan hypot. Espacio O(N). Si S(N) es ordenar, el recorrido añade O(N); Java8 suele costar O(N log N), permitiendo conservadoramente un peor caso cuadrático.
+
+Frente a `1185_geometry.java`: tiempo 0.140 s → 0.109 s; memoria 3144 KB → 556 KB.
+
 La versión Go suma 10 000 a ambas coordenadas y empaqueta cada punto en un entero de 32 bits, con x en los bits altos. Al ordenar esos enteros se obtiene el orden lexicográfico. Se recorre en ambos sentidos y se reutiliza una pila para las dos cadenas monótonas. Al perímetro se le sigue sumando 2πL.
 
 Las implementaciones base aceptadas [1185_geometry.cpp](1185_geometry.cpp), [1185_geometry.java](1185_geometry.java), [1185_geometry.py](1185_geometry.py), [1185_geometry.rs](1185_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Todos los lenguajes construyen la envolvente igual sobre coordenadas
-  enteras (de precisión arbitraria en Python, de 64 bits en los demás)
-  y suman las longitudes de los lados en coma flotante.
+`1185_geometry_optimized.java`: puesto de tiempo 5/27 y de memoria 1/27 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -107,5 +115,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1185_geometry_optimized.go](1185_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
+| [1185_geometry_optimized.java](1185_geometry_optimized.java) \* | Java 1.8 | geometry | O(N+S(N)) | AC | 0.109 s | 556 KB | 11325011 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

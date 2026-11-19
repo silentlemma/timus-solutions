@@ -23,6 +23,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The length in feet, accurate to 8 inches.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -76,17 +80,21 @@ random castles and on every test.
 
 ## Optimized solutions
 
+`1185_geometry_optimized.java`. Keep the monotone-chain convex hull and its perimeter plus 2πL, rounded once at the end. Pack each integer point in one long: signed x occupies the high 32 bits, while flipping the sign bit of y preserves its signed order in the low half. Primitive sorting then gives the same lexicographic order. Store the hull as indices in one int array instead of coordinate objects and temporary lists. Cross products remain exact long values; only edge lengths use hypot. Storage O(N). With S(N) the primitive-sort cost, the hull scan costs O(N) beyond sorting; Java 8 typically takes O(N log N), with a conservative quadratic sort allowance rather than a strict worst-case guarantee.
+
+Compared with `1185_geometry.java`: time 0.140 s → 0.109 s; memory 3144 KB → 556 KB.
+
 The Go version shifts both coordinates by 10,000 and packs each point into one 32-bit integer, with x in the high bits. Sorting those integers gives lexicographic order. Scan the order in both directions and reuse one stack for the two monotone chains. The perimeter still includes the offset term 2πL.
 
 The accepted base implementations [1185_geometry.cpp](1185_geometry.cpp), [1185_geometry.java](1185_geometry.java), [1185_geometry.py](1185_geometry.py), [1185_geometry.rs](1185_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- All languages build the hull the same way on integer coordinates
-  (arbitrary precision in Python, 64-bit elsewhere) and add the side
-  lengths in floating point.
+`1185_geometry_optimized.java`: time place 5/27, memory place 1/27 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -105,5 +113,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1185_geometry_optimized.go](1185_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 824 KB | 11310857 |
+| [1185_geometry_optimized.java](1185_geometry_optimized.java) \* | Java 1.8 | geometry | O(N+S(N)) | AC | 0.109 s | 556 KB | 11325011 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
