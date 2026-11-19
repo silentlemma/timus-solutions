@@ -24,6 +24,10 @@ N.
 
 The two numbers.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -68,6 +72,10 @@ Go keeps the same two formulas n−1 and floor(3(n−1)/2). It reads the team co
 
 The accepted base implementations [1483_math.cpp](1483_math.cpp), [1483_math.java](1483_math.java), [1483_math.py](1483_math.py), [1483_math.rs](1483_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1483_math_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1483_math.java`: time 0.093 s → 0.078 s; memory 1588 KB → 456 KB.
+
 ## Solutions
 
 ### Simple
@@ -85,5 +93,6 @@ The accepted base implementations [1483_math.cpp](1483_math.cpp), [1483_math.jav
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1483_math_optimized.go](1483_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11311199 |
+| [1483_math_optimized.java](1483_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 456 KB | 11324807 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
