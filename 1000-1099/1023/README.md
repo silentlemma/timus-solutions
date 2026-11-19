@@ -88,21 +88,17 @@ Keep the same smallest-legal-divisor game proof. The answer is d-1 for the small
 - `1023_games_number_theory_optimized.java`: 0.109 s / 392 KB; base `1023_games_number_theory.java`: 0.109 s / 1576 KB; relative change: time -0.0%, memory -75.1%.
 - `1023_games_number_theory_optimized.py`: 0.140 s / 280 KB; base `1023_games_number_theory.py`: 0.078 s / 400 KB; relative change: time +79.5%, memory -30.0%.
 
+`1023_games_number_theory_optimized.rs`. Keep the search for the least admissible divisor, including the even-number fallback. The bound d<=K/d avoids multiplying d by itself. Only the current divisor and the input value are needed: O(√K) time and O(1) auxiliary space. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1023_games_number_theory.rs`: time 0.015 s → 0.015 s; memory 220 KB → 56 KB.
+
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1023_games_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1023_games_number_theory.cpp`; covering source `1023_games_number_theory.cpp`; time/memory places 1/2, other-author entries 111/111.
-
-- Go: preferred teaching base `1023_games_number_theory.go`; covering source `1023_games_number_theory.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1023_games_number_theory.java`; covering source `1023_games_number_theory_optimized.java`; time/memory places 1/1, other-author entries 15/15.
-
-- Python/PyPy: preferred teaching base `1023_games_number_theory.py`; covering source `1023_games_number_theory_optimized.py`; time/memory places 15/1, other-author entries 16/16.
-
-- Rust: preferred teaching base `1023_games_number_theory.rs`; covering source `1023_games_number_theory.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -122,5 +118,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1023_games_number_theory_optimized.java](1023_games_number_theory_optimized.java) | Java 1.8 | games, number_theory | O(sqrt(K)) time; O(1) space | AC | 0.109 s | 392 KB | 11308324 |
 | [1023_games_number_theory_optimized.py](1023_games_number_theory_optimized.py) \* | PyPy 3.10 x64 | games, number_theory | O(sqrt(K)) time; O(1) space | AC | 0.140 s | 280 KB | 11309754 |
+| [1023_games_number_theory_optimized.rs](1023_games_number_theory_optimized.rs) \* | Rust 1.75 x64 | games, number_theory | O(√K) | AC | 0.015 s | 56 KB | 11325081 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
