@@ -21,6 +21,10 @@ punctuation.
 
 The original text.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -97,15 +101,17 @@ asterisk concerns the rating target only.
 - `1685_strings_optimized.java`: time reduction +14.68%; memory
   reduction +60.05%; base: `1685_strings.java`.
 
+`1685_strings_optimized.rs`. Keep one encoded line and replay middle-left-right decoding with balanced recursion over output slices. Preserve leading/trailing spaces; discard only CR/LF. Two fixed arrays of 20000 bytes replace the String, dynamic output and explicit range stack. Each character is visited once: O(n) time. Explicit storage is 40000 bytes plus O(log(n+1)) recursive frames; the statement bound justifies both fixed capacities. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1685_strings.rs`: time 0.062 s → 0.046 s; memory 248 KB → 88 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1685_strings.go](1685_strings.go).
-- [1685_strings.rs](1685_strings.rs).
+`1685_strings_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -125,5 +131,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1685_strings_optimized.cpp](1685_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 112 KB | 11307312 |
 | [1685_strings_optimized.java](1685_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 668 KB | 11307316 |
+| [1685_strings_optimized.rs](1685_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 88 KB | 11325106 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

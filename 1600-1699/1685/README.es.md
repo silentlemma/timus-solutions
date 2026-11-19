@@ -21,6 +21,10 @@ signos de puntuación.
 
 El texto original.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -98,15 +102,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1685_strings_optimized.java`: reducción de tiempo +14.68%; reducción
   de memoria +60.05%; base: `1685_strings.java`.
 
+`1685_strings_optimized.rs`. Conserva una línea codificada y reproduce centro-izquierda-derecha por recursión equilibrada sobre secciones de salida. Mantiene espacios iniciales y finales, eliminando solo CR/LF. Dos arreglos fijos de 20000 bytes reemplazan String, salida dinámica y pila explícita de intervalos. Cada carácter se visita una vez: tiempo O(n). Almacenamiento explícito de 40000 bytes y O(log(n+1)) marcos recursivos; el límite del enunciado justifica las capacidades. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1685_strings.rs`: tiempo 0.062 s → 0.046 s; memoria 248 KB → 88 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1685_strings.go](1685_strings.go).
-- [1685_strings.rs](1685_strings.rs).
+`1685_strings_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -126,5 +132,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1685_strings_optimized.cpp](1685_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 112 KB | 11307312 |
 | [1685_strings_optimized.java](1685_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 668 KB | 11307316 |
+| [1685_strings_optimized.rs](1685_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 88 KB | 11325106 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
