@@ -116,6 +116,10 @@ asterisk concerns the rating target only.
 - `2020_simulation_optimized.cpp`: time reduction +0.00%; memory
   reduction +72.63%; base: `2020_simulation.cpp`.
 
+`2020_simulation_optimized.rs`. Read the two prescribed words into fixed byte arrays of at most 1000 entries. Keep two positions and apply the same encounter rule; when one queue ends, add the two remaining lengths. This removes heap String storage and formatted Rust output, while retaining O(S+T) time and the two bounded word buffers. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `2020_simulation.rs`: time 0.015 s → 0.046 s; memory 228 KB → 60 KB.
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -147,3 +151,6 @@ or conditional increments. Ordinary integer types easily hold the answer.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
+| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

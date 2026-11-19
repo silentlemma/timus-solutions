@@ -89,6 +89,10 @@ L
 
 - `2020_simulation_optimized.cpp`: 时间降低 +0.00%; 内存降低 +72.63%; 基础版本: `2020_simulation.cpp`.
 
+`2020_simulation_optimized.rs`. 把题目指定的两个单词读入各最多 1000 项的固定字节数组。以两个位置执行原来的相遇规则；一队结束后，加上双方剩余长度。省去堆上的 String 和 Rust 格式化，保留 O(S+T) 时间及两个有界单词缓冲区。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `2020_simulation.rs` 相比：时间 0.015 s → 0.046 s；内存 228 KB → 60 KB。
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -116,3 +120,6 @@ L
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
+| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -115,6 +115,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `2020_simulation_optimized.cpp`: reducción de tiempo +0.00%; reducción
   de memoria +72.63%; base: `2020_simulation.cpp`.
 
+`2020_simulation_optimized.rs`. Lee las dos palabras del enunciado en arreglos fijos de bytes de hasta 1000 entradas. Usa dos posiciones y la misma regla de encuentro; al terminar una cola suma las longitudes restantes. Elimina String en el montón y la salida formateada de Rust, manteniendo O(S+T) tiempo y los dos búferes acotados. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `2020_simulation.rs`: tiempo 0.015 s → 0.046 s; memoria 228 KB → 60 KB.
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -146,3 +150,6 @@ Los enteros ordinarios bastan para el resultado.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2020_simulation_optimized.cpp](2020_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s + t) | AC | 0.015 s | 104 KB | 11307208 |
+| [2020_simulation_optimized.rs](2020_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(S+T) | AC | 0.046 s | 60 KB | 11325119 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
