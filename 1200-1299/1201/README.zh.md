@@ -24,6 +24,10 @@
 给定日期前后的空格分别换成 `[` 和
 `]`。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -91,6 +95,10 @@ C++ 和 Go 用公历闰年公式计算当月首日的星期，并直接在固定
 
 已通过评测的基础实现 [1201_implementation.java](1201_implementation.java), [1201_implementation.py](1201_implementation.py), [1201_implementation.rs](1201_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1201_implementation_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+
+与 `1201_implementation.java` 相比：时间 0.125 s → 0.109 s；内存 1752 KB → 920 KB。
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -115,5 +123,6 @@ C++ 和 Go 用公历闰年公式计算当月首日的星期，并直接在固定
 |---|---|---|---|---|---|---|---|
 | [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
 | [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+| [1201_implementation_optimized.java](1201_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
