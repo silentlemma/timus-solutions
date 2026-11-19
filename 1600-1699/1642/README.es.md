@@ -25,6 +25,10 @@ la salida o un obstáculo.
 
 Dos distancias, primero hacia delante, o `Impossible`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -85,9 +89,21 @@ en 300 rectas aleatorias.
 
 ## Soluciones optimizadas
 
+`1642_implementation_optimized.py`. Mantiene obstáculos negativo/positivo más cercanos y fórmulas de salida. Tokens en flujo sustituyen paredes retenidas y barridos repetidos. Usa obstáculo garantizado opuesto a salida, mismo Impossible. PyPy vacía antes de os._exit(0). O(n) tiempo, estado constante y buffers acotados; tiempo medido mayor, memoria menor.
+
+Frente a `1642_implementation.py`: tiempo 0.093 s → 0.156 s; memoria 504 KB → 252 KB.
+
 La solución optimizada en Java analiza los números, con su signo, a
 mano desde un búfer pequeño en lugar de usar `Scanner`: 436 KB en lugar
 de 1688 KB, con el mismo tiempo. Lo demás es igual.
+
+`1642_implementation_optimized.cpp`. Conserva la barrera más cercana a cada lado en una pasada y aplica las mismas fórmulas de accesibilidad y distancias. El análisis y la impresión manual de bytes de C sustituyen la conversión entera con formato, con intermedios de 64 bits con signo. Sin lista de obstáculos: O(n) tiempo y O(1) estado de trabajo explícito.
+
+Frente a `1642_implementation.cpp`: tiempo 0.031 s → 0.015 s; memoria 124 KB → 72 KB.
+
+`1642_implementation_optimized.rs`. Actualiza ambos límites de barrera al leer cada obstáculo, en vez de reunir la entrada y recorrer dos veces su vector. Las fórmulas de distancia no cambian. La entrada/salida numérica de C y dos límites dan O(n) tiempo y O(1) espacio auxiliar.
+
+Frente a `1642_implementation.rs`: tiempo 0.031 s → 0.015 s; memoria 228 KB → 48 KB.
 
 ## Soluciones
 
@@ -106,3 +122,8 @@ de 1688 KB, con el mismo tiempo. Lo demás es igual.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1642_implementation_optimized.java](1642_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 436 KB | 11303629 |
+| [1642_implementation_optimized.cpp](1642_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 72 KB | 11325060 |
+| [1642_implementation_optimized.rs](1642_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
+| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(1) state plus bounded token buffers | AC | 0.156 s | 252 KB | 11325697 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

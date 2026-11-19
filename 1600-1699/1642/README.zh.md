@@ -20,6 +20,10 @@ n 和 x（0 ≤ n ≤ 100），然后是 n 个互不相同的障碍物坐标。�
 
 两个距离，先给向前的，或者输出 `Impossible`。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -72,8 +76,20 @@ Impossible
 
 ## 优化解法
 
+`1642_implementation_optimized.py`. 保留最近负/正障碍及出口公式。流式整数替代存全部墙及重复扫描，仍用题目保证的背向出口障碍，Impossible 不变。PyPy 刷新后 os._exit(0)。O(n) 时间，常数几何状态及有界词缓冲；实测时间更高、内存更低。
+
+与 `1642_implementation.py` 相比：时间 0.093 s → 0.156 s；内存 504 KB → 252 KB。
+
 优化的 Java 解法从较小的缓冲区中手工解析带符号的数字，而不是使用 `Scanner`：
 436 KB，而不是 1688 KB，时间不变。其余部分不变。
+
+`1642_implementation_optimized.cpp`. 一遍输入保留左右最近障碍，再应用相同的可达性及两种路程公式。手动 C 字节解析和打印替代整数格式化转换，中间值为有符号 64 位。不保存障碍列表：时间 O(n)，显式工作状态 O(1)。
+
+与 `1642_implementation.cpp` 相比：时间 0.031 s → 0.015 s；内存 124 KB → 72 KB。
+
+`1642_implementation_optimized.rs`. 每读入一个障碍就更新两侧最近边界，无需收集输入并两次扫描向量。距离公式不变。C 运行库数值输入输出与两个边界变量给出 O(n) 时间、O(1) 额外空间。
+
+与 `1642_implementation.rs` 相比：时间 0.031 s → 0.015 s；内存 228 KB → 48 KB。
 
 ## 解答
 
@@ -92,3 +108,8 @@ Impossible
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1642_implementation_optimized.java](1642_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 436 KB | 11303629 |
+| [1642_implementation_optimized.cpp](1642_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 72 KB | 11325060 |
+| [1642_implementation_optimized.rs](1642_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
+| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(1) state plus bounded token buffers | AC | 0.156 s | 252 KB | 11325697 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
