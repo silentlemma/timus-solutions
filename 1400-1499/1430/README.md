@@ -22,6 +22,10 @@ A, B and N.
 
 x and y.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. Output two nonnegative counts in the original price order. Their cost must not exceed N and must equal the maximum achievable spend; any tied optimal pair is valid.
+
 ## Examples
 
 ### Example 1
@@ -60,6 +64,10 @@ The new C++, Go and Rust versions preserve the bounded purchase enumeration. Aft
 
 The accepted base implementations [1430_number_theory.java](1430_number_theory.java), [1430_number_theory.py](1430_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1430_number_theory_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1430_number_theory.java`: time 0.109 s → 0.109 s; memory 1684 KB → 492 KB.
+
 ## Solutions
 
 ### Simple
@@ -79,5 +87,6 @@ The accepted base implementations [1430_number_theory.java](1430_number_theory.j
 | [1430_number_theory_optimized.cpp](1430_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.015 s | 108 KB | 11315180 |
 | [1430_number_theory_optimized.go](1430_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.031 s | 292 KB | 11315184 |
 | [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
+| [1430_number_theory_optimized.java](1430_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 492 KB | 11324975 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

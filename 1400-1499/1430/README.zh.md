@@ -21,6 +21,10 @@ A、B 和 N。
 
 x 和 y。
 
+## 评测方式
+
+仓库使用语义检查器，接受满足以下条件的任意输出。 按原价格顺序输出两个非负数量，总价不得超过 N，且必须等于可达到的最大花费；并列最优对均有效。
+
 ## 样例
 
 ### 样例 1
@@ -57,6 +61,10 @@ x 至多约 44 722 个值；一旦恰好花完 N，循环立即停止。`O(√N)
 
 已通过评测的基础实现 [1430_number_theory.java](1430_number_theory.java), [1430_number_theory.py](1430_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1430_number_theory_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+
+与 `1430_number_theory.java` 相比：时间 0.109 s → 0.109 s；内存 1684 KB → 492 KB。
+
 ## 解答
 
 ### 简单版本
@@ -76,5 +84,6 @@ x 至多约 44 722 个值；一旦恰好花完 N，循环立即停止。`O(√N)
 | [1430_number_theory_optimized.cpp](1430_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.015 s | 108 KB | 11315180 |
 | [1430_number_theory_optimized.go](1430_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.031 s | 292 KB | 11315184 |
 | [1430_number_theory_optimized.rs](1430_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(sqrt N + log min(A,B)) | AC | 0.046 s | 56 KB | 11315187 |
+| [1430_number_theory_optimized.java](1430_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt N) | AC | 0.109 s | 492 KB | 11324975 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
