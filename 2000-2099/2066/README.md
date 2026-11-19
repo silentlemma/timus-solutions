@@ -64,9 +64,17 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.140 s and
 400 KB instead of 1584 KB.
 
+`2066_math.py`. Replace enumeration of permutations and operator pairs by two expressions. For sorted nonnegative a<=b<=c, the minimum among additive expressions is a-b-c. If a product is subtracted, put the two larger operands in it to get a-b*c; positive products and other mixed placements cannot improve both candidates. Return their minimum. The math filename distinguishes this argument from the preserved brute-force teaching version. Time and storage O(1). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `2066_bruteforce.py`: time 0.078 s → 0.14 s; memory 532 KB → 208 KB.
+
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2066_math.py`: time place 330/341, memory place 3/341 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -85,3 +93,6 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2066_bruteforce_optimized.java](2066_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 400 KB | 11303798 |
+| [2066_math.py](2066_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 208 KB | 11324830 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

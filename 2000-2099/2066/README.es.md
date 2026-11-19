@@ -64,9 +64,17 @@ La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.140 s y
 400 KB en lugar de 1584 KB.
 
+`2066_math.py`. Sustituye la enumeración de permutaciones y operadores por dos expresiones. Para a<=b<=c no negativos, el mínimo aditivo es a-b-c. Si se resta un producto, conviene incluir los dos mayores, dando a-b*c; productos positivos y otras posiciones mixtas no mejoran a ambos candidatos. Devuelve el mínimo. El nombre math distingue esta prueba de la fuerza bruta didáctica conservada. Tiempo y espacio O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `2066_bruteforce.py`: tiempo 0.078 s → 0.14 s; memoria 532 KB → 208 KB.
+
 ## Notas por lenguaje
 
-Ningún lenguaje necesita nada especial.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`2066_math.py`: puesto de tiempo 330/341 y de memoria 3/341 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -85,3 +93,6 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2066_bruteforce_optimized.java](2066_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(1) | AC | 0.093 s | 400 KB | 11303798 |
+| [2066_math.py](2066_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 208 KB | 11324830 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
