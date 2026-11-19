@@ -66,6 +66,14 @@ do not supply a corresponding arbitrary-precision integer type.
 
 ## Optimized solutions
 
+`1385_math_optimized.go`. Keep the derived divisibility coefficient using only 10^min(N,3), then stream the zero suffix. Raw Go 1.14 syscall.Read/Write with fixed 256-byte buffers replaces os.File initialization and the previous 4096-byte buffers, retrying EINTR and partial writes and recognizing zero-byte EOF. No answer table or arbitrary-precision allocation is added. O(N) output time and O(1) auxiliary space. Our exact Accepted uses 312 KB, 72.0% less than the short 1116 KB formula baseline; preserve both simple formula and big-integer teaching sources.
+
+Compared with `1385_math.go`: time 0.031 s → 0.015 s; memory 1116 KB → 312 KB.
+
+`1385_math_optimized.rs`. Keep the proved divisibility count Σ(10^N/d-10^(N-1)) over d=1..9 dividing 10^N, but compute its coefficient using only 10^min(N,3). The admissible d stabilize at 1,2,4,5,8 from N=3, so this yields 14,155 or 1575 and then exactly N-3 zero bytes when needed. These values are derived by the small divisor loop, not stored answers. Both variants emit the zero suffix directly instead of constructing Repeat/repeat strings or a concatenated answer. The output has N+1 digits: O(N) time, O(1) auxiliary state plus bounded I/O, no arbitrary-precision integer or N-sized buffer. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1385_math.rs`: time 0.015 s → 0.015 s; memory 224 KB → 56 KB.
+
 Among k=1..9, only prime factors 2 and 5 can divide `10^N`.
 For N=1 the valid k are 1,2,5, giving 9+4+1=14. For N=2 they are 1,2,4,5,
 giving 90+40+15+10=155. For N≥3 the set stabilizes at 1,2,4,5,8.
@@ -89,17 +97,13 @@ qualifies by its actual memory reduction and is marked with a star.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `1385_math.cpp`; covering source `1385_math_optimized.cpp`; time/memory places 1/1, other-author entries 39/39.
+`1385_math_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1385_math_number_theory.go`; covering source `1385_math_number_theory.go`; time/memory places 1/1, other-author entries 0/0.
+`1385_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Java: preferred teaching base `1385_math_number_theory.java`; covering source `1385_math_optimized.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1385_math_number_theory.py`; covering source `1385_math.py`; time/memory places 2/7, other-author entries 20/20.
-
-- Rust: preferred teaching base `1385_math.rs`; covering source `1385_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -127,5 +131,7 @@ Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 pl
 | [1385_math.py](1385_math.py) \* | Python 3.12 x64 | math | O(N) output time; O(N) string space | AC | 0.078 s | 392 KB | 11285836 |
 | [1385_math_optimized.cpp](1385_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) output time; O(1) auxiliary space | AC | 0.015 s | 120 KB | 11308752 |
 | [1385_math_optimized.java](1385_math_optimized.java) | Java 1.8 | math | O(N) output time; O(1) auxiliary space | AC | 0.093 s | 432 KB | 11308759 |
+| [1385_math_optimized.go](1385_math_optimized.go) \* | Go 1.14 x64 | math | O(N) time; O(1) space | AC | 0.015 s | 312 KB | 11325709 |
+| [1385_math_optimized.rs](1385_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325098 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
