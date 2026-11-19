@@ -88,6 +88,12 @@ seis personas, 120 carreras aleatorias y tres máximas. Cada uno pasó además
 Las construcciones son comprobaciones matemáticas, no 10078 ejecuciones
 de cada programa nativo.
 
+## Soluciones optimizadas
+
+`1645_fenwick_optimized.rs`. Conserva Fenwick de posiciones finales y fórmulas de límites de puesto. Lee permutación directamente a posiciones u32, cuenta en u32 y emite cada par. Elimina vector de tokens y salida completa. O(N log N) tiempo, O(N) espacio, contadores≤N.
+
+Frente a `1645_fenwick.rs`: tiempo 0.046 s → 0.046 s; memoria 268 KB → 76 KB.
+
 ## Notas por lenguaje
 
 Se conserva el mismo algoritmo Fenwick en los cinco lenguajes. C++ y
@@ -105,6 +111,8 @@ incluyen como Accepted.
 
 ## Soluciones
 
+### Sencillas
+
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1645_fenwick.cpp](1645_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n) | AC | 0.015 s | 184 KB | 11308415 |
@@ -112,3 +120,12 @@ incluyen como Accepted.
 | [1645_fenwick.java](1645_fenwick.java) | Java 1.8 | fenwick | O(n log n) | AC | 0.093 s | 652 KB | 11288494 |
 | [1645_fenwick.py](1645_fenwick.py) | Python 3.12 x64 | fenwick | O(n log n) | AC | 0.093 s | 852 KB | 11288493 |
 | [1645_fenwick.rs](1645_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n) | AC | 0.046 s | 268 KB | 11308416 |
+
+### Optimizadas
+
+| Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
+|---|---|---|---|---|---|---|---|
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
+
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

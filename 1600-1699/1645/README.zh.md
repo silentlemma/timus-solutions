@@ -73,6 +73,12 @@ C++、Rust 程序各跑 996 个独立输入：六人以内全部 873 个排列�
 并取得对应精确源码的 Accepted。时间构造是数学验证，不是每个原生程序
 执行 10078 次。
 
+## 优化解法
+
+`1645_fenwick_optimized.rs`. 保留完赛位置 Fenwick 树及名次上下界公式。排列直接读入 u32 位置，计数也用 u32，每对立即输出，移除解析输入向量及完整输出串。O(N log N) 时间、O(N) 空间，计数不超过 N。
+
+与 `1645_fenwick.rs` 相比：时间 0.046 s → 0.046 s；内存 268 KB → 76 KB。
+
 ## 各语言说明
 
 五种语言都保留同一树状数组算法。C++、Rust 仅作格式工具的精确输出变更，
@@ -86,6 +92,8 @@ Go、Java、Python 与 Accepted 归档逐字节相同。格式调整不称为优
 
 ## 解答
 
+### 简单版本
+
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1645_fenwick.cpp](1645_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n) | AC | 0.015 s | 184 KB | 11308415 |
@@ -93,3 +101,12 @@ Go、Java、Python 与 Accepted 归档逐字节相同。格式调整不称为优
 | [1645_fenwick.java](1645_fenwick.java) | Java 1.8 | fenwick | O(n log n) | AC | 0.093 s | 652 KB | 11288494 |
 | [1645_fenwick.py](1645_fenwick.py) | Python 3.12 x64 | fenwick | O(n log n) | AC | 0.093 s | 852 KB | 11288493 |
 | [1645_fenwick.rs](1645_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n) | AC | 0.046 s | 268 KB | 11308416 |
+
+### 优化版本
+
+| 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
+|---|---|---|---|---|---|---|---|
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
+
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

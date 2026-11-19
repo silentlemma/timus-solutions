@@ -91,6 +91,12 @@ also passed 13 repository inputs in Docker and has its own exact-source
 Accepted. The physical witnesses are mathematical checks, not 10078
 executions of each native program.
 
+## Optimized solutions
+
+`1645_fenwick_optimized.rs`. Keep the finishing-position Fenwick tree and the same lower/upper place formulas. Read the permutation directly into u32 positions, store u32 counts, and emit each pair immediately. Remove the retained parsed input vector and full output string. O(N log N) time and O(N) space; counts never exceed N.
+
+Compared with `1645_fenwick.rs`: time 0.046 s → 0.046 s; memory 268 KB → 76 KB.
+
 ## Language notes
 
 The same Fenwick algorithm remains in all five languages. C++ and
@@ -109,6 +115,8 @@ are not included as Accepted here.
 
 ## Solutions
 
+### Simple
+
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1645_fenwick.cpp](1645_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n) | AC | 0.015 s | 184 KB | 11308415 |
@@ -116,3 +124,12 @@ are not included as Accepted here.
 | [1645_fenwick.java](1645_fenwick.java) | Java 1.8 | fenwick | O(n log n) | AC | 0.093 s | 652 KB | 11288494 |
 | [1645_fenwick.py](1645_fenwick.py) | Python 3.12 x64 | fenwick | O(n log n) | AC | 0.093 s | 852 KB | 11288493 |
 | [1645_fenwick.rs](1645_fenwick.rs) | Rust 1.75 x64 | fenwick | O(n log n) | AC | 0.046 s | 268 KB | 11308416 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1645_fenwick_optimized.rs](1645_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) time; O(N) space | AC | 0.046 s | 76 KB | 11325530 |
+
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
