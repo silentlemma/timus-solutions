@@ -22,6 +22,10 @@ An odd n, 1 ≤ n ≤ 777, then n odd heap sizes from 1 to 54321.
 
 `Daenerys` if she wins, otherwise `Stannis`.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -82,20 +86,27 @@ Daenerys makes the odd-numbered moves, so she wins exactly when this
 number is odd. In the third example the heaps give
 388 + 156 + 232 + 49 + 0 = 825 moves, which is odd. The work is O(n).
 
+## Optimized solutions
+
+`2068_games_optimized.java`. Keep the same XOR of ((heap−1)/2) parity. Read from the existing standard input stream without an additional byte array, and write the fixed winner bytes through System.out.write followed by flush. This avoids String encoding while using the ordinary permitted standard stream; no FileDescriptor access is used. O(N) time and constant auxiliary space.
+
+Compared with `2068_games.java`: time 0.109 s → 0.093 s; memory 480 KB → 340 KB.
+
+`2068_games_optimized.py`. Keep the fixed-total-moves invariant: a split adds two heaps, so heap a contributes (a-1)//2 moves before all nuts are singleton heaps. Only the sum parity matters. XOR each contribution parity as its integer arrives rather than storing all text tokens and summing the full count. A bounded 65536-byte tokenizer retains only parser blocks and an unfinished token; game state is one bit. Time O(N) for bounded heap sizes, storage bounded independently of N. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `2068_games.py`: time 0.093 s → 0.109 s; memory 388 KB → 236 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [2068_games.cpp](2068_games.cpp).
+`2068_games_optimized.py`: time place 33/50, memory place 1/50 in this comparable sample.
 
-The sum is at most 777 · 27160 and fits a 32-bit integer; it is kept in
-64 bits anyway in C++, Java and Rust, and in Go, whose `int` is 64 bits
-on x64.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
+
+### Simple
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
@@ -104,3 +115,13 @@ on x64.
 | [2068_games.java](2068_games.java) | Java 1.8 | games | O(n) | AC | 0.109 s | 480 KB | 11304044 |
 | [2068_games.py](2068_games.py) | Python 3.12 x64 | games | O(n) | AC | 0.093 s | 388 KB | 11304045 |
 | [2068_games.rs](2068_games.rs) | Rust 1.75 x64 | games | O(n) | AC | 0.015 s | 256 KB | 11304046 |
+
+### Optimized
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [2068_games_optimized.py](2068_games_optimized.py) \* | PyPy 3.10 x64 | games | O(N) | AC | 0.109 s | 236 KB | 11325080 |
+| [2068_games_optimized.java](2068_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
+
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
