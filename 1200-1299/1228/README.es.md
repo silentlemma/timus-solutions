@@ -25,6 +25,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 `k1, …, kn` (`0 < ki ≤ 1000`) separados por espacios o saltos de
 línea.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -88,18 +92,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1228_math_optimized.java`: reducción de tiempo +50.40%; reducción de
   memoria +78.22%; base: `1228_math.java`.
 
+`1228_math_optimized.py`. Conserva la reconstrucción por cocientes consecutivos: empieza con el tamaño total s y emite previous/current-1 por cada multiplicador. El último se procesa igual; la entrada válida proporciona cocientes enteros positivos. Hace O(n) divisiones de enteros acotados. El lector por bloques de 65536 bytes arrastra solo el token incompleto, sin entrada decodificada completa ni todos los enteros. Aún construye y une la lista de respuestas: O(n) espacio de salida más almacenamiento del analizador acotado por el tamaño de tokens. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1228_math.py`: tiempo 0.078 s → 0.109 s; memoria 424 KB → 212 KB.
+
+`1228_math_optimized.rs`. Conserva la reconstrucción por cocientes consecutivos: empieza con el tamaño total s y emite previous/current-1 por cada multiplicador. El último se procesa igual; la entrada válida proporciona cocientes enteros positivos. Hace O(n) divisiones de enteros acotados. Lee y emite cada cociente inmediatamente, conservando solo el anterior y actual. Sin vector de entrada, cadenas por respuesta ni salida unida: estado auxiliar O(1). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1228_math.rs`: tiempo 0.015 s → 0.015 s; memoria 216 KB → 52 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1228_math.go](1228_math.go).
-- [1228_math.rs](1228_math.rs).
+`1228_math_optimized.py`: puesto de tiempo 21/32 y de memoria 1/32 en esta muestra comparable.
 
-- Todos los lenguajes ponen `s` delante de los multiplicadores y dividen
-  vecinos.
+`1228_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -119,3 +128,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1228_math_optimized.cpp](1228_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.001 s | 128 KB | 11304270 |
 | [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
+| [1228_math_optimized.py](1228_math_optimized.py) \* | PyPy 3.10 x64 | math | O(n) | AC | 0.109 s | 212 KB | 11325065 |
+| [1228_math_optimized.rs](1228_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
