@@ -20,6 +20,10 @@ n and k (1 ≤ n, k ≤ 1000).
 
 The least number of minutes.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -62,6 +66,18 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 348 KB instead of 1608 KB, with
 the same time.
 
+`1820_math_optimized.cpp`. Retain max(2,ceil(2N/K)): a steak needs two distinct minutes and at most K of the 2N sides fit per minute. Explicit C byte conversion replaces formatted integer scanning/printing; signed 64-bit intermediates compute the ceiling exactly. Time and auxiliary state remain O(1).
+
+Compared with `1820_math.cpp`: time 0.031 s → 0.015 s; memory 124 KB → 72 KB.
+
+`1820_math_optimized.go`. Keep the same frying bound and construction. Portable os.File byte streams and bounded input/output buffers replace fmt scanning and printing; the ceiling uses int64 arithmetic. Only the two inputs and the answer are retained, so the algorithm uses O(1) time and fixed auxiliary storage.
+
+Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 808 KB.
+
+`1820_math_optimized.py`. Use the same exact frying formula on raw byte tokens, avoiding the decoded input string and the main-function wrapper. Flush the printed answer before exiting without normal interpreter teardown. Under the stated bounded integer inputs, time and auxiliary storage remain O(1).
+
+Compared with `1820_math.py`: time 0.093 s → 0.125 s; memory 348 KB → 216 KB.
+
 ## Solutions
 
 ### Simple
@@ -79,6 +95,8 @@ the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 348 KB | 11303779 |
+| [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
+| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
+| [1820_math_optimized.py](1820_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 216 KB | 11324829 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.
