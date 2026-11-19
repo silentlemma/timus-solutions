@@ -86,17 +86,17 @@ there are no duplicate optimized copies.
 
 ## Language notes
 
-The saved 2 November2026 ranking snapshot uses the established
-compiler/date/other-author filters: C++ seeks top15% or the first ten
-places in both metrics; other families seek first in both. Preferred
-C++ is1/2 against85 filtered entries; preferred Java is1/1 against5;
-the old optimized Python is1/1 against14. Go/Rust samples are empty:
-formal coverage is not evidence of competitive superiority. The five
-learning versions and retained Python optimization satisfy current
-coverage without inventing fast labels for the other alternatives.
-All table metrics refer to exact accepted sources.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1223_dp_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Optimized solutions
+
+`1223_dp_optimized.go`. Keep the inverse egg-drop DP, but solve each query directly instead of retaining best[11][1001] for every floor count. reach[k] is the number of floors distinguishable after the current drop count; update k downwards with reach[k]+=reach[k-1]+1 to use the previous row in place. Stop when reach[min(e,10)]>=f. Ten eggs suffice for f<=1000 because ten binary decisions distinguish 1024 outcomes. For query i with Kᵢ=min(eᵢ,10) and answer Dᵢ, total work is O(Σ Kᵢ·Dᵢ), not O(1) per query. DP storage is eleven int64 values, plus fixed I/O buffers. EOF or 0 0 ends processing without an extra answer. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+
+Compared with `1223_dp.go`: time 0.031 s → 0.015 s; memory 1216 KB → 828 KB.
 
 The retained `dp` algorithm asks the inverse question. With `d`
 drops and `e` eggs, let `R(d,e)` be the number of floors resolvable.
@@ -148,3 +148,6 @@ Java already meets the rating goal.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1223_dp.py](1223_dp.py) | Python 3.12 x64 | dp | O(EF + Q) | AC | 0.078 s | 812 KB | 11283702 |
+| [1223_dp_optimized.go](1223_dp_optimized.go) \* | Go 1.14 x64 | dp | O(Σ Kᵢ·Dᵢ) | AC | 0.015 s | 828 KB | 11325045 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

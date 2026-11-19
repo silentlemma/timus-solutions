@@ -79,16 +79,17 @@ sus bytes; no se crean copias optimized idénticas.
 
 ## Notas por lenguaje
 
-La instantánea del 2 de noviembre de 2026 usa los filtros acordados
-de compilador,fecha y otros autores: C++ exige15% superior o primeros
-diez en ambas medidas; las demás familias, primero en ambas. Base C++:
-1/2 frente a85 entradas; base Java:1/1 frente a5; Python rápido:1/1 frente
-a14. Go/Rust no tienen rivales filtrados: cobertura formal no demuestra
-superioridad. Las cinco bases y el Python antiguo admitido cubren el
-criterio actual, sin inventar etiquetas rápidas para las alternativas.
-Las medidas pertenecen a fuentes Accepted exactas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1223_dp_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones optimizadas
+
+`1223_dp_optimized.go`. Conserva la DP inversa de lanzamientos, resolviendo cada consulta sin guardar best[11][1001] para todos los pisos. reach[k] cuenta los pisos distinguibles con los lanzamientos actuales; actualiza k en descenso con reach[k]+=reach[k-1]+1 para usar la fila anterior in situ. Para al alcanzar reach[min(e,10)]>=f. Diez huevos bastan para f<=1000: diez decisiones binarias distinguen 1024 resultados. Para consulta i, Kᵢ=min(eᵢ,10) y respuesta Dᵢ, el trabajo total es O(Σ Kᵢ·Dᵢ), no O(1) por consulta. La DP ocupa once int64 más búferes fijos. EOF o 0 0 finaliza sin respuesta adicional. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1223_dp.go`: tiempo 0.031 s → 0.015 s; memoria 1216 KB → 828 KB.
 
 El antiguo `dp` invierte la pregunta: R(d,e) pisos resolubles con
 d intentos y e huevos. El primer intento divide en rama rota, su piso y
@@ -134,3 +135,6 @@ sencillo ya cumple la meta de clasificación.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1223_dp.py](1223_dp.py) | Python 3.12 x64 | dp | O(EF + Q) | AC | 0.078 s | 812 KB | 11283702 |
+| [1223_dp_optimized.go](1223_dp_optimized.go) \* | Go 1.14 x64 | dp | O(Σ Kᵢ·Dᵢ) | AC | 0.015 s | 828 KB | 11325045 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
