@@ -121,9 +121,21 @@ height, not on the number of interruptions already processed.
 
 ## Optimized solutions
 
+`1998_two_pointers_optimized.java`. Keep prefix weights and the same monotone two-pointer retreat table, including the strict released-weight>limit rule. Build prefix sums directly as weights arrive rather than retaining the separate weights array. Consume interruption times one at a time and update the held-prefix length; if ordinary seconds already complete the work before the next interruption, output immediately and ignore later input. This removes the events array too. Time O(N+M), storage O(N) for prefix and retreat, with long times and weight totals. The interruption second still performs no lift, so ordinary=event-time-1 is preserved.
+
+Compared with `1998_two_pointers.java`: time 0.125 s → 0.125 s; memory 3 104 KB → 1 696 KB.
+
 The optimized C++ version keeps the two-pointer algorithm. While reading the weights, it maintains the weight of the current suffix and discards its first item whenever the remaining suffix still exceeds the threshold. The weights fit in 16 bits. Interruption times are processed as they arrive, and reading stops once the final lift is possible. The running time is O(n+m) and extra space is O(n). The Accepted run used 672 KB instead of 2740 KB, with the same 0.015 s runtime.
 
 The accepted base implementations [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.java](1998_two_pointers.java), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`1998_two_pointers_optimized.java`: time place 8/40, memory place 13/40 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -133,7 +145,7 @@ The accepted base implementations [1998_two_pointers.go](1998_two_pointers.go), 
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers.cpp](1998_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 2740 KB | 11292423 |
 | [1998_two_pointers.go](1998_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
-| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.140 s | 3128 KB | 11292426 |
+| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
 | [1998_two_pointers.py](1998_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
 | [1998_two_pointers.rs](1998_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
 
@@ -142,5 +154,6 @@ The accepted base implementations [1998_two_pointers.go](1998_two_pointers.go), 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.125 s | 1696 KB | 11325027 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

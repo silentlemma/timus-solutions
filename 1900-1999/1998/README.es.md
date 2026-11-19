@@ -115,9 +115,21 @@ retroceso depende solo de la longitud del prefijo.
 
 ## Soluciones optimizadas
 
+`1998_two_pointers_optimized.java`. Conserva prefijos y tabla monótona de retroceso por dos punteros, incluida liberación estricta>limit. Construye prefijos al leer pesos, sin arreglo aparte. Consume interrupciones una a una; si los segundos ordinarios bastan antes de la siguiente, responde e ignora entradas posteriores. Elimina también el arreglo de eventos. Tiempo O(N+M), espacio O(N) para prefijos/retrocesos, tiempos y sumas long. El segundo interrumpido no levanta: mantiene ordinary=event-time-1.
+
+Frente a `1998_two_pointers.java`: tiempo 0.125 s → 0.125 s; memoria 3 104 KB → 1 696 KB.
+
 La versión optimizada de C++ conserva el algoritmo de dos punteros. Al leer los pesos, mantiene el total del sufijo actual y retira su primer objeto mientras el resto aún supere estrictamente el límite. Cada peso ocupa 16 bits. Las interrupciones se procesan a medida que se leen y la lectura se detiene en cuanto se puede terminar. El tiempo es O(n+m) y el espacio adicional es O(n). El envío aceptado usó 672 KB en lugar de 2740 KB, con el mismo tiempo de 0,015 s.
 
 Las implementaciones base aceptadas [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.java](1998_two_pointers.java), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`1998_two_pointers_optimized.java`: puesto de tiempo 8/40 y de memoria 13/40 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -127,7 +139,7 @@ Las implementaciones base aceptadas [1998_two_pointers.go](1998_two_pointers.go)
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers.cpp](1998_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 2740 KB | 11292423 |
 | [1998_two_pointers.go](1998_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
-| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.140 s | 3128 KB | 11292426 |
+| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
 | [1998_two_pointers.py](1998_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
 | [1998_two_pointers.rs](1998_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
 
@@ -136,5 +148,6 @@ Las implementaciones base aceptadas [1998_two_pointers.go](1998_two_pointers.go)
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.125 s | 1696 KB | 11325027 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

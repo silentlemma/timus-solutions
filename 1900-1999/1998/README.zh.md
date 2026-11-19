@@ -72,9 +72,21 @@
 
 ## 优化解法
 
+`1998_two_pointers_optimized.java`. 保留前缀重量及单调双指针回退表，包含释放重量严格>limit 的规则。读重量时直接构造前缀和，不保存独立重量数组。逐个消费中断时刻并更新持有前缀长度；若下次中断前普通秒已够完成，立即输出，不读后续输入，也去掉事件数组。时间 O(N+M)，prefix、retreat 空间 O(N)，时刻和重量总量用 long。中断秒不提升，保留 ordinary=event-time-1。
+
+与 `1998_two_pointers.java` 相比：时间 0.125 s → 0.125 s；内存 3 104 KB → 1 696 KB。
+
 优化后的 C++ 版本保留双指针算法。读取重量时维护当前后缀的总重量，若移除首件物品后剩余重量仍严格超过阈值，就将它移出后缀。每个重量用 16 位保存。逐个读取并处理打断时刻，一旦可以完成最后一次举起就停止读取。时间为 O(n+m)，额外空间为 O(n)。通过评测的提交使用 672 KB，基础版使用 2740 KB，两者均耗时 0.015 秒。
 
 已通过评测的基础实现 [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.java](1998_two_pointers.java), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`1998_two_pointers_optimized.java`：在该可比样本中，时间名次 8/40，内存名次 13/40。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -84,7 +96,7 @@
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers.cpp](1998_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 2740 KB | 11292423 |
 | [1998_two_pointers.go](1998_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n+m) | AC | 0.125 s | 6872 KB | 11292424 |
-| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.140 s | 3128 KB | 11292426 |
+| [1998_two_pointers.java](1998_two_pointers.java) \* | Java 1.8 | two_pointers | O(n+m) | AC | 0.125 s | 3104 KB | 11325563 |
 | [1998_two_pointers.py](1998_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n+m) | AC | 0.156 s | 27000 KB | 11292425 |
 | [1998_two_pointers.rs](1998_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n+m) | AC | 0.031 s | 6272 KB | 11292427 |
 
@@ -93,5 +105,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.125 s | 1696 KB | 11325027 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
