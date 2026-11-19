@@ -7,9 +7,11 @@ const int TRIO = 3;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     std::vector<int> times(n);
-    for (auto &t : times) scanf("%d", &t);
+    for (auto &t : times)
+        scanf("%d", &t);
     std::sort(times.begin(), times.end());
     long long total = 0;
     // move the two slowest across each round, in whichever of two ways is

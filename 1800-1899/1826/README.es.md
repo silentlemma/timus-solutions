@@ -23,6 +23,10 @@ n (2 ≤ n ≤ 100), luego n tiempos de cruce, enteros positivos de hasta
 
 El menor tiempo total.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -81,9 +85,21 @@ independiente en grupos aleatorios.
 
 ## Soluciones optimizadas
 
+`1826_greedy_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1826_greedy.java`: tiempo 0.109 s → 0.078 s; memoria 1764 KB → 516 KB.
+
 Go y Rust ordenan los tiempos en vectores fijos y trasladan a los dos soldados más lentos en cada paso. Con tiempos mínimos a, b y máximos restantes y, z, suman z + min(2a+y, a+2b). Terminan con b para dos soldados o a+b+c para tres. Ambas versiones guardan los tiempos en 16 bits. Go usa heapsort in situ y Rust acumula el total en 32 bits. Ambas usan búferes fijos de bytes para la entrada y la salida decimal. Go accede directamente a los descriptores de entrada y salida estándar y Rust usa la biblioteca de ejecución de C.
 
 Las implementaciones base aceptadas [1826_greedy.cpp](1826_greedy.cpp), [1826_greedy.java](1826_greedy.java), [1826_greedy.py](1826_greedy.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`1826_greedy_optimized.java`: puesto de tiempo 1/28 y de memoria 5/28 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -91,11 +107,11 @@ Las implementaciones base aceptadas [1826_greedy.cpp](1826_greedy.cpp), [1826_gr
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 192 KB | 11290370 |
+| [1826_greedy.cpp](1826_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.015 s | 176 KB | 11325582 |
 | [1826_greedy.go](1826_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 1096 KB | 11290377 |
 | [1826_greedy.java](1826_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.109 s | 1764 KB | 11290382 |
-| [1826_greedy.py](1826_greedy.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 464 KB | 11290379 |
-| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 240 KB | 11290384 |
+| [1826_greedy.py](1826_greedy.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 400 KB | 11325595 |
+| [1826_greedy.rs](1826_greedy.rs) | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.015 s | 236 KB | 11325608 |
 
 ### Optimizadas
 
@@ -103,5 +119,6 @@ Las implementaciones base aceptadas [1826_greedy.cpp](1826_greedy.cpp), [1826_gr
 |---|---|---|---|---|---|---|---|
 | [1826_greedy_optimized.go](1826_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n log n) | AC | 0.031 s | 284 KB | 11311235 |
 | [1826_greedy_optimized.rs](1826_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) | AC | 0.031 s | 52 KB | 11311229 |
+| [1826_greedy_optimized.java](1826_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.078 s | 516 KB | 11324789 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

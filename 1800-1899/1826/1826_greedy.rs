@@ -5,7 +5,10 @@ const TRIO: usize = 3;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<i64> = input.split_ascii_whitespace().map(|t| t.parse().unwrap()).collect();
+    let v: Vec<i64> = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     if v.is_empty() {
         return;
     }
@@ -21,6 +24,10 @@ fn main() {
         total += (2 * a + y + z).min(a + 2 * b + z);
         times.truncate(k - 2);
     }
-    total += if times.len() == TRIO { times.iter().sum() } else { times[times.len() - 1] };
+    total += if times.len() == TRIO {
+        times.iter().sum()
+    } else {
+        times[times.len() - 1]
+    };
     println!("{}", total);
 }

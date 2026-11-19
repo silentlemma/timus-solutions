@@ -5,7 +5,7 @@ TRIO = 3
 
 def main():
     data = list(map(int, sys.stdin.read().split()))
-    times = sorted(data[1:1 + data[0]])
+    times = sorted(data[1 : 1 + data[0]])
     total = 0
     # move the two slowest across each round, in whichever of two ways is
     # cheaper: the fastest escorts each of them, or the two fastest cross,
