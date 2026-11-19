@@ -72,25 +72,27 @@ en 150 matrices aleatorias.
 
 ## Soluciones optimizadas
 
+`1869_prefix_sums_optimized.go`. Acumula diferencias de subida/bajada por dirección al leer la matriz, calcula prefijos y redondea el pico mayor hacia arriba entre 36. Go conserva el algoritmo O(n²), sustituye lectura formateada por búfer fijo y elimina centinelas sin usar. Rust tarda O(n²) frente a la simulación directa O(n³) conservada; también queda el prefijo original, por eso el nuevo se llama prefix_sums_optimized. No retienen matriz ni texto completo; usan O(n) cargas de 64 bits con signo. n<=100 y entradas<=1000 garantizan sumas seguras; demanda cero da cero vagones.
+
+Frente a `1869_prefix_sums.go`: tiempo 0.031 s → 0.015 s; memoria 1244 KB → 808 KB.
+
+`1869_prefix_sums_optimized.rs`. Acumula diferencias de subida/bajada por dirección al leer la matriz, calcula prefijos y redondea el pico mayor hacia arriba entre 36. Go conserva el algoritmo O(n²), sustituye lectura formateada por búfer fijo y elimina centinelas sin usar. Rust tarda O(n²) frente a la simulación directa O(n³) conservada; también queda el prefijo original, por eso el nuevo se llama prefix_sums_optimized. No retienen matriz ni texto completo; usan O(n) cargas de 64 bits con signo. n<=100 y entradas<=1000 garantizan sumas seguras; demanda cero da cero vagones.
+
+Frente a `1869_simulation.rs`: tiempo 0.046 s → 0.015 s; memoria 320 KB → 64 KB.
+
 Las cinco simulaciones directas suman cada billete en todos los tramos que recorre, con tiempo O(N³) y espacio O(N). Se usan como bases educativas junto con las soluciones matriciales originales. Python optimizado lee una fila por estación. Los sufijos derechos aportan a los tramos de ida y los prefijos izquierdos a los de vuelta. Cada vector se empaqueta en un entero con campos de 32 bits. Desplazar un campo y dividir por 2^32−1 calcula los sufijos y la multiplicación por un número de unos en esa base, con truncamiento, calcula los prefijos. Cada campo vale como máximo 1000N² y no hay acarreo entre campos. La respuesta es la carga máxima en ambos sentidos dividida por 36, redondeando hacia arriba. El tiempo es O(N²) y el espacio de trabajo O(N). La versión tarda menos y usa más memoria que la simulación directa.
 
 - `1869_prefix_sums_optimized.py`: 0.062 s / 468 KB; base `1869_simulation.py`: 0.093 s / 396 KB; cambio respecto a la base: tiempo -33.3%, memoria +18.2%.
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1869_prefix_sums_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1869_simulation.cpp`; fuente que cubre `1869_simulation.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 45/45.
+`1869_prefix_sums_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1869_simulation.go`; fuente que cubre `1869_simulation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1869_simulation.java`; fuente que cubre `1869_simulation.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1869_simulation.py`; fuente que cubre `1869_prefix_sums_optimized.py`; puestos tiempo/memoria 1/1, registros de otros autores 9/9.
-
-- Rust: base didáctica preferida `1869_simulation.rs`; fuente que cubre `1869_simulation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -119,3 +121,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
+| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 808 KB | 11325129 |
+| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

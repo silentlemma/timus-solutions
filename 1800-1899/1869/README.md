@@ -70,25 +70,27 @@ random matrices.
 
 ## Optimized solutions
 
+`1869_prefix_sums_optimized.go`. Accumulate boarding and leaving differences separately for each direction while reading the matrix, prefix-sum both arrays, and round the larger peak up by 36. The Go variant keeps the original O(n²) difference algorithm and replaces formatted scanning with fixed-buffer integer I/O; it also drops the unused sentinel cells. For Rust this has O(n²) time rather than the O(n³) retained direct simulation; a separate original prefix-sum source also remains, so the new implementation has the prefix_sums_optimized name. Both stream matrix entries without retaining the matrix or input text and use O(n) signed 64-bit load storage. With n<=100 and entries<=1000 all totals fit safely; zero demand yields zero cars.
+
+Compared with `1869_prefix_sums.go`: time 0.031 s → 0.015 s; memory 1244 KB → 808 KB.
+
+`1869_prefix_sums_optimized.rs`. Accumulate boarding and leaving differences separately for each direction while reading the matrix, prefix-sum both arrays, and round the larger peak up by 36. The Go variant keeps the original O(n²) difference algorithm and replaces formatted scanning with fixed-buffer integer I/O; it also drops the unused sentinel cells. For Rust this has O(n²) time rather than the O(n³) retained direct simulation; a separate original prefix-sum source also remains, so the new implementation has the prefix_sums_optimized name. Both stream matrix entries without retaining the matrix or input text and use O(n) signed 64-bit load storage. With n<=100 and entries<=1000 all totals fit safely; zero demand yields zero cars.
+
+Compared with `1869_simulation.rs`: time 0.046 s → 0.015 s; memory 320 KB → 64 KB.
+
 The five direct simulations add each ticket to every segment it crosses in O(N³) time and O(N) space. They serve as teaching bases alongside the original matrix-prefix solutions. The optimized Python reads one row per station. Its right suffix sums give the contributions to forward segments, and its left prefix sums give those to backward segments. Each vector is packed into an integer with 32-bit fields. Shifting by one field and dividing by 2^32−1 forms the suffix sums. Multiplication by a radix repunit followed by truncation forms the prefix sums. Each field is at most 1000N², so the integer operations do not carry between fields. The largest load in either direction divided by 36 and rounded up gives the answer. The algorithm takes O(N²) time and O(N) working space. The recorded gain is in time, with higher memory use than the direct simulation.
 
 - `1869_prefix_sums_optimized.py`: 0.062 s / 468 KB; base `1869_simulation.py`: 0.093 s / 396 KB; relative change: time -33.3%, memory +18.2%.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1869_prefix_sums_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1869_simulation.cpp`; covering source `1869_simulation.cpp`; time/memory places 1/1, other-author entries 45/45.
+`1869_prefix_sums_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1869_simulation.go`; covering source `1869_simulation.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1869_simulation.java`; covering source `1869_simulation.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1869_simulation.py`; covering source `1869_prefix_sums_optimized.py`; time/memory places 1/1, other-author entries 9/9.
-
-- Rust: preferred teaching base `1869_simulation.rs`; covering source `1869_simulation.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -117,3 +119,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
+| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 808 KB | 11325129 |
+| [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
