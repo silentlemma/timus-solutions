@@ -120,21 +120,21 @@ already fits these bounds.
 
 ## Optimized solutions
 
+`2015_sorting_binary_search.java`. Replace scanning every friend for every apartment by sorting friend budgets and building suffix argmax indices by friend benefit. For each two-room apartment, binary-search the first budget at least ceil(rent/2), then inspect one suffix-best friend; separately test living alone and the own-budget constraint. Original friend IDs and smallest-ID benefit ties are preserved, as are first-apartment/alone ties. Apartments are processed as they arrive, without storing their table. With N friends,M apartments and primitive sort S(N), time O(N+S(N)+M log(N+1)), usually O(N log N+M log(N+1)), space O(N). Zero friends is supported. The different algorithm is named sorting_binary_search; the brute-force teaching source remains.
+
+Compared with `2015_bruteforce.java`: time 0.109 s → 0.093 s; memory 368 KB → 544 KB.
+
 C++ and Rust sort friends by budget and precompute the friend with the greatest benefit in each suffix. For a two-room apartment, binary search finds the first friend who can afford half its rent. The suffix summary then gives the best eligible companion. C++ stores separate suffix indices. Rust keeps the budget order and overwrites benefit and identifier fields with the best suffix choice. Rust stores friends in a fixed array with 16-bit identifiers and uses fixed byte buffers for input and decimal output through the C runtime.
 
 The accepted base implementations [2015_bruteforce.go](2015_bruteforce.go), [2015_bruteforce.java](2015_bruteforce.java), [2015_bruteforce.py](2015_bruteforce.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-Sharing a one-room apartment is forbidden. Check both budgets; a rich
-friend cannot pay more than half for the other person. Do not floor an
-odd half-rent or add a solo benefit to a shared score. Solo benefits
-differ by room count. Zero friends and zero benefits are valid. All five
-ports use exact integer comparisons and the same enumeration order;
-their internal absent choice is separate from a valid solo choice.
-Python uses CPython and needs no optimization for the bounded search.
+`2015_sorting_binary_search.java`: time place 8/75, memory place 7/75 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -144,7 +144,7 @@ Python uses CPython and needs no optimization for the bounded search.
 |---|---|---|---|---|---|---|---|
 | [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB | 11292526 |
 | [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB | 11292536 |
-| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB | 11292554 |
+| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.109 s | 368 KB | 11325564 |
 | [2015_bruteforce.py](2015_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB | 11292543 |
 | [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB | 11292565 |
 
@@ -154,5 +154,6 @@ Python uses CPython and needs no optimization for the bounded search.
 |---|---|---|---|---|---|---|---|
 | [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
 | [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
+| [2015_sorting_binary_search.java](2015_sorting_binary_search.java) \* | Java 1.8 | sorting, binary_search | O(N+S(N)+M log(N+1)) | AC | 0.093 s | 544 KB | 11325029 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

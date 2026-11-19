@@ -76,15 +76,21 @@ Forget about apartments. Live in the dormitory.
 
 ## 优化解法
 
+`2015_sorting_binary_search.java`. 用朋友预算排序与后缀最大收益下标替代逐公寓枚举所有朋友。两居室二分首个预算至少 ceil(rent/2) 的位置，只检查该后缀最佳朋友；另查独住和本人预算。保留原朋友 ID、同收益最小 ID、先公寓及独住的原有平局优先级。公寓流式处理，不存表。N 朋友、M 公寓、排序 S(N) 时，时间 O(N+S(N)+M log(N+1))，通常 O(N log N+M log(N+1))，空间 O(N)，也支持零朋友。不同算法命名 sorting_binary_search，保留枚举教学版。
+
+与 `2015_bruteforce.java` 相比：时间 0.109 s → 0.093 s；内存 368 KB → 544 KB。
+
 C++ 和 Rust 按预算排序朋友，并预计算每个后缀中收益最高的朋友。对两居室，二分找到首个能负担一半租金的朋友，后缀摘要即可给出最佳合格室友。C++ 单独保存后缀编号。Rust 保持预算顺序，用后缀最佳选择覆盖收益和朋友编号字段。Rust 用固定数组保存朋友，编号为 16 位，并通过 C 运行库和固定字节缓冲区处理输入和十进制输出。
 
 已通过评测的基础实现 [2015_bruteforce.go](2015_bruteforce.go), [2015_bruteforce.java](2015_bruteforce.java), [2015_bruteforce.py](2015_bruteforce.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-一室不能合住，双方预算都要检查，朋友不能代付另一半。奇数租金不可向下取整，共享得分不可再加独住收益。独住收益取决于房间数。允许零朋友和零收益。五份程序均用精确整数比较与相同枚举顺序；无方案状态和独住状态分开。Python 使用 CPython，这个有限搜索无需优化。
+`2015_sorting_binary_search.java`：在该可比样本中，时间名次 8/75，内存名次 7/75。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -94,7 +100,7 @@ C++ 和 Rust 按预算排序朋友，并预计算每个后缀中收益最高的�
 |---|---|---|---|---|---|---|---|
 | [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB | 11292526 |
 | [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB | 11292536 |
-| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB | 11292554 |
+| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.109 s | 368 KB | 11325564 |
 | [2015_bruteforce.py](2015_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB | 11292543 |
 | [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB | 11292565 |
 
@@ -104,5 +110,6 @@ C++ 和 Rust 按预算排序朋友，并预计算每个后缀中收益最高的�
 |---|---|---|---|---|---|---|---|
 | [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
 | [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
+| [2015_sorting_binary_search.java](2015_sorting_binary_search.java) \* | Java 1.8 | sorting, binary_search | O(N+S(N)+M log(N+1)) | AC | 0.093 s | 544 KB | 11325029 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

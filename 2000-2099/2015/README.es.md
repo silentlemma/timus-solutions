@@ -121,22 +121,21 @@ asequible, pero aquí ya basta enumerar.
 
 ## Soluciones optimizadas
 
+`2015_sorting_binary_search.java`. Sustituye probar todos los amigos por apartamento por presupuestos ordenados y argmáximos de beneficio en sufijos. Para dos habitaciones busca el primer presupuesto>=ceil(rent/2) e inspecciona un amigo óptimo, comprobando aparte vivir solo y presupuesto propio. Conserva IDs y empates de menor amigo, primer apartamento y opción solo. Procesa apartamentos al leer, sin tabla. N amigos,M apartamentos y ordenación S(N) dan O(N+S(N)+M log(N+1)), usualmente O(N log N+M log(N+1)), espacio O(N), con cero amigos permitido. El algoritmo distinto se llama sorting_binary_search; conserva fuerza bruta didáctica.
+
+Frente a `2015_bruteforce.java`: tiempo 0.109 s → 0.093 s; memoria 368 KB → 544 KB.
+
 C++ y Rust ordenan los amigos por presupuesto y precalculan el de mayor beneficio en cada sufijo. Para un piso de dos habitaciones, la búsqueda binaria encuentra al primero que puede pagar la mitad del alquiler. El resumen del sufijo da el mejor compañero elegible. C++ guarda índices de sufijo separados. Rust mantiene el orden de presupuestos y sobrescribe beneficio e identificador con la mejor opción del sufijo. Rust guarda los amigos en un vector fijo con identificadores de 16 bits y usa búferes fijos de bytes para entrada y salida decimal mediante la biblioteca de ejecución de C.
 
 Las implementaciones base aceptadas [2015_bruteforce.go](2015_bruteforce.go), [2015_bruteforce.java](2015_bruteforce.java), [2015_bruteforce.py](2015_bruteforce.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-Una habitación no se comparte. Comprueba ambos presupuestos: nadie puede
-pagar más de la mitad para ayudar a la otra persona. No trunques una
-mitad impar ni añadas beneficio individual al compartido. Los beneficios
-individuales dependen de las habitaciones. Cero amistades y beneficios
-nulos son válidos. Los cinco programas usan comparaciones enteras
-exactas y el mismo orden de enumeración; la ausencia de opción se
-distingue de vivir sin compañía. Python usa CPython y la búsqueda
-acotada no necesita optimización.
+`2015_sorting_binary_search.java`: puesto de tiempo 8/75 y de memoria 7/75 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -146,7 +145,7 @@ acotada no necesita optimización.
 |---|---|---|---|---|---|---|---|
 | [2015_bruteforce.cpp](2015_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 404 KB | 11292526 |
 | [2015_bruteforce.go](2015_bruteforce.go) | Go 1.14 x64 | bruteforce | O(m (n + 1)) | AC | 0.015 s | 1136 KB | 11292536 |
-| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.125 s | 424 KB | 11292554 |
+| [2015_bruteforce.java](2015_bruteforce.java) \* | Java 1.8 | bruteforce | O(m (n + 1)) | AC | 0.109 s | 368 KB | 11325564 |
 | [2015_bruteforce.py](2015_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(m (n + 1)) | AC | 0.078 s | 584 KB | 11292543 |
 | [2015_bruteforce.rs](2015_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(m (n + 1)) | AC | 0.031 s | 240 KB | 11292565 |
 
@@ -156,5 +155,6 @@ acotada no necesita optimización.
 |---|---|---|---|---|---|---|---|
 | [2015_binary_search_sorting.cpp](2015_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O((n+m) log(n+2)) | AC | 0.001 s | 116 KB | 11310956 |
 | [2015_sorting_binary_search.rs](2015_sorting_binary_search.rs) \* | Rust 1.75 x64 | sorting, binary_search | O((n+m) log(n+2)) | AC | 0.015 s | 68 KB | 11311237 |
+| [2015_sorting_binary_search.java](2015_sorting_binary_search.java) \* | Java 1.8 | sorting, binary_search | O(N+S(N)+M log(N+1)) | AC | 0.093 s | 544 KB | 11325029 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
