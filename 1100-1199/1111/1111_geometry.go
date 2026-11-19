@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+const signedIntegerBits = 64
+
 // squared distances carry these denominators: a point scaled by 2, a square
 // by its projections
 const (
@@ -62,7 +64,7 @@ func main() {
 	next := func() int64 {
 		var token string
 		fmt.Fscan(in, &token)
-		v, _ := strconv.ParseInt(token, 10, 64)
+		v, _ := strconv.ParseInt(token, 10, signedIntegerBits)
 		return v
 	}
 	n := int(next())

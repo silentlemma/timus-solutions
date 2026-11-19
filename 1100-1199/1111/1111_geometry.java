@@ -21,9 +21,11 @@ public class Main {
         // projections on the two side directions, the diagonal turned by +-45
         // degrees; inside the square both stay within h
         BigInteger s1 = qx.multiply(BigInteger.valueOf(dx - dy))
-                            .add(qy.multiply(BigInteger.valueOf(dy + dx))).abs();
+                            .add(qy.multiply(BigInteger.valueOf(dy + dx)))
+                            .abs();
         BigInteger s2 = qx.multiply(BigInteger.valueOf(dx + dy))
-                            .add(qy.multiply(BigInteger.valueOf(dy - dx))).abs();
+                            .add(qy.multiply(BigInteger.valueOf(dy - dx)))
+                            .abs();
         BigInteger a = s1.subtract(BigInteger.valueOf(h)).max(BigInteger.ZERO);
         BigInteger b = s2.subtract(BigInteger.valueOf(h)).max(BigInteger.ZERO);
         return new BigInteger[] {a.multiply(a).add(b.multiply(b)),
@@ -48,12 +50,10 @@ public class Main {
             order[i] = i;
         }
         // exact cross products, with the input index breaking ties
-        Arrays.sort(
-            order,
-            (i, j) -> {
-                int c = dist[i][0].multiply(dist[j][1]).compareTo(dist[j][0].multiply(dist[i][1]));
-                return c != 0 ? c : Integer.compare(i, j);
-            });
+        Arrays.sort(order, (i, j) -> {
+            int c = dist[i][0].multiply(dist[j][1]).compareTo(dist[j][0].multiply(dist[i][1]));
+            return c != 0 ? c : Integer.compare(i, j);
+        });
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < n; i++) {
             out.append(i > 0 ? " " : "").append(order[i] + 1);

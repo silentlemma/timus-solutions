@@ -90,17 +90,23 @@ sides as segments. Hundreds of random sets, many with ties, agreed.
 
 ## Optimized solutions
 
+`1111_geometry_optimized.java`. Keep exact rational ordering of distances, but subtract the common |P|² from every squared distance before comparing. The reduced numerators are linear in the unbounded query coordinates: use side projections and bounded corrections instead of squaring large BigInteger values for each square. A collapsed square is handled as a point; an interior point has reduced distance -|P|² and is then bounded by the square coordinates. Corrections use at most two squares below (8·10^8)², safely within long. Compare scaled numerators exactly, and use stable merge sort on primitive indices to retain input-ID order on ties. For L query bits, decimal parsing has a conservative O(L²) bound; the distance construction and bounded-denominator comparisons cost O(nL log(n+1)), with O(nL) stored bits plus O(n) indices. Fixed byte I/O replaces Scanner and the complete output builder.
+
+Compared with `1111_geometry.java`: time 0.125 s → 0.109 s; memory 3 916 KB → 664 KB.
+
 C++, Go and Rust preserve exact squared-distance fractions and sort by cross multiplication, breaking ties by input index. Comparison products reuse their backing buffers. C++ and Rust also parse the unrestricted query coordinates directly in groups of nine decimal digits, matching their base-10⁹ limbs. Go stores signed arbitrary-precision integers in 30-bit limbs, parses query coordinates directly from bytes and merges the sorted indices. Its arithmetic and comparison buffers are reused. Rust parses byte tokens, stores square coordinates and indices in fixed arrays and writes the result through one fixed byte buffer. Rust reads and writes through the C runtime.
 
-The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 800 KB versus 1288 KB.
+The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 800 KB versus 1276 KB.
 
 The accepted base implementations [1111_geometry.java](1111_geometry.java), [1111_geometry.py](1111_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-- The simple C++ and Rust versions use their own signed limb arithmetic. The simple Go version uses `math/big.Int` and `sort.Slice` with an explicit index tie-break.
-- The optimized Go version uses 30-bit limbs, reads coordinates directly from bytes and merges indices with reusable comparison products.
-- Java uses `BigInteger`; Python uses its own integers with the decimal-input digit limit disabled. All versions compare exact squared-distance fractions and then input indices.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`1111_geometry_optimized.java`: time place 6/23, memory place 1/23 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -108,11 +114,11 @@ The accepted base implementations [1111_geometry.java](1111_geometry.java), [111
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 444 KB | 11298020 |
-| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1288 KB | 11298022 |
-| [1111_geometry.java](1111_geometry.java) \* | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.156 s | 3956 KB | 11298023 |
+| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 428 KB | 11325584 |
+| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1276 KB | 11325574 |
+| [1111_geometry.java](1111_geometry.java) \* | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.125 s | 3916 KB | 11325557 |
 | [1111_geometry.py](1111_geometry.py) \* | Python 3.12 x64 | geometry | O(n L² + n log n L) | AC | 0.078 s | 624 KB | 11298025 |
-| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 240 KB | 11298026 |
+| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 228 KB | 11325609 |
 
 ### Optimized
 
@@ -121,5 +127,6 @@ The accepted base implementations [1111_geometry.java](1111_geometry.java), [111
 | [1111_geometry_optimized.cpp](1111_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 208 KB | 11310910 |
 | [1111_geometry_optimized.go](1111_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 800 KB | 11311126 |
 | [1111_geometry_optimized.rs](1111_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 80 KB | 11311247 |
+| [1111_geometry_optimized.java](1111_geometry_optimized.java) \* | Java 1.8 | geometry | O(L²+n·L·log(n+1)) | AC | 0.109 s | 664 KB | 11325037 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

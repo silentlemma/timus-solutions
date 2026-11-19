@@ -18,7 +18,10 @@ impl Integer {
             digits.push(u % Self::BASE);
             u /= Self::BASE;
         }
-        Self { digits, negative: v < 0 }
+        Self {
+            digits,
+            negative: v < 0,
+        }
     }
 
     fn normalize(&mut self) {
@@ -31,15 +34,25 @@ impl Integer {
     }
 
     fn magnitude(&self, b: &Self) -> Ordering {
-        self.digits.len().cmp(&b.digits.len())
+        self.digits
+            .len()
+            .cmp(&b.digits.len())
             .then_with(|| self.digits.iter().rev().cmp(b.digits.iter().rev()))
     }
 
     fn cmp(&self, b: &Self) -> Ordering {
         if self.negative != b.negative {
-            return if self.negative { Ordering::Less } else { Ordering::Greater };
+            return if self.negative {
+                Ordering::Less
+            } else {
+                Ordering::Greater
+            };
         }
-        if self.negative { b.magnitude(self) } else { self.magnitude(b) }
+        if self.negative {
+            b.magnitude(self)
+        } else {
+            self.magnitude(b)
+        }
     }
 
     fn add(&self, b: &Self) -> Self {
@@ -49,20 +62,27 @@ impl Integer {
             let mut carry = 0;
             let mut i = 0;
             while i < self.digits.len().max(b.digits.len()) || carry != 0 {
-                let v = carry + self.digits.get(i).unwrap_or(&0)
-                    + b.digits.get(i).unwrap_or(&0);
+                let v = carry + self.digits.get(i).unwrap_or(&0) + b.digits.get(i).unwrap_or(&0);
                 out.digits.push(v % Self::BASE);
                 carry = v / Self::BASE;
                 i += 1;
             }
         } else {
-            let (hi, lo) = if self.magnitude(b) != Ordering::Less { (self, b) } else { (b, self) };
+            let (hi, lo) = if self.magnitude(b) != Ordering::Less {
+                (self, b)
+            } else {
+                (b, self)
+            };
             out.negative = hi.negative;
             let mut borrow = 0;
             for i in 0..hi.digits.len() {
                 let v = hi.digits[i] as i64 - borrow - *lo.digits.get(i).unwrap_or(&0) as i64;
                 borrow = if v < 0 { 1 } else { 0 };
-                out.digits.push(if v < 0 { (v + Self::BASE as i64) as u64 } else { v as u64 });
+                out.digits.push(if v < 0 {
+                    (v + Self::BASE as i64) as u64
+                } else {
+                    v as u64
+                });
             }
         }
         out.normalize();
@@ -86,8 +106,7 @@ impl Integer {
             let mut carry = 0;
             let mut j = 0;
             while j < b.digits.len() || carry != 0 {
-                let v = out.digits[i + j] + carry
-                    + self.digits[i] * b.digits.get(j).unwrap_or(&0);
+                let v = out.digits[i + j] + carry + self.digits[i] * b.digits.get(j).unwrap_or(&0);
                 out.digits[i + j] = v % Self::BASE;
                 carry = v / Self::BASE;
                 j += 1;
@@ -107,7 +126,11 @@ impl Integer {
     }
 
     fn max0(self) -> Self {
-        if self.negative { Self::new(0) } else { self }
+        if self.negative {
+            Self::new(0)
+        } else {
+            self
+        }
     }
 
     fn parse(text: &str) -> Self {
@@ -150,11 +173,20 @@ fn main() {
     io::stdin().read_to_string(&mut input).unwrap();
     let mut tok = input.split_ascii_whitespace();
     let n: usize = tok.next().unwrap().parse().unwrap();
-    let squares: Vec<(i64, i64, i64, i64)> = (0..n).map(|_| {
-        (tok.next().unwrap().parse().unwrap(), tok.next().unwrap().parse().unwrap(),
-         tok.next().unwrap().parse().unwrap(), tok.next().unwrap().parse().unwrap())
-    }).collect();
-    let (px, py) = (Integer::parse(tok.next().unwrap()), Integer::parse(tok.next().unwrap()));
+    let squares: Vec<(i64, i64, i64, i64)> = (0..n)
+        .map(|_| {
+            (
+                tok.next().unwrap().parse().unwrap(),
+                tok.next().unwrap().parse().unwrap(),
+                tok.next().unwrap().parse().unwrap(),
+                tok.next().unwrap().parse().unwrap(),
+            )
+        })
+        .collect();
+    let (px, py) = (
+        Integer::parse(tok.next().unwrap()),
+        Integer::parse(tok.next().unwrap()),
+    );
     let dist: Vec<(Integer, i64)> = squares
         .iter()
         .map(|&(x1, y1, x2, y2)| distance(x1, y1, x2, y2, &px, &py))
@@ -162,7 +194,11 @@ fn main() {
     // exact cross products, with the input index breaking ties
     let mut order: Vec<usize> = (0..n).collect();
     order.sort_unstable_by(|&i, &j| {
-        dist[i].0.scale(dist[j].1).cmp(&dist[j].0.scale(dist[i].1)).then_with(|| i.cmp(&j))
+        dist[i]
+            .0
+            .scale(dist[j].1)
+            .cmp(&dist[j].0.scale(dist[i].1))
+            .then_with(|| i.cmp(&j))
     });
     let out: Vec<String> = order.iter().map(|i| (i + 1).to_string()).collect();
     println!("{}", out.join(" "));

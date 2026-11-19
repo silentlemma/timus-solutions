@@ -69,17 +69,23 @@
 
 ## 优化解法
 
+`1111_geometry_optimized.java`. 保留距离的精确有理排序，但比较前从每个距离平方减去公共 |P|²。约简分子关于无界查询坐标为线性：用边方向投影和有界修正，避免为每个正方形计算大 BigInteger 平方。退化正方形按点处理；查询在内部时约简距离为 -|P|²，此时点本身受正方形坐标界限约束。修正至多为两个小于 8·10^8 的数的平方之和，安全容于 long。精确比较缩放分子，并对基本类型下标稳定归并，等距时保留输入 ID 顺序。设查询长 L 位，十进制解析保守 O(L²)，构造及有界分母比较 O(nL log(n+1))，保存 O(nL) 位和 O(n) 下标。固定字节输入输出替代 Scanner 和完整输出构造器。
+
+与 `1111_geometry.java` 相比：时间 0.125 s → 0.109 s；内存 3 916 KB → 664 KB。
+
 C++、Go 和 Rust 保留平方距离的精确分数，通过交叉乘法排序，相等时按输入编号排序。比较时复用乘积缓冲区。C++ 和 Rust 还将长度不限的查询坐标直接按九位十进制数字解析，对应其 10⁹ 进制的数位块。Go 将任意精度有符号整数存入 30 位数位块，直接从字节读取查询坐标，通过归并排序排列编号，并复用算术和比较缓冲区。Rust 解析字节词元，用固定数组保存正方形坐标与编号，并通过一个固定字节缓冲区输出。Rust 通过 C 运行库读写。
 
-通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 800 KB，基础版为 1288 KB。
+通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 800 KB，基础版为 1276 KB。
 
 已通过评测的基础实现 [1111_geometry.java](1111_geometry.java), [1111_geometry.py](1111_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-- 基础 C++ 和 Rust 版本使用自行实现的有符号多字整数。基础 Go 版本使用 `math/big.Int` 和 `sort.Slice`，并显式用编号打破平局。
-- 优化 Go 版本使用 30 位数位块，直接从字节读取坐标，通过归并排序排列编号，并复用比较乘积的缓冲区。
-- Java 使用 `BigInteger`，Python 使用自带整数并关闭十进制输入长度限制。所有版本先比较平方距离的精确分数，再比较输入编号。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`1111_geometry_optimized.java`：在该可比样本中，时间名次 6/23，内存名次 1/23。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -87,11 +93,11 @@ C++、Go 和 Rust 保留平方距离的精确分数，通过交叉乘法排序�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 444 KB | 11298020 |
-| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1288 KB | 11298022 |
-| [1111_geometry.java](1111_geometry.java) \* | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.156 s | 3956 KB | 11298023 |
+| [1111_geometry.cpp](1111_geometry.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 428 KB | 11325584 |
+| [1111_geometry.go](1111_geometry.go) | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 1276 KB | 11325574 |
+| [1111_geometry.java](1111_geometry.java) \* | Java 1.8 | geometry | O(n L² + n log n L) | AC | 0.125 s | 3916 KB | 11325557 |
 | [1111_geometry.py](1111_geometry.py) \* | Python 3.12 x64 | geometry | O(n L² + n log n L) | AC | 0.078 s | 624 KB | 11298025 |
-| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 240 KB | 11298026 |
+| [1111_geometry.rs](1111_geometry.rs) | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 228 KB | 11325609 |
 
 ### 优化版本
 
@@ -100,5 +106,6 @@ C++、Go 和 Rust 保留平方距离的精确分数，通过交叉乘法排序�
 | [1111_geometry_optimized.cpp](1111_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 208 KB | 11310910 |
 | [1111_geometry_optimized.go](1111_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n L² + n log n L) | AC | 0.031 s | 800 KB | 11311126 |
 | [1111_geometry_optimized.rs](1111_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n L² + n log n L) | AC | 0.015 s | 80 KB | 11311247 |
+| [1111_geometry_optimized.java](1111_geometry_optimized.java) \* | Java 1.8 | geometry | O(L²+n·L·log(n+1)) | AC | 0.109 s | 664 KB | 11325037 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

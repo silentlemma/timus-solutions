@@ -26,7 +26,7 @@ struct Integer {
             negative = false;
     }
 
-    int magnitude(const Integer& b) const {
+    int magnitude(const Integer &b) const {
         if (digits.size() != b.digits.size())
             return digits.size() < b.digits.size() ? -1 : 1;
         for (size_t i = digits.size(); i-- > 0;)
@@ -35,31 +35,31 @@ struct Integer {
         return 0;
     }
 
-    bool operator<(const Integer& b) const {
+    bool operator<(const Integer &b) const {
         if (negative != b.negative)
             return negative;
         return negative ? magnitude(b) > 0 : magnitude(b) < 0;
     }
 
-    Integer operator+(const Integer& b) const {
+    Integer operator+(const Integer &b) const {
         Integer out;
         if (negative == b.negative) {
             out.negative = negative;
             uint64_t carry = 0;
             for (size_t i = 0; i < std::max(digits.size(), b.digits.size()) || carry; i++) {
-                uint64_t v = carry + (i < digits.size() ? digits[i] : 0)
-                             + (i < b.digits.size() ? b.digits[i] : 0);
+                uint64_t v = carry + (i < digits.size() ? digits[i] : 0) +
+                             (i < b.digits.size() ? b.digits[i] : 0);
                 out.digits.push_back(v % BASE);
                 carry = v / BASE;
             }
         } else {
-            const Integer& hi = magnitude(b) >= 0 ? *this : b;
-            const Integer& lo = magnitude(b) >= 0 ? b : *this;
+            const Integer &hi = magnitude(b) >= 0 ? *this : b;
+            const Integer &lo = magnitude(b) >= 0 ? b : *this;
             out.negative = hi.negative;
             int64_t borrow = 0;
             for (size_t i = 0; i < hi.digits.size(); i++) {
-                int64_t v = int64_t(hi.digits[i]) - borrow
-                            - (i < lo.digits.size() ? int64_t(lo.digits[i]) : 0);
+                int64_t v = int64_t(hi.digits[i]) - borrow -
+                            (i < lo.digits.size() ? int64_t(lo.digits[i]) : 0);
                 borrow = v < 0;
                 out.digits.push_back(v < 0 ? v + BASE : v);
             }
@@ -74,15 +74,15 @@ struct Integer {
         return *this + b;
     }
 
-    Integer operator*(const Integer& b) const {
+    Integer operator*(const Integer &b) const {
         Integer out;
         out.negative = negative != b.negative;
         out.digits.resize(digits.size() + b.digits.size());
         for (size_t i = 0; i < digits.size(); i++) {
             uint64_t carry = 0;
             for (size_t j = 0; j < b.digits.size() || carry; j++) {
-                uint64_t v = out.digits[i + j] + carry
-                             + (j < b.digits.size() ? digits[i] * b.digits[j] : 0);
+                uint64_t v =
+                    out.digits[i + j] + carry + (j < b.digits.size() ? digits[i] * b.digits[j] : 0);
                 out.digits[i + j] = v % BASE;
                 carry = v / BASE;
             }
@@ -91,7 +91,7 @@ struct Integer {
         return out;
     }
 
-    static Integer parse(const std::string& text) {
+    static Integer parse(const std::string &text) {
         Integer out;
         for (char c : text)
             if (c >= '0' && c <= '9')
@@ -116,8 +116,8 @@ struct Fraction {
 };
 
 // squared distance from P to the square with diagonal (x1, y1)-(x2, y2)
-Fraction distance(long long x1, long long y1, long long x2, long long y2,
-                  const Integer& px, const Integer& py) {
+Fraction distance(long long x1, long long y1, long long x2, long long y2, const Integer &px,
+                  const Integer &py) {
     // doubled coordinates of P relative to the centre, and the diagonal
     Integer qx = px * 2 - (x1 + x2), qy = py * 2 - (y1 + y2);
     long long dx = x2 - x1, dy = y2 - y1, h = dx * dx + dy * dy;
