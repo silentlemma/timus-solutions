@@ -21,6 +21,10 @@
 
 数对的个数。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -72,14 +76,17 @@
 
 - `1206_combinatorics_optimized.java`: 时间降低 +10.71%; 内存降低 +74.37%; 基础版本: `1206_combinatorics.java`.
 
+`1206_combinatorics_optimized.py`. 保留精确公式 36*55^(K-1) 及 Python 任意精度整数。基础版本的 ** 和这里的 pow 都已使用整数幂，不声称采用新的计数算法。按朴素位运算并计入十进制转换，保守上界为 O(K²) 时间、O(K) 位答案存储。新实现读取单个输入记号，去掉函数包装和常规清理。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1206_combinatorics.py` 相比：时间 0.109 s → 0.14 s；内存 416 KB → 252 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1206_combinatorics.rs](1206_combinatorics.rs).
+`1206_combinatorics_optimized.py`：在该可比样本中，时间名次 65/76，内存名次 2/76。
 
-- Python 用自带的整数，Go 用 `math/big`，Java 用 `BigInteger`；C++ 和 Rust 把
-  十进制数字数组乘以 55 共 `K − 1` 次。
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -99,5 +106,6 @@
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
 | [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) | AC | 0.125 s | 448 KB | 11304422 |
+| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(K²) | AC | 0.14 s | 252 KB | 11324911 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

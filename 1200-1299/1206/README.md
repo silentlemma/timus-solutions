@@ -22,6 +22,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The number of pairs.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -85,17 +89,17 @@ asterisk concerns the rating target only.
 - `1206_combinatorics_optimized.java`: time reduction +10.71%; memory
   reduction +74.37%; base: `1206_combinatorics.java`.
 
+`1206_combinatorics_optimized.py`. Keep the exact formula 36*55^(K-1) and Python arbitrary-precision integers. Both the basic ** expression and pow here already use integer exponentiation; no new counting algorithm is claimed. A conservative schoolbook bit-cost bound, including decimal conversion, is O(K²) time and O(K) bits for the answer. The changed implementation reads the one input token and finishes without the function wrapper and normal teardown. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1206_combinatorics.py`: time 0.109 s → 0.14 s; memory 416 KB → 252 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1206_combinatorics.rs](1206_combinatorics.rs).
+`1206_combinatorics_optimized.py`: time place 65/76, memory place 2/76 in this comparable sample.
 
-- Python uses its own integers, Go `math/big` and Java `BigInteger`;
-  C++ and Rust multiply a decimal digit array by 55 `K − 1` times.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -115,5 +119,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
 | [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) | AC | 0.125 s | 448 KB | 11304422 |
+| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(K²) | AC | 0.14 s | 252 KB | 11324911 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
