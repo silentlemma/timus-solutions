@@ -66,21 +66,17 @@ a 和 b（1 ≤ a, b ≤ 10 000）。
 - `1874_geometry_optimized.java`: 0.109 s / 544 KB; 基础 `1874_geometry.java`: 0.140 s / 1832 KB; 相对变化: 时间 -22.1%, 内存 -70.3%.
 - `1874_geometry_optimized.py`: 0.140 s / 316 KB; 基础 `1874_geometry.py`: 0.078 s / 452 KB; 相对变化: 时间 +79.5%, 内存 -30.1%.
 
+`1874_geometry_optimized.rs`. 保留同一个 f64 面积闭式公式，直接用 printf 输出九位小数。优化改变输入输出表示，保留几何公式及精度类别。时间和额外空间仍为 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1874_geometry.rs` 相比：时间 0.031 s → 0.046 s；内存 236 KB → 112 KB。
+
 ## 各语言说明
 
-保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+`1874_geometry_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- C++: 首选教学基础 `1874_geometry.cpp`; 覆盖源码 `1874_geometry.cpp`; 时间/内存名次 1/1, 其他作者记录 68/68.
-
-- Go: 首选教学基础 `1874_geometry.go`; 覆盖源码 `1874_geometry_optimized.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
-
-- Java: 首选教学基础 `1874_geometry.java`; 覆盖源码 `1874_geometry_optimized.java`; 时间/内存名次 2/1, 其他作者记录 2/2.
-
-- Python/PyPy: 首选教学基础 `1874_geometry.py`; 覆盖源码 `1874_geometry_optimized.py`; 时间/内存名次 13/1, 其他作者记录 16/16.
-
-- Rust: 首选教学基础 `1874_geometry.rs`; 覆盖源码 `1874_geometry.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -101,5 +97,6 @@ a 和 b（1 ≤ a, b ≤ 10 000）。
 | [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
 | [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 544 KB | 11308337 |
 | [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
+| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -82,21 +82,17 @@ Se conserva la fórmula geométrica (a*a+b*b+2*sqrt(2)*a*b)/4 y las bases claras
 - `1874_geometry_optimized.java`: 0.109 s / 544 KB; base `1874_geometry.java`: 0.140 s / 1832 KB; cambio respecto a la base: tiempo -22.1%, memoria -70.3%.
 - `1874_geometry_optimized.py`: 0.140 s / 316 KB; base `1874_geometry.py`: 0.078 s / 452 KB; cambio respecto a la base: tiempo +79.5%, memoria -30.1%.
 
+`1874_geometry_optimized.rs`. Mantiene la misma fórmula cerrada del área en f64 e imprime nueve decimales directamente con printf. La optimización cambia la representación de entrada y salida, conservando la fórmula geométrica y su tipo de precisión. Tiempo y espacio auxiliar siguen siendo O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1874_geometry.rs`: tiempo 0.031 s → 0.046 s; memoria 236 KB → 112 KB.
+
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1874_geometry_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1874_geometry.cpp`; fuente que cubre `1874_geometry.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 68/68.
-
-- Go: base didáctica preferida `1874_geometry.go`; fuente que cubre `1874_geometry_optimized.go`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
-
-- Java: base didáctica preferida `1874_geometry.java`; fuente que cubre `1874_geometry_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 2/2.
-
-- Python/PyPy: base didáctica preferida `1874_geometry.py`; fuente que cubre `1874_geometry_optimized.py`; puestos tiempo/memoria 13/1, registros de otros autores 16/16.
-
-- Rust: base didáctica preferida `1874_geometry.rs`; fuente que cubre `1874_geometry.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -117,5 +113,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
 | [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 544 KB | 11308337 |
 | [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
+| [1874_geometry_optimized.rs](1874_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
