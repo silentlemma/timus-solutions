@@ -51,6 +51,10 @@ Go 快速版保留精确 gcd 递推，直接使用标准句柄，答案缓冲区
 
 已通过评测的基础实现 [1091_number_theory.cpp](1091_number_theory.cpp), [1091_number_theory.java](1091_number_theory.java), [1091_number_theory.py](1091_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1091_number_theory_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+
+与 `1091_number_theory.java` 相比：时间 0.109 s → 0.093 s；内存 1640 KB → 492 KB。
+
 ## 各语言说明
 
 教学 Go 用普通缓冲输入和两个26元素整数数组。Rust 用两个26元素 u32 数组与无指针 getchar/putchar，答案≤10000 最多五位。原五种程序的精确 Accepted/指标不变，Python 保留实际评测解释器。
@@ -79,5 +83,6 @@ Go 快速版保留精确 gcd 递推，直接使用标准句柄，答案缓冲区
 |---|---|---|---|---|---|---|---|
 | [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
 | [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

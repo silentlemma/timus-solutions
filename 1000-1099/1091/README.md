@@ -52,6 +52,10 @@ The optimized Go version keeps the exact-gcd recurrence and uses direct standard
 
 The accepted base implementations [1091_number_theory.cpp](1091_number_theory.cpp), [1091_number_theory.java](1091_number_theory.java), [1091_number_theory.py](1091_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1091_number_theory_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1091_number_theory.java`: time 0.109 s → 0.093 s; memory 1640 KB → 492 KB.
+
 ## Language notes
 
 The Go teaching port uses ordinary buffered input and two26-entry integer arrays. Rust uses two26-entry u32 arrays and C-runtime I/O; getchar/putchar receive no pointers. Capacity10000 needs at most five output digits. The original five programs keep their exact source-bound Accepted and metrics. Python retains the actual accepted interpreter.
@@ -80,5 +84,6 @@ The Go teaching port uses ordinary buffered input and two26-entry integer arrays
 |---|---|---|---|---|---|---|---|
 | [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
 | [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

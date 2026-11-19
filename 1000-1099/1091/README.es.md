@@ -53,6 +53,10 @@ La versión rápida de Go conserva la recurrencia por gcd exacto y usa los descr
 
 Las implementaciones base aceptadas [1091_number_theory.cpp](1091_number_theory.cpp), [1091_number_theory.java](1091_number_theory.java), [1091_number_theory.py](1091_number_theory.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1091_number_theory_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1091_number_theory.java`: tiempo 0.109 s → 0.093 s; memoria 1640 KB → 492 KB.
+
 ## Notas por lenguaje
 
 Go didáctico usa entrada con búfer y dos arreglos de26 enteros. Rust dos arreglos u32 de26 y getchar/putchar sin punteros. Respuesta≤10000 requiere como máximo cinco dígitos. Los cinco originales conservan Accepted/métricas exactos e intérprete Python real.
@@ -81,5 +85,6 @@ Go didáctico usa entrada con búfer y dos arreglos de26 enteros. Rust dos arreg
 |---|---|---|---|---|---|---|---|
 | [1091_dp_optimized.go](1091_dp_optimized.go) \* | Go 1.14 x64 | dp | O(S + D log D) | AC | 0.015 s | 264 KB | 11315895 |
 | [1091_dp.rs](1091_dp.rs) \* | Rust 1.75 x64 | dp | O(S + D log D) | AC | 0.015 s | 60 KB | 11315681 |
+| [1091_number_theory_optimized.java](1091_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(S^2) | AC | 0.093 s | 492 KB | 11324824 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
