@@ -23,6 +23,10 @@ Límite de tiempo: 0,25 segundos. Límite de memoria: 64 MB.
 
 El menor número de horas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -73,9 +77,17 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
 344 KB en lugar de 1592 KB.
 
+`1131_math_optimized.py`. Sustituye el bucle de duplicación por d=(min(N,K)-1).bit_length(), techo exacto de log2(min(N,K)), con d=0 para un equipo o cable. Tras llegar a 2^d equipos añade max(0,ceil((N-2^d)/K)) horas. Calcula el mismo modelo de dos fases sin logaritmos flotantes. Con N,K<=10^9 la entrada cruda y aritmética acotada usan O(1) tiempo y estado. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1131_math.py`: tiempo 0.078 s → 0.125 s; memoria 424 KB → 196 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes usan el mismo bucle y la misma división.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1131_math_optimized.py`: puesto de tiempo 53/66 y de memoria 1/66 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -94,3 +106,6 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1131_math_optimized.java](1131_math_optimized.java) | Java 1.8 | math | O(log min(N, K)) | AC | 0.093 s | 344 KB | 11303712 |
+| [1131_math_optimized.py](1131_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 196 KB | 11324846 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -23,6 +23,10 @@ Time limit: 0.25 seconds. Memory limit: 64 MB.
 
 The least number of hours.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -71,9 +75,17 @@ The optimized Java solution parses the two numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.125 s and
 344 KB instead of 1592 KB.
 
+`1131_math_optimized.py`. Replace the doubling loop by d=(min(N,K)-1).bit_length(), the exact ceiling of log2(min(N,K)), including d=0 at one computer or cable. After 2^d computers are reached, add max(0,ceil((N-2^d)/K)) hours. This is the same two-phase model computed without floating logarithms. Raw-byte input and bounded integer arithmetic use O(1) time and state under N,K<=10^9. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1131_math.py`: time 0.078 s → 0.125 s; memory 424 KB → 196 KB.
+
 ## Language notes
 
-- All languages use the same loop and division.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1131_math_optimized.py`: time place 53/66, memory place 1/66 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -92,3 +104,6 @@ The optimized Java solution parses the two numbers byte by byte from
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1131_math_optimized.java](1131_math_optimized.java) | Java 1.8 | math | O(log min(N, K)) | AC | 0.093 s | 344 KB | 11303712 |
+| [1131_math_optimized.py](1131_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 196 KB | 11324846 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
