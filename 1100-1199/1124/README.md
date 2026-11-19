@@ -75,6 +75,10 @@ separately.
 
 ## Optimized solutions
 
+`1124_dsu_optimized.java`. Keep the same misplaced-piece count and disjoint-set components, including the zero-move case. Replace HashSet<Integer> of touched roots by a boolean counted[] array indexed by the root, so each component contributes once without boxed keys or hashing. The find operation still uses path halving and unions still lack a size/rank heuristic; no inverse-Ackermann bound is claimed. A direct conservative worst-case bound charges at most M parent steps per find across O(MN+M) operations, giving O(M²N) time for N>=2; path shortening makes actual work much smaller. Storage remains O(M), plus fixed byte input, and the combinatorial answer remains moves+groups-1 when any piece is misplaced.
+
+Compared with `1124_dsu.java`: time 0.125 s → 0.093 s; memory 480 KB → 472 KB.
+
 Go and Rust combine component membership, size and activation in one 16-bit array. Zero means untouched, a negative value marks a root and its component size, and a positive value points to a parent. Union by size with path halving maintains the number of active components as misplaced balls are read.
 
 The accepted Rust 1.75 x64 run takes 0.046 s versus 0.015 s for the base and uses 196 KB versus 652 KB.
@@ -83,9 +87,11 @@ The accepted base implementations [1124_dsu.cpp](1124_dsu.cpp), [1124_dsu.java](
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- All languages run the same union-find with path halving.
+`1124_dsu_optimized.java`: time place 2/24, memory place 1/24 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -105,5 +111,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
 | [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+| [1124_dsu_optimized.java](1124_dsu_optimized.java) \* | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

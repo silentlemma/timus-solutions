@@ -77,6 +77,10 @@ calculada aparte.
 
 ## Soluciones optimizadas
 
+`1124_dsu_optimized.java`. Conserva piezas mal colocadas y componentes DSU, incluido cero movimientos. Sustituye HashSet<Integer> de raíces por counted[] booleano por raíz, contando cada componente sin objetos ni hash. find sigue reduciendo caminos a la mitad y las uniones no usan tamaño/rango; no atribuye cota de Ackermann inversa. Una cota directa conservadora carga hasta M enlaces por find en O(MN+M) operaciones: O(M²N) para N>=2; la compresión reduce mucho el trabajo real. Espacio O(M) más entrada fija; si hay piezas desplazadas, sigue moves+groups-1.
+
+Frente a `1124_dsu.java`: tiempo 0.125 s → 0.093 s; memoria 480 KB → 472 KB.
+
 Go y Rust combinan pertenencia, tamaño y activación de componentes en un vector de 16 bits. Cero indica un nodo sin activar, un valor negativo representa una raíz y el tamaño de su componente, y uno positivo señala al padre. La unión por tamaño con reducción de caminos mantiene el número de componentes activos mientras se leen las bolas mal colocadas.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y usa 196 KB frente a 652 KB.
@@ -85,10 +89,11 @@ Las implementaciones base aceptadas [1124_dsu.cpp](1124_dsu.cpp), [1124_dsu.java
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Todos los lenguajes usan la misma unión de conjuntos disjuntos con
-  compresión de caminos a la mitad.
+`1124_dsu_optimized.java`: puesto de tiempo 2/24 y de memoria 1/24 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -108,5 +113,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1124_dsu_optimized.go](1124_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(M·N·α(M)) | AC | 0.031 s | 972 KB | 11311105 |
 | [1124_dsu_optimized.rs](1124_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M·N·α(M)) | AC | 0.046 s | 196 KB | 11310569 |
+| [1124_dsu_optimized.java](1124_dsu_optimized.java) \* | Java 1.8 | dsu | O(M²N) conservative worst case | AC | 0.093 s | 472 KB | 11325122 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
