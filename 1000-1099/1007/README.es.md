@@ -120,6 +120,10 @@ Las versiones en C++, Go y Rust reutilizan un búfer para leer cada palabra y co
 
 Las implementaciones base aceptadas [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1007_math_optimized.java`. Java conserva la reparación mediante suma de comprobación, pero lee y repara una palabra recibida cada vez y escribe con un búfer de bytes acotado. Ya no retiene toda la entrada ni toda la salida. El tiempo es lineal en la longitud total; el espacio de trabajo es proporcional a la palabra más larga, además de los búferes fijos de entrada y salida.
+
+Frente a `1007_math.java`: tiempo 0.109 s → 0.093 s; memoria 13200 KB → 5 156 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -147,5 +151,6 @@ CPython.
 | [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
 | [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
 | [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+| [1007_math_optimized.java](1007_math_optimized.java) \* | Java 1.8 | math | O(total length) | AC | 0.093 s | 5156 KB | 11325003 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

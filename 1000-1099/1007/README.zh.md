@@ -107,6 +107,10 @@ C++、Go 和 Rust 版本复用同一缓冲区逐个读取并原地修复码字�
 
 已通过评测的基础实现 [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1007_math_optimized.java`. Java 保留校验和修复算法，但每次只读取并修复一个收到的单词，通过有界字节缓冲区输出，不再保存全部输入或全部输出。时间与单词总长度成正比；除固定输入输出缓冲区外，工作空间与最长单词的长度成正比。
+
+与 `1007_math.java` 相比：时间 0.109 s → 0.093 s；内存 13200 KB → 5 156 KB。
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -132,5 +136,6 @@ C++、Go 和 Rust 版本复用同一缓冲区逐个读取并原地修复码字�
 | [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
 | [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
 | [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
+| [1007_math_optimized.java](1007_math_optimized.java) \* | Java 1.8 | math | O(total length) | AC | 0.093 s | 5156 KB | 11325003 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
