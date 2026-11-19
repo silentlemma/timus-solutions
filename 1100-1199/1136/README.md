@@ -27,6 +27,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The numbers in even-session order, one per line.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -85,6 +89,10 @@ order.
 
 ## Optimized solutions
 
+`1136_dfs_trees.rs`. Reversed left-right-root order is root-right-left preorder. Rebuild the BST with a monotone stack instead of repeated root-to-leaf insertion, then emit right-left-root using an explicit visited-bit stack. Each vertex is pushed/popped a constant number of times: O(N) time and space versus quadratic worst-case insertion. Distinct values≤65535 fit u16; N≤3000 leaves the high index bit free for traversal state. Preserve the simple insertion source under its original filename.
+
+Compared with `1136_trees.rs`: time 0.031 s → 0.046 s; memory 804 KB → 92 KB.
+
 The optimized solutions rebuild the tree in one pass, `O(N)`. Read
 backwards, the odd-session order lists each chairman, then the whole right
 wing, then the whole left wing. Keep a stack of chairmen whose left wing
@@ -128,3 +136,6 @@ instead of 1508 KB. Java and Rust have only the simple solutions.
 | [1136_trees_optimized.cpp](1136_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 188 KB | 11303566 |
 | [1136_trees_optimized.go](1136_trees_optimized.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1052 KB | 11303567 |
 | [1136_trees_optimized.py](1136_trees_optimized.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1028 KB | 11303568 |
+| [1136_dfs_trees.rs](1136_dfs_trees.rs) \* | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

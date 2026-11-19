@@ -27,6 +27,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 Los números en el orden de la sesión par, uno por línea.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -86,6 +90,10 @@ orden válido de sesión impar.
 
 ## Soluciones optimizadas
 
+`1136_dfs_trees.rs`. Invertir izquierda-derecha-raíz da preorden raíz-derecha-izquierda. Reconstruye BST con pila monótona, no inserciones desde raíz; emite derecha-izquierda-raíz con pila y bit visitado. Cada vértice entra/sale un número constante: O(N) tiempo/espacio frente a inserción cuadrática. Valores distintos≤65535 caben u16 y N≤3000 deja bit alto del índice libre. Conserva fuente sencilla de inserción.
+
+Frente a `1136_trees.rs`: tiempo 0.031 s → 0.046 s; memoria 804 KB → 92 KB.
+
 Las soluciones optimizadas reconstruyen el árbol en una pasada, `O(N)`.
 Leído al revés, el orden de la sesión impar da cada presidente, luego toda
 el ala derecha y luego toda el ala izquierda. Se mantiene una pila de
@@ -131,3 +139,6 @@ sencillas.
 | [1136_trees_optimized.cpp](1136_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) | AC | 0.015 s | 188 KB | 11303566 |
 | [1136_trees_optimized.go](1136_trees_optimized.go) | Go 1.14 x64 | trees | O(N) | AC | 0.031 s | 1052 KB | 11303567 |
 | [1136_trees_optimized.py](1136_trees_optimized.py) | Python 3.12 x64 | trees | O(N) | AC | 0.078 s | 1028 KB | 11303568 |
+| [1136_dfs_trees.rs](1136_dfs_trees.rs) \* | Rust 1.75 x64 | dfs, trees | O(N) time; O(N) space | AC | 0.046 s | 92 KB | 11325515 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
