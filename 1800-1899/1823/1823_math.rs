@@ -16,8 +16,10 @@ fn main() {
     io::stdin().read_to_string(&mut input).unwrap();
     // lines "X = value"
     let tokens: Vec<&str> = input.split_ascii_whitespace().collect();
-    let known: HashMap<&str, i64> =
-        tokens.chunks(LINE).map(|c| (c[0], c[2].parse::<i64>().unwrap())).collect();
+    let known: HashMap<&str, i64> = tokens
+        .chunks(LINE)
+        .map(|c| (c[0], c[2].parse::<i64>().unwrap()))
+        .collect();
     let get = |name: &str| known.get(name).copied();
     let (p, n, v, t) = (get("p"), get("n"), get("V"), get("T"));
     // p V = n R T, with V and T strictly positive

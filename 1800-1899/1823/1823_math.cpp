@@ -5,7 +5,7 @@
 
 const long long R_NUM = 8314, R_DEN = 1000, SCALE = 1000000;
 
-void printValue(const char* name, long long numerator, long long denominator) {
+void printValue(const char *name, long long numerator, long long denominator) {
     long long value = (numerator * SCALE + denominator / 2) / denominator;
     printf("%s = %lld.%06lld\n", name, value / SCALE, value % SCALE);
 }
@@ -15,7 +15,8 @@ int main() {
     std::map<std::string, long long> known;
     std::string name, eq;
     long long value;
-    while (std::cin >> name >> eq >> value) known[name] = value;
+    while (std::cin >> name >> eq >> value)
+        known[name] = value;
     // p V = n R T, with V and T strictly positive
     if (!known.count("p")) {
         printValue("p", known["n"] * R_NUM * known["T"], R_DEN * known["V"]);
