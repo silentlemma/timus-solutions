@@ -25,6 +25,10 @@ Las tres capacidades, una por línea.
 
 El número de volúmenes.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -64,9 +68,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1437_bfs_optimized.java`. Conserva BFS de llenar/verter, codifica ternas en int, visitas en bits de long y cola int[]. Sea S=(a+1)(b+1)(c+1),B=S-product(max(0,capacity-1)). Cada paso deja algún bote vacío/lleno: a lo sumo B estados de frontera en cola, incluido cero con capacidades cero. boolean[] registra sumas de subconjuntos hasta C=a+b+c, sin HashSet. Evita clonar ternas, objetos de volumen y cola de objetos. Inicialización incluida O(S) tiempo, O(S/64+B+C) celdas, mostrando empaquetado. Capacidades<=255 hacen seguro int. Excluye volumen cero; búfer256bytes.
+
+Frente a `1437_bfs.java`: tiempo 0.156 s → 0.109 s; memoria 20420 KB → 4 004 KB.
+
 C++ y Go conservan todos los llenados y trasvases, guardando visitas solo en la superficie de la caja de capacidades. Cada paso deja un recipiente vacío o lleno. Elegir el primero como cara canónica y codificar las otras dos cantidades evita duplicar aristas y esquinas. Con U=256, seis caras U² requieren 49152 bytes de mapa de bits. Cada triple ocupa 24 bits en uint32; la cola tiene como máximo seis U² entradas (1572864 bytes). Un arreglo de 766 marcas sustituye el conjunto de volúmenes. Se comprueban las siete sumas no vacías, excluyendo cero y sin desechar gasolina durante la búsqueda. Para S estados, tiempo O(U²+S) y espacio O(U²), incluida inicialización. Se conservan bases; Java, Python y Rust reutilizan las admitidas.
 
 Las implementaciones base aceptadas [1437_bfs.java](1437_bfs.java), [1437_bfs.py](1437_bfs.py), [1437_bfs.rs](1437_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1437_bfs_optimized.java`: puesto de tiempo 2/17 y de memoria 2/17 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -86,5 +102,6 @@ Las implementaciones base aceptadas [1437_bfs.java](1437_bfs.java), [1437_bfs.py
 |---|---|---|---|---|---|---|---|
 | [1437_bfs_optimized.cpp](1437_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(U² + S) | AC | 0.015 s | 332 KB | 11315367 |
 | [1437_bfs_optimized.go](1437_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
+| [1437_bfs_optimized.java](1437_bfs_optimized.java) \* | Java 1.8 | bfs | O(S) time; O(S/64+B+C) space | AC | 0.109 s | 4004 KB | 11325435 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
