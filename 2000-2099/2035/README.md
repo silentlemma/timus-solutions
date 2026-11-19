@@ -57,13 +57,27 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2035_math_optimized.py`. Keep the bounded-summand construction A=min(X,C), B=C-A. These values are nonnegative and A<=X; if B>Y no feasible pair exists, otherwise emit it. C=0 correctly gives 0 0. This uses only the three input values and a few bounded integers, O(1) time and state. Inline the former solve/main wrappers and parse raw byte tokens; there is no new feasibility algorithm. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `2035_math.py`: time 0.078 s → 0.14 s; memory 436 KB → 200 KB.
+
+`2035_math_optimized.rs`. Keep the bounded-summand construction A=min(X,C), B=C-A. These values are nonnegative and A<=X; if B>Y no feasible pair exists, otherwise emit it. C=0 correctly gives 0 0. This uses only the three input values and a few bounded integers, O(1) time and state. Read the three signed i64 values directly and emit numbers without the input String and formatted output. The nonnegative statement domain keeps every subtraction safe. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `2035_math.rs`: time 0.031 s → 0.046 s; memory 228 KB → 68 KB.
+
 The optimized C++ solution parses the three numbers by hand with
 `getchar` instead of `iostream`: 100 KB instead of 400 KB, with the same
 time.
 
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2035_math_optimized.py`: time place 47/54, memory place 1/54 in this comparable sample.
+
+`2035_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -82,3 +96,7 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2035_math_optimized.cpp](2035_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11303670 |
+| [2035_math_optimized.py](2035_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.14 s | 200 KB | 11324848 |
+| [2035_math_optimized.rs](2035_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 68 KB | 11324857 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
