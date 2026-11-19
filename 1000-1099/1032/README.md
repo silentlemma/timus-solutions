@@ -93,6 +93,10 @@ The compact Python version keeps the same prefix-sum algorithm. A dense array re
 
 The accepted base implementations [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1032_prefix_sums_optimized.java`. Java updates the prefix residue as values arrive. Zero means unseen in the first-position array; real positions are offset by one, with the empty prefix recorded initially. On the first repeated residue, output the intervening saved values directly through a bounded buffer. Equal residues make that segment sum divisible by N. This removes the array fill and the complete output builder while retaining O(N) time and O(N) storage.
+
+Compared with `1032_prefix_sums.java`: time 0.156 s → 0.109 s; memory 944 KB → 592 KB.
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -116,5 +120,6 @@ The same pass everywhere.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

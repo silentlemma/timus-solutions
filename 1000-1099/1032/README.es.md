@@ -93,6 +93,10 @@ La versión compacta en Python usa el mismo algoritmo de sumas de prefijos. Un a
 
 Las implementaciones base aceptadas [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1032_prefix_sums_optimized.java`. Java actualiza el residuo del prefijo conforme llegan los valores. En el arreglo de primeras posiciones, cero significa no visto; las posiciones reales se guardan desplazadas en uno, y el prefijo vacío se registra al comienzo. Al repetirse un residuo, imprime directamente los valores intermedios guardados con un búfer acotado. La igualdad de residuos hace que la suma del segmento sea divisible por N. Se eliminan el relleno del arreglo y el constructor de toda la salida, manteniendo O(N) tiempo y espacio.
+
+Frente a `1032_prefix_sums.java`: tiempo 0.156 s → 0.109 s; memoria 944 KB → 592 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -116,5 +120,6 @@ La misma pasada en todos los lenguajes.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

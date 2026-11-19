@@ -85,6 +85,10 @@
 
 已通过评测的基础实现 [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1032_prefix_sums_optimized.java`. Java 在读取各数时更新前缀和的余数。首次位置数组以零表示未出现，实际位置加一保存，并预先记录空前缀。遇到第一个重复余数时，通过有界缓冲区直接输出两位置之间保存的数。余数相等保证该段的和可被 N 整除。这样省去数组填充和完整输出字符串，时间与空间仍均为 O(N)。
+
+与 `1032_prefix_sums.java` 相比：时间 0.156 s → 0.109 s；内存 944 KB → 592 KB。
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -108,5 +112,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+| [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
