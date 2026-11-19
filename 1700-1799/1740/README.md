@@ -20,6 +20,10 @@ Integers l, k and h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
 
 The shortest and the longest time, with an error of at most 10⁻⁵.
 
+## Checking
+
+Repository tests compare numeric tokens with |actual-reference| <= 1e-5·max(1,|reference|), reject nonfinite values, and compare nonnumeric tokens exactly.
+
 ## Examples
 
 ### Example 1
@@ -80,15 +84,23 @@ asterisk concerns the rating target only.
 - `1740_math_optimized.java`: time reduction +0.00%; memory reduction
   +75.89%; base: `1740_math.java`.
 
+`1740_math_optimized.py`. Keep the period decomposition l=q*k+r. The shortest time is q*h and the longest is (q+[r!=0])*h. Both extrema are integers; emit integer tokens directly instead of converting them to floats and formatting eight decimals. Numeric judging accepts these equivalent values. Under the statement limits products are at most 10^6, with O(1) time and state. Reuse divmod for quotient and remainder and avoid the decimal-formatting operation. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1740_math.py`: time 0.078 s → 0.125 s; memory 404 KB → 188 KB.
+
+`1740_math_optimized.rs`. Keep the period decomposition l=q*k+r. The shortest time is q*h and the longest is (q+[r!=0])*h. Both extrema are integers; emit integer tokens directly instead of converting them to floats and formatting eight decimals. Numeric judging accepts these equivalent values. Under the statement limits products are at most 10^6, with O(1) time and state. Use i64 quotient/remainder and the manual integer writer rather than f64 values and Rust floating-point formatting. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1740_math.rs`: time 0.046 s → 0.015 s; memory 252 KB → 48 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1740_math.go](1740_math.go).
-- [1740_math.rs](1740_math.rs).
+`1740_math_optimized.py`: time place 22/29, memory place 1/29 in this comparable sample.
+
+`1740_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -108,5 +120,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
 | [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+| [1740_math_optimized.py](1740_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324913 |
+| [1740_math_optimized.rs](1740_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11325145 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

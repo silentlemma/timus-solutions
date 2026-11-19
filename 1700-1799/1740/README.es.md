@@ -20,6 +20,10 @@ Los enteros l, k y h (1 ≤ k ≤ l ≤ 1000, 1 ≤ h ≤ 1000).
 
 El menor y el mayor tiempo, con un error de a lo sumo 10⁻⁵.
 
+## Evaluación
+
+Las pruebas del repositorio comparan tokens numéricos con |resultado-referencia| <= 1e-5·max(1,|referencia|), rechazan valores no finitos y comparan exactamente los tokens no numéricos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -78,15 +82,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1740_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +75.89%; base: `1740_math.java`.
 
+`1740_math_optimized.py`. Conserva l=q*k+r. El mínimo es q*h y el máximo (q+[r!=0])*h. Ambos son enteros: emite tokens enteros en vez de convertir a flotantes y dar ocho decimales. La comprobación numérica acepta esos valores equivalentes. Los productos no superan 10^6; tiempo y estado O(1). Reutiliza divmod para cociente y resto y evita el formato decimal. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1740_math.py`: tiempo 0.078 s → 0.125 s; memoria 404 KB → 188 KB.
+
+`1740_math_optimized.rs`. Conserva l=q*k+r. El mínimo es q*h y el máximo (q+[r!=0])*h. Ambos son enteros: emite tokens enteros en vez de convertir a flotantes y dar ocho decimales. La comprobación numérica acepta esos valores equivalentes. Los productos no superan 10^6; tiempo y estado O(1). Usa cociente y resto i64 y escritura manual de enteros en vez de f64 y formato flotante de Rust. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1740_math.rs`: tiempo 0.046 s → 0.015 s; memoria 252 KB → 48 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1740_math.go](1740_math.go).
-- [1740_math.rs](1740_math.rs).
+`1740_math_optimized.py`: puesto de tiempo 22/29 y de memoria 1/29 en esta muestra comparable.
+
+`1740_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -106,5 +118,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
 | [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+| [1740_math_optimized.py](1740_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324913 |
+| [1740_math_optimized.rs](1740_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11325145 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
