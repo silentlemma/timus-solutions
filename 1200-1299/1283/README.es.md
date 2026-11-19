@@ -24,6 +24,10 @@ G, L y p.
 
 El número de años.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -83,6 +87,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1283_binary_search_math.py`. Busca primer año Y con G(100−p)^Y≤L100^Y mediante duplicar cota y búsqueda binaria de potencias enteras exactas. Sin logaritmos,importar gcd/math ni multiplicación por cada año. G≤L incluido cero inmediato, igualdades exactas. Bits D y coste M(D): cota O(log²(Y+1)·M(D)) tiempo,O(D) espacio. Algoritmo de búsqueda con nombre propio, conserva versión anual sencilla.
+
+Frente a `1283_math.py`: tiempo 0.078 s → 0.125 s; memoria 480 KB → 264 KB.
+
 La solución optimizada en Java guarda cada lado como un arreglo de
 dígitos en base 10⁹ que multiplica en su sitio, ampliando el arreglo
 solo cuando aparece un dígito nuevo, en lugar de crear dos objetos
@@ -101,20 +109,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1283_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +93.57%; base: `1283_math.java`.
 
+`1283_math_optimized.rs`. Conserva la comparación exacta de G*(100-p)^Y y L*100^Y, reduciendo antes G/L y (100-p)/100 por sus mcd. Mantiene ambos productos en u128 mientras la multiplicación comprobada funcione; al desbordar convierte los dos valores previos intactos en dígitos u32 de base 10^9 y continúa exactamente. G<=L devuelve cero antes de reducir. Ningún logaritmo, flotante ni epsilon decide cuándo parar. Con Y años y hasta D dígitos, tiempo O(Y·D), espacio O(D); los dígitos estrechos y la vía de enteros nativos reducen el coste. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1283_math.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 68 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1283_math.cpp](1283_math.cpp).
-- [1283_math.go](1283_math.go).
-- [1283_math.rs](1283_math.rs).
+`1283_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Python, Go y Java usan sus enteros grandes; C++ y Rust guardan el
-  número en cifras de base 10⁹ y solo lo multiplican por factores
-  pequeños y comparan.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -133,3 +138,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 360 KB | 11304347 |
+| [1283_math_optimized.rs](1283_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
+| [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+1)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

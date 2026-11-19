@@ -23,6 +23,10 @@ G, L and p.
 
 The number of years.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -82,6 +86,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1283_binary_search_math.py`. Find the first year Y with G(100−p)^Y≤L100^Y by exponential bracketing and binary search on exact integer powers. No logarithm, gcd/math import or per-year big-integer multiplication loop is needed. Handle G≤L immediately, including zero; preserve exact equality boundaries. If D bounds operand bits and M(D) multiplication cost, conservative O(log²(Y+1)·M(D)) time and O(D) space. This search algorithm has a separate filename and the simple year-by-year version remains.
+
+Compared with `1283_math.py`: time 0.078 s → 0.125 s; memory 480 KB → 264 KB.
+
 The optimized Java solution keeps each side as an array of base-10⁹
 digits that it multiplies in place, growing the array only when a new
 digit appears, instead of creating two new `BigInteger` objects every
@@ -100,20 +108,17 @@ asterisk concerns the rating target only.
 - `1283_math_optimized.java`: time reduction +0.00%; memory reduction
   +93.57%; base: `1283_math.java`.
 
+`1283_math_optimized.rs`. Preserve exact comparison of G*(100-p)^Y and L*100^Y, but reduce G/L and (100-p)/100 by their gcds first. Keep both products in u128 while checked multiplication succeeds; on overflow promote both unchanged pre-multiplication values to base-10^9 u32 limbs and continue exactly. The guard G<=L returns zero before reduction. No logarithms, floating point or epsilon decide the stopping boundary. With Y years and at most D limbs, time O(Y·D), storage O(D); narrow limbs and the native-integer fast path reduce overhead. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1283_math.rs`: time 0.015 s → 0.031 s; memory 232 KB → 68 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1283_math.cpp](1283_math.cpp).
-- [1283_math.go](1283_math.go).
-- [1283_math.rs](1283_math.rs).
+`1283_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Python, Go and Java use their big integers; C++ and Rust keep a
-  number as digits in base 10⁹ and only multiply by small factors and
-  compare.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -132,3 +137,7 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 360 KB | 11304347 |
+| [1283_math_optimized.rs](1283_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
+| [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+1)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
