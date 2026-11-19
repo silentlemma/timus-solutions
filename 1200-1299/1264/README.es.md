@@ -23,6 +23,10 @@ N y M.
 
 El número de segundos.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -53,13 +57,27 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1264_math_optimized.go`. Conserva N*(M+1), incluidos cero elementos y el valor cero entre las M+1 opciones. No simula un arreglo. N,M<=40000 acotan el producto a1600040000; Go mantiene int64 y Python enteros exactos. Entrada numérica por bytes y salida directa reducen sobrecarga, con O(1) tiempo y estado auxiliar. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1264_math.go`: tiempo 0.031 s → 0.015 s; memoria 1060 KB → 796 KB.
+
+`1264_math_optimized.py`. Conserva N*(M+1), incluidos cero elementos y el valor cero entre las M+1 opciones. No simula un arreglo. N,M<=40000 acotan el producto a1600040000; Go mantiene int64 y Python enteros exactos. Entrada numérica por bytes y salida directa reducen sobrecarga, con O(1) tiempo y estado auxiliar. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1264_math.py`: tiempo 0.093 s → 0.109 s; memoria 320 KB → 208 KB.
+
 La solución optimizada en Java analiza los dos números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 296 KB en lugar de 1552 KB,
 aunque el tiempo sube de 0.109 s a 0.140 s.
 
 ## Notas por lenguaje
 
-- Todos los lenguajes imprimen el mismo producto.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1264_math_optimized.go`: puesto de tiempo 1/16 y de memoria 1/16 en esta muestra comparable.
+
+`1264_math_optimized.py`: puesto de tiempo 539/597 y de memoria 1/597 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -78,6 +96,7 @@ aunque el tiempo sube de 0.109 s a 0.140 s.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 296 KB | 11303732 |
+| [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 796 KB | 11325046 |
+| [1264_math_optimized.py](1264_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 208 KB | 11324828 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
