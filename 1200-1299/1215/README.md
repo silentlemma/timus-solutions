@@ -24,6 +24,10 @@ The point of impact and `N`, then the `N` corners.
 
 The smallest diameter with three decimals.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -76,6 +80,10 @@ Go and Rust process polygon edges as their vertices arrive, retaining only the f
 
 The accepted base implementations [1215_geometry.cpp](1215_geometry.cpp), [1215_geometry.java](1215_geometry.java), [1215_geometry.py](1215_geometry.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1215_geometry_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1215_geometry.java`: time 0.109 s → 0.109 s; memory 2004 KB → 972 KB.
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -101,5 +109,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1215_geometry_optimized.go](1215_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N) | AC | 0.015 s | 284 KB | 11311224 |
 | [1215_geometry_optimized.rs](1215_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N) | AC | 0.015 s | 172 KB | 11311176 |
+| [1215_geometry_optimized.java](1215_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.109 s | 972 KB | 11324786 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
