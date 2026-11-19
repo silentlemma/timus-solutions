@@ -72,21 +72,17 @@ All five teaching versions use the linear greedy scan on the already sorted inpu
 
 - `1515_greedy_optimized.py`: 0.125 s / 244 KB; base `1515_greedy.py`: 0.093 s / 352 KB; relative change: time +34.4%, memory -30.7%.
 
+`1515_greedy_optimized.rs`. Maintain the largest fully representable prefix of nonnegative sums. A sorted note at most reach+1 extends it by the note value; the first larger note exposes the smallest gap, so remaining input need not be stored or processed. O(N) worst-case time and O(1) auxiliary space. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1515_greedy.rs`: time 0.015 s → 0.031 s; memory 220 KB → 64 KB.
+
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1515_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1515_greedy.cpp`; covering source `1515_greedy.cpp`; time/memory places 1/1, other-author entries 71/71.
-
-- Go: preferred teaching base `1515_greedy.go`; covering source `1515_greedy.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1515_greedy.java`; covering source `1515_greedy.java`; time/memory places 1/1, other-author entries 5/5.
-
-- Python/PyPy: preferred teaching base `1515_greedy.py`; covering source `1515_greedy_optimized.py`; time/memory places 7/1, other-author entries 7/7.
-
-- Rust: preferred teaching base `1515_greedy.rs`; covering source `1515_greedy.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -105,5 +101,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1515_greedy_optimized.py](1515_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(N) time; O(N) input tokens | AC | 0.125 s | 244 KB | 11309746 |
+| [1515_greedy_optimized.rs](1515_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.031 s | 64 KB | 11325100 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
