@@ -25,6 +25,10 @@ N y luego los N vértices en el orden del corredor.
 
 `cw` o `ccw`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -67,12 +71,17 @@ C++ y Rust acumulan el doble del área con signo al leer los vértices. Guardan 
 
 Las implementaciones base aceptadas [1246_geometry.go](1246_geometry.go), [1246_geometry.java](1246_geometry.java), [1246_geometry.py](1246_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1246_geometry_optimized.py`. Conserva la orientación por la fórmula del cordón, sumando cada arista al llegar el siguiente vértice y cerrando del último al primero. Solo retiene primer vértice, anterior y doble área exacta con signo: positiva da ccw, en otro caso cw como la base. El lector de 65536 bytes arrastra tokens partidos y elimina la lista de enteros, secciones de coordenadas y copias rotadas. Para B bytes y N vértices, tiempo O(B+N); espacio de bloques acotados y estado aritmético constante bajo los límites. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1246_geometry.py`: tiempo 0.218 s → 0.187 s; memoria 41236 KB → 10 140 KB.
+
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Python multiplica las listas de coordenadas por una copia rotada con
-  `map`; los demás lenguajes usan un solo bucle.
+`1246_geometry_optimized.py`: puesto de tiempo 2/22 y de memoria 7/22 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -92,5 +101,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1246_geometry_optimized.cpp](1246_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 76 KB | 11310921 |
 | [1246_geometry_optimized.rs](1246_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 196 KB | 11310553 |
+| [1246_geometry_optimized.py](1246_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(B+N) | AC | 0.187 s | 10140 KB | 11325066 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
