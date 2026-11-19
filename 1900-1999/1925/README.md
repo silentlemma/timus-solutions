@@ -71,6 +71,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1925_math_optimized.py`. Keep the balance equation current-2+sum(displayed-entered-2). Process every historical pair before deciding: an intermediate negative balance may recover later. Print the final integer including zero, or exactly Big Bang! only if it is negative. Time O(N), constant arithmetic state under the input limits. Inline the accumulator instead of calling required_input through a pair generator. The byte input tokens still need O(N) storage; this is not a streaming constant-space parser. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1925_math.py`: time 0.093 s → 0.156 s; memory 504 KB → 232 KB.
+
+`1925_math_optimized.rs`. Keep the balance equation current-2+sum(displayed-entered-2). Process every historical pair before deciding: an intermediate negative balance may recover later. Print the final integer including zero, or exactly Big Bang! only if it is negative. Time O(N), constant arithmetic state under the input limits. Read and add each pair directly, removing the stored history vector and decoded input. Auxiliary state O(1). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1925_math.rs`: time 0.031 s → 0.062 s; memory 236 KB → 56 KB.
+
 The optimized C++ solution reads the pairs with `scanf` instead of
 `iostream` and adds them up at once instead of storing the history:
 124 KB instead of 428 KB.
@@ -82,7 +90,13 @@ instead of 1796 KB.
 
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1925_math_optimized.py`: time place 57/59, memory place 1/59 in this comparable sample.
+
+`1925_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -102,3 +116,7 @@ No language needs anything special.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
 | [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |
+| [1925_math_optimized.py](1925_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.156 s | 232 KB | 11324844 |
+| [1925_math_optimized.rs](1925_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.062 s | 56 KB | 11324855 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
