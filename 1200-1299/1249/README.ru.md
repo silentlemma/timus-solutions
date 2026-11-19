@@ -75,6 +75,10 @@ Yes
 
 ## Оптимизированные решения
 
+`1249_implementation_optimized.rs`. Сохраняется запрет окна 2×2 с суммой три. Две строки заменены одной байтовой строкой и сохранёнными левой/верхней левой клетками; столбец обновляется после проверки окна. Ранний No и итоговый Yes прежние. Время O(NM), память O(M).
+
+По сравнению с `1249_implementation.rs`: время 0.031 s → 0.625 s; память 224 KB → 68 KB.
+
 Для соседних строк `B = previous AND current` отмечает полностью тёмные
 вертикальные столбцы, а `S = previous XOR current` — столбцы с одной
 единицей. Запрещённое окно — полный столбец рядом с одиночным, поэтому
@@ -127,5 +131,6 @@ Python-кандидат проверен на 75 254 малых изображе
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
 
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.

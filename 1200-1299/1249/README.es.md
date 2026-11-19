@@ -75,6 +75,10 @@ Se conservan sin cambiar un byte las cinco fuentes Accepted originales.
 
 ## Soluciones optimizadas
 
+`1249_implementation_optimized.rs`. Conserva prueba de suma tres en 2×2. Una fila de bytes con celdas izquierda/superior-izquierda guardadas sustituye dos; actualiza columna tras comprobar. Mismos No anticipado y Yes final. O(NM) tiempo, O(M) espacio.
+
+Frente a `1249_implementation.rs`: tiempo 0.031 s → 0.625 s; memoria 224 KB → 68 KB.
+
 Para dos filas, `B = previous AND current` marca columnas verticales
 llenas y `S = previous XOR current` las de una sola celda oscura. Una
 ventana prohibida es una columna llena junto a una sencilla; la expresión
@@ -128,5 +132,6 @@ superioridad competitiva.
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -70,6 +70,10 @@ Yes
 
 ## 优化解法
 
+`1249_implementation_optimized.rs`. 保留 2×2 和为三的禁形检测。以一行字节及保存的左、左上格替代两行，检查窗口后才更新本列。提前 No、最终 Yes 不变。O(NM) 时间、O(M) 存储。
+
+与 `1249_implementation.rs` 相比：时间 0.031 s → 0.625 s；内存 224 KB → 68 KB。
+
 相邻两行中，`B = previous AND current` 标记上下均为 1 的列，
 `S = previous XOR current` 标记恰有一个 1 的列。禁用窗口恰是满列旁边有单格列，
 故 `(B AND (S >> 1)) OR (S AND (B >> 1))` 同时检查两种顺序。
@@ -112,5 +116,6 @@ Python 与独立连通块遍历及包围矩形检查器比较了 75,254 个小�
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

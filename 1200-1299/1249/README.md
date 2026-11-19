@@ -75,6 +75,10 @@ Accepted sources are preserved byte for byte.
 
 ## Optimized solutions
 
+`1249_implementation_optimized.rs`. Keep the forbidden 2×2 sum-of-three test. Replace two rows by one byte row plus saved upper-left and left cells; read each cell and update its column only after checking the window. Early No and final Yes are unchanged. O(NM) time and O(M) storage.
+
+Compared with `1249_implementation.rs`: time 0.031 s → 0.625 s; memory 224 KB → 68 KB.
+
 For two adjacent rows, let `B = previous AND current` mark vertically
 full columns, and `S = previous XOR current` mark columns with one dark
 cell. A forbidden window is exactly a full column beside a single column,
@@ -128,5 +132,6 @@ coverage does not establish competitive superiority.
 |---|---|---|---|---|---|---|---|
 | [1249_implementation_optimized.cpp](1249_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N M) | AC | 0.078 s | 128 KB | 11308213 |
 | [1249_implementation_optimized.py](1249_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N M) | AC | 0.125 s | 3684 KB | 11308214 |
+| [1249_implementation_optimized.rs](1249_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(NM) time; O(M) space | AC | 0.625 s | 68 KB | 11325546 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
