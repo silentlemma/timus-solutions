@@ -21,6 +21,10 @@ The text, from 6 to 200 letters.
 
 The smallest number of coins.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -62,6 +66,10 @@ generated cases.
 
 ## Optimized solutions
 
+`1786_strings_optimized.py`. Keep the cost of changing each ASCII letter and its case to the six letters of Sandro. Build one 256-byte translation table per target position and translate the whole text into six aligned cost streams; then sum each six-cost column. This removes repeated text[start:] suffix copies, which made the simple implementation quadratic in copied characters, as well as per-letter Python cost calls. Time becomes O(L) for the fixed six-letter target, with O(L) cost-stream storage; memory is not constant. There is no forced interpreter exit in this variant. Ranking admits the own Accepted result even without a 30% measurement gain.
+
+Compared with `1786_strings.py`: time 0.109 s → 0.078 s; memory 408 KB → 400 KB.
+
 The optimized C++ solution reads the text with `scanf` into a buffer of
 201 bytes, enough for 200 letters and the terminating zero, instead of
 `std::cin` and `std::string`, and since the text has only Latin letters
@@ -78,8 +86,8 @@ and lowers a letter by adding `'a' − 'A'` instead of calling
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
+Each optimized version has Accepted and meets a ranking or resource-improvement
+admission criterion. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
@@ -89,15 +97,19 @@ asterisk concerns the rating target only.
 - `1786_strings_optimized.java`: time reduction +28.44%; memory
   reduction +75.13%; base: `1786_strings.java`.
 
+`1786_strings_optimized.rs`. Keep only the last six letters in a ring. For each complete window, sum the independent costs of changing case and changing the letter ignoring case to match Sandro. Six comparisons per position give O(N) time and O(1) auxiliary space without retaining the text or allocating slices. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1786_strings.rs`: time 0.031 s → 0.062 s; memory 216 KB → 64 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1786_strings.go](1786_strings.go).
-- [1786_strings.rs](1786_strings.rs).
+`1786_strings_optimized.py`: time place 2/32, memory place 7/32 in this comparable sample.
+
+`1786_strings_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -117,3 +129,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1786_strings_optimized.cpp](1786_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 120 KB | 11304276 |
 | [1786_strings_optimized.java](1786_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.078 s | 392 KB | 11304277 |
+| [1786_strings_optimized.rs](1786_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) | AC | 0.062 s | 64 KB | 11325109 |
+| [1786_strings_optimized.py](1786_strings_optimized.py) \* | Python 3.12 x64 | strings | O(L) time; O(L) space | AC | 0.078 s | 400 KB | 11325470 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
