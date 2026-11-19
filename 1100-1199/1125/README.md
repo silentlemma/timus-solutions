@@ -99,6 +99,10 @@ empty lines. All earlier bitmask sources and implementations remain.
 
 ## Optimized solutions
 
+`1125_bitmask_optimized.rs`. Keep row parity bitmasks and XOR shifts for integral-distance flips. Replace the stored signed-offset list and floating square-root tests by an exact square lookup table for squared distances below 2S², S=50. For each source row apply the zero horizontal shift and both directions of each valid positive shift. Only the first C output bits matter; high shifted bits may be discarded. Store the board and row masks in fixed arrays, with no retained input/output String. Time O(R²C+S²), storage O(S²); zero rows/columns preserve the required blank lines.
+
+Compared with `1125_bitmask.rs`: time 0.015 s → 0.001 s; memory 240 KB → 52 KB.
+
 A colour flip is XOR with one, so the order of visits does not matter:
 two flips cancel. Keep only each visit count modulo two. If `R[r]` is the
 bit mask of odd visits in row `r`, the parity affecting an entire target
@@ -142,27 +146,11 @@ affect the retained low `N` bits, and Java uses logical `>>>`.
 
 ## Language notes
 
-All five new `simulation` files are the preferred simple bases.
-Every current optimization comparison uses that same-language simulation.
-The two Python bitmask implementations take 0.046 s versus 0.093 s:
-50.5% less time. The original bitmask Python uses 900 versus 564 KB
-(59.6% more), the grouped version 580 versus 564 KB (2.8% more).
-Both qualify by time, with the memory tradeoff explicit.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-C++ grouped bitmasks use 132 versus the simple simulation's 136 KB,
-only 2.9% less; Java uses 424/536 KB, only 20.9% less, with equal recorded
-times in each pair. They are listed as Accepted alternatives. Their
-`_optimized` filenames identify the preserved original bitmask pairs,
-where the genuine memory improvements were 71.1% and 56.2%; those historical
-percentages are not the current simulation comparisons. No source is
-removed, renamed, duplicated, or counted as optimized merely by its name.
+`1125_bitmask_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-Snapshot 2 November 2026: simple C++ is 1/1 against 55 filtered other-author
-entries, simple Java 1/1 against one, grouped Python 1/1 against eight.
-Original bitmask Python is 1/3 and keeps a star despite the other Python
-version reaching the target. Go/Rust samples are empty: formal coverage,
-not competitive evidence. C++ targets top15% or first ten in both metrics;
-other families target first in both. All families have a qualifying source.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -200,5 +188,6 @@ other families target first in both. All families have a qualifying source.
 |---|---|---|---|---|---|---|---|
 | [1125_bitmask_optimized.cpp](1125_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.001 s | 132 KB | 11308644 |
 | [1125_bitmask_optimized.java](1125_bitmask_optimized.java) | Java 1.8 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.093 s | 424 KB | 11308646 |
+| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

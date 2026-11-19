@@ -99,6 +99,10 @@ imprimen `M` líneas vacías. Todas las implementaciones anteriores se conservan
 
 ## Soluciones optimizadas
 
+`1125_bitmask_optimized.rs`. Mantiene máscaras de paridad por fila y XOR de desplazamientos a distancia entera. Sustituye lista de offsets y raíces flotantes por tabla exacta de cuadrados menores que 2S², S=50. Para cada fila aplica desplazamiento horizontal cero y ambos sentidos de cada positivo válido. Solo importan primeros C bits; pueden descartarse bits altos. Tablero y máscaras fijos, sin String completo de entrada/salida. O(R²C+S²) tiempo y O(S²) espacio; dimensiones cero mantienen líneas vacías.
+
+Frente a `1125_bitmask.rs`: tiempo 0.015 s → 0.001 s; memoria 240 KB → 52 KB.
+
 Cambiar color es XOR con uno: dos cambios se anulan y el orden no
 importa. Conservamos solo la paridad de visitas. Sea `R[r]` la máscara de
 visitas impares de la fila `r`. Para cada desplazamiento `(dr,dc)` con
@@ -141,26 +145,11 @@ Java utiliza `>>>` lógico.
 
 ## Notas por lenguaje
 
-Los cinco nuevos `simulation` son las bases sencillas preferidas;
-toda comparación actual usa la simulación del mismo lenguaje. Ambos
-Python de máscaras registran 0,046 frente a 0,093 s, 50,5% menos tiempo.
-El anterior usa 900/564 KB, 59,6% más memoria; el agrupado 580/564 KB,
-2,8% más. Se admiten por tiempo con el coste de memoria explícito.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-C++ agrupado usa 132/136 KB, solo 2,9% menos, y Java 424/536 KB, solo
-20,9% menos, con tiempos iguales en cada pareja. Figuran como alternativas
-Accepted. Sus nombres `_optimized` identifican las parejas conservadas
-del algoritmo original de máscaras, donde sí redujeron memoria 71,1%
-y 56,2%. Son comparaciones históricas, no porcentajes frente a la actual
-simulación. No se borran, renombran ni duplican fuentes, y el nombre no
-otorga admisión actual.
+`1125_bitmask_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-Instantánea del 2 de noviembre de 2026: simulación C++ 1/1 frente a
-55 entradas filtradas de otros autores, Java 1/1 frente a una, Python
-agrupado 1/1 frente a ocho. Python anterior es 1/3 y mantiene asterisco
-aunque el otro alcance la meta. Go/Rust tienen muestras vacías, solo
-cobertura formal. C++ exige el 15% superior o primeros diez en ambas
-métricas; otras familias primero en ambas. Todas tienen una fuente válida.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -198,5 +187,6 @@ métricas; otras familias primero en ambas. Todas tienen una fuente válida.
 |---|---|---|---|---|---|---|---|
 | [1125_bitmask_optimized.cpp](1125_bitmask_optimized.cpp) | G++ 13.2 x64 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.001 s | 132 KB | 11308644 |
 | [1125_bitmask_optimized.java](1125_bitmask_optimized.java) | Java 1.8 | bitmask | O(MN+MP), P ≤ 52 | AC | 0.093 s | 424 KB | 11308646 |
+| [1125_bitmask_optimized.rs](1125_bitmask_optimized.rs) \* | Rust 1.75 x64 | bitmask | O(R²C+S²) time; O(S²) space | AC | 0.001 s | 52 KB | 11325540 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
