@@ -24,6 +24,10 @@ b (hasta 10⁵), después c y d (hasta 10⁴) y después k y p (hasta 100).
 `Cash` o `Insurance` y después el ahorro con error absoluto o relativo
 de a lo sumo 10⁻⁶.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -73,9 +77,21 @@ efectivo 10000 más: Cash, por 500.
 
 ## Soluciones optimizadas
 
+`2098_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `2098_math.java`: tiempo 0.125 s → 0.093 s; memoria 1 716 KB → 904 KB.
+
 Rust compara 100b con el recargo entero p·k·(2c+d(k+1))/2. La diferencia absoluta ya representa el ahorro en centésimas y se imprime como parte entera y dos cifras decimales. Un empate elige Insurance. Los cálculos usan enteros de 64 bits y no necesitan formatear números en coma flotante. Los búferes fijos de bytes guardan la entrada y la respuesta completa. Rust lee y escribe mediante la biblioteca de ejecución de C.
 
 Las implementaciones base aceptadas [2098_math.cpp](2098_math.cpp), [2098_math.go](2098_math.go), [2098_math.java](2098_math.java), [2098_math.py](2098_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`2098_math_optimized.java`: puesto de tiempo 3/32 y de memoria 9/32 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -85,7 +101,7 @@ Las implementaciones base aceptadas [2098_math.cpp](2098_math.cpp), [2098_math.g
 |---|---|---|---|---|---|---|---|
 | [2098_math.cpp](2098_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 136 KB | 11294670 |
 | [2098_math.go](2098_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
-| [2098_math.java](2098_math.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 1744 KB | 11294675 |
+| [2098_math.java](2098_math.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 1716 KB | 11325556 |
 | [2098_math.py](2098_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
 | [2098_math.rs](2098_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB | 11294676 |
 
@@ -94,5 +110,6 @@ Las implementaciones base aceptadas [2098_math.cpp](2098_math.cpp), [2098_math.g
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2098_math_optimized.rs](2098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11311232 |
+| [2098_math_optimized.java](2098_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 904 KB | 11324795 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
