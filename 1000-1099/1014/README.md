@@ -88,6 +88,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1014_greedy_optimized.py`. Keep the same greedy factorization by digits 9 down to 2 and reverse the collected digits. Zero gives 10, one gives 1, and a remaining factor gives -1. Byte input and a standalone execution path replace input() and the wrapper function. Time and auxiliary digit storage remain O(log(N+2)); no new asymptotic speedup is claimed. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `1014_greedy.py`: time 0.093 s → 0.125 s; memory 444 KB → 240 KB.
+
+`1014_greedy_optimized.go`. Keep descending digit factorization and the special answers 10 for zero and 1 for one. Replace prepending formatted strings on every factor by appending byte digits to a fixed 32-cell array, then emit it backwards. Every factor is at least two and N<=10^9, so 32 cells suffice. This removes quadratic copying in the number of factors and repeated formatting; 256-byte input and 64-byte output buffers replace fmt/string machinery. Time O(log(N+2)), auxiliary storage O(1) under the stated input bound. The recorded admission is by ranking, not a claimed 30% measurement gain.
+
+Compared with `1014_greedy.go`: time 0.031 s → 0.031 s; memory 1096 KB → 788 KB.
+
 The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`, and appends the digits and
 reverses the string once instead of inserting each digit at the front:
@@ -95,12 +103,13 @@ reverses the string once instead of inserting each digit at the front:
 
 ## Language notes
 
-The same greedy in every language; the digits are collected into a
-string. For `k = O(log N)` collected digits, the simple C++, Go and Java
-solutions repeatedly prepend, moving or copying the existing digits each
-time: `O(k^2) = O((log N)^2)` total time. Python, Rust and the optimized
-Java solution append and then reverse the order in `O(log N)` total
-time. All solutions use `O(log N)` extra space.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1014_greedy_optimized.go`: time place 4/12, memory place 1/12 in this comparable sample.
+
+`1014_greedy_optimized.py`: time place 442/482, memory place 2/482 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -119,3 +128,7 @@ time. All solutions use `O(log N)` extra space.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log(N+2)) | AC | 0.125 s | 240 KB | 11325471 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

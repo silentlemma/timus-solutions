@@ -89,6 +89,14 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1014_greedy_optimized.py`. Conserva la factorización voraz de 9 a 2 y la inversión de dígitos. Cero da 10, uno da 1 y un factor restante da -1. Entrada por bytes y ejecución directa sustituyen input() y la función envolvente. Tiempo y almacenamiento de dígitos siguen O(log(N+2)); no se afirma mejora asintótica. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `1014_greedy.py`: tiempo 0.093 s → 0.125 s; memoria 444 KB → 240 KB.
+
+`1014_greedy_optimized.go`. Mantiene factorización por dígitos descendentes y casos cero=>10, uno=>1. En vez de anteponer cadenas formateadas, añade bytes a32celdas fijas y emite al revés. Cada factor>=2 y N<=10^9 garantizan capacidad. Elimina copias cuadráticas en factores y formato repetido; búferes256/64sustituyen fmt/cadenas. Tiempo O(log(N+2)), espacio auxiliar O(1) en el rango. Admisión por clasificación, sin afirmar mejora medida del30%.
+
+Frente a `1014_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1096 KB → 788 KB.
+
 La solución optimizada en Java analiza el número byte a byte desde
 `System.in` en lugar de usar `Scanner`, y añade las cifras al final e
 invierte la cadena una sola vez en lugar de insertar cada cifra al
@@ -96,13 +104,13 @@ principio: 380 KB en lugar de 1604 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
-El mismo voraz en todos los lenguajes; los dígitos se juntan en una
-cadena. Para `k = O(log N)` dígitos recogidos, las soluciones simples en
-C++, Go y Java insertan cada dígito al principio, moviendo o copiando
-los anteriores: el tiempo total es `O(k^2) = O((log N)^2)`. Python, Rust
-y la solución optimizada en Java añaden al final y luego invierten el
-orden, con tiempo total `O(log N)`. Todas las soluciones usan `O(log N)`
-de espacio adicional.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1014_greedy_optimized.go`: puesto de tiempo 4/12 y de memoria 1/12 en esta muestra comparable.
+
+`1014_greedy_optimized.py`: puesto de tiempo 442/482 y de memoria 2/482 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -121,3 +129,7 @@ de espacio adicional.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log(N+2)) | AC | 0.125 s | 240 KB | 11325471 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
