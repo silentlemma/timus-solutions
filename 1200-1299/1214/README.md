@@ -24,6 +24,10 @@ The printed `x` and `y`.
 
 The input `x` and `y`.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -68,9 +72,23 @@ The optimized Java solution reads the input in 1 KB blocks and parses
 the two numbers by hand instead of using `Scanner`: 384 KB instead of
 1584 KB, with the same time.
 
+`1214_math_optimized.py`. Keep the same involution: swap the two values exactly when both are positive and their sum is odd. Zero or a negative value bypasses the swap. The printed values are bounded by 32000 in absolute value, so the sum is safe in i64. Time and arithmetic state O(1). Parse byte tokens instead of decoded line input; test oddness with a bit operation, without simulating the procedure. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1214_math.py`: time 0.078 s → 0.125 s; memory 444 KB → 204 KB.
+
+`1214_math_optimized.rs`. Keep the same involution: swap the two values exactly when both are positive and their sum is odd. Zero or a negative value bypasses the swap. The printed values are bounded by 32000 in absolute value, so the sum is safe in i64. Time and arithmetic state O(1). Read just two signed integers, avoiding the decoded line and parsed-value vector. The mathematical transformation is unchanged. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1214_math.rs`: time 0.046 s → 0.046 s; memory 212 KB → 60 KB.
+
 ## Language notes
 
-- All languages apply the same one-line rule.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1214_math_optimized.py`: time place 29/40, memory place 1/40 in this comparable sample.
+
+`1214_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -89,3 +107,7 @@ the two numbers by hand instead of using `Scanner`: 384 KB instead of
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 384 KB | 11303725 |
+| [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
+| [1214_math_optimized.rs](1214_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

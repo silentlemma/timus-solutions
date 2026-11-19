@@ -25,6 +25,10 @@ Los valores impresos `x` e `y`.
 
 Los valores de entrada `x` e `y`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -70,9 +74,23 @@ La solución optimizada en Java lee la entrada en bloques de 1 KB y
 analiza los dos números a mano en lugar de usar `Scanner`: 384 KB en
 lugar de 1584 KB, con el mismo tiempo.
 
+`1214_math_optimized.py`. Conserva la misma involución: intercambia los valores solo si ambos son positivos y su suma es impar. Cero o valores negativos evitan el intercambio. Los valores impresos tienen valor absoluto hasta 32000, por lo que la suma cabe en i64. Tiempo y estado aritmético O(1). Analiza tokens de bytes en vez de una línea decodificada y prueba la paridad con bits, sin simular el procedimiento. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1214_math.py`: tiempo 0.078 s → 0.125 s; memoria 444 KB → 204 KB.
+
+`1214_math_optimized.rs`. Conserva la misma involución: intercambia los valores solo si ambos son positivos y su suma es impar. Cero o valores negativos evitan el intercambio. Los valores impresos tienen valor absoluto hasta 32000, por lo que la suma cabe en i64. Tiempo y estado aritmético O(1). Lee solo dos enteros con signo, sin línea decodificada ni vector de valores. La transformación matemática no cambia. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1214_math.rs`: tiempo 0.046 s → 0.046 s; memoria 212 KB → 60 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes aplican la misma regla de una línea.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1214_math_optimized.py`: puesto de tiempo 29/40 y de memoria 1/40 en esta muestra comparable.
+
+`1214_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -91,3 +109,7 @@ lugar de 1584 KB, con el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 384 KB | 11303725 |
+| [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
+| [1214_math_optimized.rs](1214_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
