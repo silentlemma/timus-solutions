@@ -27,6 +27,10 @@ and digits, and letter case matters.
 
 The fewest openings.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -75,6 +79,10 @@ The answers were compared with a separately written solution on 100
 random modules.
 
 ## Optimized solutions
+
+`1213_graphs_optimized.py`. Keep the connected-compartment identity: a spanning tree to the airlock needs U−1 opened partitions for U distinct names. Read one line at a time into the name set rather than storing every input token. Expected O(I) time with hashing, O(U+L) space for bounded-length names and the largest line L. Flush the final count before direct PyPy exit. This is the same simple counting algorithm, not a new graph search.
+
+Compared with `1213_graphs.py`: time 0.078 s → 0.125 s; memory 384 KB → 268 KB.
 
 The optimized C++ solution reads the partitions with `scanf` into a
 buffer of 42 bytes, enough for two names of at most 20 characters and
@@ -141,3 +149,6 @@ implementation for these languages.
 | [1213_graphs_optimized.cpp](1213_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 100 KB | 11307251 |
 | [1213_graphs_optimized.java](1213_graphs_optimized.java) | Java 1.8 | graphs | O(P log P) | AC | 0.078 s | 524 KB | 11307254 |
 | [1213_graphs_optimized.rs](1213_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.031 s | 204 KB | 11307256 |
+| [1213_graphs_optimized.py](1213_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O(I) expected time; O(U+L) space | AC | 0.125 s | 268 KB | 11325706 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

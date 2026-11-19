@@ -23,6 +23,10 @@
 
 最少的打开次数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -64,6 +68,10 @@ Central-Waste
 答案已在 100 个随机货舱上与另一份独立解答比对。
 
 ## 优化解法
+
+`1213_graphs_optimized.py`. 保留连通舱室公式：U 个不同名字的通向气闸生成树需开 U−1 道隔墙。逐行向集合加名字，不保留全部词。哈希期望 O(I) 时间，有界名字及最长行 L 下 O(U+L) 存储。刷新总数后退出 PyPy。同一简单计数算法，并非新图搜索。
+
+与 `1213_graphs.py` 相比：时间 0.078 s → 0.125 s；内存 384 KB → 268 KB。
 
 优化的 C++ 解法用 `scanf` 把隔板读入 42 字节的缓冲区（足够放下两个最多 20 个字符
 的名字和连字符），并把不同的名字存在一个 30 个名字、每个 21 字节的静态表中，用
@@ -116,3 +124,6 @@ Central-Waste
 | [1213_graphs_optimized.cpp](1213_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 100 KB | 11307251 |
 | [1213_graphs_optimized.java](1213_graphs_optimized.java) | Java 1.8 | graphs | O(P log P) | AC | 0.078 s | 524 KB | 11307254 |
 | [1213_graphs_optimized.rs](1213_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.031 s | 204 KB | 11307256 |
+| [1213_graphs_optimized.py](1213_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O(I) expected time; O(U+L) space | AC | 0.125 s | 268 KB | 11325706 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

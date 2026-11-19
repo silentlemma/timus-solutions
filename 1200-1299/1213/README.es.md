@@ -27,6 +27,10 @@ hasta 20 letras latinas y cifras, y las mayúsculas importan.
 
 El menor número de aperturas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -75,6 +79,10 @@ Las respuestas se compararon con una solución escrita aparte en 100
 módulos aleatorios.
 
 ## Soluciones optimizadas
+
+`1213_graphs_optimized.py`. Conserva identidad de compartimentos conexos: árbol hacia esclusa abre U−1 tabiques para U nombres. Lee líneas al conjunto, no retiene todos tokens. O(I) tiempo esperado con hash,O(U+L) espacio para nombres acotados y línea máxima L. Vacía antes de salir PyPy. Mismo conteo sencillo, no otra búsqueda.
+
+Frente a `1213_graphs.py`: tiempo 0.078 s → 0.125 s; memoria 384 KB → 268 KB.
 
 La solución optimizada en C++ lee los tabiques con `scanf` en un búfer
 de 42 bytes, suficiente para dos nombres de como mucho 20 caracteres y
@@ -143,3 +151,6 @@ implementación para alcanzar el objetivo.
 | [1213_graphs_optimized.cpp](1213_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(P log P) | AC | 0.015 s | 100 KB | 11307251 |
 | [1213_graphs_optimized.java](1213_graphs_optimized.java) | Java 1.8 | graphs | O(P log P) | AC | 0.078 s | 524 KB | 11307254 |
 | [1213_graphs_optimized.rs](1213_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(P log P) | AC | 0.031 s | 204 KB | 11307256 |
+| [1213_graphs_optimized.py](1213_graphs_optimized.py) \* | PyPy 3.10 x64 | graphs | O(I) expected time; O(U+L) space | AC | 0.125 s | 268 KB | 11325706 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
