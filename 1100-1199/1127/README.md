@@ -75,6 +75,10 @@ on the face normals, on every test.
 
 ## Optimized solutions
 
+`1127_bruteforce_optimized.java`. Keep all 24 proper cube rotations and the maximum common ordered side ring. Generate rotations in fixed primitive arrays; assign each of the ten color symbols an ID 0..9 and pack four side IDs in base ten. One int[10000] replaces the HashMap of ring Strings, boxed counts and object-based rotation sets. Each cube has six distinct face colors, so its 24 rings are distinct and direct increments cannot count that cube twice for one ring. Time O(24*N+10000), including zeroing the counter table; storage is 10000 integer counters plus fixed rotation/color state and byte input, independent of N.
+
+Compared with `1127_bruteforce.java`: time 0.171 s → 0.093 s; memory 6664 KB → 576 KB.
+
 Go and Rust count the three side rings obtained by choosing each pair of opposite faces as top and bottom. Since all six colours of a cube differ, a ring has a unique smallest colour. Rotate to it and choose the smaller direction to identify equivalent rings. Encode four colours in base C = 10 and count them in a flat array of 16-bit counters.
 
 The accepted Go 1.14 x64 run takes 0.046 s versus 0.031 s for the base and uses 896 KB versus 1344 KB.
@@ -83,10 +87,11 @@ The accepted base implementations [1127_bruteforce.cpp](1127_bruteforce.cpp), [1
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- All languages generate the orientations by a small search over the two
-  turns; C++ counts rings in an ordered map, the others in a hash map.
+`1127_bruteforce_optimized.java`: time place 1/31, memory place 1/31 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -106,5 +111,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1127_bruteforce_optimized.go](1127_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(N + C⁴) | AC | 0.046 s | 896 KB | 11311096 |
 | [1127_bruteforce_optimized.rs](1127_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(N + C⁴) | AC | 0.015 s | 220 KB | 11311098 |
+| [1127_bruteforce_optimized.java](1127_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(24·N+10000) | AC | 0.093 s | 576 KB | 11325009 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

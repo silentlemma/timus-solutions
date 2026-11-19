@@ -78,6 +78,10 @@ actúan sobre las normales de las caras, en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1127_bruteforce_optimized.java`. Conserva las24 rotaciones propias y el anillo lateral ordenado más común. Genera rotaciones en arreglos primitivos fijos, asigna ID0..9 a diez colores y codifica cuatro IDs en base diez. Un int[10000] sustituye HashMap de String, cuentas con objetos y conjuntos de rotaciones. Las seis caras distintas garantizan24 anillos distintos por cubo, evitando contarlo dos veces en uno. Tiempo O(24*N+10000), incluida inicialización; espacio de10000 contadores más rotaciones/colores e ingreso fijos, independiente de N.
+
+Frente a `1127_bruteforce.java`: tiempo 0.171 s → 0.093 s; memoria 6664 KB → 576 KB.
+
 Go y Rust cuentan los tres anillos laterales obtenidos al elegir cada pareja de caras opuestas como arriba y abajo. Los seis colores de cada cubo son distintos, por lo que el mínimo del anillo es único. Se gira hasta ese color y se elige el sentido menor para identificar anillos equivalentes. Los cuatro colores se codifican en base C = 10 y se cuentan en un vector plano de contadores de 16 bits.
 
 El envío aceptado en Go 1.14 x64 tarda 0.046 s frente a 0.031 s de la base y usa 896 KB frente a 1344 KB.
@@ -86,10 +90,11 @@ Las implementaciones base aceptadas [1127_bruteforce.cpp](1127_bruteforce.cpp), 
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Todos los lenguajes generan las orientaciones con una pequeña búsqueda
-  sobre los dos giros; C++ cuenta los anillos en un mapa ordenado y los demás en una tabla hash.
+`1127_bruteforce_optimized.java`: puesto de tiempo 1/31 y de memoria 1/31 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -109,5 +114,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1127_bruteforce_optimized.go](1127_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(N + C⁴) | AC | 0.046 s | 896 KB | 11311096 |
 | [1127_bruteforce_optimized.rs](1127_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(N + C⁴) | AC | 0.015 s | 220 KB | 11311098 |
+| [1127_bruteforce_optimized.java](1127_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(24·N+10000) | AC | 0.093 s | 576 KB | 11325009 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
