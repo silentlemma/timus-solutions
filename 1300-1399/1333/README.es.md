@@ -94,15 +94,17 @@ es 0,1 puntos porcentuales, dentro del punto permitido.
 
 ## Notas por lenguaje
 
-Instantánea del 2 de noviembre de 2026: C++ rápido 1/1 frente a 69 entradas
-filtradas de otros autores, Java 1/1 frente a 4 y Python 1/2 frente a 8,
-con asterisco. Go/Rust no tienen rivales filtrados: cobertura formal no
-prueba superioridad. C++ exige 15% superior o primeros diez en ambas
-medidas; las demás familias, primero en ambas. Las cinco posiciones
-tienen una mejora admitida o base ya en meta. Las medidas corresponden
-a bytes exactos Accepted.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1333_geometry_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones optimizadas
+
+`1333_geometry_optimized.rs`. Conserva 20.000 franjas de punto medio y misma aproximación por unión de intervalos recortados. Cachea radios cuadrados, usa arrays fijos para diez bombas/intervalos e inserción ordenada, sin vectores ni cuadrados repetidos. O(S(1+B²)+I) para S franjas, B<=10 e input I; inserción no mejora asintóticamente la ordenación base. O(B+T) espacio con token numérico máximo T. Salida C conserva seis decimales y la misma malla.
+
+Frente a `1333_geometry.rs`: tiempo 0.046 s → 0.031 s; memoria 268 KB → 132 KB.
 
 El mismo algoritmo usa S=4096: cota
 `100·20/4096=0,48828125` puntos porcentuales, menor que 1. Cubre recortes,
@@ -143,5 +145,6 @@ muestra vacía de rivales.
 | [1333_geometry_optimized.go](1333_geometry_optimized.go) | Go 1.14 x64 | geometry | O(SN^2), S=4096 | AC | 0.015 s | 1116 KB | 11308504 |
 | [1333_geometry_optimized.java](1333_geometry_optimized.java) | Java 1.8 | geometry | O(SN^2), S=4096 | AC | 0.093 s | 600 KB | 11308510 |
 | [1333_geometry_optimized.py](1333_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(SN log N), S=4096 | AC | 0.109 s | 564 KB | 11308516 |
+| [1333_geometry_optimized.rs](1333_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(S(1+B²)+I) time; O(B+T) space | AC | 0.031 s | 132 KB | 11325547 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

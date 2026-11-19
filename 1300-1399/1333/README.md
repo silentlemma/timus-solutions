@@ -99,16 +99,17 @@ in real arithmetic, within the problem's one-point requirement.
 
 ## Language notes
 
-All measurements below refer to exact Accepted sources. In the
-2 November 2026 snapshot, optimized C++ is 1/1 against 69 filtered other-author
-entries and Java 1/1 against 4. Python is 1/2 against 8, so its admissible
-time improvement remains starred. Go and Rust have no filtered
-competitors; formal coverage is not proof of competitive superiority.
-The established target is top15% or the first ten places in both metrics
-for C++, and first in both for the other families. All five language
-positions have an admitted improvement or an existing at-goal base.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1333_geometry_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Optimized solutions
+
+`1333_geometry_optimized.rs`. Retain the same 20,000 midpoint strips and clipped interval-union approximation. Cache squared radii, store at most ten bombs/intervals in fixed arrays and insertion-sort each strip’s intervals while inserting them, avoiding vectors and repeated radius products. For S strips and B<=10 bombs the work is O(S(1+B²)+I); insertion sort is not a better asymptotic sort than the base. Storage is O(B+T), including one numeric token of length T; input size is I. C-runtime output retains six fractional digits and does not change the approximation grid.
+
+Compared with `1333_geometry.rs`: time 0.046 s → 0.031 s; memory 268 KB → 132 KB.
 
 Keep the same midpoint/interval-union algorithm, with S=4096.
 The bound becomes `100·20/4096=0.48828125` percentage points, still below
@@ -152,5 +153,6 @@ already satisfies formal coverage in an empty competitor sample.
 | [1333_geometry_optimized.go](1333_geometry_optimized.go) | Go 1.14 x64 | geometry | O(SN^2), S=4096 | AC | 0.015 s | 1116 KB | 11308504 |
 | [1333_geometry_optimized.java](1333_geometry_optimized.java) | Java 1.8 | geometry | O(SN^2), S=4096 | AC | 0.093 s | 600 KB | 11308510 |
 | [1333_geometry_optimized.py](1333_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(SN log N), S=4096 | AC | 0.109 s | 564 KB | 11308516 |
+| [1333_geometry_optimized.rs](1333_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(S(1+B²)+I) time; O(B+T) space | AC | 0.031 s | 132 KB | 11325547 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
