@@ -91,6 +91,14 @@ arithmetic. When all a_i=n, the answer is n, not zero.
 
 ## Optimized solutions
 
+`1964_math_optimized.py`. Keep the complement-budget bound max(0,N-sum(N-a[i])) for the minimum intersection. Accumulate the signed value and clamp once at the end; with K<=20,N<=10^9 the intermediate value can be below signed 32-bit range, so Rust retains i64. The set argument and answer remain unchanged. Time O(K). Use the 65536-byte tokenizer and consume each lower bound directly, without the old lower_bounds list. Parser blocks and an unfinished token remain; arithmetic state is O(1). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1964_math.py`: time 0.078 s → 0.156 s; memory 476 KB → 256 KB.
+
+`1964_math_optimized.rs`. Keep the complement-budget bound max(0,N-sum(N-a[i])) for the minimum intersection. Accumulate the signed value and clamp once at the end; with K<=20,N<=10^9 the intermediate value can be below signed 32-bit range, so Rust retains i64. The set argument and answer remain unchanged. Time O(K). Stream the K bounds into the accumulator, removing the lower-bound vector and input String. Auxiliary state O(1). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1964_math.rs`: time 0.031 s → 0.046 s; memory 236 KB → 64 KB.
+
 The optimized C++ solution reads with `scanf` instead of `iostream` and
 subtracts each `n − a_i` from the accumulator as soon as it is read,
 instead of keeping the k values in a vector, so it needs `O(1)` space;
@@ -118,16 +126,13 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1964_math.rs](1964_math.rs).
+`1964_math_optimized.py`: time place 27/27, memory place 2/27 in this comparable sample.
 
-C++ uses int64_t, Go 1.14 int64, Java 8 long and Rust 1.75 i64. Rust
-must not use unsigned arithmetic for the possibly negative accumulator.
-Python 3.12 uses exact integers. All versions read the k values once.
+`1964_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -147,3 +152,7 @@ Python 3.12 uses exact integers. All versions read the k values once.
 |---|---|---|---|---|---|---|---|
 | [1964_math_optimized.cpp](1964_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) | AC | 0.015 s | 108 KB | 11307259 |
 | [1964_math_optimized.java](1964_math_optimized.java) | Java 1.8 | math | O(k) | AC | 0.093 s | 524 KB | 11307263 |
+| [1964_math_optimized.py](1964_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.156 s | 256 KB | 11325079 |
+| [1964_math_optimized.rs](1964_math_optimized.rs) \* | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 64 KB | 11325117 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

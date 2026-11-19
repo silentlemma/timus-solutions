@@ -88,6 +88,14 @@ a_i=n, la respuesta es n.
 
 ## Soluciones optimizadas
 
+`1964_math_optimized.py`. Conserva max(0,N-sum(N-a[i])) por el presupuesto de complementos. Acumula con signo y limita a cero al final; K<=20,N<=10^9 pueden dar un intermedio inferior a32 bits con signo, así que Rust mantiene i64. Mismo argumento de conjuntos y resultado, tiempo O(K). Consume cada cota con el lector de65536bytes, sin lower_bounds. Quedan bloques y un token incompleto; estado aritmético O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1964_math.py`: tiempo 0.078 s → 0.156 s; memoria 476 KB → 256 KB.
+
+`1964_math_optimized.rs`. Conserva max(0,N-sum(N-a[i])) por el presupuesto de complementos. Acumula con signo y limita a cero al final; K<=20,N<=10^9 pueden dar un intermedio inferior a32 bits con signo, así que Rust mantiene i64. Mismo argumento de conjuntos y resultado, tiempo O(K). Acumula las K cotas al leer, sin vector ni String de entrada. Estado auxiliar O(1). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1964_math.rs`: tiempo 0.031 s → 0.046 s; memoria 236 KB → 64 KB.
+
 La solución optimizada en C++ lee con `scanf` en lugar de `iostream` y
 resta cada `n − a_i` del acumulador en cuanto lo lee, en lugar de
 guardar los k valores en un vector, así que necesita espacio `O(1)`; el
@@ -115,16 +123,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1964_math.rs](1964_math.rs).
+`1964_math_optimized.py`: puesto de tiempo 27/27 y de memoria 2/27 en esta muestra comparable.
 
-C++ usa int64_t, Go 1.14 int64, Java 8 long y Rust 1.75 i64. Rust no
-debe usar un acumulador sin signo porque puede ser negativo. Python 3.12
-usa enteros exactos. Todas las versiones leen las k cotas una sola vez.
+`1964_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -144,3 +149,7 @@ usa enteros exactos. Todas las versiones leen las k cotas una sola vez.
 |---|---|---|---|---|---|---|---|
 | [1964_math_optimized.cpp](1964_math_optimized.cpp) | G++ 13.2 x64 | math | O(k) | AC | 0.015 s | 108 KB | 11307259 |
 | [1964_math_optimized.java](1964_math_optimized.java) | Java 1.8 | math | O(k) | AC | 0.093 s | 524 KB | 11307263 |
+| [1964_math_optimized.py](1964_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.156 s | 256 KB | 11325079 |
+| [1964_math_optimized.rs](1964_math_optimized.rs) \* | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 64 KB | 11325117 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
