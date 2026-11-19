@@ -92,13 +92,21 @@ miles de lápices en todo el rango de coordenadas.
 
 ## Soluciones optimizadas
 
+`1103_geometry_optimized.java`. Conserva la arista soporte de la envolvente y el círculo del ángulo mediano. Guarda coordenadas, productos escalares/cruzados positivos e índices en arreglos primitivos. Sustituye productos BigInteger del comparador por comparación exacta con signo: primero signos y luego mitades alta/baja sin signo de productos64 por64; forma la mitad alta con bloques32. Coordenadas hasta10^8 mantienen valores bajo2^63, valores absolutos seguros y productos completos en128 bits. No usa ángulos flotantes ni epsilon. La mezcla iterativa de índices cuesta O(N log N) y O(N) espacio, con el mismo criterio mediano; las promesas de no colinealidad ni cocircularidad aseguran la partición.
+
+Frente a `1103_geometry.java`: tiempo 0.140 s → 0.078 s; memoria 7336 KB → 688 KB.
+
 Go conserva la arista AB de la envolvente convexa y ordena los demás puntos por ángulo creciente, así que la cotangente mayor va primero. Los productos cruzados son positivos. Se comparan primero los signos de los productos escalares y se trata el cero como no negativo. Si coinciden los signos, math/bits.Mul64 da las palabras alta y baja de las magnitudes exactas. Se compara primero la palabra alta y se invierte el orden si ambos signos son negativos. Las coordenadas y los productos comparten un arreglo. Cada partición usa la mediana de tres muestras. Si el intervalo se reduce geométricamente, el trabajo es O(N). Tras como máximo 2·bit_length(N−2) particiones se ordena el intervalo restante. El peor tiempo es O(N log N) y el espacio es O(N). Los otros cuatro lenguajes reutilizan sus versiones base admitidas.
 
 Las implementaciones base aceptadas [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-C++/Rust usan productos nativos128 y selección; Go original y Java ordenan con enteros grandes. Go nuevo usa productos exactos de dos bloques128 y selección protegida; Python conserva enteros exactos.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1103_geometry_optimized.java`: puesto de tiempo 1/16 y de memoria 1/16 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -117,5 +125,6 @@ C++/Rust usan productos nativos128 y selección; Go original y Java ordenan con 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.031 s | 960 KB | 11315430 |
+| [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

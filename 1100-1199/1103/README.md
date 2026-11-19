@@ -89,13 +89,21 @@ coordinate range.
 
 ## Optimized solutions
 
+`1103_geometry_optimized.java`. Keep the supporting hull edge and median-angle circle construction. Store coordinates, dot products, positive cross products and sort indices in primitive arrays. Replace allocating BigInteger products in the comparator by exact signed-product comparison: handle signs first, then compare unsigned high and low halves of each 64-by 64 product, assembling the high half from 32-bit limbs. Coordinate bounds 10^8 keep dots and crosses below 2^63, so absolute values are safe and the full products fit 128 bits. No floating-point angles or epsilon are introduced. Bottom-up primitive merge sort is O(N log N), with O(N) storage, and preserves the same median criterion; no three collinear/no four cocircular guarantee the required split.
+
+Compared with `1103_geometry.java`: time 0.140 s → 0.078 s; memory 7336 KB → 688 KB.
+
 Go keeps the hull edge AB and orders the other points by increasing angle, so the larger cotangent comes first. The cross products are positive. Compare the dot product signs first, treating zero as nonnegative. For equal signs, math/bits.Mul64 gives the high and low words of the exact product magnitudes. Compare the high word first and reverse the order when both signs are negative. Coordinates, dot products and cross products share one flat array. Each partition uses the median of three samples. Geometric shrinkage of the remaining interval gives O(N) work. After at most 2·bit_length(N−2) partitions the remaining interval is sorted, bounding worst-case time by O(N log N). Space is O(N). The other four families use their admitted bases.
 
 The accepted base implementations [1103_geometry.cpp](1103_geometry.cpp), [1103_geometry.java](1103_geometry.java), [1103_geometry.py](1103_geometry.py), [1103_geometry.rs](1103_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-C++/Rust use native128-bit products and median selection. Original Go and Java sort using big integers; the new Go variant uses exact two-limb128-bit products and guarded selection. Python keeps its original exact-integer implementation.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1103_geometry_optimized.java`: time place 1/16, memory place 1/16 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -114,5 +122,6 @@ C++/Rust use native128-bit products and median selection. Original Go and Java s
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1103_geometry_optimized.go](1103_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(N log N) worst case | AC | 0.031 s | 960 KB | 11315430 |
+| [1103_geometry_optimized.java](1103_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.078 s | 688 KB | 11325008 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
