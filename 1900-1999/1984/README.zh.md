@@ -70,21 +70,17 @@
 - `1984_geometry_optimized.java`: 0.125 s / 540 KB; 基础 `1984_geometry.java`: 0.125 s / 1796 KB; 相对变化: 时间 -0.0%, 内存 -69.9%.
 - `1984_geometry_optimized.py`: 0.109 s / 276 KB; 基础 `1984_geometry.py`: 0.078 s / 396 KB; 相对变化: 时间 +39.7%, 内存 -30.3%.
 
+`1984_geometry_optimized.rs`. 保留圆形排列的半径公式：一个圆时半径为 1，否则为 1+1/sin(PI/N)。使用 f64 计算并直接输出十位小数，只保存常数数值状态。时间及额外空间均为 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1984_geometry.rs` 相比：时间 0.015 s → 0.031 s；内存 256 KB → 88 KB。
+
 ## 各语言说明
 
-保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+`1984_geometry_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- C++: 首选教学基础 `1984_geometry.cpp`; 覆盖源码 `1984_geometry_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 30/30.
-
-- Go: 首选教学基础 `1984_geometry.go`; 覆盖源码 `1984_geometry.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Java: 首选教学基础 `1984_geometry.java`; 覆盖源码 `1984_geometry_optimized.java`; 时间/内存名次 4/1, 其他作者记录 4/4.
-
-- Python/PyPy: 首选教学基础 `1984_geometry.py`; 覆盖源码 `1984_geometry_optimized.py`; 时间/内存名次 8/1, 其他作者记录 9/9.
-
-- Rust: 首选教学基础 `1984_geometry.rs`; 覆盖源码 `1984_geometry.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -105,5 +101,6 @@
 | [1984_geometry_optimized.cpp](1984_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 120 KB | 11308253 |
 | [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 540 KB | 11308258 |
 | [1984_geometry_optimized.py](1984_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.109 s | 276 KB | 11309752 |
+| [1984_geometry_optimized.rs](1984_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 88 KB | 11325118 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
