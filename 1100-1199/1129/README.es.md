@@ -92,18 +92,21 @@ edificios aleatorios con muchas puertas repetidas entre las mismas salas.
 
 ## Soluciones optimizadas
 
+`1129_graphs_optimized.java`. Conserva orientación por recorrido de Euler tras unir virtualmente salas impares a una ficticia. Aplana D menciones de lados con offsets, posiciones originales y parejas. Ordena claves long (par no ordenado de salas,posición): puertas paralelas emparejan mitades de extremos por posición y bucles se emparejan consecutivamente. N<=100 mantiene el par bajo10000, separado de los32 bits bajos de posición. Aristas reales reciben G/Y opuestos; virtuales solo equilibran y no se imprimen. Pila primitiva y colores byte reemplazan adyacencia con objetos, colas hash y salida completa. Espacio O(N+D). Si S(D) es el coste de ordenar, lo demás es O(N+D); Java8 suele costar O(D log D), con cota conservadora O(D²) para el peor caso, sin prometer logaritmo estricto.
+
+Frente a `1129_graphs.java`: tiempo 0.156 s → 0.109 s; memoria 3876 KB → 832 KB.
+
 C++ y Python cuentan las puertas de cada par de habitaciones. Las orientaciones opuestas de dos puertas paralelas se cancelan en ambas habitaciones, así que queda como máximo una arista real por par. Tras añadir las aristas auxiliares, todos los grados son pares. Se siguen aristas libres hasta cerrar cada recorrido y se orientan en el sentido recorrido. Los cursores recorren una vez la matriz y los recuentos originales reconstruyen la salida en orden de entrada.
 
 Las implementaciones base aceptadas [1129_graphs.go](1129_graphs.go), [1129_graphs.java](1129_graphs.java), [1129_graphs.rs](1129_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Todos los lenguajes hacen el mismo recorrido con pila explícita.
-- Python empareja las menciones con listas indexadas por el par de salas;
-  cada lista contiene como mucho un índice, así que las operaciones de cola
-  tardan `O(1)`.
+`1129_graphs_optimized.java`: puesto de tiempo 1/23 y de memoria 1/23 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,5 +126,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1129_graphs_optimized.cpp](1129_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + D) | AC | 0.015 s | 160 KB | 11310449 |
 | [1129_graphs_optimized.py](1129_graphs_optimized.py) \* | Python 3.12 x64 | graphs | O(N² + D) | AC | 0.093 s | 676 KB | 11310450 |
+| [1129_graphs_optimized.java](1129_graphs_optimized.java) | Java 1.8 | graphs | O(N+D+S(D)) | AC | 0.109 s | 832 KB | 11325013 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
