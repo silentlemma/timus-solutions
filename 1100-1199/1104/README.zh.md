@@ -57,6 +57,14 @@ A1A
 
 ## 优化解法
 
+`1104_number_theory_optimized.go`. 保留数字和整除判定：b 进制数模 b-1 等于数字和。单遍扫描记号，累计和及最大数字，最大值初始一，保证候选进制至少二。递增检查 greatest+1..36，输出首个可用进制，否则精确输出 No solution.。两个新版本均流式读字节、不保存数字串；Rust 还去掉数字向量。L<=10^6 使和至多35·10^6，安全容于有符号32位。时间 O(L+36)，额外状态 O(1) 加固定运行缓冲。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
+
+与 `1104_number_theory.go` 相比：时间 0.031 s → 0.031 s；内存 6608 KB → 796 KB。
+
+`1104_number_theory_optimized.rs`. 保留数字和整除判定：b 进制数模 b-1 等于数字和。单遍扫描记号，累计和及最大数字，最大值初始一，保证候选进制至少二。递增检查 greatest+1..36，输出首个可用进制，否则精确输出 No solution.。两个新版本均流式读字节、不保存数字串；Rust 还去掉数字向量。L<=10^6 使和至多35·10^6，安全容于有符号32位。时间 O(L+36)，额外状态 O(1) 加固定运行缓冲。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1104_number_theory.rs` 相比：时间 0.015 s → 0.031 s；内存 7048 KB → 60 KB。
+
 优化解法（C++、Java、Python）根本不保存长达 `10^6` 位的那一行：它们按 4 KB
 （Python 为 64 KB）的块读取输入，边读边累加各位数字，因此无论长度多少都只需
 很少的内存。Python 用 `bytes.translate` 一次把整块转换成数字值，再用 `sum`
@@ -66,8 +74,13 @@ A1A
 
 ## 语言说明
 
-- 简单的 Python 和 Java 解法分别用 `int(ch, 36)` 和 `Character.digit` 把每一位按
-  36 进制数字读入；Rust 用 `to_digit(36)`。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`1104_number_theory_optimized.go`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+`1104_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -88,3 +101,7 @@ A1A
 | [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
 | [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
 | [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |
+| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 796 KB | 11325126 |
+| [1104_number_theory_optimized.rs](1104_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L+36) | AC | 0.031 s | 60 KB | 11325127 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

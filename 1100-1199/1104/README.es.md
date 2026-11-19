@@ -66,6 +66,14 @@ con los enteros grandes de Python y tomando el resto directamente.
 
 ## Soluciones optimizadas
 
+`1104_number_theory_optimized.go`. Conserva la divisibilidad por suma de dígitos: en base b el número coincide con ella módulo b-1. Recorre el token una vez para suma y dígito mayor, inicializado en uno para empezar al menos en base dos. Prueba greatest+1..36 en orden y emite la primera válida o exactamente No solution. Ambas versiones leen bytes sin guardar el número; Rust elimina también el vector de dígitos. L<=10^6 acota la suma a35·10^6, segura en32 bits con signo. Tiempo O(L+36), estado auxiliar O(1) más búferes fijos. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1104_number_theory.go`: tiempo 0.031 s → 0.031 s; memoria 6608 KB → 796 KB.
+
+`1104_number_theory_optimized.rs`. Conserva la divisibilidad por suma de dígitos: en base b el número coincide con ella módulo b-1. Recorre el token una vez para suma y dígito mayor, inicializado en uno para empezar al menos en base dos. Prueba greatest+1..36 en orden y emite la primera válida o exactamente No solution. Ambas versiones leen bytes sin guardar el número; Rust elimina también el vector de dígitos. L<=10^6 acota la suma a35·10^6, segura en32 bits con signo. Tiempo O(L+36), estado auxiliar O(1) más búferes fijos. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1104_number_theory.rs`: tiempo 0.015 s → 0.031 s; memoria 7048 KB → 60 KB.
+
 Las soluciones optimizadas (C++, Java, Python) nunca guardan la línea de
 hasta `10^6` cifras: leen la entrada en trozos de 4 KB (64 KB en Python) y
 suman las cifras sobre la marcha, así que la memoria se mantiene pequeña sea
@@ -77,9 +85,13 @@ Python: 0.109 s en lugar de 0.265 s y 588 KB en lugar de 17808 KB.
 
 ## Notas por lenguaje
 
-- Las soluciones sencillas en Python y Java leen cada dígito como dígito
-  en base 36 con `int(ch, 36)` y `Character.digit`; Rust usa
-  `to_digit(36)`.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1104_number_theory_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+`1104_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -100,3 +112,7 @@ Python: 0.109 s en lugar de 0.265 s y 588 KB en lugar de 17808 KB.
 | [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
 | [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
 | [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |
+| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 796 KB | 11325126 |
+| [1104_number_theory_optimized.rs](1104_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L+36) | AC | 0.031 s | 60 KB | 11325127 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
