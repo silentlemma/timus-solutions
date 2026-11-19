@@ -95,6 +95,10 @@ marcos o márgenes.
 
 ## Soluciones optimizadas
 
+`1944_implementation_sorting.rs`. Sustituye dibujo W×H y buffer completo ordenando puntos distintos por y descendente y x ascendente. Recorre coordenadas con cursor de puntos, estrella antes que origen/ejes. Guarda dos i16 por punto, seguros en [-100,100], y límites incluyendo origen. O(n log n+WH) tiempo, O(n) espacio; intercambia ordenar por eliminar grid/salida completos. Implementación distinta de ordenación con nombre separado; conserva sencilla con grid.
+
+Frente a `1944_implementation.rs`: tiempo 0.031 s → 0.015 s; memoria 348 KB → 68 KB.
+
 Se dibuja por filas sin asignar toda la cuadrícula. Ordenar coordenadas empaquetadas agrupa los puntos de cada fila. Se rellena el fondo y eje visible, se construyen eje horizontal y origen cuando corresponda y se superponen los puntos al final. Se conservan prioridades y orden vertical decreciente. El búfer se reutiliza: la memoria depende de puntos y anchura, no del área. Ordenar no elimina el tiempo de imprimir cada celda.
 
 - `1944_implementation_optimized.cpp`: 0.015 s / 116 KB; base `1944_implementation.cpp`: 0.015 s / 472 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.4%.
@@ -103,17 +107,11 @@ Se dibuja por filas sin asignar toda la cuadrícula. Ordenar coordenadas empaque
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1944_implementation.cpp`; versión que cubre `1944_implementation_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 50/50.
+`1944_implementation_sorting.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1944_implementation.go`; versión que cubre `1944_implementation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1944_implementation.java`; versión que cubre `1944_implementation.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
-
-- Python/PyPy: base didáctica preferida `1944_implementation.py`; versión que cubre `1944_implementation_optimized.py`; puestos tiempo/memoria 11/1, registros de otros autores 11/11.
-
-- Rust: base didáctica preferida `1944_implementation.rs`; versión que cubre `1944_implementation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -136,5 +134,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
+| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -81,6 +81,10 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 
 ## 优化解法
 
+`1944_implementation_sorting.rs`. 以互异点按 y 降、x 升排序，替代 W×H 绘图及完整输出缓冲。一次遍历输出坐标并推进点指针，先处理星号，再原点和轴。点用两个 i16，题定 [-100,100] 安全，边界始终含原点。O(n log n+WH) 时间、O(n) 空间，用排序换取不分配网格/整段输出。不同排序实现有独立文件名，保留简单网格版。
+
+与 `1944_implementation.rs` 相比：时间 0.031 s → 0.015 s；内存 348 KB → 68 KB。
+
 逐行绘制，不分配完整图。排序打包点坐标，使同一行的点相邻。先填背景及可见纵轴，需要时绘制横轴和原点，最后覆盖点，保持符号优先级和纵坐标递减顺序。复用行缓冲，空间取决于点数与行宽而非绘图面积。排序不能省去输出每格所需的时间。
 
 - `1944_implementation_optimized.cpp`: 0.015 s / 116 KB; 基础版 `1944_implementation.cpp`: 0.015 s / 472 KB; 相对基础版的变化: 时间 -0.0%, 内存 -75.4%.
@@ -89,17 +93,11 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- C++: 优先教学基础版 `1944_implementation.cpp`; 覆盖实现 `1944_implementation_optimized.cpp`; 时间/内存名次 1/1, 其他作者记录 50/50.
+`1944_implementation_sorting.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- Go: 优先教学基础版 `1944_implementation.go`; 覆盖实现 `1944_implementation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Java: 优先教学基础版 `1944_implementation.java`; 覆盖实现 `1944_implementation.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
-
-- Python/PyPy: 优先教学基础版 `1944_implementation.py`; 覆盖实现 `1944_implementation_optimized.py`; 时间/内存名次 11/1, 其他作者记录 11/11.
-
-- Rust: 优先教学基础版 `1944_implementation.rs`; 覆盖实现 `1944_implementation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -122,5 +120,6 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
+| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

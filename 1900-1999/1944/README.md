@@ -95,6 +95,10 @@ numeric labels, spaces, extra borders or margins.
 
 ## Optimized solutions
 
+`1944_implementation_sorting.rs`. Replace the allocated W×H drawing and complete output buffer by sorting the distinct points by decreasing y, then increasing x. Walk output coordinates once alongside a point cursor, emitting a star for a point before considering origin or axes. Store points as two i16 coordinates, safe for the promised [-100,100] range, and retain bounds that include the origin. Time O(n log n+WH), space O(n), trading sorting for removal of the grid/output allocations. This different sorting implementation has a separate filename; preserve the simple grid source.
+
+Compared with `1944_implementation.rs`: time 0.031 s → 0.015 s; memory 348 KB → 68 KB.
+
 Render one row at a time rather than allocate the complete drawing. Sort packed point coordinates so points of a row are consecutive. Initialize the row with background and the visible axis, construct the horizontal axis and origin when needed, then overlay points last. This preserves the exact symbol priority and descending vertical order. Reuse a row buffer and stream it; storage depends on the points and row width, not the drawing area. Sorting does not remove the time needed to print every cell.
 
 - `1944_implementation_optimized.cpp`: 0.015 s / 116 KB; base `1944_implementation.cpp`: 0.015 s / 472 KB; relative change: time -0.0%, memory -75.4%.
@@ -103,17 +107,11 @@ Render one row at a time rather than allocate the complete drawing. Sort packed 
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `1944_implementation.cpp`; covering source `1944_implementation_optimized.cpp`; time/memory places 1/1, other-author entries 50/50.
+`1944_implementation_sorting.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1944_implementation.go`; covering source `1944_implementation.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1944_implementation.java`; covering source `1944_implementation.java`; time/memory places 1/1, other-author entries 2/2.
-
-- Python/PyPy: preferred teaching base `1944_implementation.py`; covering source `1944_implementation_optimized.py`; time/memory places 11/1, other-author entries 11/11.
-
-- Rust: preferred teaching base `1944_implementation.rs`; covering source `1944_implementation.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -136,5 +134,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
+| [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
