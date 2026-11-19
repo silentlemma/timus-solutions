@@ -25,9 +25,7 @@ A, B y C, o `No solution`.
 
 ## Comprobación
 
-El comprobador acepta tres números distintos cualesquiera del rango con
-A² + B² divisible por C. Siempre existe una terna, así que `No solution`
-nunca se acepta.
+El comprobador del repositorio exige tres enteros distintos A,B,C en [N²,(N+1)²] y verifica (A²+B²) mod C=0. Siempre existe una terna; No solution no se acepta.
 
 ## Ejemplos
 
@@ -93,18 +91,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1335_math_optimized.java`: reducción de tiempo +12.80%; reducción de
   memoria +77.67%; base: `1335_math.java`.
 
+`1335_math_optimized.py`. Conserva A=N², B=N²+N+1, C=N²+1 y calcula N² una vez. Módulo C los dos primeros son -1 y N, así que A²+B² es divisible por C; para N>=2 son distintos y pertenecen al intervalo. Aritmética acotada y espacio O(1). Reutiliza el cuadrado calculado y emite los tres enteros en una llamada. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1335_math.py`: tiempo 0.078 s → 0.125 s; memoria 392 KB → 168 KB.
+
+`1335_math_optimized.rs`. Conserva A=N², B=N²+N+1, C=N²+1 y calcula N² una vez. Módulo C los dos primeros son -1 y N, así que A²+B² es divisible por C; para N>=2 son distintos y pertenecen al intervalo. Aritmética acotada y espacio O(1). Usa i64 con signo y salida numérica directa; N<=30000 mantiene todos los valores muy por debajo del límite de i64. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1335_math.rs`: tiempo 0.046 s → 0.015 s; memoria 244 KB → 56 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1335_math.cpp](1335_math.cpp).
-- [1335_math.go](1335_math.go).
-- [1335_math.rs](1335_math.rs).
+`1335_math_optimized.py`: puesto de tiempo 18/26 y de memoria 1/26 en esta muestra comparable.
 
-- Las cinco soluciones imprimen la misma terna.
+`1335_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,5 +126,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 360 KB | 11307311 |
+| [1335_math_optimized.py](1335_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 168 KB | 11324910 |
+| [1335_math_optimized.rs](1335_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
