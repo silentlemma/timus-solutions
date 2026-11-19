@@ -21,6 +21,10 @@
 
 能穿过的井盖数。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -75,6 +79,14 @@
 
 ## 优化解法
 
+`1572_geometry_optimized.py`. 保留 NARROWEST/WIDEST 系数下精确平方弦比较，含相等。逐盖读取、检验缩放整数平方即丢弃，无盖列表。O(n) 时间、常数几何状态及词缓冲。刷新单个答案后退出 PyPy，保留几何教学推导。
+
+与 `1572_geometry.py` 相比：时间 0.093 s → 0.14 s；内存 384 KB → 264 KB。
+
+`1572_geometry_optimized.rs`. 保留 NARROWEST/WIDEST 形状系数的精确平方弦比较，包含相等情形。直接读每个盖，比较其 u64 缩放平方后丢弃，不保存全量解析向量；直接输出替代格式化。O(n) 时间、O(1) 辅助空间，保留清晰几何推导和基础源。
+
+与 `1572_geometry.rs` 相比：时间 0.031 s → 0.046 s；内存 228 KB → 60 KB。
+
 优化的 Java 解法从由 `System.in` 填充的 4 KB 缓冲区中手工解析数字，而不是创建
 `Scanner`，这样 JVM 不必加载扫描器及其正则表达式；比较长度平方的方法不变：
 {1572_geometry_optimized.java}。
@@ -87,11 +99,11 @@
 
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1572_geometry.cpp](1572_geometry.cpp).
-- [1572_geometry.go](1572_geometry.go).
-- [1572_geometry.rs](1572_geometry.rs).
+`1572_geometry_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -110,3 +122,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1572_geometry_optimized.java](1572_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.078 s | 340 KB | 11304529 |
+| [1572_geometry_optimized.rs](1572_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) time; O(1) space | AC | 0.046 s | 60 KB | 11325506 |
+| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.14 s | 264 KB | 11325701 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

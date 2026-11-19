@@ -25,6 +25,10 @@ tamaño de cada tapa.
 
 El número de tapas que caben.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -89,6 +93,14 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1572_geometry_optimized.py`. Conserva comparación exacta de cuerdas cuadradas por NARROWEST/WIDEST, incluida igualdad. Lee, compara cuadrado escalado y descarta cada tapa, sin lista. O(n) tiempo y estado geométrico constante más buffers. Vacía respuesta antes de salir PyPy; conserva derivación sencilla.
+
+Frente a `1572_geometry.py`: tiempo 0.093 s → 0.14 s; memoria 384 KB → 264 KB.
+
+`1572_geometry_optimized.rs`. Conserva comparación exacta de cuerdas cuadradas mediante factores NARROWEST/WIDEST, incluida igualdad. Lee cada tapa, compara cuadrado escalado u64 y descarta, sin vector completo. Salida directa sustituye formato. O(n) tiempo y O(1) espacio auxiliar; conserva derivación geométrica y fuente básica.
+
+Frente a `1572_geometry.rs`: tiempo 0.031 s → 0.046 s; memoria 228 KB → 60 KB.
+
 La solución optimizada en Java analiza los números a mano desde un búfer
 de 4 KB que se llena desde `System.in`, en lugar de crear un `Scanner`,
 así que la JVM no carga el escáner ni sus expresiones regulares; la
@@ -107,14 +119,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1572_geometry.cpp](1572_geometry.cpp).
-- [1572_geometry.go](1572_geometry.go).
-- [1572_geometry.rs](1572_geometry.rs).
+`1572_geometry_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -133,3 +142,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1572_geometry_optimized.java](1572_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.078 s | 340 KB | 11304529 |
+| [1572_geometry_optimized.rs](1572_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) time; O(1) space | AC | 0.046 s | 60 KB | 11325506 |
+| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.14 s | 264 KB | 11325701 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
