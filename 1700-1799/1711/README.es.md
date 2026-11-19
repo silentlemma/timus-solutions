@@ -24,6 +24,10 @@ letras latinas minúsculas, a lo sumo 20 por nombre, todos distintos. La
 Los nombres elegidos en el orden pedido, uno por línea, o IMPOSSIBLE.
 Se acepta cualquier elección válida.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. El comprobador acepta IMPOSSIBLE exactamente si lo hace la referencia guardada. Si no, exige n tokens, cada nombre ofrecido para el problema en el orden dado, estrictamente crecientes. Acepta cualquier elección válida, sin comparar saltos de línea.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -109,6 +113,14 @@ aceptada independiente en 600 conjuntos aleatorios.
 
 ## Soluciones optimizadas
 
+`1711_greedy_optimized.java`. Se conserva la regla voraz de elegir el menor nombre viable. Se leen bytes ASCII directamente del flujo System.in existente, se guardan los tres nombres de cada elemento en un banco plano de bytes con longitudes separadas y se examinan los candidatos sin ordenar arreglos de String. Se compara el prefijo común y después las longitudes, respetando el orden de los prefijos propios. La respuesta completa se acumula en un arreglo de bytes y se escribe con System.out.write y flush; si un elemento posterior resulta imposible, se descarta la respuesta parcial. Para B bytes de entrada y nombres de longitud L<=20, el tiempo es O(B+nL) y el espacio auxiliar O(nL). Tres ejecuciones adicionales del mismo archivo exacto dieron (0.125 s, 384 KB), (0.093 s, 340 KB) y (0.125 s, 336 KB). La tabla utiliza la segunda ejecución real: reduce el tiempo un 33.57% y la memoria un 34.11% respecto a la versión Java sencilla conservada. La variación se muestra explícitamente; no se combina 0.093 s de una ejecución con 336 KB de otra.
+
+Frente a `1711_greedy.java`: tiempo 0.140 s → 0.093 s; memoria 516 KB → 340 KB.
+
+`1711_greedy_optimized.py`. Mantiene elegir el menor de tres nombres estrictamente mayor que el anterior. Recorre tres bytes sin ordenar ni filtrar listas; consume orden sin otro arreglo de enteros. Acumula un bytearray y lo sustituye por IMPOSSIBLE si falla después, sin salida parcial. Nombres ASCII minúsculos,L<=20: orden de bytes es lexicográfico. B bytes dan O(B+nL) tiempo/espacio, no espacio constante. Vacía antes de os._exit(0). Tiempo0.093=>0.062s, memoria492=>776KB: admisión por tiempo, sin ahorro de memoria.
+
+Frente a `1711_greedy.py`: tiempo 0.093 s → 0.062 s; memoria 492 KB → 776 KB.
+
 La solución optimizada en C++ lee con `scanf` en un arreglo fijo de
 16 × 3 nombres de 21 bytes cada uno, suficiente para n ≤ 16 y 20 letras
 más el cero final, en lugar de un vector de vectores de `std::string`
@@ -129,13 +141,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1711_greedy.go](1711_greedy.go).
-- [1711_greedy.java](1711_greedy.java).
+`1711_greedy_optimized.py`: puesto de tiempo 1/21 y de memoria 20/21 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -154,3 +164,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1711_greedy_optimized.cpp](1711_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 100 KB | 11304441 |
+| [1711_greedy_optimized.py](1711_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
+| [1711_greedy_optimized.java](1711_greedy_optimized.java) \* | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
