@@ -24,6 +24,10 @@
 
 X 和 Y，向东和向北的位移。
 
+## 评测方式
+
+仓库测试按 |实际值-参考值| <= 0.0000000002·max(1,|参考值|) 比较数值记号，拒绝非有限值，并精确比较非数值记号。
+
 ## 样例
 
 ### 样例 1
@@ -83,6 +87,10 @@ X 和 Y，向东和向北的位移。
 
 - `1413_simulation_optimized.rs`: 时间降低 +0.00%; 内存降低 +88.58%; 基础版本: `1413_simulation.rs`.
 
+`1413_simulation_optimized.cpp`. 保留九个方向计数，最终一次合并整数轴向及对角贡献。用 getchar 直接读取字符，在首个零处停止，无需保存字符串记号或继续读取结束符后的内容。仅在最终坐标计算时把对角计数乘以 sqrt(1/2)。时间 O(n)，九个计数器，额外空间 O(1)。
+
+与 `1413_simulation.cpp` 相比：时间 0.015 s → 0.031 s；内存 1832 KB → 100 KB。
+
 ## 解答
 
 ### 简单版本
@@ -103,5 +111,6 @@ X 和 Y，向东和向北的位移。
 | [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

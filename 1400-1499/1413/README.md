@@ -26,6 +26,10 @@ The digits of the key presses.
 
 X and Y, the shift east and north.
 
+## Checking
+
+Repository tests compare numeric tokens with |actual-reference| <= 0.0000000002·max(1,|reference|), reject nonfinite values, and compare nonnumeric tokens exactly.
+
 ## Examples
 
 ### Example 1
@@ -101,6 +105,10 @@ asterisk concerns the rating target only.
 - `1413_simulation_optimized.rs`: time reduction +0.00%; memory
   reduction +88.58%; base: `1413_simulation.rs`.
 
+`1413_simulation_optimized.cpp`. Preserve the nine direction counts and combine integer axis/diagonal contributions only once. Read characters directly with getchar and stop at the first zero rather than retaining a string token and continuing after termination. Multiply diagonal counts by sqrt(1/2) only for the final coordinates. The stream is processed in O(n) time with nine counters and O(1) auxiliary space.
+
+Compared with `1413_simulation.cpp`: time 0.015 s → 0.031 s; memory 1832 KB → 100 KB.
+
 ## Solutions
 
 ### Simple
@@ -121,5 +129,6 @@ asterisk concerns the rating target only.
 | [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

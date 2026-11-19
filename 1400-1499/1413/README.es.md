@@ -27,6 +27,10 @@ Las cifras de las teclas pulsadas.
 
 X e Y, el desplazamiento al este y al norte.
 
+## Evaluación
+
+Las pruebas del repositorio comparan tokens numéricos con |resultado-referencia| <= 0.0000000002·max(1,|referencia|), rechazan valores no finitos y comparan exactamente los tokens no numéricos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -102,6 +106,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1413_simulation_optimized.rs`: reducción de tiempo +0.00%; reducción
   de memoria +88.58%; base: `1413_simulation.rs`.
 
+`1413_simulation_optimized.cpp`. Conserva los nueve conteos de dirección y combina una vez las contribuciones enteras axiales y diagonales. Lee caracteres directamente con getchar y se detiene en el primer cero, sin guardar una cadena ni seguir leyendo tras terminar. Multiplica los conteos diagonales por sqrt(1/2) solo al calcular las coordenadas finales. Tiempo O(n), nueve contadores y O(1) espacio auxiliar.
+
+Frente a `1413_simulation.cpp`: tiempo 0.015 s → 0.031 s; memoria 1832 KB → 100 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -122,5 +130,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
