@@ -27,6 +27,10 @@ N y luego los N números, uno por línea. N puede ser 0.
 
 Los números del resultado, uno por línea.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -81,10 +85,17 @@ lugar de partir toda la entrada, y guarda los contadores en un
 `array("H")`. C++: 156 KB en lugar de 280 KB, con el mismo tiempo;
 Python: 0.078 s en lugar de 0.109 s y 880 KB en lugar de 4732 KB.
 
+`1290_sorting_optimized.rs`. Conserva la ordenación por conteo, usando un arreglo fijo de M+1 contadores u16, M=25000, en lugar de usize y un String de entrada retenido. La frecuencia no supera N<=25000, por lo que u16 basta. Recorre todos los M valores en orden descendente y emite sus repeticiones; con N=0 la salida es vacía. Tiempo O(N+M), almacenamiento explícito de 50002 bytes en contadores y estado constante. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1290_sorting.rs`: tiempo 0.015 s → 0.015 s; memoria 724 KB → 100 KB.
+
 ## Notas por lenguaje
 
-- Todos los lenguajes guardan un contador por valor, 25 001 en total, e
-  imprimen a través de un búfer.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1290_sorting_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -104,3 +115,6 @@ Python: 0.078 s en lugar de 0.109 s y 880 KB en lugar de 4732 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
 | [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |
+| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

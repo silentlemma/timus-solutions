@@ -27,6 +27,10 @@ N, then the N numbers, one per line. N may be 0.
 
 The resulting numbers, one per line.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -80,10 +84,17 @@ splitting the whole input, and keeps the counters in an `array("H")`.
 C++: 156 KB instead of 280 KB, with the same time; Python: 0.078 s
 instead of 0.109 s and 880 KB instead of 4732 KB.
 
+`1290_sorting_optimized.rs`. Keep counting sort, but use one fixed array of M+1 u16 counters, M=25000, rather than usize counters and a retained input String. A frequency is at most N<=25000, so u16 is sufficient. Descend through all M values and emit each occurrence, including the empty N=0 case. Time O(N+M), explicit counter storage 50002 bytes plus constant state. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1290_sorting.rs`: time 0.015 s → 0.015 s; memory 724 KB → 100 KB.
+
 ## Language notes
 
-- All languages keep one counter per value, 25 001 in all, and print
-  through a buffer.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1290_sorting_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -103,3 +114,6 @@ instead of 0.109 s and 880 KB instead of 4732 KB.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1290_sorting_optimized.cpp](1290_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(N + 25000) | AC | 0.015 s | 156 KB | 11303588 |
 | [1290_sorting_optimized.py](1290_sorting_optimized.py) | Python 3.12 x64 | sorting | O(N + 25000) | AC | 0.078 s | 880 KB | 11303589 |
+| [1290_sorting_optimized.rs](1290_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(N+M), M=25000 | AC | 0.015 s | 100 KB | 11324858 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
