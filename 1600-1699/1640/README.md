@@ -25,6 +25,10 @@ demons are at distinct points, none at Sandro's.
 The centre and the radius, accurate to 10⁻⁹. Any valid answer is
 accepted.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. The repository checker requires exactly three finite numbers x,y,r, with 0<=r<=10000+1e-6. The centre must be at least 1e-6 from every demon, every demon must be within r+1e-6, and at least one distance must differ from r by at most 1e-6. This is the repository tolerance; the statement separately requests 1e-9 accuracy.
+
 ## Examples
 
 ### Example 1
@@ -95,16 +99,17 @@ asterisk concerns the rating target only.
 - `1640_geometry_optimized.java`: time reduction +33.57%; memory
   reduction +54.92%; base: `1640_geometry.java`.
 
+`1640_geometry_optimized.rs`. Keep the circle centred at the origin, which is guaranteed demon-free. Read integer coordinates one pair at a time, track max(x*x+y*y) exactly in i64, and take one square root at the end instead of one hypot per point. Coordinates of absolute value at most 1000 keep these squares safely bounded. Emit the radius with ten fractional digits. Time O(n), auxiliary state O(1), without the vector of all floating-point input values. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1640_geometry.rs`: time 0.062 s → 0.031 s; memory 268 KB → 96 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1640_geometry.cpp](1640_geometry.cpp).
-- [1640_geometry.go](1640_geometry.go).
-- [1640_geometry.rs](1640_geometry.rs).
+`1640_geometry_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -123,3 +128,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1640_geometry_optimized.java](1640_geometry_optimized.java) | Java 1.8 | geometry | O(n) | AC | 0.093 s | 916 KB | 11307283 |
+| [1640_geometry_optimized.rs](1640_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.031 s | 96 KB | 11325103 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
