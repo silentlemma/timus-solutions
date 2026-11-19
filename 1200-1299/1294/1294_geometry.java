@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class Main {
-    static final long KM = 1000; // input distances are in thousands of kilometres
+    static final long KM = 1000;                 // input distances are in thousands of kilometres
+    static final int ROUNDING_SCALE_SQUARED = 4; // square of the half-unit comparison scale
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -21,7 +22,7 @@ public class Main {
         }
         long km = (long)(KM * Math.sqrt((double)num / den));
         // Compare the half-kilometre boundary exactly, dividing before scaling.
-        long scale = 4 * KM * KM;
+        long scale = ROUNDING_SCALE_SQUARED * KM * KM;
         long bound = scale * (num / den) + scale * (num % den) / den;
         if ((2 * km + 1) * (2 * km + 1) <= bound)
             ++km;

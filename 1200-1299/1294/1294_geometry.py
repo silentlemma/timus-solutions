@@ -1,6 +1,7 @@
 import math
 
 KM = 1000  # input distances are in thousands of kilometres
+ROUNDING_SCALE_SQUARED = 4  # square of the half-unit comparison scale
 
 
 def main():
@@ -18,7 +19,7 @@ def main():
         den = -den
     km = int(KM * math.sqrt(num / den))
     # Compare the half-kilometre boundary exactly, dividing before scaling.
-    scale = 4 * KM * KM
+    scale = ROUNDING_SCALE_SQUARED * KM * KM
     bound = scale * (num // den) + scale * (num % den) // den
     if (2 * km + 1) * (2 * km + 1) <= bound:
         km += 1

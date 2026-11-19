@@ -5,7 +5,8 @@ import (
 	"math"
 )
 
-const km = 1000 // input distances are in thousands of kilometres
+const km = 1000                // input distances are in thousands of kilometres
+const roundingScaleSquared = 4 // square of the half-unit comparison scale
 
 func abs(x int64) int64 {
 	if x < 0 {
@@ -32,7 +33,7 @@ func main() {
 	}
 	distance := int64(km * math.Sqrt(float64(num)/float64(den)))
 	// Compare the half-kilometre boundary exactly, dividing before scaling.
-	scale := int64(4 * km * km)
+	scale := int64(roundingScaleSquared * km * km)
 	bound := scale*(num/den) + scale*(num%den)/den
 	if (2*distance+1)*(2*distance+1) <= bound {
 		distance++

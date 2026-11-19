@@ -4,6 +4,7 @@
 
 const long long KM = 1000; // input distances are in thousands of kilometres
 const int FIELDS = 4;
+const int ROUNDING_SCALE_SQUARED = 4; // square of the half-unit comparison scale
 
 int main() {
     // a = AD, b = AC, c = BD, d = BC; A and B see the chord CD at the same
@@ -24,7 +25,7 @@ int main() {
     }
     long long km = (long long)(KM * std::sqrt((double)num / den));
     // Compare the half-kilometre boundary exactly, dividing before scaling.
-    long long scale = 4 * KM * KM;
+    long long scale = ROUNDING_SCALE_SQUARED * KM * KM;
     long long bound = scale * (num / den) + scale * (num % den) / den;
     if ((2 * km + 1) * (2 * km + 1) <= bound)
         ++km;

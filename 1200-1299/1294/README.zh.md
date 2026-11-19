@@ -21,6 +21,10 @@ AD、AC、BD 和 BC。
 
 `Distance is X km.` 或 `Impossible.`
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -74,18 +78,23 @@ s · (num div den) + (s · (num mod den)) div den，其中 s = 4 · 1000²。
 
 ## 优化解法
 
+`1294_geometry_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+
+与 `1294_geometry.java` 相比：时间 0.109 s → 0.093 s；内存 1 600 KB → 452 KB。
+
 Rust 检查几何条件是否能唯一确定答案后，将弦长平方分解为整数分子和分母。先拆分商和余数再缩放，得到以千米计的两倍距离的平方。用整数平方比较修正浮点平方根估计，其整数部分决定最终舍入，无需浮点格式化。固定字节缓冲区保存输入和完整输出。Rust 通过 C 运行库读写。
 
-通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 56 KB，基础版为 236 KB。
+通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 56 KB，基础版为 220 KB。
 
 已通过评测的基础实现 [1294_geometry.cpp](1294_geometry.cpp), [1294_geometry.go](1294_geometry.go), [1294_geometry.java](1294_geometry.java), [1294_geometry.py](1294_geometry.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-- Python 的 `round` 把一半舍入到偶数。五种解法都用精确整数比较半公里边界的平方，
-  因此恰好一半时都一致地向上舍入。
+`1294_geometry_optimized.java`：在该可比样本中，时间名次 5/20，内存名次 2/20。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -93,16 +102,17 @@ Rust 检查几何条件是否能唯一确定答案后，将弦长平方分解为
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11297933 |
-| [1294_geometry.go](1294_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11297936 |
-| [1294_geometry.java](1294_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1648 KB | 11297937 |
-| [1294_geometry.py](1294_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 448 KB | 11297939 |
-| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB | 11284630 |
+| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.001 s | 112 KB | 11325577 |
+| [1294_geometry.go](1294_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1080 KB | 11325573 |
+| [1294_geometry.java](1294_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1600 KB | 11325554 |
+| [1294_geometry.py](1294_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 476 KB | 11325594 |
+| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 220 KB | 11325604 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1294_geometry_optimized.rs](1294_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 56 KB | 11311233 |
+| [1294_geometry_optimized.java](1294_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.093 s | 452 KB | 11325015 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

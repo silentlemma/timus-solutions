@@ -1,6 +1,7 @@
 use std::io::{self, Read};
 
 const KM: i64 = 1000; // input distances are in thousands of kilometres
+const ROUNDING_SCALE_SQUARED: i64 = 4; // square of the half-unit comparison scale
 
 fn main() {
     let mut input = String::new();
@@ -25,7 +26,7 @@ fn main() {
     }
     let mut km = (KM as f64 * (num as f64 / den as f64).sqrt()) as i64;
     // Compare the half-kilometre boundary exactly, dividing before scaling.
-    let scale = 4 * KM * KM;
+    let scale = ROUNDING_SCALE_SQUARED * KM * KM;
     let bound = scale * (num / den) + scale * (num % den) / den;
     if (2 * km + 1) * (2 * km + 1) <= bound {
         km += 1;

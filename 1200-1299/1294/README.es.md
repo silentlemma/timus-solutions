@@ -24,6 +24,10 @@ AD, AC, BD y BC.
 
 `Distance is X km.` o `Impossible.`
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -92,19 +96,23 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1294_geometry_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1294_geometry.java`: tiempo 0.109 s → 0.093 s; memoria 1 600 KB → 452 KB.
+
 Rust factoriza el cuadrado de la cuerda en numerador y denominador enteros tras comprobar la unicidad geométrica. Escala el cuadrado racional para obtener el doble de la distancia en kilómetros, separando cociente y resto antes de multiplicar. Corrige la estimación de raíz con cuadrados enteros y usa su parte entera para redondear, sin formato de coma flotante. La entrada y la respuesta completa usan búferes fijos de bytes. Rust lee y escribe mediante la biblioteca de ejecución de C.
 
-El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 56 KB frente a 236 KB.
+El envío aceptado en Rust 1.75 x64 tarda 0.031 s frente a 0.015 s de la base y usa 56 KB frente a 220 KB.
 
 Las implementaciones base aceptadas [1294_geometry.cpp](1294_geometry.cpp), [1294_geometry.go](1294_geometry.go), [1294_geometry.java](1294_geometry.java), [1294_geometry.py](1294_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-- El `round` de Python lleva las mitades al par más cercano. Las cinco
-  soluciones comparan el cuadrado del límite de medio kilómetro con
-  enteros exactos, por lo que las mitades se redondean hacia arriba igual.
+`1294_geometry_optimized.java`: puesto de tiempo 5/20 y de memoria 2/20 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -112,16 +120,17 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 124 KB | 11297933 |
-| [1294_geometry.go](1294_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1084 KB | 11297936 |
-| [1294_geometry.java](1294_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1648 KB | 11297937 |
-| [1294_geometry.py](1294_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 448 KB | 11297939 |
-| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 236 KB | 11284630 |
+| [1294_geometry.cpp](1294_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.001 s | 112 KB | 11325577 |
+| [1294_geometry.go](1294_geometry.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 1080 KB | 11325573 |
+| [1294_geometry.java](1294_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1600 KB | 11325554 |
+| [1294_geometry.py](1294_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 476 KB | 11325594 |
+| [1294_geometry.rs](1294_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 220 KB | 11325604 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1294_geometry_optimized.rs](1294_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 56 KB | 11311233 |
+| [1294_geometry_optimized.java](1294_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.093 s | 452 KB | 11325015 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
