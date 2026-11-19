@@ -84,6 +84,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1553_trees_optimized.go`. Keep the same heavy-light decomposition and iterative segment tree. Replace per-vertex adjacency slices by flat first/to/next arrays, and store links, traversal order, parents, depths, subtree sizes, chain heads, positions and maxima as int32. All indices fit because N<=100000; at most 100000 increments of 10000 bound any level by 10^9, so narrowing the old int64 maximum tree is safe. Build the rooted order and heavy chains iteratively, retaining no recursion stack. Preparation O(N), point update O(log N), path maximum O(log² N), storage O(N); byte parsing replaces Scanner.Text and strconv per token. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+
+Compared with `1553_trees.go`: time 0.203 s → 0.093 s; memory 19108 KB → 6 432 KB.
+
 Keep the iterative heavy-light decomposition and path maximum queries. Compact C++/Python versions use flat graph/DP arrays, 32-bit segment maxima and bounded input/output. With at most 100000 increases of at most 10000, a value is at most 10^9 and fits signed 32 bits. Nonnegative increases permit stopping propagation once an ancestor maximum does not change.
 
 Java additionally reuses storage after the old meaning is dead: adjacency heads become heavy-child indices after traversal; subtree sizes become vertex positions; traversal order becomes chain heads. Chain roots are then enumerated by vertex number, never by the overwritten traversal order. After chain numbering, the edge-destination array has 2N cells and becomes the cleared segment tree. Parent and depth arrays remain intact for queries. This eliminates three N-cell allocations and a separate 2N-cell tree without overlapping live meanings. Preparation stays `O(N)`, updates `O(log N)`, path queries `O(log² N)` and storage `O(N)`. All clear HLD bases are preserved.
@@ -94,19 +98,11 @@ Java additionally reuses storage after the old meaning is dead: adjacency heads 
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1553_trees_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1553_trees.cpp`; covering source `1553_trees_optimized.cpp`; time/memory places 2/1, other-author entries 149/149.
-
-- Go: preferred teaching base `1553_trees.go`; covering source `1553_trees.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1553_trees.java`; covering source `1553_trees_optimized.java`; time/memory places 2/1, other-author entries 5/5.
-
-- Python/PyPy: preferred teaching base `1553_trees.py`; covering source `1553_trees_optimized.py`; time/memory places 2/1, other-author entries 1/1.
-
-- Rust: preferred teaching base `1553_trees.rs`; covering source `1553_trees.rs`; time/memory places 1/1, other-author entries 2/2.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -127,5 +123,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1553_trees_optimized.cpp](1553_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.046 s | 5200 KB | 11309316 |
 | [1553_trees_optimized.java](1553_trees_optimized.java) \* | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.187 s | 6968 KB | 11309559 |
 | [1553_trees_optimized.py](1553_trees_optimized.py) \* | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 1.703 s | 5432 KB | 11309314 |
+| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.093 s | 6432 KB | 11325050 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

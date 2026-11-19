@@ -87,6 +87,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1553_trees_optimized.go`. Conserva la descomposición heavy-light y el árbol de segmentos iterativo. Sustituye listas por vértice por arreglos planos first/to/next y guarda enlaces, orden, padres, profundidades, tamaños, cabeceras, posiciones y máximos en int32. N<=100000 acota índices; hasta 100000 incrementos de 10000 limitan cada nivel a 10^9, haciendo seguro estrechar el árbol int64. Construye orden y cadenas iterativamente, sin pila recursiva. Preparación O(N), actualización puntual O(log N), máximo de camino O(log² N), espacio O(N); bytes sustituyen Scanner.Text y strconv por token. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1553_trees.go`: tiempo 0.203 s → 0.093 s; memoria 19108 KB → 6 432 KB.
+
 Se conservan HLD iterativo y máximos de caminos. C++/Python compactos usan arrays planos, máximos de 32 bits y entrada/salida acotada. Hasta 100000 aumentos de 10000 dejan valores ≤10^9, dentro de 32 bits con signo. Como los incrementos no son negativos, un ancestro sin cambio permite parar la propagación.
 
 Java reutiliza espacio al terminar su significado anterior: las cabeceras de adyacencia pasan a hijos pesados; tamaños de subárbol a posiciones; orden de recorrido a cabeceras de cadenas. Luego enumera raíces de cadena por número de vértice, sin leer el orden sobrescrito. Tras numerar cadenas, limpia las 2N celdas de destinos de aristas y las usa como árbol de segmentos. Padres y profundidades siguen intactos. Elimina tres asignaciones de N celdas y el árbol separado de 2N, sin solapar usos vivos. Preparación `O(N)`, actualización `O(log N)`, consulta `O(log² N)`, memoria `O(N)`. Se conservan las bases HLD claras.
@@ -97,19 +101,11 @@ Java reutiliza espacio al terminar su significado anterior: las cabeceras de ady
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1553_trees_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1553_trees.cpp`; fuente que cubre `1553_trees_optimized.cpp`; puestos tiempo/memoria 2/1, registros de otros autores 149/149.
-
-- Go: base didáctica preferida `1553_trees.go`; fuente que cubre `1553_trees.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1553_trees.java`; fuente que cubre `1553_trees_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 5/5.
-
-- Python/PyPy: base didáctica preferida `1553_trees.py`; fuente que cubre `1553_trees_optimized.py`; puestos tiempo/memoria 2/1, registros de otros autores 1/1.
-
-- Rust: base didáctica preferida `1553_trees.rs`; fuente que cubre `1553_trees.rs`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -130,5 +126,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1553_trees_optimized.cpp](1553_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.046 s | 5200 KB | 11309316 |
 | [1553_trees_optimized.java](1553_trees_optimized.java) \* | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.187 s | 6968 KB | 11309559 |
 | [1553_trees_optimized.py](1553_trees_optimized.py) \* | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 1.703 s | 5432 KB | 11309314 |
+| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.093 s | 6432 KB | 11325050 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
