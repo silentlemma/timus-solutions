@@ -22,6 +22,10 @@ N.
 
 El número de filas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -69,6 +73,14 @@ hasta 10.
 
 ## Soluciones optimizadas
 
+`1260_dp_optimized.py`. Mantiene a(k)=a(k-1)+a(k-3)+1 y el estado inicial (-1,0,1). Conserva tres acumuladores sin otra tabla, avanzando simultáneamente los valores previos. Tiempo O(N), tres enteros acotados. Para N<=55 las cuentas caben en64 bits con signo; basta a(N)<2^N. Lee un token de bytes y ejecuta la recurrencia sin llamada envolvente. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1260_dp.py`: tiempo 0.109 s → 0.125 s; memoria 404 KB → 200 KB.
+
+`1260_dp_optimized.rs`. Mantiene a(k)=a(k-1)+a(k-3)+1 y el estado inicial (-1,0,1). Conserva tres acumuladores sin otra tabla, avanzando simultáneamente los valores previos. Tiempo O(N), tres enteros acotados. Para N<=55 las cuentas caben en64 bits con signo; basta a(N)<2^N. Mantiene acumuladores i64 y salida numérica directa, sin entrada decodificada ni formato Rust. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1260_dp.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 56 KB.
+
 La solución optimizada en Java lee el único número N cifra a cifra
 directamente desde `System.in` en lugar de crear un `Scanner`, cuya
 preparación cuesta mucho más que la propia recurrencia, de 54 pasos como
@@ -86,17 +98,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1260_dp.cpp](1260_dp.cpp).
-- [1260_dp.go](1260_dp.go).
-- [1260_dp.rs](1260_dp.rs).
+`1260_dp_optimized.py`: puesto de tiempo 37/44 y de memoria 1/44 en esta muestra comparable.
 
-- Todos los lenguajes guardan los tres últimos valores en tres
-  variables.
+`1260_dp_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -115,3 +123,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 320 KB | 11304342 |
+| [1260_dp_optimized.py](1260_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 200 KB | 11324915 |
+| [1260_dp_optimized.rs](1260_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

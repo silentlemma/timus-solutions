@@ -22,6 +22,10 @@ N.
 
 The number of rows.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -69,6 +73,14 @@ The recurrence was compared with listing all permutations for N up to
 
 ## Optimized solutions
 
+`1260_dp_optimized.py`. Keep a(k)=a(k-1)+a(k-3)+1 and the same rolling initial state (-1,0,1). Three accumulators replace no additional table: each iteration simultaneously advances all three old values. Time O(N), three bounded integer slots. With N<=55 the counts fit signed 64 bits; a conservative bound a(N)<2^N suffices. Read one byte token and keep the recurrence at module scope, avoiding the wrapper call. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1260_dp.py`: time 0.109 s → 0.125 s; memory 404 KB → 200 KB.
+
+`1260_dp_optimized.rs`. Keep a(k)=a(k-1)+a(k-3)+1 and the same rolling initial state (-1,0,1). Three accumulators replace no additional table: each iteration simultaneously advances all three old values. Time O(N), three bounded integer slots. With N<=55 the counts fit signed 64 bits; a conservative bound a(N)<2^N suffices. Keep i64 accumulators and emit the final number directly; no decoded input or Rust output formatting is retained. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1260_dp.rs`: time 0.015 s → 0.031 s; memory 232 KB → 56 KB.
+
 The optimized Java solution reads the single number N digit by digit
 straight from `System.in` instead of creating a `Scanner`, whose setup
 costs far more than the recurrence itself, at most 54 steps; the
@@ -86,16 +98,13 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1260_dp.cpp](1260_dp.cpp).
-- [1260_dp.go](1260_dp.go).
-- [1260_dp.rs](1260_dp.rs).
+`1260_dp_optimized.py`: time place 37/44, memory place 1/44 in this comparable sample.
 
-- All languages keep the last three values in three variables.
+`1260_dp_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -114,3 +123,7 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 320 KB | 11304342 |
+| [1260_dp_optimized.py](1260_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 200 KB | 11324915 |
+| [1260_dp_optimized.rs](1260_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
