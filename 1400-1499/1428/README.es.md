@@ -22,6 +22,10 @@ A, B y C.
 
 X, Y y Z, uno por línea.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. Emite exactamente tres enteros X,Y,Z de [1,10^50]; el comprobador verifica X^A+Y^B=Z^C con potencias enteras exactas.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -59,6 +63,10 @@ Go conserva X=2^((C−1)/A), Y=2^((C−1)/B), Z=2. Los exponentes van de cero a 
 
 Las implementaciones base aceptadas [1428_math.cpp](1428_math.cpp), [1428_math.java](1428_math.java), [1428_math.py](1428_math.py), [1428_math.rs](1428_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1428_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1428_math.java`: tiempo 0.156 s → 0.109 s; memoria 1600 KB → 472 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -76,5 +84,6 @@ Las implementaciones base aceptadas [1428_math.cpp](1428_math.cpp), [1428_math.j
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+| [1428_math_optimized.java](1428_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

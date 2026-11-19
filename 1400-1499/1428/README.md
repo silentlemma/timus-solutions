@@ -22,6 +22,10 @@ A, B and C.
 
 X, Y and Z, one per line.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. Output exactly three integers X,Y,Z in [1,10^50]; the checker verifies X^A+Y^B=Z^C using exact integer powers.
+
 ## Examples
 
 ### Example 1
@@ -59,6 +63,10 @@ The Go alternative uses exactly the same powers of two, X=2^((C−1)/A), Y=2^((C
 
 The accepted base implementations [1428_math.cpp](1428_math.cpp), [1428_math.java](1428_math.java), [1428_math.py](1428_math.py), [1428_math.rs](1428_math.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1428_math_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1428_math.java`: time 0.156 s → 0.109 s; memory 1600 KB → 472 KB.
+
 ## Solutions
 
 ### Simple
@@ -76,5 +84,6 @@ The accepted base implementations [1428_math.cpp](1428_math.cpp), [1428_math.jav
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1428_math_optimized.go](1428_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11315833 |
+| [1428_math_optimized.java](1428_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 472 KB | 11324977 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
