@@ -64,13 +64,33 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2011_combinatorics_optimized.py`. Mantiene la recurrencia multinomial exacta ways=ways*length/count[value] y termina al llegar a seis. Analiza bloques de 4096 bytes a tres frecuencias sin materializar todos los enteros antes de salir. Añadir un elemento no reduce las permutaciones, por lo que el sufijo no leído no anula el éxito. O(n) tiempo peor caso y O(B) espacio para tokens acotados y bloque B. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `2011_combinatorics.py`: tiempo 0.109 s → 0.156 s; memoria 516 KB → 264 KB.
+
+`2011_combinatorics_optimized.java`. Conserva la cuenta multinomial incremental ways=ways*length/count[newType], parando al alcanzar seis. Añadir un símbolo no reduce la cuenta, así que tras Yes se puede ignorar el resto. Java mantiene la parada temprana y sustituye Scanner. Rust elimina String completo y vector de valores, consumiendo cada tipo directamente. Solo tres contadores: tiempo peor caso O(n), espacio auxiliar O(1). Antes de actualizar ways<=5 y n<=100: producto máximo 500, sin factoriales ni enteros grandes. Mantiene umbral >=6 y mayúsculas Yes/No.
+
+Frente a `2011_combinatorics.java`: tiempo 0.125 s → 0.109 s; memoria 1668 KB → 496 KB.
+
+`2011_combinatorics_optimized.rs`. Conserva la cuenta multinomial incremental ways=ways*length/count[newType], parando al alcanzar seis. Añadir un símbolo no reduce la cuenta, así que tras Yes se puede ignorar el resto. Java mantiene la parada temprana y sustituye Scanner. Rust elimina String completo y vector de valores, consumiendo cada tipo directamente. Solo tres contadores: tiempo peor caso O(n), espacio auxiliar O(1). Antes de actualizar ways<=5 y n<=100: producto máximo 500, sin factoriales ni enteros grandes. Mantiene umbral >=6 y mayúsculas Yes/No.
+
+Frente a `2011_combinatorics.rs`: tiempo 0.062 s → 0.046 s; memoria 232 KB → 64 KB.
+
 La solución optimizada en C++ cuenta los valores al leerlos con `scanf`
 en lugar de `iostream` y un vector, e imprime la respuesta en cuanto la
 conoce: 116 KB en lugar de 380 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
-Ningún lenguaje necesita nada especial.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`2011_combinatorics_optimized.java`: puesto de tiempo 8/127 y de memoria 10/127 en esta muestra comparable.
+
+`2011_combinatorics_optimized.py`: puesto de tiempo 47/52 y de memoria 1/52 en esta muestra comparable.
+
+`2011_combinatorics_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -89,3 +109,8 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
+| [2011_combinatorics_optimized.java](2011_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 496 KB | 11324782 |
+| [2011_combinatorics_optimized.rs](2011_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.046 s | 64 KB | 11324869 |
+| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(n) time; O(B) space | AC | 0.156 s | 264 KB | 11325480 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

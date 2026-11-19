@@ -63,13 +63,33 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2011_combinatorics_optimized.py`. Keep the exact multinomial recurrence ways=ways*length/count[value] and stop once it reaches six. Parse 4096-byte chunks directly into three frequencies instead of materializing all input integers before the early exit. The number of arrangements cannot decrease when appending an item, so the unread suffix cannot undo success. Worst-case O(n) time and O(B) storage for bounded tokens and chunk size B. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `2011_combinatorics.py`: time 0.109 s → 0.156 s; memory 516 KB → 264 KB.
+
+`2011_combinatorics_optimized.java`. Keep the incremental multinomial count ways=ways*length/count[newType] and stop as soon as it reaches six. Adding a symbol cannot reduce this count, so ignoring the unread suffix after Yes is valid. Java retains the existing early-stop algorithm but replaces Scanner. Rust removes the complete input String and parsed value vector and consumes each type directly; both keep only three counters, taking O(n) worst-case time and O(1) auxiliary storage. Before each update ways<=5 and n<=100, so the product is at most 500 and fits ordinary integer types; no factorial or big integers are needed. The comparison remains >=6 and output capitalization stays Yes/No.
+
+Compared with `2011_combinatorics.java`: time 0.125 s → 0.109 s; memory 1668 KB → 496 KB.
+
+`2011_combinatorics_optimized.rs`. Keep the incremental multinomial count ways=ways*length/count[newType] and stop as soon as it reaches six. Adding a symbol cannot reduce this count, so ignoring the unread suffix after Yes is valid. Java retains the existing early-stop algorithm but replaces Scanner. Rust removes the complete input String and parsed value vector and consumes each type directly; both keep only three counters, taking O(n) worst-case time and O(1) auxiliary storage. Before each update ways<=5 and n<=100, so the product is at most 500 and fits ordinary integer types; no factorial or big integers are needed. The comparison remains >=6 and output capitalization stays Yes/No.
+
+Compared with `2011_combinatorics.rs`: time 0.062 s → 0.046 s; memory 232 KB → 64 KB.
+
 The optimized C++ solution counts the values as they are read with
 `scanf` instead of `iostream` and a vector, and prints the answer as
 soon as it is known: 116 KB instead of 380 KB, with the same time.
 
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2011_combinatorics_optimized.java`: time place 8/127, memory place 10/127 in this comparable sample.
+
+`2011_combinatorics_optimized.py`: time place 47/52, memory place 1/52 in this comparable sample.
+
+`2011_combinatorics_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -88,3 +108,8 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
+| [2011_combinatorics_optimized.java](2011_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 496 KB | 11324782 |
+| [2011_combinatorics_optimized.rs](2011_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.046 s | 64 KB | 11324869 |
+| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(n) time; O(B) space | AC | 0.156 s | 264 KB | 11325480 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
