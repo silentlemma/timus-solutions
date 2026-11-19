@@ -23,6 +23,10 @@
 
 每个 `N` 对应的数目，每行一个。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -64,6 +68,18 @@
 
 ## 优化解法
 
+`1142_combinatorics_optimized.go`. 递推及完整 11×11 Pascal 矩阵不变。预计算 L=10 的有序划分数，流式处理 Q 个查询直到负数或 EOF。本 Go 版只改输入输出开销，不改组合算法或表存储。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1142_combinatorics.go` 相比：时间 0.001 s → 0.015 s；内存 1084 KB → 272 KB。
+
+`1142_combinatorics_optimized.py`. 保留弱序递推，但用 choose*(n-k+1)//k 逐个生成 C(n,k)，不存杨辉三角。仅留 L+1 个答案，L=10，预处理 O(L²)。Python 仍保存切分输入和收集的输出，因此总空间为 O(L+I+O)，I,O 为输入输出大小。首个负查询终止处理。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
+
+与 `1142_combinatorics.py` 相比：时间 0.031 s → 0.125 s；内存 436 KB → 220 KB。
+
+`1142_combinatorics_optimized.rs`. 保留弱序递推，逐个生成二项式系数，去掉 11×11 杨辉矩阵。仅存十一项 u64，流式读查询至负数或 EOF，通过 C 运行时输出字节，不留整段输入/输出字符串。L=10、Q 个查询下时间 O(L²+Q)、辅助空间 O(L)，保留简单表版。
+
+与 `1142_combinatorics.rs` 相比：时间 0.001 s → 0.001 s；内存 220 KB → 44 KB。
+
 优化的 Java 解法用基于 `BufferedReader` 的 `StreamTokenizer` 读入询问，而不是
 `Scanner`，后者的正则表达式机制加载起来既费时间又占内存；每个答案都立即通过带缓
 冲的 `PrintWriter` 输出，而不是先把全部答案收集到 `StringBuilder` 中：
@@ -77,13 +93,13 @@
 
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1142_combinatorics.cpp](1142_combinatorics.cpp).
-- [1142_combinatorics.go](1142_combinatorics.go).
-- [1142_combinatorics.rs](1142_combinatorics.rs).
+`1142_combinatorics_optimized.py`：在该可比样本中，时间名次 25/26，内存名次 2/26。
 
-- 所有语言都在读入询问之前建好同一张表。
+`1142_combinatorics_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -102,5 +118,8 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
+| [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
+| [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

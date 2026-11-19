@@ -24,6 +24,10 @@ Values of `N`, one per line, then `-1`.
 
 The count for each `N`, one per line.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -67,6 +71,18 @@ The values were compared with the independent formula
 
 ## Optimized solutions
 
+`1142_combinatorics_optimized.go`. The recurrence and complete 11×11 Pascal matrix are unchanged. Precompute ordered-partition counts for L=10, then stream Q queries until the negative sentinel or EOF. This Go revision changes I/O overhead, not the combinatorial algorithm or table storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `1142_combinatorics.go`: time 0.001 s → 0.015 s; memory 1084 KB → 272 KB.
+
+`1142_combinatorics_optimized.py`. Keep the weak-order recurrence, but generate C(n,k) incrementally as choose*(n-k+1)//k instead of storing Pascal’s triangle. Retain only the L+1 answer counts, with L=10; precomputation takes O(L²) time. The Python program still retains split input and collected output, so its total space is O(L+I+O) for input/output sizes I,O. Stop on the first negative query. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `1142_combinatorics.py`: time 0.031 s → 0.125 s; memory 436 KB → 220 KB.
+
+`1142_combinatorics_optimized.rs`. Keep the weak-order recurrence but generate binomial coefficients incrementally, eliminating the 11×11 Pascal matrix. Use eleven u64 counts; queries are streamed until a negative value or EOF, with direct C-runtime byte output and no retained input/output strings. For maximum L=10 and Q queries, time O(L²+Q), auxiliary space O(L). The teaching Pascal-table implementation remains.
+
+Compared with `1142_combinatorics.rs`: time 0.001 s → 0.001 s; memory 220 KB → 44 KB.
+
 The optimized Java solution reads the queries with `StreamTokenizer`
 over a `BufferedReader` instead of `Scanner`, whose regular-expression
 machinery costs time and memory to load, and prints each answer through
@@ -85,16 +101,13 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1142_combinatorics.cpp](1142_combinatorics.cpp).
-- [1142_combinatorics.go](1142_combinatorics.go).
-- [1142_combinatorics.rs](1142_combinatorics.rs).
+`1142_combinatorics_optimized.py`: time place 25/26, memory place 2/26 in this comparable sample.
 
-- All languages build the same table before reading the queries.
+`1142_combinatorics_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -113,5 +126,8 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
+| [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
+| [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
