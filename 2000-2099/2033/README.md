@@ -96,6 +96,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2033_hashing_optimized.py`. Keep grouping six records by model, maximizing frequency and then minimizing observed price. Consume record tokens directly into the dictionary without building record tuples or decoding ASCII model names. Byte lexicographic order preserves the previous deterministic tie choice, although any tied optimal model is accepted. Split input remains retained: expected O(I) time and O(I) space for input length I, with only six records. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `2033_hashing.py`: time 0.109 s → 0.125 s; memory 452 KB → 228 KB.
+
+`2033_implementation.java`. Replace hash-based grouping by a direct scan of at most six model strings in fixed arrays. Count every purchase record, even when person names repeat; retain each model minimum price. Preserve model strings verbatim, including leading zeros, and use lexicographic order only as an allowed tie-break after count and price. The six-record limit makes the total character work O(L) and storage bounded by six model names, without Record objects or HashMap entries. The public filename is implementation, because this source no longer hashes models; the accepted source bytes and original hashing teaching version remain unchanged.
+
+Compared with `2033_hashing.java`: time 0.125 s → 0.109 s; memory 628 KB → 572 KB.
+
 The optimized C++ solution drops the hash map: with only six records it
 compares every record with all six, counting the records of the same
 model and taking their smallest price, 36 comparisons in all, and keeps
@@ -113,8 +121,8 @@ the input text in a fixed array instead of copies in a `HashMap`:
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
+Each optimized version has Accepted and meets a ranking or resource-improvement
+admission criterion. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
@@ -126,19 +134,13 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [2033_hashing.java](2033_hashing.java).
+`2033_implementation.java`: time place 24/207, memory place 32/207 in this comparable sample.
 
-C++ uses `unordered_map`, Go `map`, Rust and Java `HashMap`, Python
-`dict`. Go map values are copied out, updated and stored back. Rust
-initializes an entry with the first price; the other ports also
-explicitly handle first occurrence. Counts are at most six and prices
-fit ordinary signed integers. Java reads the specified three lines per
-record; other ports use whitespace tokens.
+`2033_hashing_optimized.py`: time place 49/61, memory place 2/61 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -158,3 +160,7 @@ record; other ports use whitespace tokens.
 |---|---|---|---|---|---|---|---|
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
+| [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | PyPy 3.10 x64 | hashing | O(I) expected time; O(I) space | AC | 0.125 s | 228 KB | 11325481 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

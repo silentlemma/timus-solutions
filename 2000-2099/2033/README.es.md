@@ -96,6 +96,14 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`2033_hashing_optimized.py`. Agrupa seis registros por modelo, maximizando frecuencia y después minimizando precio observado. Consume tokens directamente al diccionario, sin tuplas de registros ni decodificar nombres ASCII. El orden lexicográfico de bytes conserva el desempate previo, aunque cualquier óptimo empatado vale. Retiene entrada dividida: O(I) tiempo esperado y espacio para longitud I, con seis registros. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `2033_hashing.py`: tiempo 0.109 s → 0.125 s; memoria 452 KB → 228 KB.
+
+`2033_implementation.java`. Sustituye agrupación hash por recorrer hasta seis nombres en arreglos fijos. Cuenta cada compra aunque se repita la persona y guarda el precio mínimo por modelo. Preserva cadenas y ceros iniciales, usando orden lexicográfico solo para empates permitidos tras cuenta/precio. Seis registros dan O(L) trabajo de caracteres y espacio de seis nombres, sin Record ni HashMap. El nombre público es implementation porque ya no usa hash; mantiene los bytes Accepted y la versión didáctica hashing.
+
+Frente a `2033_hashing.java`: tiempo 0.125 s → 0.109 s; memoria 628 KB → 572 KB.
+
 La solución optimizada en C++ prescinde de la tabla hash: con solo seis
 registros compara cada registro con los seis, contando los registros del
 mismo modelo y tomando su precio mínimo, 36 comparaciones en total, y se
@@ -113,8 +121,8 @@ copias en un `HashMap`: {2033_bruteforce.rs}.
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
+Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
+o de mejora de recursos. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
@@ -126,18 +134,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [2033_hashing.java](2033_hashing.java).
+`2033_implementation.java`: puesto de tiempo 24/207 y de memoria 32/207 en esta muestra comparable.
 
-C++ usa `unordered_map`, Go `map`, Rust y Java `HashMap` y Python `dict`.
-Go copia el valor de la tabla, lo cambia y lo guarda otra vez. Rust y los demás
-inicializan el mínimo con el primer precio. Frecuencias hasta seis y precios
-caben en enteros ordinarios con signo. Java lee las tres líneas indicadas;
-los otros programas separan por blancos.
+`2033_hashing_optimized.py`: puesto de tiempo 49/61 y de memoria 2/61 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -157,3 +160,7 @@ los otros programas separan por blancos.
 |---|---|---|---|---|---|---|---|
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
+| [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | PyPy 3.10 x64 | hashing | O(I) expected time; O(I) space | AC | 0.125 s | 228 KB | 11325481 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
