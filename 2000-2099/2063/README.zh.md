@@ -62,17 +62,29 @@ m 局游戏的描述：每局若干行 `? v u`，最后一行 `! v u`，其中 1
 
 ## 优化解法
 
-C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1468075.1468121) 代替冒泡比较。补虚拟黑球到下一个二次幂，省略右端在虚拟区的比较。所有比较均从较小下标指向较大下标，任何实值与右侧黑色填充比较都不改变填充，因此真实前缀与完整网络一样排序。递归归并奇数、偶数子序列，再比较交错的相邻对，每局 O(n log² n) 条命令而非 O(n²)。保留基于全部原始输入字节的 FNV 种子与每局一次 splitmix64 声明选择。两种网络得到相同排序结果与声明，故固定输入上的胜负完全不变；输入哈希仍不意味着独立随机性。Go 分块哈希输入，以固定输出缓冲格式化命令，不逐命令分配字符串；C++、Rust 仍累积更小的命令文本。保留冒泡基础版，Java、Python 复用合格基础版。
+`2063_constructive_optimized.java`. 保留原概率策略及由输入确定的种子。流式对全部 B 字节做同样 FNV-1a 更新，只解析开头游戏数，不解码布局。Splitmix64 和完整冒泡比较交换网络不变，因此相同输入字节产生与旧版相同的相邻对断言。排序后至多一个异色相邻边界，但断言仍可能失败，并非每局确定成功。99局评测要求至少80次成功。尺寸2..100 共166650次询问加99次断言，低于500000行。时间 O(B+Σ nᵢ²)，空间为 O(1) 固定输入输出缓冲，不复制全部输入或构造增长答案。
 
-通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 1 124 KB，基础版为 3212 KB。
+与 `2063_constructive.java` 相比：时间 0.14 s → 0.156 s；内存 9 992 KB → 580 KB。
 
-已通过评测的基础实现 [2063_constructive.java](2063_constructive.java), [2063_constructive.py](2063_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+`2063_constructive_optimized.py`. 保留原冒泡命令网络、对每个原始输入字节的相同 FNV-1a 哈希及每局同一 splitmix64 声明。以 4096 字节块哈希，只解析局数，不解码编码排列。仅存一局相邻查询的字节串，用有界缓冲流式输出，不存全部命令列表。m 局输出工作 O(m³ log(m+2))、哈希 O(I)、空间 O(B+m log(m+2))。查询/声明序列及固定输入胜负不变，保留确定性种子的限制，不声称独立随机。
+
+与 `2063_constructive.py` 相比：时间 0.125 s → 0.187 s；内存 8008 KB → 2 776 KB。
+
+C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1468075.1468121) 代替冒泡比较。补虚拟黑球到下一个二次幂，省略右端在虚拟区的比较。所有比较均从较小下标指向较大下标，任何实值与右侧黑色填充比较都不改变填充，因此真实前缀与完整网络一样排序。递归归并奇数、偶数子序列，再比较交错的相邻对，每局 O(n log² n) 条命令而非 O(n²)。保留基于全部原始输入字节的 FNV 种子与每局一次 splitmix64 声明选择。两种网络得到相同排序结果与声明，故固定输入上的胜负完全不变；输入哈希仍不意味着独立随机性。Go 分块哈希输入，以固定输出缓冲格式化命令，不逐命令分配字符串；C++、Rust 仍累积更小的命令文本。保留冒泡基础版，Java、Python 现有下述独立紧凑版本。
+
+通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 1 124 KB，基础版为 3208 KB。
+
+保留现有 Java、Python 基础文件供教学，下述独立新版本各有自身 Accepted 行，不建立相同副本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-哈希和生成器使用无符号 64 位运算：Rust 用回绕乘法，Java 用无符号取余。Go 通过带缓冲的写入器逐步输出；其他程序先收集全部输出再写出。
+`2063_constructive_optimized.java`：在该可比样本中，时间名次 13/25，内存名次 1/25。
+
+`2063_constructive_optimized.py`：在该可比样本中，时间名次 3/46，内存名次 22/46。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -80,11 +92,11 @@ C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB | 11294258 |
+| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.046 s | 3084 KB | 11325591 |
 | [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB | 11294278 |
-| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB | 11294310 |
+| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.14 s | 9992 KB | 11325570 |
 | [2063_constructive.py](2063_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB | 11294295 |
-| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB | 11294312 |
+| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3208 KB | 11325615 |
 
 ### 优化版本
 
@@ -93,5 +105,7 @@ C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1
 | [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
 | [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
+| [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

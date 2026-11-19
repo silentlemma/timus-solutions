@@ -96,19 +96,29 @@ is wrong, in the second it is right.
 
 ## Optimized solutions
 
-C++, Go and Rust replace the bubble comparisons with Batcher’s [odd-even merge sorting network](https://doi.org/10.1145/1468075.1468121). Pad to the next power of two with virtual black balls, then omit comparisons whose right endpoint is virtual. Every comparator points from a smaller index to a larger one, so a virtual black ball can never change: comparing any real value with a right-hand black padding value is a no-op. The real prefix therefore sorts exactly as in the full network. Odd and even subsequences are merged recursively, followed by the intervening adjacent comparisons; each game uses O(n log² n) commands rather than O(n²). The original FNV seed over all raw input bytes and one splitmix64 claim per game are preserved. Both networks finish with the same sorted row and the same claim, so the result on each fixed input is unchanged. This does not turn input-derived seeding into independent randomness. Go hashes input in bounded chunks and formats commands into a fixed output buffer without allocating strings per command; C++ and Rust still accumulate the smaller command text. Ordinary bubble files remain; Java and Python reuse admitted bases.
+`2063_constructive_optimized.java`. Preserve the existing probabilistic strategy and its deterministic input-derived seed. Stream all B input bytes through the same FNV-1a update while parsing only the initial game count; arrangements are not decoded. Splitmix64 and the complete bubble compare-exchange schedule are unchanged, so identical input bytes yield the same adjacent-pair claims as the old source. The sorted row has at most one bad adjacent boundary, but a claim can still fail: this is not a per-game deterministic guarantee. The 99-game judge requires at least 80 successes. For sizes 2..100 the schedule emits 166650 queries plus 99 claims, below 500000 lines. Time O(B+Σ nᵢ²), auxiliary storage O(1) fixed input/output buffers instead of copies of all input and a growing output builder.
 
-The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 1 124 KB versus 3212 KB.
+Compared with `2063_constructive.java`: time 0.14 s → 0.156 s; memory 9 992 KB → 580 KB.
 
-The accepted base implementations [2063_constructive.java](2063_constructive.java), [2063_constructive.py](2063_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+`2063_constructive_optimized.py`. Keep the original bubble-sort command network and exactly the same FNV-1a hash of every raw input byte and splitmix64 claim per game. Hash in 4096-byte blocks, parsing only the game count; encoded arrangements are not decoded. Retain only one game’s adjacent-query byte strings and stream commands through a bounded output buffer, replacing the list of all command lines. With m games, total output work is O(m³ log(m+2)), input hashing O(I), and storage O(B+m log(m+2)); the query/claim sequence and fixed-input wins are unchanged. This preserves the existing deterministic seed’s limitations and does not claim independent randomness.
+
+Compared with `2063_constructive.py`: time 0.125 s → 0.187 s; memory 8008 KB → 2 776 KB.
+
+C++, Go and Rust replace the bubble comparisons with Batcher’s [odd-even merge sorting network](https://doi.org/10.1145/1468075.1468121). Pad to the next power of two with virtual black balls, then omit comparisons whose right endpoint is virtual. Every comparator points from a smaller index to a larger one, so a virtual black ball can never change: comparing any real value with a right-hand black padding value is a no-op. The real prefix therefore sorts exactly as in the full network. Odd and even subsequences are merged recursively, followed by the intervening adjacent comparisons; each game uses O(n log² n) commands rather than O(n²). The original FNV seed over all raw input bytes and one splitmix64 claim per game are preserved. Both networks finish with the same sorted row and the same claim, so the result on each fixed input is unchanged. This does not turn input-derived seeding into independent randomness. Go hashes input in bounded chunks and formats commands into a fixed output buffer without allocating strings per command; C++ and Rust still accumulate the smaller command text. Ordinary bubble files remain; Java and Python have the separate compact variants described here.
+
+The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 1 124 KB versus 3208 KB.
+
+The existing Java and Python basic files remain as teaching versions. The separate new variants below have their own Accepted rows; no identical copies are used.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-The hash and the generator use unsigned 64-bit arithmetic: wrapping
-multiplications in Rust, unsigned remainder in Java. Go streams the output
-through a buffered writer; the other programs accumulate it before writing.
+`2063_constructive_optimized.java`: time place 13/25, memory place 1/25 in this comparable sample.
+
+`2063_constructive_optimized.py`: time place 3/46, memory place 22/46 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -116,11 +126,11 @@ through a buffered writer; the other programs accumulate it before writing.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.062 s | 3104 KB | 11294258 |
+| [2063_constructive.cpp](2063_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.046 s | 3084 KB | 11325591 |
 | [2063_constructive.go](2063_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 980 KB | 11294278 |
-| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 10052 KB | 11294310 |
+| [2063_constructive.java](2063_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.14 s | 9992 KB | 11325570 |
 | [2063_constructive.py](2063_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.125 s | 8008 KB | 11294295 |
-| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3212 KB | 11294312 |
+| [2063_constructive.rs](2063_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 3208 KB | 11325615 |
 
 ### Optimized
 
@@ -129,5 +139,7 @@ through a buffered writer; the other programs accumulate it before writing.
 | [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
 | [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
+| [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

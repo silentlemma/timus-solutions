@@ -28,7 +28,12 @@ fn main() {
         state = (state ^ c as u64).wrapping_mul(FNV_PRIME);
     }
     let text = String::from_utf8_lossy(&input);
-    let games: usize = text.split_ascii_whitespace().next().unwrap().parse().unwrap();
+    let games: usize = text
+        .split_ascii_whitespace()
+        .next()
+        .unwrap()
+        .parse()
+        .unwrap();
     let mut out = String::new();
     for game in 0..games {
         let n = game + 2;

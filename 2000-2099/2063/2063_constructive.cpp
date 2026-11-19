@@ -27,7 +27,8 @@ uint64_t next_random() {
 int main() {
     string input((istreambuf_iterator<char>(cin)), istreambuf_iterator<char>());
     state = FNV_OFFSET;
-    for (unsigned char c : input) state = (state ^ c) * FNV_PRIME;
+    for (unsigned char c : input)
+        state = (state ^ c) * FNV_PRIME;
     int games = stoi(input);
     string out;
     for (int game = 0; game < games; ++game) {
