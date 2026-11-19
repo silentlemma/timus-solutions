@@ -20,6 +20,10 @@ n（1 ≤ n ≤ 100），然后 n 行：非空姓氏（至多 20 个英文字母
 
 在到达终点时处于领先的选手人数，然后按字典序每行输出一个他们的姓氏。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -60,6 +64,10 @@ Zaitseva
 - 答案按姓氏排序，而不是按记分牌变化的顺序。
 
 ## 优化解法
+
+`1821_sorting_optimized.rs`. 保留按(绝对完赛,用时,姓名)排序及严格用时纪录。mm:ss.t 直接解析整数十分秒，原地不稳定排序，将纪录者压到原向量前缀再按名字排序。移除第二领跑者向量及完整输出缓冲，不改平局顺序。最大姓名长 L 下 O(n log n·L) 时间、O(nL) 存储。
+
+与 `1821_sorting.rs` 相比：时间 0.031 s → 0.046 s；内存 228 KB → 88 KB。
 
 优化的 C++ 解法用一次 `scanf` 读入每名滑雪者，同时在 `:` 和 `.` 处拆开时间，而不
 是用 `iostream` 和 `stoi` 转换的子串，并把滑雪者存在 100 条记录的静态数组中，每
@@ -105,3 +113,6 @@ Zaitseva
 |---|---|---|---|---|---|---|---|
 | [1821_sorting_optimized.cpp](1821_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 120 KB | 11307289 |
 | [1821_sorting_optimized.java](1821_sorting_optimized.java) | Java 1.8 | sorting | O(n log n) | AC | 0.109 s | 664 KB | 11307294 |
+| [1821_sorting_optimized.rs](1821_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n·L) time; O(nL) space | AC | 0.046 s | 88 KB | 11325534 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

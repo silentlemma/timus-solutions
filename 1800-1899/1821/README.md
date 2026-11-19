@@ -25,6 +25,10 @@ moment and no two have equal times.
 The number of skiers who led the race when they finished, then their
 surnames in lexicographic order, one per line.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -73,6 +77,10 @@ Pitfalls:
 - the answer is sorted by surname, not in the order the board changed.
 
 ## Optimized solutions
+
+`1821_sorting_optimized.rs`. Keep finish-event sorting by (absolute finish,running time,name) and strict running-time records. Parse mm:ss.t directly into integer tenths, use unstable in-place sorting, and compact record holders into the same vector prefix before alphabetically sorting that prefix. This removes the second leaders vector and complete output buffer without changing tie order. With maximum name length L, O(n log n·L) time and O(nL) storage.
+
+Compared with `1821_sorting.rs`: time 0.031 s → 0.046 s; memory 228 KB → 88 KB.
 
 The optimized C++ solution reads each skier with one `scanf` that also
 splits the time at `:` and `.`, instead of `iostream` and substrings
@@ -129,3 +137,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1821_sorting_optimized.cpp](1821_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 120 KB | 11307289 |
 | [1821_sorting_optimized.java](1821_sorting_optimized.java) | Java 1.8 | sorting | O(n log n) | AC | 0.109 s | 664 KB | 11307294 |
+| [1821_sorting_optimized.rs](1821_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n·L) time; O(nL) space | AC | 0.046 s | 88 KB | 11325534 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -26,6 +26,10 @@ otro y no hay dos tiempos iguales.
 El número de esquiadores que lideraban al llegar, y luego sus
 apellidos en orden lexicográfico, uno por línea.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -77,6 +81,10 @@ Trampas:
   el marcador.
 
 ## Soluciones optimizadas
+
+`1821_sorting_optimized.rs`. Conserva orden por (final absoluto,tiempo,nombre) y récords estrictos. Lee mm:ss.t en décimas enteras, ordena in situ no estable y compacta récords al prefijo del mismo vector antes de ordenar nombres. Elimina segundo vector y salida completa sin cambiar desempates. O(n log n·L) tiempo, O(nL) espacio para nombres de longitud L.
+
+Frente a `1821_sorting.rs`: tiempo 0.031 s → 0.046 s; memoria 228 KB → 88 KB.
 
 La solución optimizada en C++ lee cada esquiador con un solo `scanf` que
 además parte el tiempo en `:` y `.`, en lugar de `iostream` y subcadenas
@@ -133,3 +141,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1821_sorting_optimized.cpp](1821_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 120 KB | 11307289 |
 | [1821_sorting_optimized.java](1821_sorting_optimized.java) | Java 1.8 | sorting | O(n log n) | AC | 0.109 s | 664 KB | 11307294 |
+| [1821_sorting_optimized.rs](1821_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n·L) time; O(nL) space | AC | 0.046 s | 88 KB | 11325534 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
