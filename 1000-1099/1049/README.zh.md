@@ -99,21 +99,17 @@
 - `1049_number_theory_optimized.java`: 0.109 s / 368 KB; 基础 `1049_number_theory.java`: 0.140 s / 3880 KB; 相对变化: 时间 -22.1%, 内存 -90.5%.
 - `1049_number_theory_optimized.py`: 0.109 s / 296 KB; 基础 `1049_number_theory.py`: 0.078 s / 456 KB; 相对变化: 时间 +39.7%, 内存 -35.1%.
 
+`1049_number_theory_optimized.rs`. 边读取边分解十个数，以固定字节数组累加质因子指数。每个值不超过 10000，指数总和不超过 130，因此一个字节足够。扫描数组，把指数加一后的值相乘并对十取模。分解耗时 O(10√M)，最后扫描 O(M)，M=10000；存储为 M+1 字节和常数状态。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1049_number_theory.rs` 相比：时间 0.015 s → 0.015 s；内存 416 KB → 52 KB。
+
 ## 各语言说明
 
-保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
+`1049_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- C++: 首选教学基础 `1049_number_theory.cpp`; 覆盖源码 `1049_number_theory.cpp`; 时间/内存名次 1/1, 其他作者记录 121/121.
-
-- Go: 首选教学基础 `1049_number_theory.go`; 覆盖源码 `1049_number_theory_optimized.go`; 时间/内存名次 1/1, 其他作者记录 2/2.
-
-- Java: 首选教学基础 `1049_number_theory.java`; 覆盖源码 `1049_number_theory_optimized.java`; 时间/内存名次 3/1, 其他作者记录 4/4.
-
-- Python/PyPy: 首选教学基础 `1049_number_theory.py`; 覆盖源码 `1049_number_theory_optimized.py`; 时间/内存名次 44/1, 其他作者记录 54/54.
-
-- Rust: 首选教学基础 `1049_number_theory.rs`; 覆盖源码 `1049_number_theory.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -134,5 +130,6 @@
 | [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 292 KB | 11309757 |
 | [1049_number_theory_optimized.java](1049_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.109 s | 368 KB | 11308799 |
 | [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.109 s | 296 KB | 11309728 |
+| [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

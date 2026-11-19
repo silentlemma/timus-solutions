@@ -106,21 +106,17 @@ The divisor formula is unchanged: factor each of the ten values, add exponents o
 - `1049_number_theory_optimized.java`: 0.109 s / 368 KB; base `1049_number_theory.java`: 0.140 s / 3880 KB; relative change: time -22.1%, memory -90.5%.
 - `1049_number_theory_optimized.py`: 0.109 s / 296 KB; base `1049_number_theory.py`: 0.078 s / 456 KB; relative change: time +39.7%, memory -35.1%.
 
+`1049_number_theory_optimized.rs`. Factor the ten numbers as they arrive and accumulate prime exponents in a fixed byte array. Each exponent is at most 130 because a value is at most 10000, so a byte suffices. Multiply exponent+1 modulo ten over the array. Factoring costs O(10√M) and the final array scan O(M), with M=10000; storage is M+1 bytes plus constant state. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1049_number_theory.rs`: time 0.015 s → 0.015 s; memory 416 KB → 52 KB.
+
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1049_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1049_number_theory.cpp`; covering source `1049_number_theory.cpp`; time/memory places 1/1, other-author entries 121/121.
-
-- Go: preferred teaching base `1049_number_theory.go`; covering source `1049_number_theory_optimized.go`; time/memory places 1/1, other-author entries 2/2.
-
-- Java: preferred teaching base `1049_number_theory.java`; covering source `1049_number_theory_optimized.java`; time/memory places 3/1, other-author entries 4/4.
-
-- Python/PyPy: preferred teaching base `1049_number_theory.py`; covering source `1049_number_theory_optimized.py`; time/memory places 44/1, other-author entries 54/54.
-
-- Rust: preferred teaching base `1049_number_theory.rs`; covering source `1049_number_theory.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -141,5 +137,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 292 KB | 11309757 |
 | [1049_number_theory_optimized.java](1049_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.109 s | 368 KB | 11308799 |
 | [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.109 s | 296 KB | 11309728 |
+| [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

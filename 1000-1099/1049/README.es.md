@@ -106,21 +106,17 @@ La fórmula no cambia: factorizar los diez valores, sumar exponentes y multiplic
 - `1049_number_theory_optimized.java`: 0.109 s / 368 KB; base `1049_number_theory.java`: 0.140 s / 3880 KB; cambio respecto a la base: tiempo -22.1%, memoria -90.5%.
 - `1049_number_theory_optimized.py`: 0.109 s / 296 KB; base `1049_number_theory.py`: 0.078 s / 456 KB; cambio respecto a la base: tiempo +39.7%, memoria -35.1%.
 
+`1049_number_theory_optimized.rs`. Factoriza los diez números al leerlos y acumula exponentes primos en un arreglo fijo de bytes. Cada exponente es como máximo 130 al ser los valores de hasta 10000, por lo que cabe en un byte. Multiplica exponente+1 módulo diez recorriendo el arreglo. La factorización cuesta O(10√M) y el recorrido final O(M), con M=10000; se usan M+1 bytes y estado constante. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1049_number_theory.rs`: tiempo 0.015 s → 0.015 s; memoria 416 KB → 52 KB.
+
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1049_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1049_number_theory.cpp`; fuente que cubre `1049_number_theory.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 121/121.
-
-- Go: base didáctica preferida `1049_number_theory.go`; fuente que cubre `1049_number_theory_optimized.go`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
-
-- Java: base didáctica preferida `1049_number_theory.java`; fuente que cubre `1049_number_theory_optimized.java`; puestos tiempo/memoria 3/1, registros de otros autores 4/4.
-
-- Python/PyPy: base didáctica preferida `1049_number_theory.py`; fuente que cubre `1049_number_theory_optimized.py`; puestos tiempo/memoria 44/1, registros de otros autores 54/54.
-
-- Rust: base didáctica preferida `1049_number_theory.rs`; fuente que cubre `1049_number_theory.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -141,5 +137,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 292 KB | 11309757 |
 | [1049_number_theory_optimized.java](1049_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.109 s | 368 KB | 11308799 |
 | [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.109 s | 296 KB | 11309728 |
+| [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
