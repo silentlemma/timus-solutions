@@ -81,6 +81,10 @@ segmentos repetidos y anidados.
 
 ## Soluciones optimizadas
 
+`1112_greedy_optimized.py`. Conserva selección por fin más temprano y extremos tocándose. Ordena tuplas(fin,inicio) directamente, sin lista de entrada y función key. Compacta elegidos al prefijo sin otra lista ni salida unida. O(n log n) tiempo,O(n) espacio; empates permiten otro óptimo válido comprobado por checker constructivo. Vacía antes de salir PyPy.
+
+Frente a `1112_greedy.py`: tiempo 0.078 s → 0.125 s; memoria 460 KB → 272 KB.
+
 La solución optimizada en C++ guarda los segmentos en un único arreglo
 global de 99 pares, ya que `N ≤ 99`, en lugar de dos `vector`, y escribe
 los segmentos conservados al principio del mismo arreglo: un segmento
@@ -107,17 +111,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1112_greedy_optimized.java`: reducción de tiempo +40.38%; reducción
   de memoria +89.45%; base: `1112_greedy.java`.
 
+`1112_greedy_optimized.rs`. Mantiene la selección voraz por fin más temprano, admitiendo extremos que se tocan. Ordena el único vector con sort_unstable_by_key y compacta los segmentos elegidos en el prefijo ya recorrido. No necesita otro vector de elegidos ni un constructor de salida. Los finales iguales pueden reordenarse: se acepta cualquier conjunto válido óptimo. Tiempo O(N log N), espacio O(N). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1112_greedy.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 64 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1112_greedy.go](1112_greedy.go).
-- [1112_greedy.rs](1112_greedy.rs).
+`1112_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Todos los lenguajes hacen la misma ordenación y un recorrido.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -137,3 +141,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1112_greedy_optimized.cpp](1112_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 112 KB | 11307228 |
 | [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
+| [1112_greedy_optimized.rs](1112_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
+| [1112_greedy_optimized.py](1112_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n log n) time; O(n) space | AC | 0.125 s | 272 KB | 11325703 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

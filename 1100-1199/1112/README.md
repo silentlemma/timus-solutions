@@ -76,6 +76,10 @@ sets, including touching chains, repeated segments and nested ones.
 
 ## Optimized solutions
 
+`1112_greedy_optimized.py`. Keep earliest-finish interval scheduling and allow touching endpoints. Store (end,start) tuples and sort them directly instead of storing an input list and using a key function. Compact chosen intervals into the same list prefix, then emit them without a second chosen list or joined output string. O(n log n) time, O(n) space. Ties may select another equally valid optimum, checked by the constructive checker. Flush before direct PyPy exit.
+
+Compared with `1112_greedy.py`: time 0.078 s → 0.125 s; memory 460 KB → 272 KB.
+
 The optimized C++ solution keeps the segments in one global array of 99
 pairs, since `N ≤ 99`, instead of two `vector`s, and writes the kept
 segments over the front of the same array: a kept segment only takes the
@@ -102,17 +106,17 @@ asterisk concerns the rating target only.
 - `1112_greedy_optimized.java`: time reduction +40.38%; memory reduction
   +89.45%; base: `1112_greedy.java`.
 
+`1112_greedy_optimized.rs`. Keep earliest-finish interval scheduling, allowing touching endpoints. Sort the one segment vector with sort_unstable_by_key, then compact chosen segments into its already-scanned prefix. No separate chosen vector or output builder is needed. Equal finishing times may be reordered: any optimal valid set is accepted. Time O(N log N), storage O(N). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1112_greedy.rs`: time 0.015 s → 0.031 s; memory 232 KB → 64 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1112_greedy.go](1112_greedy.go).
-- [1112_greedy.rs](1112_greedy.rs).
+`1112_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- All languages run the same sort and scan.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -132,3 +136,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1112_greedy_optimized.cpp](1112_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 112 KB | 11307228 |
 | [1112_greedy_optimized.java](1112_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.093 s | 416 KB | 11307227 |
+| [1112_greedy_optimized.rs](1112_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.031 s | 64 KB | 11325084 |
+| [1112_greedy_optimized.py](1112_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n log n) time; O(n) space | AC | 0.125 s | 272 KB | 11325703 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
