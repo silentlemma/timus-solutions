@@ -22,6 +22,10 @@ A player number from 0 to 13.
 
 The number of contests the player played for the team.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -89,11 +93,23 @@ fourteen players.
 
 ## Optimized solutions
 
+`1873_implementation_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1873_implementation.java`: time 0.109 s → 0.093 s; memory 1584 KB → 460 KB.
+
 Go and Python preserve the same fourteen-entry contest count table. Go reads the identifier directly into a fixed byte buffer and reuses it for the answer. Go accesses standard handles through syscall.Read and syscall.Write, handling interrupted calls and partial writes. The PyPy version uses unbuffered binary streams to read the identifier and write the pre-encoded answer without text formatting.
 
 The accepted PyPy 3.10 x64 run takes 0.14 s versus 0.078 s for the base and uses 208 KB versus 388 KB.
 
 The accepted base implementations [1873_implementation.cpp](1873_implementation.cpp), [1873_implementation.java](1873_implementation.java), [1873_implementation.rs](1873_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`1873_implementation_optimized.java`: time place 4/28, memory place 1/28 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -101,7 +117,7 @@ The accepted base implementations [1873_implementation.cpp](1873_implementation.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1873_implementation.cpp](1873_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 128 KB | 11290960 |
+| [1873_implementation.cpp](1873_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 112 KB | 11325583 |
 | [1873_implementation.go](1873_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1072 KB | 11290961 |
 | [1873_implementation.java](1873_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 1584 KB | 11290964 |
 | [1873_implementation.py](1873_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 388 KB | 11290962 |
@@ -113,5 +129,6 @@ The accepted base implementations [1873_implementation.cpp](1873_implementation.
 |---|---|---|---|---|---|---|---|
 | [1873_implementation_optimized.go](1873_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 288 KB | 11311200 |
 | [1873_implementation_optimized.py](1873_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 208 KB | 11311240 |
+| [1873_implementation_optimized.java](1873_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.093 s | 460 KB | 11324804 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
