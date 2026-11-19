@@ -6,9 +6,7 @@ def reliable_teams(values):
     teams = []
     count = len(ordered)
     for size in range(1, count + 1):
-        if ordered[size - 1][0] <= size and (
-            size == count or ordered[size][0] > size + 1
-        ):
+        if ordered[size - 1][0] <= size and (size == count or ordered[size][0] > size + 1):
             teams.append([index for _, index in ordered[:size]])
     return teams
 

@@ -33,8 +33,8 @@ public class Main {
         int[] members = new int[count];
         for (int size = 1; size <= count; ++size) {
             members[size - 1] = order[size - 1] + 1;
-            if (values[order[size - 1]] <= size
-                    && (size == count || values[order[size]] > size + 1)) {
+            if (values[order[size - 1]] <= size &&
+                (size == count || values[order[size]] > size + 1)) {
                 teams.add(Arrays.copyOf(members, size));
             }
         }

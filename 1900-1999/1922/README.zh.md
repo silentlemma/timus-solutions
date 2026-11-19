@@ -86,6 +86,10 @@ O(n+R)。输出可能为二次规模：2,2,4,4,…,1000,1000 产生 500 个队�
 
 ## 优化解法
 
+`1922_sorting_optimized.java`. 保留合格有序前缀表示可靠团队：末位阈值至多 size，若有下一外部成员，其阈值须大于 size+1。把阈值、原 ID 压成 long，只存合格前缀长度。需要时从排序序列输出成员，不复制所有前缀或保存完整输出。设输出成员 ID 数 Z、基本排序代价 S(N)，总时间 O(N+S(N)+Z)，通常 O(N log N+Z)，即使 Z 为二次量，空间仍 O(N)。无团队时仅输出零。阈值相同仍按原 ID，任意团队及成员顺序均可。
+
+与 `1922_sorting.java` 相比：时间 0.109 s → 0.125 s；内存 9 504 KB → 512 KB。
+
 C++、Go 和 Rust 版本把门槛和原始编号打包成一个整数，编号占低十位，因此排序时优先比较门槛。前缀边界的判定保持不变。只保存可靠团队的大小，然后直接输出排序后的对应前缀。若共输出 R 个编号，时间为 O(n log n + R)，空间为 O(n)。
 
 通过评测的 G++ 13.2 x64 版本耗时 0.046 秒，基础版为 0.015 秒，内存为 180 KB，基础版为 1452 KB。
@@ -94,11 +98,11 @@ C++、Go 和 Rust 版本把门槛和原始编号打包成一个整数，编号�
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-人数与编号均可用普通整数。排序时保留原始编号。
-C++、Go、Java、Rust 逐步扩展前缀，仅在合法人数处复制；Python
-截取每个成功前缀。之后的修改不能覆盖已存队伍。缓冲输出减少长列表开销。
+`1922_sorting_optimized.java`：在该可比样本中，时间名次 4/18，内存名次 1/18。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -108,8 +112,8 @@ C++、Go、Java、Rust 逐步扩展前缀，仅在合法人数处复制；Python
 |---|---|---|---|---|---|---|---|
 | [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
 | [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
-| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.140 s | 9488 KB | 11291511 |
-| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7764 KB | 11291510 |
+| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
+| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
 | [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
 
 ### 优化版本
@@ -119,5 +123,6 @@ C++、Go、Java、Rust 逐步扩展前缀，仅在合法人数处复制；Python
 | [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.046 s | 180 KB | 11310394 |
 | [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
 | [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+| [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

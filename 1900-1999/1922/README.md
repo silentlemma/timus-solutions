@@ -100,6 +100,10 @@ or omit the output term R from complexity.
 
 ## Optimized solutions
 
+`1922_sorting_optimized.java`. Keep reliable teams as qualifying sorted prefixes: the last member threshold is at most size, and the next outsider threshold, if any, must exceed size+1. Pack each threshold and original ID in one long and store only the qualifying prefix lengths. Emit members from the sorted order when needed instead of copying every prefix and keeping the complete output. Let Z be the number of emitted member IDs and S(N) the primitive-sort cost: total time O(N+S(N)+Z), usually O(N log N+Z), with O(N) storage even if Z is quadratic. The zero-team case emits only zero. Sorting ties still follow original IDs; any team/member order is valid.
+
+Compared with `1922_sorting.java`: time 0.109 s → 0.125 s; memory 9 504 KB → 512 KB.
+
 The C++, Go and Rust variants pack each threshold and original index into one integer. The index occupies the low ten bits, so sorting the packed integers sorts by threshold first. The boundary test stays the same. Store only the sizes of reliable teams, then print each sorted prefix directly. For R printed indices, the running time is O(n log n + R) and the memory usage is O(n).
 
 The accepted G++ 13.2 x64 run takes 0.046 s versus 0.015 s for the base and uses 180 KB versus 1452 KB.
@@ -108,13 +112,11 @@ The accepted base implementations [1922_sorting.java](1922_sorting.java), [1922_
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-All counts and indices fit ordinary integers. Every port retains original
-indices while sorting thresholds. C++, Go, Java and Rust accumulate the
-current prefix and copy it only at a valid size; Python extracts each
-successful prefix. Stored teams must not be overwritten by later changes.
-Buffered output keeps the potentially long listing efficient.
+`1922_sorting_optimized.java`: time place 4/18, memory place 1/18 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -124,8 +126,8 @@ Buffered output keeps the potentially long listing efficient.
 |---|---|---|---|---|---|---|---|
 | [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
 | [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
-| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.140 s | 9488 KB | 11291511 |
-| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7764 KB | 11291510 |
+| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
+| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
 | [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
 
 ### Optimized
@@ -135,5 +137,6 @@ Buffered output keeps the potentially long listing efficient.
 | [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.046 s | 180 KB | 11310394 |
 | [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
 | [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+| [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
