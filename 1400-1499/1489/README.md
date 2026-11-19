@@ -25,6 +25,10 @@ A, B and C, then the two points as x y.
 
 The distance.
 
+## Checking
+
+Repository tests compare numeric tokens with |actual-reference| <= 0.000001·max(1,|reference|), reject nonfinite values, and compare nonnumeric tokens exactly.
+
 ## Examples
 
 ### Example 1
@@ -76,6 +80,10 @@ The Go version reads the coordinates directly as integer hundredths and applies 
 
 The accepted base implementations [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1489_geometry_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1489_geometry.java`: time 0.125 s → 0.125 s; memory 1892 KB → 1 068 KB.
+
 ## Solutions
 
 ### Simple
@@ -93,5 +101,6 @@ The accepted base implementations [1489_geometry.cpp](1489_geometry.cpp), [1489_
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
+| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1068 KB | 11324809 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
