@@ -3,7 +3,9 @@ use std::io::{self, Read};
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|v| v.parse::<i64>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|v| v.parse::<i64>().unwrap());
     let (n, k) = (it.next().unwrap(), it.next().unwrap());
     // n - k + 1 zeros, then 1, -1, 2, -2, ...: k distinct values and only k
     // distinct segment sums, the least possible
