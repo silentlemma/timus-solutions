@@ -24,6 +24,10 @@ rejected attempts of ZZZ.
 `Dirty debug :(` if the attempts cost ZZZ the first place, otherwise
 `No chance.`.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -78,6 +82,18 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 368 KB instead of 1600 KB, with
 the same time.
 
+`1636_implementation_optimized.py`. Keep the strict comparison T2-20*sum(rejections)<T1; equality must still produce No chance. Read integer byte tokens through a map and consume the remaining ten counts directly with sum, instead of building the separate integer attempts list and decoded input. Work is O(P) for P=10 rejected-attempt counts; parser token storage remains. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1636_implementation.py`: time 0.078 s → 0.109 s; memory 428 KB → 216 KB.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1636_implementation_optimized.py`: time place 62/80, memory place 1/80 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
+
 ## Solutions
 
 ### Simple
@@ -95,3 +111,6 @@ the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1636_implementation_optimized.java](1636_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 368 KB | 11303765 |
+| [1636_implementation_optimized.py](1636_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(P), P=10 | AC | 0.109 s | 216 KB | 11325073 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

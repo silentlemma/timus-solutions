@@ -24,6 +24,10 @@ de intentos rechazados de ZZZ.
 `Dirty debug :(` si los intentos le costaron el primer puesto a ZZZ, y
 `No chance.` en otro caso.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -78,6 +82,18 @@ La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 368 KB en lugar de 1600 KB, con
 el mismo tiempo.
 
+`1636_implementation_optimized.py`. Conserva T2-20*sum(rejections)<T1 estrictamente: igualdad aún da No chance. Lee tokens enteros por map y consume los diez contadores restantes con sum, sin lista entera separada de intentos ni entrada decodificada. Trabajo O(P), P=10 contadores; sigue existiendo almacenamiento de tokens. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1636_implementation.py`: tiempo 0.078 s → 0.109 s; memoria 428 KB → 216 KB.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1636_implementation_optimized.py`: puesto de tiempo 62/80 y de memoria 1/80 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
+
 ## Soluciones
 
 ### Sencillas
@@ -95,3 +111,6 @@ el mismo tiempo.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1636_implementation_optimized.java](1636_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 368 KB | 11303765 |
+| [1636_implementation_optimized.py](1636_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(P), P=10 | AC | 0.109 s | 216 KB | 11325073 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

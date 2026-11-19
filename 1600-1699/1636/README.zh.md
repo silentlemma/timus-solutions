@@ -20,6 +20,10 @@ QXX 和 ZZZ 两队都做出了全部十道题；QXX 以罚时 T1 胜过 ZZZ 的 
 
 若这些被拒的提交让 ZZZ 失去第一，输出 `Dirty debug :(`，否则输出 `No chance.`。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -69,6 +73,18 @@ Dirty debug :(
 优化的 Java 解法直接从 `System.in` 逐字节解析数字，而不是使用 `Scanner`：
 368 KB，而不是 1600 KB，时间不变。
 
+`1636_implementation_optimized.py`. 保留严格比较 T2-20*sum(rejections)<T1，相等仍输出 No chance。通过 map 读取整数字节记号，用 sum 直接消费剩下十个次数，避免单独的 attempts 整数列表和解码输入。P=10 个次数时工作量 O(P)，仍有解析记号存储。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1636_implementation.py` 相比：时间 0.078 s → 0.109 s；内存 428 KB → 216 KB。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`1636_implementation_optimized.py`：在该可比样本中，时间名次 62/80，内存名次 1/80。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
+
 ## 解答
 
 ### 简单版本
@@ -86,3 +102,6 @@ Dirty debug :(
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1636_implementation_optimized.java](1636_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 368 KB | 11303765 |
+| [1636_implementation_optimized.py](1636_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(P), P=10 | AC | 0.109 s | 216 KB | 11325073 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
