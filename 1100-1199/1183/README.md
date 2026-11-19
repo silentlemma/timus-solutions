@@ -67,6 +67,10 @@ use recursion of depth at most `n`.
 
 ## Optimized solutions
 
+`1183_dp_optimized.rs`. Keep interval DP and the same wrap/split reconstruction, including empty input. Flatten cost and reconstruction tables into byte arrays: N≤100 bounds costs and split indices, with 255 reserved for wrapping. Emit reconstruction directly instead of accumulating a string. O(N³) time, O(N²) storage; the teaching recurrence and source remain.
+
+Compared with `1183_dp.rs`: time 0.001 s → 0.031 s; memory 308 KB → 80 KB.
+
 The minimum-insertion interval DP remains unchanged. C++ stores costs as bytes, stops split enumeration at the interval parity lower bound, and reconstructs an optimum from costs without a separate choice table. Java stores only `i≤j` half-open intervals, including empty ones, in an upper triangle. Its index is `i(2N+1−i)/2+j`, using `(N+1)(N+2)/2` bytes instead of a full square. Every cost is between zero and N≤100, so signed bytes are sufficient. Java reconstructs with a bounded explicit task stack: paired endpoints schedule their interior and a closing bracket; a split schedules the right then left interval. This preserves the input as a subsequence and emits exactly an optimal completion. The output has at most 2N brackets. Worst-case time remains `O(N^3)` and memory `O(N^2)`; the reduction is in representation and reconstruction overhead. All readable base sources are retained.
 
 - `1183_dp_optimized.cpp`: 0.015 s / 80 KB; base `1183_dp.cpp`: 0.015 s / 460 KB; relative change: time -0.0%, memory -82.6%.
@@ -106,5 +110,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1183_dp_optimized.cpp](1183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 80 KB | 11308418 |
 | [1183_dp_optimized.java](1183_dp_optimized.java) \* | Java 1.8 | dp | O(N^3) time; O(N^2) space | AC | 0.109 s | 416 KB | 11309557 |
+| [1183_dp_optimized.rs](1183_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

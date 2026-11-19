@@ -65,6 +65,10 @@ explícita y los otros lenguajes con recursión de profundidad a lo sumo `n`.
 
 ## Soluciones optimizadas
 
+`1183_dp_optimized.rs`. Conserva DP de intervalos y reconstrucción envolviendo/dividiendo, incluida entrada vacía. Tablas planas de bytes: N≤100 acota costes/índices,255 marca envolver. Emite reconstrucción sin cadena acumulada. O(N³) tiempo, O(N²) espacio; preserva recurrencia y fuente didáctica.
+
+Frente a `1183_dp.rs`: tiempo 0.001 s → 0.031 s; memoria 308 KB → 80 KB.
+
 Se mantiene la DP de inserciones mínimas. C++ guarda costes en bytes, corta las particiones al alcanzar la cota de paridad y reconstruye sin tabla de decisiones. Java almacena solo intervalos semiabiertos `i≤j`, incluidos los vacíos, en el triángulo superior: índice `i(2N+1−i)/2+j`, con `(N+1)(N+2)/2` bytes. Los costes están entre cero y N≤100 y caben en bytes con signo. La reconstrucción Java usa una pila acotada: extremos emparejados programan el interior y el cierre; una partición programa derecha y luego izquierda. Conserva la entrada como subsecuencia y emite una solución óptima de hasta 2N corchetes. Permanecen `O(N^3)` tiempo y `O(N^2)` espacio; se reducen representación y reconstrucción. Se conservan todas las bases claras.
 
 - `1183_dp_optimized.cpp`: 0.015 s / 80 KB; base `1183_dp.cpp`: 0.015 s / 460 KB; cambio respecto a la base: tiempo -0.0%, memoria -82.6%.
@@ -104,5 +108,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1183_dp_optimized.cpp](1183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 80 KB | 11308418 |
 | [1183_dp_optimized.java](1183_dp_optimized.java) \* | Java 1.8 | dp | O(N^3) time; O(N^2) space | AC | 0.109 s | 416 KB | 11309557 |
+| [1183_dp_optimized.rs](1183_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
