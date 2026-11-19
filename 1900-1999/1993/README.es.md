@@ -105,6 +105,14 @@ interno.
 
 ## Soluciones optimizadas
 
+`1993_parsing_optimized.rs`. Conserva parser de tres roles y prefijo opcional, espacios de comas y mayúscula solo al primer byte emitido. Un vector de entrada en minúsculas ASCII; guarda rangos de roles/prefijo en vez de cadenas y uniones. Emite rangos directamente. O(L) tiempo/entrada retenida, misma gramática.
+
+Frente a `1993_parsing.rs`: tiempo 0.046 s → 0.015 s; memoria 224 KB → 80 KB.
+
+`1993_parsing_optimized.java`. Conserva orden objeto-sujeto-verbo, guardando índices de inicio/fin en la oración original, sin pasar toda la línea a minúsculas, separar cláusulas ni copiar subcadenas. Emite esas secciones y convierte ASCII al escribir. Solo la primera letra de salida queda mayúscula; la conjunción opcional precede a la segunda cláusula reordenada y sigue minúscula. Mantiene comas y espacios exactos. Tiempo O(L); el String de entrada aún ocupa O(L), pero índices y búfer están acotados. No retiene StringBuilder de respuesta completa.
+
+Frente a `1993_parsing.java`: tiempo 0.109 s → 0.078 s; memoria 472 KB → 528 KB.
+
 Se conserva la prueba del análisis por roles. C++/Go compactos guardan intervalos en un único búfer ASCII acotado, sin copiar frases ni crear objetos de flujo/cadena. El recorrido salta cada grupo completo y registra objeto, sujeto y verbo; una palabra exterior es la conjunción opcional de la segunda cláusula. Se emiten conjunción y roles ordenados, la coma original, todas las letras minúsculas salvo la primera del resultado. Sin anidación y con roles únicos, cada frase sale una vez y mantiene sus palabras. Python usa cortes y flujos existentes. Para L<=100, tiempo y espacio O(L).
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; base `1993_parsing.cpp`: 0.015 s / 388 KB; cambio respecto a la base: tiempo -0.0%, memoria -80.4%.
@@ -113,19 +121,11 @@ Se conserva la prueba del análisis por roles. C++/Go compactos guardan interval
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1993_parsing_optimized.java`: puesto de tiempo 2/65 y de memoria 5/65 en esta muestra comparable.
 
-- C++: base didáctica preferida `1993_parsing.cpp`; fuente que cubre `1993_parsing_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 63/63.
-
-- Go: base didáctica preferida `1993_parsing.go`; fuente que cubre `1993_parsing_optimized.go`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
-
-- Java: base didáctica preferida `1993_parsing.java`; fuente que cubre `1993_parsing.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1993_parsing.py`; fuente que cubre `1993_parsing_strings.py`; puestos tiempo/memoria 13/4, registros de otros autores 12/12.
-
-- Rust: base didáctica preferida `1993_parsing.rs`; fuente que cubre `1993_parsing.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -146,5 +146,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
 | [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
+| [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
+| [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

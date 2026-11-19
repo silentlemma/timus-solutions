@@ -108,6 +108,14 @@ first, so its internal word order is unchanged.
 
 ## Optimized solutions
 
+`1993_parsing_optimized.rs`. Keep the three-role clause parser and optional prefix, including comma spacing and capitalizing only the first emitted byte. Lowercase one input byte vector; record role/prefix spans instead of allocating phrase strings and joining clause results. Emit spans directly. O(L) time and O(L) retained input storage; no change to the grammar.
+
+Compared with `1993_parsing.rs`: time 0.046 s → 0.015 s; memory 224 KB → 80 KB.
+
+`1993_parsing_optimized.java`. Keep object-subject-verb reordering, but record each phrase as start/end offsets into the original sentence instead of lowercasing the whole line, splitting clauses and copying substrings. Emit those slices directly, applying ASCII case conversion only as characters are written. Only the first output letter is capitalized; an optional conjunction stays before the second reordered clause and remains lowercase. Exact comma/space formatting is preserved. Time O(L); the input String still uses O(L) storage, while role offsets and output buffering are bounded. No whole-answer StringBuilder is retained.
+
+Compared with `1993_parsing.java`: time 0.109 s → 0.078 s; memory 472 KB → 528 KB.
+
 Retain the same role-based parsing proof. Compact C++/Go keep spans in one bounded ASCII input buffer instead of copying phrases or building stream/string objects. Scan over each complete bracketed group, recording object, subject and verb positions; an unbracketed word is the optional second-clause conjunction. Emit conjunction and the three roles in order, insert the original comma separator, lowercase all letters and capitalize only the first output letter. Groups are nonnested and roles unique, so every phrase is emitted exactly once with its internal word order unchanged. Python uses slices and existing text streams. With input length L<=100, both time and storage are O(L).
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; base `1993_parsing.cpp`: 0.015 s / 388 KB; relative change: time -0.0%, memory -80.4%.
@@ -116,19 +124,11 @@ Retain the same role-based parsing proof. Compact C++/Go keep spans in one bound
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1993_parsing_optimized.java`: time place 2/65, memory place 5/65 in this comparable sample.
 
-- C++: preferred teaching base `1993_parsing.cpp`; covering source `1993_parsing_optimized.cpp`; time/memory places 1/1, other-author entries 63/63.
-
-- Go: preferred teaching base `1993_parsing.go`; covering source `1993_parsing_optimized.go`; time/memory places 1/1, other-author entries 1/1.
-
-- Java: preferred teaching base `1993_parsing.java`; covering source `1993_parsing.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1993_parsing.py`; covering source `1993_parsing_strings.py`; time/memory places 13/4, other-author entries 12/12.
-
-- Rust: preferred teaching base `1993_parsing.rs`; covering source `1993_parsing.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -149,5 +149,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
 | [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
+| [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
+| [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
