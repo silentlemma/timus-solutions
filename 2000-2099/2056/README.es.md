@@ -69,13 +69,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2056_implementation_optimized.py`. Analiza notas como enteros, guardando presencia de 3 y cantidad de 4. Para notas 3,4,5 sin ningún 3, media al menos 4.5 equivale a que el doble de cuatros no supere n. Conserva los cuatro textos de beca. Evita actualizar mínimo y suma; a diferencia del experimento descartado por escritura de bytes, interpreta numéricamente signos más y ceros iniciales. O(n) tiempo, O(I) tokens retenidos; conserva la sencilla basada en media. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `2056_implementation.py`: tiempo 0.078 s → 0.125 s; memoria 472 KB → 228 KB.
+
 La solución optimizada en C++ lee con `scanf` e imprime con `puts` en
 lugar de `iostream` y `std::string`: 116 KB en lugar de 420 KB, con el
 mismo tiempo.
 
 ## Notas por lenguaje
 
-Ningún lenguaje necesita nada especial.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`2056_implementation_optimized.py`: puesto de tiempo 272/297 y de memoria 1/297 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -94,3 +102,6 @@ Ningún lenguaje necesita nada especial.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
+| [2056_implementation_optimized.py](2056_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.125 s | 228 KB | 11325602 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

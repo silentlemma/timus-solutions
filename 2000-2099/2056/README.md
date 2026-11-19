@@ -69,13 +69,21 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2056_implementation_optimized.py`. Parse each grade numerically, retaining only whether a 3 occurs and how many 4s occur. With grades 3,4,5, the average threshold 4.5 is equivalent to twice the number of 4s being at most n when no 3 occurs. Preserve all four scholarship strings. This avoids per-grade minimum and sum updates; unlike the rejected byte-spelling experiment, plus signs and leading zeros are parsed numerically. Time O(n), total input-token storage O(I); the simple average-based source is retained. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `2056_implementation.py`: time 0.078 s → 0.125 s; memory 472 KB → 228 KB.
+
 The optimized C++ solution reads with `scanf` and prints with `puts`
 instead of `iostream` and `std::string`: 116 KB instead of 420 KB, with
 the same time.
 
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2056_implementation_optimized.py`: time place 272/297, memory place 1/297 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -94,3 +102,6 @@ No language needs anything special.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2056_implementation_optimized.cpp](2056_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 116 KB | 11303966 |
+| [2056_implementation_optimized.py](2056_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.125 s | 228 KB | 11325602 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
