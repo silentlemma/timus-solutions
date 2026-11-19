@@ -84,6 +84,10 @@ including long zero ranges and queries outside the given interval.
 
 ## Optimized solutions
 
+`1133_number_theory_optimized.rs`. Keep the identical modular Fibonacci reconstruction: step coefficients from i to j, invert modulo P=4294967291, then step forward or backward to n and decode the signed answer. Only the five-integer input path and direct output change; recurrence, modular inverse and overflow-safe u64 products are unchanged. Time O(|j-i|+|n-i|+log P), O(1) auxiliary storage. The measured memory gain is not a different asymptotic algorithm.
+
+Compared with `1133_number_theory.rs`: time 0.015 s → 0.031 s; memory 220 KB → 52 KB.
+
 The unchanged Go modular source is a different, optimized algorithm relative
 to the preferred direct big-integer Go base: 1064 KB instead of 1544 KB,
 31.1% less memory. Its 0.015 s versus 0.031 s is only one timer tick;
@@ -111,17 +115,11 @@ judge-reported memory. Keep the clearer direct versions for learning.
 
 ## Language notes
 
-Python uses built-in integers, Go `math/big`, Java `BigInteger`.
-C++ and Rust keep their accepted modular implementations using standard
-unsigned integers. Java's retained modular alternative uses
-`Long.remainderUnsigned` for wrapped 64-bit products. All input values
-are exactly representable by Java's token reader.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-The saved 2 November 2026 filtered snapshot uses the agreed profile:
-C++ must meet the top 15% or first ten places in both metrics; other
-families must rank first in both. Admitted versions below this goal
-carry a star. Empty Go/Rust competitor samples provide formal coverage,
-not evidence of competitive superiority.
+`1133_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -144,5 +142,6 @@ not evidence of competitive superiority.
 | [1133_number_theory.go](1133_number_theory.go) | Go 1.14 x64 | number_theory | O(W) | AC | 0.015 s | 1064 KB | 11279391 |
 | [1133_math_optimized.java](1133_math_optimized.java) | Java 1.8 | math | O(W²) bit time | AC | 0.093 s | 536 KB | 11308413 |
 | [1133_math_optimized.py](1133_math_optimized.py) \* | PyPy 3.10 x64 | math | O(W²) bit time | AC | 0.140 s | 256 KB | 11308412 |
+| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

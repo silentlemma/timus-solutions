@@ -55,6 +55,10 @@
 
 ## 优化解法
 
+`1133_number_theory_optimized.rs`. 保留完全相同的模 Fibonacci 重建：从 i 到 j 推系数，在 P=4294967291 下求逆，再前向/后向推至 n 并还原带符号答案。仅改变五整数输入与直接输出，递推、模逆及安全 u64 乘积不变。时间 O(|j-i|+|n-i|+log P)，辅助空间 O(1)。内存改善不代表不同渐近算法。
+
+与 `1133_number_theory.rs` 相比：时间 0.015 s → 0.031 s；内存 220 KB → 52 KB。
+
 未修改的 Go 模运算实现相对首选直接大整数 Go 基础版，是另一种优化算法：1064 KB 对 1544 KB，节省 31.1% 内存。0.015 s 对 0.031 s 只差一个计时刻度，不宣称可靠加速。旧 Java/Python 模运算实现保留为已接受的数学替代方案，不称为优化版。
 
 新的 Java/Python `math_optimized` 保留直接精确运算，只增加有证明的提前返回。若两个已知项均为零，由重建公式及 `H(D)>0`，相邻未知项也必须为零。向前相加、向后相减，推出整个双向无限序列为零。因此不必生成很大的斐波那契系数，就能直接返回零。其他输入的算法不变：保守位时间 `O(W²)`，同时存活的大整数占 `O(W)` 位；零序列的算术工作为常量。这是同一递推的特殊情况，不是预存答案表。
@@ -63,9 +67,11 @@
 
 ## 各语言说明
 
-Python 使用内置整数，Go 使用 `math/big`，Java 使用 `BigInteger`。C++、Rust 保留以标准无符号整数编写的 Accepted 模运算实现。Java 模运算替代版本用 `Long.remainderUnsigned` 处理回绕的 64 位乘积。Java token 读取器能精确表示这里所有输入值。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-2026 年 11 月 2 日保存的筛选排名采用约定规则：C++ 两项同时进入前 15% 或前十名，其他语言族两项都第一。已准入但未达排名目标的版本加星号。Go/Rust 的竞争者样本为空，仅提供形式覆盖，不证明竞争优势。
+`1133_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -88,5 +94,6 @@ Python 使用内置整数，Go 使用 `math/big`，Java 使用 `BigInteger`。C+
 | [1133_number_theory.go](1133_number_theory.go) | Go 1.14 x64 | number_theory | O(W) | AC | 0.015 s | 1064 KB | 11279391 |
 | [1133_math_optimized.java](1133_math_optimized.java) | Java 1.8 | math | O(W²) bit time | AC | 0.093 s | 536 KB | 11308413 |
 | [1133_math_optimized.py](1133_math_optimized.py) \* | PyPy 3.10 x64 | math | O(W²) bit time | AC | 0.140 s | 256 KB | 11308412 |
+| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

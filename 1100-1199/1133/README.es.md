@@ -82,6 +82,10 @@ incluidos rangos nulos largos y consultas fuera del intervalo.
 
 ## Soluciones optimizadas
 
+`1133_number_theory_optimized.rs`. Mantiene reconstrucción modular Fibonacci idéntica: coeficientes de i a j, inversa módulo P=4294967291, pasos adelante/atrás hasta n y decodificación con signo. Solo cambian lectura de cinco enteros y salida directa; recurrencia, inversa y productos seguros u64 se mantienen. O(|j-i|+|n-i|+log P) tiempo y O(1) espacio. La mejora de memoria no es otro algoritmo asintótico.
+
+Frente a `1133_number_theory.rs`: tiempo 0.015 s → 0.031 s; memoria 220 KB → 52 KB.
+
 El Go modular inalterado es otro algoritmo, optimizado frente a la base
 Go preferida con enteros grandes: 1064 KB frente a 1544 KB, 31,1% menos
 memoria. 0,015 s frente a 0,031 s es un solo tick, sin afirmar una mejora
@@ -107,17 +111,11 @@ atajo. Ambas se admiten por memoria medida por el juez; las bases didácticas se
 
 ## Notas por lenguaje
 
-Python usa enteros incorporados, Go `math/big` y Java `BigInteger`.
-C++ y Rust conservan las implementaciones modulares Accepted con enteros
-estándar sin signo. La alternativa modular Java usa `Long.remainderUnsigned`
-para los productos de 64 bits que desbordan con signo. Su lector de tokens
-representa exactamente todos los valores de entrada.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-La instantánea filtrada guardada del 2 de noviembre de 2026 usa el perfil
-acordado: C++ en el 15% superior o los primeros diez puestos de ambas métricas;
-otras familias, primero en ambas. Las versiones admitidas por debajo del
-objetivo llevan asterisco. Las muestras vacías Go/Rust ofrecen cobertura
-formal, sin demostrar superioridad competitiva.
+`1133_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -140,5 +138,6 @@ formal, sin demostrar superioridad competitiva.
 | [1133_number_theory.go](1133_number_theory.go) | Go 1.14 x64 | number_theory | O(W) | AC | 0.015 s | 1064 KB | 11279391 |
 | [1133_math_optimized.java](1133_math_optimized.java) | Java 1.8 | math | O(W²) bit time | AC | 0.093 s | 536 KB | 11308413 |
 | [1133_math_optimized.py](1133_math_optimized.py) \* | PyPy 3.10 x64 | math | O(W²) bit time | AC | 0.140 s | 256 KB | 11308412 |
+| [1133_number_theory_optimized.rs](1133_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(abs(j-i)+abs(n-i)+log P) time; O(1) space | AC | 0.031 s | 52 KB | 11325541 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
