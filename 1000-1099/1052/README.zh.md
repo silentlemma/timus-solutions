@@ -87,6 +87,10 @@
 时间仅相差一个评测刻度，不作为准入依据。除仓库测试外，还把有符号 3×3 网格中所有至少含两点的 466 个子集
 与独立的点对叉积算法逐一对照。
 
+`1052_geometry_sorting.java`. Java 以方向排序替代立方复杂度的共线检查。对每个基点，用最大公约数约分 (dx,dy)，统一符号，再无碰撞地打包为 long。相同键恰好对应经过基点的同一直线；重合点另行计数，并加入每个方向组。只看后面的下标已足够：最优直线上下标最小的点能看到该线其余所有点。复用一个基本类型 long 数组，替代映射中的装箱对象。时间为 O(N²(log N+log C))，其中 C 是至少为二的坐标差上界；额外空间 O(N)。保留全部立方复杂度教学版本及原有方向映射版本。
+
+与 `1052_geometry_bruteforce.java` 相比：时间 0.125 s → 0.093 s；内存 452 KB → 520 KB。
+
 ## 各语言说明
 
 三次复杂度 Python 使用 PyPy 3.10 通过，方向计数使用 CPython 3.12。其他简单实现采用普通评测编译器和标准输入。方向计数中 C++ 使用 `std::map`，Go/Rust 使用哈希表，Python 使用 `Counter`，Java 使用 `HashMap`，其方向键 `dx·8192+dy` 在 `|dy|≤4000` 时无冲突。
@@ -115,3 +119,6 @@
 |---|---|---|---|---|---|---|---|
 | [1052_geometry.py](1052_geometry.py) | Python 3.12 x64 | geometry | O(N² log C) expected | AC | 0.078 s | 508 KB | 11278698 |
 | [1052_geometry_sorting.rs](1052_geometry_sorting.rs) | Rust 1.75 x64 | geometry, sorting | O(N²(log N+log C)) | AC | 0.015 s | 52 KB | 11309709 |
+| [1052_geometry_sorting.java](1052_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N²(log N+log C)) | AC | 0.093 s | 520 KB | 11325006 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

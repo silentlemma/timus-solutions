@@ -121,6 +121,10 @@ y no justifica la admisión. Además de los tests del repositorio, los 466
 subconjuntos de al menos dos puntos de una cuadrícula con signo 3×3 se
 contrastaron con un oráculo independiente basado en productos cruzados.
 
+`1052_geometry_sorting.java`. Java sustituye las comprobaciones cúbicas de colinealidad por direcciones ordenadas. Para cada punto ancla reduce (dx,dy) por su máximo común divisor, fija el signo y empaqueta el par sin colisiones en un long. Las claves iguales representan exactamente una misma recta por el ancla. Cuenta por separado los puntos coincidentes y los añade a cada grupo de dirección. Basta mirar índices posteriores: el primer punto de una recta óptima ve todos sus demás puntos. Un arreglo primitivo long reutilizable sustituye las entradas de mapa con objetos. El tiempo es O(N²(log N+log C)), donde C acota las diferencias de coordenadas y es al menos dos; el espacio auxiliar es O(N). Se conservan todas las versiones didácticas cúbicas y las variantes anteriores con mapas de direcciones.
+
+Frente a `1052_geometry_bruteforce.java`: tiempo 0.125 s → 0.093 s; memoria 452 KB → 520 KB.
+
 ## Notas por lenguaje
 
 El Python cúbico fue aceptado con PyPy 3.10; el de direcciones con
@@ -153,3 +157,6 @@ Las primeras cinco filas son las bases sencillas preferidas. Las cuatro últimas
 |---|---|---|---|---|---|---|---|
 | [1052_geometry.py](1052_geometry.py) | Python 3.12 x64 | geometry | O(N² log C) expected | AC | 0.078 s | 508 KB | 11278698 |
 | [1052_geometry_sorting.rs](1052_geometry_sorting.rs) | Rust 1.75 x64 | geometry, sorting | O(N²(log N+log C)) | AC | 0.015 s | 52 KB | 11309709 |
+| [1052_geometry_sorting.java](1052_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N²(log N+log C)) | AC | 0.093 s | 520 KB | 11325006 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

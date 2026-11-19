@@ -123,6 +123,10 @@ judge tick and is not used to justify admission. All 466 distinct subsets
 of at least two points from a signed 3×3 grid matched an independent
 pair-cross-product oracle, in addition to the repository tests.
 
+`1052_geometry_sorting.java`. Java replaces cubic collinearity checks with sorted directions. For each anchor, reduce (dx,dy) by their gcd and fix its sign, then pack the pair without collisions into a long. Equal keys are exactly points on the same line through the anchor. Count coincident points separately and add them to every direction run. Looking only at later indices is sufficient: the earliest point on an optimal line sees every other point of that line. A reusable primitive long array replaces boxed map entries. Time is O(N²(log N+log C)), where C is a coordinate-difference bound of at least two; auxiliary space is O(N). All cubic teaching versions and earlier direction-map variants remain.
+
+Compared with `1052_geometry_bruteforce.java`: time 0.125 s → 0.093 s; memory 452 KB → 520 KB.
+
 ## Language notes
 
 The cubic Python source is accepted under PyPy 3.10; the direction-map
@@ -155,3 +159,6 @@ The first five rows are the preferred simple versions. The final four retain the
 |---|---|---|---|---|---|---|---|
 | [1052_geometry.py](1052_geometry.py) | Python 3.12 x64 | geometry | O(N² log C) expected | AC | 0.078 s | 508 KB | 11278698 |
 | [1052_geometry_sorting.rs](1052_geometry_sorting.rs) | Rust 1.75 x64 | geometry, sorting | O(N²(log N+log C)) | AC | 0.015 s | 52 KB | 11309709 |
+| [1052_geometry_sorting.java](1052_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N²(log N+log C)) | AC | 0.093 s | 520 KB | 11325006 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
