@@ -15,7 +15,10 @@ fn free_language(spoken: &HashSet<&str>) -> String {
             names.push(format!("{}{}", a as char, b as char));
         }
     }
-    names.into_iter().find(|name| !spoken.contains(name.as_str())).unwrap()
+    names
+        .into_iter()
+        .find(|name| !spoken.contains(name.as_str()))
+        .unwrap()
 }
 
 fn main() {
