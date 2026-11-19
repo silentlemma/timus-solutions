@@ -62,15 +62,25 @@ The answers were checked against adding the numbers one by one.
 
 ## Optimized solutions
 
+`1068_math_optimized.go`. Keep the inclusive arithmetic progression from 1 to N: (abs(N−1)+1)(N+1)/2 in int64 handles positive, zero and negative N without a loop. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `1068_math.go`: time 0.031 s → 0.015 s; memory 1072 KB → 260 KB.
+
 The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`: 368 KB instead of 1568 KB, with
 the same time.
 
+`1068_math_optimized.py`. Keep the arithmetic-progression formula (1+N)*(abs(N-1)+1)//2, which also covers zero and negative N. Read the bounded integer from raw bytes instead of input(), and avoid the wrapper call. Time and arithmetic storage remain O(1) under |N|<=10000. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1068_math.py`: time 0.078 s → 0.109 s; memory 448 KB → 196 KB.
+
 ## Language notes
 
-- Python uses floor division `//`, which is exact here because the
-  product is even; the other languages truncate, which is exact for the
-  same reason.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1068_math_optimized.py`: time place 644/739, memory place 1/739 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -89,6 +99,7 @@ the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 368 KB | 11303705 |
+| [1068_math_optimized.py](1068_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324832 |
+| [1068_math_optimized.go](1068_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 260 KB | 11325649 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.
