@@ -80,6 +80,10 @@ posterior no invalida el lote pendiente. Primero maximizar monedas, luego minimi
 
 ## Soluciones optimizadas
 
+`1917_greedy_optimized.rs`. Conserva grupos ordenados de umbral igual y empaquetado voraz. Umbrales≤10⁶ en un vector u32 ordenado in situ, no clon u64. Producto tamaño×umbral en u64 frente a presupuesto≤10⁹. Mismos grupos imposibles y último hechizo parcial. O(n log n) tiempo, O(n) espacio.
+
+Frente a `1917_greedy.rs`: tiempo 0.031 s → 0.031 s; memoria 240 KB → 64 KB.
+
 No cambia el voraz por grupos: los valores iguales son inseparables y no se puede saltar el primer grupo inseguro. Java ordena el arreglo primitivo in situ con heapsort iterativo, evitando clases auxiliares, copias y memoria temporal. La entrada de bytes y salida ASCII acotadas sustituyen objetos de tokens y formato. Los productos de comprobación usan enteros anchos y la memoria auxiliar de ordenación es constante.
 
 - `1917_greedy_optimized.java`: 0.109 s / 380 KB; base `1917_greedy.java`: 0.125 s / 648 KB; cambio respecto a la base: tiempo -12.8%, memoria -41.4%.
@@ -117,5 +121,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

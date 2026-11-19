@@ -85,6 +85,10 @@ The objectives are ordered: maximize coins before minimizing spells.
 
 ## Optimized solutions
 
+`1917_greedy_optimized.rs`. Keep the sorted equal-threshold groups and the same greedy spell packing. Store thresholds≤10⁶ in one u32 vector and sort it in place rather than cloning a u64 vector. Compute group-size×threshold in u64 against the budget≤10⁹. Impossible groups and final partially filled spell are handled as before. O(n log n) time and O(n) space.
+
+Compared with `1917_greedy.rs`: time 0.031 s → 0.031 s; memory 240 KB → 64 KB.
+
 The grouped greedy is unchanged: equal values form an inseparable group, and the first unsafe group cannot be bypassed. Java sorts the primitive input in place with iterative heapsort, avoiding sorting helper classes, copied arrays and scratch storage. Bounded byte input and ASCII output replace token and formatting objects. Products used to test a group are evaluated in a wide integer type; auxiliary sorting storage is constant.
 
 - `1917_greedy_optimized.java`: 0.109 s / 380 KB; base `1917_greedy.java`: 0.125 s / 648 KB; relative change: time -12.8%, memory -41.4%.
@@ -122,5 +126,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1917_greedy_optimized.java](1917_greedy_optimized.java) \* | Java 1.8 | greedy | O(N log N) | AC | 0.109 s | 380 KB | 11309400 |
+| [1917_greedy_optimized.rs](1917_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(n log n) time; O(n) space | AC | 0.031 s | 64 KB | 11325551 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
