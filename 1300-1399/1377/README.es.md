@@ -55,6 +55,10 @@ primero; los rectángulos estrechos y la franja final usan las mismas reglas.
 
 ## Soluciones optimizadas
 
+`1377_math.rs`. Sustituye simulación de espiral por índice cerrado de cada celda consultada. Capa es distancia mínima al borde; rows*columns menos área interior cuenta capas anteriores y offset por lado da índice cero. Trata interior de una fila/columna aparte. Diferencia de índices da noches. O(1) tiempo/espacio frente a O(rows*columns); algoritmo math distinto con nombre propio, conserva simulación sencilla.
+
+Frente a `1377_simulation.rs`: tiempo 0.031 s → 0.046 s; memoria 272 KB → 52 KB.
+
 Para una celda `(r,c)` con índices desde cero, su capa es
 `d = min(r,c,N−1−r,M−1−c)`. Quitando las `d` capas exteriores quedan
 `h=N−2d` filas y `w=M−2d` columnas; antes se han visitado `N·M−h·w`
@@ -76,7 +80,11 @@ independientemente, incluidas franjas finales y todas las celdas pequeñas.
 
 ## Notas por lenguaje
 
-Las cinco fuentes base simulan la misma espiral. Debajo figuran cuatro implementaciones distintas de la fórmula.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1377_math.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -98,5 +106,6 @@ Las cinco fuentes base simulan la misma espiral. Debajo figuran cuatro implement
 | [1377_math.go](1377_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1052 KB | 11308026 |
 | [1377_math.java](1377_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 436 KB | 11308028 |
 | [1377_math.py](1377_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 460 KB | 11308022 |
+| [1377_math.rs](1377_math.rs) \* | Rust 1.75 x64 | math | O(1) time and space | AC | 0.046 s | 52 KB | 11325548 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

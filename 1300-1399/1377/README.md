@@ -55,6 +55,10 @@ the final single row or column need no separate simulation rule.
 
 ## Optimized solutions
 
+`1377_math.rs`. Replace the simulated spiral grid by a closed-form index for each queried cell. Its layer is the minimum distance to a rectangle side; rows*columns minus the inner rectangle area counts earlier layers, and a side-specific perimeter offset gives its zero-based index. Handle one-row/one-column inner rectangles separately. The difference of the two indices is the required night difference. O(1) time/space replaces O(rows*columns); the different math algorithm has its own filename, and the simple simulation remains.
+
+Compared with `1377_simulation.rs`: time 0.031 s → 0.046 s; memory 272 KB → 52 KB.
+
 For a zero-based cell `(r,c)`, its layer is
 `d = min(r,c,N−1−r,M−1−c)`. Remove the outer `d` layers: the remaining
 rectangle has height `h=N−2d` and width `w=M−2d`, and exactly `N·M−h·w`
@@ -77,7 +81,11 @@ generated spiral, including final strips and every cell of small grids.
 
 ## Language notes
 
-All five base sources simulate the same spiral. Four distinct formula sources are listed below.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1377_math.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -99,5 +107,6 @@ All five base sources simulate the same spiral. Four distinct formula sources ar
 | [1377_math.go](1377_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 1052 KB | 11308026 |
 | [1377_math.java](1377_math.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 436 KB | 11308028 |
 | [1377_math.py](1377_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 460 KB | 11308022 |
+| [1377_math.rs](1377_math.rs) \* | Rust 1.75 x64 | math | O(1) time and space | AC | 0.046 s | 52 KB | 11325548 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
