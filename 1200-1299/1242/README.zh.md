@@ -22,6 +22,10 @@ N，然后是若干行 `孩子 父母`，然后是单词 `BLOOD` 和受害者，
 
 按升序输出可能的狼人，或 0。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -90,6 +94,10 @@ BLOOD
 
 ## 优化解法
 
+`1242_graphs_optimized.rs`. 保留祖先及后代分别搜索，不混方向。u16 顶点前向星替代嵌套邻接向量、输入词/端点数组及输出字符串列表。复用栈，各方向重置访问集，保留排除人员并集。N≤1000 适合 u16。I 个输入字节下 O(N+M+I) 时间、O(N+M) 存储。
+
+与 `1242_graphs.rs` 相比：时间 0.031 s → 0.015 s；内存 312 KB → 96 KB。
+
 优化的 Java 解法按 4 KB 分块逐字节读取单词，而不是把全部输入收集到
 `StringBuilder` 中，并把父母关系和子女关系存成 `int` 数组中的两组边链表，先留出
 `2N` 条边的空间（每人最多两个父母），若重复的行把数组填满就加倍，而不是装箱
@@ -138,5 +146,6 @@ BLOOD
 |---|---|---|---|---|---|---|---|
 | [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
 | [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+| [1242_graphs_optimized.rs](1242_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N+M+I) time; O(N+M) space | AC | 0.015 s | 96 KB | 11325526 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -25,6 +25,10 @@ por línea.
 
 Los posibles hombres lobo en orden creciente, o 0.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -102,6 +106,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1242_graphs_optimized.rs`. Conserva búsquedas separadas de ancestros y descendientes, sin mezclar direcciones. Listas planas con vértices u16 sustituyen vectores anidados, tokens/extremos y cadenas de salida. Reutiliza pila y reinicia visitados por dirección, manteniendo unión de descartados. N≤1000 cabe u16. O(N+M+I) tiempo, O(N+M) espacio para I bytes.
+
+Frente a `1242_graphs.rs`: tiempo 0.031 s → 0.015 s; memoria 312 KB → 96 KB.
+
 La solución optimizada en Java lee las palabras byte a byte en bloques
 de 4 KB en lugar de juntar toda la entrada en un `StringBuilder`, y
 guarda los enlaces a los padres y a los hijos como dos listas enlazadas
@@ -163,5 +171,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
 | [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+| [1242_graphs_optimized.rs](1242_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N+M+I) time; O(N+M) space | AC | 0.015 s | 96 KB | 11325526 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -25,6 +25,10 @@ per line.
 
 The possible werewolves in increasing order, or 0.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -99,6 +103,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1242_graphs_optimized.rs`. Keep separate ancestor and descendant graph searches; never traverse mixed directions. Flat forward-star lists with u16 vertices replace nested adjacency vectors, input token/endpoints arrays and the collected output strings. Reuse the search stack and reset its visited set for each direction, retaining the union of cleared people. N≤1000 fits u16. O(N+M+I) time, O(N+M) space for I input bytes.
+
+Compared with `1242_graphs.rs`: time 0.031 s → 0.015 s; memory 312 KB → 96 KB.
+
 The optimized Java solution reads the words byte by byte from 4 KB
 blocks instead of collecting the whole input in a `StringBuilder`, and
 stores the parent links and the child links as two linked lists of edges
@@ -159,5 +167,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1242_graphs_optimized.java](1242_graphs_optimized.java) | Java 1.8 | graphs | O(N + links) | AC | 0.093 s | 732 KB | 11307268 |
 | [1242_graphs_bitmask.py](1242_graphs_bitmask.py) \* | Python 3.12 x64 | graphs, bitmask | O((N + links) · B) | AC | 0.062 s | 628 KB | 11307446 |
+| [1242_graphs_optimized.rs](1242_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N+M+I) time; O(N+M) space | AC | 0.015 s | 96 KB | 11325526 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
