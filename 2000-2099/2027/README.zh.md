@@ -121,6 +121,10 @@ Python 教学版保留字符网格，用 match 分派指令，并分别记录行
 
 ## 优化解法
 
+`2027_simulation_optimized.java`. 保留解释器精确执行顺序及 tick、错误语义。网格用单个 byte 数组；仅执行 ? 时消费输入，耗尽后保存末值重复使用。流式输出 ! 和终止错误，不存全部数字和增长答案。停止仍先于移动，溢出先于越界检查，百万次指令与移动完成后才检查 tick 上限。负当前值在 @ 处顺时针转。执行 T tick 时时间 O(HW+T)，空间 O(HW+26) 加固定缓冲，与未用输入数量和输出长度无关。
+
+与 `2027_simulation.java` 相比：时间 0.156 s → 0.14 s；内存 21 392 KB → 552 KB。
+
 C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指令，外加零边框和四个线性方向偏移。每步从网格内开始，一次移动最多到达外围边框。边框使用保留的零指令码，检查目的地即可在下一步前发现越界。仅执行 ? 时读取下个输入；耗尽后重用最后的源输入值，不受寄存器交换或当前累加器影响。固定缓冲流式输出（Rust 用 C 字符 I/O），不保存完整输入列表或长输出。每条指令先判溢出，再移动并立即判越界；第1,000,000步也先报告这些错误，# 在移动前结束，第1,000,001步不执行。T≤1,000,000，时间 O(HW+T)，空间 O(HW) 加固定缓冲和26寄存器，不随输入数或输出行数增长。保留简单解释器，Java/Python 复用达标基础文件。
 
 通过评测的 Rust 1.75 x64 版本耗时 0.078 秒，基础版为 0.031 秒，内存为 72 KB，基础版为 6264 KB。
@@ -129,7 +133,11 @@ C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指�
 
 ## 各语言说明
 
-原解释器用 C++ 字符串、Go 的 strings.Builder、Java 的 StringBuilder、Rust 的 String 或 Python 的 StringIO 累积输出。优化的 C++、Go 和 Rust 在执行指令时流式输出。有符号整数足以表示合法值及检查单步溢出时的中间结果。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`2027_simulation_optimized.java`：在该可比样本中，时间名次 4/34，内存名次 2/34。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -139,7 +147,7 @@ C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指�
 |---|---|---|---|---|---|---|---|
 | [2027_simulation.cpp](2027_simulation.cpp) | G++ 13.2 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 8132 KB | 11293002 |
 | [2027_simulation.go](2027_simulation.go) | Go 1.14 x64 | simulation | O(HW + N + S + B) | AC | 0.093 s | 11016 KB | 11298002 |
-| [2027_simulation.java](2027_simulation.java) \* | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.140 s | 21408 KB | 11298003 |
+| [2027_simulation.java](2027_simulation.java) \* | Java 1.8 | simulation | O(HW + N + S + B) | AC | 0.156 s | 21392 KB | 11325568 |
 | [2027_simulation.py](2027_simulation.py) \* | Python 3.12 x64 | simulation | O(HW + N + S + B) | AC | 0.875 s | 21712 KB | 11298005 |
 | [2027_simulation.rs](2027_simulation.rs) | Rust 1.75 x64 | simulation | O(HW + N + S + B) | AC | 0.031 s | 6264 KB | 11298006 |
 | [2027_implementation.py](2027_implementation.py) | Python 3.12 x64 | implementation | O(HW + N + T + B) | AC | 0.937 s | 20624 KB | 11315921 |
@@ -151,5 +159,6 @@ C++/Go/Rust 保持解释器语义，先把 H×W 字符网格编译为字节指�
 | [2027_simulation_optimized.cpp](2027_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(HW + T) | AC | 0.015 s | 144 KB | 11315741 |
 | [2027_simulation_optimized.go](2027_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(HW + T) | AC | 0.031 s | 920 KB | 11315743 |
 | [2027_simulation_optimized.rs](2027_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(HW + T) | AC | 0.078 s | 72 KB | 11315747 |
+| [2027_simulation_optimized.java](2027_simulation_optimized.java) \* | Java 1.8 | simulation | O(HW+T) | AC | 0.14 s | 552 KB | 11325034 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
