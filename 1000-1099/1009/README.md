@@ -86,6 +86,14 @@ The optimized Java solution parses the two numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.125 s and
 336 KB instead of 1576 KB.
 
+`1009_dp_optimized.go`. Go keeps the two-state digit DP. Portable byte input and a fixed output buffer replace fmt-based parsing and printing; only the counts for the previous prefix are retained. There are O(N) bounded-integer updates and O(1) auxiliary storage.
+
+Compared with `1009_dp.go`: time 0.031 s → 0.015 s; memory 1104 KB → 796 KB.
+
+`1009_dp.py`. The new Python source uses digit DP instead of the combinatorial sum. Let z and q count prefixes ending in zero and in a nonzero digit. Start with (z,q)=(0,K-1) to exclude a leading zero, then update (z,q)=(q,(z+q)(K-1)). A zero can follow only a nonzero digit, while any prefix admits K-1 nonzero extensions. This counts exactly the valid strings in O(N) updates and O(1) auxiliary integer slots. The combinatorial teaching source remains separate.
+
+Compared with `1009_combinatorics.py`: time 0.078 s → 0.109 s; memory 404 KB → 196 KB.
+
 ## Language notes
 
 - **C++**, **Go**, **Java**, **Rust**: the two-state DP.
@@ -110,3 +118,7 @@ The optimized Java solution parses the two numbers byte by byte from
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1009_dp_optimized.java](1009_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 336 KB | 11303698 |
+| [1009_dp_optimized.go](1009_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.015 s | 796 KB | 11325041 |
+| [1009_dp.py](1009_dp.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.109 s | 196 KB | 11324917 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

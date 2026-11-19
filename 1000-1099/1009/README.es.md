@@ -88,6 +88,14 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
 336 KB en lugar de 1576 KB.
 
+`1009_dp_optimized.go`. Go mantiene la DP de dos estados según la última cifra. La entrada por bytes y un búfer fijo de salida sustituyen el análisis y la impresión con fmt; solo se conservan los dos conteos del prefijo anterior. Se realizan O(N) actualizaciones de enteros acotados por el enunciado, con O(1) espacio auxiliar.
+
+Frente a `1009_dp.go`: tiempo 0.031 s → 0.015 s; memoria 1104 KB → 796 KB.
+
+`1009_dp.py`. El nuevo código de Python usa DP por cifras en lugar de la suma combinatoria. Sean z y q los conteos de prefijos terminados en cero y en otra cifra. Se empieza con (z,q)=(0,K-1), excluyendo el cero inicial, y se actualiza (z,q)=(q,(z+q)(K-1)). Un cero solo puede seguir a una cifra no nula, mientras que cualquier prefijo tiene K-1 extensiones no nulas. Así se cuentan exactamente las cadenas válidas en O(N) actualizaciones y O(1) posiciones enteras auxiliares. Se conserva por separado la versión combinatoria didáctica.
+
+Frente a `1009_combinatorics.py`: tiempo 0.078 s → 0.109 s; memoria 404 KB → 196 KB.
+
 ## Notas por lenguaje
 
 - **C++**, **Go**, **Java**, **Rust**: la DP de dos estados.
@@ -112,3 +120,7 @@ La solución optimizada en Java analiza los dos números byte a byte desde
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1009_dp_optimized.java](1009_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 336 KB | 11303698 |
+| [1009_dp_optimized.go](1009_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.015 s | 796 KB | 11325041 |
+| [1009_dp.py](1009_dp.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.109 s | 196 KB | 11324917 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
