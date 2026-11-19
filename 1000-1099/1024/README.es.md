@@ -87,6 +87,10 @@ Go guarda la permutación en un vector fijo de índices de 16 bits. Sustituye ca
 
 Las implementaciones base aceptadas [1024_math.cpp](1024_math.cpp), [1024_math.java](1024_math.java), [1024_math.py](1024_math.py), [1024_math.rs](1024_math.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1024_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1024_math.java`: tiempo 0.140 s → 0.093 s; memoria 2400 KB → 468 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -111,5 +115,6 @@ Python (`math.lcm`) tienen el mcm en la biblioteca estándar.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1024_math_optimized.go](1024_math_optimized.go) \* | Go 1.14 x64 | math | O(N log N) | AC | 0.015 s | 288 KB | 11311221 |
+| [1024_math_optimized.java](1024_math_optimized.java) \* | Java 1.8 | math | O(N log N) | AC | 0.093 s | 468 KB | 11325004 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
