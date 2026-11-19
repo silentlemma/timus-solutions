@@ -21,6 +21,10 @@ The three different sizes x₁, x₂, x₃ (1 ≤ xᵢ ≤ 10¹⁸).
 
 The number of people asked.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -93,15 +97,17 @@ asterisk concerns the rating target only.
 - `1777_simulation_optimized.java`: time reduction +0.00%; memory
   reduction +74.18%; base: `1777_simulation.java`.
 
+`1777_simulation_optimized.rs`. Keep all piles in one sorted dynamic vector. Scan adjacent differences, binary-search the new minimum gap and insert it at its sorted position instead of sorting the entire vector every step. If that size already exists, count the following person who detects equality and stop immediately. Dynamic capacity avoids relying on a merely observed upper bound on pile count. With s steps, scans and insert shifts cost O(s²) in total and storage O(s). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1777_simulation.rs`: time 0.046 s → 0.031 s; memory 252 KB → 76 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1777_simulation.go](1777_simulation.go).
-- [1777_simulation.rs](1777_simulation.rs).
+`1777_simulation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -121,3 +127,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
 | [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

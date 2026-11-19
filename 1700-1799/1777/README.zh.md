@@ -18,6 +18,10 @@
 
 被问的人数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -70,12 +74,17 @@ g。每一步 `O(1)` 时间，整个过程 `O(1)` 内存，而不是反复对不
 
 - `1777_simulation_optimized.java`: 时间降低 +0.00%; 内存降低 +74.18%; 基础版本: `1777_simulation.java`.
 
+`1777_simulation_optimized.rs`. 把所有堆保存在一个有序动态向量中。扫描相邻差，对新最小差二分定位并插入，不再每步重排整个向量。若该大小已存在，直接计入下一位发现相等的人并结束。动态容量不依赖仅凭实验观察到的堆数上限。s 步中扫描与插入移动总计 O(s²)，空间 O(s)。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1777_simulation.rs` 相比：时间 0.046 s → 0.031 s；内存 252 KB → 76 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1777_simulation.go](1777_simulation.go).
-- [1777_simulation.rs](1777_simulation.rs).
+`1777_simulation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -95,3 +104,6 @@ g。每一步 `O(1)` 时间，整个过程 `O(1)` 内存，而不是反复对不
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
 | [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

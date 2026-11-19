@@ -22,6 +22,10 @@ Los tres tamaños distintos x₁, x₂, x₃ (1 ≤ xᵢ ≤ 10¹⁸).
 
 El número de personas preguntadas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -95,15 +99,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1777_simulation_optimized.java`: reducción de tiempo +0.00%;
   reducción de memoria +74.18%; base: `1777_simulation.java`.
 
+`1777_simulation_optimized.rs`. Mantiene todos los montones en un vector dinámico ordenado. Recorre diferencias vecinas, busca por bisección el nuevo mínimo y lo inserta en su posición, evitando ordenar todo en cada paso. Si el tamaño ya existe, cuenta a la siguiente persona que detecta la igualdad y termina. La capacidad dinámica no depende de un límite de montones observado solo experimentalmente. En s pasos, recorridos y desplazamientos cuestan O(s²) en total y espacio O(s). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1777_simulation.rs`: tiempo 0.046 s → 0.031 s; memoria 252 KB → 76 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1777_simulation.go](1777_simulation.go).
-- [1777_simulation.rs](1777_simulation.rs).
+`1777_simulation_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,3 +129,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
 | [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
