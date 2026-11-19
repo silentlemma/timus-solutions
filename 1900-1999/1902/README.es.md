@@ -85,6 +85,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1902_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +71.30%; base: `1902_math.cpp`.
 
+`1902_math_optimized.rs`. Procesa cada encuentro por separado. Guarda el doble de su tiempo como el entero exacto start+duration+opponent_start e imprime el cociente y .0 o .5. No necesita redondeo de coma flotante, lista de encuentros ni toda la salida: O(N) tiempo y O(1) espacio auxiliar. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1902_math.rs`: tiempo 0.015 s → 0.046 s; memoria 228 KB → 56 KB.
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -115,3 +119,6 @@ instantes adicionales; t es una duración y no un instante absoluto.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |
+| [1902_math_optimized.rs](1902_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 56 KB | 11324873 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

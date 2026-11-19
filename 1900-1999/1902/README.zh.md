@@ -77,6 +77,10 @@ Original problem by Denis Dublennykh, from Ural Championship 2012.
 
 - `1902_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +71.30%; 基础版本: `1902_math.cpp`.
 
+`1902_math_optimized.rs`. 逐次独立处理相遇。把时间的两倍保存为精确整数 start+duration+opponent_start，再输出商以及 .0 或 .5。无需浮点舍入、相遇列表或完整输出构造器，时间 O(N)，额外空间 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1902_math.rs` 相比：时间 0.015 s → 0.046 s；内存 228 KB → 56 KB。
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -104,3 +108,6 @@ Python 面向 CPython 3.12。应读取恰好 n 个进入时刻；t 是持续时�
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |
+| [1902_math_optimized.rs](1902_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 56 KB | 11324873 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

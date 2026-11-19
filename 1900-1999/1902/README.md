@@ -88,6 +88,10 @@ asterisk concerns the rating target only.
 - `1902_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +71.30%; base: `1902_math.cpp`.
 
+`1902_math_optimized.rs`. Process each encounter independently. Store twice its time as the exact integer start+duration+opponent_start, then print the quotient and either .0 or .5. No floating-point rounding, encounter list or output builder is needed: O(N) time and O(1) auxiliary space. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1902_math.rs`: time 0.015 s → 0.046 s; memory 228 KB → 56 KB.
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -118,3 +122,6 @@ and then exactly n entry times avoids confusing t with an absolute time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1902_math_optimized.cpp](1902_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11304349 |
+| [1902_math_optimized.rs](1902_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 56 KB | 11324873 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
