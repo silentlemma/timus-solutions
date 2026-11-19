@@ -74,25 +74,27 @@ tests.
 
 ## Optimized solutions
 
+`1885_math_optimized.java`. Keep exactly the same extremal formulas: max(0,h-t*x)/(v-x) and min(t,h/x), with double arithmetic and six fractional digits. Java replaces Scanner by buffered integer input but retains Locale.US formatting. Rust reads four doubles directly through checked C scanf calls and prints through printf, avoiding the input String, parsed vector and Rust formatting machinery. The static C formats match live f64 pointers and promoted double arguments; no variable format strings are used. This is an I/O/runtime improvement, not a new mathematical algorithm; both time and auxiliary storage remain O(1). The condition x<v keeps the denominator positive, and the existing 1e-6 numeric tolerance applies.
+
+Compared with `1885_math.java`: time 0.109 s → 0.125 s; memory 1788 KB → 976 KB.
+
+`1885_math_optimized.rs`. Keep exactly the same extremal formulas: max(0,h-t*x)/(v-x) and min(t,h/x), with double arithmetic and six fractional digits. Java replaces Scanner by buffered integer input but retains Locale.US formatting. Rust reads four doubles directly through checked C scanf calls and prints through printf, avoiding the input String, parsed vector and Rust formatting machinery. The static C formats match live f64 pointers and promoted double arguments; no variable format strings are used. This is an I/O/runtime improvement, not a new mathematical algorithm; both time and auxiliary storage remain O(1). The condition x<v keeps the denominator positive, and the existing 1e-6 numeric tolerance applies.
+
+Compared with `1885_math.rs`: time 0.046 s → 0.046 s; memory 248 KB → 104 KB.
+
 Keep the same minimum/supremum formulas as the teaching versions. Compute their numerators exactly and round nonnegative divisions to six decimal places using scale `S=10^6`: `floor((a*S+floor(b/2))/b)`. The error is at most half a decimal unit, `0.5·10^-6`, within the required tolerance. Clip the minimum at zero and the maximum at t. Emit integer and padded fractional fields directly, avoiding floating-point conversion, the general percent formatter and a concatenated output string. All input-bound intermediates fit signed 64 bits; the Python file was accepted under PyPy 3.10. This changes the arithmetic and formatting implementation, not the mathematical answer. The short floating-point bases remain available. Time and extra space stay constant.
 
 - `1885_math_optimized.py`: 0.109 s / 272 KB; base `1885_math.py`: 0.078 s / 392 KB; relative change: time +39.7%, memory -30.6%.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1885_math_optimized.java`: time place 28/41, memory place 14/41 in this comparable sample.
 
-- C++: preferred teaching base `1885_math.cpp`; covering source `1885_math.cpp`; time/memory places 1/4, other-author entries 106/106.
+`1885_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1885_math.go`; covering source `1885_math.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1885_math.java`; covering source `1885_math.java`; time/memory places 1/1, other-author entries 1/1.
-
-- Python/PyPy: preferred teaching base `1885_math.py`; covering source `1885_math_optimized.py`; time/memory places 13/1, other-author entries 23/23.
-
-- Rust: preferred teaching base `1885_math.rs`; covering source `1885_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -111,5 +113,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
+| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 976 KB | 11324784 |
+| [1885_math_optimized.rs](1885_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

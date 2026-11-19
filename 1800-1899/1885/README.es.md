@@ -74,25 +74,27 @@ en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1885_math_optimized.java`. Mantiene exactamente max(0,h-t*x)/(v-x) y min(t,h/x), aritmética double y seis decimales. Java cambia Scanner por lectura entera con búfer y conserva Locale.US. Rust lee cuatro doubles con scanf comprobado e imprime con printf, sin String de entrada, vector ni formato de Rust. Los formatos C estáticos corresponden a punteros f64 válidos y argumentos double promovidos; no hay formatos variables. Mejora E/S y ejecución, sin cambiar el algoritmo matemático: tiempo y espacio auxiliar O(1). x<v hace positivo el denominador; conserva tolerancia numérica 1e-6.
+
+Frente a `1885_math.java`: tiempo 0.109 s → 0.125 s; memoria 1788 KB → 976 KB.
+
+`1885_math_optimized.rs`. Mantiene exactamente max(0,h-t*x)/(v-x) y min(t,h/x), aritmética double y seis decimales. Java cambia Scanner por lectura entera con búfer y conserva Locale.US. Rust lee cuatro doubles con scanf comprobado e imprime con printf, sin String de entrada, vector ni formato de Rust. Los formatos C estáticos corresponden a punteros f64 válidos y argumentos double promovidos; no hay formatos variables. Mejora E/S y ejecución, sin cambiar el algoritmo matemático: tiempo y espacio auxiliar O(1). x<v hace positivo el denominador; conserva tolerancia numérica 1e-6.
+
+Frente a `1885_math.rs`: tiempo 0.046 s → 0.046 s; memoria 248 KB → 104 KB.
+
 Se conservan las fórmulas del mínimo y supremo. Calcular numeradores exactos y redondear divisiones no negativas a seis decimales con `S=10^6`: `floor((a*S+floor(b/2))/b)`. El error máximo es media unidad decimal, `0.5·10^-6`, dentro de la tolerancia. Limitar el mínimo por cero y el máximo por t. Emitir partes enteras y fraccionarias rellenadas directamente, sin conversión flotante, formateador general ni concatenar el resultado. Los intermedios caben en 64 bits con signo; Python está aceptado con PyPy 3.10. Cambia la representación, no las fórmulas; se conservan las bases flotantes cortas. Tiempo y espacio adicional constantes.
 
 - `1885_math_optimized.py`: 0.109 s / 272 KB; base `1885_math.py`: 0.078 s / 392 KB; cambio respecto a la base: tiempo +39.7%, memoria -30.6%.
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1885_math_optimized.java`: puesto de tiempo 28/41 y de memoria 14/41 en esta muestra comparable.
 
-- C++: base didáctica preferida `1885_math.cpp`; fuente que cubre `1885_math.cpp`; puestos tiempo/memoria 1/4, registros de otros autores 106/106.
+`1885_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1885_math.go`; fuente que cubre `1885_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1885_math.java`; fuente que cubre `1885_math.java`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
-
-- Python/PyPy: base didáctica preferida `1885_math.py`; fuente que cubre `1885_math_optimized.py`; puestos tiempo/memoria 13/1, registros de otros autores 23/23.
-
-- Rust: base didáctica preferida `1885_math.rs`; fuente que cubre `1885_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -111,5 +113,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
+| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 976 KB | 11324784 |
+| [1885_math_optimized.rs](1885_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
