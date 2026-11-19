@@ -82,6 +82,10 @@ Rust 1.75 x64 的实测时间从 0.015 秒增至 0.046 秒。
 
 已通过评测的基础实现 [1036_dp.java](1036_dp.java), [1036_dp.py](1036_dp.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+`1036_dp_optimized.java`. Java 保留使用 BigInteger 的精确数位和 DP。总和为奇数或半边目标不可达时直接返回零。将每位 d 替换为 9-d，给出和为 T 与 9N-T 的双射，因此取较小目标。每个新状态是十个相邻旧状态之和，用滑动 BigInteger 和加入进入项、减去离开项。复用两个数组，最后把一半的方案数平方，得到两个独立半边的组合数。进行 O(N·(T+1)) 次大整数加减，使用 O(T+1) 个大整数槽位，也涵盖零目标情况，算术保持精确。
+
+与 `1036_dp.java` 相比：时间 0.140 s → 0.109 s；内存 5728 KB → 1 524 KB。
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -108,5 +112,6 @@ Rust 1.75 x64 的实测时间从 0.015 秒增至 0.046 秒。
 | [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
 | [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
 | [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+| [1036_dp_optimized.java](1036_dp_optimized.java) \* | Java 1.8 | dp | O(N·(T+1)) big additions; T=min(S/2,9N-S/2) | AC | 0.109 s | 1524 KB | 11324788 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

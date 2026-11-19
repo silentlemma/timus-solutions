@@ -92,6 +92,10 @@ El tiempo medido en Rust 1.75 x64 aumenta de 0.015 a 0.046 s.
 
 Las implementaciones base aceptadas [1036_dp.java](1036_dp.java), [1036_dp.py](1036_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1036_dp_optimized.java`. Java mantiene la DP exacta de suma de cifras con BigInteger. Rechaza un total impar o una suma de mitad imposible. Sustituir cada cifra d por 9-d establece una biyección entre sumas T y 9N-T, de modo que se usa el menor objetivo. Cada nueva celda suma diez celdas antiguas consecutivas; una suma deslizante BigInteger añade el término que entra y resta el que sale. Reutiliza dos arreglos y eleva al cuadrado el conteo final para las dos mitades independientes. Realiza O(N·(T+1)) sumas/restas de enteros grandes y usa O(T+1) posiciones para ellos, incluyendo el objetivo cero, con aritmética exacta.
+
+Frente a `1036_dp.java`: tiempo 0.140 s → 0.109 s; memoria 5728 KB → 1 524 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -120,5 +124,6 @@ Estas notas describen las implementaciones sencillas.
 | [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
 | [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
 | [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+| [1036_dp_optimized.java](1036_dp_optimized.java) \* | Java 1.8 | dp | O(N·(T+1)) big additions; T=min(S/2,9N-S/2) | AC | 0.109 s | 1524 KB | 11324788 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

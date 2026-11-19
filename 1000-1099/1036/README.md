@@ -92,6 +92,10 @@ Measured time for Rust 1.75 x64 increases from 0.015 to 0.046 s.
 
 The accepted base implementations [1036_dp.java](1036_dp.java), [1036_dp.py](1036_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1036_dp_optimized.java`. Java keeps exact BigInteger digit-sum DP. Reject an odd total or an unattainable half-sum. Replacing every digit d by 9-d bijects sum T with 9N-T, so use the smaller target. Each next DP cell is the sum of ten consecutive old cells; a sliding BigInteger sum adds the entering term and subtracts the leaving one. Reuse two arrays and square the final count for the two independent halves. There are O(N·(T+1)) big-integer additions/subtractions and O(T+1) big-integer slots, including the zero-target case; arithmetic remains exact.
+
+Compared with `1036_dp.java`: time 0.140 s → 0.109 s; memory 5728 KB → 1 524 KB.
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -120,5 +124,6 @@ These notes describe the simple implementations.
 | [1036_dp_optimized.cpp](1036_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N·S) big integer operations | AC | 0.015 s | 116 KB | 11310337 |
 | [1036_combinatorics.go](1036_combinatorics.go) \* | Go 1.14 x64 | combinatorics | O(N²) big integer operations | AC | 0.015 s | 1204 KB | 11310374 |
 | [1036_dp_optimized.rs](1036_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N·S) big integer operations | AC | 0.046 s | 220 KB | 11310376 |
+| [1036_dp_optimized.java](1036_dp_optimized.java) \* | Java 1.8 | dp | O(N·(T+1)) big additions; T=min(S/2,9N-S/2) | AC | 0.109 s | 1524 KB | 11324788 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
