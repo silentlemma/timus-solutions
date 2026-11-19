@@ -20,6 +20,10 @@ n（1 ≤ n ≤ 2000）。
 
 n 对应的词。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -65,11 +69,29 @@ lots
 
 ## 优化解法
 
+`1785_implementation_optimized.go`. 保留九个固定军队名区间及包含式下界，用递减条件分支替代并行阈值、名称数组及下标查找，取首个匹配，含边界5,10,20,50,100,250,500,1000。不引入通用排序或搜索。输入1..2000、固定九种情况使时间和状态均为 O(1)，单词拼写不变。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
+
+与 `1785_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1080 KB → 796 KB。
+
+`1785_implementation_optimized.py`. 保留九个固定军队名区间及包含式下界，用递减条件分支替代并行阈值、名称数组及下标查找，取首个匹配，含边界5,10,20,50,100,250,500,1000。不引入通用排序或搜索。输入1..2000、固定九种情况使时间和状态均为 O(1)，单词拼写不变。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1785_implementation.py` 相比：时间 0.093 s → 0.14 s；内存 424 KB → 196 KB。
+
 优化的 C++ 解法在同一张表中查找单词，但用 `scanf` 读入、用 `puts` 输出，而不是
 `iostream`：116 KB，而不是 376 KB，时间不变。
 
 优化的 Java 解法直接从 `System.in` 逐字节解析数字，而不是使用 `Scanner`：0.093 s，
 而不是 0.125 s；340 KB，而不是 1600 KB。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`1785_implementation_optimized.go`：在该可比样本中，时间名次 1/21，内存名次 1/21。
+
+`1785_implementation_optimized.py`：在该可比样本中，时间名次 566/582，内存名次 2/582。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -89,3 +111,7 @@ lots
 |----|----|----|-----|------|----|----|------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 196 KB | 11325075 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

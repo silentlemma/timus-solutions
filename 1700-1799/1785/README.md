@@ -21,6 +21,10 @@ n (1 ≤ n ≤ 2000).
 
 The word for n.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -71,6 +75,14 @@ n from 1 to 2000.
 
 ## Optimized solutions
 
+`1785_implementation_optimized.go`. Keep the nine fixed army-name intervals with the same inclusive lower bounds. Use descending conditional branches instead of parallel threshold/name arrays and an index search; choose the first matching word, including exact boundaries 5,10,20,50,100,250,500,1000. No general sorting or search algorithm is introduced. The domain 1..2000 and fixed nine cases give O(1) time and state; output spelling is unchanged. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+
+Compared with `1785_implementation.go`: time 0.031 s → 0.015 s; memory 1080 KB → 796 KB.
+
+`1785_implementation_optimized.py`. Keep the nine fixed army-name intervals with the same inclusive lower bounds. Use descending conditional branches instead of parallel threshold/name arrays and an index search; choose the first matching word, including exact boundaries 5,10,20,50,100,250,500,1000. No general sorting or search algorithm is introduced. The domain 1..2000 and fixed nine cases give O(1) time and state; output spelling is unchanged. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1785_implementation.py`: time 0.093 s → 0.14 s; memory 424 KB → 196 KB.
+
 The optimized C++ solution looks the word up in the same table, but
 reads with `scanf` and prints with `puts` instead of `iostream`: 116 KB
 instead of 376 KB, with the same time.
@@ -78,6 +90,16 @@ instead of 376 KB, with the same time.
 The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.125 s and
 340 KB instead of 1600 KB.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1785_implementation_optimized.go`: time place 1/21, memory place 1/21 in this comparable sample.
+
+`1785_implementation_optimized.py`: time place 566/582, memory place 2/582 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -97,3 +119,7 @@ The optimized Java solution parses the numbers byte by byte from
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 196 KB | 11325075 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -21,6 +21,10 @@ n (1 ≤ n ≤ 2000).
 
 La palabra para n.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -72,6 +76,14 @@ en cada n de 1 a 2000.
 
 ## Soluciones optimizadas
 
+`1785_implementation_optimized.go`. Conserva los nueve intervalos de nombres con iguales límites inferiores inclusivos. Usa condiciones descendentes en vez de arreglos paralelos e índice; elige la primera válida, incluidas fronteras5,10,20,50,100,250,500,1000. No introduce ordenación ni búsqueda general. Dominio1..2000 y nueve casos fijos dan O(1) tiempo y estado, con idénticas palabras. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1785_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1080 KB → 796 KB.
+
+`1785_implementation_optimized.py`. Conserva los nueve intervalos de nombres con iguales límites inferiores inclusivos. Usa condiciones descendentes en vez de arreglos paralelos e índice; elige la primera válida, incluidas fronteras5,10,20,50,100,250,500,1000. No introduce ordenación ni búsqueda general. Dominio1..2000 y nueve casos fijos dan O(1) tiempo y estado, con idénticas palabras. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1785_implementation.py`: tiempo 0.093 s → 0.14 s; memoria 424 KB → 196 KB.
+
 La solución optimizada en C++ busca la palabra en la misma tabla, pero
 lee con `scanf` e imprime con `puts` en lugar de `iostream`: 116 KB en
 lugar de 376 KB, con el mismo tiempo.
@@ -79,6 +91,16 @@ lugar de 376 KB, con el mismo tiempo.
 La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
 340 KB en lugar de 1600 KB.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1785_implementation_optimized.go`: puesto de tiempo 1/21 y de memoria 1/21 en esta muestra comparable.
+
+`1785_implementation_optimized.py`: puesto de tiempo 566/582 y de memoria 2/582 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -98,3 +120,7 @@ La solución optimizada en Java analiza los números byte a byte desde
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 196 KB | 11325075 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
