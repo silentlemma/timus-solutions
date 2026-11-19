@@ -22,6 +22,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The number of rows.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -64,9 +68,17 @@ The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.125 s and
 316 KB instead of 1576 KB.
 
+`1225_dp_optimized.py`. Keep the two-accumulator recurrence starting at (2,2); each extra stripe replaces the pair by (current,previous+current). No table is introduced. Raw-byte input and flushed immediate termination reduce runtime overhead. There are O(N) additions and two integer accumulators, bounded by N<=45. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1225_dp.py`: time 0.093 s → 0.14 s; memory 372 KB → 224 KB.
+
 ## Language notes
 
-- Same loop; Python uses arbitrary-precision integers, the others 64-bit integers.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1225_dp_optimized.py`: time place 363/366, memory place 2/366 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -85,3 +97,6 @@ The optimized Java solution parses the number byte by byte from
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1225_dp_optimized.java](1225_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 316 KB | 11303728 |
+| [1225_dp_optimized.py](1225_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.14 s | 224 KB | 11324831 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

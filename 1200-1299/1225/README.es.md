@@ -22,6 +22,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 El número de filas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -67,9 +71,17 @@ La solución optimizada en Java analiza el número byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
 316 KB en lugar de 1576 KB.
 
+`1225_dp_optimized.py`. Conserva la recurrencia de dos acumuladores desde (2,2): cada franja cambia la pareja a (current,previous+current), sin tabla. La entrada cruda y la terminación inmediata tras vaciar la salida reducen sobrecarga. Hace O(N) sumas con dos acumuladores enteros acotados por N<=45. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1225_dp.py`: tiempo 0.093 s → 0.14 s; memoria 372 KB → 224 KB.
+
 ## Notas por lenguaje
 
-- Mismo bucle; Python usa enteros de precisión arbitraria y los demás, de 64 bits.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1225_dp_optimized.py`: puesto de tiempo 363/366 y de memoria 2/366 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -88,3 +100,6 @@ La solución optimizada en Java analiza el número byte a byte desde
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1225_dp_optimized.java](1225_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 316 KB | 11303728 |
+| [1225_dp_optimized.py](1225_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.14 s | 224 KB | 11324831 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
