@@ -74,6 +74,14 @@ sequence exists.
 
 ## Optimized solutions
 
+`1789_constructive_optimized.java`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
+
+Compared with `1789_constructive.java`: time 0.125 s → 0.109 s; memory 1604 KB → 504 KB.
+
+`1789_constructive_optimized.rs`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
+
+Compared with `1789_constructive.rs`: time 0.046 s → 0.046 s; memory 204 KB → 52 KB.
+
 Keep the same parity-catching construction and its proof. For N>2, sweep 2..N-1 and then N-1..2; emit the count 2*(N-2). For N=2, emit the two touches 1,1. Compact implementations stream this sequence instead of retaining concatenated lists or expanding an output argument list. The sequence and worst-case guarantee are identical; output time is still O(N), while the streaming implementation needs only bounded working state. All simple files remain available.
 
 - `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; base `1789_constructive.cpp`: 0.031 s / 380 KB; relative change: time -51.6%, memory -71.6%.
@@ -81,19 +89,13 @@ Keep the same parity-catching construction and its proof. For N>2, sweep 2..N-1 
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1789_constructive_optimized.java`: time place 14/35, memory place 5/35 in this comparable sample.
 
-- C++: preferred teaching base `1789_constructive.cpp`; covering source `1789_constructive_optimized.cpp`; time/memory places 1/1, other-author entries 51/51.
+`1789_constructive_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1789_constructive.go`; covering source `1789_constructive.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1789_constructive.java`; covering source `1789_constructive.java`; time/memory places 1/1, other-author entries 1/1.
-
-- Python/PyPy: preferred teaching base `1789_constructive.py`; covering source `1789_constructive_optimized.py`; time/memory places 8/1, other-author entries 7/7.
-
-- Rust: preferred teaching base `1789_constructive.rs`; covering source `1789_constructive.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -113,5 +115,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
+| [1789_constructive_optimized.java](1789_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 504 KB | 11324970 |
+| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

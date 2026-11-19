@@ -75,6 +75,14 @@ existe una secuencia más corta.
 
 ## Soluciones optimizadas
 
+`1789_constructive_optimized.java`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
+
+Frente a `1789_constructive.java`: tiempo 0.125 s → 0.109 s; memoria 1604 KB → 504 KB.
+
+`1789_constructive_optimized.rs`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
+
+Frente a `1789_constructive.rs`: tiempo 0.046 s → 0.046 s; memoria 204 KB → 52 KB.
+
 Se mantiene la construcción que cubre ambas paridades y su prueba. Para N>2, recorrer 2..N-1 y luego N-1..2, con 2*(N-2) toques. Para N=2, emitir 1,1. Las variantes compactas escriben el recorrido sin listas concatenadas ni expansión de argumentos. Secuencia y garantía no cambian; salida O(N), estado de trabajo acotado. Se conservan todos los archivos sencillos.
 
 - `1789_constructive_optimized.cpp`: 0.015 s / 108 KB; base `1789_constructive.cpp`: 0.031 s / 380 KB; cambio respecto a la base: tiempo -51.6%, memoria -71.6%.
@@ -82,19 +90,13 @@ Se mantiene la construcción que cubre ambas paridades y su prueba. Para N>2, re
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1789_constructive_optimized.java`: puesto de tiempo 14/35 y de memoria 5/35 en esta muestra comparable.
 
-- C++: base didáctica preferida `1789_constructive.cpp`; fuente que cubre `1789_constructive_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 51/51.
+`1789_constructive_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1789_constructive.go`; fuente que cubre `1789_constructive.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1789_constructive.java`; fuente que cubre `1789_constructive.java`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
-
-- Python/PyPy: base didáctica preferida `1789_constructive.py`; fuente que cubre `1789_constructive_optimized.py`; puestos tiempo/memoria 8/1, registros de otros autores 7/7.
-
-- Rust: base didáctica preferida `1789_constructive.rs`; fuente que cubre `1789_constructive.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -114,5 +116,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
+| [1789_constructive_optimized.java](1789_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 504 KB | 11324970 |
+| [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
