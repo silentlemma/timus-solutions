@@ -24,6 +24,10 @@ k₁, k₂ y k₃.
 
 El pago garantizado, redondeado.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -88,6 +92,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1582_math_optimized.py`. Mantiene el pago racional exacto y redondea directamente como floor((2*1000*numerator+denominator)/(2*denominator)), sin búsqueda binaria. Analiza notación decimal/científica desde bytes, elimina ceros de relleno antes de las potencias y construye los coeficientes enteros en grupos de nueve cifras. La agrupación evita el límite de conversión del coeficiente sin perder precisión ni redondeo de mitad hacia arriba. El Accepted registrado corresponde a PyPy 3.10. El exponente aún usa int(): un exponente con relleno excesivo de ceros puede alcanzar el límite de conversión en CPython; no se afirma compatibilidad irrestricta con ese caso. I es el tamaño de entrada y D el de los operandos normalizados; espacio O(I+D), con coste aritmético dependiente de D. Los coeficientes positivos y los tres resultados se conservan; vacía la salida antes de salir.
+
+Frente a `1582_math.py`: tiempo 0.078 s → 0.109 s; memoria 532 KB → 292 KB.
+
 La solución optimizada en Java lee las tres cuotas con `BufferedReader`
 y `StringTokenizer` en lugar de un `Scanner`, y se ahorra sus
 expresiones regulares y datos de configuración regional. La aritmética
@@ -105,14 +113,25 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1582_math_optimized.java`: reducción de tiempo +14.68%; reducción de
   memoria +57.08%; base: `1582_math.java`.
 
+`1582_math_optimized.cpp`. Conserva aritmética racional exacta y redondeo de mitades hacia arriba, sin epsilon de coma flotante. Guarda enteros no negativos en dígitos u32 de base 10^9 y normaliza ceros iniciales/finales y escala científica antes de formar los arreglos. Acumula N,D para P=1000N/D y busca binariamente la respuesta redondeada acotada con 2000N >= (2m-1)D y productos por factores pequeños. Las mitades exactas suben. Si B es la longitud de entrada cruda y Q la precisión decimal normalizada de las cuotas y sus productos, el trabajo escolar es O(B+Q²), con O(B+Q) almacenamiento. El búfer de cifras crudas aún cuesta O(B); los ceros de relleno no se expanden en grandes arreglos de dígitos.
+
+Frente a `1582_math.cpp`: tiempo 0.031 s → 0.015 s; memoria 388 KB → 156 KB.
+
+`1582_math_optimized.rs`. Conserva aritmética racional exacta y redondeo de mitades hacia arriba, sin epsilon de coma flotante. Guarda enteros no negativos en dígitos u32 de base 10^9 y normaliza ceros iniciales/finales y escala científica antes de formar los arreglos. Acumula N,D para P=1000N/D y busca binariamente la respuesta redondeada acotada con 2000N >= (2m-1)D y productos por factores pequeños. Las mitades exactas suben. Si B es la longitud de entrada cruda y Q la precisión decimal normalizada de las cuotas y sus productos, el trabajo escolar es O(B+Q²), con O(B+Q) almacenamiento. El búfer de cifras crudas aún cuesta O(B); los ceros de relleno no se expanden en grandes arreglos de dígitos.
+
+Frente a `1582_math.rs`: tiempo 0.046 s → 0.015 s; memoria 212 KB → 64 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1582_math.go](1582_math.go).
+`1582_math_optimized.cpp`: puesto de tiempo 1/103 y de memoria 7/103 en esta muestra comparable.
+
+`1582_math_optimized.py`: puesto de tiempo 23/34 y de memoria 1/34 en esta muestra comparable.
+
+`1582_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -131,3 +150,8 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1582_math_optimized.java](1582_math_optimized.java) | Java 1.8 | math | O(L^2) | AC | 0.093 s | 764 KB | 11304379 |
+| [1582_math_optimized.cpp](1582_math_optimized.cpp) | G++ 13.2 x64 | math | O(B+Q²) | AC | 0.015 s | 156 KB | 11325058 |
+| [1582_math_optimized.rs](1582_math_optimized.rs) \* | Rust 1.75 x64 | math | O(B+Q²) | AC | 0.015 s | 64 KB | 11325102 |
+| [1582_math_optimized.py](1582_math_optimized.py) \* | PyPy 3.10 x64 | math | Exact integer arithmetic; O(I+D) storage | AC | 0.109 s | 292 KB | 11325490 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
