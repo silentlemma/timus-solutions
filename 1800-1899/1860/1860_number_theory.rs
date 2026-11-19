@@ -13,7 +13,9 @@ fn main() {
     for i in 2..=n + 1 {
         fib[i] = (fib[i - 1] + fib[i - 2]) % MOD;
     }
-    let weight: Vec<u64> = (0..=n).map(|k| if k == 0 { 0 } else { fib[n - k + 1] }).collect();
+    let weight: Vec<u64> = (0..=n)
+        .map(|k| if k == 0 { 0 } else { fib[n - k + 1] })
+        .collect();
     let mut composite = vec![false; n + 1];
     // the exponent of a prime p sums the weights of the multiples of p, of
     // p^2, and so on; the divisors number the product of exponents plus 1

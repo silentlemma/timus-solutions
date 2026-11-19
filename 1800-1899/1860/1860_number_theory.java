@@ -25,13 +25,13 @@ public class Main {
             if (composite[p]) {
                 continue;
             }
-            for (long q = (long) p * p; q <= n; q += p) {
-                composite[(int) q] = true;
+            for (long q = (long)p * p; q <= n; q += p) {
+                composite[(int)q] = true;
             }
             long exponent = 0;
             for (long power = p; power <= n; power *= p) {
                 for (long k = power; k <= n; k += power) {
-                    exponent += weight[(int) k];
+                    exponent += weight[(int)k];
                 }
                 exponent %= MOD;
             }

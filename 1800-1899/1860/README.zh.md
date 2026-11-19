@@ -18,6 +18,10 @@ n（1 ≤ n ≤ 10⁶）。
 
 Fₙ 的约数个数模 10⁹ + 7。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -53,9 +57,21 @@ Fₙ 的约数个数模 10⁹ + 7。
 
 ## 优化解法
 
+`1860_number_theory_optimized.java`. 保留模10^9+7 的素因子指数约数公式。Fibonacci 余数由 long[] 改成 int[]，两余数未约减之和也小于2^31。直接用 fib[n-multiple+1] 取权，去掉独立 long[] weight 副本。累计指数和答案乘积仍为 long，每个素数幂遍历后约减指数。筛素数和累加幂贡献不变。时间 O(n log log n)，空间 O(n)，每下标字节显著更少。输入一个数字字节记号，n=1 仍得一个约数。
+
+与 `1860_number_theory.java` 相比：时间 0.187 s → 0.125 s；内存 18 412 KB → 8 368 KB。
+
 新 C++、Go、Rust 保留质数幂指数求和，只存一个 uint32 Fibonacci 数组，权重 k 直接取 fib[n−k+1]，不再复制64位权重。两余数和小于2·MOD，可条件减法。奇数位筛约 n/16 字节，单独处理质数2。每质数累计至多 n 项，未取模 uint64 和小于 n·MOD≤10¹⁵，可最后取模；最终乘法也不溢出。乘质数前检查 power>n/p。时间 O(n log log n)、空间 O(n)，权重约4n字节，替代两个8n数组。保留基础版；Java/Python 复用符合标准的基础版。
 
 已通过评测的基础实现 [1860_number_theory.java](1860_number_theory.java), [1860_number_theory.py](1860_number_theory.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`1860_number_theory_optimized.java`：在该可比样本中，时间名次 3/16，内存名次 5/16。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -63,11 +79,11 @@ Fₙ 的约数个数模 10⁹ + 7。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1860_number_theory.cpp](1860_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n log log n) | AC | 0.031 s | 15508 KB | 11290852 |
+| [1860_number_theory.cpp](1860_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n log log n) | AC | 0.031 s | 15492 KB | 11325590 |
 | [1860_number_theory.go](1860_number_theory.go) | Go 1.14 x64 | number_theory | O(n log log n) | AC | 0.046 s | 18860 KB | 11290853 |
-| [1860_number_theory.java](1860_number_theory.java) \* | Java 1.8 | number_theory | O(n log log n) | AC | 0.140 s | 18448 KB | 11290856 |
-| [1860_number_theory.py](1860_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(n log log n) | AC | 0.187 s | 34144 KB | 11290855 |
-| [1860_number_theory.rs](1860_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.062 s | 16688 KB | 11290858 |
+| [1860_number_theory.java](1860_number_theory.java) \* | Java 1.8 | number_theory | O(n log log n) | AC | 0.187 s | 18412 KB | 11325560 |
+| [1860_number_theory.py](1860_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(n log log n) | AC | 0.171 s | 34140 KB | 11325600 |
+| [1860_number_theory.rs](1860_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.046 s | 16684 KB | 11325614 |
 
 ### 优化版本
 
@@ -76,5 +92,6 @@ Fₙ 的约数个数模 10⁹ + 7。
 | [1860_number_theory_optimized.cpp](1860_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(n log log n) | AC | 0.031 s | 3700 KB | 11315295 |
 | [1860_number_theory_optimized.go](1860_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n log log n) | AC | 0.031 s | 4800 KB | 11315297 |
 | [1860_number_theory_optimized.rs](1860_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.046 s | 3888 KB | 11315298 |
+| [1860_number_theory_optimized.java](1860_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(n log log n) | AC | 0.125 s | 8368 KB | 11325040 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
