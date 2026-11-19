@@ -93,6 +93,10 @@ Go prueba las 16 máscaras de pulsación de la primera fila para cada color obje
 
 Las implementaciones base aceptadas [1060_bruteforce_bitmask.cpp](1060_bruteforce_bitmask.cpp), [1060_bruteforce_bitmask.java](1060_bruteforce_bitmask.java), [1060_bruteforce_bitmask.rs](1060_bruteforce_bitmask.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1060_bruteforce_bitmask_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1060_bruteforce_bitmask.java`: tiempo 0.109 s → 0.109 s; memoria 1580 KB → 524 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -122,5 +126,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1060_bitmask.go](1060_bitmask.go) \* | Go 1.14 x64 | bitmask | O(H·2^W), H = W = 4 | AC | 0.015 s | 284 KB | 11311214 |
 | [1060_bitmask_meet_in_middle.py](1060_bitmask_meet_in_middle.py) | Python 3.12 x64 | bitmask, meet_in_middle | O(2^(C/2)), C = 16 | AC | 0.078 s | 624 KB | 11310331 |
+| [1060_bruteforce_bitmask_optimized.java](1060_bruteforce_bitmask_optimized.java) \* | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 524 KB | 11324805 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

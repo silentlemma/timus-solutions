@@ -91,6 +91,10 @@ Go tries the 16 possible press masks for the first row for each of the two targe
 
 The accepted base implementations [1060_bruteforce_bitmask.cpp](1060_bruteforce_bitmask.cpp), [1060_bruteforce_bitmask.java](1060_bruteforce_bitmask.java), [1060_bruteforce_bitmask.rs](1060_bruteforce_bitmask.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1060_bruteforce_bitmask_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1060_bruteforce_bitmask.java`: time 0.109 s → 0.109 s; memory 1580 KB → 524 KB.
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -118,5 +122,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1060_bitmask.go](1060_bitmask.go) \* | Go 1.14 x64 | bitmask | O(H·2^W), H = W = 4 | AC | 0.015 s | 284 KB | 11311214 |
 | [1060_bitmask_meet_in_middle.py](1060_bitmask_meet_in_middle.py) | Python 3.12 x64 | bitmask, meet_in_middle | O(2^(C/2)), C = 16 | AC | 0.078 s | 624 KB | 11310331 |
+| [1060_bruteforce_bitmask_optimized.java](1060_bruteforce_bitmask_optimized.java) \* | Java 1.8 | bruteforce, bitmask | O(2^16 · 16) | AC | 0.109 s | 524 KB | 11324805 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
