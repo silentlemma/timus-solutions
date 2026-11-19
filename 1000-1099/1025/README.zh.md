@@ -76,6 +76,14 @@
 优化的 Java 解法按 1 KB 分块读入并手工解析，而不是使用 `Scanner`：384 KB，而不是
 1724 KB，时间不变。
 
+`1025_greedy_sorting_optimized.go`. Go 保留选择最小若干组以获得多数的贪心策略。优化代码直接读取字节，把每组人数插入最多 101 项的固定数组。这里有意使用插入排序：时间为 O(K²)，而基础排序为 O(K log K)；在这个小规模限制下，它省去动态容器和 fmt 的开销。对前 floor(K/2)+1 组求 floor(size/2)+1 之和，并保留使用库排序的原版。
+
+与 `1025_greedy_sorting.go` 相比：时间 0.031 s → 0.015 s；内存 1076 KB → 796 KB。
+
+`1025_greedy_sorting_optimized.py`. Python 保留排序后求和的贪心算法。字节记号经迭代器直接转换并交给 sorted，避免单独解码全部输入以及排序前额外的完整整数列表。跳过解释器正常清理而结束进程前，显式刷新输出。时间仍为 O(K log K)，排序后的组规模占 O(K) 空间。
+
+与 `1025_greedy_sorting.py` 相比：时间 0.093 s → 0.109 s；内存 372 KB → 212 KB。
+
 ## 各语言说明
 
 各语言都是同样的排序与求和。
@@ -97,5 +105,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K log K) | AC | 0.125 s | 384 KB | 11303704 |
+| [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11325044 |
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | PyPy 3.10 x64 | greedy, sorting | O(K log K) | AC | 0.109 s | 212 KB | 11324842 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

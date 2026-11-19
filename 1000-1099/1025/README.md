@@ -84,6 +84,14 @@ The optimized Java solution reads the input in 1 KB blocks and parses it
 by hand instead of using `Scanner`: 384 KB instead of 1724 KB, with the
 same time.
 
+`1025_greedy_sorting_optimized.go`. Go retains the majority-of-the-smallest-groups greedy choice. The optimized source reads bytes directly and inserts each group into one fixed array of at most 101 entries. This deliberately uses insertion sort: O(K²) time instead of the base sort's O(K log K), but avoids its dynamic containers and fmt overhead at this small limit. Sum floor(size/2)+1 for the first floor(K/2)+1 groups. The original library-sort source is preserved.
+
+Compared with `1025_greedy_sorting.go`: time 0.031 s → 0.015 s; memory 1076 KB → 796 KB.
+
+`1025_greedy_sorting_optimized.py`. Python keeps the sort-and-sum greedy algorithm. It converts byte tokens through an iterator directly into sorted, avoiding the separate decoded input string and an extra full integer list before sorting. Explicitly flush the answer before exiting without normal interpreter teardown. Time remains O(K log K), with O(K) storage for the sorted group sizes.
+
+Compared with `1025_greedy_sorting.py`: time 0.093 s → 0.109 s; memory 372 KB → 212 KB.
+
 ## Language notes
 
 The same sort and sum everywhere.
@@ -105,6 +113,7 @@ The same sort and sum everywhere.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K log K) | AC | 0.125 s | 384 KB | 11303704 |
+| [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11325044 |
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | PyPy 3.10 x64 | greedy, sorting | O(K log K) | AC | 0.109 s | 212 KB | 11324842 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the rating target is not yet met. This version may be optimized further.

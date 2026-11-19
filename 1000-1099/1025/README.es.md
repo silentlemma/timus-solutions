@@ -85,6 +85,14 @@ La solución optimizada en Java lee la entrada en bloques de 1 KB y la
 analiza a mano en lugar de usar `Scanner`: 384 KB en lugar de 1724 KB,
 con el mismo tiempo.
 
+`1025_greedy_sorting_optimized.go`. Go conserva la elección voraz de una mayoría de los grupos más pequeños. El código optimizado lee bytes directamente e inserta cada grupo en un único arreglo fijo de hasta 101 entradas. Usa deliberadamente ordenación por inserción: O(K²), frente a O(K log K) de la base, pero evita sus contenedores dinámicos y el coste de fmt con este límite pequeño. Suma floor(size/2)+1 para los primeros floor(K/2)+1 grupos. Se mantiene el código original con ordenación de biblioteca.
+
+Frente a `1025_greedy_sorting.go`: tiempo 0.031 s → 0.015 s; memoria 1076 KB → 796 KB.
+
+`1025_greedy_sorting_optimized.py`. Python mantiene el algoritmo voraz de ordenar y sumar. Convierte los tokens de bytes mediante un iterador directamente para sorted, evitando la cadena de entrada decodificada y otra lista entera completa antes de ordenar. Vacía explícitamente la salida antes de terminar sin la limpieza normal del intérprete. El tiempo sigue siendo O(K log K), con O(K) espacio para los tamaños ordenados.
+
+Frente a `1025_greedy_sorting.py`: tiempo 0.093 s → 0.109 s; memoria 372 KB → 212 KB.
+
 ## Notas por lenguaje
 
 La misma ordenación y suma en todos los lenguajes.
@@ -106,6 +114,7 @@ La misma ordenación y suma en todos los lenguajes.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K log K) | AC | 0.125 s | 384 KB | 11303704 |
+| [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11325044 |
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | PyPy 3.10 x64 | greedy, sorting | O(K log K) | AC | 0.109 s | 212 KB | 11324842 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
