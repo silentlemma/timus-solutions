@@ -77,6 +77,14 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1537_dp_optimized.go`. Conserva g(m)=g(m-1)+g(floor(m/2)) módulo P. A diferencia del Python retenido que suma algebraicamente el tramo final, Go y Rust visitan todo m hasta T=floor(K/2). Un anillo de floor(floor(T/2)/2)+1 residuos de 32 bits sustituye el prefijo completo. g(j) se lee por última vez en 2j+1 y la celda se reutiliza después. Reduce aproximadamente a la mitad la memoria del DP, manteniendo tiempo O(K) y espacio asintótico O(K). P<=10^9 permite residuos de 32 bits; suma en 64 bits. Conserva K<2 y P=1.
+
+Frente a `1537_dp.go`: tiempo 0.109 s → 0.093 s; memoria 11700 KB → 6 320 KB.
+
+`1537_dp_optimized.rs`. Conserva g(m)=g(m-1)+g(floor(m/2)) módulo P. A diferencia del Python retenido que suma algebraicamente el tramo final, Go y Rust visitan todo m hasta T=floor(K/2). Un anillo de floor(floor(T/2)/2)+1 residuos de 32 bits sustituye el prefijo completo. g(j) se lee por última vez en 2j+1 y la celda se reutiliza después. Reduce aproximadamente a la mitad la memoria del DP, manteniendo tiempo O(K) y espacio asintótico O(K). P<=10^9 permite residuos de 32 bits; suma en 64 bits. Conserva K<2 y P=1.
+
+Frente a `1537_dp.rs`: tiempo 0.046 s → 0.015 s; memoria 9836 KB → 4 792 KB.
+
 Se usa la misma recurrencia, sumando algebraicamente el intervalo final en vez de calcular cada estado restante. Basta calcular un prefijo anterior y conservar una parte inicial aún menor. Los residuos empaquetados de 32 bits reemplazan celdas de 64 bits, permitidos por la cota del módulo. Las fórmulas de extremos pares e impares mantienen los casos base. La versión aceptada usa CPython y se compara con el intérprete real de la versión simple conservada.
 
 ```text
@@ -93,17 +101,13 @@ answer = g(T) mod P
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1537_dp.cpp`; versión que cubre `1537_dp.cpp`; puestos tiempo/memoria 6/1, registros de otros autores 75/75.
+`1537_dp_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1537_dp.go`; versión que cubre `1537_dp.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+`1537_dp_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Java: base didáctica preferida `1537_dp.java`; versión que cubre `1537_dp.java`; puestos tiempo/memoria 1/1, registros de otros autores 10/10.
-
-- Python/PyPy: base didáctica preferida `1537_dp.py`; versión que cubre `1537_dp_optimized.py`; puestos tiempo/memoria 2/1, registros de otros autores 1/1.
-
-- Rust: base didáctica preferida `1537_dp.rs`; versión que cubre `1537_dp.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -124,5 +128,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.093 s | 6320 KB | 11325049 |
+| [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
