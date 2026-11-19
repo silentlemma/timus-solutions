@@ -68,6 +68,10 @@ Ural SU #3
 
 ## 优化解法
 
+`1680_strings_optimized.rs`. 每次读一队，仅保存最先 q 个不同规范化大学名。q≤12，以短向量查找替代 HashSet 分配/哈希；保留 ASCII 大小写归一、#前尾空格删除及原答案行。最大行长 L 下最坏 O(nqL) 时间、O(qL+L) 存储。保留简单哈希集合版。
+
+与 `1680_strings.rs` 相比：时间 0.015 s → 0.015 s；内存 432 KB → 72 KB。
+
 仍选择每所大学的第一支队伍，大学名比较忽略大小写，输出保留原队名拼写。达到输出配额后不再保存新大学键。流式处理规定的记录，避免保存全部输入行和额外副本。选用的 PyPy 实现保留 Unicode 处理，不因节省空间而改变大小写规则或输出编码。
 
 - `1680_strings_optimized.cpp`: 0.001 s / 100 KB; 基础版 `1680_strings.cpp`: 0.001 s / 400 KB; 相对基础版的变化: 时间 -0.0%, 内存 -75.0%.
@@ -107,5 +111,6 @@ Ural SU #3
 |---|---|---|---|---|---|---|---|
 | [1680_strings_optimized.cpp](1680_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(input size) | AC | 0.001 s | 100 KB | 11308250 |
 | [1680_strings_optimized.py](1680_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(input size) | AC | 0.125 s | 244 KB | 11309387 |
+| [1680_strings_optimized.rs](1680_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(nqL) time; O(qL+L) space | AC | 0.015 s | 72 KB | 11325550 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

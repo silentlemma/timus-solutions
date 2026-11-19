@@ -79,6 +79,10 @@ The answers match an independent accepted implementation.
 
 ## Optimized solutions
 
+`1680_strings_optimized.rs`. Read one team line at a time and keep only the first q distinct normalized university names. With q≤12, a short vector membership scan replaces HashSet allocation and hashing; preserve ASCII case folding, trailing-space removal before #, and the original answer line. For maximum line length L, O(nqL) worst-case time and O(qL+L) storage. The simpler hash-set version remains available.
+
+Compared with `1680_strings.rs`: time 0.015 s → 0.015 s; memory 432 KB → 72 KB.
+
 The selection rule remains the first team from each university, with case-insensitive university identity and original team spelling in output. Stop retaining new university keys once the output quota is full. Streaming the prescribed records removes the full input-line list and unnecessary copies. The selected PyPy implementation keeps Unicode handling, so storage optimizations do not silently change case conversion or output encoding.
 
 - `1680_strings_optimized.cpp`: 0.001 s / 100 KB; base `1680_strings.cpp`: 0.001 s / 400 KB; relative change: time -0.0%, memory -75.0%.
@@ -118,5 +122,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1680_strings_optimized.cpp](1680_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(input size) | AC | 0.001 s | 100 KB | 11308250 |
 | [1680_strings_optimized.py](1680_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(input size) | AC | 0.125 s | 244 KB | 11309387 |
+| [1680_strings_optimized.rs](1680_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(nqL) time; O(qL+L) space | AC | 0.015 s | 72 KB | 11325550 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

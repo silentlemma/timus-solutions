@@ -80,6 +80,10 @@ Las respuestas coinciden con una implementación aceptada independiente.
 
 ## Soluciones optimizadas
 
+`1680_strings_optimized.rs`. Lee equipos línea a línea y guarda solo primeras q universidades normalizadas. Para q≤12, búsqueda en vector corto sustituye asignación/hash de HashSet; conserva minúsculas ASCII, quitar espacios finales antes de # y línea original de respuesta. O(nqL) peor tiempo, O(qL+L) espacio para longitud L. Conserva versión sencilla con conjunto hash.
+
+Frente a `1680_strings.rs`: tiempo 0.015 s → 0.015 s; memoria 432 KB → 72 KB.
+
 Se conserva la primera selección por universidad, ignorando mayúsculas en su identidad y manteniendo la escritura original del equipo. Al completar el cupo ya no se almacenan claves de universidades nuevas. Procesar los registros en flujo elimina la lista de todas las líneas y copias. La versión PyPy conserva Unicode para no cambiar la conversión de mayúsculas ni la codificación de salida al ahorrar memoria.
 
 - `1680_strings_optimized.cpp`: 0.001 s / 100 KB; base `1680_strings.cpp`: 0.001 s / 400 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.0%.
@@ -119,5 +123,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1680_strings_optimized.cpp](1680_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(input size) | AC | 0.001 s | 100 KB | 11308250 |
 | [1680_strings_optimized.py](1680_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(input size) | AC | 0.125 s | 244 KB | 11309387 |
+| [1680_strings_optimized.rs](1680_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(nqL) time; O(qL+L) space | AC | 0.015 s | 72 KB | 11325550 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
