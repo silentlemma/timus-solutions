@@ -27,6 +27,10 @@ n, k, u y v.
 
 La planta.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -76,6 +80,10 @@ Las nuevas versiones C++ y Go evalúan cuatro candidatos. Para f≥2 el tiempo e
 
 Las implementaciones base aceptadas [1602_implementation.java](1602_implementation.java), [1602_implementation.py](1602_implementation.py), [1602_implementation.rs](1602_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1602_implementation_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1602_implementation.java`: tiempo 0.125 s → 0.109 s; memoria 1680 KB → 500 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -94,5 +102,6 @@ Las implementaciones base aceptadas [1602_implementation.java](1602_implementati
 |---|---|---|---|---|---|---|---|
 | [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
 | [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+| [1602_implementation_optimized.java](1602_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

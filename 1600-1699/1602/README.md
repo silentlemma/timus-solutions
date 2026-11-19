@@ -27,6 +27,10 @@ n, k, u and v.
 
 The floor.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -76,6 +80,10 @@ The new C++ and Go versions evaluate only four floor candidates. For floor f≥2
 
 The accepted base implementations [1602_implementation.java](1602_implementation.java), [1602_implementation.py](1602_implementation.py), [1602_implementation.rs](1602_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1602_implementation_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1602_implementation.java`: time 0.125 s → 0.109 s; memory 1680 KB → 500 KB.
+
 ## Solutions
 
 ### Simple
@@ -94,5 +102,6 @@ The accepted base implementations [1602_implementation.java](1602_implementation
 |---|---|---|---|---|---|---|---|
 | [1602_math.cpp](1602_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11315439 |
 | [1602_math.go](1602_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 268 KB | 11315443 |
+| [1602_implementation_optimized.java](1602_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.109 s | 500 KB | 11324820 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
