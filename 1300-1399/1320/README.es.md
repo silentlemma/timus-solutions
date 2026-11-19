@@ -101,6 +101,14 @@ La regla se comparó con una búsqueda sobre todos los emparejamientos en
 
 ## Soluciones optimizadas
 
+`1320_dsu_optimized.go`. Procesa aristas en DSU con reducción de camino a la mitad. Arrays fijos de 1001 padres uint16 y paridad por componente sustituyen extremos retenidos y contadores enteros. Fusiona por XOR y conmuta por cada arista, incluidos bucles y repetidas. V=1000 cabe en uint16. Sin unión por rango: cota conservadora O(EV+V), espacio O(V). Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1320_dsu.go`: tiempo 0.015 s → 0.015 s; memoria 1112 KB → 336 KB.
+
+`1320_dsu_optimized.rs`. Conserva DSU con reducción a la mitad y paridad de aristas por componente. Flujo de aristas, padres u16 y byte de paridad; XOR al unir y conmutación por arista incluso bucles. Sin balance por rango: cota conservadora O(EV+V) tiempo y O(V) espacio, V=1000. Conserva versión legible con extremos.
+
+Frente a `1320_dsu.rs`: tiempo 0.015 s → 0.015 s; memoria 264 KB → 68 KB.
+
 Se conservan los DSU claros. Emparejar aristas es posible si y solo si cada componente tiene cantidad par. Java guarda enlaces positivos y paridad raíz 0/-1 en un array short inicializado a cero. Una arista interna invierte paridad; unir toma XOR de ambas y 1. Acortar caminos conserva componentes; etiquetas 1..1000 caben en short. El búfer de entrada estándar de 512 bytes se rellena incluso dentro de una etiqueta de cuatro dígitos, acepta espacios válidos yEOF y escribe bytes. Python codifica tamaño y paridad en raíz negativa-(2*size+parity), une por tamaño y mantiene componentes impares. Cada fuente compara con su base actual. Java: O((V+M)log V)amortizado/O(V)memoria; Python: O((V+M)alpha(V)), O(V+M)incluidos tokens.
 
 PyPy también desactiva JIT para reducir memoria de caché de código; puede aumentar el tiempo.
@@ -142,5 +150,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1320_dsu_optimized.java](1320_dsu_optimized.java) | Java 1.8 | dsu | O((V+M) log V) amortized; O(V) storage | AC | 0.093 s | 408 KB | 11310097 |
 | [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | PyPy 3.10 x64 | dsu | O((V+M) alpha(V)) amortized; O(V+L) space, L=max line tokens | AC | 0.156 s | 436 KB | 11309751 |
+| [1320_dsu_optimized.go](1320_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 336 KB | 11325655 |
+| [1320_dsu_optimized.rs](1320_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

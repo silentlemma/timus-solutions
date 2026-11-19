@@ -83,6 +83,14 @@
 
 ## 优化解法
 
+`1320_dsu_optimized.go`. 边直接进入路径折半 DSU。1001 格 uint16 父节点及分量边数奇偶替代保留端点及整数计数。合并时异或奇偶，每条边含自环、重边均翻转。V=1000 适合 uint16。未加入按秩合并：保守 O(EV+V) 时间、O(V) 存储。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1320_dsu.go` 相比：时间 0.015 s → 0.015 s；内存 1112 KB → 336 KB。
+
+`1320_dsu_optimized.rs`. 保留路径折半 DSU 及各分量边数奇偶。流式读边，u16 父节点及每顶点一字节奇偶，合并异或，每边含自环翻转。无按秩平衡：保守 O(EV+V) 时间、O(V) 存储，V=1000。保留清晰端点列表版。
+
+与 `1320_dsu.rs` 相比：时间 0.015 s → 0.015 s；内存 264 KB → 68 KB。
+
 保留清晰原DSU。边可配对当且仅当每个连通分量边数偶数。Java在初始零short数组中存正父链接和根奇偶0/-1；内部边翻转奇偶，合并取两奇偶异或1。路径缩短保持分量，1..1000标签适合short。512字节标准输入缓冲可在四位标签中间安全补充，处理任意合法空白及EOF，直接输出字节。Python另把大小及边奇偶编码为负根-(2*size+parity)，按大小合并并维护奇分量数。各源码与同语言当前基础比较。Java摊还O((V+M)log V)、空间O(V)；Python摊还O((V+M)alpha(V))，含输入词元空间O(V+M)。
 
 PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
@@ -124,5 +132,7 @@ PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
 |---|---|---|---|---|---|---|---|
 | [1320_dsu_optimized.java](1320_dsu_optimized.java) | Java 1.8 | dsu | O((V+M) log V) amortized; O(V) storage | AC | 0.093 s | 408 KB | 11310097 |
 | [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | PyPy 3.10 x64 | dsu | O((V+M) alpha(V)) amortized; O(V+L) space, L=max line tokens | AC | 0.156 s | 436 KB | 11309751 |
+| [1320_dsu_optimized.go](1320_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 336 KB | 11325655 |
+| [1320_dsu_optimized.rs](1320_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
