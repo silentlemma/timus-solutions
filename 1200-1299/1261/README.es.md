@@ -79,6 +79,10 @@ Go recorre los dígitos ternarios equilibrados conservando solo el importe resta
 
 Las implementaciones base aceptadas [1261_number_theory.cpp](1261_number_theory.cpp), [1261_number_theory.java](1261_number_theory.java), [1261_number_theory.py](1261_number_theory.py), [1261_number_theory.rs](1261_number_theory.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1261_number_theory_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1261_number_theory.java`: tiempo 0.125 s → 0.109 s; memoria 1612 KB → 472 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -103,5 +107,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1261_number_theory_optimized.go](1261_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 308 KB | 11311230 |
+| [1261_number_theory_optimized.java](1261_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log N) | AC | 0.109 s | 472 KB | 11324798 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
