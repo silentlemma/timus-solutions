@@ -20,6 +20,10 @@
 
 16 个字母的密码。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -58,10 +62,28 @@ KamkohobPassword
 
 ## 优化解法
 
+`1712_implementation_optimized.py`. 仍顺时针旋转格栅四次，只旋转孔坐标 (r,c)->(c,3-r)，不每轮重建四个网格字符串。每次读取前排序孔以保持行序，密码字节收集到 bytearray。固定 4×4 输入下时间、空间均有常数界，合法格栅前提不变。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
+
+与 `1712_implementation.py` 相比：时间 0.078 s → 0.14 s；内存 492 KB → 256 KB。
+
 优化解法（C++、Java）逐个字符地把两个方阵读入 4 × 4 的定长数组，而不是按单词读
 取；密码的字母一找到就输出（C++），或者收集到 17 字节的数组中（Java）。Java 还复
 用同一个数组存放旋转后的格栅，而不是每次旋转都新建一个。C++ 为 84 KB，而不是
 348 KB，时间不变。Java 为 0.109 s，而不是 0.140 s；348 KB，而不是 1568 KB。
+
+`1712_implementation_optimized.rs`. 以固定 4×4 数组表示格栅和纸面。直接读入字节，按行输出每种朝向下可见的格子，再用另一个固定数组旋转掩码。固定棋盘的四种朝向耗时和额外空间均为 O(1)，无需嵌套 Vec 分配或累积答案。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1712_implementation.rs` 相比：时间 0.031 s → 0.046 s；内存 236 KB → 52 KB。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`1712_implementation_optimized.py`：在该可比样本中，时间名次 36/43，内存名次 1/43。
+
+`1712_implementation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -81,3 +103,7 @@ KamkohobPassword
 |----|----|----|-----|------|----|----|------|
 | [1712_implementation_optimized.cpp](1712_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 84 KB | 11303634 |
 | [1712_implementation_optimized.java](1712_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 348 KB | 11303503 |
+| [1712_implementation_optimized.rs](1712_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 52 KB | 11324863 |
+| [1712_implementation_optimized.py](1712_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1), fixed 4×4 grid | AC | 0.14 s | 256 KB | 11325478 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
