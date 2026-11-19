@@ -103,6 +103,10 @@ tableros con tres cruces, tres círculos y ninguna línea completa.
 
 ## Soluciones optimizadas
 
+`1195_games_optimized.rs`. Mantiene negamax en posición tras seis jugadas. Dos máscaras de nueve bits sustituyen vector mutable; ocho máscaras ganadoras sustituyen comparar ternas, con retorno inmediato al ganar. Sin memoización ni otras reglas. O(E!) búsqueda peor caso y O(E) pila para E huecos, acotados por 3×3. Entrada/salida por bytes conserva mensajes Crosses/Draw/Ouths exactos.
+
+Frente a `1195_games.rs`: tiempo 0.046 s → 0.015 s; memoria 212 KB → 56 KB.
+
 Se conservan minimax completo y las ocho líneas ganadoras. La entrada legal contiene tres cruces y tres círculos sin ganador: quedan solo tres casillas, sin tabla de todas las posiciones. Probar jugada, ganar inmediatamente si completa línea; en otro caso negar el resultado rival y maximizar. Tablero lleno es empate. Las versiones mutables restauran la casilla antes de todo retorno temprano. Python usa dos máscaras de nueve bits y otra de casillas libres, con el mismo árbol. La E/S directa reduce escáneres/flujos. Tres niveles fijos cuestan O(1); el nuevo Python se verificó en las1372posiciones legales con seis marcas.
 
 - `1195_games_optimized.cpp`: 0.015 s / 100 KB; base `1195_games.cpp`: 0.015 s / 352 KB; cambio respecto a la base: tiempo -0.0%, memoria -71.6%.
@@ -111,19 +115,11 @@ Se conservan minimax completo y las ocho líneas ganadoras. La entrada legal con
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1195_games_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1195_games.cpp`; fuente que cubre `1195_games_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 54/54.
-
-- Go: base didáctica preferida `1195_games.go`; fuente que cubre `1195_games.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1195_games.java`; fuente que cubre `1195_games_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
-
-- Python/PyPy: base didáctica preferida `1195_games.py`; fuente que cubre `1195_games_optimized.py`; puestos tiempo/memoria 18/5, registros de otros autores 24/24.
-
-- Rust: base didáctica preferida `1195_games.rs`; fuente que cubre `1195_games.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -144,5 +140,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1195_games_optimized.cpp](1195_games_optimized.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 100 KB | 11309257 |
 | [1195_games_optimized.java](1195_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 352 KB | 11309258 |
 | [1195_games_optimized.py](1195_games_optimized.py) \* | PyPy 3.10 x64 | games | O(1) | AC | 0.125 s | 280 KB | 11309730 |
+| [1195_games_optimized.rs](1195_games_optimized.rs) \* | Rust 1.75 x64 | games | O(E!) search; O(E) stack | AC | 0.015 s | 56 KB | 11325545 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

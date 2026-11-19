@@ -103,6 +103,10 @@ boards with three crosses, three noughts and no complete line.
 
 ## Optimized solutions
 
+`1195_games_optimized.rs`. Keep negamax on the given six-move tic-tac-toe position. Two nine-bit masks replace the mutable board vector; eight winning masks replace three-cell comparisons, and a winning move returns immediately. No memoization or different game rule is introduced. With E empty cells, worst-case search O(E!) and stack O(E), bounded by the fixed 3×3 board. Direct byte input/output preserves the exact Crosses/Draw/Ouths strings.
+
+Compared with `1195_games.rs`: time 0.046 s → 0.015 s; memory 212 KB → 56 KB.
+
 Keep the same exhaustive minimax and the eight winning lines. A legal input has three crosses and three noughts without an existing win, so just three cells remain: there is no need for a table of all boards. Try a legal move, return a win immediately if it completes a line, otherwise negate the opponent's result and maximize; a full board is a draw. Native mutable-board versions restore the cell before every early return. Python uses two nine-bit masks and the remaining-cell mask, with the same game tree. Small direct input/output removes scanner/stream overhead. The fixed three-ply search is O(1); all1372legal six-mark boards were independently checked for the new Python source.
 
 - `1195_games_optimized.cpp`: 0.015 s / 100 KB; base `1195_games.cpp`: 0.015 s / 352 KB; relative change: time -0.0%, memory -71.6%.
@@ -111,19 +115,11 @@ Keep the same exhaustive minimax and the eight winning lines. A legal input has 
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1195_games_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1195_games.cpp`; covering source `1195_games_optimized.cpp`; time/memory places 1/1, other-author entries 54/54.
-
-- Go: preferred teaching base `1195_games.go`; covering source `1195_games.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1195_games.java`; covering source `1195_games_optimized.java`; time/memory places 1/1, other-author entries 2/2.
-
-- Python/PyPy: preferred teaching base `1195_games.py`; covering source `1195_games_optimized.py`; time/memory places 18/5, other-author entries 24/24.
-
-- Rust: preferred teaching base `1195_games.rs`; covering source `1195_games.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -144,5 +140,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1195_games_optimized.cpp](1195_games_optimized.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 100 KB | 11309257 |
 | [1195_games_optimized.java](1195_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 352 KB | 11309258 |
 | [1195_games_optimized.py](1195_games_optimized.py) \* | PyPy 3.10 x64 | games | O(1) | AC | 0.125 s | 280 KB | 11309730 |
+| [1195_games_optimized.rs](1195_games_optimized.rs) \* | Rust 1.75 x64 | games | O(E!) search; O(E) stack | AC | 0.015 s | 56 KB | 11325545 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
