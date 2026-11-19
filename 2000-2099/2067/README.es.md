@@ -90,15 +90,21 @@ respuesta es 0.
 
 ## Soluciones optimizadas
 
+`2067_geometry_optimized.py`. Mantiene condición geométrica: solo hay mejor pareja si todos los puntos distintos son colineales. Dos primeros, garantizados distintos, fijan dirección; procesa resto en flujo con productos cruzados enteros. Guarda IDs de extremos lexicográficos sin arrays de coordenadas ni ordenar. En recta son única pareja óptima; termina en primer testigo no colineal. O(n) tiempo y O(B) espacio para bloques de 4096 bytes y tokens acotados, conservando libertad de orden de pareja.
+
+Frente a `2067_geometry.py`: tiempo 0.421 s → 0.203 s; memoria 62 116 KB → 6 124 KB.
+
 C++ y Go fijan la recta con los dos primeros puntos y procesan los demás al leerlos. Un producto cruzado no nulo descarta de inmediato un par óptimo. En caso contrario guardan los índices de x mínimo y máximo, o de y mínimo y máximo si la recta es vertical. El tiempo es O(n) y el espacio adicional es O(1).
 
 Las implementaciones base aceptadas [2067_geometry.java](2067_geometry.java), [2067_geometry.py](2067_geometry.py), [2067_geometry.rs](2067_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-Los productos necesitan enteros de 64 bits.
+`2067_geometry_optimized.py`: puesto de tiempo 1/13 y de memoria 3/13 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -106,11 +112,11 @@ Los productos necesitan enteros de 64 bits.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2888 KB | 11294400 |
+| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2864 KB | 11325661 |
 | [2067_geometry.go](2067_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.281 s | 8768 KB | 11294402 |
-| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.109 s | 3708 KB | 11294410 |
-| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.531 s | 62832 KB | 11294406 |
-| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.062 s | 10476 KB | 11294413 |
+| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.125 s | 3720 KB | 11325646 |
+| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.421 s | 62116 KB | 11325664 |
+| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.046 s | 10484 KB | 11325667 |
 
 ### Optimizadas
 
@@ -118,5 +124,6 @@ Los productos necesitan enteros de 64 bits.
 |---|---|---|---|---|---|---|---|
 | [2067_geometry_optimized.cpp](2067_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 96 KB | 11310454 |
 | [2067_geometry_optimized.go](2067_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 900 KB | 11310455 |
+| [2067_geometry_optimized.py](2067_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(B) space | AC | 0.203 s | 6124 KB | 11325495 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

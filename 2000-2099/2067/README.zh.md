@@ -70,15 +70,21 @@
 
 ## 优化解法
 
+`2067_geometry_optimized.py`. 保留几何条件：所有互异点共线时才存在最佳对。以前两个保证不同的点定方向，流式读取其余点并用精确整数叉积判断。同时跟踪字典序最小/最大点的 ID，不存坐标数组、不排序全部点。共线时两端是唯一最佳对；首个不共线点即可终止。时间 O(n)，4096 字节块及有界坐标记号下辅助空间 O(B)，保留点对顺序自由。
+
+与 `2067_geometry.py` 相比：时间 0.421 s → 0.203 s；内存 62 116 KB → 6 124 KB。
+
 C++ 和 Go 用前两个点确定直线，边读边处理其余点。叉积不为零时立即排除最优点对。否则记录 x 最小和最大的点的编号；若直线竖直，则改用 y 的最小值和最大值。时间 O(n)，额外空间 O(1)。
 
 已通过评测的基础实现 [2067_geometry.java](2067_geometry.java), [2067_geometry.py](2067_geometry.py), [2067_geometry.rs](2067_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-乘积需要 64 位整数。
+`2067_geometry_optimized.py`：在该可比样本中，时间名次 1/13，内存名次 3/13。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -86,11 +92,11 @@ C++ 和 Go 用前两个点确定直线，边读边处理其余点。叉积不为
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2888 KB | 11294400 |
+| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2864 KB | 11325661 |
 | [2067_geometry.go](2067_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.281 s | 8768 KB | 11294402 |
-| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.109 s | 3708 KB | 11294410 |
-| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.531 s | 62832 KB | 11294406 |
-| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.062 s | 10476 KB | 11294413 |
+| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.125 s | 3720 KB | 11325646 |
+| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.421 s | 62116 KB | 11325664 |
+| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.046 s | 10484 KB | 11325667 |
 
 ### 优化版本
 
@@ -98,5 +104,6 @@ C++ 和 Go 用前两个点确定直线，边读边处理其余点。叉积不为
 |---|---|---|---|---|---|---|---|
 | [2067_geometry_optimized.cpp](2067_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 96 KB | 11310454 |
 | [2067_geometry_optimized.go](2067_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 900 KB | 11310455 |
+| [2067_geometry_optimized.py](2067_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(B) space | AC | 0.203 s | 6124 KB | 11325495 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

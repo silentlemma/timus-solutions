@@ -4,8 +4,8 @@ import sys
 def main():
     data = sys.stdin.buffer.read().split()
     n = int(data[0])
-    s = list(map(int, data[1:2 * n + 1:2]))
-    r = list(map(int, data[2:2 * n + 2:2]))
+    s = list(map(int, data[1 : 2 * n + 1 : 2]))
+    r = list(map(int, data[2 : 2 * n + 2 : 2]))
     # v, u are best friends exactly when every other point lies on the
     # segment vu: all points collinear, v and u the two extreme ones
     ds, dr = s[1] - s[0], r[1] - r[0]

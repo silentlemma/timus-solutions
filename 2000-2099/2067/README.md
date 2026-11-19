@@ -89,15 +89,21 @@ is 0.
 
 ## Optimized solutions
 
+`2067_geometry_optimized.py`. Keep the geometric condition that a best pair exists only when all distinct points are collinear. Use the first two promised distinct points as anchors, stream the rest and test exact integer cross-products. Track lexicographic minimum/maximum point IDs during that scan instead of storing coordinate arrays and sorting all points. In a collinear set those extremes are the unique best pair. Stop on the first noncollinear witness. Time O(n), auxiliary space O(B) for 4096-byte chunks and bounded coordinate tokens; point and pair order flexibility is preserved.
+
+Compared with `2067_geometry.py`: time 0.421 s → 0.203 s; memory 62 116 KB → 6 124 KB.
+
 C++ and Go use the first two points to fix the line and process the remaining points as they are read. A nonzero cross product immediately rules out a best pair. Otherwise keep the indices with minimum and maximum x, or minimum and maximum y for a vertical line. This keeps O(n) time and uses O(1) extra space.
 
 The accepted base implementations [2067_geometry.java](2067_geometry.java), [2067_geometry.py](2067_geometry.py), [2067_geometry.rs](2067_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-Products need 64-bit integers.
+`2067_geometry_optimized.py`: time place 1/13, memory place 3/13 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -105,11 +111,11 @@ Products need 64-bit integers.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2888 KB | 11294400 |
+| [2067_geometry.cpp](2067_geometry.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.296 s | 2864 KB | 11325661 |
 | [2067_geometry.go](2067_geometry.go) | Go 1.14 x64 | geometry | O(n) | AC | 0.281 s | 8768 KB | 11294402 |
-| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.109 s | 3708 KB | 11294410 |
-| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.531 s | 62832 KB | 11294406 |
-| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.062 s | 10476 KB | 11294413 |
+| [2067_geometry.java](2067_geometry.java) \* | Java 1.8 | geometry | O(n) | AC | 0.125 s | 3720 KB | 11325646 |
+| [2067_geometry.py](2067_geometry.py) \* | Python 3.12 x64 | geometry | O(n log n) | AC | 0.421 s | 62116 KB | 11325664 |
+| [2067_geometry.rs](2067_geometry.rs) \* | Rust 1.75 x64 | geometry | O(n) | AC | 0.046 s | 10484 KB | 11325667 |
 
 ### Optimized
 
@@ -117,5 +123,6 @@ Products need 64-bit integers.
 |---|---|---|---|---|---|---|---|
 | [2067_geometry_optimized.cpp](2067_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(n) | AC | 0.015 s | 96 KB | 11310454 |
 | [2067_geometry_optimized.go](2067_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n) | AC | 0.031 s | 900 KB | 11310455 |
+| [2067_geometry_optimized.py](2067_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(B) space | AC | 0.203 s | 6124 KB | 11325495 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
