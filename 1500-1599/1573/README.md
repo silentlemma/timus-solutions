@@ -23,6 +23,10 @@ B, R and Y, then a positive K and the K different colors of the recipe
 
 The number of ways.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -92,14 +96,17 @@ asterisk concerns the rating target only.
 - `1573_math_optimized.rs`: time reduction -206.67%; memory reduction
   +45.10%; base: `1573_math.rs`.
 
+`1573_math_optimized.py`. Keep multiplication of the available counts for the distinct recipe colors. Map the three ASCII byte names Blue, Red and Yellow directly to their integer bag counts, avoiding decoded input and text keys. There are O(K) multiplications and O(K) token storage, with K<=3 and product at most 10^6 under the statement limits. This changes representation and runtime overhead, not the combinatorial rule. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1573_math.py`: time 0.078 s → 0.109 s; memory 452 KB → 232 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1573_math.go](1573_math.go).
+`1573_math_optimized.py`: time place 34/51, memory place 1/51 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -120,3 +127,6 @@ implementation for these languages.
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
 | [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) | AC | 0.109 s | 328 KB | 11304267 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
+| [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -24,6 +24,10 @@ B, R e Y, y luego un K positivo y los K colores distintos de la receta
 
 El número de maneras.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -94,14 +98,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1573_math_optimized.rs`: reducción de tiempo -206.67%; reducción de
   memoria +45.10%; base: `1573_math.rs`.
 
+`1573_math_optimized.py`. Conserva el producto de cantidades disponibles de los colores distintos de la receta. Asocia directamente los nombres ASCII en bytes Blue, Red, Yellow con cantidades enteras, sin entrada decodificada ni claves de texto. Hace O(K) multiplicaciones y guarda O(K) tokens, con K<=3 y producto hasta 10^6. Cambia representación y sobrecarga, no la regla combinatoria. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1573_math.py`: tiempo 0.078 s → 0.109 s; memoria 452 KB → 232 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1573_math.go](1573_math.go).
+`1573_math_optimized.py`: puesto de tiempo 34/51 y de memoria 1/51 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -122,3 +129,6 @@ implementación para alcanzar el objetivo.
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
 | [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) | AC | 0.109 s | 328 KB | 11304267 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
+| [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
