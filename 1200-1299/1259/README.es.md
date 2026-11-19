@@ -25,6 +25,10 @@ N.
 
 El número de estrellas con N vértices.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -93,6 +97,10 @@ El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y 
 
 Las implementaciones base aceptadas [1259_math.cpp](1259_math.cpp), [1259_math.java](1259_math.java), [1259_math.py](1259_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1259_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1259_math.java`: tiempo 0.125 s → 0.078 s; memoria 1580 KB → 424 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -118,5 +126,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1259_math_optimized.go](1259_math_optimized.go) \* | Go 1.14 x64 | math | O(√N) | AC | 0.015 s | 268 KB | 11311211 |
 | [1259_math_optimized.rs](1259_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√N) | AC | 0.046 s | 48 KB | 11311236 |
+| [1259_math_optimized.java](1259_math_optimized.java) | Java 1.8 | math | O(√N) | AC | 0.078 s | 424 KB | 11324812 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
