@@ -25,6 +25,10 @@ n ≤ 5·10⁵ y después las dos caras como cadenas de A y B.
 
 `Alice`, `Bob` o `Draw`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -97,11 +101,23 @@ en B/B, así que gana Bob.
 
 ## Soluciones optimizadas
 
+`2104_games_optimized.java`. Conserva minimax de pliegues y Alice/Draw/Bob, representando cada cara por lado original, inicio, dirección±1 y longitud. Dos prefijos de colores prueban en O(1) si ambas caras nuevas son todas A o B, sin subcadenas, reversos ni recorridos. Cada rama divide longitud: O(n) nodos máximos y pila O(log n); prefijos O(n), espacio total O(n). Longitud impar sigue dando empate antes de plegar; un color vence solo después del pliegue, con la misma semántica y cortes tempranos.
+
+Frente a `2104_games.java`: tiempo 0.125 s → 0.125 s; memoria 14 904 KB → 5 032 KB.
+
 C++, Go y Rust representan cada cara mediante un tramo de la tira original y un indicador de inversión. Al doblar toman dos subtramos e invierten la orientación de uno. Las dos mitades expuestas contienen justo las celdas de la cara elegida, así que basta recorrer esa cara para comprobar si tiene un color uniforme. El minimax sigue usando O(n log n) tiempo y O(log n) de pila además de la entrada.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y usa 1 152 KB frente a 2132 KB.
 
 Las implementaciones base aceptadas [2104_games.java](2104_games.java), [2104_games.py](2104_games.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`2104_games_optimized.java`: puesto de tiempo 5/27 y de memoria 1/27 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -109,9 +125,9 @@ Las implementaciones base aceptadas [2104_games.java](2104_games.java), [2104_ga
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.031 s | 3832 KB | 11294756 |
+| [2104_games.cpp](2104_games.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.046 s | 3812 KB | 11325592 |
 | [2104_games.go](2104_games.go) | Go 1.14 x64 | games | O(n log n) | AC | 0.046 s | 8076 KB | 11294757 |
-| [2104_games.java](2104_games.java) \* | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14932 KB | 11294763 |
+| [2104_games.java](2104_games.java) \* | Java 1.8 | games | O(n log n) | AC | 0.125 s | 14904 KB | 11325571 |
 | [2104_games.py](2104_games.py) \* | Python 3.12 x64 | games | O(n log n) | AC | 0.265 s | 3968 KB | 11294760 |
 | [2104_games.rs](2104_games.rs) | Rust 1.75 x64 | games | O(n log n) | AC | 0.015 s | 2132 KB | 11294764 |
 
@@ -122,5 +138,6 @@ Las implementaciones base aceptadas [2104_games.java](2104_games.java), [2104_ga
 | [2104_games_optimized.cpp](2104_games_optimized.cpp) | G++ 13.2 x64 | games | O(n log n) | AC | 0.015 s | 1424 KB | 11310425 |
 | [2104_games_optimized.go](2104_games_optimized.go) \* | Go 1.14 x64 | games | O(n log n) | AC | 0.015 s | 1896 KB | 11310428 |
 | [2104_games_optimized.rs](2104_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n log n) | AC | 0.046 s | 1152 KB | 11310427 |
+| [2104_games_optimized.java](2104_games_optimized.java) \* | Java 1.8 | games | O(n) | AC | 0.125 s | 5032 KB | 11325036 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
