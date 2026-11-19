@@ -90,6 +90,18 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2002_implementation_optimized.rs`. Keep the same account HashMap and login-state machine, including error precedence. Read and process each command immediately; store byte names/passwords only for registered accounts and emit the fixed reply directly. Do not retain the command history or reply strings. Expected O(I+O) time for input/output bytes and O(A+T) storage for account data A and the largest current command T, with standard randomized hashing.
+
+Compared with `2002_implementation.rs`: time 0.046 s → 0.015 s; memory 460 KB → 280 KB.
+
+`2002_implementation_optimized.java`. Keep the same account map and error precedence, including checking the password before the already-online condition. Process one request and emit its reply immediately instead of retaining all commands, replies and the joined answer. Java stores one Account per registered name and uses fixed I/O buffers; Python uses byte keys/passwords without ASCII decoding and removes accumulated command/reply lists. Space is O(U) account records plus the current bounded-length request, where U<=n. With names/passwords at most 30 characters, expected hash-table processing is O(n), not a worst-case hashing guarantee. Failed commands leave state unchanged. Python flushes before os._exit(0); registration remains offline.
+
+Compared with `2002_implementation.java`: time 0.140 s → 0.109 s; memory 664 KB → 640 KB.
+
+`2002_implementation_optimized.py`. Keep the same account map and error precedence, including checking the password before the already-online condition. Process one request and emit its reply immediately instead of retaining all commands, replies and the joined answer. Java stores one Account per registered name and uses fixed I/O buffers; Python uses byte keys/passwords without ASCII decoding and removes accumulated command/reply lists. Space is O(U) account records plus the current bounded-length request, where U<=n. With names/passwords at most 30 characters, expected hash-table processing is O(n), not a worst-case hashing guarantee. Failed commands leave state unchanged. Python flushes before os._exit(0); registration remains offline.
+
+Compared with `2002_implementation.py`: time 0.093 s → 0.109 s; memory 576 KB → 252 KB.
+
 The optimized C++ solution reads the words with `scanf` into buffers of
 31 bytes instead of `iostream` and answers every request at once instead
 of storing all requests and replies first: 212 KB instead of 516 KB,
@@ -99,6 +111,16 @@ The optimized Go solution parses the requests by hand from a 1 KB
 buffered reader instead of `fmt.Fscan` and answers each one at once
 through a buffered writer, with no list of commands: 0.015 s instead of
 0.046 s and 936 KB instead of 1124 KB.
+
+## Language notes
+
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`2002_implementation_optimized.java`: time place 26/249, memory place 29/249 in this comparable sample.
+
+`2002_implementation_optimized.py`: time place 47/69, memory place 2/69 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -118,3 +140,8 @@ through a buffered writer, with no list of commands: 0.015 s instead of
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
 | [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |
+| [2002_implementation_optimized.java](2002_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) expected | AC | 0.109 s | 640 KB | 11325028 |
+| [2002_implementation_optimized.py](2002_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) expected | AC | 0.109 s | 252 KB | 11324845 |
+| [2002_implementation_optimized.rs](2002_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | Expected O(I+O) time; O(A+T) space | AC | 0.015 s | 280 KB | 11325537 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

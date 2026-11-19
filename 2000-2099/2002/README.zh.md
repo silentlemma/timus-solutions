@@ -71,12 +71,34 @@ fail: already logged out
 
 ## 优化解法
 
+`2002_implementation_optimized.rs`. 保留账户 HashMap 及登录状态机，含错误优先顺序。每命令立即读处理，仅注册账户保存字节名字/密码，直接输出固定回复，无命令历史及回复串。标准随机哈希下输入/输出字节 I/O 的期望 O(I+O) 时间；账户数据 A、最大当前命令 T 下 O(A+T) 存储。
+
+与 `2002_implementation.rs` 相比：时间 0.046 s → 0.015 s；内存 460 KB → 280 KB。
+
+`2002_implementation_optimized.java`. 保留账户映射及错误优先级，包括先检查密码再检查已登录。逐请求处理并输出答复，不保存全部命令、答复和拼接答案。Java 每个注册名存一个 Account，使用固定输入输出缓冲；Python 用字节名及密码，不做 ASCII 解码，去掉累积列表。空间为 O(U) 账户记录及当前有界长度请求，U<=n。名字、密码至多 30 字符时，哈希处理期望 O(n)，并非最坏情况保证。失败命令不改状态，注册仍为未登录；Python 在 os._exit(0) 前刷新输出。
+
+与 `2002_implementation.java` 相比：时间 0.140 s → 0.109 s；内存 664 KB → 640 KB。
+
+`2002_implementation_optimized.py`. 保留账户映射及错误优先级，包括先检查密码再检查已登录。逐请求处理并输出答复，不保存全部命令、答复和拼接答案。Java 每个注册名存一个 Account，使用固定输入输出缓冲；Python 用字节名及密码，不做 ASCII 解码，去掉累积列表。空间为 O(U) 账户记录及当前有界长度请求，U<=n。名字、密码至多 30 字符时，哈希处理期望 O(n)，并非最坏情况保证。失败命令不改状态，注册仍为未登录；Python 在 os._exit(0) 前刷新输出。
+
+与 `2002_implementation.py` 相比：时间 0.093 s → 0.109 s；内存 576 KB → 252 KB。
+
 优化的 C++ 解法用 `scanf` 代替 `iostream`，把单词读入 31 字节的缓冲区，并对每个
 请求立即回复，而不是先保存全部请求和回复：212 KB，而不是 516 KB，时间不变。
 
 优化的 Go 解法从 1 KB 的带缓冲读取器手工解析请求，而不是用 `fmt.Fscan`，并通过带
 缓冲的写入器立即回答每个请求，不保存命令列表：0.015 s，而不是 0.046 s；936 KB，
 而不是 1124 KB。
+
+## 各语言说明
+
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`2002_implementation_optimized.java`：在该可比样本中，时间名次 26/249，内存名次 29/249。
+
+`2002_implementation_optimized.py`：在该可比样本中，时间名次 47/69，内存名次 2/69。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -96,3 +118,8 @@ fail: already logged out
 |----|----|----|-----|------|----|----|------|
 | [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
 | [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |
+| [2002_implementation_optimized.java](2002_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) expected | AC | 0.109 s | 640 KB | 11325028 |
+| [2002_implementation_optimized.py](2002_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) expected | AC | 0.109 s | 252 KB | 11324845 |
+| [2002_implementation_optimized.rs](2002_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | Expected O(I+O) time; O(A+T) space | AC | 0.015 s | 280 KB | 11325537 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
