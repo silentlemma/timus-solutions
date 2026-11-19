@@ -76,6 +76,10 @@ the value the greedy argument gives.
 
 ## Optimized solutions
 
+`1108_math_optimized.rs`. Keep Sylvester’s recurrence a_next=a²-a+1, using base-10^4 u32 limbs. Squaring computes diagonal products once and doubles only off-diagonal products; normalize a reusable u64 scratch array, subtract a, then add one. Reuse the next/scratch vectors and stream padded four-digit limbs. Most importantly, do not compute the unused next term after the last printed term; the basic source did. With D limbs in the largest required term, total schoolbook limb work is O(D²) and storage O(D), including scratch. N<=18 keeps convolution coefficients within u64. Preserve the basic base-10^9 implementation.
+
+Compared with `1108_math.rs`: time 0.015 s → 0.015 s; memory 356 KB → 188 KB.
+
 Keep all five readable Sylvester-recurrence sources. Fast variants compute the same a[1]=2,a[k+1]=a[k]^2-a[k]+1 and avoid forming an unused term after the final output. Java uses base-10000 integer digits, symmetric schoolbook squaring into long accumulators, then subtracts the old value and adds one with exact carries. For N <= 18, a[18]<2^131072<10^40960, so 11000 chunks suffice; even the largest convolution coefficient fits long. Stream four-digit chunks instead of constructing a large decimal string. Python retains native big-integer arithmetic but recursively splits decimal output into at most 1000-digit conversions, below the normal conversion cap. A rational upper bound on log10(2), followed by an exact power-of-ten comparison, gives the output width without converting the full value. Each decimal is emitted exactly once. Conservative arithmetic/output bounds are O(D²) time and O(D) working digits. All 18 prefixes were independently verified. Python's one-tick time difference is not the admission basis; its own memory reduction exceeds 30%.
 
 - `1108_math_optimized.java`: 0.125 s / 516 KB; base `1108_math.java`: 0.187 s / 6508 KB; relative change: time -33.2%, memory -92.1%.
@@ -83,19 +87,11 @@ Keep all five readable Sylvester-recurrence sources. Fast variants compute the s
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1108_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1108_math.cpp`; covering source `1108_math.cpp`; time/memory places 1/4, other-author entries 23/23.
-
-- Go: preferred teaching base `1108_math.go`; covering source `1108_math.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1108_math.java`; covering source `1108_math_optimized.java`; time/memory places 2/1, other-author entries 13/13.
-
-- Python/PyPy: preferred teaching base `1108_math.py`; covering source `1108_math_optimized.py`; time/memory places 1/3, other-author entries 21/21.
-
-- Rust: preferred teaching base `1108_math.rs`; covering source `1108_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -115,5 +111,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1108_math_optimized.java](1108_math_optimized.java) \* | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
 | [1108_math_optimized.py](1108_math_optimized.py) \* | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
+| [1108_math_optimized.rs](1108_math_optimized.rs) \* | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

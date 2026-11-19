@@ -77,6 +77,10 @@ todo `N` verificando con fracciones exactas que el resto es
 
 ## Soluciones optimizadas
 
+`1108_math_optimized.rs`. Conserva recurrencia de Sylvester a_next=a²-a+1 con limbs u32 de base 10^4. Cuadra diagonales una vez y duplica productos cruzados; normaliza scratch u64 reutilizable, resta a y suma uno. Reutiliza vectores y emite grupos de cuatro cifras. Evita calcular el siguiente término inútil después del último impreso, que sí calculaba la base. Con D limbs del mayor término requerido, O(D²) trabajo escolar total y O(D) espacio incluyendo scratch. N<=18 mantiene coeficientes en u64. Conserva la sencilla de base 10^9.
+
+Frente a `1108_math.rs`: tiempo 0.015 s → 0.015 s; memoria 356 KB → 188 KB.
+
 Se conservan las cinco recurrencias Sylvester claras. Las rápidas calculan a[1]=2,a[k+1]=a[k]^2-a[k]+1 y no construyen un término tras la última salida. Java guarda dígitos int en base 10000, eleva simétricamente por multiplicación escolar en acumuladores long, resta el valor anterior y suma uno con acarreos exactos. Para N <= 18, a[18]<2^131072<10^40960. Por eso, 11000 bloques bastan y cada coeficiente cabe en long. Emite bloques de cuatro dígitos sin cadena gigante. Python mantiene enteros nativos, pero divide recursivamente la salida en conversiones de hasta 1000 dígitos, bajo el límite normal. Una cota racional de log10(2) y comparación exacta con potencia de diez dan el ancho. Cada dígito sale una vez. Cota conservadora O(D²) de tiempo y O(D) dígitos. Se verificaron los 18 prefijos. Un tick de tiempo Python no justifica admisión: su memoria baja más del 30%.
 
 - `1108_math_optimized.java`: 0.125 s / 516 KB; base `1108_math.java`: 0.187 s / 6508 KB; cambio respecto a la base: tiempo -33.2%, memoria -92.1%.
@@ -84,19 +88,11 @@ Se conservan las cinco recurrencias Sylvester claras. Las rápidas calculan a[1]
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1108_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1108_math.cpp`; fuente que cubre `1108_math.cpp`; puestos tiempo/memoria 1/4, registros de otros autores 23/23.
-
-- Go: base didáctica preferida `1108_math.go`; fuente que cubre `1108_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1108_math.java`; fuente que cubre `1108_math_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 13/13.
-
-- Python/PyPy: base didáctica preferida `1108_math.py`; fuente que cubre `1108_math_optimized.py`; puestos tiempo/memoria 1/3, registros de otros autores 21/21.
-
-- Rust: base didáctica preferida `1108_math.rs`; fuente que cubre `1108_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -116,5 +112,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1108_math_optimized.java](1108_math_optimized.java) \* | Java 1.8 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.125 s | 516 KB | 11309742 |
 | [1108_math_optimized.py](1108_math_optimized.py) \* | Python 3.12 x64 | math | O(D²) arithmetic/output bound; O(D) working digits | AC | 0.015 s | 788 KB | 11309753 |
+| [1108_math_optimized.rs](1108_math_optimized.rs) \* | Rust 1.75 x64 | math | O(D²) limb work; O(D) space | AC | 0.015 s | 188 KB | 11325539 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
