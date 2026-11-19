@@ -22,6 +22,10 @@ A, B, C, y luego X, Y, Z, todos entre 0 y 10⁹.
 "It is a kind of magic" si el hechizo se puede pagar, y si no "There are
 no miracles in life".
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -70,6 +74,14 @@ para 17 de maná.
 
 ## Soluciones optimizadas
 
+`2142_greedy_optimized.go`. Conserva las dos condiciones necesarias y suficientes: tierras dobles cubren max(0,X-A)+max(0,Y-B), y el total debe alcanzar X+Y+Z. Tras cubrir colores, cualquier tierra restante paga maná neutral. Mantiene ambas frases exactas y el caso todo cero. Las sumas alcanzan3·10^9, por lo que Go usa int64 y Python enteros exactos. Tiempo y estado O(1), con bytes y salida directa en vez de envolventes básicas. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `2142_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1088 KB → 860 KB.
+
+`2142_greedy_optimized.py`. Conserva las dos condiciones necesarias y suficientes: tierras dobles cubren max(0,X-A)+max(0,Y-B), y el total debe alcanzar X+Y+Z. Tras cubrir colores, cualquier tierra restante paga maná neutral. Mantiene ambas frases exactas y el caso todo cero. Las sumas alcanzan3·10^9, por lo que Go usa int64 y Python enteros exactos. Tiempo y estado O(1), con bytes y salida directa en vez de envolventes básicas. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `2142_greedy.py`: tiempo 0.078 s → 0.125 s; memoria 416 KB → 208 KB.
+
 La solución optimizada en Java lee los seis números byte a byte de
 `System.in` en lugar de crear un `Scanner`, cuyas expresiones regulares
 y datos de configuración regional son el gasto principal de un programa
@@ -78,8 +90,8 @@ que hace dos comparaciones; las sumas siguen en `long`, porque llegan a
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
+Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
+o de mejora de recursos. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
@@ -88,12 +100,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [2142_greedy.cpp](2142_greedy.cpp).
+`2142_greedy_optimized.go`: puesto de tiempo 5/12 y de memoria 3/12 en esta muestra comparable.
+
+`2142_greedy_optimized.py`: puesto de tiempo 66/79 y de memoria 1/79 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -112,5 +125,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 860 KB | 11325054 |
+| [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
