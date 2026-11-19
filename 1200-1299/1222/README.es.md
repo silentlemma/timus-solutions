@@ -23,6 +23,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 El mayor producto.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -64,6 +68,10 @@ aparte en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1222_math_optimized.rs`. Conserva descomposición óptima en treses y un cuatro si sobra uno. Empaqueta nueve cifras decimales por u32 en vez de una y emite grupos rellenados sin construir String decimal. Multiplicar por tres cabe en u32: 3*(10^9-1)+2<2^32. Las multiplicaciones pequeñas siguen O(n²) trabajo de limbs y O(n) cifras almacenadas; mejora representación, no asintótica. Conserva versión sencilla de un dígito por limb.
+
+Frente a `1222_math.rs`: tiempo 0.031 s → 0.015 s; memoria 208 KB → 64 KB.
+
 La solución optimizada en C++ multiplica un arreglo global fijo de 1000
 dígitos decimales en lugar de un `std::vector` que crece con el
 producto, así que el programa no necesita memoria dinámica; con
@@ -88,19 +96,19 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1222_math_optimized.java`: reducción de tiempo -34.41%; reducción de
   memoria +71.66%; base: `1222_math.java`.
 
+`1222_math_optimized.py`. Mantiene la partición de producto máximo en treses, resuelve N<4 directamente y cambia un resto uno por un cuatro. El resultado exacto no cambia; pow y ** son potencias enteras equivalentes. Para un resultado de O(N) bits, la cota conservadora de aritmética escolar y salida decimal es O(N²) de tiempo y O(N) bits. La ganancia medida procede de la implementación del programa independiente. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1222_math.py`: tiempo 0.078 s → 0.109 s; memoria 396 KB → 248 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1222_math.go](1222_math.go).
-- [1222_math.rs](1222_math.rs).
+`1222_math_optimized.py`: puesto de tiempo 19/61 y de memoria 3/61 en esta muestra comparable.
 
-- Python usa sus propios enteros, Go `math/big` y Java `BigInteger`;
-  C++ y Rust multiplican por 3 una y otra vez un arreglo de cifras
-  decimales.
+`1222_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -120,5 +128,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1222_math_optimized.cpp](1222_math_optimized.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 104 KB | 11304484 |
 | [1222_math_optimized.java](1222_math_optimized.java) \* | Java 1.8 | math | O(N²) | AC | 0.125 s | 484 KB | 11304486 |
+| [1222_math_optimized.py](1222_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N²) | AC | 0.109 s | 248 KB | 11324929 |
+| [1222_math_optimized.rs](1222_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n²) limb work; O(n) digits | AC | 0.015 s | 64 KB | 11325523 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
