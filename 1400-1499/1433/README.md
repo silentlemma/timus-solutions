@@ -65,6 +65,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1433_combinatorics.rs`. Replace enumeration of all face permutations with a direct tetrahedral-rotation test. Sort four colours to compare multisets. A repeated colour permits exchanging indistinguishable faces to fix parity; otherwise compute the unique colour permutation and require even parity. Fixed four-element arrays give constant time and storage. Preserve the simple permutation search as a separate algorithm.
+
+Compared with `1433_bruteforce.rs`: time 0.031 s → 0.046 s; memory 224 KB → 60 KB.
+
 The teaching versions still enumerate the twelve proper tetrahedron rotations. The new mathematical variants first compare colour multisets. If a colour repeats, swapping two indistinguishable faces changes permutation parity without changing the colouring, so an even representative always exists. Otherwise four distinct colours define a unique permutation; it is a proper rotation exactly when its inversion parity is even. This avoids constructing all rotated colourings. Both branches use a constant number of faces and exact comparisons. The Python version also reads and writes the existing text streams.
 
 - `1433_math.cpp`: 0.015 s / 104 KB; base `1433_bruteforce.cpp`: 0.015 s / 360 KB; relative change: time -0.0%, memory -71.1%.
@@ -106,5 +110,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1433_math.cpp](1433_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 104 KB | 11309265 |
 | [1433_math.java](1433_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11309266 |
 | [1433_math.py](1433_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 284 KB | 11309683 |
+| [1433_combinatorics.rs](1433_combinatorics.rs) \* | Rust 1.75 x64 | combinatorics | O(1), four faces | AC | 0.046 s | 60 KB | 11325505 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

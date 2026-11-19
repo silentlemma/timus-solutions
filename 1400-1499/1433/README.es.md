@@ -66,6 +66,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1433_combinatorics.rs`. Sustituye enumeración de permutaciones por prueba directa de rotación tetraédrica. Ordena cuatro colores para comparar multiconjuntos; repetición permite intercambiar caras indistinguibles y corregir paridad; si no, exige paridad par de la única permutación. Arrays de cuatro: tiempo/espacio constantes. Conserva búsqueda sencilla como otro algoritmo.
+
+Frente a `1433_bruteforce.rs`: tiempo 0.031 s → 0.046 s; memoria 224 KB → 60 KB.
+
 Las bases siguen enumerando las doce rotaciones propias. Las variantes matemáticas comparan los multiconjuntos de colores. Si se repite un color, intercambiar dos caras indistinguibles cambia la paridad sin cambiar la coloración: siempre existe un representante par. Con cuatro colores distintos la permutación es única y corresponde a una rotación propia si su número de inversiones es par. Se evita construir todas las coloraciones rotadas. Son cuatro caras y comparaciones exactas. Python también usa flujos de texto existentes.
 
 - `1433_math.cpp`: 0.015 s / 104 KB; base `1433_bruteforce.cpp`: 0.015 s / 360 KB; cambio respecto a la base: tiempo -0.0%, memoria -71.1%.
@@ -107,5 +111,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1433_math.cpp](1433_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 104 KB | 11309265 |
 | [1433_math.java](1433_math.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11309266 |
 | [1433_math.py](1433_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 284 KB | 11309683 |
+| [1433_combinatorics.rs](1433_combinatorics.rs) \* | Rust 1.75 x64 | combinatorics | O(1), four faces | AC | 0.046 s | 60 KB | 11325505 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
