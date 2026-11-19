@@ -144,6 +144,10 @@ Las primeras tres secuencias reducen cuatro columnas ocupadas a la columna derec
 
 Las implementaciones base aceptadas [1051_games_math.cpp](1051_games_math.cpp), [1051_games_math.go](1051_games_math.go), [1051_games_math.java](1051_games_math.java), [1051_games_math.py](1051_games_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1051_games_math_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1051_games_math.java`: tiempo 0.125 s → 0.109 s; memoria 1632 KB → 460 KB.
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -167,5 +171,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1051_games_math_optimized.rs](1051_games_math_optimized.rs) \* | Rust 1.75 x64 | games, math | O(1) | AC | 0.015 s | 64 KB | 11315688 |
+| [1051_games_math_optimized.java](1051_games_math_optimized.java) \* | Java 1.8 | games, math | O(1) | AC | 0.109 s | 460 KB | 11324825 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
