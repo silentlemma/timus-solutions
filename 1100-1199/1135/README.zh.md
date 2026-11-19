@@ -22,6 +22,10 @@
 
 成对转身的次数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -60,6 +64,14 @@
 
 ## 优化解法
 
+`1135_math_optimized.py`. 保留每遇 < 累计之前 >，恰读 N 有效符号、跳分隔。字节输入不解码或重拼行。此短 PyPy 程序关闭可选 JIT，避免热循环迹线分配，刷新后直接退出；CPython 跳过可选设置。I 个输入字节下 O(I) 时间空间，保留简单计数版。
+
+与 `1135_math.py` 相比：时间 0.078 s → 0.125 s；内存 420 KB → 288 KB。
+
+`1135_math_optimized.go`. 遇到 < 时累计此前 >，恰好消费 N 个有效符号并跳过分隔符。仅保存计数与答案，无整段输入字符串。I 个输入字节下 O(N+I) 时间、常数额外空间。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1135_math.go` 相比：时间 0.031 s → 0.031 s；内存 1100 KB → 332 KB。
+
 较快的 Java 实现仍然统计相同的逆序对，但直接使用可复用的 4 KB 字节缓冲区，不再使用字符读取器。它跳过换行，只统计 `N` 个方向。时间仍为 `O(N)`，额外空间为常数。字符输入版本保留为基础实现。
 
 {1135_math_optimized.java}.
@@ -71,6 +83,10 @@
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1135_math_optimized.java`: 时间降低 +37.60%; 内存降低 +31.58%; 基础版本: `1135_math.java`.
+
+`1135_math_optimized.rs`. 跳过空白并依次读取恰好 N 个方向符号。记录此前向右的数量，每个新向左符号贡献这么多相向对。每个逆序对恰计一次，无需保存整行；在题目行长限制下，时间 O(N)，工作空间 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1135_math.rs` 相比：时间 0.031 s → 0.015 s；内存 248 KB → 56 KB。
 
 ## 各语言说明
 
@@ -99,3 +115,8 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
+| [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
+| [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -24,6 +24,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The number of pair turns.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -67,6 +71,14 @@ random rows of up to 300 recruits.
 
 ## Optimized solutions
 
+`1135_math_optimized.py`. Keep the count of earlier > symbols added for each <, consuming exactly N significant symbols and skipping separators. Read byte data without decoding or rebuilding a joined row. For this short PyPy job, disable optional JIT compilation to avoid paying for hot-loop traces, then flush and exit directly. The CPython fallback skips that optional runtime setting. O(I) time and space for I input bytes; the simple readable counting source remains.
+
+Compared with `1135_math.py`: time 0.078 s → 0.125 s; memory 420 KB → 288 KB.
+
+`1135_math_optimized.go`. Count every earlier > when reading <, consuming exactly N relevant symbols and skipping separators. Keep only the count and total, without storing the input string. For I input bytes, O(N+I) time and constant auxiliary space. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `1135_math.go`: time 0.031 s → 0.031 s; memory 1100 KB → 332 KB.
+
 The fast Java implementation keeps the same inversion count, but reads directly from a reusable 4 KB byte buffer instead of character readers. It skips line breaks while counting exactly `N` directions. Time remains `O(N)` and auxiliary storage is constant. The character-reader implementation remains the base version.
 
 {1135_math_optimized.java}.
@@ -82,6 +94,10 @@ asterisk concerns the rating target only.
 
 - `1135_math_optimized.java`: time reduction +37.60%; memory reduction
   +31.58%; base: `1135_math.java`.
+
+`1135_math_optimized.rs`. Stream exactly N direction symbols, skipping whitespace. Count the right-facing symbols already seen; each new left-facing symbol contributes that many facing pairs. This counts every inversion once without retaining the row: O(N) time and O(1) working space under the line-length bound. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1135_math.rs`: time 0.031 s → 0.015 s; memory 248 KB → 56 KB.
 
 ## Language notes
 
@@ -113,3 +129,8 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
+| [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
+| [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

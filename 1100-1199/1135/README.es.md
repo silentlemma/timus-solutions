@@ -25,6 +25,10 @@ hasta 255 caracteres.
 
 El número de giros de parejas.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -69,6 +73,14 @@ filas aleatorias de hasta 300 reclutas.
 
 ## Soluciones optimizadas
 
+`1135_math_optimized.py`. Conserva sumar > anteriores por cada <, exactamente N símbolos relevantes saltando separadores. Bytes sin decodificar ni unir filas. Desactiva JIT opcional de este trabajo PyPy corto para evitar trazas calientes, vacía y sale directamente; CPython omite ajuste opcional. O(I) tiempo/espacio para I bytes; conserva conteo legible.
+
+Frente a `1135_math.py`: tiempo 0.078 s → 0.125 s; memoria 420 KB → 288 KB.
+
+`1135_math_optimized.go`. Al leer < suma todos los > anteriores, consumiendo exactamente N símbolos relevantes y saltando separadores. Solo contador y total, sin cadena completa. O(N+I) tiempo para I bytes y espacio auxiliar constante. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1135_math.go`: tiempo 0.031 s → 0.031 s; memoria 1100 KB → 332 KB.
+
 La implementación rápida de Java conserva el conteo de inversiones, pero lee directamente con un búfer reutilizable de 4 KB en lugar de lectores de caracteres. Omite los saltos de línea y cuenta exactamente `N` direcciones. Mantiene tiempo `O(N)` y espacio auxiliar constante. La versión con lectores de caracteres sigue siendo la básica.
 
 {1135_math_optimized.java}.
@@ -84,6 +96,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1135_math_optimized.java`: reducción de tiempo +37.60%; reducción de
   memoria +31.58%; base: `1135_math.java`.
+
+`1135_math_optimized.rs`. Lee exactamente N símbolos de dirección omitiendo espacios. Cuenta los símbolos hacia la derecha ya vistos; cada nuevo símbolo hacia la izquierda aporta ese número de parejas enfrentadas. Cuenta cada inversión una vez sin guardar la fila: O(N) tiempo y O(1) espacio de trabajo con el límite de longitud de línea. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1135_math.rs`: tiempo 0.031 s → 0.015 s; memoria 248 KB → 56 KB.
 
 ## Notas por lenguaje
 
@@ -116,3 +132,8 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
+| [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
+| [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
