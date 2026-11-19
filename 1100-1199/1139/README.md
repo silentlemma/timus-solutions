@@ -23,6 +23,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The number of blocks.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -78,6 +82,14 @@ on every test.
 
 ## Optimized solutions
 
+`1139_number_theory_optimized.py`. Keep the grid-crossing formula a+b-gcd(a,b), with a=N-1,b=M-1. Compute gcd by the iterative Euclidean remainder loop. This preserves the corner-crossing correction and uses O(log min(N,M)) bounded-integer steps with O(1) auxiliary state; it is not a new geometric algorithm. Inline the gcd loop instead of importing math.gcd and parse the two byte tokens directly. The measured benefit is lower judge memory, not a claim that Python-level gcd runs faster than the native library. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1139_number_theory.py`: time 0.078 s → 0.125 s; memory 400 KB → 220 KB.
+
+`1139_number_theory_optimized.rs`. Keep the grid-crossing formula a+b-gcd(a,b), with a=N-1,b=M-1. Compute gcd by the iterative Euclidean remainder loop. This preserves the corner-crossing correction and uses O(log min(N,M)) bounded-integer steps with O(1) auxiliary state; it is not a new geometric algorithm. The iterative loop replaces recursive gcd, while direct numeric I/O removes the retained input String. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1139_number_theory.rs`: time 0.015 s → 0.031 s; memory 248 KB → 56 KB.
+
 The optimized Java solution reads the two numbers byte by byte with
 `System.in.read` instead of `Scanner` and computes the gcd in a loop
 instead of by recursion. The formula is the same; the solution takes
@@ -85,7 +97,13 @@ instead of by recursion. The formula is the same; the solution takes
 
 ## Language notes
 
-- All languages apply the same formula.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1139_number_theory_optimized.py`: time place 47/57, memory place 1/57 in this comparable sample.
+
+`1139_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -104,3 +122,7 @@ instead of by recursion. The formula is the same; the solution takes
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1139_number_theory_optimized.java](1139_number_theory_optimized.java) | Java 1.8 | number_theory | O(log min(N, M)) | AC | 0.093 s | 360 KB | 11303570 |
+| [1139_number_theory_optimized.py](1139_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log min(N,M)) | AC | 0.125 s | 220 KB | 11324847 |
+| [1139_number_theory_optimized.rs](1139_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(log min(N,M)) | AC | 0.031 s | 56 KB | 11324856 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

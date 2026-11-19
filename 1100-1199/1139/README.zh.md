@@ -22,6 +22,10 @@
 
 街区数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -72,13 +76,27 @@
 
 ## 优化解法
 
+`1139_number_theory_optimized.py`. 保留网格穿越公式 a+b-gcd(a,b)，a=N-1、b=M-1。用迭代欧几里得余数循环求 gcd，保留角点修正。O(log min(N,M)) 次有界整数步骤，额外状态 O(1)，不是新的几何算法。 内联 gcd 循环而不导入 math.gcd，直接解析两个字节记号。实测收益为评测内存更低，并不声称 Python 循环快于原生库。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1139_number_theory.py` 相比：时间 0.078 s → 0.125 s；内存 400 KB → 220 KB。
+
+`1139_number_theory_optimized.rs`. 保留网格穿越公式 a+b-gcd(a,b)，a=N-1、b=M-1。用迭代欧几里得余数循环求 gcd，保留角点修正。O(log min(N,M)) 次有界整数步骤，额外状态 O(1)，不是新的几何算法。 迭代循环替代递归 gcd，直接数字输入输出去掉保留的输入 String。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1139_number_theory.rs` 相比：时间 0.015 s → 0.031 s；内存 248 KB → 56 KB。
+
 优化的 Java 解法用 `System.in.read` 逐字节读取两个数，而不用 `Scanner`，并用循环
 而不是递归计算最大公约数。公式相同；内存为 360 KB，而不是 1592 KB，时间
 不变。
 
 ## 各语言说明
 
-- 所有语言使用同一个公式。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
+
+`1139_number_theory_optimized.py`：在该可比样本中，时间名次 47/57，内存名次 1/57。
+
+`1139_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -97,3 +115,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1139_number_theory_optimized.java](1139_number_theory_optimized.java) | Java 1.8 | number_theory | O(log min(N, M)) | AC | 0.093 s | 360 KB | 11303570 |
+| [1139_number_theory_optimized.py](1139_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log min(N,M)) | AC | 0.125 s | 220 KB | 11324847 |
+| [1139_number_theory_optimized.rs](1139_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(log min(N,M)) | AC | 0.031 s | 56 KB | 11324856 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
