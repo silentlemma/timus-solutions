@@ -25,6 +25,10 @@ Three space-separated numbers: integers `V` (`0 ≤ V ≤ 500000`) and
 
 The distance in metres, rounded to two decimals.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant. The stored fixtures check the emitted number with exactly two fractional digits, using the statement constants.
+
 ## Examples
 
 ### Example 1
@@ -78,6 +82,10 @@ asterisk concerns the rating target only.
 - `1192_math_optimized.java`: time reduction +25.60%; memory reduction
   +50.42%; base: `1192_math.java`.
 
+`1192_math_optimized.rs`. Keep the geometric-series formula and the statement's PI and gravity constants. Read speed and angle through the C runtime and keep the K token as bytes. A zero speed or angle returns 0.00 before division. If parsing K rounds it to 1.0, subtract its units digit in decimal notation before parsing K-1; scientific notation is supported. Huge K avoids infinity/infinity and an overflowing numerator. Ordinary finite inputs keep the original f64 evaluation order. For a k-character input, reading and token storage take O(k); geometry uses O(1) operations. The finite range and precision of f64 still limit very large answers. The simple accepted source remains unchanged.
+
+Compared with `1192_math.rs`: time 0.031 s → 0.015 s; memory 248 KB → 152 KB.
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -108,3 +116,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1192_math_optimized.java](1192_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 952 KB | 11304273 |
+| [1192_math_optimized.rs](1192_math_optimized.rs) \* | Rust 1.75 x64 | math | O(k) | AC | 0.015 s | 152 KB | 11326303 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

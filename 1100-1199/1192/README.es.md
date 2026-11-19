@@ -26,6 +26,10 @@ Tres números separados por espacios: los enteros `V`
 
 La distancia en metros, redondeada a dos decimales.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos. Los casos guardados comprueban el número emitido con dos decimales usando las constantes del enunciado.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -78,6 +82,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1192_math_optimized.java`: reducción de tiempo +25.60%; reducción de
   memoria +50.42%; base: `1192_math.java`.
 
+`1192_math_optimized.rs`. Conserva la serie geométrica y las constantes PI y gravedad del enunciado. Lee velocidad y ángulo mediante C y guarda el token K en bytes. Velocidad o ángulo cero producen 0.00 antes de dividir. Si K se redondea a 1.0, resta la unidad en la escritura decimal antes de convertir K-1; admite notación científica. Para K enorme evita infinito/infinito y el desbordamiento del numerador. Las entradas finitas habituales mantienen el orden original de evaluación f64. Con k caracteres, lectura y almacenamiento del token cuestan O(k); la geometría usa O(1) operaciones. El rango y la precisión de f64 siguen limitando respuestas muy grandes. La fuente sencilla aceptada no cambia.
+
+Frente a `1192_math.rs`: tiempo 0.031 s → 0.015 s; memoria 248 KB → 152 KB.
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -109,3 +117,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1192_math_optimized.java](1192_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 952 KB | 11304273 |
+| [1192_math_optimized.rs](1192_math_optimized.rs) \* | Rust 1.75 x64 | math | O(k) | AC | 0.015 s | 152 KB | 11326303 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
