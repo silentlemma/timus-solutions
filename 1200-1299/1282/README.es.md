@@ -25,6 +25,10 @@ N y luego, para los nodos 2 a N, `N padre` para un nodo interior o
 
 `+1`, `-1` o `0`.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -121,16 +125,21 @@ Las respuestas se compararon con un minimax recursivo sencillo en 149
 
 ## Soluciones optimizadas
 
+`1282_games_optimized.java`. Conserva minimax ascendente: máximo a profundidad par, mínimo a impar. Aplana hijos en first/next y genera un orden primitivo desde la raíz. Guarda solo paridad de profundidad y resultados -1,0,+1 en bytes. Recorre al revés para evaluar hijos antes del padre, sin recursión aun en cadenas. El lector acepta +1 directamente. Tiempo y espacio O(N), sin listas anidadas ni orden con objetos ni entrada decodificada completa.
+
+Frente a `1282_games.java`: tiempo 0.140 s → 0.109 s; memoria 1656 KB → 680 KB.
+
 Go evalúa el árbol desde las hojas y guarda un resultado para cada jugador al turno. El resultado del hijo para el segundo jugador aporta al máximo del padre y el del primero a su mínimo. Un nodo queda listo al terminar su último hijo. Entonces su contador de hijos se reutiliza como enlace de la pila de nodos listos, evitando otra pila o listas de adyacencia.
 
 Las implementaciones base aceptadas [1282_games.cpp](1282_games.cpp), [1282_games.java](1282_games.java), [1282_games.py](1282_games.py), [1282_games.rs](1282_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Todos los lenguajes recorren al revés el mismo orden en anchura.
-- Java quita el signo más antes de leer un resultado.
+`1282_games_optimized.java`: puesto de tiempo 8/25 y de memoria 2/25 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -149,5 +158,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
+| [1282_games_optimized.java](1282_games_optimized.java) \* | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

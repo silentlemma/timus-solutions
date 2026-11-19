@@ -25,6 +25,10 @@ N, then for nodes 2 to N either `N parent` for an inner node or
 
 `+1`, `-1` or `0`.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -119,16 +123,21 @@ generated trees.
 
 ## Optimized solutions
 
+`1282_games_optimized.java`. Keep the same bottom-up minimax, maximizing at even depth and minimizing at odd depth. Flatten children into first/next arrays and build one primitive traversal order from the root. Store only depth parity, rather than full depths, and store outcomes -1,0,+1 as bytes. Reverse traversal order evaluates every child before its parent; no recursive call stack is needed even for a chain. The numeric reader accepts a signed +1 token directly. Time and storage O(N), without nested boxed child lists, boxed order entries or the complete decoded input.
+
+Compared with `1282_games.java`: time 0.140 s → 0.109 s; memory 1656 KB → 680 KB.
+
 Go evaluates the tree from its leaves up, keeping a result for each possible player to move. A child's second-player result contributes to the parent's maximum, and its first-player result to the parent's minimum. A node becomes ready after its last child. Its child counter then stores the next ready-stack link, avoiding a separate stack or adjacency list.
 
 The accepted base implementations [1282_games.cpp](1282_games.cpp), [1282_games.java](1282_games.java), [1282_games.py](1282_games.py), [1282_games.rs](1282_games.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- All languages walk the same breadth-first order backwards.
-- Java strips the plus sign before parsing a result.
+`1282_games_optimized.java`: time place 8/25, memory place 2/25 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -147,5 +156,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1282_games_dp.go](1282_games_dp.go) \* | Go 1.14 x64 | games, dp | O(N) | AC | 0.031 s | 792 KB | 11310821 |
+| [1282_games_optimized.java](1282_games_optimized.java) \* | Java 1.8 | games | O(N) | AC | 0.109 s | 680 KB | 11325014 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
