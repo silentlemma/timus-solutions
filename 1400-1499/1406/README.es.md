@@ -23,6 +23,10 @@ El número N con todas sus K cifras.
 
 El número siguiente, o -1.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -83,6 +87,10 @@ C++ y Go recorren de derecha a izquierda manteniendo la suma de cifras del sufij
 
 Las implementaciones base aceptadas [1406_greedy.java](1406_greedy.java), [1406_greedy.py](1406_greedy.py), [1406_greedy.rs](1406_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+`1406_greedy_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1406_greedy.java`: tiempo 0.125 s → 0.109 s; memoria 1576 KB → 548 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -101,5 +109,6 @@ Las implementaciones base aceptadas [1406_greedy.java](1406_greedy.java), [1406_
 |---|---|---|---|---|---|---|---|
 | [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
 | [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
+| [1406_greedy_optimized.java](1406_greedy_optimized.java) \* | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

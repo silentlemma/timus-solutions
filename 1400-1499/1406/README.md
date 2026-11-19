@@ -22,6 +22,10 @@ The number N with all its K digits.
 
 The next number, or -1.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -82,6 +86,10 @@ C++ and Go scan right to left while keeping the suffix digit sum. The first digi
 
 The accepted base implementations [1406_greedy.java](1406_greedy.java), [1406_greedy.py](1406_greedy.py), [1406_greedy.rs](1406_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+`1406_greedy_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1406_greedy.java`: time 0.125 s → 0.109 s; memory 1576 KB → 548 KB.
+
 ## Solutions
 
 ### Simple
@@ -100,5 +108,6 @@ The accepted base implementations [1406_greedy.java](1406_greedy.java), [1406_gr
 |---|---|---|---|---|---|---|---|
 | [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
 | [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
+| [1406_greedy_optimized.java](1406_greedy_optimized.java) \* | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
