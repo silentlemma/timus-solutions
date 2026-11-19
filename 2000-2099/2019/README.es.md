@@ -116,18 +116,21 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`2019_greedy_optimized.java`. Conserva cancelación adyacente de la misma letra en casos opuestos para emparejar sin cruces. Cada pendiente se empaqueta en int: índice independiente de su rol arriba y ASCII en7 bits bajos. XOR32 detecta la pareja; al extraer registra el índice minúsculo del correspondiente mayúsculo. Lee exactamente2n letras en flujo, sin String original ni pilas separadas ni constructor de salida. n<=5000 cabe en int. Tiempo O(n), espacio O(n) para pila y respuesta. Pila no vacía significa Impossible; vacía produce biyección compatible.
+
+Frente a `2019_greedy.java`: tiempo 0.109 s → 0.125 s; memoria 876 KB → 608 KB.
+
 C++ y Go usan la misma regla de cancelación con pila, con vectores separados para letras e índices de 16 bits. C++ lee letra por letra. Go reutiliza la parte ya procesada del búfer de entrada como pila de letras. Una inserción no escribe más allá de la posición actual, de modo que las letras aún sin leer quedan intactas.
 
 Las implementaciones base aceptadas [2019_greedy.java](2019_greedy.java), [2019_greedy.py](2019_greedy.py), [2019_greedy.rs](2019_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-Se usan bytes o caracteres ASCII; los dos casos de una letra difieren en el
-bit 32. C++ y Go usan estructuras de extremos, Rust y Python usan pares,
-y Java usa dos arreglos paralelos y un tamaño de pila. No hay recursión y
-los índices caben en enteros ordinarios.
+`2019_greedy_optimized.java`: puesto de tiempo 16/76 y de memoria 1/76 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -137,7 +140,7 @@ los índices caben en enteros ordinarios.
 |---|---|---|---|---|---|---|---|
 | [2019_greedy.cpp](2019_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 468 KB | 11292657 |
 | [2019_greedy.go](2019_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1412 KB | 11292663 |
-| [2019_greedy.java](2019_greedy.java) \* | Java 1.8 | greedy | O(n) | AC | 0.140 s | 912 KB | 11292672 |
+| [2019_greedy.java](2019_greedy.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 876 KB | 11325565 |
 | [2019_greedy.py](2019_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 1200 KB | 11292667 |
 | [2019_greedy.rs](2019_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 396 KB | 11292677 |
 
@@ -147,5 +150,6 @@ los índices caben en enteros ordinarios.
 |---|---|---|---|---|---|---|---|
 | [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
 | [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+| [2019_greedy_optimized.java](2019_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.125 s | 608 KB | 11325031 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -120,18 +120,21 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2019_greedy_optimized.java`. Keep adjacent opposite-case equal-letter cancellation for a noncrossing matching. Pack each pending endpoint into one int: its separately numbered role index in the high bits and its ASCII letter in the low 7 bits. XOR 32 tests the same case-pair relation; popping records the lowercase index for the corresponding uppercase endpoint. Stream exactly 2n letters, avoiding the original word String, separate char/index stacks and output builder. With n<=5000 the packed index is safely within int. Time O(n), storage O(n) for one packed stack and answer. An unmatched stack means Impossible; otherwise the answer is a valid type-compatible bijection.
+
+Compared with `2019_greedy.java`: time 0.109 s → 0.125 s; memory 876 KB → 608 KB.
+
 C++ and Go use the same stack cancellation rule, with separate arrays for letters and 16-bit indices. C++ consumes the input letter by letter. Go reuses the already processed portion of the input buffer as the stack of letters. A push cannot write past the current input position, so unread letters stay intact.
 
 The accepted base implementations [2019_greedy.java](2019_greedy.java), [2019_greedy.py](2019_greedy.py), [2019_greedy.rs](2019_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-The implementations use ASCII bytes or characters; opposite cases of the
-same Latin letter differ by bit 32. C++ and Go use endpoint structs, Rust
-and Python use pairs, and Java uses parallel arrays with a stack size.
-All traversals are iterative and all indices fit ordinary integer types.
+`2019_greedy_optimized.java`: time place 16/76, memory place 1/76 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -141,7 +144,7 @@ All traversals are iterative and all indices fit ordinary integer types.
 |---|---|---|---|---|---|---|---|
 | [2019_greedy.cpp](2019_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 468 KB | 11292657 |
 | [2019_greedy.go](2019_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 1412 KB | 11292663 |
-| [2019_greedy.java](2019_greedy.java) \* | Java 1.8 | greedy | O(n) | AC | 0.140 s | 912 KB | 11292672 |
+| [2019_greedy.java](2019_greedy.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 876 KB | 11325565 |
 | [2019_greedy.py](2019_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 1200 KB | 11292667 |
 | [2019_greedy.rs](2019_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.046 s | 396 KB | 11292677 |
 
@@ -151,5 +154,6 @@ All traversals are iterative and all indices fit ordinary integer types.
 |---|---|---|---|---|---|---|---|
 | [2019_greedy_optimized.cpp](2019_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 148 KB | 11310619 |
 | [2019_greedy_optimized.go](2019_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 960 KB | 11310515 |
+| [2019_greedy_optimized.java](2019_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.125 s | 608 KB | 11325031 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
