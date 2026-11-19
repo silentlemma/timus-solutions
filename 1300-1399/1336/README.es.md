@@ -24,7 +24,7 @@ m en la primera línea y k en la segunda.
 
 ## Comprobación
 
-El comprobador acepta cualesquiera m y k de 1 a 10¹⁰⁰ con m² = k³ · n.
+El comprobador del repositorio exige dos tokens enteros de dígitos m,k, ambos en [1,10^100], y verifica m²=k³*n con aritmética entera exacta.
 
 ## Ejemplos
 
@@ -87,18 +87,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1336_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +77.24%; base: `1336_math.java`.
 
+`1336_math_optimized.py`. Conserva m=n², k=n exactamente: m²=n⁴=k³*n. Cumple los límites sin factorizar n. Con n<=10^9 el mayor valor emitido es 10^18, seguro incluso en i64 con signo. Aritmética acotada y espacio O(1). Usa una llamada a print con separador de salto de línea en vez de dos; toda la aritmética sigue siendo entera. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1336_math.py`: tiempo 0.062 s → 0.109 s; memoria 352 KB → 196 KB.
+
+`1336_math_optimized.rs`. Conserva m=n², k=n exactamente: m²=n⁴=k³*n. Cumple los límites sin factorizar n. Con n<=10^9 el mayor valor emitido es 10^18, seguro incluso en i64 con signo. Aritmética acotada y espacio O(1). Emite los dos enteros directamente en líneas separadas, sin formato Rust ni String de entrada decodificada. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1336_math.rs`: tiempo 0.015 s → 0.031 s; memoria 240 KB → 60 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1336_math.cpp](1336_math.cpp).
-- [1336_math.go](1336_math.go).
-- [1336_math.rs](1336_math.rs).
+`1336_math_optimized.py`: puesto de tiempo 25/45 y de memoria 1/45 en esta muestra comparable.
 
-- Las cinco soluciones imprimen n² y n.
+`1336_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -117,3 +122,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1336_math_optimized.java](1336_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11304378 |
+| [1336_math_optimized.py](1336_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324908 |
+| [1336_math_optimized.rs](1336_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 60 KB | 11324871 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
