@@ -84,6 +84,14 @@ incluidas todas las correspondencias entre números y colores.
 
 ## Soluciones optimizadas
 
+`1878_implementation_optimized.go`. Mantiene barrido de costes hacia cuatro cuadrantes. Lee dieciséis celdas directamente a cuatro contadores y calcula índices horarios aritméticamente, sin guardar celdas. Mismas distancias circulares y empates. Tiempo y espacio constantes para 4×4. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1878_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1084 KB → 292 KB.
+
+`1878_implementation_optimized.rs`. Mantiene cuatro posibles cuadrantes destino y sus costes. Lee dieciséis celdas a cuatro contadores blancos u8, cada uno hasta cuatro, derivando cuadrante horario aritméticamente sin guardar celdas ni tabla. Salida entera directa. Tiempo y espacio constantes para puzzle 4×4; mantiene distancia circular mínima y empates.
+
+Frente a `1878_implementation.rs`: tiempo 0.046 s → 0.031 s; memoria 208 KB → 60 KB.
+
 Una fórmula de desequilibrio del tablero fijo reemplaza enumerar colores objetivo y distancias modulares. Se cuenta un color en cada cuadrante por filas, se comparan desequilibrios opuestos y se toma el complemento correspondiente. Es esencial el orden cíclico de colores del dibujo; permutar cuadrantes arbitrariamente no equivale. Al ser fijo el tablero, almacenamiento y operaciones son constantes.
 
 - `1878_math.java`: 0.109 s / 440 KB; base `1878_implementation.java`: 0.140 s / 1668 KB; cambio respecto a la base: tiempo -22.1%, memoria -73.6%.
@@ -91,17 +99,11 @@ Una fórmula de desequilibrio del tablero fijo reemplaza enumerar colores objeti
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1878_implementation.cpp`; versión que cubre `1878_implementation.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 45/45.
+`1878_implementation_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1878_implementation.go`; versión que cubre `1878_implementation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1878_implementation.java`; versión que cubre `1878_implementation.java`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Python/PyPy: base didáctica preferida `1878_implementation.py`; versión que cubre `1878_math.py`; puestos tiempo/memoria 5/1, registros de otros autores 7/7.
-
-- Rust: base didáctica preferida `1878_implementation.rs`; versión que cubre `1878_implementation.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,5 +125,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+| [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
+| [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

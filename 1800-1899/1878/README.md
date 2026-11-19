@@ -81,6 +81,14 @@ number-to-colour assignment.
 
 ## Optimized solutions
 
+`1878_implementation_optimized.go`. Keep the four-target rotation-cost scan. Read the sixteen cells directly into four quadrant counts and compute clockwise quadrant indices arithmetically, without retaining the cells. Circular distances and ties are unchanged. The fixed 4×4 puzzle takes constant time and storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `1878_implementation.go`: time 0.031 s → 0.015 s; memory 1084 KB → 292 KB.
+
+`1878_implementation_optimized.rs`. Keep the same four-target quadrant rotation-cost scan. Read the sixteen cells directly into four u8 white counts, each at most four; derive the clockwise quadrant index arithmetically instead of retaining all cells and a mapping table. Direct numeric output replaces formatting. Work and auxiliary storage are constant for the fixed 4×4 puzzle; the shortest circular distance and tie handling are unchanged.
+
+Compared with `1878_implementation.rs`: time 0.046 s → 0.031 s; memory 208 KB → 60 KB.
+
 A fixed-board imbalance formula replaces enumeration of target colors and modular-distance loops. Count one color in each row-major quadrant, compare opposite quadrant imbalances and take the corresponding complement. The cyclic color order in the physical diagram is essential to the derivation; arbitrary reordering of quadrants is not equivalent. The board size is fixed, so both storage and arithmetic are constant with respect to the input parameters.
 
 - `1878_math.java`: 0.109 s / 440 KB; base `1878_implementation.java`: 0.140 s / 1668 KB; relative change: time -22.1%, memory -73.6%.
@@ -88,17 +96,11 @@ A fixed-board imbalance formula replaces enumeration of target colors and modula
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `1878_implementation.cpp`; covering source `1878_implementation.cpp`; time/memory places 1/1, other-author entries 45/45.
+`1878_implementation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1878_implementation.go`; covering source `1878_implementation.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1878_implementation.java`; covering source `1878_implementation.java`; time/memory places 1/1, other-author entries 0/0.
-
-- Python/PyPy: preferred teaching base `1878_implementation.py`; covering source `1878_math.py`; time/memory places 5/1, other-author entries 7/7.
-
-- Rust: preferred teaching base `1878_implementation.rs`; covering source `1878_implementation.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -120,5 +122,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+| [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
+| [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

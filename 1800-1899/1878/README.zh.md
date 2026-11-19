@@ -58,6 +58,14 @@
 
 ## 优化解法
 
+`1878_implementation_optimized.go`. 保留四目标旋转费用扫描。十六格直接累计到四个象限计数，算术计算顺时针象限索引，不保留各格。环距离与平局规则不变。固定 4×4 谜题时间、存储为常数。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1878_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1084 KB → 292 KB。
+
+`1878_implementation_optimized.rs`. 保留四个目标象限的旋转费用扫描。十六格直接累计成四个至多为四的 u8 白色计数，以算术求顺时针象限下标，不留所有格及映射表。直接输出整数。固定 4×4 谜题时间、辅助空间为常数，环上最短距离及平局规则不变。
+
+与 `1878_implementation.rs` 相比：时间 0.046 s → 0.031 s；内存 208 KB → 60 KB。
+
 固定棋盘的不平衡公式代替枚举目标颜色和模距离循环。按行序统计各象限一种颜色的数量，比较相对象限的不平衡并取相应补值。证明依赖图中颜色的循环顺序，不能任意重排象限。棋盘大小固定，因此空间及算术操作数为常数。
 
 - `1878_math.java`: 0.109 s / 440 KB; 基础版 `1878_implementation.java`: 0.140 s / 1668 KB; 相对基础版的变化: 时间 -22.1%, 内存 -73.6%.
@@ -65,17 +73,11 @@
 
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- C++: 优先教学基础版 `1878_implementation.cpp`; 覆盖实现 `1878_implementation.cpp`; 时间/内存名次 1/1, 其他作者记录 45/45.
+`1878_implementation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- Go: 优先教学基础版 `1878_implementation.go`; 覆盖实现 `1878_implementation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Java: 优先教学基础版 `1878_implementation.java`; 覆盖实现 `1878_implementation.java`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Python/PyPy: 优先教学基础版 `1878_implementation.py`; 覆盖实现 `1878_math.py`; 时间/内存名次 5/1, 其他作者记录 7/7.
-
-- Rust: 优先教学基础版 `1878_implementation.rs`; 覆盖实现 `1878_implementation.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -97,5 +99,7 @@
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
+| [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
+| [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
