@@ -80,6 +80,10 @@ límite de hasta 2001 cifras, incluidos los acarreos largos.
 
 ## Soluciones optimizadas
 
+`1123_strings_optimized.py`. Conserva reflejo decimal y acarreo por mitad izquierda cuando necesario. Muta bytearray, no reconstruye cadenas ni lista de caracteres. Mismos ceros iniciales; todos nueves ya dan candidato máximo. Emite bytes, vacía y sale de PyPy directamente. O(L) tiempo/espacio, conserva versión legible de cadenas.
+
+Frente a `1123_strings.py`: tiempo 0.078 s → 0.125 s; memoria 448 KB → 236 KB.
+
 La solución optimizada en C++ lee las cifras con `getchar` en un arreglo
 fijo de 2002 bytes, suficiente para las 2001 cifras y el cero final, en
 lugar de un `std::string` leído con `iostream`. Refleja y suma uno en el
@@ -126,3 +130,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1123_strings_optimized.cpp](1123_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 88 KB | 11304374 |
+| [1123_strings_optimized.py](1123_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(L) time; O(L) space | AC | 0.125 s | 236 KB | 11325699 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

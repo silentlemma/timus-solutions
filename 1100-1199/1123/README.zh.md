@@ -59,6 +59,10 @@
 
 ## 优化解法
 
+`1123_strings_optimized.py`. 保留十进制镜像及必要时左半进位。原地 bytearray 替代重复镜像字符串及单字符列表。照旧去前导零，全九已是最大镜像候选。直接写数字、刷新并退出 PyPy。O(L) 时间空间，保留清晰字符串版。
+
+与 `1123_strings.py` 相比：时间 0.078 s → 0.125 s；内存 448 KB → 236 KB。
+
 优化的 C++ 解法用 `getchar` 把数字读入一个 2002 字节的固定数组（足够放下 2001 位
 数字和结尾的零），而不是通过 `iostream` 读入 `std::string`。镜像和加一在另一个同
 样大小的数组中原地完成，不产生临时字符串，比较则用 `strcmp`；省下的内存主要来自
@@ -96,3 +100,6 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1123_strings_optimized.cpp](1123_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 88 KB | 11304374 |
+| [1123_strings_optimized.py](1123_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(L) time; O(L) space | AC | 0.125 s | 236 KB | 11325699 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

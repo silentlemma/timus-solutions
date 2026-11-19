@@ -76,6 +76,10 @@ boundary cases up to 2001 digits, including long carries, agreed.
 
 ## Optimized solutions
 
+`1123_strings_optimized.py`. Keep decimal mirroring and, when necessary, carry through the left half. Mutate one bytearray instead of rebuilding mirrored strings and a list of one-character strings. Normalize leading zeroes as before; all-nines handling follows from the mirrored candidate already being maximal. Emit raw digits, flush, then exit directly on PyPy. O(L) time and space; retain the readable string version.
+
+Compared with `1123_strings.py`: time 0.078 s → 0.125 s; memory 448 KB → 236 KB.
+
 The optimized C++ solution reads the digits with `getchar` into a fixed
 array of 2002 bytes, enough for the 2001 digits and the terminating
 zero, instead of an `std::string` read through `iostream`. It mirrors
@@ -122,3 +126,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1123_strings_optimized.cpp](1123_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(L) | AC | 0.015 s | 88 KB | 11304374 |
+| [1123_strings_optimized.py](1123_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(L) time; O(L) space | AC | 0.125 s | 236 KB | 11325699 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
