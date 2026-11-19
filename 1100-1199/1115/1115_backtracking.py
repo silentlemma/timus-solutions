@@ -1,6 +1,8 @@
 import sys
 
 
+RNG_MULTIPLIER = 97
+MAX_SHIP_LENGTH = 100
 SEARCH_LIMIT = 256
 ATTEMPTS = 128
 RNG_MOD = 65536
@@ -68,12 +70,12 @@ def main():
         if fill(0):
             break
         for i in range(m - 1, 0, -1):
-            state = (state * 97 + 1) % RNG_MOD
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD
             j = state % (i + 1)
             order[i], order[j] = order[j], order[i]
-        rank = list(range(101))
-        for i in range(100, 1, -1):
-            state = (state * 97 + 1) % RNG_MOD
+        rank = list(range((MAX_SHIP_LENGTH + 1)))
+        for i in range(MAX_SHIP_LENGTH, 1, -1):
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD
             j = 1 + state % i
             rank[i], rank[j] = rank[j], rank[i]
         ships.sort(key=lambda length: rank[length])

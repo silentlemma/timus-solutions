@@ -5,6 +5,8 @@
 #include <vector>
 
 // no row is longer than all the ships together: 99 * 100
+constexpr int RNG_MULTIPLIER = 97;
+constexpr int MAX_SHIP_LENGTH = 100;
 const int MAX_SUM = 10000;
 typedef std::bitset<MAX_SUM> Sums;
 
@@ -91,14 +93,14 @@ int main() {
         if (fill(0))
             break;
         for (int i = m - 1; i > 0; i--) {
-            state = (state * 97 + 1) % RNG_MOD;
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
             std::swap(order[i], order[state % (i + 1)]);
         }
-        std::vector<int> rank(101);
-        for (int i = 0; i <= 100; i++)
+        std::vector<int> rank((MAX_SHIP_LENGTH + 1));
+        for (int i = 0; i <= MAX_SHIP_LENGTH; i++)
             rank[i] = i;
-        for (int i = 100; i > 1; i--) {
-            state = (state * 97 + 1) % RNG_MOD;
+        for (int i = MAX_SHIP_LENGTH; i > 1; i--) {
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
             std::swap(rank[i], rank[1 + state % i]);
         }
         std::sort(ships.begin(), ships.end(), [&](int a, int b) { return rank[a] < rank[b]; });

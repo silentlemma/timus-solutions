@@ -10,6 +10,9 @@ import (
 )
 
 // no row is longer than all the ships together: 99 * 100
+const rngMultiplier = 97
+const maxShipLength = 100
+
 const (
 	searchLimit = 256
 	attempts    = 128
@@ -149,16 +152,16 @@ func main() {
 			break
 		}
 		for i := m - 1; i > 0; i-- {
-			state = (state*97 + 1) % rngMod
+			state = (state*rngMultiplier + 1) % rngMod
 			j := state % (i + 1)
 			order[i], order[j] = order[j], order[i]
 		}
-		rank := make([]int, 101)
+		rank := make([]int, (maxShipLength + 1))
 		for i := range rank {
 			rank[i] = i
 		}
-		for i := 100; i > 1; i-- {
-			state = (state*97 + 1) % rngMod
+		for i := maxShipLength; i > 1; i-- {
+			state = (state*rngMultiplier + 1) % rngMod
 			j := 1 + state%i
 			rank[i], rank[j] = rank[j], rank[i]
 		}

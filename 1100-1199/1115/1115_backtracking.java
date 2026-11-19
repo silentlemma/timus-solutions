@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+    static final int RNG_MULTIPLIER = 97;
+    static final int MAX_SHIP_LENGTH = 100;
     // no row is longer than all the ships together: 99 * 100
     static final int MAX_SUM = 10000, BITS = 64, WORDS = (MAX_SUM + BITS - 1) / BITS;
 
@@ -121,8 +123,10 @@ public class Main {
         for (int r = 0; r < m; r++) {
             order[r] = r;
         }
-        Arrays.sort(order, (a, b) -> rows[a] != rows[b] ? Integer.compare(rows[a], rows[b])
-                                                        : Integer.compare(a, b));
+        Arrays.sort(
+            order,
+            (a,
+             b) -> rows[a] != rows[b] ? Integer.compare(rows[a], rows[b]) : Integer.compare(a, b));
         owner = new int[n];
         Arrays.fill(owner, -1);
         int state = 1;
@@ -134,18 +138,18 @@ public class Main {
                 break;
             }
             for (int i = m - 1; i > 0; i--) {
-                state = (state * 97 + 1) % RNG_MOD;
+                state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
                 int j = state % (i + 1);
                 int temp = order[i];
                 order[i] = order[j];
                 order[j] = temp;
             }
-            int[] rank = new int[101];
-            for (int i = 0; i <= 100; i++) {
+            int[] rank = new int[(MAX_SHIP_LENGTH + 1)];
+            for (int i = 0; i <= MAX_SHIP_LENGTH; i++) {
                 rank[i] = i;
             }
-            for (int i = 100; i > 1; i--) {
-                state = (state * 97 + 1) % RNG_MOD;
+            for (int i = MAX_SHIP_LENGTH; i > 1; i--) {
+                state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
                 int j = 1 + state % i;
                 int temp = rank[i];
                 rank[i] = rank[j];

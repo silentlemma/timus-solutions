@@ -1,6 +1,8 @@
 use std::io::{self, Read};
 
 // no row is longer than all the ships together: 99 * 100
+const RNG_MULTIPLIER: usize = 97;
+const MAX_SHIP_LENGTH: usize = 100;
 const MAX_SUM: usize = 10000;
 const SEARCH_LIMIT: usize = 256;
 const ATTEMPTS: usize = 128;
@@ -131,12 +133,12 @@ fn main() {
             break;
         }
         for i in (1..m).rev() {
-            state = (state * 97 + 1) % RNG_MOD;
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
             fleet.order.swap(i, state % (i + 1));
         }
-        let mut rank: Vec<usize> = (0..=100).collect();
-        for i in (2..=100).rev() {
-            state = (state * 97 + 1) % RNG_MOD;
+        let mut rank: Vec<usize> = (0..=MAX_SHIP_LENGTH).collect();
+        for i in (2..=MAX_SHIP_LENGTH).rev() {
+            state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
             rank.swap(i, 1 + state % i);
         }
         fleet.ships.sort_by_key(|&length| rank[length]);

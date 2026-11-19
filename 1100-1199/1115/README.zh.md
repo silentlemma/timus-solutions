@@ -73,15 +73,21 @@ Python 解法通过了全部 7 个保存的测试、全部 5 个指定生成用�
 
 ## 优化解法
 
+`1115_backtracking_optimized.java`. 保留完整子集搜索、相同长度的对称剪枝，以及 128 次有界确定性重启后的一次无界完整搜索。用一个扁平 long 数组替代嵌套后缀位集和固定 10000 位行副本。每次 fill 对每后缀仅分配 ceil((T+1)/64) 个字，T 为剩余行的最大目标；船长为正，使更大的和无用。复制、移位均从扁平数组的下一后缀读取，保留可行性判断。搜索仍为指数级，不是多项式；最大目标 S 下保守最坏时间 O(M^N*N²*ceil(S/64))。同时保留的递归层可需 O(M*N*ceil(S/64)) 个字，加搜索状态。仍有装箱排序和最终 StringBuilder，仅缩减后缀表示、容量及字节输入开销。
+
+与 `1115_backtracking.java` 相比：时间 0.125 s → 0.14 s；内存 4 464 KB → 2 928 KB。
+
 C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长度为 U，未来一行能取到总长度 T，当且仅当能取到总长度 U − T。可行性检查使用较小者。当前行仍保留完整目标，以便还原所选船只。最后一次搜索不限制调用次数，因此保持完备性。
 
 已通过评测的基础实现 [1115_backtracking.go](1115_backtracking.go), [1115_backtracking.java](1115_backtracking.java), [1115_backtracking.py](1115_backtracking.py), [1115_backtracking.rs](1115_backtracking.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-- C++ 使用 `std::bitset`；Go、Java 和 Rust 用 64 位字数组保存和，并手写移位或运算；Python 用大整数作位集。
+`1115_backtracking_optimized.java`：在该可比样本中，时间名次 16/25，内存名次 19/25。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -89,16 +95,17 @@ C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 436 KB | 11297943 |
-| [1115_backtracking.go](1115_backtracking.go) \* | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.031 s | 1904 KB | 11297944 |
-| [1115_backtracking.java](1115_backtracking.java) \* | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.156 s | 4448 KB | 11297946 |
-| [1115_backtracking.py](1115_backtracking.py) \* | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.062 s | 732 KB | 11297951 |
-| [1115_backtracking.rs](1115_backtracking.rs) \* | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11297954 |
+| [1115_backtracking.cpp](1115_backtracking.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 424 KB | 11325586 |
+| [1115_backtracking.go](1115_backtracking.go) \* | Go 1.14 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 1864 KB | 11325575 |
+| [1115_backtracking.java](1115_backtracking.java) \* | Java 1.8 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.125 s | 4464 KB | 11325558 |
+| [1115_backtracking.py](1115_backtracking.py) \* | Python 3.12 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.078 s | 844 KB | 11325596 |
+| [1115_backtracking.rs](1115_backtracking.rs) \* | Rust 1.75 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 756 KB | 11325611 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
+| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N·N²·ceil(S/64)) worst case | AC | 0.14 s | 2928 KB | 11325125 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
