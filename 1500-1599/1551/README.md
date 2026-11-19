@@ -86,6 +86,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1551_math_sorting.rs`. Keep the maximum-prefecture-frequency bound and the same ceil-log₂ round formula. Instead of allocating a HashMap key per prefecture, sort fixed zero-padded 30-byte keys and scan equal runs; ignore wrestler names while reading. Latin names of length 1…30 make zero padding unambiguous, including prefix names; P≤1024 permits u16 counts. O(P log P·L) time and O(PL) space, L=30. This sorting algorithm has a separate filename; preserve the clear hash-counting source.
+
+Compared with `1551_math.rs`: time 0.046 s → 0.031 s; memory 576 KB → 104 KB.
+
 The answer still depends only on the largest prefecture frequency c: `N−ceil(log2 c)`. The compact C++/Java variants discard wrestler names while reading and update the maximum frequency immediately. C++ retains its ordered map; Java uses a hash map with bounded byte input. Python instead keeps only prefecture strings, sorts them and takes the longest equal run. Equal prefecture names form exactly one contiguous block, so its length is the same frequency. This removes the Counter import, retained wrestler tokens and a separate hash-table entry per prefecture. Python trades expected-linear hashing for `O(M log M)` sorting, `M=2^N`, while reducing actual memory; it does not claim faster time. Case-sensitive full strings are compared, with no collision-prone fingerprints. `bit_length(c−1)` computes the exact ceiling. All simple versions remain, including the direct Counter version.
 
 - `1551_math_optimized.cpp`: 0.015 s / 308 KB; base `1551_math.cpp`: 0.015 s / 544 KB; relative change: time -0.0%, memory -43.4%.
@@ -127,5 +131,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [1551_math_optimized.cpp](1551_math_optimized.cpp) | G++ 13.2 x64 | math | O(M log M) | AC | 0.015 s | 308 KB | 11309254 |
 | [1551_math_optimized.java](1551_math_optimized.java) | Java 1.8 | math | O(M) expected frequency work, M=2^N | AC | 0.093 s | 568 KB | 11309256 |
 | [1551_math_sorting.py](1551_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(M log M) time; O(M) strings | AC | 0.093 s | 464 KB | 11309558 |
+| [1551_math_sorting.rs](1551_math_sorting.rs) \* | Rust 1.75 x64 | math, sorting | O(P log P·L) time; O(PL) space | AC | 0.031 s | 104 KB | 11325708 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

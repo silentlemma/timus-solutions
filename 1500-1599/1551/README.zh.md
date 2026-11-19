@@ -74,6 +74,10 @@ Miyabiyama Shizuoka
 
 ## 优化解法
 
+`1551_math_sorting.rs`. 保留最大都府频数界及 ceil(log₂) 轮次公式。固定补零30字节键排序扫相等段，替代分配 HashMap 键，读取时跳过选手名。Latin 名1…30字节保证含前缀时补零仍唯一，P≤1024 可用 u16。O(P log P·L) 时间、O(PL) 存储，L=30。排序算法独立文件名，保留清晰哈希计数版。
+
+与 `1551_math.rs` 相比：时间 0.046 s → 0.031 s；内存 576 KB → 104 KB。
+
 答案仍只依赖最大都道府县频数 c：`N−ceil(log2 c)`。紧凑 C++/Java 读取时丢弃选手姓名并立即更新最大频数；C++ 保留有序 map，Java 使用 hash map 及有界字节输入。Python 只保留都道府县字符串，排序后求最长相同段。每个名称恰为一个连续块，块长就是频数。这样省去 Counter 导入、选手姓名词元及独立哈希表项。Python 以 `O(M log M)` 排序（`M=2^N`）换取较少实测内存，不宣称加速。比较完整且区分大小写的字符串，不用可能碰撞的指纹。`bit_length(c−1)` 精确给出向上取整对数。包括直接 Counter 在内的简单版本全部保留。
 
 - `1551_math_optimized.cpp`: 0.015 s / 308 KB; 基础 `1551_math.cpp`: 0.015 s / 544 KB; 相对变化: 时间 -0.0%, 内存 -43.4%.
@@ -115,5 +119,6 @@ Miyabiyama Shizuoka
 | [1551_math_optimized.cpp](1551_math_optimized.cpp) | G++ 13.2 x64 | math | O(M log M) | AC | 0.015 s | 308 KB | 11309254 |
 | [1551_math_optimized.java](1551_math_optimized.java) | Java 1.8 | math | O(M) expected frequency work, M=2^N | AC | 0.093 s | 568 KB | 11309256 |
 | [1551_math_sorting.py](1551_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(M log M) time; O(M) strings | AC | 0.093 s | 464 KB | 11309558 |
+| [1551_math_sorting.rs](1551_math_sorting.rs) \* | Rust 1.75 x64 | math, sorting | O(P log P·L) time; O(PL) space | AC | 0.031 s | 104 KB | 11325708 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -87,6 +87,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1551_math_sorting.rs`. Conserva cota de frecuencia máxima y fórmula ceil(log₂). Ordena claves fijas de30 bytes con ceros y cuenta rachas, sin claves HashMap asignadas; ignora nombres de luchadores. Nombres latinos1…30 hacen relleno inequívoco incluso prefijos,P≤1024 permite u16. O(P log P·L) tiempo,O(PL) espacio,L=30. Ordenación con nombre propio, conserva conteo hash claro.
+
+Frente a `1551_math.rs`: tiempo 0.046 s → 0.031 s; memoria 576 KB → 104 KB.
+
 La respuesta sigue dependiendo de la mayor frecuencia c: `N−ceil(log2 c)`. C++/Java compactos descartan nombres de luchadores al leer y actualizan la frecuencia máxima; C++ mantiene map ordenado, Java un hash map y entrada de bytes acotada. Python guarda solo prefecturas, las ordena y toma la racha igual más larga: cada nombre forma exactamente un bloque de su frecuencia. Se eliminan Counter, tokens de luchadores y entradas de hash separadas. Python cambia hashing lineal esperado por ordenación `O(M log M)`, `M=2^N`, para ahorrar memoria medida; no afirma acelerar. Compara cadenas completas sensibles a mayúsculas, sin huellas probabilísticas. `bit_length(c−1)` da el techo exacto del logaritmo. Se conservan todas las bases, incluida Counter.
 
 - `1551_math_optimized.cpp`: 0.015 s / 308 KB; base `1551_math.cpp`: 0.015 s / 544 KB; cambio respecto a la base: tiempo -0.0%, memoria -43.4%.
@@ -128,5 +132,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1551_math_optimized.cpp](1551_math_optimized.cpp) | G++ 13.2 x64 | math | O(M log M) | AC | 0.015 s | 308 KB | 11309254 |
 | [1551_math_optimized.java](1551_math_optimized.java) | Java 1.8 | math | O(M) expected frequency work, M=2^N | AC | 0.093 s | 568 KB | 11309256 |
 | [1551_math_sorting.py](1551_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(M log M) time; O(M) strings | AC | 0.093 s | 464 KB | 11309558 |
+| [1551_math_sorting.rs](1551_math_sorting.rs) \* | Rust 1.75 x64 | math, sorting | O(P log P·L) time; O(PL) space | AC | 0.031 s | 104 KB | 11325708 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
