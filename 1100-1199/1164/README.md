@@ -72,26 +72,26 @@ storage. All five original Accepted sources are retained unchanged.
 
 ## Optimized solutions
 
+`1164_strings_optimized.rs`. Keep the 26 letter balances: add grid letters and subtract the given words. Stream the rows and words directly and emit remaining letters in order without storing input text or the answer string. O(I+A) time for input bytes I and output letters A; constant alphabet storage.
+
+Compared with `1164_strings.rs`: time 0.015 s → 0.015 s; memory 220 KB → 60 KB.
+
 All placements consume the same multiset of letters. Keep the clear counting sources and the compact C++ counter. Python scans the grid and concatenated words for each of the fixed 26 capital letters, then emits each positive difference in sorted order. Multiplying a linear scan by a constant alphabet remains linear. It avoids importing Counter and keeping a separate dictionary per multiset, while retaining the input strings. Reading the existing text streams and writing the final string also avoids extra input wrappers. The measured improvement is memory only; preserve the slower-time tradeoff below.
 
 - `1164_strings_optimized.cpp`: 0.015 s / 104 KB; base `1164_strings.cpp`: 0.015 s / 380 KB; relative change: time -0.0%, memory -72.6%.
 - `1164_strings_optimized.py`: 0.109 s / 260 KB; base `1164_strings.py`: 0.078 s / 436 KB; relative change: time +39.7%, memory -40.4%.
 
+`1164_strings_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1164_strings.java`: time 0.109 s → 0.109 s; memory 1640 KB → 500 KB.
+
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1164_strings_optimized.java`: time place 12/32, memory place 2/32 in this comparable sample.
 
-- C++: preferred teaching base `1164_strings.cpp`; covering source `1164_strings_optimized.cpp`; time/memory places 1/1, other-author entries 46/46.
-
-- Go: preferred teaching base `1164_strings.go`; covering source `1164_strings.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1164_strings.java`; covering source `1164_strings.java`; time/memory places 1/1, other-author entries 1/1.
-
-- Python/PyPy: preferred teaching base `1164_strings.py`; covering source `1164_strings_optimized.py`; time/memory places 7/2, other-author entries 12/12.
-
-- Rust: preferred teaching base `1164_strings.rs`; covering source `1164_strings.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -111,5 +111,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1164_strings_optimized.cpp](1164_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(N M + W) | AC | 0.015 s | 104 KB | 11308330 |
 | [1164_strings_optimized.py](1164_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(N M + W) | AC | 0.109 s | 260 KB | 11309679 |
+| [1164_strings_optimized.java](1164_strings_optimized.java) \* | Java 1.8 | strings | O(N M + W) | AC | 0.109 s | 500 KB | 11324785 |
+| [1164_strings_optimized.rs](1164_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(I+A) time; O(26) space | AC | 0.015 s | 60 KB | 11325544 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
