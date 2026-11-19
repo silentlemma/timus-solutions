@@ -84,19 +84,17 @@ por sí solo no se redondea a 30%.
 - `1179_strings_optimized.py`: 0.203 s / 396 KB; base `1179_bruteforce_strings.py`: 0.218 s / 3128 KB; cambio respecto a la base: tiempo -6.9%, memoria -87.3%.
 - `1179_strings_optimized.java`: 0.109 s / 412 KB; base `1179_bruteforce_strings.java`: 0.406 s / 3464 KB; cambio respecto a la base: tiempo -73.2%, memoria -88.1%.
 
+`1179_prefix_sums.rs`. Sustituye 35 recorridos del texto por uno con diferencias. Con dígito actual d y anterior p, comienza un número exactamente en las bases d<b<=p. Suma uno a ese intervalo limitado a 2..36; los separadores y el predecesor inicial valen 36. Las sumas prefijas de 38 contadores i64 recuperan todos los recuentos. Recorre bases crecientes y actualiza solo al mejorar estrictamente para conservar la menor en empates. Tiempo O(L+36), almacenamiento explícito de 304 bytes más estado constante, sin guardar el texto. Este algoritmo distinto se denomina prefix_sums. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1179_bruteforce_strings.rs`: tiempo 0.031 s → 0.046 s; memoria 2128 KB → 56 KB.
+
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1179_bruteforce_strings.cpp`; fuente que cubre `1179_strings.cpp`; puestos tiempo/memoria 4/2, registros de otros autores 44/44.
+`1179_prefix_sums.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1179_bruteforce_strings.go`; fuente que cubre `1179_strings.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1179_bruteforce_strings.java`; fuente que cubre `1179_strings.java`; puestos tiempo/memoria 2/1, registros de otros autores 4/4.
-
-- Python/PyPy: base didáctica preferida `1179_bruteforce_strings.py`; fuente que cubre `1179_strings_optimized.py`; puestos tiempo/memoria 1/1, registros de otros autores 5/5.
-
-- Rust: base didáctica preferida `1179_bruteforce_strings.rs`; fuente que cubre `1179_bruteforce_strings.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -126,5 +124,6 @@ Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o
 | [1179_strings.java](1179_strings.java) \* | Java 1.8 | strings | O(L+37^2) time | AC | 0.125 s | 588 KB | 11283292 |
 | [1179_strings_optimized.py](1179_strings_optimized.py) | Python 3.12 x64 | strings | O(L+36) time; bounded block/table space | AC | 0.203 s | 396 KB | 11309351 |
 | [1179_strings_optimized.java](1179_strings_optimized.java) \* | Java 1.8 | strings | O(L+36) time; bounded block/table space | AC | 0.109 s | 412 KB | 11309353 |
+| [1179_prefix_sums.rs](1179_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(L+36) | AC | 0.046 s | 56 KB | 11325087 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

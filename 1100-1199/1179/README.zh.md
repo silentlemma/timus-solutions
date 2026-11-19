@@ -73,19 +73,17 @@ Python 用原生字节操作实现同一扫描：前置分隔符，将字符翻�
 - `1179_strings_optimized.py`: 0.203 s / 396 KB; 基础 `1179_bruteforce_strings.py`: 0.218 s / 3128 KB; 相对变化: 时间 -6.9%, 内存 -87.3%.
 - `1179_strings_optimized.java`: 0.109 s / 412 KB; 基础 `1179_bruteforce_strings.java`: 0.406 s / 3464 KB; 相对变化: 时间 -73.2%, 内存 -88.1%.
 
+`1179_prefix_sums.rs`. 用一遍流式差分数组替换对文本的 35 遍扫描。当前数字值为 d、前一值为 p 时，恰在 d<b<=p 的进制中开始一个新数。把该区间截到 2..36 后加一；非数字字符及初始前驱均视为 36。对 38 个 i64 计数器求前缀和，得到所有计数。递增扫描进制，仅严格改进时更新，从而保留并列最小进制。时间 O(L+36)，显式存储 304 字节加常数状态，不保留文本。此不同算法命名为 prefix_sums。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1179_bruteforce_strings.rs` 相比：时间 0.031 s → 0.046 s；内存 2128 KB → 56 KB。
+
 ## 各语言说明
 
-保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- C++: 首选教学基础 `1179_bruteforce_strings.cpp`; 覆盖源码 `1179_strings.cpp`; 时间/内存名次 4/2, 其他作者记录 44/44.
+`1179_prefix_sums.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- Go: 首选教学基础 `1179_bruteforce_strings.go`; 覆盖源码 `1179_strings.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
-
-- Java: 首选教学基础 `1179_bruteforce_strings.java`; 覆盖源码 `1179_strings.java`; 时间/内存名次 2/1, 其他作者记录 4/4.
-
-- Python/PyPy: 首选教学基础 `1179_bruteforce_strings.py`; 覆盖源码 `1179_strings_optimized.py`; 时间/内存名次 1/1, 其他作者记录 5/5.
-
-- Rust: 首选教学基础 `1179_bruteforce_strings.rs`; 覆盖源码 `1179_bruteforce_strings.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -115,5 +113,6 @@ Python 用原生字节操作实现同一扫描：前置分隔符，将字符翻�
 | [1179_strings.java](1179_strings.java) \* | Java 1.8 | strings | O(L+37^2) time | AC | 0.125 s | 588 KB | 11283292 |
 | [1179_strings_optimized.py](1179_strings_optimized.py) | Python 3.12 x64 | strings | O(L+36) time; bounded block/table space | AC | 0.203 s | 396 KB | 11309351 |
 | [1179_strings_optimized.java](1179_strings_optimized.java) \* | Java 1.8 | strings | O(L+36) time; bounded block/table space | AC | 0.109 s | 412 KB | 11309353 |
+| [1179_prefix_sums.rs](1179_prefix_sums.rs) \* | Rust 1.75 x64 | prefix_sums | O(L+36) | AC | 0.046 s | 56 KB | 11325087 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
