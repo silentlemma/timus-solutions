@@ -28,6 +28,10 @@ distintos.
 
 El número de minutos, 0 si no hace falta adelantar.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -112,18 +116,17 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1193_greedy_optimized.java`: reducción de tiempo +10.71%; reducción
   de memoria +90.04%; base: `1193_greedy.java`.
 
+`1193_greedy_optimized.rs`. Mantiene el orden por tiempos distintos de preparación y busy=max(busy,ready)+talk. La respuesta es el mayor busy-deadline positivo. Ordena el vector de alumnos in situ de forma no estable, sin almacenamiento temporal de ordenación estable ni entrada completa decodificada. Tiempo O(N log N), espacio O(N). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1193_greedy.rs`: tiempo 0.015 s → 0.046 s; memoria 236 KB → 76 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1193_greedy.go](1193_greedy.go).
-- [1193_greedy.rs](1193_greedy.rs).
+`1193_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Todos los lenguajes ordenan a los estudiantes por tiempo de preparación
-  y hacen el mismo bucle.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -143,3 +146,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
 | [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
+| [1193_greedy_optimized.rs](1193_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
