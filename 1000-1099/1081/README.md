@@ -70,6 +70,10 @@ from a memoised count.
 
 ## Optimized solutions
 
+`1081_dp_optimized.rs`. Retain Fibonacci counts and lexicographic unranking of binary strings without adjacent ones. With n<=43 all counts fit u32, so replace the growing u64 vector by a fixed 44-cell u32 array. Emit each chosen bit immediately rather than accumulating an output String, and parse the two integers directly. Time O(n), count storage O(n), bounded by 44 cells here. Reject k above the total exactly as before.
+
+Compared with `1081_dp.rs`: time 0.046 s → 0.031 s; memory 216 KB → 64 KB.
+
 Keep the readable Fibonacci-count table. The compact versions retain only two adjacent counts and reverse the Fibonacci recurrence while unranking. If the residual zero-based rank is at least the zero-prefix count, subtract that count and emit one; otherwise emit zero. After choosing one, the residual interval is smaller than the next zero-prefix count, so the following bit is forced to zero without a separate special case. Counts also detect ranks outside the total. Python packs output bits into one integer and formats exactly N bits; only the O(N)-bit answer, not a count table, is retained.
 
 - `1081_dp_optimized.java`: 0.078 s / 372 KB; base `1081_dp.java`: 0.125 s / 1640 KB; relative change: time -37.6%, memory -77.3%.
@@ -77,19 +81,11 @@ Keep the readable Fibonacci-count table. The compact versions retain only two ad
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`1081_dp_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `1081_dp.cpp`; covering source `1081_dp.cpp`; time/memory places 1/6, other-author entries 93/93.
-
-- Go: preferred teaching base `1081_dp.go`; covering source `1081_dp.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1081_dp.java`; covering source `1081_dp_optimized.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1081_dp.py`; covering source `1081_dp_optimized.py`; time/memory places 22/2, other-author entries 22/22.
-
-- Rust: preferred teaching base `1081_dp.rs`; covering source `1081_dp.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -109,5 +105,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1081_dp_optimized.java](1081_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.078 s | 372 KB | 11309292 |
 | [1081_dp_optimized.py](1081_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 284 KB | 11309684 |
+| [1081_dp_optimized.rs](1081_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

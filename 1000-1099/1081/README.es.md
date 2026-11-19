@@ -70,6 +70,10 @@ posición de la respuesta con un conteo memorizado.
 
 ## Soluciones optimizadas
 
+`1081_dp_optimized.rs`. Mantiene conteos Fibonacci y reconstrucción por rango sin unos adyacentes. Para n<=43 caben en u32: sustituye vector u64 creciente por 44 u32 fijos. Emite cada bit inmediatamente sin String y analiza dos enteros directamente. O(n) tiempo y conteos O(n), acotados aquí a 44 celdas. Rechaza k superior al total como antes.
+
+Frente a `1081_dp.rs`: tiempo 0.046 s → 0.031 s; memoria 216 KB → 64 KB.
+
 Se conserva la tabla clara de Fibonacci. Las variantes compactas retienen dos conteos vecinos y revierten la recurrencia al reconstruir. Si el rango residual desde cero alcanza el conteo con prefijo cero, lo restan y emiten uno; en otro caso cero. Tras un uno, el intervalo residual queda por debajo del siguiente conteo cero, forzando el siguiente bit sin caso especial. El total detecta rangos inválidos. Python acumula bits en un entero y lo formatea con N posiciones: conserva la respuesta de O(N) bits, sin tabla de conteos.
 
 - `1081_dp_optimized.java`: 0.078 s / 372 KB; base `1081_dp.java`: 0.125 s / 1640 KB; cambio respecto a la base: tiempo -37.6%, memoria -77.3%.
@@ -77,19 +81,11 @@ Se conserva la tabla clara de Fibonacci. Las variantes compactas retienen dos co
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1081_dp_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1081_dp.cpp`; fuente que cubre `1081_dp.cpp`; puestos tiempo/memoria 1/6, registros de otros autores 93/93.
-
-- Go: base didáctica preferida `1081_dp.go`; fuente que cubre `1081_dp.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1081_dp.java`; fuente que cubre `1081_dp_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1081_dp.py`; fuente que cubre `1081_dp_optimized.py`; puestos tiempo/memoria 22/2, registros de otros autores 22/22.
-
-- Rust: base didáctica preferida `1081_dp.rs`; fuente que cubre `1081_dp.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -109,5 +105,6 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1081_dp_optimized.java](1081_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.078 s | 372 KB | 11309292 |
 | [1081_dp_optimized.py](1081_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 284 KB | 11309684 |
+| [1081_dp_optimized.rs](1081_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
