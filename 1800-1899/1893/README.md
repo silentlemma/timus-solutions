@@ -112,9 +112,17 @@ The optimized Java solution reads the seat byte by byte, the digits
 making the row and the next byte the letter, instead of reading a
 string: 0.109 s instead of 0.156 s and 380 KB instead of 1580 KB.
 
+`1893_implementation_optimized.py`. Keep the same three seating layouts and window-first precedence. Parse the bounded row from seat bytes and compare the final byte slice with byte constants for windows and aisles; do not decode the seat designation. The valid rows 1..65 and one letter keep time and storage O(1). Economy still omits I and uses A/K as window seats. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1893_implementation.py`: time 0.109 s → 0.14 s; memory 468 KB → 232 KB.
+
 ## Language notes
 
-No language needs anything special.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1893_implementation_optimized.py`: time place 84/91, memory place 2/91 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -134,3 +142,6 @@ No language needs anything special.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
 | [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |
+| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 232 KB | 11325077 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
