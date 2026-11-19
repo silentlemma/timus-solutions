@@ -72,19 +72,17 @@ NO
 - `2144_sorting_optimized.java`: 0.109 s / 2064 KB; 基础版 `2144_sorting.java`: 0.187 s / 6916 KB; 相对基础版的变化: 时间 -41.7%, 内存 -70.2%.
 - `2144_sorting_optimized.py`: 0.078 s / 420 KB; 基础版 `2144_sorting.py`: 0.093 s / 1040 KB; 相对基础版的变化: 时间 -16.1%, 内存 -59.6%.
 
+`2144_sorting_optimized.rs`. 一遍读取每盒，检查相邻大小，只保留首尾值。对 n 对端点原地不稳定地按字典序排序，再检查相邻盒子。相比基础版本，不为每盒全部大小分配向量，也不保留解码输入。顺序的证明不变。时间 O(Σk+n log n)，空间 O(n)。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `2144_sorting.rs` 相比：时间 0.015 s → 0.015 s；内存 320 KB → 76 KB。
+
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- C++: 优先教学基础版 `2144_sorting.cpp`; 覆盖实现 `2144_sorting.cpp`; 时间/内存名次 1/6, 其他作者记录 100/100.
+`2144_sorting_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
-- Go: 优先教学基础版 `2144_sorting.go`; 覆盖实现 `2144_sorting.go`; 时间/内存名次 1/1, 其他作者记录 1/1.
-
-- Java: 优先教学基础版 `2144_sorting.java`; 覆盖实现 `2144_sorting_optimized.java`; 时间/内存名次 1/1, 其他作者记录 3/3.
-
-- Python/PyPy: 优先教学基础版 `2144_sorting.py`; 覆盖实现 `2144_sorting_optimized.py`; 时间/内存名次 7/2, 其他作者记录 66/66.
-
-- Rust: 优先教学基础版 `2144_sorting.rs`; 覆盖实现 `2144_sorting.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -106,5 +104,6 @@ NO
 |---|---|---|---|---|---|---|---|
 | [2144_sorting_optimized.java](2144_sorting_optimized.java) | Java 1.8 | sorting | O(total sizes+N log N) | AC | 0.109 s | 2064 KB | 11308445 |
 | [2144_sorting_optimized.py](2144_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
+| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

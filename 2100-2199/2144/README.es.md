@@ -84,19 +84,17 @@ Se leen en flujo los elementos de cada caja y se rechaza una inversión interna 
 - `2144_sorting_optimized.java`: 0.109 s / 2064 KB; base `2144_sorting.java`: 0.187 s / 6916 KB; cambio respecto a la base: tiempo -41.7%, memoria -70.2%.
 - `2144_sorting_optimized.py`: 0.078 s / 420 KB; base `2144_sorting.py`: 0.093 s / 1040 KB; cambio respecto a la base: tiempo -16.1%, memoria -59.6%.
 
+`2144_sorting_optimized.rs`. Lee cada caja una vez, comprobando tamaños consecutivos y reteniendo solo el primero y último. Ordena in situ los n pares de extremos de forma lexicográfica no estable y verifica cajas vecinas. Frente a la base, no crea un vector de todos los tamaños de cada caja ni conserva la entrada decodificada. La prueba del orden no cambia. Tiempo O(Σk+n log n), espacio O(n). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `2144_sorting.rs`: tiempo 0.015 s → 0.015 s; memoria 320 KB → 76 KB.
+
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `2144_sorting.cpp`; versión que cubre `2144_sorting.cpp`; puestos tiempo/memoria 1/6, registros de otros autores 100/100.
+`2144_sorting_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `2144_sorting.go`; versión que cubre `2144_sorting.go`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
-
-- Java: base didáctica preferida `2144_sorting.java`; versión que cubre `2144_sorting_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `2144_sorting.py`; versión que cubre `2144_sorting_optimized.py`; puestos tiempo/memoria 7/2, registros de otros autores 66/66.
-
-- Rust: base didáctica preferida `2144_sorting.rs`; versión que cubre `2144_sorting.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -118,5 +116,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [2144_sorting_optimized.java](2144_sorting_optimized.java) | Java 1.8 | sorting | O(total sizes+N log N) | AC | 0.109 s | 2064 KB | 11308445 |
 | [2144_sorting_optimized.py](2144_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
+| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

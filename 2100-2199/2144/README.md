@@ -83,19 +83,17 @@ Stream each box's contents, rejecting an internal inversion as soon as it is fou
 - `2144_sorting_optimized.java`: 0.109 s / 2064 KB; base `2144_sorting.java`: 0.187 s / 6916 KB; relative change: time -41.7%, memory -70.2%.
 - `2144_sorting_optimized.py`: 0.078 s / 420 KB; base `2144_sorting.py`: 0.093 s / 1040 KB; relative change: time -16.1%, memory -59.6%.
 
+`2144_sorting_optimized.rs`. Read each box in one pass, checking consecutive sizes while keeping only its first and last values. Sort the n endpoint pairs with an unstable in-place lexicographic sort and check neighboring boxes. Unlike the basic source, do not allocate a separate vector of every size in a box or retain the decoded input. The ordering proof is unchanged. Time O(Σk+n log n), storage O(n). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `2144_sorting.rs`: time 0.015 s → 0.015 s; memory 320 KB → 76 KB.
+
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `2144_sorting.cpp`; covering source `2144_sorting.cpp`; time/memory places 1/6, other-author entries 100/100.
+`2144_sorting_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `2144_sorting.go`; covering source `2144_sorting.go`; time/memory places 1/1, other-author entries 1/1.
-
-- Java: preferred teaching base `2144_sorting.java`; covering source `2144_sorting_optimized.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `2144_sorting.py`; covering source `2144_sorting_optimized.py`; time/memory places 7/2, other-author entries 66/66.
-
-- Rust: preferred teaching base `2144_sorting.rs`; covering source `2144_sorting.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -117,5 +115,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [2144_sorting_optimized.java](2144_sorting_optimized.java) | Java 1.8 | sorting | O(total sizes+N log N) | AC | 0.109 s | 2064 KB | 11308445 |
 | [2144_sorting_optimized.py](2144_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(total sizes+N log N) | AC | 0.078 s | 420 KB | 11308442 |
+| [2144_sorting_optimized.rs](2144_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Σk+n log n) | AC | 0.015 s | 76 KB | 11325121 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
