@@ -22,6 +22,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The number of turns.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -65,9 +69,23 @@ The optimized Java solution reads the input in 1 KB blocks and parses
 the two numbers by hand instead of using `Scanner`: 348 KB instead of
 1564 KB, with the same time.
 
+`1224_math_optimized.py`. Keep the spiral-turn formula: 2*(N-1) when N<=M, otherwise 2*M-1. It handles a single row or column without simulation. The result can exceed signed 32-bit range for the stated dimensions, so Rust uses i64 and Python exact integers. O(1) bounded arithmetic and storage. Read the two dimensions from raw byte tokens; no new spiral algorithm is introduced. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1224_math.py`: time 0.078 s → 0.125 s; memory 372 KB → 196 KB.
+
+`1224_math_optimized.rs`. Keep the spiral-turn formula: 2*(N-1) when N<=M, otherwise 2*M-1. It handles a single row or column without simulation. The result can exceed signed 32-bit range for the stated dimensions, so Rust uses i64 and Python exact integers. O(1) bounded arithmetic and storage. Retain only the two dimensions and answer rather than the input String and value vector. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1224_math.rs`: time 0.031 s → 0.015 s; memory 208 KB → 56 KB.
+
 ## Language notes
 
-- The same formula: Python uses arbitrary-precision integers, the others 64-bit.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1224_math_optimized.py`: time place 283/296, memory place 4/296 in this comparable sample.
+
+`1224_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -86,3 +104,7 @@ the two numbers by hand instead of using `Scanner`: 348 KB instead of
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1224_math_optimized.java](1224_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11303726 |
+| [1224_math_optimized.py](1224_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 196 KB | 11324840 |
+| [1224_math_optimized.rs](1224_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11324853 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
