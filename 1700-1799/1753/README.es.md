@@ -24,6 +24,10 @@ Enteros h, H y L (1 ≤ h < H < L ≤ 1000).
 El mayor desplazamiento del centro del libro a la izquierda del borde,
 con un error de a lo sumo 10⁻⁵.
 
+## Evaluación
+
+Las pruebas del repositorio comparan tokens numéricos con |resultado-referencia| <= 1e-5·max(1,|referencia|), rechazan valores no finitos y comparan exactamente los tokens no numéricos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -71,9 +75,21 @@ otras 300.
 
 ## Soluciones optimizadas
 
+`1753_geometry_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1753_geometry.java`: tiempo 0.109 s → 0.125 s; memoria 1816 KB → 984 KB.
+
 Go y Rust reescriben el mismo óptimo con la razón q = cbrt(H/(2h)). Si H ≤ 2h, el desplazamiento es cero. En otro caso toman f = (q−1)(q+1) y calculan h·f·sqrt(f). El factor compartido se calcula una vez y se evita restar cuadrados de longitudes grandes. El resultado se imprime directamente con seis decimales. Ambas versiones usan búferes fijos de bytes y redondean a millonésimas antes de escribir las cifras decimales. Go usa directamente los descriptores estándar. Rust arranca mediante C main y transfiere los búferes con la biblioteca de C.
 
 Las implementaciones base aceptadas [1753_geometry.cpp](1753_geometry.cpp), [1753_geometry.java](1753_geometry.java), [1753_geometry.py](1753_geometry.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+
+## Notas por lenguaje
+
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`1753_geometry_optimized.java`: puesto de tiempo 19/37 y de memoria 9/37 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -81,11 +97,11 @@ Las implementaciones base aceptadas [1753_geometry.cpp](1753_geometry.cpp), [175
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 152 KB | 11289560 |
+| [1753_geometry.cpp](1753_geometry.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 132 KB | 11325580 |
 | [1753_geometry.go](1753_geometry.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 1088 KB | 11289561 |
 | [1753_geometry.java](1753_geometry.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 1816 KB | 11289563 |
 | [1753_geometry.py](1753_geometry.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 400 KB | 11289562 |
-| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 244 KB | 11289564 |
+| [1753_geometry.rs](1753_geometry.rs) | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 236 KB | 11325633 |
 
 ### Optimizadas
 
@@ -93,5 +109,6 @@ Las implementaciones base aceptadas [1753_geometry.cpp](1753_geometry.cpp), [175
 |---|---|---|---|---|---|---|---|
 | [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
 | [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
+| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 984 KB | 11324797 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
