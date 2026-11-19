@@ -24,6 +24,10 @@ from 1 to N.
 
 The least number of bridges.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -67,6 +71,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1272_dsu_optimized.java`. Keep the tunnel-component DSU: initialize N groups, decrement only on a union of distinct roots, then output groups-1. The promise that all links connect the town makes that many bridges sufficient. As in the base, only the tunnel endpoints are needed; bridge records need not be retained or consumed after the answer is known. The same unranked root linking and path halving remain, so this is an input-runtime change, not a new connectivity algorithm. Storage O(N); a direct conservative worst-case bound is O(N+K·N), charging at most N parent links to each find. Fixed byte input replaces StreamTokenizer.
+
+Compared with `1272_dsu.java`: time 0.140 s → 0.109 s; memory 488 KB → 512 KB.
+
 The optimized C++ solution parses the numbers by hand from a 4 KB buffer
 instead of `scanf` and keeps the parents in a fixed global array of
 10 001 cells, enough for `N ≤ 10 000`, instead of a `std::vector`. It
@@ -91,8 +99,8 @@ into a `String`, so only the parents and the buffer stay in memory:
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
+Each optimized version has Accepted and meets a ranking or resource-improvement
+admission criterion. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
@@ -110,15 +118,11 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1272_dsu.java](1272_dsu.java).
+`1272_dsu_optimized.java`: time place 6/90, memory place 2/90 in this comparable sample.
 
-- All languages use the same union–find with path halving. Python and Rust
-  read all input, adding `O(M)` time.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -140,5 +144,6 @@ implementation for these languages.
 | [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
 | [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
 | [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
+| [1272_dsu_optimized.java](1272_dsu_optimized.java) \* | Java 1.8 | dsu | O(N+K·N) conservative worst case | AC | 0.109 s | 512 KB | 11325012 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

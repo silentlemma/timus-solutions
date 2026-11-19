@@ -25,6 +25,10 @@ isla entre 1 y N.
 
 El menor número de puentes.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -69,6 +73,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1272_dsu_optimized.java`. Conserva el DSU de túneles: inicia N grupos, reduce solo al unir raíces distintas y emite groups-1. La conectividad conjunta garantiza que bastan esos puentes. Como en la base, solo necesita extremos de túneles; no retiene ni sigue leyendo puentes al conocer la respuesta. Conserva enlaces sin rango y reducción de caminos a la mitad: cambia el ingreso, no el algoritmo de conectividad. Espacio O(N); cota directa conservadora O(N+K·N), hasta N enlaces por find. Bytes fijos sustituyen StreamTokenizer.
+
+Frente a `1272_dsu.java`: tiempo 0.140 s → 0.109 s; memoria 488 KB → 512 KB.
+
 La solución optimizada en C++ analiza los números a mano desde un búfer
 de 4 KB en lugar de `scanf` y guarda los padres en un arreglo global
 fijo de 10 001 celdas, suficiente para `N ≤ 10 000`, en lugar de un
@@ -93,8 +101,8 @@ el búfer: {1272_dsu_optimized.rs}.
 
 ### Mejora medida
 
-Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
-al menos un 30% frente a la versión básica del mismo lenguaje. Se
+Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
+o de mejora de recursos. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
@@ -112,15 +120,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1272_dsu.java](1272_dsu.java).
+`1272_dsu_optimized.java`: puesto de tiempo 6/90 y de memoria 2/90 en esta muestra comparable.
 
-- Todos los lenguajes usan la misma unión-búsqueda con reducción de
-  caminos a la mitad. Python y Rust leen toda la entrada, añadiendo `O(M)` de tiempo.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -142,5 +146,6 @@ implementación para alcanzar el objetivo.
 | [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
 | [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
 | [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
+| [1272_dsu_optimized.java](1272_dsu_optimized.java) \* | Java 1.8 | dsu | O(N+K·N) conservative worst case | AC | 0.109 s | 512 KB | 11325012 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
