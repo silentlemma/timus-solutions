@@ -1,6 +1,6 @@
 from math import isqrt
 
-BOUND = 10 ** 6  # the cube root of the largest C
+BOUND = 10**6  # the cube root of the largest C
 
 
 def main():
