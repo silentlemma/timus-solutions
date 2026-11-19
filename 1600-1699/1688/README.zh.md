@@ -19,6 +19,10 @@ n 和 m（1 ≤ n ≤ 2 · 10⁹；0 ≤ m ≤ 3000），然后是 m 张账单�
 
 对第一次满足条件的聚餐 x 输出 “Free after x times.”，若始终不满足则输出 “Team.GOV!”。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -90,6 +94,10 @@ Team.GOV!
 
 - `1688_implementation_optimized.py`: 时间降低 +0.00%; 内存降低 +44.67%; 基础版本: `1688_implementation.py`.
 
+`1688_implementation_optimized.rs`. 直接累加每次金额，在第一个严格超过预算三倍的前缀处停止；相等时不触发答案。只保存累计值和位置，最坏时间 O(M)，额外空间 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1688_implementation.rs` 相比：时间 0.015 s → 0.046 s；内存 232 KB → 52 KB。
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -116,5 +124,6 @@ Team.GOV!
 |---|---|---|---|---|---|---|---|
 | [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
 | [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+| [1688_implementation_optimized.rs](1688_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(M) | AC | 0.046 s | 52 KB | 11325143 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -23,6 +23,10 @@ a 2 · 10⁶.
 «Free after x times.» para la primera visita x así, o «Team.GOV!» si
 nunca ocurre.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -105,6 +109,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1688_implementation_optimized.py`: reducción de tiempo +0.00%;
   reducción de memoria +44.67%; base: `1688_implementation.py`.
 
+`1688_implementation_optimized.rs`. Acumula cada cargo y se detiene en el primer prefijo que supera estrictamente tres veces el presupuesto. La igualdad no activa la respuesta. Solo guarda el total y la posición: O(M) tiempo máximo y O(1) espacio auxiliar. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1688_implementation.rs`: tiempo 0.015 s → 0.046 s; memoria 232 KB → 52 KB.
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -134,5 +142,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
 | [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+| [1688_implementation_optimized.rs](1688_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(M) | AC | 0.046 s | 52 KB | 11325143 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

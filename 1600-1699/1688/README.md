@@ -23,6 +23,10 @@ to 2 · 10⁶.
 "Free after x times." for the first such visit x, or "Team.GOV!" if it
 never happens.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -105,6 +109,10 @@ asterisk concerns the rating target only.
 - `1688_implementation_optimized.py`: time reduction +0.00%; memory
   reduction +44.67%; base: `1688_implementation.py`.
 
+`1688_implementation_optimized.rs`. Accumulate each charge directly and stop at the first prefix strictly exceeding three times the budget. Equality does not trigger the answer. Retaining only the running total and position gives O(M) worst-case time and O(1) auxiliary space. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1688_implementation.rs`: time 0.015 s → 0.046 s; memory 232 KB → 52 KB.
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -134,5 +142,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1688_implementation_optimized.java](1688_implementation_optimized.java) | Java 1.8 | implementation | O(m) | AC | 0.125 s | 384 KB | 11304439 |
 | [1688_implementation_optimized.py](1688_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m) | AC | 0.078 s | 436 KB | 11304440 |
+| [1688_implementation_optimized.rs](1688_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(M) | AC | 0.046 s | 52 KB | 11325143 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
