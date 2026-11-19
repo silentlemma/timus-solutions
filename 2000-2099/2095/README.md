@@ -63,21 +63,17 @@ Keep the single-step sieve as the teaching base. Before step k let c=qk+r be the
 - `2095_math_optimized.java`: 0.125 s / 320 KB; base `2095_math.java`: 0.125 s / 1556 KB; relative change: time -0.0%, memory -79.4%.
 - `2095_math_optimized.py`: 0.062 s / 368 KB; base `2095_math.py`: 0.078 s / 368 KB; relative change: time -20.5%, memory -0.0%.
 
+`2095_math_optimized.rs`. Keep the exact single-step removal sieve for each prefix: c becomes c-floor(c/k), increasing k from two until c<k. Evaluate quiet(R)-quiet(L-1), including quiet(0)=0. Only two loop variables are needed per prefix, for O(√R) time and O(1) auxiliary state. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `2095_math.rs`: time 0.015 s → 0.031 s; memory 204 KB → 52 KB.
+
 ## Language notes
 
-The saved snapshots are from 1 and 4 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
+`2095_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- C++: preferred teaching base `2095_math.cpp`; covering source `2095_math.cpp`; time/memory places 1/1, other-author entries 38/38.
-
-- Go: preferred teaching base `2095_math.go`; covering source `2095_math_optimized.go`; time/memory places 1/1, other-author entries 1/1.
-
-- Java: preferred teaching base `2095_math.java`; covering source `2095_math_optimized.java`; time/memory places 2/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `2095_math.py`; covering source `2095_math_optimized.py`; time/memory places 1/1, other-author entries 60/60.
-
-- Rust: preferred teaching base `2095_math.rs`; covering source `2095_math.rs`; time/memory places 1/1, other-author entries 0/0.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -98,5 +94,6 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [2095_math_optimized.go](2095_math_optimized.go) | Go 1.14 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.015 s | 280 KB | 11309760 |
 | [2095_math_optimized.java](2095_math_optimized.java) \* | Java 1.8 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.125 s | 320 KB | 11309305 |
 | [2095_math_optimized.py](2095_math_optimized.py) | Python 3.12 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.062 s | 368 KB | 11309302 |
+| [2095_math_optimized.rs](2095_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√R) | AC | 0.031 s | 52 KB | 11325120 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
