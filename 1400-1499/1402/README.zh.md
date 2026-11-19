@@ -21,6 +21,10 @@
 
 鸡尾酒的数目。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -53,6 +57,14 @@ N·(N − 1)·…·(N − k + 1) 种。对 k 从 2 到 N 求和，每个乘积�
 
 ## 优化解法
 
+`1402_combinatorics_optimized.py`. 保留逐步下降阶乘：ways 初始为 N，对 k=2..N 乘 N-k+1 并累加到 total。无需阶乘表或重算每个乘积即可计有序选择，N=1 正确得零。N<=21 下为 O(N) 次有界宽度算术和 O(1) 整数槽。 使用同一精确 Python 整数递推和字节输入，不声称改变组合公式。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
+
+与 `1402_combinatorics.py` 相比：时间 0.078 s → 0.125 s；内存 388 KB → 244 KB。
+
+`1402_combinatorics_optimized.rs`. 保留逐步下降阶乘：ways 初始为 N，对 k=2..N 乘 N-k+1 并累加到 total。无需阶乘表或重算每个乘积即可计有序选择，N=1 正确得零。N<=21 下为 O(N) 次有界宽度算术和 O(1) 整数槽。 保留 u128，因为21种饮料的答案超过64位。固定39字节十进制缓冲可容纳任意 u128，保守总量上界21*21! 远低于其上限。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
+
+与 `1402_combinatorics.rs` 相比：时间 0.031 s → 0.062 s；内存 232 KB → 56 KB。
+
 优化的 C++ 解法仍用 128 位整数求和，但把各位数字从后往前写进一个 23 个字符的固定
 数组，而不是逐个插到 `std::string` 的开头：因为 `N ≤ 21`，答案小于
 21·21! < 10²²，22 位数字加上结尾的零总能放下。不用 `<string>`，程序本身就不在堆
@@ -72,10 +84,13 @@ N·(N − 1)·…·(N − k + 1) 种。对 k 从 2 到 N 求和，每个乘积�
 
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1402_combinatorics.go](1402_combinatorics.go).
-- [1402_combinatorics.rs](1402_combinatorics.rs).
+`1402_combinatorics_optimized.py`：在该可比样本中，时间名次 62/71，内存名次 1/71。
+
+`1402_combinatorics_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -95,3 +110,7 @@ N·(N − 1)·…·(N − k + 1) 种。对 k 从 2 到 N 求和，每个乘积�
 |---|---|---|---|---|---|---|---|
 | [1402_combinatorics_optimized.cpp](1402_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(N) | AC | 0.001 s | 96 KB | 11304432 |
 | [1402_combinatorics_optimized.java](1402_combinatorics_optimized.java) | Java 1.8 | combinatorics | O(N) | AC | 0.109 s | 444 KB | 11304433 |
+| [1402_combinatorics_optimized.py](1402_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(N) | AC | 0.125 s | 244 KB | 11324912 |
+| [1402_combinatorics_optimized.rs](1402_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(N) | AC | 0.062 s | 56 KB | 11325095 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
