@@ -103,6 +103,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `2010_math_optimized.cpp`: reducción de tiempo +51.61%; reducción de
   memoria +75.00%; base: `2010_math.cpp`.
 
+`2010_math_optimized.rs`. Cuenta las direcciones disponibles de uno y dos pasos en cada eje. Sus combinaciones independientes dan el rey y el caballo; cuatro mínimos diagonales dan el alfil, 2(N-1) la torre y la suma la reina. Imprime los cinco conteos etiquetados directamente. Trabajo y espacio auxiliar O(1), también en bordes y esquinas. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `2010_math.rs`: tiempo 0.046 s → 0.046 s; memoria 236 KB → 60 KB.
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -136,3 +140,6 @@ constante de valores y se ejecuta en CPython.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
+| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

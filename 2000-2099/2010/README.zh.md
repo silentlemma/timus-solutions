@@ -64,6 +64,10 @@ Queen: 23
 
 - `2010_math_optimized.cpp`: 时间降低 +51.61%; 内存降低 +75.00%; 基础版本: `2010_math.cpp`.
 
+`2010_math_optimized.rs`. 统计每轴可用的一步与两步方向。独立组合得到王和马的走法数；四个对角线长度的最小值给出象，2(N-1) 给出车，两者之和给出后。直接输出五个带标签的计数。包括边界和角落在内，时间与额外空间均为 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `2010_math.rs` 相比：时间 0.046 s → 0.046 s；内存 236 KB → 60 KB。
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -89,3 +93,6 @@ Queen: 23
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
+| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

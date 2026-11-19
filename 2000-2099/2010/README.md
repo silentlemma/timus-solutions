@@ -103,6 +103,10 @@ asterisk concerns the rating target only.
 - `2010_math_optimized.cpp`: time reduction +51.61%; memory reduction
   +75.00%; base: `2010_math.cpp`.
 
+`2010_math_optimized.rs`. Count available one-step and two-step directions on each axis. Their independent combinations give the king and knight counts; four diagonal minima give the bishop, 2(N-1) gives the rook, and their sum gives the queen. Emit the five labelled counts directly. Work and auxiliary space are O(1), including board edges and corners. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `2010_math.rs`: time 0.046 s → 0.046 s; memory 236 KB → 60 KB.
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -137,3 +141,6 @@ Python uses constant memory and runs under CPython.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2010_math_optimized.cpp](2010_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304435 |
+| [2010_math_optimized.rs](2010_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324982 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
