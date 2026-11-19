@@ -22,6 +22,10 @@ n y k (1 ≤ k ≤ n ≤ 50, n par).
 
 El mayor número de personas que tropiezan con Vasya.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -97,15 +101,23 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1725_math_optimized.java`: reducción de tiempo +25.60%; reducción de
   memoria +77.89%; base: `1725_math.java`.
 
+`1725_math_optimized.py`. Conserva max(0,max(k-1,n-k)-2): elige el lado más lejano y excluye sus dos asientos seguros del extremo. No busca órdenes de llegada. Los datos no superan 50; aritmética acotada y espacio O(1). Analiza los dos tokens enteros como bytes y conserva la fórmula directa. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1725_math.py`: tiempo 0.062 s → 0.125 s; memoria 340 KB → 188 KB.
+
+`1725_math_optimized.rs`. Conserva max(0,max(k-1,n-k)-2): elige el lado más lejano y excluye sus dos asientos seguros del extremo. No busca órdenes de llegada. Los datos no superan 50; aritmética acotada y espacio O(1). Lee solo dos valores con signo, sin String completo; mantiene el límite inferior cero. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1725_math.rs`: tiempo 0.031 s → 0.015 s; memoria 244 KB → 60 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1725_math.go](1725_math.go).
-- [1725_math.rs](1725_math.rs).
+`1725_math_optimized.py`: puesto de tiempo 27/34 y de memoria 1/34 en esta muestra comparable.
+
+`1725_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -125,3 +137,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1725_math_optimized.cpp](1725_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304482 |
 | [1725_math_optimized.java](1725_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 352 KB | 11304483 |
+| [1725_math_optimized.py](1725_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324909 |
+| [1725_math_optimized.rs](1725_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11325107 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

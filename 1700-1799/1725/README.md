@@ -22,6 +22,10 @@ n and k (1 ≤ k ≤ n ≤ 50, n even).
 
 The largest number of people who trip over Vasya.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -95,15 +99,23 @@ asterisk concerns the rating target only.
 - `1725_math_optimized.java`: time reduction +25.60%; memory reduction
   +77.89%; base: `1725_math.java`.
 
+`1725_math_optimized.py`. Keep the same seat-count formula max(0,max(k-1,n-k)-2): choose the farther side and exclude its two safe end seats. No arrival-order search is added. All input values are at most 50, so bounded arithmetic and storage are O(1). Parse the two integer tokens as bytes, preserving the original direct formula. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1725_math.py`: time 0.062 s → 0.125 s; memory 340 KB → 188 KB.
+
+`1725_math_optimized.rs`. Keep the same seat-count formula max(0,max(k-1,n-k)-2): choose the farther side and exclude its two safe end seats. No arrival-order search is added. All input values are at most 50, so bounded arithmetic and storage are O(1). Read only the two signed values, without a full input String; the clamp to zero is preserved. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1725_math.rs`: time 0.031 s → 0.015 s; memory 244 KB → 60 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1725_math.go](1725_math.go).
-- [1725_math.rs](1725_math.rs).
+`1725_math_optimized.py`: time place 27/34, memory place 1/34 in this comparable sample.
+
+`1725_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -123,3 +135,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1725_math_optimized.cpp](1725_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 100 KB | 11304482 |
 | [1725_math_optimized.java](1725_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 352 KB | 11304483 |
+| [1725_math_optimized.py](1725_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324909 |
+| [1725_math_optimized.rs](1725_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11325107 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
