@@ -72,6 +72,10 @@ below a million.
 
 ## Optimized solutions
 
+`1118_number_theory_optimized.rs`. Retain exact divisor-sum ratio comparison and the smallest-number tie rule. Detect primes by stopping at the first divisor instead of computing their full divisor sums. A largest prime p may return early when 3p>H: every composite has proper-divisor sum at least 3, so its ratio is at least 3/H, while the prime’s is 1/p. Otherwise scan the entire interval and cache the best divisor sum, avoiding its repeated recomputation. L=1 still returns one. Worst-case O((H-L+1)√H), O(1) auxiliary space; integer cross-products avoid floating comparisons.
+
+Compared with `1118_number_theory.rs`: time 0.031 s → 0.015 s; memory 212 KB → 48 KB.
+
 The optimized Java solution reads the input byte by byte instead of
 using `Scanner` and merges the two passes into one: going down from `J`
 it also keeps the number with the smallest ratio seen so far, so when it
@@ -81,7 +85,11 @@ solution takes 372 KB instead of 1552 KB, with the same time.
 
 ## Language notes
 
-- All languages use the same trial division.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+
+`1118_number_theory_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -100,3 +108,6 @@ solution takes 372 KB instead of 1552 KB, with the same time.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1118_number_theory_optimized.java](1118_number_theory_optimized.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 372 KB | 11303559 |
+| [1118_number_theory_optimized.rs](1118_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O((H-L+1)√H) worst; O(1) space | AC | 0.015 s | 48 KB | 11325513 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

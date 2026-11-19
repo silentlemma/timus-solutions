@@ -75,6 +75,10 @@ mayor hueco entre primos por debajo de un millón.
 
 ## Soluciones optimizadas
 
+`1118_number_theory_optimized.rs`. Mantiene comparación exacta de razones y desempate por menor número. Primalidad termina en primer divisor sin calcular suma completa. El mayor primo p puede salir si 3p>H: todo compuesto tiene suma propia al menos 3 y razón al menos 3/H, frente a 1/p del primo. Si no, recorre intervalo completo y guarda suma del mejor sin recalcularla. L=1 sigue dando uno. O((H-L+1)√H) peor caso, O(1) espacio; productos enteros evitan flotantes.
+
+Frente a `1118_number_theory.rs`: tiempo 0.031 s → 0.015 s; memoria 212 KB → 48 KB.
+
 La solución optimizada en Java lee la entrada byte a byte en lugar de usar
 `Scanner` y une las dos pasadas en una: al bajar desde `J` guarda también
 el número con la menor razón visto hasta ahora, así que si llega a `I` sin
@@ -84,7 +88,11 @@ menor, que aparece después, sustituye al anterior. La solución ocupa
 
 ## Notas por lenguaje
 
-- Todos los lenguajes usan la misma división de prueba.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+
+`1118_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -103,3 +111,6 @@ menor, que aparece después, sustituye al anterior. La solución ocupa
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1118_number_theory_optimized.java](1118_number_theory_optimized.java) | Java 1.8 | number_theory | O(g · √J), g ≤ 114 | AC | 0.093 s | 372 KB | 11303559 |
+| [1118_number_theory_optimized.rs](1118_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O((H-L+1)√H) worst; O(1) space | AC | 0.015 s | 48 KB | 11325513 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
