@@ -22,6 +22,10 @@ T, luego T líneas con N.
 
 T líneas con los exponentes.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -83,26 +87,39 @@ para todos los exponentes primos hasta 10 000; el resto viene de la
 lista publicada y coincide con el ejemplo y con los valores que cita el
 enunciado.
 
+## Soluciones optimizadas
+
+`1352_number_theory_optimized.rs`. Conserva tabla exacta de primeros 38 exponentes Mersenne del enunciado. Lee Q índices en flujo y emite cada entero por runtime C, sin Strings completos ni to_string por respuesta. O(Q) tiempo y O(1) espacio auxiliar para tabla fija; no introduce otro test de primalidad ni tabla de respuestas.
+
+Frente a `1352_number_theory.rs`: tiempo 0.001 s → 0.001 s; memoria 216 KB → 56 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+El código CPython sin cambios se midió tres veces más: (0.078 s, 468 KB), (0.093 s, 400 KB) y (0.046 s, 312 KB). La tabla usa el último par real Accepted; repetir la medición no constituye una mejora algorítmica. En la muestra guardada de intérpretes actuales comparables, esa ejecución comparte el puesto 1/30 en tiempo y ocupa el 11/30 en memoria. Por debajo de 1 MiB, la admisión considera el puesto por tiempo. La versión sencilla ya cumple el criterio, por lo que no se añade una copia Python con nombre optimized.
 
-- [1352_number_theory.cpp](1352_number_theory.cpp).
-- [1352_number_theory.go](1352_number_theory.go).
-- [1352_number_theory.rs](1352_number_theory.rs).
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- Python guarda la tabla como una sola cadena partida en palabras, así
-  que las respuestas se imprimen sin volver a convertirlas en números.
+`1352_number_theory_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
+
+### Sencillas
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 128 KB | 11285181 |
 | [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1084 KB | 11285182 |
 | [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.078 s | 444 KB | 11285186 |
-| [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.062 s | 324 KB | 11285184 |
+| [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.046 s | 312 KB | 11326033 |
 | [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.001 s | 216 KB | 11285188 |
+
+### Optimizadas
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
+
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

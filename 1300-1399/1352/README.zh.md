@@ -21,6 +21,10 @@ T，然后是 T 行，每行一个 N。
 
 T 行，每行一个指数。
 
+## 评测方式
+
+仓库测试精确比较输出记号，记号之间的空白分隔不影响结果。
+
 ## 样例
 
 ### 样例 1
@@ -75,22 +79,39 @@ T 行，每行一个指数。
 前 22 项通过对 10 000 以内所有素数指数运行 Lucas–Lehmer 检验得到验证；其余各项取自公开的列表，并与样例及题面
 中提到的数值一致。
 
+## 优化解法
+
+`1352_number_theory_optimized.rs`. 保留题定前 38 个 Mersenne 素数指数的精确表。流式读 Q 个下标，立即经 C 运行时输出整数，不留输入/输出 String 或逐答案 to_string 分配。固定表下 O(Q) 时间、O(1) 辅助空间，不引入新素性算法或额外答案表。
+
+与 `1352_number_theory.rs` 相比：时间 0.001 s → 0.001 s；内存 216 KB → 56 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+完全未修改的 CPython 源码又运行三次，结果依次为 (0.078 s, 468 KB)、(0.093 s, 400 KB)、(0.046 s, 312 KB)。表格记录最后一次真实 Accepted 的成对指标；重复测量并不代表算法本身加速。在保存的当前解释器可比样本中，该次提交按时间并列第 1/30，按内存第 11/30。内存不超过 1 MiB 时，准入仅看时间排名。清晰的基础实现已经满足条件，因此不添加重复的 optimized Python 源文件。
 
-- [1352_number_theory.cpp](1352_number_theory.cpp).
-- [1352_number_theory.go](1352_number_theory.go).
-- [1352_number_theory.rs](1352_number_theory.rs).
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- Python 把表存成一个按空格切分的字符串，因此输出答案时无需再转换回数字。
+`1352_number_theory_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
+
+### 简单版本
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1352_number_theory.cpp](1352_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(T) | AC | 0.001 s | 128 KB | 11285181 |
 | [1352_number_theory.go](1352_number_theory.go) | Go 1.14 x64 | number_theory | O(T) | AC | 0.031 s | 1084 KB | 11285182 |
 | [1352_number_theory.java](1352_number_theory.java) | Java 1.8 | number_theory | O(T) | AC | 0.078 s | 444 KB | 11285186 |
-| [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.062 s | 324 KB | 11285184 |
+| [1352_number_theory.py](1352_number_theory.py) | Python 3.12 x64 | number_theory | O(T) | AC | 0.046 s | 312 KB | 11326033 |
 | [1352_number_theory.rs](1352_number_theory.rs) | Rust 1.75 x64 | number_theory | O(T) | AC | 0.001 s | 216 KB | 11285188 |
+
+### 优化版本
+
+| Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
+|---|---|---|---|---|---|---|---|
+| [1352_number_theory_optimized.rs](1352_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(Q) time; O(1) auxiliary space | AC | 0.001 s | 56 KB | 11325503 |
+
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
