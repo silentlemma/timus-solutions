@@ -21,6 +21,10 @@ N，然后每行一个面值，共 N 个。
 
 占多数的面值。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。 将题目保证的多数值作为一行整数输出。
+
 ## 样例
 
 ### 样例 1
@@ -67,6 +71,10 @@ Boyer–Moore 投票：保存一个候选值和一个计数器。与候选值相
 优化的 Python 解法利用每行恰好一个值这一点，直接转换这 `n` 行中的每一行，不切分
 成词：0.203 s，而不是 0.375 s，内存不变。
 
+`1510_greedy_optimized.rs`. 边读取边进行 Boyer–Moore 抵消，只保留候选值和余额。题目保证的严格多数会在抵消后保留，无需第二次遍历或输入向量。时间 O(N)，额外空间 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1510_greedy.rs` 相比：时间 0.109 s → 0.156 s；内存 232 KB → 56 KB。
+
 ## 解答
 
 ### 简单版本
@@ -86,3 +94,6 @@ Boyer–Moore 投票：保存一个候选值和一个计数器。与候选值相
 | [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
 | [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
 | [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
+| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

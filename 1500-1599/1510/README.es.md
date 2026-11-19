@@ -21,6 +21,10 @@ N y luego los N valores, uno por línea.
 
 El valor de la mayoría.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación. Imprime el valor de mayoría garantizado en una línea entera.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -74,6 +78,10 @@ La solución optimizada en Python aprovecha que cada línea tiene un solo
 valor y convierte cada una de las `n` líneas tal cual, sin dividirla en
 tokens: 0.203 s en lugar de 0.375 s, con la misma memoria.
 
+`1510_greedy_optimized.rs`. Aplica la cancelación de Boyer–Moore al leer cada valor, con un candidato y un balance. La mayoría estricta garantizada sobrevive a las cancelaciones; no hacen falta una segunda pasada ni un vector de entrada. Tiempo O(N), espacio auxiliar O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1510_greedy.rs`: tiempo 0.109 s → 0.156 s; memoria 232 KB → 56 KB.
+
 ## Soluciones
 
 ### Sencillas
@@ -93,3 +101,6 @@ tokens: 0.203 s en lugar de 0.375 s, con la misma memoria.
 | [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
 | [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
 | [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
+| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

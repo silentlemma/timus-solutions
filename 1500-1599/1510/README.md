@@ -21,6 +21,10 @@ N, then the N values, one per line.
 
 The value of the majority.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation. Print the guaranteed majority value as one integer line.
+
 ## Examples
 
 ### Example 1
@@ -73,6 +77,10 @@ The optimized Python solution relies on one value per line and converts
 each of the `n` lines as it is, with no splitting into tokens: 0.203 s
 instead of 0.375 s, with the same memory.
 
+`1510_greedy_optimized.rs`. Use Boyer–Moore cancellation while reading each value, keeping only a candidate and a balance. The guaranteed strict majority survives cancellation; no second pass or input vector is needed. Time O(N), auxiliary space O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1510_greedy.rs`: time 0.109 s → 0.156 s; memory 232 KB → 56 KB.
+
 ## Solutions
 
 ### Simple
@@ -92,3 +100,6 @@ instead of 0.375 s, with the same memory.
 | [1510_greedy_optimized.cpp](1510_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.031 s | 104 KB | 11303963 |
 | [1510_greedy_optimized.java](1510_greedy_optimized.java) | Java 1.8 | greedy | O(N) | AC | 0.140 s | 584 KB | 11303964 |
 | [1510_greedy_optimized.py](1510_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N) | AC | 0.203 s | 432 KB | 11303965 |
+| [1510_greedy_optimized.rs](1510_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N) | AC | 0.156 s | 56 KB | 11324862 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
