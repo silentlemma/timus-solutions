@@ -23,6 +23,10 @@ Time limit: 1 second. Memory limit: 64 MB.
 
 The least total unhappiness.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -74,6 +78,10 @@ The answers were compared with the plain `O(K·N²)` recurrence on
 400 random inputs of up to 40 horses and on every test.
 
 ## Optimized solutions
+
+`1167_dp_optimized.rs`. Keep the same monotone divide-and-conquer DP and black-prefix segment cost. Reuse two u16 layers instead of allocating an i64 layer per stable; u32 temporaries evaluate candidate sums. For N≤500 every feasible mixed-pair total is at most 62500, below sentinel 65535. Preserve the same nonempty-group bounds and O(KN log N) time, with O(N) storage including recursion.
+
+Compared with `1167_dp.rs`: time 0.031 s → 0.031 s; memory 244 KB → 64 KB.
 
 The optimized C++ solution keeps the prefix counts and the two layers in
 fixed `int` arrays of 501 entries, enough since `N ≤ 500`, instead of
@@ -154,5 +162,6 @@ implementation for these languages.
 | [1167_dp_optimized.go](1167_dp_optimized.go) | Go 1.14 x64 | dp | O(K·N log N) | AC | 0.031 s | 1096 KB | 11304443 |
 | [1167_dp_optimized.java](1167_dp_optimized.java) | Java 1.8 | dp | O(K·N log N) | AC | 0.109 s | 476 KB | 11304444 |
 | [1167_dp_optimized.py](1167_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K·N log N) | AC | 0.171 s | 692 KB | 11304446 |
+| [1167_dp_optimized.rs](1167_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(KN log N) time; O(N) space | AC | 0.031 s | 64 KB | 11325518 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

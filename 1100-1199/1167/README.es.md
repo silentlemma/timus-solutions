@@ -23,6 +23,10 @@ Límite de tiempo: 1 segundo. Límite de memoria: 64 MB.
 
 El menor descontento total.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -75,6 +79,10 @@ Las respuestas se compararon con la recurrencia simple en `O(K·N²)` en
 400 entradas aleatorias de hasta 40 caballos y en todas las pruebas.
 
 ## Soluciones optimizadas
+
+`1167_dp_optimized.rs`. Conserva mismo DP monótono por divide y vencerás y coste por prefijo negro. Reutiliza dos capas u16 frente a asignar i64 por establo; candidatos en u32. Para N≤500, pares mixtos factibles≤62500, bajo centinela65535. Mismos límites no vacíos, O(KN log N) tiempo y O(N) espacio con recursión.
+
+Frente a `1167_dp.rs`: tiempo 0.031 s → 0.031 s; memoria 244 KB → 64 KB.
 
 La solución optimizada en C++ guarda las sumas prefijas y las dos capas
 en arreglos `int` fijos de 501 elementos, suficientes porque `N ≤ 500`,
@@ -157,5 +165,6 @@ implementación para alcanzar el objetivo.
 | [1167_dp_optimized.go](1167_dp_optimized.go) | Go 1.14 x64 | dp | O(K·N log N) | AC | 0.031 s | 1096 KB | 11304443 |
 | [1167_dp_optimized.java](1167_dp_optimized.java) | Java 1.8 | dp | O(K·N log N) | AC | 0.109 s | 476 KB | 11304444 |
 | [1167_dp_optimized.py](1167_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K·N log N) | AC | 0.171 s | 692 KB | 11304446 |
+| [1167_dp_optimized.rs](1167_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(KN log N) time; O(N) space | AC | 0.031 s | 64 KB | 11325518 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
