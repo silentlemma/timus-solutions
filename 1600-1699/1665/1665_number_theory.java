@@ -33,11 +33,11 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int t = (int) in.nval;
+        int t = (int)in.nval;
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < t; i++) {
             in.nextToken();
-            out.append(paid((long) in.nval) ? "YES" : "NO").append('\n');
+            out.append(paid((long)in.nval) ? "YES" : "NO").append('\n');
         }
         System.out.print(out);
     }

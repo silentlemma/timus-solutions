@@ -26,7 +26,7 @@ def paid(n):
 def main():
     data = sys.stdin.read().split()
     t = int(data[0])
-    print("\n".join("YES" if paid(int(w)) else "NO" for w in data[1:1 + t]))
+    print("\n".join("YES" if paid(int(w)) else "NO" for w in data[1 : 1 + t]))
 
 
 main()

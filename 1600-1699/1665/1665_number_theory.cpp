@@ -1,6 +1,6 @@
 #include <cstdio>
 
-const long long FIRST_ODD = 3;  // the smallest divisor worth trying
+const long long FIRST_ODD = 3; // the smallest divisor worth trying
 
 // whether n is a product of an odd number of factors, each 2 or an odd
 // number above 1: n = 2^twos * rest with rest odd
@@ -14,7 +14,7 @@ bool paid(long long n) {
         return twos % 2 == 1;
     }
     if (twos % 2 == 0) {
-        return true;  // rest as a single factor
+        return true; // rest as a single factor
     }
     // an odd count needs rest split into two factors, so not a prime
     for (long long d = FIRST_ODD; d * d <= n; d += 2) {

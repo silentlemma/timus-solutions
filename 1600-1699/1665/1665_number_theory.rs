@@ -30,7 +30,10 @@ fn paid(mut n: u64) -> bool {
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<u64> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<u64> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let mut out = String::new();
     for &n in nums[1..].iter().take(nums[0] as usize) {
         out.push_str(if paid(n) { "YES\n" } else { "NO\n" });
