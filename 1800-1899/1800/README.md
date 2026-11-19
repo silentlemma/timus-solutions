@@ -23,6 +23,10 @@ from 1 to 1000.
 
 "butter" or "bread".
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -99,6 +103,14 @@ stored tests and all five configured generator cases.
 
 ## Optimized solutions
 
+`1800_math_optimized.py`. Keep the same gap/slope/curvature contact search and 60-step bisections. No endpoint can touch before t₀=sqrt(2·max(0,h−l/2)/g), because its vertical distance from the centre is at most l/2. Start one quarter before floor(t₀/quarter), retaining a safety interval for floating-point rounding, instead of searching every earlier quarter. Contact must occur by the next vertical maximum, so only nearby quarters remain; preserve interior-minimum tests and absolute-quarter butter/bread parity. No PyPy JIT-control import is needed. O(Q·60) work for the remaining Q quarters and constant state; keep the simple full scan.
+
+Compared with `1800_math.py`: time 0.093 s → 0.125 s; memory 592 KB → 412 KB.
+
+`1800_math_optimized.rs`. Keep the same quarter-turn contact search with gap, slope and curvature, including possible interior minima on odd quarters. Reduce the two bisections from 100 to 60 iterations: those searched positive intervals have endpoints within a factor of two, so 60 steps already reach f64 resolution. Read three bounded integer inputs without an input vector and write the unchanged butter/bread result directly. For Q quarters examined, O(Q·60) time and O(1) space; retain the original 100-step teaching version.
+
+Compared with `1800_math.rs`: time 0.046 s → 0.031 s; memory 236 KB → 60 KB.
+
 The optimized C++ solution reads the three numbers with `scanf` and
 prints the side with `puts` instead of using `iostream`, whose runtime
 is not needed here; the floating-point computation is exactly the same:
@@ -124,13 +136,11 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1800_math.go](1800_math.go).
-- [1800_math.rs](1800_math.rs).
+`1800_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -150,5 +160,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
 | [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+| [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
+| [1800_math_optimized.py](1800_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.125 s | 412 KB | 11325886 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

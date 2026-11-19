@@ -23,6 +23,10 @@ l y h en centímetros y ω en revoluciones por minuto, enteros de 1 a
 
 "butter" o "bread".
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -103,6 +107,14 @@ generador configurados.
 
 ## Soluciones optimizadas
 
+`1800_math_optimized.py`. Conserva búsqueda por separación/pendiente/curvatura y60bisecciones. Extremo no toca antes de t₀=sqrt(2·max(0,h−l/2)/g), pues distancia vertical al centro≤l/2. Empieza un cuarto antes de floor(t₀/quarter), con margen de redondeo, saltando anteriores. Contacto ocurre como máximo en próximo extremo vertical; quedan cuartos próximos, con mínimos interiores/paridad absoluta butter/bread intactos. Sin importar control JIT PyPy. O(Q·60) para Q cuartos restantes, estado constante; conserva barrido completo sencillo.
+
+Frente a `1800_math.py`: tiempo 0.093 s → 0.125 s; memoria 592 KB → 412 KB.
+
+`1800_math_optimized.rs`. Mantiene búsqueda de contacto por cuartos de giro, con separación, pendiente y curvatura y mínimos interiores impares. Reduce bisecciones de 100 a 60: extremos positivos de esos intervalos difieren a lo sumo por factor dos, por lo que 60 pasos alcanzan resolución f64. Lee tres enteros acotados sin vector y emite butter/bread igual. O(Q·60) tiempo para Q cuartos, O(1) espacio; conserva versión didáctica de 100 pasos.
+
+Frente a `1800_math.rs`: tiempo 0.046 s → 0.031 s; memoria 236 KB → 60 KB.
+
 La solución optimizada en C++ lee los tres números con `scanf` e imprime
 el lado con `puts` en lugar de usar `iostream`, cuyo entorno de
 ejecución aquí sobra; el cálculo en coma flotante es exactamente el
@@ -128,13 +140,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1800_math.go](1800_math.go).
-- [1800_math.rs](1800_math.rs).
+`1800_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -154,5 +164,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
 | [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+| [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
+| [1800_math_optimized.py](1800_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.125 s | 412 KB | 11325886 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
