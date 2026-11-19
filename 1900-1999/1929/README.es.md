@@ -70,19 +70,21 @@ Leer todos los identificadores aunque ya se haya encontrado el 1.
 
 ## Soluciones optimizadas
 
+`1929_combinatorics_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1929_combinatorics.java`: tiempo 0.125 s → 0.093 s; memoria 2 368 KB → 492 KB.
+
 Go y Rust leen los identificadores especiales hasta encontrar a la persona uno o terminar la lista. Conservan solo esa bandera y suman directamente los casos factibles con cero, uno o dos compañeros especiales. La terna debe contener alguien especial y dejar uno por cada equipo restante. No se guarda un conjunto de identificadores ni una lista de ternas. Go usa búferes fijos y los descriptores estándar directamente, reintenta llamadas interrumpidas y completa las escrituras parciales.
 
 Las implementaciones base aceptadas [1929_combinatorics.cpp](1929_combinatorics.cpp), [1929_combinatorics.java](1929_combinatorics.java), [1929_combinatorics.py](1929_combinatorics.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Estas notas describen las implementaciones sencillas.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-Bastan enteros con signo de 32 bits: respuesta ≤C(998,2)=497503 y
-producto intermedio a(a−1) inferior a un millón. Go usa int, Rust i32
-para cantidades y Python enteros. Comprobar disponibilidad antes de
-multiplicar: puede no haber acompañantes ordinarios. No hacen falta
-factoriales, módulos, coma flotante ni enteros grandes.
+`1929_combinatorics_optimized.java`: puesto de tiempo 2/25 y de memoria 3/25 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -92,7 +94,7 @@ factoriales, módulos, coma flotante ni enteros grandes.
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB | 11291652 |
 | [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB | 11291659 |
-| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB | 11291673 |
+| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2368 KB | 11325555 |
 | [1929_combinatorics.py](1929_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB | 11291667 |
 | [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB | 11291675 |
 
@@ -102,5 +104,6 @@ factoriales, módulos, coma flotante ni enteros grandes.
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
 | [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
+| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

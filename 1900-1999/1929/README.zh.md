@@ -62,18 +62,21 @@ C(0,0)=1。找到 1 号后仍应读取剩余编号。
 
 ## 优化解法
 
+`1929_combinatorics_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+
+与 `1929_combinatorics.java` 相比：时间 0.125 s → 0.093 s；内存 2 368 KB → 492 KB。
+
 Go 和 Rust 读取特殊成员编号，直到找到一号成员或读完列表，只保留这一归属标记。随后直接累加搭档中有零、一或两名特殊成员的可行数量。选出的三人组必须包含特殊成员，并为每个剩余队伍留下一名。无需保存编号集合或三人组列表。Go 使用固定字节缓冲区并直接访问标准句柄，重试中断调用并完成部分写入。
 
 已通过评测的基础实现 [1929_combinatorics.cpp](1929_combinatorics.cpp), [1929_combinatorics.java](1929_combinatorics.java), [1929_combinatorics.py](1929_combinatorics.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-以下说明针对基础实现。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
 
-有符号 32 位整数足够，答案不超过 C(998,2)=497503，中间乘积
-a(a−1) 小于一百万。Go 使用 int，Rust 计数使用 i32，Python 使用整数。
-先检查人数能否选出再相乘，普通伙伴可能为零。不需要阶乘、模运算、
-浮点数或大整数。
+`1929_combinatorics_optimized.java`：在该可比样本中，时间名次 2/25，内存名次 3/25。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -83,7 +86,7 @@ a(a−1) 小于一百万。Go 使用 int，Rust 计数使用 i32，Python 使用
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB | 11291652 |
 | [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB | 11291659 |
-| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB | 11291673 |
+| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2368 KB | 11325555 |
 | [1929_combinatorics.py](1929_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB | 11291667 |
 | [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB | 11291675 |
 
@@ -93,5 +96,6 @@ a(a−1) 小于一百万。Go 使用 int，Rust 计数使用 i32，Python 使用
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
 | [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
+| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

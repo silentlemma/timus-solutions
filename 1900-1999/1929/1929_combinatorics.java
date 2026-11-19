@@ -26,8 +26,8 @@ public class Main {
             if (removedSpecial == 0 || specialCount - removedSpecial < remainingTeams) {
                 continue;
             }
-            answer += waysToChoose(special, chosenSpecial)
-                    * waysToChoose(ordinary, TEAM_SIZE - 1 - chosenSpecial);
+            answer += waysToChoose(special, chosenSpecial) *
+                      waysToChoose(ordinary, TEAM_SIZE - 1 - chosenSpecial);
         }
         return answer;
     }

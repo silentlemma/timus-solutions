@@ -69,19 +69,21 @@ Keep reading all identifiers even after finding person 1.
 
 ## Optimized solutions
 
+`1929_combinatorics_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1929_combinatorics.java`: time 0.125 s → 0.093 s; memory 2 368 KB → 492 KB.
+
 Go and Rust read special identifiers only until person one is found or the list ends. They keep that single membership flag and directly add the feasible counts for zero, one or two special partners. The selected triple must contain a special person and leave one for every remaining team. No identifier set or list of triples is stored. Go uses fixed byte buffers and standard handles directly, retrying interrupted calls and completing partial writes.
 
 The accepted base implementations [1929_combinatorics.cpp](1929_combinatorics.cpp), [1929_combinatorics.java](1929_combinatorics.java), [1929_combinatorics.py](1929_combinatorics.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-These notes describe the simple implementations.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-Signed 32-bit integers suffice: the answer is at most C(998,2)=497503
-and the intermediate product a(a−1) is below one million. Go uses int,
-Rust uses i32 for counts, and Python uses integers. Count unavailable
-categories before multiplying: there may be zero ordinary partners.
-No factorials, modular arithmetic, floating point or large integers are needed.
+`1929_combinatorics_optimized.java`: time place 2/25, memory place 3/25 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -91,7 +93,7 @@ No factorials, modular arithmetic, floating point or large integers are needed.
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics.cpp](1929_combinatorics.cpp) | G++ 13.2 x64 | combinatorics | O(m) | AC | 0.015 s | 392 KB | 11291652 |
 | [1929_combinatorics.go](1929_combinatorics.go) | Go 1.14 x64 | combinatorics | O(m) | AC | 0.031 s | 1100 KB | 11291659 |
-| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2404 KB | 11291673 |
+| [1929_combinatorics.java](1929_combinatorics.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.125 s | 2368 KB | 11325555 |
 | [1929_combinatorics.py](1929_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(m) | AC | 0.078 s | 492 KB | 11291667 |
 | [1929_combinatorics.rs](1929_combinatorics.rs) | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.046 s | 240 KB | 11291675 |
 
@@ -101,5 +103,6 @@ No factorials, modular arithmetic, floating point or large integers are needed.
 |---|---|---|---|---|---|---|---|
 | [1929_combinatorics_optimized.go](1929_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(m) | AC | 0.015 s | 284 KB | 11311216 |
 | [1929_combinatorics_optimized.rs](1929_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(m) | AC | 0.015 s | 216 KB | 11310802 |
+| [1929_combinatorics_optimized.java](1929_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(m) | AC | 0.093 s | 492 KB | 11324810 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
