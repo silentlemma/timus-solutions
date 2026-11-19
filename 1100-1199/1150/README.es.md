@@ -84,6 +84,14 @@ escritura decimal de `N` en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1150_math_optimized.go`. Conserva conteo por partes alta/actual/baja y corrección de ceros iniciales. Protege multiplicación del peso y compara mediante limit/place/radix contra desbordamiento. O(log N) tiempo, espacio constante, sin enumerar números. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
+
+Frente a `1150_math.go`: tiempo 0.031 s → 0.015 s; memoria 1084 KB → 292 KB.
+
+`1150_math_optimized.rs`. Mantiene fórmulas posicionales high/current/low y corrección de ceros iniciales. Entrada numérica directa y diez líneas enteras sustituyen texto/formato estándar; diez contadores y algoritmo no cambian. O(log(N+1)) tiempo y O(1) espacio bajo límites enteros del enunciado. Conserva la fuente legible junto a la variante de runtime medido menor.
+
+Frente a `1150_math.rs`: tiempo 0.015 s → 0.046 s; memoria 236 KB → 40 KB.
+
 No cambia el conteo por posiciones: separar N en cifras superiores, cifra actual e inferiores para cada posición. Cada cifra no nula recibe ciclos completos y la fracción final; el cero excluye el bloque de ceros iniciales. Se mantienen diez contadores y se multiplica la posición por diez. Las variantes compactas reducen costes de entrada/salida, sin otra fórmula. Python tiene su propio Accepted en PyPy y cambia mayor tiempo por menor memoria; se preservan todas las bases.
 
 - `1150_math_optimized.java`: 0.078 s / 320 KB; base `1150_math.java`: 0.109 s / 1568 KB; cambio respecto a la base: tiempo -28.4%, memoria -79.6%.
@@ -91,19 +99,11 @@ No cambia el conteo por posiciones: separar N en cifras superiores, cifra actual
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
+`1150_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- C++: base didáctica preferida `1150_math.cpp`; fuente que cubre `1150_math.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 39/39.
-
-- Go: base didáctica preferida `1150_math.go`; fuente que cubre `1150_math.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1150_math.java`; fuente que cubre `1150_math_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 5/5.
-
-- Python/PyPy: base didáctica preferida `1150_math.py`; fuente que cubre `1150_math_optimized.py`; puestos tiempo/memoria 22/4, registros de otros autores 21/21.
-
-- Rust: base didáctica preferida `1150_math.rs`; fuente que cubre `1150_math.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,5 +123,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [1150_math_optimized.java](1150_math_optimized.java) | Java 1.8 | math | O(log N) | AC | 0.078 s | 320 KB | 11308801 |
 | [1150_math_optimized.py](1150_math_optimized.py) \* | PyPy 3.10 x64 | math | O(log N) | AC | 0.140 s | 316 KB | 11309691 |
+| [1150_math_optimized.rs](1150_math_optimized.rs) \* | Rust 1.75 x64 | math | O(log(N+1)) time; O(1) space | AC | 0.046 s | 40 KB | 11325542 |
+| [1150_math_optimized.go](1150_math_optimized.go) \* | Go 1.14 x64 | math | O(log N) time; O(1) space | AC | 0.015 s | 292 KB | 11325653 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
