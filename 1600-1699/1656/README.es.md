@@ -74,6 +74,10 @@ aleatorios.
 
 ## Soluciones optimizadas
 
+`1656_constructive_sorting.rs`. Mantiene asignación descendente por distancia central (menor,mayor). Cuenta31 alturas170…200 y enumera claves recorriendo celdas, en vez de ordenar alturas/tuplas asignadas. Arrays fijos para n≤9. O(n⁴+H) tiempo, O(n²+H) espacio,H=31: cambia generalidad asintótica por memoria pequeña acotada, sin afirmar mejor asintótica. Conserva construcción sencilla con comparación.
+
+Frente a `1656_constructive.rs`: tiempo 0.031 s → 0.001 s; memoria 220 KB → 44 KB.
+
 Se cuentan alturas acotadas sin ordenar tuplas de coordenadas. Las celdas de menor distancia Manhattan al centro reciben alturas no menores; cada paso hacia fuera aumenta la distancia, probando las restricciones. Cada celda se rellena una vez y se permiten alturas iguales. Python expande los recuentos de alturas en un arreglo de bytes y usa desplazamientos de prefijos por niveles para emitir filas sin cuadrícula completa. Se conserva la construcción simple.
 
 - `1656_constructive_optimized.cpp`: 0.001 s / 108 KB; base `1656_constructive.cpp`: 0.001 s / 180 KB; cambio respecto a la base: tiempo -0.0%, memoria -40.0%.
@@ -115,5 +119,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1656_constructive_optimized.cpp](1656_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2+H) | AC | 0.001 s | 108 KB | 11308068 |
 | [1656_constructive_optimized.java](1656_constructive_optimized.java) | Java 1.8 | constructive | O(N^2+H) | AC | 0.078 s | 472 KB | 11308073 |
 | [1656_constructive_optimized.py](1656_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N^2+H) time, O(N^2+H+N) compact bytes/counts; H31 | AC | 0.109 s | 268 KB | 11309461 |
+| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

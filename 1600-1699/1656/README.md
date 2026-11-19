@@ -72,6 +72,10 @@ The program's squares pass the checker on 90 random armies.
 
 ## Optimized solutions
 
+`1656_constructive_sorting.rs`. Keep the same descending-height assignment to cells ordered by (nearer,farther) centre distance. Count the 31 heights 170…200 instead of sorting heights, and enumerate distance keys then scan cells instead of sorting allocated cell tuples. Fixed arrays cover n≤9. The explicit enumeration costs O(n⁴+H) time and O(n²+H) storage, H=31: this trades asymptotic generality for tiny bounded storage, not a faster asymptotic claim. Preserve the simple comparison-sort construction.
+
+Compared with `1656_constructive.rs`: time 0.031 s → 0.001 s; memory 220 KB → 44 KB.
+
 Count bounded height values instead of sorting every coordinate tuple. Cells of a smaller Manhattan distance from the center receive no smaller heights: every outward row or column step increases the distance, proving the constraints. Each cell is assigned once and equal heights are allowed. Python expands the height counts into a byte array and uses prefix offsets of distance levels to emit rows without a full grid. The simple coordinate-order construction is retained.
 
 - `1656_constructive_optimized.cpp`: 0.001 s / 108 KB; base `1656_constructive.cpp`: 0.001 s / 180 KB; relative change: time -0.0%, memory -40.0%.
@@ -113,5 +117,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1656_constructive_optimized.cpp](1656_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2+H) | AC | 0.001 s | 108 KB | 11308068 |
 | [1656_constructive_optimized.java](1656_constructive_optimized.java) | Java 1.8 | constructive | O(N^2+H) | AC | 0.078 s | 472 KB | 11308073 |
 | [1656_constructive_optimized.py](1656_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N^2+H) time, O(N^2+H+N) compact bytes/counts; H31 | AC | 0.109 s | 268 KB | 11309461 |
+| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

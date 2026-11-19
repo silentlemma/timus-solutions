@@ -65,6 +65,10 @@
 
 ## 优化解法
 
+`1656_constructive_sorting.rs`. 保留按距中心(较近,较远)键给格子递减身高。计数31种170…200身高替代排序，枚举距离键并扫描格子替代分配元组排序。固定数组适用 n≤9。显式枚举 O(n⁴+H) 时间、O(n²+H) 存储，H=31，以一般渐近性换小规模内存，并不声称渐近更快。保留简单比较排序构造。
+
+与 `1656_constructive.rs` 相比：时间 0.031 s → 0.001 s；内存 220 KB → 44 KB。
+
 统计有界身高值，避免排序坐标元组。离中心曼哈顿距离较小的格子获得不小的身高；沿行列向外每步都增加距离，故满足限制。每格填一次，相等身高允许。Python 将身高计数展开为字节数组，利用距离层前缀偏移逐行输出，不保存完整网格。保留简单坐标排序构造。
 
 - `1656_constructive_optimized.cpp`: 0.001 s / 108 KB; 基础版 `1656_constructive.cpp`: 0.001 s / 180 KB; 相对基础版的变化: 时间 -0.0%, 内存 -40.0%.
@@ -106,5 +110,6 @@
 | [1656_constructive_optimized.cpp](1656_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2+H) | AC | 0.001 s | 108 KB | 11308068 |
 | [1656_constructive_optimized.java](1656_constructive_optimized.java) | Java 1.8 | constructive | O(N^2+H) | AC | 0.078 s | 472 KB | 11308073 |
 | [1656_constructive_optimized.py](1656_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N^2+H) time, O(N^2+H+N) compact bytes/counts; H31 | AC | 0.109 s | 268 KB | 11309461 |
+| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
