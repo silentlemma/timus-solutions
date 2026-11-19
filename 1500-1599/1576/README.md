@@ -26,6 +26,10 @@ then K (1 ≤ K ≤ 1000) and the K call lengths as mm:ss, where
 
 Three lines in the format of the examples.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -89,6 +93,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1576_implementation_optimized.rs`. Keep free calls of at most six seconds and rounding every charged call up to a whole minute. Stream k mm:ss durations directly: the integer reader consumes the colon between the two fields, avoiding token searches and string splits. Accumulate only total charged minutes and preserve all three tariff formulas, labels and alignment spaces. O(k) time, O(1) auxiliary storage; no sorting or change to billing rules.
+
+Compared with `1576_implementation.rs`: time 0.015 s → 0.015 s; memory 232 KB → 52 KB.
+
 The optimized Java solution parses the numbers by hand from a 4 KB
 buffer filled from `System.in` instead of creating a `Scanner`, so the
 JVM does not load the scanner and its regular expressions. It reads a
@@ -109,14 +117,11 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1576_implementation.cpp](1576_implementation.cpp).
-- [1576_implementation.go](1576_implementation.go).
-- [1576_implementation.rs](1576_implementation.rs).
+`1576_implementation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -135,3 +140,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

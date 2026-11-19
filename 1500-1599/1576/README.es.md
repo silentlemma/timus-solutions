@@ -26,6 +26,10 @@ K (1 ≤ K ≤ 1000) y las K duraciones como mm:ss, donde 0 ≤ mm, ss ≤ 59.
 
 Tres líneas con el formato de los ejemplos.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -91,6 +95,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1576_implementation_optimized.rs`. Conserva llamadas gratis de hasta seis segundos y redondeo por llamada facturada. Lee k mm:ss en flujo: el lector entero consume dos puntos, sin buscar ni dividir cadenas. Acumula solo minutos cobrados y conserva tres fórmulas, etiquetas y espacios de alineación. O(k) tiempo, O(1) espacio; mismas reglas de facturación.
+
+Frente a `1576_implementation.rs`: tiempo 0.015 s → 0.015 s; memoria 232 KB → 52 KB.
+
 La solución optimizada en Java analiza los números a mano desde un búfer
 de 4 KB que se llena desde `System.in`, en lugar de crear un `Scanner`,
 así que la JVM no carga el escáner ni sus expresiones regulares. Lee
@@ -111,14 +119,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1576_implementation.cpp](1576_implementation.cpp).
-- [1576_implementation.go](1576_implementation.go).
-- [1576_implementation.rs](1576_implementation.rs).
+`1576_implementation_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -137,3 +142,6 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -23,6 +23,10 @@ K（1 ≤ K ≤ 1000）和 K 次通话时长，格式为 mm:ss，其中 0 ≤ mm
 
 按样例格式输出三行。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -82,6 +86,10 @@ N1 + C1·M、N2 + C2·max(0, M − T) 和 N3，都小于 7·10⁷。`O(K)`。
 
 ## 优化解法
 
+`1576_implementation_optimized.rs`. 保留至多六秒免费及每个收费电话向上取整分钟。直接流式读取 k 个 mm:ss，整数读取器消费两字段间冒号，不再搜索和切分文本。仅累计收费分钟，保留三套餐公式、标签和对齐空格。O(k) 时间、O(1) 辅助空间，不改变计费规则。
+
+与 `1576_implementation.rs` 相比：时间 0.015 s → 0.015 s；内存 232 KB → 52 KB。
+
 优化的 Java 解法从由 `System.in` 填充的 4 KB 缓冲区中手工解析数字，而不是创建
 `Scanner`，这样 JVM 不必加载扫描器及其正则表达式。它把一次通话读成两个数，冒号结
 束分钟数，而不是按 `:` 切分 `String`；资费参数按 `int` 读入（足以容纳不超过 1000
@@ -95,11 +103,11 @@ N1 + C1·M、N2 + C2·max(0, M − T) 和 N3，都小于 7·10⁷。`O(K)`。
 
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1576_implementation.cpp](1576_implementation.cpp).
-- [1576_implementation.go](1576_implementation.go).
-- [1576_implementation.rs](1576_implementation.rs).
+`1576_implementation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -118,3 +126,6 @@ N1 + C1·M、N2 + C2·max(0, M − T) 和 N3，都小于 7·10⁷。`O(K)`。
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
