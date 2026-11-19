@@ -24,6 +24,10 @@ The message.
 
 `Tram driver`, `Trolleybus driver` or `Bus driver`.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -90,6 +94,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1612_strings_optimized.go`. Recognize tram and trolleybus using two streaming word states. Only lowercase ASCII letters form a word; separators and EOF finalize it. Avoid the full input string and FieldsFunc token list, retaining the same whole-word semantics. O(I) time for I input bytes and constant auxiliary storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
+
+Compared with `1612_strings.go`: time 0.031 s → 0.031 s; memory 1124 KB → 276 KB.
+
 The optimized C++ solution collects a word in a fixed `char` array of
 11 bytes instead of a `std::string`: only words of at most 10 letters,
 the length of `trolleybus`, can match, so letters after the tenth are
@@ -143,3 +151,6 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
+| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.031 s | 276 KB | 11325657 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.

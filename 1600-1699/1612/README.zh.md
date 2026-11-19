@@ -22,6 +22,10 @@
 
 `Tram driver`、`Trolleybus driver` 或 `Bus driver`。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。
+
 ## 样例
 
 ### 样例 1
@@ -84,6 +88,10 @@ Bus driver
 
 ## 优化解法
 
+`1612_strings_optimized.go`. 用两个流式单词状态识别 tram 与 trolleybus。仅小写 ASCII 字母组成单词，分隔符和 EOF 结束单词。避免完整输入字符串及 FieldsFunc 词列表，保留整词语义。I 个字节下 O(I) 时间、常数额外空间。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
+
+与 `1612_strings.go` 相比：时间 0.031 s → 0.031 s；内存 1124 KB → 276 KB。
+
 优化的 C++ 解法把单词收集在一个固定的 11 字节 `char` 数组中，而不是
 `std::string`：只有不超过 10 个字母（`trolleybus` 的长度）的单词才可能匹配，所以
 第 10 个之后的字母只计数、不保存。它用范围比较判断字母，而不是 `islower`：
@@ -126,3 +134,6 @@ Bus driver
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
+| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.031 s | 276 KB | 11325657 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。
