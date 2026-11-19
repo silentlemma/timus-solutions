@@ -26,6 +26,10 @@ N y K, y luego los N números.
 
 La tabla.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación. En particular, conserva la alineación de la tabla y el relleno inicial de cada campo.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -70,6 +74,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1506_implementation_optimized.py`. Mantiene height=ceil(n/k) y distribución por columnas. Analiza números una vez y recorre row,row+height,..., emitiendo una fila de campos de ancho cuatro alineados a la derecha. Elimina todas las filas formateadas acumuladas y la lista cortada de textos numéricos. Conserva la lista de enteros: O(n) tiempo y espacio. El relleno inicial y los saltos son significativos. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+
+Frente a `1506_implementation.py`: tiempo 0.093 s → 0.125 s; memoria 460 KB → 248 KB.
+
 La solución optimizada en C++ guarda los números en un arreglo fijo de
 100 `int` en la pila en lugar de un `std::vector`, ya que N ≤ 100, así
 que el programa no reserva nada en el montón:
@@ -95,15 +103,19 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1506_implementation_optimized.java`: reducción de tiempo +14.68%;
   reducción de memoria +56.56%; base: `1506_implementation.java`.
 
+`1506_implementation_optimized.rs`. Guarda hasta 100 valores en un arreglo u16 fijo, los indexa por columna y fila y emite directamente el relleno necesario. No conserva cadenas por valor, filas concatenadas ni toda la salida. El trabajo es O(N); el almacenamiento queda limitado al arreglo fijo y al estado de impresión numérica. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
+
+Frente a `1506_implementation.rs`: tiempo 0.015 s → 0.031 s; memoria 252 KB → 52 KB.
+
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1506_implementation.go](1506_implementation.go).
-- [1506_implementation.rs](1506_implementation.rs).
+`1506_implementation_optimized.py`: puesto de tiempo 279/291 y de memoria 2/291 en esta muestra comparable.
+
+`1506_implementation_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -123,3 +135,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
+| [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(n) space | AC | 0.125 s | 248 KB | 11325476 |
+
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -23,6 +23,10 @@ N 和 K，然后是 N 个数。
 
 排好的表格。
 
+## 评测方式
+
+仓库测试比较完整输出文本，仅忽略末尾空白。应保留有意义的空格、换行、大小写及标点。 尤其要保留表格对齐以及每个字段前的填充空格。
+
 ## 样例
 
 ### 样例 1
@@ -60,6 +64,10 @@ c = 0, 1, … 时存在的数 c·H + r 组成；它们在第一个用完的列�
 
 ## 优化解法
 
+`1506_implementation_optimized.py`. 保留 height=ceil(n/k) 及按列布局。一次解析数值，直接访问 row,row+height,...，每次输出一行四字符宽右对齐字段。去掉全部格式化行的列表及数字字符串切片；仍保留输入整数列表，时间、空间 O(n)。前导填充和换行有意义。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
+
+与 `1506_implementation.py` 相比：时间 0.093 s → 0.125 s；内存 460 KB → 248 KB。
+
 优化的 C++ 解法把数放在栈上 100 个 `int` 的固定数组里，而不是 `std::vector`，因
 为 N ≤ 100，所以程序完全不在堆上分配内存：{1506_implementation_optimized.cpp}。
 
@@ -76,12 +84,19 @@ c = 0, 1, … 时存在的数 c·H + r 组成；它们在第一个用完的列�
 
 - `1506_implementation_optimized.java`: 时间降低 +14.68%; 内存降低 +56.56%; 基础版本: `1506_implementation.java`.
 
+`1506_implementation_optimized.rs`. 最多 100 个值存入固定 u16 数组，按列和行计算下标，直接输出所需填充空格。无需保存单个数字字符串、拼接的行或完整输出构造器。时间 O(N)，存储由固定数组及数字输出状态限定。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
+
+与 `1506_implementation.rs` 相比：时间 0.015 s → 0.031 s；内存 252 KB → 52 KB。
+
 ## 各语言说明
 
-在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-- [1506_implementation.go](1506_implementation.go).
-- [1506_implementation.rs](1506_implementation.rs).
+`1506_implementation_optimized.py`：在该可比样本中，时间名次 279/291，内存名次 2/291。
+
+`1506_implementation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -101,3 +116,7 @@ c = 0, 1, … 时存在的数 c·H + r 组成；它们在第一个用完的列�
 |---|---|---|---|---|---|---|---|
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
+| [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(n) space | AC | 0.125 s | 248 KB | 11325476 |
+
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

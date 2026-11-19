@@ -25,6 +25,10 @@ N and K, then the N numbers.
 
 The table.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation. In particular, preserve the table alignment and leading padding in each field.
+
 ## Examples
 
 ### Example 1
@@ -68,6 +72,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1506_implementation_optimized.py`. Keep height=ceil(n/k) and the same column-major layout. Parse the numbers once and visit indices row,row+height,... directly, emitting one right-justified width-four row at a time. This removes the list of all formatted output rows and the sliced string-number list. The numeric input list remains: O(n) time and O(n) storage. Leading padding and line breaks are meaningful. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+
+Compared with `1506_implementation.py`: time 0.093 s → 0.125 s; memory 460 KB → 248 KB.
+
 The optimized C++ solution keeps the numbers in a fixed array of 100
 `int` on the stack instead of a `std::vector`, since N ≤ 100, so the
 program allocates nothing on the heap:
@@ -93,15 +101,19 @@ asterisk concerns the rating target only.
 - `1506_implementation_optimized.java`: time reduction +14.68%; memory
   reduction +56.56%; base: `1506_implementation.java`.
 
+`1506_implementation_optimized.rs`. Store at most 100 values in one fixed u16 array, index them by column and row, and emit the required padding directly. No per-value strings, joined rows or output builder are retained. The work is O(N); storage is bounded by that fixed array and numeric output state. Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
+
+Compared with `1506_implementation.rs`: time 0.015 s → 0.031 s; memory 252 KB → 52 KB.
+
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1506_implementation.go](1506_implementation.go).
-- [1506_implementation.rs](1506_implementation.rs).
+`1506_implementation_optimized.py`: time place 279/291, memory place 2/291 in this comparable sample.
+
+`1506_implementation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -121,3 +133,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
+| [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(n) space | AC | 0.125 s | 248 KB | 11325476 |
+
+\* Accepted; the rating target is not yet met. This version may be optimized further.
