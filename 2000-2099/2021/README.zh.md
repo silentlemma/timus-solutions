@@ -84,13 +84,21 @@
 
 ## 优化解法
 
+`2021_sorting_prefix_sums.java`. 保留延迟确定胜负的极值分数顺序，但把装箱比较排序换为七种分数0..6 的稳定计数序。频数前缀结束位置和逆向填充保留同分原 ID 顺序。总分低的一队降序，高的一队升序；总分相等则均升序。通过索引反向输出，不复制或交换列表。sorting_prefix_sums 版本耗时 O(n+7)、存储 O(n)，去掉装箱 ID、结果对矩阵和完整输出串。确定胜者仍严格要求 |difference|>6·remaining。
+
+与 `2021_sorting.java` 相比：时间 0.14 s → 0.14 s；内存 2 824 KB → 496 KB。
+
 新的 C++、Go、Rust 用 S=7 个分数桶替代比较排序。每个选手的原编号加入对应分数链表，只需一个 16 位后继。比较最终总分，胜方桶升序、负方降序；平局时双方升序。每队维护桶游标，每轮弹出一个编号，每个选手与桶只访问一次，时间和空间 O(n+S)。原前缀最小化证明仍成立；同分编号顺序任意。Go/Rust 使用 10000 字节输出缓冲区，足够 1000 行、每行两个至多四位编号。保留简单源码；Java/Python 复用符合标准的基础版。
 
 已通过评测的基础实现 [2021_sorting.java](2021_sorting.java), [2021_sorting.py](2021_sorting.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
 ## 各语言说明
 
-普通版本均按分数比较排序，按 ID 打破平局。新 C++/Go/Rust 使用七个链表桶；同分选手顺序可能不同，仍是合法最优输出。
+新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
+
+`2021_sorting_prefix_sums.java`：在该可比样本中，时间名次 22/47，内存名次 1/47。
+
+星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
 
@@ -100,7 +108,7 @@
 |---|---|---|---|---|---|---|---|
 | [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB | 11292703 |
 | [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB | 11292708 |
-| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB | 11292721 |
+| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.14 s | 2824 KB | 11325567 |
 | [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB | 11292714 |
 | [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB | 11292728 |
 
@@ -111,5 +119,6 @@
 | [2021_sorting_greedy.cpp](2021_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 88 KB | 11315199 |
 | [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
 | [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
+| [2021_sorting_prefix_sums.java](2021_sorting_prefix_sums.java) \* | Java 1.8 | sorting, prefix_sums | O(n+7) | AC | 0.14 s | 496 KB | 11325033 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到排名目标，该版本仍有优化空间。

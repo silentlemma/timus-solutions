@@ -105,13 +105,21 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2021_sorting_prefix_sums.java`. Keep the same extremal-score ordering that delays certainty, but replace boxed comparison sorts by stable counting order over the seven allowed scores 0..6. Frequency prefix ends and a backward fill retain original ID order for equal scores. Emit the lower-total team in descending score order and the higher-total team ascending; equal totals keep both ascending. Reverse by indexing rather than copying or swapping lists. The different sorting_prefix_sums variant takes O(n+7) time and O(n) storage, without boxed IDs, the result-pair matrix or the complete output string. The strict certainty condition remains |difference|>6·remaining.
+
+Compared with `2021_sorting.java`: time 0.14 s → 0.14 s; memory 2 824 KB → 496 KB.
+
 The new C++, Go and Rust sources replace comparison sorting with S=7 score buckets. Prepending original IDs to a linked list per score uses one 16-bit next pointer per participant. Compare final totals, enumerate the winner’s buckets increasingly and the loser’s decreasingly; for a draw enumerate both increasingly. Maintain a bucket cursor per team and pop one ID per round, so each participant and bucket is visited once: O(n+S) time and O(n+S) storage. The original prefix-minimization proof still applies; within equal scores any ID order is valid. Go/Rust use bounded output buffers of 10000 bytes, enough for 1000 rows of two at-most-four-digit IDs. All simple files remain; Java/Python reuse their admitted bases.
 
 The accepted base implementations [2021_sorting.java](2021_sorting.java), [2021_sorting.py](2021_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-All ordinary versions comparison-sort original IDs by score, using ID tie breaks for deterministic output. New C++/Go/Rust use seven linked score buckets; their order among equal scores can differ and remains valid.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`2021_sorting_prefix_sums.java`: time place 22/47, memory place 1/47 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -121,7 +129,7 @@ All ordinary versions comparison-sort original IDs by score, using ID tie breaks
 |---|---|---|---|---|---|---|---|
 | [2021_sorting.cpp](2021_sorting.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 472 KB | 11292703 |
 | [2021_sorting.go](2021_sorting.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.015 s | 1252 KB | 11292708 |
-| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.156 s | 2812 KB | 11292721 |
+| [2021_sorting.java](2021_sorting.java) \* | Java 1.8 | sorting | O(n log n) | AC | 0.14 s | 2824 KB | 11325567 |
 | [2021_sorting.py](2021_sorting.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.093 s | 764 KB | 11292714 |
 | [2021_sorting.rs](2021_sorting.rs) | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.015 s | 340 KB | 11292728 |
 
@@ -132,5 +140,6 @@ All ordinary versions comparison-sort original IDs by score, using ID tie breaks
 | [2021_sorting_greedy.cpp](2021_sorting_greedy.cpp) | G++ 13.2 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 88 KB | 11315199 |
 | [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
 | [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
+| [2021_sorting_prefix_sums.java](2021_sorting_prefix_sums.java) \* | Java 1.8 | sorting, prefix_sums | O(n+7) | AC | 0.14 s | 496 KB | 11325033 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
