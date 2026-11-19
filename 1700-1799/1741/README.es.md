@@ -92,6 +92,10 @@ una búsqueda de caminos más cortos, en 200 casos aleatorios.
 
 ## Soluciones optimizadas
 
+`1741_dp_optimized.go`. Conserva la DP DAG de dos estados: cero aún licenciado, uno pirata. Procesa versiones crecientes porque toda actualización va a una mayor; P entra en uno, C conserva y L no está disponible desde uno. Guarda aristas en arreglos planos enlazados: extremos/enlaces int32, tipo byte y peso int64, en lugar de listas anidadas de estructuras con relleno. Mantiene costes int64: un camino puede superar 32 bits. La primera letra distingue las tres palabras indicadas y se consume cada token completo. Tiempo y espacio O(n+m), incluida inicialización. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
+
+Frente a `1741_dp.go`: tiempo 0.046 s → 0.031 s; memoria 3284 KB → 1 184 KB.
+
 Se mantiene la DP del DAG de versiones crecientes con estados de licencia limpia y pirateada. Arreglos planos reemplazan contenedores por vértice y objetos de arista. Una actualización pirata lleva el mínimo de ambos estados solo al pirata; una crackeada mantiene cada estado y una licenciada solo acepta el limpio. Se distingue el tipo una vez por actualización. Los costes usan 64 bits, con índices compactos. No se necesitan cola de prioridad ni Dijkstra.
 
 - `1741_dp_optimized.cpp`: 0.015 s / 196 KB; base `1741_dp.cpp`: 0.031 s / 1068 KB; cambio respecto a la base: tiempo -51.6%, memoria -81.6%.
@@ -100,17 +104,11 @@ Se mantiene la DP del DAG de versiones crecientes con estados de licencia limpia
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- C++: base didáctica preferida `1741_dp.cpp`; versión que cubre `1741_dp_optimized.cpp`; puestos tiempo/memoria 1/1, registros de otros autores 56/56.
+`1741_dp_optimized.go`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
-- Go: base didáctica preferida `1741_dp.go`; versión que cubre `1741_dp.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
-
-- Java: base didáctica preferida `1741_dp.java`; versión que cubre `1741_dp_optimized.java`; puestos tiempo/memoria 1/1, registros de otros autores 3/3.
-
-- Python/PyPy: base didáctica preferida `1741_dp.py`; versión que cubre `1741_dp_optimized.py`; puestos tiempo/memoria 5/1, registros de otros autores 8/8.
-
-- Rust: base didáctica preferida `1741_dp.rs`; versión que cubre `1741_dp.rs`; puestos tiempo/memoria 1/1, registros de otros autores 1/1.
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -133,5 +131,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1741_dp_optimized.cpp](1741_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N+M) | AC | 0.015 s | 196 KB | 11309342 |
 | [1741_dp_optimized.java](1741_dp_optimized.java) | Java 1.8 | dp | O(N+M) | AC | 0.093 s | 748 KB | 11309343 |
 | [1741_dp_optimized.py](1741_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
+| [1741_dp_optimized.go](1741_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -90,6 +90,10 @@ path search, on 200 random cases.
 
 ## Optimized solutions
 
+`1741_dp_optimized.go`. Keep the two-state DAG DP: state zero is still licensed, state one is pirated. Process versions in increasing order because every update goes to a larger version; P enters state one, C preserves state, and L is unavailable from state one. Store edges in flat forward-star arrays with int32 endpoints/links, byte kinds and int64 weights, replacing nested slices of padded structs. Keep costs in int64 because a path can exceed 32-bit total size. Parsing only the first letter distinguishes the three stated update words while consuming each complete token. Time and storage O(n+m), including initialization. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+
+Compared with `1741_dp.go`: time 0.046 s → 0.031 s; memory 3284 KB → 1 184 KB.
+
 Keep the increasing-version DAG DP with clean and pirated license states. Flat edge arrays replace per-vertex containers and edge objects. A pirated update transfers the minimum of both states only to the pirated state; a cracked update preserves either state, and a licensed update accepts only the clean state. Branch once per update type. Path costs require 64-bit values, while vertex IDs and edge fields fit compact cells. No priority queue or Dijkstra traversal is needed.
 
 - `1741_dp_optimized.cpp`: 0.015 s / 196 KB; base `1741_dp.cpp`: 0.031 s / 1068 KB; relative change: time -51.6%, memory -81.6%.
@@ -98,17 +102,11 @@ Keep the increasing-version DAG DP with clean and pirated license states. Flat e
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- C++: preferred teaching base `1741_dp.cpp`; covering source `1741_dp_optimized.cpp`; time/memory places 1/1, other-author entries 56/56.
+`1741_dp_optimized.go`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
-- Go: preferred teaching base `1741_dp.go`; covering source `1741_dp.go`; time/memory places 1/1, other-author entries 0/0.
-
-- Java: preferred teaching base `1741_dp.java`; covering source `1741_dp_optimized.java`; time/memory places 1/1, other-author entries 3/3.
-
-- Python/PyPy: preferred teaching base `1741_dp.py`; covering source `1741_dp_optimized.py`; time/memory places 5/1, other-author entries 8/8.
-
-- Rust: preferred teaching base `1741_dp.rs`; covering source `1741_dp.rs`; time/memory places 1/1, other-author entries 1/1.
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -131,5 +129,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1741_dp_optimized.cpp](1741_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N+M) | AC | 0.015 s | 196 KB | 11309342 |
 | [1741_dp_optimized.java](1741_dp_optimized.java) | Java 1.8 | dp | O(N+M) | AC | 0.093 s | 748 KB | 11309343 |
 | [1741_dp_optimized.py](1741_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N+M) | AC | 0.109 s | 972 KB | 11309341 |
+| [1741_dp_optimized.go](1741_dp_optimized.go) \* | Go 1.14 x64 | dp | O(n+m) | AC | 0.031 s | 1184 KB | 11325051 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
