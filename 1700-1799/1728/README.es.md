@@ -28,6 +28,10 @@ puntuaciones van de 1 a 666.
 `Win` y un candidato que da el equipo más fuerte, o `Fail`. Se acepta
 cualquier candidato óptimo.
 
+## Evaluación
+
+El repositorio usa un comprobador semántico y acepta cualquier salida que satisfaga estas condiciones. El comprobador aplica a cada candidato las reglas de retirada y descalificación. Acepta Fail exactamente cuando no queda candidato; de lo contrario exige Win y un candidato que alcance la máxima fuerza restante del equipo. Cualquier empate óptimo es válido.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -84,13 +88,21 @@ Las variantes didácticas C++, Go y Rust usan dos conjuntos de terceros apellido
 
 ## Soluciones optimizadas
 
+`1728_implementation_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+
+Frente a `1728_implementation.java`: tiempo 0.140 s → 0.125 s; memoria 2172 KB → 928 KB.
+
 La versión rápida de Go conserva los dos conjuntos de apellidos y usa los descriptores estándar, búferes fijos de entrada y salida y un búfer de 50 bytes por apellido. Rust rápido lee los apellidos por la entrada estándar de C y guarda ambas marcas de tamaño en una tabla fija con direccionamiento abierto. Si hay una colisión, compara los apellidos completos. Los conjuntos de apellidos en C++ también cubren la versión rápida. Java y Python reutilizan los programas originales admitidos. Los programas anteriores de C++, Go y Rust con formaciones canónicas figuran en Otros enfoques aceptados. El asterisco marca una versión rápida por debajo de su objetivo de clasificación.
 
 Las implementaciones base aceptadas [1728_implementation.java](1728_implementation.java), [1728_implementation.py](1728_implementation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-C++ posee cadenas en unordered_set. Go escanea palabras y usa dos mapas; los apellidos tienen hasta 50 caracteres. Rust guarda la entrada en O((n+m)L) espacio y toma vistas de ella. La complejidad hash es esperada. Java/Python siguen canonicalizando formaciones completas y conservan compilador/intérprete realmente aceptado y métricas originales.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+
+`1728_implementation_optimized.java`: puesto de tiempo 15/19 y de memoria 9/19 en esta muestra comparable.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -108,7 +120,7 @@ C++ posee cadenas en unordered_set. Go escanea palabras y usa dos mapas; los ape
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB | 11289389 |
+| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.015 s | 460 KB | 11325579 |
 | [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB | 11289390 |
 | [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB | 11289397 |
 
@@ -118,5 +130,6 @@ C++ posee cadenas en unordered_set. Go escanea palabras y usa dos mapas; los ape
 |---|---|---|---|---|---|---|---|
 | [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
 | [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
+| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.125 s | 928 KB | 11324823 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

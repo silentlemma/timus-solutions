@@ -28,6 +28,10 @@ to 666.
 `Win` and a candidate giving the strongest team, or `Fail`. Any best
 candidate is accepted.
 
+## Checking
+
+The repository uses a semantic checker and accepts any output satisfying these conditions. The checker applies the withdrawal and disqualification rules to every candidate. Accept Fail exactly when no candidate remains; otherwise require Win and a candidate attaining the maximum remaining team strength. Any optimal tie is valid.
+
 ## Examples
 
 ### Example 1
@@ -84,13 +88,21 @@ The preferred simpler C++, Go and Rust variants use two sets of third surnames. 
 
 ## Optimized solutions
 
+`1728_implementation_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+
+Compared with `1728_implementation.java`: time 0.140 s → 0.125 s; memory 2172 KB → 928 KB.
+
 The fast Go version keeps the two surname sets and uses direct standard handles, fixed input and output buffers, and a 50-byte token buffer. Fast Rust reads names through standard C input and stores both team-size flags in one fixed open-addressed table. It compares the full names on collisions. The C++ surname sets also provide fast coverage. Java and Python reuse their admitted original programs. The older C++, Go and Rust programs that store canonical lineups are listed under Other Accepted approaches. A star marks a fast source below its language-specific rating target.
 
 The accepted base implementations [1728_implementation.java](1728_implementation.java), [1728_implementation.py](1728_implementation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-C++ stores owned surname strings in unordered sets. Go uses word scanning and two surname maps. Each surname is at most 50 characters. Rust retains the input in O((n+m)L) space and borrows surname slices from it. Hash-table complexity is expected, not a worst-case guarantee. The unchanged Java/Python sources continue to canonicalize complete historical lineups; their actual accepted compiler/interpreter and original metrics are preserved.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+
+`1728_implementation_optimized.java`: time place 15/19, memory place 9/19 in this comparable sample.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -108,7 +120,7 @@ C++ stores owned surname strings in unordered sets. Go uses word scanning and tw
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.031 s | 476 KB | 11289389 |
+| [1728_implementation.cpp](1728_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m) log n) | AC | 0.015 s | 460 KB | 11325579 |
 | [1728_implementation.go](1728_implementation.go) | Go 1.14 x64 | implementation | O(n + m) | AC | 0.031 s | 1156 KB | 11289390 |
 | [1728_implementation.rs](1728_implementation.rs) | Rust 1.75 x64 | implementation | O(n + m) | AC | 0.046 s | 464 KB | 11289397 |
 
@@ -118,5 +130,6 @@ C++ stores owned surname strings in unordered sets. Go uses word scanning and tw
 |---|---|---|---|---|---|---|---|
 | [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
 | [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
+| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.125 s | 928 KB | 11324823 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

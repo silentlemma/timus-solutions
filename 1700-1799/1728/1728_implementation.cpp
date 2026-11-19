@@ -21,7 +21,8 @@ int main() {
         int size;
         std::cin >> size;
         std::vector<std::string> names(size);
-        for (auto &name : names) std::cin >> name;
+        for (auto &name : names)
+            std::cin >> name;
         played.insert(team(names));
     }
     int lyosha, vadik, m;
