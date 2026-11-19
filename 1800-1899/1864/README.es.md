@@ -22,6 +22,10 @@ n (2 ≤ n ≤ 100), luego a₁, …, aₙ (0 ≤ aᵢ ≤ 100) con suma positiv
 
 Los rublos de cada amigo, redondeados hacia abajo.
 
+## Evaluación
+
+Las pruebas del repositorio comparan exactamente los tokens de salida; los espacios entre tokens no son significativos.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -79,6 +83,14 @@ doscientas reuniones aleatorias.
 
 ## Soluciones optimizadas
 
+`1864_math_optimized.py`. Conserva créditos exactos max(0,(N+1)*bought[i]-total) y floor(100*credit[i]/sum(credits)). El total es positivo; antes de recortar, los créditos suman total, así que el denominador recortado es positivo. La aritmética entera evita redondeos. Tiempo O(N) calculando una sola vez el divisor común. El generador básico recalculaba sum(over) por amigo, con O(N²); ahora guarda la suma una vez. Compras, créditos y salida unida aún ocupan O(N). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+
+Frente a `1864_math.py`: tiempo 0.093 s → 0.14 s; memoria 412 KB → 212 KB.
+
+`1864_math_optimized.rs`. Conserva créditos exactos max(0,(N+1)*bought[i]-total) y floor(100*credit[i]/sum(credits)). El total es positivo; antes de recortar, los créditos suman total, así que el denominador recortado es positivo. La aritmética entera evita redondeos. Tiempo O(N) calculando una sola vez el divisor común. Reutiliza un arreglo fijo de100 i64 para compras y créditos, sin vectores separados ni cadenas de respuesta. Ocupa800bytes explícitos más estado constante; N<=100 y cantidades<=100 acotan productos. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
+
+Frente a `1864_math.rs`: tiempo 0.031 s → 0.046 s; memoria 236 KB → 48 KB.
+
 La solución optimizada en C++ calcula las mismas partes, pero guarda las
 compras y los excedentes en dos arreglos fijos de 100 números,
 suficientes porque `n ≤ 100`, en lugar de dos vectores en el montículo:
@@ -104,13 +116,13 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1864_math.go](1864_math.go).
-- [1864_math.rs](1864_math.rs).
+`1864_math_optimized.py`: puesto de tiempo 18/20 y de memoria 1/20 en esta muestra comparable.
+
+`1864_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -130,5 +142,7 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
 | [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 520 KB | 11307325 |
+| [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
+| [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

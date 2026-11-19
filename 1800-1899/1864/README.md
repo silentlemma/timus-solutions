@@ -22,6 +22,10 @@ n (2 ≤ n ≤ 100), then a₁, …, aₙ (0 ≤ aᵢ ≤ 100) with a positive s
 
 The roubles of every friend, rounded down.
 
+## Checking
+
+Repository tests compare the output tokens exactly; whitespace between tokens is insignificant.
+
 ## Examples
 
 ### Example 1
@@ -79,6 +83,14 @@ hundred random gatherings.
 
 ## Optimized solutions
 
+`1864_math_optimized.py`. Keep exact scaled overpayments credit[i]=max(0,(N+1)*bought[i]-total) and floor(100*credit[i]/sum(credits)). The input total is positive; before clipping, the credits sum to total, so the clipped denominator is strictly positive. Integer arithmetic avoids rounding errors. Time O(N) after computing the common denominator once. The basic generator recomputed sum(over) for every friend, costing O(N²); cache that sum once. Purchased amounts, credits and joined output still occupy O(N) storage. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+
+Compared with `1864_math.py`: time 0.093 s → 0.14 s; memory 412 KB → 212 KB.
+
+`1864_math_optimized.rs`. Keep exact scaled overpayments credit[i]=max(0,(N+1)*bought[i]-total) and floor(100*credit[i]/sum(credits)). The input total is positive; before clipping, the credits sum to total, so the clipped denominator is strictly positive. Integer arithmetic avoids rounding errors. Time O(N) after computing the common denominator once. Reuse one fixed 100-entry i64 array for purchases and then credits, eliminating separate vectors and answer strings. Explicit array storage is 800 bytes plus constant state; bounds N<=100,bought<=100 make products safe. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
+
+Compared with `1864_math.rs`: time 0.031 s → 0.046 s; memory 236 KB → 48 KB.
+
 The optimized C++ solution computes the same shares, but keeps the
 purchases and the surpluses in two fixed arrays of 100 numbers, enough
 since `n ≤ 100`, instead of two vectors allocated on the heap:
@@ -104,13 +116,13 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1864_math.go](1864_math.go).
-- [1864_math.rs](1864_math.rs).
+`1864_math_optimized.py`: time place 18/20, memory place 1/20 in this comparable sample.
+
+`1864_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -130,5 +142,7 @@ implementation for these languages.
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
 | [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 520 KB | 11307325 |
+| [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
+| [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
