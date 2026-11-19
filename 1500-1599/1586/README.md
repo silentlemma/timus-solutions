@@ -22,6 +22,10 @@ n.
 
 The count modulo 10⁹ + 9.
 
+## Checking
+
+Repository tests compare the complete output text, ignoring only trailing whitespace. Preserve meaningful spaces, line breaks, case and punctuation.
+
 ## Examples
 
 ### Example 1
@@ -56,6 +60,10 @@ Pitfalls:
   10⁹ + 7.
 
 ## Optimized solutions
+
+`1586_dp_optimized.rs`. Keep DP on the last two digits for prime three-digit windows. Sieve primes below 1000 once and precompute their u8 (prefix,suffix) transitions, so each DP step avoids repeated division/modulo of the prime. Two fixed 100-cell u32 rows replace allocated u64 vectors. Each addition is below twice 1,000,000,009, fitting u32 and needing only one subtraction; sum the final row in u64. With P valid prime transitions, time O(1000 log log 1000+nP), fixed O(1000) storage. Input/output are direct.
+
+Compared with `1586_dp.rs`: time 0.015 s → 0.015 s; memory 240 KB → 52 KB.
 
 The optimized C++ solution stores the two-digit start and end of every
 prime transition once, in fixed arrays, instead of taking `p / 10` and
@@ -110,12 +118,11 @@ asterisk concerns the rating target only.
 
 ## Language notes
 
-In the rating snapshot of 2026-10-31, the following base implementations
-already meet the time and memory targets. Their existing files are kept
-as the base solutions; the rating target needs no additional
-implementation for these languages.
+The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-- [1586_dp.rs](1586_dp.rs).
+`1586_dp_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
+
+An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
 
@@ -137,5 +144,6 @@ implementation for these languages.
 | [1586_dp_optimized.go](1586_dp_optimized.go) | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1080 KB | 11304492 |
 | [1586_dp_optimized.java](1586_dp_optimized.java) | Java 1.8 | dp | O(n) | AC | 0.109 s | 420 KB | 11304525 |
 | [1586_dp_matrix.py](1586_dp_matrix.py) \* | Python 3.12 x64 | dp, matrix | O(16³ log n) | AC | 0.093 s | 704 KB | 11304526 |
+| [1586_dp_optimized.rs](1586_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(1000 log log 1000+nP) time; O(1000) space | AC | 0.015 s | 52 KB | 11325529 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

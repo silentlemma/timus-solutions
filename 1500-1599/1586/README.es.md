@@ -22,6 +22,10 @@ n.
 
 La cuenta módulo 10⁹ + 9.
 
+## Evaluación
+
+Las pruebas del repositorio comparan todo el texto de salida, ignorando solo el espacio en blanco final. Conserva los espacios significativos, los saltos de línea, las mayúsculas y la puntuación.
+
 ## Ejemplos
 
 ### Ejemplo 1
@@ -57,6 +61,10 @@ Detalles a tener en cuenta:
 - la cuenta crece deprisa y se toma módulo 10⁹ + 9, no 10⁹ + 7.
 
 ## Soluciones optimizadas
+
+`1586_dp_optimized.rs`. Mantiene DP de dos últimas cifras con ventanas primas de tres. Criba hasta 1000 y precalcula transiciones u8 prefijo/sufijo para evitar dividir/reducir cada primo en cada paso. Dos filas fijas de 100 u32 sustituyen vectores u64. Cada suma menor que dos veces 1.000.000.009 cabe en u32 con una resta; suma final en u64. O(1000 log log 1000+nP) tiempo para P transiciones, O(1000) espacio fijo y E/S directa.
+
+Frente a `1586_dp.rs`: tiempo 0.015 s → 0.015 s; memoria 240 KB → 52 KB.
 
 La solución optimizada en C++ guarda una sola vez, en arreglos fijos, el
 par de dígitos de origen y de destino de cada transición por un primo,
@@ -113,12 +121,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 ## Notas por lenguaje
 
-En la clasificación del 2026-10-31, las siguientes implementaciones
-básicas ya alcanzan los objetivos de tiempo y memoria. Se conservan sus
-archivos en el conjunto básico; estos lenguajes no necesitan otra
-implementación para alcanzar el objetivo.
+Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-- [1586_dp.rs](1586_dp.rs).
+`1586_dp_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
+
+Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
 
@@ -140,5 +147,6 @@ implementación para alcanzar el objetivo.
 | [1586_dp_optimized.go](1586_dp_optimized.go) | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1080 KB | 11304492 |
 | [1586_dp_optimized.java](1586_dp_optimized.java) | Java 1.8 | dp | O(n) | AC | 0.109 s | 420 KB | 11304525 |
 | [1586_dp_matrix.py](1586_dp_matrix.py) \* | Python 3.12 x64 | dp, matrix | O(16³ log n) | AC | 0.093 s | 704 KB | 11304526 |
+| [1586_dp_optimized.rs](1586_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(1000 log log 1000+nP) time; O(1000) space | AC | 0.015 s | 52 KB | 11325529 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
