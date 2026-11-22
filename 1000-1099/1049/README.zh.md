@@ -26,7 +26,7 @@
 
 - `1049_number_theory_optimized.go` (Go 1.14 x64): 14个仓库测试; 14个额外精确源码比较.
 
-- `1049_number_theory_optimized.java` (Java 1.8): 14个仓库测试; 172个额外精确源码比较.
+`1049_number_theory_optimized.java`（Java 1.8）：59个实际进程测试，含全部14个仓库测试；另有11007个独立主函数检查。
 
 - `1049_number_theory_optimized.py` (PyPy 3.10 x64): 14个仓库测试.
 
@@ -93,11 +93,21 @@
 
 ## 优化解法
 
-约数公式不变：分解十个数，累加同一素数的指数，把各指数加一后模十相乘。先一次移除二的幂，再试奇因子，最后大于一的余数必为素数。Go用uint8指数及已触及素数表，Java用无符号16位char数组，避免装箱映射。最大指数为10*floor(log2(10000))=130，适合Go uint8，却不适合Java有符号byte。六个不同素数的积已达30030，因此每个输入至多贡献五个。原生索引数组需O(V)初始化和存储，十次试除需O(C sqrt(V))。Python保留小指数字典并用原生位操作；内存与时间的交换另列实测。
+`1049_number_theory_optimized.java`. 保存十个待分解余数。对每个试除因子，先从全部十个余数中除尽其幂，再将最终指数加一后模十相乘。同次扫描更新剩余最大值；下个因子的平方超过它时，大于一的余数必为素数，合并相同余数即可。较小素因子已除去，合数试除因子不会改变余数。完整扫描一个因子后若乘积模十为零，后续独立因子不能改变零，可立即结束；不能在某个输入的部分指数上提前退出。无需10001项指数表。C=10、初始最大值V≤10000时，时间O(C sqrt(V)+C²)、状态O(C)，余数变小会减少扫描次数。直接解析短输入，正常写出并flush两个答案字节。精确源码通过59个进程测试及11007个独立主函数检查，包含全部10000个单值及重复素数边界。保留教学分解和其他语言。
+
+精确源代码 Java 1.8 Accepted #11328052：0.062 s / 316 KB。2026-11-20 保存的编译器组比较：时间 1/77、内存 1/77。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11308799 为 0.109 s / 368 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1049_number_theory_optimized.java`: 0.062 s / 316 KB; 保留教学基础版 `1049_number_theory.java`: 0.14 s / 3880 KB.
+
+`1049_number_theory_optimized.py`. 保留精确素因数指数及 product(e+1) mod 10。最低置位给二的指数 (value & −value).bit_length()−1，再右移除去。单独除三，余数按 6k±1 试除，最终大于一的余数为素数。工作变量和字典局部化。无导入或显式提前退出，直接经无缓冲文件输出两个字节。C=10、V≤10000：O(C sqrt(V)) 试除、O(C log V) 素数记录。新 CPython 572 KB 对历史 PyPy 296 KB，运行时及配对测量不混合，保留易懂分解版。
+
+精确源码：Python 3.12 x64 Accepted #11327877: 0.062 s / 572 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/70; 34/70。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11309728 (PyPy 3.10 x64): 0.109 s / 296 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1049_number_theory_optimized.py`: 0.062 s / 572 KB; 保留教学基础版 `1049_number_theory.py`: 0.078 s / 456 KB.
+
+约数公式不变：分解十个数，累加同一素数的指数，把各指数加一后模十相乘。先一次移除二的幂，再试奇因子，最后大于一的余数必为素数。Go用uint8指数及已触及素数表，Java改用十个余数及上述共享因子扫描。最大指数为10*floor(log2(10000))=130，适合Go uint8；Java用int累加指数。六个不同素数的积已达30030，因此每个输入至多贡献五个。Go的索引数组需O(V)初始化和存储，其十次试除需O(C sqrt(V))。Python保留小指数字典并用原生位操作；内存与时间的交换另列实测。
 
 - `1049_number_theory_optimized.go`: 0.015 s / 292 KB; 基础 `1049_number_theory.go`: 0.031 s / 1108 KB; 相对变化: 时间 -51.6%, 内存 -73.6%.
-- `1049_number_theory_optimized.java`: 0.109 s / 368 KB; 基础 `1049_number_theory.java`: 0.140 s / 3880 KB; 相对变化: 时间 -22.1%, 内存 -90.5%.
-- `1049_number_theory_optimized.py`: 0.109 s / 296 KB; 基础 `1049_number_theory.py`: 0.078 s / 456 KB; 相对变化: 时间 +39.7%, 内存 -35.1%.
 
 `1049_number_theory_optimized.rs`. 边读取边分解十个数，以固定字节数组累加质因子指数。每个值不超过 10000，指数总和不超过 130，因此一个字节足够。扫描数组，把指数加一后的值相乘并对十取模。分解耗时 O(10√M)，最后扫描 O(M)，M=10000；存储为 M+1 字节和常数状态。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
 
@@ -128,8 +138,8 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 292 KB | 11309757 |
-| [1049_number_theory_optimized.java](1049_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.109 s | 368 KB | 11308799 |
-| [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.109 s | 296 KB | 11309728 |
+| [1049_number_theory_optimized.java](1049_number_theory_optimized.java) | Java 1.8 | number_theory | O(C sqrt(V)+C^2) time; O(C) space | AC | 0.062 s | 316 KB | 11328052 |
+| [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.062 s | 572 KB | 11327877 |
 | [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
