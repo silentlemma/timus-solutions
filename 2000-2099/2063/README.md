@@ -96,6 +96,22 @@ is wrong, in the second it is right.
 
 ## Optimized solutions
 
+`2063_constructive_sorting.py`. Python now also offers Batcher’s padded odd-even merge network, beside both bubble variants. Skip comparators whose right endpoint is virtual black padding; the real prefix still sorts exactly. Keep the full raw-input FNV hash and the same splitmix64 adjacent claims, hence the same result for every fixed input; no independent-randomness or per-game deterministic-win claim is introduced. Read 4096-byte blocks and emit through a bytearray flushed at the 4096-byte threshold, rather than retain per-size bubble query lists. For input I and game sizes nᵢ<=100: O(I+Σ nᵢ log² nᵢ) work and O(B+log n_max) auxiliary storage, B=4096; decimal width is bounded by these limits. The old bubble sources and their own receipts remain.
+
+Exact-source CPython 3.12 Accepted #11326665: 0.14 s / 1008 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/46, memory rank 6/46. Below 1024 KB, strict admission uses time only.
+
+- `2063_constructive_sorting.py`: 0.14 s / 1008 KB; retained teaching base `2063_constructive.py` (Python 3.12 x64): 0.125 s / 8008 KB; time change +12.0%; memory change -87.4%.
+
+`2063_constructive_sorting.java`. Java now also offers Batcher’s padded odd-even merge network, beside both readable and compact bubble variants. Omit comparisons ending in virtual black padding; the real prefix sorts identically. Preserve every input byte in the same FNV seed and the same unsigned splitmix64 adjacent claim, so each fixed input has the same outcome as the old bubble strategy. The probability limitation remains; this is not a deterministic per-game win guarantee. Input is hashed in 1024-byte blocks and commands streamed through a 16384-byte output buffer. Time O(I+Σ nᵢ log² nᵢ), auxiliary space O(log n_max) recursion plus fixed buffers; indices<=100 have bounded decimal width. Old bubble files and their receipts remain.
+
+Exact-source Java 1.8 Accepted #11326597: 0.109 s / 604 KB. Saved current-Java comparison, 2026-11-20: time rank 1/25, memory rank 1/25. With memory below 1024 KB, strict admission uses time only.
+
+- `2063_constructive_sorting.java`: 0.109 s / 604 KB; retained teaching base `2063_constructive.java`: 0.14 s / 9992 KB; time change -22.1%; memory change -94.0%.
+
+`2063_constructive_sorting.cpp`. The C++ Batcher network now streams its command text through a fixed 16 KiB output buffer. Input is read in 16 KiB blocks and every original byte updates the same FNV-1a seed; only the initial game count is decoded. Splitmix64, comparator order and adjacent claims stay identical for identical input bytes. This removes full-input and growing-output retention, without changing the existing input-derived probabilistic strategy or claiming independent randomness. For I input bytes and sizes nᵢ, time is O(I+Σ nᵢ log² nᵢ), auxiliary storage O(log n_max) recursion plus fixed buffers; output is streamed, not retained. The bubble-sort teaching files remain. Indices are at most 100 in this task, so printing one comparator uses a bounded number of decimal digits.
+
+Exact-source Accepted #11326647: 0.015 s / 124 KB. Saved current C/C++ compiler cohort, 2026-11-20: time rank 1/56, memory rank 1/56.
+
 `2063_constructive_optimized.java`. Preserve the existing probabilistic strategy and its deterministic input-derived seed. Stream all B input bytes through the same FNV-1a update while parsing only the initial game count; arrangements are not decoded. Splitmix64 and the complete bubble compare-exchange schedule are unchanged, so identical input bytes yield the same adjacent-pair claims as the old source. The sorted row has at most one bad adjacent boundary, but a claim can still fail: this is not a per-game deterministic guarantee. The 99-game judge requires at least 80 successes. For sizes 2..100 the schedule emits 166650 queries plus 99 claims, below 500000 lines. Time O(B+Σ nᵢ²), auxiliary storage O(1) fixed input/output buffers instead of copies of all input and a growing output builder.
 
 Compared with `2063_constructive.java`: time 0.14 s → 0.156 s; memory 9 992 KB → 580 KB.
@@ -104,7 +120,7 @@ Compared with `2063_constructive.java`: time 0.14 s → 0.156 s; memory 9 992 KB
 
 Compared with `2063_constructive.py`: time 0.125 s → 0.187 s; memory 8008 KB → 2 776 KB.
 
-C++, Go and Rust replace the bubble comparisons with Batcher’s [odd-even merge sorting network](https://doi.org/10.1145/1468075.1468121). Pad to the next power of two with virtual black balls, then omit comparisons whose right endpoint is virtual. Every comparator points from a smaller index to a larger one, so a virtual black ball can never change: comparing any real value with a right-hand black padding value is a no-op. The real prefix therefore sorts exactly as in the full network. Odd and even subsequences are merged recursively, followed by the intervening adjacent comparisons; each game uses O(n log² n) commands rather than O(n²). The original FNV seed over all raw input bytes and one splitmix64 claim per game are preserved. Both networks finish with the same sorted row and the same claim, so the result on each fixed input is unchanged. This does not turn input-derived seeding into independent randomness. Go hashes input in bounded chunks and formats commands into a fixed output buffer without allocating strings per command; C++ and Rust still accumulate the smaller command text. Ordinary bubble files remain; Java and Python have the separate compact variants described here.
+C++, Go and Rust replace the bubble comparisons with Batcher’s [odd-even merge sorting network](https://doi.org/10.1145/1468075.1468121). Pad to the next power of two with virtual black balls, then omit comparisons whose right endpoint is virtual. Every comparator points from a smaller index to a larger one, so a virtual black ball can never change: comparing any real value with a right-hand black padding value is a no-op. The real prefix therefore sorts exactly as in the full network. Odd and even subsequences are merged recursively, followed by the intervening adjacent comparisons; each game uses O(n log² n) commands rather than O(n²). The original FNV seed over all raw input bytes and one splitmix64 claim per game are preserved. Both networks finish with the same sorted row and the same claim, so the result on each fixed input is unchanged. This does not turn input-derived seeding into independent randomness. Go hashes input in bounded chunks and formats commands into a fixed output buffer without allocating strings per command; C++ streams the same network as described above; Rust retains the smaller command text. Ordinary bubble files remain; Java and Python have the separate compact variants described here.
 
 The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 1 124 KB versus 3208 KB.
 
@@ -136,10 +152,12 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.015 s | 124 KB | 11326647 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
 | [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_sorting.java](2063_constructive_sorting.java) | Java 1.8 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.109 s | 604 KB | 11326597 |
 | [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
+| [2063_constructive_sorting.py](2063_constructive_sorting.py) \* | Python 3.12 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(B+log n_max) space | AC | 0.14 s | 1008 KB | 11326665 |
 | [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

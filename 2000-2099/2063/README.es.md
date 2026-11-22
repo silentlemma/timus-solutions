@@ -99,6 +99,22 @@ El ejemplo solo muestra el formato: en la primera partida la afirmación
 
 ## Soluciones optimizadas
 
+`2063_constructive_sorting.py`. Python añade Batcher odd-even merge con relleno, junto a ambas versiones de burbuja. Omite comparadores con extremo derecho virtual negro; el prefijo real se ordena exactamente. Conserva hash FNV de todos los bytes y las mismas afirmaciones splitmix64: mismo resultado en cada entrada fija, sin afirmar independencia aleatoria ni victoria determinista por juego. Lee bloques 4096 y vacía bytearray al umbral 4096, sin listas de consultas por tamaño. I bytes y tamaños nᵢ<=100: O(I+Σ nᵢ log² nᵢ) trabajo/O(B+log n_max) auxiliar, B=4096; ancho decimal acotado. Conserva fuentes/recibos de burbuja.
+
+Accepted exacto CPython 3.12 #11326665: 0.14 s / 1008 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/46, memoria 6/46. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `2063_constructive_sorting.py`: 0.14 s / 1008 KB; base didáctica conservada `2063_constructive.py` (Python 3.12 x64): 0.125 s / 8008 KB; cambio de tiempo +12.0%; cambio de memoria -87.4%.
+
+`2063_constructive_sorting.java`. Java añade la red odd-even merge de Batcher con relleno, junto a las versiones de burbuja legible y compacta. Omite comparadores con extremo derecho virtual negro; el prefijo real se ordena igual. Conserva todos los bytes en la semilla FNV y la misma elección adyacente unsigned splitmix64, por lo que cada entrada fija obtiene el mismo resultado. Sigue la limitación probabilística, sin garantía determinista por juego. Hash en bloques de 1024 bytes, salida en búfer de 16384. Tiempo O(I+Σ nᵢ log² nᵢ), espacio auxiliar O(log n_max) y búferes fijos; índices<=100 de ancho decimal acotado. Conserva archivos y medidas de burbuja.
+
+Accepted de fuente exacto Java 1.8 #11326597: 0.109 s / 604 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 1/25, memoria 1/25. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `2063_constructive_sorting.java`: 0.109 s / 604 KB; base didáctica conservada `2063_constructive.java`: 0.14 s / 9992 KB; cambio de tiempo -22.1%; cambio de memoria -94.0%.
+
+`2063_constructive_sorting.cpp`. C++ emite la misma red de Batcher mediante un búfer fijo de salida de 16 KiB. Lee bloques de 16 KiB y cada byte original actualiza la misma semilla FNV-1a; solo analiza el número inicial de juegos. Splitmix64, orden de comparadores y afirmaciones adyacentes coinciden para bytes idénticos. Ya no retiene entrada completa ni salida creciente; conserva la estrategia probabilística basada en la entrada sin afirmar independencia aleatoria. Para I bytes y tamaños nᵢ, tiempo O(I+Σ nᵢ log² nᵢ), espacio auxiliar O(log n_max) de recursión y búferes fijos; la salida se transmite. Se conservan las versiones didácticas de burbuja. Los índices son como máximo 100, así que cada comparador imprime un número acotado de cifras decimales.
+
+Accepted del fuente exacto #11326647: 0.015 s / 124 KB. Grupo guardado de compiladores C/C++ actuales, 2026-11-20: tiempo 1/56, memoria 1/56.
+
 `2063_constructive_optimized.java`. Conserva la estrategia probabilística y su semilla determinista derivada de entrada. Recorre los B bytes con el mismo FNV-1a, leyendo solo la cuenta inicial; no decodifica disposiciones. Splitmix64 y la red completa de comparación-intercambio no cambian: mismos bytes producen las mismas afirmaciones adyacentes. Tras ordenar hay como máximo una frontera desigual, pero una afirmación puede fallar: no garantiza cada partida. El juez de99 partidas exige80 aciertos. Para tamaños2..100 emite166650 consultas y99 afirmaciones, menos de500000 líneas. Tiempo O(B+Σ nᵢ²), espacio O(1) de búferes fijos, sin copias completas ni constructor creciente.
 
 Frente a `2063_constructive.java`: tiempo 0.14 s → 0.156 s; memoria 9 992 KB → 580 KB.
@@ -107,7 +123,7 @@ Frente a `2063_constructive.java`: tiempo 0.14 s → 0.156 s; memoria 9 992 KB �
 
 Frente a `2063_constructive.py`: tiempo 0.125 s → 0.187 s; memoria 8008 KB → 2 776 KB.
 
-C++, Go y Rust sustituyen burbuja por la [red odd-even merge de Batcher](https://doi.org/10.1145/1468075.1468121). Se completa a la siguiente potencia de dos con bolas negras virtuales y se omiten comparaciones cuyo extremo derecho sea virtual. Cada comparador va del índice menor al mayor: ningún valor real cambia el relleno negro de su derecha. La parte real queda ordenada como en la red completa. Se fusionan recursivamente subsecuencias pares e impares y luego se comparan pares intermedios adyacentes: O(n log² n) comandos por juego. Se mantienen la semilla FNV de todos los bytes originales y una elección splitmix64 por juego. El orden final y la pareja declarada coinciden con la base, conservando el resultado de cada entrada fija; el hash no implica aleatoriedad independiente. Go calcula el hash por bloques y formatea comandos en un búfer fijo sin asignar cadenas por comando; C++ y Rust acumulan el texto reducido. Se conservan las burbujas; Java y Python tienen las variantes compactas separadas descritas aquí.
+C++, Go y Rust sustituyen burbuja por la [red odd-even merge de Batcher](https://doi.org/10.1145/1468075.1468121). Se completa a la siguiente potencia de dos con bolas negras virtuales y se omiten comparaciones cuyo extremo derecho sea virtual. Cada comparador va del índice menor al mayor: ningún valor real cambia el relleno negro de su derecha. La parte real queda ordenada como en la red completa. Se fusionan recursivamente subsecuencias pares e impares y luego se comparan pares intermedios adyacentes: O(n log² n) comandos por juego. Se mantienen la semilla FNV de todos los bytes originales y una elección splitmix64 por juego. El orden final y la pareja declarada coinciden con la base, conservando el resultado de cada entrada fija; el hash no implica aleatoriedad independiente. Go calcula el hash por bloques y formatea comandos en un búfer fijo sin asignar cadenas por comando; C++ transmite la misma red como se describe arriba; Rust conserva el texto reducido. Se conservan las burbujas; Java y Python tienen las variantes compactas separadas descritas aquí.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.031 s de la base y usa 1 124 KB frente a 3208 KB.
 
@@ -139,10 +155,12 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.015 s | 124 KB | 11326647 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
 | [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_sorting.java](2063_constructive_sorting.java) | Java 1.8 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.109 s | 604 KB | 11326597 |
 | [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
+| [2063_constructive_sorting.py](2063_constructive_sorting.py) \* | Python 3.12 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(B+log n_max) space | AC | 0.14 s | 1008 KB | 11326665 |
 | [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

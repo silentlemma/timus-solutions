@@ -62,6 +62,22 @@ m 局游戏的描述：每局若干行 `? v u`，最后一行 `! v u`，其中 1
 
 ## 优化解法
 
+`2063_constructive_sorting.py`. Python 也提供带填充的 Batcher 奇偶归并网络，与两种冒泡版并存。省略右端为虚拟黑填充的比较，真实前缀仍精确排序。完整原始输入 FNV 哈希及相同 splitmix64 相邻声明不变，固定输入上的结果相同；不声称独立随机或逐局必胜。读 4096 字节块，输出 bytearray 达 4096 阈值刷新，不保存每个大小的冒泡查询表。I 输入字节、各局 nᵢ<=100 下工作 O(I+Σ nᵢ log² nᵢ)，辅助空间 O(B+log n_max)，B=4096；这些界保证十进制宽度有界。保留旧冒泡源代码与各自指标。
+
+精确源代码 CPython 3.12 Accepted #11326665：0.14 s / 1008 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/46，内存排名 6/46。低于 1024 KB，严格收录只看时间。
+
+- `2063_constructive_sorting.py`: 0.14 s / 1008 KB; 保留的教学基础版 `2063_constructive.py` (Python 3.12 x64): 0.125 s / 8008 KB; 时间变化 +12.0%; 内存变化 -87.4%.
+
+`2063_constructive_sorting.java`. Java 也新增带填充的 Batcher 奇偶归并网络，保留易读与紧凑冒泡版本。省略右端落在虚拟黑色填充的比较，真实前缀仍完全排序。保留每个原始字节的 FNV 种子及相同无符号 splitmix64 相邻声明，固定输入上的结果与原冒泡策略相同。概率限制仍在，并非逐局必胜保证。输入按 1024 字节分块哈希，命令通过 16384 字节缓冲流式输出。时间 O(I+Σ nᵢ log² nᵢ)，辅助空间 O(log n_max) 递归加固定缓冲；下标<=100 的十进制宽度有界。保留冒泡文件与指标。
+
+精确源代码 Java 1.8 Accepted #11326597：0.109 s / 604 KB。2026-11-20 保存的当前 Java 比较：时间排名 1/25，内存排名 1/25。内存低于 1024 KB，严格收录只看时间。
+
+- `2063_constructive_sorting.java`: 0.109 s / 604 KB; 保留的教学基础版 `2063_constructive.java`: 0.14 s / 9992 KB; 时间变化 -22.1%; 内存变化 -94.0%.
+
+`2063_constructive_sorting.cpp`. C++ 将原 Batcher 网络的命令流写入固定 16 KiB 输出缓冲。输入按 16 KiB 分块读取，每个原始字节更新相同的 FNV-1a 种子，仅解析开头的游戏数。同一原始输入下，splitmix64、比较器次序和相邻对声明完全相同。不再保留完整输入和增长的输出文本；不改变以输入为种子的概率策略，也不声称独立随机性。I 个输入字节、各局大小 nᵢ 时，时间 O(I+Σ nᵢ log² nᵢ)，辅助空间 O(log n_max) 递归加固定缓冲，输出直接流式写出。保留冒泡教学版本。 本题下标至多为 100，因此每条比较器命令的十进制位数有固定上限。
+
+精确源代码 Accepted #11326647：0.015 s / 124 KB。2026-11-20 保存的当前 C/C++ 编译器组：时间排名 1/56，内存排名 1/56。
+
 `2063_constructive_optimized.java`. 保留原概率策略及由输入确定的种子。流式对全部 B 字节做同样 FNV-1a 更新，只解析开头游戏数，不解码布局。Splitmix64 和完整冒泡比较交换网络不变，因此相同输入字节产生与旧版相同的相邻对断言。排序后至多一个异色相邻边界，但断言仍可能失败，并非每局确定成功。99局评测要求至少80次成功。尺寸2..100 共166650次询问加99次断言，低于500000行。时间 O(B+Σ nᵢ²)，空间为 O(1) 固定输入输出缓冲，不复制全部输入或构造增长答案。
 
 与 `2063_constructive.java` 相比：时间 0.14 s → 0.156 s；内存 9 992 KB → 580 KB。
@@ -70,7 +86,7 @@ m 局游戏的描述：每局若干行 `? v u`，最后一行 `! v u`，其中 1
 
 与 `2063_constructive.py` 相比：时间 0.125 s → 0.187 s；内存 8008 KB → 2 776 KB。
 
-C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1468075.1468121) 代替冒泡比较。补虚拟黑球到下一个二次幂，省略右端在虚拟区的比较。所有比较均从较小下标指向较大下标，任何实值与右侧黑色填充比较都不改变填充，因此真实前缀与完整网络一样排序。递归归并奇数、偶数子序列，再比较交错的相邻对，每局 O(n log² n) 条命令而非 O(n²)。保留基于全部原始输入字节的 FNV 种子与每局一次 splitmix64 声明选择。两种网络得到相同排序结果与声明，故固定输入上的胜负完全不变；输入哈希仍不意味着独立随机性。Go 分块哈希输入，以固定输出缓冲格式化命令，不逐命令分配字符串；C++、Rust 仍累积更小的命令文本。保留冒泡基础版，Java、Python 现有下述独立紧凑版本。
+C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1468075.1468121) 代替冒泡比较。补虚拟黑球到下一个二次幂，省略右端在虚拟区的比较。所有比较均从较小下标指向较大下标，任何实值与右侧黑色填充比较都不改变填充，因此真实前缀与完整网络一样排序。递归归并奇数、偶数子序列，再比较交错的相邻对，每局 O(n log² n) 条命令而非 O(n²)。保留基于全部原始输入字节的 FNV 种子与每局一次 splitmix64 声明选择。两种网络得到相同排序结果与声明，故固定输入上的胜负完全不变；输入哈希仍不意味着独立随机性。Go 分块哈希输入，以固定输出缓冲格式化命令，不逐命令分配字符串；C++ 按上述方式流式输出同一网络；Rust 仍保存较小的命令文本。保留冒泡基础版，Java、Python 现有下述独立紧凑版本。
 
 通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 1 124 KB，基础版为 3208 KB。
 
@@ -102,10 +118,12 @@ C++、Go、Rust 用 [Batcher 奇偶归并排序网络](https://doi.org/10.1145/1
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) \* | G++ 13.2 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 1220 KB | 11315021 |
+| [2063_constructive_sorting.cpp](2063_constructive_sorting.cpp) | G++ 13.2 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.015 s | 124 KB | 11326647 |
 | [2063_constructive_sorting.rs](2063_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n log² n) | AC | 0.046 s | 1124 KB | 11315037 |
 | [2063_constructive_sorting.go](2063_constructive_sorting.go) \* | Go 1.14 x64 | constructive, sorting | O(n log² n) | AC | 0.031 s | 300 KB | 11315319 |
+| [2063_constructive_sorting.java](2063_constructive_sorting.java) | Java 1.8 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(log n_max) space | AC | 0.109 s | 604 KB | 11326597 |
 | [2063_constructive_optimized.java](2063_constructive_optimized.java) \* | Java 1.8 | constructive | O(B+Σ nᵢ²) | AC | 0.156 s | 580 KB | 11325124 |
+| [2063_constructive_sorting.py](2063_constructive_sorting.py) \* | Python 3.12 x64 | constructive, sorting | O(I+Σ nᵢ log² nᵢ) time; O(B+log n_max) space | AC | 0.14 s | 1008 KB | 11326665 |
 | [2063_constructive_optimized.py](2063_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(I+m³ log(m+2)) time; O(B+m log(m+2)) space | AC | 0.187 s | 2776 KB | 11325494 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
