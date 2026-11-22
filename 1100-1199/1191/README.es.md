@@ -88,18 +88,13 @@ son positivos y el mínimo no crece: el resto entero es seguro y exacto.
 
 ## Soluciones optimizadas
 
-**Java.** El Java añadido mantiene la aritmética y retorno temprano; cambia
-`Scanner` por `StreamTokenizer` sobre `InputStreamReader`. Hasta 101 tokens
-enteros no requieren el analizador de patrones Scanner; sus valores pequeños
-se representan exactamente en el tokenizer. Misma idea, otra implementación:
-`_optimized`. El Accepted exacto registra 0,125 s y 408 KB frente a 0,125 s
-y 1636 KB de la base inalterada: 75,1% menos memoria y mismo tiempo.
-Ambas versiones se conservan, sin atribuirlo a otra recurrencia o intérprete.
+`1191_math_optimized.java`. Mantiene gap-=gap%interval hacia delante y YES inmediato al llegar a cero. El Java actual sustituye StreamTokenizer y decodificación por un analizador entero acotado de 1024 bytes. Aritmética, orden y retorno temprano no cambian. Tiempo O(N), espacio auxiliar O(1) y búfer fijo; no es el algoritmo inverso de Python.
+
+Accepted de fuente exacto Java 1.8 #11326955: 0.078 s / 340 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 2/25, memoria 1/25. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1191_math_optimized.java`: 0.078 s / 340 KB; base didáctica conservada `1191_math.java`: 0.125 s / 1636 KB; cambio de tiempo -37.6%; cambio de memoria -79.2%.
 
 **Python/PyPy.** Se conserva la simulación directa como base educativa. El algoritmo nuevo recorre al revés: el menor desfase final positivo es 1. Como la transformación directa es k*floor(gap/k), para conservar needed se necesita antes al menos ceil(needed/k)*k. Actualizar ese umbral en orden inverso. Nunca disminuye: needed>L demuestra que no sobrevive ningún desfase positivo y la captura es posible. De lo contrario L sobrevive y no hay captura. Se consume la lista de enteros desde el final, sin una copia invertida. O(N)tiempo y almacenamiento de entrada; la ventaja medida es de memoria, no de tiempo.
-
-- `1191_math_optimized.java`: 0.125 s / 408 KB; base `1191_math.java`: 0.125 s / 1636 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.1%.
-- `1191_dp.py`: 0.109 s / 236 KB; base `1191_math.py`: 0.062 s / 352 KB; cambio respecto a la base: tiempo +75.8%, memoria -33.0%.
 
 `1191_math_optimized.rs`. Conserva solo la separación actual y la redondea hacia abajo a un múltiplo de cada intervalo siguiente. Cuando llega a cero, las operaciones posteriores no pueden alterarla y se imprime de inmediato. Tiempo máximo O(N), espacio auxiliar O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
 
@@ -129,7 +124,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
+| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.078 s | 340 KB | 11326955 |
 | [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
 | [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 

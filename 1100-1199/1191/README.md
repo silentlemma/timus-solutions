@@ -91,16 +91,13 @@ increases, so ordinary integer remainder is exact and safe.
 
 ## Optimized solutions
 
-**Java.** The added Java keeps exactly the same arithmetic and early return.
-It replaces `Scanner` with `StreamTokenizer` over `InputStreamReader`;
-no pattern-based token parser is needed for at most 101 integer tokens.
-The tokenizer's numeric values represent these small integers exactly.
-This is an implementation of the same algorithm, hence `_optimized`.
+`1191_math_optimized.java`. Keep the forward recurrence gap-=gap%interval and its immediate YES when gap becomes zero. The current Java revision uses a bounded 1024-byte primitive integer parser, replacing StreamTokenizer and character decoding. Arithmetic, interval order and early return are unchanged. Worst-case O(N) time, O(1) auxiliary space plus the fixed buffer; this is not the reverse Python algorithm.
+
+Exact-source Java 1.8 Accepted #11326955: 0.078 s / 340 KB. Saved current-Java comparison, 2026-11-20: time rank 2/25, memory rank 1/25. With memory below 1024 KB, strict admission uses time only.
+
+- `1191_math_optimized.java`: 0.078 s / 340 KB; retained teaching base `1191_math.java`: 0.125 s / 1636 KB; time change -37.6%; memory change -79.2%.
 
 **Python/PyPy.** Keep the direct forward tram simulation as the teaching solution. The new algorithm works backwards: the smallest positive final gap is 1. Before an interval k, a surviving gap must be at least ceil(needed/k)*k because the forward map is k*floor(gap/k). Replace needed by that threshold and continue in reverse order. The threshold never decreases, so needed>L already proves that no surviving final gap is possible and catching is possible. Otherwise L survives every stop, so catching is impossible. Consume the input integer list from its end without making a reversed slice. This is O(N) time and O(N) input storage; its measured advantage is memory, not time.
-
-- `1191_math_optimized.java`: 0.125 s / 408 KB; base `1191_math.java`: 0.125 s / 1636 KB; relative change: time -0.0%, memory -75.1%.
-- `1191_dp.py`: 0.109 s / 236 KB; base `1191_math.py`: 0.062 s / 352 KB; relative change: time +75.8%, memory -33.0%.
 
 `1191_math_optimized.rs`. Keep only the current gap, rounding it down to a multiple of each next interval. Once the gap becomes zero, later operations cannot change it, so the answer can be emitted immediately. Worst-case time is O(N), auxiliary space O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
 
@@ -130,7 +127,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
+| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.078 s | 340 KB | 11326955 |
 | [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
 | [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 

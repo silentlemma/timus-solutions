@@ -79,17 +79,13 @@ YES
 
 ## 优化解法
 
-**Java.** 新增 Java 保留相同取模递推及提前返回，只把 `Scanner` 换成
-`InputStreamReader` 上的 `StreamTokenizer`。最多 101 个整数 token 不需
-Scanner 的模式解析；这里小整数均可被 tokenizer 数值字段精确表示。
-同算法的实现优化使用 `_optimized`。精确源码 Accepted 为 0.125 s、408 KB，
-原 Java 为 0.125 s、1636 KB，内存减少 75.1%，时间未变。两版均保留；
-不是递推或解释器变化带来的差异。
+`1191_math_optimized.java`. 保留正向递推 gap-=gap%interval，间距归零立即 YES。当前 Java 版以 1024 字节有界整数解析替代 StreamTokenizer 和字符解码。运算、区间顺序与提前结束不变。最坏时间 O(N)、额外空间 O(1) 加固定缓冲；并非 Python 的反向算法。
+
+精确源代码 Java 1.8 Accepted #11326955：0.078 s / 340 KB。2026-11-20 保存的当前 Java 比较：时间排名 2/25，内存排名 1/25。内存低于 1024 KB，严格收录只看时间。
+
+- `1191_math_optimized.java`: 0.078 s / 340 KB; 保留的教学基础版 `1191_math.java`: 0.125 s / 1636 KB; 时间变化 -37.6%; 内存变化 -79.2%.
 
 **Python/PyPy.** 保留正向模拟作为教学解。新算法逆向处理：最终正间隔的最小值为1。正向映射是k*floor(gap/k)，所以要保留至少needed，之前至少需ceil(needed/k)*k。依次逆向更新该阈值；它不会减小，因此一旦needed>L，就不可能保留正间隔，能够追上。否则L可通过全部站点而不被追上。整数输入列表从末尾弹出，不生成逆序切片。时间O(N)，输入存储O(N)；实测优势是内存而非耗时。
-
-- `1191_math_optimized.java`: 0.125 s / 408 KB; 基础 `1191_math.java`: 0.125 s / 1636 KB; 相对变化: 时间 -0.0%, 内存 -75.1%.
-- `1191_dp.py`: 0.109 s / 236 KB; 基础 `1191_math.py`: 0.062 s / 352 KB; 相对变化: 时间 +75.8%, 内存 -33.0%.
 
 `1191_math_optimized.rs`. 只保存当前间隔，并依次向下取整为下一周期的倍数。一旦间隔变为零，后续操作无法再改变它，可立即输出答案。最坏时间 O(N)，额外空间 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
 
@@ -119,7 +115,7 @@ Scanner 的模式解析；这里小整数均可被 tokenizer 数值字段精确�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.125 s | 408 KB | 11308408 |
+| [1191_math_optimized.java](1191_math_optimized.java) \* | Java 1.8 | math | O(N) | AC | 0.078 s | 340 KB | 11326955 |
 | [1191_dp.py](1191_dp.py) \* | PyPy 3.10 x64 | dp | O(N) time, O(N) input integers | AC | 0.109 s | 236 KB | 11309781 |
 | [1191_math_optimized.rs](1191_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 52 KB | 11325089 |
 
