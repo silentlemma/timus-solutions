@@ -114,7 +114,7 @@ s,t идут до рёбер. Длина важнее риска: длинный
 |---|---|---|---|---|---|---|---|
 | [1934_shortest_paths.cpp](1934_shortest_paths.cpp) | G++ 13.2 x64 | shortest_paths | O(n+m) | AC | 0.093 s | 7288 KB | 11291762 |
 | [1934_shortest_paths.go](1934_shortest_paths.go) | Go 1.14 x64 | shortest_paths | O(n+m) | AC | 0.187 s | 15636 KB | 11291768 |
-| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9180 KB | 11291777 |
+| [1934_shortest_paths.java](1934_shortest_paths.java) | Java 1.8 | shortest_paths | O(n+m) | AC | 0.125 s | 9132 KB | 11328324 |
 | [1934_shortest_paths.py](1934_shortest_paths.py) \* | Python 3.12 x64 | shortest_paths | O(n+m) | AC | 0.406 s | 33792 KB | 11291770 |
 | [1934_shortest_paths.rs](1934_shortest_paths.rs) | Rust 1.75 x64 | shortest_paths | O(n+m) | AC | 0.046 s | 14136 KB | 11291781 |
 

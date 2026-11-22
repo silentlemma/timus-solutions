@@ -57,9 +57,7 @@ def check(adjacency, start, target, output):
         for edge in adjacency[city]:
             neighbor, probability = divmod(edge, PERCENT_SCALE)
             if neighbor == following:
-                route_survival = (
-                    route_survival * (PERCENT_SCALE - probability) // PERCENT_SCALE
-                )
+                route_survival = route_survival * (PERCENT_SCALE - probability) // PERCENT_SCALE
                 break
         else:
             return False, "path uses a missing edge"
@@ -81,9 +79,7 @@ def check(adjacency, start, target, output):
     if best[target] - route_survival > tolerance_units + rounding_slack:
         return False, "shortest path risk is worse than the permitted optimum error"
     path_risk = Fraction(PROBABILITY_SCALE - route_survival, PROBABILITY_SCALE)
-    if abs(reported - path_risk) > MAX_ERROR + Fraction(
-        rounding_slack, PROBABILITY_SCALE
-    ):
+    if abs(reported - path_risk) > MAX_ERROR + Fraction(rounding_slack, PROBABILITY_SCALE):
         return False, "reported probability does not describe the path"
     return True, "valid shortest path with near-optimal risk and accurate probability"
 

@@ -32,8 +32,7 @@ def generate(seed, mode):
         target = tip
     elif mode == 6:
         edges = [
-            (rng.randrange(city), city, rng.randrange(PERCENT_SCALE))
-            for city in range(1, count)
+            (rng.randrange(city), city, rng.randrange(PERCENT_SCALE)) for city in range(1, count)
         ]
         seen = {tuple(sorted((first, second))) for first, second, _ in edges}
         while len(edges) < MAX_ROADS:

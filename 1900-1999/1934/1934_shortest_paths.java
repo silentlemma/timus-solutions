@@ -73,7 +73,7 @@ public class Main {
         int count = graph.head.length;
         double[] costs = new double[PERCENT_SCALE];
         for (int probability = 0; probability < PERCENT_SCALE; probability++) {
-            costs[probability] = -Math.log1p(-(double) probability / PERCENT_SCALE);
+            costs[probability] = -Math.log1p(-(double)probability / PERCENT_SCALE);
         }
         int[] distance = new int[count];
         int[] parent = new int[count];
