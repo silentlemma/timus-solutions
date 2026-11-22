@@ -20,7 +20,8 @@ public class Main {
     }
 
     static int push(int v, int sink, int limit) {
-        if (v == sink) return limit;
+        if (v == sink)
+            return limit;
         for (; at[v] < out.get(v).size(); at[v]++) {
             int e = out.get(v).get(at[v]);
             int[] edge = edges.get(e);
@@ -54,7 +55,8 @@ public class Main {
                     }
                 }
             }
-            if (level[sink] < 0) return total;
+            if (level[sink] < 0)
+                return total;
             at = new int[out.size()];
             for (int got = push(source, sink, SHAVES); got > 0; got = push(source, sink, SHAVES)) {
                 total += got;
@@ -78,7 +80,8 @@ public class Main {
         // min(L, 2) of them on one mage
         Integer[] cuts = cutSet.toArray(new Integer[0]);
         int blocks = cuts.length - 1, source = n + blocks, sink = source + 1;
-        for (int v = 0; v <= sink; v++) out.add(new ArrayList<>());
+        for (int v = 0; v <= sink; v++)
+            out.add(new ArrayList<>());
         List<List<int[]>> links = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             links.add(new ArrayList<>());
@@ -90,7 +93,8 @@ public class Main {
                 }
             }
         }
-        for (int j = 0; j < blocks; j++) add(n + j, sink, k * (cuts[j + 1] - cuts[j]));
+        for (int j = 0; j < blocks; j++)
+            add(n + j, sink, k * (cuts[j + 1] - cuts[j]));
         if (maxFlow(source, sink) < SHAVES * n) {
             System.out.println("No");
             return;

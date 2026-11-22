@@ -90,11 +90,11 @@ C++/Go/Java/Rust 保持原端点压缩 Dinic 与循环分配时间。残量边�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.031 s | 580 KB | 11289698 |
+| [1774_matching.cpp](1774_matching.cpp) | G++ 13.2 x64 | matching | O(n^3) | AC | 0.015 s | 560 KB | 11328295 |
 | [1774_matching.go](1774_matching.go) | Go 1.14 x64 | matching | O(n^3) | AC | 0.031 s | 3476 KB | 11289701 |
-| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.156 s | 3652 KB | 11289704 |
-| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.093 s | 4024 KB | 11289702 |
-| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 964 KB | 11289706 |
+| [1774_matching.java](1774_matching.java) | Java 1.8 | matching | O(n^3) | AC | 0.14 s | 3552 KB | 11328296 |
+| [1774_matching.py](1774_matching.py) | Python 3.12 x64 | matching | O(n^3) | AC | 0.078 s | 3972 KB | 11328297 |
+| [1774_matching.rs](1774_matching.rs) | Rust 1.75 x64 | matching | O(n^3) | AC | 0.046 s | 960 KB | 11328298 |
 | [1774_flow.cpp](1774_flow.cpp) | G++ 13.2 x64 | flow | O(nE) | AC | 0.015 s | 3584 KB | 11315880 |
 
 ### 优化版本

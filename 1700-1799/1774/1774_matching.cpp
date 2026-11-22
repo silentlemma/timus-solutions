@@ -22,7 +22,8 @@ int add(int a, int b, int cap) {
 }
 
 int push(int v, int sink, int limit) {
-    if (v == sink) return limit;
+    if (v == sink)
+        return limit;
     for (; at[v] < (int)out[v].size(); at[v]++) {
         int e = out[v][at[v]];
         if (edges[e].cap && level[edges[e].to] == level[v] + 1) {
@@ -54,15 +55,18 @@ int maxFlow(int source, int sink) {
                 }
             }
         }
-        if (level[sink] < 0) return total;
+        if (level[sink] < 0)
+            return total;
         at.assign(out.size(), 0);
-        while (int got = push(source, sink, SHAVES)) total += got;
+        while (int got = push(source, sink, SHAVES))
+            total += got;
     }
 }
 
 int main() {
     int n, k;
-    if (scanf("%d %d", &n, &k) != 2) return 0;
+    if (scanf("%d %d", &n, &k) != 2)
+        return 0;
     std::vector<int> come(n), stay(n), cuts;
     for (int i = 0; i < n; i++) {
         scanf("%d %d", &come[i], &stay[i]);
@@ -86,7 +90,8 @@ int main() {
             }
         }
     }
-    for (int j = 0; j < blocks; j++) add(n + j, sink, k * (cuts[j + 1] - cuts[j]));
+    for (int j = 0; j < blocks; j++)
+        add(n + j, sink, k * (cuts[j + 1] - cuts[j]));
     if (maxFlow(source, sink) < SHAVES * n) {
         puts("No");
         return 0;

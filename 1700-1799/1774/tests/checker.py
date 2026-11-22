@@ -30,7 +30,9 @@ def check(source, expected, output):
         t, s = words[2 + 2 * i], words[3 + 2 * i]
         p, q = minutes[2 * i], minutes[2 * i + 1]
         if not t <= p < q <= t + s - 1:
-            raise Bad("mage %d is shaved at %d and %d, outside %d..%d" % (i + 1, p, q, t, t + s - 1))
+            raise Bad(
+                "mage %d is shaved at %d and %d, outside %d..%d" % (i + 1, p, q, t, t + s - 1)
+            )
         busy[p] += 1
         busy[q] += 1
     minute, count = max(busy.items(), key=lambda x: x[1])

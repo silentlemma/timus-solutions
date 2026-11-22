@@ -84,7 +84,9 @@ impl Flow {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut words = input.split_ascii_whitespace().map(|w| w.parse::<i32>().unwrap());
+    let mut words = input
+        .split_ascii_whitespace()
+        .map(|w| w.parse::<i32>().unwrap());
     let mut next = || words.next().unwrap();
     let (n, k) = (next() as usize, next());
     let mut come = Vec::new();
@@ -96,7 +98,11 @@ fn main() {
     // minutes between consecutive arrivals and departures see the same mages,
     // so they form blocks: a block of L minutes shaves k L times, at most
     // min(L, 2) of them on one mage
-    let mut cuts: Vec<i32> = come.iter().zip(&stay).flat_map(|(&t, &s)| [t, t + s]).collect();
+    let mut cuts: Vec<i32> = come
+        .iter()
+        .zip(&stay)
+        .flat_map(|(&t, &s)| [t, t + s])
+        .collect();
     cuts.sort();
     cuts.dedup();
     let blocks = cuts.len() - 1;

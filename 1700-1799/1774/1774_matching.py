@@ -57,7 +57,7 @@ class Flow:
 def main():
     data = sys.stdin.read().split()
     n, k = int(data[0]), int(data[1])
-    pairs = [int(v) for v in data[2:2 + 2 * n]]
+    pairs = [int(v) for v in data[2 : 2 + 2 * n]]
     come, stay = pairs[0::2], pairs[1::2]
     # minutes between consecutive arrivals and departures see the same mages,
     # so they form blocks: a block of L minutes shaves k L times, at most
