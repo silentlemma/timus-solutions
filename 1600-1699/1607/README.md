@@ -65,6 +65,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1607_math.java`. Replace alternating offer simulation by an exact constant-time formula. If a>=c return a; otherwise q=(c-a-1)//(b+d) complete rounds leave offers apart, and the agreement is min(a+(q+1)*b,c-q*d). The subtraction of one keeps crossing equality out of the skipped rounds. Products stay within 19999 under the input bounds. O(1) arithmetic/storage, byte-wise input and raw buffered decimal output. The math name distinguishes this algorithm from the retained implementation/simulation versions. Compare it with literal negotiations, not a floating approximation.
+
+Exact-source Java 1.8 Accepted #11327420: 0.109 s / 348 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 48/411; 4/411. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11303763 (Java 1.8): 0.125 s / 316 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1607_math.java`: 0.109 s / 348 KB; retained teaching base `1607_implementation.java` (Java 1.8): 0.14 s / 1600 KB.
+
+`1607_math.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327029 measures 0.078 s / 692 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 4/97, memory rank 62/97. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11324835, 0.156 s / 200 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 316 KB instead of 1600 KB, with
 the same time.
@@ -77,7 +85,7 @@ Compared with `1607_implementation.py`: time 0.093 s → 0.156 s; memory 416 KB 
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1607_math.py`: time place 97/97, memory place 1/97 in this comparable sample.
+Earlier PyPy comparison: `1607_math.py`: time place 97/97, memory place 1/97 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -98,6 +106,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1607_implementation_optimized.java](1607_implementation_optimized.java) \* | Java 1.8 | implementation | O(max(1, c - a)) | AC | 0.125 s | 316 KB | 11303763 |
-| [1607_math.py](1607_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.156 s | 200 KB | 11324835 |
+| [1607_math.java](1607_math.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 348 KB | 11327420 |
+| [1607_math.py](1607_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 692 KB | 11327029 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
