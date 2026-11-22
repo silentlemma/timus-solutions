@@ -67,6 +67,10 @@ In the example the values fall only from 3 back to 1, so conversation 3
 
 ## Optimized solutions
 
+`2156_math_constructive_optimized.cpp`. Keep the exact circular-drop partition. Read heights through a 4 KiB fread buffer, retaining only the first and previous heights, and mark descending edges in a bitset. If every height is equal, choose the first edge for one group. Scan the bitset twice to emit both groups through a 4 KiB fwrite buffer, without an input array or vectors of indices. Time O(n), n bits plus fixed buffers; the guaranteed valid partition and edge numbering are unchanged.
+
+Exact-source Accepted #11326979: 0.015 s / 136 KB. Saved G++ 13.2 sample, 2026-11-20: time rank 1/33, memory rank 1/33. Teaching sources remain unchanged.
+
 Read the values in order, keeping only the first and previous values. A bitset marks the falling edges. Two scans of the bitset print both groups without keeping the input array or building lists of indices.
 
 Go uses one Boolean flag per edge and writes indices through a fixed-size buffer.
@@ -79,7 +83,7 @@ Java buffers input and output and keeps one Boolean flag per edge. It uses 656 K
 
 **Timus submissions for the optimized versions**
 
-`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11326979 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
 
 **Timus submissions for the simple versions**
 
@@ -101,7 +105,7 @@ G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.015 s | 136 KB | 11326979 |
 | [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
 | [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
 | [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |

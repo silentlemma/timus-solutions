@@ -53,6 +53,10 @@ YES
 
 ## 优化解法
 
+`2156_math_constructive_optimized.cpp`. 保留按环上下降边划分的精确构造。用 4 KiB fread 缓冲读取高度，只保留首个和前一个高度，并在 bitset 中标记下降边。若高度全相等，将首条边分给一组。两次扫描 bitset，经 4 KiB fwrite 缓冲输出两组，无需高度数组或索引向量。时间 O(n)，n 位加固定缓冲；划分性质和边编号不变。
+
+精确源代码 Accepted #11326979：0.015 s / 136 KB。2026-11-20 保存的 G++ 13.2 样本：时间排名 1/33，内存排名 1/33。教学源代码保留。
+
 按顺序读取数值，只保留首项和上一项。用位集记录下降的边，再扫描位集两次，分别输出两组边，无需保存输入数组或下标列表。
 
 Go 为每条边保存一个布尔标记，使用固定大小的缓冲区输出下标。
@@ -65,7 +69,7 @@ Java 使用缓冲输入输出，每条边保留一个布尔标记。内存从 90
 
 **优化版本的 Timus 提交记录**
 
-`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11326979 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
 
 **简单版本的 Timus 提交记录**
 
@@ -87,7 +91,7 @@ G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.015 s | 136 KB | 11326979 |
 | [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
 | [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
 | [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |

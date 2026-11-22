@@ -66,6 +66,10 @@ aᵢ − aᵢ₊₁ в сумме дают 0. Поэтому разговоры,
 
 ## Оптимизированные решения
 
+`2156_math_constructive_optimized.cpp`. Сохраняется точное разбиение по спускам на круге. Высоты читаются через буфер fread 4 КБ; хранятся только первая и предыдущая высоты, убывающие рёбра отмечаются в bitset. Если все высоты равны, первое ребро выбирается для одной группы. Два прохода по bitset выводят обе группы через буфер fwrite 4 КБ без массива высот и векторов индексов. Время O(n), n бит плюс фиксированные буферы; корректность разбиения и нумерация рёбер не меняются.
+
+Accepted точного исходника №11326979: 0.015 s / 136 KB. Сохранённая выборка G++ 13.2 от 2026-11-20: место по времени 1/33, по памяти 1/33. Учебные исходники сохранены.
+
 Читаем значения по порядку и храним только первое и предыдущее. В битовом наборе отмечаем переходы с убыванием. Два прохода по набору выводят обе группы без массива входных значений и списков индексов.
 
 Go хранит по одному логическому флагу на переход и выводит индексы через буфер фиксированного размера.
@@ -78,7 +82,7 @@ Java буферизует ввод и вывод и хранит один лог
 
 **Посылки Timus для оптимизированных версий**
 
-`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11317378 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
+`2156_math_constructive_optimized.cpp` (G++ 13.2 x64) №11326979 · `2156_math_constructive_optimized.go` (Go 1.14 x64) №11317380 · `2156_math_constructive_optimized.java` (Java 1.8) №11317394 · `2156_math_constructive_optimized.py` (Python 3.12 x64) №11317384 · `2156_math_constructive_optimized.rs` (Rust 1.75 x64) №11317388.
 
 **Посылки Timus для простых версий**
 
@@ -100,7 +104,7 @@ G++ 13.2 x64 №11321927 · Java 1.8 №11321928 · Python 3.12 x64 №11321930 
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---------|------|--------|-------------|---------|-------|--------|---|
-| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) \* | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.062 s | 204 KB | 11317378 |
+| [2156_math_constructive_optimized.cpp](2156_math_constructive_optimized.cpp) | G++ 13.2 x64 | math, constructive | O(n) | AC | 0.015 s | 136 KB | 11326979 |
 | [2156_math_constructive_optimized.go](2156_math_constructive_optimized.go) \* | Go 1.14 x64 | math, constructive | O(n) | AC | 0.031 s | 1068 KB | 11317380 |
 | [2156_math_constructive_optimized.py](2156_math_constructive_optimized.py) | Python 3.12 x64 | math, constructive | O(n) | AC | 0.125 s | 1164 KB | 11317384 |
 | [2156_math_constructive_optimized.rs](2156_math_constructive_optimized.rs) \* | Rust 1.75 x64 | math, constructive | O(n) | AC | 0.046 s | 304 KB | 11317388 |
