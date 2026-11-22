@@ -9,7 +9,6 @@ def main():
     # pair the k-th mention of v in room u with the k-th mention of u in room
     # v; a door to the room itself is mentioned twice in its own row
     ends = []
-    slot = {}
     waiting = defaultdict(list)
     for u in range(n):
         for i, v in enumerate(rows[u]):

@@ -94,7 +94,7 @@ buildings with many doors repeated between the same rooms.
 
 Exact-source CPython 3.12 Accepted #11327005: 0.078 s / 752 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/83, memory rank 1/83. Below 1024 KB, strict admission uses time only.
 
-- `1129_graphs_optimized.py`: 0.078 s / 752 KB; retained teaching base `1129_graphs.py` (Python 3.12 x64): 0.093 s / 2592 KB; time change -16.1%; memory change -71.0%.
+- `1129_graphs_optimized.py`: 0.078 s / 752 KB; retained teaching base `1129_graphs.py` (Python 3.12 x64): 0.078 s / 2560 KB; time change +0.0%; memory change -70.6%.
 
 `1129_graphs_optimized.java`. Keep Euler-walk orientation after virtually connecting odd-degree rooms to a dummy room. Flatten all D door-side mentions with room offsets, original positions and mate indices. Sort packed (unordered-room-pair,original-slot) long keys: parallel doors pair the two endpoint halves in slot order, and self-door mentions pair consecutively. N<=100 keeps the room-pair key below 10000, separate from the low 32-bit slot. Real edges set opposite G/Y colors; virtual edges only balance parity and are not printed. A primitive stack and byte colors replace boxed adjacency, hash queues and the full output builder. Storage O(N+D). Let S(D) be the primitive sort cost: the remaining pairing/walk/output work is O(N+D); Java 8 sorting is typically O(D log D), with a conservative O(D²) worst-case allowance rather than a claimed strict logarithmic guarantee.
 
@@ -121,7 +121,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2096 KB | 11279361 |
 | [1129_graphs.go](1129_graphs.go) \* | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.015 s | 2424 KB | 11279362 |
 | [1129_graphs.java](1129_graphs.java) \* | Java 1.8 | graphs | O(N + D) expected | AC | 0.156 s | 3876 KB | 11279365 |
-| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.093 s | 2592 KB | 11279363 |
+| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.078 s | 2560 KB | 11328266 |
 | [1129_graphs.rs](1129_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1172 KB | 11279366 |
 
 ### Optimized

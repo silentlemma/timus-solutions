@@ -86,7 +86,7 @@ G Y Y
 
 精确源代码 CPython 3.12 Accepted #11327005：0.078 s / 752 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/83，内存排名 1/83。低于 1024 KB，严格收录只看时间。
 
-- `1129_graphs_optimized.py`: 0.078 s / 752 KB; 保留的教学基础版 `1129_graphs.py` (Python 3.12 x64): 0.093 s / 2592 KB; 时间变化 -16.1%; 内存变化 -71.0%.
+- `1129_graphs_optimized.py`: 0.078 s / 752 KB; 保留的教学基础版 `1129_graphs.py` (Python 3.12 x64): 0.078 s / 2560 KB; 时间变化 +0.0%; 内存变化 -70.6%.
 
 `1129_graphs_optimized.java`. 保留把奇度房间虚连到虚拟房间后的欧拉行走定向。扁平保存 D 个门侧出现项、房间偏移、原位置和配对下标。排序 long 键（无序房间对，原槽位）：平行门按槽位配对两个端点半组，自环出现项依次两两配对。N<=100 使房间对键小于10000，与低32位槽位分开。真实边标相反 G/Y，虚边只平衡奇偶、不输出。基本类型栈及字节颜色替代对象邻接、哈希队列和完整输出构造器。空间 O(N+D)。设基本类型排序代价 S(D)，其余配对、遍历、输出为 O(N+D)；Java8 通常 O(D log D)，保守允许最坏 O(D²)，不声称严格对数保证。
 
@@ -113,7 +113,7 @@ C++ 和 Python 统计每对房间之间的门数。两扇平行门取相反方�
 | [1129_graphs.cpp](1129_graphs.cpp) | G++ 13.2 x64 | graphs | O(N + D log D) | AC | 0.015 s | 2096 KB | 11279361 |
 | [1129_graphs.go](1129_graphs.go) \* | Go 1.14 x64 | graphs | O(N + D) expected | AC | 0.015 s | 2424 KB | 11279362 |
 | [1129_graphs.java](1129_graphs.java) \* | Java 1.8 | graphs | O(N + D) expected | AC | 0.156 s | 3876 KB | 11279365 |
-| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.093 s | 2592 KB | 11279363 |
+| [1129_graphs.py](1129_graphs.py) | Python 3.12 x64 | graphs | O(N + D) expected | AC | 0.078 s | 2560 KB | 11328266 |
 | [1129_graphs.rs](1129_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N + D) expected | AC | 0.015 s | 1172 KB | 11279366 |
 
 ### 优化版本
