@@ -64,6 +64,8 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2011_combinatorics_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327046 mide 0.078 s / 732 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/52, memoria 41/52. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325480, 0.156 s / 264 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `2011_combinatorics_optimized.py`. Mantiene la recurrencia multinomial exacta ways=ways*length/count[value] y termina al llegar a seis. Analiza bloques de 4096 bytes a tres frecuencias sin materializar todos los enteros antes de salir. Añadir un elemento no reduce las permutaciones, por lo que el sufijo no leído no anula el éxito. O(n) tiempo peor caso y O(B) espacio para tokens acotados y bloque B. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `2011_combinatorics.py`: tiempo 0.109 s → 0.156 s; memoria 516 KB → 264 KB.
@@ -86,7 +88,7 @@ Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 d
 
 `2011_combinatorics_optimized.java`: puesto de tiempo 8/127 y de memoria 10/127 en esta muestra comparable.
 
-`2011_combinatorics_optimized.py`: puesto de tiempo 47/52 y de memoria 1/52 en esta muestra comparable.
+Comparación PyPy anterior: `2011_combinatorics_optimized.py`: puesto de tiempo 47/52 y de memoria 1/52 en esta muestra comparable.
 
 `2011_combinatorics_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -111,6 +113,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
 | [2011_combinatorics_optimized.java](2011_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 496 KB | 11324782 |
 | [2011_combinatorics_optimized.rs](2011_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.046 s | 64 KB | 11324869 |
-| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(n) time; O(B) space | AC | 0.156 s | 264 KB | 11325480 |
+| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O(n) time; O(B) space | AC | 0.078 s | 732 KB | 11327046 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -63,6 +63,8 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2011_combinatorics_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327046 measures 0.078 s / 732 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 1/52, memory rank 41/52. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325480, 0.156 s / 264 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `2011_combinatorics_optimized.py`. Keep the exact multinomial recurrence ways=ways*length/count[value] and stop once it reaches six. Parse 4096-byte chunks directly into three frequencies instead of materializing all input integers before the early exit. The number of arrangements cannot decrease when appending an item, so the unread suffix cannot undo success. Worst-case O(n) time and O(B) storage for bounded tokens and chunk size B. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `2011_combinatorics.py`: time 0.109 s → 0.156 s; memory 516 KB → 264 KB.
@@ -85,7 +87,7 @@ The added sources are compared using the 18 November 2026 snapshot of other auth
 
 `2011_combinatorics_optimized.java`: time place 8/127, memory place 10/127 in this comparable sample.
 
-`2011_combinatorics_optimized.py`: time place 47/52, memory place 1/52 in this comparable sample.
+Earlier PyPy comparison: `2011_combinatorics_optimized.py`: time place 47/52, memory place 1/52 in this comparable sample.
 
 `2011_combinatorics_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -110,6 +112,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
 | [2011_combinatorics_optimized.java](2011_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 496 KB | 11324782 |
 | [2011_combinatorics_optimized.rs](2011_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.046 s | 64 KB | 11324869 |
-| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(n) time; O(B) space | AC | 0.156 s | 264 KB | 11325480 |
+| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O(n) time; O(B) space | AC | 0.078 s | 732 KB | 11327046 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

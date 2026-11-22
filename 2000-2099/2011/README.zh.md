@@ -52,6 +52,8 @@ k!/(c₁!·c₂!·c₃!) 个不同的单词。逐个读入碎片，并对已读�
 
 ## 优化解法
 
+`2011_combinatorics_optimized.py` 逐字节复用，不增加源文件，也不引入新算法。精确源代码的 CPython 3.12 Accepted #11327046 为 0.078 s / 732 KB。2026-11-20 保存的当前 Python 语言族编译器组中，时间排名 1/52、内存排名 41/52。本次内存低于 1024 KB，因此严格前十名或前 15% 标准只看时间；星号仍表示单独的语言排名目标。同一未改动文件另有早先的 PyPy 3.10 Accepted #11325480：0.156 s / 264 KB。这些是不同运行各自成对的指标：选择 CPython 的时间与排名，PyPy 的内存更低。本节早先的省内存说明指此 PyPy 测量，不是 CPython 表格行。全部教学源代码保持不变。
+
 `2011_combinatorics_optimized.py`. 保留精确多项式递推 ways=ways*length/count[value]，达到六即停止。按 4096 字节块解析到三个频数，不在提前结束前先建立全部整数列表。追加元素不会减少排列数，未读后缀不能撤销成功。最坏 O(n) 时间，有界记号及块长 B 下 O(B) 空间。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
 
 与 `2011_combinatorics.py` 相比：时间 0.109 s → 0.156 s；内存 516 KB → 264 KB。
@@ -73,7 +75,7 @@ k!/(c₁!·c₂!·c₃!) 个不同的单词。逐个读入碎片，并对已读�
 
 `2011_combinatorics_optimized.java`：在该可比样本中，时间名次 8/127，内存名次 10/127。
 
-`2011_combinatorics_optimized.py`：在该可比样本中，时间名次 47/52，内存名次 1/52。
+早先的 PyPy 比较：`2011_combinatorics_optimized.py`：在该可比样本中，时间名次 47/52，内存名次 1/52。
 
 `2011_combinatorics_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
@@ -98,6 +100,6 @@ k!/(c₁!·c₂!·c₃!) 个不同的单词。逐个读入碎片，并对已读�
 | [2011_combinatorics_optimized.cpp](2011_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(n) | AC | 0.015 s | 116 KB | 11303791 |
 | [2011_combinatorics_optimized.java](2011_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(n) | AC | 0.109 s | 496 KB | 11324782 |
 | [2011_combinatorics_optimized.rs](2011_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(n) | AC | 0.046 s | 64 KB | 11324869 |
-| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(n) time; O(B) space | AC | 0.156 s | 264 KB | 11325480 |
+| [2011_combinatorics_optimized.py](2011_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O(n) time; O(B) space | AC | 0.078 s | 732 KB | 11327046 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
