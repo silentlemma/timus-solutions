@@ -124,13 +124,11 @@ language (`scanf` or `cin`, `bufio` with `fmt.Fscan`, `BufferedReader` with
 standard library and ordinary integer types, and take the most direct
 algorithm that fits the limits.
 
-**Optimized** solutions stand next to simple ones when their distinct,
-accepted code reduces time or memory by at least 30% relative to our base
-solution in the same language: `optimized <= 0.70 * base` in at least one
-metric. Reaching a rating target is not a condition for including that
-implementation. One tick of the judge timer is noise, and times below
-0.015 s count as 0.015 s. The write-up explains the measured gain and any
-tradeoff, and each non-obvious optimization carries a comment.
+**Optimized** solutions stand next to meaningful simple versions when their
+distinct, accepted code meets the shared [rating criteria](RATING_CRITERIA.md).
+The write-up explains the measured gain and any tradeoff, and each non-obvious
+optimization carries a comment. Preserve the simple version even when a more
+complicated implementation performs better.
 
 When both programs use the same algorithm, the faster implementation adds
 `_optimized` to the approach name. Different algorithms use their own
@@ -141,23 +139,20 @@ its distinct optimized counterpart.
 Identical source files are not duplicated. If the base implementation
 already meets the rating target, its existing file suffices; another
 implementation is not needed just for an optimized filename. A distinct
-implementation with the required 30% gain may still stand next to it.
+implementation meeting the shared criteria may still stand next to it.
 Coverage and rating reports also use the existing accepted base program.
 
 The five language families are C++, Go, Java, Python/PyPy and Rust.
 Only the languages offered by the problem's submission form are required;
 unavailable languages are excluded and receive no unjudgeable ports.
 
-An optimized solution aims at the top 10, or the top 15% by both time and
-memory, of the Timus rating of its language, counting only the runs on the
-current judge, with the compilers it offers now. A solution that does not get
-there is still kept when it meets the 30% base-comparison criterion. Mark
-its row with an escaped asterisk immediately after the solution link:
-`[NNNN_approach_optimized.cpp](NNNN_approach_optimized.cpp) \*`.
-Under the table, add a line beginning with `\* `, for example:
-"\* Accepted; the rating target is not yet met. This version may be
-optimized further." Translate the explanation in each write-up. The
-linter accepts starred rows and requires this explanatory footnote.
+Use [Rating criteria](RATING_CRITERIA.md) as the source of truth for all five
+languages: top 10 or top 15%, with a comparison against the fastest rival
+instead when the exact compiler version has 1-10 rival submissions. Memory
+below 1024 KB is excluded from either comparison. The document defines
+reference selection, ties, compiler fallbacks, Accepted evidence and README
+asterisks. Keep the marker and its translated explanation consistent across
+all four write-ups; do not infer a rating from missing data.
 
 When the simple algorithm does not fit the limits in some language, that
 language has only the optimized solution, and the language notes say so.

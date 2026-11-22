@@ -40,6 +40,12 @@ Each folder `1000-1099/1005/` holds the write-ups (`README.md`,
 The best way to use this repository is to try a problem on Timus first, then
 read the write-up, and only then the code.
 
+## Performance goals
+
+[Rating criteria](RATING_CRITERIA.md) defines the shared goals for all five
+languages, the memory exception below 1024 KB, small-cohort comparisons and
+the meaning of asterisks in solution tables.
+
 ## Formatting and linting
 
 ```bash
