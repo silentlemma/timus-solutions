@@ -77,10 +77,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized Java solution prints the same triple, but reads N by hand
-from the bytes of the input instead of with `Scanner`, whose regular
-expressions take time and memory to set up even for a single number:
-{1335_math_optimized.java}.
+`1335_math_optimized.java`. Keep the triple A=N², B=N²+N+1, C=N²+1. Compute N² once in int: N<=30000 bounds the largest output by 900030001. Reusable 1024-byte input/output buffers and a digit array avoid string concatenation and general long printing. The modular identity and distinctness proof remain; O(1) bounded arithmetic and space. Every valid N from 2 through 30000 was checked against the independent 64-bit identity.
+
+Exact-source Java 1.8 Accepted #11327452: 0.093 s / 356 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/41, memory 1/41. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11307311 was 0.109 s / 360 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1335_math_optimized.java`: 0.093 s / 356 KB; retained teaching base `1335_math.java`: 0.125 s / 1612 KB.
 
 ### Measured gains
 
@@ -88,9 +89,6 @@ Each optimized version has Accepted and reduces time or memory by at
 least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
-
-- `1335_math_optimized.java`: time reduction +12.80%; memory reduction
-  +77.67%; base: `1335_math.java`.
 
 `1335_math_optimized.py`. Keep the construction A=N², B=N²+N+1, C=N²+1 and compute N² once. Modulo C the first two values are -1 and N, so A²+B² is divisible by C; the three values are distinct and in the allowed interval for N>=2. Bounded arithmetic and storage O(1). Reuse the one computed square and print all three integers in one call. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -126,7 +124,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 360 KB | 11307311 |
+| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
 | [1335_math_optimized.py](1335_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 168 KB | 11324910 |
 | [1335_math_optimized.rs](1335_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
 

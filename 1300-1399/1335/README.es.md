@@ -76,10 +76,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java imprime la misma terna, pero lee N a mano
-de los bytes de la entrada en lugar de con `Scanner`, cuyas expresiones
-regulares cuestan tiempo y memoria de preparar incluso para un solo
-número: {1335_math_optimized.java}.
+`1335_math_optimized.java`. Conserva A=N², B=N²+N+1, C=N²+1. Calcula una vez N² en int: N<=30000 limita la salida máxima a 900030001. Búferes de entrada/salida de 1024 bytes y arreglo de dígitos evitan concatenación e impresión long general. Conserva la identidad modular y prueba de valores distintos; aritmética acotada y espacio O(1). Todos los N=2..30000 se comprobaron con identidad independiente de 64 bits.
+
+Accepted exacto Java 1.8 #11327452: 0.093 s / 356 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/41, memoria 1/41. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11307311 era 0.109 s / 360 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1335_math_optimized.java`: 0.093 s / 356 KB; base didáctica conservada `1335_math.java`: 0.125 s / 1612 KB.
 
 ### Mejora medida
 
@@ -87,9 +88,6 @@ Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
 al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
-
-- `1335_math_optimized.java`: reducción de tiempo +12.80%; reducción de
-  memoria +77.67%; base: `1335_math.java`.
 
 `1335_math_optimized.py`. Conserva A=N², B=N²+N+1, C=N²+1 y calcula N² una vez. Módulo C los dos primeros son -1 y N, así que A²+B² es divisible por C; para N>=2 son distintos y pertenecen al intervalo. Aritmética acotada y espacio O(1). Reutiliza el cuadrado calculado y emite los tres enteros en una llamada. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -125,7 +123,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 360 KB | 11307311 |
+| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
 | [1335_math_optimized.py](1335_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 168 KB | 11324910 |
 | [1335_math_optimized.rs](1335_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
 

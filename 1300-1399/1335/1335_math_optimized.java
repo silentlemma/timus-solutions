@@ -1,38 +1,60 @@
 public class Main {
 
-    // refillable storage keeps input memory constant, regardless of input length.
-    static final int BUFFER_SIZE = 4096;
-    static final byte[] buffer = new byte[BUFFER_SIZE];
-    static int at, size;
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
     static int read() throws java.io.IOException {
-        if (at == size) {
-            size = System.in.read(buffer);
-            at = 0;
-            if (size < 0)
+        if (position == available) {
+            available = System.in.read(input);
+            position = 0;
+            if (available < 0)
                 return -1;
         }
-        return buffer[at++];
+        return input[position++];
     }
-    static long nextLong() throws java.io.IOException {
-        int c;
-        do {
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
             c = read();
-        } while (c >= 0 && c <= ' ');
-        boolean negative = c == '-';
-        if (negative)
-            c = read();
-        long value = 0;
+        int value = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
+            value = value * DECIMAL + c - '0';
             c = read();
         }
-        return negative ? -value : value;
+        return value;
     }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
 
+    static int square(int n) { return n * n; }
     public static void main(String[] args) throws java.io.IOException {
-        long n = nextLong();
-        // modulo n^2 + 1 the first number is -1 and the second is n, so the sum
-        // of their squares is 1 + n^2, a multiple of n^2 + 1
-        System.out.println(n * n + " " + (n * n + n + 1) + " " + (n * n + 1));
+        int n = nextInt(), a = square(n);
+        number(a);
+        write(' ');
+        number(a + n + 1);
+        write(' ');
+        number(a + 1);
+        write('\n');
+        finish();
     }
 }
