@@ -1,23 +1,70 @@
 public class Main {
-    // the two numbers are parsed by hand from System.in, much lighter than Scanner
-    private static long nextInteger() throws java.io.IOException {
-        int ch;
-        do {
-            ch = System.in.read();
-        } while (ch != -1 && ch <= ' ');
-        long value = 0;
-        while (ch >= '0' && ch <= '9') {
-            value = value * 10 + ch - '0';
-            ch = System.in.read();
+    static final int BUFFER_SIZE = 256, MAX_INTEGER_BYTES = 12, DECIMAL = 10;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available, used;
+
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
-        return value;
+        return buffer[position++];
     }
 
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = DECIMAL * value + c - '0';
+            c = read();
+        }
+        return negative ? -value : value;
+    }
+
+    static void flush() {
+        System.out.write(buffer, 0, used);
+        used = 0;
+    }
+
+    static void write(int c) {
+        if (used == buffer.length)
+            flush();
+        buffer[used++] = (byte)c;
+    }
+
+    static void number(int value) {
+        if (used + MAX_INTEGER_BYTES > buffer.length)
+            flush();
+        long magnitude = value;
+        if (magnitude < 0) {
+            buffer[used++] = '-';
+            magnitude = -magnitude;
+        }
+        int first = used;
+        do {
+            buffer[used++] = (byte)('0' + magnitude % DECIMAL);
+            magnitude /= DECIMAL;
+        } while (magnitude != 0);
+        for (int left = first, right = used - 1; left < right; left++, right--) {
+            byte temporary = buffer[left];
+            buffer[left] = buffer[right];
+            buffer[right] = temporary;
+        }
+    }
+
+    static void finish() { flush(); }
+
+    static int handshakes(int n, int married) { return n * (n - 1) / 2 - married; }
     public static void main(String[] args) throws java.io.IOException {
-        long n = nextInteger();
-        long k = nextInteger();
-        // every two hobbits shake hands exactly once, when their groups part,
-        // except the married couples, who go home together and never part
-        System.out.println(n * (n - 1) / 2 - k);
+        number(handshakes(nextInt(), nextInt()));
+        write('\n');
+        finish();
     }
 }

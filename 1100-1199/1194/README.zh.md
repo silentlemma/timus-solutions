@@ -59,12 +59,17 @@
 
 ## 优化解法
 
+`1194_math_optimized.java`. 保留精确 int 公式 n*(n-1)/2-married。与旧版一样，两个头部计数后的层级记录无关，不再解析。计算所用数值均在输出前读完。复用一个 256 字节数组先输入后输出，每个有符号 int 预留十二字节，只反转刚写的数字。省去独立输入、输出和数字数组，不覆盖算法尚需的数据。解析输出对已消费字节线性，缓冲固定。
+
+精确源代码 Java 1.8 Accepted #11327761：0.093 s / 356 KB。2026-11-20 保存的编译器组比较：时间 10/106、内存 3/106。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303576 为 0.125 s / 308 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1194_math_optimized.java`: 0.093 s / 356 KB; 保留教学基础版 `1194_math.java`: 0.125 s / 1552 KB.
+
+`1194_math_optimized.py` 逐字节复用，不增加源文件，也不引入新算法。精确源代码的 CPython 3.12 Accepted #11327016 为 0.078 s / 652 KB。2026-11-20 保存的当前 Python 语言族编译器组中，时间排名 4/39、内存排名 24/39。本次内存低于 1024 KB，因此严格前十名或前 15% 标准只看时间；星号仍表示单独的语言排名目标。同一未改动文件另有早先的 PyPy 3.10 Accepted #11324849：0.125 s / 220 KB。这些是不同运行各自成对的指标：选择 CPython 的时间与排名，PyPy 的内存更低。本节早先的省内存说明指此 PyPy 测量，不是 CPython 表格行。全部教学源代码保持不变。
+
 `1194_math_optimized.go`. 保留无序霍比特人对数 h(h−1)/2 减去给定对数，仅标量计算、常数额外空间。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
 
 与 `1194_math.go` 相比：时间 0.015 s → 0.015 s；内存 1064 KB → 280 KB。
-
-优化的 Java 解法用 `System.in.read` 手工解析这两个数，而不是 `Scanner`：308 KB，
-而不是 1552 KB，时间不变。公式相同。
 
 `1194_math_optimized.cpp`. 保留 N(N-1)/2-K：除夫妻外，每对人恰好分开一次，与分组描述无关。只读两个头部整数，以显式 C 字节转换读写，替代整数格式化扫描和打印。算法及额外状态均为常数规模。
 
@@ -98,9 +103,9 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1194_math_optimized.java](1194_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 308 KB | 11303576 |
+| [1194_math_optimized.java](1194_math_optimized.java) \* | Java 1.8 | math | O(1) arithmetic; header input only | AC | 0.093 s | 356 KB | 11327761 |
 | [1194_math_optimized.cpp](1194_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 80 KB | 11325056 |
-| [1194_math_optimized.py](1194_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 220 KB | 11324849 |
+| [1194_math_optimized.py](1194_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 652 KB | 11327016 |
 | [1194_math_optimized.rs](1194_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324859 |
 | [1194_math_optimized.go](1194_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 280 KB | 11325654 |
 
