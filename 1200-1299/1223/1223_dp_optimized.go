@@ -48,20 +48,6 @@ func readNumber() (int64, bool) {
 	return -value, true
 }
 
-func number() int64 { value, _ := readNumber(); return value }
-
-func wordByte() byte {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	first := byte(character)
-	for character > ' ' {
-		character = nextByte()
-	}
-	return first
-}
-
 func flushOutput() {
 	for start := 0; start < outputSize; {
 		count, err := os.Stdout.Write(outputBuffer[start:outputSize])

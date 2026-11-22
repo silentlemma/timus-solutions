@@ -89,7 +89,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 `1223_dp_optimized.go`. Conserva la DP inversa de lanzamientos, resolviendo cada consulta sin guardar best[11][1001] para todos los pisos. reach[k] cuenta los pisos distinguibles con los lanzamientos actuales; actualiza k en descenso con reach[k]+=reach[k-1]+1 para usar la fila anterior in situ. Para al alcanzar reach[min(e,10)]>=f. Diez huevos bastan para f<=1000: diez decisiones binarias distinguen 1024 resultados. Para consulta i, Kᵢ=min(eᵢ,10) y respuesta Dᵢ, el trabajo total es O(Σ Kᵢ·Dᵢ), no O(1) por consulta. La DP ocupa once int64 más búferes fijos. EOF o 0 0 finaliza sin respuesta adicional. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `1223_dp.go`: tiempo 0.031 s → 0.015 s; memoria 1216 KB → 828 KB.
+Frente a `1223_dp.go`: tiempo 0.031 s → 0.015 s; memoria 1216 KB → 804 KB.
 
 El antiguo `dp` invierte la pregunta: R(d,e) pisos resolubles con
 d intentos y e huevos. El primer intento divide en rama rota, su piso y
@@ -135,6 +135,6 @@ sencillo ya cumple la meta de clasificación.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1223_dp.py](1223_dp.py) | Python 3.12 x64 | dp | O(EF + Q) | AC | 0.078 s | 812 KB | 11283702 |
-| [1223_dp_optimized.go](1223_dp_optimized.go) \* | Go 1.14 x64 | dp | O(Σ Kᵢ·Dᵢ) | AC | 0.015 s | 828 KB | 11325045 |
+| [1223_dp_optimized.go](1223_dp_optimized.go) \* | Go 1.14 x64 | dp | O(Σ Kᵢ·Dᵢ) | AC | 0.015 s | 804 KB | 11328268 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
