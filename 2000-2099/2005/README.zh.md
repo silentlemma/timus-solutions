@@ -52,17 +52,21 @@
 
 ## 优化解法
 
-`2005_bruteforce_optimized.py`. 保留穷举路线，但 5×5 费用矩阵用平表，选取不同 a,b 属于 1,2,3 后令第三中间点为 6-a-b，排除结束前为点 2 的情形。仍按原顺序考察同样四条合法路线，并列最优有效。去掉排列元组及矩阵行复制；固定五点下时间、空间为常数。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
+`2005_bruteforce_optimized.py`. Python 保留相同四条合法路线的穷举。itertools.permutations 在 C 层生成三个中间点的六种顺序，去掉倒数第二点不合法的两种；代价矩阵仍为 25 个整数的平面列表。此版有意重新使用排列元组而非原有 Python 嵌套循环，同时避免教学矩阵行复制和模块级状态。并列最优时任意路线均可，一次二进制输出后在 main 内退出。固定五点下时间与空间 O(1)，不查预存路线答案，保留教学版。
 
-与 `2005_bruteforce.py` 相比：时间 0.093 s → 0.109 s；内存 432 KB → 212 KB。
+精确源代码 Python 3.12 x64 Accepted #11327537：0.078 s / 732 KB。2026-11-20 保存的编译器组比较：时间 7/50、内存 43/50。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11325492（PyPy 3.10 x64）为 0.109 s / 212 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `2005_bruteforce_optimized.py`: 0.078 s / 732 KB; 保留教学基础版 `2005_bruteforce.py`: 0.093 s / 432 KB.
+
+`2005_bruteforce_optimized.java`. Java 仍穷举五点问题的全部合法路线。倒数第二个零基顶点 c 取 {1,3}，再选其余两点之一为 a，最后中间点为 b=6-a-c。这样恰好生成四条合法路线，无需枚举并过滤 27 个三元组。25 个 int 的平面矩阵替代嵌套数组，搜索中只保留最优代价及三个中间索引，结束后仅创建一个结果数组。直接字节输入输出替代通用解析与格式化。并列最优时任意合法最优路线均可。固定五点下时间与空间均为 O(1)。
+
+精确源代码 Java 1.8 Accepted #11327443：0.078 s / 360 KB。2026-11-20 保存的编译器组比较：时间 1/170、内存 3/170。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324781 为 0.125 s / 496 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `2005_bruteforce_optimized.java`: 0.078 s / 360 KB; 保留教学基础版 `2005_bruteforce.java`: 0.125 s / 1616 KB.
 
 `2005_bruteforce_optimized.rs`. 保留五点穷举，输入直接填固定 25 格 i64 费用数组，第三中间点为 6-a-b，去掉冗余第三循环及解析输入向量。直接输出五个顶点，不分配格式化字符串。四条可行路线及平局顺序不变，费用运算范围更宽。时间、空间有常数界。
 
 与 `2005_bruteforce.rs` 相比：时间 0.031 s → 0.015 s；内存 236 KB → 48 KB。
-
-`2005_bruteforce_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
-
-与 `2005_bruteforce.java` 相比：时间 0.125 s → 0.125 s；内存 1616 KB → 496 KB。
 
 ## 各语言说明
 
@@ -92,9 +96,8 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 496 KB | 11324781 |
-| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | PyPy 3.10 x64 | bruteforce | O(1), fixed five points | AC | 0.109 s | 212 KB | 11325492 |
+| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
+| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
 | [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |
-
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

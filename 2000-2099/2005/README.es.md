@@ -64,25 +64,25 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-`2005_bruteforce_optimized.py`. Conserva enumeración exhaustiva con matriz 5×5 plana y tercer vértice intermedio 6-a-b para a,b distintos de 1,2,3. Rechaza vértice 2 justo antes del final. Examina las mismas cuatro rutas en el mismo orden, con empates válidos. Evita tuplas de permutación y copias de filas; cinco puntos fijos implican tiempo y espacio constantes. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+`2005_bruteforce_optimized.py`. Python conserva la búsqueda exhaustiva de las cuatro rutas legales. itertools.permutations genera en C los seis órdenes de tres puntos intermedios y descarta los dos con penúltimo punto prohibido; la matriz sigue plana con 25 enteros. Esta versión vuelve deliberadamente a tuplas de permutaciones en lugar de los bucles Python anteriores, sin copiar filas de la matriz didáctica ni guardar estado a nivel de módulo. Emite cualquier ruta óptima empatada en un bloque binario y sale dentro de main. Para cinco puntos fijos, tiempo y espacio O(1), sin respuestas de rutas precalculadas; conserva las bases.
 
-Frente a `2005_bruteforce.py`: tiempo 0.093 s → 0.109 s; memoria 432 KB → 212 KB.
+Accepted exacto Python 3.12 x64 #11327537: 0.078 s / 732 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 7/50, memoria 43/50. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11325492 (PyPy 3.10 x64) era 0.109 s / 212 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2005_bruteforce_optimized.py`: 0.078 s / 732 KB; base didáctica conservada `2005_bruteforce.py`: 0.093 s / 432 KB.
+
+`2005_bruteforce_optimized.java`. Java sigue enumerando todas las rutas permitidas entre cinco puntos. Elige el penúltimo vértice c, con índices desde cero, en {1,3}, luego cualquiera de los otros dos como a; el vértice intermedio restante es b=6-a-c. Genera exactamente las cuatro rutas legales sin filtrar 27 ternas. Una matriz plana de 25 int sustituye los arreglos anidados; durante la búsqueda conserva solo el coste ganador y tres índices, y crea un único arreglo de resultado al final. Entrada y salida de bytes sustituyen el análisis y formato generales. Cualquier testigo óptimo empatado es válido. Tiempo y espacio O(1) para estos cinco puntos fijos.
+
+Accepted exacto Java 1.8 #11327443: 0.078 s / 360 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/170, memoria 3/170. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324781 era 0.125 s / 496 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2005_bruteforce_optimized.java`: 0.078 s / 360 KB; base didáctica conservada `2005_bruteforce.java`: 0.125 s / 1616 KB.
 
 `2005_bruteforce_optimized.rs`. Mantiene rutas exhaustivas de cinco puntos, lee directamente a 25 i64 y deriva tercer vértice intermedio 6-a-b. Elimina tercer bucle redundante y vector de entrada. Emite los cinco vértices sin cadenas formateadas. Conserva cuatro rutas legales y orden de empates, con aritmética exacta más ancha. Tiempo y espacio constantes.
 
 Frente a `2005_bruteforce.rs`: tiempo 0.031 s → 0.015 s; memoria 236 KB → 48 KB.
 
-`2005_bruteforce_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
-
-Frente a `2005_bruteforce.java`: tiempo 0.125 s → 0.125 s; memoria 1616 KB → 496 KB.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`2005_bruteforce_optimized.java`: puesto de tiempo 106/170 y de memoria 13/170 en esta muestra comparable.
-
-`2005_bruteforce_optimized.py`: puesto de tiempo 33/50 y de memoria 1/50 en esta muestra comparable.
 
 `2005_bruteforce_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -104,9 +104,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.125 s | 496 KB | 11324781 |
-| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | PyPy 3.10 x64 | bruteforce | O(1), fixed five points | AC | 0.109 s | 212 KB | 11325492 |
+| [2005_bruteforce_optimized.java](2005_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(1) | AC | 0.078 s | 360 KB | 11327443 |
+| [2005_bruteforce_optimized.py](2005_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(1), fixed five points | AC | 0.078 s | 732 KB | 11327537 |
 | [2005_bruteforce_optimized.rs](2005_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(1), fixed five points | AC | 0.015 s | 48 KB | 11325508 |
-
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

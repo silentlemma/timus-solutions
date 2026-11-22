@@ -1,18 +1,16 @@
-import os
-from sys import stdout
+from itertools import permutations
+from os import _exit, write
 
 POINTS = 5
 FIRST = 1
 FORBIDDEN_LAST = 2
 LAST = POINTS - 2
-MIDDLE_SUM = sum(range(FIRST, LAST + 1))
-costs = list(map(int, open(0, "rb", buffering=0).read().split()))
-best = route = None
-for a in range(FIRST, LAST + 1):
-    for b in range(FIRST, LAST + 1):
-        if a == b:
-            continue
-        c = MIDDLE_SUM - a - b
+
+
+def main():
+    costs = list(map(int, open(0, "rb", buffering=0).read().split()))
+    best = route = None
+    for a, b, c in permutations(range(FIRST, LAST + 1)):
         if c == FORBIDDEN_LAST:
             continue
         cost = (
@@ -22,10 +20,10 @@ for a in range(FIRST, LAST + 1):
             + costs[POINTS * c + POINTS - 1]
         )
         if best is None or cost < best:
-            best, route = cost, (1, a + 1, b + 1, c + 1, POINTS)
-print(best)
-print(*route)
+            best, route = cost, (a + 1, b + 1, c + 1)
+    answer = str(best) + "\n1 " + " ".join(map(str, route)) + " 5\n"
+    write(1, answer.encode())
+    _exit(0)
 
-# Flush the complete answer before skipping interpreter teardown.
-stdout.flush()
-os._exit(0)
+
+main()
