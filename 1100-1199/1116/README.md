@@ -75,9 +75,11 @@ equal values back into intervals, on every test and 100 random pairs.
 
 ## Optimized solutions
 
-The C++ and Go versions store each interval as three signed 16-bit values. They keep the first list and read the second as needed, retaining only the current masking interval. Each masking interval is read at most once. The output intervals are collected in a compact array because their count must be printed first. Time is O(N1 + N2).
+The C++ revision retains signed 16-bit interval fields and the linear masking sweep. Fixed 16 KB input/output buffers replace per-field scanf and printf calls, including signed endpoints and values. The result count is still known before its compact interval array is printed.
 
-The accepted G++ 13.2 x64 run takes 0.062 s versus 0.046 s for the base and uses 444 KB versus 1880 KB.
+Exact-source Accepted (G++ 13.2 x64, #11326648: 0.015 s / 412 KB); teaching base `1116_two_pointers.cpp`: 0.046 s / 1880 KB. The previous optimized measurement was 0.062 s / 444 KB. In the saved 20 November 2026 comparison, time place is 1/37, memory place 2/37; below 1 MiB the policy evaluates the time rank only.
+
+The C++ and Go versions store each interval as three signed 16-bit values. They keep the first list and read the second as needed, retaining only the current masking interval. Each masking interval is read at most once. The output intervals are collected in a compact array because their count must be printed first. Time is O(N1 + N2).
 
 The accepted base implementations [1116_two_pointers.java](1116_two_pointers.java), [1116_two_pointers.py](1116_two_pointers.py), [1116_two_pointers.rs](1116_two_pointers.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
@@ -104,7 +106,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1116_two_pointers_optimized.cpp](1116_two_pointers_optimized.cpp) \* | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.062 s | 444 KB | 11310386 |
+| [1116_two_pointers_optimized.cpp](1116_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N1 + N2) | AC | 0.015 s | 412 KB | 11326648 |
 | [1116_two_pointers_optimized.go](1116_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(N1 + N2) | AC | 0.031 s | 1712 KB | 11310385 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
