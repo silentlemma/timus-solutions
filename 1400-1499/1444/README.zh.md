@@ -74,12 +74,18 @@ K，然后按吃的顺序给出南瓜编号，每行一个。任何正确的路�
 
 ## 优化解法
 
+`1444_geometry_optimized.py`. 保留精确打包角序、Manhattan 距离/编号并列字段、排序及半圈空隙选择。把构造移入 main，让热点状态使用局部变量而非模块字典查找。坐标界、整数角序分离和输出顺序不变，不引入浮点角近似。时间 O(N log N)，空间 O(N)。新运行更快，但为 4100 KB，旧优化版为 3976 KB；保留全部教学版。
+
+精确源代码 CPython 3.12 Accepted #11326683：0.14 s / 4100 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 2/74，内存排名 1/74。至少 1024 KB：两个严格指标均须通过，两项已通过。
+
+- `1444_geometry_optimized.py`: 0.14 s / 4100 KB; 保留的教学基础版 `1444_geometry.py` (Python 3.12 x64): 0.453 s / 11600 KB; 时间变化 -69.1%; 内存变化 -64.7%.
+
 排序使用精确打包整数方向键，避免反复比较叉积。基于曼哈顿长度的有理参数沿圆周单调变化。坐标上界保证不同分数的最小间隔，因此放大取整不会合并不同方向。键包含方向秩、距离平方及原编号，同射线仍按由近到远排列。角度间隙给出与基础证明相同的循环切点，不计算浮点角度。
 
 - `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; 基础版 `1444_geometry.cpp`: 0.062 s / 444 KB; 相对基础版的变化: 时间 -75.8%, 内存 -27.9%.
 - `1444_geometry_optimized.go`: 0.031 s / 1188 KB; 基础版 `1444_geometry.go`: 0.078 s / 2336 KB; 相对基础版的变化: 时间 -60.3%, 内存 -49.1%.
 - `1444_geometry_optimized.java`: 0.093 s / 736 KB; 基础版 `1444_geometry.java`: 0.187 s / 6232 KB; 相对基础版的变化: 时间 -50.3%, 内存 -88.2%.
-- `1444_geometry_optimized.py`: 0.171 s / 3976 KB; 基础版 `1444_geometry.py`: 0.453 s / 11600 KB; 相对基础版的变化: 时间 -62.3%, 内存 -65.7%.
+
 - `1444_geometry_optimized.rs`: 0.046 s / 1244 KB; 基础版 `1444_geometry.rs`: 0.031 s / 2104 KB; 相对基础版的变化: 时间 +48.4%, 内存 -40.9%.
 
 ## 语言说明
@@ -92,7 +98,7 @@ K，然后按吃的顺序给出南瓜编号，每行一个。任何正确的路�
 
 - Java: 优先教学基础版 `1444_geometry.java`; 覆盖实现 `1444_geometry_optimized.java`; 时间/内存名次 1/1, 其他作者记录 6/6.
 
-- Python/PyPy: 优先教学基础版 `1444_geometry.py`; 覆盖实现 `1444_geometry_optimized.py`; 时间/内存名次 13/1, 其他作者记录 59/59.
+- Python/PyPy: 精确源代码 CPython 3.12 Accepted #11326683：0.14 s / 4100 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 2/74，内存排名 1/74。至少 1024 KB：两个严格指标均须通过，两项已通过。
 
 - Rust: 优先教学基础版 `1444_geometry.rs`; 覆盖实现 `1444_geometry_optimized.rs`; 时间/内存名次 1/2, 其他作者记录 1/1.
 
@@ -117,7 +123,7 @@ K，然后按吃的顺序给出南瓜编号，每行一个。任何正确的路�
 | [1444_geometry_optimized.cpp](1444_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 320 KB | 11309261 |
 | [1444_geometry_optimized.go](1444_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1188 KB | 11309263 |
 | [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
-| [1444_geometry_optimized.py](1444_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 3976 KB | 11309260 |
+| [1444_geometry_optimized.py](1444_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.14 s | 4100 KB | 11326683 |
 | [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
 
 \* Accepted；尚未达到排名目标，此实现仍可继续优化。

@@ -88,12 +88,18 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1444_geometry_optimized.py`. Keep the same exact packed angular ranks, Manhattan-distance and ID tie fields, sorting and half-turn gap selection. Move construction into main so hot-loop state uses local variables rather than module dictionary lookups. Coordinate bounds, integer rank separation and output order are unchanged; no floating angle approximation is added. O(N log N) time and O(N) storage. The new run is faster but uses 4100 KB versus the previous optimized 3976 KB; all teaching sources remain.
+
+Exact-source CPython 3.12 Accepted #11326683: 0.14 s / 4100 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 2/74, memory rank 1/74. At least 1024 KB: both strict metrics are required and pass.
+
+- `1444_geometry_optimized.py`: 0.14 s / 4100 KB; retained teaching base `1444_geometry.py` (Python 3.12 x64): 0.453 s / 11600 KB; time change -69.1%; memory change -64.7%.
+
 Replace repeated cross-product comparisons during sorting with exact packed integer direction keys. A rational parameter based on Manhattan length is monotone around the origin. The coordinate bound gives a minimum separation between distinct fractions, so scaling and taking the floor cannot merge distinct directions. Pack the direction rank, squared distance and original index; same-ray points still appear nearest first. The angular gap identifies the same cyclic cut as the simple proof. No floating-point angle is used.
 
 - `1444_geometry_optimized.cpp`: 0.015 s / 320 KB; base `1444_geometry.cpp`: 0.062 s / 444 KB; relative change: time -75.8%, memory -27.9%.
 - `1444_geometry_optimized.go`: 0.031 s / 1188 KB; base `1444_geometry.go`: 0.078 s / 2336 KB; relative change: time -60.3%, memory -49.1%.
 - `1444_geometry_optimized.java`: 0.093 s / 736 KB; base `1444_geometry.java`: 0.187 s / 6232 KB; relative change: time -50.3%, memory -88.2%.
-- `1444_geometry_optimized.py`: 0.171 s / 3976 KB; base `1444_geometry.py`: 0.453 s / 11600 KB; relative change: time -62.3%, memory -65.7%.
+
 - `1444_geometry_optimized.rs`: 0.046 s / 1244 KB; base `1444_geometry.rs`: 0.031 s / 2104 KB; relative change: time +48.4%, memory -40.9%.
 
 ## Language notes
@@ -106,7 +112,7 @@ The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% 
 
 - Java: preferred teaching base `1444_geometry.java`; covering source `1444_geometry_optimized.java`; time/memory places 1/1, other-author entries 6/6.
 
-- Python/PyPy: preferred teaching base `1444_geometry.py`; covering source `1444_geometry_optimized.py`; time/memory places 13/1, other-author entries 59/59.
+- Python/PyPy: Exact-source CPython 3.12 Accepted #11326683: 0.14 s / 4100 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 2/74, memory rank 1/74. At least 1024 KB: both strict metrics are required and pass.
 
 - Rust: preferred teaching base `1444_geometry.rs`; covering source `1444_geometry_optimized.rs`; time/memory places 1/2, other-author entries 1/1.
 
@@ -131,7 +137,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1444_geometry_optimized.cpp](1444_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N log N) | AC | 0.015 s | 320 KB | 11309261 |
 | [1444_geometry_optimized.go](1444_geometry_optimized.go) | Go 1.14 x64 | geometry | O(N log N) | AC | 0.031 s | 1188 KB | 11309263 |
 | [1444_geometry_optimized.java](1444_geometry_optimized.java) | Java 1.8 | geometry | O(N log N) | AC | 0.093 s | 736 KB | 11309262 |
-| [1444_geometry_optimized.py](1444_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.171 s | 3976 KB | 11309260 |
+| [1444_geometry_optimized.py](1444_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(N log N) | AC | 0.14 s | 4100 KB | 11326683 |
 | [1444_geometry_optimized.rs](1444_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(N log N) | AC | 0.046 s | 1244 KB | 11309264 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
