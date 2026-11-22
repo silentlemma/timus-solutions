@@ -55,7 +55,13 @@ are not needed. `O(1)`.
 
 ## Optimized solutions
 
-The optimized solutions (C++, Java) compute the same two differences.
+`2001_math_optimized.java`. Keep the two exact differences a1−a3 and b1−b2 after reading all six values. O(1) arithmetic and fixed buffers. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
+
+Exact-source Java 1.8 Accepted #11327769: 0.078 s / 364 KB. Saved 2026-11-20 compiler-cohort comparison: time 3/1109, memory 7/1109. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303655 was 0.125 s / 344 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `2001_math_optimized.java`: 0.078 s / 364 KB; retained teaching base `2001_math.java`: 0.156 s / 1608 KB.
+
+Historical previous-revision description and measurements: The optimized solutions (C++, Java) compute the same two differences.
 C++ skips the readings a2 and b3 with `%*d` in `scanf` instead of using
 `iostream`: 124 KB instead of 396 KB, with the same time. Java parses
 the numbers by hand from `System.in` instead of using `Scanner`: 0.125 s
@@ -82,9 +88,8 @@ Parse all six values from bytes and unpack only the four used for the two differ
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
-| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
 | [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
 | [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

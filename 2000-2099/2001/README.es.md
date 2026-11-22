@@ -54,7 +54,13 @@ falta. `O(1)`.
 
 ## Soluciones optimizadas
 
-Las soluciones optimizadas (C++, Java) calculan las mismas dos
+`2001_math_optimized.java`. Lee los seis valores y conserva diferencias exactas a1−a3 y b1−b2. O(1) aritmética y búferes fijos. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
+
+Accepted exacto Java 1.8 #11327769: 0.078 s / 364 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/1109, memoria 7/1109. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303655 era 0.125 s / 344 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2001_math_optimized.java`: 0.078 s / 364 KB; base didáctica conservada `2001_math.java`: 0.156 s / 1608 KB.
+
+Descripción y mediciones históricas de la revisión anterior: Las soluciones optimizadas (C++, Java) calculan las mismas dos
 diferencias. C++ salta las lecturas a2 y b3 con `%*d` en `scanf` en
 lugar de usar `iostream`: 124 KB en lugar de 396 KB, con el mismo
 tiempo. Java analiza los números a mano desde `System.in` en lugar de
@@ -82,9 +88,8 @@ Leer los seis valores desde bytes y usar solo los cuatro necesarios para las dos
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2001_math_optimized.cpp](2001_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 124 KB | 11303653 |
-| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 344 KB | 11303655 |
+| [2001_math_optimized.java](2001_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 364 KB | 11327769 |
 | [2001_math_optimized.go](2001_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 916 KB | 11301801 |
 | [2001_math_optimized.py](2001_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 364 KB | 11301805 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
