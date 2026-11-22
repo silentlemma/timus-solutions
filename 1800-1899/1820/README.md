@@ -80,7 +80,7 @@ Compared with `1820_math.cpp`: time 0.031 s → 0.015 s; memory 124 KB → 72 KB
 
 `1820_math_optimized.go`. Keep the same frying bound and construction. Portable os.File byte streams and bounded input/output buffers replace fmt scanning and printing; the ceiling uses int64 arithmetic. Only the two inputs and the answer are retained, so the algorithm uses O(1) time and fixed auxiliary storage.
 
-Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 808 KB.
+Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 824 KB.
 
 ## Solutions
 
@@ -100,7 +100,7 @@ Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 808 K
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
-| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
+| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
 | [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -81,7 +81,7 @@ Frente a `1820_math.cpp`: tiempo 0.031 s → 0.015 s; memoria 124 KB → 72 KB.
 
 `1820_math_optimized.go`. Mantiene la misma cota y construcción de cocción. Flujos portátiles de bytes os.File y búferes acotados sustituyen fmt; calcula el techo con int64. Solo retiene las dos entradas y la respuesta, con O(1) tiempo y almacenamiento auxiliar fijo.
 
-Frente a `1820_math.go`: tiempo 0.046 s → 0.031 s; memoria 1076 KB → 808 KB.
+Frente a `1820_math.go`: tiempo 0.046 s → 0.031 s; memoria 1076 KB → 824 KB.
 
 ## Soluciones
 
@@ -101,7 +101,7 @@ Frente a `1820_math.go`: tiempo 0.046 s → 0.031 s; memoria 1076 KB → 808 KB.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
-| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
+| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
 | [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

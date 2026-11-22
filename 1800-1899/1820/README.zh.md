@@ -71,7 +71,7 @@ n 和 k（1 ≤ n, k ≤ 1000）。
 
 `1820_math_optimized.go`. 保留相同的煎制下界及构造。可移植 os.File 字节流和有界输入输出缓冲区替代 fmt，以 int64 精确向上取整。只保留两个输入和答案，因此算法时间 O(1)，额外存储固定。
 
-与 `1820_math.go` 相比：时间 0.046 s → 0.031 s；内存 1076 KB → 808 KB。
+与 `1820_math.go` 相比：时间 0.046 s → 0.031 s；内存 1076 KB → 824 KB。
 
 ## 解答
 
@@ -91,7 +91,7 @@ n 和 k（1 ≤ n, k ≤ 1000）。
 |----|----|----|-----|------|----|----|------|
 | [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
-| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
+| [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 824 KB | 11328310 |
 | [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
