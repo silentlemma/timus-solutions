@@ -2,8 +2,6 @@ package main
 
 import "syscall"
 
-const maxInt64Digits = 20
-
 const inputCapacity = 256
 const outputCapacity = 64
 

@@ -96,7 +96,7 @@ Detalles a tener en cuenta:
 
 `1612_strings_optimized.go`. Dos estados de palabra en flujo reconocen tram y trolleybus. Solo letras ASCII minúsculas forman palabra; separadores y EOF la cierran. Evita cadena completa y lista FieldsFunc, con misma semántica de palabras enteras. O(I) tiempo para I bytes y espacio constante. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
 
-Frente a `1612_strings.go`: tiempo 0.031 s → 0.031 s; memoria 1124 KB → 276 KB.
+Frente a `1612_strings.go`: tiempo 0.031 s → 0.015 s; memoria 1124 KB → 296 KB.
 
 La solución optimizada en C++ reúne cada palabra en un arreglo fijo de
 `char` de 11 bytes en lugar de un `std::string`: solo pueden coincidir
@@ -152,6 +152,6 @@ implementación para alcanzar el objetivo.
 |---|---|---|---|---|---|---|---|
 | [1612_strings_optimized.cpp](1612_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 68 KB | 11305846 |
 | [1612_strings_optimized.java](1612_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 404 KB | 11305849 |
-| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.031 s | 276 KB | 11325657 |
+| [1612_strings_optimized.go](1612_strings_optimized.go) \* | Go 1.14 x64 | strings | O(I) time; O(1) space | AC | 0.015 s | 296 KB | 11328278 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
