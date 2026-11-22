@@ -78,9 +78,14 @@ de 2 a 7.
 
 ## Soluciones optimizadas
 
+`1255_math_optimized.java`. Mantiene fórmula exacta del cuadrado de esquina: N<K da cero; si no r=N mod K, s=min(r,K-r), respuesta (N*N-s*s)/K. Sin flotantes ni tabla. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
+
+Accepted exacto Java 1.8 #11327763: 0.078 s / 340 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/27, memoria 2/27. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11309313 era 0.109 s / 320 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1255_math_optimized.java`: 0.078 s / 340 KB; base didáctica conservada `1255_math.java`: 0.125 s / 1600 KB.
+
 Se usa la misma fórmula entera del cuadrado de esquina: r=N mod K, s=min(r,K-r); si N>=K, (N*N-s*s)//K; en caso contrario cero. No hay redondeos ni tabla de respuestas. El archivo compacto lee el flujo de texto existente y escribe directamente el entero exacto. Su envío propio en PyPy acredita el ahorro; se declaran el intérprete y el aumento temporal. Se conservan las cinco bases.
 
-- `1255_math_optimized.java`: 0.109 s / 320 KB; base `1255_math.java`: 0.125 s / 1600 KB; cambio respecto a la base: tiempo -12.8%, memoria -80.0%.
 - `1255_math_optimized.py`: 0.140 s / 248 KB; base `1255_math.py`: 0.078 s / 376 KB; cambio respecto a la base: tiempo +79.5%, memoria -34.0%.
 
 ## Notas por lenguaje
@@ -115,7 +120,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 320 KB | 11309313 |
+| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

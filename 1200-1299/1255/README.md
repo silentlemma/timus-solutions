@@ -78,9 +78,14 @@ The formula was compared with an exhaustive search for all N and K from
 
 ## Optimized solutions
 
+`1255_math_optimized.java`. Keep the exact corner-square formula: if N<K output zero; otherwise r=N mod K, s=min(r,K-r), answer=(N*N-s*s)/K. No floating-point arithmetic or answer table. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
+
+Exact-source Java 1.8 Accepted #11327763: 0.078 s / 340 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/27, memory 2/27. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11309313 was 0.109 s / 320 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1255_math_optimized.java`: 0.078 s / 340 KB; retained teaching base `1255_math.java`: 0.125 s / 1600 KB.
+
 Use exactly the same integer corner-square formula as the teaching sources. For r=N mod K, let s=min(r,K-r); if N>=K, return (N*N-s*s)//K, otherwise zero. No floating-point rounding or answer table is involved. The compact source reads the existing text stream and writes the exact integer directly. Its own PyPy run supplies the memory saving; interpreter identity and the increased runtime are explicit below. The five simple files remain unchanged.
 
-- `1255_math_optimized.java`: 0.109 s / 320 KB; base `1255_math.java`: 0.125 s / 1600 KB; relative change: time -12.8%, memory -80.0%.
 - `1255_math_optimized.py`: 0.140 s / 248 KB; base `1255_math.py`: 0.078 s / 376 KB; relative change: time +79.5%, memory -34.0%.
 
 ## Language notes
@@ -115,7 +120,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 320 KB | 11309313 |
+| [1255_math_optimized.java](1255_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 340 KB | 11327763 |
 | [1255_math_optimized.py](1255_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 248 KB | 11309692 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
