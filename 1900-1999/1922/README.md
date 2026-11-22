@@ -106,13 +106,13 @@ Compared with `1922_sorting.java`: time 0.109 s → 0.125 s; memory 9 504 KB →
 
 The C++, Go and Rust variants pack each threshold and original index into one integer. The index occupies the low ten bits, so sorting the packed integers sorts by threshold first. The boundary test stays the same. Store only the sizes of reliable teams, then print each sorted prefix directly. For R printed indices, the running time is O(n log n + R) and the memory usage is O(n).
 
-The accepted G++ 13.2 x64 run takes 0.046 s versus 0.015 s for the base and uses 180 KB versus 1452 KB.
+The C++ revision keeps the same packed sort and qualifying-prefix test, with 16 KB input/output buffers. Its exact-source Accepted is 0.015 s / 152 KB; the teaching base is 0.015 s / 1452 KB. The C++ rating check uses the saved 20 November 2026 snapshot.
 
 The accepted base implementations [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
+Earlier additions were compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
 `1922_sorting_optimized.java`: time place 4/18, memory place 1/18 in this comparable sample.
 
@@ -134,7 +134,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.046 s | 180 KB | 11310394 |
+| [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 152 KB | 11326637 |
 | [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
 | [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
 | [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |

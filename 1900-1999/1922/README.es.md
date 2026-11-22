@@ -103,13 +103,13 @@ Frente a `1922_sorting.java`: tiempo 0.109 s → 0.125 s; memoria 9 504 KB → 5
 
 Las versiones en C++, Go y Rust guardan el umbral y el índice original en un solo entero. El índice ocupa los diez bits inferiores, así que al ordenar estos enteros se compara primero el umbral. La condición en cada frontera sigue siendo la misma. Se guardan solo los tamaños de los equipos fiables y luego se imprime directamente cada prefijo ordenado. Si se imprimen R índices, el tiempo es O(n log n + R) y el espacio es O(n).
 
-El envío aceptado en G++ 13.2 x64 tarda 0.046 s frente a 0.015 s de la base y usa 180 KB frente a 1452 KB.
+La revisión C++ conserva la ordenación empaquetada y la misma prueba de prefijos válidos, con búferes de entrada y salida de 16 KB. Su Accepted de fuente exacto mide 0.015 s / 152 KB; la base didáctica, 0.015 s / 1452 KB. La comprobación de clasificación de C++ usa la instantánea guardada del 20 de noviembre de 2026.
 
 Las implementaciones base aceptadas [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
+Las incorporaciones anteriores se compararon con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
 `1922_sorting_optimized.java`: puesto de tiempo 4/18 y de memoria 1/18 en esta muestra comparable.
 
@@ -131,7 +131,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.046 s | 180 KB | 11310394 |
+| [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 152 KB | 11326637 |
 | [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
 | [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
 | [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
