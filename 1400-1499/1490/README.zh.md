@@ -79,6 +79,12 @@ R。
 
 ## 优化解法
 
+`1490_two_pointers_optimized.java`. 保留圆的单调扫描，以 1024 字节整数输入和 20 字节十进制答案缓冲替代 StreamTokenizer/println。每个第一象限列统计最近角严格在圆内，等于 radiusSquared 排除。y 仅递减，O(R) 时间、O(1) 工作状态。平方和答案用 long：R<=100000，答案<=4*R^2。同一 two_pointers 算法的快实现命名 _optimized，保留前实现及独立 math 教学版。
+
+精确源码：Java 1.8 Accepted #11327524: 0.078 s / 352 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/52; 1/52。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11307985 (Java 1.8): 0.125 s / 456 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1490_two_pointers_optimized.java`: 0.078 s / 352 KB; 保留教学版 `1490_math.java` (Java 1.8): 0.109 s / 1612 KB.
+
 保留平方根教学源码。two_pointers遍历x=0..R-1，维护第一象限最近角严格位于圆内的数量y。当x*x+(y-1)*(y-1)>=R*R时减y，累加y，最后乘四。边界单调，全程y至多减R次，因此O(R)整数操作、常量工作状态。等号排除相切格，不用浮点舍入，也不重复计算坐标轴。R<=100000使平方和答案都适合有符号64位。Python明确关闭PyPy JIT以限制代码缓存，并去掉额外函数帧；更慢时间与更少内存如下分别列出。
 
 - `1490_two_pointers.java`: 0.125 s / 456 KB; 基础 `1490_math.java`: 0.109 s / 1612 KB; 相对变化: 时间 +14.7%, 内存 -71.7%.
@@ -118,6 +124,7 @@ R。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1490_two_pointers.java](1490_two_pointers.java) \* | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.125 s | 456 KB | 11307985 |
+| [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
 | [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
 

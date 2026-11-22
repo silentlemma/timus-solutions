@@ -86,6 +86,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1490_two_pointers_optimized.java`. Keep the monotone circle scan, now with a 1024-byte integer reader and a 20-byte decimal answer buffer instead of StreamTokenizer and println. In each first-quadrant column count nearest corners strictly inside the disc: equality with radiusSquared is excluded. The y pointer only decreases, giving O(R) time and O(1) working state. All squared coordinates and the answer use long; R<=100000 and answer<=4*R^2. This _optimized implementation keeps the same two_pointers algorithm; retain its earlier implementation and the separate math teaching solution.
+
+Exact-source Java 1.8 Accepted #11327524: 0.078 s / 352 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/52; 1/52. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics rank first; no asterisk. The preserved previous variant has its own paired receipt #11307985 (Java 1.8): 0.125 s / 456 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1490_two_pointers_optimized.java`: 0.078 s / 352 KB; retained teaching base `1490_math.java` (Java 1.8): 0.109 s / 1612 KB.
+
 Keep the square-root teaching sources. The two_pointers versions sweep x=0..R-1 and maintain the number y of first-quadrant nearest corners strictly inside the disc. Decrease y while x*x+(y-1)*(y-1)>=R*R, add y and multiply the final sum by four. The boundary is monotone, so y decreases at most R times over the whole sweep: O(R) integer operations and constant working state. Equality is outside, preventing tangent cells from being counted; no floating-point rounding or coordinate-axis double counting is involved. R<=100000 keeps squares and the final answer within signed64bits. Python explicitly disables PyPy JIT for bounded code-cache memory and runs its single body without an extra frame. Its slower time/lower memory tradeoff is stated below.
 
 - `1490_two_pointers.java`: 0.125 s / 456 KB; base `1490_math.java`: 0.109 s / 1612 KB; relative change: time +14.7%, memory -71.7%.
@@ -125,6 +131,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1490_two_pointers.java](1490_two_pointers.java) \* | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.125 s | 456 KB | 11307985 |
+| [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
 | [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
 

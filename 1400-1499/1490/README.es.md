@@ -87,6 +87,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1490_two_pointers_optimized.java`. Mantiene el barrido monótono del círculo, con lector entero de 1024 bytes y salida decimal de 20 en vez de StreamTokenizer/println. Cuenta esquinas cercanas estrictamente dentro en cada columna del primer cuadrante; excluye igualdad con radiusSquared. y solo baja: O(R) tiempo, O(1) estado. Cuadrados y respuesta long, R<=100000, respuesta<=4*R^2. _optimized conserva two_pointers; mantiene la implementación anterior y la base math.
+
+Fuente exacto: Java 1.8 Accepted #11327524: 0.078 s / 352 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/52; 1/52. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11307985 (Java 1.8): 0.125 s / 456 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1490_two_pointers_optimized.java`: 0.078 s / 352 KB; base didáctica conservada `1490_math.java` (Java 1.8): 0.109 s / 1612 KB.
+
 Se conservan las bases con raíz cuadrada. two_pointers recorre x=0..R-1 manteniendo y esquinas cercanas del primer cuadrante estrictamente dentro del disco. Mientras x*x+(y-1)*(y-1)>=R*R se reduce y; se suma y y al final se multiplica por cuatro. La frontera es monótona: y baja como máximo R veces, O(R) operaciones enteras y estado constante. La igualdad queda fuera y excluye tangencias, sin redondeos ni doble conteo de ejes. R<=100000 cabe en64bits con signo. Python desactiva explícitamente el JIT PyPy para acotar caché y elimina un marco adicional; se declara el intercambio de mayor tiempo por menor memoria.
 
 - `1490_two_pointers.java`: 0.125 s / 456 KB; base `1490_math.java`: 0.109 s / 1612 KB; cambio respecto a la base: tiempo +14.7%, memoria -71.7%.
@@ -126,6 +132,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1490_two_pointers.java](1490_two_pointers.java) \* | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.125 s | 456 KB | 11307985 |
+| [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
 | [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
 
