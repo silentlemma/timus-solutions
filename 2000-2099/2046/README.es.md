@@ -134,7 +134,7 @@ Go original usa scanner; C++/Go nuevos leen nombres completos y celdas fijas. Co
 |---|---|---|---|---|---|---|---|
 | [2046_implementation.cpp](2046_implementation.cpp) | G++ 13.2 x64 | implementation | O(L+WCH) | AC | 0.015 s | 436 KB | 11293468 |
 | [2046_implementation.go](2046_implementation.go) | Go 1.14 x64 | implementation | O(L+WCH) | AC | 0.031 s | 1112 KB | 11293471 |
-| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 580 KB | 11293476 |
+| [2046_implementation.java](2046_implementation.java) | Java 1.8 | implementation | O(L+WCH) | AC | 0.093 s | 524 KB | 11328370 |
 | [2046_implementation.py](2046_implementation.py) \* | Python 3.12 x64 | implementation | O(L+WCH) | AC | 0.078 s | 536 KB | 11293472 |
 | [2046_implementation.rs](2046_implementation.rs) \* | Rust 1.75 x64 | implementation | O(L+WCH) | AC | 0.015 s | 232 KB | 11293480 |
 
