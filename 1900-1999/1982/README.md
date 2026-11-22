@@ -99,20 +99,18 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1982_greedy_optimized.py`. Keep dense Prim with zero initial keys for already supplied vertices. Select the minimum only among remaining vertices using native min(key=best.__getitem__), remove the chosen vertex, and relax only remaining cells. Retain line-token input and 32-bit unsigned matrix rows; costs<=100000 fit array("I"). Replacing the Python selection loop does not change Prim’s invariant or O(N²) time/O(N²) matrix space. The run uses 536 KB versus 520 KB previously, with lower time; preserve the teaching implementation.
+
+Exact-source CPython 3.12 Accepted #11326676: 0.078 s / 536 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 3/134, memory rank 1/134. Below 1024 KB, strict admission uses time only.
+
+- `1982_greedy_optimized.py`: 0.078 s / 536 KB; retained teaching base `1982_greedy.py` (Python 3.12 x64): 0.078 s / 1492 KB; time change +0.0%; memory change -64.1%.
+
 The optimized C++ solution parses the numbers by hand from a 4 KB buffer
 that it refills with `fread`, instead of `iostream`, and keeps the costs
 in a fixed 100 × 100 matrix of `int` instead of a vector of `long long`
 rows. Since `n≤100` and every cost is at most `10⁵`, the keys and the
 answer, at most 9,900,000, fit in `int` too, and `10⁵ + 1` serves as
 infinity: {1982_greedy_optimized.cpp}.
-
-The optimized Python solution takes the tokens line by line from a
-generator over `sys.stdin.buffer` instead of splitting the whole input
-at once, and stores each row of costs in an `array("I")` of 32-bit
-unsigned numbers instead of a list of integer objects; costs up to `10⁵`
-fit there. It also picks the vertex with the least key by a plain loop
-instead of building a tuple for every candidate, and uses `10⁵ + 1` as
-infinity: {1982_greedy_optimized.py}.
 
 The optimized Rust solution parses the numbers from a 4 KB `BufReader`
 that refills itself, instead of reading the whole input into a string,
@@ -131,8 +129,7 @@ asterisk concerns the rating target only.
 - `1982_greedy_optimized.cpp`: time reduction +0.00%; memory reduction
   +76.61%; base: `1982_greedy.cpp`.
 
-- `1982_greedy_optimized.py`: time reduction -19.23%; memory reduction
-  +65.15%; base: `1982_greedy.py`.
+
 
 - `1982_greedy_optimized.rs`: time reduction -106.67%; memory reduction
   +46.36%; base: `1982_greedy.rs`.
@@ -167,7 +164,7 @@ integer totals and keys; Python uses exact integers.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1982_greedy_optimized.cpp](1982_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 116 KB | 11304427 |
-| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.093 s | 520 KB | 11304429 |
+| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 536 KB | 11326676 |
 | [1982_greedy_optimized.rs](1982_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.031 s | 236 KB | 11304428 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

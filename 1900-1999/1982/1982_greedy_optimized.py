@@ -10,21 +10,20 @@ def main():
     n, k = next(tokens), next(tokens)
     # every cost is at most MAX_COST, so MAX_COST + 1 works as infinity
     best = [MAX_COST + 1] * n
-    used = [False] * n
+    remaining = list(range(n))
     for _ in range(k):
         best[next(tokens) - 1] = 0
     # costs <= 100000 fit the judge's 32-bit unsigned array elements.
     cost = [array("I", (next(tokens) for _ in range(n))) for _ in range(n)]
     answer = 0
     for _ in range(n):
-        vertex = -1
-        for v in range(n):
-            if not used[v] and (vertex < 0 or best[v] < best[vertex]):
-                vertex = v
+        vertex = min(remaining, key=best.__getitem__)
         answer += best[vertex]
-        used[vertex] = True
-        for v, price in enumerate(cost[vertex]):
-            if not used[v] and price < best[v]:
+        remaining.remove(vertex)
+        row = cost[vertex]
+        for v in remaining:
+            price = row[v]
+            if price < best[v]:
                 best[v] = price
     print(answer)
 

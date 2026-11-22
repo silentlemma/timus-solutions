@@ -67,15 +67,16 @@
 
 ## 优化解法
 
+`1982_greedy_optimized.py`. 保留稠密 Prim，已供给顶点初始键为零。仅在 remaining 中以原生 min(key=best.__getitem__) 选最小，移除所选顶点并只松弛其余项。保留逐行 token 与 32 位无符号矩阵行，cost<=100000 适合 array("I")。替代 Python 选择循环不改变 Prim 不变量或 O(N²) 时间/矩阵空间。本次 536 KB，旧版 520 KB，但时间更低；保留教学实现。
+
+精确源代码 CPython 3.12 Accepted #11326676：0.078 s / 536 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 3/134，内存排名 1/134。低于 1024 KB，严格收录只看时间。
+
+- `1982_greedy_optimized.py`: 0.078 s / 536 KB; 保留的教学基础版 `1982_greedy.py` (Python 3.12 x64): 0.078 s / 1492 KB; 时间变化 +0.0%; 内存变化 -64.1%.
+
 优化的 C++ 解法从一个 4 KB 的缓冲区手动解析数字，缓冲区用 `fread` 反复填充，而不
 是用 `iostream`；代价存放在固定的 100 × 100 `int` 矩阵中，而不是由 `long long`
 行组成的向量。因为 `n≤100`，每个代价不超过 `10⁵`，键值以及不超过 9,900,000 的答
 案也都放得进 `int`，并用 `10⁵ + 1` 表示无穷大：{1982_greedy_optimized.cpp}。
-
-优化的 Python 解法通过遍历 `sys.stdin.buffer` 的生成器逐行取出词元，而不是一次性
-切分全部输入；每行代价存放在 32 位无符号数的 `array("I")` 中，而不是整数对象的列
-表，不超过 `10⁵` 的代价都放得下。它还用普通循环选出键值最小的顶点，而不是为每个
-候选顶点构造元组，并用 `10⁵ + 1` 表示无穷大：{1982_greedy_optimized.py}。
 
 优化的 Rust 解法从一个会自动重新填充的 4 KB `BufReader` 中解析数字，而不是把全部
 输入读进字符串；代价存放在一个扁平的 `u32` 向量中，而不是由 `u64` 行组成的向量。
@@ -88,7 +89,7 @@
 
 - `1982_greedy_optimized.cpp`: 时间降低 +0.00%; 内存降低 +76.61%; 基础版本: `1982_greedy.cpp`.
 
-- `1982_greedy_optimized.py`: 时间降低 -19.23%; 内存降低 +65.15%; 基础版本: `1982_greedy.py`.
+
 
 - `1982_greedy_optimized.rs`: 时间降低 -106.67%; 内存降低 +46.36%; 基础版本: `1982_greedy.rs`.
 
@@ -117,7 +118,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1982_greedy_optimized.cpp](1982_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n^2) | AC | 0.015 s | 116 KB | 11304427 |
-| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.093 s | 520 KB | 11304429 |
+| [1982_greedy_optimized.py](1982_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n^2) | AC | 0.078 s | 536 KB | 11326676 |
 | [1982_greedy_optimized.rs](1982_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n^2) | AC | 0.031 s | 236 KB | 11304428 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
