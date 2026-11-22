@@ -68,6 +68,12 @@ of prefix sums on 150 random arrays up to `9 × 9`.
 
 ## Optimized solutions
 
+`1146_dp_prefix_sums.py`. Use signed-short vertical prefix arrays: N≤100 and entries −127..127 keep each prefix within ±12700. Each row-band is obtained by subtracting two prefix rows, then Kadane finds its best nonempty interval. Sum of all positive cells in a band is a sound upper bound; skip only bands that cannot beat the incumbent, handling all-nonpositive matrices separately. Parse 512-byte chunks and release the final token batch/row. O(N³) worst-case time, O(N²) storage; no heuristic pruning or empty rectangle. The incremental-column DP remains.
+
+Exact-source Python 3.12 x64 Accepted #11327772: 0.14 s / 972 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 5/81; 22/81. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11303714 (Python 3.12 x64): 0.171 s / 632 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1146_dp_prefix_sums.py`: 0.14 s / 972 KB; retained teaching base `1146_dp.py` (Python 3.12 x64): 0.187 s / 1372 KB.
+
 The optimized Python solution reads the input in 4 KB blocks, keeps each
 row in an `array` of bytes (every value is between −127 and 127) and
 adds a row to the column sums with `map` instead of a Python loop:
@@ -98,6 +104,7 @@ matrix in one flat vector of `i8` and reuses one vector of column sums:
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1146_dp_optimized.py](1146_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N³) | AC | 0.171 s | 632 KB | 11303714 |
+| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) \* | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
 | [1146_dp_optimized.rs](1146_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
 
 \* Not in the top 10 or the top 15% of the solutions in its language on

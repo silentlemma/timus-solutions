@@ -70,6 +70,12 @@ mediante una tabla de sumas prefijas en 150 arrays aleatorios de hasta
 
 ## Soluciones optimizadas
 
+`1146_dp_prefix_sums.py`. Prefijos verticales signed short: N≤100 y valores −127..127 limitan prefijos a ±12700. Resta dos filas prefijo y aplica Kadane no vacío. Suma de positivos es cota superior válida; omite solo bandas incapaces de mejorar, separando matriz no positiva. Lee bloques de 512 bytes y libera últimos tokens/fila. Peor caso O(N³), O(N²) espacio; sin poda heurística ni rectángulo vacío. Conserva DP anterior.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327772: 0.14 s / 972 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 5/81; 22/81. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11303714 (Python 3.12 x64): 0.171 s / 632 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1146_dp_prefix_sums.py`: 0.14 s / 972 KB; base didáctica conservada `1146_dp.py` (Python 3.12 x64): 0.187 s / 1372 KB.
+
 La solución optimizada en Python lee la entrada en bloques de 4 KB,
 guarda cada fila en un `array` de bytes (todos los valores están entre
 −127 y 127) y suma una fila a las sumas de columnas con `map` en lugar
@@ -100,6 +106,7 @@ aunque el tiempo sube de 0.015 s a 0.046 s.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1146_dp_optimized.py](1146_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N³) | AC | 0.171 s | 632 KB | 11303714 |
+| [1146_dp_prefix_sums.py](1146_dp_prefix_sums.py) \* | Python 3.12 x64 | dp, prefix_sums | O(N³) time; O(N²) storage | AC | 0.14 s | 972 KB | 11327772 |
 | [1146_dp_optimized.rs](1146_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) | AC | 0.046 s | 212 KB | 11303715 |
 
 \* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
