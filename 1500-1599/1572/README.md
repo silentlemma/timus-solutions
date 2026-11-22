@@ -92,9 +92,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-`1572_geometry_optimized.py`. Keep exact squared-chord comparisons using NARROWEST/WIDEST shape coefficients, including equality. Read each cover, test its scaled integer square, then discard it instead of retaining the covers list. O(n) time and constant geometric state plus token buffers. Flush the single answer before direct PyPy exit; the simple geometric derivation remains.
+`1572_geometry_optimized.py` is reused byte for byte. Its exact-source CPython 3.12 Accepted #11325457 records 0.078 s / 720 KB; the saved 2026-11-20 current Python-family compiler comparison gives time rank 4/28 and memory rank 18/28. Below 1024 KB, strict admission uses time only, so the top-ten criterion passes. The asterisk remains because the separate language target requires first place in both metrics. The unchanged source also has PyPy 3.10 Accepted #11325701, 0.14 s / 264 KB: PyPy uses less memory, while the selected CPython run has lower recorded time. These are paired measurements from different runs, not a combined result. No new source, algorithm or submission is needed; all teaching sources remain.
 
-Compared with `1572_geometry.py`: time 0.093 s → 0.14 s; memory 384 KB → 264 KB.
+`1572_geometry_optimized.py`. Keep exact squared-chord comparisons using NARROWEST/WIDEST shape coefficients, including equality. Read each cover, test its scaled integer square, then discard it instead of retaining the covers list. O(n) time and constant geometric state plus token buffers. Flush the single answer before direct interpreter exit; the simple geometric derivation remains.
+
+Compared with `1572_geometry.py`: selected CPython time 0.093 s → 0.078 s; memory 384 KB → 720 KB. Time is lower by 16.13%, while memory increases by 87.5%; this run qualifies by its time rank, not a 30% improvement. The earlier 0.14 s / 264 KB PyPy measurement is retained above as a memory tradeoff.
 
 `1572_geometry_optimized.rs`. Keep the same exact squared-chord comparison using NARROWEST and WIDEST shape factors, including equality. Read each cover directly, compare its u64 scaled square with the hole and discard it, instead of retaining the whole parsed vector. Direct output replaces formatting. O(n) time and O(1) auxiliary space; the readable geometric derivation and basic source remain.
 
@@ -108,10 +110,7 @@ comparison of the squared lengths is the same:
 
 ### Measured gains
 
-Each optimized version has Accepted and reduces time or memory by at
-least 30% against the base version in the same language. The base
-sources are retained. Negative reduction means increased cost. The
-asterisk concerns the rating target only.
+Each optimized version has Accepted and qualifies by the applicable ranking or improvement rule. The selected Python run qualifies by time rank; the Java reductions below describe its own paired metrics. The base sources are retained. Negative reduction means increased cost. The asterisk concerns the separate rating target only.
 
 - `1572_geometry_optimized.java`: time reduction +44.29%; memory
   reduction +80.86%; base: `1572_geometry.java`.
@@ -142,6 +141,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1572_geometry_optimized.java](1572_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.078 s | 340 KB | 11304529 |
 | [1572_geometry_optimized.rs](1572_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) time; O(1) space | AC | 0.046 s | 60 KB | 11325506 |
-| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.14 s | 264 KB | 11325701 |
+| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.078 s | 720 KB | 11325457 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

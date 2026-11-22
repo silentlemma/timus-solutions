@@ -79,9 +79,11 @@
 
 ## 优化解法
 
-`1572_geometry_optimized.py`. 保留 NARROWEST/WIDEST 系数下精确平方弦比较，含相等。逐盖读取、检验缩放整数平方即丢弃，无盖列表。O(n) 时间、常数几何状态及词缓冲。刷新单个答案后退出 PyPy，保留几何教学推导。
+`1572_geometry_optimized.py` 逐字节复用。精确源代码的 CPython 3.12 Accepted #11325457 为 0.078 s / 720 KB；2026-11-20 保存的当前 Python 语言族编译器比较中，时间 4/28、内存 18/28。内存低于 1024 KB 时严格收录只看时间，因此满足前十标准。单独的语言目标要求两项第一，故保留星号。同一未改动源代码另有 PyPy 3.10 Accepted #11325701：0.14 s / 264 KB，内存更少，而所选 CPython 运行的记录时间更低。这些是不同运行各自成对的指标，不混合使用。无需新增源文件、算法或提交；保留全部教学版本。
 
-与 `1572_geometry.py` 相比：时间 0.093 s → 0.14 s；内存 384 KB → 264 KB。
+`1572_geometry_optimized.py`. 保留 NARROWEST/WIDEST 系数下精确平方弦比较，含相等。逐盖读取、检验缩放整数平方即丢弃，无盖列表。O(n) 时间、常数几何状态及词缓冲。刷新单个答案后退出解释器，保留几何教学推导。
+
+与 `1572_geometry.py` 相比，所选 CPython 运行时间 0.093 s → 0.078 s，内存 384 KB → 720 KB。时间降低 16.13%，内存增加 87.5%；依据时间排名收录，并非 30% 改善。上方保留早先 PyPy 0.14 s / 264 KB 的内存权衡。
 
 `1572_geometry_optimized.rs`. 保留 NARROWEST/WIDEST 形状系数的精确平方弦比较，包含相等情形。直接读每个盖，比较其 u64 缩放平方后丢弃，不保存全量解析向量；直接输出替代格式化。O(n) 时间、O(1) 辅助空间，保留清晰几何推导和基础源。
 
@@ -93,7 +95,7 @@
 
 ### 实测改进
 
-每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
+每个优化版本均已获 Accepted，并满足适用的排名或改善收录规则。所选 Python 运行依据时间排名收录；下方 Java 改善对应其自身成对指标。保留基础源代码。负的降低比例表示开销增加，星号仅表示单独的排名目标。
 
 - `1572_geometry_optimized.java`: 时间降低 +44.29%; 内存降低 +80.86%; 基础版本: `1572_geometry.java`.
 
@@ -123,6 +125,6 @@
 |---|---|---|---|---|---|---|---|
 | [1572_geometry_optimized.java](1572_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.078 s | 340 KB | 11304529 |
 | [1572_geometry_optimized.rs](1572_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n) time; O(1) space | AC | 0.046 s | 60 KB | 11325506 |
-| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.14 s | 264 KB | 11325701 |
+| [1572_geometry_optimized.py](1572_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(n) time; O(1) state plus bounded token buffers | AC | 0.078 s | 720 KB | 11325457 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
