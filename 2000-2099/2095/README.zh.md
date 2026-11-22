@@ -46,10 +46,16 @@ l 和 r（1 ≤ l ≤ r ≤ 10⁹）。
 
 ## 优化解法
 
+`2095_math_optimized.java`. 保留精确商分块消除，同时推进上下存活前缀，相同时立即返回零。L=1 时 quiet(0)=0，仅算上界前缀。安全共同跳步用整数比较代替 Math.min。每步仍删除 floor(c/k)，商 q 不变时合并 j=floor((c−qk)/(2q))+1 步。时间 O(R^(1/3))，数值状态 O(1)。两界均读完后复用64字节输入缓冲输出十进制答案，flush 后 Runtime.getRuntime().halt(0)。1≤L≤R≤300的45150区间与独立单步算法一致；2000个大区间与已通过前版一致，另有1000个实际主函数I/O检查。当前0.093 s/464 KB与历史0.125 s/320 KB为不同配对：此处更快但内存更多。保留教学单步筛及其他语言实现。
+
+精确源代码 Java 1.8 Accepted #11327888：0.093 s / 464 KB。2026-11-20 保存的编译器组比较：时间 5/44、内存 1/44。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11309305 为 0.125 s / 320 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `2095_math_optimized.java`: 0.093 s / 464 KB; 保留教学基础版 `2095_math.java`: 0.125 s / 1556 KB.
+
 保留逐步筛教学版。步骤k前剩余前缀c=qk+r。删除q共j次后商保持q恰好当2qj<=r，上界条件只放宽。一次执行r//(2q)+1步，更新c-=q*j、k+=j，下一正商严格更小。由c<-c-floor(c/k)归纳，步骤k前(k-1)c<=N+(k-2)(k-1)/2。设K=ceil(N^(1/3))+1，早期少于K步，此后q<=K，故至多K个后续商块，时间O(N^(1/3))、状态O(1)。答案quiet(R)-quiet(L-1)。Go用有界可移植原生I/O，Java用相同精确商块。Python分别计算两个前缀，用divmod同时取得商和余数。全部运算都是精确整数运算。
 
 - `2095_math_optimized.go`: 0.015 s / 280 KB; 基础 `2095_math.go`: 0.031 s / 1076 KB; 相对变化: 时间 -51.6%, 内存 -74.0%.
-- `2095_math_optimized.java`: 0.125 s / 320 KB; 基础 `2095_math.java`: 0.125 s / 1556 KB; 相对变化: 时间 -0.0%, 内存 -79.4%.
+
 - `2095_math_optimized.py`: 0.062 s / 368 KB; 基础 `2095_math.py`: 0.078 s / 368 KB; 相对变化: 时间 -20.5%, 内存 -0.0%.
 
 `2095_math_optimized.rs`. 保留每个前缀的精确逐步筛除：令 c 变为 c-floor(c/k)，k 从二递增，直到 c<k。计算 quiet(R)-quiet(L-1)，并包含 quiet(0)=0。每个前缀只需两个循环变量，时间 O(√R)，额外状态 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
@@ -81,7 +87,7 @@ l 和 r（1 ≤ l ≤ r ≤ 10⁹）。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [2095_math_optimized.go](2095_math_optimized.go) | Go 1.14 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.015 s | 280 KB | 11309760 |
-| [2095_math_optimized.java](2095_math_optimized.java) \* | Java 1.8 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.125 s | 320 KB | 11309305 |
+| [2095_math_optimized.java](2095_math_optimized.java) \* | Java 1.8 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.093 s | 464 KB | 11327888 |
 | [2095_math_optimized.py](2095_math_optimized.py) | Python 3.12 x64 | math | O(R^(1/3)) time; O(1) numeric state | AC | 0.062 s | 368 KB | 11309302 |
 | [2095_math_optimized.rs](2095_math_optimized.rs) \* | Rust 1.75 x64 | math | O(√R) | AC | 0.031 s | 52 KB | 11325120 |
 
