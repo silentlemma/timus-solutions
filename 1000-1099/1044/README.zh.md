@@ -84,7 +84,7 @@
 
 {1044_dp.go}.
 
-与源代码对应的 Accepted 记录：基础版本 0.046 秒 / 1080 KB；本版本 0.015 秒 / 804 KB（提交 11307438）。在 2026-10-31 的快照中达到排名目标。
+与源代码对应的 Accepted 记录：基础版本 0.046 秒 / 1080 KB；本版本 0.031 秒 / 804 KB（提交 11328261）。
 
 ### 实测改进
 
@@ -92,7 +92,7 @@
 
 - `1044_bruteforce_optimized.cpp`: 时间降低 +0.00%; 内存降低 +36.73%; 基础版本: `1044_bruteforce.cpp`.
 
-- `1044_dp.go`: 时间降低 +67.39%; 内存降低 +25.56%; 基础版本: `1044_bruteforce.go`.
+- `1044_dp.go`: 时间降低 +32.61%; 内存降低 +25.56%; 基础版本: `1044_bruteforce.go`.
 
 - `1044_bruteforce_optimized.java`: 时间降低 +16.13%; 内存降低 +79.64%; 基础版本: `1044_bruteforce.java`.
 
@@ -123,7 +123,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
-| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.015 s | 804 KB | 11307438 |
+| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 804 KB | 11328261 |
 | [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
 | [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
 

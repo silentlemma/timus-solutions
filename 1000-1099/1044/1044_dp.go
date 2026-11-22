@@ -44,19 +44,6 @@ func (in *reader) integer() int64 {
 	return sign * value
 }
 
-func (in *reader) word() []byte {
-	c := in.read()
-	for c != 0 && c <= ' ' {
-		c = in.read()
-	}
-	var result []byte
-	for c > ' ' {
-		result = append(result, c)
-		c = in.read()
-	}
-	return result
-}
-
 func printInt(value int64) {
 	var data [integerBufferSize]byte
 	out := strconv.AppendInt(data[:0], value, 10)

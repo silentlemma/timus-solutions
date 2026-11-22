@@ -90,7 +90,7 @@ The fast Go version uses digit-sum DP instead of enumerating all halves. Appendi
 
 {1044_dp.go}.
 
-Source-matched Accepted runs: base 0.046 s / 1080 KB; this version 0.015 s / 804 KB (submission 11307438). The rating target is met in the 2026-10-31 snapshot.
+Source-matched Accepted runs: base 0.046 s / 1080 KB; this version 0.031 s / 804 KB (submission 11328261).
 
 ### Measured gains
 
@@ -99,7 +99,7 @@ Every retained optimized version has Accepted. It qualifies through top-ten or t
 - `1044_bruteforce_optimized.cpp`: time reduction +0.00%; memory
   reduction +36.73%; base: `1044_bruteforce.cpp`.
 
-- `1044_dp.go`: time reduction +67.39%; memory reduction +25.56%; base:
+- `1044_dp.go`: time reduction +32.61%; memory reduction +25.56%; base:
   `1044_bruteforce.go`.
 
 - `1044_bruteforce_optimized.java`: time reduction +16.13%; memory
@@ -136,7 +136,7 @@ Build the digit-sum distribution one digit at a time. A sliding sum combines the
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
-| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.015 s | 804 KB | 11307438 |
+| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 804 KB | 11328261 |
 | [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
 | [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
 

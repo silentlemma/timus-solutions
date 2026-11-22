@@ -94,7 +94,7 @@ La versión rápida de Go usa programación dinámica sobre la suma de los dígi
 
 {1044_dp.go}.
 
-Ejecuciones Accepted correspondientes al código: versión básica 0.046 s / 1080 KB; esta versión 0.015 s / 804 KB (envío 11307438). Cumple el objetivo de clasificación en la instantánea del 2026-10-31.
+Ejecuciones Accepted correspondientes al código: versión básica 0.046 s / 1080 KB; esta versión 0.031 s / 804 KB (envío 11328261).
 
 ### Mejora medida
 
@@ -103,7 +103,7 @@ Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre la
 - `1044_bruteforce_optimized.cpp`: reducción de tiempo +0.00%; reducción
   de memoria +36.73%; base: `1044_bruteforce.cpp`.
 
-- `1044_dp.go`: reducción de tiempo +67.39%; reducción de memoria
+- `1044_dp.go`: reducción de tiempo +32.61%; reducción de memoria
   +25.56%; base: `1044_bruteforce.go`.
 
 - `1044_bruteforce_optimized.java`: reducción de tiempo +16.13%;
@@ -140,7 +140,7 @@ Construir la distribución de sumas dígito a dígito. Una suma deslizante reún
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1044_bruteforce_optimized.cpp](1044_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(10^(N/2) · N) | AC | 0.001 s | 124 KB | 11304375 |
-| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.015 s | 804 KB | 11307438 |
+| [1044_dp.go](1044_dp.go) | Go 1.14 x64 | dp | O(N²) | AC | 0.031 s | 804 KB | 11328261 |
 | [1044_bruteforce_optimized.java](1044_bruteforce_optimized.java) \* | Java 1.8 | bruteforce | O(10^(N/2) · N) | AC | 0.078 s | 316 KB | 11304376 |
 | [1044_dp.py](1044_dp.py) \* | Python 3.12 x64 | dp | O(N²) | AC | 0.046 s | 452 KB | 11324262 |
 
