@@ -80,9 +80,11 @@ is 2.
 
 The streaming DP keeps three prefix minima. The first has no flip; the second ends a flipped segment at the latest value; the third allows that segment to end anywhere in the prefix. This needs one pass and constant auxiliary space.
 
+`2183_dp_optimized.cpp` retains this three-state DP and parses signed input through a fixed 16 KB buffer instead of calling scanf for every value. The short unbuffered `2183_dp.cpp` is retained to teach the same algorithm, and all binary-search versions remain. Both DP implementations take O(n) time and O(1) auxiliary space. The new exact-source Accepted is 0.015 s / 96 KB, versus 0.093 s / 116 KB for the unbuffered DP.
+
 **Timus submissions for the optimized versions**
 
-G++ 13.2 x64 №11317399 · Go 1.14 x64 №11317402 · Java 1.8 №11317412 · Rust 1.75 x64 №11317407.
+G++ 13.2 x64 №11317399 (`2183_dp.cpp`) · G++ 13.2 x64 №11326641 (`2183_dp_optimized.cpp`) · Go 1.14 x64 №11317402 · Java 1.8 №11317412 · Rust 1.75 x64 №11317407.
 
 **Timus submissions for the simple versions**
 
@@ -105,6 +107,7 @@ Python 3.12 x64 №11321738 · G++ 13.2 x64 №11321929 · Java 1.8 №11321932 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [2183_dp.cpp](2183_dp.cpp) \* | G++ 13.2 x64 | dp | O(n) | AC | 0.093 s | 116 KB | 11317399 |
+| [2183_dp_optimized.cpp](2183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 96 KB | 11326641 |
 | [2183_dp.go](2183_dp.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1008 KB | 11317402 |
 | [2183_dp.rs](2183_dp.rs) \* | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 208 KB | 11317407 |
 | [2183_dp.java](2183_dp.java) \* | Java 1.8 | dp | O(n) | AC | 0.14 s | 416 KB | 11317412 |

@@ -79,9 +79,11 @@ En el segundo ejemplo invertir −4 −3 −10 da 2 4 3 10, cuyo mínimo es 2.
 
 La DP mantiene tres mínimos de prefijo: sin invertir, con el segmento invertido terminando en el elemento actual y con el segmento terminando en cualquier posición del prefijo. Solo requiere un recorrido y espacio auxiliar constante.
 
+`2183_dp_optimized.cpp` conserva esta DP de tres estados y analiza enteros con signo mediante un búfer fijo de 16 KB, en vez de llamar a scanf por cada valor. Se mantiene la versión corta sin búfer `2183_dp.cpp` para enseñar el mismo algoritmo, además de todas las versiones con búsqueda binaria. Ambas DP usan O(n) tiempo y O(1) espacio auxiliar. El nuevo Accepted de fuente exacto mide 0.015 s / 96 KB, frente a 0.093 s / 116 KB de la DP sin búfer.
+
 **Envíos de las versiones optimizadas en Timus**
 
-G++ 13.2 x64 №11317399 · Go 1.14 x64 №11317402 · Java 1.8 №11317412 · Rust 1.75 x64 №11317407.
+G++ 13.2 x64 №11317399 (`2183_dp.cpp`) · G++ 13.2 x64 №11326641 (`2183_dp_optimized.cpp`) · Go 1.14 x64 №11317402 · Java 1.8 №11317412 · Rust 1.75 x64 №11317407.
 
 **Envíos de las versiones sencillas en Timus**
 
@@ -104,6 +106,7 @@ Python 3.12 x64 №11321738 · G++ 13.2 x64 №11321929 · Java 1.8 №11321932 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2183_dp.cpp](2183_dp.cpp) \* | G++ 13.2 x64 | dp | O(n) | AC | 0.093 s | 116 KB | 11317399 |
+| [2183_dp_optimized.cpp](2183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.015 s | 96 KB | 11326641 |
 | [2183_dp.go](2183_dp.go) \* | Go 1.14 x64 | dp | O(n) | AC | 0.031 s | 1008 KB | 11317402 |
 | [2183_dp.rs](2183_dp.rs) \* | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 208 KB | 11317407 |
 | [2183_dp.java](2183_dp.java) \* | Java 1.8 | dp | O(n) | AC | 0.14 s | 416 KB | 11317412 |
