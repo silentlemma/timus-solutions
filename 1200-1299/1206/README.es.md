@@ -65,18 +65,20 @@ La fórmula se comprobó por fuerza bruta sobre todos los pares para
 
 ## Soluciones optimizadas
 
+`1206_combinatorics_optimized.java`. Conserva la fórmula sin acarreo 36*55^(K-1). Para K<=50 guarda como máximo 100 dígitos decimales y multiplica por 55 K-1 veces durante la ejecución; emite bytes directamente. Cambia la representación aritmética, no la demostración combinatoria, sin respuestas precalculadas. Cota conservadora O(K²) operaciones sobre dígitos y O(K) espacio, evitando inicialización BigInteger; conserva la fórmula simple con BigInteger.
+
+Accepted exacto Java 1.8 #11327341: 0.109 s / 308 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 14/141, memoria 1/141. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304422 era 0.125 s / 448 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1206_combinatorics_optimized.java`: 0.109 s / 308 KB; base didáctica conservada `1206_combinatorics.java`: 0.14 s / 1748 KB.
+
+`1206_combinatorics_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327017 mide 0.078 s / 612 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 2/76, memoria 60/76. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11324911, 0.14 s / 252 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 La solución optimizada en C++ multiplica igualmente las cifras decimales
 por 55, pero en un arreglo fijo de 100 elementos en la pila en lugar de
 un `std::vector` que crece: como `K ≤ 50`, la respuesta `36 · 55^(K−1)`
 es menor que `100^K` y tiene como mucho 100 cifras (en realidad, como
 mucho 87). Sin `<vector>` el programa no lleva código de contenedores:
 {1206_combinatorics_optimized.cpp}.
-
-La solución optimizada en Java lee `K` byte a byte de `System.in` en
-lugar de crear un `Scanner`, cuyas expresiones regulares y datos de
-configuración regional cuestan más que la propia potencia; la respuesta
-se sigue calculando con `BigInteger`:
-{1206_combinatorics_optimized.java}.
 
 ### Mejora medida
 
@@ -88,9 +90,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1206_combinatorics_optimized.cpp`: reducción de tiempo +0.00%;
   reducción de memoria +46.81%; base: `1206_combinatorics.cpp`.
 
-- `1206_combinatorics_optimized.java`: reducción de tiempo +10.71%;
-  reducción de memoria +74.37%; base: `1206_combinatorics.java`.
-
 `1206_combinatorics_optimized.py`. Conserva la fórmula exacta 36*55^(K-1) y los enteros arbitrarios de Python. Tanto ** en la base como pow aquí ya calculan potencias enteras; no se atribuye un algoritmo nuevo de conteo. Una cota conservadora con aritmética escolar y conversión decimal es O(K²) de tiempo y O(K) bits de respuesta. Lee el único token y evita la función envolvente y la finalización normal. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
 Frente a `1206_combinatorics.py`: tiempo 0.109 s → 0.14 s; memoria 416 KB → 252 KB.
@@ -99,7 +98,7 @@ Frente a `1206_combinatorics.py`: tiempo 0.109 s → 0.14 s; memoria 416 KB → 
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1206_combinatorics_optimized.py`: puesto de tiempo 65/76 y de memoria 2/76 en esta muestra comparable.
+Comparación PyPy anterior: `1206_combinatorics_optimized.py`: puesto de tiempo 65/76 y de memoria 2/76 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -120,7 +119,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1206_combinatorics_optimized.cpp](1206_combinatorics_optimized.cpp) | G++ 13.2 x64 | combinatorics | O(K²) | AC | 0.015 s | 100 KB | 11304421 |
-| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) | AC | 0.125 s | 448 KB | 11304422 |
-| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(K²) | AC | 0.14 s | 252 KB | 11324911 |
+| [1206_combinatorics_optimized.java](1206_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(K²) time; O(K) space | AC | 0.109 s | 308 KB | 11327341 |
+| [1206_combinatorics_optimized.py](1206_combinatorics_optimized.py) \* | Python 3.12 x64 | combinatorics | O(K²) | AC | 0.078 s | 612 KB | 11327017 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
