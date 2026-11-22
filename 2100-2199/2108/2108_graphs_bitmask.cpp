@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <cstdio>
 
-constexpr int INPUT_SIZE = 8192;
+constexpr int INPUT_SIZE = 65536;
 char input[INPUT_SIZE];
 int position = 0, length = 0;
 

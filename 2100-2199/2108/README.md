@@ -62,13 +62,17 @@ adds 1; then the second wish adds 3, and the result is 111100.
 
 ## Optimized solutions
 
-The new C++, Go and Rust versions transpose prerequisite sets into packed bitsets of rules per figure and keep a missing-prerequisite count per rule. Queue each newly acquired figure exactly once. Processing it decrements the rules containing it; a count reaching zero fires that rule once and queues its previously unowned consequences. Empty prerequisites fire after reading all input. This computes the least closure: only enabled rules add figures, and at termination every enabled rule has fired. No rule or figure is repeatedly rescanned in closure rounds. Including input, time is O(nm+n+m); packed storage is O(n⌈m/64⌉+m⌈n/64⌉+n+m). At the limits the two matrices hold 1016000 bytes, not millions of individual dependency edges. Go/C++ allocate bounded maximum arrays; Rust sizes vectors to input dimensions and uses bounded C-runtime I/O instead of retaining input text. All simple files remain; Java/Python reuse admitted bases.
+Formatting-only accepted revisions: `2108_bitmask.py` #11327499. Each table row uses that exact file revision and its own paired time/memory; no performance improvement is attributed to formatting.
 
-The accepted G++ 13.2 x64 run takes 0.093 s versus 0.046 s for the base and uses 1 080 KB versus 1808 KB.
+`2108_graphs_bitmask.cpp`. Keep the packed prerequisite-to-rule bitsets, missing counters and once-only figure queue. Only the C++ input buffer grows to 64 KiB, reducing refills on dense rule strings; closure logic and bounded arrays are unchanged. Empty prerequisites still fire after all rules are read. Time including input stays O(nm+n+m); packed matrices use O(n ceil(m/64)+m ceil(n/64)) words plus counters and queue. The buffer trades memory for fewer input refills, without a new algorithm.
+
+Exact-source G++ 13.2 x64 Accepted #11326657: 0.062 s / 1140 KB. Saved 2026-11-20 compiler comparison: time 5/46, memory 3/46; top-ten targets pass in both metrics, so no asterisk. At least 1024 KB: both time and memory ranks are required and pass. Previous optimized run #11315229: 0.093 s / 1080 KB. These are independent paired runs; the new recorded memory is higher. The retained teaching C++ source's own current Accepted #11294887 is 0.046 s / 1808 KB; its algorithm is unchanged.
+
+The new C++, Go and Rust versions transpose prerequisite sets into packed bitsets of rules per figure and keep a missing-prerequisite count per rule. Queue each newly acquired figure exactly once. Processing it decrements the rules containing it; a count reaching zero fires that rule once and queues its previously unowned consequences. Empty prerequisites fire after reading all input. This computes the least closure: only enabled rules add figures, and at termination every enabled rule has fired. No rule or figure is repeatedly rescanned in closure rounds. Including input, time is O(nm+n+m); packed storage is O(n⌈m/64⌉+m⌈n/64⌉+n+m). At the limits the two matrices hold 1016000 bytes, not millions of individual dependency edges. Go/C++ allocate bounded maximum arrays; Rust sizes vectors to input dimensions and uses bounded C-runtime I/O instead of retaining input text. All simple files remain; Java/Python reuse admitted bases.
 
 The accepted Go 1.14 x64 run takes 0.125 s versus 0.062 s for the base and uses 1 284 KB versus 18712 KB.
 
-The accepted base implementations [2108_bitmask.java](2108_bitmask.java), [2108_bitmask.py](2108_bitmask.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Retained accepted teaching sources [2108_bitmask.java](2108_bitmask.java), [2108_bitmask.py](2108_bitmask.py) also meet the strict top-ten or top-15% criterion on the required metrics in the saved comparison. The current exact paired measurements are in the table, including the formatting-only revisions. Their algorithms are unchanged and no identical optimized copies are added. The asterisk denotes the separate language rating target.
 
 ## Language notes
 
@@ -106,14 +110,14 @@ O(n^2 m / 64) bound therefore does not describe the Python solution.
 | [2108_bitmask.cpp](2108_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(n^2 m / 64) | AC | 0.046 s | 1808 KB | 11294887 |
 | [2108_bitmask.go](2108_bitmask.go) | Go 1.14 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 18712 KB | 11294892 |
 | [2108_bitmask.java](2108_bitmask.java) | Java 1.8 | bitmask | O(n^2 m / 64) | AC | 0.234 s | 1792 KB | 11294899 |
-| [2108_bitmask.py](2108_bitmask.py) \* | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.171 s | 17336 KB | 11294894 |
+| [2108_bitmask.py](2108_bitmask.py) \* | Python 3.12 x64 | bitmask | O(nm + (nL + m)M + nN) | AC | 0.187 s | 17428 KB | 11327499 |
 | [2108_bitmask.rs](2108_bitmask.rs) | Rust 1.75 x64 | bitmask | O(n^2 m / 64) | AC | 0.062 s | 9312 KB | 11294901 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2108_graphs_bitmask.cpp](2108_graphs_bitmask.cpp) \* | G++ 13.2 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.093 s | 1080 KB | 11315229 |
+| [2108_graphs_bitmask.cpp](2108_graphs_bitmask.cpp) | G++ 13.2 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.062 s | 1140 KB | 11326657 |
 | [2108_graphs_bitmask.go](2108_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.125 s | 1284 KB | 11315237 |
 | [2108_graphs_bitmask.rs](2108_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(nm + n + m) | AC | 0.046 s | 1072 KB | 11315242 |
 

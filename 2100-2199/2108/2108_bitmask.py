@@ -18,9 +18,9 @@ def main():
     # Figure j is bit n - 1 - j of a set, and wish i is bit m - 1 - i of a
     # wish mask. needs[j] holds the wishes that require figure j: it is
     # column j of the matrix whose rows are the prerequisite strings.
-    matrix = b"".join(tokens[2:2 + 2 * m:2])
+    matrix = b"".join(tokens[2 : 2 + 2 * m : 2])
     needs = [int(matrix[j::n], 2) for j in range(n)]
-    adds = [int(t, 2) for t in tokens[2 + 1:2 + 1 + 2 * m:2]]
+    adds = [int(t, 2) for t in tokens[2 + 1 : 2 + 1 + 2 * m : 2]]
     owned = int(owned_text, 2)
 
     # A segment tree over figures keeps the OR of needs[j] over the figures
