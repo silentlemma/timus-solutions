@@ -81,21 +81,21 @@ mismas respuestas.
 
 ## Soluciones optimizadas
 
+`1349_math_optimized.py`. Conserva casos completos: solo potencias uno/dos admiten testigos positivos mínimos 1,2,3 y 3,4,5; cero y mayores que dos no tienen solución. Normaliza token decimal quitando blancos exteriores, signo más opcional y ceros iniciales; compara bytes 1/2 sin int ni diccionario. Escribe respuesta completa antes de os._exit(0). O(I) análisis de I bytes, trabajo matemático constante, sin tabla arbitraria. CPython nuevo 0.062 s/644 KB frente a PyPy viejo 0.109 s/172 KB: memoria mayor explícita, base intacta.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327873: 0.062 s / 644 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 5/130; 98/130. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11325067 (PyPy 3.10 x64): 0.109 s / 172 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1349_math_optimized.py`: 0.062 s / 644 KB; base didáctica conservada `1349_math.py`: 0.093 s / 336 KB.
+
 Las soluciones optimizadas imprimen las mismas tres respuestas. Java
 analiza el exponente a mano con `System.in.read` en lugar de `Scanner`:
 0.062 s en lugar de 0.125 s y 316 KB en lugar de 1612 KB. Rust escribe
 la respuesta como una cadena de bytes con `write_all` en lugar de
 `println!`: 0.031 s en lugar de 0.062 s y 212 KB en lugar de 232 KB.
 
-`1349_math_optimized.py`. Usa la misma clasificación completa que la tabla básica: n=1 da 1 2 3, n=2 da 3 4 5 y los demás n permitidos dan -1. Las ramas evitan crear el pequeño diccionario, sin introducir otro algoritmo de teoría de números. Tiempo y espacio auxiliar O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
-
-Frente a `1349_math.py`: tiempo 0.093 s → 0.109 s; memoria 336 KB → 172 KB.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1349_math_optimized.py`: puesto de tiempo 85/130 y de memoria 1/130 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -117,6 +117,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1349_math_optimized.java](1349_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.062 s | 316 KB | 11303601 |
 | [1349_math_optimized.rs](1349_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 212 KB | 11303602 |
-| [1349_math_optimized.py](1349_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 172 KB | 11325067 |
+| [1349_math_optimized.py](1349_math_optimized.py) \* | Python 3.12 x64 | math | O(I) token input; O(1) mathematical cases | AC | 0.062 s | 644 KB | 11327873 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

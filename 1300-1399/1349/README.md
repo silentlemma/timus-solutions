@@ -79,21 +79,21 @@ answers.
 
 ## Optimized solutions
 
+`1349_math_optimized.py`. Keep the complete mathematical cases: positive witnesses exist only for powers one and two, with smallest triples 1,2,3 and 3,4,5; power zero and powers above two have no solution. Normalize the sole decimal token by stripping surrounding whitespace, an optional plus and leading zeros, then compare bytes with 1 and 2 instead of constructing an int or answer dictionary. Write the complete fixed answer before os._exit(0). Parsing costs O(I) for I input bytes, mathematical work is constant; no precomputed table of arbitrary answers. The new CPython time is 0.062 s with 644 KB, versus old PyPy 0.109 s/172 KB; the memory increase is explicit and the teaching version remains.
+
+Exact-source Python 3.12 x64 Accepted #11327873: 0.062 s / 644 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 5/130; 98/130. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11325067 (PyPy 3.10 x64): 0.109 s / 172 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1349_math_optimized.py`: 0.062 s / 644 KB; retained teaching base `1349_math.py`: 0.093 s / 336 KB.
+
 The optimized solutions print the same three answers. Java parses the
 exponent by hand with `System.in.read` instead of `Scanner`: 0.062 s
 instead of 0.125 s and 316 KB instead of 1612 KB. Rust writes the answer
 as a byte string with `write_all` instead of `println!`: 0.031 s instead
 of 0.062 s and 212 KB instead of 232 KB.
 
-`1349_math_optimized.py`. Use the same complete case split as the basic lookup: n=1 gives 1 2 3, n=2 gives 3 4 5, all other allowed n give -1. Direct branches avoid allocating the tiny answer dictionary; they do not add a new number-theory algorithm. Time and auxiliary space O(1). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
-
-Compared with `1349_math.py`: time 0.093 s → 0.109 s; memory 336 KB → 172 KB.
-
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1349_math_optimized.py`: time place 85/130, memory place 1/130 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -115,6 +115,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1349_math_optimized.java](1349_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.062 s | 316 KB | 11303601 |
 | [1349_math_optimized.rs](1349_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 212 KB | 11303602 |
-| [1349_math_optimized.py](1349_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 172 KB | 11325067 |
+| [1349_math_optimized.py](1349_math_optimized.py) \* | Python 3.12 x64 | math | O(I) token input; O(1) mathematical cases | AC | 0.062 s | 644 KB | 11327873 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

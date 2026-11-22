@@ -1,16 +1,7 @@
-import os
-from sys import stdout
+from os import _exit, write
 
-power = int(open(0, "rb", buffering=0).read())
-# The linear case and the smallest Pythagorean triple are the only cases.
-# Fermat excludes powers above two, while a zeroth power makes the sum unequal to the third term.
-if power == 1:
-    print("1 2 3")
-elif power == 2:
-    print("3 4 5")
-else:
-    print(-1)
-
-# The answer is flushed before interpreter teardown is skipped.
-stdout.flush()
-os._exit(0)
+# Only the canonical positive powers one and two have witnesses.
+token = open(0, "rb", buffering=0).read().strip().lstrip(b"+0")
+answer = b"1 2 3\n" if token == b"1" else b"3 4 5\n" if token == b"2" else b"-1\n"
+write(1, answer)
+_exit(0)
