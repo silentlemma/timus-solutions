@@ -97,7 +97,7 @@ F(c), после которого затоплена каждая клетка c
 |---|---|---|---|---|---|---|---|
 | [2113_bfs_binary_search.cpp](2113_bfs_binary_search.cpp) | G++ 13.2 x64 | bfs, binary_search | O(n m log H) | AC | 0.015 s | 432 KB | 11294935 |
 | [2113_bfs_binary_search.go](2113_bfs_binary_search.go) | Go 1.14 x64 | bfs, binary_search | O(n m log H) | AC | 0.031 s | 3712 KB | 11294936 |
-| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) \* | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 648 KB | 11294938 |
+| [2113_bfs_binary_search.java](2113_bfs_binary_search.java) \* | Java 1.8 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 668 KB | 11328342 |
 | [2113_bfs_binary_search.py](2113_bfs_binary_search.py) \* | Python 3.12 x64 | bfs, binary_search | O(n m log H) | AC | 0.125 s | 2492 KB | 11294937 |
 | [2113_bfs_binary_search.rs](2113_bfs_binary_search.rs) | Rust 1.75 x64 | bfs, binary_search | O(n m log H) | AC | 0.046 s | 364 KB | 11294939 |
 

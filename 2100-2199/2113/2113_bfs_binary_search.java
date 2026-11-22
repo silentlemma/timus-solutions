@@ -44,8 +44,8 @@ public class Main {
             int arrival = distance[cell] + 1;
             for (int offset : offsets) {
                 int next = cell + offset;
-                if (distance[next] == -1 && arrival < flood[next]
-                        && heights[next] - heights[cell] <= jump) {
+                if (distance[next] == -1 && arrival < flood[next] &&
+                    heights[next] - heights[cell] <= jump) {
                     distance[next] = arrival;
                     queue[tail++] = next;
                 }
