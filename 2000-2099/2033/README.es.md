@@ -96,9 +96,11 @@ Trampas:
 
 ## Soluciones optimizadas
 
-`2033_hashing_optimized.py`. Agrupa seis registros por modelo, maximizando frecuencia y después minimizando precio observado. Consume tokens directamente al diccionario, sin tuplas de registros ni decodificar nombres ASCII. El orden lexicográfico de bytes conserva el desempate previo, aunque cualquier óptimo empatado vale. Retiene entrada dividida: O(I) tiempo esperado y espacio para longitud I, con seis registros. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
+`2033_hashing_optimized.py`. Lee tokens binarios por líneas; guarda [recuento, precio_mínimo] mutable por modelo, sin tuplas de registros ni lista de tokens de todo el archivo. Cuenta seis registros incluso con nombres repetidos, preservando ceros iniciales de modelos. Maximiza frecuencia, después minimiza precio; el orden lexicográfico solo resuelve un empate final permitido. Para I bytes, M modelos y longitud máxima de línea Lmax: O(I) tiempo esperado y O(M+Lmax) espacio auxiliar con nombres de hasta 20 caracteres. Conserva la base legible con registros y mapa.
 
-Frente a `2033_hashing.py`: tiempo 0.109 s → 0.125 s; memoria 452 KB → 228 KB.
+Reutiliza el fuente histórico exacto CPython 3.12 Accepted #11307496: 0.078 s / 500 KB. En el grupo comparable guardado el 2026-11-20: tiempo 4/61, memoria 32/61. Bajo 1024 KB, admisión estricta solo por tiempo, superada. El asterisco sigue la meta separada del lenguaje. Son medidas emparejadas de este fuente, no nuevo envío ni garantía portátil. Usa finalización normal del intérprete.
+
+- `2033_hashing_optimized.py`: 0.078 s / 500 KB; base didáctica conservada `2033_hashing.py` (Python 3.12 x64): 0.109 s / 452 KB. Ambas medidas de la base quedan explícitas aunque una aumente.
 
 `2033_implementation.java`. Sustituye agrupación hash por recorrer hasta seis nombres en arreglos fijos. Cuenta cada compra aunque se repita la persona y guarda el precio mínimo por modelo. Preserva cadenas y ceros iniciales, usando orden lexicográfico solo para empates permitidos tras cuenta/precio. Seis registros dan O(L) trabajo de caracteres y espacio de seis nombres, sin Record ni HashMap. El nombre público es implementation porque ya no usa hash; mantiene los bytes Accepted y la versión didáctica hashing.
 
@@ -138,8 +140,6 @@ Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 d
 
 `2033_implementation.java`: puesto de tiempo 24/207 y de memoria 32/207 en esta muestra comparable.
 
-`2033_hashing_optimized.py`: puesto de tiempo 49/61 y de memoria 2/61 en esta muestra comparable.
-
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
 ## Soluciones
@@ -161,6 +161,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
 | [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
-| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | PyPy 3.10 x64 | hashing | O(I) expected time; O(I) space | AC | 0.125 s | 228 KB | 11325481 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(M+Lmax) space | AC | 0.078 s | 500 KB | 11307496 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

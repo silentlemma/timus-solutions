@@ -96,9 +96,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-`2033_hashing_optimized.py`. Keep grouping six records by model, maximizing frequency and then minimizing observed price. Consume record tokens directly into the dictionary without building record tuples or decoding ASCII model names. Byte lexicographic order preserves the previous deterministic tie choice, although any tied optimal model is accepted. Split input remains retained: expected O(I) time and O(I) space for input length I, with only six records. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
+`2033_hashing_optimized.py`. Read byte tokens one line at a time, retaining mutable [count, minimum_price] entries per model rather than record tuples and a full-input token list. Count all six records, including repeated person names, and preserve leading zeros in model names. Select maximum frequency, then minimum price; lexicographic order only resolves an allowed final tie. For I input bytes, M distinct models and maximum input line length Lmax: expected O(I) time and O(M+Lmax) auxiliary storage under the 20-character name limit. The readable record-based hash map remains.
 
-Compared with `2033_hashing.py`: time 0.109 s → 0.125 s; memory 452 KB → 228 KB.
+Reused exact historical CPython 3.12 Accepted #11307496: 0.078 s / 500 KB. In the saved 2026-11-20 comparable compiler cohort: time rank 4/61, memory rank 32/61. Below 1024 KB, strict admission uses time only and passes. The asterisk follows the separate language rating target. These are paired measurements of this source, not a new submission or a guaranteed portable speedup. This version uses normal interpreter exit.
+
+- `2033_hashing_optimized.py`: 0.078 s / 500 KB; retained teaching base `2033_hashing.py` (Python 3.12 x64): 0.109 s / 452 KB. Both base time and memory remain documented even where one metric increases.
 
 `2033_implementation.java`. Replace hash-based grouping by a direct scan of at most six model strings in fixed arrays. Count every purchase record, even when person names repeat; retain each model minimum price. Preserve model strings verbatim, including leading zeros, and use lexicographic order only as an allowed tie-break after count and price. The six-record limit makes the total character work O(L) and storage bounded by six model names, without Record objects or HashMap entries. The public filename is implementation, because this source no longer hashes models; the accepted source bytes and original hashing teaching version remain unchanged.
 
@@ -138,8 +140,6 @@ The added sources are compared using the 18 November 2026 snapshot of other auth
 
 `2033_implementation.java`: time place 24/207, memory place 32/207 in this comparable sample.
 
-`2033_hashing_optimized.py`: time place 49/61, memory place 2/61 in this comparable sample.
-
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
 ## Solutions
@@ -161,6 +161,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
 | [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
-| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | PyPy 3.10 x64 | hashing | O(I) expected time; O(I) space | AC | 0.125 s | 228 KB | 11325481 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(M+Lmax) space | AC | 0.078 s | 500 KB | 11307496 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

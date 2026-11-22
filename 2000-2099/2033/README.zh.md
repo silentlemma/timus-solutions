@@ -81,9 +81,11 @@ nexus4
 
 ## 优化解法
 
-`2033_hashing_optimized.py`. 仍按模型汇总六条记录，先最大化次数，再最小化出现价格。直接从记号填字典，不建立记录元组或解码 ASCII 模型名。字节字典序保留原确定性平局选择，尽管任一并列最优模型都有效。仍保留切分输入：输入长度 I 下期望 O(I) 时间、O(I) 空间，共六条记录。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
+`2033_hashing_optimized.py`. 逐行读取字节记号，每个模型保留可变 [次数, 最低价]，不建立记录元组或完整输入记号表。统计全部六条记录，包括重复人名，并保留模型前导零。先最大频次、再最低价；字典序只处理允许的最终平局。I 输入字节、M 模型、最大行长 Lmax 下，名称最多 20 字符时期望 O(I) 时间、O(M+Lmax) 辅助空间。保留易读记录及哈希表版。
 
-与 `2033_hashing.py` 相比：时间 0.109 s → 0.125 s；内存 452 KB → 228 KB。
+复用精确历史 CPython 3.12 Accepted #11307496：0.078 s / 500 KB。2026-11-20 保存的可比编译器组中，时间排名 4/61，内存排名 32/61。低于 1024 KB 时严格收录仅看时间，已通过；星号遵循单独的语言排名目标。这些是该源代码的成对测量，并非新提交或跨平台加速保证。本版正常结束解释器。
+
+- `2033_hashing_optimized.py`: 0.078 s / 500 KB；保留教学版 `2033_hashing.py`（Python 3.12 x64）：0.109 s / 452 KB。即使某项增加，也明确保留基础版两项测量。
 
 `2033_implementation.java`. 用固定数组直接扫描至多六个型号字符串，替代哈希分组。即使人名重复也逐购买计数，保留各型号最低价。型号原样保存，包括前导零，计数和价格均相同时才用允许的字典序破平。固定六条记录使总字符工作 O(L)，存储至多六个型号名，无 Record 对象和 HashMap 项。公开文件名为 implementation，因为不再哈希；Accepted 源字节及原 hashing 教学版本不变。
 
@@ -113,8 +115,6 @@ nexus4
 
 `2033_implementation.java`：在该可比样本中，时间名次 24/207，内存名次 32/207。
 
-`2033_hashing_optimized.py`：在该可比样本中，时间名次 49/61，内存名次 2/61。
-
 星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
 ## 解答
@@ -136,6 +136,6 @@ nexus4
 | [2033_bruteforce.cpp](2033_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(1) | AC | 0.015 s | 124 KB | 11304029 |
 | [2033_bruteforce.rs](2033_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(1) | AC | 0.046 s | 228 KB | 11304030 |
 | [2033_implementation.java](2033_implementation.java) \* | Java 1.8 | implementation | O(L), six records | AC | 0.109 s | 572 KB | 11325123 |
-| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | PyPy 3.10 x64 | hashing | O(I) expected time; O(I) space | AC | 0.125 s | 228 KB | 11325481 |
+| [2033_hashing_optimized.py](2033_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(M+Lmax) space | AC | 0.078 s | 500 KB | 11307496 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

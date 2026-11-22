@@ -1,17 +1,22 @@
-import os
-from sys import stdout
-
 RECORDS = 6
-tokens = iter(open(0, "rb", buffering=0).read().split())
-groups = {}
-for _ in range(RECORDS):
-    next(tokens)
-    model, price = next(tokens), int(next(tokens))
-    count, cheapest = groups.get(model, (0, price))
-    groups[model] = count + 1, min(cheapest, price)
-best = min(groups, key=lambda model: (-groups[model][0], groups[model][1], model))
-stdout.buffer.write(best + b"\n")
 
-# Flush the complete answer before skipping interpreter teardown.
-stdout.flush()
-os._exit(0)
+
+def main():
+    words = (word for line in open(0, "rb") for word in line.split())
+    groups = {}
+    for _ in range(RECORDS):
+        next(words)
+        model, price = next(words), int(next(words))
+        if model in groups:
+            stats = groups[model]
+            stats[0] += 1
+            if price < stats[1]:
+                stats[1] = price
+        else:
+            groups[model] = [1, price]
+    # The model with most records wins; its cheapest purchase breaks ties.
+    answer = min(groups, key=lambda model: (-groups[model][0], groups[model][1], model))
+    print(answer.decode())
+
+
+main()
