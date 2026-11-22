@@ -64,6 +64,14 @@ voraz.
 
 ## Soluciones optimizadas
 
+`1683_greedy_optimized.java`. Conserva medias plegadas óptimas. Para 1≤N≤10^9, ceil(log2 N)=32−numberOfLeadingZeros(N−1); N=1 da cero. Longitudes int y hasta treinta valores caben en respuesta completa de 384 bytes. Codifica cifras in situ, escribe una vez y vacía antes de System.exit(0), sin construir strings ni salida long general. O(log N) plegados, espacio auxiliar acotado. Par actual 0.078 s/452 KB separado del viejo 0.093 s/452 KB; un tick no prueba mejora del 30%. Bases y evidencia de runtime Python intactas.
+
+Accepted exacto Java 1.8 #11327867: 0.078 s / 452 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/62, memoria 5/62. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304448 era 0.093 s / 452 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1683_greedy_optimized.java`: 0.078 s / 452 KB; base didáctica conservada `1683_greedy.java`: 0.125 s / 1664 KB.
+
+`1683_greedy_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327033 mide 0.062 s / 620 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/21, memoria 21/21. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11324922, 0.125 s / 208 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1683_greedy_optimized.py`. Conserva doblar floor(length/2) desde la izquierda, dejando ceil(length/2). Ningún pliegue legal reduce más deprisa: el mínimo es ceil(log2 n), cero para n=1. Hace O(log n) pasos enteros acotados con n<=10^9. Calcula la cuenta con (n-1).bit_length() antes de generar longitudes. Aún guarda y une las cadenas de todos los pliegues: espacio de salida O(log n). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
 Frente a `1683_greedy.py`: tiempo 0.125 s → 0.125 s; memoria 372 KB → 208 KB.
@@ -78,12 +86,6 @@ n ≤ 10⁹ < 2³⁰, como mucho 30 dobleces por la mitad dejan la tira en
 1 cm, así que el arreglo siempre basta y el propio programa no reserva
 memoria dinámica: {1683_greedy_optimized.cpp}.
 
-La solución optimizada en Java lee la única línea con un
-`BufferedReader` y la convierte con `Long.parseLong` en lugar de crear
-un `Scanner`, cuyas expresiones regulares y datos de configuración
-regional cuestan mucho más que 30 dobleces por la mitad:
-{1683_greedy_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -94,14 +96,11 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1683_greedy_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +47.92%; base: `1683_greedy.cpp`.
 
-- `1683_greedy_optimized.java`: reducción de tiempo +25.60%; reducción
-  de memoria +72.84%; base: `1683_greedy.java`.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1683_greedy_optimized.py`: puesto de tiempo 18/21 y de memoria 1/21 en esta muestra comparable.
+Comparación PyPy anterior: `1683_greedy_optimized.py`: puesto de tiempo 18/21 y de memoria 1/21 en esta muestra comparable.
 
 `1683_greedy_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -124,8 +123,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1683_greedy_optimized.cpp](1683_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(log n) | AC | 0.015 s | 100 KB | 11304447 |
-| [1683_greedy_optimized.java](1683_greedy_optimized.java) | Java 1.8 | greedy | O(log n) | AC | 0.093 s | 452 KB | 11304448 |
-| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log n) | AC | 0.125 s | 208 KB | 11324922 |
+| [1683_greedy_optimized.java](1683_greedy_optimized.java) \* | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
+| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
 | [1683_greedy_optimized.rs](1683_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

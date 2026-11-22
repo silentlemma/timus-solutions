@@ -62,6 +62,14 @@ greedy one.
 
 ## Optimized solutions
 
+`1683_greedy_optimized.java`. Keep optimal repeated half-folds. For 1≤N≤10^9, ceil(log2 N) is 32−numberOfLeadingZeros(N−1); N=1 gives zero folds. All fold lengths fit int, and at most thirty values fit a 384-byte complete answer buffer. Encode digits in place, write once and flush before System.exit(0), instead of building strings or using a generic long-output buffer. O(log N) folds and bounded auxiliary storage. The current 0.078 s/452 KB receipt is separate from the old 0.093 s/452 KB receipt; one timer tick alone is not a 30% gain. Teaching sources and Python runtime-selection evidence remain unchanged.
+
+Exact-source Java 1.8 Accepted #11327867: 0.078 s / 452 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/62, memory 5/62. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304448 was 0.093 s / 452 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1683_greedy_optimized.java`: 0.078 s / 452 KB; retained teaching base `1683_greedy.java`: 0.125 s / 1664 KB.
+
+`1683_greedy_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327033 measures 0.062 s / 620 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 1/21, memory rank 21/21. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11324922, 0.125 s / 208 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1683_greedy_optimized.py`. Keep folding floor(length/2) from the left, leaving ceil(length/2). No legal fold can shrink the strip faster, so the minimum count is ceil(log2 n), including zero folds for n=1. There are O(log n) bounded-integer steps under n<=10^9. Compute the count with (n-1).bit_length() before constructing the lengths. The code still stores strings for all folds and joins them, so auxiliary output storage remains O(log n). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
 Compared with `1683_greedy.py`: time 0.125 s → 0.125 s; memory 372 KB → 208 KB.
@@ -76,11 +84,6 @@ n ≤ 10⁹ < 2³⁰, at most 30 halvings bring the strip down to 1 cm, so the
 array always suffices and the program itself allocates nothing on the
 heap: {1683_greedy_optimized.cpp}.
 
-The optimized Java solution reads the single line with a
-`BufferedReader` and converts it with `Long.parseLong` instead of
-creating a `Scanner`, whose regular expressions and locale data cost far
-more than 30 halvings: {1683_greedy_optimized.java}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -91,14 +94,11 @@ asterisk concerns the rating target only.
 - `1683_greedy_optimized.cpp`: time reduction +0.00%; memory reduction
   +47.92%; base: `1683_greedy.cpp`.
 
-- `1683_greedy_optimized.java`: time reduction +25.60%; memory reduction
-  +72.84%; base: `1683_greedy.java`.
-
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1683_greedy_optimized.py`: time place 18/21, memory place 1/21 in this comparable sample.
+Earlier PyPy comparison: `1683_greedy_optimized.py`: time place 18/21, memory place 1/21 in this comparable sample.
 
 `1683_greedy_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -121,8 +121,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1683_greedy_optimized.cpp](1683_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(log n) | AC | 0.015 s | 100 KB | 11304447 |
-| [1683_greedy_optimized.java](1683_greedy_optimized.java) | Java 1.8 | greedy | O(log n) | AC | 0.093 s | 452 KB | 11304448 |
-| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log n) | AC | 0.125 s | 208 KB | 11324922 |
+| [1683_greedy_optimized.java](1683_greedy_optimized.java) \* | Java 1.8 | greedy | O(log N) time; bounded 384-byte answer | AC | 0.078 s | 452 KB | 11327867 |
+| [1683_greedy_optimized.py](1683_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log n) | AC | 0.062 s | 620 KB | 11327033 |
 | [1683_greedy_optimized.rs](1683_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(log n) | AC | 0.062 s | 52 KB | 11325142 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
