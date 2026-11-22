@@ -104,6 +104,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1018_dp_graphs_optimized.java`. Keep the preorder subtree-skip DP, choosing the smaller kept/removed-edge dimension. Add exact shortcuts: zero retained edges or zero total weight give zero; all edges give total; one edge is a root edge; two edges are two root children or a root-child-grandchild chain; removing one edge must remove a nonroot leaf. Nonnegative weights justify these cases. Other inputs use the unchanged DP. Worst-case O(N(1+min(Q,N−1−Q))) time and storage; input/adjacency still O(N) even for a shortcut. Keep the prior DP variant as a readable alternative.
+
+Exact-source Java 1.8 Accepted #11327749: 0.078 s / 432 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/74; 1/74. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics rank first; no asterisk. The preserved previous variant has its own paired receipt #11309309 (Java 1.8): 0.125 s / 368 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1018_dp_graphs_optimized.java`: 0.078 s / 432 KB; retained teaching base `1018_dp_trees.java` (Java 1.8): 0.14 s / 1912 KB.
+
 `1018_dp_trees_optimized.rs`. Keep tree knapsack for exactly Q connected root branches. Merge each child into the current vector in descending total order, so lower source states survive without allocating a second merge vector. Flat forward-star edges replace nested adjacency vectors; u8 vertices, i16 links and i32 apple totals are safe for N≤100 and at most 99·30000 apples. Conservative O(NQ²) time and O(NQ+N) live storage, including recursive DP vectors.
 
 Compared with `1018_dp_trees.rs`: time 0.015 s → 0.015 s; memory 260 KB → 76 KB.
@@ -146,6 +152,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
+| [1018_dp_graphs_optimized.java](1018_dp_graphs_optimized.java) | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.078 s | 432 KB | 11327749 |
 | [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
 | [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
 

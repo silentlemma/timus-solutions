@@ -107,6 +107,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1018_dp_graphs_optimized.java`. Conserva DP de preorden saltando subárboles con menor dimensión de aristas conservadas/eliminadas. Atajos exactos: cero aristas o peso total cero dan cero; todas dan total; una toca raíz; dos son dos hijos o cadena raíz-hijo-nieto; quitar solo una exige hoja no raíz. Pesos no negativos justifican casos. Resto usa DP intacta. Peor caso O(N(1+min(Q,N−1−Q))) tiempo/espacio; entrada/adyacencia O(N) incluso con atajo. Conserva DP anterior.
+
+Fuente exacto: Java 1.8 Accepted #11327749: 0.078 s / 432 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/74; 1/74. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11309309 (Java 1.8): 0.125 s / 368 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1018_dp_graphs_optimized.java`: 0.078 s / 432 KB; base didáctica conservada `1018_dp_trees.java` (Java 1.8): 0.14 s / 1912 KB.
+
 `1018_dp_trees_optimized.rs`. Conserva mochila de árbol para Q ramas conectadas a raíz. Fusiona hijo en orden descendente del total, preservando estados menores sin segundo vector. Aristas en estrella directa sustituyen vectores anidados; vértices u8, enlaces i16 y totales i32 seguros para N≤100 y 99·30000 manzanas. Cota conservadora O(NQ²) tiempo, O(NQ+N) memoria viva con vectores recursivos.
 
 Frente a `1018_dp_trees.rs`: tiempo 0.015 s → 0.015 s; memoria 260 KB → 76 KB.
@@ -149,6 +155,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
+| [1018_dp_graphs_optimized.java](1018_dp_graphs_optimized.java) | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.078 s | 432 KB | 11327749 |
 | [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
 | [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
 

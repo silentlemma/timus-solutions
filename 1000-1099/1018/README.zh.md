@@ -91,6 +91,12 @@
 
 ## 优化解法
 
+`1018_dp_graphs_optimized.java`. 保留前序跳过子树 DP，并选择保留/删除边数较小的维度。新增精确特例：零条边或零总权为零；全部边为总和；一条边连接根；两条为根的两个孩子或根到孙子的链；仅删一条只能删非根叶边。非负权保证成立，其他输入执行原 DP。最坏 O(N(1+min(Q,N−1−Q))) 时间空间，特例仍需 O(N) 输入/邻接。保留旧 DP 替代版。
+
+精确源码：Java 1.8 Accepted #11327749: 0.078 s / 432 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/74; 1/74。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11309309 (Java 1.8): 0.125 s / 368 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1018_dp_graphs_optimized.java`: 0.078 s / 432 KB; 保留教学版 `1018_dp_trees.java` (Java 1.8): 0.14 s / 1912 KB.
+
 `1018_dp_trees_optimized.rs`. 保留恰好 Q 条连根树枝的树背包。按总数降序原地合并子树，保护较小原状态，免第二合并向量。前向星替代嵌套邻接向量；N≤100、苹果至多 99·30000，u8 顶点、i16 链接及 i32 总值安全。保守 O(NQ²) 时间、O(NQ+N) 活跃存储，含递归 DP 向量。
 
 与 `1018_dp_trees.rs` 相比：时间 0.015 s → 0.015 s；内存 260 KB → 76 KB。
@@ -133,6 +139,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1018_dp_graphs.java](1018_dp_graphs.java) \* | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 368 KB | 11309309 |
+| [1018_dp_graphs_optimized.java](1018_dp_graphs_optimized.java) | Java 1.8 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.078 s | 432 KB | 11327749 |
 | [1018_dp_graphs.py](1018_dp_graphs.py) \* | PyPy 3.10 x64 | dp, graphs | O(N(1+min(Q,N-1-Q))) time and space | AC | 0.125 s | 408 KB | 11309731 |
 | [1018_dp_trees_optimized.rs](1018_dp_trees_optimized.rs) \* | Rust 1.75 x64 | dp, trees | O(NQ²) time; O(NQ+N) space | AC | 0.015 s | 76 KB | 11325538 |
 
