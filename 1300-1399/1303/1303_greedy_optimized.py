@@ -8,14 +8,14 @@ def main():
     # starts at or below zero share bucket zero; only the farthest end matters.
     # m <= 5000 bounds storage independently of the number of intervals.
     for line in source:
-        l, r = map(int, line.split())
-        if l == r == 0:
+        start, end = map(int, line.split())
+        if start == end == 0:
             break
-        if l >= m or r <= 0:
+        if start >= m or end <= 0:
             continue
-        at = max(0, l)
-        if r > right[at] or (r == right[at] and l < left[at]):
-            left[at], right[at] = l, r
+        at = max(0, start)
+        if end > right[at] or (end == right[at] and start < left[at]):
+            left[at], right[at] = start, end
     chosen = []
     covered = at = 0
     while covered < m:

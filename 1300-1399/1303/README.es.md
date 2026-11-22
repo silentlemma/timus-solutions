@@ -176,7 +176,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
   de memoria +89.70%; base: `1303_greedy.java`.
 
 - `1303_greedy_optimized.py`: reducción de tiempo +31.60%; reducción de
-  memoria +95.40%; base: `1303_greedy.py`.
+  memoria +94.85%; base: `1303_greedy.py`.
 
 - `1303_greedy_optimized.rs`: reducción de tiempo -106.67%; reducción de
   memoria +93.76%; base: `1303_greedy.rs`.
@@ -206,7 +206,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1303_greedy_optimized.cpp](1303_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + M) | AC | 0.015 s | 172 KB | 11307319 |
 | [1303_greedy_optimized.go](1303_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + M) | AC | 0.015 s | 1204 KB | 11307326 |
 | [1303_greedy_optimized.java](1303_greedy_optimized.java) | Java 1.8 | greedy | O(N + M) | AC | 0.093 s | 856 KB | 11307323 |
-| [1303_greedy_optimized.py](1303_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1140 KB | 11307328 |
+| [1303_greedy_optimized.py](1303_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(N + M) | AC | 0.171 s | 1276 KB | 11328271 |
 | [1303_greedy_optimized.rs](1303_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + M) | AC | 0.031 s | 232 KB | 11307329 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
