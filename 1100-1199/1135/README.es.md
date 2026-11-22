@@ -73,7 +73,11 @@ filas aleatorias de hasta 300 reclutas.
 
 ## Soluciones optimizadas
 
-`1135_math_optimized.py`. Conserva sumar > anteriores por cada <, exactamente N símbolos relevantes saltando separadores. Bytes sin decodificar ni unir filas. Desactiva JIT opcional de este trabajo PyPy corto para evitar trazas calientes, vacía y sale directamente; CPython omite ajuste opcional. O(I) tiempo/espacio para I bytes; conserva conteo legible.
+`1135_math_optimized.py`. Conserva inversiones: cada < suma los > previos, consume exactamente N símbolos significativos e ignora separadores. Contadores locales, sin control JIT opcional exclusivo de PyPy; mantiene entrada binaria y salida directa tras vaciar. Esta ejecución CPython no usa API privada del intérprete; conserva base legible.
+
+Accepted exacto CPython 3.12 #11326692: 0.062 s / 628 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 2/80, memoria 12/80. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1135_math_optimized.py`: 0.062 s / 628 KB; base didáctica conservada `1135_math.py` (Python 3.12 x64): 0.078 s / 420 KB; cambio de tiempo -20.5%; cambio de memoria +49.5%.
 
 Frente a `1135_math.py`: tiempo 0.078 s → 0.125 s; memoria 420 KB → 288 KB.
 
@@ -134,6 +138,6 @@ implementación para alcanzar el objetivo.
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
 | [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
 | [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
-| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | Python 3.12 x64 | math | O(I) time; O(I) space | AC | 0.062 s | 628 KB | 11326692 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

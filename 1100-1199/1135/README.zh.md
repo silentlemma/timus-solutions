@@ -64,7 +64,11 @@
 
 ## 优化解法
 
-`1135_math_optimized.py`. 保留每遇 < 累计之前 >，恰读 N 有效符号、跳分隔。字节输入不解码或重拼行。此短 PyPy 程序关闭可选 JIT，避免热循环迹线分配，刷新后直接退出；CPython 跳过可选设置。I 个输入字节下 O(I) 时间空间，保留简单计数版。
+`1135_math_optimized.py`. 保留逆序计数：每个 < 加上此前 > 的数量，恰好消费 N 个有效符号并忽略分隔。热点计数器改为局部，删除可选 PyPy 专用 JIT 控制，保留字节输入与刷新后直接退出。此 CPython 运行不用解释器私有 API，保留教学版。
+
+精确源代码 CPython 3.12 Accepted #11326692：0.062 s / 628 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 2/80，内存排名 12/80。低于 1024 KB，严格收录只看时间。
+
+- `1135_math_optimized.py`: 0.062 s / 628 KB; 保留的教学基础版 `1135_math.py` (Python 3.12 x64): 0.078 s / 420 KB; 时间变化 -20.5%; 内存变化 +49.5%.
 
 与 `1135_math.py` 相比：时间 0.078 s → 0.125 s；内存 420 KB → 288 KB。
 
@@ -117,6 +121,6 @@
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
 | [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
 | [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
-| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | Python 3.12 x64 | math | O(I) time; O(I) space | AC | 0.062 s | 628 KB | 11326692 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

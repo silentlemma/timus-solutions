@@ -71,7 +71,11 @@ random rows of up to 300 recruits.
 
 ## Optimized solutions
 
-`1135_math_optimized.py`. Keep the count of earlier > symbols added for each <, consuming exactly N significant symbols and skipping separators. Read byte data without decoding or rebuilding a joined row. For this short PyPy job, disable optional JIT compilation to avoid paying for hot-loop traces, then flush and exit directly. The CPython fallback skips that optional runtime setting. O(I) time and space for I input bytes; the simple readable counting source remains.
+`1135_math_optimized.py`. Keep inversion counting: each < adds the number of earlier > symbols, consuming exactly N significant symbols and ignoring separators. Hot-loop counters are local; remove optional PyPy-only JIT control and retain binary input plus flushed direct exit. This exact CPython run uses no private interpreter API and keeps the readable teaching source.
+
+Exact-source CPython 3.12 Accepted #11326692: 0.062 s / 628 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 2/80, memory rank 12/80. Below 1024 KB, strict admission uses time only.
+
+- `1135_math_optimized.py`: 0.062 s / 628 KB; retained teaching base `1135_math.py` (Python 3.12 x64): 0.078 s / 420 KB; time change -20.5%; memory change +49.5%.
 
 Compared with `1135_math.py`: time 0.078 s → 0.125 s; memory 420 KB → 288 KB.
 
@@ -131,6 +135,6 @@ implementation for these languages.
 | [1135_math_optimized.java](1135_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.078 s | 364 KB | 11307457 |
 | [1135_math_optimized.rs](1135_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325144 |
 | [1135_math_optimized.go](1135_math_optimized.go) \* | Go 1.14 x64 | math | O(N+I) time; O(1) space | AC | 0.031 s | 332 KB | 11325651 |
-| [1135_math_optimized.py](1135_math_optimized.py) \* | PyPy 3.10 x64 | math | O(I) time; O(I) space | AC | 0.125 s | 288 KB | 11325852 |
+| [1135_math_optimized.py](1135_math_optimized.py) \* | Python 3.12 x64 | math | O(I) time; O(I) space | AC | 0.062 s | 628 KB | 11326692 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
