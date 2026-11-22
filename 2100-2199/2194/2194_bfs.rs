@@ -6,7 +6,9 @@ const FACES: usize = 6; // a six lets the player roll again in the same turn
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|t| t.parse::<usize>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse::<usize>().unwrap());
     let n = it.next().unwrap();
     let mut jump = vec![0usize; n + 1];
     for i in 2..n {

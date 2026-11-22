@@ -7,7 +7,7 @@ FACES = 6  # a six lets the player roll again in the same turn
 def main():
     data = list(map(int, sys.stdin.buffer.read().split()))
     n = data[0]
-    jump = [0, 0] + data[1:n - 1] + [0]
+    jump = [0, 0] + data[1 : n - 1] + [0]
     # land[i]: where the token rests after arriving at i and following snakes
     land = list(range(n + 1))
     for i in range(2, n):

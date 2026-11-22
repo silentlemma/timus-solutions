@@ -98,11 +98,11 @@ Las implementaciones base aceptadas [2194_bfs.go](2194_bfs.go), [2194_bfs.java](
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [2194_bfs.cpp](2194_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.156 s | 2552 KB | 11295294 |
+| [2194_bfs.cpp](2194_bfs.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.14 s | 2740 KB | 11328352 |
 | [2194_bfs.go](2194_bfs.go) \* | Go 1.14 x64 | bfs | O(N) | AC | 0.156 s | 8952 KB | 11295296 |
-| [2194_bfs.java](2194_bfs.java) \* | Java 1.8 | bfs | O(N) | AC | 0.140 s | 6640 KB | 11295299 |
-| [2194_bfs.py](2194_bfs.py) \* | Python 3.12 x64 | bfs | O(N) | AC | 0.312 s | 21612 KB | 11295297 |
-| [2194_bfs.rs](2194_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.046 s | 7656 KB | 11295301 |
+| [2194_bfs.java](2194_bfs.java) \* | Java 1.8 | bfs | O(N) | AC | 0.171 s | 6876 KB | 11328354 |
+| [2194_bfs.py](2194_bfs.py) \* | Python 3.12 x64 | bfs | O(N) | AC | 0.296 s | 21880 KB | 11328355 |
+| [2194_bfs.rs](2194_bfs.rs) | Rust 1.75 x64 | bfs | O(N) | AC | 0.062 s | 7856 KB | 11328356 |
 
 ### Optimizadas
 

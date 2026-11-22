@@ -10,7 +10,7 @@ N (2 <= N <= 200000), defaulting to 200000."""
 import random
 import sys
 
-MAX_N = 2 * 10 ** 5
+MAX_N = 2 * 10**5
 SMALL_N = 14
 SAFE = 5
 SPARSE = 20
@@ -26,8 +26,7 @@ def main():
         if mode == 5:
             p = [1] * (n - 2)
         elif mode == 6:
-            p = [min(6, i - 1) if (i - 1) % 5 == 1 else (i - 1) % 5
-                 for i in range(2, n)]
+            p = [min(6, i - 1) if (i - 1) % 5 == 1 else (i - 1) % 5 for i in range(2, n)]
         else:
             safe = {1}
             cell = 1
