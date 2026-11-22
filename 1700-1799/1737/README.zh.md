@@ -58,9 +58,14 @@ cb
 
 ## 优化解法
 
-长度至少为二时，前两个不同字母唯一确定合法周期串。按字母序枚举字母对，即可直接按字典序输出六个串，无需集合、去重或排序。单字母情况单独输出三个串。构造前先判断输出是否过长，之后分块输出，不保留全部串及拼接结果。
+`1737_strings_optimized.cpp`. 保留 n>=2 时六个周期三单词的字典序生成，n=1 单独输出三个，6*n>100000 输出 TOO LONG。每对不同首两字母先放至多三个字节，再用 memcpy 倍增已生成前缀。需要再次重复的前缀长度都被三整除，最后短复制无需再重复；take<=filled 保证两区域不重叠。六词及换行全部保存在固定 100006 字节缓冲，一次写出；n=16666 时用 100002 字节。此版保留有界完整输出，不是流式输出块。时间 O(输出大小)，固定 O(100006) 缓冲。256 字节哨兵读取替代格式化输入。独立枚举至长度九及输出长度边界已检查，保留教学生成法。
 
-- `1737_strings_optimized.cpp`: 0.031 s / 112 KB; 基础版 `1737_strings.cpp`: 0.031 s / 232 KB; 相对基础版的变化: 时间 -0.0%, 内存 -51.7%.
+精确源代码 G++ 13.2 x64 Accepted #11327410：0.015 s / 172 KB。2026-11-20 保存的编译器组比较：时间 1/50、内存 2/50。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。也满足单独 C++ 目标：两项均前十或前 15%，无需星号。此前记录的优化运行 #11308823 为 0.031 s / 112 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1737_strings_optimized.cpp`: 0.015 s / 172 KB; 保留教学基础版 `1737_strings.cpp`: 0.031 s / 232 KB.
+
+长度至少为二时，前两个不同字母唯一确定合法周期串。按字母序枚举字母对，即可直接按字典序输出六个串，无需集合、去重或排序。单字母情况单独输出三个串。构造前先判断输出是否过长。Go、Java 和 Rust 分块输出，Python 逐词输出；当前 C++ 保存有界完整输出，详见上文。
+
 - `1737_strings_optimized.go`: 0.015 s / 964 KB; 基础版 `1737_strings.go`: 0.031 s / 1448 KB; 相对基础版的变化: 时间 -51.6%, 内存 -33.4%.
 - `1737_strings_optimized.java`: 0.093 s / 388 KB; 基础版 `1737_strings.java`: 0.109 s / 3016 KB; 相对基础版的变化: 时间 -14.7%, 内存 -87.1%.
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; 基础版 `1737_strings.py`: 0.109 s / 980 KB; 相对基础版的变化: 时间 -14.7%, 内存 -54.7%.
@@ -98,7 +103,7 @@ cb
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(output size) | AC | 0.031 s | 112 KB | 11308823 |
+| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(output size) time; fixed 100006-byte output buffer | AC | 0.015 s | 172 KB | 11327410 |
 | [1737_strings_optimized.go](1737_strings_optimized.go) | Go 1.14 x64 | strings | O(output size) | AC | 0.015 s | 964 KB | 11308824 |
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |

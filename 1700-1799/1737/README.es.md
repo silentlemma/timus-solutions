@@ -67,9 +67,14 @@ palabras sobre a, b y c para n hasta 9.
 
 ## Soluciones optimizadas
 
-Para longitud al menos dos, las primeras dos letras distintas determinan la palabra periódica válida. Enumerar los pares alfabéticamente emite directamente las seis palabras en orden lexicográfico, sin conjunto, deduplicación ni ordenación. El caso de una letra emite tres palabras aparte. Se decide si la salida es demasiado larga antes de construirla y se escribe por bloques, sin conservar todas las palabras y su concatenación.
+`1737_strings_optimized.cpp`. Mantiene los seis vocablos de período tres en orden lexicográfico para n>=2; trata aparte tres letras con n=1 y TOO LONG si 6*n>100000. Para cada pareja distinta inicial siembra hasta tres bytes y duplica el prefijo con memcpy. Todo prefijo que vuelve a repetirse tiene longitud múltiplo de tres; la última copia corta no se repite. take<=filled garantiza regiones sin solapamiento. Acumula seis palabras y saltos en 100006 bytes fijos y escribe una vez; n=16666 usa 100002. Esta versión retiene toda la salida acotada, no un bloque en flujo. Tiempo O(tamaño de salida), búfer fijo O(100006). Lector centinela de 256 bytes sustituye entrada formateada. Enumeración independiente hasta longitud nueve y fronteras del límite comprobadas; conserva generación didáctica.
 
-- `1737_strings_optimized.cpp`: 0.031 s / 112 KB; base `1737_strings.cpp`: 0.031 s / 232 KB; cambio respecto a la base: tiempo -0.0%, memoria -51.7%.
+Accepted exacto G++ 13.2 x64 #11327410: 0.015 s / 172 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/50, memoria 2/50. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. También cumple la meta propia de C++: ambas métricas entre diez primeras o 15% superior, sin asterisco. El registro optimizado documentado antes #11308823 era 0.031 s / 112 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1737_strings_optimized.cpp`: 0.015 s / 172 KB; base didáctica conservada `1737_strings.cpp`: 0.031 s / 232 KB.
+
+Para longitud al menos dos, las primeras dos letras distintas determinan la palabra periódica válida. Enumerar los pares alfabéticamente emite directamente las seis palabras en orden lexicográfico, sin conjunto, deduplicación ni ordenación. El caso de una letra emite tres palabras aparte. Se decide si la salida es demasiado larga antes de construirla. Go, Java y Rust escriben bloques acotados; Python escribe una palabra cada vez. El C++ actual retiene la salida completa acotada como se describe arriba.
+
 - `1737_strings_optimized.go`: 0.015 s / 964 KB; base `1737_strings.go`: 0.031 s / 1448 KB; cambio respecto a la base: tiempo -51.6%, memoria -33.4%.
 - `1737_strings_optimized.java`: 0.093 s / 388 KB; base `1737_strings.java`: 0.109 s / 3016 KB; cambio respecto a la base: tiempo -14.7%, memoria -87.1%.
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; base `1737_strings.py`: 0.109 s / 980 KB; cambio respecto a la base: tiempo -14.7%, memoria -54.7%.
@@ -107,7 +112,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(output size) | AC | 0.031 s | 112 KB | 11308823 |
+| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(output size) time; fixed 100006-byte output buffer | AC | 0.015 s | 172 KB | 11327410 |
 | [1737_strings_optimized.go](1737_strings_optimized.go) | Go 1.14 x64 | strings | O(output size) | AC | 0.015 s | 964 KB | 11308824 |
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |

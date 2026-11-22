@@ -66,9 +66,14 @@ to 9.
 
 ## Optimized solutions
 
-For a length of at least two, the first two distinct letters uniquely determine a valid periodic word. Iterate those pairs in alphabetic order: this directly emits the six words in lexicographic order without a set, deduplication or sorting. The single-letter case emits three words separately. Determine whether the output would be too long before constructing it, then write bounded blocks rather than keeping all words and a joined output string.
+`1737_strings_optimized.cpp`. Keep lexicographic generation of the six period-three words for n>=2, with three one-letter words handled separately and TOO LONG when 6*n>100000. For each distinct first/second letter, seed up to three bytes, then double-copy the existing prefix with memcpy. Every prefix that must be repeated has length divisible by three; the last shorter copy needs no further repetition. take<=filled makes source and destination ranges nonoverlapping. Accumulate all six words and newlines in a fixed 100006-byte buffer and write once: at n=16666 the used length is 100002. This version retains the bounded complete output, not a streaming output block. Time O(output size), fixed O(100006) buffer storage. A 256-byte sentinel reader replaces formatted input. Independent enumeration checked all words through length nine, with exact output-limit boundaries; teaching generation remains.
 
-- `1737_strings_optimized.cpp`: 0.031 s / 112 KB; base `1737_strings.cpp`: 0.031 s / 232 KB; relative change: time -0.0%, memory -51.7%.
+Exact-source G++ 13.2 x64 Accepted #11327410: 0.015 s / 172 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/50, memory 2/50. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The separate C++ target also passes: both metrics are in the top ten or top 15%; no asterisk. The previously documented optimized run #11308823 was 0.031 s / 112 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1737_strings_optimized.cpp`: 0.015 s / 172 KB; retained teaching base `1737_strings.cpp`: 0.031 s / 232 KB.
+
+For a length of at least two, the first two distinct letters uniquely determine a valid periodic word. Iterate those pairs in alphabetic order: this directly emits the six words in lexicographic order without a set, deduplication or sorting. The single-letter case emits three words separately. Determine whether the output would be too long before constructing it. Go, Java and Rust write bounded blocks; Python writes one word at a time. The current C++ implementation retains the bounded complete output as described above.
+
 - `1737_strings_optimized.go`: 0.015 s / 964 KB; base `1737_strings.go`: 0.031 s / 1448 KB; relative change: time -51.6%, memory -33.4%.
 - `1737_strings_optimized.java`: 0.093 s / 388 KB; base `1737_strings.java`: 0.109 s / 3016 KB; relative change: time -14.7%, memory -87.1%.
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; base `1737_strings.py`: 0.109 s / 980 KB; relative change: time -14.7%, memory -54.7%.
@@ -106,7 +111,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(output size) | AC | 0.031 s | 112 KB | 11308823 |
+| [1737_strings_optimized.cpp](1737_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(output size) time; fixed 100006-byte output buffer | AC | 0.015 s | 172 KB | 11327410 |
 | [1737_strings_optimized.go](1737_strings_optimized.go) | Go 1.14 x64 | strings | O(output size) | AC | 0.015 s | 964 KB | 11308824 |
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
