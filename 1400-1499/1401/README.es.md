@@ -68,14 +68,15 @@ una L dentro de un cuadrado de 2 × 2.
 
 ## Soluciones optimizadas
 
-La solución optimizada en C++ rellena un arreglo global de `int` de
-512 × 512 en lugar de un `vector` de `vector` y usa recursión en lugar
-de una pila de cuadrados: cada llamada coloca la pieza de un cuadrado y
-baja a sus cuartos, con a lo sumo n ≤ 9 llamadas anidadas. Los cuartos
-se recorren en orden inverso, así que las piezas reciben los mismos
-números que con la pila. Las casillas se imprimen una a una con `printf`
-en lugar de juntar antes todo el tablero como texto en un `string`:
-{1401_constructive_optimized.cpp}.
+`1401_constructive_optimized.py`. Conserva el recubrimiento recursivo con trominós y filas array("I"): celdas de 4 bytes permiten etiquetas hasta 87381 para n<=9. El caso side==2 escribe tres celdas directamente respetando el hueco real o heredado. Recorre los cuadrantes en orden inverso para mantener las etiquetas de la pila didáctica. Trabajo y tablero O(4^n), profundidad O(n) y como máximo una fila decimal de salida retenida. Vacía antes de os._exit(0) dentro de main. Este registro es más rápido que el optimizado anterior pero usa más memoria; cada ejecución conserva su propio par tiempo/memoria.
+
+Accepted exacto Python 3.12 x64 #11327426: 0.218 s / 2004 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 19/157, memoria 2/157. Con 1024 KB o más la admisión estricta exige tiempo y memoria: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11307190 (Python 3.12 x64) era 0.312 s / 1744 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1401_constructive_optimized.py`: 0.218 s / 2004 KB; base didáctica conservada `1401_constructive.py`: 0.375 s / 10628 KB.
+
+La revisión C++ mantiene el recubrimiento recursivo y el orden inverso de cuadrantes, conservando las etiquetas. Divide cada etiqueta en una celda baja de 16 bits y otra alta de 8, en vez de un int de 32 bits. El máximo 87381 cabe en 24 bits; el tablero de 512 × 512 ocupa 768 KiB. Un búfer numérico de 16 KB sustituye printf por celda. Tiempo y almacenamiento siguen siendo O(4^n), con profundidad O(n).
+
+Accepted del fuente exacto (G++ 13.2 x64, #11326640: 0.031 s / 888 KB); base didáctica `1401_constructive.cpp`: 0.031 s / 3760 KB. La medición optimizada anterior era 0.093 s / 1128 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 53/427 y de memoria 2/427; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
 
 La solución optimizada en Go guarda el tablero en casillas `int32` en
 lugar de `int` de 64 bits, ya que los números de las piezas no pasan de
@@ -94,15 +95,6 @@ lugar de `Scanner` y escribe el tablero fila a fila mediante un
 en lugar de construir antes toda la salida:
 {1401_constructive_optimized.java}.
 
-La solución optimizada en Python guarda cada fila en un `array("I")` de
-casillas sin signo de 4 bytes, donde caben los números de pieza hasta
-(4⁹ − 1) / 3 = 87 381, en lugar de una lista de objetos enteros. Baja
-recursivamente a los cuartos, con a lo sumo n ≤ 9 llamadas anidadas, en
-lugar de mantener una pila de tuplas, los recorre en orden inverso para
-que las piezas reciban los mismos números y escribe el tablero fila a
-fila en lugar de unirlo en una sola cadena:
-{1401_constructive_optimized.py}.
-
 La solución optimizada en Rust construye el tablero igual, pero escribe
 los números directamente en un `BufWriter` en lugar de formatear antes
 todo el tablero en un `String` de hasta 1.5 MB aproximadamente:
@@ -115,17 +107,13 @@ al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
-- `1401_constructive_optimized.cpp`: reducción de tiempo -200.00%;
-  reducción de memoria +70.00%; base: `1401_constructive.cpp`.
+- `1401_constructive_optimized.cpp`: reducción de tiempo +0.00%; reducción de memoria +76.38%; base: `1401_constructive.cpp`.
 
 - `1401_constructive_optimized.go`: reducción de tiempo +0.00%;
   reducción de memoria +54.86%; base: `1401_constructive.go`.
 
 - `1401_constructive_optimized.java`: reducción de tiempo +38.42%;
   reducción de memoria +57.07%; base: `1401_constructive.java`.
-
-- `1401_constructive_optimized.py`: reducción de tiempo +16.80%;
-  reducción de memoria +83.59%; base: `1401_constructive.py`.
 
 - `1401_constructive_optimized.rs`: reducción de tiempo -48.39%;
   reducción de memoria +72.59%; base: `1401_constructive.rs`.
@@ -146,10 +134,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1401_constructive_optimized.cpp](1401_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(4^n) | AC | 0.093 s | 1128 KB | 11305930 |
+| [1401_constructive_optimized.cpp](1401_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(4^n) | AC | 0.031 s | 888 KB | 11326640 |
 | [1401_constructive_optimized.go](1401_constructive_optimized.go) | Go 1.14 x64 | constructive | O(4^n) | AC | 0.031 s | 2136 KB | 11305934 |
 | [1401_constructive_optimized.java](1401_constructive_optimized.java) \* | Java 1.8 | constructive | O(4^n) | AC | 0.125 s | 5600 KB | 11305935 |
-| [1401_constructive_optimized.py](1401_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(4^n) | AC | 0.312 s | 1744 KB | 11307190 |
+| [1401_constructive_optimized.py](1401_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(4^n) board work/storage; O(n) recursion | AC | 0.218 s | 2004 KB | 11327426 |
 | [1401_constructive_optimized.rs](1401_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(4^n) | AC | 0.046 s | 1172 KB | 11307191 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

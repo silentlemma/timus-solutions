@@ -1,3 +1,4 @@
+import os
 import sys
 from array import array
 
@@ -14,6 +15,16 @@ def main():
         nonlocal count
         count += 1
         label = count
+        if side == 2:
+            # Keep the inherited hole untouched, including a tile placed by the parent.
+            upper, lower = board[top], board[top + 1]
+            if hr == top:
+                lower[left] = lower[left + 1] = label
+                upper[left + 1 if hc == left else left] = label
+            else:
+                upper[left] = upper[left + 1] = label
+                lower[left + 1 if hc == left else left] = label
+            return
         half = side // 2
         middle_row, middle_col = top + half - 1, left + half - 1
         # reverse order matches the simple solution's last-in-first-out stack.
@@ -32,6 +43,8 @@ def main():
     # retain at most one output row, not the complete decimal board.
     for row in board:
         sys.stdout.write(" ".join(map(str, row)) + "\n")
+    sys.stdout.flush()
+    os._exit(0)
 
 
 main()
