@@ -76,7 +76,7 @@ para 17 de maná.
 
 `2142_greedy_optimized.go`. Conserva las dos condiciones necesarias y suficientes: tierras dobles cubren max(0,X-A)+max(0,Y-B), y el total debe alcanzar X+Y+Z. Tras cubrir colores, cualquier tierra restante paga maná neutral. Mantiene ambas frases exactas y el caso todo cero. Las sumas alcanzan3·10^9, por lo que Go usa int64 y Python enteros exactos. Tiempo y estado O(1), con bytes y salida directa en vez de envolventes básicas. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `2142_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1088 KB → 860 KB.
+Frente a `2142_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1088 KB → 840 KB.
 
 `2142_greedy_optimized.py`. Conserva las dos condiciones necesarias y suficientes: tierras dobles cubren max(0,X-A)+max(0,Y-B), y el total debe alcanzar X+Y+Z. Tras cubrir colores, cualquier tierra restante paga maná neutral. Mantiene ambas frases exactas y el caso todo cero. Las sumas alcanzan3·10^9, por lo que Go usa int64 y Python enteros exactos. Tiempo y estado O(1), con bytes y salida directa en vez de envolventes básicas. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -125,7 +125,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
-| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 860 KB | 11325054 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
 | [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -75,7 +75,7 @@ Red needs 6 − 5 = 1 dual land, but in total 16 lands face 17 mana.
 
 `2142_greedy_optimized.go`. Keep both necessary and sufficient mana checks: dual lands cover max(0,X-A)+max(0,Y-B), then total lands must cover X+Y+Z. After colored deficits are paid, any remaining land can supply neutral mana. Preserve both exact output phrases, including the all-zero instance. Sums can reach 3·10^9, so Go uses int64 throughout and Python exact integers. Time and state O(1); byte input and direct output replace the basic input wrappers. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
 
-Compared with `2142_greedy.go`: time 0.031 s → 0.031 s; memory 1088 KB → 860 KB.
+Compared with `2142_greedy.go`: time 0.031 s → 0.031 s; memory 1088 KB → 840 KB.
 
 `2142_greedy_optimized.py`. Keep both necessary and sufficient mana checks: dual lands cover max(0,X-A)+max(0,Y-B), then total lands must cover X+Y+Z. After colored deficits are paid, any remaining land can supply neutral mana. Preserve both exact output phrases, including the all-zero instance. Sums can reach 3·10^9, so Go uses int64 throughout and Python exact integers. Time and state O(1); byte input and direct output replace the basic input wrappers. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -124,7 +124,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
-| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 860 KB | 11325054 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
 | [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

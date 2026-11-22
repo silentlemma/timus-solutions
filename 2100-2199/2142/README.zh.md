@@ -64,7 +64,7 @@ There are no miracles in life
 
 `2142_greedy_optimized.go`. 保留两项充要魔法检查：双色地支付 max(0,X-A)+max(0,Y-B)，总地数还须覆盖 X+Y+Z。补足彩色缺口后，任意剩余地都可支付中立费用。保留两条精确输出语句及全零情况。和可到3·10^9，故 Go 全用 int64，Python 用精确整数。时间、状态 O(1)，字节输入和直接输出替代基础包装。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
-与 `2142_greedy.go` 相比：时间 0.031 s → 0.031 s；内存 1088 KB → 860 KB。
+与 `2142_greedy.go` 相比：时间 0.031 s → 0.031 s；内存 1088 KB → 840 KB。
 
 `2142_greedy_optimized.py`. 保留两项充要魔法检查：双色地支付 max(0,X-A)+max(0,Y-B)，总地数还须覆盖 X+Y+Z。补足彩色缺口后，任意剩余地都可支付中立费用。保留两条精确输出语句及全零情况。和可到3·10^9，故 Go 全用 int64，Python 用精确整数。时间、状态 O(1)，字节输入和直接输出替代基础包装。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
 
@@ -107,7 +107,7 @@ There are no miracles in life
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
-| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 860 KB | 11325054 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
 | [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

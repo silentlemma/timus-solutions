@@ -6,7 +6,7 @@ import random
 import sys
 
 SMALL = 6
-TOP = 10 ** 9
+TOP = 10**9
 
 
 def main():

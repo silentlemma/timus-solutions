@@ -2,8 +2,6 @@ package main
 
 import "os"
 
-const maxInt64Digits = 20
-
 const ioCapacity = 4096
 
 var inputBuffer [ioCapacity]byte
@@ -50,18 +48,6 @@ func readNumber() (int64, bool) {
 
 func number() int64 { value, _ := readNumber(); return value }
 
-func wordByte() byte {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	first := byte(character)
-	for character > ' ' {
-		character = nextByte()
-	}
-	return first
-}
-
 func flushOutput() {
 	for start := 0; start < outputSize; {
 		count, err := os.Stdout.Write(outputBuffer[start:outputSize])
@@ -79,27 +65,6 @@ func writeByte(value byte) {
 	}
 	outputBuffer[outputSize] = value
 	outputSize++
-}
-
-func writeNumber(value int64) {
-	magnitude := uint64(value)
-	if value < 0 {
-		writeByte('-')
-		magnitude = uint64(-(value + 1)) + 1
-	}
-	var digits [maxInt64Digits]byte
-	first := len(digits)
-	for {
-		first--
-		digits[first] = '0' + byte(magnitude%10)
-		magnitude /= 10
-		if magnitude == 0 {
-			break
-		}
-	}
-	for _, digit := range digits[first:] {
-		writeByte(digit)
-	}
 }
 
 func writeText(text string) {
