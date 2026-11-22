@@ -62,11 +62,17 @@ KamkohobPassword
 
 ## 优化解法
 
+`1712_implementation_optimized.java`. 孔位编码为 16 位掩码，反复取最低置位按行序只访问孔。以整数位位置把 (r,c) 转为 (c,3-r)。四次合法旋转覆盖十六格并保持密码顺序。64 字节读取跳过空白，17 字节答案含换行。固定 4x4 问题时间空间 O(1)，无预存排列/答案表；保留教学遍历。
+
+精确源代码 Java 1.8 Accepted #11327758：0.093 s / 384 KB。2026-11-20 保存的编译器组比较：时间 4/90、内存 7/90。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303503 为 0.109 s / 348 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1712_implementation_optimized.java`: 0.093 s / 384 KB; 保留教学基础版 `1712_implementation.java`: 0.14 s / 1568 KB.
+
 `1712_implementation_optimized.py`. 仍顺时针旋转格栅四次，只旋转孔坐标 (r,c)->(c,3-r)，不每轮重建四个网格字符串。每次读取前排序孔以保持行序，密码字节收集到 bytearray。固定 4×4 输入下时间、空间均有常数界，合法格栅前提不变。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
 
 与 `1712_implementation.py` 相比：时间 0.078 s → 0.14 s；内存 492 KB → 256 KB。
 
-优化解法（C++、Java）逐个字符地把两个方阵读入 4 × 4 的定长数组，而不是按单词读
+旧版本历史描述及测量：优化解法（C++、Java）逐个字符地把两个方阵读入 4 × 4 的定长数组，而不是按单词读
 取；密码的字母一找到就输出（C++），或者收集到 17 字节的数组中（Java）。Java 还复
 用同一个数组存放旋转后的格栅，而不是每次旋转都新建一个。C++ 为 84 KB，而不是
 348 KB，时间不变。Java 为 0.109 s，而不是 0.140 s；348 KB，而不是 1568 KB。
@@ -102,7 +108,7 @@ KamkohobPassword
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1712_implementation_optimized.cpp](1712_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 84 KB | 11303634 |
-| [1712_implementation_optimized.java](1712_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 348 KB | 11303503 |
+| [1712_implementation_optimized.java](1712_implementation_optimized.java) \* | Java 1.8 | implementation | O(1), fixed 4x4 grille | AC | 0.093 s | 384 KB | 11327758 |
 | [1712_implementation_optimized.rs](1712_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 52 KB | 11324863 |
 | [1712_implementation_optimized.py](1712_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1), fixed 4×4 grid | AC | 0.14 s | 256 KB | 11325478 |
 

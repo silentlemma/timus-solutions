@@ -72,11 +72,17 @@ valid grilles.
 
 ## Optimized solutions
 
+`1712_implementation_optimized.java`. Encode grille holes as a 16-bit mask. Repeated trailing-zero extraction visits only holes in row-major order; rotate (r,c) to (c,3-r) with integer bit positions. Four legal rotations cover all sixteen cells and emit the same password order. A 64-byte reader skips whitespace, and a 17-byte answer includes newline. Fixed 4x4 problem gives O(1) time/storage, no stored permutation/answer table. The teaching grille traversal remains.
+
+Exact-source Java 1.8 Accepted #11327758: 0.093 s / 384 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/90, memory 7/90. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303503 was 0.109 s / 348 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1712_implementation_optimized.java`: 0.093 s / 384 KB; retained teaching base `1712_implementation.java`: 0.14 s / 1568 KB.
+
 `1712_implementation_optimized.py`. Keep the four clockwise grille rotations, but rotate only hole coordinates (r,c)->(c,3-r), not four newly constructed grid strings per turn. Sort the holes before each read to preserve row-major order and collect password bytes in one bytearray. For the fixed 4×4 input both work and storage are bounded constants; the valid-grille promise is unchanged. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1712_implementation.py`: time 0.078 s → 0.14 s; memory 492 KB → 256 KB.
 
-The optimized solutions (C++, Java) read the two squares character by
+Historical previous-revision description and measurements: The optimized solutions (C++, Java) read the two squares character by
 character into fixed 4 × 4 arrays instead of reading words, and print
 the letters of the password as they are found (C++) or collect them in a
 byte array of 17 bytes (Java). Java also reuses one array for the turned
@@ -115,7 +121,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1712_implementation_optimized.cpp](1712_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 84 KB | 11303634 |
-| [1712_implementation_optimized.java](1712_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 348 KB | 11303503 |
+| [1712_implementation_optimized.java](1712_implementation_optimized.java) \* | Java 1.8 | implementation | O(1), fixed 4x4 grille | AC | 0.093 s | 384 KB | 11327758 |
 | [1712_implementation_optimized.rs](1712_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 52 KB | 11324863 |
 | [1712_implementation_optimized.py](1712_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1), fixed 4×4 grid | AC | 0.14 s | 256 KB | 11325478 |
 

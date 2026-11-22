@@ -74,11 +74,17 @@ en 300 rejillas válidas aleatorias.
 
 ## Soluciones optimizadas
 
+`1712_implementation_optimized.java`. Codifica agujeros en máscara de 16 bits. Extrae el menor bit para visitarlos por filas y rota (r,c) a (c,3-r) con posiciones enteras. Cuatro rotaciones legales cubren dieciséis celdas y conservan orden. Lector de 64 bytes omite blancos; respuesta de 17 incluye salto. Caso fijo 4x4 da O(1) tiempo/espacio sin tabla de permutaciones/respuestas. Conserva recorrido didáctico.
+
+Accepted exacto Java 1.8 #11327758: 0.093 s / 384 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/90, memoria 7/90. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303503 era 0.109 s / 348 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1712_implementation_optimized.java`: 0.093 s / 384 KB; base didáctica conservada `1712_implementation.java`: 0.14 s / 1568 KB.
+
 `1712_implementation_optimized.py`. Conserva cuatro giros horarios, rotando solo coordenadas de huecos (r,c)->(c,3-r), sin reconstruir cuatro cadenas por giro. Ordena huecos antes de leer para mantener orden por filas y reúne bytes en bytearray. Con cuadrícula fija 4×4 tiempo y espacio son constantes; mantiene la garantía de rejilla válida. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `1712_implementation.py`: tiempo 0.078 s → 0.14 s; memoria 492 KB → 256 KB.
 
-Las soluciones optimizadas (C++, Java) leen los dos cuadrados carácter a
+Descripción y mediciones históricas de la revisión anterior: Las soluciones optimizadas (C++, Java) leen los dos cuadrados carácter a
 carácter en arreglos fijos de 4 × 4 en lugar de leer palabras, e
 imprimen las letras de la contraseña según las encuentran (C++) o las
 reúnen en un arreglo de 17 bytes (Java). Java además reutiliza un
@@ -117,7 +123,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1712_implementation_optimized.cpp](1712_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 84 KB | 11303634 |
-| [1712_implementation_optimized.java](1712_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 348 KB | 11303503 |
+| [1712_implementation_optimized.java](1712_implementation_optimized.java) \* | Java 1.8 | implementation | O(1), fixed 4x4 grille | AC | 0.093 s | 384 KB | 11327758 |
 | [1712_implementation_optimized.rs](1712_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 52 KB | 11324863 |
 | [1712_implementation_optimized.py](1712_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1), fixed 4×4 grid | AC | 0.14 s | 256 KB | 11325478 |
 
