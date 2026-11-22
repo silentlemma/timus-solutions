@@ -48,7 +48,9 @@ fn main() {
     let mut words = text.split_ascii_whitespace();
     let n: usize = words.next().unwrap().parse().unwrap();
     let _m: usize = words.next().unwrap().parse().unwrap();
-    let grid: Vec<Vec<u8>> = (0..n).map(|_| words.next().unwrap().bytes().collect()).collect();
+    let grid: Vec<Vec<u8>> = (0..n)
+        .map(|_| words.next().unwrap().bytes().collect())
+        .collect();
     let mut gates = vec![Vec::new(); LETTERS];
     let mut marks = vec![(0, 0); MARKS.len()];
     for (r, row) in grid.iter().enumerate() {
@@ -65,7 +67,7 @@ fn main() {
     let first = bfs(&grid, &gates, marks[0], Some(fortress));
     let second = bfs(&grid, &gates, marks[1], Some(fortress));
     let attack = bfs(&grid, &gates, fortress, None); // moves are symmetric: the way back
-    // the earlier army waits at the meeting place, then both march together
+                                                     // the earlier army waits at the meeting place, then both march together
     let mut best = INF;
     for r in 0..n {
         for c in 0..grid[r].len() {

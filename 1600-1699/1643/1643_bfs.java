@@ -9,9 +9,7 @@ public class Main {
     static char[][] grid;
     static List<List<int[]>> gates = new ArrayList<>();
 
-    static boolean isGate(char ch) {
-        return ch >= 'A' && ch <= 'Z';
-    }
+    static boolean isGate(char ch) { return ch >= 'A' && ch <= 'Z'; }
 
     // days to every district; teleports are free, so 0-1 BFS
     static int[][] bfs(int sr, int sc, int ar, int ac) {

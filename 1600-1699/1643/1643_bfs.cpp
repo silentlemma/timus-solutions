@@ -8,20 +8,18 @@ using namespace std;
 
 const int INF = 1 << 29;
 const int LETTERS = 26;
-const string MARKS = "$!*";  // the two armies and the fortress
+const string MARKS = "$!*"; // the two armies and the fortress
 
 int n, m;
 vector<string> grid;
 vector<vector<int>> gates[LETTERS];
 
-bool isGate(char ch) {
-    return ch >= 'A' && ch <= 'Z';
-}
+bool isGate(char ch) { return ch >= 'A' && ch <= 'Z'; }
 
 // days to every district; teleports are free, so 0-1 BFS
 vector<vector<int>> bfs(int sr, int sc, int ar, int ac) {
     vector<vector<int>> dist(n, vector<int>(m, INF));
-    vector<bool> used(LETTERS);  // teleport letters already spread
+    vector<bool> used(LETTERS); // teleport letters already spread
     deque<pair<int, int>> queue = {{sr, sc}};
     dist[sr][sc] = 0;
     while (!queue.empty()) {
@@ -74,7 +72,7 @@ int main() {
     int fr = marks[2][0], fc = marks[2][1];
     auto first = bfs(marks[0][0], marks[0][1], fr, fc);
     auto second = bfs(marks[1][0], marks[1][1], fr, fc);
-    auto attack = bfs(fr, fc, -1, -1);  // moves are symmetric, so this is the way back
+    auto attack = bfs(fr, fc, -1, -1); // moves are symmetric, so this is the way back
     // the earlier army waits at the meeting place, then both march together
     int best = INF;
     for (int r = 0; r < n; r++)
