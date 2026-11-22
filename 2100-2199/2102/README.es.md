@@ -79,33 +79,25 @@ En el tercer ejemplo 10¹⁰ = 2¹⁰ · 5¹⁰ tiene 20 factores primos.
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java analiza n a mano desde un búfer de 4 KB
-que se llena desde `System.in`, en lugar de crear un `Scanner`, así que
-la JVM no carga el escáner ni sus expresiones regulares; n hasta 10¹⁸
-cabe en `long`, y la división por tanteo es la misma:
-{2102_number_theory_optimized.java}.
+`2102_number_theory_optimized.java`. Mantiene exactamente 20 factores primos. Quita doses y treses, prueba 6k-1/6k+1; enough comprueba el mínimo producto restante dividiendo antes de multiplicar para evitar overflow. Con hasta dos factores pendientes, un cuadrado aporta exactamente dos solo si su raíz es prima. Math.sqrt propone un candidato, aceptado únicamente tras root*root==n exacto en long; si pierde un cuadrado sigue la rueda original correcta. Tras quitar al menos 18 factores, queda como máximo 10^18/2^18; primalidad de la raíz requiere divisores menores de 1400 y la alternativa tiene cota 1953125. Lee el único long byte a byte y escribe bytes constantes. Sin tabla de respuestas ni primalidad probabilística. Código Java real comprobado en 315488 casos exactos y 100000 comparaciones del límite de producto sin overflow. Conserva la división didáctica.
 
-La solución optimizada en Python lleva la cuenta atrás de los factores
-primos que aún faltan y se detiene en cuanto conoce la respuesta. Todos
-los primos menores que el divisor actual ya se han dividido, así que los
-factores restantes son al menos el divisor: mientras falten más de dos y
-el divisor elevado a su número supere lo que queda de n, la respuesta es
-No de inmediato, lo que despacha un primo grande en unas pocas
-divisiones. Cuando faltan como mucho dos factores, ya se han quitado al
-menos 18, así que lo que queda es como mucho 10¹⁸ / 2¹⁸ y la división
-termina como mucho en su raíz cuadrada, que no pasa de 1 953 125, sin la
-cota B. Después del 2 solo prueba divisores impares:
-{2102_number_theory_optimized.py}.
+Accepted exacto Java 1.8 #11327435: 0.109 s / 468 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/78, memoria 1/78. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11304532 era 0.14 s / 400 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2102_number_theory_optimized.java`: 0.109 s / 468 KB; base didáctica conservada `2102_number_theory.java`: 0.125 s / 1592 KB.
+
+`2102_number_theory_optimized.py`. Mantiene exactamente 20 factores primos con multiplicidad. Quita potencias de dos y tres y prueba divisores 6k-1 y 6k+1. Si faltan más de dos factores, divisor**remaining>n demuestra rechazo. Con dos o menos usa isqrt exacto: un cuadrado solo sirve si faltan dos y su raíz es prima. Se han quitado al menos 18 factores, quedando como máximo 10^18/2^18; la prueba de primalidad de esa raíz necesita divisores menores de 1400. Los no cuadrados mantienen la rueda, con cota de divisor de 1953125 en esta fase. Límites fijos dan espacio constante, sin flotantes, primalidad probabilística ni tabla de respuestas. Este Accepted usa PyPy 3.10; la medición antigua de CPython es un par de otro runtime. Salida directa al nivel superior seguida de os._exit(0).
+
+Accepted exacto PyPy 3.10 x64 #11327440: 0.125 s / 928 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 8/28, memoria 6/28. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304531 (Python 3.12 x64) era 0.265 s / 424 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2102_number_theory_optimized.py`: 0.125 s / 928 KB; base didáctica conservada `2102_number_theory.py`: 0.453 s / 388 KB.
+
+`2102_number_theory_optimized.cpp`. Conserva el recuento exacto de factores primos y la cota del producto restante. Para n positivo≤10^18, ctz cuenta todos los doses; se retiran los tres y solo se prueban divisores 6k±1. Si faltan más de dos factores, multiplica la cota en enteros sin signo de 128 bits y para al superar el resto. Antes de multiplicar, la cota es≤10^18 y el divisor ronda como máximo 10^9, de modo que el producto cabe en 128 bits. Para los dos últimos factores mantiene la cota cuadrática. ctz nunca recibe cero; la decisión sigue siendo exactamente veinte factores con multiplicidad.
+
+Accepted del fuente exacto #11326999: 0.015 s / 108 KB. Comparación G++ 13.2 guardada el 2026-11-20: tiempo 1/113, memoria 1/113.
 
 ### Mejora medida
 
 Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre las diez primeras o el 15% superior en ambas métricas, por estar en el 30% superior en ambas y mejorar la posición base en al menos una, o por reducir al menos un 30% el tiempo o la memoria respecto a la base del mismo lenguaje. Una reducción negativa indica mayor coste. El asterisco se refiere al objetivo de clasificación específico del lenguaje.
-
-- `2102_number_theory_optimized.java`: reducción de tiempo -12.00%;
-  reducción de memoria +74.87%; base: `2102_number_theory.java`.
-
-- `2102_number_theory_optimized.py`: reducción de tiempo +41.50%;
-  reducción de memoria -9.28%; base: `2102_number_theory.py`.
 
 ## Notas por lenguaje
 
@@ -116,7 +108,7 @@ implementación para alcanzar el objetivo.
 
 - [2102_number_theory.rs](2102_number_theory.rs).
 
-Antes de la división de prueba, acotar por abajo el producto de los factores restantes para descartar pronto los casos imposibles. El envío aceptado 11307504 tardó 0.031 s y usó 104 KB. La versión sencilla tardó 0.031 s y usó 116 KB.
+Accepted del fuente exacto #11326999: 0.015 s / 108 KB; base conservada: 0.031 s / 116 KB. El tiempo se compara con suelo 0.015 s.
 
 ## Soluciones
 
@@ -134,8 +126,8 @@ Antes de la división de prueba, acotar por abajo el producto de los factores re
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(min(sqrt n, B)) | AC | 0.140 s | 400 KB | 11304532 |
-| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.265 s | 424 KB | 11304531 |
-| [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.031 s | 104 KB | 11307504 |
+| [2102_number_theory_optimized.java](2102_number_theory_optimized.java) | Java 1.8 | number_theory | Pruned trial division; O(1) storage | AC | 0.109 s | 468 KB | 11327435 |
+| [2102_number_theory_optimized.py](2102_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | Pruned trial division; O(1) bounded storage | AC | 0.125 s | 928 KB | 11327440 |
+| [2102_number_theory_optimized.cpp](2102_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(min(sqrt n, B)) | AC | 0.015 s | 108 KB | 11326999 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

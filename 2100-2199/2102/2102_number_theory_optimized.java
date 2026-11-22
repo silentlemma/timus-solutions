@@ -1,54 +1,80 @@
 public class Main {
+    static final int TARGET = 20, THREE = 3, FIVE = 5, SIX = 6, DECIMAL = 10;
 
-    // refill a small buffer instead of retaining the input or allocating tokens.
-    static final int BUFFER_SIZE = 4096;
-    static final byte[] BUFFER = new byte[BUFFER_SIZE];
-    static int position, length;
-    static int read() throws java.io.IOException {
-        if (position == length) {
-            length = System.in.read(BUFFER);
-            position = 0;
-            if (length < 0)
-                return -1;
-        }
-        return BUFFER[position++];
-    }
     static long nextLong() throws java.io.IOException {
-        int c;
-        do {
-            c = read();
-        } while (c >= 0 && c <= ' ');
-        int sign = 1;
-        if (c == '-') {
-            sign = -1;
-            c = read();
-        }
-        long value = 0;
+        int c = System.in.read();
+        while (c >= 0 && c <= ' ')
+            c = System.in.read();
+        long n = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
-            c = read();
+            n = n * DECIMAL + c - '0';
+            c = System.in.read();
         }
-        return value * sign;
+        return n;
     }
 
-    private static final int TARGET = 20;
-    private static final long BOUND = 2000000; // trial divisors; then at most two primes remain
+    static boolean enough(long n, long divisor, int needed) {
+        long minimum = 1;
+        for (int i = 0; i < needed; i++) {
+            // Check before multiplication, so no intermediate can exceed n.
+            if (minimum > n / divisor)
+                return false;
+            minimum *= divisor;
+        }
+        return true;
+    }
 
-    public static void main(String[] args) throws java.io.IOException {
-        long n = nextLong();
-        int count = 0;
-        long d = 2;
-        for (; d <= BOUND && d * d <= n; d++) {
-            while (n % d == 0) {
-                n /= d;
-                count++;
+    static boolean qualifies(long n) {
+        int count = Long.numberOfTrailingZeros(n);
+        n >>>= count;
+        while (n % THREE == 0) {
+            n /= THREE;
+            count++;
+        }
+        if (count >= TARGET)
+            return count == TARGET && n == 1;
+        int remaining = TARGET - count;
+        if (remaining <= 2) {
+            long root = (long)Math.sqrt(n);
+            if (root * root == n) {
+                if (remaining != 2 || root < 2)
+                    return false;
+                long trial = FIVE, jump = 2;
+                while (trial * trial <= root) {
+                    if (root % trial == 0)
+                        return false;
+                    trial += jump;
+                    jump = SIX - jump;
+                }
+                return true;
             }
         }
-        if (n > 1) {
-            // what is left is prime; otherwise n >= BOUND^2, the divided part is at
-            // most 10^18 / BOUND^2, fewer than 18 factors, and the rest adds at most two
-            count = d * d > n ? count + 1 : -1;
+        long divisor = FIVE, step = 2;
+        while (count < TARGET && divisor * divisor <= n) {
+            // All remaining prime factors are at least this untested divisor.
+            if (TARGET - count > 2 && !enough(n, divisor, TARGET - count))
+                break;
+            while (n % divisor == 0) {
+                n /= divisor;
+                count++;
+            }
+            divisor += step;
+            step = SIX - step;
         }
-        System.out.println(count == TARGET ? "Yes" : "No");
+        if (n > 1 && divisor * divisor > n) {
+            count++;
+            n = 1;
+        }
+        return count == TARGET && n == 1;
+    }
+
+    public static void main(String[] args) throws java.io.IOException {
+        if (qualifies(nextLong())) {
+            byte[] answer = {'Y', 'e', 's', '\n'};
+            System.out.write(answer);
+        } else {
+            byte[] answer = {'N', 'o', '\n'};
+            System.out.write(answer);
+        }
     }
 }
