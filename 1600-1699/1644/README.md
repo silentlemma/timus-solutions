@@ -84,14 +84,17 @@ record sets.
 
 ## Optimized solutions
 
+`1644_implementation_optimized.java`. Java keeps two monotone bounds: the largest hungry count, initially 2, and the smallest satisfied count, initially 10. It distinguishes the response by its first letter and consumes the rest of the token without allocating a string. If hungry>=full, later observations cannot repair the contradiction, so it emits Inconsistent immediately. Otherwise the final upper bound is the least certainly sufficient count; no observations gives 10. Fixed byte input and numeric/text output keep worst-case time O(N) and auxiliary space O(1).
+
+Exact-source Java 1.8 Accepted #11327467: 0.109 s / 412 KB. Saved 2026-11-20 compiler-cohort comparison: time 17/121, memory 3/121. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303630 was 0.125 s / 400 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1644_implementation_optimized.java`: 0.109 s / 412 KB; retained teaching base `1644_implementation.java`: 0.125 s / 1708 KB.
+
+`1644_implementation_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327032 measures 0.078 s / 736 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 3/53, memory rank 50/53. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325477, 0.156 s / 212 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1644_implementation_optimized.py`. Keep the maximum hungry observation and minimum full observation, initialized to 2 and 10. Iterate exactly n numeric/verdict byte pairs instead of making two strided list slices. Output the full bound only when it strictly exceeds the hungry bound. The algorithm uses two extrema, but split input is still retained: O(n) time and O(I) total storage for input size I. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1644_implementation.py`: time 0.109 s → 0.156 s; memory 444 KB → 212 KB.
-
-The optimized Java solution parses the numbers by hand from a small
-buffer instead of using `Scanner` and tells the two words apart by their
-first letter, `h` or `s`, skipping the rest: 400 KB instead of
-1708 KB, with the same time.
 
 The optimized C++ solution reads with `scanf` into a small `char` array
 instead of `iostream` and `std::string`, and tells the two words apart
@@ -105,7 +108,7 @@ Compared with `1644_implementation.rs`: time 0.015 s → 0.031 s; memory 220 KB 
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1644_implementation_optimized.py`: time place 53/53, memory place 1/53 in this comparable sample.
+Earlier PyPy comparison: `1644_implementation_optimized.py`: time place 53/53, memory place 1/53 in this comparable sample.
 
 `1644_implementation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -128,8 +131,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1644_implementation_optimized.cpp](1644_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303768 |
-| [1644_implementation_optimized.java](1644_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 400 KB | 11303630 |
+| [1644_implementation_optimized.java](1644_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 412 KB | 11327467 |
 | [1644_implementation_optimized.rs](1644_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 64 KB | 11324867 |
-| [1644_implementation_optimized.py](1644_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.156 s | 212 KB | 11325477 |
+| [1644_implementation_optimized.py](1644_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(I) space | AC | 0.078 s | 736 KB | 11327032 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

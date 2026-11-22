@@ -74,12 +74,17 @@ Inconsistent
 
 ## 优化解法
 
+`1644_implementation_optimized.java`. Java 只保存两个单调边界：最大的 hungry 数量初值为 2，最小的 satisfied 数量初值为 10。按响应首字母区分并跳过剩余字节，不创建字符串。若 hungry>=full，后续观察无法修复矛盾，立即输出 Inconsistent。否则最终上界就是最小的必然足够数量；无观察时为 10。固定字节输入和直接数字、文本输出使最坏时间为 O(N)，辅助空间 O(1)。
+
+精确源代码 Java 1.8 Accepted #11327467：0.109 s / 412 KB。2026-11-20 保存的编译器组比较：时间 17/121、内存 3/121。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303630 为 0.125 s / 400 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1644_implementation_optimized.java`: 0.109 s / 412 KB; 保留教学基础版 `1644_implementation.java`: 0.125 s / 1708 KB.
+
+`1644_implementation_optimized.py` 逐字节复用，不增加源文件，也不引入新算法。精确源代码的 CPython 3.12 Accepted #11327032 为 0.078 s / 736 KB。2026-11-20 保存的当前 Python 语言族编译器组中，时间排名 3/53、内存排名 50/53。本次内存低于 1024 KB，因此严格前十名或前 15% 标准只看时间；星号仍表示单独的语言排名目标。同一未改动文件另有早先的 PyPy 3.10 Accepted #11325477：0.156 s / 212 KB。这些是不同运行各自成对的指标：选择 CPython 的时间与排名，PyPy 的内存更低。本节早先的省内存说明指此 PyPy 测量，不是 CPython 表格行。全部教学源代码保持不变。
+
 `1644_implementation_optimized.py`. 保留 hungry 最大值与 full 最小值，初始为 2 和 10。直接处理 n 对数值/字节判定，不创建两个跨步切片。仅 full 严格大于 hungry 时输出 full。算法状态是两个极值，但仍保存切分输入：时间 O(n)、总空间 O(I)，I 为输入大小。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
 
 与 `1644_implementation.py` 相比：时间 0.109 s → 0.156 s；内存 444 KB → 212 KB。
-
-优化的 Java 解法从较小的缓冲区中手工解析数字，而不是使用 `Scanner`，并且只凭
-首字母 `h` 或 `s` 区分两个单词，跳过其余字母：400 KB，而不是 1708 KB，时间不变。
 
 优化的 C++ 解法用 `scanf` 读进一个小 `char` 数组，而不是使用 `iostream` 和
 `std::string`，并按首字母区分两个单词：128 KB，而不是 388 KB，时间不变。
@@ -92,7 +97,7 @@ Inconsistent
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
-`1644_implementation_optimized.py`：在该可比样本中，时间名次 53/53，内存名次 1/53。
+早先的 PyPy 比较：`1644_implementation_optimized.py`：在该可比样本中，时间名次 53/53，内存名次 1/53。
 
 `1644_implementation_optimized.rs`：没有足够可比的其他作者结果来证明排名；纳入依据为相对简单版本测得的改进。
 
@@ -115,8 +120,8 @@ Inconsistent
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1644_implementation_optimized.cpp](1644_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303768 |
-| [1644_implementation_optimized.java](1644_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 400 KB | 11303630 |
+| [1644_implementation_optimized.java](1644_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 412 KB | 11327467 |
 | [1644_implementation_optimized.rs](1644_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 64 KB | 11324867 |
-| [1644_implementation_optimized.py](1644_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(I) space | AC | 0.156 s | 212 KB | 11325477 |
+| [1644_implementation_optimized.py](1644_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(I) space | AC | 0.078 s | 736 KB | 11327032 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

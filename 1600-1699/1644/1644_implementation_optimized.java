@@ -1,22 +1,19 @@
-import java.io.IOException;
-
 public class Main {
-    static final int BUFFER_SIZE = 1024;
-    static final byte[] buffer = new byte[BUFFER_SIZE];
-    static int position, length;
 
-    // the numbers are parsed by hand from a small buffer, much lighter than Scanner
-    static int read() throws IOException {
-        if (position == length) {
-            length = System.in.read(buffer);
+    static final int INPUT_SIZE = 256, OUTPUT_SIZE = 128, DIGITS = 20, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
             position = 0;
-            if (length <= 0)
+            if (available < 0)
                 return -1;
         }
-        return buffer[position++];
+        return input[position++];
     }
-
-    static int nextInt() throws IOException {
+    static int nextInt() throws java.io.IOException {
         int c = read();
         while (c >= 0 && c <= ' ')
             c = read();
@@ -25,16 +22,40 @@ public class Main {
             c = read();
         int value = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
+            value = value * DECIMAL + c - '0';
             c = read();
         }
         return negative ? -value : value;
     }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(long value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
 
-    static final int KNOWN_HUNGRY = 2, KNOWN_FULL = 10; // given in the statement
+    static void text(String value) {
+        for (int i = 0; i < value.length(); i++)
+            write(value.charAt(i));
+    }
 
-    // "hungry" and "satisfied" differ in the first letter; the rest is skipped
-    static boolean nextIsHungry() throws IOException {
+    static final int KNOWN_HUNGRY = 2, KNOWN_FULL = 10;
+    static boolean nextIsHungry() throws java.io.IOException {
         int c = read();
         while (c >= 0 && c <= ' ')
             c = read();
@@ -43,18 +64,22 @@ public class Main {
             c = read();
         return hungry;
     }
-
-    public static void main(String[] args) throws IOException {
-        int n = nextInt();
-        int hungry = KNOWN_HUNGRY, full = KNOWN_FULL;
+    public static void main(String[] args) throws java.io.IOException {
+        int n = nextInt(), hungry = KNOWN_HUNGRY, full = KNOWN_FULL;
         for (int i = 0; i < n; i++) {
             int count = nextInt();
             if (nextIsHungry())
                 hungry = Math.max(hungry, count);
             else
                 full = Math.min(full, count);
+            if (hungry >= full) {
+                text("Inconsistent\n");
+                finish();
+                return;
+            }
         }
-        // the smallest satisfying amount must exceed the largest hungry one
-        System.out.println(full > hungry ? String.valueOf(full) : "Inconsistent");
+        number(full);
+        write('\n');
+        finish();
     }
 }
