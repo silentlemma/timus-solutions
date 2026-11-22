@@ -75,6 +75,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1450_dp_graphs.py`. La variante DP dispersa sigue solo aristas reales mediante forward-star: head por vértice y arreglos de destino, beneficio y siguiente arista. Destino/beneficio positivo caben en unsigned16; el índice signed de siguiente usa -1 al terminar. Kahn procesa indegrados incluso de vértices inalcanzables, pero solo estados alcanzables propagan beneficio. Tiempo/espacio O(N+M), sin barrer matriz N². Misma recurrencia de camino máximo; dp_graphs señala el recorrido disperso. Conserva DP legible y matriz16 1450_dp_optimized.py: CPython exacto 0.25 s / 1108 KB frente al nuevo PyPy 0.156 s / 4572 KB. La matriz sigue útil por menor memoria, con intérpretes distintos explícitos.
+
+Accepted exacto PyPy 3.10 #11326698: 0.156 s / 4572 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/92, memoria 1/92. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
+
+- `1450_dp_graphs.py`: 0.156 s / 4572 KB; base didáctica conservada `1450_dp.py` (Python 3.12 x64): 0.406 s / 35968 KB; cambio de tiempo -61.6%; cambio de memoria -87.3%.
+
 La solución optimizada en C++ analiza los números a mano desde un búfer
 de 4 KB en lugar de `scanf` y guarda la red como una matriz de
 beneficios `uint16_t` de 16 bits, unos 490 KB con `N = 500`, en lugar de
@@ -165,6 +171,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1450_dp_optimized.cpp](1450_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N² + M) | AC | 0.015 s | 624 KB | 11304540 |
 | [1450_dp_optimized.go](1450_dp_optimized.go) | Go 1.14 x64 | dp | O(N² + M) | AC | 0.031 s | 1528 KB | 11304541 |
 | [1450_dp_optimized.java](1450_dp_optimized.java) \* | Java 1.8 | dp | O(N² + M) | AC | 0.156 s | 912 KB | 11304542 |
+| [1450_dp_graphs.py](1450_dp_graphs.py) | PyPy 3.10 x64 | dp, graphs | O(N+M) time and space | AC | 0.156 s | 4572 KB | 11326698 |
 | [1450_dp_optimized.py](1450_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N² + M) | AC | 0.250 s | 1108 KB | 11304544 |
 | [1450_dp_optimized.rs](1450_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N² + M) | AC | 0.015 s | 708 KB | 11304543 |
 

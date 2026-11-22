@@ -65,6 +65,12 @@ B，收益为 C（1 ≤ C ≤ 10000）；每对站之间至多一条管道，且
 
 ## 优化解法
 
+`1450_dp_graphs.py`. 新增稀疏图 DP 通过 forward-star 仅遍历实际出边：每顶点 head，加目标/收益/下一边数组。目标和正收益适合无符号 16 位，下一边的有符号索引以 -1 结束。Kahn 入度仍处理不可达顶点，但只从可达 best 状态传播收益。时间、空间 O(N+M)，不再扫描 N² 矩阵。最长路递推不变，dp_graphs 标识稀疏遍历。保留易读 DP 和 16 位矩阵 1450_dp_optimized.py；其精确 CPython 为 0.25 s / 1108 KB，新 PyPy 为 0.156 s / 4572 KB。矩阵仍是有用的低内存替代，明确指出解释器不同。
+
+精确源代码 PyPy 3.10 Accepted #11326698：0.156 s / 4572 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/92，内存排名 1/92。至少 1024 KB：两个严格指标均须通过，两项已通过。
+
+- `1450_dp_graphs.py`: 0.156 s / 4572 KB; 保留的教学基础版 `1450_dp.py` (Python 3.12 x64): 0.406 s / 35968 KB; 时间变化 -61.6%; 内存变化 -87.3%.
+
 优化的 C++ 解法从 4 KB 缓冲区中手工解析数字，而不是用 `scanf`，并把管网存成
 16 位 `uint16_t` 收益的矩阵，`N = 500` 时约 490 KB，而不是由 pair 组成的
 `vector` 嵌套 `vector`。收益至少为 1，且每对站之间至多一条管道，所以值为零的单元
@@ -129,6 +135,7 @@ B，收益为 C（1 ≤ C ≤ 10000）；每对站之间至多一条管道，且
 | [1450_dp_optimized.cpp](1450_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N² + M) | AC | 0.015 s | 624 KB | 11304540 |
 | [1450_dp_optimized.go](1450_dp_optimized.go) | Go 1.14 x64 | dp | O(N² + M) | AC | 0.031 s | 1528 KB | 11304541 |
 | [1450_dp_optimized.java](1450_dp_optimized.java) \* | Java 1.8 | dp | O(N² + M) | AC | 0.156 s | 912 KB | 11304542 |
+| [1450_dp_graphs.py](1450_dp_graphs.py) | PyPy 3.10 x64 | dp, graphs | O(N+M) time and space | AC | 0.156 s | 4572 KB | 11326698 |
 | [1450_dp_optimized.py](1450_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N² + M) | AC | 0.250 s | 1108 KB | 11304544 |
 | [1450_dp_optimized.rs](1450_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N² + M) | AC | 0.015 s | 708 KB | 11304543 |
 

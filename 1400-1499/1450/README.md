@@ -73,6 +73,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1450_dp_graphs.py`. The additional sparse-graph DP follows only actual outgoing edges through forward-star arrays: head per vertex, and packed target/profit/next-edge arrays. Target and positive profit fit unsigned 16-bit cells; signed next-edge indices use -1 for the end of a list. Kahn indegrees still include unreachable vertices, while only reachable best values propagate profit. Time O(N+M), storage O(N+M), instead of scanning an N² matrix. The same longest-path recurrence is retained; dp_graphs identifies the sparse traversal. Keep both the readable DP and the 16-bit matrix version 1450_dp_optimized.py. Its exact CPython run is 0.25 s / 1108 KB; this new PyPy run is 0.156 s / 4572 KB. The matrix remains a useful lower-memory alternative, and interpreter differences are explicit.
+
+Exact-source PyPy 3.10 Accepted #11326698: 0.156 s / 4572 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/92, memory rank 1/92. At least 1024 KB: both strict metrics are required and pass.
+
+- `1450_dp_graphs.py`: 0.156 s / 4572 KB; retained teaching base `1450_dp.py` (Python 3.12 x64): 0.406 s / 35968 KB; time change -61.6%; memory change -87.3%.
+
 The optimized C++ solution parses the numbers by hand from a 4 KB buffer
 instead of `scanf` and keeps the network as a matrix of 16-bit
 `uint16_t` profits, about 490 KB for `N = 500`, instead of a `vector` of
@@ -159,6 +165,7 @@ asterisk concerns the rating target only.
 | [1450_dp_optimized.cpp](1450_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N² + M) | AC | 0.015 s | 624 KB | 11304540 |
 | [1450_dp_optimized.go](1450_dp_optimized.go) | Go 1.14 x64 | dp | O(N² + M) | AC | 0.031 s | 1528 KB | 11304541 |
 | [1450_dp_optimized.java](1450_dp_optimized.java) \* | Java 1.8 | dp | O(N² + M) | AC | 0.156 s | 912 KB | 11304542 |
+| [1450_dp_graphs.py](1450_dp_graphs.py) | PyPy 3.10 x64 | dp, graphs | O(N+M) time and space | AC | 0.156 s | 4572 KB | 11326698 |
 | [1450_dp_optimized.py](1450_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N² + M) | AC | 0.250 s | 1108 KB | 11304544 |
 | [1450_dp_optimized.rs](1450_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N² + M) | AC | 0.015 s | 708 KB | 11304543 |
 
