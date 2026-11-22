@@ -20,7 +20,8 @@ public class Main {
             String line = in.readLine();
             List<Integer> numbers = new ArrayList<>();
             for (String word : line.trim().split("\\s+")) {
-                if (word.matches("\\d+")) numbers.add(Integer.parseInt(word));
+                if (word.matches("\\d+"))
+                    numbers.add(Integer.parseInt(word));
             }
             boolean firstHome = line.contains(" home ");
             int x = numbers.get(0), y = numbers.get(1), lowest = -1, highest = -1;
@@ -30,11 +31,15 @@ public class Main {
                     // totals first, then goals scored at the other team's
                     // stadium; equal on both counts: a coin decides
                     int oursAway = firstHome ? g : x, theirsAway = firstHome ? y : o;
-                    if (atLeast(x + g, oursAway, y + o, theirsAway)) canPass = true;
-                    if (atLeast(y + o, theirsAway, x + g, oursAway)) canFail = true;
+                    if (atLeast(x + g, oursAway, y + o, theirsAway))
+                        canPass = true;
+                    if (atLeast(y + o, theirsAway, x + g, oursAway))
+                        canFail = true;
                 }
-                if (canPass && lowest == -1) lowest = g;
-                if (canFail) highest = g;
+                if (canPass && lowest == -1)
+                    lowest = g;
+                if (canFail)
+                    highest = g;
             }
             out.append(lowest).append(' ').append(highest).append('\n');
         }

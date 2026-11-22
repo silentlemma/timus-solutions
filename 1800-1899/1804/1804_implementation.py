@@ -7,7 +7,7 @@ def main():
     lines = sys.stdin.read().split("\n")
     t = int(lines[0])
     out = []
-    for line in lines[1:1 + t]:
+    for line in lines[1 : 1 + t]:
         x, y = [int(w) for w in line.split() if w.isdigit()]
         first_home = " home " in line
         lowest, highest = None, None

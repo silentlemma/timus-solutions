@@ -9,7 +9,10 @@ fn main() {
     let t: usize = lines.next().unwrap().trim().parse().unwrap();
     let mut out = String::new();
     for line in lines.take(t) {
-        let numbers: Vec<i32> = line.split_whitespace().filter_map(|w| w.parse().ok()).collect();
+        let numbers: Vec<i32> = line
+            .split_whitespace()
+            .filter_map(|w| w.parse().ok())
+            .collect();
         let first_home = line.contains(" home ");
         let (x, y) = (numbers[0], numbers[1]);
         let (mut lowest, mut highest) = (-1, -1);

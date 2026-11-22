@@ -7,7 +7,8 @@ const int MOST = 30;
 
 int main() {
     std::string line;
-    if (!std::getline(std::cin, line)) return 0;
+    if (!std::getline(std::cin, line))
+        return 0;
     int t = std::stoi(line);
     for (int test = 0; test < t; test++) {
         std::getline(std::cin, line);
@@ -31,11 +32,15 @@ int main() {
                 // when both are equal a coin decides, so both may happen
                 std::pair<int, int> ours = {x + g, firstHome ? g : x};
                 std::pair<int, int> theirs = {y + o, firstHome ? y : o};
-                if (ours >= theirs) canPass = true;
-                if (ours <= theirs) canFail = true;
+                if (ours >= theirs)
+                    canPass = true;
+                if (ours <= theirs)
+                    canFail = true;
             }
-            if (canPass && lowest == -1) lowest = g;
-            if (canFail) highest = g;
+            if (canPass && lowest == -1)
+                lowest = g;
+            if (canFail)
+                highest = g;
         }
         std::cout << lowest << " " << highest << "\n";
     }

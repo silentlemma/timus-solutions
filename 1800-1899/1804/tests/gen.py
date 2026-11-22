@@ -32,16 +32,20 @@ def main():
                     x, y = rng.sample(range(10, MOST + 1), 2)
             if rng.randrange(2):
                 x, y = y, x
-            print("The Machinegunners played %s game, scored %d goals, and conceded %d goals."
-                  % (where, x, y))
+            print(
+                "The Machinegunners played %s game, scored %d goals, and conceded %d goals."
+                % (where, x, y)
+            )
         return
     top = MOST if mode == 1 else FEW
     print(TESTS)
     for _ in range(TESTS):
         where = rng.choice(["home", "away"])
         x, y = rng.randint(0, top), rng.randint(0, top)
-        print("The Machinegunners played %s game, scored %d goals, and conceded %d goals."
-              % (where, x, y))
+        print(
+            "The Machinegunners played %s game, scored %d goals, and conceded %d goals."
+            % (where, x, y)
+        )
 
 
 main()
