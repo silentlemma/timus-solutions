@@ -7,7 +7,7 @@ across 2^19, mode 6 10^5 shuffled random numbers in complementary pairs."""
 import random
 import sys
 
-MAX_T = 10 ** 5
+MAX_T = 10**5
 TOP = (1 << 20) - 1
 SMALL = 64
 SMALL_T = 20

@@ -10,7 +10,7 @@ def main():
     i = 2
     while i * i < size:
         if prime[i]:
-            prime[i * i::i] = bytes(len(range(i * i, size, i)))
+            prime[i * i :: i] = bytes(len(range(i * i, size, i)))
         i += 1
     # has[j][x]: some prime below 2^20 has its top j bits equal to x
     has = [None] * (BITS + 1)
@@ -21,7 +21,7 @@ def main():
     data = sys.stdin.buffer.read().split()
     t = int(data[0])
     out = []
-    for a in map(int, data[1:t + 1]):
+    for a in map(int, data[1 : t + 1]):
         # The smallest key is the smallest a xor p over primes p below 2^20,
         # since a key below 2^20 reaches the prime 2; choose the bits of p
         # from the top, keeping the bit of a whenever some prime allows it.

@@ -72,11 +72,11 @@ C++ упаковывает прежнее дерево префиксов про
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.109 s | 2300 KB | 11295058 |
+| [2167_bitmask_number_theory.cpp](2167_bitmask_number_theory.cpp) | G++ 13.2 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.093 s | 2268 KB | 11328348 |
 | [2167_bitmask_number_theory.go](2167_bitmask_number_theory.go) | Go 1.14 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 3080 KB | 11295059 |
-| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.140 s | 4904 KB | 11295061 |
-| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.671 s | 16692 KB | 11295060 |
-| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.031 s | 4172 KB | 11295062 |
+| [2167_bitmask_number_theory.java](2167_bitmask_number_theory.java) | Java 1.8 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.171 s | 4856 KB | 11328349 |
+| [2167_bitmask_number_theory.py](2167_bitmask_number_theory.py) \* | Python 3.12 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.64 s | 16760 KB | 11328350 |
+| [2167_bitmask_number_theory.rs](2167_bitmask_number_theory.rs) \* | Rust 1.75 x64 | bitmask, number_theory | O(2^20 log log 2^20 + 20 T) | AC | 0.046 s | 4172 KB | 11328351 |
 | [2167_number_theory.cpp](2167_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(U log log U + 96 T) | AC | 0.109 s | 1136 KB | 11315938 |
 
 ### Оптимизированные

@@ -29,7 +29,9 @@ fn main() {
     }
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let mut it = input.split_ascii_whitespace().map(|x| x.parse::<usize>().unwrap());
+    let mut it = input
+        .split_ascii_whitespace()
+        .map(|x| x.parse::<usize>().unwrap());
     let t = it.next().unwrap();
     let mut out = String::new();
     for a in it.take(t) {
@@ -39,7 +41,11 @@ fn main() {
         let mut prefix = 0;
         for bit in (0..BITS).rev() {
             let want = prefix * 2 + (a >> bit & 1);
-            prefix = if has[BITS - bit][want] { want } else { want ^ 1 };
+            prefix = if has[BITS - bit][want] {
+                want
+            } else {
+                want ^ 1
+            };
         }
         out.push_str(&(a ^ prefix).to_string());
         out.push('\n');
