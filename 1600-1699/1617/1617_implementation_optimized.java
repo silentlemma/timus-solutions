@@ -1,52 +1,84 @@
 public class Main {
-    private static final int PAIRS_PER_CAR = 4;
-    private static final int SMALLEST = 600;
-    // the widest diameter in millimetres
-    private static final int LARGEST = 700;
+    static final int BUFFER_SIZE = 256, MAX_INTEGER_BYTES = 12, DECIMAL = 10;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available, used;
 
-    private static final int BUFFER_SIZE = 1024;
-    private static final byte[] buffer = new byte[BUFFER_SIZE];
-    private static int position;
-    private static int available;
-
-    // the input is read in 1 KB blocks and parsed by hand, which needs much
-    // less memory than Scanner
-    private static int read() throws java.io.IOException {
+    static int read() throws java.io.IOException {
         if (position == available) {
             available = System.in.read(buffer);
             position = 0;
-            if (available < 0) {
+            if (available < 0)
                 return -1;
-            }
         }
         return buffer[position++];
     }
 
-    private static int nextInt() throws java.io.IOException {
-        int ch;
-        do {
-            ch = read();
-        } while (ch <= ' ' && ch >= 0);
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
         int value = 0;
-        while (ch >= '0' && ch <= '9') {
-            value = value * 10 + ch - '0';
-            ch = read();
+        while (c >= '0' && c <= '9') {
+            value = DECIMAL * value + c - '0';
+            c = read();
         }
-        return value;
+        return negative ? -value : value;
+    }
+
+    static void flush() {
+        System.out.write(buffer, 0, used);
+        used = 0;
+    }
+
+    static void write(int c) {
+        if (used == buffer.length)
+            flush();
+        buffer[used++] = (byte)c;
+    }
+
+    static void number(int value) {
+        if (used + MAX_INTEGER_BYTES > buffer.length)
+            flush();
+        long magnitude = value;
+        if (magnitude < 0) {
+            buffer[used++] = '-';
+            magnitude = -magnitude;
+        }
+        int first = used;
+        do {
+            buffer[used++] = (byte)('0' + magnitude % DECIMAL);
+            magnitude /= DECIMAL;
+        } while (magnitude != 0);
+        for (int left = first, right = used - 1; left < right; left++, right--) {
+            byte temporary = buffer[left];
+            buffer[left] = buffer[right];
+            buffer[right] = temporary;
+        }
+    }
+
+    static void finish() { flush(); }
+
+    private static final int PAIRS_PER_CAR = 4, SMALLEST = 600, LARGEST = 700;
+    static void output(int value) {
+        number(value);
+        write('\n');
+        finish();
     }
 
     public static void main(String[] args) throws java.io.IOException {
         int n = nextInt();
-        // the diameters are from 600 to 700, so a plain array counts them
-        int[] count = new int[LARGEST - SMALLEST + 1];
-        for (int i = 0; i < n; ++i) {
-            ++count[nextInt() - SMALLEST];
-        }
-        // each diameter equips as many cars as it has full sets of four pairs
+        byte[] remainder = new byte[LARGEST - SMALLEST + 1];
         int cars = 0;
-        for (int c : count) {
-            cars += c / PAIRS_PER_CAR;
+        for (int i = 0; i < n; i++) {
+            int diameter = nextInt() - SMALLEST;
+            if (++remainder[diameter] == PAIRS_PER_CAR) {
+                remainder[diameter] = 0;
+                cars++;
+            }
         }
-        System.out.println(cars);
+        output(cars);
     }
 }

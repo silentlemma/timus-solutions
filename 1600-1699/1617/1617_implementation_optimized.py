@@ -1,18 +1,19 @@
-import os
-from sys import stdout
+from os import _exit, write
 
 WEIGHT_VALUES = 101
 GROUP_SIZE = 4
-
-
 MIN_DIAMETER = 600
-values = map(int, open(0, "rb", buffering=0).read().split())
-count = next(values)
-frequencies = [0] * WEIGHT_VALUES
-for _ in range(count):
-    frequencies[next(values) - MIN_DIAMETER] += 1
-print(sum(frequency // GROUP_SIZE for frequency in frequencies))
 
-# The answer is flushed before interpreter teardown is skipped.
-stdout.flush()
-os._exit(0)
+
+def main():
+    values = map(int, open(0, "rb", buffering=0).read().split())
+    next(values)  # The remaining tokens are the declared n wheel-pair diameters.
+    frequencies = [0] * WEIGHT_VALUES
+    for diameter in values:
+        frequencies[diameter - MIN_DIAMETER] += 1
+    answer = sum(frequency // GROUP_SIZE for frequency in frequencies)
+    write(1, (str(answer) + "\n").encode())
+    _exit(0)
+
+
+main()

@@ -65,20 +65,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee la entrada en bloques de 1 KB y la
-analiza a mano en lugar de usar `Scanner`, y cuenta los diámetros, de
-600 a 700, en un arreglo simple de 101 contadores con un desplazamiento
-de 600: 0.109 s en lugar de 0.140 s y 336 KB en lugar de 1680 KB.
+`1617_implementation_optimized.py`. Conserva 101 frecuencias de diámetros 600..700 y suma floor(frequency/4). Lee binario directamente y escribe respuesta corta completa con os.write antes de os._exit(0). split retiene tokens: O(I+101) espacio, I bytes de entrada, sin streaming de espacio constante. O(N+101) operaciones, procesa todos los pares declarados. Conserva Counter didáctico.
 
-`1617_implementation_optimized.py`. Sustituye Counter por 101 frecuencias indexadas con diameter-600, justificadas por 600..700. Suma frequency//4, pues no se mezclan diámetros. El iterador de bytes evita texto decodificado y claves hash, pero conserva tokens de entrada: espacio total O(N+101), no flujo de espacio constante. Tiempo O(N+101). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+Accepted exacto Python 3.12 x64 #11327789: 0.062 s / 660 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/104, memoria 90/104. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11325072 era 0.125 s / 244 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
 
-Frente a `1617_implementation.py`: tiempo 0.093 s → 0.125 s; memoria 368 KB → 244 KB.
+- `1617_implementation_optimized.py`: 0.062 s / 660 KB; base didáctica conservada `1617_implementation.py`: 0.093 s / 368 KB.
+
+`1617_implementation_optimized.java`. Agrupa en una pasada diámetros 600..700. Un byte guarda resto módulo cuatro; al llegar a cuatro reinicia y cuenta vagón. Entre lecturas queda como máximo tres, cabe en byte con signo; sin pasada final de frecuencias. O(N) tiempo y 101 bytes de grupos. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
+
+Accepted exacto Java 1.8 #11327764: 0.078 s / 368 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/221, memoria 6/221. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303764 era 0.109 s / 336 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1617_implementation_optimized.java`: 0.078 s / 368 KB; base didáctica conservada `1617_implementation.java`: 0.14 s / 1680 KB.
 
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1617_implementation_optimized.py`: puesto de tiempo 88/104 y de memoria 1/104 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -98,7 +99,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1617_implementation_optimized.java](1617_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.109 s | 336 KB | 11303764 |
-| [1617_implementation_optimized.py](1617_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N+101) | AC | 0.125 s | 244 KB | 11325072 |
+| [1617_implementation_optimized.java](1617_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; 101 byte remainders | AC | 0.078 s | 368 KB | 11327764 |
+| [1617_implementation_optimized.py](1617_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N+101) time; O(I+101) storage | AC | 0.062 s | 660 KB | 11327789 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

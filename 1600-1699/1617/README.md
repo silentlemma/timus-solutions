@@ -64,20 +64,21 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized Java solution reads the input in 1 KB blocks and parses it
-by hand instead of using `Scanner`; the diameters, from 600 to 700, are
-counted in a plain array of 101 counters shifted by 600: 0.109 s instead
-of 0.140 s and 336 KB instead of 1680 KB.
+`1617_implementation_optimized.py`. Keep the 101-bin histogram for diameters 600..700 and sum floor(frequency/4). Read binary input directly and write the complete short numeric answer with os.write before os._exit(0). The token split still retains input, so storage is O(I+101), where I is input bytes, not constant-space streaming. O(N+101) arithmetic work; all declared wheel-pair tokens are processed. The teaching Counter version remains.
 
-`1617_implementation_optimized.py`. Replace Counter with a list of 101 frequencies indexed by diameter-600, justified by the allowed range 600..700. Sum frequency//4, since cars cannot mix diameters. The byte-token iterator avoids decoded text and hash-table keys, but it still retains input tokens: total storage O(N+101), not constant-space streaming. Time O(N+101). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+Exact-source Python 3.12 x64 Accepted #11327789: 0.062 s / 660 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/104, memory 90/104. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11325072 was 0.125 s / 244 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
 
-Compared with `1617_implementation.py`: time 0.093 s → 0.125 s; memory 368 KB → 244 KB.
+- `1617_implementation_optimized.py`: 0.062 s / 660 KB; retained teaching base `1617_implementation.py`: 0.093 s / 368 KB.
+
+`1617_implementation_optimized.java`. Keep one-pass grouping of equal diameters 600..700. A byte per diameter stores only the remainder modulo four: when it reaches four, reset it and count a car. The remainder never exceeds three between inputs, so signed bytes suffice; no final histogram pass is required. O(N) time and 101 bytes of grouping state. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
+
+Exact-source Java 1.8 Accepted #11327764: 0.078 s / 368 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/221, memory 6/221. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303764 was 0.109 s / 336 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1617_implementation_optimized.java`: 0.078 s / 368 KB; retained teaching base `1617_implementation.java`: 0.14 s / 1680 KB.
 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1617_implementation_optimized.py`: time place 88/104, memory place 1/104 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -97,7 +98,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1617_implementation_optimized.java](1617_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.109 s | 336 KB | 11303764 |
-| [1617_implementation_optimized.py](1617_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N+101) | AC | 0.125 s | 244 KB | 11325072 |
+| [1617_implementation_optimized.java](1617_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; 101 byte remainders | AC | 0.078 s | 368 KB | 11327764 |
+| [1617_implementation_optimized.py](1617_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N+101) time; O(I+101) storage | AC | 0.062 s | 660 KB | 11327789 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
