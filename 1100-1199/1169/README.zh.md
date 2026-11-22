@@ -88,11 +88,11 @@ Rust 使用一维完全背包。对于每个非关键点对数，它最小化环
 
 Java 使用一维完全背包。对于每个非关键点对数，它最小化环内的顶点数。其余顶点作为单点分量，记录的环大小用于还原方案。提交 11317286 耗时 0.109 秒，使用 492 KB；基础版耗时 0.343 秒，使用 2136 KB。
 
-Python 按从大到小的顺序搜索环长，并按剩余顶点数、剩余点对数和最大环长记录失败状态。提交 11317371 用时 0.093 秒、占用 692 KB，简单版则为 0.078 秒和 580 KB。在保存的排行榜中，这次提交的用时排第二，内存排第一。
+Python 按从大到小的顺序搜索环长，并按剩余顶点数、剩余点对数和最大环长记录失败状态。提交 11317371 用时 0.093 秒、占用 692 KB，简单版则为 0.109 秒和 592 KB。在保存的排行榜中，这次提交的用时排第二，内存排第一。
 
 **简单版本的 Timus 提交记录**
 
-G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11322178 · Rust 1.75 x64 №11322180.
+G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11328267 · Rust 1.75 x64 №11322180.
 
 ## 解答
 
@@ -103,7 +103,7 @@ G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · P
 | [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 236 KB | 11321735 |
 | [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1680 KB | 11322174 |
 | [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.343 s | 2136 KB | 11322176 |
-| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.078 s | 580 KB | 11322178 |
+| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.109 s | 592 KB | 11328267 |
 | [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.031 s | 616 KB | 11322180 |
 
 ### 优化版本

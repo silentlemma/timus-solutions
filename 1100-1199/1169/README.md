@@ -97,11 +97,11 @@ Rust uses a one-dimensional unbounded knapsack. For each number of non-critical 
 
 Java uses a one-dimensional unbounded knapsack. For each number of non-critical pairs it minimizes the number of vertices in cycles. Remaining vertices become singletons, and stored cycle sizes reconstruct a solution. Submission 11317286 took 0.109 s and used 492 KB, versus 0.343 s and 2136 KB for the base.
 
-Python searches cycle sizes in descending order and memoizes failed states by remaining vertices, remaining pairs and largest cycle size. Submission 11317371 took 0.093 s and used 692 KB, compared with 0.078 s and 580 KB for the simple version. In the saved ranking, this submission placed second for time and first for memory.
+Python searches cycle sizes in descending order and memoizes failed states by remaining vertices, remaining pairs and largest cycle size. Submission 11317371 took 0.093 s and used 692 KB, compared with 0.109 s and 592 KB for the simple version. In the saved ranking, this submission placed second for time and first for memory.
 
 **Timus submissions for the simple versions**
 
-G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11322178 · Rust 1.75 x64 №11322180.
+G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · Python 3.12 x64 №11328267 · Rust 1.75 x64 №11322180.
 
 ## Solutions
 
@@ -112,7 +112,7 @@ G++ 13.2 x64 №11321735 · Go 1.14 x64 №11322174 · Java 1.8 №11322176 · P
 | [1169_constructive.cpp](1169_constructive.cpp) | G++ 13.2 x64 | constructive | O(N⁴) bit steps | AC | 0.015 s | 236 KB | 11321735 |
 | [1169_constructive.go](1169_constructive.go) | Go 1.14 x64 | constructive | O(N⁴) bit steps | AC | 0.062 s | 1680 KB | 11322174 |
 | [1169_constructive.java](1169_constructive.java) | Java 1.8 | constructive | O(N⁴) bit steps | AC | 0.343 s | 2136 KB | 11322176 |
-| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.078 s | 580 KB | 11322178 |
+| [1169_constructive.py](1169_constructive.py) | Python 3.12 x64 | constructive | O(N⁴) bit steps | AC | 0.109 s | 592 KB | 11328267 |
 | [1169_constructive.rs](1169_constructive.rs) | Rust 1.75 x64 | constructive | O(N⁴) bit steps | AC | 0.031 s | 616 KB | 11322180 |
 
 ### Optimized

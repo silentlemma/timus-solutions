@@ -32,7 +32,7 @@ def main():
     # each part is a cycle (or a single computer), and bridges join the first
     # computers of consecutive parts
     edges = []
-    first = 1
+    prev = first = 1
     for idx, s in enumerate(parts):
         if s > 1:
             edges += [(first + j, first + (j + 1) % s) for j in range(s)]
