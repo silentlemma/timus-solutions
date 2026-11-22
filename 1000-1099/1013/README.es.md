@@ -101,6 +101,12 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 
 ## Soluciones optimizadas
 
+`1013_dp_math_optimized.java`. Mantiene la potencia polinómica exacta con BigInteger módulo X²−cX−c, c=(K−1) mod M. Analiza tres enteros acotados desde un búfer de 1024 bytes, sin reader, tokenizer ni cadenas decimales. No cambian las composiciones ni el residuo; no introduce inversas ni productos de ancho fijo. Es la misma recurrencia con O(log N) pasos modulares; conserva las versiones polinómica legible y matricial didáctica.
+
+Accepted de fuente exacto Java 1.8 #11326963: 0.109 s / 688 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 12/159, memoria 7/159. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1013_dp_math_optimized.java`: 0.109 s / 688 KB; base didáctica conservada `1013_matrix.java`: 0.125 s / 1868 KB; cambio de tiempo -12.8%; cambio de memoria -63.2%.
+
 Se conservan las cinco matrices educativas, incluida la simplificación Rust ya aceptada. Sea c=(K-1)mod M y representar aX+b módulo X²-cX-c. Al cuadrar, a'=c*a²+2ab,b'=c*a²+b²; al multiplicar por X, a'=ca+b,b'=ca. Recorrer los bits de N desde el mayor, empezando en 1, obtiene X^N. La respuesta a*c+b mod M coincide con la recurrencia de dos estados y primer dígito no nulo. No hay división modular: M compuesto y factores comunes son seguros. Rust amplía productos a 128 bits; toda suma previa < 3M²<2^122. Python usa enteros grandes y máscara entera, sin cadena binaria. O(log N) pasos modulares y cantidad constante de residuos de O(log M) bits. Rust usa E/S ABI C acotada sin heap/arranque. La base es la matriz Rust actual de 200 KB, no los 220 KB históricos.
 
 - `1013_dp_math.java`: 0.125 s / 752 KB; base `1013_matrix.java`: 0.125 s / 1868 KB; cambio respecto a la base: tiempo -0.0%, memoria -59.7%.
@@ -123,6 +129,7 @@ Se conservan las cinco matrices educativas, incluida la simplificación Rust ya 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
+| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
 | [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |

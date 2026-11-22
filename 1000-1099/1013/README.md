@@ -102,6 +102,12 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 ## Optimized solutions
 
+`1013_dp_math_optimized.java`. Keep exact BigInteger polynomial exponentiation modulo X²−cX−c, with c=(K−1) mod M. Parse the three bounded integer tokens directly from a 1024-byte input buffer instead of reader, tokenizer and decimal-string conversion. The modular compositions and final residue are unchanged; no modular inverse or fixed-width product is introduced. This is an implementation variant of the same O(log N) modular-step algorithm, not a new recurrence. Both the readable polynomial version and the matrix teaching source remain.
+
+Exact-source Java 1.8 Accepted #11326963: 0.109 s / 688 KB. Saved current-Java comparison, 2026-11-20: time rank 12/159, memory rank 7/159. With memory below 1024 KB, strict admission uses time only.
+
+- `1013_dp_math_optimized.java`: 0.109 s / 688 KB; retained teaching base `1013_matrix.java`: 0.125 s / 1868 KB; time change -12.8%; memory change -63.2%.
+
 Keep all five matrix teaching algorithms, including the already accepted Rust input simplification. Let c=(K-1) mod M and represent a polynomial by aX+b modulo X²-cX-c. Squaring gives a'=c*a²+2ab and b'=c*a²+b²; multiplying by X gives a'=ca+b,b'=ca. Scan the bits of N from most significant to least, starting with 1, to obtain X^N. The answer is a*c+b modulo M, exactly the two-state recurrence with the nonzero first digit. There is no modular division, so composite M and common factors are safe. Native Rust uses 128-bit products; every unreduced sum is below 3M² < 2^122. Python uses native big integers and an integer bit mask instead of constructing a binary string. There are O(log N) modular steps and a constant number of residues, whose bits depend on log M. Bounded Rust C-ABI I/O avoids heap/startup costs. Compare with the current accepted Rust matrix base at 200 KB, not its older 220 KB measurement.
 
 - `1013_dp_math.java`: 0.125 s / 752 KB; base `1013_matrix.java`: 0.125 s / 1868 KB; relative change: time -0.0%, memory -59.7%.
@@ -124,6 +130,7 @@ Keep all five matrix teaching algorithms, including the already accepted Rust in
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
+| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
 | [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |

@@ -95,6 +95,12 @@ Go 用 `bits.Mul64` 得高低字，再用 `bits.Div64` 求余；高字小于 `M`
 
 ## 优化解法
 
+`1013_dp_math_optimized.java`. 保留 BigInteger 在 X²−cX−c 下的精确多项式幂，c=(K−1) mod M。三个有界整数直接从 1024 字节缓冲解析，替代 reader、tokenizer 和十进制字符串转换。模组合和最终余数不变，不引入模逆或可能溢出的机器字乘积。仍是 O(log N) 次模运算的同一算法；保留易读多项式版和矩阵教学版。
+
+精确源代码 Java 1.8 Accepted #11326963：0.109 s / 688 KB。2026-11-20 保存的当前 Java 比较：时间排名 12/159，内存排名 7/159。内存低于 1024 KB，严格收录只看时间。
+
+- `1013_dp_math_optimized.java`: 0.109 s / 688 KB; 保留的教学基础版 `1013_matrix.java`: 0.125 s / 1868 KB; 时间变化 -12.8%; 内存变化 -63.2%.
+
 保留五种教学矩阵算法，包括已接受的Rust输入简化。令c=(K-1)mod M，以aX+b表示模X²-cX-c的多项式。平方得a'=c*a²+2ab、b'=c*a²+b²，乘X得a'=ca+b、b'=ca。从1开始按N的高位到低位扫描得到X^N，答案a*c+b mod M，恰为首位非零的两状态递推。无模除法，合数M及公因子安全。Rust用128位乘积，未约简和<3M²<2^122。Python用大整数及整数位掩码，不构造二进制字符串。O(log N)模步骤、常量个O(log M)位余数。Rust有界C ABI I/O避免堆/启动开销。比较基准为当前已接受200 KB矩阵，不是旧220 KB测量。
 
 - `1013_dp_math.java`: 0.125 s / 752 KB; 基础 `1013_matrix.java`: 0.125 s / 1868 KB; 相对变化: 时间 -0.0%, 内存 -59.7%.
@@ -117,6 +123,7 @@ Go 用 `bits.Mul64` 得高低字，再用 `bits.Div64` 求余；高字小于 `M`
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
+| [1013_dp_math_optimized.java](1013_dp_math_optimized.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 688 KB | 11326963 |
 | [1013_dp_math.java](1013_dp_math.java) \* | Java 1.8 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.125 s | 752 KB | 11308293 |
 | [1013_dp_math.py](1013_dp_math.py) \* | PyPy 3.10 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.109 s | 272 KB | 11309745 |
 | [1013_dp_math.rs](1013_dp_math.rs) \* | Rust 1.75 x64 | dp, math | O(log N) modular steps; O(1) residues | AC | 0.031 s | 44 KB | 11309707 |
