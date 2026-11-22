@@ -83,7 +83,7 @@ Truly wonderful the mind of a child is
 保留按角色解析的证明。紧凑C++/Go在一个有界ASCII输入缓冲中保存短语区间，避免复制短语及流/字符串对象。扫描时跳过整组，记录宾语、主语、动词位置；组外单词是第二分句的可选连词。依次输出连词及三种角色，保留逗号分隔，全部转小写，仅结果首字母大写。组不嵌套且角色唯一，因此每个短语恰输出一次，内部词序不变。Python用切片及现有文本流。L<=100，时间和存储均O(L)。
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; 基础 `1993_parsing.cpp`: 0.015 s / 388 KB; 相对变化: 时间 -0.0%, 内存 -80.4%.
-- `1993_parsing_optimized.go`: 0.015 s / 272 KB; 基础 `1993_parsing.go`: 0.031 s / 1184 KB; 相对变化: 时间 -51.6%, 内存 -77.0%.
+- `1993_parsing_optimized.go`: 0.015 s / 332 KB; 基础 `1993_parsing.go`: 0.031 s / 1184 KB; 相对变化: 时间 -51.6%, 内存 -72.0%.
 - `1993_parsing_strings.py`: 0.156 s / 300 KB; 基础 `1993_parsing.py`: 0.062 s / 504 KB; 相对变化: 时间 +151.6%, 内存 -40.5%.
 
 ## 各语言说明
@@ -111,7 +111,7 @@ Truly wonderful the mind of a child is
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
-| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
+| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 332 KB | 11328330 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
 | [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
 | [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |

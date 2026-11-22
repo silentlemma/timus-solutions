@@ -6,8 +6,6 @@ import (
 
 const rawInputSize = 256
 const rawOutputSize = 128
-const decimalSize = 32
-const radix = 10
 
 var rawInput [rawInputSize]byte
 var rawPosition, rawLength int
@@ -27,18 +25,6 @@ func byteIn() byte {
 	rawPosition++
 	return ch
 }
-func nextInt() int {
-	ch := byteIn()
-	for ch != 0 && ch <= ' ' {
-		ch = byteIn()
-	}
-	value := 0
-	for ch >= '0' && ch <= '9' {
-		value = value*radix + int(ch-'0')
-		ch = byteIn()
-	}
-	return value
-}
 func flush() {
 	at := 0
 	for at < rawUsed {
@@ -56,21 +42,6 @@ func byteOut(ch byte) {
 	}
 	rawOutput[rawUsed] = ch
 	rawUsed++
-}
-func numberOut(value int64) {
-	var digits [decimalSize]byte
-	at := len(digits)
-	for {
-		at--
-		digits[at] = byte(value%radix) + '0'
-		value /= radix
-		if value == 0 {
-			break
-		}
-	}
-	for ; at < len(digits); at++ {
-		byteOut(digits[at])
-	}
 }
 
 const textLimit = 128

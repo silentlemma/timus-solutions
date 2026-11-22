@@ -116,7 +116,7 @@ Truly wonderful the mind of a child is
 Сохраняется доказательство разбора по ролям. Компактные C++/Go держат границы фраз в одном ограниченном ASCII-буфере вместо копий и потоковых строковых объектов. Просмотр перескакивает через целую группу, запоминая объект, субъект и глагольную часть; слово вне групп — необязательный союз второй части. Выводятся союз и три роли в нужном порядке, исходный разделитель с запятой, все буквы становятся строчными кроме первой буквы результата. Группы не вложены, роли уникальны, поэтому каждая фраза выводится ровно один раз с прежним порядком слов. Python использует срезы и существующие текстовые потоки. При длине L<=100 время и память O(L).
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; база `1993_parsing.cpp`: 0.015 s / 388 KB; изменение относительно базы: время -0.0%, память -80.4%.
-- `1993_parsing_optimized.go`: 0.015 s / 272 KB; база `1993_parsing.go`: 0.031 s / 1184 KB; изменение относительно базы: время -51.6%, память -77.0%.
+- `1993_parsing_optimized.go`: 0.015 s / 332 KB; база `1993_parsing.go`: 0.031 s / 1184 KB; изменение относительно базы: время -51.6%, память -72.0%.
 - `1993_parsing_strings.py`: 0.156 s / 300 KB; база `1993_parsing.py`: 0.062 s / 504 KB; изменение относительно базы: время +151.6%, память -40.5%.
 
 ## Особенности языков
@@ -144,7 +144,7 @@ Truly wonderful the mind of a child is
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
-| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
+| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 332 KB | 11328330 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
 | [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
 | [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |

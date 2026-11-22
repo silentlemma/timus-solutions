@@ -119,7 +119,7 @@ Compared with `1993_parsing.java`: time 0.109 s → 0.078 s; memory 472 KB → 5
 Retain the same role-based parsing proof. Compact C++/Go keep spans in one bounded ASCII input buffer instead of copying phrases or building stream/string objects. Scan over each complete bracketed group, recording object, subject and verb positions; an unbracketed word is the optional second-clause conjunction. Emit conjunction and the three roles in order, insert the original comma separator, lowercase all letters and capitalize only the first output letter. Groups are nonnested and roles unique, so every phrase is emitted exactly once with its internal word order unchanged. Python uses slices and existing text streams. With input length L<=100, both time and storage are O(L).
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; base `1993_parsing.cpp`: 0.015 s / 388 KB; relative change: time -0.0%, memory -80.4%.
-- `1993_parsing_optimized.go`: 0.015 s / 272 KB; base `1993_parsing.go`: 0.031 s / 1184 KB; relative change: time -51.6%, memory -77.0%.
+- `1993_parsing_optimized.go`: 0.015 s / 332 KB; base `1993_parsing.go`: 0.031 s / 1184 KB; relative change: time -51.6%, memory -72.0%.
 - `1993_parsing_strings.py`: 0.156 s / 300 KB; base `1993_parsing.py`: 0.062 s / 504 KB; relative change: time +151.6%, memory -40.5%.
 
 ## Language notes
@@ -147,7 +147,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
-| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
+| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 332 KB | 11328330 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
 | [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
 | [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |

@@ -116,7 +116,7 @@ Frente a `1993_parsing.java`: tiempo 0.109 s → 0.078 s; memoria 472 KB → 528
 Se conserva la prueba del análisis por roles. C++/Go compactos guardan intervalos en un único búfer ASCII acotado, sin copiar frases ni crear objetos de flujo/cadena. El recorrido salta cada grupo completo y registra objeto, sujeto y verbo; una palabra exterior es la conjunción opcional de la segunda cláusula. Se emiten conjunción y roles ordenados, la coma original, todas las letras minúsculas salvo la primera del resultado. Sin anidación y con roles únicos, cada frase sale una vez y mantiene sus palabras. Python usa cortes y flujos existentes. Para L<=100, tiempo y espacio O(L).
 
 - `1993_parsing_optimized.cpp`: 0.015 s / 76 KB; base `1993_parsing.cpp`: 0.015 s / 388 KB; cambio respecto a la base: tiempo -0.0%, memoria -80.4%.
-- `1993_parsing_optimized.go`: 0.015 s / 272 KB; base `1993_parsing.go`: 0.031 s / 1184 KB; cambio respecto a la base: tiempo -51.6%, memoria -77.0%.
+- `1993_parsing_optimized.go`: 0.015 s / 332 KB; base `1993_parsing.go`: 0.031 s / 1184 KB; cambio respecto a la base: tiempo -51.6%, memoria -72.0%.
 - `1993_parsing_strings.py`: 0.156 s / 300 KB; base `1993_parsing.py`: 0.062 s / 504 KB; cambio respecto a la base: tiempo +151.6%, memoria -40.5%.
 
 ## Notas por lenguaje
@@ -144,7 +144,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1993_parsing_optimized.cpp](1993_parsing_optimized.cpp) | G++ 13.2 x64 | parsing | O(L) time and space | AC | 0.015 s | 76 KB | 11308436 |
-| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 272 KB | 11309761 |
+| [1993_parsing_optimized.go](1993_parsing_optimized.go) | Go 1.14 x64 | parsing | O(L) time and space | AC | 0.015 s | 332 KB | 11328330 |
 | [1993_parsing_strings.py](1993_parsing_strings.py) \* | PyPy 3.10 x64 | parsing, strings | O(L) time and space | AC | 0.156 s | 300 KB | 11309689 |
 | [1993_parsing_optimized.java](1993_parsing_optimized.java) \* | Java 1.8 | parsing | O(L) | AC | 0.078 s | 528 KB | 11325023 |
 | [1993_parsing_optimized.rs](1993_parsing_optimized.rs) \* | Rust 1.75 x64 | parsing | O(L) time; O(L) space | AC | 0.015 s | 80 KB | 11325535 |
