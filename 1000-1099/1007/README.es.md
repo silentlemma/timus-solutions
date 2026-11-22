@@ -118,11 +118,13 @@ Detalles a tener en cuenta:
 
 Las versiones en C++, Go y Rust reutilizan un búfer para leer cada palabra y corregirla en el sitio. Se calcula una sola vez el residuo de la suma de control módulo N + 1. Al probar posiciones de derecha a izquierda, pasar por un uno cambia el residuo ajustado en una unidad, con vuelta al alcanzar el límite del módulo. Así basta comparar y sumar o restar uno. Una vez elegida la corrección, el sufijo se desplaza como máximo una vez. El tiempo es lineal en la longitud total de la entrada y la memoria de trabajo es O(N).
 
-Las implementaciones base aceptadas [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases aceptadas conservadas [1007_math.go](1007_math.go), [1007_math.py](1007_math.py), [1007_math.rs](1007_math.rs) también cumplen la admisión estricta del conjunto rápido en la comparación guardada: diez primeros puestos o 15% superior en las métricas requeridas. Se reutilizan sin copias idénticas. Java utiliza el fuente optimizado separado de arriba y conserva el didáctico. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
-`1007_math_optimized.java`. Java conserva la reparación mediante suma de comprobación, pero lee y repara una palabra recibida cada vez y escribe con un búfer de bytes acotado. Ya no retiene toda la entrada ni toda la salida. El tiempo es lineal en la longitud total; el espacio de trabajo es proporcional a la palabra más larga, además de los búferes fijos de entrada y salida.
+`1007_math_optimized.java`. Conserva la misma reparación mediante suma de comprobación. Reutiliza un arreglo de bytes para la palabra y búferes fijos de entrada y salida de 4096 bytes; aplica inserciones y borrados al emitir la palabra corregida, sin subcadenas, concatenaciones ni copias UTF-8 por palabra. El tiempo sigue siendo lineal en la longitud total y el espacio O(n) para la palabra más los búferes fijos. Se conservan las versiones simples.
 
-Frente a `1007_math.java`: tiempo 0.109 s → 0.093 s; memoria 13200 KB → 5 156 KB.
+Accepted del fuente exacto #11326588: 0.078 s / 352 KB. En la muestra Java 1.8 guardada el 2026-11-20: puesto de tiempo 1/57, de memoria 1/57. El asterisco sigue indicando el objetivo de clasificación propio del lenguaje.
+
+Frente a `1007_math.java`: tiempo 0.109 s → 0.078 s; memoria 13200 KB → 352 KB.
 
 ## Notas por lenguaje
 
@@ -151,6 +153,6 @@ CPython.
 | [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
 | [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
 | [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
-| [1007_math_optimized.java](1007_math_optimized.java) \* | Java 1.8 | math | O(total length) | AC | 0.093 s | 5156 KB | 11325003 |
+| [1007_math_optimized.java](1007_math_optimized.java) | Java 1.8 | math | O(total length) | AC | 0.078 s | 352 KB | 11326588 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

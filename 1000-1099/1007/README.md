@@ -117,11 +117,13 @@ Pitfalls:
 
 The C++, Go and Rust variants reuse one buffer for successive words and correct each word in place. Compute the checksum modulo N + 1 once. While testing positions from right to left, crossing a one changes the adjusted remainder by one, with wraparound at N + 1. This replaces repeated divisions with a comparison and an increment or decrement. After the correction is found, shift the affected suffix at most once. Time is linear in total input length and working memory is O(N).
 
-The accepted base implementations [1007_math.java](1007_math.java), [1007_math.py](1007_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The retained accepted base implementations [1007_math.go](1007_math.go), [1007_math.py](1007_math.py), [1007_math.rs](1007_math.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies. Java uses the separate optimized source above; its teaching source remains. A star marks the separate language rating target.
 
-`1007_math_optimized.java`. Java keeps the same checksum repair, but reads and repairs one received word at a time and writes through a bounded byte buffer. It no longer retains the complete input or the complete output. Work is linear in the total word length; working storage is proportional to the longest word, in addition to the fixed input/output buffers.
+`1007_math_optimized.java`. Keep the same checksum repair. Reuse one received-word byte array and fixed 4096-byte input/output buffers; insertions and deletions are applied while emitting the repaired word, without substrings, concatenation or per-word UTF-8 copies. Work remains linear in total received length, with O(n) word storage plus fixed buffers. The simple implementations remain.
 
-Compared with `1007_math.java`: time 0.109 s → 0.093 s; memory 13200 KB → 5 156 KB.
+Exact-source Accepted #11326588: 0.078 s / 352 KB. In the saved Java 1.8 sample of 2026-11-20: time rank 1/57, memory rank 1/57. The asterisk still denotes the separate language rating target.
+
+Compared with `1007_math.java`: time 0.109 s → 0.078 s; memory 13200 KB → 352 KB.
 
 ## Language notes
 
@@ -149,6 +151,6 @@ the work per word is two `O(N)` passes, fast enough for CPython.
 | [1007_math_optimized.cpp](1007_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(total length) | AC | 0.015 s | 404 KB | 11310404 |
 | [1007_math_optimized.go](1007_math_optimized.go) \* | Go 1.14 x64 | math | O(total length) | AC | 0.001 s | 916 KB | 11310405 |
 | [1007_math_optimized.rs](1007_math_optimized.rs) \* | Rust 1.75 x64 | math | O(total length) | AC | 0.015 s | 192 KB | 11310406 |
-| [1007_math_optimized.java](1007_math_optimized.java) \* | Java 1.8 | math | O(total length) | AC | 0.093 s | 5156 KB | 11325003 |
+| [1007_math_optimized.java](1007_math_optimized.java) | Java 1.8 | math | O(total length) | AC | 0.078 s | 352 KB | 11326588 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
