@@ -110,7 +110,7 @@ Exact-source CPython 3.12 Accepted #11327007: 0.078 s / 700 KB. Comparison saved
 Keep the denominator scan and the readable one-step Stern–Brocot sources. The fast tree versions retain adjacent fractions a/b and c/d outside the open percentage interval. Their mediant is the simplest fraction between them. If it is still outside, an exact integer quotient skips the maximal run of mediants on that side; every skipped fraction remains outside. The first inside mediant therefore has the smallest denominator. Parse percentages as integer hundredths and compare cross-products with WHOLE=10000, including equality in the rejected endpoints. Quotient jumps follow continued-fraction descent, using O(log WHOLE) steps and constant numerical state. Go uses portable bounded syscall buffers; Python uses existing text streams under its explicitly recorded PyPy runtime.
 
 - `1011_number_theory_optimized.cpp`: 0.015 s / 104 KB; base `1011_math.cpp`: 0.015 s / 352 KB; relative change: time -0.0%, memory -70.5%.
-- `1011_number_theory.go`: 0.031 s / 312 KB; base `1011_math.go`: 0.015 s / 1088 KB; relative change: time +106.7%, memory -71.3%.
+- `1011_number_theory.go`: 0.031 s / 280 KB; base `1011_math.go`: 0.015 s / 1088 KB; relative change: time +106.7%, memory -74.3%.
 - `1011_number_theory.java`: 0.125 s / 332 KB; base `1011_math.java`: 0.125 s / 1580 KB; relative change: time -0.0%, memory -79.0%.
 
 
@@ -153,7 +153,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1011_number_theory_optimized.cpp](1011_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.015 s | 104 KB | 11308795 |
-| [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 312 KB | 11309756 |
+| [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 280 KB | 11328258 |
 | [1011_number_theory.java](1011_number_theory.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.125 s | 332 KB | 11308797 |
 | [1011_number_theory_optimized.java](1011_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.109 s | 368 KB | 11327460 |
 | [1011_number_theory_optimized.py](1011_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.078 s | 700 KB | 11327007 |

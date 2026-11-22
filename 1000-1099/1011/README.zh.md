@@ -99,7 +99,7 @@
 保留枚举分母及逐步Stern–Brocot教学源码。快速版本保存位于开区间之外的相邻分数a/b、c/d，其中介分数是两者间最简单的分数。若仍在区间外，用精确整数商跳过该侧最长一段；被跳过的分数均已证明不合法，因此第一个区间内的中介分数具有最小分母。百分数解析为整数百分之一，WHOLE=10000，交叉相乘比较，端点相等也排除。商跳跃对应连分数下降，需O(log WHOLE)步和常量数值状态。Go使用可移植有界syscall缓冲，Python用现有文本流及表中明确的PyPy。
 
 - `1011_number_theory_optimized.cpp`: 0.015 s / 104 KB; 基础 `1011_math.cpp`: 0.015 s / 352 KB; 相对变化: 时间 -0.0%, 内存 -70.5%.
-- `1011_number_theory.go`: 0.031 s / 312 KB; 基础 `1011_math.go`: 0.015 s / 1088 KB; 相对变化: 时间 +106.7%, 内存 -71.3%.
+- `1011_number_theory.go`: 0.031 s / 280 KB; 基础 `1011_math.go`: 0.015 s / 1088 KB; 相对变化: 时间 +106.7%, 内存 -74.3%.
 - `1011_number_theory.java`: 0.125 s / 332 KB; 基础 `1011_math.java`: 0.125 s / 1580 KB; 相对变化: 时间 -0.0%, 内存 -79.0%.
 
 
@@ -142,7 +142,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1011_number_theory_optimized.cpp](1011_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.015 s | 104 KB | 11308795 |
-| [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 312 KB | 11309756 |
+| [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 280 KB | 11328258 |
 | [1011_number_theory.java](1011_number_theory.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.125 s | 332 KB | 11308797 |
 | [1011_number_theory_optimized.java](1011_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.109 s | 368 KB | 11327460 |
 | [1011_number_theory_optimized.py](1011_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.078 s | 700 KB | 11327007 |

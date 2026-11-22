@@ -27,18 +27,6 @@ func byteIn() byte {
 	rawPosition++
 	return ch
 }
-func nextInt() int {
-	ch := byteIn()
-	for ch != 0 && ch <= ' ' {
-		ch = byteIn()
-	}
-	value := 0
-	for ch >= '0' && ch <= '9' {
-		value = value*radix + int(ch-'0')
-		ch = byteIn()
-	}
-	return value
-}
 func flush() {
 	at := 0
 	for at < rawUsed {
