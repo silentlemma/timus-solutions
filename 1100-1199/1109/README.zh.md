@@ -77,6 +77,12 @@
 
 ## 优化解法
 
+`1109_bfs_bitmask_matching.py`. 答案仍为最小边覆盖 M+N 减最大匹配，题目保证无孤立点。令 L=min(M,N)、R=max(M,N)。4096 字节分块保留未完数字和半对端点。预先构造右点位值，用 OR 建整数邻接掩码，重复边不改变结果。增广 BFS 先检查空闲邻点，再让每个已匹配右点对每个根至多访问一次，沿父指针翻转路径。令 B=max(1,ceil(R/w)) 为整数机器字数，保守界为 O(I+(K+LR)*B) 时间、O((L+R)*B) 图及掩码峰值存储，另加有限输入缓冲和匹配数组；Python 宽整数操作不是常数时间。main 内先刷新单个答案再 os._exit(0)。保留 BFS 位掩码算法，与教学 DFS 及旧分层搜索不同。
+
+精确源代码 Python 3.12 x64 Accepted #11327428：0.093 s / 1412 KB。2026-11-20 保存的编译器组比较：时间 3/28、内存 1/28。内存达到 1024 KB 时严格收录要求时间和内存均达标：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11308424（Python 3.12 x64）为 0.14 s / 3868 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1109_bfs_bitmask_matching.py`: 0.093 s / 1412 KB; 保留教学基础版 `1109_matching.py`: 0.093 s / 8516 KB.
+
 新算法给每个左顶点存邻居位集，把较小侧设为 `L=min(M,N)`，另一侧
 `R=max(M,N)`。对新左根做交替路 BFS；先与自由右顶点位集相交，非空即完成。
 否则邻居均已匹配：每个未访问右顶点仅访问一次，记录左前驱，把其唯一左匹配
@@ -88,11 +94,10 @@
 有界输入缓冲。原生字为 64 位，Python 用大整数分块；无自由邻居时至多提取
 `L` 个已匹配右顶点，也限制 Python 反复大整数操作的工作量。
 
-Python 先用可变字节行建图，再每行转整数一次，避免逐边复制宽整数。
-65536 字节分块保留跨块的未完数字及半对端点；原生输入缓冲为 4096 字节。
+原生输入缓冲为 4096 字节。
 只输出一个整数。算法不同于 DFS 及旧分层搜索，故采用不同方法名。
 
-五版按内存准入：C++ 280 KB 对新的简单 C++ 496 KB，节省 43.5%；
+旧版本历史测量：五版按内存准入：C++ 280 KB 对新的简单 C++ 496 KB，节省 43.5%；
 Go 1292/2512，48.6%；Java 680/1264，46.2%；Python 3868/8516，54.6%；
 Rust 356/1820，80.4%。C++ 0.031→0.015 s 仅一刻度，不宣称可靠加速。
 Python 0.140 对 0.093 s，记录时间多 50.5%；Java/Go/Rust 也各高一个刻度。
@@ -127,7 +132,7 @@ Python 使用 CPython 3.12。2026 年 11 月 2 日快照：快 C++ 对 74 条筛
 | [1109_bfs_bitmask_matching.cpp](1109_bfs_bitmask_matching.cpp) | G++ 13.2 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.015 s | 280 KB | 11308425 |
 | [1109_bfs_bitmask_matching.go](1109_bfs_bitmask_matching.go) | Go 1.14 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 1292 KB | 11308428 |
 | [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 680 KB | 11308426 |
-| [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) \* | Python 3.12 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 3868 KB | 11308424 |
+| [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) \* | Python 3.12 x64 | bfs, bitmask, matching | O(I+(K+LR)*B) time; O((L+R)*B) peak state | AC | 0.093 s | 1412 KB | 11327428 |
 | [1109_bfs_bitmask_matching.rs](1109_bfs_bitmask_matching.rs) | Rust 1.75 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 356 KB | 11308431 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

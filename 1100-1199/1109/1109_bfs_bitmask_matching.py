@@ -1,8 +1,9 @@
+import os
 import sys
 from itertools import chain
 
 BYTE_BITS = 8
-BUFFER_SIZE = 65536
+BUFFER_SIZE = 4096
 HEADER_FIELDS = 3
 
 
@@ -35,8 +36,8 @@ def main():
         return
     m, n, edges = header
     left, right = min(m, n), max(m, n)
-    row_bytes = (right + BYTE_BITS - 1) // BYTE_BITS
-    rows = [bytearray(row_bytes) for _ in range(left)]
+    adjacent = [0] * left
+    bits = [1 << i for i in range(right)]
     pending = None
     for fields in chain([fields], blocks):
         if pending is not None:
@@ -48,15 +49,12 @@ def main():
         values = map(int, fields)
         if m <= n:
             for a, b in zip(values, values):
-                b -= 1
-                rows[a - 1][b // BYTE_BITS] |= 1 << (b % BYTE_BITS)
+                adjacent[a - 1] |= bits[b - 1]
         else:
             for a, b in zip(values, values):
-                a -= 1
-                rows[b - 1][a // BYTE_BITS] |= 1 << (a % BYTE_BITS)
+                adjacent[b - 1] |= bits[a - 1]
     del fields, blocks
-    adjacent = [int.from_bytes(row, "little") for row in rows]
-    del rows
+    del bits
     match_l, match_r = [-1] * left, [-1] * right
     parent = [0] * right
     free = (1 << right) - 1
@@ -91,6 +89,8 @@ def main():
                 target = old
             size += 1
     print(m + n - size)
+    sys.stdout.flush()
+    os._exit(0)
 
 
 main()

@@ -92,6 +92,12 @@ basada en rutas mínimas. Espacio `O(V+K)`.
 
 ## Soluciones optimizadas
 
+`1109_bfs_bitmask_matching.py`. La respuesta sigue siendo la cobertura mínima de aristas M+N menos el emparejamiento máximo; no hay vértices aislados. Sean L=min(M,N), R=max(M,N). El lector de 4096 bytes conserva números incompletos y medias parejas. Construye máscaras enteras mediante OR con bits derechos precalculados; las aristas repetidas no alteran nada. BFS busca primero vecinos libres y después visita cada vértice derecho emparejado como máximo una vez por raíz; invierte el camino mediante padres. Con B=max(1,ceil(R/w)) palabras por entero, una cota conservadora es O(I+(K+LR)*B) tiempo y O((L+R)*B) almacenamiento máximo de grafo y máscaras, más entrada acotada y vectores de emparejamiento: las operaciones anchas no son constantes. Vacía la salida antes de os._exit(0) dentro de main. Mantiene el algoritmo BFS con máscaras, distinto del DFS didáctico y de la búsqueda por capas conservada.
+
+Accepted exacto Python 3.12 x64 #11327428: 0.093 s / 1412 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/28, memoria 1/28. Con 1024 KB o más la admisión estricta exige tiempo y memoria: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11308424 (Python 3.12 x64) era 0.14 s / 3868 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1109_bfs_bitmask_matching.py`: 0.093 s / 1412 KB; base didáctica conservada `1109_matching.py`: 0.093 s / 8516 KB.
+
 El nuevo algoritmo guarda una máscara de vecinos por izquierdo,
 orientando la parte menor como `L=min(M,N)`, y `R=max(M,N)` la otra.
 Por cada nueva raíz izquierda, BFS busca una ruta alternante. Primero
@@ -108,12 +114,10 @@ words y `O(LB+V)` words más buffers acotados. Words nativos de 64 bits;
 Python usa bloques de enteros grandes. Sin vecino libre hay hasta `L`
 derechos emparejados que extraer, acotando también el trabajo de enteros Python.
 
-Python construye filas byte mutables y convierte cada una una vez a entero,
-sin copiar una máscara ancha por arista. Sus bloques de 65536 bytes conservan
-enteros incompletos y medias parejas; lectores nativos usan 4096 bytes.
+Lectores nativos usan 4096 bytes.
 Se imprime un entero. El algoritmo difiere de DFS y de capas: nombre propio.
 
-Las cinco se admiten por memoria: C++ 280 KB frente a la NUEVA base C++
+Mediciones históricas de revisiones anteriores: Las cinco se admiten por memoria: C++ 280 KB frente a la NUEVA base C++
 de 496 KB, 43,5% menos; Go 1292/2512, 48,6%; Java 680/1264, 46,2%; Python
 3868/8516, 54,6%; Rust 356/1820, 80,4%. C++ 0,031→0,015 s es un tick,
 sin prueba fiable de aceleración. Python registra 0,140 frente a 0,093 s,
@@ -151,7 +155,7 @@ primero en ambas. Las mejoras admitidas bajo la meta mantienen asterisco.
 | [1109_bfs_bitmask_matching.cpp](1109_bfs_bitmask_matching.cpp) | G++ 13.2 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.015 s | 280 KB | 11308425 |
 | [1109_bfs_bitmask_matching.go](1109_bfs_bitmask_matching.go) | Go 1.14 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 1292 KB | 11308428 |
 | [1109_bfs_bitmask_matching.java](1109_bfs_bitmask_matching.java) \* | Java 1.8 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 680 KB | 11308426 |
-| [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) \* | Python 3.12 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.140 s | 3868 KB | 11308424 |
+| [1109_bfs_bitmask_matching.py](1109_bfs_bitmask_matching.py) \* | Python 3.12 x64 | bfs, bitmask, matching | O(I+(K+LR)*B) time; O((L+R)*B) peak state | AC | 0.093 s | 1412 KB | 11327428 |
 | [1109_bfs_bitmask_matching.rs](1109_bfs_bitmask_matching.rs) | Rust 1.75 x64 | bfs, bitmask, matching | O(K+L²B+LR) | AC | 0.031 s | 356 KB | 11308431 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
