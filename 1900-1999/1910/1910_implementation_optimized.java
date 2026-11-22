@@ -1,45 +1,60 @@
-import java.io.IOException;
-
 public class Main {
-    private static final int BUFFER_SIZE = 1 << 10;
-    private static final byte[] buffer = new byte[BUFFER_SIZE];
-    private static int position;
-    private static int length;
 
-    // the input is read in blocks and parsed by hand instead of Scanner
-    private static int read() throws IOException {
-        if (position == length) {
-            length = System.in.read(buffer);
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
             position = 0;
-            if (length <= 0) {
+            if (available < 0)
                 return -1;
-            }
         }
-        return buffer[position++];
+        return input[position++];
     }
-
-    private static int readInt() throws IOException {
-        int c;
-        do {
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
             c = read();
-        } while (c <= ' ' && c != -1);
         int value = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
+            value = value * DECIMAL + c - '0';
             c = read();
         }
         return value;
     }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
 
-    public static void main(String[] args) throws IOException {
-        int n = readInt();
+    public static void main(String[] args) throws java.io.IOException {
+        int n = nextInt();
         // the sections are not stored: only the two before the current one are kept
-        int previous = readInt();
-        int last = readInt();
+        int previous = nextInt();
+        int last = nextInt();
         int best = 0;
         int position = 2;
         for (int middle = 2; middle < n; middle++) {
-            int value = readInt();
+            int value = nextInt();
             int sum = previous + last + value;
             if (sum > best) {
                 best = sum;
@@ -48,6 +63,11 @@ public class Main {
             previous = last;
             last = value;
         }
-        System.out.println(best + " " + position);
+
+        number(best);
+        write(' ');
+        number(position);
+        write('\n');
+        finish();
     }
 }

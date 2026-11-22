@@ -52,13 +52,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1910_implementation_optimized.java`. Java conserva el máximo de una terna deslizante. Retiene solo los dos valores anteriores, añade el nuevo y actualiza la mejor suma y la posición central desde uno si mejora estrictamente. La unicidad prometida del máximo basta para esa comparación. Cada suma es como máximo 3000000 y cabe en int. Entrada de bytes fija y salida numérica directa evitan Scanner, concatenaciones y formato general de enteros; nunca guarda la secuencia. Tiempo O(N), espacio auxiliar O(1).
+
+Accepted exacto Java 1.8 #11327450: 0.078 s / 356 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/532, memoria 2/532. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303787 era 0.125 s / 380 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1910_implementation_optimized.java`: 0.078 s / 356 KB; base didáctica conservada `1910_implementation.java`: 0.156 s / 2372 KB.
+
 La solución optimizada en C++ no guarda las secciones: las lee una a una
 con `scanf` y recuerda solo las dos anteriores a la actual, que es todo
 lo que necesita un trío: 128 KB en lugar de 192 KB, con el mismo tiempo.
-
-La solución optimizada en Java guarda solo los dos tramos anteriores al
-actual, como la de C++, y analiza la entrada a mano en lugar de usar
-`Scanner`: 0.125 s en lugar de 0.156 s y 380 KB en lugar de 2372 KB.
 
 ## Notas por lenguaje
 
@@ -83,8 +85,7 @@ Mantener una ventana de tres valores al leer la secuencia y guardar el primer m�
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
-| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327450 |
 | [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

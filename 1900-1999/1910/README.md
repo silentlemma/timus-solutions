@@ -52,15 +52,16 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1910_implementation_optimized.java`. Java keeps the same rolling triple maximum. Retain only the two preceding values, add each new value, and update the best sum and the one-based middle index on a strict improvement. The stated unique maximum makes this sufficient. Every sum is at most 3000000 and fits int. Fixed byte input and raw numeric output avoid Scanner, concatenated strings and general integer formatting; the input sequence is never stored. Time O(N), auxiliary space O(1).
+
+Exact-source Java 1.8 Accepted #11327450: 0.078 s / 356 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/532, memory 2/532. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303787 was 0.125 s / 380 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1910_implementation_optimized.java`: 0.078 s / 356 KB; retained teaching base `1910_implementation.java`: 0.156 s / 2372 KB.
+
 The optimized C++ solution does not store the sections: it reads them
 one by one with `scanf` and keeps only the two before the current one,
 which is all a triple needs: 128 KB instead of 192 KB, with the same
 time.
-
-The optimized Java solution keeps only the two sections before the
-current one, as the C++ one does, and parses the input by hand instead
-of using `Scanner`: 0.125 s instead of 0.156 s and 380 KB instead of
-2372 KB.
 
 ## Language notes
 
@@ -85,8 +86,7 @@ Keep a window of three values while reading the sequence and record the first ma
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
-| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327450 |
 | [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

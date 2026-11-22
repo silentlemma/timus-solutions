@@ -48,11 +48,14 @@
 
 ## 优化解法
 
+`1910_implementation_optimized.java`. Java 保留滑动三元组最大值。只保存前两个值，读入新值后求和，严格变大时更新最优和及从一开始的中间位置。题目保证最大值唯一，因此严格比较足够。和至多 3000000，可用 int。固定字节输入与直接数字输出避免 Scanner、字符串拼接和通用整数格式化，不保存整个序列。时间 O(N)，辅助空间 O(1)。
+
+精确源代码 Java 1.8 Accepted #11327450：0.078 s / 356 KB。2026-11-20 保存的编译器组比较：时间 1/532、内存 2/532。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303787 为 0.125 s / 380 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1910_implementation_optimized.java`: 0.078 s / 356 KB; 保留教学基础版 `1910_implementation.java`: 0.156 s / 2372 KB.
+
 优化的 C++ 解法不保存各节：它用 `scanf` 逐个读入，只记住当前一节之前的两节，三节
 之和只需要这些：128 KB，而不是 192 KB，时间不变。
-
-优化的 Java 解法和 C++ 解法一样只保存当前段之前的两段，并手工解析输入，而不是使
-用 `Scanner`：0.125 s，而不是 0.156 s；380 KB，而不是 2372 KB。
 
 ## 各语言说明
 
@@ -77,7 +80,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1910_implementation_optimized.cpp](1910_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 128 KB | 11303648 |
-| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.125 s | 380 KB | 11303787 |
+| [1910_implementation_optimized.java](1910_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327450 |
 | [1910_implementation_optimized.py](1910_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.140 s | 240 KB | 11324269 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
