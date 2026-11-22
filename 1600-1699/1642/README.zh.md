@@ -76,12 +76,17 @@ Impossible
 
 ## 优化解法
 
-`1642_implementation_optimized.py`. 保留最近负/正障碍及出口公式。流式整数替代存全部墙及重复扫描，仍用题目保证的背向出口障碍，Impossible 不变。PyPy 刷新后 os._exit(0)。O(n) 时间，常数几何状态及有界词缓冲；实测时间更高、内存更低。
+`1642_implementation_optimized.py`. 保留最近障碍与原距离公式。零与出口之间有墙即永不可达，可立即结束。否则一次折返仅需最近反向墙，题目保证存在。一次读取并 split 有界输入，os.write 后 os._exit(0)。O(N) 时间、O(I) token 空间及常数几何状态；与旧版不同，不是有界缓冲流式解析。
 
-与 `1642_implementation.py` 相比：时间 0.093 s → 0.156 s；内存 504 KB → 252 KB。
+精确源代码 Python 3.12 x64 Accepted #11327790：0.078 s / 744 KB。2026-11-20 保存的编译器组比较：时间 20/243、内存 225/243。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11325697 为 0.156 s / 252 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
 
-优化的 Java 解法从较小的缓冲区中手工解析带符号的数字，而不是使用 `Scanner`：
-436 KB，而不是 1688 KB，时间不变。其余部分不变。
+- `1642_implementation_optimized.py`: 0.078 s / 744 KB; 保留教学基础版 `1642_implementation.py`: 0.093 s / 504 KB.
+
+`1642_implementation_optimized.java`. Java 保留零点两侧最近的障碍和相同的两种路程公式。零点与出口之间的任意障碍都会永久阻断出口，因此立即输出 Impossible 并返回。否则 x>0 时路程为 x 和 x-2*left；x<0 时为 2*right-x 和 -x。题目保证反方向有障碍，从而绕行距离有限。带符号字节解析和直接数字、文本输出替代 Scanner 与拼接。最坏时间 O(N)，辅助空间 O(1)，不保存障碍数组。
+
+精确源代码 Java 1.8 Accepted #11327458：0.093 s / 416 KB。2026-11-20 保存的编译器组比较：时间 4/83、内存 6/83。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303629 为 0.125 s / 436 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1642_implementation_optimized.java`: 0.093 s / 416 KB; 保留教学基础版 `1642_implementation.java`: 0.14 s / 1688 KB.
 
 `1642_implementation_optimized.cpp`. 一遍输入保留左右最近障碍，再应用相同的可达性及两种路程公式。手动 C 字节解析和打印替代整数格式化转换，中间值为有符号 64 位。不保存障碍列表：时间 O(n)，显式工作状态 O(1)。
 
@@ -107,9 +112,9 @@ Impossible
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1642_implementation_optimized.java](1642_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 436 KB | 11303629 |
+| [1642_implementation_optimized.java](1642_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 416 KB | 11327458 |
 | [1642_implementation_optimized.cpp](1642_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 72 KB | 11325060 |
 | [1642_implementation_optimized.rs](1642_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
-| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(1) state plus bounded token buffers | AC | 0.156 s | 252 KB | 11325697 |
+| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(I) token storage | AC | 0.078 s | 744 KB | 11327790 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

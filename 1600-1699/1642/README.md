@@ -85,13 +85,17 @@ lines.
 
 ## Optimized solutions
 
-`1642_implementation_optimized.py`. Keep the nearest negative/positive obstacle and the same exit formulas. Stream integer tokens rather than retaining all walls or repeatedly scanning lists. The promised obstacle on the side away from the exit is still used; Impossible is unchanged. PyPy flushes the final answer before os._exit(0). O(n) time, constant geometric state plus bounded token buffers; the measured time is higher but memory is lower.
+`1642_implementation_optimized.py`. Keep the nearest walls and the same exit distances. A wall strictly between zero and the exit makes escape impossible, permitting immediate termination. Otherwise only the nearest opposite wall is needed for the one-turn route; the promised obstacle guarantees it exists. Read/split the bounded input at once, then use os.write and os._exit(0). O(N) time and O(I) token storage plus constant geometric state; unlike the previous revision this is not a bounded-buffer streaming parser.
 
-Compared with `1642_implementation.py`: time 0.093 s → 0.156 s; memory 504 KB → 252 KB.
+Exact-source Python 3.12 x64 Accepted #11327790: 0.078 s / 744 KB. Saved 2026-11-20 compiler-cohort comparison: time 20/243, memory 225/243. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11325697 was 0.156 s / 252 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
 
-The optimized Java solution parses the numbers, signs included, by hand
-from a small buffer instead of using `Scanner`: 436 KB instead of
-1688 KB, with the same time. The rest is the same.
+- `1642_implementation_optimized.py`: 0.078 s / 744 KB; retained teaching base `1642_implementation.py`: 0.093 s / 504 KB.
+
+`1642_implementation_optimized.java`. Java retains the nearest obstacle on each side of zero and the same two travel distances. Any obstacle strictly between zero and the exit makes escape impossible permanently, so the file prints Impossible and returns immediately. Otherwise, for exit x>0 the distances are x and x-2*left; for x<0 they are 2*right-x and -x. The promised obstacle on the opposite side makes the detour finite. Signed byte parsing and raw numeric/text output replace Scanner and concatenation. Worst-case time O(N), auxiliary space O(1); no obstacle list is stored.
+
+Exact-source Java 1.8 Accepted #11327458: 0.093 s / 416 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/83, memory 6/83. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303629 was 0.125 s / 436 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1642_implementation_optimized.java`: 0.093 s / 416 KB; retained teaching base `1642_implementation.java`: 0.14 s / 1688 KB.
 
 `1642_implementation_optimized.cpp`. Keep the nearest barrier on each side in one input pass, then apply the same reachability and two travel-distance formulas. Manual C byte parsing/printing replaces formatted integer conversion, using signed 64-bit intermediates. No obstacle list is retained: O(n) time and O(1) explicit working state.
 
@@ -117,9 +121,9 @@ Compared with `1642_implementation.rs`: time 0.031 s → 0.015 s; memory 228 KB 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1642_implementation_optimized.java](1642_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.125 s | 436 KB | 11303629 |
+| [1642_implementation_optimized.java](1642_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 416 KB | 11327458 |
 | [1642_implementation_optimized.cpp](1642_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 72 KB | 11325060 |
 | [1642_implementation_optimized.rs](1642_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 48 KB | 11324980 |
-| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(1) state plus bounded token buffers | AC | 0.156 s | 252 KB | 11325697 |
+| [1642_implementation_optimized.py](1642_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(I) token storage | AC | 0.078 s | 744 KB | 11327790 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
