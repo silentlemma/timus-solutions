@@ -29,7 +29,7 @@ def main():
     n = int(words[0])
     best, answer = -1, 0
     for i in range(n):
-        born, _, died = words[1 + DATES * i:1 + DATES * (i + 1)]
+        born, _, died = words[1 + DATES * i : 1 + DATES * (i + 1)]
         life = day_number(died) - day_number(born) + 1
         # the list goes in order of death, so the first record holder died first
         if life > best:

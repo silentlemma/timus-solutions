@@ -19,7 +19,8 @@ long dayNumber(int d, int m, int y) {
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     long best = -1;
     int answer = 0;
     for (int i = 1; i <= n; i++) {

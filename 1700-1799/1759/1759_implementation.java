@@ -18,7 +18,7 @@ public class Main {
             m += MONTHS;
         }
         long leaps = y / LEAP - y / CENTURY + y / LEAP_CENTURY;
-        return (long) YEAR * y + leaps + (SPAN_DAYS * (m - MARCH) + 2) / SPAN_MONTHS + d;
+        return (long)YEAR * y + leaps + (SPAN_DAYS * (m - MARCH) + 2) / SPAN_MONTHS + d;
     }
 
     public static void main(String[] args) {

@@ -27,9 +27,14 @@ def main():
     # the dates of becoming the oldest and of dying form one rising chain
     chain = sorted(rng.sample(range(span // 2, span + 1), n + 1))
     if mode == 4:
-        marks = sorted({(datetime.date(y, 2, 27) - FIRST).days + rng.randint(0, 3)
-                        for y in CENTURY_YEARS for _ in range(2)})
-        chain = sorted(set(chain[:n + 1 - len(marks)]) | set(marks))
+        marks = sorted(
+            {
+                (datetime.date(y, 2, 27) - FIRST).days + rng.randint(0, 3)
+                for y in CENTURY_YEARS
+                for _ in range(2)
+            }
+        )
+        chain = sorted(set(chain[: n + 1 - len(marks)]) | set(marks))
         while len(chain) < n + 1:
             extra = rng.randint(span // 2, span)
             if extra not in chain:
