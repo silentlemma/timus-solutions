@@ -63,17 +63,22 @@ junto a los unos.
 
 ## Soluciones optimizadas
 
+`1209_math_optimized.py`. Conserva la prueba exacta isqrt: K se selecciona si 8*(K-1)+1 es cuadrado perfecto. Lee bloques de 4096 bytes conservando el token incompleto. Añade dígito y separador juntos a bytearray y vacía a los 4096 bytes, sin acumular consultas ni respuestas completas. Añade el salto final incluso con un bloque exactamente lleno. Enteros acotados dan O(Q) trabajo aritmético y búferes limitados, sin redondeo flotante ni tabla de respuestas. Escritura directa y os._exit(0) dentro de main.
+
+Accepted exacto Python 3.12 x64 #11327504: 0.125 s / 748 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 7/209, memoria 23/209. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11326663 (Python 3.12 x64) era 0.156 s / 1076 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1209_math_optimized.py`: 0.125 s / 748 KB; base didáctica conservada `1209_math.py`: 0.125 s / 6556 KB.
+
+Accepted exacto CPython 3.12 #11326663: 0.156 s / 1076 KB. Comparación guardada 2026-11-20 de compiladores actuales: tiempo 21/209, memoria 32/209. Ambas métricas exigidas pasan diez primeros o 15% superior, redondeando el corte porcentual hacia arriba. El asterisco sigue la meta separada Python de primer puesto en ambas.
+
+El envío optimizado documentado antes #11303724 (Python 3.12 x64) registró 0.218 s / 492 KB. El actual CPython 3.12 registra menor tiempo y mayor memoria. Son medidas emparejadas de ejecuciones distintas; la comparación incluye elección de intérprete y variabilidad del juez. La base simple conservada es más rápida, 0.125 s; esta versión favorece menor memoria.
+
 Las soluciones optimizadas (C++, Rust) analizan las posiciones a mano y
 escriben cada respuesta como dos bytes, una cifra y un separador, en
 lugar de reunir las respuestas en una cadena: C++ con `getchar` y
 `putchar`, Rust desde un búfer de entrada de 1 KB hacia un `BufWriter`.
 La comprobación es la misma. C++, 0.031 s en lugar de 0.062 s y 84 KB en
 lugar de 388 KB; Rust, 188 KB en lugar de 3160 KB, con el mismo tiempo.
-
-La solución optimizada en Python analiza la entrada línea a línea y
-escribe las respuestas como bytes en trozos de 1 KB en lugar de unir una
-gran cadena: 492 KB en lugar de 6556 KB, aunque el tiempo sube de
-0.125 s a 0.218 s.
 
 ## Notas por lenguaje
 
@@ -97,8 +102,7 @@ gran cadena: 492 KB en lugar de 6556 KB, aunque el tiempo sube de
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1209_math_optimized.cpp](1209_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) per position | AC | 0.031 s | 84 KB | 11303960 |
-| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(1) per position | AC | 0.218 s | 492 KB | 11303724 |
+| [1209_math_optimized.py](1209_math_optimized.py) \* | Python 3.12 x64 | math | O(Q) time; bounded I/O buffers | AC | 0.125 s | 748 KB | 11327504 |
 | [1209_math_optimized.rs](1209_math_optimized.rs) | Rust 1.75 x64 | math | O(1) per position | AC | 0.015 s | 188 KB | 11303961 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

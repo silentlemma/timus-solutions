@@ -1,25 +1,41 @@
-import sys
 from math import isqrt
+from os import _exit, read, write
+
+INPUT_SIZE = 4096
+WHITESPACE = ord(" ")
+
+
+def numbers():
+    pending = b""
+    while block := read(0, INPUT_SIZE):
+        fields = (pending + block).split()
+        pending = fields.pop() if block[-1] > WHITESPACE else b""
+        yield from map(int, fields)
+    if pending:
+        yield int(pending)
+
 
 DISCRIMINANT_FACTOR = 8
-OUTPUT_SIZE = 1 << 10
-# the input is parsed line by line, and the answers are collected as bytes
-# and written in 1 KB pieces
-words = (word for line in sys.stdin.buffer for word in line.split())
-count = int(next(words))
-answer = bytearray()
-write = sys.stdout.buffer.write
-for _ in range(count):
-    # the ones stand at 1 + m(m - 1) / 2, that is where 8(k - 1) + 1 is a
-    # perfect square
-    value = DISCRIMINANT_FACTOR * (int(next(words)) - 1) + 1
-    root = isqrt(value)
-    answer.extend(b"1 " if root * root == value else b"0 ")
-    if len(answer) == OUTPUT_SIZE:
-        write(answer)
-        answer.clear()
-if answer:
-    answer[-1] = 10
-    write(answer)
-else:
-    write(b"\n")
+OUTPUT_SIZE = 4096
+
+
+def main():
+    values = numbers()
+    count = next(values)
+    answer = bytearray()
+    for _ in range(count):
+        discriminant = DISCRIMINANT_FACTOR * (next(values) - 1) + 1
+        root = isqrt(discriminant)
+        answer.extend(b"1 " if root * root == discriminant else b"0 ")
+        if len(answer) >= OUTPUT_SIZE:
+            write(1, answer)
+            answer.clear()
+    if answer:
+        answer[-1] = ord("\n")
+        write(1, answer)
+    else:
+        write(1, b"\n")
+    _exit(0)
+
+
+main()
