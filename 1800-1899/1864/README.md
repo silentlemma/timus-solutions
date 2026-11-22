@@ -83,6 +83,12 @@ hundred random gatherings.
 
 ## Optimized solutions
 
+`1864_math_optimized.java`. Keep exact contribution normalization: c_i=max(0,a_i(N+1)−sum(a)), share_i=floor(100c_i/sum(c)). Parse integers directly. Each percentage is 0..100, so encode one, two or three digits with its separator into at most four bytes per person, then write once. Contributions, floor division and total remain unchanged; do not round percentages to force a total of 100. O(N) time and O(N) contribution/output storage. The teaching version remains.
+
+Exact-source Java 1.8 Accepted #11327834: 0.093 s / 368 KB. Saved 2026-11-20 compiler-cohort comparison: time 7/59, memory 1/59. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11307325 was 0.125 s / 520 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1864_math_optimized.java`: 0.093 s / 368 KB; retained teaching base `1864_math.java`: 0.125 s / 1720 KB.
+
 `1864_math_optimized.py`. Keep exact scaled overpayments credit[i]=max(0,(N+1)*bought[i]-total) and floor(100*credit[i]/sum(credits)). The input total is positive; before clipping, the credits sum to total, so the clipped denominator is strictly positive. Integer arithmetic avoids rounding errors. Time O(N) after computing the common denominator once. The basic generator recomputed sum(over) for every friend, costing O(N²); cache that sum once. Purchased amounts, credits and joined output still occupy O(N) storage. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
 Compared with `1864_math.py`: time 0.093 s → 0.14 s; memory 412 KB → 212 KB.
@@ -96,11 +102,6 @@ purchases and the surpluses in two fixed arrays of 100 numbers, enough
 since `n ≤ 100`, instead of two vectors allocated on the heap:
 {1864_math_optimized.cpp}.
 
-The optimized Java solution computes the same shares, but reads the
-numbers with `BufferedReader` and `StringTokenizer` instead of
-`Scanner`, whose regular expressions take time and memory to set up:
-{1864_math_optimized.java}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -110,9 +111,6 @@ asterisk concerns the rating target only.
 
 - `1864_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +45.83%; base: `1864_math.cpp`.
-
-- `1864_math_optimized.java`: time reduction +0.00%; memory reduction
-  +69.77%; base: `1864_math.java`.
 
 ## Language notes
 
@@ -141,7 +139,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
-| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 520 KB | 11307325 |
+| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
 | [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
 | [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
 

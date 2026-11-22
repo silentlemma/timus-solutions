@@ -71,6 +71,12 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 
 ## 优化解法
 
+`1864_math_optimized.java`. 保留精确贡献归一化 c_i=max(0,a_i(N+1)−sum(a))，share_i=floor(100c_i/sum(c))。直接解析整数。百分比 0..100，编码一至三位及分隔符，每人至多四字节，一次输出。贡献、向下整除与总额不变，不为凑成 100 而四舍五入。O(N) 时间、O(N) 贡献及输出空间，保留教学版。
+
+精确源代码 Java 1.8 Accepted #11327834：0.093 s / 368 KB。2026-11-20 保存的编译器组比较：时间 7/59、内存 1/59。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11307325 为 0.125 s / 520 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1864_math_optimized.java`: 0.093 s / 368 KB; 保留教学基础版 `1864_math.java`: 0.125 s / 1720 KB.
+
 `1864_math_optimized.py`. 保留精确缩放超付 credit[i]=max(0,(N+1)*bought[i]-total) 及 floor(100*credit[i]/sum(credits))。输入 total 为正，截掉负值前 credit 总和等于 total，截断后的分母必为正。整数计算避免舍入误差。公共分母只算一次，时间 O(N)。 基础生成器为每个朋友重算 sum(over)，耗时 O(N²)；现在缓存一次。购买量、超付与拼接输出仍占 O(N) 空间。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
 
 与 `1864_math.py` 相比：时间 0.093 s → 0.14 s；内存 412 KB → 212 KB。
@@ -83,17 +89,11 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 中（因为 `n ≤ 100`，这已足够），而不是堆上的两个向量：
 {1864_math_optimized.cpp}。
 
-优化的 Java 解法计算同样的份额，但用 `BufferedReader` 和 `StringTokenizer` 读
-数，而不用 `Scanner`，因为 `Scanner` 准备正则表达式要花时间和内存：
-{1864_math_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1864_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.83%; 基础版本: `1864_math.cpp`.
-
-- `1864_math_optimized.java`: 时间降低 +0.00%; 内存降低 +69.77%; 基础版本: `1864_math.java`.
 
 ## 各语言说明
 
@@ -122,7 +122,7 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
-| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(n) | AC | 0.125 s | 520 KB | 11307325 |
+| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
 | [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
 | [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
 
