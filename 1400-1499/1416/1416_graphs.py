@@ -6,7 +6,7 @@ INF = float("inf")
 
 def main():
     data = sys.stdin.buffer.read().split()
-    n, m = int(data[0]), int(data[1])
+    n, _edge_count = int(data[0]), int(data[1])
     w = [[INF] * n for _ in range(n)]
     vals = iter(map(int, data[2:]))
     edges = []

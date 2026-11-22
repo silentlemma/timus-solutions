@@ -93,7 +93,7 @@ heaviest(u, v) = max(heaviest(u, p), c)。`O(n² + m)`。
 | [1416_graphs.cpp](1416_graphs.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.187 s | 3448 KB | 11286111 |
 | [1416_graphs.go](1416_graphs.go) \* | Go 1.14 x64 | graphs | O(n^2 + m) | AC | 0.203 s | 10568 KB | 11286112 |
 | [1416_graphs.java](1416_graphs.java) | Java 1.8 | graphs | O(n^2 + m) | AC | 0.109 s | 8164 KB | 11286114 |
-| [1416_graphs.py](1416_graphs.py) \* | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.343 s | 44112 KB | 11286113 |
+| [1416_graphs.py](1416_graphs.py) \* | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.39 s | 44108 KB | 11328275 |
 | [1416_graphs.rs](1416_graphs.rs) \* | Rust 1.75 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 9656 KB | 11286115 |
 
 ### 优化版本
