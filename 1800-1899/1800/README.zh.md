@@ -80,6 +80,14 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 
 ## 优化解法
 
+`1800_math_optimized.java`. 保留逐四分之一转的接触搜索，halfLength·omega²≤g 时增加精确快速分支。最低端严格下降：奇数区间导数不超过 (−g·pi/2+halfLength·omega²)/omega<0，偶数区间直接为负。用平方根找首个非正的竖直及水平端点，再以高度检查修正索引，选较早区间。其他情况保留已通过的高度/导数搜索及60次二分，不降低精度。快速分支除边界索引修正外为常数工作，后备搜索 O(Q·60)，状态 O(1)。64字节读入三数，完整写出并 flush 后 Runtime.getRuntime().halt(0)。与此前通过的计算比较200000次全部一致，含70212个快速分支。当前0.093 s/512 KB比历史0.125 s/376 KB快但内存更多，不混合指标。保留完整扫描教学版。
+
+精确源代码 Java 1.8 Accepted #11327885：0.093 s / 512 KB。2026-11-20 保存的编译器组比较：时间 5/32、内存 6/32。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11307242 为 0.125 s / 376 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1800_math_optimized.java`: 0.093 s / 512 KB; 保留教学基础版 `1800_math.java`: 0.109 s / 1576 KB.
+
+`1800_math_optimized.py` 逐字节复用，不增加源文件，也不引入新算法。精确源代码的 CPython 3.12 Accepted #11327037 为 0.078 s / 1008 KB。2026-11-20 保存的当前 Python 语言族编译器组中，时间排名 2/255、内存排名 252/255。本次内存低于 1024 KB，因此严格前十名或前 15% 标准只看时间；星号仍表示单独的语言排名目标。同一未改动文件另有早先的 PyPy 3.10 Accepted #11325886：0.125 s / 412 KB。这些是不同运行各自成对的指标：选择 CPython 的时间与排名，PyPy 的内存更低。本节早先的省内存说明指此 PyPy 测量，不是 CPython 表格行。全部教学源代码保持不变。
+
 `1800_math_optimized.py`. 保留间隙/斜率/曲率接触搜索及60次二分。端点距中心竖直距离至多 l/2，故 t₀=sqrt(2·max(0,h−l/2)/g) 前不可能触地。从 floor(t₀/quarter) 前一个四分之一转开始，留浮点安全余量，跳过全部更早区间。下一个竖直极大前必已接触，因而仅近邻区间；保留内部极小及绝对区间 butter/bread 奇偶。无需 PyPy JIT 控制导入。剩余 Q 区间 O(Q·60) 工作、常数状态，保留简单全扫。
 
 与 `1800_math.py` 相比：时间 0.093 s → 0.125 s；内存 592 KB → 412 KB。
@@ -92,17 +100,11 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 `iostream`，这里用不着后者的运行时；浮点计算完全相同：
 {1800_math_optimized.cpp}。
 
-优化的 Java 解法从 4 KB 的块中读入三个数并手工解析，而不是用 `Scanner`，后者的正
-则表达式机制加载起来既费时间又占内存；浮点计算完全相同：
-{1800_math_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1800_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +73.12%; 基础版本: `1800_math.cpp`.
-
-- `1800_math_optimized.java`: 时间降低 -14.68%; 内存降低 +76.14%; 基础版本: `1800_math.java`.
 
 ## 各语言说明
 
@@ -129,8 +131,8 @@ t 秒后中心的高度为 h − g·t²/2，吐司转过了 ω·t，所以较低
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
-| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
 | [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
-| [1800_math_optimized.py](1800_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.125 s | 412 KB | 11325886 |
+| [1800_math_optimized.py](1800_math_optimized.py) \* | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

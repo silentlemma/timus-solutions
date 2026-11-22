@@ -103,6 +103,14 @@ stored tests and all five configured generator cases.
 
 ## Optimized solutions
 
+`1800_math_optimized.java`. Keep the quarter-turn contact search and add an exact fast path when halfLength·omega²≤g. The lowest endpoint then descends monotonically: on odd quarters its derivative is at most (−g·pi/2+halfLength·omega²)/omega<0; on even quarters it is negative directly. Find the first nonpositive vertical and horizontal endpoints with square roots, correct the candidate indices by evaluating their heights, and choose the earlier quarter. The accepted contact/slope search with 60-step bisections remains the fallback; no output or floating-point precision is relaxed. Fast-path work is constant apart from boundary-index corrections; the fallback costs O(Q·60), with O(1) state. Read three values through 64 bytes, write and flush the complete answer, then call Runtime.getRuntime().halt(0). All 200000 comparisons with the previous accepted kernel matched, including 70212 fast-path cases. The current 0.093 s/512 KB pair is faster but uses more memory than the historical 0.125 s/376 KB pair; do not combine their metrics. Preserve the full-scan teaching implementation.
+
+Exact-source Java 1.8 Accepted #11327885: 0.093 s / 512 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/32, memory 6/32. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11307242 was 0.125 s / 376 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1800_math_optimized.java`: 0.093 s / 512 KB; retained teaching base `1800_math.java`: 0.109 s / 1576 KB.
+
+`1800_math_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327037 measures 0.078 s / 1008 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 2/255, memory rank 252/255. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325886, 0.125 s / 412 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1800_math_optimized.py`. Keep the same gap/slope/curvature contact search and 60-step bisections. No endpoint can touch before t₀=sqrt(2·max(0,h−l/2)/g), because its vertical distance from the centre is at most l/2. Start one quarter before floor(t₀/quarter), retaining a safety interval for floating-point rounding, instead of searching every earlier quarter. Contact must occur by the next vertical maximum, so only nearby quarters remain; preserve interior-minimum tests and absolute-quarter butter/bread parity. No PyPy JIT-control import is needed. O(Q·60) work for the remaining Q quarters and constant state; keep the simple full scan.
 
 Compared with `1800_math.py`: time 0.093 s → 0.125 s; memory 592 KB → 412 KB.
@@ -116,11 +124,6 @@ prints the side with `puts` instead of using `iostream`, whose runtime
 is not needed here; the floating-point computation is exactly the same:
 {1800_math_optimized.cpp}.
 
-The optimized Java solution reads the three numbers from a 4 KB block
-and parses them by hand instead of `Scanner`, whose regular-expression
-machinery costs time and memory to load; the floating-point computation
-is exactly the same: {1800_math_optimized.java}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -130,9 +133,6 @@ asterisk concerns the rating target only.
 
 - `1800_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +73.12%; base: `1800_math.cpp`.
-
-- `1800_math_optimized.java`: time reduction -14.68%; memory reduction
-  +76.14%; base: `1800_math.java`.
 
 ## Language notes
 
@@ -159,8 +159,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1800_math_optimized.cpp](1800_math_optimized.cpp) | G++ 13.2 x64 | math | O(omega) | AC | 0.015 s | 100 KB | 11307243 |
-| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(omega) | AC | 0.125 s | 376 KB | 11307242 |
+| [1800_math_optimized.java](1800_math_optimized.java) \* | Java 1.8 | math | O(Q·60) fallback; O(1) state | AC | 0.093 s | 512 KB | 11327885 |
 | [1800_math_optimized.rs](1800_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Q·60) time; O(1) space | AC | 0.031 s | 60 KB | 11325533 |
-| [1800_math_optimized.py](1800_math_optimized.py) \* | PyPy 3.10 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.125 s | 412 KB | 11325886 |
+| [1800_math_optimized.py](1800_math_optimized.py) \* | Python 3.12 x64 | math | O(Q·60) time; O(1) auxiliary state | AC | 0.078 s | 1008 KB | 11327037 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
