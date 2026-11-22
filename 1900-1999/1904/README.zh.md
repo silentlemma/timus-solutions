@@ -95,7 +95,7 @@ C++/Rust 去掉反演中的排序。先把期望输出裁到非负半轴；反�
 |---|---|---|---|---|---|---|---|
 | [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB | 11291258 |
 | [1904_math_sorting.go](1904_math_sorting.go) \* | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
-| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.140 s | 2764 KB | 11291267 |
+| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.156 s | 2724 KB | 11328321 |
 | [1904_math_sorting.py](1904_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
 | [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB | 11291269 |
 

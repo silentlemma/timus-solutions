@@ -20,20 +20,15 @@ def generate(seed, mode):
     if mode == 4:
         return [MAX_REFERENCE] * MAX_COUNT
     if mode == 5:
-        return [
-            rng.randrange(-MAX_REFERENCE, MAX_REFERENCE + 1)
-            for _ in range(MAX_COUNT - 1)
-        ] + [-2]
-    if mode == 6:
-        return [rng.randrange(0, MAX_REFERENCE + 1) for _ in range(MAX_COUNT - 1)] + [
-            -1
+        return [rng.randrange(-MAX_REFERENCE, MAX_REFERENCE + 1) for _ in range(MAX_COUNT - 1)] + [
+            -2
         ]
+    if mode == 6:
+        return [rng.randrange(0, MAX_REFERENCE + 1) for _ in range(MAX_COUNT - 1)] + [-1]
     if mode == 7:
         return [MAX_REFERENCE if i % 2 else -MAX_REFERENCE for i in range(MAX_COUNT)]
     if mode == 8:
-        return [
-            rng.randrange(-MAX_REFERENCE, MAX_REFERENCE + 1) for _ in range(MAX_COUNT)
-        ]
+        return [rng.randrange(-MAX_REFERENCE, MAX_REFERENCE + 1) for _ in range(MAX_COUNT)]
     if mode == 9:
         return [-MAX_REFERENCE] + BRANCHES[1:]
     raise ValueError("Unknown mode")

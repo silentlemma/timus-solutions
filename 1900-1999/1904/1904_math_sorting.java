@@ -55,8 +55,9 @@ public class Main {
                 candidates.add(new Interval(constants[i] - item.right, constants[i] - left));
                 candidates.add(new Interval(constants[i] + left, constants[i] + item.right));
             }
-            candidates.sort((a, b) -> a.left != b.left
-                ? Integer.compare(a.left, b.left) : Integer.compare(a.right, b.right));
+            candidates.sort((a, b)
+                                -> a.left != b.left ? Integer.compare(a.left, b.left)
+                                                    : Integer.compare(a.right, b.right));
             List<Interval> merged = new ArrayList<>();
             for (Interval item : candidates) {
                 if (!merged.isEmpty() && item.left <= merged.get(merged.size() - 1).right) {
