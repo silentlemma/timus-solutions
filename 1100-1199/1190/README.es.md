@@ -89,13 +89,15 @@ comprobaron los casos generados.
 
 ## Soluciones optimizadas
 
+`1190_greedy_optimized.java`. Java conserva la prueba de suma mínima y máxima, pero cierra cada bloque desconocido al leer la siguiente proporción impresa. Esta da el límite inferior; la proporción impresa anterior da el superior, inicialmente 10000. El bloque final tiene mínimo uno. Toda suma entera entre los límites se alcanza con una asignación no creciente, por lo que low<=10000<=high es exacto. Omite nombres sin crear cadenas y conserva solo la posición/proporción impresa anterior y dos sumas long, sin arreglo de N proporciones. Tiempo O(N) con nombres acotados, espacio auxiliar O(1) con búfer fijo de 1024 bytes.
+
+Accepted exacto Java 1.8 #11327329: 0.109 s / 476 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/28, memoria 1/28. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324799 era 0.14 s / 1308 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1190_greedy_optimized.java`: 0.109 s / 476 KB; base didáctica conservada `1190_greedy.java`: 0.171 s / 6296 KB.
+
 C++ y Go procesan cada tramo de proporciones desconocidas al leer la siguiente proporción publicada. Esta da su límite inferior y la anterior da el superior. El tramo final tiene límite inferior uno. Solo se conservan su longitud, la proporción anterior y dos límites de la suma total, con espacio auxiliar constante.
 
 Las implementaciones base aceptadas [1190_greedy.java](1190_greedy.java), [1190_greedy.py](1190_greedy.py), [1190_greedy.rs](1190_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
-
-`1190_greedy_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
-
-Frente a `1190_greedy.java`: tiempo 0.171 s → 0.14 s; memoria 6296 KB → 1 308 KB.
 
 ## Notas por lenguaje
 
@@ -122,6 +124,6 @@ Estas notas describen las implementaciones sencillas.
 |---|---|---|---|---|---|---|---|
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
-| [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) | AC | 0.14 s | 1308 KB | 11324799 |
+| [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

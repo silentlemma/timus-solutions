@@ -1,5 +1,3 @@
-
-
 public class Main {
 
     private static final class FastInput {
@@ -106,6 +104,14 @@ public class Main {
             return negative ? value : -value;
         }
 
+        void skipWord() {
+            int character = read();
+            while (character >= 0 && character <= ' ')
+                character = read();
+            while (character > ' ')
+                character = read();
+        }
+
         int nextInt() { return (int)nextLong(); }
         double nextDouble() { return Double.parseDouble(next()); }
         FastInput useLocale(java.util.Locale ignored) { return this; }
@@ -116,23 +122,24 @@ public class Main {
     public static void main(String[] args) {
         FastInput in = new FastInput(System.in);
         int n = in.nextInt();
-        long[] given = new long[n];
+
+        long low = 0, high = 0, ceiling = WHOLE;
+        int previous = -1;
         for (int i = 0; i < n; i++) {
-            in.next();
-            given[i] = in.nextInt() == 1 ? in.nextLong() : NONE;
+            in.skipWord();
+            if (in.nextInt() == 1) {
+                long value = in.nextLong();
+                // Each unknown block takes its lower bound from the next printed share
+                // and its upper bound from the previous printed share.
+                low += (i - previous) * value;
+                high += (i - previous - 1) * ceiling + value;
+                previous = i;
+                ceiling = value;
+            }
         }
-        // shares never grow down the list, so an unknown share is at least
-        // the next given one (or 1) and at most the last given one before it
-        // (or 100%); every total between the two extremes can be reached
-        long low = 0, high = 0, floor = 1, ceiling = WHOLE;
-        for (int i = n - 1; i >= 0; i--) {
-            floor = given[i] != NONE ? given[i] : floor;
-            low += floor;
-        }
-        for (int i = 0; i < n; i++) {
-            ceiling = given[i] != NONE ? given[i] : ceiling;
-            high += ceiling;
-        }
+        int remaining = n - previous - 1;
+        low += remaining;
+        high += remaining * ceiling;
         System.out.println(low <= WHOLE && WHOLE <= high ? "YES" : "NO");
     }
 }

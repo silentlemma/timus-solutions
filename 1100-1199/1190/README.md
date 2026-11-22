@@ -87,13 +87,15 @@ checked.
 
 ## Optimized solutions
 
+`1190_greedy_optimized.java`. Java keeps the same minimum/maximum feasible-sum test, but closes each unknown block when the next printed share arrives. That value supplies the lower bound; the previous printed share supplies the upper bound, initially 10000. The trailing unknown block has lower bound one. Every integer total between the two bounds is attainable by a non-increasing assignment, so low<=10000<=high is exact. Skip ingredient names without allocating strings; retain only the last printed position/share and two long totals, instead of an N-element share array. Time O(N) for the bounded names, auxiliary space O(1) with a fixed 1024-byte input buffer.
+
+Exact-source Java 1.8 Accepted #11327329: 0.109 s / 476 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/28, memory 1/28. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324799 was 0.14 s / 1308 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1190_greedy_optimized.java`: 0.109 s / 476 KB; retained teaching base `1190_greedy.java`: 0.171 s / 6296 KB.
+
 C++ and Go process each run of unknown ingredient shares as soon as its next printed share is read. That share is the run's lower bound and the preceding printed share is its upper bound. The trailing run has lower bound one. Only the run length, preceding share and two total bounds are retained, so auxiliary space is constant.
 
 The accepted base implementations [1190_greedy.java](1190_greedy.java), [1190_greedy.py](1190_greedy.py), [1190_greedy.rs](1190_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
-
-`1190_greedy_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
-
-Compared with `1190_greedy.java`: time 0.171 s → 0.14 s; memory 6296 KB → 1 308 KB.
 
 ## Language notes
 
@@ -120,6 +122,6 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1190_greedy_optimized.cpp](1190_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) | AC | 0.015 s | 108 KB | 11310618 |
 | [1190_greedy_optimized.go](1190_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(N) | AC | 0.031 s | 908 KB | 11310591 |
-| [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) | AC | 0.14 s | 1308 KB | 11324799 |
+| [1190_greedy_optimized.java](1190_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; O(1) auxiliary space | AC | 0.109 s | 476 KB | 11327329 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
