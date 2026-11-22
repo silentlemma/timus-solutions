@@ -97,11 +97,17 @@ con 0; de ahí 60 y 62.
 
 ## Soluciones optimizadas
 
+`2078_dp_simulation.py`. Conserva DP cronológica de cuatro deudas (0,0),(1,0),(1,1),(2,1). Desenrolla mínimos/máximos en ocho escalares, elimina listas por frame y bucle de estados. Mismas reglas de reposición final y extremos exactos; centinelas ±10000 fuera de puntajes legales 0..300. O(F) tiempo, estado constante más O(F) totales de entrada. CPython elegido es más rápido pero usa más memoria que PyPy histórico; no mezcla pares/runtimes. Conserva DP inversa didáctica.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327850: 0.078 s / 796 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/227; 174/227. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11309738 (PyPy 3.10 x64): 0.14 s / 276 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `2078_dp_simulation.py`: 0.078 s / 796 KB; base didáctica conservada `2078_dp.py`: 0.093 s / 708 KB.
+
 Se conserva el DP inverso claro. dp_simulation cronológico guarda los bonos pendientes de las dos próximas tiradas: solo (0,0), (1,0), (1,1), (2,1), con mínimo/máximo por estado. En un frame de dos tiradas y total t, el bono adicional es b*t+(a-b)*first; como a >= b, sus extremos están en los extremos legales de la primera tirada. Un strike consume el primer bono viejo, desplaza el segundo y añade sus dos bonos. El último frame no crea bonos; las reglas de reposición dan los extremos, y un total > 20 obliga a dos primeras tiradas de 10. Las transiciones cubren toda secuencia legal. Cuatro estados sustituyen 121 pares futuros: O(F) tiempo y memoria constante de puntuación. Cada E/S tiene Accepted propio.
 
 - `2078_dp_simulation.go`: 0.031 s / 312 KB; base `2078_dp.go`: 0.031 s / 1144 KB; cambio respecto a la base: tiempo -0.0%, memoria -72.7%.
 - `2078_dp_simulation.java`: 0.109 s / 416 KB; base `2078_dp.java`: 0.125 s / 1660 KB; cambio respecto a la base: tiempo -12.8%, memoria -74.9%.
-- `2078_dp_simulation.py`: 0.140 s / 276 KB; base `2078_dp.py`: 0.093 s / 708 KB; cambio respecto a la base: tiempo +50.5%, memoria -61.0%.
+
 - `2078_dp_simulation.rs`: 0.031 s / 68 KB; base `2078_dp.rs`: 0.031 s / 224 KB; cambio respecto a la base: tiempo -0.0%, memoria -69.6%.
 
 ## Notas por lenguaje
@@ -138,7 +144,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 |---|---|---|---|---|---|---|---|
 | [2078_dp_simulation.go](2078_dp_simulation.go) | Go 1.14 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 312 KB | 11309759 |
 | [2078_dp_simulation.java](2078_dp_simulation.java) | Java 1.8 | dp, simulation | O(F) time; O(1) score state | AC | 0.109 s | 416 KB | 11309301 |
-| [2078_dp_simulation.py](2078_dp_simulation.py) \* | PyPy 3.10 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.140 s | 276 KB | 11309738 |
+| [2078_dp_simulation.py](2078_dp_simulation.py) \* | Python 3.12 x64 | dp, simulation | O(F) time; O(1) score state plus O(F) input | AC | 0.078 s | 796 KB | 11327850 |
 | [2078_dp_simulation.rs](2078_dp_simulation.rs) \* | Rust 1.75 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 68 KB | 11309708 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

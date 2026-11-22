@@ -72,11 +72,17 @@
 
 ## 优化解法
 
+`2078_dp_simulation.py`. 保留按时间推进的四种待付奖励状态 DP：(0,0),(1,0),(1,1),(2,1)。最小/最大转移展开为八个标量，去掉每局列表及四状态循环。末局重置球瓶规则与极值仍精确，不可达哨兵 ±10000 在合法分数 0..300 外。O(F) 时间、常数分数状态加 O(F) 输入总数。所选 CPython 比旧 PyPy 快但内存更多，不混合运行时/指标对。保留易懂反向 DP。
+
+精确源码：Python 3.12 x64 Accepted #11327850: 0.078 s / 796 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/227; 174/227。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11309738 (PyPy 3.10 x64): 0.14 s / 276 KB，不混合测量或运行时。教学源码保持不变。
+
+- `2078_dp_simulation.py`: 0.078 s / 796 KB; 保留教学基础版 `2078_dp.py`: 0.093 s / 708 KB.
+
 保留易读的逆向DP。顺序dp_simulation只记录未来两次投球的待计奖励，可达状态仅(0,0)、(1,0)、(1,1)、(2,1)，各存最小/最大得分。两球总数t的一格，其额外奖励为b*t+(a-b)*first；a>=b，所以极值在首球允许区间端点。全中消耗旧首球奖励、移动第二奖励，并添加自身两球奖励。末格不产生新奖励；重置球瓶规则给出极值，总数超过20时前两球均被迫为10。这些转移覆盖全部合法序列。四个状态取代121种未来球对，时间O(F)、得分存储常量。不同I/O版本分别绑定自身Accepted。
 
 - `2078_dp_simulation.go`: 0.031 s / 312 KB; 基础 `2078_dp.go`: 0.031 s / 1144 KB; 相对变化: 时间 -0.0%, 内存 -72.7%.
 - `2078_dp_simulation.java`: 0.109 s / 416 KB; 基础 `2078_dp.java`: 0.125 s / 1660 KB; 相对变化: 时间 -12.8%, 内存 -74.9%.
-- `2078_dp_simulation.py`: 0.140 s / 276 KB; 基础 `2078_dp.py`: 0.093 s / 708 KB; 相对变化: 时间 +50.5%, 内存 -61.0%.
+
 - `2078_dp_simulation.rs`: 0.031 s / 68 KB; 基础 `2078_dp.rs`: 0.031 s / 224 KB; 相对变化: 时间 -0.0%, 内存 -69.6%.
 
 ## 各语言说明
@@ -113,7 +119,7 @@
 |---|---|---|---|---|---|---|---|
 | [2078_dp_simulation.go](2078_dp_simulation.go) | Go 1.14 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 312 KB | 11309759 |
 | [2078_dp_simulation.java](2078_dp_simulation.java) | Java 1.8 | dp, simulation | O(F) time; O(1) score state | AC | 0.109 s | 416 KB | 11309301 |
-| [2078_dp_simulation.py](2078_dp_simulation.py) \* | PyPy 3.10 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.140 s | 276 KB | 11309738 |
+| [2078_dp_simulation.py](2078_dp_simulation.py) \* | Python 3.12 x64 | dp, simulation | O(F) time; O(1) score state plus O(F) input | AC | 0.078 s | 796 KB | 11327850 |
 | [2078_dp_simulation.rs](2078_dp_simulation.rs) \* | Rust 1.75 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 68 KB | 11309708 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

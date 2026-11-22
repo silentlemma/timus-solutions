@@ -96,11 +96,17 @@ points), as a spare it adds nothing if that frame starts with 0, hence
 
 ## Optimized solutions
 
+`2078_dp_simulation.py`. Keep the chronological bowling DP over the four possible pending bonus states (0,0),(1,0),(1,1),(2,1). Unroll minimum/maximum transitions into eight scalar variables, removing per-frame lists and the four-state loop. Last-frame rack-reset rules and extrema remain exact; unreachable sentinels ±10000 stay outside all legal 0..300 scores. O(F) time, constant score state plus O(F) input totals. The selected CPython run is faster but uses more memory than the historical PyPy run; these runtime/metric pairs are not mixed. Preserve the readable backward DP.
+
+Exact-source Python 3.12 x64 Accepted #11327850: 0.078 s / 796 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/227; 174/227. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11309738 (PyPy 3.10 x64): 0.14 s / 276 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `2078_dp_simulation.py`: 0.078 s / 796 KB; retained teaching base `2078_dp.py`: 0.093 s / 708 KB.
+
 Keep the readable backward DP. The chronological dp_simulation variants track pending bonuses for the next two rolls: only (0,0),(1,0),(1,1),(2,1) are reachable. Store minimum and maximum score for each. For an open/spare two-roll frame of total t, extra score is b*t+(a-b)*first; since a>=b, its extrema occur at the allowed endpoints for the first roll. A strike consumes the old first bonus, shifts the second and adds its own next-two-roll bonuses. In the last frame no new bonuses are created; rack-reset rules give the allowed extrema, including totals above 20 forcing the first two rolls to be 10. These transitions cover every legal roll sequence. Four score states replace 121 future-roll pairs: O(F) time and constant score storage. Different input/output representations have their own Accepted receipts.
 
 - `2078_dp_simulation.go`: 0.031 s / 312 KB; base `2078_dp.go`: 0.031 s / 1144 KB; relative change: time -0.0%, memory -72.7%.
 - `2078_dp_simulation.java`: 0.109 s / 416 KB; base `2078_dp.java`: 0.125 s / 1660 KB; relative change: time -12.8%, memory -74.9%.
-- `2078_dp_simulation.py`: 0.140 s / 276 KB; base `2078_dp.py`: 0.093 s / 708 KB; relative change: time +50.5%, memory -61.0%.
+
 - `2078_dp_simulation.rs`: 0.031 s / 68 KB; base `2078_dp.rs`: 0.031 s / 224 KB; relative change: time -0.0%, memory -69.6%.
 
 ## Language notes
@@ -137,7 +143,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [2078_dp_simulation.go](2078_dp_simulation.go) | Go 1.14 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 312 KB | 11309759 |
 | [2078_dp_simulation.java](2078_dp_simulation.java) | Java 1.8 | dp, simulation | O(F) time; O(1) score state | AC | 0.109 s | 416 KB | 11309301 |
-| [2078_dp_simulation.py](2078_dp_simulation.py) \* | PyPy 3.10 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.140 s | 276 KB | 11309738 |
+| [2078_dp_simulation.py](2078_dp_simulation.py) \* | Python 3.12 x64 | dp, simulation | O(F) time; O(1) score state plus O(F) input | AC | 0.078 s | 796 KB | 11327850 |
 | [2078_dp_simulation.rs](2078_dp_simulation.rs) \* | Rust 1.75 x64 | dp, simulation | O(F) time; O(1) score state | AC | 0.031 s | 68 KB | 11309708 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
