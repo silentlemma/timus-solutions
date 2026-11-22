@@ -59,17 +59,16 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1740_math_optimized.java`. Keep l=qk+r and the exact integer bounds qh and (q+[r>0])h. Parse the three integers through a bounded 1024-byte buffer instead of StreamTokenizer/character decoding. Output appends eight literal decimal zeros, avoiding floating conversion while preserving the required numeric values. O(1) arithmetic and auxiliary space; the teaching implementation remains.
+
+Exact-source Java 1.8 Accepted #11326958: 0.093 s / 368 KB. Saved current-Java comparison, 2026-11-20: time rank 4/90, memory rank 1/90. With memory below 1024 KB, strict admission uses time only.
+
+- `1740_math_optimized.java`: 0.093 s / 368 KB; retained teaching base `1740_math.java`: 0.14 s / 1792 KB; time change -33.6%; memory change -79.5%.
+
 The optimized C++ solution reads the three numbers with `scanf` instead
 of `std::cin`, so the program does not carry the `iostream` machinery at
 all; the computation and the output are the same:
 {1740_math_optimized.cpp}.
-
-The optimized Java solution reads the numbers with a `StreamTokenizer`
-instead of a `Scanner` and does not format floating-point numbers at
-all: both answers are whole numbers up to 1000 · 1000 = 10⁶, so it
-computes them in `int` and appends `.00000000` to each, instead of
-calling `printf` with `%.8f`, whose formatter and locale data cost more
-than the rest of the program: {1740_math_optimized.java}.
 
 ### Measured gains
 
@@ -80,9 +79,6 @@ asterisk concerns the rating target only.
 
 - `1740_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +72.28%; base: `1740_math.cpp`.
-
-- `1740_math_optimized.java`: time reduction +0.00%; memory reduction
-  +75.89%; base: `1740_math.java`.
 
 `1740_math_optimized.py`. Keep the period decomposition l=q*k+r. The shortest time is q*h and the longest is (q+[r!=0])*h. Both extrema are integers; emit integer tokens directly instead of converting them to floats and formatting eight decimals. Numeric judging accepts these equivalent values. Under the statement limits products are at most 10^6, with O(1) time and state. Reuse divmod for quotient and remainder and avoid the decimal-formatting operation. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -119,7 +115,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
-| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11326958 |
 | [1740_math_optimized.py](1740_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324913 |
 | [1740_math_optimized.rs](1740_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11325145 |
 

@@ -53,21 +53,20 @@
 
 ## 优化解法
 
+`1740_math_optimized.java`. 保留 l=qk+r 及精确整数界 qh、(q+[r>0])h。三个整数以 1024 字节缓冲解析，替代 StreamTokenizer 和字符解码。输出追加八个固定小数零，避免浮点转换且数值不变。时间、辅助空间 O(1)，保留教学实现。
+
+精确源代码 Java 1.8 Accepted #11326958：0.093 s / 368 KB。2026-11-20 保存的当前 Java 比较：时间排名 4/90，内存排名 1/90。内存低于 1024 KB，严格收录只看时间。
+
+- `1740_math_optimized.java`: 0.093 s / 368 KB; 保留的教学基础版 `1740_math.java`: 0.14 s / 1792 KB; 时间变化 -33.6%; 内存变化 -79.5%.
+
 优化的 C++ 解法用 `scanf` 而不是 `std::cin` 读入三个数，程序因此完全不带
 `iostream` 的那套机制；计算和输出都不变：{1740_math_optimized.cpp}。
-
-优化的 Java 解法用 `StreamTokenizer` 而不是 `Scanner` 读入数字，并且完全不格式化
-浮点数：两个答案都是不超过 1000 · 1000 = 10⁶ 的整数，所以它用 `int` 计算，再在每
-个数后面接上 `.00000000`，而不是用 `%.8f` 调用 `printf`，后者的格式化器和区域设
-置数据比程序其余部分还费资源：{1740_math_optimized.java}。
 
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1740_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +72.28%; 基础版本: `1740_math.cpp`.
-
-- `1740_math_optimized.java`: 时间降低 +0.00%; 内存降低 +75.89%; 基础版本: `1740_math.java`.
 
 `1740_math_optimized.py`. 保留周期分解 l=q*k+r。最短时间 q*h，最长 (q+[r!=0])*h。两个极值都是整数，直接输出整数记号，无需转浮点并格式化八位小数。数值评测接受等价值。题目范围内乘积至多 10^6，时间和状态 O(1)。 用 divmod 同时获得商和余数，去掉小数格式化操作。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
 
@@ -104,7 +103,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
-| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11326958 |
 | [1740_math_optimized.py](1740_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324913 |
 | [1740_math_optimized.rs](1740_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11325145 |
 

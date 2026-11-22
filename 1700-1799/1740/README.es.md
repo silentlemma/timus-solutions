@@ -58,16 +58,15 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`1740_math_optimized.java`. Conserva l=qk+r y los límites enteros exactos qh y (q+[r>0])h. Un búfer de 1024 bytes sustituye StreamTokenizer y decodificación. La salida añade ocho ceros decimales literales sin convertir a flotante, preservando los valores. Aritmética y espacio auxiliar O(1); mantiene la base.
+
+Accepted de fuente exacto Java 1.8 #11326958: 0.093 s / 368 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 4/90, memoria 1/90. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1740_math_optimized.java`: 0.093 s / 368 KB; base didáctica conservada `1740_math.java`: 0.14 s / 1792 KB; cambio de tiempo -33.6%; cambio de memoria -79.5%.
+
 La solución optimizada en C++ lee los tres números con `scanf` en lugar
 de `std::cin`, así que el programa no lleva la maquinaria de `iostream`;
 el cálculo y la salida son los mismos: {1740_math_optimized.cpp}.
-
-La solución optimizada en Java lee los números con un `StreamTokenizer`
-en lugar de un `Scanner` y no formatea números de coma flotante: las dos
-respuestas son enteros de hasta 1000 · 1000 = 10⁶, así que las calcula
-en `int` y añade `.00000000` a cada una, en lugar de llamar a `printf`
-con `%.8f`, cuyo formateador y datos de configuración regional cuestan
-más que el resto del programa: {1740_math_optimized.java}.
 
 ### Mejora medida
 
@@ -78,9 +77,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1740_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +72.28%; base: `1740_math.cpp`.
-
-- `1740_math_optimized.java`: reducción de tiempo +0.00%; reducción de
-  memoria +75.89%; base: `1740_math.java`.
 
 `1740_math_optimized.py`. Conserva l=q*k+r. El mínimo es q*h y el máximo (q+[r!=0])*h. Ambos son enteros: emite tokens enteros en vez de convertir a flotantes y dar ocho decimales. La comprobación numérica acepta esos valores equivalentes. Los productos no superan 10^6; tiempo y estado O(1). Reutiliza divmod para cociente y resto y evita el formato decimal. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -117,7 +113,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1740_math_optimized.cpp](1740_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 112 KB | 11304455 |
-| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 432 KB | 11304456 |
+| [1740_math_optimized.java](1740_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11326958 |
 | [1740_math_optimized.py](1740_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 188 KB | 11324913 |
 | [1740_math_optimized.rs](1740_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11325145 |
 
