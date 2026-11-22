@@ -91,6 +91,8 @@ O(n).
 
 ## Soluciones optimizadas
 
+`2068_games_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327048 mide 0.078 s / 696 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 5/50, memoria 37/50. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325080, 0.109 s / 236 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `2068_games_optimized.java`. Conserva XOR de paridades ((montón−1)/2). Lee flujo estándar existente sin array adicional y escribe bytes fijos por System.out.write con flush. Evita codificación String usando flujo estándar normal, sin FileDescriptor. O(N) tiempo, espacio auxiliar constante.
 
 Frente a `2068_games.java`: tiempo 0.109 s → 0.093 s; memoria 480 KB → 340 KB.
@@ -103,7 +105,7 @@ Frente a `2068_games.py`: tiempo 0.093 s → 0.109 s; memoria 388 KB → 236 KB.
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`2068_games_optimized.py`: puesto de tiempo 33/50 y de memoria 1/50 en esta muestra comparable.
+Comparación PyPy anterior: `2068_games_optimized.py`: puesto de tiempo 33/50 y de memoria 1/50 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -123,7 +125,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2068_games_optimized.py](2068_games_optimized.py) \* | PyPy 3.10 x64 | games | O(N) | AC | 0.109 s | 236 KB | 11325080 |
+| [2068_games_optimized.py](2068_games_optimized.py) \* | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
 | [2068_games_optimized.java](2068_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
 
 

@@ -88,6 +88,8 @@ number is odd. In the third example the heaps give
 
 ## Optimized solutions
 
+`2068_games_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327048 measures 0.078 s / 696 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 5/50, memory rank 37/50. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325080, 0.109 s / 236 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `2068_games_optimized.java`. Keep the same XOR of ((heap−1)/2) parity. Read from the existing standard input stream without an additional byte array, and write the fixed winner bytes through System.out.write followed by flush. This avoids String encoding while using the ordinary permitted standard stream; no FileDescriptor access is used. O(N) time and constant auxiliary space.
 
 Compared with `2068_games.java`: time 0.109 s → 0.093 s; memory 480 KB → 340 KB.
@@ -100,7 +102,7 @@ Compared with `2068_games.py`: time 0.093 s → 0.109 s; memory 388 KB → 236 K
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`2068_games_optimized.py`: time place 33/50, memory place 1/50 in this comparable sample.
+Earlier PyPy comparison: `2068_games_optimized.py`: time place 33/50, memory place 1/50 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -120,7 +122,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2068_games_optimized.py](2068_games_optimized.py) \* | PyPy 3.10 x64 | games | O(N) | AC | 0.109 s | 236 KB | 11325080 |
+| [2068_games_optimized.py](2068_games_optimized.py) \* | Python 3.12 x64 | games | O(N) | AC | 0.078 s | 696 KB | 11327048 |
 | [2068_games_optimized.java](2068_games_optimized.java) \* | Java 1.8 | games | O(N) time; O(1) space | AC | 0.093 s | 340 KB | 11325849 |
 
 
