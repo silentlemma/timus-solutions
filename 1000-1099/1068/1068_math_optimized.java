@@ -1,24 +1,63 @@
 public class Main {
-    public static void main(String[] args) throws java.io.IOException {
-        // the number is parsed byte by byte from System.in, which needs much less
-        // memory than Scanner
-        long n = 0;
-        int sign = 1;
-        int c = System.in.read();
+
+    static final int INPUT_SIZE = 256, OUTPUT_SIZE = 128, DIGITS = 20, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
+            position = 0;
+            if (available < 0)
+                return -1;
+        }
+        return input[position++];
+    }
+    static int nextInt() throws java.io.IOException {
+        int c = read();
         while (c >= 0 && c <= ' ')
-            c = System.in.read();
-        if (c == '-') {
-            sign = -1;
-            c = System.in.read();
-        }
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
+        int value = 0;
         while (c >= '0' && c <= '9') {
-            n = n * 10 + c - '0';
-            c = System.in.read();
+            value = value * DECIMAL + c - '0';
+            c = read();
         }
-        n *= sign;
-        // the numbers between 1 and N form one interval whichever side N is on,
-        // and its sum is the count times the average of the ends
-        long count = Math.abs(n - 1) + 1;
-        System.out.println((1 + n) * count / 2);
+        return negative ? -value : value;
+    }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(long value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
+
+    static void text(String value) {
+        for (int i = 0; i < value.length(); i++)
+            write(value.charAt(i));
+    }
+
+    static int sum(int n) { return (1 + n) * (Math.abs(n - 1) + 1) / 2; }
+    public static void main(String[] args) throws java.io.IOException {
+        number(sum(nextInt()));
+        write('\n');
+        finish();
     }
 }

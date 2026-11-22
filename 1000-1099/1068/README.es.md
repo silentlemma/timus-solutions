@@ -64,13 +64,15 @@ Las respuestas se comprobaron sumando los números uno a uno.
 
 ## Soluciones optimizadas
 
+`1068_math_optimized.java`. Conserva la suma inclusiva (1+N)*(abs(N-1)+1)/2, también con cero y N negativo. Para |N|<=10000 el producto intermedio cabe en int. Usa entrada de 256 bytes, salida de 128 y arreglo de dígitos reutilizado, sin llamadas de entrada por byte ni impresión decimal general. Trabajo aritmético y espacio auxiliar O(1); conserva la base legible.
+
+Accepted exacto Java 1.8 #11327461: 0.062 s / 364 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/1616, memoria 20/1616. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303705 era 0.125 s / 368 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1068_math_optimized.java`: 0.062 s / 364 KB; base didáctica conservada `1068_math.java`: 0.109 s / 1568 KB.
+
 `1068_math_optimized.go`. Mantiene progresión inclusiva de 1 a N: (abs(N−1)+1)(N+1)/2 en int64 cubre N positivo, cero y negativo sin bucle. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
 
 Frente a `1068_math.go`: tiempo 0.031 s → 0.015 s; memoria 1072 KB → 260 KB.
-
-La solución optimizada en Java analiza el número byte a byte desde
-`System.in` en lugar de usar `Scanner`: 368 KB en lugar de 1568 KB, con
-el mismo tiempo.
 
 `1068_math_optimized.py`. Conserva (1+N)*(abs(N-1)+1)//2 para la progresión, incluidos cero y N negativos. Lee el entero acotado de bytes crudos en vez de input(), sin llamada envolvente. Con |N|<=10000 el tiempo y espacio aritméticos siguen siendo O(1). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -100,7 +102,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 368 KB | 11303705 |
+| [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.062 s | 364 KB | 11327461 |
 | [1068_math_optimized.py](1068_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324832 |
 | [1068_math_optimized.go](1068_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 260 KB | 11325649 |
 

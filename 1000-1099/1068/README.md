@@ -62,13 +62,15 @@ The answers were checked against adding the numbers one by one.
 
 ## Optimized solutions
 
+`1068_math_optimized.java`. Keep the inclusive arithmetic-progression sum (1+N)*(abs(N-1)+1)/2, including zero and negative N. For |N|<=10000 the intermediate product fits int. A 256-byte input buffer, 128-byte output buffer and reusable digit array replace per-byte input calls and general decimal printing. Constant arithmetic work and auxiliary storage; the readable base remains.
+
+Exact-source Java 1.8 Accepted #11327461: 0.062 s / 364 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/1616, memory 20/1616. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303705 was 0.125 s / 368 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1068_math_optimized.java`: 0.062 s / 364 KB; retained teaching base `1068_math.java`: 0.109 s / 1568 KB.
+
 `1068_math_optimized.go`. Keep the inclusive arithmetic progression from 1 to N: (abs(N−1)+1)(N+1)/2 in int64 handles positive, zero and negative N without a loop. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
 
 Compared with `1068_math.go`: time 0.031 s → 0.015 s; memory 1072 KB → 260 KB.
-
-The optimized Java solution parses the number byte by byte from
-`System.in` instead of using `Scanner`: 368 KB instead of 1568 KB, with
-the same time.
 
 `1068_math_optimized.py`. Keep the arithmetic-progression formula (1+N)*(abs(N-1)+1)//2, which also covers zero and negative N. Read the bounded integer from raw bytes instead of input(), and avoid the wrapper call. Time and arithmetic storage remain O(1) under |N|<=10000. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -98,7 +100,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 368 KB | 11303705 |
+| [1068_math_optimized.java](1068_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.062 s | 364 KB | 11327461 |
 | [1068_math_optimized.py](1068_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324832 |
 | [1068_math_optimized.go](1068_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 260 KB | 11325649 |
 
