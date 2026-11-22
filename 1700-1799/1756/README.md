@@ -61,11 +61,11 @@ implementation prints the same days in another order.
 
 ## Optimized solutions
 
-The optimized Java solution reads the three numbers by hand instead of
-with `Scanner`, formats the two possible daily numbers once, and writes
-their bytes through a `BufferedOutputStream` instead of building the
-whole line of up to 10000 numbers in a `StringBuilder`:
-{1756_math_optimized.java}.
+`1756_math_optimized.java`. Java keeps the optimal balanced-day plan: total=m*d1, low=total/d2 and extra=total%d2. Emit d2-extra days with low workers and extra days with low+1, reaching the minimum possible peak ceil(total/d2). Zero-worker days remain valid. Convert each of the two numbers to decimal bytes once; a reusable block of at most 16384 bytes repeats space-number groups instead of building the whole output line or writing each day separately. Zero-length runs are skipped without changing the first-number state. Time O(d2) for the bounded digits, auxiliary space fixed. The teaching construction is unchanged.
+
+Exact-source Java 1.8 Accepted #11327526: 0.093 s / 444 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/54, memory 1/54. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11307303 was 0.171 s / 456 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1756_math_optimized.java`: 0.093 s / 444 KB; retained teaching base `1756_math.java`: 0.125 s / 2020 KB.
 
 The optimized Python solution formats the two possible daily numbers
 once and builds the line by repeating the two strings, instead of making
@@ -82,9 +82,6 @@ Each optimized version has Accepted and reduces time or memory by at
 least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
-
-- `1756_math_optimized.java`: time reduction -36.80%; memory reduction
-  +77.43%; base: `1756_math.java`.
 
 - `1756_math_optimized.py`: time reduction +37.60%; memory reduction
   +59.93%; base: `1756_math.py`.
@@ -118,7 +115,7 @@ implementation for these languages.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) | AC | 0.171 s | 456 KB | 11307303 |
+| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) time; O(1) auxiliary space | AC | 0.093 s | 444 KB | 11327526 |
 | [1756_math_optimized.py](1756_math_optimized.py) | Python 3.12 x64 | math | O(d2) | AC | 0.078 s | 460 KB | 11307291 |
 | [1756_math_optimized.rs](1756_math_optimized.rs) | Rust 1.75 x64 | math | O(d2) | AC | 0.015 s | 196 KB | 11307300 |
 

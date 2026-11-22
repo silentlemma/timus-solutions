@@ -51,9 +51,11 @@ d₂ 个数：每天干活的人数。任何最优安排都可以。
 
 ## 优化解法
 
-优化的 Java 解法手工读取三个数，而不是用 `Scanner`，只把两种可能的每日人数各格式
-化一次，并通过 `BufferedOutputStream` 写出它们的字节，而不是在 `StringBuilder`
-中拼出多达 10000 个数的整行：{1756_math_optimized.java}。
+`1756_math_optimized.java`. Java 保留最优均衡日程：total=m*d1、low=total/d2、extra=total%d2。输出 d2-extra 天 low 人和 extra 天 low+1 人，达到最小峰值 ceil(total/d2)，允许零人工作日。两个数各转换一次十进制字节；复用至多 16384 字节的空格数字块批量输出，不构造完整答案行或逐天写入。长度为零的段直接跳过，不改变首数状态。数字长度有界时，时间 O(d2)，辅助空间固定。教学构造不变。
+
+精确源代码 Java 1.8 Accepted #11327526：0.093 s / 444 KB。2026-11-20 保存的编译器组比较：时间 4/54、内存 1/54。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11307303 为 0.171 s / 456 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1756_math_optimized.java`: 0.093 s / 444 KB; 保留教学基础版 `1756_math.java`: 0.125 s / 2020 KB.
 
 优化的 Python 解法只把两种可能的每日人数各格式化一次，并通过重复这两个字符串拼出
 整行，而不是建立多达 10000 个整数的列表再逐个转换成字符串：
@@ -65,8 +67,6 @@ d₂ 个数：每天干活的人数。任何最优安排都可以。
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
-
-- `1756_math_optimized.java`: 时间降低 -36.80%; 内存降低 +77.43%; 基础版本: `1756_math.java`.
 
 - `1756_math_optimized.py`: 时间降低 +37.60%; 内存降低 +59.93%; 基础版本: `1756_math.py`.
 
@@ -95,7 +95,7 @@ d₂ 个数：每天干活的人数。任何最优安排都可以。
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) | AC | 0.171 s | 456 KB | 11307303 |
+| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) time; O(1) auxiliary space | AC | 0.093 s | 444 KB | 11327526 |
 | [1756_math_optimized.py](1756_math_optimized.py) | Python 3.12 x64 | math | O(d2) | AC | 0.078 s | 460 KB | 11307291 |
 | [1756_math_optimized.rs](1756_math_optimized.rs) | Rust 1.75 x64 | math | O(d2) | AC | 0.015 s | 196 KB | 11307300 |
 

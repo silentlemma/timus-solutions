@@ -63,11 +63,11 @@ orden.
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee los tres números a mano en lugar de
-con `Scanner`, formatea una sola vez los dos números diarios posibles y
-escribe sus bytes a través de un `BufferedOutputStream` en lugar de
-construir toda la línea de hasta 10000 números en un `StringBuilder`:
-{1756_math_optimized.java}.
+`1756_math_optimized.java`. Java conserva el plan diario equilibrado: total=m*d1, low=total/d2 y extra=total%d2. Emite d2-extra días con low trabajadores y extra días con low+1, alcanzando el pico mínimo ceil(total/d2). Los días sin trabajadores siguen siendo válidos. Convierte cada uno de los dos números a bytes una vez y reutiliza un bloque de hasta 16384 bytes con grupos espacio-número, sin construir toda la línea ni escribir cada día por separado. Omite tramos vacíos sin alterar el estado del primer número. Tiempo O(d2) con cifras acotadas, espacio auxiliar fijo. Conserva la construcción didáctica.
+
+Accepted exacto Java 1.8 #11327526: 0.093 s / 444 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/54, memoria 1/54. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11307303 era 0.171 s / 456 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1756_math_optimized.java`: 0.093 s / 444 KB; base didáctica conservada `1756_math.java`: 0.125 s / 2020 KB.
 
 La solución optimizada en Python formatea una sola vez los dos números
 diarios posibles y construye la línea repitiendo las dos cadenas, en
@@ -85,9 +85,6 @@ Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
 al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
-
-- `1756_math_optimized.java`: reducción de tiempo -36.80%; reducción de
-  memoria +77.43%; base: `1756_math.java`.
 
 - `1756_math_optimized.py`: reducción de tiempo +37.60%; reducción de
   memoria +59.93%; base: `1756_math.py`.
@@ -121,7 +118,7 @@ implementación para alcanzar el objetivo.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) | AC | 0.171 s | 456 KB | 11307303 |
+| [1756_math_optimized.java](1756_math_optimized.java) \* | Java 1.8 | math | O(d2) time; O(1) auxiliary space | AC | 0.093 s | 444 KB | 11327526 |
 | [1756_math_optimized.py](1756_math_optimized.py) | Python 3.12 x64 | math | O(d2) | AC | 0.078 s | 460 KB | 11307291 |
 | [1756_math_optimized.rs](1756_math_optimized.rs) | Rust 1.75 x64 | math | O(d2) | AC | 0.015 s | 196 KB | 11307300 |
 
