@@ -93,7 +93,17 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-`1022_bfs_graphs.py`. Usa topológico de Kahn frente a DFS iterativo con iteradores. Lee adyacencias en flujo, cuenta grados de entrada y emplea lista creciente como FIFO/orden de salida. Cada vértice/arista una vez, O(V+E) tiempo/espacio; DAG garantizado emite todos. Algoritmo BFS distinto con nombre propio, conserva DFS. Vacía antes de salida directa PyPy.
+`1022_bfs_graphs_optimized.java`. Java conserva la ordenación topológica de Kahn, pero empaqueta cada fila de adyacencia en palabras long en lugar de celdas boolean. Un hijo repetido no incrementa otra vez el grado de entrada. Al extraer un vértice de grado cero, recorre solo los bits activos mediante numberOfTrailingZeros y bits&=bits-1; añade cada hijo cuando su grado llega a cero. Un arreglo int sirve de cola y respuesta, sin listas de objetos ni StringBuilder. Búferes separados de entrada y salida de 4096 bytes convierten decimales por flujos ordinarios. Con E aristas listadas: tiempo O(N*ceil(N/64)+E), almacenamiento O(N*ceil(N/64)+N), más búferes fijos. Conserva las bases Kahn y DFS.
+
+Accepted exacto Java 1.8 #11327520: 0.078 s / 380 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/179, memoria 2/179. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304481 era 0.093 s / 360 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1022_bfs_graphs_optimized.java`: 0.078 s / 380 KB; base didáctica conservada `1022_bfs_graphs.java`: 0.125 s / 1828 KB.
+
+`1022_bfs_graphs.py`. Conserva Kahn, indegrados y una lista creciente como FIFO y respuesta. Con hasta 100 vértices, divide una vez la entrada acotada de bytes en lugar de generadores Python por bloques/tokens. Cada arista/vértice se procesa una vez: O(V+E) tiempo y espacio con entrada. Vacía antes de salir; conserva el DFS didáctico.
+
+Accepted exacto CPython 3.12 #11327003: 0.062 s / 724 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 4/54, memoria 44/54. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1022_bfs_graphs.py`: 0.062 s / 724 KB; base didáctica conservada `1022_dfs_graphs.py` (Python 3.12 x64): 0.078 s / 512 KB; cambio de tiempo -20.5%; cambio de memoria +41.4%.
 
 Frente a `1022_dfs_graphs.py`: tiempo 0.078 s → 0.093 s; memoria 512 KB → 256 KB.
 
@@ -104,14 +114,6 @@ de `vector` que crece con cada relación. Al sacar un miembro de la cola
 recorre toda su fila de la matriz, `O(N²)` en total, lo que no cuesta
 nada con 100 miembros: {1022_bfs_graphs_optimized.cpp}.
 
-La solución optimizada en Java con el algoritmo de Kahn analiza los
-números a mano desde un búfer de 4 KB en lugar de `Scanner`, guarda las
-relaciones en una matriz de `boolean` de (N + 1) × (N + 1) celdas,
-pequeña porque `N ≤ 100`, y la cola en un arreglo de `int`, en lugar de
-listas de objetos `Integer`. Al sacar un miembro de la cola recorre toda
-su fila de la matriz, `O(N²)` en total:
-{1022_bfs_graphs_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -121,9 +123,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1022_bfs_graphs_optimized.cpp`: reducción de tiempo +0.00%; reducción
   de memoria +45.10%; base: `1022_bfs_graphs.cpp`.
-
-- `1022_bfs_graphs_optimized.java`: reducción de tiempo +25.60%;
-  reducción de memoria +80.31%; base: `1022_bfs_graphs.java`.
 
 ## Notas por lenguaje
 
@@ -157,7 +156,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
-| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
-| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | PyPy 3.10 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.093 s | 256 KB | 11325700 |
+| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N ceil(N/64) + E) time; O(N ceil(N/64) + N) space | AC | 0.078 s | 380 KB | 11327520 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | Python 3.12 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.062 s | 724 KB | 11327003 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -81,7 +81,17 @@
 
 ## 优化解法
 
-`1022_bfs_graphs.py`. 以 Kahn 拓扑排序替代教学迭代 DFS 的逐顶点迭代器。流式邻接表，累计入度，用单个增长列表作 FIFO 及输出序。每顶点边处理一次，O(V+E) 时间空间，保证 DAG 因而全输出。不同 BFS 风格算法独立文件，保留 DFS。刷新后直接退出 PyPy。
+`1022_bfs_graphs_optimized.java`. Java 保留 Kahn 拓扑排序，将每行邻接关系打包到 long 字中，不再逐个保存 boolean 单元。重复的子节点不会再次增加入度。取出零入度顶点后，用 numberOfTrailingZeros 和 bits&=bits-1 只遍历邻接字中的置位；子节点入度变零即入队。一个 int 数组同时充当队列和答案，不用装箱顶点列表或 StringBuilder。分别为 4096 字节的输入输出缓冲区通过普通流直接解析并输出十进制数。E 为列出的边数时，时间 O(N*ceil(N/64)+E)，存储 O(N*ceil(N/64)+N)，另加固定字节缓冲区。保留教学 Kahn 与 DFS 版本。
+
+精确源代码 Java 1.8 Accepted #11327520：0.078 s / 380 KB。2026-11-20 保存的编译器组比较：时间 5/179、内存 2/179。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304481 为 0.093 s / 360 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1022_bfs_graphs_optimized.java`: 0.078 s / 380 KB; 保留教学基础版 `1022_bfs_graphs.java`: 0.125 s / 1828 KB.
+
+`1022_bfs_graphs.py`. 保留 Kahn 拓扑排序、入度及同时用作 FIFO/答案的增长列表。至多 100 个顶点时，一次拆分有界的完整字节输入，替代 Python 分块/token 生成器。每边、每顶点只处理一次：含输入的时间、空间 O(V+E)。刷新后直接退出；保留独立 DFS 教学算法。
+
+精确源代码 CPython 3.12 Accepted #11327003：0.062 s / 724 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 4/54，内存排名 44/54。低于 1024 KB，严格收录只看时间。
+
+- `1022_bfs_graphs.py`: 0.062 s / 724 KB; 保留的教学基础版 `1022_dfs_graphs.py` (Python 3.12 x64): 0.078 s / 512 KB; 时间变化 -20.5%; 内存变化 +41.4%.
 
 与 `1022_dfs_graphs.py` 相比：时间 0.078 s → 0.093 s；内存 512 KB → 256 KB。
 
@@ -90,18 +100,11 @@
 嵌套 `vector`。从队列取出一个成员时，它扫描矩阵的整行，总共 `O(N²)`，对 100 个成
 员来说微不足道：{1022_bfs_graphs_optimized.cpp}。
 
-优化的 Java Kahn 算法解法从 4 KB 缓冲区中手工解析数字，而不是用 `Scanner`；关系
-存放在 (N + 1) × (N + 1) 的 `boolean` 矩阵中，由于 `N ≤ 100`，矩阵很小，队列放在
-`int` 数组里，而不是用装箱 `Integer` 对象的列表。从队列取出一个成员时，它扫描矩
-阵的整行，总共 `O(N²)`：{1022_bfs_graphs_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1022_bfs_graphs_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.10%; 基础版本: `1022_bfs_graphs.cpp`.
-
-- `1022_bfs_graphs_optimized.java`: 时间降低 +25.60%; 内存降低 +80.31%; 基础版本: `1022_bfs_graphs.java`.
 
 ## 各语言说明
 
@@ -131,7 +134,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1022_bfs_graphs_optimized.cpp](1022_bfs_graphs_optimized.cpp) | G++ 13.2 x64 | bfs, graphs | O(N²) | AC | 0.015 s | 112 KB | 11304480 |
-| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N²) | AC | 0.093 s | 360 KB | 11304481 |
-| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | PyPy 3.10 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.093 s | 256 KB | 11325700 |
+| [1022_bfs_graphs_optimized.java](1022_bfs_graphs_optimized.java) \* | Java 1.8 | bfs, graphs | O(N ceil(N/64) + E) time; O(N ceil(N/64) + N) space | AC | 0.078 s | 380 KB | 11327520 |
+| [1022_bfs_graphs.py](1022_bfs_graphs.py) \* | Python 3.12 x64 | bfs, graphs | O(V+E) time; O(V+E) space | AC | 0.062 s | 724 KB | 11327003 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

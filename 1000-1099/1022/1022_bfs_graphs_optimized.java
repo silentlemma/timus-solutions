@@ -1,62 +1,89 @@
-import java.io.IOException;
-
 public class Main {
+    static final int MAX_DECIMAL_DIGITS = 10, OUTPUT_BUFFER_SIZE = 4096;
+    static final byte[] output = new byte[OUTPUT_BUFFER_SIZE];
+    static int outputCount;
 
-    // refilling this buffer bounds input storage independently of input size.
-    static final int INPUT_BUFFER = 4096;
-    static final byte[] buffer = new byte[INPUT_BUFFER];
-    static int pos, len;
-
-    static int read() throws IOException {
-        if (pos == len) {
-            len = System.in.read(buffer);
-            pos = 0;
-            if (len <= 0)
-                return -1;
-        }
-        return buffer[pos++];
+    static void flushOutput() throws java.io.IOException {
+        System.out.write(output, 0, outputCount);
+        outputCount = 0;
     }
 
-    static int next() throws IOException {
+    static void emit(int value, int delimiter) throws java.io.IOException {
+        if (outputCount + MAX_DECIMAL_DIGITS + 1 > output.length)
+            flushOutput();
+        int first = outputCount;
+        do {
+            output[outputCount++] = (byte)('0' + value % 10);
+            value /= 10;
+        } while (value != 0);
+        for (int left = first, right = outputCount - 1; left < right; left++, right--) {
+            byte temporary = output[left];
+            output[left] = output[right];
+            output[right] = temporary;
+        }
+        output[outputCount++] = (byte)delimiter;
+    }
+
+    static void finishOutput() throws java.io.IOException {
+        flushOutput();
+        System.out.flush();
+    }
+
+    static final int BUFFER_SIZE = 4096, BYTE_MASK = 255;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available;
+
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
+        }
+        return buffer[position++] & BYTE_MASK;
+    }
+    static long nextLong() throws java.io.IOException {
         int c = read();
-        while (c != -1 && c <= ' ')
+        while (c >= 0 && c <= ' ')
             c = read();
-        int value = 0;
+        long value = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
+            value = 10 * value + c - '0';
             c = read();
         }
         return value;
     }
 
-    public static void main(String[] args) throws IOException {
-        int n = next();
-        // n <= 100 keeps this matrix small and avoids boxed adjacency lists.
-        boolean[][] children = new boolean[n + 1][n + 1];
-        int[] parents = new int[n + 1], order = new int[n];
-        for (int v = 1; v <= n; v++) {
-            for (int c = next(); c != 0; c = next()) {
-                if (!children[v][c]) {
-                    children[v][c] = true;
-                    parents[c]++;
+    public static void main(String[] args) throws java.io.IOException {
+        int n = (int)nextLong(), words = (n + Long.SIZE - 1) / Long.SIZE;
+        long[][] children = new long[n][words];
+        int[] parents = new int[n], queue = new int[n];
+        for (int v = 0; v < n; v++)
+            for (int c; (c = (int)nextLong()) != 0;) {
+                int index = c - 1, word = index / Long.SIZE;
+                long bit = 1L << (index % Long.SIZE);
+                if ((children[v][word] & bit) == 0) {
+                    children[v][word] |= bit;
+                    parents[index]++;
                 }
             }
-        }
         int size = 0;
-        for (int v = 1; v <= n; v++)
+        for (int v = 0; v < n; v++)
             if (parents[v] == 0)
-                order[size++] = v;
-        for (int i = 0; i < size; i++) {
-            for (int c = 1; c <= n; c++)
-                if (children[order[i]][c] && --parents[c] == 0)
-                    order[size++] = c;
-        }
-        StringBuilder out = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            if (i > 0)
-                out.append(' ');
-            out.append(order[i]);
-        }
-        System.out.println(out);
+                queue[size++] = v;
+        // Scan only set child bits, not every absent edge in the boolean matrix.
+        for (int i = 0; i < size; i++)
+            for (int word = 0; word < words; word++) {
+                long options = children[queue[i]][word];
+                while (options != 0) {
+                    int child = word * Long.SIZE + Long.numberOfTrailingZeros(options);
+                    if (--parents[child] == 0)
+                        queue[size++] = child;
+                    options &= options - 1;
+                }
+            }
+        for (int i = 0; i < size; i++)
+            emit(queue[i] + 1, i + 1 == size ? '\n' : ' ');
+        finishOutput();
     }
 }
