@@ -96,7 +96,7 @@ Compared with `1014_greedy.py`: time 0.093 s → 0.125 s; memory 444 KB → 240 
 
 `1014_greedy_optimized.go`. Keep descending digit factorization and the special answers 10 for zero and 1 for one. Replace prepending formatted strings on every factor by appending byte digits to a fixed 32-cell array, then emit it backwards. Every factor is at least two and N<=10^9, so 32 cells suffice. This removes quadratic copying in the number of factors and repeated formatting; 256-byte input and 64-byte output buffers replace fmt/string machinery. Time O(log(N+2)), auxiliary storage O(1) under the stated input bound. The recorded admission is by ranking, not a claimed 30% measurement gain.
 
-Compared with `1014_greedy.go`: time 0.031 s → 0.031 s; memory 1096 KB → 788 KB.
+Compared with `1014_greedy.go`: time 0.031 s → 0.031 s; memory 1096 KB → 780 KB.
 
 The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`, and appends the digits and
@@ -130,7 +130,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
 | [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

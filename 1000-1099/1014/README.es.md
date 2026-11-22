@@ -97,7 +97,7 @@ Frente a `1014_greedy.py`: tiempo 0.093 s → 0.125 s; memoria 444 KB → 240 KB
 
 `1014_greedy_optimized.go`. Mantiene factorización por dígitos descendentes y casos cero=>10, uno=>1. En vez de anteponer cadenas formateadas, añade bytes a32celdas fijas y emite al revés. Cada factor>=2 y N<=10^9 garantizan capacidad. Elimina copias cuadráticas en factores y formato repetido; búferes256/64sustituyen fmt/cadenas. Tiempo O(log(N+2)), espacio auxiliar O(1) en el rango. Admisión por clasificación, sin afirmar mejora medida del30%.
 
-Frente a `1014_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1096 KB → 788 KB.
+Frente a `1014_greedy.go`: tiempo 0.031 s → 0.031 s; memoria 1096 KB → 780 KB.
 
 La solución optimizada en Java analiza el número byte a byte desde
 `System.in` en lugar de usar `Scanner`, y añade las cifras al final e
@@ -131,7 +131,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
 | [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

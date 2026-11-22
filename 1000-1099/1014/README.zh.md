@@ -86,7 +86,7 @@
 
 `1014_greedy_optimized.go`. 保留从大到小的数字分解，以及零输出10、一输出1。把每次格式化并向前插入字符串，换成向固定32字节数组追加因子数字，再反向输出。每因子至少二且 N<=10^9，32格足够。去掉按因子数的二次复制及重复格式化，使用256字节输入、64字节输出缓冲。时间 O(log(N+2))，给定范围下辅助空间 O(1)。本次按排名收录，不声称实测改善30%。
 
-与 `1014_greedy.go` 相比：时间 0.031 s → 0.031 s；内存 1096 KB → 788 KB。
+与 `1014_greedy.go` 相比：时间 0.031 s → 0.031 s；内存 1096 KB → 780 KB。
 
 优化的 Java 解法直接从 `System.in` 逐字节解析数字，而不是使用 `Scanner`；数字追
 加到末尾，最后把字符串反转一次，而不是每次插到开头：380 KB，而不是 1604 KB，时间
@@ -119,7 +119,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
 | [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

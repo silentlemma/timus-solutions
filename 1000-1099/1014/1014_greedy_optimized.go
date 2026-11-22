@@ -2,7 +2,6 @@ package main
 
 import "os"
 
-const maxInt64Digits = 20
 const factorDigitCapacity = 32
 const largestDigit = 9
 
