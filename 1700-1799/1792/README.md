@@ -80,6 +80,12 @@ independent accepted implementation.
 
 ## Optimized solutions
 
+`1792_bitmask_optimized.py`. Keep the syndrome decoder, packing the seven input bits into one integer. Three masks derived from the parity definitions use bit_count modulo two; the nonzero syndrome identifies the unique erroneous data/check column. Flip that bit and fill a 14-byte output template. The masks encode parity equations, not a table of answers. Logical word work is O(1); reading/splitting input of textual length L costs O(L) time/storage. Raw output and os._exit(0) inside main reduce startup/teardown overhead. All 128 possible received words were independently checked from the 16 valid codewords and zero/one-bit errors. The earlier smaller-memory PyPy decoder and the simple seven-value implementation remain.
+
+Exact-source Python 3.12 x64 Accepted #11327532: 0.078 s / 828 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/69; 68/69. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11325479 (PyPy 3.10 x64): 0.14 s / 264 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1792_bitmask_optimized.py`: 0.078 s / 828 KB; retained teaching base `1792_implementation.py` (Python 3.12 x64): 0.093 s / 464 KB.
+
 `1792_bitmask.py`. Decode the three parity checks as a syndrome instead of constructing and testing eight seven-bit candidates. A single set syndrome bit identifies a parity bit; syndrome 7 identifies data bit 3; the remaining two-bit syndromes identify the other data bits by their missing check. Under the promised at-most-one error, flip that bit or leave a zero syndrome unchanged. This different bitmask method has its own filename; retain the simple candidate-enumeration source. Both methods have constant size for seven bits. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1792_implementation.py`: time 0.093 s → 0.14 s; memory 464 KB → 264 KB.
@@ -125,5 +131,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
 | [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
 | [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
+| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) \* | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

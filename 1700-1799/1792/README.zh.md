@@ -69,6 +69,12 @@
 
 ## 优化解法
 
+`1792_bitmask_optimized.py`. 保留综合征解码，将七输入位装入一个整数。按校验定义生成三个掩码，以 bit_count 模二计算；非零综合征确定唯一错误数据/校验列。翻转该位并填 14 字节输出模板。掩码是校验方程，不是答案表。逻辑字操作 O(1)，长度 L 文本的读取/split 为 O(L) 时间空间。main 内直接输出及 os._exit(0) 减少启动清理。独立从 16 个合法码字加零/一位错误检查全部 128 输入。保留旧低内存 PyPy 解码及简单七值实现。
+
+精确源码：Python 3.12 x64 Accepted #11327532: 0.078 s / 828 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/69; 68/69。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11325479 (PyPy 3.10 x64): 0.14 s / 264 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1792_bitmask_optimized.py`: 0.078 s / 828 KB; 保留教学版 `1792_implementation.py` (Python 3.12 x64): 0.093 s / 464 KB.
+
 `1792_bitmask.py`. 用三项校验的综合征解码，不构造并验证八个七位候选。综合征仅一位为 1 则对应校验位，7 对应数据位 3，其余两位为 1 的情形由缺少的检查定位其他数据位。最多一错的保证下翻转该位，零综合征保持不变。不同的 bitmask 方法使用独立文件名，保留简单枚举版。固定七位下两种方法均为常量规模。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
 
 与 `1792_implementation.py` 相比：时间 0.093 s → 0.14 s；内存 464 KB → 264 KB。
@@ -112,5 +118,6 @@
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
 | [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
 | [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
+| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) \* | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

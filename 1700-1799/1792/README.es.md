@@ -81,6 +81,12 @@ implementación aceptada independiente.
 
 ## Soluciones optimizadas
 
+`1792_bitmask_optimized.py`. Mantiene decodificación por síndrome, empaquetando siete bits en un entero. Tres máscaras derivadas de paridad usan bit_count módulo dos; síndrome no nulo identifica una columna de datos/control errónea. Invierte ese bit y rellena plantilla de 14 bytes. Máscaras son ecuaciones, no tabla de respuestas. Trabajo lógico O(1), lectura/split del texto de longitud L O(L) tiempo/espacio. Salida directa y os._exit(0) dentro de main reducen sobrecostes. Los 128 recibidos se comprobaron independientemente desde 16 códigos válidos con cero/un error. Conserva el PyPy anterior de menor memoria y la base simple de siete valores.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327532: 0.078 s / 828 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/69; 68/69. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11325479 (PyPy 3.10 x64): 0.14 s / 264 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1792_bitmask_optimized.py`: 0.078 s / 828 KB; base didáctica conservada `1792_implementation.py` (Python 3.12 x64): 0.093 s / 464 KB.
+
 `1792_bitmask.py`. Decodifica tres paridades mediante síndrome en vez de construir y probar ocho candidatos de siete bits. Un bit de síndrome señala una paridad; 7 señala dato 3; los otros síndromes de dos bits señalan el dato por su comprobación ausente. Bajo a lo sumo un error invierte ese bit, o no cambia un síndrome cero. Este método bitmask distinto tiene nombre propio; conserva la enumeración sencilla. Ambos tienen tamaño constante para siete bits. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `1792_implementation.py`: tiempo 0.093 s → 0.14 s; memoria 464 KB → 264 KB.
@@ -127,5 +133,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
 | [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
 | [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
+| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) \* | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
