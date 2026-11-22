@@ -90,13 +90,19 @@ buildings with many doors repeated between the same rooms.
 
 ## Optimized solutions
 
+`1129_graphs_optimized.py`. Keep exact cancellation of opposite parallel-door pairs and Euler orientation of the residual graph after joining odd rooms to a dummy room. Since each room’s neighbours are sorted, itertools.groupby counts equal runs in native code. Python now keeps residual neighbours as integer bitsets, removes the lowest available edge by XOR and expands colors from original multiplicities; self-door pairs remain balanced. The output is not fingerprinted. With N rooms, D door mentions and B=ceil(N/w) integer limbs: O(D+N²B) work and O(N²+max row degree) storage, including per-row input/output. At the stated N<=100 bitsets have only a few limbs. Teaching graph implementations remain. Here w is the number of bits in a Python big-integer limb.
+
+Exact-source CPython 3.12 Accepted #11327005: 0.078 s / 752 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/83, memory rank 1/83. Below 1024 KB, strict admission uses time only.
+
+- `1129_graphs_optimized.py`: 0.078 s / 752 KB; retained teaching base `1129_graphs.py` (Python 3.12 x64): 0.093 s / 2592 KB; time change -16.1%; memory change -71.0%.
+
 `1129_graphs_optimized.java`. Keep Euler-walk orientation after virtually connecting odd-degree rooms to a dummy room. Flatten all D door-side mentions with room offsets, original positions and mate indices. Sort packed (unordered-room-pair,original-slot) long keys: parallel doors pair the two endpoint halves in slot order, and self-door mentions pair consecutively. N<=100 keeps the room-pair key below 10000, separate from the low 32-bit slot. Real edges set opposite G/Y colors; virtual edges only balance parity and are not printed. A primitive stack and byte colors replace boxed adjacency, hash queues and the full output builder. Storage O(N+D). Let S(D) be the primitive sort cost: the remaining pairing/walk/output work is O(N+D); Java 8 sorting is typically O(D log D), with a conservative O(D²) worst-case allowance rather than a claimed strict logarithmic guarantee.
 
 Compared with `1129_graphs.java`: time 0.156 s → 0.109 s; memory 3876 KB → 832 KB.
 
-C++ and Python count the doors for each pair of rooms. Opposite orientations for each pair of parallel doors cancel in both rooms, so the residual graph has at most one real edge per room pair. After adding dummy edges it has even degrees. Follow unused edges until each walk closes and orient them as visited. Monotone cursors scan the adjacency matrix only once, and the original counts expand the output in input order.
+C++ and Python count the doors for each pair of rooms. Opposite orientations for each pair of parallel doors cancel in both rooms, so the residual graph has at most one real edge per room pair. After adding dummy edges it has even degrees. Follow unused edges until each walk closes and orient them as visited. C++ scans its adjacency matrix with monotone cursors; Python traverses residual integer bitsets as described above. Both expand original multiplicities in input order.
 
-The accepted base implementations [1129_graphs.go](1129_graphs.go), [1129_graphs.java](1129_graphs.java), [1129_graphs.rs](1129_graphs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Retained accepted bases [1129_graphs.go](1129_graphs.go), [1129_graphs.rs](1129_graphs.rs) also pass the strict top-ten or top-15% criterion for required metrics in the saved comparison. They are reused without duplicate source files. Other teaching sources remain; the asterisk denotes the separate language rating target.
 
 ## Language notes
 
@@ -123,7 +129,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1129_graphs_optimized.cpp](1129_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + D) | AC | 0.015 s | 160 KB | 11310449 |
-| [1129_graphs_optimized.py](1129_graphs_optimized.py) \* | Python 3.12 x64 | graphs | O(N² + D) | AC | 0.093 s | 676 KB | 11310450 |
+| [1129_graphs_optimized.py](1129_graphs_optimized.py) | Python 3.12 x64 | graphs | O(D+N² ceil(N/w)) time; O(N²+max row degree) space | AC | 0.078 s | 752 KB | 11327005 |
 | [1129_graphs_optimized.java](1129_graphs_optimized.java) | Java 1.8 | graphs | O(N+D+S(D)) | AC | 0.109 s | 832 KB | 11325013 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

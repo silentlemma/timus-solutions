@@ -1,47 +1,52 @@
-from array import array
+import os
+from itertools import groupby
 from sys import stdin, stdout
-
-UNUSED = 1
-OUTWARD = 2
-INWARD = 3
 
 
 def main():
     read = stdin.buffer.readline
     rooms = int(read())
-    width = rooms + 1
-    dummy = rooms
-    counts = [array("I", [0]) * rooms for _ in range(rooms)]
-    edges = [bytearray(width) for _ in range(width)]
+    dummy_bit = 1 << rooms
+    edges = [0] * (rooms + 1)
+    outward = [0] * rooms
+    counts = []
     for room in range(rooms):
-        row = iter(map(int, read().split()))
-        degree = next(row)
-        for other in row:
-            counts[room][other - 1] += 1
+        tokens = iter(map(int, read().split()))
+        degree = next(tokens)
+        row = [0] * rooms
+        mask = 0
+        # Neighbours are sorted, so each run counts one parallel-door group.
+        for neighbor, group in groupby(tokens):
+            other = neighbor - 1
+            doors = len(list(group))
+            row[other] = doors
+            if other != room and doors % 2:
+                mask |= 1 << other
         if degree % 2:
-            edges[room][dummy] = edges[dummy][room] = UNUSED
-        for other, doors in enumerate(counts[room]):
-            if room != other and doors % 2:
-                edges[room][other] = UNUSED
+            mask |= dummy_bit
+            edges[rooms] |= 1 << room
+        edges[room] = mask
+        counts.append(row)
 
-    cursor = [0] * width
-    for start in range(width):
+    # Every augmented degree is even: each greedy unused-edge walk closes.
+    for start in range(rooms + 1):
         room = start
-        while True:
-            other = cursor[room]
-            while other < width and edges[room][other] != UNUSED:
-                other += 1
-            cursor[room] = other
-            if other == width:
-                break
-            edges[room][other] = OUTWARD
-            edges[other][room] = INWARD
+        while edges[room]:
+            bit = edges[room] & -edges[room]
+            other = bit.bit_length() - 1
+            edges[room] ^= bit
+            edges[other] ^= 1 << room
+            if room < rooms:
+                outward[room] |= bit
             room = other
 
     for room, counts_by_neighbor in enumerate(counts):
         row = bytearray()
+        mask = outward[room]
         for other, doors in enumerate(counts_by_neighbor):
-            green = doors // 2 + (edges[room][other] == OUTWARD)
+            if not doors:
+                continue
+            green = doors // 2 + ((mask >> other) & 1)
             row.extend(b"G " * green)
             row.extend(b"Y " * (doors - green))
         if row:
@@ -52,3 +57,5 @@ def main():
 
 
 main()
+stdout.flush()
+os._exit(0)

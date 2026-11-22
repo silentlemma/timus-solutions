@@ -92,13 +92,19 @@ edificios aleatorios con muchas puertas repetidas entre las mismas salas.
 
 ## Soluciones optimizadas
 
+`1129_graphs_optimized.py`. Conserva la cancelación exacta de pares de puertas paralelas opuestas y orientación Euler tras conectar habitaciones impares a una ficticia. Los vecinos ordenados permiten contar rachas con itertools.groupby nativo. Python usa bitsets enteros, elimina la arista menor por XOR y expande colores según multiplicidades; pares hacia la misma habitación quedan equilibrados. No usa huellas de respuestas. N habitaciones, D menciones, B=ceil(N/w) miembros enteros: O(D+N²B) trabajo, O(N²+grado máximo de fila) espacio con entrada/salida por fila. N<=100 limita los bitsets a pocos miembros; conserva bases. Aquí w es el número de bits por miembro de un entero grande Python.
+
+Accepted exacto CPython 3.12 #11327005: 0.078 s / 752 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/83, memoria 1/83. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1129_graphs_optimized.py`: 0.078 s / 752 KB; base didáctica conservada `1129_graphs.py` (Python 3.12 x64): 0.093 s / 2592 KB; cambio de tiempo -16.1%; cambio de memoria -71.0%.
+
 `1129_graphs_optimized.java`. Conserva orientación por recorrido de Euler tras unir virtualmente salas impares a una ficticia. Aplana D menciones de lados con offsets, posiciones originales y parejas. Ordena claves long (par no ordenado de salas,posición): puertas paralelas emparejan mitades de extremos por posición y bucles se emparejan consecutivamente. N<=100 mantiene el par bajo10000, separado de los32 bits bajos de posición. Aristas reales reciben G/Y opuestos; virtuales solo equilibran y no se imprimen. Pila primitiva y colores byte reemplazan adyacencia con objetos, colas hash y salida completa. Espacio O(N+D). Si S(D) es el coste de ordenar, lo demás es O(N+D); Java8 suele costar O(D log D), con cota conservadora O(D²) para el peor caso, sin prometer logaritmo estricto.
 
 Frente a `1129_graphs.java`: tiempo 0.156 s → 0.109 s; memoria 3876 KB → 832 KB.
 
-C++ y Python cuentan las puertas de cada par de habitaciones. Las orientaciones opuestas de dos puertas paralelas se cancelan en ambas habitaciones, así que queda como máximo una arista real por par. Tras añadir las aristas auxiliares, todos los grados son pares. Se siguen aristas libres hasta cerrar cada recorrido y se orientan en el sentido recorrido. Los cursores recorren una vez la matriz y los recuentos originales reconstruyen la salida en orden de entrada.
+C++ y Python cuentan las puertas de cada par de habitaciones. Las orientaciones opuestas de dos puertas paralelas se cancelan en ambas habitaciones, así que queda como máximo una arista real por par. Tras añadir las aristas auxiliares, todos los grados son pares. Se siguen aristas libres hasta cerrar cada recorrido y se orientan en el sentido recorrido. C++ recorre la matriz con cursores monótonos; Python recorre los bitsets enteros residuales indicados arriba. Ambos expanden multiplicidades originales en el orden de entrada.
 
-Las implementaciones base aceptadas [1129_graphs.go](1129_graphs.go), [1129_graphs.java](1129_graphs.java), [1129_graphs.rs](1129_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases Accepted conservadas [1129_graphs.go](1129_graphs.go), [1129_graphs.rs](1129_graphs.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
 
 ## Notas por lenguaje
 
@@ -125,7 +131,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1129_graphs_optimized.cpp](1129_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(N² + D) | AC | 0.015 s | 160 KB | 11310449 |
-| [1129_graphs_optimized.py](1129_graphs_optimized.py) \* | Python 3.12 x64 | graphs | O(N² + D) | AC | 0.093 s | 676 KB | 11310450 |
+| [1129_graphs_optimized.py](1129_graphs_optimized.py) | Python 3.12 x64 | graphs | O(D+N² ceil(N/w)) time; O(N²+max row degree) space | AC | 0.078 s | 752 KB | 11327005 |
 | [1129_graphs_optimized.java](1129_graphs_optimized.java) | Java 1.8 | graphs | O(N+D+S(D)) | AC | 0.109 s | 832 KB | 11325013 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
