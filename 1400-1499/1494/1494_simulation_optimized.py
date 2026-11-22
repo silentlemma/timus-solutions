@@ -1,5 +1,4 @@
 import sys
-from array import array
 
 
 def main():
@@ -8,7 +7,7 @@ def main():
     # the pocket is a stack: roll the balls in order, and whenever the top
     # one is the next ball the inspector took out, take it out
     # each ball is checked as it is read, so their order is never stored
-    pocket = array("I", [0]) * n
+    pocket = [0] * n
     top, upcoming = 0, 1
     for ball in numbers:
         while upcoming <= ball:
