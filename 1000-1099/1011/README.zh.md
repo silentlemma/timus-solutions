@@ -31,7 +31,7 @@
 
 - `1011_number_theory.java` (Java 1.8): 14个仓库测试; 115个额外精确源码比较.
 
-- `1011_number_theory_optimized.py` (PyPy 3.10 x64): 14个仓库测试.
+
 
 ## 样例
 
@@ -84,12 +84,24 @@
 
 ## 优化解法
 
+`1011_number_theory_optimized.java`. 仍用商跳跃 Stern-Brocot 搜索找严格位于两个百分比之间的最小分母。256 字节输入精确读百分之一，128 字节缓冲直接写十进制，避免逐字节流调用和格式化输出。两端相等均不允许。WHOLE=10000，O(log WHOLE) 算术步、O(1) 数值状态，分母至多 10001 足够。算法与保留的数论版相同，故快实现命名 _optimized；旧版及短分母枚举教学版均保留。
+
+精确源码：Java 1.8 Accepted #11327460: 0.109 s / 368 KB。2026-11-20 保存的编译器组排名，时间然后内存：10/73; 1/73。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11308797 (Java 1.8): 0.125 s / 332 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1011_number_theory_optimized.java`: 0.109 s / 368 KB; 保留教学版 `1011_math.java` (Java 1.8): 0.125 s / 1580 KB.
+
+`1011_number_theory_optimized.py`. 保留在两个十进制百分比之间严格寻找分数的精确 Stern–Brocot 搜索。以字节解析整数百分之一单位，批量 mediant 跳转与开区间端点不变。刷新分母输出后直接退出。仅改变输入/清理开销，非新数论算法；保留教学源代码与精确整数比较，不引入浮点近似。
+
+精确源代码 CPython 3.12 Accepted #11327007：0.078 s / 700 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 5/30，内存排名 14/30。低于 1024 KB，严格收录只看时间。
+
+- `1011_number_theory_optimized.py`: 0.078 s / 700 KB; 保留的教学基础版 `1011_number_theory.py` (Python 3.12 x64): 0.109 s / 468 KB; 时间变化 -28.4%; 内存变化 +49.6%.
+
 保留枚举分母及逐步Stern–Brocot教学源码。快速版本保存位于开区间之外的相邻分数a/b、c/d，其中介分数是两者间最简单的分数。若仍在区间外，用精确整数商跳过该侧最长一段；被跳过的分数均已证明不合法，因此第一个区间内的中介分数具有最小分母。百分数解析为整数百分之一，WHOLE=10000，交叉相乘比较，端点相等也排除。商跳跃对应连分数下降，需O(log WHOLE)步和常量数值状态。Go使用可移植有界syscall缓冲，Python用现有文本流及表中明确的PyPy。
 
 - `1011_number_theory_optimized.cpp`: 0.015 s / 104 KB; 基础 `1011_math.cpp`: 0.015 s / 352 KB; 相对变化: 时间 -0.0%, 内存 -70.5%.
 - `1011_number_theory.go`: 0.031 s / 312 KB; 基础 `1011_math.go`: 0.015 s / 1088 KB; 相对变化: 时间 +106.7%, 内存 -71.3%.
 - `1011_number_theory.java`: 0.125 s / 332 KB; 基础 `1011_math.java`: 0.125 s / 1580 KB; 相对变化: 时间 -0.0%, 内存 -79.0%.
-- `1011_number_theory_optimized.py`: 0.156 s / 292 KB; 基础 `1011_number_theory.py`: 0.109 s / 468 KB; 相对变化: 时间 +43.1%, 内存 -37.6%.
+
 
 ## 各语言说明
 
@@ -103,7 +115,7 @@
 
 - Java: 首选教学基础 `1011_math.java`; 覆盖源码 `1011_number_theory.java`; 时间/内存名次 2/1, 其他作者记录 5/5.
 
-- Python/PyPy: 首选教学基础 `1011_number_theory.py`; 覆盖源码 `1011_number_theory_optimized.py`; 时间/内存名次 25/2, 其他作者记录 25/25.
+- Python/PyPy: 精确源代码 CPython 3.12 Accepted #11327007：0.078 s / 700 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 5/30，内存排名 14/30。低于 1024 KB，严格收录只看时间。
 
 - Rust: 首选教学基础 `1011_math.rs`; 覆盖源码 `1011_math.rs`; 时间/内存名次 1/1, 其他作者记录 1/1.
 
@@ -132,6 +144,7 @@
 | [1011_number_theory_optimized.cpp](1011_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.015 s | 104 KB | 11308795 |
 | [1011_number_theory.go](1011_number_theory.go) \* | Go 1.14 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.031 s | 312 KB | 11309756 |
 | [1011_number_theory.java](1011_number_theory.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.125 s | 332 KB | 11308797 |
-| [1011_number_theory_optimized.py](1011_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.156 s | 292 KB | 11309727 |
+| [1011_number_theory_optimized.java](1011_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.109 s | 368 KB | 11327460 |
+| [1011_number_theory_optimized.py](1011_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log WHOLE) quotient steps; O(1) numeric state | AC | 0.078 s | 700 KB | 11327007 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
