@@ -89,7 +89,7 @@ N，然后 N 行圆心，然后是 R 和 r。
 
 Python 使用上述扫描。提交 11318349 耗时 0.093 秒，使用 676 KB。
 
-Go 使用上述扫描。提交 11318350 耗时 0.031 秒，使用 916 KB。
+Go 使用上述扫描。提交 11328272 耗时 0.031 秒，使用 1004 KB。
 
 Java 使用上述扫描。提交 11318354 耗时 0.125 秒，使用 456 KB。
 
@@ -116,7 +116,7 @@ G++ 13.2 x64 №11321855 · Go 1.14 x64 №11322297 · Java 1.8 №11322298 · P
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1332_geometry_sorting.py](1332_geometry_sorting.py) | Python 3.12 x64 | geometry, sorting | O(N² log N) | AC | 0.093 s | 676 KB | 11318349 |
-| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 916 KB | 11318350 |
+| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 1004 KB | 11328272 |
 | [1332_geometry_sorting.java](1332_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N² log N) | AC | 0.125 s | 456 KB | 11318354 |
 | [1332_geometry_sorting.rs](1332_geometry_sorting.rs) \* | Rust 1.75 x64 | geometry, sorting | O(N² log N) | AC | 0.046 s | 220 KB | 11318359 |
 

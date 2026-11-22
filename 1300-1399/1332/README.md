@@ -103,7 +103,7 @@ Fix a city on the boundary of the disc. Every other city within distance 2D dete
 
 Python uses this sweep. Submission 11318349 took 0.093 s and used 676 KB.
 
-Go uses this sweep. Submission 11318350 took 0.031 s and used 916 KB.
+Go uses this sweep. Submission 11328272 took 0.031 s and used 1004 KB.
 
 Java uses this sweep. Submission 11318354 took 0.125 s and used 456 KB.
 
@@ -130,7 +130,7 @@ G++ 13.2 x64 №11321855 · Go 1.14 x64 №11322297 · Java 1.8 №11322298 · P
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1332_geometry_sorting.py](1332_geometry_sorting.py) | Python 3.12 x64 | geometry, sorting | O(N² log N) | AC | 0.093 s | 676 KB | 11318349 |
-| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 916 KB | 11318350 |
+| [1332_geometry_sorting.go](1332_geometry_sorting.go) \* | Go 1.14 x64 | geometry, sorting | O(N² log N) | AC | 0.031 s | 1004 KB | 11328272 |
 | [1332_geometry_sorting.java](1332_geometry_sorting.java) \* | Java 1.8 | geometry, sorting | O(N² log N) | AC | 0.125 s | 456 KB | 11318354 |
 | [1332_geometry_sorting.rs](1332_geometry_sorting.rs) \* | Rust 1.75 x64 | geometry, sorting | O(N² log N) | AC | 0.046 s | 220 KB | 11318359 |
 

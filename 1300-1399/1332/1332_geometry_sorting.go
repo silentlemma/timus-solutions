@@ -104,6 +104,7 @@ func main() {
 	for i := range cities {
 		cities[i] = point{next(input), next(input)}
 	}
-	reach := next(input) - next(input)
+	outer, inner := next(input), next(input)
+	reach := outer - inner
 	os.Stdout.WriteString(strconv.Itoa(mostCities(cities, reach)) + "\n")
 }
