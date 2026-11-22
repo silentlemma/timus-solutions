@@ -78,11 +78,17 @@ implementation on the large tests.
 
 ## Optimized solutions
 
+Formatting-only accepted revisions: `1742_graphs.cpp` #11327489, `1742_graphs.py` #11327491, `1742_graphs.rs` #11327493. Each table row uses that exact file revision and its own paired time/memory; no performance improvement is attributed to formatting.
+
+`1742_graphs_optimized.cpp`. Keep the linear functional-graph traversal and saturated indegree counts 0/1/2. A byte state marks fresh, walking and finished vertices; follow a completed walk again to clear it without a path array. The C++ revision reads integers from a fixed 4096-byte fread buffer instead of formatted per-number input. O(n) time and O(n) graph storage; no new graph algorithm or duplicate source is introduced.
+
+Exact-source G++ 13.2 x64 Accepted #11326976: 0.015 s / 532 KB. Saved 2026-11-20 compiler comparison: time 1/53, memory 1/53; top-ten targets pass in both metrics, so no asterisk. Below 1024 KB, strict admission uses time only. Previous optimized run #11310429: 0.062 s / 576 KB. These are independent paired runs; the new recorded memory is lower. The retained teaching C++ source's own current Accepted #11327489 is 0.093 s / 2324 KB; its algorithm is unchanged.
+
 The compact versions store incoming counts only up to two. Zero identifies a start, and a cycle is isolated exactly when every member has count one. A byte per vertex records whether it is unseen, on the current walk, or finished. After counting any cycle found, follow the same arrows again to mark the walk as finished. Each vertex is visited only a constant number of times, and no separate array of vertices on the walk is needed.
 
-The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and uses 2 088 KB versus 5148 KB.
+Rust optimized / retained teaching base: Accepted #11310368 0.031 s / 2088 KB; Accepted #11327493 0.031 s / 5168 KB.
 
-The accepted base implementations [1742_graphs.java](1742_graphs.java), [1742_graphs.py](1742_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Retained accepted teaching sources [1742_graphs.java](1742_graphs.java), [1742_graphs.py](1742_graphs.py) also meet the strict top-ten or top-15% criterion on the required metrics in the saved comparison. The current exact paired measurements are in the table, including the formatting-only revisions. Their algorithms are unchanged and no identical optimized copies are added. The asterisk denotes the separate language rating target.
 
 ## Solutions
 
@@ -90,17 +96,17 @@ The accepted base implementations [1742_graphs.java](1742_graphs.java), [1742_gr
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.078 s | 2344 KB | 11289502 |
+| [1742_graphs.cpp](1742_graphs.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.093 s | 2324 KB | 11327489 |
 | [1742_graphs.go](1742_graphs.go) | Go 1.14 x64 | graphs | O(n) | AC | 0.078 s | 8728 KB | 11289503 |
 | [1742_graphs.java](1742_graphs.java) \* | Java 1.8 | graphs | O(n) | AC | 0.140 s | 2020 KB | 11289505 |
-| [1742_graphs.py](1742_graphs.py) \* | Python 3.12 x64 | graphs | O(n) | AC | 0.187 s | 13504 KB | 11289504 |
-| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.015 s | 5148 KB | 11289506 |
+| [1742_graphs.py](1742_graphs.py) \* | Python 3.12 x64 | graphs | O(n) | AC | 0.156 s | 13532 KB | 11327491 |
+| [1742_graphs.rs](1742_graphs.rs) | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 5168 KB | 11327493 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1742_graphs_optimized.cpp](1742_graphs_optimized.cpp) \* | G++ 13.2 x64 | graphs | O(n) | AC | 0.062 s | 576 KB | 11310429 |
+| [1742_graphs_optimized.cpp](1742_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n) | AC | 0.015 s | 532 KB | 11326976 |
 | [1742_graphs_optimized.go](1742_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(n) | AC | 0.046 s | 2084 KB | 11310371 |
 | [1742_graphs_optimized.rs](1742_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(n) | AC | 0.031 s | 2088 KB | 11310368 |
 

@@ -5,7 +5,8 @@ const int FRESH = 0, WALKING = 1, DONE = 2;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     std::vector<int> to(n + 1), incoming(n + 1, 0);
     for (int v = 1; v <= n; v++) {
         scanf("%d", &to[v]);
@@ -29,19 +30,23 @@ int main() {
             int u = v;
             do {
                 onCycles++;
-                if (incoming[u] != 1) alone = false;
+                if (incoming[u] != 1)
+                    alone = false;
                 u = to[u];
             } while (u != v);
-            if (alone) bare++;
+            if (alone)
+                bare++;
         }
-        for (int u : path) state[u] = DONE;
+        for (int u : path)
+            state[u] = DONE;
     }
     // fewest: every programmer nobody names starts a group, and so does
     // every bare cycle; most: a cycle goes into one group as soon as a
     // group enters it, and everyone else can stand alone
     int starts = 0;
     for (int v = 1; v <= n; v++) {
-        if (incoming[v] == 0) starts++;
+        if (incoming[v] == 0)
+            starts++;
     }
     printf("%d %d\n", starts + bare, n - onCycles + cycles);
 }

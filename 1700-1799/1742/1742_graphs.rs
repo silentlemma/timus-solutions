@@ -7,7 +7,10 @@ const DONE: u8 = 2;
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<usize> = input.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let v: Vec<usize> = input
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let n = v[0];
     let mut to = vec![0usize; n + 1];
     let mut incoming = vec![0usize; n + 1];

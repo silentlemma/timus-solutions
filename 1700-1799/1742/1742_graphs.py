@@ -6,7 +6,7 @@ FRESH, WALKING, DONE = 0, 1, 2
 def main():
     data = sys.stdin.buffer.read().split()
     n = int(data[0])
-    to = [0] + [int(w) for w in data[1:n + 1]]
+    to = [0] + [int(w) for w in data[1 : n + 1]]
     incoming = [0] * (n + 1)
     for v in range(1, n + 1):
         incoming[to[v]] += 1
@@ -21,7 +21,7 @@ def main():
             path.append(v)
             v = to[v]
         if state[v] == WALKING:
-            cycle = path[path.index(v):]
+            cycle = path[path.index(v) :]
             cycles += 1
             on_cycles += len(cycle)
             # a cycle nobody else points into needs a group of its own
