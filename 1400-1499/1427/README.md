@@ -65,13 +65,17 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1427_greedy_optimized.cpp`. Keep the exact streaming longest-message greedy rule and ASCII letter/space classification. A 4 KiB fread buffer replaces one locked input call per byte. Discard only the header remainder and terminal CR/LF, preserving leading/trailing spaces and punctuation in the text. The current length/plain-text flag still determines whether the next byte starts a new message. Time O(L), fixed auxiliary storage; no complete text string is retained.
+
+Exact-source Accepted #11326989: 0.015 s / 88 KB. Saved G++ 13.2 sample, 2026-11-20: time rank 1/67, memory rank 1/67. Teaching sources remain unchanged.
+
 `1427_greedy_optimized.py`. Keep the same farthest-reach greedy message count and Unicode isalpha semantics. Instead of precomputing a length-L suffix-run array, scan only the letters/spaces consumed by the current message, up to the maximum length. Every scanned character is consumed before the next iteration, so total scanning is O(L). The UTF-8 text line itself is retained: O(L) input storage, with O(1) additional state. Strip only CR/LF, preserving meaningful spaces and punctuation.
 
 Compared with `1427_greedy.py`: time 0.093 s → 0.14 s; memory 4392 KB → 1 852 KB.
 
 C++ and Go extend the current message while reading the text. Keep its length and whether every character so far is a letter or space. Once the next character would exceed the applicable limit, finish the current message and use that character to start the next. This implements the same longest-message rule in O(L) time with O(1) extra space.
 
-The accepted base implementations [1427_greedy.java](1427_greedy.java), [1427_greedy.py](1427_greedy.py), [1427_greedy.rs](1427_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The retained accepted base implementations [1427_greedy.go](1427_greedy.go), [1427_greedy.java](1427_greedy.java), [1427_greedy.rs](1427_greedy.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies; the other teaching sources remain. An asterisk denotes the separate language rating target.
 
 ## Language notes
 
@@ -97,7 +101,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(L) | AC | 0.031 s | 112 KB | 11310456 |
+| [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.015 s | 88 KB | 11326989 |
 | [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
 | [1427_greedy_optimized.py](1427_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
 
