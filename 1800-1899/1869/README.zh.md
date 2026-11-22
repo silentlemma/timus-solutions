@@ -59,7 +59,7 @@ n（2 ≤ n ≤ 100），然后是 n × n 矩阵 aᵢⱼ（0 ≤ aᵢⱼ ≤ 100
 
 `1869_prefix_sums_optimized.go`. 读矩阵时分别累计两个方向的上下车差分，再求两数组前缀和，取最大载客量向上除以 36。Go 保留原 O(n²) 差分算法，以固定缓冲整数输入替换格式扫描，并去掉未用哨兵格。Rust 相比保留的 O(n³) 直接模拟降为 O(n²)；另有原前缀和源文件仍保留，故新实现名为 prefix_sums_optimized。两版都流式消费矩阵，不保存矩阵或输入全文，以 O(n) 有符号 64 位数组存载量。n<=100、元素<=1000 时总量安全；零需求输出零。
 
-与 `1869_prefix_sums.go` 相比：时间 0.031 s → 0.015 s；内存 1244 KB → 808 KB。
+与 `1869_prefix_sums.go` 相比：时间 0.031 s → 0.015 s；内存 1244 KB → 816 KB。
 
 `1869_prefix_sums_optimized.rs`. 读矩阵时分别累计两个方向的上下车差分，再求两数组前缀和，取最大载客量向上除以 36。Go 保留原 O(n²) 差分算法，以固定缓冲整数输入替换格式扫描，并去掉未用哨兵格。Rust 相比保留的 O(n³) 直接模拟降为 O(n²)；另有原前缀和源文件仍保留，故新实现名为 prefix_sums_optimized。两版都流式消费矩阵，不保存矩阵或输入全文，以 O(n) 有符号 64 位数组存载量。n<=100、元素<=1000 时总量安全；零需求输出零。
 
@@ -106,7 +106,7 @@ n（2 ≤ n ≤ 100），然后是 n × n 矩阵 aᵢⱼ（0 ≤ aᵢⱼ ≤ 100
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
-| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 808 KB | 11325129 |
+| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 816 KB | 11328315 |
 | [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

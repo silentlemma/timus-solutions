@@ -74,7 +74,7 @@ en 150 matrices aleatorias.
 
 `1869_prefix_sums_optimized.go`. Acumula diferencias de subida/bajada por dirección al leer la matriz, calcula prefijos y redondea el pico mayor hacia arriba entre 36. Go conserva el algoritmo O(n²), sustituye lectura formateada por búfer fijo y elimina centinelas sin usar. Rust tarda O(n²) frente a la simulación directa O(n³) conservada; también queda el prefijo original, por eso el nuevo se llama prefix_sums_optimized. No retienen matriz ni texto completo; usan O(n) cargas de 64 bits con signo. n<=100 y entradas<=1000 garantizan sumas seguras; demanda cero da cero vagones.
 
-Frente a `1869_prefix_sums.go`: tiempo 0.031 s → 0.015 s; memoria 1244 KB → 808 KB.
+Frente a `1869_prefix_sums.go`: tiempo 0.031 s → 0.015 s; memoria 1244 KB → 816 KB.
 
 `1869_prefix_sums_optimized.rs`. Acumula diferencias de subida/bajada por dirección al leer la matriz, calcula prefijos y redondea el pico mayor hacia arriba entre 36. Go conserva el algoritmo O(n²), sustituye lectura formateada por búfer fijo y elimina centinelas sin usar. Rust tarda O(n²) frente a la simulación directa O(n³) conservada; también queda el prefijo original, por eso el nuevo se llama prefix_sums_optimized. No retienen matriz ni texto completo; usan O(n) cargas de 64 bits con signo. n<=100 y entradas<=1000 garantizan sumas seguras; demanda cero da cero vagones.
 
@@ -121,7 +121,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
-| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 808 KB | 11325129 |
+| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 816 KB | 11328315 |
 | [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

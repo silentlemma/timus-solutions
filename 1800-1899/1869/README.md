@@ -72,7 +72,7 @@ random matrices.
 
 `1869_prefix_sums_optimized.go`. Accumulate boarding and leaving differences separately for each direction while reading the matrix, prefix-sum both arrays, and round the larger peak up by 36. The Go variant keeps the original O(n²) difference algorithm and replaces formatted scanning with fixed-buffer integer I/O; it also drops the unused sentinel cells. For Rust this has O(n²) time rather than the O(n³) retained direct simulation; a separate original prefix-sum source also remains, so the new implementation has the prefix_sums_optimized name. Both stream matrix entries without retaining the matrix or input text and use O(n) signed 64-bit load storage. With n<=100 and entries<=1000 all totals fit safely; zero demand yields zero cars.
 
-Compared with `1869_prefix_sums.go`: time 0.031 s → 0.015 s; memory 1244 KB → 808 KB.
+Compared with `1869_prefix_sums.go`: time 0.031 s → 0.015 s; memory 1244 KB → 816 KB.
 
 `1869_prefix_sums_optimized.rs`. Accumulate boarding and leaving differences separately for each direction while reading the matrix, prefix-sum both arrays, and round the larger peak up by 36. The Go variant keeps the original O(n²) difference algorithm and replaces formatted scanning with fixed-buffer integer I/O; it also drops the unused sentinel cells. For Rust this has O(n²) time rather than the O(n³) retained direct simulation; a separate original prefix-sum source also remains, so the new implementation has the prefix_sums_optimized name. Both stream matrix entries without retaining the matrix or input text and use O(n) signed 64-bit load storage. With n<=100 and entries<=1000 all totals fit safely; zero demand yields zero cars.
 
@@ -119,7 +119,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1869_prefix_sums_optimized.py](1869_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N^2) time, O(N) working space | AC | 0.062 s | 468 KB | 11310099 |
-| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 808 KB | 11325129 |
+| [1869_prefix_sums_optimized.go](1869_prefix_sums_optimized.go) \* | Go 1.14 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 816 KB | 11328315 |
 | [1869_prefix_sums_optimized.rs](1869_prefix_sums_optimized.rs) \* | Rust 1.75 x64 | prefix_sums | O(n^2) | AC | 0.015 s | 64 KB | 11325130 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
