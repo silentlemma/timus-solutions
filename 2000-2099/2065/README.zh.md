@@ -62,9 +62,11 @@
 
 ## 优化解法
 
-`2065_constructive_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+`2065_constructive_optimized.java`. Java 保留 n-k+1 个零，之后接 1,-1,2,-2,...。数组恰有 k 种元素值，非空连续段和也恰有 k 种，达到单元素段给出的下界。直接按索引生成每项，不创建中间数组。1024 字节输入缓冲区和有界 1024 字节直接输出替代通用解析与整行 StringBuilder；满时刷新输出。时间 O(N)，辅助存储固定。保留易读教学构造及其他语言版本。
 
-与 `2065_constructive.java` 相比：时间 0.109 s → 0.109 s；内存 1 648 KB → 476 KB。
+精确源代码 Java 1.8 Accepted #11327446：0.093 s / 364 KB。2026-11-20 保存的编译器组比较：时间 1/45、内存 1/45。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11324791 为 0.109 s / 476 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `2065_constructive_optimized.java`: 0.093 s / 364 KB; 保留教学基础版 `2065_constructive.java`: 0.109 s / 1648 KB.
 
 Go 和 Rust 输出同一构造，先是 n−k+1 个零，再接 1、−1、2、−2 等直到共有 n 项。Go 在适用于 n ≤ 500 的固定缓冲区内格式化答案并直接访问标准输入和输出句柄，Rust 使用有界输出缓冲区。两个版本都不构造中间整数数组或格式化字符串列表。
 
@@ -96,6 +98,6 @@ Go 和 Rust 输出同一构造，先是 n−k+1 个零，再接 1、−1、2、�
 |---|---|---|---|---|---|---|---|
 | [2065_constructive_optimized.go](2065_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 316 KB | 11311234 |
 | [2065_constructive_optimized.rs](2065_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 176 KB | 11311148 |
-| [2065_constructive_optimized.java](2065_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 476 KB | 11324791 |
+| [2065_constructive_optimized.java](2065_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary space | AC | 0.093 s | 364 KB | 11327446 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

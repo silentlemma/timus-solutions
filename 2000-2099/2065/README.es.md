@@ -79,9 +79,11 @@ ejemplo 0 7 0.
 
 ## Soluciones optimizadas
 
-`2065_constructive_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+`2065_constructive_optimized.java`. Java conserva n-k+1 ceros seguidos de 1,-1,2,-2,... . Hay exactamente k valores distintos y también k sumas distintas de segmentos no vacíos, alcanzando la cota inferior de los segmentos unitarios. Calcula cada elemento por índice, sin arreglo intermedio. Entrada de 1024 bytes y salida directa acotada de 1024 bytes sustituyen el análisis general y StringBuilder de toda la línea; vacía el búfer cuando se llena. Tiempo O(N), almacenamiento auxiliar fijo. Conserva la construcción didáctica y todos los demás lenguajes.
 
-Frente a `2065_constructive.java`: tiempo 0.109 s → 0.109 s; memoria 1 648 KB → 476 KB.
+Accepted exacto Java 1.8 #11327446: 0.093 s / 364 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/45, memoria 1/45. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11324791 era 0.109 s / 476 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2065_constructive_optimized.java`: 0.093 s / 364 KB; base didáctica conservada `2065_constructive.java`: 0.109 s / 1648 KB.
 
 Go y Rust emiten la misma construcción con n−k+1 ceros seguidos de 1, −1, 2, −2 y así hasta completar n valores. Go formatea el resultado en un búfer fijo para n ≤ 500 y accede directamente a los descriptores de entrada y salida estándar. Rust usa un búfer de salida acotado. Ninguna versión construye un vector intermedio de enteros ni una lista de cadenas formateadas.
 
@@ -90,8 +92,6 @@ Las implementaciones base aceptadas [2065_constructive.cpp](2065_constructive.cp
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
-
-`2065_constructive_optimized.java`: puesto de tiempo 12/45 y de memoria 9/45 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -113,6 +113,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [2065_constructive_optimized.go](2065_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n) | AC | 0.031 s | 316 KB | 11311234 |
 | [2065_constructive_optimized.rs](2065_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.031 s | 176 KB | 11311148 |
-| [2065_constructive_optimized.java](2065_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 476 KB | 11324791 |
+| [2065_constructive_optimized.java](2065_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary space | AC | 0.093 s | 364 KB | 11327446 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
