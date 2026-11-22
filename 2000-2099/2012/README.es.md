@@ -60,6 +60,12 @@ completa, aunque las primeras f se terminen antes.
 
 ## Soluciones optimizadas
 
+`2012_math_optimized.py`. Conserva el test exacto O(1), 60+(12−F)*45<=300. Lee un entero binario, imprime el mismo YES/NO, vacía explícitamente y sale sin limpieza del intérprete. Algoritmo/base intactos; mejora medida de ejecución, no nuevo atajo matemático.
+
+Accepted exacto CPython 3.12 #11327060: 0.062 s / 592 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 13/812, memoria 707/812. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `2012_math_optimized.py`: 0.062 s / 592 KB; base didáctica conservada `2012_math.py` (Python 3.12 x64): 0.078 s / 348 KB; cambio de tiempo -20.5%; cambio de memoria +70.1%.
+
 Las soluciones optimizadas en C++ y Java comprueban la misma
 desigualdad. C++ lee con `scanf` e imprime con `puts` en lugar de
 `iostream`: 116 KB en lugar de 380 KB, con el mismo tiempo. Java analiza
@@ -75,8 +81,6 @@ sola llamada en lugar de usar `println!`: 0.015 s en lugar de 0.046 s y
 Ningún lenguaje necesita nada especial.
 
 Leer de los bytes el número de tareas resueltas y comparar el tiempo total previsto con el límite de la competición. El envío aceptado 11301767 tardó 0.015 s y usó 904 KB. La versión sencilla tardó 0.015 s y usó 1080 KB.
-
-Python lee directamente el único entero del flujo de bytes sin crear una lista de tokens. El envío aceptado 11301773 tardó 0.078 s y usó 292 KB. La versión sencilla tardó 0.078 s y usó 348 KB.
 
 ## Soluciones
 
@@ -98,6 +102,6 @@ Python lee directamente el único entero del flujo de bytes sin crear una lista 
 | [2012_math_optimized.java](2012_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 432 KB | 11303529 |
 | [2012_math_optimized.rs](2012_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 220 KB | 11303792 |
 | [2012_math_optimized.go](2012_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 904 KB | 11301767 |
-| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 292 KB | 11301773 |
+| [2012_math_optimized.py](2012_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 592 KB | 11327060 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

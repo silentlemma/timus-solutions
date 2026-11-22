@@ -1,3 +1,5 @@
+import os
+from sys import stdout
 import sys
 
 TOTAL_TASKS = 12
@@ -8,3 +10,6 @@ CONTEST_MINUTES = 300
 first_hour = int(sys.stdin.buffer.read())
 finish = FIRST_HOUR_MINUTES + (TOTAL_TASKS - first_hour) * MINUTES_PER_TASK
 print("YES" if finish <= CONTEST_MINUTES else "NO")
+
+stdout.flush()
+os._exit(0)
