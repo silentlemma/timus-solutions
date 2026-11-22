@@ -70,7 +70,11 @@ D 环 1、N−1、3、N−3、…、N−2、2、N，从而使原乘积和最小�
 
 ## 优化解法
 
-`1535_constructive_optimized.py`. 保留最小交替两侧巡回与最大奇数升/偶数降巡回。由循环索引及奇偶直接生成城市，包括偶数 n 时单独的中间城，不存访问标志、两侧表、中间表或完整巡回。两行 n 城通过 4096 字节缓冲输出，保留空格和首城 1。构造 O(n) 算术步骤，十进制输出 O(n log n) 工作，缓冲/整数空间 O(B+log n)。语义检查器验证两巡回最优性，不要求唯一排列。
+`1535_constructive_optimized.py`. 保留相同精确最小/最大游程，按下标与奇偶生成城市，不存完整路线。每批 B=512 个编号转换并连接，替代逐个编码和 bytearray 更新。空格、首城及偶数 N 的中间情形不变。构造 O(N) 次算术，十进制输出 O(N log N)，固定 B 下临时字符串 O(B log N)。语义 checker 接受任意最优游程，保留教学构造。
+
+精确源代码 CPython 3.12 Accepted #11326668：0.078 s / 840 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/33，内存排名 1/33。低于 1024 KB，严格收录只看时间。
+
+- `1535_constructive_optimized.py`: 0.078 s / 840 KB; 保留的教学基础版 `1535_constructive.py` (Python 3.12 x64): 0.109 s / 8752 KB; 时间变化 -28.4%; 内存变化 -90.4%.
 
 与 `1535_constructive.py` 相比：时间 0.109 s → 0.187 s；内存 8752 KB → 3 184 KB。
 
@@ -82,15 +86,13 @@ C++、Go、Rust 直接按索引输出旧的双臂环，不存访问标记、两�
 
 通过评测的 Rust 1.75 x64 版本耗时 0.046 秒，基础版为 0.031 秒，内存为 232 KB，基础版为 4376 KB。
 
-已通过评测的基础实现 [1535_constructive.java](1535_constructive.java), [1535_constructive.py](1535_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+保留的 Accepted 基础版 [1535_constructive.rs](1535_constructive.rs) 在保存比较中也通过所需指标的严格前十或前 15% 标准，直接复用而不复制源文件。保留其余教学版；星号表示单独的语言排名目标。
 
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
 
 `1535_constructive_optimized.java`：在该可比样本中，时间名次 2/18，内存名次 1/18。
-
-`1535_constructive_optimized.py`：在该可比样本中，时间名次 16/33，内存名次 2/33。
 
 星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
@@ -114,6 +116,6 @@ C++、Go、Rust 直接按索引输出旧的双臂环，不存访问标记、两�
 | [1535_constructive_optimized.go](1535_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 936 KB | 11315379 |
 | [1535_constructive_optimized.rs](1535_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 232 KB | 11315380 |
 | [1535_constructive_optimized.java](1535_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 504 KB | 11325038 |
-| [1535_constructive_optimized.py](1535_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n log n) output work; O(B+log n) space | AC | 0.187 s | 3184 KB | 11325487 |
+| [1535_constructive_optimized.py](1535_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N log N) output time; O(B log N) temporary space | AC | 0.078 s | 840 KB | 11326668 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

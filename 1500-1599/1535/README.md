@@ -81,7 +81,11 @@ and print each city once.
 
 ## Optimized solutions
 
-`1535_constructive_optimized.py`. Retain the same minimum alternating-side tour and maximum odd-up/even-down tour. Derive each city directly from its loop index and parity, including the single middle city for even n; do not store used flags, two side lists, a middle list or complete tours. Emit both n-city lines through a 4096-byte buffer while preserving spaces and the first city 1. Construction needs O(n) arithmetic steps and O(n log n) decimal output work, with O(B+log n) buffer/number storage. The semantic checker validates both optimal tours, not a unique permutation.
+`1535_constructive_optimized.py`. Keep the same exact minimum and maximum tours, generating each city from index/parity instead of storing whole routes. Convert and join batches of B=512 city labels, replacing per-number encoding and bytearray updates. Spaces, first city and the even-N middle case are unchanged. Construction takes O(N) arithmetic operations and O(N log N) decimal-output work, with O(B log N) temporary strings for fixed B. The semantic checker accepts any optimal tours; the teaching construction remains.
+
+Exact-source CPython 3.12 Accepted #11326668: 0.078 s / 840 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/33, memory rank 1/33. Below 1024 KB, strict admission uses time only.
+
+- `1535_constructive_optimized.py`: 0.078 s / 840 KB; retained teaching base `1535_constructive.py` (Python 3.12 x64): 0.109 s / 8752 KB; time change -28.4%; memory change -90.4%.
 
 Compared with `1535_constructive.py`: time 0.109 s → 0.187 s; memory 8752 KB → 3 184 KB.
 
@@ -93,15 +97,13 @@ C++, Go and Rust compute the old two-arm cycle directly rather than keeping visi
 
 The accepted Rust 1.75 x64 run takes 0.046 s versus 0.031 s for the base and uses 232 KB versus 4376 KB.
 
-The accepted base implementations [1535_constructive.java](1535_constructive.java), [1535_constructive.py](1535_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Retained accepted bases [1535_constructive.rs](1535_constructive.rs) also pass the strict top-ten or top-15% criterion for required metrics in the saved comparison. They are reused without duplicate source files. Other teaching sources remain; the asterisk denotes the separate language rating target.
 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
 `1535_constructive_optimized.java`: time place 2/18, memory place 1/18 in this comparable sample.
-
-`1535_constructive_optimized.py`: time place 16/33, memory place 2/33 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -125,6 +127,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1535_constructive_optimized.go](1535_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 936 KB | 11315379 |
 | [1535_constructive_optimized.rs](1535_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 232 KB | 11315380 |
 | [1535_constructive_optimized.java](1535_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 504 KB | 11325038 |
-| [1535_constructive_optimized.py](1535_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n log n) output work; O(B+log n) space | AC | 0.187 s | 3184 KB | 11325487 |
+| [1535_constructive_optimized.py](1535_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N log N) output time; O(B log N) temporary space | AC | 0.078 s | 840 KB | 11326668 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

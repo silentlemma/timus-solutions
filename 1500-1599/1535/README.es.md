@@ -79,7 +79,11 @@ ciudad se imprime una sola vez.
 
 ## Soluciones optimizadas
 
-`1535_constructive_optimized.py`. Mantiene tour mínimo de lados alternos y máximo de impares ascendentes/pares descendentes. Deriva ciudades por índice y paridad, incluido centro único para n par, sin marcas, listas laterales, centro ni tours completos. Emite dos líneas de n ciudades por buffer de 4096 bytes, conservando espacios e inicio 1. O(n) pasos aritméticos y O(n log n) trabajo decimal, O(B+log n) almacenamiento. El checker valida óptimos, no una permutación única.
+`1535_constructive_optimized.py`. Conserva los recorridos mínimo/máximo exactos, generando ciudades por índice/paridad sin almacenar rutas completas. Convierte y une lotes B=512 de etiquetas en vez de codificar/actualizar bytearray por número. No cambian espacios, primera ciudad ni centro para N par. O(N) operaciones aritméticas, O(N log N) trabajo decimal y O(B log N) cadenas temporales con B fijo. El checker admite cualquier recorrido óptimo; conserva la construcción base.
+
+Accepted exacto CPython 3.12 #11326668: 0.078 s / 840 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/33, memoria 1/33. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1535_constructive_optimized.py`: 0.078 s / 840 KB; base didáctica conservada `1535_constructive.py` (Python 3.12 x64): 0.109 s / 8752 KB; cambio de tiempo -28.4%; cambio de memoria -90.4%.
 
 Frente a `1535_constructive.py`: tiempo 0.109 s → 0.187 s; memoria 8752 KB → 3 184 KB.
 
@@ -91,15 +95,13 @@ C++, Go y Rust indexan el mismo ciclo de dos brazos sin guardar marcas, brazos, 
 
 El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.031 s de la base y usa 232 KB frente a 4376 KB.
 
-Las implementaciones base aceptadas [1535_constructive.java](1535_constructive.java), [1535_constructive.py](1535_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases Accepted conservadas [1535_constructive.rs](1535_constructive.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
 
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
 `1535_constructive_optimized.java`: puesto de tiempo 2/18 y de memoria 1/18 en esta muestra comparable.
-
-`1535_constructive_optimized.py`: puesto de tiempo 16/33 y de memoria 2/33 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -123,6 +125,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1535_constructive_optimized.go](1535_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.015 s | 936 KB | 11315379 |
 | [1535_constructive_optimized.rs](1535_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.046 s | 232 KB | 11315380 |
 | [1535_constructive_optimized.java](1535_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 504 KB | 11325038 |
-| [1535_constructive_optimized.py](1535_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n log n) output work; O(B+log n) space | AC | 0.187 s | 3184 KB | 11325487 |
+| [1535_constructive_optimized.py](1535_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N log N) output time; O(B log N) temporary space | AC | 0.078 s | 840 KB | 11326668 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
