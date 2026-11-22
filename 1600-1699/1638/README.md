@@ -67,9 +67,11 @@ tests.
 
 ## Optimized solutions
 
-The optimized Java solution parses the four numbers by hand from a small
-buffer instead of using `Scanner`, which needs far less memory: 380 KB
-instead of 1616 KB, with the same time. The formula is the same.
+`1638_math_optimized.java`. Java keeps the same three book-orientation cases. With whole=pages+2*cover, forward travel crosses 2*cover+(stop-start-1)*whole; reverse travel crosses 2*pages+2*cover+(start-stop-1)*whole; the same volume contributes pages. A 256-byte input buffer and 128-byte raw output buffer avoid Scanner and general string formatting. The arithmetic remains bounded int; time and auxiliary space O(1). All start/stop pairs at the four extreme page/cover combinations were checked against absolute page coordinates (40000 comparisons).
+
+Exact-source Java 1.8 Accepted #11327466: 0.109 s / 368 KB. Saved 2026-11-20 compiler-cohort comparison: time 33/359, memory 2/359. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303627 was 0.14 s / 380 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1638_math_optimized.java`: 0.109 s / 368 KB; retained teaching base `1638_math.java`: 0.125 s / 1616 KB.
 
 Multiply the distance in volume indices by the full thickness, then adjust by one block of pages according to the direction. Accepted submission 11324252 took 0.140 s and used 228 KB. The simple version took 0.078 s and used 364 KB. The recorded runtime is higher than for the simple version.
 
@@ -89,8 +91,7 @@ Multiply the distance in volume indices by the full thickness, then adjust by on
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 368 KB | 11327466 |
 | [1638_math_optimized.py](1638_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 228 KB | 11324252 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

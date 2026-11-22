@@ -67,10 +67,11 @@ en 200 pruebas aleatorias.
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java analiza los cuatro números a mano desde
-un búfer pequeño en lugar de usar `Scanner`, lo que necesita mucha menos
-memoria: 380 KB en lugar de 1616 KB, con el mismo tiempo. La fórmula es
-la misma.
+`1638_math_optimized.java`. Java mantiene los tres casos de orientación de los libros. Con whole=pages+2*cover, avanzar atraviesa 2*cover+(stop-start-1)*whole; retroceder, 2*pages+2*cover+(start-stop-1)*whole; dentro del mismo volumen, pages. Un búfer de entrada de 256 bytes y otro de salida directa de 128 bytes evitan Scanner y el formato general de cadenas. Los límites permiten aritmética int; tiempo y espacio auxiliar O(1). Todos los pares de volúmenes inicial y final, en las cuatro combinaciones extremas de grosores, se verificaron con coordenadas absolutas de páginas: 40000 comparaciones.
+
+Accepted exacto Java 1.8 #11327466: 0.109 s / 368 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 33/359, memoria 2/359. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303627 era 0.14 s / 380 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1638_math_optimized.java`: 0.109 s / 368 KB; base didáctica conservada `1638_math.java`: 0.125 s / 1616 KB.
 
 Multiplicar la distancia entre índices por el grosor completo y ajustar el resultado por un bloque de páginas según la dirección. El envío aceptado 11324252 tardó 0.140 s y usó 228 KB. La versión sencilla tardó 0.078 s y usó 364 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
@@ -90,8 +91,7 @@ Multiplicar la distancia entre índices por el grosor completo y ajustar el resu
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 380 KB | 11303627 |
+| [1638_math_optimized.java](1638_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 368 KB | 11327466 |
 | [1638_math_optimized.py](1638_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 228 KB | 11324252 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
