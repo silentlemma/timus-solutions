@@ -70,6 +70,10 @@ g 是原根，当且仅当对 N − 1 的每个素因子 q 都有 g^((N−1)/q) 
 
 ## 优化解法
 
+`1268_number_theory_optimized.cpp`. 保留只处理奇数的因子筛、原根的素因子检验与答案缓存。对 a,b<p<65536，a*b 在 32 位内。预先计算 floor(2^32/p)，取乘积再乘该值的高 32 位所得商最多小一，一次条件减法即可得到精确余数。反复模乘无需除法、浮点数或概率检验。输入输出使用 16 KiB 块，搜索条件和渐近工作量不变。
+
+精确源代码 Accepted #11326994：0.015 s / 196 KB。2026-11-20 保存的 G++ 13.2 样本：时间排名 1/43，内存排名 2/43。教学源代码保留。
+
 优化版本只筛选奇数，并单独处理质因数 2。遇到相同的模数时直接使用缓存的答案。
 
 Python 3.12 x64（提交 11322010）的运行时间从 0.156 秒变为 0.125 秒，内存从 4400 KB 变为 2368 KB。
@@ -78,7 +82,7 @@ Rust 1.75 x64（提交 11322011）的运行时间从 0.031 秒变为 0.031 秒�
 
 Go 1.14 x64（提交 11322012）的运行时间从 0.015 秒变为 0.031 秒，内存从 2420 KB 变为 1004 KB。
 
-G++ 13.2 x64（提交 11322013）的运行时间从 0.031 秒变为 0.031 秒，内存从 692 KB 变为 212 KB。
+G++ 13.2 x64（提交 11326994）相较保留的基础版本：时间 0.031 → 0.015 秒；内存 692 → 196 KB。
 
 Java 1.8（提交 11322014）的运行时间从 0.109 秒变为 0.078 秒，内存从 2928 KB 变为 920 KB。
 
@@ -105,7 +109,7 @@ G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · P
 | [1268_number_theory_optimized.py](1268_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.125 s | 2368 KB | 11322010 |
 | [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
 | [1268_number_theory_optimized.go](1268_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1004 KB | 11322012 |
-| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 212 KB | 11322013 |
+| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 196 KB | 11326994 |
 | [1268_number_theory_optimized.java](1268_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.078 s | 920 KB | 11322014 |
 
 \* 带星号的版本仍有提升排名的空间。

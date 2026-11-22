@@ -83,6 +83,10 @@ para cada primo menor que 3000.
 
 ## Soluciones optimizadas
 
+`1268_number_theory_optimized.cpp`. Conserva la criba de factores impares, las pruebas de raíz primitiva y la caché. Para residuos a,b<p<65536, a*b cabe en 32 bits. Precalcula floor(2^32/p); los 32 bits altos del producto por ese valor dan un cociente como máximo una unidad menor, y una resta condicional obtiene el resto EXACTO. Evita divisiones repetidas sin flotantes ni pruebas probabilísticas. Entrada y salida en bloques de16 KiB; no cambian búsqueda ni complejidad.
+
+Accepted del fuente exacto #11326994: 0.015 s / 196 KB. Muestra G++ 13.2 guardada el 2026-11-20: tiempo 1/43, memoria 2/43. Se conservan los fuentes didácticos.
+
 Las versiones optimizadas aplican la criba solo a los impares y comprueban el factor 2 por separado. Si se repite un módulo, reutilizan la respuesta guardada.
 
 Python 3.12 x64, envío 11322010. Tiempo 0,156 → 0,125 s, memoria 4400 → 2368 KB.
@@ -91,7 +95,7 @@ Rust 1.75 x64, envío 11322011. Tiempo 0,031 → 0,031 s, memoria 1420 → 312 K
 
 Go 1.14 x64, envío 11322012. Tiempo 0,015 → 0,031 s, memoria 2420 → 1004 KB.
 
-G++ 13.2 x64, envío 11322013. Tiempo 0,031 → 0,031 s, memoria 692 → 212 KB.
+G++ 13.2 x64, envío 11326994. Frente a la versión simple conservada: tiempo 0,031 → 0,015 s; memoria 692 → 196 KB.
 
 Java 1.8, envío 11322014. Tiempo 0,109 → 0,078 s, memoria 2928 → 920 KB.
 
@@ -118,7 +122,7 @@ G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · P
 | [1268_number_theory_optimized.py](1268_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.125 s | 2368 KB | 11322010 |
 | [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
 | [1268_number_theory_optimized.go](1268_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1004 KB | 11322012 |
-| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) \* | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 212 KB | 11322013 |
+| [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 196 KB | 11326994 |
 | [1268_number_theory_optimized.java](1268_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.078 s | 920 KB | 11322014 |
 
 \* Las versiones marcadas aún pueden mejorar su clasificación.
