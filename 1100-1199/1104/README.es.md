@@ -68,7 +68,7 @@ con los enteros grandes de Python y tomando el resto directamente.
 
 `1104_number_theory_optimized.go`. Conserva la divisibilidad por suma de dígitos: en base b el número coincide con ella módulo b-1. Recorre el token una vez para suma y dígito mayor, inicializado en uno para empezar al menos en base dos. Prueba greatest+1..36 en orden y emite la primera válida o exactamente No solution. Ambas versiones leen bytes sin guardar el número; Rust elimina también el vector de dígitos. L<=10^6 acota la suma a35·10^6, segura en32 bits con signo. Tiempo O(L+36), estado auxiliar O(1) más búferes fijos. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `1104_number_theory.go`: tiempo 0.031 s → 0.031 s; memoria 6608 KB → 796 KB.
+Frente a `1104_number_theory.go`: tiempo 0.031 s → 0.031 s; memoria 6608 KB → 812 KB.
 
 `1104_number_theory_optimized.rs`. Conserva la divisibilidad por suma de dígitos: en base b el número coincide con ella módulo b-1. Recorre el token una vez para suma y dígito mayor, inicializado en uno para empezar al menos en base dos. Prueba greatest+1..36 en orden y emite la primera válida o exactamente No solution. Ambas versiones leen bytes sin guardar el número; Rust elimina también el vector de dígitos. L<=10^6 acota la suma a35·10^6, segura en32 bits con signo. Tiempo O(L+36), estado auxiliar O(1) más búferes fijos. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
@@ -112,7 +112,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
 | [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
 | [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |
-| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 796 KB | 11325126 |
+| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 812 KB | 11328265 |
 | [1104_number_theory_optimized.rs](1104_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L+36) | AC | 0.031 s | 60 KB | 11325127 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

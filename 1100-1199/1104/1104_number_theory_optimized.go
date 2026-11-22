@@ -25,43 +25,8 @@ func nextByte() int {
 	return int(value)
 }
 
-func readNumber() (int64, bool) {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	if character < 0 {
-		return 0, false
-	}
-	negative := character == '-'
-	if negative || character == '+' {
-		character = nextByte()
-	}
-	var value int64
-	for character >= '0' && character <= '9' {
-		// Negative accumulation also handles the minimum signed 64-bit value.
-		value = value*10 - int64(character-'0')
-		character = nextByte()
-	}
-	if negative {
-		return value, true
-	}
-	return -value, true
-}
-
-func number() int64 { value, _ := readNumber(); return value }
-
-func wordByte() byte {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	first := byte(character)
-	for character > ' ' {
-		character = nextByte()
-	}
-	return first
-}
+// Signed numeric input note:
+// Negative accumulation also handles the minimum signed 64-bit value.
 
 func flushOutput() {
 	for start := 0; start < outputSize; {

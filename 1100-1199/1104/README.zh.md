@@ -59,7 +59,7 @@ A1A
 
 `1104_number_theory_optimized.go`. 保留数字和整除判定：b 进制数模 b-1 等于数字和。单遍扫描记号，累计和及最大数字，最大值初始一，保证候选进制至少二。递增检查 greatest+1..36，输出首个可用进制，否则精确输出 No solution.。两个新版本均流式读字节、不保存数字串；Rust 还去掉数字向量。L<=10^6 使和至多35·10^6，安全容于有符号32位。时间 O(L+36)，额外状态 O(1) 加固定运行缓冲。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
-与 `1104_number_theory.go` 相比：时间 0.031 s → 0.031 s；内存 6608 KB → 796 KB。
+与 `1104_number_theory.go` 相比：时间 0.031 s → 0.031 s；内存 6608 KB → 812 KB。
 
 `1104_number_theory_optimized.rs`. 保留数字和整除判定：b 进制数模 b-1 等于数字和。单遍扫描记号，累计和及最大数字，最大值初始一，保证候选进制至少二。递增检查 greatest+1..36，输出首个可用进制，否则精确输出 No solution.。两个新版本均流式读字节、不保存数字串；Rust 还去掉数字向量。L<=10^6 使和至多35·10^6，安全容于有符号32位。时间 O(L+36)，额外状态 O(1) 加固定运行缓冲。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
 
@@ -101,7 +101,7 @@ A1A
 | [1104_number_theory_optimized.cpp](1104_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L) | AC | 0.015 s | 96 KB | 11303551 |
 | [1104_number_theory_optimized.java](1104_number_theory_optimized.java) | Java 1.8 | number_theory | O(L) | AC | 0.109 s | 372 KB | 11303552 |
 | [1104_number_theory_optimized.py](1104_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(L) | AC | 0.109 s | 588 KB | 11303553 |
-| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 796 KB | 11325126 |
+| [1104_number_theory_optimized.go](1104_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L+36) | AC | 0.031 s | 812 KB | 11328265 |
 | [1104_number_theory_optimized.rs](1104_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L+36) | AC | 0.031 s | 60 KB | 11325127 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
