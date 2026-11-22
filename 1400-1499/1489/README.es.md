@@ -78,13 +78,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1489_geometry_optimized.java`. Java mantiene el plegado entero de las seis caras de la red a coordenadas tridimensionales. Analiza coordenadas con signo directamente en centésimas, completando cero o una cifra fraccionaria hasta dos, sin cadenas, UTF-8 ni Long.parseLong. Dimensiones y coordenadas se escalan por 100; la distancia al cuadrado no supera 3*10^10 y es exacta en long. Solo la raíz final y división por 100 usan double; después emite doce decimales directamente, sin formato general. El error añadido queda muy por debajo de 1e-6. Entrada de 1024 bytes y salida de 64: tiempo y espacio auxiliar O(1). Conserva la geometría didáctica y los casos de plegado.
+
+Accepted exacto Java 1.8 #11327529: 0.109 s / 384 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/22, memoria 1/22. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324809 era 0.125 s / 1068 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1489_geometry_optimized.java`: 0.109 s / 384 KB; base didáctica conservada `1489_geometry.java`: 0.125 s / 1892 KB.
+
 La versión Go lee las coordenadas directamente como centésimas enteras y aplica las mismas fórmulas de las caras. La elección de la cara y la distancia al cuadrado son exactas. Solo la raíz cuadrada usa coma flotante. Se redondea el resultado a ocho decimales en un búfer fijo. syscall.Read y syscall.Write usan los descriptores estándar, repiten llamadas interrumpidas y completan escrituras parciales.
 
 Las implementaciones base aceptadas [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
-
-`1489_geometry_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
-
-Frente a `1489_geometry.java`: tiempo 0.125 s → 0.125 s; memoria 1892 KB → 1 068 KB.
 
 ## Soluciones
 
@@ -103,6 +105,6 @@ Frente a `1489_geometry.java`: tiempo 0.125 s → 0.125 s; memoria 1892 KB → 1
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
-| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1068 KB | 11324809 |
+| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

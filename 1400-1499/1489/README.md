@@ -76,13 +76,15 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1489_geometry_optimized.java`. Java keeps the same integer folding of the six net faces into three-dimensional coordinates. It parses signed coordinates directly into hundredths, padding zero or one fractional digit to two, without token strings, UTF-8 conversion or Long.parseLong. Dimensions and folded coordinates are scaled by 100; the squared distance is at most 3*10^10 and is exact in long. Only the final sqrt and division by 100 use double, then direct fixed-twelve-decimal output replaces general formatting. The extra output error is well below the 1e-6 tolerance. Input uses 1024 bytes and output 64 bytes; time and auxiliary space O(1). Teaching geometry and the original fold cases are preserved.
+
+Exact-source Java 1.8 Accepted #11327529: 0.109 s / 384 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/22, memory 1/22. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324809 was 0.125 s / 1068 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1489_geometry_optimized.java`: 0.109 s / 384 KB; retained teaching base `1489_geometry.java`: 0.125 s / 1892 KB.
+
 The Go version reads the coordinates directly as integer hundredths and applies the same face formulas. Face selection and the squared distance stay exact. Only the square root uses floating point. The result is rounded to eight decimal places in a fixed buffer. syscall.Read and syscall.Write use standard handles, retry interrupted calls and complete partial writes.
 
 The accepted base implementations [1489_geometry.cpp](1489_geometry.cpp), [1489_geometry.java](1489_geometry.java), [1489_geometry.py](1489_geometry.py), [1489_geometry.rs](1489_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
-
-`1489_geometry_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
-
-Compared with `1489_geometry.java`: time 0.125 s → 0.125 s; memory 1892 KB → 1 068 KB.
 
 ## Solutions
 
@@ -101,6 +103,6 @@ Compared with `1489_geometry.java`: time 0.125 s → 0.125 s; memory 1892 KB →
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1489_geometry_optimized.go](1489_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.046 s | 284 KB | 11311209 |
-| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 1068 KB | 11324809 |
+| [1489_geometry_optimized.java](1489_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 384 KB | 11327529 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
