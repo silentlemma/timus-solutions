@@ -183,7 +183,7 @@ degree threshold or logarithmic data structure is needed.
 |---|---|---|---|---|---|---|---|
 | [2030_dfs.cpp](2030_dfs.cpp) | G++ 13.2 x64 | dfs | O(n+m) | AC | 0.109 s | 9368 KB | 11293074 |
 | [2030_dfs.go](2030_dfs.go) | Go 1.14 x64 | dfs | O(n+m) | AC | 0.062 s | 14016 KB | 11293076 |
-| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.156 s | 8516 KB | 11293080 |
+| [2030_dfs.java](2030_dfs.java) | Java 1.8 | dfs | O(n+m) | AC | 0.14 s | 8500 KB | 11328336 |
 | [2030_dfs.py](2030_dfs.py) | Python 3.12 x64 | dfs | O(n+m) | AC | 0.546 s | 26824 KB | 11293078 |
 | [2030_dfs.rs](2030_dfs.rs) | Rust 1.75 x64 | dfs | O(n+m) | AC | 0.062 s | 18652 KB | 11293082 |
 | [2030_bfs.py](2030_bfs.py) | Python 3.12 x64 | bfs | O(n+m) | AC | 0.64 s | 25132 KB | 11315850 |
