@@ -71,6 +71,12 @@ In the example courses 1 and 3 give the groups {4}, {6}, {2, 3} and
 
 ## Optimized solutions
 
+`2091_bitmask_optimized.java`. Keep two long masks per column for N≤100 and exact four-group popcounts. A column with c ones gives every pair containing it the lower bound ceil(max(c,N−c)/2). Stable bucket ordering of these bounds allows a monotone break when the bound cannot beat the current best. The global ceil(N/4) optimum exit and original column IDs remain exact. O(NM+M²) worst-case time, O(M) machine words; pruning improves work without promising a smaller worst-case bound.
+
+Exact-source Java 1.8 Accepted #11327755: 0.078 s / 468 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/43; 1/43. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics rank first; no asterisk. The preserved previous variant has its own paired receipt #11308008 (Java 1.8): 0.125 s / 400 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `2091_bitmask_optimized.java`: 0.078 s / 468 KB; retained teaching base `2091_bruteforce.java` (Java 1.8): 0.125 s / 5664 KB.
+
 Keep the direct pair-and-program enumeration. Fast bitmask sources encode program membership once per course. For a pair with course counts ca,cb and intersection count t, the four groups have sizes t,ca-t,cb-t,N-ca-cb+t. Intersection plus population count therefore replaces scanning all N programs for each pair. Test distinct course pairs and minimize the largest group; ceil(N/4) is a universal lower bound, so reaching it permits a proven early exit. Duplicate program rows remain separate bits: their multiplicity must not be lost. For N<=100 native sources use two64-bit words per course; Python uses arbitrary-precision integers. Numerical state uses O(M ceil(N/W)) words; Python/Rust also retain O(NM)input storage. Time is O(NM+M² ceil(N/W)), with at most two native words under the actual bound. The checker accepts any pair attaining the optimum.
 
 - `2091_bitmask.cpp`: 0.015 s / 112 KB; base `2091_bruteforce.cpp`: 0.015 s / 228 KB; relative change: time -0.0%, memory -50.9%.
@@ -114,6 +120,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | [2091_bitmask.cpp](2091_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 112 KB | 11308002 |
 | [2091_bitmask.go](2091_bitmask.go) | Go 1.14 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 304 KB | 11309740 |
 | [2091_bitmask.java](2091_bitmask.java) \* | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.125 s | 400 KB | 11308008 |
+| [2091_bitmask_optimized.java](2091_bitmask_optimized.java) | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.078 s | 468 KB | 11327755 |
 | [2091_bitmask.py](2091_bitmask.py) | Python 3.12 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.078 s | 592 KB | 11308000 |
 | [2091_bitmask.rs](2091_bitmask.rs) | Rust 1.75 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.015 s | 220 KB | 11308009 |
 

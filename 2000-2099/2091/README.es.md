@@ -71,6 +71,12 @@ En el ejemplo las asignaturas 1 y 3 dan los grupos {4}, {6}, {2, 3} y
 
 ## Soluciones optimizadas
 
+`2091_bitmask_optimized.java`. Conserva dos máscaras long por columna para N≤100 y popcounts exactos de cuatro grupos. Columna con c unos impone cota ceil(max(c,N−c)/2) a cada pareja que la contiene. Ordenación estable por cubetas permite detener cuando la cota no mejora el mejor. Mantiene salida óptima ceil(N/4) e índices originales. Peor caso O(NM+M²), O(M) palabras; poda sin prometer menor cota asintótica.
+
+Fuente exacto: Java 1.8 Accepted #11327755: 0.078 s / 468 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/43; 1/43. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11308008 (Java 1.8): 0.125 s / 400 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `2091_bitmask_optimized.java`: 0.078 s / 468 KB; base didáctica conservada `2091_bruteforce.java` (Java 1.8): 0.125 s / 5664 KB.
+
 Se conserva enumerar cada pareja y programa. Las variantes bitmask codifican los programas por curso. Con totales ca,cb e intersección t, los cuatro grupos son t,ca-t,cb-t,N-ca-cb+t. Intersección y popcount sustituyen recorrer N programas por pareja. Se prueban cursos distintos minimizando el grupo máximo; ceil(N/4) es cota inferior universal y permite salida óptima al alcanzarla. Filas de programas repetidas conservan bits separados y su multiplicidad. Para N<=100, cada curso nativo usa dos palabras64bits; Python, enteros grandes. Estado numérico O(M ceil(N/W))palabras; Python/Rust retienen además O(NM)entrada. Tiempo O(NM+M² ceil(N/W)), con máximo dos palabras nativas reales. Se acepta cualquier pareja óptima.
 
 - `2091_bitmask.cpp`: 0.015 s / 112 KB; base `2091_bruteforce.cpp`: 0.015 s / 228 KB; cambio respecto a la base: tiempo -0.0%, memoria -50.9%.
@@ -114,6 +120,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [2091_bitmask.cpp](2091_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 112 KB | 11308002 |
 | [2091_bitmask.go](2091_bitmask.go) | Go 1.14 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 304 KB | 11309740 |
 | [2091_bitmask.java](2091_bitmask.java) \* | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.125 s | 400 KB | 11308008 |
+| [2091_bitmask_optimized.java](2091_bitmask_optimized.java) | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.078 s | 468 KB | 11327755 |
 | [2091_bitmask.py](2091_bitmask.py) | Python 3.12 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.078 s | 592 KB | 11308000 |
 | [2091_bitmask.rs](2091_bitmask.rs) | Rust 1.75 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.015 s | 220 KB | 11308009 |
 

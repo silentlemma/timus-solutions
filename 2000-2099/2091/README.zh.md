@@ -63,6 +63,12 @@ n 和 m（4 ≤ n, m ≤ 100），然后是 n 行，每行 m 个 0 或 1。
 
 ## 优化解法
 
+`2091_bitmask_optimized.java`. N≤100 时每列保留两个 long 掩码，精确 popcount 四组。含 c 个一的列为所有包含它的列对提供下界 ceil(max(c,N−c)/2)。按下界稳定桶排序，下界不能改善最优时单调停止。ceil(N/4) 全局最优提前返回及原列号保持精确。最坏 O(NM+M²) 时间、O(M) 机器字，剪枝不宣称降低最坏上界。
+
+精确源码：Java 1.8 Accepted #11327755: 0.078 s / 468 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/43; 1/43。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11308008 (Java 1.8): 0.125 s / 400 KB，不混合测量或运行时。教学源码保持不变。
+
+- `2091_bitmask_optimized.java`: 0.078 s / 468 KB; 保留教学版 `2091_bruteforce.java` (Java 1.8): 0.125 s / 5664 KB.
+
 保留逐课程对、逐项目枚举。快速bitmask源码按课程编码项目。两列计数ca、cb，交集数t时，四组大小为t、ca-t、cb-t、N-ca-cb+t。交集及位计数代替每对扫描N个项目。枚举不同课程对并最小化最大组；ceil(N/4)是通用下界，达到即可有证明地提前退出。重复项目行必须保留为不同位，不能丢失重数。N<=100，原生每课程用两个64位字，Python用大整数。数值状态O(M ceil(N/W))字，Python/Rust另保留O(NM)输入。时间O(NM+M² ceil(N/W))，实际原生至多两字。检查器接受任意达到最优值的课程对。
 
 - `2091_bitmask.cpp`: 0.015 s / 112 KB; 基础 `2091_bruteforce.cpp`: 0.015 s / 228 KB; 相对变化: 时间 -0.0%, 内存 -50.9%.
@@ -106,6 +112,7 @@ n 和 m（4 ≤ n, m ≤ 100），然后是 n 行，每行 m 个 0 或 1。
 | [2091_bitmask.cpp](2091_bitmask.cpp) | G++ 13.2 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 112 KB | 11308002 |
 | [2091_bitmask.go](2091_bitmask.go) | Go 1.14 x64 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.015 s | 304 KB | 11309740 |
 | [2091_bitmask.java](2091_bitmask.java) \* | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.125 s | 400 KB | 11308008 |
+| [2091_bitmask_optimized.java](2091_bitmask_optimized.java) | Java 1.8 | bitmask | O(NM+M²) time; O(M) words for N≤100 | AC | 0.078 s | 468 KB | 11327755 |
 | [2091_bitmask.py](2091_bitmask.py) | Python 3.12 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.078 s | 592 KB | 11308000 |
 | [2091_bitmask.rs](2091_bitmask.rs) | Rust 1.75 x64 | bitmask | O(NM+M² ceil(N/W)) time; O(NM+M ceil(N/W)) space | AC | 0.015 s | 220 KB | 11308009 |
 
