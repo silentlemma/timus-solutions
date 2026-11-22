@@ -76,11 +76,15 @@ cercanos a k.
 
 ## Soluciones optimizadas
 
+`1787_simulation_optimized.java`. Java conserva la recurrencia de tráfico: añade las llegadas del minuto, resta la capacidad y limita la espera inferiormente a cero. Solo retiene ese contador; no guarda las llegadas ni acumula capacidad sin usar. Un búfer fijo de entrada de 256 bytes y salida decimal directa sustituyen Scanner y el formato general. Tiempo O(N), espacio auxiliar O(1). Los límites de minutos y llegadas garantizan que el contador cabe en int.
+
+Accepted exacto Java 1.8 #11327468: 0.109 s / 316 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 65/755, memoria 5/755. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303638 era 0.125 s / 364 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1787_simulation_optimized.java`: 0.109 s / 316 KB; base didáctica conservada `1787_simulation.java`: 0.125 s / 1680 KB.
+
 Las soluciones optimizadas (C++, Java) llevan la misma cuenta de la
 cola. C++ lee y escribe con `scanf` y `printf` en lugar de `iostream`:
-124 KB en lugar de 392 KB, con el mismo tiempo. Java analiza los números
-a mano desde un búfer pequeño en lugar de usar `Scanner`: 364 KB en
-lugar de 1680 KB, con el mismo tiempo.
+124 KB en lugar de 392 KB, con el mismo tiempo.
 
 Consumir los recuentos de coches del iterador y guardar solo el número actual de coches en espera. El envío aceptado 11324248 tardó 0.125 s y usó 244 KB. La versión sencilla tardó 0.078 s y usó 420 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
@@ -101,8 +105,7 @@ Consumir los recuentos de coches del iterador y guardar solo el número actual d
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
-| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
 | [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

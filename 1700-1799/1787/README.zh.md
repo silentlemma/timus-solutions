@@ -65,9 +65,14 @@ k 和 n（1 ≤ k, n ≤ 100），然后是 a₁、…、aₙ（0 ≤ aᵢ ≤ 1
 
 ## 优化解法
 
+`1787_simulation_optimized.java`. Java 保留相同的流式排队递推：加入本分钟来车数，减去每分钟通行能力，再将等待数截断为非负。每步只保留等待数量，不保存来车数组，也不把未用容量带到以后。固定 256 字节输入缓冲区和直接十进制输出替代 Scanner 与通用格式化。时间 O(N)，辅助空间 O(1)。题目给定的分钟数和来车上界保证计数可用 int。
+
+精确源代码 Java 1.8 Accepted #11327468：0.109 s / 316 KB。2026-11-20 保存的编译器组比较：时间 65/755、内存 5/755。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303638 为 0.125 s / 364 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1787_simulation_optimized.java`: 0.109 s / 316 KB; 保留教学基础版 `1787_simulation.java`: 0.125 s / 1680 KB.
+
 优化解法（C++、Java）使用同样的排队计数。C++ 用 `scanf` 和 `printf` 代替
-`iostream`：124 KB，而不是 392 KB，时间不变。Java 从较小的缓冲区中手工解析数字，
-而不是使用 `Scanner`：364 KB，而不是 1680 KB，时间不变。
+`iostream`：124 KB，而不是 392 KB，时间不变。
 
 从输入迭代器逐项读取车流量，仅保留当前等待车辆数。通过的提交 11324248 用时 0.125 秒、占用 244 KB；简单版用时 0.078 秒、占用 420 KB。记录的运行时间高于简单版。
 
@@ -88,7 +93,7 @@ k 和 n（1 ≤ k, n ≤ 100），然后是 a₁、…、aₙ（0 ≤ aᵢ ≤ 1
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
-| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
 | [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。

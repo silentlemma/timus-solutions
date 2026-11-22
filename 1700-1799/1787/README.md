@@ -72,11 +72,15 @@ random cases with any counts and with counts close to k.
 
 ## Optimized solutions
 
+`1787_simulation_optimized.java`. Java keeps the same streaming traffic recurrence: add the current arrivals, subtract the per-minute capacity, and clamp the waiting count to zero. Only that count survives each step; arrivals are never stored and unused capacity cannot carry over. A fixed 256-byte input buffer and raw decimal output replace Scanner and general formatting. Time O(N), auxiliary space O(1). Under the given N and arrival bounds the waiting count fits int.
+
+Exact-source Java 1.8 Accepted #11327468: 0.109 s / 316 KB. Saved 2026-11-20 compiler-cohort comparison: time 65/755, memory 5/755. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303638 was 0.125 s / 364 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1787_simulation_optimized.java`: 0.109 s / 316 KB; retained teaching base `1787_simulation.java`: 0.125 s / 1680 KB.
+
 The optimized solutions (C++, Java) keep the same queue count. C++ reads
 and writes with `scanf` and `printf` instead of `iostream`: 124 KB
-instead of 392 KB, with the same time. Java parses the numbers by hand
-from a small buffer instead of using `Scanner`: 364 KB instead of
-1680 KB, with the same time.
+instead of 392 KB, with the same time.
 
 Consume the car counts from the input iterator and retain only the current number of waiting cars. Accepted submission 11324248 took 0.125 s and used 244 KB. The simple version took 0.078 s and used 420 KB. The recorded runtime is higher than for the simple version.
 
@@ -97,8 +101,7 @@ Consume the car counts from the input iterator and retain only the current numbe
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
-| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.125 s | 364 KB | 11303638 |
+| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
 | [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
