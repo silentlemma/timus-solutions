@@ -71,9 +71,13 @@ every base on the largest count and on many smaller ones.
 
 ## Optimized solutions
 
-For bases 2, 4 and 8, bit counts give the sum of digits. Other bases use a byte table for the digit sum of each limb.
+For bases 2, 4 and 8, bit counts give digit sums. Other bases use byte lookup tables to compute limb digit sums.
 
-G++ 13.2 x64, submission 11320151. Time 0.375 → 0.14 s, memory 4728 → 1380 KB.
+`1803_math_optimized.cpp`. Keep the Fibonacci limb recurrence and index tie-break. Specialize each radix at compile time. For ordinary bases, split each limb into two blocks and use a runtime-generated digit-sum table of at most 4096 bytes, instead of a table for every limb value. For bases 2/4/8, use 60-bit limbs and bit-plane population counts; hardware POPCNT is selected only after a CPU capability check, with a software path otherwise. Unsigned borrow normalization is exact because the limb base is below half the unsigned range and the intermediate sum is below twice that base. The runtime-generated table holds digit sums, not precomputed answers. With table size T and limb base B, time is O(T+n²/log B+n log n), storage O(T+n); all teaching sources remain.
+
+Exact-source G++ 13.2 x64 Accepted #11326993: 0.171 s / 620 KB. Saved 2026-11-20 current-compiler comparison: time rank 10/45, memory rank 2/45, so both top-ten targets pass and no asterisk is needed. Below 1024 KB, strict admission also permits time only. Previously documented C++ run #11320151 used 1380 KB at 0.14 s: the new run uses less memory but has higher recorded time. These are two distinct accepted runs; the table uses only the paired measurements of #11326993.
+
+- `1803_math_optimized.cpp`: 0.171 s / 620 KB; retained teaching base `1803_math.cpp`: 0.375 s / 4728 KB.
 
 Rust 1.75 x64, submission 11320179. Time 0.359 → 0.187 s, memory 6884 → 1420 KB.
 
@@ -103,7 +107,7 @@ Java 1.8, submission 11322348. Time 0.562 → 0.89 s, memory 9876 → 3796 KB.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1803_math_optimized.cpp](1803_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(n^2 / log B) | AC | 0.14 s | 1380 KB | 11320151 |
+| [1803_math_optimized.cpp](1803_math_optimized.cpp) | G++ 13.2 x64 | math | O(T+n²/log B+n log n) time; O(T+n) space | AC | 0.171 s | 620 KB | 11326993 |
 | [1803_math_optimized.rs](1803_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^2 / log B) | AC | 0.187 s | 1420 KB | 11320179 |
 | [1803_math_optimized.py](1803_math_optimized.py) \* | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
 | [1803_math_optimized.go](1803_math_optimized.go) | Go 1.14 x64 | math | O(n^2 / log B) | AC | 0.312 s | 2564 KB | 11322008 |

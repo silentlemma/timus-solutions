@@ -72,9 +72,13 @@ para cada base con la cantidad máxima y con muchas menores.
 
 ## Soluciones optimizadas
 
-En bases 2, 4 y 8 se cuentan los bits activos para obtener la suma de dígitos. Las demás bases usan una tabla de un byte por entrada para la suma de los dígitos de cada bloque.
+En bases 2, 4 y 8 se cuentan bits para sumar dígitos. Las demás bases usan tablas de bytes para calcular las sumas de los bloques.
 
-G++ 13.2 x64, envío 11320151. Tiempo 0,375 → 0,14 s, memoria 4728 → 1380 KB.
+`1803_math_optimized.cpp`. Conserva la recurrencia Fibonacci por bloques y el menor índice en empates. Especializa cada base al compilar. En bases ordinarias divide cada bloque en dos partes y genera al ejecutar una tabla de sumas de hasta 4096 bytes, sin tabla para todo valor del bloque. En bases 2/4/8 usa bloques de 60 bits y conteos por planos; selecciona POPCNT tras comprobar la CPU, con alternativa por software. La normalización mediante préstamo sin signo es exacta: la base es menor que la mitad del rango sin signo y la suma intermedia bajo dos veces la base. La tabla contiene sumas calculadas, no respuestas precargadas. Con tabla T y base de bloque B: O(T+n²/log B+n log n) tiempo y O(T+n) espacio; conserva todos los fuentes didácticos.
+
+Accepted exacto G++ 13.2 x64 #11326993: 0.171 s / 620 KB. Comparación guardada 2026-11-20 de compiladores actuales: tiempo 10/45, memoria 2/45; ambas metas de primeros diez superadas, sin asterisco. Bajo 1024 KB la admisión estricta permite también tiempo solo. El envío C++ documentado antes #11320151 usaba 1380 KB en 0.14 s: el nuevo registro ahorra memoria pero tarda más. Son dos ejecuciones Accepted distintas; la tabla usa solo las medidas emparejadas de #11326993.
+
+- `1803_math_optimized.cpp`: 0.171 s / 620 KB; base didáctica conservada `1803_math.cpp`: 0.375 s / 4728 KB.
 
 Rust 1.75 x64, envío 11320179. Tiempo 0,359 → 0,187 s, memoria 6884 → 1420 KB.
 
@@ -104,7 +108,7 @@ Java 1.8, envío 11322348. Tiempo 0,562 → 0,89 s, memoria 9876 → 3796 KB.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1803_math_optimized.cpp](1803_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(n^2 / log B) | AC | 0.14 s | 1380 KB | 11320151 |
+| [1803_math_optimized.cpp](1803_math_optimized.cpp) | G++ 13.2 x64 | math | O(T+n²/log B+n log n) time; O(T+n) space | AC | 0.171 s | 620 KB | 11326993 |
 | [1803_math_optimized.rs](1803_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n^2 / log B) | AC | 0.187 s | 1420 KB | 11320179 |
 | [1803_math_optimized.py](1803_math_optimized.py) \* | Python 3.12 x64 | math | O(n^2) | AC | 1.062 s | 29780 KB | 11320239 |
 | [1803_math_optimized.go](1803_math_optimized.go) | Go 1.14 x64 | math | O(n^2 / log B) | AC | 0.312 s | 2564 KB | 11322008 |
