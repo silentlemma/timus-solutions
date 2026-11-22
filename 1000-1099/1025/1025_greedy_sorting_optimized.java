@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Main {
     private static final int BUFFER_SIZE = 1024;
     private static final byte[] buffer = new byte[BUFFER_SIZE];
@@ -35,16 +33,33 @@ public class Main {
     public static void main(String[] args) throws java.io.IOException {
         int count = nextInt();
         int[] sizes = new int[count];
+        // At most 101 groups: in-place insertion avoids loading Arrays.sort.
         for (int i = 0; i < count; ++i) {
-            sizes[i] = nextInt();
+            int value = nextInt(), j = i;
+            while (j > 0 && sizes[j - 1] > value) {
+                sizes[j] = sizes[j - 1];
+                j--;
+            }
+            sizes[j] = value;
         }
         // win a majority of the groups, choosing the smallest ones; a group of s
         // voters needs s / 2 + 1 supporters
-        Arrays.sort(sizes);
         int supporters = 0;
         for (int i = 0; i <= count / 2; ++i) {
             supporters += sizes[i] / 2 + 1;
         }
-        System.out.println(supporters);
+        output(supporters);
+    }
+
+    static final int DECIMAL = 10, LONG_DIGITS = 20;
+    static void output(long value) throws java.io.IOException {
+        byte[] answer = new byte[LONG_DIGITS + 1];
+        int at = answer.length;
+        answer[--at] = '\n';
+        do {
+            answer[--at] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        System.out.write(answer, at, answer.length - at);
     }
 }

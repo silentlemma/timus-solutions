@@ -81,17 +81,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee la entrada en bloques de 1 KB y la
-analiza a mano en lugar de usar `Scanner`: 384 KB en lugar de 1724 KB,
-con el mismo tiempo.
+`1025_greedy_sorting_optimized.py`. Python sigue ordenando los tamaños y eligiendo los floor(K/2)+1 menores. Como todos son impares, los partidarios son (sum(selected_sizes)+needed)//2: una suma en C y una división sustituyen el generador Python con división por grupo. Lee tokens binarios, escribe una vez y sale dentro de main antes de destruir los datos locales. Tiempo O(K log K), datos ordenados O(K), además de la entrada leída durante el proceso. Conserva la misma elección voraz y la base clara de costes por grupo.
+
+Accepted exacto Python 3.12 x64 #11327542: 0.062 s / 648 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 66/551, memoria 502/551. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324842 (PyPy 3.10 x64) era 0.109 s / 212 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1025_greedy_sorting_optimized.py`: 0.062 s / 648 KB; base didáctica conservada `1025_greedy_sorting.py`: 0.093 s / 372 KB.
+
+`1025_greedy_sorting_optimized.java`. Java conserva la elección voraz de la mayoría más pequeña: gana los floor(K/2)+1 grupos menores con floor(size/2)+1 partidarios en cada uno. Para K<=101 inserta cada tamaño leído en su posición de un arreglo int ordenado, sin cargar Arrays.sort. Cambia deliberadamente la ordenación O(K log K) por O(K^2) comparaciones acotadas para reducir el arranque de biblioteca; no es una mejora asintótica. Un búfer de entrada de 1024 bytes y salida decimal directa evitan Scanner y cadenas numéricas. Espacio auxiliar O(K); conserva la base más sencilla con ordenación de biblioteca.
+
+Accepted exacto Java 1.8 #11327343: 0.093 s / 320 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 108/770, memoria 4/770. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303704 era 0.125 s / 384 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1025_greedy_sorting_optimized.java`: 0.093 s / 320 KB; base didáctica conservada `1025_greedy_sorting.java`: 0.109 s / 1724 KB.
 
 `1025_greedy_sorting_optimized.go`. Go conserva la elección voraz de una mayoría de los grupos más pequeños. El código optimizado lee bytes directamente e inserta cada grupo en un único arreglo fijo de hasta 101 entradas. Usa deliberadamente ordenación por inserción: O(K²), frente a O(K log K) de la base, pero evita sus contenedores dinámicos y el coste de fmt con este límite pequeño. Suma floor(size/2)+1 para los primeros floor(K/2)+1 grupos. Se mantiene el código original con ordenación de biblioteca.
 
 Frente a `1025_greedy_sorting.go`: tiempo 0.031 s → 0.015 s; memoria 1076 KB → 796 KB.
-
-`1025_greedy_sorting_optimized.py`. Python mantiene el algoritmo voraz de ordenar y sumar. Convierte los tokens de bytes mediante un iterador directamente para sorted, evitando la cadena de entrada decodificada y otra lista entera completa antes de ordenar. Vacía explícitamente la salida antes de terminar sin la limpieza normal del intérprete. El tiempo sigue siendo O(K log K), con O(K) espacio para los tamaños ordenados.
-
-Frente a `1025_greedy_sorting.py`: tiempo 0.093 s → 0.109 s; memoria 372 KB → 212 KB.
 
 ## Notas por lenguaje
 
@@ -113,8 +117,8 @@ La misma ordenación y suma en todos los lenguajes.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K log K) | AC | 0.125 s | 384 KB | 11303704 |
+| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
 | [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11325044 |
-| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | PyPy 3.10 x64 | greedy, sorting | O(K log K) | AC | 0.109 s | 212 KB | 11324842 |
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

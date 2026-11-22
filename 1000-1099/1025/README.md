@@ -80,17 +80,21 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized Java solution reads the input in 1 KB blocks and parses it
-by hand instead of using `Scanner`: 384 KB instead of 1724 KB, with the
-same time.
+`1025_greedy_sorting_optimized.py`. Python keeps sorting the group sizes and choosing the smallest floor(K/2)+1. Every group size is odd, so the supporter count is (sum(selected_sizes)+needed)//2: one C-level sum and one division replace a Python generator with a division per group. Read binary integer tokens, write the answer once, and exit inside main before local data teardown. Time O(K log K); sorted data O(K), with the read input also retained during processing. This is the same majority greedy, not a different optimization problem. The clear per-group-cost base remains.
+
+Exact-source Python 3.12 x64 Accepted #11327542: 0.062 s / 648 KB. Saved 2026-11-20 compiler-cohort comparison: time 66/551, memory 502/551. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324842 (PyPy 3.10 x64) was 0.109 s / 212 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1025_greedy_sorting_optimized.py`: 0.062 s / 648 KB; retained teaching base `1025_greedy_sorting.py`: 0.093 s / 372 KB.
+
+`1025_greedy_sorting_optimized.java`. Java keeps the same smallest-majority greedy: win the smallest floor(K/2)+1 groups, paying floor(size/2)+1 supporters for each. For the given K<=101, insert each input size into its sorted position in an int array rather than loading Arrays.sort. This deliberately trades O(K log K) sorting for bounded O(K^2) comparisons to reduce library startup overhead; it is not an asymptotic improvement. A 1024-byte input buffer and direct decimal output avoid Scanner and number strings. Auxiliary storage O(K); the simpler library-sort teaching source remains available.
+
+Exact-source Java 1.8 Accepted #11327343: 0.093 s / 320 KB. Saved 2026-11-20 compiler-cohort comparison: time 108/770, memory 4/770. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303704 was 0.125 s / 384 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1025_greedy_sorting_optimized.java`: 0.093 s / 320 KB; retained teaching base `1025_greedy_sorting.java`: 0.109 s / 1724 KB.
 
 `1025_greedy_sorting_optimized.go`. Go retains the majority-of-the-smallest-groups greedy choice. The optimized source reads bytes directly and inserts each group into one fixed array of at most 101 entries. This deliberately uses insertion sort: O(K²) time instead of the base sort's O(K log K), but avoids its dynamic containers and fmt overhead at this small limit. Sum floor(size/2)+1 for the first floor(K/2)+1 groups. The original library-sort source is preserved.
 
 Compared with `1025_greedy_sorting.go`: time 0.031 s → 0.015 s; memory 1076 KB → 796 KB.
-
-`1025_greedy_sorting_optimized.py`. Python keeps the sort-and-sum greedy algorithm. It converts byte tokens through an iterator directly into sorted, avoiding the separate decoded input string and an extra full integer list before sorting. Explicitly flush the answer before exiting without normal interpreter teardown. Time remains O(K log K), with O(K) storage for the sorted group sizes.
-
-Compared with `1025_greedy_sorting.py`: time 0.093 s → 0.109 s; memory 372 KB → 212 KB.
 
 ## Language notes
 
@@ -112,8 +116,8 @@ The same sort and sum everywhere.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K log K) | AC | 0.125 s | 384 KB | 11303704 |
+| [1025_greedy_sorting_optimized.java](1025_greedy_sorting_optimized.java) \* | Java 1.8 | greedy, sorting | O(K²) time; O(K) auxiliary space | AC | 0.093 s | 320 KB | 11327343 |
 | [1025_greedy_sorting_optimized.go](1025_greedy_sorting_optimized.go) | Go 1.14 x64 | greedy, sorting | O(K²) | AC | 0.015 s | 796 KB | 11325044 |
-| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | PyPy 3.10 x64 | greedy, sorting | O(K log K) | AC | 0.109 s | 212 KB | 11324842 |
+| [1025_greedy_sorting_optimized.py](1025_greedy_sorting_optimized.py) \* | Python 3.12 x64 | greedy, sorting | O(K log K) time; O(K + I) storage | AC | 0.062 s | 648 KB | 11327542 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

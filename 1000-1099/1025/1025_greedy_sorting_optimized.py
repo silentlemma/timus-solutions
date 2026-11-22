@@ -1,12 +1,15 @@
-import os
-from sys import stdout
+from os import _exit, write
 
-values = map(int, open(0, "rb", buffering=0).read().split())
-count = next(values)
-groups = sorted(values)
-needed = count // 2 + 1
-print(sum(size // 2 + 1 for size in groups[:needed]))
 
-# The answer is flushed before interpreter teardown is skipped.
-stdout.flush()
-os._exit(0)
+def main():
+    values = map(int, open(0, "rb", buffering=0).read().split())
+    group_count = next(values)
+    groups = sorted(values)
+    needed = group_count // 2 + 1
+    # All group sizes are odd, so sum((s+1)//2)=(sum(s)+needed)//2.
+    answer = (sum(groups[:needed]) + needed) // 2
+    write(1, (str(answer) + "\n").encode())
+    _exit(0)
+
+
+main()
