@@ -58,6 +58,12 @@
 
 ## 优化解法
 
+`1878_math_optimized.java`. 固定 4×4 网格保留四象限计数及精确式 4−max(|a−d|,|b−c|)。O(1) 时间空间。计算所用数值均在输出前读完。复用一个 256 字节数组先输入后输出，每个有符号 int 预留十二字节，只反转刚写的数字。省去独立输入、输出和数字数组，不覆盖算法尚需的数据。解析输出对已消费字节线性，缓冲固定。
+
+精确源码：Java 1.8 Accepted #11327768: 0.093 s / 368 KB。2026-11-20 保存的编译器组排名，时间然后内存：4/31; 2/31。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11308562 (Java 1.8): 0.109 s / 440 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1878_math_optimized.java`: 0.093 s / 368 KB; 保留教学版 `1878_implementation.java` (Java 1.8): 0.14 s / 1668 KB.
+
 `1878_implementation_optimized.go`. 保留四目标旋转费用扫描。十六格直接累计到四个象限计数，算术计算顺时针象限索引，不保留各格。环距离与平局规则不变。固定 4×4 谜题时间、存储为常数。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
 
 与 `1878_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1084 KB → 292 KB。
@@ -98,6 +104,7 @@
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math_optimized.java](1878_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11327768 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
 | [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
 | [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |

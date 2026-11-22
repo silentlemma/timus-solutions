@@ -84,6 +84,12 @@ incluidas todas las correspondencias entre números y colores.
 
 ## Soluciones optimizadas
 
+`1878_math_optimized.java`. Cuadrícula fija 4×4: conserva cuatro conteos y 4−max(|a−d|,|b−c|). O(1) tiempo/espacio. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
+
+Fuente exacto: Java 1.8 Accepted #11327768: 0.093 s / 368 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 4/31; 2/31. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11308562 (Java 1.8): 0.109 s / 440 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1878_math_optimized.java`: 0.093 s / 368 KB; base didáctica conservada `1878_implementation.java` (Java 1.8): 0.14 s / 1668 KB.
+
 `1878_implementation_optimized.go`. Mantiene barrido de costes hacia cuatro cuadrantes. Lee dieciséis celdas directamente a cuatro contadores y calcula índices horarios aritméticamente, sin guardar celdas. Mismas distancias circulares y empates. Tiempo y espacio constantes para 4×4. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
 
 Frente a `1878_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1084 KB → 292 KB.
@@ -124,6 +130,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math_optimized.java](1878_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11327768 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
 | [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
 | [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |

@@ -81,6 +81,12 @@ number-to-colour assignment.
 
 ## Optimized solutions
 
+`1878_math_optimized.java`. Keep four quadrant counts and the exact expression 4−max(|a−d|,|b−c|) for the fixed 4×4 grid. O(1) time and storage. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
+
+Exact-source Java 1.8 Accepted #11327768: 0.093 s / 368 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 4/31; 2/31. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11308562 (Java 1.8): 0.109 s / 440 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1878_math_optimized.java`: 0.093 s / 368 KB; retained teaching base `1878_implementation.java` (Java 1.8): 0.14 s / 1668 KB.
+
 `1878_implementation_optimized.go`. Keep the four-target rotation-cost scan. Read the sixteen cells directly into four quadrant counts and compute clockwise quadrant indices arithmetically, without retaining the cells. Circular distances and ties are unchanged. The fixed 4×4 puzzle takes constant time and storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
 
 Compared with `1878_implementation.go`: time 0.031 s → 0.015 s; memory 1084 KB → 292 KB.
@@ -121,6 +127,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1878_math.java](1878_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 440 KB | 11308562 |
+| [1878_math_optimized.java](1878_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 368 KB | 11327768 |
 | [1878_math.py](1878_math.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 288 KB | 11309395 |
 | [1878_implementation_optimized.rs](1878_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.031 s | 60 KB | 11325617 |
 | [1878_implementation_optimized.go](1878_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1), fixed 16-cell puzzle | AC | 0.015 s | 292 KB | 11325658 |
