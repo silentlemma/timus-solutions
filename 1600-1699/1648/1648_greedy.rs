@@ -3,7 +3,10 @@ use std::io::{self, Read};
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<i64> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<i64> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let (n, d) = (nums[0] as usize, nums[1]);
     // sell to everyone who can be served: by the end of month i at most
     // i * d yachts exist, so the running total of sales is capped there
