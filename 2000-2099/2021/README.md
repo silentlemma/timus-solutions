@@ -105,6 +105,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2021_sorting_greedy.java`. The same extremal-score greedy ordering now uses seven linked buckets. Store only next-ID arrays and one head per score for each team, while accumulating totals. Emit the lower-total team in descending score order and the higher-total team ascending; on a draw both ascend. Within an equal score, IDs are reversed by head insertion, which is allowed because scores and every certainty round are unchanged. O(N+7) time, O(N+7) storage plus 1024-byte I/O, without prefix-offset arrays, boxed sorting or a complete answer matrix/string. Name the variant sorting_greedy; retain the stable prefix-sum counting-order alternative and teaching sorting source. Strict certainty remains |difference|>6*remaining.
+
+Exact-source Java 1.8 Accepted #11327334: 0.093 s / 524 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/47; 1/47. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11325033 (Java 1.8): 0.14 s / 496 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `2021_sorting_greedy.java`: 0.093 s / 524 KB; retained teaching base `2021_sorting.java` (Java 1.8): 0.14 s / 2824 KB.
+
 `2021_sorting_prefix_sums.java`. Keep the same extremal-score ordering that delays certainty, but replace boxed comparison sorts by stable counting order over the seven allowed scores 0..6. Frequency prefix ends and a backward fill retain original ID order for equal scores. Emit the lower-total team in descending score order and the higher-total team ascending; equal totals keep both ascending. Reverse by indexing rather than copying or swapping lists. The different sorting_prefix_sums variant takes O(n+7) time and O(n) storage, without boxed IDs, the result-pair matrix or the complete output string. The strict certainty condition remains |difference|>6·remaining.
 
 Compared with `2021_sorting.java`: time 0.14 s → 0.14 s; memory 2 824 KB → 496 KB.
@@ -141,5 +147,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
 | [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
 | [2021_sorting_prefix_sums.java](2021_sorting_prefix_sums.java) \* | Java 1.8 | sorting, prefix_sums | O(n+7) | AC | 0.14 s | 496 KB | 11325033 |
+| [2021_sorting_greedy.java](2021_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(N+7) time and storage + bounded I/O | AC | 0.093 s | 524 KB | 11327334 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

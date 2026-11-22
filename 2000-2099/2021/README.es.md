@@ -104,6 +104,12 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`2021_sorting_greedy.java`. El mismo orden voraz de puntuaciones extremas usa siete cubetas enlazadas. Guarda solo vectores next-ID y cabezas por puntuación, acumulando totales. Equipo de total menor desciende y el mayor asciende; empate ambos ascienden. Insertar en cabeza invierte IDs de igual puntuación, permitido pues no cambia puntuaciones ni certeza. O(N+7) tiempo/espacio más I/O de 1024 bytes, sin offsets prefijos, ordenación con objetos ni matriz/cadena completa. Nombre sorting_greedy; conserva alternativa estable con prefijos y base de ordenación. Certeza estricta |difference|>6*remaining.
+
+Fuente exacto: Java 1.8 Accepted #11327334: 0.093 s / 524 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/47; 1/47. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11325033 (Java 1.8): 0.14 s / 496 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `2021_sorting_greedy.java`: 0.093 s / 524 KB; base didáctica conservada `2021_sorting.java` (Java 1.8): 0.14 s / 2824 KB.
+
 `2021_sorting_prefix_sums.java`. Conserva el orden extremo de puntuaciones que retrasa certeza, pero reemplaza comparación con objetos por conteo estable de siete puntuaciones0..6. Extremos prefijos y relleno inverso mantienen IDs empatados. Equipo de menor total desciende y el mayor asciende; con empate ambos ascienden. Invierte al indexar, sin copias. sorting_prefix_sums cuesta O(n+7) y O(n) espacio, sin IDs con objetos, matriz de parejas ni cadena completa. La certeza sigue siendo estricta: |difference|>6·remaining.
 
 Frente a `2021_sorting.java`: tiempo 0.14 s → 0.14 s; memoria 2 824 KB → 496 KB.
@@ -140,5 +146,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
 | [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
 | [2021_sorting_prefix_sums.java](2021_sorting_prefix_sums.java) \* | Java 1.8 | sorting, prefix_sums | O(n+7) | AC | 0.14 s | 496 KB | 11325033 |
+| [2021_sorting_greedy.java](2021_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(N+7) time and storage + bounded I/O | AC | 0.093 s | 524 KB | 11327334 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

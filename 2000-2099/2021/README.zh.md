@@ -84,6 +84,12 @@
 
 ## 优化解法
 
+`2021_sorting_greedy.java`. 同一极端分数贪心改用七个链式桶。每队只存 next-ID 数组和每分值的头，读取时累计总分。低总分队按分数递减，高总分队递增；平局两队递增。头插使同分 ID 反序，这是允许的，分数和确定轮次不变。O(N+7) 时间空间加 1024 字节输入输出，无前缀偏移数组、装箱排序或完整答案矩阵/字符串。命名 sorting_greedy，保留稳定前缀计数替代版和教学排序。严格确定条件仍为 |difference|>6*remaining。
+
+精确源码：Java 1.8 Accepted #11327334: 0.093 s / 524 KB。2026-11-20 保存的编译器组排名，时间然后内存：2/47; 1/47。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11325033 (Java 1.8): 0.14 s / 496 KB，不混合测量或运行时。教学源码保持不变。
+
+- `2021_sorting_greedy.java`: 0.093 s / 524 KB; 保留教学版 `2021_sorting.java` (Java 1.8): 0.14 s / 2824 KB.
+
 `2021_sorting_prefix_sums.java`. 保留延迟确定胜负的极值分数顺序，但把装箱比较排序换为七种分数0..6 的稳定计数序。频数前缀结束位置和逆向填充保留同分原 ID 顺序。总分低的一队降序，高的一队升序；总分相等则均升序。通过索引反向输出，不复制或交换列表。sorting_prefix_sums 版本耗时 O(n+7)、存储 O(n)，去掉装箱 ID、结果对矩阵和完整输出串。确定胜者仍严格要求 |difference|>6·remaining。
 
 与 `2021_sorting.java` 相比：时间 0.14 s → 0.14 s；内存 2 824 KB → 496 KB。
@@ -120,5 +126,6 @@
 | [2021_sorting_greedy.go](2021_sorting_greedy.go) \* | Go 1.14 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 284 KB | 11315209 |
 | [2021_sorting_greedy.rs](2021_sorting_greedy.rs) \* | Rust 1.75 x64 | sorting, greedy | O(n + S) | AC | 0.015 s | 56 KB | 11315222 |
 | [2021_sorting_prefix_sums.java](2021_sorting_prefix_sums.java) \* | Java 1.8 | sorting, prefix_sums | O(n+7) | AC | 0.14 s | 496 KB | 11325033 |
+| [2021_sorting_greedy.java](2021_sorting_greedy.java) \* | Java 1.8 | sorting, greedy | O(N+7) time and storage + bounded I/O | AC | 0.093 s | 524 KB | 11327334 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
