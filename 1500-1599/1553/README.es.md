@@ -89,7 +89,7 @@ Detalles a tener en cuenta:
 
 `1553_trees_optimized.go`. Conserva la descomposición heavy-light y el árbol de segmentos iterativo. Sustituye listas por vértice por arreglos planos first/to/next y guarda enlaces, orden, padres, profundidades, tamaños, cabeceras, posiciones y máximos en int32. N<=100000 acota índices; hasta 100000 incrementos de 10000 limitan cada nivel a 10^9, haciendo seguro estrechar el árbol int64. Construye orden y cadenas iterativamente, sin pila recursiva. Preparación O(N), actualización puntual O(log N), máximo de camino O(log² N), espacio O(N); bytes sustituyen Scanner.Text y strconv por token. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `1553_trees.go`: tiempo 0.203 s → 0.093 s; memoria 19108 KB → 6 432 KB.
+Frente a `1553_trees.go`: tiempo 0.203 s → 0.062 s; memoria 19108 KB → 6132 KB.
 
 Se conservan HLD iterativo y máximos de caminos. C++/Python compactos usan arrays planos, máximos de 32 bits y entrada/salida acotada. Hasta 100000 aumentos de 10000 dejan valores ≤10^9, dentro de 32 bits con signo. Como los incrementos no son negativos, un ancestro sin cambio permite parar la propagación.
 
@@ -126,6 +126,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1553_trees_optimized.cpp](1553_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.046 s | 5200 KB | 11309316 |
 | [1553_trees_optimized.java](1553_trees_optimized.java) \* | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.187 s | 6968 KB | 11309559 |
 | [1553_trees_optimized.py](1553_trees_optimized.py) \* | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 1.703 s | 5432 KB | 11309314 |
-| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.093 s | 6432 KB | 11325050 |
+| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.062 s | 6132 KB | 11328277 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

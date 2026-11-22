@@ -102,12 +102,6 @@ func writeNumber(value int64) {
 	}
 }
 
-func writeText(text string) {
-	for index := 0; index < len(text); index++ {
-		writeByte(text[index])
-	}
-}
-
 func main() {
 	defer flushOutput()
 	count := int(number())

@@ -76,7 +76,7 @@ G 3 4
 
 `1553_trees_optimized.go`. 保留重链剖分与迭代线段树。用扁平 first/to/next 替代每顶点邻接切片，边链接、遍历序、父亲、深度、子树大小、链头、位置和最大值均存 int32。N<=100000 保证下标可容纳；至多 100000 次各加 10000，使每点值不超过 10^9，因此可安全缩窄原 int64 最大值树。根序与重链均迭代构造，无递归栈。预处理 O(N)，单点更新 O(log N)，路径最大值 O(log² N)，存储 O(N)；字节解析替代逐记号 Scanner.Text、strconv。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
-与 `1553_trees.go` 相比：时间 0.203 s → 0.093 s；内存 19108 KB → 6 432 KB。
+与 `1553_trees.go` 相比：时间 0.203 s → 0.062 s；内存 19108 KB → 6132 KB。
 
 保留迭代重链剖分及路径最大值查询。紧凑 C++/Python 使用扁平图/状态数组、32 位区间最大值和有界输入输出。至多 100000 次、每次至多 10000 的增加，使值不超过 10^9，可用有符号 32 位。增量非负，祖先最大值不变时即可停止上推。
 
@@ -113,6 +113,6 @@ Java 进一步复用已结束用途的空间：遍历后邻接表头改作重儿
 | [1553_trees_optimized.cpp](1553_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.046 s | 5200 KB | 11309316 |
 | [1553_trees_optimized.java](1553_trees_optimized.java) \* | Java 1.8 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 0.187 s | 6968 KB | 11309559 |
 | [1553_trees_optimized.py](1553_trees_optimized.py) \* | Python 3.12 x64 | trees | O(N) preparation; O(log N) update; O(log^2 N) query | AC | 1.703 s | 5432 KB | 11309314 |
-| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.093 s | 6432 KB | 11325050 |
+| [1553_trees_optimized.go](1553_trees_optimized.go) \* | Go 1.14 x64 | trees | O(N) prep; O(log N) update; O(log² N) query | AC | 0.062 s | 6132 KB | 11328277 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
