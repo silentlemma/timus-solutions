@@ -95,7 +95,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La versión en C++ retira las hojas sucesivamente. Para cada ciudad mantiene su grado actual, el XOR de los vecinos que quedan y el XOR de las alegrías de los vuelos restantes. En una hoja esos dos valores identifican su único vuelo restante. Las dos mejores ramas retiradas permiten calcular y reconstruir la mejor ruta que pasa por la ciudad. El tiempo es O(N + K) y el espacio adicional es O(N). Las métricas corresponden al envío 11317012.
+`1463_trees_optimized.cpp`. Conserva la eliminación lineal de hojas con grados/XOR y las dos mejores ramas retiradas. Los mismos enlaces reconstruyen la ruta óptima. Lectura y escritura por bloques de 16 KiB sustituyen el I/O numérico formateado; estados y desempates no cambian. Se conservan 1463_trees.cpp, legible y con I/O estándar, y todas las bases DFS con sus métricas. Ambas variantes usan O(N+K) tiempo y O(N) estado del grafo más búferes fijos.
+
+Accepted del fuente exacto #11326974: 0.015 s / 1448 KB. Comparación G++ 13.2 guardada el 2026-11-20: tiempo 1/42, memoria 1/42.
+
+Versión legible con I/O estándar `1463_trees.cpp`. La versión en C++ retira las hojas sucesivamente. Para cada ciudad mantiene su grado actual, el XOR de los vecinos que quedan y el XOR de las alegrías de los vuelos restantes. En una hoja esos dos valores identifican su único vuelo restante. Las dos mejores ramas retiradas permiten calcular y reconstruir la mejor ruta que pasa por la ciudad. El tiempo es O(N + K) y el espacio adicional es O(N). Las métricas corresponden al envío 11317012.
 
 La versión en Python retira las hojas del mismo modo. Combina cada rama retirada con la mejor rama hallada hasta entonces en su vértice padre y después actualiza esa mejor rama. Basta guardar los dos vértices donde empiezan las ramas elegidas para reconstruir la ruta óptima. El tiempo es O(N + K) y el espacio adicional es O(N). Las métricas corresponden al envío 11317010.
 
@@ -125,6 +129,7 @@ G++ 13.2 x64 №11322150 · Go 1.14 x64 №11322151 · Java 1.8 №11322152 · P
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1463_trees_optimized.cpp](1463_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N + K) | AC | 0.015 s | 1448 KB | 11326974 |
 | [1463_trees.cpp](1463_trees.cpp) \* | G++ 13.2 x64 | trees | O(N + K) | AC | 0.109 s | 1504 KB | 11317012 |
 | [1463_trees.py](1463_trees.py) | Python 3.12 x64 | trees | O(N + K) | AC | 0.203 s | 10696 KB | 11317010 |
 | [1463_trees.go](1463_trees.go) | Go 1.14 x64 | trees | O(N + K) | AC | 0.078 s | 1976 KB | 11317154 |

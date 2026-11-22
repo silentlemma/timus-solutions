@@ -94,7 +94,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-The C++ version removes leaves until each tree is exhausted. At each city it keeps the current degree and the XOR of its remaining neighbors and flight weights. At a leaf these two XOR values give the only remaining flight. The two best removed branches through each city suffice to score and reconstruct the best route. This takes O(N + K) time and O(N) extra space. The metrics come from submission 11317012.
+`1463_trees_optimized.cpp`. Keep linear leaf peeling with degree/XOR accumulators and the two best removed branches. The same child links reconstruct the optimum route. A 16 KiB block reader and writer replace formatted numeric I/O; graph state and tie rules stay unchanged. The readable standard-I/O counterpart 1463_trees.cpp and all original DFS teaching sources remain with their own metrics. Both leaf-peeling variants take O(N+K) time and O(N) graph state, plus fixed I/O buffers.
+
+Exact-source Accepted #11326974: 0.015 s / 1448 KB. Saved G++ 13.2 comparison, 2026-11-20: time rank 1/42, memory rank 1/42.
+
+Readable standard-I/O version `1463_trees.cpp`. The C++ version removes leaves until each tree is exhausted. At each city it keeps the current degree and the XOR of its remaining neighbors and flight weights. At a leaf these two XOR values give the only remaining flight. The two best removed branches through each city suffice to score and reconstruct the best route. This takes O(N + K) time and O(N) extra space. The metrics come from submission 11317012.
 
 The Python version uses the same leaf removal. It combines each removed branch with the best branch already found at its parent, then updates that best branch. The ends of the two branches are enough to reconstruct the best route. It also takes O(N + K) time and O(N) extra space. The metrics come from submission 11317010.
 
@@ -124,6 +128,7 @@ G++ 13.2 x64 №11322150 · Go 1.14 x64 №11322151 · Java 1.8 №11322152 · P
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
+| [1463_trees_optimized.cpp](1463_trees_optimized.cpp) | G++ 13.2 x64 | trees | O(N + K) | AC | 0.015 s | 1448 KB | 11326974 |
 | [1463_trees.cpp](1463_trees.cpp) \* | G++ 13.2 x64 | trees | O(N + K) | AC | 0.109 s | 1504 KB | 11317012 |
 | [1463_trees.py](1463_trees.py) | Python 3.12 x64 | trees | O(N + K) | AC | 0.203 s | 10696 KB | 11317010 |
 | [1463_trees.go](1463_trees.go) | Go 1.14 x64 | trees | O(N + K) | AC | 0.078 s | 1976 KB | 11317154 |
