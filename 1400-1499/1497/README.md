@@ -84,9 +84,13 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1497_implementation_optimized.cpp`. Keep the four monotone-direction flags. SSE2 compares sixteen cells at once and turns each row block into a bit mask; shifted masks detect horizontal transitions, the previous block contributes a carry bit, and previous-row masks detect vertical transitions. Mask the final partial block and pad the row so every vector load stays within its array. SSE2 is part of the x64 target and no AVX instruction is required. A 16 KiB input buffer replaces per-character standard I/O. Time O(N²), auxiliary storage O(N); early rejection remains.
+
+Exact-source Accepted #11326995: 0.015 s / 92 KB. Saved G++ 13.2 sample, 2026-11-20: time rank 1/46, memory rank 1/46. Teaching sources remain unchanged.
+
 C++ and Go check all four directions in one pass. At a horizontal color boundary, only the direction that moves black away from white remains possible on that axis. A vertical boundary does the same for the other axis. Keep four flags and stop if all become false. Only the previous row and the current row are needed, so memory is O(N).
 
-The accepted base implementations [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The retained accepted base implementations [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies; the other teaching sources remain. An asterisk denotes the separate language rating target.
 
 ## Solutions
 
@@ -104,7 +108,7 @@ The accepted base implementations [1497_implementation.java](1497_implementation
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N²) | AC | 0.031 s | 112 KB | 11310458 |
+| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
 | [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

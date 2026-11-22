@@ -86,9 +86,13 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1497_implementation_optimized.cpp`. Conserva los cuatro indicadores de dirección monótona. SSE2 compara dieciséis celdas y convierte cada bloque en una máscara; los desplazamientos detectan cambios horizontales, un acarreo une bloques y las máscaras de la fila anterior detectan cambios verticales. Se enmascara el último bloque parcial y se rellena el arreglo para que las cargas vectoriales queden dentro de él. El objetivo x64 incluye SSE2 y no requiere AVX. Un búfer de entrada de 16 KiB sustituye la lectura carácter a carácter. Tiempo O(N²), espacio auxiliar O(N), con rechazo anticipado.
+
+Accepted del fuente exacto #11326995: 0.015 s / 92 KB. Muestra G++ 13.2 guardada el 2026-11-20: tiempo 1/46, memoria 1/46. Se conservan los fuentes didácticos.
+
 C++ y Go comprueban los cuatro sentidos en una sola pasada. En una pareja horizontal de colores distintos solo queda permitido el sentido que aleja la pieza negra de la blanca. Las parejas verticales hacen lo mismo en el otro eje. Se guardan cuatro indicadores y se termina si todos se desactivan. Bastan la fila anterior y la actual, de modo que el espacio es O(N).
 
-Las implementaciones base aceptadas [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases aceptadas conservadas [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) cumplen la admisión estricta en la comparación guardada: diez primeros puestos o 15% superior en los indicadores requeridos. Se reutilizan sin copias idénticas y se conservan los otros fuentes didácticos. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
 ## Soluciones
 
@@ -106,7 +110,7 @@ Las implementaciones base aceptadas [1497_implementation.java](1497_implementati
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N²) | AC | 0.031 s | 112 KB | 11310458 |
+| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
 | [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

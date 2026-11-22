@@ -77,9 +77,13 @@ No
 
 ## 优化解法
 
+`1497_implementation_optimized.cpp`. 保留四个单调方向标志。SSE2 每次比较十六个单元并将行块转为位掩码；移位检测水平变化，进位连接相邻块，上一行掩码检测垂直变化。末尾不足十六位的块被屏蔽，行数组增加填充，所有向量读取均在数组内。x64 目标包含 SSE2，无需 AVX。16 KiB 输入缓冲替代逐字符标准输入。时间 O(N²)，辅助空间 O(N)，保留提前否定。
+
+精确源代码 Accepted #11326995：0.015 s / 92 KB。2026-11-20 保存的 G++ 13.2 样本：时间排名 1/46，内存排名 1/46。教学源代码保留。
+
 C++ 和 Go 一趟检查四个方向。横向相邻格颜色不同时，该轴上只允许黑块远离白块的方向。纵向相邻格以同样方式限制另一轴。保留四个标志，全部失效即可停止。只需保存上一行和当前行，空间 O(N)。
 
-已通过评测的基础实现 [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+保留的已接受基础实现 [1497_implementation.go](1497_implementation.go), [1497_implementation.java](1497_implementation.java), [1497_implementation.py](1497_implementation.py), [1497_implementation.rs](1497_implementation.rs) 在保存的比较中满足严格快速版本收录：所需指标前十名或前 15%。直接复用，不创建相同副本；其他教学源代码保留。星号表示单独的语言排名目标。
 
 ## 解答
 
@@ -97,7 +101,7 @@ C++ 和 Go 一趟检查四个方向。横向相邻格颜色不同时，该轴上
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N²) | AC | 0.031 s | 112 KB | 11310458 |
+| [1497_implementation_optimized.cpp](1497_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N²) | AC | 0.015 s | 92 KB | 11326995 |
 | [1497_implementation_optimized.go](1497_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N²) | AC | 0.031 s | 904 KB | 11310460 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
