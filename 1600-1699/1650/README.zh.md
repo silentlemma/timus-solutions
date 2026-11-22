@@ -77,12 +77,15 @@ Moscow 1
 
 ## 优化解法
 
-优化的 C++ 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个新
-城市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的映
-射代替两个映射，结点保存唯一领先城市的编号（平局时为平局标记），而不是叶子的个
-数，树由初始总额自底向上建立，更新时一旦某个结点的最大值和领先者都没有变化就停止
-上溯，因为更上面的结点不会再变。名字用 `scanf` 读入 21 字节的缓冲区，而不是用
-`iostream`：{1650_segment_tree_optimized.cpp}。
+`1650_greedy.py`. 以惰性最大堆及独立财富频次映射替代线段树，计数城市而非过期堆项。(-wealth,city) 打包为整数，city<60000 容于低十六位。弹出过期最大项，唯一当前最大城市获得间隔天数，迁居次晨生效。堆大于 3C+1024 时重建，跳过零天区间。C 为城市数；含最终名称排序，期望/摊还 O((N+K)log C+C log C)，O(N+C) 记录加名称/输出字节。保留线段树及教学版。
+
+精确源码：Python 3.12 x64 Accepted #11327774: 0.39 s / 14828 KB。2026-11-20 保存的编译器组排名，时间然后内存：6/49; 1/49。严格收录采用达到 1024 KB 时要求时间和内存：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11307267 (Python 3.12 x64): 1.046 s / 16232 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1650_greedy.py`: 0.39 s / 14828 KB; 保留教学版 `1650_segment_tree.py` (Python 3.12 x64): 1.062 s / 27776 KB.
+
+C++ 修订版保留逐次处理行程、人物与财富映射，以及可提前停止更新的线段树最大值和唯一领先城市状态。至多二十字母的名字直接放入映射和名字列表的固定 21 字节键，省去独立字符串分配。哈希匹配仍用完整 strcmp 检验，排序保持相同字典序，碰撞不会改变答案。
+
+精确源代码的 Accepted（G++ 13.2 x64, #11326653: 0.187 s / 8912 KB）；教学基础版 `1650_segment_tree.cpp`: 0.125 s / 20700 KB。此前优化版的测量为 0.187 s / 10156 KB。在保存的 2026 年 11 月 20 日比较中，时间名次为 22/434，内存名次为 51/434；内存低于 1 MiB 时规则仅评估时间排名。
 
 优化的 Go 解法逐条读取行程并立即处理，而不是先全部存下：每次行程最多带来一个新城
 市，所以线段树一开始就按初始城市数加 k 分配大小。用一个从名字到城市和财富的映射
@@ -109,7 +112,7 @@ Moscow 1
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
-- `1650_segment_tree_optimized.cpp`: 时间降低 -49.60%; 内存降低 +50.94%; 基础版本: `1650_segment_tree.cpp`.
+- `1650_segment_tree_optimized.cpp`：时间减少 -49.60%；内存减少 +56.95%；基础版：`1650_segment_tree.cpp`。
 
 - `1650_segment_tree_optimized.go`: 时间降低 +45.61%; 内存降低 +1.04%; 基础版本: `1650_segment_tree.go`.
 
@@ -133,9 +136,10 @@ Moscow 1
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) \* | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 10156 KB | 11307264 |
+| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 8912 KB | 11326653 |
 | [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
 | [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
 | [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
+| [1650_greedy.py](1650_greedy.py) \* | Python 3.12 x64 | greedy | Expected/amortized O((N+K)log C+C log C); O(N+C) records plus names/output | AC | 0.39 s | 14828 KB | 11327774 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

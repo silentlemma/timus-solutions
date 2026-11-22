@@ -90,16 +90,15 @@ program here treats such a trip as staying put.
 
 ## Optimized solutions
 
-The optimized C++ solution reads the trips one at a time and applies
-each as soon as it is read, instead of storing them all first: a trip
-brings at most one new city, so the tree is sized from the start for the
-starting cities plus k. One map from a name to the city and fortune
-replaces two, a node keeps the index of its single leading city, or a
-tie mark, instead of a count of leaves, the tree is built bottom-up from
-the starting totals, and an update stops climbing as soon as a node
-keeps its maximum and its leader, since nothing above it can change
-then. Names are read with `scanf` into buffers of 21 bytes instead of
-with `iostream`: {1650_segment_tree_optimized.cpp}.
+`1650_greedy.py`. Replace the segment tree by a lazy maximum heap and a separate wealth-frequency map counting cities, not stale heap entries. Pack (-wealth,city) in one integer: city<60000 fits sixteen low bits. Discard obsolete maxima; a unique current maximum earns the elapsed days, with moves effective next morning. Rebuild when stale entries exceed 3C+1024, and skip zero-length credits. C is number of cities; expected/amortized O((N+K)log C+C log C) time including final name sorting, O(N+C) records plus stored name/output bytes. Preserve the segment-tree alternative and teaching sources.
+
+Exact-source Python 3.12 x64 Accepted #11327774: 0.39 s / 14828 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 6/49; 1/49. Strict admission uses both time and memory at 1024 KB or above: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11307267 (Python 3.12 x64): 1.046 s / 16232 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1650_greedy.py`: 0.39 s / 14828 KB; retained teaching base `1650_segment_tree.py` (Python 3.12 x64): 1.062 s / 27776 KB.
+
+The C++ revision keeps streamed trips, the map of people and fortunes, and the segment-tree maximum/unique-leader state with early-stopping updates. Names of at most twenty letters are stored directly in fixed 21-byte keys in the maps and name list, removing separate string allocations. Hash matches still require full strcmp equality, and sorting uses the same lexicographic comparison; collisions cannot change an answer.
+
+Exact-source Accepted (G++ 13.2 x64, #11326653: 0.187 s / 8912 KB); teaching base `1650_segment_tree.cpp`: 0.125 s / 20700 KB. The previous optimized measurement was 0.187 s / 10156 KB. In the saved 20 November 2026 comparison, time place is 22/434, memory place 51/434; below 1 MiB the policy evaluates the time rank only.
 
 The optimized Go solution reads the trips one at a time and applies each
 as soon as it is read, instead of storing them all first: a trip brings
@@ -141,8 +140,7 @@ least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
-- `1650_segment_tree_optimized.cpp`: time reduction -49.60%; memory
-  reduction +50.94%; base: `1650_segment_tree.cpp`.
+- `1650_segment_tree_optimized.cpp`: time reduction -49.60%; memory reduction +56.95%; base: `1650_segment_tree.cpp`.
 
 - `1650_segment_tree_optimized.go`: time reduction +45.61%; memory
   reduction +1.04%; base: `1650_segment_tree.go`.
@@ -169,9 +167,10 @@ asterisk concerns the rating target only.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) \* | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 10156 KB | 11307264 |
+| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 8912 KB | 11326653 |
 | [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
 | [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
 | [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
+| [1650_greedy.py](1650_greedy.py) \* | Python 3.12 x64 | greedy | Expected/amortized O((N+K)log C+C log C); O(N+C) records plus names/output | AC | 0.39 s | 14828 KB | 11327774 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

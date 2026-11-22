@@ -1,17 +1,37 @@
 #include <algorithm>
 #include <cstdio>
-#include <string>
+#include <cstring>
 #include <unordered_map>
 #include <utility>
 #include <vector>
 
 const int NAME_SIZE = 21;
+// Fixed-size names avoid separate allocations in maps and the sorted name list.
+
+struct Name {
+    char text[NAME_SIZE]{};
+    Name(const char *value) { std::memcpy(text, value, std::strlen(value) + 1); }
+    bool operator==(const Name &other) const { return std::strcmp(text, other.text) == 0; }
+    bool operator<(const Name &other) const { return std::strcmp(text, other.text) < 0; }
+    const char *c_str() const { return text; }
+};
+struct NameHash {
+    std::size_t operator()(const Name &name) const {
+        constexpr unsigned long long OFFSET = 0xcbf29ce484222325ULL;
+        constexpr unsigned long long PRIME = 0x100000001b3ULL;
+        unsigned long long hash = OFFSET;
+        for (const unsigned char *p = reinterpret_cast<const unsigned char *>(name.text); *p; ++p)
+            hash = (hash ^ *p) * PRIME;
+        return hash;
+    }
+};
+
 struct Person {
     int city;
     long long wealth;
 };
-std::unordered_map<std::string, int> ids;
-std::vector<std::string> names;
+std::unordered_map<Name, int, NameHash> ids;
+std::vector<Name> names;
 std::vector<long long> totals, best;
 std::vector<int> where, days;
 int size = 1;
@@ -52,7 +72,7 @@ void add(int city, long long amount) {
 int main() {
     int n;
     std::scanf("%d", &n);
-    std::unordered_map<std::string, Person> people;
+    std::unordered_map<Name, Person, NameHash> people;
     // names have at most twenty letters, plus one terminating zero.
     char who[NAME_SIZE], city[NAME_SIZE];
     for (int i = 0; i < n; ++i) {

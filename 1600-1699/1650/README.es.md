@@ -92,17 +92,15 @@ el programa de aquí trata ese viaje como quedarse.
 
 ## Soluciones optimizadas
 
-La solución optimizada en C++ lee los viajes de uno en uno y aplica cada
-uno en el acto en lugar de guardarlos todos antes: un viaje trae como
-mucho una ciudad nueva, así que el árbol se dimensiona desde el
-principio para las ciudades iniciales más k. Un solo mapa de un nombre a
-su ciudad y su fortuna sustituye a dos, un nodo guarda el índice de su
-única ciudad en cabeza, o una marca de empate, en lugar de un número de
-hojas, el árbol se construye de abajo arriba a partir de los totales
-iniciales, y una actualización deja de subir en cuanto un nodo conserva
-su máximo y su líder, porque entonces nada por encima puede cambiar. Los
-nombres se leen con `scanf` en búferes de 21 bytes en lugar de con
-`iostream`: {1650_segment_tree_optimized.cpp}.
+`1650_greedy.py`. Sustituye árbol por heap máximo perezoso y mapa separado de frecuencias de riqueza que cuenta ciudades, no entradas obsoletas. Empaqueta (-wealth,city) en entero: city<60000 cabe en dieciséis bits bajos. Descarta máximos viejos; líder único cobra días, mudanzas rigen mañana siguiente. Reconstruye al superar 3C+1024 y omite intervalos cero. C ciudades: tiempo esperado/amortizado O((N+K)log C+C log C) con orden final de nombres; O(N+C) registros más bytes de nombres/salida. Conserva árbol y bases.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327774: 0.39 s / 14828 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 6/49; 1/49. Admisión estricta usa tiempo y memoria con 1024 KB o más: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11307267 (Python 3.12 x64): 1.046 s / 16232 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1650_greedy.py`: 0.39 s / 14828 KB; base didáctica conservada `1650_segment_tree.py` (Python 3.12 x64): 1.062 s / 27776 KB.
+
+La revisión C++ conserva los viajes procesados al leerlos, el mapa de personas y fortunas y el máximo/líder único del árbol con parada temprana. Los nombres de hasta veinte letras se guardan directamente en claves de 21 bytes de los mapas y la lista, sin asignaciones separadas de cadenas. Cada coincidencia hash se verifica con strcmp completo; se conserva el orden lexicográfico y las colisiones no cambian respuestas.
+
+Accepted del fuente exacto (G++ 13.2 x64, #11326653: 0.187 s / 8912 KB); base didáctica `1650_segment_tree.cpp`: 0.125 s / 20700 KB. La medición optimizada anterior era 0.187 s / 10156 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 22/434 y de memoria 51/434; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
 
 La solución optimizada en Go lee los viajes de uno en uno y aplica cada
 uno en el acto en lugar de guardarlos todos antes: un viaje trae como
@@ -147,8 +145,7 @@ al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
-- `1650_segment_tree_optimized.cpp`: reducción de tiempo -49.60%;
-  reducción de memoria +50.94%; base: `1650_segment_tree.cpp`.
+- `1650_segment_tree_optimized.cpp`: reducción de tiempo -49.60%; reducción de memoria +56.95%; base: `1650_segment_tree.cpp`.
 
 - `1650_segment_tree_optimized.go`: reducción de tiempo +45.61%;
   reducción de memoria +1.04%; base: `1650_segment_tree.go`.
@@ -175,9 +172,10 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) \* | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 10156 KB | 11307264 |
+| [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 8912 KB | 11326653 |
 | [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
 | [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
 | [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
+| [1650_greedy.py](1650_greedy.py) \* | Python 3.12 x64 | greedy | Expected/amortized O((N+K)log C+C log C); O(N+C) records plus names/output | AC | 0.39 s | 14828 KB | 11327774 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
