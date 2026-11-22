@@ -71,7 +71,8 @@ func main() {
 	blocks := standing[:cols/2]
 	for row := 0; row < rows; row += 2 {
 		for col := range blocks {
-			blocks[col] = number() == number()
+			left, right := number(), number()
+			blocks[col] = left == right
 		}
 		for col := range blocks {
 			left, right := number(), number()
