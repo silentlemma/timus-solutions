@@ -86,6 +86,14 @@ up to 3000.
 
 ## Optimized solutions
 
+`1295_math.java`. A closed congruence formula replaces modular exponentiation: n divisible by 4 gives zero trailing zeros; n mod 4=3 or n mod 20=5 gives two; otherwise one. Modulo 5 decides existence, the odd-case expansion modulo 25 decides the second zero, and modulo 8 excludes a third (n=1 separately gives 10). No answer table is embedded. Arithmetic work and storage are O(1), plus reading the decimal input. Name this different algorithm math; retain both the modular-power alternative and the teaching source. The actual formula was checked for every n=1..300000 against independent modular powers.
+
+Exact-source Java 1.8 Accepted #11327403: 0.078 s / 340 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/67; 2/67. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11305839 (Java 1.8): 0.109 s / 324 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1295_math.java`: 0.078 s / 340 KB; retained teaching base `1295_number_theory.java` (Java 1.8): 0.125 s / 1600 KB.
+
+`1295_number_theory_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327024 measures 0.062 s / 660 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 1/57, memory rank 30/57. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325070, 0.125 s / 200 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 The optimized Java solution parses `n` by hand from a 4 KB buffer filled
 from `System.in` instead of creating a `Scanner`, so the JVM does not
 load the scanner and its regular expressions; the powers modulo 100 are
@@ -109,7 +117,7 @@ Compared with `1295_number_theory.py`: time 0.093 s â†’ 0.125 s; memory 464 KB â
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1295_number_theory_optimized.py`: time place 37/57, memory place 1/57 in this comparable sample.
+Earlier PyPy comparison: `1295_number_theory_optimized.py`: time place 37/57, memory place 1/57 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -130,6 +138,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
-| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log n) | AC | 0.125 s | 200 KB | 11325070 |
+| [1295_math.java](1295_math.java) \* | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

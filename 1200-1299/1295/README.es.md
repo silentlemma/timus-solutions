@@ -89,6 +89,14 @@ todos los n hasta 3000.
 
 ## Soluciones optimizadas
 
+`1295_math.java`. Una fórmula de congruencias sustituye potencias modulares: n divisible por 4 da cero ceros finales; n mod 4=3 o n mod 20=5 da dos; los demás uno. Módulo 5 decide existencia, expansión impar módulo 25 el segundo, módulo 8 excluye tercero; n=1 da 10 aparte. Sin tabla de respuestas. Aritmética y espacio O(1), más lectura decimal. Algoritmo distinto llamado math; conserva potencia modular y enseñanza. Fórmula real contrastada para todo n=1..300000 con potencias independientes.
+
+Fuente exacto: Java 1.8 Accepted #11327403: 0.078 s / 340 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/67; 2/67. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11305839 (Java 1.8): 0.109 s / 324 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1295_math.java`: 0.078 s / 340 KB; base didáctica conservada `1295_number_theory.java` (Java 1.8): 0.125 s / 1600 KB.
+
+`1295_number_theory_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327024 mide 0.062 s / 660 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/57, memoria 30/57. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325070, 0.125 s / 200 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 La solución optimizada en Java analiza `n` a mano desde un búfer de 4 KB
 que se llena desde `System.in`, en lugar de crear un `Scanner`, así que
 la JVM no carga el escáner ni sus expresiones regulares; las potencias
@@ -112,7 +120,7 @@ Frente a `1295_number_theory.py`: tiempo 0.093 s → 0.125 s; memoria 464 KB →
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1295_number_theory_optimized.py`: puesto de tiempo 37/57 y de memoria 1/57 en esta muestra comparable.
+Comparación PyPy anterior: `1295_number_theory_optimized.py`: puesto de tiempo 37/57 y de memoria 1/57 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -133,6 +141,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
-| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(log n) | AC | 0.125 s | 200 KB | 11325070 |
+| [1295_math.java](1295_math.java) \* | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
