@@ -62,9 +62,17 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized Java solution parses the numbers byte by byte from
-`System.in` instead of using `Scanner`: 348 KB instead of 1608 KB, with
-the same time.
+`1820_math_optimized.py`. Python keeps max(2,ceil(2N/K)). If N<=K, two minutes suffice and are necessary; otherwise the ceiling is already at least three, so compute (2*N+K-1)//K directly without max. Both sides of a steak still require different minutes. Use binary integer input and one raw output write, then exit inside main instead of print/flush and normal interpreter cleanup. No table or changed scheduling algorithm is introduced. Time and auxiliary state are O(1) under the bounded input domain; teaching sources remain.
+
+Exact-source Python 3.12 x64 Accepted #11327556: 0.078 s / 736 KB. Saved 2026-11-20 compiler-cohort comparison: time 22/591, memory 583/591. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324829 (PyPy 3.10 x64) was 0.125 s / 216 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1820_math_optimized.py`: 0.078 s / 736 KB; retained teaching base `1820_math.py`: 0.093 s / 348 KB.
+
+`1820_math_optimized.java`. Java keeps max(2,ceil(2N/K)), evaluated exactly as max(2,(2*N+K-1)/K). Every steak requires two different minutes, and the pan handles at most K of the 2N sides per minute. The existing mathematical argument and teaching solution are unchanged. Fixed byte buffers and raw decimal output replace per-character stream calls and general formatting. Under the stated bounded inputs, time and auxiliary space stay O(1).
+
+Exact-source Java 1.8 Accepted #11327469: 0.109 s / 400 KB. Saved 2026-11-20 compiler-cohort comparison: time 53/779, memory 1/779. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303779 was 0.125 s / 348 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1820_math_optimized.java`: 0.109 s / 400 KB; retained teaching base `1820_math.java`: 0.14 s / 1608 KB.
 
 `1820_math_optimized.cpp`. Retain max(2,ceil(2N/K)): a steak needs two distinct minutes and at most K of the 2N sides fit per minute. Explicit C byte conversion replaces formatted integer scanning/printing; signed 64-bit intermediates compute the ceiling exactly. Time and auxiliary state remain O(1).
 
@@ -73,10 +81,6 @@ Compared with `1820_math.cpp`: time 0.031 s → 0.015 s; memory 124 KB → 72 KB
 `1820_math_optimized.go`. Keep the same frying bound and construction. Portable os.File byte streams and bounded input/output buffers replace fmt scanning and printing; the ceiling uses int64 arithmetic. Only the two inputs and the answer are retained, so the algorithm uses O(1) time and fixed auxiliary storage.
 
 Compared with `1820_math.go`: time 0.046 s → 0.031 s; memory 1076 KB → 808 KB.
-
-`1820_math_optimized.py`. Use the same exact frying formula on raw byte tokens, avoiding the decoded input string and the main-function wrapper. Flush the printed answer before exiting without normal interpreter teardown. Under the stated bounded integer inputs, time and auxiliary storage remain O(1).
-
-Compared with `1820_math.py`: time 0.093 s → 0.125 s; memory 348 KB → 216 KB.
 
 ## Solutions
 
@@ -94,9 +98,9 @@ Compared with `1820_math.py`: time 0.093 s → 0.125 s; memory 348 KB → 216 KB
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 348 KB | 11303779 |
+| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
 | [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
-| [1820_math_optimized.py](1820_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 216 KB | 11324829 |
+| [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

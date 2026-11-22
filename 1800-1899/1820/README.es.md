@@ -63,9 +63,17 @@ Trampas:
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java analiza los números byte a byte desde
-`System.in` en lugar de usar `Scanner`: 348 KB en lugar de 1608 KB, con
-el mismo tiempo.
+`1820_math_optimized.py`. Python conserva max(2,ceil(2N/K)). Si N<=K, dos minutos son necesarios y suficientes; si no, el techo ya es al menos tres y calcula (2*N+K-1)//K sin max. Las dos caras siguen necesitando minutos distintos. Entrada binaria, una escritura directa y salida dentro de main sustituyen print/flush y limpieza normal. No introduce tablas ni otro algoritmo de planificación. Tiempo y estado auxiliar O(1) en los límites indicados; conserva las bases.
+
+Accepted exacto Python 3.12 x64 #11327556: 0.078 s / 736 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 22/591, memoria 583/591. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324829 (PyPy 3.10 x64) era 0.125 s / 216 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1820_math_optimized.py`: 0.078 s / 736 KB; base didáctica conservada `1820_math.py`: 0.093 s / 348 KB.
+
+`1820_math_optimized.java`. Java conserva max(2,ceil(2N/K)), calculado exactamente como max(2,(2*N+K-1)/K). Cada filete necesita dos minutos distintos y la sartén procesa como máximo K de las 2N caras por minuto. Se conservan la justificación matemática y la base didáctica. Búferes fijos de bytes y salida decimal directa sustituyen las llamadas por carácter y el formato general. En los límites indicados, tiempo y espacio auxiliar O(1).
+
+Accepted exacto Java 1.8 #11327469: 0.109 s / 400 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 53/779, memoria 1/779. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303779 era 0.125 s / 348 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1820_math_optimized.java`: 0.109 s / 400 KB; base didáctica conservada `1820_math.java`: 0.14 s / 1608 KB.
 
 `1820_math_optimized.cpp`. Conserva max(2,ceil(2N/K)): cada filete necesita dos minutos distintos y caben como máximo K de las 2N caras por minuto. La conversión explícita de bytes de C sustituye el formato entero, usando intermedios de 64 bits con signo para redondear hacia arriba exactamente. Tiempo y estado auxiliar O(1).
 
@@ -74,10 +82,6 @@ Frente a `1820_math.cpp`: tiempo 0.031 s → 0.015 s; memoria 124 KB → 72 KB.
 `1820_math_optimized.go`. Mantiene la misma cota y construcción de cocción. Flujos portátiles de bytes os.File y búferes acotados sustituyen fmt; calcula el techo con int64. Solo retiene las dos entradas y la respuesta, con O(1) tiempo y almacenamiento auxiliar fijo.
 
 Frente a `1820_math.go`: tiempo 0.046 s → 0.031 s; memoria 1076 KB → 808 KB.
-
-`1820_math_optimized.py`. Aplica la misma fórmula exacta de cocción a tokens de bytes, evitando la cadena decodificada y la envoltura main. Vacía la respuesta impresa antes de terminar sin la limpieza normal del intérprete. Con los enteros acotados del enunciado, tiempo y espacio auxiliar son O(1).
-
-Frente a `1820_math.py`: tiempo 0.093 s → 0.125 s; memoria 348 KB → 216 KB.
 
 ## Soluciones
 
@@ -95,9 +99,9 @@ Frente a `1820_math.py`: tiempo 0.093 s → 0.125 s; memoria 348 KB → 216 KB.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 348 KB | 11303779 |
+| [1820_math_optimized.java](1820_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 400 KB | 11327469 |
 | [1820_math_optimized.cpp](1820_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 72 KB | 11325061 |
 | [1820_math_optimized.go](1820_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 808 KB | 11325052 |
-| [1820_math_optimized.py](1820_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 216 KB | 11324829 |
+| [1820_math_optimized.py](1820_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 736 KB | 11327556 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
