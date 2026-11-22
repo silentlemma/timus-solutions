@@ -105,7 +105,7 @@ Go 与 Java 保持公式 mn + (m+n+1)(√2−1)，只改输入输出：Go 以固
 | [1631_math.go](1631_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1084 KB | 11288422 |
 | [1631_math.java](1631_math.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 1800 KB | 11288424 |
 | [1631_math.py](1631_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.093 s | 412 KB | 11288423 |
-| [1631_math.rs](1631_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 260 KB | 11288425 |
+| [1631_math.rs](1631_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 252 KB | 11328279 |
 
 ### 优化版本
 
