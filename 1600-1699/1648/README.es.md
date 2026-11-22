@@ -74,7 +74,13 @@ en 120 pruebas aleatorias y con una búsqueda exhaustiva en las pequeñas.
 
 ## Soluciones optimizadas
 
-C++ y Go guardan solo el vector de ventas. La pasada hacia delante lee la demanda mensual y limita inmediatamente las ventas acumuladas por la producción acumulada. La pasada hacia atrás retrasa la producción todo lo posible y suma las existencias que cruzan cada límite mensual. Las ventas usan enteros de 32 bits y el almacenamiento total usa 64 bits. Go usa un vector fijo de ventas y entrada y salida directa de bytes.
+`1648_greedy_optimized.cpp`. Mismo voraz de dos pasadas en coordenadas de déficit. Ventas acumuladas máximas S_i dan B_i=i·d−S_i=max(0,B_(i−1)+d−a_i). Ventas totales N·d−B_N. Inventario tras mes i es B_i−min(B_j,j≥i); suma mediante mínimos sufijos hacia atrás. Un arreglo int sustituye representación de ventas; costo en 64 bits y misma E/S. O(N) tiempo/espacio. Simplificación algebraica del mismo voraz, sin relajar objetivo.
+
+Accepted exacto G++ 13.2 x64 #11327771: 0.015 s / 168 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/35, memoria 1/35. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Cumple también la meta propia de C++ en ambas, sin asterisco. El registro optimizado documentado antes #11310644 era 0.031 s / 208 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1648_greedy_optimized.cpp`: 0.015 s / 168 KB; base didáctica conservada `1648_greedy.cpp`: 0.031 s / 360 KB.
+
+Descripción y mediciones históricas de la revisión anterior: C++ y Go guardan solo el vector de ventas. La pasada hacia delante lee la demanda mensual y limita inmediatamente las ventas acumuladas por la producción acumulada. La pasada hacia atrás retrasa la producción todo lo posible y suma las existencias que cruzan cada límite mensual. Las ventas usan enteros de 32 bits y el almacenamiento total usa 64 bits. Go usa un vector fijo de ventas y entrada y salida directa de bytes.
 
 Las implementaciones base aceptadas [1648_greedy.java](1648_greedy.java), [1648_greedy.py](1648_greedy.py), [1648_greedy.rs](1648_greedy.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
@@ -94,7 +100,7 @@ Las implementaciones base aceptadas [1648_greedy.java](1648_greedy.java), [1648_
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(n) | AC | 0.031 s | 208 KB | 11310644 |
+| [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) time; O(N) storage | AC | 0.015 s | 168 KB | 11327771 |
 | [1648_greedy_optimized.go](1648_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

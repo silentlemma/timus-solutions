@@ -71,7 +71,13 @@ tests and an exhaustive search on small ones.
 
 ## Optimized solutions
 
-C++ and Go keep only the sales array. The forward pass reads each month's demand and immediately caps cumulative sales by cumulative production. The backward pass schedules production as late as possible and adds the carried stock at every month boundary. Sales use 32-bit integers, while total storage uses 64 bits. Go uses a fixed sales array and direct byte input and output.
+`1648_greedy_optimized.cpp`. Keep the same two-pass greedy in deficit coordinates. If S_i is maximum cumulative sales by month i, B_i=i·d−S_i obeys B_i=max(0,B_(i−1)+d−a_i). Total sales are N·d−B_N. Inventory needed after month i is B_i−min(B_j,j≥i); sum these by a backward suffix-minimum scan. One int array replaces the sales representation, with 64-bit total storage cost and unchanged sentinel input/raw output. O(N) time and O(N) array storage. This is an algebraic simplification of the same greedy, not a relaxed objective.
+
+Exact-source G++ 13.2 x64 Accepted #11327771: 0.015 s / 168 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/35, memory 1/35. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The separate C++ target also passes in both metrics; no asterisk. The previously documented optimized run #11310644 was 0.031 s / 208 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1648_greedy_optimized.cpp`: 0.015 s / 168 KB; retained teaching base `1648_greedy.cpp`: 0.031 s / 360 KB.
+
+Historical previous-revision description and measurements: C++ and Go keep only the sales array. The forward pass reads each month's demand and immediately caps cumulative sales by cumulative production. The backward pass schedules production as late as possible and adds the carried stock at every month boundary. Sales use 32-bit integers, while total storage uses 64 bits. Go uses a fixed sales array and direct byte input and output.
 
 The accepted base implementations [1648_greedy.java](1648_greedy.java), [1648_greedy.py](1648_greedy.py), [1648_greedy.rs](1648_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
@@ -91,7 +97,7 @@ The accepted base implementations [1648_greedy.java](1648_greedy.java), [1648_gr
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) \* | G++ 13.2 x64 | greedy | O(n) | AC | 0.031 s | 208 KB | 11310644 |
+| [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) time; O(N) storage | AC | 0.015 s | 168 KB | 11327771 |
 | [1648_greedy_optimized.go](1648_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
