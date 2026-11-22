@@ -112,6 +112,12 @@ Do not treat the heuristic's empirical behavior as an asymptotic proof.
 
 ## Optimized solutions
 
+`1298_backtracking_optimized.java`. Keep complete Warnsdorff-ordered backtracking and symmetry representatives. Maintain each active vertex degree incrementally when removing the current vertex; an isolated-bit mask makes the existing impossibility test constant time. Restore exactly those neighbor degrees and the saved mask on every failed branch. Stable move ordering and the single-vertex exception remain; there is no search cutoff. The coarse exponential bound remains O(V²·8^V), with O(V) bounded-word state for V=N²≤64. No tours are stored.
+
+Exact-source Java 1.8 Accepted #11327756: 0.078 s / 376 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/26, memory 2/26. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11308542 was 0.125 s / 396 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1298_backtracking_optimized.java`: 0.078 s / 376 KB; retained teaching base `1298_backtracking.java`: 0.156 s / 7116 KB.
+
 The two `_optimized` files keep the same complete Warnsdorff-ordered
 backtracking algorithm but represent legal neighbors and unvisited squares
 as bit masks. Number `(column,row)` by `column*N+row`. Candidate moves are
@@ -128,7 +134,7 @@ remaining induced graph makes a continuation impossible: a path through
 all remaining vertices cannot connect it to another remaining vertex.
 The single remaining vertex is exempt from this test.
 
-Python uses integer masks and `bit_count`, avoiding repeated coordinate
+Historical previous-revision description and measurements: Python uses integer masks and `bit_count`, avoiding repeated coordinate
 tuple generation and free-neighbor lists. Java uses `long` masks and
 primitive per-depth candidate/degree arrays, avoiding ArrayList nodes,
 per-move coordinate arrays, comparator objects and Scanner. At N=8 all
@@ -143,7 +149,7 @@ with depth at most V; generalizing to larger boards would also require
 accounting for variable-size integer masks. No tours or answers are stored
 in the sources.
 
-Exact-source Accepted Python time is 0.062 versus 0.171 s (63.7% faster),
+Historical previous-revision description and measurements: Exact-source Accepted Python time is 0.062 versus 0.171 s (63.7% faster),
 but memory is 636 versus 544 KB (16.9% more). Java uses 396 versus 7116 KB
 (94.4% less memory), with time 0.125 versus 0.156 s (19.9% less). Both
 qualify by at least one metric; all five simple sources remain unchanged.
@@ -179,6 +185,6 @@ own same-language simple base, with no artificial optimized copies.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) \* | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
-| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) | AC | 0.125 s | 396 KB | 11308542 |
+| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

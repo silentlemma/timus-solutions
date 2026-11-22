@@ -112,6 +112,12 @@ concreta. El comportamiento observado de la heurística no prueba una cota.
 
 ## Soluciones optimizadas
 
+`1298_backtracking_optimized.java`. Conserva retroceso completo ordenado por Warnsdorff y representantes de simetría. Actualiza grados al retirar el vértice actual; máscara de aislados permite la misma poda en tiempo constante. Cada rama fallida restaura los grados modificados y la máscara guardada. Conserva orden estable y excepción del último vértice, sin límite de búsqueda. Cota gruesa O(V²·8^V), O(V) palabras acotadas con V=N²≤64; sin recorridos precalculados.
+
+Accepted exacto Java 1.8 #11327756: 0.078 s / 376 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/26, memoria 2/26. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11308542 era 0.125 s / 396 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1298_backtracking_optimized.java`: 0.078 s / 376 KB; base didáctica conservada `1298_backtracking.java`: 0.156 s / 7116 KB.
+
 Los dos `_optimized` conservan el mismo retroceso completo ordenado
 por Warnsdorff, con máscaras para vecinos y casillas no visitadas.
 Numeran `(columna,fila)` como `columna*N+fila`. Los candidatos son
@@ -126,7 +132,7 @@ Además, si quedan más de un vértice y hay uno aislado en el subgrafo
 inducido restante, ninguna continuación puede unirlo con otro vértice
 restante y cubrirlos todos. Se exceptúa el caso de un solo vértice.
 
-Python usa máscaras enteras y `bit_count`, sin generar repetidamente
+Descripción y mediciones históricas de la revisión anterior: Python usa máscaras enteras y `bit_count`, sin generar repetidamente
 tuplas de coordenadas ni listas de vecinos libres. Java usa long y arrays
 primitivos de candidatos/grados por profundidad, sin ArrayList, arrays
 de coordenadas por movimiento, comparadores ni Scanner. Para N=8 hacen
@@ -141,7 +147,7 @@ objetos de tamaño acotado y profundidad V; para tableros mayores habría
 que contar el tamaño variable de los enteros. No se guardan recorridos
 ni respuestas precalculadas en las fuentes.
 
-Accepted de los bytes exactos: Python 0,062 frente a 0,171 s, 63,7% más
+Descripción y mediciones históricas de la revisión anterior: Accepted de los bytes exactos: Python 0,062 frente a 0,171 s, 63,7% más
 rápido, pero 636 frente a 544 KB, 16,9% más memoria. Java 396 frente a
 7116 KB, 94,4% menos memoria; 0,125 frente a 0,156 s, 19,9% menos tiempo.
 Cada uno cumple por una métrica; las cinco fuentes sencillas se conservan.
@@ -177,6 +183,6 @@ mismo lenguaje, sin copias optimizadas artificiales.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1298_backtracking_optimized.py](1298_backtracking_optimized.py) \* | Python 3.12 x64 | backtracking | O(V²·8^V) | AC | 0.062 s | 636 KB | 11308531 |
-| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) | AC | 0.125 s | 396 KB | 11308542 |
+| [1298_backtracking_optimized.java](1298_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(V²·8^V) time; O(V) bounded words | AC | 0.078 s | 376 KB | 11327756 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
