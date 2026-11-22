@@ -70,6 +70,12 @@ from a memoised count.
 
 ## Optimized solutions
 
+`1081_dp_optimized.py`. Keep the exact binary-string counting and rank-unranking DP, including rejection of an out-of-range rank. Only binary input and explicit flushed exit change; recurrence, rank subtraction and emitted bits remain unchanged. This is a runtime-overhead revision, not a new asymptotic algorithm. The readable DP is retained.
+
+Exact-source CPython 3.12 Accepted #11327009: 0.078 s / 660 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 3/31, memory rank 21/31. Below 1024 KB, strict admission uses time only.
+
+- `1081_dp_optimized.py`: 0.078 s / 660 KB; retained teaching base `1081_dp.py` (Python 3.12 x64): 0.093 s / 476 KB; time change -16.1%; memory change +38.7%.
+
 `1081_dp_optimized.rs`. Retain Fibonacci counts and lexicographic unranking of binary strings without adjacent ones. With n<=43 all counts fit u32, so replace the growing u64 vector by a fixed 44-cell u32 array. Emit each chosen bit immediately rather than accumulating an output String, and parse the two integers directly. Time O(n), count storage O(n), bounded by 44 cells here. Reject k above the total exactly as before.
 
 Compared with `1081_dp.rs`: time 0.046 s → 0.031 s; memory 216 KB → 64 KB.
@@ -77,7 +83,7 @@ Compared with `1081_dp.rs`: time 0.046 s → 0.031 s; memory 216 KB → 64 KB.
 Keep the readable Fibonacci-count table. The compact versions retain only two adjacent counts and reverse the Fibonacci recurrence while unranking. If the residual zero-based rank is at least the zero-prefix count, subtract that count and emit one; otherwise emit zero. After choosing one, the residual interval is smaller than the next zero-prefix count, so the following bit is forced to zero without a separate special case. Counts also detect ranks outside the total. Python packs output bits into one integer and formats exactly N bits; only the O(N)-bit answer, not a count table, is retained.
 
 - `1081_dp_optimized.java`: 0.078 s / 372 KB; base `1081_dp.java`: 0.125 s / 1640 KB; relative change: time -37.6%, memory -77.3%.
-- `1081_dp_optimized.py`: 0.125 s / 284 KB; base `1081_dp.py`: 0.093 s / 476 KB; relative change: time +34.4%, memory -40.3%.
+
 
 ## Language notes
 
@@ -104,7 +110,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1081_dp_optimized.java](1081_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.078 s | 372 KB | 11309292 |
-| [1081_dp_optimized.py](1081_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 284 KB | 11309684 |
+| [1081_dp_optimized.py](1081_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 660 KB | 11327009 |
 | [1081_dp_optimized.rs](1081_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

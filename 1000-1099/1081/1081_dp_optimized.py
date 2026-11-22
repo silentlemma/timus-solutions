@@ -1,8 +1,9 @@
+import os
 from sys import stdin, stdout
 
 
 def main():
-    n, rank = map(int, stdin.read().split())
+    n, rank = map(int, stdin.buffer.read().split())
     total = zero = 1
     for _ in range(n):
         total, zero = total + zero, total
@@ -22,3 +23,6 @@ def main():
 
 
 main()
+
+stdout.flush()
+os._exit(0)

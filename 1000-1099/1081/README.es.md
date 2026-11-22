@@ -70,6 +70,12 @@ posición de la respuesta con un conteo memorizado.
 
 ## Soluciones optimizadas
 
+`1081_dp_optimized.py`. Conserva el DP exacto de contar cadenas binarias y reconstruir por rango, incluido rechazo fuera de rango. Solo cambia entrada binaria y salida directa tras vaciar; recurrencia, restas y bits no cambian. Revisión de sobrecarga, no nuevo algoritmo asintótico; mantiene la base legible.
+
+Accepted exacto CPython 3.12 #11327009: 0.078 s / 660 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 3/31, memoria 21/31. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1081_dp_optimized.py`: 0.078 s / 660 KB; base didáctica conservada `1081_dp.py` (Python 3.12 x64): 0.093 s / 476 KB; cambio de tiempo -16.1%; cambio de memoria +38.7%.
+
 `1081_dp_optimized.rs`. Mantiene conteos Fibonacci y reconstrucción por rango sin unos adyacentes. Para n<=43 caben en u32: sustituye vector u64 creciente por 44 u32 fijos. Emite cada bit inmediatamente sin String y analiza dos enteros directamente. O(n) tiempo y conteos O(n), acotados aquí a 44 celdas. Rechaza k superior al total como antes.
 
 Frente a `1081_dp.rs`: tiempo 0.046 s → 0.031 s; memoria 216 KB → 64 KB.
@@ -77,7 +83,7 @@ Frente a `1081_dp.rs`: tiempo 0.046 s → 0.031 s; memoria 216 KB → 64 KB.
 Se conserva la tabla clara de Fibonacci. Las variantes compactas retienen dos conteos vecinos y revierten la recurrencia al reconstruir. Si el rango residual desde cero alcanza el conteo con prefijo cero, lo restan y emiten uno; en otro caso cero. Tras un uno, el intervalo residual queda por debajo del siguiente conteo cero, forzando el siguiente bit sin caso especial. El total detecta rangos inválidos. Python acumula bits en un entero y lo formatea con N posiciones: conserva la respuesta de O(N) bits, sin tabla de conteos.
 
 - `1081_dp_optimized.java`: 0.078 s / 372 KB; base `1081_dp.java`: 0.125 s / 1640 KB; cambio respecto a la base: tiempo -37.6%, memoria -77.3%.
-- `1081_dp_optimized.py`: 0.125 s / 284 KB; base `1081_dp.py`: 0.093 s / 476 KB; cambio respecto a la base: tiempo +34.4%, memoria -40.3%.
+
 
 ## Notas por lenguaje
 
@@ -104,7 +110,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1081_dp_optimized.java](1081_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.078 s | 372 KB | 11309292 |
-| [1081_dp_optimized.py](1081_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 284 KB | 11309684 |
+| [1081_dp_optimized.py](1081_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 660 KB | 11327009 |
 | [1081_dp_optimized.rs](1081_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(n) time; O(n) counts | AC | 0.031 s | 64 KB | 11325496 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
