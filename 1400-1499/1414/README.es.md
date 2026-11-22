@@ -78,9 +78,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-C++ y Rust conservan los conjuntos ordenados y la búsqueda del inicio del prefijo, con veinte nombres distintos como máximo. Escriben salida acotada sin acumular respuestas. C++ imprime mediante C stdio. Rust rellena cada nombre hasta veinte bytes con ceros y guarda los arreglos en BTreeSet: cero precede a cualquier carácter válido, preservando el orden léxico y de prefijos propios. Solo se compara la longitud del prefijo consultado. Una respuesta ocupa como máximo 21+20·23=481 bytes, dentro del búfer de 512. El espacio depende de los nombres, no de toda la salida. Se conservan las bases; Go, Java y Python reutilizan las admitidas para la cobertura rápida.
+La revisión C++ mantiene std::set, lower_bound y el límite de veinte nombres. Lee tokens y emite respuestas con búferes fijos de 16 KB, evitando llamadas de C stdio por nombre. No cambian la sangría ni el orden lexicográfico, y no se acumula toda la salida.
 
-El envío aceptado en G++ 13.2 x64 tarda 0.125 s frente a 0.031 s de la base y usa 924 KB frente a 5748 KB.
+Accepted del fuente exacto (G++ 13.2 x64, #11326651: 0.015 s / 900 KB); base didáctica `1414_sorting.cpp`: 0.031 s / 5748 KB. La medición optimizada anterior era 0.125 s / 924 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 1/58 y de memoria 2/58; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
+
+C++ y Rust conservan los conjuntos ordenados y la búsqueda del inicio del prefijo, con veinte nombres distintos como máximo. Escriben salida acotada sin acumular respuestas. C++ imprime mediante C stdio. Rust rellena cada nombre hasta veinte bytes con ceros y guarda los arreglos en BTreeSet: cero precede a cualquier carácter válido, preservando el orden léxico y de prefijos propios. Solo se compara la longitud del prefijo consultado. Una respuesta ocupa como máximo 21+20·23=481 bytes, dentro del búfer de 512. El espacio depende de los nombres, no de toda la salida. Se conservan las bases; Go, Java y Python reutilizan las admitidas para la cobertura rápida.
 
 El envío aceptado en Rust 1.75 x64 tarda 0.062 s frente a 0.031 s de la base y usa 292 KB frente a 6144 KB.
 
@@ -104,7 +106,7 @@ Escribir cada consulta de prefijo y sus coincidencias al procesarlas con un búf
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
+| [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.015 s | 900 KB | 11326651 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
 | [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 

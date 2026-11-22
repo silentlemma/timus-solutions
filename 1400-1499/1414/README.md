@@ -73,9 +73,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-The new C++ and Rust versions retain ordered sets and lower-bound prefix queries; the output cap stays twenty distinct names in dictionary order. They emit bounded output rather than retaining all query answers. C++ prints each line through C stdio. Rust pads each name to twenty bytes with zeros and stores these fixed arrays directly in BTreeSet: zero sorts before every valid digit or letter, preserving ordinary string order and proper-prefix order. Prefix matching compares only the given prefix length. One complete answer occupies at most 21+20·23=481 bytes, within its 512-byte buffer. Thus storage depends on the names, not cumulative output. The original String/set versions remain, and Go, Java and Python reuse admitted bases in the fast set.
+The C++ revision keeps std::set, lower_bound and the twenty-name cap. It reads tokens and emits query text through fixed 16 KB buffers instead of calling C stdio for each name. Query indentation and lexicographic order are unchanged; no cumulative output string is retained.
 
-The accepted G++ 13.2 x64 run takes 0.125 s versus 0.031 s for the base and uses 924 KB versus 5748 KB.
+Exact-source Accepted (G++ 13.2 x64, #11326651: 0.015 s / 900 KB); teaching base `1414_sorting.cpp`: 0.031 s / 5748 KB. The previous optimized measurement was 0.125 s / 924 KB. In the saved 20 November 2026 comparison, time place is 1/58, memory place 2/58; below 1 MiB the policy evaluates the time rank only.
+
+The new C++ and Rust versions retain ordered sets and lower-bound prefix queries; the output cap stays twenty distinct names in dictionary order. They emit bounded output rather than retaining all query answers. C++ prints each line through C stdio. Rust pads each name to twenty bytes with zeros and stores these fixed arrays directly in BTreeSet: zero sorts before every valid digit or letter, preserving ordinary string order and proper-prefix order. Prefix matching compares only the given prefix length. One complete answer occupies at most 21+20·23=481 bytes, within its 512-byte buffer. Thus storage depends on the names, not cumulative output. The original String/set versions remain, and Go, Java and Python reuse admitted bases in the fast set.
 
 The accepted Rust 1.75 x64 run takes 0.062 s versus 0.031 s for the base and uses 292 KB versus 6144 KB.
 
@@ -99,7 +101,7 @@ Write each prefix query and its matches as they arrive through a buffered writer
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) \* | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.125 s | 924 KB | 11314978 |
+| [1414_sorting_optimized.cpp](1414_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(Q log Q + output) | AC | 0.015 s | 900 KB | 11326651 |
 | [1414_sorting_optimized.rs](1414_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(Q log Q + output) | AC | 0.062 s | 292 KB | 11314990 |
 | [1414_sorting_optimized.java](1414_sorting_optimized.java) \* | Java 1.8 | sorting | O(Q log Q) | AC | 0.125 s | 2 896 KB | 11324233 |
 
