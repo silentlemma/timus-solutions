@@ -66,7 +66,7 @@ Go 和 Rust 直接输出配对数 floor(n/2) · ceil(n/2)，然后枚举满足 i
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB | 11289747 |
+| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 268 KB | 11328303 |
 | [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB | 11289749 |
 | [1779_constructive.java](1779_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB | 11289754 |
 | [1779_constructive.py](1779_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB | 11289751 |

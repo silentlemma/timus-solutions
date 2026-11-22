@@ -79,7 +79,7 @@ Las implementaciones base aceptadas [1779_constructive.cpp](1779_constructive.cp
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 292 KB | 11289747 |
+| [1779_constructive.cpp](1779_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 268 KB | 11328303 |
 | [1779_constructive.go](1779_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.015 s | 2140 KB | 11289749 |
 | [1779_constructive.java](1779_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.109 s | 2568 KB | 11289754 |
 | [1779_constructive.py](1779_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 1952 KB | 11289751 |
