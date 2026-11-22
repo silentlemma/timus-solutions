@@ -143,7 +143,7 @@ Las implementaciones base aceptadas [1992_trees.java](1992_trees.java), [1992_tr
 |---|---|---|---|---|---|---|---|
 | [1992_trees.cpp](1992_trees.cpp) | G++ 13.2 x64 | trees | O(n) | AC | 0.156 s | 13608 KB | 11292388 |
 | [1992_trees.go](1992_trees.go) | Go 1.14 x64 | trees | O(n) | AC | 0.062 s | 32780 KB | 11292389 |
-| [1992_trees.java](1992_trees.java) | Java 1.8 | trees | O(n) | AC | 0.171 s | 10724 KB | 11292391 |
+| [1992_trees.java](1992_trees.java) | Java 1.8 | trees | O(n) | AC | 0.187 s | 10684 KB | 11328329 |
 | [1992_trees.py](1992_trees.py) \* | Python 3.12 x64 | trees | O(n) | AC | 0.609 s | 14972 KB | 11292390 |
 | [1992_trees.rs](1992_trees.rs) | Rust 1.75 x64 | trees | O(n) | AC | 0.078 s | 13340 KB | 11292393 |
 
