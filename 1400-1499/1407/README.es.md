@@ -65,6 +65,12 @@ respuesta de N cifras es única.
 
 ## Soluciones optimizadas
 
+`1407_constructive_optimized.java`. Java conserva la construcción de derecha a izquierda: tras k cifras, el bit k del valor actual elige 2 si es cero y 1 en caso contrario. Frente a la base con BigInteger, guarda el valor y la potencia de diez en pares de palabras long módulo 2^128. Para N<=100 no se pierde ningún bit consultado; el acarreo sin signo y la multiplicación por diez mediante mitades de 32 bits dan aritmética modular exacta. Escribe las cifras directamente en N+1 bytes. En este dominio acotado: tiempo O(N), almacenamiento de respuesta O(N) y estado aritmético O(1); no presupone ancho fijo para N ilimitado. Conserva las fuentes didácticas.
+
+Accepted exacto Java 1.8 #11327478: 0.093 s / 312 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/44, memoria 1/44. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324811 era 0.125 s / 524 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1407_constructive_optimized.java`: 0.093 s / 312 KB; base didáctica conservada `1407_constructive.java`: 0.109 s / 1668 KB.
+
 `1407_constructive_optimized.py`. Construye de menor a mayor posición. Tras k posiciones el valor es divisible por 2^k; el bit k elige 1 o 2 porque 10^k/2^k es impar, evitando dos restos de prueba. Guarda bytes y revierte una vez. Los enteros crecen a O(n) bits: O(n²) trabajo de bits y O(n) almacenamiento de bits/dígitos, sin prometer tiempo lineal con palabras fijas. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `1407_constructive.py`: tiempo 0.078 s → 0.125 s; memoria 416 KB → 244 KB.
@@ -75,15 +81,9 @@ El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y us
 
 Las implementaciones base aceptadas [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
-`1407_constructive_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
-
-Frente a `1407_constructive.java`: tiempo 0.109 s → 0.125 s; memoria 1668 KB → 524 KB.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1407_constructive_optimized.java`: puesto de tiempo 32/44 y de memoria 3/44 en esta muestra comparable.
 
 `1407_constructive_optimized.py`: puesto de tiempo 22/27 y de memoria 1/27 en esta muestra comparable.
 
@@ -107,7 +107,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1407_constructive_optimized.go](1407_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
 | [1407_constructive_optimized.rs](1407_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
-| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 524 KB | 11324811 |
+| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.093 s | 312 KB | 11327478 |
 | [1407_constructive_optimized.py](1407_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n²) bit work; O(n) bits | AC | 0.125 s | 244 KB | 11325484 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

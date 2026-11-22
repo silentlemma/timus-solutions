@@ -64,6 +64,12 @@ answer is unique.
 
 ## Optimized solutions
 
+`1407_constructive_optimized.java`. Java keeps the same right-to-left constructive rule: after k digits, bit k of the current value chooses digit 2 when zero and digit 1 otherwise. Unlike the teaching BigInteger version, this file stores the current value and power of ten as pairs of long words modulo 2^128. For N<=100 every queried bit is retained; unsigned carry and split-32-bit multiplication by ten implement exact modular arithmetic despite signed Java words. Digits go directly into an N+1 byte answer. For this bounded domain, time O(N), answer storage O(N) and arithmetic state O(1); this does not claim constant-width arithmetic for unbounded N. Teaching sources remain available.
+
+Exact-source Java 1.8 Accepted #11327478: 0.093 s / 312 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/44, memory 1/44. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324811 was 0.125 s / 524 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1407_constructive_optimized.java`: 0.093 s / 312 KB; retained teaching base `1407_constructive.java`: 0.109 s / 1668 KB.
+
 `1407_constructive_optimized.py`. Keep constructing digits from least significant to most significant. After k positions the value is divisible by 2^k; bit k decides between digit 1 and 2 because 10^k/2^k is odd. This removes the two trial remainder operations. Store the answer in a bytearray and reverse once. Integers grow to O(n) bits, so the loop has O(n²) bit work and O(n) bit/digit storage; this is not a fixed-word linear-time claim. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1407_constructive.py`: time 0.078 s → 0.125 s; memory 416 KB → 244 KB.
@@ -74,15 +80,9 @@ The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 
 
 The accepted base implementations [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
-`1407_constructive_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
-
-Compared with `1407_constructive.java`: time 0.109 s → 0.125 s; memory 1668 KB → 524 KB.
-
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1407_constructive_optimized.java`: time place 32/44, memory place 3/44 in this comparable sample.
 
 `1407_constructive_optimized.py`: time place 22/27, memory place 1/27 in this comparable sample.
 
@@ -106,7 +106,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1407_constructive_optimized.go](1407_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
 | [1407_constructive_optimized.rs](1407_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
-| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 524 KB | 11324811 |
+| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.093 s | 312 KB | 11327478 |
 | [1407_constructive_optimized.py](1407_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n²) bit work; O(n) bits | AC | 0.125 s | 244 KB | 11325484 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

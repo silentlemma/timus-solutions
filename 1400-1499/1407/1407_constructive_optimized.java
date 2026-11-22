@@ -1,134 +1,49 @@
-import java.math.BigInteger;
-
 public class Main {
-
-    private static final class FastInput {
-        private static final int BUFFER_SIZE = 1024;
-        private final java.io.InputStream input;
-        private final byte[] buffer = new byte[BUFFER_SIZE];
-        private int position, length;
-        private String cached;
-
-        FastInput(java.io.InputStream input) { this.input = input; }
-
-        private int read() {
-            if (position == length) {
-                try {
-                    do {
-                        length = input.read(buffer);
-                    } while (length == 0);
-                } catch (java.io.IOException failure) {
-                    throw new IllegalStateException(failure);
-                }
-                position = 0;
-                if (length < 0) {
-                    length = 0;
-                    return -1;
-                }
-            }
-            return buffer[position++] & 255;
-        }
-
-        private String token() {
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                return null;
-            }
-            byte[] bytes = new byte[32];
-            int size = 0;
-            while (character > ' ') {
-                if (size == bytes.length) {
-                    bytes = java.util.Arrays.copyOf(bytes, 2 * bytes.length);
-                }
-                bytes[size++] = (byte)character;
-                character = read();
-            }
-            return new String(bytes, 0, size, java.nio.charset.StandardCharsets.UTF_8);
-        }
-
-        boolean hasNext() {
-            if (cached == null) {
-                cached = token();
-            }
-            return cached != null;
-        }
-
-        boolean hasNextLong() {
-            if (!hasNext()) {
-                return false;
-            }
-            try {
-                Long.parseLong(cached);
-                return true;
-            } catch (NumberFormatException invalid) {
-                return false;
-            }
-        }
-
-        String next() {
-            String value;
-            if (cached == null) {
-                value = token();
-            } else {
-                value = cached;
-                cached = null;
-            }
-            if (value == null) {
-                throw new java.util.NoSuchElementException();
-            }
-            return value;
-        }
-
-        long nextLong() {
-            if (cached != null) {
-                return Long.parseLong(next());
-            }
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                throw new java.util.NoSuchElementException();
-            }
-            boolean negative = character == '-';
-            if (negative || character == '+') {
-                character = read();
-            }
-            long value = 0;
-            while (character >= '0' && character <= '9') {
-                // Negative accumulation also represents Long.MIN_VALUE exactly.
-                value = value * 10 - (character - '0');
-                character = read();
-            }
-            return negative ? value : -value;
-        }
-
-        int nextInt() { return (int)nextLong(); }
-        double nextDouble() { return Double.parseDouble(next()); }
-        FastInput useLocale(java.util.Locale ignored) { return this; }
+    static final int WORD_BITS = 64, HALF_BITS = 32, DECIMAL = 10, INPUT_SIZE = 64;
+    static final long HALF_MASK = (1L << HALF_BITS) - 1, SIGN_BIT = 1L << (WORD_BITS - 1);
+    static long carry(long previous, long sum) {
+        return (sum ^ SIGN_BIT) < (previous ^ SIGN_BIT) ? 1 : 0;
     }
-
-    public static void main(String[] args) {
-        int n = new FastInput(System.in).nextInt();
-        // a number of k digits 1 and 2 divisible by 2^k: put 1 or 2 in front of the
-        // one for k - 1, whichever keeps one more factor 2
-        BigInteger value = BigInteger.ZERO, power = BigInteger.ONE;
-        char[] digits = new char[n];
+    static long timesTenHigh(long low, long high) {
+        long lower = (low & HALF_MASK) * DECIMAL;
+        long upper = (low >>> HALF_BITS) * DECIMAL + (lower >>> HALF_BITS);
+        return high * DECIMAL + (upper >>> HALF_BITS);
+    }
+    static byte[] build(int n) {
+        byte[] digits = new byte[n + 1];
+        long low = 0, high = 0, powerLow = 1, powerHigh = 0;
         for (int k = 0; k < n; k++) {
-            BigInteger next = value.add(power);
-            char d = '1';
-            // divisible by 2^(k+1): the lowest set bit is at k + 1 or higher
-            if (next.getLowestSetBit() <= k) {
-                next = next.add(power);
-                d = '2';
+            long word = k < WORD_BITS ? low : high;
+            int bit = k < WORD_BITS ? k : k - WORD_BITS;
+            int digit = ((word >>> bit) & 1) == 0 ? 2 : 1;
+            digits[n - 1 - k] = (byte)('0' + digit);
+            for (int count = 0; count < digit; count++) {
+                long sum = low + powerLow;
+                high += powerHigh + carry(low, sum);
+                low = sum;
             }
-            value = next;
-            digits[n - 1 - k] = d;
-            power = power.multiply(BigInteger.TEN);
+            powerHigh = timesTenHigh(powerLow, powerHigh);
+            powerLow *= DECIMAL;
         }
-        System.out.println(new String(digits));
+        digits[n] = '\n';
+        return digits;
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        byte[] input = new byte[INPUT_SIZE];
+        int n = 0, size;
+        boolean started = false;
+        while ((size = System.in.read(input)) >= 0) {
+            for (int i = 0; i < size; i++) {
+                int c = input[i];
+                if (c >= '0' && c <= '9') {
+                    n = n * DECIMAL + c - '0';
+                    started = true;
+                } else if (started) {
+                    System.out.write(build(n));
+                    return;
+                }
+            }
+        }
+        System.out.write(build(n));
     }
 }

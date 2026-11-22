@@ -61,6 +61,12 @@ N 位的答案唯一，测试按精确比较判定。
 
 ## 优化解法
 
+`1407_constructive_optimized.java`. Java 保留从右到左的构造规则：已有 k 位时，当前值的第 k 位为零则选择数字 2，否则选择 1。与教学 BigInteger 版不同，此文件用两对 long 分别保存当前值和十的幂，按 2^128 取模。N<=100 时所有查询位均保留；无符号进位及拆为 32 位半字的乘十实现精确模运算。数字直接写入 N+1 字节答案。此有限范围内时间 O(N)、答案存储 O(N)、算术状态 O(1)，并不声称任意 N 都能使用固定宽度算术。保留教学源代码。
+
+精确源代码 Java 1.8 Accepted #11327478：0.093 s / 312 KB。2026-11-20 保存的编译器组比较：时间 5/44、内存 1/44。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324811 为 0.125 s / 524 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1407_constructive_optimized.java`: 0.093 s / 312 KB; 保留教学基础版 `1407_constructive.java`: 0.109 s / 1668 KB.
+
 `1407_constructive_optimized.py`. 仍从低位到高位构造。完成 k 位后数值可被 2^k 整除，因 10^k/2^k 为奇数，第 k 位决定选 1 还是 2，去掉两次试探取模。答案用 bytearray，最后反转一次。整数增长至 O(n) 位，因此为 O(n²) 位运算、O(n) 位及数字存储，不声称固定字长下线性时间。 Accepted 行标明实际评测运行时及成对时间/内存。先 flush 输出，再以 os._exit(0) 跳过解释器清理；实测内存收益属于该运行时，不代表渐近加速。
 
 与 `1407_constructive.py` 相比：时间 0.078 s → 0.125 s；内存 416 KB → 244 KB。
@@ -70,10 +76,6 @@ Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一�
 通过评测的 Go 1.14 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 784 KB，基础版为 1140 KB。
 
 已通过评测的基础实现 [1407_constructive.cpp](1407_constructive.cpp), [1407_constructive.java](1407_constructive.java), [1407_constructive.py](1407_constructive.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
-
-`1407_constructive_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
-
-与 `1407_constructive.java` 相比：时间 0.109 s → 0.125 s；内存 1668 KB → 524 KB。
 
 ## 各语言说明
 
@@ -103,7 +105,7 @@ Go 和 Rust 从右向左构造答案，按模 2¹²⁸ 保存当前值和下一�
 |---|---|---|---|---|---|---|---|
 | [1407_constructive_optimized.go](1407_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N) | AC | 0.031 s | 784 KB | 11311119 |
 | [1407_constructive_optimized.rs](1407_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(N) | AC | 0.015 s | 188 KB | 11310807 |
-| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 524 KB | 11324811 |
+| [1407_constructive_optimized.java](1407_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) time; O(N) answer space | AC | 0.093 s | 312 KB | 11327478 |
 | [1407_constructive_optimized.py](1407_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(n²) bit work; O(n) bits | AC | 0.125 s | 244 KB | 11325484 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
