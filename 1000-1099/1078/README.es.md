@@ -79,6 +79,12 @@ todos los segmentos y comprueba la cadena listada.
 
 ## Soluciones optimizadas
 
+`1078_binary_search_sorting.java`. Sustituye la DP cuadrática de inclusión por ordenación y subsecuencia estrictamente decreciente de extremos derechos. Normaliza extremos, empaqueta izquierdo/derecho/ID en long y ordena claves primitivas. Dentro de iguales izquierdos, derechos crecientes impiden extender una cadena decreciente. Busca tails por binaria y guarda padres para reconstruir desde dentro hacia fuera. N<=500 cabe en nueve bits de ID, coordenadas [-10000,10000]. O(N log N) tiempo, O(N) espacio, entrada/salida de 4096 bytes. binary_search_sorting distingue este algoritmo de las DP legible y optimizada conservadas.
+
+Fuente exacto: Java 1.8 Accepted #11327521: 0.109 s / 428 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 6/44; 1/44. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11324973 (Java 1.8): 0.156 s / 2768 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1078_binary_search_sorting.java`: 0.109 s / 428 KB; base didáctica conservada `1078_dp.java` (Java 1.8): 0.14 s / 4608 KB.
+
 Go ordena por extremo izquierdo decreciente y busca una subsecuencia estrictamente creciente de extremos derechos. Si hay empate a la izquierda, ordena por extremo derecho decreciente para impedir que ambos entren en la cadena. Rust invierte las dos comparaciones y busca una subsecuencia estrictamente decreciente. Ambas versiones buscan por bisección y guardan predecesores para reconstruir la cadena. Rust usa matrices fijas con extremos e índices de 16 bits, suficientes para las cotas de entrada, y búferes de bytes para entrada y salida.
 
 Las implementaciones base aceptadas [1078_dp.cpp](1078_dp.cpp), [1078_dp.java](1078_dp.java), [1078_dp.py](1078_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
@@ -114,5 +120,6 @@ Estas notas describen las implementaciones sencillas.
 | [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
 | [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
 | [1078_dp_optimized.java](1078_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 2768 KB | 11324973 |
+| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

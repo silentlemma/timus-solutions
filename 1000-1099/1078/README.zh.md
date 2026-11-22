@@ -65,6 +65,12 @@
 
 ## 优化解法
 
+`1078_binary_search_sorting.java`. 此替代算法用排序和右端点严格递减子序列替代平方包含 DP。规范化端点，把左、右端点和原编号装入 long，排序原始类型键。同左端点内右端点递增，因此同组不能延长严格递减链。二分 tails 并保留父编号，从内到外重建。N<=500，编号九位足够；坐标 [-10000,10000]。O(N log N) 时间、O(N) 空间，4096 字节输入输出。binary_search_sorting 名字区分于保留的易读及优化 DP。
+
+精确源码：Java 1.8 Accepted #11327521: 0.109 s / 428 KB。2026-11-20 保存的编译器组排名，时间然后内存：6/44; 1/44。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11324973 (Java 1.8): 0.156 s / 2768 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1078_binary_search_sorting.java`: 0.109 s / 428 KB; 保留教学版 `1078_dp.java` (Java 1.8): 0.14 s / 4608 KB.
+
 Go 按左端点降序排序，并找右端点的严格递增子序列。左端点相同的线段按右端点降序排列，所以不会同时被选入。Rust 将两种比较都反向，改找严格递减子序列。两个版本都在最优末端数组中二分查找，并记录前驱以还原链。Rust 使用固定数组，以满足输入范围的 16 位整数保存端点和索引，并通过字节缓冲区进行输入输出。
 
 已通过评测的基础实现 [1078_dp.cpp](1078_dp.cpp), [1078_dp.java](1078_dp.java), [1078_dp.py](1078_dp.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
@@ -99,5 +105,6 @@ Go 按左端点降序排序，并找右端点的严格递增子序列。左端�
 | [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
 | [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
 | [1078_dp_optimized.java](1078_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 2768 KB | 11324973 |
+| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

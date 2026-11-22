@@ -77,6 +77,12 @@ segments and checks the listed chain.
 
 ## Optimized solutions
 
+`1078_binary_search_sorting.java`. This alternative replaces quadratic containment DP with sorting and a strict decreasing-right-endpoint subsequence. Normalize endpoints, pack left, right and the original ID into a long, then sort primitive keys. Right endpoints increase within equal-left groups, preventing such a group from extending a strictly decreasing chain. Binary-search tails and retain parent IDs to reconstruct the innermost-to-outermost chain. N<=500 fits nine ID bits; coordinates are in [-10000,10000]. O(N log N) time, O(N) storage, with 4096-byte input/output. Its binary_search_sorting name distinguishes the algorithm from the retained readable and optimized DP versions.
+
+Exact-source Java 1.8 Accepted #11327521: 0.109 s / 428 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 6/44; 1/44. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11324973 (Java 1.8): 0.156 s / 2768 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1078_binary_search_sorting.java`: 0.109 s / 428 KB; retained teaching base `1078_dp.java` (Java 1.8): 0.14 s / 4608 KB.
+
 Go sorts by decreasing left endpoint and finds a strictly increasing subsequence of right endpoints. Equal left endpoints are ordered by decreasing right endpoint, so they cannot both be selected. Rust reverses both comparisons and finds a strictly decreasing subsequence instead. Each version binary-searches its array of best endpoints and records a predecessor to reconstruct the chain. Rust uses fixed arrays with 16-bit endpoints and indices, which fit the input bounds, plus byte buffers for input and output.
 
 The accepted base implementations [1078_dp.cpp](1078_dp.cpp), [1078_dp.java](1078_dp.java), [1078_dp.py](1078_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
@@ -112,5 +118,6 @@ These notes describe the simple implementations.
 | [1078_binary_search_sorting.go](1078_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(N log N) | AC | 0.015 s | 964 KB | 11310522 |
 | [1078_dp_binary_search.rs](1078_dp_binary_search.rs) \* | Rust 1.75 x64 | dp, binary_search | O(N log N) | AC | 0.015 s | 196 KB | 11311144 |
 | [1078_dp_optimized.java](1078_dp_optimized.java) \* | Java 1.8 | dp | O(N^2) | AC | 0.156 s | 2768 KB | 11324973 |
+| [1078_binary_search_sorting.java](1078_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(N log N) time; O(N) storage | AC | 0.109 s | 428 KB | 11327521 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
