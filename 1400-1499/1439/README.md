@@ -77,6 +77,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+The C++ revision retains binary search in the sorted destroyed-label vector, including entry shifts on insertion. Fixed 16 KB input/output buffers replace formatted calls. The bound remains O(M log D + D²), with O(D) storage; this is not an order-statistics-tree algorithm.
+
+Exact-source Accepted (G++ 13.2 x64, #11326643: 0.031 s / 188 KB); teaching base `1439_binary_search.cpp`: 0.156 s / 424 KB. The previous optimized measurement was 0.156 s / 216 KB. In the saved 20 November 2026 comparison, time place is 1/80, memory place 1/80; below 1 MiB the policy evaluates the time rank only.
+
 These implementations retain the sorted destroyed-room array and its prefix binary search; insertion still shifts entries, so time remains O(M log D + D²). The change is compact storage and streaming I/O. C++ stores 32-bit original labels, sufficient because N ≤ 10⁹, and reserves the maximum 10000 destroyed entries. Go and Rust use bounded input/output buffers; Rust also uses 32-bit entries and a C-runtime entry point. Python discards each input line after processing and stores output bytes instead of retaining all input tokens and output integers. It needs O(D + output bytes) storage; the other new versions need O(D) storage plus fixed buffers. The existing straightforward implementations remain available.
 
 The accepted Python 3.12 x64 run takes 0.437 s versus 0.421 s for the base and uses 2 376 KB versus 21004 KB.
@@ -101,7 +105,7 @@ The accepted base implementations [1439_binary_search.java](1439_binary_search.j
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) \* | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.156 s | 216 KB | 11314844 |
+| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 188 KB | 11326643 |
 | [1439_binary_search_optimized.go](1439_binary_search_optimized.go) \* | Go 1.14 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 404 KB | 11314850 |
 | [1439_binary_search_optimized.py](1439_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
 | [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) \* | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |

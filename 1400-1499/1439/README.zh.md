@@ -68,6 +68,10 @@ g[j] ≤ x + j，即 g[j] − j ≤ x；由于 g 中的编号互不相同，g[j]
 
 ## 优化解法
 
+C++ 修订版保留有序销毁编号向量上的二分查找，以及插入时的元素移动。各 16 KB 的固定输入、输出缓冲区替代格式化调用。复杂度仍为 O(M log D + D²) 时间、O(D) 存储，并未改用顺序统计树。
+
+精确源代码的 Accepted（G++ 13.2 x64, #11326643: 0.031 s / 188 KB）；教学基础版 `1439_binary_search.cpp`: 0.156 s / 424 KB。此前优化版的测量为 0.156 s / 216 KB。在保存的 2026 年 11 月 20 日比较中，时间名次为 1/80，内存名次为 1/80；内存低于 1 MiB 时规则仅评估时间排名。
+
 这些实现保留已删除房间的有序数组及前缀二分查找；插入仍需移动元素，因此时间仍为 O(M log D + D²)。改进在于紧凑存储和流式输入输出。C++ 使用 32 位原始编号 （N ≤ 10⁹ 足够）并预留最多 10000 次删除的容量。Go、Rust 使用有界输入输出缓冲；Rust 也使用 32 位编号及 C runtime 入口。Python 处理后即释放输入行，并保存输出字节，而非保留所有输入标记和输出整数。Python 空间为 O(D + 输出字节数)，其他新版本为 O(D) 加固定缓冲区。原有直接实现均保留。
 
 通过评测的 Python 3.12 x64 版本耗时 0.437 秒，基础版为 0.421 秒，内存为 2 376 KB，基础版为 21004 KB。
@@ -92,7 +96,7 @@ g[j] ≤ x + j，即 g[j] − j ≤ x；由于 g 中的编号互不相同，g[j]
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) \* | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.156 s | 216 KB | 11314844 |
+| [1439_binary_search_optimized.cpp](1439_binary_search_optimized.cpp) | G++ 13.2 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 188 KB | 11326643 |
 | [1439_binary_search_optimized.go](1439_binary_search_optimized.go) \* | Go 1.14 x64 | binary_search | O(M log D + D²) | AC | 0.031 s | 404 KB | 11314850 |
 | [1439_binary_search_optimized.py](1439_binary_search_optimized.py) \* | Python 3.12 x64 | binary_search | O(M log D + D²) | AC | 0.437 s | 2376 KB | 11314854 |
 | [1439_binary_search_optimized.rs](1439_binary_search_optimized.rs) \* | Rust 1.75 x64 | binary_search | O(M log D + D²) | AC | 0.046 s | 96 KB | 11314853 |
