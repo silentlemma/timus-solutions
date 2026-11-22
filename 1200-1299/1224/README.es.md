@@ -67,6 +67,8 @@ pruebas.
 
 ## Soluciones optimizadas
 
+`1224_math_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327019 mide 0.062 s / 660 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 3/296, memoria 291/296. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11324840, 0.125 s / 196 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 La solución optimizada en Java lee la entrada en bloques de 1 KB y
 analiza los dos números a mano en lugar de usar `Scanner`: 348 KB en
 lugar de 1564 KB, con el mismo tiempo.
@@ -83,7 +85,7 @@ Frente a `1224_math.rs`: tiempo 0.031 s → 0.015 s; memoria 208 KB → 56 KB.
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1224_math_optimized.py`: puesto de tiempo 283/296 y de memoria 4/296 en esta muestra comparable.
+Comparación PyPy anterior: `1224_math_optimized.py`: puesto de tiempo 283/296 y de memoria 4/296 en esta muestra comparable.
 
 `1224_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -106,7 +108,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1224_math_optimized.java](1224_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 348 KB | 11303726 |
-| [1224_math_optimized.py](1224_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 196 KB | 11324840 |
+| [1224_math_optimized.py](1224_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 660 KB | 11327019 |
 | [1224_math_optimized.rs](1224_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11324853 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
