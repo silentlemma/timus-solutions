@@ -140,6 +140,12 @@ El generador rechaza tamaños fuera de `5..8` antes de construir la secuencia.
 
 ## Soluciones optimizadas
 
+`1989_hashing_strings.cpp`. Añade filtro hash negativo seguro al chequeo exacto dinámico. Guarda hashes polinomiales uint64 directo/inverso por bloques de 64 y árbol: distintos certifican No. Iguales SIEMPRE pasan a comparación exacta o certificado exacto previo; colisiones solo añaden trabajo, nunca falso Yes. Tras cambio real reconstruye bloque y camino del árbol. Conserva atajos uniformes, certificados exactos calientes/cacheados y Manacher por época estática tras suficientes escaneos. O(N) espacio; cota conservadora O(N+MN) para M operaciones, sin prometer consultas exactas logarítmicas. hashing_strings difiere de comparación directa conservada. Usa 516 KB frente a 280 KB; tiempo Accepted propio 0.031 s frente a 0.281 s.
+
+Fuente exacto: G++ 13.2 x64 Accepted #11327841: 0.031 s / 516 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/70; 2/70. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas cumplen meta propia C++ diez primeros/15% superior, sin asterisco. La variante anterior conservada tiene su par propio #11310441 (G++ 13.2 x64): 0.281 s / 280 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1989_hashing_strings.cpp`: 0.031 s / 516 KB; base didáctica conservada `1989_strings.cpp` (G++ 13.2 x64): 0.375 s / 1560 KB.
+
 C++ y Go guardan la cadena y su inversa y comparan exactamente las mitades reflejadas. Cuentan las parejas adyacentes distintas. Un cambio afecta como máximo a dos parejas y, si no queda ninguna, toda consulta se cumple de inmediato. PyPy guarda sumas polinómicas directas e inversas en árboles de Fenwick con dos módulos primos y bases aleatorias independientes. Un cambio actualiza cuatro sumas. Cada consulta resta prefijos y alinea los exponentes de los dos sentidos. La comparación es probabilística por posibles colisiones. PyPy conserva las órdenes como bytes y escribe respuestas en lotes limitados.
 
 El envío aceptado en Go 1.14 x64 tarda 0.281 s frente a 0.265 s de la base y usa 1 364 KB frente a 10216 KB.
@@ -165,6 +171,7 @@ Las implementaciones base aceptadas [1989_strings.java](1989_strings.java), [198
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
+| [1989_hashing_strings.cpp](1989_hashing_strings.cpp) | G++ 13.2 x64 | hashing, strings | O(N+MN) conservative worst case; O(N) storage | AC | 0.031 s | 516 KB | 11327841 |
 | [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
 | [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
 

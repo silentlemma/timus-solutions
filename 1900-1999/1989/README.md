@@ -142,6 +142,12 @@ The generator rejects sizes outside `5..8` before constructing a trace.
 
 ## Optimized solutions
 
+`1989_hashing_strings.cpp`. Add a deterministic-safe negative hash filter to exact dynamic palindrome checking. Store forward/backward uint64 polynomial hashes in 64-character blocks and a tree; unequal hashes certify No. Equal hashes ALWAYS fall through to exact comparison or previously established exact certificates, so collisions only add work and never produce a false Yes. Rebuild the changed block and its tree path after a real assignment. Keep uniform-string and exact hot/cached-proof shortcuts, and static-epoch Manacher rebuilding after enough scans. O(N) storage; a conservative worst-case O(N+MN) time remains for M operations, rather than claiming logarithmic exact queries. This new hashing_strings variant is distinct from the retained direct-comparison implementation. It uses 516 KB versus that alternative’s 280 KB; its own Accepted time is 0.031 s versus 0.281 s.
+
+Exact-source G++ 13.2 x64 Accepted #11327841: 0.031 s / 516 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/70; 2/70. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics meet the separate C++ top-ten/top-15% target; no asterisk. The preserved previous variant has its own paired receipt #11310441 (G++ 13.2 x64): 0.281 s / 280 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1989_hashing_strings.cpp`: 0.031 s / 516 KB; retained teaching base `1989_strings.cpp` (G++ 13.2 x64): 0.375 s / 1560 KB.
+
 C++ and Go keep the word and its reverse and compare mirrored halves exactly. They count unequal adjacent pairs. A change affects at most two pairs, and zero pairs makes every query succeed immediately. PyPy stores forward and reverse polynomial sums in Fenwick trees over two prime fields with independently randomized bases. A change updates four sums. A query obtains the interval sums by subtracting prefixes and shifts the two orientations to matching exponents. The comparison is probabilistic because hashes can collide. PyPy retains the command input as bytes and writes answers in bounded batches.
 
 The accepted Go 1.14 x64 run takes 0.281 s versus 0.265 s for the base and uses 1 364 KB versus 10216 KB.
@@ -167,6 +173,7 @@ The accepted base implementations [1989_strings.java](1989_strings.java), [1989_
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
+| [1989_hashing_strings.cpp](1989_hashing_strings.cpp) | G++ 13.2 x64 | hashing, strings | O(N+MN) conservative worst case; O(N) storage | AC | 0.031 s | 516 KB | 11327841 |
 | [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
 | [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
 
