@@ -162,7 +162,7 @@ too slow for the largest tests.
 |---|---|---|---|---|---|---|---|
 | [2062_fenwick.cpp](2062_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.437 s | 10720 KB | 11294050 |
 | [2062_fenwick.go](2062_fenwick.go) | Go 1.14 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.843 s | 42280 KB | 11294053 |
-| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.703 s | 14964 KB | 11294057 |
+| [2062_fenwick.java](2062_fenwick.java) \* | Java 1.8 | fenwick | O(n log n + q tau_max log n) | AC | 0.75 s | 14896 KB | 11328340 |
 | [2062_fenwick.py](2062_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n log n + q tau_max log n) | AC | 1.875 s | 38992 KB | 11294055 |
 | [2062_fenwick.rs](2062_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(n log n + q tau_max log n) | AC | 0.406 s | 27256 KB | 11294065 |
 
