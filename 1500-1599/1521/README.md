@@ -58,6 +58,14 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1521_fenwick_optimized.py`. Keep Fenwick rank selection with removal during the same binary-lifting descent: decrement precisely the intervals containing the selected soldier. Initialize each count as i & -i and retain the shrinking-circle rank update. Use a Python list of counts instead of a packed array, and flush output every 1024 eliminations rather than retaining the whole order. Work O(N log N), storage O(N) plus a bounded output batch. The straightforward Fenwick teaching source remains.
+
+Exact-source PyPy 3.10 Accepted #11326706: 0.218 s / 6620 KB. Saved current-compiler comparison, 2026-11-20: time rank 9/54, memory rank 5/54. Both required metrics pass the strict top-ten or top-15% rule, with percentage cutoffs rounded up. The asterisk tracks Python's separate first-place target in both metrics.
+
+The previously documented optimized run #11304372 (Python 3.12 x64) recorded 0.609 s / 1344 KB. The current PyPy 3.10 run has lower recorded time and higher memory. These are separate paired judge measurements; interpreter choice and judge variability are part of the comparison.
+
+- `1521_fenwick_optimized.py`: 0.218 s / 6620 KB; retained teaching base `1521_fenwick.py` (Python 3.12 x64): 0.64 s / 12028 KB.
+
 The optimized C++ solution fills the tree directly, each node with the
 length of its range, since every soldier marches at the start, and
 removes the soldier during the search itself: the nodes where the
@@ -87,17 +95,6 @@ instead of `BufferedReader` and `StringTokenizer`, and writes the digits
 through a 4 KB `BufferedOutputStream` instead of collecting the output
 in a `StringBuilder`: {1521_fenwick_optimized.java}.
 
-The optimized Python solution fills the tree directly, each node with
-the length of its range, since every soldier marches at the start, and
-removes the soldier during the search itself: the nodes where the
-descent does not step forward are exactly the nodes whose range holds
-the soldier found, so it decrements them on the way down instead of
-making a second pass. The tree is an `array` of 32-bit unsigned
-integers, which holds the counts since they are at most N ≤ 100000,
-instead of a list of Python integers, and the answers are printed in
-batches of 1024 instead of being kept until the end:
-{1521_fenwick_optimized.py}.
-
 The optimized Rust solution fills the tree directly, each node with the
 length of its range, since every soldier marches at the start, and
 removes the soldier during the search itself: the nodes where the
@@ -124,9 +121,6 @@ asterisk concerns the rating target only.
 - `1521_fenwick_optimized.java`: time reduction +26.90%; memory
   reduction +82.85%; base: `1521_fenwick.java`.
 
-- `1521_fenwick_optimized.py`: time reduction +4.84%; memory reduction
-  +88.83%; base: `1521_fenwick.py`.
-
 - `1521_fenwick_optimized.rs`: time reduction +0.00%; memory reduction
   +74.68%; base: `1521_fenwick.rs`.
 
@@ -149,7 +143,7 @@ asterisk concerns the rating target only.
 | [1521_fenwick_optimized.cpp](1521_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.046 s | 516 KB | 11304369 |
 | [1521_fenwick_optimized.go](1521_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 1320 KB | 11304370 |
 | [1521_fenwick_optimized.java](1521_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(N log N) | AC | 0.125 s | 860 KB | 11304371 |
-| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log N) | AC | 0.609 s | 1344 KB | 11304372 |
+| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(N log N) time; O(N+S) space | AC | 0.218 s | 6620 KB | 11326706 |
 | [1521_fenwick_optimized.rs](1521_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 636 KB | 11304373 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -1,5 +1,4 @@
 import sys
-from array import array
 
 # flush bounded batches instead of retaining the entire elimination order.
 OUTPUT_BATCH = 1024
@@ -8,8 +7,8 @@ OUTPUT_BATCH = 1024
 def main():
     n, k = map(int, sys.stdin.buffer.read().split())
     # a fenwick tree over the circle: 1 for a soldier still marching
-    # initially every interval is full, so its count is lowbit(i) <= n <= 100000.
-    tree = array("I", (i & -i for i in range(n + 1)))
+    # A list trades available memory for faster repeated indexed updates.
+    tree = [i & -i for i in range(n + 1)]
     top = 1 << (n.bit_length() - 1)
     output = []
     rank = 0

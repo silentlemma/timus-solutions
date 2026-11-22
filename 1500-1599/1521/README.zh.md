@@ -53,6 +53,14 @@ N 和 K。
 
 ## 优化解法
 
+`1521_fenwick_optimized.py`. 保留树状数组按排名选择并在同次二进制下降中删除，只递减包含目标士兵的区间。初值 i & -i，缩小圆圈的排名更新不变。计数改用 Python 列表而非紧凑数组，每 1024 次淘汰刷新输出，不保留整个顺序。O(N log N) 时间、O(N) 空间及有界输出批次，保留直接的教学树状数组版。
+
+精确源代码 PyPy 3.10 Accepted #11326706：0.218 s / 6620 KB。2026-11-20 保存的当前编译器比较：时间排名 9/54，内存排名 5/54。两项必需指标均通过严格前十或前 15%（百分比界限向上取整）。星号表示 Python 单独的双指标第一名目标。
+
+此前记录的优化提交 #11304372（Python 3.12 x64）为 0.609 s / 1344 KB。当前 PyPy 3.10 记录时间更低、内存更高。这是不同评测运行的成对测量，比较包含解释器选择及运行波动。
+
+- `1521_fenwick_optimized.py`: 0.218 s / 6620 KB; 保留教学基础版 `1521_fenwick.py` (Python 3.12 x64): 0.64 s / 12028 KB.
+
 优化的 C++ 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
 进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
 所找士兵的节点，所以沿途把它们减一，不需要第二遍。树放在静态数组中，每个数用
@@ -72,12 +80,6 @@ N ≤ 100000，放得下）；N 和 K 逐字节读取，而不是用 `fmt.Scan`�
 `BufferedOutputStream` 写出，而不是把输出收集到 `StringBuilder` 中：
 {1521_fenwick_optimized.java}。
 
-优化的 Python 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
-进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
-所找士兵的节点，所以沿途把它们减一，不需要第二遍。树是 32 位无符号整数的 `array`
-（计数不超过 N ≤ 100000，放得下），而不是 Python 整数的列表；答案每 1024 个一批
-输出，而不是一直攒到最后：{1521_fenwick_optimized.py}。
-
 优化的 Rust 解法直接填好树，每个节点写入其区间的长度，因为一开始每个士兵都在行
 进；并且在查找过程中顺便删除士兵：下降时没有向前跨步的那些节点，恰好就是区间包含
 所找士兵的节点，所以沿途把它们减一，不需要第二遍。计数用 `u32` 而不是 `usize` 存
@@ -93,8 +95,6 @@ N ≤ 100000，放得下）；N 和 K 逐字节读取，而不是用 `fmt.Scan`�
 - `1521_fenwick_optimized.go`: 时间降低 +25.81%; 内存降低 +46.34%; 基础版本: `1521_fenwick.go`.
 
 - `1521_fenwick_optimized.java`: 时间降低 +26.90%; 内存降低 +82.85%; 基础版本: `1521_fenwick.java`.
-
-- `1521_fenwick_optimized.py`: 时间降低 +4.84%; 内存降低 +88.83%; 基础版本: `1521_fenwick.py`.
 
 - `1521_fenwick_optimized.rs`: 时间降低 +0.00%; 内存降低 +74.68%; 基础版本: `1521_fenwick.rs`.
 
@@ -117,7 +117,7 @@ N ≤ 100000，放得下）；N 和 K 逐字节读取，而不是用 `fmt.Scan`�
 | [1521_fenwick_optimized.cpp](1521_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.046 s | 516 KB | 11304369 |
 | [1521_fenwick_optimized.go](1521_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 1320 KB | 11304370 |
 | [1521_fenwick_optimized.java](1521_fenwick_optimized.java) \* | Java 1.8 | fenwick | O(N log N) | AC | 0.125 s | 860 KB | 11304371 |
-| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(N log N) | AC | 0.609 s | 1344 KB | 11304372 |
+| [1521_fenwick_optimized.py](1521_fenwick_optimized.py) \* | PyPy 3.10 x64 | fenwick | O(N log N) time; O(N+S) space | AC | 0.218 s | 6620 KB | 11326706 |
 | [1521_fenwick_optimized.rs](1521_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.031 s | 636 KB | 11304373 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
