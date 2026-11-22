@@ -57,6 +57,14 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1264_math_optimized.java`. Conserva N*(M+1), incluidos ambos límites cero. Con N,M<=40000 el resultado máximo es 1600040000 y cabe exactamente en int. Entrada fija de 256 bytes, salida de 128 y dígitos reutilizados reducen costes de lectura/formato. Aritmética y espacio auxiliar O(1), sin simulación ni cambio del conteo; conserva el fuente simple.
+
+Accepted exacto Java 1.8 #11327465: 0.093 s / 340 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 42/1224, memoria 11/1224. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303732 era 0.14 s / 296 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1264_math_optimized.java`: 0.093 s / 340 KB; base didáctica conservada `1264_math.java`: 0.109 s / 1552 KB.
+
+`1264_math_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327022 mide 0.046 s / 596 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/597, memoria 524/597. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11324828, 0.109 s / 208 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1264_math_optimized.go`. Conserva N*(M+1), incluidos cero elementos y el valor cero entre las M+1 opciones. No simula un arreglo. N,M<=40000 acotan el producto a1600040000; Go mantiene int64 y Python enteros exactos. Entrada numérica por bytes y salida directa reducen sobrecarga, con O(1) tiempo y estado auxiliar. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
 Frente a `1264_math.go`: tiempo 0.031 s → 0.015 s; memoria 1060 KB → 796 KB.
@@ -65,17 +73,13 @@ Frente a `1264_math.go`: tiempo 0.031 s → 0.015 s; memoria 1060 KB → 796 KB.
 
 Frente a `1264_math.py`: tiempo 0.093 s → 0.109 s; memoria 320 KB → 208 KB.
 
-La solución optimizada en Java analiza los dos números byte a byte desde
-`System.in` en lugar de usar `Scanner`: 296 KB en lugar de 1552 KB,
-aunque el tiempo sube de 0.109 s a 0.140 s.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
 `1264_math_optimized.go`: puesto de tiempo 1/16 y de memoria 1/16 en esta muestra comparable.
 
-`1264_math_optimized.py`: puesto de tiempo 539/597 y de memoria 1/597 en esta muestra comparable.
+Comparación PyPy anterior: `1264_math_optimized.py`: puesto de tiempo 539/597 y de memoria 1/597 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -95,8 +99,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 296 KB | 11303732 |
+| [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
 | [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 796 KB | 11325046 |
-| [1264_math_optimized.py](1264_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 208 KB | 11324828 |
+| [1264_math_optimized.py](1264_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
