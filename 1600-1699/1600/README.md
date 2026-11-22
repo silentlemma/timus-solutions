@@ -73,6 +73,12 @@ The simple Rust version scales the decimal inputs to integers and computes the s
 
 ## Optimized solutions
 
+`1600_geometry_optimized.cpp`. Keep the all-pairs geometry and its exact cent-grid rejection, stable cross-product formula, double fast path and quadruple-precision fallback near tangency. Only replace scanf tokenization with a 4096-byte fread reader and bounded tokens of at most 127 characters; the same decimal parser receives each token. No lower precision or relaxed collision tolerance. O(N²) pair work and O(N) object storage plus fixed input buffer. The simple source and both Python time/memory alternatives remain. The new C++ pair is 0.015 s/264 KB, not the previous 0.031 s/256 KB.
+
+Exact-source G++ 13.2 x64 Accepted #11327842: 0.015 s / 264 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/46; 5/46. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. The separate C++ target also passes in both metrics; no asterisk. The preserved previous variant has its own paired receipt #11321905 (G++ 13.2 x64): 0.031 s / 256 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1600_geometry_optimized.cpp`: 0.015 s / 264 KB; retained teaching base `1600_geometry.cpp`: 0.328 s / 664 KB.
+
 Python orders the objects by x and skips pairs whose separation on that axis cannot fall to the critical distance. Once an encounter is found, an integer upper bound on its time limits the scan. The sign of each remaining discriminant is computed exactly. Python 3.12 x64, submission 11322507. Time 0.203 → 0.078 s, memory 1492 → 1084 KB.
 
 The memory-saving Python version checks every pair, skipping those that are moving apart. It uses the equivalent entry-time formula `c / (−b + √(b² − ac))` to avoid subtracting nearly equal values. Submission 11316939 took 0.156 s and used 764 KB. The x-ordered version processes fewer pairs and took 0.078 s while using 1084 KB. Compared with the simple version, the all-pairs version uses 48.8% less memory and the x-ordered version takes 61.6% less time.
@@ -85,7 +91,7 @@ G++ 13.2 x64 №11322335 · Go 1.14 x64 №11322334 · Java 1.8 №11322333 · P
 
 Go skips pairs that are moving apart. For pairs close to tangency it recomputes the discriminant from the original decimal values using rational arithmetic, then uses the stable entry-time formula.
 
-C++ uses the cross product to compute the closest separation and rechecks near-tangent trajectories in quadruple precision.
+Historical previous-revision description and measurements: C++ uses the cross product to compute the closest separation and rechecks near-tangent trajectories in quadruple precision.
 
 Rust scales the decimal input to integers. It computes the discriminant exactly using 128-bit integers when every scaled input has magnitude at most 500,000,000, and uses arbitrary-precision integers otherwise.
 
@@ -109,7 +115,7 @@ Rust scales the decimal input to integers. It computes the discriminant exactly 
 | [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
-| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |
+| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
 | [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
 
 \* The marked solutions can improve their target rankings.

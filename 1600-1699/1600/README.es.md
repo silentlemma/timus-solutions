@@ -76,6 +76,12 @@ La versión sencilla en Rust escala los datos decimales a enteros y calcula exac
 
 ## Soluciones optimizadas
 
+`1600_geometry_optimized.cpp`. Conserva geometría de todos los pares, rechazo exacto en centésimas, fórmula estable de producto cruzado, ruta double y fallback cuádruple cerca de tangencia. Solo cambia scanf por fread de 4096 bytes y tokens hasta 127 caracteres para mismo parser decimal. Sin reducir precisión ni relajar tolerancia. O(N²) pares, O(N) objetos más búfer fijo. Conserva base y ambas alternativas Python. Nuevo par C++ 0.015 s/264 KB; anterior 0.031 s/256 KB.
+
+Fuente exacto: G++ 13.2 x64 Accepted #11327842: 0.015 s / 264 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/46; 5/46. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Cumple ambas metas de C++, sin asterisco. La variante anterior conservada tiene su par propio #11321905 (G++ 13.2 x64): 0.031 s / 256 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1600_geometry_optimized.cpp`: 0.015 s / 264 KB; base didáctica conservada `1600_geometry.cpp`: 0.328 s / 664 KB.
+
 Python ordena los objetos por la coordenada x y descarta los pares cuya separación en ese eje no puede llegar a la distancia crítica. Tras encontrar un encuentro, una cota superior entera de su tiempo limita el recorrido. El signo del discriminante se calcula exactamente para los pares restantes. Python 3.12 x64, envío 11322507. Tiempo 0,203 → 0,078 s, memoria 1492 → 1084 KB.
 
 La versión de Python que ahorra memoria recorre todos los pares y omite los que se alejan. Usa la fórmula equivalente `c / (−b + √(b² − ac))` para calcular el instante de entrada sin restar valores casi iguales. El envío 11316939 tardó 0.156 s y usó 764 KB. La versión que ordena por x examina menos pares y tardó 0.078 s con 1084 KB. Frente a la versión sencilla, la enumeración ahorra un 48.8% de memoria y la ordenación reduce el tiempo un 61.6%.
@@ -88,7 +94,7 @@ G++ 13.2 x64 №11322335 · Go 1.14 x64 №11322334 · Java 1.8 №11322333 · P
 
 Go omite los pares que se alejan. Para los pares cerca de la tangencia vuelve a calcular el discriminante con aritmética racional a partir de los valores decimales de entrada y aplica la fórmula estable del tiempo de entrada.
 
-C++ calcula la separación mínima con el producto vectorial y revisa las trayectorias casi tangentes en precisión cuádruple.
+Descripción y mediciones históricas de la revisión anterior: C++ calcula la separación mínima con el producto vectorial y revisa las trayectorias casi tangentes en precisión cuádruple.
 
 Rust escala la entrada decimal a enteros. Si todos los valores escalados tienen magnitud de hasta 500 000 000, calcula el discriminante exactamente con enteros de 128 bits. En los demás casos usa enteros de precisión arbitraria.
 
@@ -112,7 +118,7 @@ Rust escala la entrada decimal a enteros. Si todos los valores escalados tienen 
 | [1600_bruteforce_geometry.py](1600_bruteforce_geometry.py) \* | Python 3.12 x64 | bruteforce, geometry | O(n²) | AC | 0.156 s | 764 KB | 11316939 |
 | [1600_geometry_optimized.java](1600_geometry_optimized.java) \* | Java 1.8 | geometry | O(n²) | AC | 0.125 s | 1780 KB | 11321903 |
 | [1600_geometry_optimized.go](1600_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(n²) | AC | 0.031 s | 1304 KB | 11322026 |
-| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(n²) | AC | 0.031 s | 256 KB | 11321905 |
+| [1600_geometry_optimized.cpp](1600_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(N²) time; O(N) storage | AC | 0.015 s | 264 KB | 11327842 |
 | [1600_geometry_optimized.rs](1600_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(n²) | AC | 0.031 s | 560 KB | 11322367 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
