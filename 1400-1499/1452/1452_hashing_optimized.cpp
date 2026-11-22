@@ -13,6 +13,15 @@ class Positions {
         int position = 0;
     };
     std::array<Entry, CAPACITY> entries{};
+    static constexpr unsigned FILTER_BITS = 1U << 16, WORD_BITS = 64;
+    std::array<std::uint64_t, FILTER_BITS / WORD_BITS> present{};
+
+    static unsigned fingerprint(int value) {
+        constexpr unsigned MULTIPLIER = 2654435761U;
+        constexpr int MIX_SHIFT = 16;
+        unsigned hash = static_cast<unsigned>(value);
+        return ((hash ^ (hash >> MIX_SHIFT)) * MULTIPLIER) & (FILTER_BITS - 1);
+    }
 
     unsigned slot(int value) const {
         constexpr unsigned HASH_MULTIPLIER = 2654435761U;
@@ -32,11 +41,17 @@ class Positions {
         if (entry.position)
             return false;
         entry = {value, position};
+        const unsigned bit = fingerprint(value);
+        present[bit / WORD_BITS] |= std::uint64_t{1} << (bit % WORD_BITS);
         return true;
     }
 
     int find(std::int64_t value) const {
         if (value < 0 || value > MAX_VALUE)
+            return 0;
+        const unsigned bit = fingerprint(static_cast<int>(value));
+        // A missing bit proves absence; a hit still requires the exact key lookup.
+        if (!(present[bit / WORD_BITS] & (std::uint64_t{1} << (bit % WORD_BITS))))
             return 0;
         return entries[slot(static_cast<int>(value))].position;
     }

@@ -81,7 +81,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La versión optimizada en C++ guarda cada valor distinto y su primera posición en una tabla fija de direccionamiento abierto. Comprueba una diferencia solo si puede existir el término necesario para superar el mejor resultado y si la progresión carece de un término anterior en la entrada. Reconstruye la respuesta a partir del primer término y la diferencia. Las métricas corresponden al envío 11317031.
+`1452_hashing_optimized.cpp`. Conserva la tabla exacta con direccionamiento abierto de valores distintos y primeras posiciones. Un filtro de bits de8 KiB marca una huella al insertar. Un bit cero demuestra ausencia y evita la búsqueda; uno puede colisionar, por lo que cada posible acierto verifica la clave ENTERA completa. No cambian podas por extremo/predecesor ni reconstrucción. El prefiltro fijo conserva la búsqueda exacta original de progresiones.
+
+Accepted del fuente exacto #11326982: 0.015 s / 168 KB. Muestra G++ 13.2 guardada el 2026-11-20: tiempo 1/51, memoria 1/51. Se conservan los fuentes didácticos.
+
+La versión optimizada en C++ guarda cada valor distinto y su primera posición en una tabla fija de direccionamiento abierto. Comprueba una diferencia solo si puede existir el término necesario para superar el mejor resultado y si la progresión carece de un término anterior en la entrada. Reconstruye la respuesta a partir del primer término y la diferencia. Las métricas corresponden al envío 11326982.
 
 Rust guarda los valores y sus índices originales en arreglos separados, con enteros de 16 bits para los índices. El envío 11318214 tardó 0,031 s y usó 292 KB. La versión sencilla tardó 0,093 s y usó 620 KB.
 
@@ -111,7 +115,7 @@ La versión optimizada en Python usa conjuntos de bits enteros cuando los valore
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
-| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) \* | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.046 s | 156 KB | 11317031 |
+| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.015 s | 168 KB | 11326982 |
 | [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
 | [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |

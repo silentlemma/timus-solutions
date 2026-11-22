@@ -79,7 +79,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized C++ version stores each distinct value and its first input index in a fixed open-addressing table. It tests a candidate difference only when the term needed to beat the current best can exist and the progression has no predecessor in the input. The answer is rebuilt from its first value and difference. The metrics come from submission 11317031.
+`1452_hashing_optimized.cpp`. Keep the exact open-addressing table of distinct values and their first input positions. An 8 KiB bit filter records a fingerprint bit on insertion. A zero bit proves absence and skips the table probe; a set bit may collide, so every possible hit still checks the FULL integer key in the table. Endpoint/predecessor pruning and exact progression reconstruction are unchanged. This fixed prefilter preserves the original exact progression search.
+
+Exact-source Accepted #11326982: 0.015 s / 168 KB. Saved G++ 13.2 sample, 2026-11-20: time rank 1/51, memory rank 1/51. Teaching sources remain unchanged.
+
+The optimized C++ version stores each distinct value and its first input index in a fixed open-addressing table. It tests a candidate difference only when the term needed to beat the current best can exist and the progression has no predecessor in the input. The answer is rebuilt from its first value and difference. The metrics come from submission 11326982.
 
 Rust keeps values and their original indices in separate arrays, with 16-bit integers for indices. Submission 11318214 took 0.031 s and used 292 KB. The simple version took 0.093 s and used 620 KB.
 
@@ -109,7 +113,7 @@ The optimized Python version uses integer bitsets for values in a dense interval
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) \* | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.046 s | 156 KB | 11317031 |
+| [1452_hashing_optimized.cpp](1452_hashing_optimized.cpp) | G++ 13.2 x64 | hashing | O(N + m^2) | AC | 0.015 s | 168 KB | 11326982 |
 | [1452_hashing_optimized.rs](1452_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O(N + m^2) | AC | 0.031 s | 292 KB | 11318214 |
 | [1452_hashing_optimized.go](1452_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O(N + m^2) | AC | 0.062 s | 864 KB | 11321984 |
 | [1452_hashing_optimized.java](1452_hashing_optimized.java) \* | Java 1.8 | hashing | O(N + m^2) | AC | 0.187 s | 492 KB | 11318310 |
