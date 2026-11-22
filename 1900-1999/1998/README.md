@@ -121,19 +121,19 @@ height, not on the number of interruptions already processed.
 
 ## Optimized solutions
 
-`1998_two_pointers_optimized.java`. Keep prefix weights and the same monotone two-pointer retreat table, including the strict released-weight>limit rule. Build prefix sums directly as weights arrive rather than retaining the separate weights array. Consume interruption times one at a time and update the held-prefix length; if ordinary seconds already complete the work before the next interruption, output immediately and ignore later input. This removes the events array too. Time O(N+M), storage O(N) for prefix and retreat, with long times and weight totals. The interruption second still performs no lift, so ordinary=event-time-1 is preserved.
+`1998_two_pointers_optimized.java`. Keep the monotone two-pointer retreat table and the strict comparison with limit. Build prefix weights as the input arrives and consume interruption times one at a time; an early completion still ignores subsequent events. With at most 100000 weights of at most 10000, every prefix and prefix difference is at most 10^9, so int arrays suffice for prefixes and retreat indices. Times and limit remain long, and ordinary=event-time-1 is unchanged. A 4 KB byte parser replaces the generic reader; time O(N+M), storage O(N). The simple versions remain.
 
-Compared with `1998_two_pointers.java`: time 0.125 s → 0.125 s; memory 3 104 KB → 1 696 KB.
+Compared with `1998_two_pointers.java`: time 0.125 s → 0.093 s; memory 3104 KB → 1152 KB.
 
 The optimized C++ version keeps the two-pointer algorithm. While reading the weights, it maintains the weight of the current suffix and discards its first item whenever the remaining suffix still exceeds the threshold. The weights fit in 16 bits. Interruption times are processed as they arrive, and reading stops once the final lift is possible. The running time is O(n+m) and extra space is O(n). The Accepted run used 672 KB instead of 2740 KB, with the same 0.015 s runtime.
 
-The accepted base implementations [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.java](1998_two_pointers.java), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The retained accepted base implementations [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies. Java uses the separate optimized source above; its teaching source remains. A star marks the separate language rating target.
 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
 
-`1998_two_pointers_optimized.java`: time place 8/40, memory place 13/40 in this comparable sample.
+Exact-source Accepted #11326586: 0.093 s / 1152 KB. In the saved Java 1.8 sample of 2026-11-20: time rank 1/40, memory rank 2/40. The asterisk still denotes the separate language rating target.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -154,6 +154,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
-| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.125 s | 1696 KB | 11325027 |
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

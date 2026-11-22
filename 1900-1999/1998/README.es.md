@@ -115,19 +115,19 @@ retroceso depende solo de la longitud del prefijo.
 
 ## Soluciones optimizadas
 
-`1998_two_pointers_optimized.java`. Conserva prefijos y tabla monótona de retroceso por dos punteros, incluida liberación estricta>limit. Construye prefijos al leer pesos, sin arreglo aparte. Consume interrupciones una a una; si los segundos ordinarios bastan antes de la siguiente, responde e ignora entradas posteriores. Elimina también el arreglo de eventos. Tiempo O(N+M), espacio O(N) para prefijos/retrocesos, tiempos y sumas long. El segundo interrumpido no levanta: mantiene ordinary=event-time-1.
+`1998_two_pointers_optimized.java`. Conserva la tabla monótona de retroceso por dos punteros y la comparación estricta con limit. Construye prefijos al leer y consume las interrupciones una a una; si termina antes, sigue ignorando eventos posteriores. Hay como máximo 100000 pesos de hasta 10000, por lo que cada prefijo y diferencia no supera 10^9: bastan arreglos int para prefijos e índices. Los tiempos y limit siguen siendo long y ordinary=event-time-1 no cambia. Un analizador de bytes de 4 KB reemplaza al lector genérico; tiempo O(N+M), espacio O(N). Se conservan las versiones simples.
 
-Frente a `1998_two_pointers.java`: tiempo 0.125 s → 0.125 s; memoria 3 104 KB → 1 696 KB.
+Frente a `1998_two_pointers.java`: tiempo 0.125 s → 0.093 s; memoria 3104 KB → 1152 KB.
 
 La versión optimizada de C++ conserva el algoritmo de dos punteros. Al leer los pesos, mantiene el total del sufijo actual y retira su primer objeto mientras el resto aún supere estrictamente el límite. Cada peso ocupa 16 bits. Las interrupciones se procesan a medida que se leen y la lectura se detiene en cuanto se puede terminar. El tiempo es O(n+m) y el espacio adicional es O(n). El envío aceptado usó 672 KB en lugar de 2740 KB, con el mismo tiempo de 0,015 s.
 
-Las implementaciones base aceptadas [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.java](1998_two_pointers.java), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases aceptadas conservadas [1998_two_pointers.go](1998_two_pointers.go), [1998_two_pointers.py](1998_two_pointers.py), [1998_two_pointers.rs](1998_two_pointers.rs) también cumplen la admisión estricta del conjunto rápido en la comparación guardada: diez primeros puestos o 15% superior en las métricas requeridas. Se reutilizan sin copias idénticas. Java utiliza el fuente optimizado separado de arriba y conserva el didáctico. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
 
-`1998_two_pointers_optimized.java`: puesto de tiempo 8/40 y de memoria 13/40 en esta muestra comparable.
+Accepted del fuente exacto #11326586: 0.093 s / 1152 KB. En la muestra Java 1.8 guardada el 2026-11-20: puesto de tiempo 1/40, de memoria 2/40. El asterisco sigue indicando el objetivo de clasificación propio del lenguaje.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -148,6 +148,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1998_two_pointers_optimized.cpp](1998_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n+m) | AC | 0.015 s | 672 KB | 11310347 |
-| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.125 s | 1696 KB | 11325027 |
+| [1998_two_pointers_optimized.java](1998_two_pointers_optimized.java) \* | Java 1.8 | two_pointers | O(N+M) | AC | 0.093 s | 1152 KB | 11326586 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
