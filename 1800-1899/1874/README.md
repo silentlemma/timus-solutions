@@ -27,7 +27,7 @@ Compare numerical output with the stated tolerance, including the rounding bound
 
 - `1874_geometry_optimized.go` (Go 1.14 x64): 13 repository cases; 13 additional source-bound comparisons.
 
-- `1874_geometry_optimized.java` (Java 1.8): 13 repository cases.
+- `1874_geometry_optimized.java` (Java 1.8). 13 repository cases and 30 additional cases ran in separate Java processes. Another 40,292 calls checked the six decimal places and compared the area against a high-precision reference, including fragmented input.
 
 - `1874_geometry_optimized.py` (PyPy 3.10 x64): 13 repository cases; 204 additional source-bound comparisons.
 
@@ -75,10 +75,10 @@ sticks, and with an independent accepted implementation on all tests.
 
 ## Optimized solutions
 
-Keep the same geometric optimum (a*a+b*b+2*sqrt(2)*a*b)/4 and the readable sources. Java reduces scanner/formatter overhead. Go and Python compute the formula at runtime, then round once to six decimals using an integer scaled by 10^6; there is no answer table. For a,b<=10000 the scaled result is below 2^47, so floating-point roundoff plus at most half a micro-unit of decimal rounding stays below 10^-6 absolute error. Emit the fractional part with six positions including leading zeros. Only input/output and representation change; time and space remain O(1).
+Keep the same geometric optimum (a*a+b*b+2*sqrt(2)*a*b)/4 and the readable sources. Java reads both positive integers in blocks, then reuses the 32-byte input buffer for six-decimal output. It computes the square term exactly in millionths and rounds the scaled cross term once. The absolute error is below 0.000000522 throughout the allowed range. Go and Python compute the formula at runtime, then round once to six decimals using an integer scaled by 10^6; there is no answer table. For a,b<=10000 the scaled result is below 2^47, so floating-point roundoff plus at most half a micro-unit of decimal rounding stays below 10^-6 absolute error. Emit the fractional part with six positions including leading zeros. Only input/output and representation change; time and space remain O(1).
 
 - `1874_geometry_optimized.go`: 0.031 s / 304 KB; base `1874_geometry.go`: 0.031 s / 1136 KB; relative change: time -0.0%, memory -73.2%.
-- `1874_geometry_optimized.java`: 0.109 s / 544 KB; base `1874_geometry.java`: 0.140 s / 1832 KB; relative change: time -22.1%, memory -70.3%.
+- `1874_geometry_optimized.java`. The simple Java run #11290975 used 0.140 s and 1832 KB. The earlier optimized run #11308337 used 0.109 s and 544 KB. The new run #11328166 used 0.093 s and 344 KB.
 - `1874_geometry_optimized.py`: 0.140 s / 316 KB; base `1874_geometry.py`: 0.078 s / 452 KB; relative change: time +79.5%, memory -30.1%.
 
 `1874_geometry_optimized.rs`. Keep the same closed-form area calculation in f64 and print nine fractional digits directly with printf. The optimization changes input/output representation, not the geometric formula or its precision class. Time and auxiliary space remain O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
@@ -87,7 +87,9 @@ Compared with `1874_geometry.rs`: time 0.031 s → 0.046 s; memory 236 KB → 11
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+The Java 1.8 snapshot of 1 November 2026 places this run 2/61 by time and 1/61 by memory. With less than 1 MiB, the time rank qualifies it under the strict rule.
+
+The Rust results are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
 `1874_geometry_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -110,7 +112,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1874_geometry_optimized.go](1874_geometry_optimized.go) | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11309758 |
-| [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 544 KB | 11308337 |
+| [1874_geometry_optimized.java](1874_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.093 s | 344 KB | 11328166 |
 | [1874_geometry_optimized.py](1874_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.140 s | 316 KB | 11309748 |
 | [1874_geometry_optimized.rs](1874_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 112 KB | 11325114 |
 
