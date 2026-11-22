@@ -59,7 +59,7 @@
 
 `1385_math_optimized.go`. 保留用 10^min(N,3) 推导整除系数，再流式输出零后缀。Go1.14 syscall.Read/Write 及固定256字节缓冲替代 os.File 初始化和旧4096字节缓冲，重试 EINTR、部分写并处理零字节 EOF。无答案表或任意精度分配。O(N) 输出时间、O(1) 额外空间。精确 Accepted 用312KB，比短公式基线1116KB少72.0%；保留简单公式及大整数教学源。
 
-与 `1385_math.go` 相比：时间 0.031 s → 0.015 s；内存 1116 KB → 312 KB。
+与 `1385_math.go` 相比：时间 0.031 s → 0.015 s；内存 1116 KB → 280 KB。
 
 `1385_math_optimized.rs`. 保留已证明的整除计数：对整除10^N 的 d=1..9 求 Σ(10^N/d-10^(N-1))，但仅用10^min(N,3) 算系数。N=3 起可用 d 稳定为1,2,4,5,8，得到14、155 或1575，再按需直接写 N-3 个零字节。这些值由小除数循环推导，不是存储答案。两个版本均不构造 Repeat/repeat 后缀或拼接整条答案。输出 N+1 位，时间 O(N)，额外状态 O(1) 加有界输入输出，无大整数或 N 长缓冲。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
 
@@ -117,7 +117,7 @@
 | [1385_math.py](1385_math.py) \* | Python 3.12 x64 | math | O(N) output time; O(N) string space | AC | 0.078 s | 392 KB | 11285836 |
 | [1385_math_optimized.cpp](1385_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) output time; O(1) auxiliary space | AC | 0.015 s | 120 KB | 11308752 |
 | [1385_math_optimized.java](1385_math_optimized.java) | Java 1.8 | math | O(N) output time; O(1) auxiliary space | AC | 0.093 s | 432 KB | 11308759 |
-| [1385_math_optimized.go](1385_math_optimized.go) \* | Go 1.14 x64 | math | O(N) time; O(1) space | AC | 0.015 s | 312 KB | 11325709 |
+| [1385_math_optimized.go](1385_math_optimized.go) \* | Go 1.14 x64 | math | O(N) time; O(1) space | AC | 0.015 s | 280 KB | 11328274 |
 | [1385_math_optimized.rs](1385_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325098 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

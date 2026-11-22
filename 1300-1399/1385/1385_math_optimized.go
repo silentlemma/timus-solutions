@@ -57,18 +57,6 @@ func readNumber() (int64, bool) {
 
 func number() int64 { value, _ := readNumber(); return value }
 
-func wordByte() byte {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	first := byte(character)
-	for character > ' ' {
-		character = nextByte()
-	}
-	return first
-}
-
 func flushOutput() {
 	for start := 0; start < outputSize; {
 		count, err := syscall.Write(syscall.Stdout, outputBuffer[start:outputSize])
@@ -109,12 +97,6 @@ func writeNumber(value int64) {
 	}
 	for _, digit := range digits[first:] {
 		writeByte(digit)
-	}
-}
-
-func writeText(text string) {
-	for index := 0; index < len(text); index++ {
-		writeByte(text[index])
 	}
 }
 

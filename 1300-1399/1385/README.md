@@ -66,9 +66,9 @@ do not supply a corresponding arbitrary-precision integer type.
 
 ## Optimized solutions
 
-`1385_math_optimized.go`. Keep the derived divisibility coefficient using only 10^min(N,3), then stream the zero suffix. Raw Go 1.14 syscall.Read/Write with fixed 256-byte buffers replaces os.File initialization and the previous 4096-byte buffers, retrying EINTR and partial writes and recognizing zero-byte EOF. No answer table or arbitrary-precision allocation is added. O(N) output time and O(1) auxiliary space. Our exact Accepted uses 312 KB, 72.0% less than the short 1116 KB formula baseline; preserve both simple formula and big-integer teaching sources.
+`1385_math_optimized.go`. Keep the derived divisibility coefficient using only 10^min(N,3), then stream the zero suffix. Raw Go 1.14 syscall.Read/Write with fixed 256-byte buffers replaces os.File initialization and the previous 4096-byte buffers, retrying EINTR and partial writes and recognizing zero-byte EOF. No answer table or arbitrary-precision allocation is added. O(N) output time and O(1) auxiliary space. Our exact Accepted uses 280 KB, 74.9% less than the short 1116 KB formula baseline; preserve both simple formula and big-integer teaching sources.
 
-Compared with `1385_math.go`: time 0.031 s → 0.015 s; memory 1116 KB → 312 KB.
+Compared with `1385_math.go`: time 0.031 s → 0.015 s; memory 1116 KB → 280 KB.
 
 `1385_math_optimized.rs`. Keep the proved divisibility count Σ(10^N/d-10^(N-1)) over d=1..9 dividing 10^N, but compute its coefficient using only 10^min(N,3). The admissible d stabilize at 1,2,4,5,8 from N=3, so this yields 14,155 or 1575 and then exactly N-3 zero bytes when needed. These values are derived by the small divisor loop, not stored answers. Both variants emit the zero suffix directly instead of constructing Repeat/repeat strings or a concatenated answer. The output has N+1 digits: O(N) time, O(1) auxiliary state plus bounded I/O, no arbitrary-precision integer or N-sized buffer. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
 
@@ -131,7 +131,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1385_math.py](1385_math.py) \* | Python 3.12 x64 | math | O(N) output time; O(N) string space | AC | 0.078 s | 392 KB | 11285836 |
 | [1385_math_optimized.cpp](1385_math_optimized.cpp) | G++ 13.2 x64 | math | O(N) output time; O(1) auxiliary space | AC | 0.015 s | 120 KB | 11308752 |
 | [1385_math_optimized.java](1385_math_optimized.java) | Java 1.8 | math | O(N) output time; O(1) auxiliary space | AC | 0.093 s | 432 KB | 11308759 |
-| [1385_math_optimized.go](1385_math_optimized.go) \* | Go 1.14 x64 | math | O(N) time; O(1) space | AC | 0.015 s | 312 KB | 11325709 |
+| [1385_math_optimized.go](1385_math_optimized.go) \* | Go 1.14 x64 | math | O(N) time; O(1) space | AC | 0.015 s | 280 KB | 11328274 |
 | [1385_math_optimized.rs](1385_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.015 s | 56 KB | 11325098 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
