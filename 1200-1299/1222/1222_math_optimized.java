@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 public class Main {
 
     // a single small integer is read byte by byte; no scanner or buffer is needed.
@@ -15,22 +13,49 @@ public class Main {
         return value;
     }
 
-    static final int THREE = 3, FOUR = 4;
+    static final int THREE = 3, FOUR = 4, GROUP_DIGITS = 9, BLOCK_POWER = 18;
+    static final int BASE = 1000000000, DECIMAL = 10;
 
     public static void main(String[] args) throws java.io.IOException {
-        int n = next();
-        // threes are best: a 4 or more splits into parts with a larger product, and
-        // three 2s lose to two 3s; a leftover 1 joins a 3 to make 2 + 2
+        int n = next(), threes = n / THREE, rest = n % THREE;
         if (n < FOUR) {
-            System.out.println(n);
+            System.out.write('0' + n);
+            System.out.write('\n');
             return;
         }
-        int threes = n / THREE, rest = n % THREE;
         if (rest == 1) {
             threes--;
             rest = FOUR;
         }
-        BigInteger product = BigInteger.valueOf(THREE).pow(threes);
-        System.out.println(product.multiply(BigInteger.valueOf(Math.max(rest, 1))));
+        // Each factor 3^18 is below BASE, so one block adds at most one limb.
+        int[] limbs = new int[n / (THREE * BLOCK_POWER) + 2];
+        limbs[0] = Math.max(rest, 1);
+        int length = 1;
+        while (threes > 0) {
+            int block = Math.min(threes, BLOCK_POWER), multiplier = 1;
+            threes -= block;
+            for (int i = 0; i < block; i++)
+                multiplier *= THREE;
+            long carry = 0;
+            for (int i = 0; i < length; i++) {
+                long value = (long)limbs[i] * multiplier + carry;
+                limbs[i] = (int)(value % BASE);
+                carry = value / BASE;
+            }
+            if (carry != 0)
+                limbs[length++] = (int)carry;
+        }
+        byte[] answer = new byte[length * GROUP_DIGITS + 1];
+        int at = answer.length;
+        answer[--at] = '\n';
+        for (int i = 0; i < length; i++) {
+            int value = limbs[i], digits = 0;
+            do {
+                answer[--at] = (byte)('0' + value % DECIMAL);
+                value /= DECIMAL;
+                digits++;
+            } while (value > 0 || (i + 1 < length && digits < GROUP_DIGITS));
+        }
+        System.out.write(answer, at, answer.length - at);
     }
 }

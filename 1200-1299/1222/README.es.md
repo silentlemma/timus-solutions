@@ -68,6 +68,12 @@ aparte en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1222_math_optimized.java`. Conserva la partición óptima en treses, sustituyendo resto uno por factor cuatro, con N<4 separado. Calcula el mismo producto en bloques base10^9 con multiplicadores generados hasta 3^18, sin BigInteger ni respuestas precalculadas. Cada intermedio long es menor que 10^9*3^18<2^63; al imprimir rellena bloques inferiores a nueve dígitos. Cota conservadora O(N²) trabajo aritmético y O(N) espacio; conserva la versión matemática simple.
+
+Accepted exacto Java 1.8 #11327402: 0.093 s / 348 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 12/136, memoria 2/136. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304486 era 0.125 s / 484 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1222_math_optimized.java`: 0.093 s / 348 KB; base didáctica conservada `1222_math.java`: 0.093 s / 1708 KB.
+
 `1222_math_optimized.rs`. Conserva descomposición óptima en treses y un cuatro si sobra uno. Empaqueta nueve cifras decimales por u32 en vez de una y emite grupos rellenados sin construir String decimal. Multiplicar por tres cabe en u32: 3*(10^9-1)+2<2^32. Las multiplicaciones pequeñas siguen O(n²) trabajo de limbs y O(n) cifras almacenadas; mejora representación, no asintótica. Conserva versión sencilla de un dígito por limb.
 
 Frente a `1222_math.rs`: tiempo 0.031 s → 0.015 s; memoria 208 KB → 64 KB.
@@ -78,11 +84,6 @@ producto, así que el programa no necesita memoria dinámica; con
 `N ≤ 3000` el producto tiene como mucho 478 dígitos:
 {1222_math_optimized.cpp}.
 
-La solución optimizada en Java lee el único número byte a byte con
-`System.in.read` en lugar de crear un `Scanner`, así que la JVM no carga
-el escáner ni sus expresiones regulares; la potencia con `BigInteger` es
-la misma: {1222_math_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -92,9 +93,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1222_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +45.83%; base: `1222_math.cpp`.
-
-- `1222_math_optimized.java`: reducción de tiempo -34.41%; reducción de
-  memoria +71.66%; base: `1222_math.java`.
 
 `1222_math_optimized.py`. Mantiene la partición de producto máximo en treses, resuelve N<4 directamente y cambia un resto uno por un cuatro. El resultado exacto no cambia; pow y ** son potencias enteras equivalentes. Para un resultado de O(N) bits, la cota conservadora de aritmética escolar y salida decimal es O(N²) de tiempo y O(N) bits. La ganancia medida procede de la implementación del programa independiente. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -127,7 +125,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1222_math_optimized.cpp](1222_math_optimized.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 104 KB | 11304484 |
-| [1222_math_optimized.java](1222_math_optimized.java) \* | Java 1.8 | math | O(N²) | AC | 0.125 s | 484 KB | 11304486 |
+| [1222_math_optimized.java](1222_math_optimized.java) \* | Java 1.8 | math | O(N²) time; O(N) space | AC | 0.093 s | 348 KB | 11327402 |
 | [1222_math_optimized.py](1222_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N²) | AC | 0.109 s | 248 KB | 11324929 |
 | [1222_math_optimized.rs](1222_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n²) limb work; O(n) digits | AC | 0.015 s | 64 KB | 11325523 |
 

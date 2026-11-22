@@ -61,6 +61,12 @@
 
 ## 优化解法
 
+`1222_math_optimized.java`. 保留最优拆三、余一改为乘四的规则，N<4 单独处理。同一乘积以 10^9 进制块、至多 3^18 的运行时乘数计算，不用 BigInteger 或预存答案。每个 long 中间值小于 10^9*3^18<2^63，输出时低位块补足九位。保守上界 O(N²) 算术工作、O(N) 空间；保留简单数学版。
+
+精确源代码 Java 1.8 Accepted #11327402：0.093 s / 348 KB。2026-11-20 保存的编译器组比较：时间 12/136、内存 2/136。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304486 为 0.125 s / 484 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1222_math_optimized.java`: 0.093 s / 348 KB; 保留教学基础版 `1222_math.java`: 0.093 s / 1708 KB.
+
 `1222_math_optimized.rs`. 保留最优三的分解，余一改用四。每个 u32 数位打包九位十进制而非一位，直接输出补足九位的组，不构造十进制 String。乘三适合 u32，因为 3*(10^9-1)+2<2^32。反复小数乘法仍需 O(n²) 数位运算、O(n) 输出位存储，收益是表示更紧凑而非新渐近算法。保留简单十进制数位版。
 
 与 `1222_math.rs` 相比：时间 0.031 s → 0.015 s；内存 208 KB → 64 KB。
@@ -69,17 +75,11 @@
 积增长的 `std::vector`，因此程序不需要动态内存；当 `N ≤ 3000` 时乘积至多
 478 位：{1222_math_optimized.cpp}。
 
-优化的 Java 解法用 `System.in.read` 逐字节读入唯一的数，而不是创建 `Scanner`，这
-样 JVM 不必加载扫描器及其正则表达式；`BigInteger` 求幂的部分不变：
-{1222_math_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1222_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.83%; 基础版本: `1222_math.cpp`.
-
-- `1222_math_optimized.java`: 时间降低 -34.41%; 内存降低 +71.66%; 基础版本: `1222_math.java`.
 
 `1222_math_optimized.py`. 保留最大乘积分拆：尽量用三，N<4 直接处理，余一时改成一个四。精确结果不变，pow 与基础 ** 都是等价整数幂。结果占 O(N) 位；按朴素算术和十进制输出，保守时间 O(N²)、存储 O(N) 位。实测收益来自独立程序的运行环境实现。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
 
@@ -112,7 +112,7 @@
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1222_math_optimized.cpp](1222_math_optimized.cpp) | G++ 13.2 x64 | math | O(N²) | AC | 0.001 s | 104 KB | 11304484 |
-| [1222_math_optimized.java](1222_math_optimized.java) \* | Java 1.8 | math | O(N²) | AC | 0.125 s | 484 KB | 11304486 |
+| [1222_math_optimized.java](1222_math_optimized.java) \* | Java 1.8 | math | O(N²) time; O(N) space | AC | 0.093 s | 348 KB | 11327402 |
 | [1222_math_optimized.py](1222_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N²) | AC | 0.109 s | 248 KB | 11324929 |
 | [1222_math_optimized.rs](1222_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n²) limb work; O(n) digits | AC | 0.015 s | 64 KB | 11325523 |
 
