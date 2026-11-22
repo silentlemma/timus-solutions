@@ -55,11 +55,17 @@ n 位的串每种长度至多有 n 个子串，而六位数有 9·10⁵ 个，�
 
 ## 优化解法
 
+`1769_strings_optimized.java`. 保留当前长度正十进制编码的单个位图，递增寻找缺失编码。4096 字节分块读数字；窗口前进时减去移出数字乘 10^length，替代除法取余，窗口编码仍精确。仅标记首位非零编码。D<=6、N 个数字时，工作 O(DN+10^D)，空间 O(N+10^D) 位，含字与字节的固定倍率。新提交更快，但占 588 KB，旧优化版为 556 KB，因此不是相对旧优化版的内存节省。
+
+精确源代码 Java 1.8 Accepted #11326952：0.109 s / 588 KB。2026-11-20 保存的当前 Java 比较：时间排名 5/42，内存排名 1/42。内存低于 1024 KB，严格收录只看时间。
+
+- `1769_strings_optimized.java`: 0.109 s / 588 KB; 保留的教学基础版 `1769_strings.java`: 0.156 s / 2124 KB; 时间变化 -30.1%; 内存变化 -72.3%.
+
 每次只标记一种长度的十进制子串，使用滚动数值编码和紧凑位图。按递增数值寻找第一个缺失数；若该长度全部出现，则增加长度并复用空间。前导零和最小答案按原数值定义处理，不为每个子串分配字符串，也不同时保留全部长度的集合。
 
 - `1769_strings_optimized.cpp`: 0.031 s / 376 KB; 基础版 `1769_strings.cpp`: 0.015 s / 612 KB; 相对基础版的变化: 时间 +106.7%, 内存 -38.6%.
 - `1769_strings_optimized.go`: 0.046 s / 1444 KB; 基础版 `1769_strings.go`: 0.031 s / 2740 KB; 相对基础版的变化: 时间 +48.4%, 内存 -47.3%.
-- `1769_strings_optimized.java`: 0.140 s / 556 KB; 基础版 `1769_strings.java`: 0.156 s / 2124 KB; 相对基础版的变化: 时间 -10.3%, 内存 -73.8%.
+
 - `1769_strings_optimized.py`: 0.250 s / 1452 KB; 基础版 `1769_strings.py`: 0.312 s / 23740 KB; 相对基础版的变化: 时间 -19.9%, 内存 -93.9%.
 - `1769_strings_optimized.rs`: 0.031 s / 468 KB; 基础版 `1769_strings.rs`: 0.031 s / 1472 KB; 相对基础版的变化: 时间 -0.0%, 内存 -68.2%.
 
@@ -71,7 +77,7 @@ n 位的串每种长度至多有 n 个子串，而六位数有 9·10⁵ 个，�
 
 - Go: 优先教学基础版 `1769_strings.go`; 覆盖实现 `1769_strings.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
-- Java: 优先教学基础版 `1769_strings.java`; 覆盖实现 `1769_strings_optimized.java`; 时间/内存名次 2/1, 其他作者记录 2/2.
+- Java: 精确源代码 Java 1.8 Accepted #11326952：0.109 s / 588 KB。2026-11-20 保存的当前 Java 比较：时间排名 5/42，内存排名 1/42。内存低于 1024 KB，严格收录只看时间。
 
 - Python/PyPy: 优先教学基础版 `1769_strings.py`; 覆盖实现 `1769_strings_optimized.py`; 时间/内存名次 7/1, 其他作者记录 14/14.
 
@@ -97,7 +103,7 @@ n 位的串每种长度至多有 n 个子串，而六位数有 9·10⁵ 个，�
 |---|---|---|---|---|---|---|---|
 | [1769_strings_optimized.cpp](1769_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(DN+10^D) | AC | 0.031 s | 376 KB | 11308082 |
 | [1769_strings_optimized.go](1769_strings_optimized.go) | Go 1.14 x64 | strings | O(DN+10^D) | AC | 0.046 s | 1444 KB | 11308083 |
-| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.140 s | 556 KB | 11308084 |
+| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.109 s | 588 KB | 11326952 |
 | [1769_strings_optimized.py](1769_strings_optimized.py) \* | Python 3.12 x64 | strings | O(DN+10^D) | AC | 0.250 s | 1452 KB | 11308079 |
 | [1769_strings_optimized.rs](1769_strings_optimized.rs) | Rust 1.75 x64 | strings | O(DN+10^D) | AC | 0.031 s | 468 KB | 11308085 |
 

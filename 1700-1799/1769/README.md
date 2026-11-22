@@ -64,11 +64,17 @@ long ones.
 
 ## Optimized solutions
 
+`1769_strings_optimized.java`. Keep one bitmap for positive decimal codes of the current length and search absent codes in increasing order. Read digit bytes in 4096-byte blocks. When the rolling window advances, subtract the outgoing digit times 10^length instead of reducing by division; the value always remains the exact fixed-length code. Only codes with a nonzero leading digit are marked. With D<=6 and N input digits, work is O(DN+10^D), storage O(N+10^D) bits up to fixed word/byte factors. The new run is faster but uses 588 KB versus the prior 556 KB; it is not a memory reduction over that optimized revision.
+
+Exact-source Java 1.8 Accepted #11326952: 0.109 s / 588 KB. Saved current-Java comparison, 2026-11-20: time rank 5/42, memory rank 1/42. With memory below 1024 KB, strict admission uses time only.
+
+- `1769_strings_optimized.java`: 0.109 s / 588 KB; retained teaching base `1769_strings.java`: 0.156 s / 2124 KB; time change -30.1%; memory change -72.3%.
+
 Mark decimal substrings of only one length at a time using numeric rolling codes and a compact bitmap. Scan candidate numbers in increasing order and stop at the first absent number. If every number of the current length occurs, move to the next length and reuse storage. Thus leading zeros and the required smallest answer follow the original numeric definition, without allocating a string object for each substring or retaining sets for all lengths.
 
 - `1769_strings_optimized.cpp`: 0.031 s / 376 KB; base `1769_strings.cpp`: 0.015 s / 612 KB; relative change: time +106.7%, memory -38.6%.
 - `1769_strings_optimized.go`: 0.046 s / 1444 KB; base `1769_strings.go`: 0.031 s / 2740 KB; relative change: time +48.4%, memory -47.3%.
-- `1769_strings_optimized.java`: 0.140 s / 556 KB; base `1769_strings.java`: 0.156 s / 2124 KB; relative change: time -10.3%, memory -73.8%.
+
 - `1769_strings_optimized.py`: 0.250 s / 1452 KB; base `1769_strings.py`: 0.312 s / 23740 KB; relative change: time -19.9%, memory -93.9%.
 - `1769_strings_optimized.rs`: 0.031 s / 468 KB; base `1769_strings.rs`: 0.031 s / 1472 KB; relative change: time -0.0%, memory -68.2%.
 
@@ -80,7 +86,7 @@ The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% 
 
 - Go: preferred teaching base `1769_strings.go`; covering source `1769_strings.go`; time/memory places 1/1, other-author entries 0/0.
 
-- Java: preferred teaching base `1769_strings.java`; covering source `1769_strings_optimized.java`; time/memory places 2/1, other-author entries 2/2.
+- Java: Exact-source Java 1.8 Accepted #11326952: 0.109 s / 588 KB. Saved current-Java comparison, 2026-11-20: time rank 5/42, memory rank 1/42. With memory below 1024 KB, strict admission uses time only.
 
 - Python/PyPy: preferred teaching base `1769_strings.py`; covering source `1769_strings_optimized.py`; time/memory places 7/1, other-author entries 14/14.
 
@@ -106,7 +112,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1769_strings_optimized.cpp](1769_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(DN+10^D) | AC | 0.031 s | 376 KB | 11308082 |
 | [1769_strings_optimized.go](1769_strings_optimized.go) | Go 1.14 x64 | strings | O(DN+10^D) | AC | 0.046 s | 1444 KB | 11308083 |
-| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.140 s | 556 KB | 11308084 |
+| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.109 s | 588 KB | 11326952 |
 | [1769_strings_optimized.py](1769_strings_optimized.py) \* | Python 3.12 x64 | strings | O(DN+10^D) | AC | 0.250 s | 1452 KB | 11308079 |
 | [1769_strings_optimized.rs](1769_strings_optimized.rs) | Rust 1.75 x64 | strings | O(DN+10^D) | AC | 0.031 s | 468 KB | 11308085 |
 

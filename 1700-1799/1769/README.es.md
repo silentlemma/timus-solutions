@@ -64,11 +64,17 @@ aceptada independiente en 20 líneas largas.
 
 ## Soluciones optimizadas
 
+`1769_strings_optimized.java`. Conserva un bitmap de códigos decimales positivos de una longitud y busca el ausente menor. Lee bloques de 4096 bytes. Al avanzar la ventana resta el dígito saliente por 10^length, sin división: el código sigue exacto. Solo marca primera cifra no nula. Para D<=6 y N cifras: trabajo O(DN+10^D), espacio O(N+10^D) bits con factores fijos de palabra/byte. El nuevo envío es más rápido, pero usa 588 KB frente a 556 KB anteriores; no mejora memoria frente a aquella revisión.
+
+Accepted de fuente exacto Java 1.8 #11326952: 0.109 s / 588 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 5/42, memoria 1/42. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1769_strings_optimized.java`: 0.109 s / 588 KB; base didáctica conservada `1769_strings.java`: 0.156 s / 2124 KB; cambio de tiempo -30.1%; cambio de memoria -72.3%.
+
 Se marcan subcadenas decimales de una sola longitud mediante códigos numéricos deslizantes y un mapa compacto de bits. Se recorren candidatos crecientes hasta el primero ausente; si aparecen todos, se aumenta la longitud y reutiliza memoria. Los ceros iniciales y el mínimo requerido respetan la definición numérica original. No se crean cadenas por subcadena ni conjuntos simultáneos para todas las longitudes.
 
 - `1769_strings_optimized.cpp`: 0.031 s / 376 KB; base `1769_strings.cpp`: 0.015 s / 612 KB; cambio respecto a la base: tiempo +106.7%, memoria -38.6%.
 - `1769_strings_optimized.go`: 0.046 s / 1444 KB; base `1769_strings.go`: 0.031 s / 2740 KB; cambio respecto a la base: tiempo +48.4%, memoria -47.3%.
-- `1769_strings_optimized.java`: 0.140 s / 556 KB; base `1769_strings.java`: 0.156 s / 2124 KB; cambio respecto a la base: tiempo -10.3%, memoria -73.8%.
+
 - `1769_strings_optimized.py`: 0.250 s / 1452 KB; base `1769_strings.py`: 0.312 s / 23740 KB; cambio respecto a la base: tiempo -19.9%, memoria -93.9%.
 - `1769_strings_optimized.rs`: 0.031 s / 468 KB; base `1769_strings.rs`: 0.031 s / 1472 KB; cambio respecto a la base: tiempo -0.0%, memoria -68.2%.
 
@@ -80,7 +86,7 @@ Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15%
 
 - Go: base didáctica preferida `1769_strings.go`; versión que cubre `1769_strings.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
-- Java: base didáctica preferida `1769_strings.java`; versión que cubre `1769_strings_optimized.java`; puestos tiempo/memoria 2/1, registros de otros autores 2/2.
+- Java: Accepted de fuente exacto Java 1.8 #11326952: 0.109 s / 588 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 5/42, memoria 1/42. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
 
 - Python/PyPy: base didáctica preferida `1769_strings.py`; versión que cubre `1769_strings_optimized.py`; puestos tiempo/memoria 7/1, registros de otros autores 14/14.
 
@@ -106,7 +112,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1769_strings_optimized.cpp](1769_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(DN+10^D) | AC | 0.031 s | 376 KB | 11308082 |
 | [1769_strings_optimized.go](1769_strings_optimized.go) | Go 1.14 x64 | strings | O(DN+10^D) | AC | 0.046 s | 1444 KB | 11308083 |
-| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.140 s | 556 KB | 11308084 |
+| [1769_strings_optimized.java](1769_strings_optimized.java) \* | Java 1.8 | strings | O(DN+10^D) | AC | 0.109 s | 588 KB | 11326952 |
 | [1769_strings_optimized.py](1769_strings_optimized.py) \* | Python 3.12 x64 | strings | O(DN+10^D) | AC | 0.250 s | 1452 KB | 11308079 |
 | [1769_strings_optimized.rs](1769_strings_optimized.rs) | Rust 1.75 x64 | strings | O(DN+10^D) | AC | 0.031 s | 468 KB | 11308085 |
 
