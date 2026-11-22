@@ -80,7 +80,7 @@ C++, Go и Rust сохраняют симуляцию классов остат�
 |---|---|---|---|---|---|---|---|
 | [1682_dsu.cpp](1682_dsu.cpp) | G++ 13.2 x64 | dsu | O(k log k) | AC | 0.062 s | 7344 KB | 11288833 |
 | [1682_dsu.go](1682_dsu.go) | Go 1.14 x64 | dsu | O(k log k) | AC | 0.062 s | 15044 KB | 11288837 |
-| [1682_dsu.java](1682_dsu.java) \* | Java 1.8 | dsu | O(k log k) | AC | 0.218 s | 26412 KB | 11288842 |
+| [1682_dsu.java](1682_dsu.java) \* | Java 1.8 | dsu | O(k log k) | AC | 0.203 s | 26420 KB | 11328289 |
 | [1682_dsu.py](1682_dsu.py) | Python 3.12 x64 | dsu | O(k log k) | AC | 0.359 s | 27804 KB | 11288840 |
 | [1682_dsu.rs](1682_dsu.rs) | Rust 1.75 x64 | dsu | O(k log k) | AC | 0.109 s | 12944 KB | 11288844 |
 

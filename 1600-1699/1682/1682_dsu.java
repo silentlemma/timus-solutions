@@ -33,14 +33,14 @@ public class Main {
             written.add(new ArrayList<>());
         }
         for (long s = 0; s < k; s++) {
-            roots.get((int) ((k - s * s % k) % k)).add((int) s);
+            roots.get((int)((k - s * s % k) % k)).add((int)s);
         }
-        parent = new int[PERIODS * (int) k + 2];
+        parent = new int[PERIODS * (int)k + 2];
         for (int a = 1;; a++) {
             parent[a] = a;
             long r = a % k;
-            int square = (int) ((k - r * r % k) % k);
-            List<Integer> near = new ArrayList<>(roots.get((int) r));
+            int square = (int)((k - r * r % k) % k);
+            List<Integer> near = new ArrayList<>(roots.get((int)r));
             if (!near.contains(square)) {
                 near.add(square);
             }
@@ -56,7 +56,7 @@ public class Main {
                     parent[rb] = ra;
                 }
             }
-            written.get((int) r).add(a);
+            written.get((int)r).add(a);
         }
     }
 }
