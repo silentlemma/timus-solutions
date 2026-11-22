@@ -60,12 +60,14 @@ palabras aleatorias.
 
 ## Soluciones optimizadas
 
+`1723_strings_optimized.java`. Conserva conteo de 26 letras minúsculas y devuelve cualquiera de máxima frecuencia, también conjuro más fuerte. Palabra hasta cincuenta letras: contadores byte con signo no desbordan. Actualiza máximo durante lectura y escribe letra/salto en dos bytes. Sin guardar palabra, Scanner ni pasada final. O(N) tiempo, 26 bytes de conteo y estado constante; otro empate es válido.
+
+Accepted exacto Java 1.8 #11327830: 0.109 s / 308 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 36/246, memoria 1/246. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303774 era 0.14 s / 348 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1723_strings_optimized.java`: 0.109 s / 308 KB; base didáctica conservada `1723_strings.java`: 0.125 s / 1556 KB.
+
 La solución optimizada en C++ cuenta las letras a medida que las lee
 con `getchar`, sin guardar la cadena: 84 KB en lugar de 352 KB.
-
-La solución optimizada en Java lee las letras byte a byte desde
-`System.in` en lugar de leer la palabra con `Scanner`, y escribe la
-respuesta como un byte: 348 KB en lugar de 1556 KB, con el mismo tiempo.
 
 Contar cada letra minúscula con el recuento de bytes incorporado y conservar la primera que alcanza el máximo. El envío aceptado 11302183 tardó 0.078 s y usó 392 KB. La versión sencilla tardó 0.078 s y usó 404 KB.
 
@@ -86,8 +88,7 @@ Contar cada letra minúscula con el recuento de bytes incorporado y conservar la
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
-| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.140 s | 348 KB | 11303774 |
+| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
 | [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

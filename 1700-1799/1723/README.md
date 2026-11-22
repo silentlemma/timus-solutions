@@ -58,12 +58,14 @@ matches an exhaustive search over all substrings on 300 random words.
 
 ## Optimized solutions
 
+`1723_strings_optimized.java`. Keep counting the 26 lowercase letters and returning any most frequent letter, which is also a strongest spell. The entire word has at most fifty letters, so signed byte counters cannot overflow. Update the current maximum during the input scan; write the answer letter and newline as two bytes. No stored word, Scanner or final count scan. O(N) time and 26 byte counters plus constant state; a different equally frequent letter is valid.
+
+Exact-source Java 1.8 Accepted #11327830: 0.109 s / 308 KB. Saved 2026-11-20 compiler-cohort comparison: time 36/246, memory 1/246. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303774 was 0.14 s / 348 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1723_strings_optimized.java`: 0.109 s / 308 KB; retained teaching base `1723_strings.java`: 0.125 s / 1556 KB.
+
 The optimized C++ solution counts the letters as they are read with
 `getchar`, without storing the string: 84 KB instead of 352 KB.
-
-The optimized Java solution reads the letters byte by byte from
-`System.in` instead of reading the word with `Scanner`, and writes the
-answer as one byte: 348 KB instead of 1556 KB, with the same time.
 
 Count occurrences of each lowercase letter with the built-in byte count and keep the first maximum. Accepted submission 11302183 took 0.078 s and used 392 KB. The simple version took 0.078 s and used 404 KB.
 
@@ -84,8 +86,7 @@ Count occurrences of each lowercase letter with the built-in byte count and keep
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1723_strings_optimized.cpp](1723_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 84 KB | 11303635 |
-| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.140 s | 348 KB | 11303774 |
+| [1723_strings_optimized.java](1723_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; 26 byte counters | AC | 0.109 s | 308 KB | 11327830 |
 | [1723_strings_optimized.py](1723_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.078 s | 392 KB | 11302183 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
