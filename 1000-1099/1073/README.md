@@ -75,10 +75,11 @@ to 60000.
 
 ## Optimized solutions
 
-The optimized Java solution reads the single number byte by byte with
-`System.in.read` instead of creating a `Scanner`, so the JVM does not
-load the scanner and its regular expressions; the checks are the same:
-{1073_number_theory_optimized.java}.
+`1073_number_theory_optimized.java`. Keep the square-count number theory: test one square, remove powers of four, and apply Legendre's 8b+7 case for four squares. For the two-square test use a monotone pair scan, starting at 1 and floor(sqrt(n)), instead of taking a square root for each candidate. Too small a sum increments the left endpoint; too large decrements the right. If no pair exists the answer is three. Removing powers of four preserves the minimum count. O(sqrt(N)) time, O(1) storage; N<=60000 keeps products in int. Read the single integer byte by byte without Scanner. The unchanged teaching source stays readable. The actual Java count function was compared against independent dynamic programming for every input 1..60000.
+
+Exact-source Java 1.8 Accepted #11327336: 0.093 s / 344 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/210, memory 2/210. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304462 was 0.125 s / 352 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1073_number_theory_optimized.java`: 0.093 s / 344 KB; retained teaching base `1073_number_theory.java`: 0.109 s / 1596 KB.
 
 ### Measured gains
 
@@ -86,9 +87,6 @@ Each optimized version has Accepted and reduces time or memory by at
 least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
-
-- `1073_number_theory_optimized.java`: time reduction -14.68%; memory
-  reduction +77.94%; base: `1073_number_theory.java`.
 
 ## Language notes
 
@@ -120,6 +118,6 @@ implementation for these languages.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(√N) | AC | 0.125 s | 352 KB | 11304462 |
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

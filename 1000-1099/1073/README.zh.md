@@ -65,15 +65,15 @@
 
 ## 优化解法
 
-优化的 Java 解法用 `System.in.read` 逐字节读入唯一的数，而不是创建 `Scanner`，这
-样 JVM 不必加载扫描器及其正则表达式；判断过程不变：
-{1073_number_theory_optimized.java}。
+`1073_number_theory_optimized.java`. 保留平方数定理：先判一个平方，去掉 4 的幂，再用勒让德 8b+7 情形判四个。两个平方改用单调双指针，从 1 与 floor(sqrt(n)) 开始，不再为每个候选开根。和太小增左端，太大减右端；无解则三个。去掉 4 的幂不改变最少个数。O(sqrt(N)) 时间、O(1) 空间；N<=60000，乘积适合 int。单个整数逐字节读取，不用 Scanner。保留教学源码。实际 Java count 函数对所有 1..60000 输入与独立动态规划比较。
+
+精确源代码 Java 1.8 Accepted #11327336：0.093 s / 344 KB。2026-11-20 保存的编译器组比较：时间 2/210、内存 2/210。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304462 为 0.125 s / 352 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1073_number_theory_optimized.java`: 0.093 s / 344 KB; 保留教学基础版 `1073_number_theory.java`: 0.109 s / 1596 KB.
 
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
-
-- `1073_number_theory_optimized.java`: 时间降低 -14.68%; 内存降低 +77.94%; 基础版本: `1073_number_theory.java`.
 
 ## 各语言说明
 
@@ -101,6 +101,6 @@
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(√N) | AC | 0.125 s | 352 KB | 11304462 |
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

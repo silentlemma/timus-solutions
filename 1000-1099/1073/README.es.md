@@ -79,10 +79,11 @@ La fórmula se comprobó con la programación dinámica para cada `N` hasta
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee el único número byte a byte con
-`System.in.read` en lugar de crear un `Scanner`, así que la JVM no carga
-el escáner ni sus expresiones regulares; las comprobaciones son las
-mismas: {1073_number_theory_optimized.java}.
+`1073_number_theory_optimized.java`. Mantiene la teoría de cuadrados: prueba uno, elimina potencias de cuatro y aplica el caso 8b+7 de Legendre para cuatro. Busca dos cuadrados con extremos monótonos desde 1 y floor(sqrt(n)), sin raíz por candidato: suma pequeña incrementa el izquierdo, grande reduce el derecho. Sin pareja la respuesta es tres. Quitar potencias de cuatro conserva el mínimo. O(sqrt(N)) tiempo y O(1) espacio; N<=60000 permite productos int. Lee el único entero byte a byte sin Scanner. Conserva la base didáctica. La función Java real se contrastó con programación dinámica independiente para todos los valores 1..60000.
+
+Accepted exacto Java 1.8 #11327336: 0.093 s / 344 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/210, memoria 2/210. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304462 era 0.125 s / 352 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1073_number_theory_optimized.java`: 0.093 s / 344 KB; base didáctica conservada `1073_number_theory.java`: 0.109 s / 1596 KB.
 
 ### Mejora medida
 
@@ -90,9 +91,6 @@ Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
 al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
-
-- `1073_number_theory_optimized.java`: reducción de tiempo -14.68%;
-  reducción de memoria +77.94%; base: `1073_number_theory.java`.
 
 ## Notas por lenguaje
 
@@ -125,6 +123,6 @@ implementación para alcanzar el objetivo.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(√N) | AC | 0.125 s | 352 KB | 11304462 |
+| [1073_number_theory_optimized.java](1073_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(sqrt(N)) time; O(1) storage | AC | 0.093 s | 344 KB | 11327336 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

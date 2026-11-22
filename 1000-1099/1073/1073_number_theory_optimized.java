@@ -29,15 +29,24 @@ public class Main {
         if (isSquare(n)) {
             return 1;
         }
-        for (int a = 1; a * a < n; a++) {
-            if (isSquare(n - a * a)) {
-                return 2;
-            }
-        }
-        while (n % POWER == 0) {
+
+        while (n % POWER == 0)
             n /= POWER;
+        if (n % MODULUS == REST)
+            return MOST;
+        // Removing powers of four preserves the minimum number of squares.
+        // A monotone pair scan needs no square root for each candidate.
+        int left = 1, right = (int)Math.sqrt(n);
+        while (left <= right) {
+            int sum = left * left + right * right;
+            if (sum == n)
+                return 2;
+            if (sum < n)
+                left++;
+            else
+                right--;
         }
-        return n % MODULUS == REST ? MOST : MOST - 1;
+        return MOST - 1;
     }
 
     public static void main(String[] args) throws java.io.IOException {
