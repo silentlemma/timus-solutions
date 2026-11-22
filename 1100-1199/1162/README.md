@@ -112,11 +112,11 @@ five original byte sequences are backed up. The algorithms stay intact.
 
 ## Language notes
 
-Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
+Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. An empty competitor sample leaves competitive rank unverified.
 
 Use the saved current-compiler profile, exclude our own author and sub-0.015 s legacy rows; non-C++ also requires submission ID ≥10770000. C++ memory comparisons use the first 1000 qualifying rows. Treat measured times below 0.015 s as 0.015 s. The ID cutoff is a fixed comparison rule, not a precise calendar filter.
 
-- C++: preferred teaching base `1162_shortest_paths.cpp`; covering source `1162_shortest_paths_optimized.cpp`; time/memory places 380/107, other-author entries 426/426.
+- C++: Exact-source Accepted #11326984: 0.001 s / 248 KB. Saved G++ 13.2 comparison, 2026-11-20: time rank 1/437, memory rank 118/437. The strict audit uses only time here because memory is below 1024 KB; the asterisk retains the separate language rating target. Other language notes below keep their historical samples.
 
 - Go: preferred teaching base `1162_shortest_paths.go`; covering source `1162_shortest_paths_optimized.go`; time/memory places 3/5, other-author entries 5/5.
 
@@ -127,6 +127,16 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 - Rust: preferred teaching base `1162_shortest_paths.rs`; covering source `1162_shortest_paths.rs`; time/memory places 1/1, other-author entries 0/0.
 
 ## Optimized solutions
+
+`1162_shortest_paths_optimized.java`. Keep exact synchronous Bellman-Ford/Jacobi on the start currency's undirected component. Only previous-pass amounts feed edges; reusable independently owned base-10^9 limbs and denominator scaling preserve arbitrary fractional precision of the initial capital. Parse its token right to left directly into nine-digit limbs, with at most two virtual trailing zeros, and construct the power-of-ten unit in its final limb position. Parse bounded rates/fees as exact hundredths using a 1024-byte reader; emit YES/NO directly, avoiding BigInteger/String parsing and formatting initialization in this optimized source. Affordability is checked before subtraction; zero capital is rejected and disconnected exchanges are irrelevant. With P initial fractional digits and C retained vertices, a conservative bound is O(P^2+C*(C+M)*(P+C)) digit work and O(C*(P+C)+N+M) storage. The implementation does not round the initial capital to cents. Constructor/limb arithmetic was independently compared with BigInteger, including thousands of fractional digits; the readable BigInteger teaching version is preserved.
+
+Exact-source Java 1.8 Accepted #11327477: 0.093 s / 524 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/353, memory 3/353. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11308454 was 0.125 s / 1224 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1162_shortest_paths_optimized.java`: 0.093 s / 524 KB; retained teaching base `1162_shortest_paths.java`: 0.125 s / 4932 KB.
+
+`1162_shortest_paths_optimized.cpp`. Keep exact synchronous Bellman–Ford, source-component compression and reusable base-10^9 limb buffers. Parse bounded rates and commissions directly into integer hundredths, without temporary token strings or exception-based conversion. The initial capital still retains its arbitrary decimal precision through the existing string-to-limb path; no epsilon or floating comparison is introduced. Relaxation, denominator scaling and the profitable-cycle criterion remain unchanged. With D the maximum limb count and I input bytes, time is O(N(N+M)D+I) and storage O(ND+M+I); D grows with precision and passes.
+
+Exact-source Accepted #11326984: 0.001 s / 248 KB. Saved G++ 13.2 comparison, 2026-11-20: time rank 1/437, memory rank 118/437.
 
 `1162_shortest_paths_optimized.rs`. Keep exact synchronous Bellman–Ford relaxations and the shared denominator multiplied by 100 each pass. Replace base-100 limbs with base-10⁹ u32 limbs and u64 carries; reuse two amount layers plus subtraction/product scratch buffers. Rates/fees remain exact hundredths, initial decimal precision is retained, and comparisons never use floating point. With D maximum limb length and I input bytes, conservative O(N(N+M)D+I) time and O(ND+M+I) storage; D grows with input precision and passes, not constant-time big integers.
 
@@ -158,9 +168,9 @@ reduce constants.
 
 **Python/PyPy.** Python keeps exact synchronous Bellman–Ford and the reserve 100^N: each of at most N exchanges can divide by 100 without losing a digit. Initial decimals are converted in blocks of at most 1000 digits, so arbitrarily long inputs do not hit a single-conversion limit. The edge tuples keep their precomputed exact fees. Every eight exchange-input lines, collect dead parsing objects before they accumulate; this changes memory lifetime only, never an amount or reachability. It trades collection time for peak memory. All five readable exact-decimal versions remain. Complexity is O(NM) exact relaxations and O(N+M) numeric records, plus the explicitly measured collection overhead.
 
-- `1162_shortest_paths_optimized.cpp`: 0.031 s / 244 KB; base `1162_shortest_paths.cpp`: 0.046 s / 676 KB; relative change: time -32.6%, memory -63.9%.
+- `1162_shortest_paths_optimized.cpp`: 0.001 s / 248 KB; base: `1162_shortest_paths.cpp`, 0.046 s / 676 KB; time change -67.4%; memory change -63.3%; timer floor 0.015 s.
 - `1162_shortest_paths_optimized.go`: 0.031 s / 1304 KB; base `1162_shortest_paths.go`: 0.031 s / 5436 KB; relative change: time -0.0%, memory -76.0%.
-- `1162_shortest_paths_optimized.java`: 0.125 s / 1224 KB; base `1162_shortest_paths.java`: 0.125 s / 4932 KB; relative change: time -0.0%, memory -75.2%.
+
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; base `1162_shortest_paths.py`: 0.078 s / 708 KB; relative change: time +100.0%, memory -41.2%.
 
 ## Solutions
@@ -179,9 +189,9 @@ reduce constants.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 244 KB | 11308451 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
 | [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 

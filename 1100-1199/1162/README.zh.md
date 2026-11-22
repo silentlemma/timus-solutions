@@ -95,11 +95,11 @@ SHA 的新 Accepted；全部五份原始字节均备份，算法不变。
 
 ## 各语言说明
 
-保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
+保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。没有其他作者的可比提交时，无法确认竞赛排名。
 
 使用保存的当前编译器筛选，排除本作者及耗时低于0.015秒的旧记录；非C++还要求提交ID≥10770000。C++内存只比较前1000条符合条件的记录。本方低于0.015秒的耗时按0.015秒计算。ID界限是固定比较规则，不是精确的日历筛选。
 
-- C++: 首选教学基础 `1162_shortest_paths.cpp`; 覆盖源码 `1162_shortest_paths_optimized.cpp`; 时间/内存名次 380/107, 其他作者记录 426/426.
+- C++: 精确源代码 Accepted #11326984：0.001 s / 248 KB。2026-11-20 保存的 G++ 13.2 比较：时间排名 1/437，内存排名 118/437。 内存低于 1024 KB，因此本次严格审计只看时间；星号仍对应单独的语言排名目标。其余语言说明保留历史样本。
 
 - Go: 首选教学基础 `1162_shortest_paths.go`; 覆盖源码 `1162_shortest_paths_optimized.go`; 时间/内存名次 3/5, 其他作者记录 5/5.
 
@@ -110,6 +110,16 @@ SHA 的新 Accepted；全部五份原始字节均备份，算法不变。
 - Rust: 首选教学基础 `1162_shortest_paths.rs`; 覆盖源码 `1162_shortest_paths.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
 ## 优化解法
+
+`1162_shortest_paths_optimized.java`. 保留起始货币无向分量上的精确同步 Bellman-Ford/Jacobi。边只读上一轮金额；独立拥有的 10^9 进制缓冲及分母缩放保留初始资金任意小数精度。从右往左直接构造九位一组的整数，至多补两个虚拟尾零；十次幂单位直接放入目标位。1024 字节读取器精确读取有限汇率和手续费的百分之一单位，直接输出 YES/NO，避免优化源码中的 BigInteger、字符串解析和格式化初始化。先判断能否付费再减，零本金拒绝，不连通部分无关。P 为初始小数位数、C 为保留顶点，保守界 O(P^2+C*(C+M)*(P+C)) 位工作、O(C*(P+C)+N+M) 存储。初始资金不截为两位小数。构造和算术与 BigInteger 独立比较，包含数千小数位；保留清楚的 BigInteger 教学版。
+
+精确源代码 Java 1.8 Accepted #11327477：0.093 s / 524 KB。2026-11-20 保存的编译器组比较：时间 4/353、内存 3/353。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11308454 为 0.125 s / 1224 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1162_shortest_paths_optimized.java`: 0.093 s / 524 KB; 保留教学基础版 `1162_shortest_paths.java`: 0.125 s / 4932 KB.
+
+`1162_shortest_paths_optimized.cpp`. 保留精确的同步 Bellman–Ford、源点连通分量压缩和可复用的 10^9 进制位数组。有限范围的汇率和手续费直接解析为整数百分之一单位，无需临时 token 字符串或异常式转换。初始资金仍沿用字符串到大整数位的路径，保留任意小数精度；比较保持精确。松弛、分母缩放和盈利环判定不变。D 为最大大整数位数、I 为输入字节数时，时间 O(N(N+M)D+I)，空间 O(ND+M+I)；D 随精度和轮数增长。
+
+精确源代码 Accepted #11326984：0.001 s / 248 KB。2026-11-20 保存的 G++ 13.2 比较：时间排名 1/437，内存排名 118/437。
 
 `1162_shortest_paths_optimized.rs`. 保留精确同步 Bellman–Ford 松弛，每轮共同分母乘 100。以基 10⁹ 的 u32 数位和 u64 进位替代基 100，复用两层金额及减乘临时缓冲。汇率费用仍为精确百分位，保留初始小数精度，不用浮点比较。最大数位数 D、输入 I 字节下保守 O(N(N+M)D+I) 时间、O(ND+M+I) 存储；D 随精度及轮数增长。
 
@@ -130,9 +140,9 @@ C++/Java 改用 `10^9` 进制非负数、九位输入块，复用容量和临时
 
 **Python/PyPy.** Python保留精确同步Bellman–Ford和100^N预留尺度，使至多N次兑换除100不丢位。初始十进制数按至多1000位分块转换，不受一次转换长度上限影响。边元组保留预计算精确佣金。每八行兑换输入收集已失效解析对象，只改变内存寿命，不改变金额或可达性；以内存峰值换收集耗时。保留全部五种清晰精确版本。O(NM)精确松弛、O(N+M)数值记录，另有实测收集开销。
 
-- `1162_shortest_paths_optimized.cpp`: 0.031 s / 244 KB; 基础 `1162_shortest_paths.cpp`: 0.046 s / 676 KB; 相对变化: 时间 -32.6%, 内存 -63.9%.
+- `1162_shortest_paths_optimized.cpp`: 0.001 s / 248 KB; 基础: `1162_shortest_paths.cpp`, 0.046 s / 676 KB; 时间变化 -67.4%; 内存变化 -63.3%; 时间下限 0.015 s.
 - `1162_shortest_paths_optimized.go`: 0.031 s / 1304 KB; 基础 `1162_shortest_paths.go`: 0.031 s / 5436 KB; 相对变化: 时间 -0.0%, 内存 -76.0%.
-- `1162_shortest_paths_optimized.java`: 0.125 s / 1224 KB; 基础 `1162_shortest_paths.java`: 0.125 s / 4932 KB; 相对变化: 时间 -0.0%, 内存 -75.2%.
+
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; 基础 `1162_shortest_paths.py`: 0.078 s / 708 KB; 相对变化: 时间 +100.0%, 内存 -41.2%.
 
 ## 解答
@@ -151,9 +161,9 @@ C++/Java 改用 `10^9` 进制非负数、九位输入块，复用容量和临时
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 244 KB | 11308451 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
 | [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 

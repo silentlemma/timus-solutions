@@ -106,11 +106,11 @@ bytes originales y se mantienen los algoritmos.
 
 ## Notas por lenguaje
 
-Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Una muestra sin envíos comparables de otros autores no confirma un puesto.
 
 Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registros antiguos inferiores a 0,015 s; salvo C++, se exige ID de envío ≥10770000. La memoria de C++ se compara con las primeras 1000 filas admisibles. Los tiempos propios inferiores a 0,015 s se consideran 0,015 s. El corte por ID es una regla fija, no un filtro exacto de fechas.
 
-- C++: base didáctica preferida `1162_shortest_paths.cpp`; fuente que cubre `1162_shortest_paths_optimized.cpp`; puestos tiempo/memoria 380/107, registros de otros autores 426/426.
+- C++: Accepted del fuente exacto #11326984: 0.001 s / 248 KB. Comparación G++ 13.2 guardada el 2026-11-20: tiempo 1/437, memoria 118/437. La auditoría estricta usa solo tiempo al estar la memoria por debajo de 1024 KB; el asterisco conserva el objetivo de clasificación propio del lenguaje. Las otras notas mantienen sus muestras históricas.
 
 - Go: base didáctica preferida `1162_shortest_paths.go`; fuente que cubre `1162_shortest_paths_optimized.go`; puestos tiempo/memoria 3/5, registros de otros autores 5/5.
 
@@ -121,6 +121,16 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 - Rust: base didáctica preferida `1162_shortest_paths.rs`; fuente que cubre `1162_shortest_paths.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
 ## Soluciones optimizadas
+
+`1162_shortest_paths_optimized.java`. Conserva Bellman-Ford/Jacobi síncrono exacto en la componente no dirigida de la moneda inicial. Las aristas solo leen importes de la ronda anterior; buffers propios en base 10^9 y escalado del denominador conservan toda la precisión fraccionaria inicial. Construye los dígitos por grupos de nueve desde la derecha, con hasta dos ceros virtuales, y coloca directamente la unidad potencia de diez. Un lector de 1024 bytes interpreta tasas/comisiones acotadas en centésimas exactas; salida YES/NO directa sin inicializar BigInteger, conversión de cadenas ni formato en esta fuente optimizada. Comprueba comisión antes de restar; capital cero se rechaza y componentes desconectadas no importan. Para P decimales iniciales y C vértices retenidos, cota conservadora O(P^2+C*(C+M)*(P+C)) trabajo de dígitos y O(C*(P+C)+N+M) espacio. No redondea el capital inicial a centésimas. Constructores y aritmética contrastados con BigInteger, incluidos miles de decimales; conserva la base didáctica BigInteger.
+
+Accepted exacto Java 1.8 #11327477: 0.093 s / 524 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/353, memoria 3/353. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11308454 era 0.125 s / 1224 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1162_shortest_paths_optimized.java`: 0.093 s / 524 KB; base didáctica conservada `1162_shortest_paths.java`: 0.125 s / 4932 KB.
+
+`1162_shortest_paths_optimized.cpp`. Conserva Bellman–Ford síncrono exacto, la compresión de la componente inicial y búferes reutilizables de miembros en base 10^9. Analiza tasas y comisiones acotadas directamente como centésimas enteras, sin cadenas temporales ni conversiones mediante excepciones. El capital inicial mantiene toda su precisión decimal con el análisis anterior de cadena a miembros. No cambian relajaciones, escala del denominador ni criterio de ciclo rentable. Con D miembros como máximo e I bytes de entrada, tiempo O(N(N+M)D+I) y espacio O(ND+M+I); D crece con precisión y pasadas.
+
+Accepted del fuente exacto #11326984: 0.001 s / 248 KB. Comparación G++ 13.2 guardada el 2026-11-20: tiempo 1/437, memoria 118/437.
 
 `1162_shortest_paths_optimized.rs`. Conserva Bellman–Ford síncrono exacto con denominador común multiplicado por 100 por ronda. Dígitos u32 en base 10⁹ y acarreos u64 sustituyen base 100; reutiliza dos capas y buffers de resta/producto. Tasas/comisiones en centésimas exactas, precisión inicial conservada, sin comparación flotante. Con D dígitos máximos e I bytes: cota O(N(N+M)D+I) tiempo y O(ND+M+I) espacio; D depende de precisión y rondas.
 
@@ -149,9 +159,9 @@ asintótica es igual; se reducen dígitos, asignaciones y vértices.
 
 **Python/PyPy.** Python mantiene Bellman–Ford síncrono exacto y la reserva 100^N: hastaNintercambios dividen por 100 sin perder dígitos. El decimal inicial se convierte en bloques de hasta 1000 dígitos, sin el límite de una conversión única. Las tuplas conservan comisiones exactas precalculadas. Cada ocho líneas se recogen objetos muertos del análisis; solo cambia su vida en memoria, nunca cantidades ni accesibilidad. Se intercambia tiempo de recolección por memoria máxima. Permanecen las cinco bases exactas claras. O(NM)relajaciones exactas y O(N+M)registros, más la recolección medida.
 
-- `1162_shortest_paths_optimized.cpp`: 0.031 s / 244 KB; base `1162_shortest_paths.cpp`: 0.046 s / 676 KB; cambio respecto a la base: tiempo -32.6%, memoria -63.9%.
+- `1162_shortest_paths_optimized.cpp`: 0.001 s / 248 KB; base: `1162_shortest_paths.cpp`, 0.046 s / 676 KB; cambio de tiempo -67.4%; cambio de memoria -63.3%; suelo del temporizador 0.015 s.
 - `1162_shortest_paths_optimized.go`: 0.031 s / 1304 KB; base `1162_shortest_paths.go`: 0.031 s / 5436 KB; cambio respecto a la base: tiempo -0.0%, memoria -76.0%.
-- `1162_shortest_paths_optimized.java`: 0.125 s / 1224 KB; base `1162_shortest_paths.java`: 0.125 s / 4932 KB; cambio respecto a la base: tiempo -0.0%, memoria -75.2%.
+
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; base `1162_shortest_paths.py`: 0.078 s / 708 KB; cambio respecto a la base: tiempo +100.0%, memoria -41.2%.
 
 ## Soluciones
@@ -170,9 +180,9 @@ asintótica es igual; se reducen dígitos, asignaciones y vértices.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 244 KB | 11308451 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.125 s | 1224 KB | 11308454 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
 | [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
 

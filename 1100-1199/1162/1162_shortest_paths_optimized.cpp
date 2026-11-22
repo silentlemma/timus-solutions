@@ -21,6 +21,41 @@ int read() {
     return input[position++];
 }
 
+int integer() {
+    int c = read();
+    while (c >= 0 && c <= ' ')
+        c = read();
+    if (c == '+')
+        c = read();
+    int value = 0;
+    while (c >= '0' && c <= '9') {
+        value = value * 10 + c - '0';
+        c = read();
+    }
+    return value;
+}
+
+uint32_t rate_or_fee() {
+    int c = read();
+    while (c >= 0 && c <= ' ')
+        c = read();
+    uint32_t value = 0;
+    int places = 0;
+    bool fractional = false;
+    while (c > ' ') {
+        if (c == '.')
+            fractional = true;
+        else if (c != '+') {
+            value = value * 10 + c - '0';
+            places += fractional;
+        }
+        c = read();
+    }
+    while (places++ < RATE_DIGITS)
+        value *= 10;
+    return value;
+}
+
 std::string token() {
     int c = read();
     while (c >= 0 && c <= ' ')
@@ -121,7 +156,7 @@ struct Edge {
 };
 
 int main() {
-    int n = std::stoi(token()), m = std::stoi(token()), start = std::stoi(token()) - 1;
+    int n = integer(), m = integer(), start = integer() - 1;
     std::string text = token();
     size_t dot = text.find('.');
     int places = std::max(RATE_DIGITS, dot == std::string::npos ? 0 : int(text.size() - dot - 1));
@@ -137,11 +172,11 @@ int main() {
     std::vector<Edge> edges;
     edges.reserve(2 * m);
     for (int i = 0; i < m; i++) {
-        int a = std::stoi(token()) - 1, b = std::stoi(token()) - 1;
-        uint32_t rab = std::stoul(scaled(token(), RATE_DIGITS));
-        uint32_t cab = std::stoul(scaled(token(), RATE_DIGITS));
-        uint32_t rba = std::stoul(scaled(token(), RATE_DIGITS));
-        uint32_t cba = std::stoul(scaled(token(), RATE_DIGITS));
+        int a = integer() - 1, b = integer() - 1;
+        uint32_t rab = rate_or_fee();
+        uint32_t cab = rate_or_fee();
+        uint32_t rba = rate_or_fee();
+        uint32_t cba = rate_or_fee();
         parent[root(parent, a)] = root(parent, b);
         edges.push_back({a, b, rab, cab});
         edges.push_back({b, a, rba, cba});
