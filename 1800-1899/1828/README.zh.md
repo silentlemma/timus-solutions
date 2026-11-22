@@ -78,11 +78,11 @@ d = (n·Σxa − Σx·Σa) / (n·Σx² − (Σx)²)，b = (Σa − d·Σx) / n�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1828_math.cpp](1828_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.031 s | 144 KB | 11290408 |
+| [1828_math.cpp](1828_math.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 120 KB | 11328311 |
 | [1828_math.go](1828_math.go) | Go 1.14 x64 | math | O(n) | AC | 0.031 s | 1256 KB | 11290410 |
-| [1828_math.java](1828_math.java) | Java 1.8 | math | O(n) | AC | 0.140 s | 1004 KB | 11290421 |
-| [1828_math.py](1828_math.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 1824 KB | 11290418 |
-| [1828_math.rs](1828_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 540 KB | 11290425 |
+| [1828_math.java](1828_math.java) | Java 1.8 | math | O(n) | AC | 0.093 s | 964 KB | 11328312 |
+| [1828_math.py](1828_math.py) \* | Python 3.12 x64 | math | O(n) | AC | 0.093 s | 1936 KB | 11328313 |
+| [1828_math.rs](1828_math.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.031 s | 536 KB | 11328314 |
 
 ### 优化版本
 

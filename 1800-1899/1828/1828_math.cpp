@@ -2,7 +2,8 @@
 
 int main() {
     long long n;
-    if (scanf("%lld", &n) != 1) return 0;
+    if (scanf("%lld", &n) != 1)
+        return 0;
     // least squares line through the points (i, a_i), i = 0 .. n - 1:
     // the normal equations give the step and then the first term
     long long sumX = n * (n - 1) / 2, sumXX = 0, sumA = 0, sumXA = 0;
