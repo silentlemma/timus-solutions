@@ -105,9 +105,11 @@ oracle, and 406 large or boundary cases.
 
 ## Optimized solutions
 
-`1115_backtracking_optimized.java`. Keep the complete subset-search strategy, equal-length symmetry pruning and 128 bounded deterministic restarts followed by an unbounded complete search. Replace the nested suffix bitsets and cloned fixed 10000-bit rows by one flat long array. At a fill call, allocate only ceil((T+1)/64) words per suffix, where T is the largest remaining row target; positive ship lengths make larger sums irrelevant. Copy and shift from the following suffix in the flat array, preserving the same feasibility tests. The search is still exponential, not polynomial: O(M^N*N²*ceil(S/64)) is a conservative worst-case bound for largest target S. Simultaneously retained recursion levels can require O(M*N*ceil(S/64)) words, plus search state. Boxed ship/row ordering and final StringBuilder output are still present; only the suffix representation, capacity and byte input are reduced.
+`1115_backtracking_optimized.java`. Keep complete subset backtracking, equal-length symmetry pruning and 128 bounded deterministic restarts followed by an unrestricted complete search; the worst case is still exponential. At each depth reuse a flat long suffix-bitset workspace and free-index array. A later row of target t can test min(t,total-t), since every subset has a complementary subset; the current row still retains its full target for reconstruction. Cap positive subset sums at the largest actual query, clear reused cells and keep workspaces separate by recursion depth. Primitive stable insertion sorting replaces boxed ordering, and 1024-byte raw input/output replaces Scanner/StringBuilder. A conservative bound is O(M^N*N^2*ceil(S/64)) time and O(M*N*ceil(S/64)) words plus search state for largest row target S. Exact current solver checks covered 30935 small instances and 10000 stable sorts; the final unrestricted search preserves completeness.
 
-Compared with `1115_backtracking.java`: time 0.125 s → 0.14 s; memory 4 464 KB → 2 928 KB.
+Exact-source Java 1.8 Accepted #11327476: 0.093 s / 420 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/25, memory 1/25. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11325125 was 0.14 s / 2928 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1115_backtracking_optimized.java`: 0.093 s / 420 KB; retained teaching base `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 The C++ version allocates only the 64-bit words needed by the current suffix-sum table. For a future row of target T, the unused ships of total length U have a subset of length T exactly when they have one of length U − T. The feasibility test uses the smaller value. The current row still keeps its full target for reconstructing the chosen ships. The unbounded final search preserves completeness.
 
@@ -116,8 +118,6 @@ The accepted base implementations [1115_backtracking.go](1115_backtracking.go), 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
-
-`1115_backtracking_optimized.java`: time place 16/25, memory place 19/25 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -138,6 +138,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
-| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N·N²·ceil(S/64)) worst case | AC | 0.14 s | 2928 KB | 11325125 |
+| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -1,192 +1,113 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Main {
-    private static final int RNG_MULTIPLIER = 97;
-    private static final int MAX_SHIP_LENGTH = 100;
 
-    private static final class FastInput {
-        private static final int BUFFER_SIZE = 1024;
-        private final java.io.InputStream input;
-        private final byte[] buffer = new byte[BUFFER_SIZE];
-        private int position, length;
-        private String cached;
-
-        FastInput(java.io.InputStream input) { this.input = input; }
-
-        private int read() {
-            if (position == length) {
-                try {
-                    do {
-                        length = input.read(buffer);
-                    } while (length == 0);
-                } catch (java.io.IOException failure) {
-                    throw new IllegalStateException(failure);
-                }
-                position = 0;
-                if (length < 0) {
-                    length = 0;
-                    return -1;
-                }
-            }
-            return buffer[position++] & 255;
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
-
-        private String token() {
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                return null;
-            }
-            byte[] bytes = new byte[32];
-            int size = 0;
-            while (character > ' ') {
-                if (size == bytes.length) {
-                    bytes = java.util.Arrays.copyOf(bytes, 2 * bytes.length);
-                }
-                bytes[size++] = (byte)character;
-                character = read();
-            }
-            return new String(bytes, 0, size, java.nio.charset.StandardCharsets.UTF_8);
-        }
-
-        boolean hasNext() {
-            if (cached == null) {
-                cached = token();
-            }
-            return cached != null;
-        }
-
-        boolean hasNextLong() {
-            if (!hasNext()) {
-                return false;
-            }
-            try {
-                Long.parseLong(cached);
-                return true;
-            } catch (NumberFormatException invalid) {
-                return false;
-            }
-        }
-
-        String next() {
-            String value;
-            if (cached == null) {
-                value = token();
-            } else {
-                value = cached;
-                cached = null;
-            }
-            if (value == null) {
-                throw new java.util.NoSuchElementException();
-            }
-            return value;
-        }
-
-        long nextLong() {
-            if (cached != null) {
-                return Long.parseLong(next());
-            }
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                throw new java.util.NoSuchElementException();
-            }
-            boolean negative = character == '-';
-            if (negative || character == '+') {
-                character = read();
-            }
-            long value = 0;
-            while (character >= '0' && character <= '9') {
-                // Negative accumulation also represents Long.MIN_VALUE exactly.
-                value = value * 10 - (character - '0');
-                character = read();
-            }
-            return negative ? value : -value;
-        }
-
-        int nextInt() { return (int)nextLong(); }
-        double nextDouble() { return Double.parseDouble(next()); }
-        FastInput useLocale(java.util.Locale ignored) { return this; }
+        return input[position++];
     }
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = value * DECIMAL + c - '0';
+            c = read();
+        }
+        return value;
+    }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
 
-    // no row is longer than all the ships together: 99 * 100
-    static final int BITS = 64;
-
-    static final int SEARCH_LIMIT = 256, ATTEMPTS = 128, RNG_MOD = 65536;
-
+    static final int BITS = 64, SEARCH_LIMIT = 256, ATTEMPTS = 128, RNG_MOD = 65536;
+    static final int RNG_MULTIPLIER = 97, MAX_SHIP_LENGTH = 100;
     static int n, m, calls;
     static boolean limited;
-    static int[] ships, rows, owner;
-    static Integer[] order;
+    static int[] ships, rows, order, owner;
+    static int[][] freeWorkspace;
+    static long[][] workspace;
 
     static boolean has(long[] reach, int words, int index, int value) {
         return (reach[index * words + value / BITS] >>> (value % BITS) & 1) != 0;
     }
-
-    static boolean pick(int pos, int[] free, long[] reach, int words, int k, int need) {
-        if (limited && ++calls > SEARCH_LIMIT) {
+    static boolean pick(int pos, int[] free, int count, long[] reach, int words, int k, int need) {
+        if (limited && ++calls > SEARCH_LIMIT)
             return false;
-        }
-        if (need == 0) {
+        if (need == 0)
             return fill(pos + 1);
-        }
-        if (!has(reach, words, k, need)) {
+        if (!has(reach, words, k, need))
             return false;
-        }
         int last = -1;
-        for (int j = k; j < free.length; j++) {
+        for (int j = k; j < count; j++) {
             int length = ships[free[j]];
-            // equal ships are interchangeable: try each length once per place
-            if (length == last || length > need || !has(reach, words, j + 1, need - length)) {
+            if (length == last || length > need || !has(reach, words, j + 1, need - length))
                 continue;
-            }
             last = length;
             owner[free[j]] = order[pos];
-            if (pick(pos, free, reach, words, j + 1, need - length)) {
+            if (pick(pos, free, count, reach, words, j + 1, need - length))
                 return true;
-            }
             owner[free[j]] = -1;
-            if (limited && calls > SEARCH_LIMIT) {
+            if (limited && calls > SEARCH_LIMIT)
                 return false;
-            }
         }
         return false;
     }
-
     static boolean fill(int pos) {
+        int[] free = freeWorkspace[pos];
         int count = 0;
         for (int i = 0; i < n; i++)
             if (owner[i] < 0)
-                count++;
-        int[] free = new int[count];
-        int at = 0;
-        for (int i = 0; i < n; i++)
-            if (owner[i] < 0)
-                free[at++] = i;
+                free[count++] = i;
         if (pos == m - 1) {
             int sum = 0;
-            for (int index : free)
-                sum += ships[index];
+            for (int i = 0; i < count; i++)
+                sum += ships[free[i]];
             if (sum != rows[order[pos]])
                 return false;
-            for (int index : free)
-                owner[index] = order[pos];
+            for (int i = 0; i < count; i++)
+                owner[free[i]] = order[pos];
             return true;
         }
-        int target = 0;
+        int total = 0;
         for (int q = pos; q < m; q++)
-            target = Math.max(target, rows[order[q]]);
-        int words = target / BITS + 1;
-        // Positive lengths make sums above every remaining target irrelevant.
-        // Flat suffix blocks remove per-row arrays and oversized 10000-bit storage.
-        long[] reach = new long[(count + 1) * words];
+            total += rows[order[q]];
+        int target = rows[order[pos]];
+        for (int q = pos + 1; q < m; q++)
+            target = Math.max(target, Math.min(rows[order[q]], total - rows[order[q]]));
+        int words = target / BITS + 1, needed = (count + 1) * words;
+        long[] reach = workspace[pos];
+        if (reach == null || reach.length < needed)
+            workspace[pos] = reach = new long[needed];
+        else
+            for (int i = 0; i < needed; i++)
+                reach[i] = 0;
         reach[count * words] = 1;
         for (int k = count - 1; k >= 0; k--) {
             int current = k * words, previous = current + words;
@@ -200,83 +121,85 @@ public class Main {
             }
         }
         for (int q = pos; q < m; q++)
-            if (!has(reach, words, 0, rows[order[q]]))
+            if (!has(reach, words, 0, Math.min(rows[order[q]], total - rows[order[q]])))
                 return false;
-        return pick(pos, free, reach, words, 0, rows[order[pos]]);
+        return pick(pos, free, count, reach, words, 0, rows[order[pos]]);
     }
-
-    public static void main(String[] args) {
-        FastInput in = new FastInput(System.in);
-        n = in.nextInt();
-        m = in.nextInt();
-        Integer[] boxed = new Integer[n];
-        for (int i = 0; i < n; i++) {
-            boxed[i] = in.nextInt();
+    static void sortShips(int[] rank) {
+        for (int i = 1; i < n; i++) {
+            int value = ships[i], at = i;
+            while (at > 0 && rank[ships[at - 1]] > rank[value]) {
+                ships[at] = ships[at - 1];
+                at--;
+            }
+            ships[at] = value;
         }
-        Arrays.sort(boxed, Collections.reverseOrder());
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        n = nextInt();
+        m = nextInt();
         ships = new int[n];
-        for (int i = 0; i < n; i++) {
-            ships[i] = boxed[i];
-        }
         rows = new int[m];
-        for (int i = 0; i < m; i++) {
-            rows[i] = in.nextInt();
-        }
-        // try the shortest rows first as a heuristic
-        order = new Integer[m];
-        for (int r = 0; r < m; r++) {
-            order[r] = r;
-        }
-        Arrays.sort(
-            order,
-            (a,
-             b) -> rows[a] != rows[b] ? Integer.compare(rows[a], rows[b]) : Integer.compare(a, b));
+        order = new int[m];
         owner = new int[n];
-        Arrays.fill(owner, -1);
+        workspace = new long[m][];
+        freeWorkspace = new int[m][n];
+        int[] rank = new int[MAX_SHIP_LENGTH + 1];
+        for (int i = 0; i < n; i++) {
+            ships[i] = nextInt();
+            owner[i] = -1;
+        }
+        for (int i = 0; i <= MAX_SHIP_LENGTH; i++)
+            rank[i] = MAX_SHIP_LENGTH - i;
+        sortShips(rank);
+        for (int i = 0; i < m; i++) {
+            rows[i] = nextInt();
+            int at = i;
+            while (at > 0 && rows[order[at - 1]] > rows[i]) {
+                order[at] = order[at - 1];
+                at--;
+            }
+            order[at] = i;
+        }
         int state = 1;
-        // restart costly searches in a reproducible order; the final search is complete
         for (int attempt = 0; attempt <= ATTEMPTS; attempt++) {
             calls = 0;
             limited = attempt < ATTEMPTS;
-            if (fill(0)) {
+            if (fill(0))
                 break;
-            }
             for (int i = m - 1; i > 0; i--) {
                 state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
-                int j = state % (i + 1);
-                int temp = order[i];
+                int j = state % (i + 1), value = order[i];
                 order[i] = order[j];
-                order[j] = temp;
+                order[j] = value;
             }
-            int[] rank = new int[MAX_SHIP_LENGTH + 1];
-            for (int i = 0; i <= MAX_SHIP_LENGTH; i++) {
+            for (int i = 0; i <= MAX_SHIP_LENGTH; i++)
                 rank[i] = i;
-            }
             for (int i = MAX_SHIP_LENGTH; i > 1; i--) {
                 state = (state * RNG_MULTIPLIER + 1) % RNG_MOD;
-                int j = 1 + state % i;
-                int temp = rank[i];
+                int j = 1 + state % i, value = rank[i];
                 rank[i] = rank[j];
-                rank[j] = temp;
+                rank[j] = value;
             }
-            for (int i = 0; i < n; i++) {
-                boxed[i] = ships[i];
-            }
-            Arrays.sort(boxed, (a, b) -> Integer.compare(rank[a], rank[b]));
-            for (int i = 0; i < n; i++) {
-                ships[i] = boxed[i];
-            }
+            sortShips(rank);
         }
-        StringBuilder out = new StringBuilder();
-        for (int r = 0; r < m; r++) {
-            List<String> row = new ArrayList<>();
-            for (int i = 0; i < n; i++) {
-                if (owner[i] == r) {
-                    row.add(String.valueOf(ships[i]));
+        for (int row = 0; row < m; row++) {
+            int count = 0;
+            for (int i = 0; i < n; i++)
+                if (owner[i] == row)
+                    count++;
+            number(count);
+            write('\n');
+            boolean first = true;
+            for (int i = 0; i < n; i++)
+                if (owner[i] == row) {
+                    if (!first)
+                        write(' ');
+                    number(ships[i]);
+                    first = false;
                 }
-            }
-            out.append(row.size()).append('\n').append(String.join(" ", row)).append('\n');
+            write('\n');
         }
-        System.out.print(out);
+        finish();
     }
 }

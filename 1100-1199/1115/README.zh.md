@@ -73,9 +73,11 @@ Python 解法通过了全部 7 个保存的测试、全部 5 个指定生成用�
 
 ## 优化解法
 
-`1115_backtracking_optimized.java`. 保留完整子集搜索、相同长度的对称剪枝，以及 128 次有界确定性重启后的一次无界完整搜索。用一个扁平 long 数组替代嵌套后缀位集和固定 10000 位行副本。每次 fill 对每后缀仅分配 ceil((T+1)/64) 个字，T 为剩余行的最大目标；船长为正，使更大的和无用。复制、移位均从扁平数组的下一后缀读取，保留可行性判断。搜索仍为指数级，不是多项式；最大目标 S 下保守最坏时间 O(M^N*N²*ceil(S/64))。同时保留的递归层可需 O(M*N*ceil(S/64)) 个字，加搜索状态。仍有装箱排序和最终 StringBuilder，仅缩减后缀表示、容量及字节输入开销。
+`1115_backtracking_optimized.java`. 保留完整子集回溯、等长对称剪枝、128 次有界确定性重启及最后无界完整搜索，最坏情况仍为指数。每层复用平铺 long 后缀位集和空闲下标数组。后续行目标 t 可改查 min(t,total-t)，因为子集与补集等价；当前行仍保留完整目标以重建。正长度使最大实际查询之外的位可丢弃；复用前清零，各递归层独立。原始类型稳定插入排序替代装箱排序，1024 字节直接输入输出替代 Scanner/StringBuilder。保守界 O(M^N*N^2*ceil(S/64)) 时间、O(M*N*ceil(S/64)) 机器字加搜索状态，S 为最大行目标。实际求解器检查 30935 个小实例和 10000 次稳定排序，最终无界搜索保证完整性。
 
-与 `1115_backtracking.java` 相比：时间 0.125 s → 0.14 s；内存 4 464 KB → 2 928 KB。
+精确源代码 Java 1.8 Accepted #11327476：0.093 s / 420 KB。2026-11-20 保存的编译器组比较：时间 2/25、内存 1/25。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11325125 为 0.14 s / 2928 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1115_backtracking_optimized.java`: 0.093 s / 420 KB; 保留教学基础版 `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长度为 U，未来一行能取到总长度 T，当且仅当能取到总长度 U − T。可行性检查使用较小者。当前行仍保留完整目标，以便还原所选船只。最后一次搜索不限制调用次数，因此保持完备性。
 
@@ -106,6 +108,6 @@ C++ 只为当前后缀和表分配所需的 64 位字。若未使用船只总长
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
-| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N·N²·ceil(S/64)) worst case | AC | 0.14 s | 2928 KB | 11325125 |
+| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

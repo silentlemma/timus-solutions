@@ -111,9 +111,11 @@ a un oráculo exacto independiente y 406 casos grandes o de frontera.
 
 ## Soluciones optimizadas
 
-`1115_backtracking_optimized.java`. Conserva búsqueda completa de subconjuntos, poda por longitudes iguales y 128 reinicios deterministas limitados seguidos de una búsqueda completa sin límite. Sustituye bitsets de sufijos anidados y filas clonadas de 10000 bits por un long[] plano. Cada fill usa ceil((T+1)/64) palabras por sufijo, con T el mayor objetivo pendiente; longitudes positivas vuelven irrelevantes sumas mayores. Copia y desplaza desde el sufijo siguiente, con las mismas pruebas. La búsqueda sigue exponencial: O(M^N*N²*ceil(S/64)) es una cota conservadora para objetivo máximo S. Los niveles recursivos simultáneos pueden guardar O(M*N*ceil(S/64)) palabras más estado. Siguen presentes ordenación con objetos y StringBuilder final; se reducen representación, capacidad e ingreso por bytes.
+`1115_backtracking_optimized.java`. Mantiene retroceso completo de subconjuntos, poda por longitudes iguales y 128 reinicios deterministas limitados seguidos de búsqueda completa sin límite: el peor caso sigue exponencial. Reutiliza por profundidad bitsets sufijos long planos e índices libres. Para filas posteriores consulta min(t,total-t), por la equivalencia con el complemento; la fila actual conserva su objetivo completo para reconstruir. Longitudes positivas permiten truncar en la mayor consulta real; limpia las celdas usadas y separa las áreas por profundidad. Inserción estable primitiva sustituye ordenación con objetos, y entrada/salida de 1024 bytes sustituye Scanner/StringBuilder. Cota conservadora O(M^N*N^2*ceil(S/64)) tiempo y O(M*N*ceil(S/64)) palabras más estado, S máximo objetivo. Se comprobaron 30935 instancias pequeñas y 10000 ordenaciones estables; la búsqueda final sin límite conserva completitud.
 
-Frente a `1115_backtracking.java`: tiempo 0.125 s → 0.14 s; memoria 4 464 KB → 2 928 KB.
+Accepted exacto Java 1.8 #11327476: 0.093 s / 420 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/25, memoria 1/25. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11325125 era 0.14 s / 2928 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1115_backtracking_optimized.java`: 0.093 s / 420 KB; base didáctica conservada `1115_backtracking.java`: 0.125 s / 4464 KB.
 
 La versión C++ reserva solo las palabras de 64 bits que necesita la tabla de sumas de sufijos. Si los barcos libres suman U, una futura fila con objetivo T tiene un subconjunto válido exactamente cuando existe uno de longitud U − T. La comprobación usa el valor menor. La fila actual conserva su objetivo completo para reconstruir los barcos elegidos. La búsqueda final sin límite mantiene la completitud.
 
@@ -122,8 +124,6 @@ Las implementaciones base aceptadas [1115_backtracking.go](1115_backtracking.go)
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
-
-`1115_backtracking_optimized.java`: puesto de tiempo 16/25 y de memoria 19/25 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -144,6 +144,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1115_backtracking_optimized.cpp](1115_backtracking_optimized.cpp) | G++ 13.2 x64 | backtracking | O(M^N * N^2 * ceil(S/W)) worst case | AC | 0.015 s | 232 KB | 11310422 |
-| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N·N²·ceil(S/64)) worst case | AC | 0.14 s | 2928 KB | 11325125 |
+| [1115_backtracking_optimized.java](1115_backtracking_optimized.java) \* | Java 1.8 | backtracking | O(M^N*N^2*ceil(S/64)) worst case; exponential | AC | 0.093 s | 420 KB | 11327476 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
