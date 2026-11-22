@@ -29,11 +29,17 @@ def smallest(modulus):
             previous = queue[front]
             front += 1
             code = (previous + 1) << 1
-            for digit in DIGITS:
-                remainder = (previous * BASE + digit) % modulus
-                if parent[remainder] == 0:
-                    parent[remainder] = code | (digit - 1)
-                    queue.append(remainder)
+            remainder = (previous * BASE + 1) % modulus
+            if parent[remainder] == 0:
+                parent[remainder] = code
+                queue.append(remainder)
+            # The second edge follows immediately, with no second division.
+            remainder += 1
+            if remainder == modulus:
+                remainder = 0
+            if parent[remainder] == 0:
+                parent[remainder] = code | 1
+                queue.append(remainder)
 
     if parent[0] == 0:
         return "Impossible"

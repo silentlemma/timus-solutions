@@ -77,11 +77,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1495_bfs_optimized.py`. Conserva BFS de residuos, orden 1 luego 2 y códigos/cola de 32 bits. Expande ambas aristas: calcula (10*r+1)%N una vez; para el dígito 2 suma uno con vuelta, sin otro módulo. Capas limitan a 30 cifras y mantienen el menor largo y orden lexicográfico. Múltiplos de cinco siguen siendo imposibles exactamente. O(N) trabajo/espacio bajo la cota. PyPy usa 11808 KB frente a 11404 KB antes, con tiempo de 0.921 a 0.14 s: aumento pequeño de memoria explícito. Conserva BFS didáctico. El anterior 0.921 s / 11404 KB usaba CPython 3.12; el seleccionado usa PyPy 3.10. Cambian código e intérprete: comparación de ejecuciones emparejadas, no benchmark aislado de reescribir aristas.
+
+Accepted exacto PyPy 3.10 #11326708: 0.14 s / 11808 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/19, memoria 1/19. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
+
+- `1495_bfs_optimized.py`: 0.14 s / 11808 KB; base didáctica conservada `1495_bfs.py` (Python 3.12 x64): 0.906 s / 62744 KB; cambio de tiempo -84.5%; cambio de memoria -81.2%.
+
 Las versiones en C++, Go y Python usan la misma búsqueda en anchura. Cada resto ocupa una entrada de 32 bits. Cero indica que aún no se ha visitado. En las demás entradas, los bits superiores guardan el predecesor más uno y el bit inferior guarda el dígito menos uno. La cola también usa entradas de 32 bits y los límites de cada nivel dan la longitud.
 
-El envío aceptado en Python 3.12 x64 tarda 0.921 s frente a 0.906 s de la base y usa 11 404 KB frente a 62744 KB.
-
-Las implementaciones base aceptadas [1495_bfs.java](1495_bfs.java), [1495_bfs.rs](1495_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las bases Accepted conservadas [1495_bfs.go](1495_bfs.go), [1495_bfs.java](1495_bfs.java), [1495_bfs.rs](1495_bfs.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
 
 ## Soluciones
 
@@ -101,6 +105,6 @@ Las implementaciones base aceptadas [1495_bfs.java](1495_bfs.java), [1495_bfs.rs
 |---|---|---|---|---|---|---|---|
 | [1495_bfs_optimized.cpp](1495_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(N) | AC | 0.015 s | 7004 KB | 11310407 |
 | [1495_bfs_optimized.go](1495_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(N) | AC | 0.046 s | 8964 KB | 11310363 |
-| [1495_bfs_optimized.py](1495_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(N) | AC | 0.921 s | 11404 KB | 11310408 |
+| [1495_bfs_optimized.py](1495_bfs_optimized.py) | PyPy 3.10 x64 | bfs | O(N) | AC | 0.14 s | 11808 KB | 11326708 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
