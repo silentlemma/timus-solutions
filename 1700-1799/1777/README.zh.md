@@ -56,23 +56,23 @@
 
 ## 优化解法
 
+`1777_simulation_optimized.java`. 保留精确压缩堆模拟。最小两堆 a≤b，正最小差 g≤b−a<b。g<a 时 b−g≥a−g，故新差 min(g,a−g)；否则 g−a≤g，新差 min(g−a,b−g)。仅删除冗余绝对值与最小值运算，更新和人数计数不变。模拟 s 步为 O(s) 时间、O(1) 辅助空间，不宣称步数恒定。
+
+精确源代码 Java 1.8 Accepted #11327759：0.109 s / 404 KB。2026-11-20 保存的编译器组比较：时间 8/77、内存 1/77。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304426 为 0.14 s / 440 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1777_simulation_optimized.java`: 0.109 s / 404 KB; 保留教学基础版 `1777_simulation.java`: 0.14 s / 1704 KB.
+
 优化的 C++ 解法不保存石堆列表，只记住最小的两堆 a < b 和当前最小差 g。新堆 g 不
 超过 b − a，因此小于 b，排序后它的邻居只可能是 a 和 b。旧的差全都保留，所以下一
 个最小差是 g、|g − a| 和 b − g 中最小的一个，而最小的两堆变为 g 和 a，或 a 和
 g。每一步 `O(1)` 时间，整个过程 `O(1)` 内存，而不是反复对不断增长的向量排序；所
 有数值都不超过 10¹⁸，放得进 `long long`：{1777_simulation_optimized.cpp}。
 
-优化的 Java 解法直接从 `System.in` 逐字节读入三个大小，而不是创建 `Scanner`，后
-者的正则表达式和区域设置数据比这段很短的模拟还费资源，模拟本身不变：
-{1777_simulation_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1777_simulation_optimized.cpp`: 时间降低 +0.00%; 内存降低 +47.92%; 基础版本: `1777_simulation.cpp`.
-
-- `1777_simulation_optimized.java`: 时间降低 +0.00%; 内存降低 +74.18%; 基础版本: `1777_simulation.java`.
 
 `1777_simulation_optimized.rs`. 把所有堆保存在一个有序动态向量中。扫描相邻差，对新最小差二分定位并插入，不再每步重排整个向量。若该大小已存在，直接计入下一位发现相等的人并结束。动态容量不依赖仅凭实验观察到的堆数上限。s 步中扫描与插入移动总计 O(s²)，空间 O(s)。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
 
@@ -103,7 +103,7 @@ g。每一步 `O(1)` 时间，整个过程 `O(1)` 内存，而不是反复对不
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
-| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) \* | Java 1.8 | simulation | O(s) for s simulation steps; O(1) auxiliary state | AC | 0.109 s | 404 KB | 11327759 |
 | [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -69,6 +69,12 @@ The answers agree with an independent accepted implementation on
 
 ## Optimized solutions
 
+`1777_simulation_optimized.java`. Keep the exact compressed pile simulation. For smallest piles a≤b and positive minimum gap g≤b−a<b: when g<a, b−g≥a−g, so the next gap is min(g,a−g); otherwise g−a≤g, so it is min(g−a,b−g). Remove only redundant absolute-value/minimum work; pile updates and person counting are unchanged. O(s) time for s simulated steps and O(1) auxiliary state, without claiming a constant step count.
+
+Exact-source Java 1.8 Accepted #11327759: 0.109 s / 404 KB. Saved 2026-11-20 compiler-cohort comparison: time 8/77, memory 1/77. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304426 was 0.14 s / 440 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1777_simulation_optimized.java`: 0.109 s / 404 KB; retained teaching base `1777_simulation.java`: 0.14 s / 1704 KB.
+
 The optimized C++ solution keeps no list of piles: only the two smallest
 piles a < b and the current smallest difference g. The new pile g is at
 most b − a, so it is smaller than b, and in sorted order its only
@@ -79,11 +85,6 @@ and the whole run `O(1)` memory instead of sorting a growing vector; all
 values fit in `long long`, since they are at most 10¹⁸:
 {1777_simulation_optimized.cpp}.
 
-The optimized Java solution reads the three sizes byte by byte from
-`System.in` instead of creating a `Scanner`, whose regular expressions
-and locale data cost more than the short simulation, which stays the
-same: {1777_simulation_optimized.java}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -93,9 +94,6 @@ asterisk concerns the rating target only.
 
 - `1777_simulation_optimized.cpp`: time reduction +0.00%; memory
   reduction +47.92%; base: `1777_simulation.cpp`.
-
-- `1777_simulation_optimized.java`: time reduction +0.00%; memory
-  reduction +74.18%; base: `1777_simulation.java`.
 
 `1777_simulation_optimized.rs`. Keep all piles in one sorted dynamic vector. Scan adjacent differences, binary-search the new minimum gap and insert it at its sorted position instead of sorting the entire vector every step. If that size already exists, count the following person who detects equality and stop immediately. Dynamic capacity avoids relying on a merely observed upper bound on pile count. With s steps, scans and insert shifts cost O(s²) in total and storage O(s). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
 
@@ -126,7 +124,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
-| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) \* | Java 1.8 | simulation | O(s) for s simulation steps; O(1) auxiliary state | AC | 0.109 s | 404 KB | 11327759 |
 | [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

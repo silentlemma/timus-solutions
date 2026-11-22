@@ -71,6 +71,12 @@ en 90 tríos aleatorios, incluidos tríos de números de Fibonacci.
 
 ## Soluciones optimizadas
 
+`1777_simulation_optimized.java`. Conserva simulación comprimida exacta. Para menores pilas a≤b y diferencia mínima positiva g≤b−a<b: si g<a, b−g≥a−g y sigue min(g,a−g); si no, g−a≤g y sigue min(g−a,b−g). Solo elimina operaciones redundantes, sin cambiar actualizaciones ni conteo. O(s) tiempo para s pasos, O(1) espacio auxiliar; no supone pasos constantes.
+
+Accepted exacto Java 1.8 #11327759: 0.109 s / 404 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 8/77, memoria 1/77. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304426 era 0.14 s / 440 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1777_simulation_optimized.java`: 0.109 s / 404 KB; base didáctica conservada `1777_simulation.java`: 0.14 s / 1704 KB.
+
 La solución optimizada en C++ no guarda la lista de montones: solo los
 dos montones menores a < b y la menor diferencia actual g. El nuevo
 montón g no pasa de b − a, así que es menor que b, y en orden sus únicos
@@ -81,11 +87,6 @@ cuesta `O(1)` de tiempo y toda la ejecución `O(1)` de memoria en lugar
 de ordenar un vector que crece; todos los valores caben en `long long`,
 porque no pasan de 10¹⁸: {1777_simulation_optimized.cpp}.
 
-La solución optimizada en Java lee los tres tamaños byte a byte de
-`System.in` en lugar de crear un `Scanner`, cuyas expresiones regulares
-y datos de configuración regional cuestan más que la breve simulación,
-que sigue igual: {1777_simulation_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -95,9 +96,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1777_simulation_optimized.cpp`: reducción de tiempo +0.00%; reducción
   de memoria +47.92%; base: `1777_simulation.cpp`.
-
-- `1777_simulation_optimized.java`: reducción de tiempo +0.00%;
-  reducción de memoria +74.18%; base: `1777_simulation.java`.
 
 `1777_simulation_optimized.rs`. Mantiene todos los montones en un vector dinámico ordenado. Recorre diferencias vecinas, busca por bisección el nuevo mínimo y lo inserta en su posición, evitando ordenar todo en cada paso. Si el tamaño ya existe, cuenta a la siguiente persona que detecta la igualdad y termina. La capacidad dinámica no depende de un límite de montones observado solo experimentalmente. En s pasos, recorridos y desplazamientos cuestan O(s²) en total y espacio O(s). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
@@ -128,7 +126,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1777_simulation_optimized.cpp](1777_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(s) for s steps | AC | 0.015 s | 100 KB | 11304425 |
-| [1777_simulation_optimized.java](1777_simulation_optimized.java) | Java 1.8 | simulation | O(s^2 log s) for s steps | AC | 0.140 s | 440 KB | 11304426 |
+| [1777_simulation_optimized.java](1777_simulation_optimized.java) \* | Java 1.8 | simulation | O(s) for s simulation steps; O(1) auxiliary state | AC | 0.109 s | 404 KB | 11327759 |
 | [1777_simulation_optimized.rs](1777_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(s²) for s steps | AC | 0.031 s | 76 KB | 11324872 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
