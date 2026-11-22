@@ -86,12 +86,13 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-Las soluciones optimizadas en C++ y Java recorren el polígono mientras
-leen, así que nunca guardan los clavos. Java además lee la entrada en
-bloques de 1 KB, separa cada número a mano en lugar de usar `Scanner` y
-redondea con `BigDecimal` como lo hace `String.format`. C++, 156 KB en
-lugar de 224 KB, con el mismo tiempo; Java, 780 KB en lugar de 2096 KB,
-con el mismo tiempo.
+La versión C++ optimizada recorre el polígono al leer, sin guardar los vértices: 156 KB frente a 224 KB, con el mismo tiempo medido.
+
+`1020_geometry_optimized.java`. Conserva el cálculo del perímetro al leer los vértices. Un arreglo char reutilizable y ampliable recoge cada token; Double.parseDouble sigue recibiendo un String nuevo, sin un analizador flotante aproximado propio. Elimina las capas de constructor, decodificador y arreglo temporal de bytes por token, manteniendo el búfer de entrada de 1 KB. La salida conserva BigDecimal.valueOf(length), dos decimales, HALF_UP y toPlainString. Se mantiene la versión Java simple.
+
+Accepted del fuente exacto #11326599: 0.093 s / 796 KB. En la muestra Java 1.8 guardada el 2026-11-20: puesto de tiempo 15/424, de memoria 9/424. El asterisco sigue indicando el objetivo de clasificación propio del lenguaje.
+
+Frente a `1020_geometry.java`: tiempo 0.109 s → 0.093 s; memoria 2096 KB → 796 KB.
 
 ## Notas por lenguaje
 
@@ -115,7 +116,6 @@ e imprime con `Locale.US`, para que el separador decimal sea un punto.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
-| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 780 KB | 11303958 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.093 s | 796 KB | 11326599 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

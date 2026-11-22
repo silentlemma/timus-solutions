@@ -7,6 +7,8 @@ public class Main {
     static final int DECIMAL_PLACES = 2;
     static final byte[] buffer = new byte[BUFFER_SIZE];
     static int position, length;
+    static final int TOKEN_SIZE = 32;
+    static char[] token = new char[TOKEN_SIZE];
 
     // the input is read in 1 KB blocks and each number is cut out by hand,
     // which needs less memory than Scanner
@@ -24,12 +26,14 @@ public class Main {
         int c = read();
         while (c >= 0 && c <= ' ')
             c = read();
-        StringBuilder token = new StringBuilder();
+        int count = 0;
         while (c > ' ') {
-            token.append((char)c);
+            if (count == token.length)
+                token = java.util.Arrays.copyOf(token, 2 * token.length);
+            token[count++] = (char)c;
             c = read();
         }
-        return Double.parseDouble(token.toString());
+        return Double.parseDouble(new String(token, 0, count));
     }
 
     public static void main(String[] args) throws IOException {

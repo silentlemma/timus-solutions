@@ -75,10 +75,13 @@
 
 ## 优化解法
 
-优化的 C++ 和 Java 解法在读入时就沿多边形累加，因此不存储钉子坐标。Java 还按
-1 KB 分块读入并手工切出每个数，而不是使用 `Scanner`，并用 `BigDecimal` 按与
-`String.format` 相同的方式取整。C++ 156 KB，而不是 224 KB，时间不变；Java 780 KB，
-而不是 2096 KB，时间不变。
+优化的 C++ 版本边读边累计，不保存顶点：内存为 156 KB 而非 224 KB，测得时间不变。
+
+`1020_geometry_optimized.java`. 保留边读顶点边累计周长的算法。当前数值 token 使用可扩展的复用 char 数组收集；Double.parseDouble 仍接收一个新的 String，并未改为自制近似浮点解析器。省去每个 token 的构造器、解码器和临时字节数组，保留 1 KB 输入缓冲区。输出仍采用 BigDecimal.valueOf(length)、两位小数、HALF_UP 和 toPlainString。简单 Java 版本保留。
+
+精确源代码的 Accepted #11326599：0.093 s / 796 KB。2026-11-20 保存的 Java 1.8 样本中，时间排名 15/424，内存排名 9/424。星号仍表示单独的语言排名目标。
+
+与 `1020_geometry.java` 相比：时间 0.109 s → 0.093 s；内存 2096 KB → 796 KB。
 
 ## 各语言说明
 
@@ -101,6 +104,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
-| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 780 KB | 11303958 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.093 s | 796 KB | 11326599 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。

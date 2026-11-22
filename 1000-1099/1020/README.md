@@ -84,11 +84,13 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized C++ and Java solutions walk the polygon while reading, so
-the nails are never stored. Java also reads the input in 1 KB blocks and
-cuts each number out by hand instead of using `Scanner`, and rounds with
-`BigDecimal` the way `String.format` does. C++ 156 KB instead of 224 KB,
-with the same time; Java 780 KB instead of 2096 KB, with the same time.
+The optimized C++ solution walks the polygon while reading, without storing the vertices: 156 KB rather than 224 KB at the same measured time.
+
+`1020_geometry_optimized.java`. Keep the streaming polygon-length calculation. A reusable growable character array collects the current numeric token; Double.parseDouble still receives a new String, so this is not a custom floating-point parser. It removes the per-token builder, decoder and temporary byte-array layers while retaining the 1 KB input buffer. Output still uses BigDecimal.valueOf(length), scale two, HALF_UP and toPlainString. The simple Java version remains.
+
+Exact-source Accepted #11326599: 0.093 s / 796 KB. In the saved Java 1.8 sample of 2026-11-20: time rank 15/424, memory rank 9/424. The asterisk still denotes the separate language rating target.
+
+Compared with `1020_geometry.java`: time 0.109 s → 0.093 s; memory 2096 KB → 796 KB.
 
 ## Language notes
 
@@ -112,7 +114,6 @@ with `Locale.US`, so that the decimal separator is a point.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1020_geometry_optimized.cpp](1020_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(N) | AC | 0.015 s | 156 KB | 11303701 |
-| [1020_geometry_optimized.java](1020_geometry_optimized.java) | Java 1.8 | geometry | O(N) | AC | 0.109 s | 780 KB | 11303958 |
+| [1020_geometry_optimized.java](1020_geometry_optimized.java) \* | Java 1.8 | geometry | O(N) | AC | 0.093 s | 796 KB | 11326599 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
