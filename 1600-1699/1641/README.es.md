@@ -110,7 +110,7 @@ Las implementaciones base aceptadas [1641_constructive.go](1641_constructive.go)
 | [1641_constructive.go](1641_constructive.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.031 s | 1576 KB | 11288472 |
 | [1641_constructive.java](1641_constructive.java) | Java 1.8 | constructive | O(n²) | AC | 0.125 s | 2048 KB | 11288474 |
 | [1641_constructive.py](1641_constructive.py) \* | Python 3.12 x64 | constructive | O(n²) | AC | 0.078 s | 1312 KB | 11288473 |
-| [1641_constructive.rs](1641_constructive.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 644 KB | 11288475 |
+| [1641_constructive.rs](1641_constructive.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.031 s | 660 KB | 11328280 |
 
 ### Optimizadas
 
