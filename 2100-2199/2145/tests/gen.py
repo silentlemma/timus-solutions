@@ -6,8 +6,8 @@ where the problems are just one step too hard for one student."""
 import random
 import sys
 
-MAX_N = 10 ** 5
-MAX_V = 10 ** 9
+MAX_N = 10**5
+MAX_V = 10**9
 SMALL_N = 7
 SMALL_V = 5
 PRIME = 999999937  # a prime below 10^9, so n! does not vanish modulo it
