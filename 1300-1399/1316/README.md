@@ -85,6 +85,10 @@ The totals were compared with a plain count over all active bids on
 
 ## Optimized solutions
 
+The C++ revision retains compression of BID prices and the replayed Fenwick tree. A fixed 16 KB byte reader parses commands, decimal prices and sale amounts without scanf. Exact integer-cent conversion and eligibility of bids equal to the sale price are unchanged.
+
+Exact-source Accepted (G++ 13.2 x64, #11326642: 0.015 s / 1320 KB); teaching base `1316_fenwick.cpp`: 0.171 s / 3652 KB. The previous optimized measurement was 0.156 s / 1344 KB. In the saved 20 November 2026 comparison, time place is 1/85, memory place 1/85; below 1 MiB the policy evaluates the time rank only.
+
 The new C++, Go and Rust implementations compress only prices occurring in BID operations. Store the log, sort and deduplicate those prices, then replay the operations with a Fenwick tree. A sale at X subtracts the number of strictly cheaper bids from the total active count, so equal-price bids remain eligible; a sale never removes bids. Prices are parsed as integer cents, and earnings use a 64-bit integer or a Python integer. For at most N operations this takes O(N log N) time and O(N) storage instead of a million price slots. C++, Go and Rust reserve capacity for the 100000-operation bound. Python instead streams operations straight into a dense Python-list Fenwick over P=1000000 cent values, using reversed index P−price+1. This simpler online version needs no operation log, sorting, dictionary or binary search. Its O(P+N log P) time and O(P) slots trade a fixed table for much less retained input, and list access avoids typed-array boxing. Go uses standard handles; Rust uses bounded C-runtime I/O and a C entry point. The ordinary implementations and the already-admitted Java base are retained.
 
 The accepted Python 3.12 x64 run takes 0.5 s versus 0.437 s for the base and uses 8 324 KB versus 32560 KB.
@@ -114,7 +118,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.156 s | 1344 KB | 11314823 |
+| [1316_fenwick_optimized.cpp](1316_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(N log N) | AC | 0.015 s | 1320 KB | 11326642 |
 | [1316_fenwick_optimized.go](1316_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(N log N) | AC | 0.046 s | 3080 KB | 11314836 |
 | [1316_fenwick_optimized.rs](1316_fenwick_optimized.rs) \* | Rust 1.75 x64 | fenwick | O(N log N) | AC | 0.015 s | 1628 KB | 11314919 |
 | [1316_fenwick_optimized.py](1316_fenwick_optimized.py) \* | Python 3.12 x64 | fenwick | O(P + N log P) | AC | 0.5 s | 8324 KB | 11315039 |
