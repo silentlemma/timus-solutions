@@ -83,6 +83,10 @@ with sides from one to three cells.
 
 ## Optimized solutions
 
+The C++ revision preserves the existing eight-lane SSE2 run updates and their O(N²) time, O(N) workspace. A fixed 16 KB byte reader replaces scanf for board rows; it does not introduce a different DP or retain the whole board.
+
+Exact-source Accepted (G++ 13.2 x64, #11326650: 0.015 s / 116 KB); teaching base `1287_dp.cpp`: 0.093 s / 232 KB. The previous optimized measurement was 0.062 s / 124 KB. In the saved 20 November 2026 comparison, time place is 1/44, memory place 1/44; below 1 MiB the policy evaluates the time rank only.
+
 C++ uses SSE2 to update eight columns at a time for the vertical and diagonal runs. Comparing letters gives a mask that keeps the previous run only where the letters match. Horizontal runs are scanned separately. Go packs a run length and its letter into a 16-bit value and updates the three arrays in place, saving the old upper-left entry for the next column. Both take O(N²) time and O(N) space.
 
 The accepted base implementations [1287_dp.java](1287_dp.java), [1287_dp.py](1287_dp.py), [1287_dp.rs](1287_dp.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
@@ -119,7 +123,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N²) | AC | 0.062 s | 124 KB | 11311205 |
+| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 116 KB | 11326650 |
 | [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

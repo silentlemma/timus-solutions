@@ -4,6 +4,77 @@
 #include <emmintrin.h>
 #include <utility>
 
+constexpr int IO_SIZE = 16384;
+constexpr int DECIMAL_DIGITS = 16;
+class Input {
+    char data[IO_SIZE];
+    int position = 0, size = 0;
+
+  public:
+    int byte() {
+        if (position == size) {
+            size = std::fread(data, 1, sizeof data, stdin);
+            position = 0;
+            if (size == 0)
+                return EOF;
+        }
+        return static_cast<unsigned char>(data[position++]);
+    }
+
+    void word(char *text) {
+        int c = byte();
+        while (c != EOF && c <= ' ')
+            c = byte();
+        while (c > ' ') {
+            *text++ = c;
+            c = byte();
+        }
+        *text = 0;
+    }
+
+    int number() {
+        int c = byte();
+        while (c != EOF && c <= ' ')
+            c = byte();
+        int sign = 1;
+        if (c == '-') {
+            sign = -1;
+            c = byte();
+        }
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = value * 10 + c - '0';
+            c = byte();
+        }
+        return value * sign;
+    }
+};
+class Output {
+    char data[IO_SIZE];
+    int size = 0;
+
+  public:
+    void flush() {
+        std::fwrite(data, 1, size, stdout);
+        size = 0;
+    }
+    void byte(char c) {
+        if (size == IO_SIZE)
+            flush();
+        data[size++] = c;
+    }
+    void number(unsigned value) {
+        char digits[DECIMAL_DIGITS];
+        int count = 0;
+        do {
+            digits[count++] = '0' + value % 10;
+            value /= 10;
+        } while (value);
+        while (count)
+            byte(digits[--count]);
+    }
+};
+
 constexpr int MAX_WIDTH = 1400;
 constexpr int LANES = 8;
 constexpr int ROW_SIZE = MAX_WIDTH + LANES + 2;
@@ -34,9 +105,8 @@ int max_lane(__m128i value) {
 }
 
 int main() {
-    int width;
-    if (std::scanf("%d", &width) != 1)
-        return 0;
+    Input input;
+    int width = input.number();
     auto *previous = colors[0];
     auto *current = colors[1];
     auto *previous_runs = &lengths[0];
@@ -45,7 +115,7 @@ int main() {
     auto upper_best = _mm_setzero_si128();
     int across_best[2]{};
     for (int y = 0; y < width; ++y) {
-        std::scanf("%s", current + 1);
+        input.word(current + 1);
         for (int start = 1, end = 1; start <= width; start = end) {
             const char grain = current[start];
             do {

@@ -86,6 +86,10 @@ campos posibles de una a tres celdas de lado.
 
 ## Soluciones optimizadas
 
+La revisión C++ conserva las actualizaciones SSE2 de ocho elementos, con tiempo O(N²) y espacio O(N). Un lector de bytes de 16 KB sustituye scanf para las filas; no cambia la DP ni guarda el tablero completo.
+
+Accepted del fuente exacto (G++ 13.2 x64, #11326650: 0.015 s / 116 KB); base didáctica `1287_dp.cpp`: 0.093 s / 232 KB. La medición optimizada anterior era 0.062 s / 124 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 1/44 y de memoria 1/44; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
+
 C++ usa SSE2 para actualizar ocho columnas a la vez en las rachas verticales y diagonales. La máscara de comparación conserva la longitud anterior donde coinciden las letras. Las rachas horizontales se recorren por separado. Go empaqueta longitud y letra en un entero de 16 bits y actualiza los tres vectores en el sitio, guardando el valor superior izquierdo para la siguiente columna. Ambas versiones usan O(N²) tiempo y O(N) espacio.
 
 Las implementaciones base aceptadas [1287_dp.java](1287_dp.java), [1287_dp.py](1287_dp.py), [1287_dp.rs](1287_dp.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
@@ -123,7 +127,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N²) | AC | 0.062 s | 124 KB | 11311205 |
+| [1287_dp_optimized.cpp](1287_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N²) | AC | 0.015 s | 116 KB | 11326650 |
 | [1287_dp_optimized.go](1287_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N²) | AC | 0.046 s | 916 KB | 11310411 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
