@@ -153,7 +153,7 @@ The accepted base implementations [1997_matching.cpp](1997_matching.cpp), [1997_
 |---|---|---|---|---|---|---|---|
 | [1997_matching.cpp](1997_matching.cpp) | G++ 13.2 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 772 KB | 11292418 |
 | [1997_matching.go](1997_matching.go) | Go 1.14 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 4116 KB | 11292419 |
-| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.093 s | 1168 KB | 11292421 |
+| [1997_matching.java](1997_matching.java) | Java 1.8 | matching | O(n^2 sqrt n) | AC | 0.109 s | 1116 KB | 11328331 |
 | [1997_matching.py](1997_matching.py) \* | Python 3.12 x64 | matching | O(n^2 sqrt n) | AC | 0.109 s | 4532 KB | 11292420 |
 | [1997_matching.rs](1997_matching.rs) \* | Rust 1.75 x64 | matching | O(n^2 sqrt n) | AC | 0.015 s | 1656 KB | 11292422 |
 | [1997_dfs_matching.cpp](1997_dfs_matching.cpp) | G++ 13.2 x64 | dfs, matching | O(V² + VE) | AC | 0.015 s | 764 KB | 11315933 |
