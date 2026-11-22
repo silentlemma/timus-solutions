@@ -88,6 +88,12 @@ C++: `O(m + n + (m + k) log(k + 1))`; остальные: `O(m + n + k log k)`.
 
 ## Оптимизированные решения
 
+`1628_hashing_implementation.py`. Сохраняются проходы по упакованным координатам в порядке строк и столбцов и точные правила одиночных белых клеток. Дополнительный вариант проверяет занятость соседей через set полных целых ключей строк вместо bisect_left в отсортированном массиве. Коллизии разрешаются точным равенством целых; сортированные списки строк и столбцов по-прежнему нужны для прохода. Для K чёрных клеток, M строк и N столбцов ожидаемое время O(K log K+M+N), состояние O(K) и фиксированный буфер; константный худший случай хеш-поиска не гарантируется. Прежняя двоичная 1628_implementation_optimized.py и читаемая база не меняются. Прежний CPython: 0.234 с / 6352 КБ; новый PyPy: 0.171 с / 12384 КБ. Имя отмечает хеш-проверку, менее требовательная к памяти упорядоченная версия сохраняет свою посылку.
+
+Accepted точного исходника PyPy 3.10 №11326710: 0.171 с / 12384 КБ. Сравнение, сохранённое 2026-11-20 для актуальных компиляторов семейства: место по времени 3/82, по памяти 2/82. Память не меньше 1024 КБ: требуются оба строгих рейтинга, оба пройдены.
+
+- `1628_hashing_implementation.py`: 0.171 s / 12384 KB; сохранённая учебная база `1628_implementation.py` (Python 3.12 x64): 0.218 s / 25760 KB; изменение времени -21.6%; изменение памяти -51.9%.
+
 Оптимизированное решение на C++ хранит два плоских массива ключей вместо
 `vector` на каждую строку и столбец и `set` пар: `x · (n + 2) + y`
 упорядочивает чёрные клетки по строкам, `y · (m + 2) + x` — по столбцам.
@@ -178,6 +184,7 @@ C++: `O(m + n + (m + k) log(k + 1))`; остальные: `O(m + n + k log k)`.
 | [1628_implementation_optimized.cpp](1628_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.015 s | 604 KB | 11307222 |
 | [1628_implementation_optimized.go](1628_implementation_optimized.go) | Go 1.14 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.046 s | 1988 KB | 11307224 |
 | [1628_implementation_optimized.java](1628_implementation_optimized.java) | Java 1.8 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.125 s | 1364 KB | 11307223 |
+| [1628_hashing_implementation.py](1628_hashing_implementation.py) \* | PyPy 3.10 x64 | hashing, implementation | Expected O(K log K+M+N) time; O(K) space | AC | 0.171 s | 12384 KB | 11326710 |
 | [1628_implementation_optimized.py](1628_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.234 s | 6352 KB | 11307226 |
 | [1628_implementation_optimized.rs](1628_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.031 s | 664 KB | 11307225 |
 

@@ -77,6 +77,12 @@ C++：`O(m + n + (m + k) log(k + 1))`；其余：`O(m + n + k log k)`。
 
 ## 优化解法
 
+`1628_hashing_implementation.py`. 保留行主序/列主序压缩坐标扫描及孤立白格的精确规则。新增变体以完整整数行键 set 检查相邻占用，替代对排序行数组的 bisect_left。哈希冲突仍以整数精确相等解决；行列排序列表保留用于扫描。K 黑格、M 行、N 列时，期望时间 O(K log K+M+N)，状态 O(K) 加固定输入缓冲；哈希不保证最坏常数时间。原二分查找 1628_implementation_optimized.py 及易读基础版均不变。旧 CPython 为 0.234 s / 6352 KB，新 PyPy 为 0.171 s / 12384 KB。名称标识哈希检查方法，低内存有序版保留自己的提交指标。
+
+精确源代码 PyPy 3.10 Accepted #11326710：0.171 s / 12384 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 3/82，内存排名 2/82。至少 1024 KB：两个严格指标均须通过，两项已通过。
+
+- `1628_hashing_implementation.py`: 0.171 s / 12384 KB; 保留的教学基础版 `1628_implementation.py` (Python 3.12 x64): 0.218 s / 25760 KB; 时间变化 -21.6%; 内存变化 -51.9%.
+
 优化的 C++ 解法用两个扁平的键数组代替每行每列一个 `vector` 以及数对的 `set`：键
 `x · (n + 2) + y` 让黑格按行排列，键 `y · (m + 2) + x` 让黑格按列排列。排序后对
 每个数组扫描一遍即可走完所有行或所有列；单个白格的上下两侧是否封闭，用在行数组中
@@ -143,6 +149,7 @@ C++：`O(m + n + (m + k) log(k + 1))`；其余：`O(m + n + k log k)`。
 | [1628_implementation_optimized.cpp](1628_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.015 s | 604 KB | 11307222 |
 | [1628_implementation_optimized.go](1628_implementation_optimized.go) | Go 1.14 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.046 s | 1988 KB | 11307224 |
 | [1628_implementation_optimized.java](1628_implementation_optimized.java) | Java 1.8 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.125 s | 1364 KB | 11307223 |
+| [1628_hashing_implementation.py](1628_hashing_implementation.py) \* | PyPy 3.10 x64 | hashing, implementation | Expected O(K log K+M+N) time; O(K) space | AC | 0.171 s | 12384 KB | 11326710 |
 | [1628_implementation_optimized.py](1628_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.234 s | 6352 KB | 11307226 |
 | [1628_implementation_optimized.rs](1628_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.031 s | 664 KB | 11307225 |
 

@@ -88,6 +88,12 @@ calendars and the largest one.
 
 ## Optimized solutions
 
+`1628_hashing_implementation.py`. Keep the row-major and column-major packed coordinate scans and the exact rules for singleton white cells. This additional variant resolves occupied-neighbour membership with a set of full integer row keys instead of bisect_left in the sorted row array. Hash collisions still use exact integer equality; the row/column sorted lists remain for scanning. For K blocked cells on M rows and N columns, time is expected O(K log K+M+N), state O(K) plus the fixed input buffer; hashing has no worst-case constant-time guarantee. The existing binary-search 1628_implementation_optimized.py and readable base remain unchanged. Prior CPython: 0.234 s / 6352 KB; new PyPy: 0.171 s / 12384 KB. The hash-lookup name identifies this method, and the lower-memory ordered version keeps its own receipt.
+
+Exact-source PyPy 3.10 Accepted #11326710: 0.171 s / 12384 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 3/82, memory rank 2/82. At least 1024 KB: both strict metrics are required and pass.
+
+- `1628_hashing_implementation.py`: 0.171 s / 12384 KB; retained teaching base `1628_implementation.py` (Python 3.12 x64): 0.218 s / 25760 KB; time change -21.6%; memory change -51.9%.
+
 The optimized C++ solution keeps two flat arrays of keys instead of a
 `vector` per row and per column and a `set` of pairs: `x · (n + 2) + y`
 orders the black cells row by row, `y · (m + 2) + x` column by column.
@@ -178,6 +184,7 @@ asterisk concerns the rating target only.
 | [1628_implementation_optimized.cpp](1628_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.015 s | 604 KB | 11307222 |
 | [1628_implementation_optimized.go](1628_implementation_optimized.go) | Go 1.14 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.046 s | 1988 KB | 11307224 |
 | [1628_implementation_optimized.java](1628_implementation_optimized.java) | Java 1.8 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.125 s | 1364 KB | 11307223 |
+| [1628_hashing_implementation.py](1628_hashing_implementation.py) \* | PyPy 3.10 x64 | hashing, implementation | Expected O(K log K+M+N) time; O(K) space | AC | 0.171 s | 12384 KB | 11326710 |
 | [1628_implementation_optimized.py](1628_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.234 s | 6352 KB | 11307226 |
 | [1628_implementation_optimized.rs](1628_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(m + n + (m + k) log(k + 1)) | AC | 0.031 s | 664 KB | 11307225 |
 
