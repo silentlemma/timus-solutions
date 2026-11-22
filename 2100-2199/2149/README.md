@@ -75,16 +75,17 @@ one turn is enough.
 
 ## Optimized solutions
 
+`2149_implementation_optimized.java`. Java keeps the four orientation-pattern Hamming distances. Scan pigeons directly from the top row in groups of five columns: the first character determines orientation, so no String or column division is needed. Count mismatches for the left-half and alternating patterns; the two opposite patterns have costs N-halves and N-parity. Return the minimum of these four values. After the relevant top row, the two lower rows cannot affect the answer and are not drained explicitly. The 4096-byte input buffer and bounded raw numeric output use O(1) auxiliary space; time O(N).
+
+Exact-source Java 1.8 Accepted #11327419: 0.093 s / 360 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/54, memory 1/54. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. Both metrics rank first, so the separate language target also passes; no asterisk. The previously documented optimized run #11304539 was 0.14 s / 392 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `2149_implementation_optimized.java`: 0.093 s / 360 KB; retained teaching base `2149_implementation.java`: 0.125 s / 1576 KB.
+
 The optimized C++ solution reads with `scanf` into one fixed `char`
 buffer of 500 bytes instead of `std::cin` into a `std::string`, so the
 program does without the `iostream` library; a line holds at most
 5 · 100 − 1 = 499 characters, since `n ≤ 100`:
 {2149_implementation_optimized.cpp}.
-
-The optimized Java solution reads the bytes from a 4 KB buffer instead
-of `Scanner` and counts the pigeons straight from the bytes of the first
-line, at every fifth column, without making a `String` of it; the other
-two lines are read and dropped: {2149_implementation_optimized.java}.
 
 The Python variant counts left-facing pigeons directly in the top line. Each target pattern and its opposite have complementary costs, so only the imbalances between halves and between even and odd positions are needed.
 
@@ -97,9 +98,6 @@ asterisk concerns the rating target only.
 
 - `2149_implementation_optimized.cpp`: time reduction +0.00%; memory
   reduction +73.47%; base: `2149_implementation.cpp`.
-
-- `2149_implementation_optimized.java`: time reduction -12.00%; memory
-  reduction +75.13%; base: `2149_implementation.java`.
 
 - `2149_implementation_optimized.py`: 244 KB on PyPy 3.10 x64 versus 412 KB on Python 3.12 x64 for the simple version, a 40.78% memory reduction. Runtime rises from 0.078 s to 0.125 s.
 
@@ -129,7 +127,7 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
-| [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.java](2149_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 360 KB | 11327419 |
 | [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

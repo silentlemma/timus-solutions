@@ -62,13 +62,15 @@ n（2 ≤ n ≤ 100），然后是三行、每行 5n − 1 个字符的鸽子图
 
 ## 优化解法
 
+`2149_implementation_optimized.java`. Java 保留到四种方向模式的汉明距离。按每五列一只鸽子直接扫描顶行，首字符决定方向，无需 String 或列号除法。累计左右半区模式和交替模式的不匹配数；相反模式的代价分别为 N-halves 和 N-parity，答案为四者最小值。相关顶行之后的两行不影响答案，因此不再显式读完。4096 字节输入缓冲区及有界直接数字输出使用 O(1) 辅助空间；时间 O(N)。
+
+精确源代码 Java 1.8 Accepted #11327419：0.093 s / 360 KB。2026-11-20 保存的编译器组比较：时间 1/54、内存 1/54。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11304539 为 0.14 s / 392 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `2149_implementation_optimized.java`: 0.093 s / 360 KB; 保留教学基础版 `2149_implementation.java`: 0.125 s / 1576 KB.
+
 优化的 C++ 解法用 `scanf` 读入一个固定的 500 字节 `char` 缓冲区，而不是用
 `std::cin` 读进 `std::string`，这样程序不需要 `iostream` 库；由于 `n ≤ 100`，一
 行至多 5 · 100 − 1 = 499 个字符：{2149_implementation_optimized.cpp}。
-
-优化的 Java 解法从 4 KB 缓冲区中读取字节，而不是用 `Scanner`，并直接按第一行的字
-节、每隔五列数鸽子，不为它创建 `String`；另外两行读入后直接丢弃：
-{2149_implementation_optimized.java}。
 
 Python 优化版直接在首行统计朝左的鸽子。每种目标排列与其相反排列所需的翻转次数之和为鸽子总数，因此只需求两半之间以及奇偶位置之间的数量差。
 
@@ -77,8 +79,6 @@ Python 优化版直接在首行统计朝左的鸽子。每种目标排列与其�
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `2149_implementation_optimized.cpp`: 时间降低 +0.00%; 内存降低 +73.47%; 基础版本: `2149_implementation.cpp`.
-
-- `2149_implementation_optimized.java`: 时间降低 -12.00%; 内存降低 +75.13%; 基础版本: `2149_implementation.java`.
 
 - `2149_implementation_optimized.py` 在 PyPy 3.10 x64 上占用 244 KB，简单版在 Python 3.12 x64 上占用 412 KB，内存减少 40.78%。运行时间从 0.078 秒增至 0.125 秒。
 
@@ -105,7 +105,7 @@ Python 优化版直接在首行统计朝左的鸽子。每种目标排列与其�
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
-| [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.java](2149_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 360 KB | 11327419 |
 | [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

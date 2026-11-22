@@ -41,21 +41,30 @@ public class Main {
         do {
             c = read();
         } while (c >= 0 && c <= ' ');
-        // each pigeon starts at column 5*i; only the top row is needed for counting.
-        for (int column = 0; column < STEP * n - 1; column++) {
-            if (column % STEP == 0) {
-                int i = column / STEP;
-                boolean left = c == '<';
-                if (left != (i < n / 2))
-                    halves++;
-                if (left != (i % 2 == 0))
-                    parity++;
-            }
-            c = read();
+        // Only the first character of each pigeon affects the answer.
+        for (int i = 0; i < n; i++) {
+            boolean left = c == '<';
+            if (left != (i < n / 2))
+                halves++;
+            if (left != (i % 2 == 0))
+                parity++;
+            int advance = i + 1 < n ? STEP : STEP - 1;
+            while (advance-- > 0)
+                c = read();
         }
-        // consume the lower rows too, without retaining them.
-        while (c >= 0)
-            c = read();
-        System.out.println(Math.min(Math.min(halves, n - halves), Math.min(parity, n - parity)));
+        // The two lower rows cannot affect the four pattern distances.
+        output(Math.min(Math.min(halves, n - halves), Math.min(parity, n - parity)));
+    }
+
+    static final int DECIMAL = 10, LONG_DIGITS = 20;
+    static void output(long value) throws java.io.IOException {
+        byte[] answer = new byte[LONG_DIGITS + 1];
+        int at = answer.length;
+        answer[--at] = '\n';
+        do {
+            answer[--at] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        System.out.write(answer, at, answer.length - at);
     }
 }

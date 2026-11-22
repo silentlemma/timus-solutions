@@ -79,17 +79,17 @@ que basta un giro.
 
 ## Soluciones optimizadas
 
+`2149_implementation_optimized.java`. Java conserva las distancias de Hamming a cuatro patrones de orientación. Recorre las palomas de la fila superior en grupos de cinco columnas: el primer carácter determina la orientación, sin String ni división por columna. Cuenta discrepancias con los patrones por mitades y alternado; los patrones opuestos cuestan N-halves y N-parity. Devuelve el mínimo de los cuatro. Las dos filas inferiores no afectan al resultado y no se consumen explícitamente después de la fila relevante. El búfer de entrada de 4096 bytes y la salida numérica acotada usan espacio auxiliar O(1); tiempo O(N).
+
+Accepted exacto Java 1.8 #11327419: 0.093 s / 360 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/54, memoria 1/54. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11304539 era 0.14 s / 392 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2149_implementation_optimized.java`: 0.093 s / 360 KB; base didáctica conservada `2149_implementation.java`: 0.125 s / 1576 KB.
+
 La solución optimizada en C++ lee con `scanf` en un único búfer fijo de
 `char` de 500 bytes en lugar de `std::cin` en un `std::string`, así que
 el programa prescinde de la biblioteca `iostream`; una línea tiene como
 mucho 5 · 100 − 1 = 499 caracteres, porque `n ≤ 100`:
 {2149_implementation_optimized.cpp}.
-
-La solución optimizada en Java lee los bytes desde un búfer de 4 KB en
-lugar de `Scanner` y cuenta las palomas directamente sobre los bytes de
-la primera línea, cada cinco columnas, sin crear un `String` con ella;
-las otras dos líneas se leen y se descartan:
-{2149_implementation_optimized.java}.
 
 La variante de Python cuenta en la primera línea las palomas que miran a la izquierda. Los costes de cada patrón y de su opuesto son complementarios, así que basta comparar el desequilibrio entre las mitades y entre las posiciones pares e impares.
 
@@ -102,9 +102,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `2149_implementation_optimized.cpp`: reducción de tiempo +0.00%;
   reducción de memoria +73.47%; base: `2149_implementation.cpp`.
-
-- `2149_implementation_optimized.java`: reducción de tiempo -12.00%;
-  reducción de memoria +75.13%; base: `2149_implementation.java`.
 
 - `2149_implementation_optimized.py` usa 244 KB con PyPy 3.10 x64 frente a 412 KB de la versión sencilla con Python 3.12 x64, un 40.78% menos de memoria. El tiempo sube de 0.078 s a 0.125 s.
 
@@ -134,7 +131,7 @@ implementación para alcanzar el objetivo.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2149_implementation_optimized.cpp](2149_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 104 KB | 11304538 |
-| [2149_implementation_optimized.java](2149_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) | AC | 0.140 s | 392 KB | 11304539 |
+| [2149_implementation_optimized.java](2149_implementation_optimized.java) | Java 1.8 | implementation | O(N) time; O(1) auxiliary space | AC | 0.093 s | 360 KB | 11327419 |
 | [2149_implementation_optimized.py](2149_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.125 s | 244 KB | 11323575 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
