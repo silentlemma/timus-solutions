@@ -47,24 +47,6 @@ func nextByte() byte {
 	return value
 }
 
-func number() int {
-	c := nextByte()
-	for c != 0 && c <= ' ' {
-		c = nextByte()
-	}
-	sign := 1
-	if c == '-' {
-		sign = -1
-		c = nextByte()
-	}
-	value := 0
-	for '0' <= c && c <= '9' {
-		value = value*10 + int(c-'0')
-		c = nextByte()
-	}
-	return sign * value
-}
-
 const outputSize = 8192
 const maxDigits = 20
 const maxLength = 100000

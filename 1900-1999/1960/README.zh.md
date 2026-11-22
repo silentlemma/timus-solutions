@@ -117,7 +117,7 @@ Rust 仅用标准库，资源测量选择 CPython。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
-| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
+| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2464 KB | 11328325 |
 | [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

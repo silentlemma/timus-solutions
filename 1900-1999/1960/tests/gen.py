@@ -17,9 +17,7 @@ def main():
     elif kind == "alphabet_cycle":
         text = (ALPHABET * ((size + len(ALPHABET) - 1) // len(ALPHABET)))[:size]
     elif kind == "ruler":
-        text = "".join(
-            chr(ord("a") + (i & -i).bit_length() - 1) for i in range(1, size + 1)
-        )
+        text = "".join(chr(ord("a") + (i & -i).bit_length() - 1) for i in range(1, size + 1))
     elif kind == "long_jump":
         text = "a" * (size // 2) + "b" + "a" * (size - size // 2 - 1)
     elif kind == "fresh_runs":

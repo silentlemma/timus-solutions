@@ -144,7 +144,7 @@ resource measurements.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
-| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
+| [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2464 KB | 11328325 |
 | [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
