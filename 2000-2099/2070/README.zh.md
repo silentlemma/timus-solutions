@@ -76,6 +76,12 @@ L 和 R（2 ≤ L ≤ R ≤ 10¹²）。
 
 ## 优化解法
 
+`2070_number_theory_optimized.java`. 保留素数幂补集证明。奇数 byte 筛至 M=floor(sqrt(R)) 计素数平方；更高偶次幂只需基数至 floor(sqrt(M))，且指数加一为素数。整数根修正和除法界检查保留边界及溢出安全。byte 标记较位压缩占空间，但标记扫描更简单；逐字节整数输入与直接十进制输出去除通用解析。保守 O(M log log M+sqrt(M) log R) 时间、O(M) 字节。商值素数计数 DP 和全部教学源码另行保留。
+
+精确源码：Java 1.8 Accepted #11327837: 0.109 s / 892 KB。2026-11-20 保存的编译器组排名，时间然后内存：2/53; 3/53。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11309223 (Java 1.8): 0.14 s / 2584 KB，不混合测量或运行时。教学源码保持不变。
+
+- `2070_number_theory_optimized.java`: 0.109 s / 892 KB; 保留教学版 `2070_number_theory.java` (Java 1.8): 0.14 s / 2584 KB.
+
 将素数平方与其他合格偶次幂分开。用以不同整数商为状态的素数计数 DP，计算所需平方根以内的素数个数。只有更高次幂需要显式筛，其素数底数不超过四次根。按基础数论证明统计合格指数，用前缀计数相减得到区间答案。整数修正根值，避免浮点边界错误。
 
 R 为区间右端点，M=floor(sqrt(R))，P 为更高次幂所需的小素数数目。统计的是不合格数，应从区间长度减去其数量。
@@ -123,3 +129,6 @@ R 为区间右端点，M=floor(sqrt(R))，P 为更高次幂所需的小素数数
 | [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
 | [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
 | [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |
+| [2070_number_theory_optimized.java](2070_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(M log log M+sqrt(M) log R) time; O(M) bytes | AC | 0.109 s | 892 KB | 11327837 |
+
+\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。

@@ -91,6 +91,12 @@ unsatisfying number among 3 … 7 and the answer is 4.
 
 ## Optimized solutions
 
+`2070_number_theory_optimized.java`. Keep the prime-power complement proof. An odd-only byte sieve up to M=floor(sqrt(R)) counts prime squares; only bases up to floor(sqrt(M)) need higher even powers whose exponent plus one is prime. Correct integer square roots and division guards preserve boundary and overflow behavior. Byte flags trade more sieve storage than bit packing for simpler marking and scans; bytewise integer input and direct decimal output remove generic parsing. O(M log log M+sqrt(M) log R) conservative time, O(M) bytes. The quotient-value prime-count DP remains a separate alternative; every simple source is preserved.
+
+Exact-source Java 1.8 Accepted #11327837: 0.109 s / 892 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/53; 3/53. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11309223 (Java 1.8): 0.14 s / 2584 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `2070_number_theory_optimized.java`: 0.109 s / 892 KB; retained teaching base `2070_number_theory.java` (Java 1.8): 0.14 s / 2584 KB.
+
 Separate prime squares from higher qualifying even powers. Count primes up to the required square root with a quotient-value prime-count DP, whose states are the distinct integer quotients. Only the higher powers need an explicit sieve, and their prime bases lie below the fourth root. Count each qualifying exponent as in the simple number-theoretic proof and subtract prefix counts for the requested interval. Integer root corrections avoid floating-point boundary errors.
 
 Here R is the interval's right endpoint, M=floor(sqrt(R)) and P is the number of small primes used for the higher powers. The counted powers are excluded numbers, so subtract their interval count from the interval length.
@@ -138,3 +144,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
 | [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
 | [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |
+| [2070_number_theory_optimized.java](2070_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(M log log M+sqrt(M) log R) time; O(M) bytes | AC | 0.109 s | 892 KB | 11327837 |
+
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

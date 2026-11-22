@@ -91,6 +91,12 @@ satisfactorio entre 3 … 7 y la respuesta es 4.
 
 ## Soluciones optimizadas
 
+`2070_number_theory_optimized.java`. Conserva prueba del complemento de potencias primas. Criba byte solo impares hasta M=floor(sqrt(R)) cuenta cuadrados; potencias pares mayores requieren bases hasta floor(sqrt(M)) y exponente más uno primo. Correcciones de raíz y guardas por división preservan límites y seguridad. Bytes ocupan más que bits, simplificando marcado y recorrido; E/S numérica directa. Cota conservadora O(M log log M+sqrt(M) log R), O(M) bytes. Conserva DP de conteo por cocientes como alternativa y todas las bases.
+
+Fuente exacto: Java 1.8 Accepted #11327837: 0.109 s / 892 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/53; 3/53. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11309223 (Java 1.8): 0.14 s / 2584 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `2070_number_theory_optimized.java`: 0.109 s / 892 KB; base didáctica conservada `2070_number_theory.java` (Java 1.8): 0.14 s / 2584 KB.
+
 Se separan cuadrados de primos de las demás potencias pares válidas. Una DP de conteo de primos sobre los cocientes enteros distintos cuenta hasta la raíz cuadrada requerida. Solo las potencias mayores necesitan una criba explícita, con bases primas hasta la raíz cuarta. Se cuentan exponentes como en la prueba simple y se restan conteos de prefijos para el intervalo. Las raíces se corrigen con enteros para evitar errores de frontera flotantes.
 
 R es el extremo derecho, M=floor(sqrt(R)) y P los primos pequeños para potencias mayores. Estas potencias son números excluidos: su cantidad se resta de la longitud del intervalo.
@@ -138,3 +144,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [2070_number_theory_dp.java](2070_number_theory_dp.java) | Java 1.8 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.125 s | 492 KB | 11308164 |
 | [2070_number_theory_dp.py](2070_number_theory_dp.py) | Python 3.12 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.093 s | 940 KB | 11308156 |
 | [2070_number_theory_dp.rs](2070_number_theory_dp.rs) | Rust 1.75 x64 | number_theory, dp | O(M^(3/4)+P log R) | AC | 0.046 s | 228 KB | 11308166 |
+| [2070_number_theory_optimized.java](2070_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(M log log M+sqrt(M) log R) time; O(M) bytes | AC | 0.109 s | 892 KB | 11327837 |
+
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
