@@ -56,7 +56,13 @@ Pitfalls:
 
 ## Optimized solutions
 
-`1293_math_optimized.go`. Keep the two-sided panel area 2*N*A*B. All three inputs are at most 100, so the result is at most 2000000; no floating-point conversion is needed. The new code reads the three numbers directly rather than invoking formatted scanners or retaining decoded input and, in Rust, a value vector. Time and bounded arithmetic state O(1); the teaching formula sources remain unchanged. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
+`1293_math_optimized.go`. Keep exact int64 area 2*N*A*B, at most 2000000 under the statement bounds. Replace os.File wrappers with syscall.Read/Write and fixed 64-byte input/output buffers. Reads retry EINTR; writes handle partial progress and EINTR before reusing storage. Integer parsing/formatting remain exact, including refill boundaries. O(1) time and auxiliary state; preserve the simple Go formula source.
+
+Exact-source Go 1.14 Accepted #11326972: 0.015 s / 272 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/32, memory rank 1/32. Below 1024 KB, strict admission uses time only.
+
+- `1293_math_optimized.go`: 0.015 s / 272 KB; retained teaching base `1293_math.go` (Go 1.14 x64): 0.031 s / 1152 KB; time change -51.6%; memory change -76.4%.
+
+`1293_math_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327023 measures 0.062 s / 596 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 35/1017, memory rank 897/1017. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11324826, 0.109 s / 188 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
 
 Compared with `1293_math.go`: time 0.031 s → 0.031 s; memory 1152 KB → 796 KB.
 
@@ -76,9 +82,7 @@ the same time.
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1293_math_optimized.go`: time place 22/32, memory place 1/32 in this comparable sample.
-
-`1293_math_optimized.py`: time place 935/1017, memory place 3/1017 in this comparable sample.
+Earlier PyPy comparison: `1293_math_optimized.py`: time place 935/1017, memory place 3/1017 in this comparable sample.
 
 `1293_math_optimized.rs`: time place 1/12, memory place 1/12 in this comparable sample.
 
@@ -101,8 +105,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1293_math_optimized.java](1293_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 312 KB | 11303733 |
-| [1293_math_optimized.go](1293_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 796 KB | 11325047 |
-| [1293_math_optimized.py](1293_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 188 KB | 11324826 |
+| [1293_math_optimized.go](1293_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 272 KB | 11326972 |
+| [1293_math_optimized.py](1293_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 596 KB | 11327023 |
 | [1293_math_optimized.rs](1293_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 48 KB | 11324850 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -1,10 +1,37 @@
 package main
 
-import "os"
+import "syscall"
+
+func readInput(buffer []byte) int {
+	for {
+		count, err := syscall.Read(syscall.Stdin, buffer)
+		if count > 0 {
+			return count
+		}
+		if err != syscall.EINTR {
+			return 0
+		}
+	}
+}
+
+func writeAll(buffer []byte) {
+	for len(buffer) > 0 {
+		count, err := syscall.Write(syscall.Stdout, buffer)
+		if count > 0 {
+			buffer = buffer[count:]
+		}
+		if err == syscall.EINTR {
+			continue
+		}
+		if count <= 0 {
+			return
+		}
+	}
+}
 
 const maxInt64Digits = 20
 
-const ioCapacity = 4096
+const ioCapacity = 64
 
 var inputBuffer [ioCapacity]byte
 var inputAt, inputSize int
@@ -12,10 +39,10 @@ var outputBuffer [ioCapacity]byte
 var outputSize int
 
 func nextByte() int {
-	for inputAt == inputSize {
-		count, err := os.Stdin.Read(inputBuffer[:])
-		inputAt, inputSize = 0, count
-		if count == 0 && err != nil {
+	if inputAt == inputSize {
+		inputSize = readInput(inputBuffer[:])
+		inputAt = 0
+		if inputSize == 0 {
 			return -1
 		}
 	}
@@ -50,26 +77,8 @@ func readNumber() (int64, bool) {
 
 func number() int64 { value, _ := readNumber(); return value }
 
-func wordByte() byte {
-	character := nextByte()
-	for character >= 0 && character <= ' ' {
-		character = nextByte()
-	}
-	first := byte(character)
-	for character > ' ' {
-		character = nextByte()
-	}
-	return first
-}
-
 func flushOutput() {
-	for start := 0; start < outputSize; {
-		count, err := os.Stdout.Write(outputBuffer[start:outputSize])
-		if err != nil || count == 0 {
-			os.Exit(1)
-		}
-		start += count
-	}
+	writeAll(outputBuffer[:outputSize])
 	outputSize = 0
 }
 
@@ -99,12 +108,6 @@ func writeNumber(value int64) {
 	}
 	for _, digit := range digits[first:] {
 		writeByte(digit)
-	}
-}
-
-func writeText(text string) {
-	for index := 0; index < len(text); index++ {
-		writeByte(text[index])
 	}
 }
 
