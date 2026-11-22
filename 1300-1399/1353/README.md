@@ -64,6 +64,12 @@ digit sums of every number up to 10⁶.
 
 ## Optimized solutions
 
+`1353_combinatorics.py`. Replace digit-sum DP with inclusion-exclusion on nine decimal digits. Complement digits to reduce S to min(S,81−S). For each excluded digit set, C(r+8,8) equals (a+8)(a+14)(a+18)(a+20)/8!, with a=r(r+9); update C(9,j) exactly. Add the separate number 10^9 only when S=1. For this fixed nine-digit problem there are at most five terms, using exact integers and no answer table. Different algorithm is named combinatorics; both DP versions remain.
+
+Exact-source Python 3.12 x64 Accepted #11327779: 0.078 s / 748 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/97; 57/97. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11325475 (PyPy 3.10 x64): 0.125 s / 228 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1353_combinatorics.py`: 0.078 s / 748 KB; retained teaching base `1353_dp.py` (Python 3.12 x64): 0.093 s / 496 KB.
+
 `1353_dp_optimized.java`. Retain the nine-digit DP and the extra number 10^9 when S=1. Replace ten digit transitions per sum by a sliding sum of ten previous states, reusing two long arrays of S+1 cells. The one input integer is parsed through a 1024-byte buffer instead of Scanner. Time O(9S), auxiliary space O(S); the basic ten-transition DP remains unchanged. Admission follows the own Accepted memory measurements, not a first-place claim.
 
 Compared with `1353_dp.java`: time 0.125 s → 0.093 s; memory 1 576 KB → 476 KB.
@@ -106,6 +112,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|----------|
 | [1353_dp_optimized.java](1353_dp_optimized.java) \* | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
 | [1353_dp_optimized.py](1353_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(9S) time; O(S) space | AC | 0.125 s | 228 KB | 11325475 |
+| [1353_combinatorics.py](1353_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
 | [1353_dp_optimized.rs](1353_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
 
 

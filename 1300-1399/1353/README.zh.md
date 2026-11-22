@@ -57,6 +57,12 @@ ways[s] 是数字和为 s 的 k 位串个数，每加一位数字 d（0 到 9）
 
 ## 优化解法
 
+`1353_combinatorics.py`. 以九位十进制数字的容斥替代数位和 DP。补数字把 S 缩为 min(S,81−S)。每项 C(r+8,8) 用 a=r(r+9) 写成 (a+8)(a+14)(a+18)(a+20)/8!，精确更新 C(9,j)。仅 S=1 时另加 10^9。固定九位至多五项，整数精确计算，无答案表。不同算法命名 combinatorics，保留两种 DP。
+
+精确源码：Python 3.12 x64 Accepted #11327779: 0.078 s / 748 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/97; 57/97。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11325475 (PyPy 3.10 x64): 0.125 s / 228 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1353_combinatorics.py`: 0.078 s / 748 KB; 保留教学版 `1353_dp.py` (Python 3.12 x64): 0.093 s / 496 KB.
+
 `1353_dp_optimized.java`. 保留九位数位 DP，以及 S=1 时补上 10^9。用前十个状态的滑动和替代每个和的十次转移，复用两个各 S+1 格的 long 数组。单个输入整数通过 1024 字节缓冲解析，不用 Scanner。时间 O(9S)，辅助空间 O(S)；原有十次转移的简单 DP 保持不变。按自身 Accepted 的内存改进收录，不声称排名第一。
 
 与 `1353_dp.java` 相比：时间 0.125 s → 0.093 s；内存 1 576 KB → 476 KB。
@@ -99,6 +105,7 @@ ways[s] 是数字和为 s 的 k 位串个数，每加一位数字 d（0 到 9）
 |----|----|----|-----|------|----|----|----------|
 | [1353_dp_optimized.java](1353_dp_optimized.java) \* | Java 1.8 | dp | O(9S) time; O(S) space | AC | 0.093 s | 476 KB | 11324972 |
 | [1353_dp_optimized.py](1353_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(9S) time; O(S) space | AC | 0.125 s | 228 KB | 11325475 |
+| [1353_combinatorics.py](1353_combinatorics.py) \* | Python 3.12 x64 | combinatorics | O(1) for fixed nine digits; exact integers | AC | 0.078 s | 748 KB | 11327779 |
 | [1353_dp_optimized.rs](1353_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(DM) time; O(M) space | AC | 0.062 s | 60 KB | 11325096 |
 
 
