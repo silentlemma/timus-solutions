@@ -80,9 +80,13 @@ Pitfalls:
 
 ## Optimized solutions
 
+The C++ revision keeps the flat signed 32-bit Fenwick cells and wide inclusion–exclusion totals. Fixed 16 KB numeric input/output buffers replace scanf and per-answer printf. Update/query ranges, signs and the existing overflow bounds are unchanged.
+
+Exact-source Accepted (G++ 13.2 x64, #11326644: 0.062 s / 8124 KB); teaching base `1470_fenwick.cpp`: 0.375 s / 16552 KB. The previous optimized measurement was 0.359 s / 8144 KB. In the saved 20 November 2026 comparison, time place is 1/90, memory place 1/90; below 1 MiB the policy evaluates the time rank only.
+
 Keep the three-dimensional Fenwick tree but store node sums in 32-bit cells. Nonnegative sector values imply each node is at most the total legal mass, which is below the signed 32-bit maximum. Prefix totals and intermediate inclusion–exclusion expressions still use sufficiently wide arithmetic. This reduces tree storage without changing update ranges or query signs. Python additionally reads one operation at a time instead of retaining all input tokens and answers.
 
-- `1470_fenwick_optimized.cpp`: 0.359 s / 8144 KB; base `1470_fenwick.cpp`: 0.375 s / 16552 KB; relative change: time -4.3%, memory -50.8%.
+- `1470_fenwick_optimized.cpp`: time reduction +83.47%; memory reduction +50.92%; base: `1470_fenwick.cpp`.
 - `1470_fenwick_optimized.go`: 0.140 s / 10320 KB; base `1470_fenwick.go`: 0.156 s / 20044 KB; relative change: time -10.3%, memory -48.5%.
 - `1470_fenwick_optimized.java`: 0.187 s / 12064 KB; base `1470_fenwick.java`: 0.281 s / 20908 KB; relative change: time -33.5%, memory -42.3%.
 - `1470_fenwick_optimized.py`: 0.734 s / 16836 KB; base `1470_fenwick.py`: 0.890 s / 61120 KB; relative change: time -17.5%, memory -72.5%.
@@ -92,7 +96,7 @@ Keep the three-dimensional Fenwick tree but store node sums in 32-bit cells. Non
 
 The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
 
-- C++: preferred teaching base `1470_fenwick.cpp`; covering source `1470_fenwick_optimized.cpp`; time/memory places 60/1, other-author entries 89/89.
+Exact-source Accepted (G++ 13.2 x64, #11326644: 0.062 s / 8124 KB); teaching base `1470_fenwick.cpp`: 0.375 s / 16552 KB. The previous optimized measurement was 0.359 s / 8144 KB. In the saved 20 November 2026 comparison, time place is 1/90, memory place 1/90; below 1 MiB the policy evaluates the time rank only.
 
 - Go: preferred teaching base `1470_fenwick.go`; covering source `1470_fenwick.go`; time/memory places 1/1, other-author entries 0/0.
 
@@ -120,10 +124,8 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.359 s | 8144 KB | 11308809 |
+| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.062 s | 8124 KB | 11326644 |
 | [1470_fenwick_optimized.go](1470_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(log^3 N) per operation | AC | 0.140 s | 10320 KB | 11308810 |
 | [1470_fenwick_optimized.java](1470_fenwick_optimized.java) | Java 1.8 | fenwick | O(log^3 N) per operation | AC | 0.187 s | 12064 KB | 11308811 |
 | [1470_fenwick_optimized.py](1470_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per operation | AC | 0.734 s | 16836 KB | 11308813 |
 | [1470_fenwick_optimized.rs](1470_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per operation | AC | 0.046 s | 11476 KB | 11308812 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.

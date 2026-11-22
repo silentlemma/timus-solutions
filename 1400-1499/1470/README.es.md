@@ -81,9 +81,13 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+La revisión C++ conserva las celdas planas Fenwick de 32 bits con signo y los totales amplios de inclusión–exclusión. Búferes numéricos de 16 KB sustituyen scanf y printf por respuesta. No cambian rangos, signos ni las cotas de desbordamiento demostradas.
+
+Accepted del fuente exacto (G++ 13.2 x64, #11326644: 0.062 s / 8124 KB); base didáctica `1470_fenwick.cpp`: 0.375 s / 16552 KB. La medición optimizada anterior era 0.359 s / 8144 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 1/90 y de memoria 1/90; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
+
 Se mantiene Fenwick tridimensional con sumas de nodos en 32 bits. Al ser no negativos los sectores, cada nodo queda acotado por la masa legal total, inferior al máximo de 32 bits con signo. Las sumas de prefijos y los términos intermedios de inclusión–exclusión usan aritmética suficientemente ancha. Disminuye la memoria sin cambiar rangos ni signos. Python también procesa cada operación sin retener todos los tokens y respuestas.
 
-- `1470_fenwick_optimized.cpp`: 0.359 s / 8144 KB; base `1470_fenwick.cpp`: 0.375 s / 16552 KB; cambio respecto a la base: tiempo -4.3%, memoria -50.8%.
+- `1470_fenwick_optimized.cpp`: reducción de tiempo +83.47%; reducción de memoria +50.92%; base: `1470_fenwick.cpp`.
 - `1470_fenwick_optimized.go`: 0.140 s / 10320 KB; base `1470_fenwick.go`: 0.156 s / 20044 KB; cambio respecto a la base: tiempo -10.3%, memoria -48.5%.
 - `1470_fenwick_optimized.java`: 0.187 s / 12064 KB; base `1470_fenwick.java`: 0.281 s / 20908 KB; cambio respecto a la base: tiempo -33.5%, memoria -42.3%.
 - `1470_fenwick_optimized.py`: 0.734 s / 16836 KB; base `1470_fenwick.py`: 0.890 s / 61120 KB; cambio respecto a la base: tiempo -17.5%, memoria -72.5%.
@@ -93,7 +97,7 @@ Se mantiene Fenwick tridimensional con sumas de nodos en 32 bits. Al ser no nega
 
 Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
 
-- C++: base didáctica preferida `1470_fenwick.cpp`; versión que cubre `1470_fenwick_optimized.cpp`; puestos tiempo/memoria 60/1, registros de otros autores 89/89.
+Accepted del fuente exacto (G++ 13.2 x64, #11326644: 0.062 s / 8124 KB); base didáctica `1470_fenwick.cpp`: 0.375 s / 16552 KB. La medición optimizada anterior era 0.359 s / 8144 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 1/90 y de memoria 1/90; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
 
 - Go: base didáctica preferida `1470_fenwick.go`; versión que cubre `1470_fenwick.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
@@ -121,10 +125,8 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.359 s | 8144 KB | 11308809 |
+| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.062 s | 8124 KB | 11326644 |
 | [1470_fenwick_optimized.go](1470_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(log^3 N) per operation | AC | 0.140 s | 10320 KB | 11308810 |
 | [1470_fenwick_optimized.java](1470_fenwick_optimized.java) | Java 1.8 | fenwick | O(log^3 N) per operation | AC | 0.187 s | 12064 KB | 11308811 |
 | [1470_fenwick_optimized.py](1470_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per operation | AC | 0.734 s | 16836 KB | 11308813 |
 | [1470_fenwick_optimized.rs](1470_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per operation | AC | 0.046 s | 11476 KB | 11308812 |
-
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.

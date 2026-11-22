@@ -72,9 +72,13 @@ i、j、w，长度分别等于它们的最低位。修改时 i 向上走，在�
 
 ## 优化解法
 
+C++ 修订版保留扁平有符号 32 位树状数组单元及宽整数容斥总和。各 16 KB 的固定数字输入、输出缓冲区替代 scanf 和逐答案 printf。更新与查询范围、符号和原有溢出界均不变。
+
+精确源代码的 Accepted（G++ 13.2 x64, #11326644: 0.062 s / 8124 KB）；教学基础版 `1470_fenwick.cpp`: 0.375 s / 16552 KB。此前优化版的测量为 0.359 s / 8144 KB。在保存的 2026 年 11 月 20 日比较中，时间名次为 1/90，内存名次为 1/90；内存低于 1 MiB 时规则仅评估时间排名。
+
 保留三维 Fenwick 树，但节点和改存 32 位。扇区值非负，因此节点不超过合法总质量，后者小于有符号 32 位上限。前缀求和及容斥中间式仍使用足够宽的算术。更新范围与查询符号不变，只减少树存储。Python 还逐条读取操作，不保存全部输入词元和答案。
 
-- `1470_fenwick_optimized.cpp`: 0.359 s / 8144 KB; 基础版 `1470_fenwick.cpp`: 0.375 s / 16552 KB; 相对基础版的变化: 时间 -4.3%, 内存 -50.8%.
+- `1470_fenwick_optimized.cpp`：时间减少 +83.47%；内存减少 +50.92%；基础版：`1470_fenwick.cpp`。
 - `1470_fenwick_optimized.go`: 0.140 s / 10320 KB; 基础版 `1470_fenwick.go`: 0.156 s / 20044 KB; 相对基础版的变化: 时间 -10.3%, 内存 -48.5%.
 - `1470_fenwick_optimized.java`: 0.187 s / 12064 KB; 基础版 `1470_fenwick.java`: 0.281 s / 20908 KB; 相对基础版的变化: 时间 -33.5%, 内存 -42.3%.
 - `1470_fenwick_optimized.py`: 0.734 s / 16836 KB; 基础版 `1470_fenwick.py`: 0.890 s / 61120 KB; 相对基础版的变化: 时间 -17.5%, 内存 -72.5%.
@@ -84,7 +88,7 @@ i、j、w，长度分别等于它们的最低位。修改时 i 向上走，在�
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
 
-- C++: 优先教学基础版 `1470_fenwick.cpp`; 覆盖实现 `1470_fenwick_optimized.cpp`; 时间/内存名次 60/1, 其他作者记录 89/89.
+精确源代码的 Accepted（G++ 13.2 x64, #11326644: 0.062 s / 8124 KB）；教学基础版 `1470_fenwick.cpp`: 0.375 s / 16552 KB。此前优化版的测量为 0.359 s / 8144 KB。在保存的 2026 年 11 月 20 日比较中，时间名次为 1/90，内存名次为 1/90；内存低于 1 MiB 时规则仅评估时间排名。
 
 - Go: 优先教学基础版 `1470_fenwick.go`; 覆盖实现 `1470_fenwick.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
@@ -112,10 +116,8 @@ i、j、w，长度分别等于它们的最低位。修改时 i 向上走，在�
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) \* | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.359 s | 8144 KB | 11308809 |
+| [1470_fenwick_optimized.cpp](1470_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(log^3 N) per operation | AC | 0.062 s | 8124 KB | 11326644 |
 | [1470_fenwick_optimized.go](1470_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(log^3 N) per operation | AC | 0.140 s | 10320 KB | 11308810 |
 | [1470_fenwick_optimized.java](1470_fenwick_optimized.java) | Java 1.8 | fenwick | O(log^3 N) per operation | AC | 0.187 s | 12064 KB | 11308811 |
 | [1470_fenwick_optimized.py](1470_fenwick_optimized.py) | PyPy 3.10 x64 | fenwick | O(log^3 N) per operation | AC | 0.734 s | 16836 KB | 11308813 |
 | [1470_fenwick_optimized.rs](1470_fenwick_optimized.rs) | Rust 1.75 x64 | fenwick | O(log^3 N) per operation | AC | 0.046 s | 11476 KB | 11308812 |
-
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
