@@ -103,6 +103,12 @@ boards with three crosses, three noughts and no complete line.
 
 ## Optimized solutions
 
+`1195_games_optimized.java`. Java keeps the same exact three-ply negamax. Two nine-bit masks represent the marks; row, column and diagonal masks detect a win, and a winning move returns immediately. The input always leaves three empty cells, so no memoization table is needed. A 64-byte input buffer replaces individual stream reads; the three answer strings are unchanged. Time and auxiliary space are O(1) on this fixed board. The complete domain of 1372 valid six-mark boards was compared with an independent board-based solver.
+
+Exact-source Java 1.8 Accepted #11327339: 0.093 s / 372 KB. Saved 2026-11-20 compiler-cohort comparison: time 3/25, memory 2/25. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11309258 was 0.109 s / 352 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1195_games_optimized.java`: 0.093 s / 372 KB; retained teaching base `1195_games.java`: 0.109 s / 1544 KB.
+
 `1195_games_optimized.rs`. Keep negamax on the given six-move tic-tac-toe position. Two nine-bit masks replace the mutable board vector; eight winning masks replace three-cell comparisons, and a winning move returns immediately. No memoization or different game rule is introduced. With E empty cells, worst-case search O(E!) and stack O(E), bounded by the fixed 3×3 board. Direct byte input/output preserves the exact Crosses/Draw/Ouths strings.
 
 Compared with `1195_games.rs`: time 0.046 s → 0.015 s; memory 212 KB → 56 KB.
@@ -110,7 +116,7 @@ Compared with `1195_games.rs`: time 0.046 s → 0.015 s; memory 212 KB → 56 KB
 Keep the same exhaustive minimax and the eight winning lines. A legal input has three crosses and three noughts without an existing win, so just three cells remain: there is no need for a table of all boards. Try a legal move, return a win immediately if it completes a line, otherwise negate the opponent's result and maximize; a full board is a draw. Native mutable-board versions restore the cell before every early return. Python uses two nine-bit masks and the remaining-cell mask, with the same game tree. Small direct input/output removes scanner/stream overhead. The fixed three-ply search is O(1); all1372legal six-mark boards were independently checked for the new Python source.
 
 - `1195_games_optimized.cpp`: 0.015 s / 100 KB; base `1195_games.cpp`: 0.015 s / 352 KB; relative change: time -0.0%, memory -71.6%.
-- `1195_games_optimized.java`: 0.109 s / 352 KB; base `1195_games.java`: 0.109 s / 1544 KB; relative change: time -0.0%, memory -77.2%.
+
 - `1195_games_optimized.py`: 0.125 s / 280 KB; base `1195_games.py`: 0.078 s / 528 KB; relative change: time +60.3%, memory -47.0%.
 
 ## Language notes
@@ -138,7 +144,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1195_games_optimized.cpp](1195_games_optimized.cpp) | G++ 13.2 x64 | games | O(1) | AC | 0.015 s | 100 KB | 11309257 |
-| [1195_games_optimized.java](1195_games_optimized.java) | Java 1.8 | games | O(1) | AC | 0.109 s | 352 KB | 11309258 |
+| [1195_games_optimized.java](1195_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.093 s | 372 KB | 11327339 |
 | [1195_games_optimized.py](1195_games_optimized.py) \* | PyPy 3.10 x64 | games | O(1) | AC | 0.125 s | 280 KB | 11309730 |
 | [1195_games_optimized.rs](1195_games_optimized.rs) \* | Rust 1.75 x64 | games | O(E!) search; O(E) stack | AC | 0.015 s | 56 KB | 11325545 |
 

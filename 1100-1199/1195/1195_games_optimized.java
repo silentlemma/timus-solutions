@@ -1,42 +1,60 @@
 public class Main {
-    static final int SIDE = 3, CELLS = SIDE * SIDE;
-    static final int[][] LINES = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6},
-                                  {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
-    static final int WIN = 1, DRAW = 0, LOSS = -1;
-    static final char[] board = new char[CELLS];
+    static final int SIDE = 3, CELLS = SIDE * SIDE, ALL = (1 << CELLS) - 1;
+    static final int ROW = (1 << SIDE) - 1;
+    static final int COLUMN = 1 | (1 << SIDE) | (1 << (2 * SIDE));
+    static final int DIAGONAL = 1 | (1 << (SIDE + 1)) | (1 << (2 * (SIDE + 1)));
+    static final int ANTIDIAGONAL =
+        (1 << (SIDE - 1)) | (1 << (2 * (SIDE - 1))) | (1 << (SIDE * (SIDE - 1)));
+    static final int WIN = 1, DRAW = 0, LOSS = -1, BUFFER_SIZE = 64, BYTE_MASK = 255;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available;
 
-    static boolean won(char mark) {
-        for (int[] line : LINES)
-            if (board[line[0]] == mark && board[line[1]] == mark && board[line[2]] == mark)
-                return true;
-        return false;
-    }
-
-    static int play(char mark, char other) {
-        int best = LOSS;
-        boolean moved = false;
-        for (int cell = 0; cell < CELLS; cell++)
-            if (board[cell] == '#') {
-                moved = true;
-                board[cell] = mark;
-                int result = won(mark) ? WIN : -play(other, mark);
-                board[cell] = '#';
-                if (result == WIN)
-                    return WIN;
-                if (result > best)
-                    best = result;
-            }
-        return moved ? best : DRAW;
-    }
-
-    public static void main(String[] args) throws Exception {
-        for (int cell = 0; cell < CELLS; cell++) {
-            int ch = System.in.read();
-            while (ch <= ' ')
-                ch = System.in.read();
-            board[cell] = (char)ch;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
-        int result = play('X', 'O');
+        return buffer[position++] & BYTE_MASK;
+    }
+
+    static boolean won(int mask) {
+        for (int i = 0; i < SIDE; i++) {
+            int row = ROW << (i * SIDE), column = COLUMN << i;
+            if ((mask & row) == row || (mask & column) == column)
+                return true;
+        }
+        return (mask & DIAGONAL) == DIAGONAL || (mask & ANTIDIAGONAL) == ANTIDIAGONAL;
+    }
+
+    static int play(int own, int other) {
+        int free = ALL ^ (own | other), best = free == 0 ? DRAW : LOSS;
+        while (free != 0) {
+            int bit = free & -free;
+            free ^= bit;
+            int result = won(own | bit) ? WIN : -play(other, own | bit);
+            if (result == WIN)
+                return WIN;
+            if (result > best)
+                best = result;
+        }
+        return best;
+    }
+
+    public static void main(String[] args) throws java.io.IOException {
+        int crosses = 0, noughts = 0;
+        for (int i = 0; i < CELLS; i++) {
+            int c = read();
+            while (c >= 0 && c <= ' ')
+                c = read();
+            if (c == 'X')
+                crosses |= 1 << i;
+            else if (c == 'O')
+                noughts |= 1 << i;
+        }
+        // Exactly three cells are empty: the same short minimax needs no memo table.
+        int result = play(crosses, noughts);
         System.out.println(result == WIN ? "Crosses win" : result == DRAW ? "Draw" : "Ouths win");
     }
 }
