@@ -64,19 +64,21 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1330_prefix_sums_optimized.py`. Keep prefix sums and answer [i,j] as before[j]-before[i-1]. Parse 65536-byte blocks with split/map, carrying a numeric token across a boundary rather than parsing each line through another generator. Store prefixes in a Python list and emit batches of at most 4096 answers. For N readings and Q queries, time remains O(N+Q), state O(N) plus bounded input/output batches; query lists and the complete output are not retained.
+
+Exact-source CPython 3.12 Accepted #11326660: 0.156 s / 2648 KB. Saved current-compiler comparison, 2026-11-20: time rank 5/34, memory rank 5/34. Both required metrics pass the strict top-ten or top-15% rule, with percentage cutoffs rounded up. The asterisk tracks Python's separate first-place target in both metrics.
+
+The previously documented optimized run #11303743 (Python 3.12 x64) recorded 0.203 s / 1440 KB. The current CPython 3.12 run has lower recorded time and higher memory. These are separate paired judge measurements; interpreter choice and judge variability are part of the comparison. The retained simple run is faster at 0.125 s; this version favors lower memory.
+
+- `1330_prefix_sums_optimized.py`: 0.156 s / 2648 KB; retained teaching base `1330_prefix_sums.py` (Python 3.12 x64): 0.125 s / 27608 KB.
+
 The optimized C++ and Java solutions keep the prefix sums as 32-bit
 integers, which is enough for sums between −10⁸ and 10⁸. C++ parses the
 numbers and writes the answers by hand through 4 KB buffers and keeps
 the sums in a static array: 0.015 s instead of 0.125 s and 132 KB
 instead of 2784 KB.
 
-The optimized Java solution reads the input in 4 KB blocks and parses it
-by hand instead of using `StreamTokenizer`, and writes the answers into
-a 4 KB byte buffer instead of building strings: 0.125 s instead of
-0.156 s and 452 KB instead of 7324 KB. The optimized Python solution
-parses the input line by line instead of splitting all of it at once and
-writes the answers in batches of 1024 lines: 1440 KB instead of
-27608 KB, although the time grows from 0.125 s to 0.203 s.
+The optimized Java solution reads the input in 4 KB blocks and parses it by hand instead of using `StreamTokenizer`, and writes the answers into a 4 KB byte buffer instead of building strings: 0.125 s instead of 0.156 s and 452 KB instead of 7324 KB.
 
 ## Language notes
 
@@ -101,7 +103,6 @@ writes the answers in batches of 1024 lines: 1440 KB instead of
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1330_prefix_sums_optimized.cpp](1330_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 132 KB | 11303598 |
 | [1330_prefix_sums_optimized.java](1330_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.125 s | 452 KB | 11303742 |
-| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N + Q) | AC | 0.203 s | 1440 KB | 11303743 |
+| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

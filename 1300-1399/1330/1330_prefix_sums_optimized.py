@@ -1,20 +1,35 @@
 import sys
 
-BATCH_SIZE = 1024
+BATCH_SIZE = 4096
+INPUT_SIZE = 65536
+WHITESPACE = 32
+
+
+def numbers():
+    pending = b""
+    read = sys.stdin.buffer.read
+    while True:
+        block = read(INPUT_SIZE)
+        if not block:
+            break
+        fields = (pending + block).split()
+        pending = fields.pop() if block[-1] > WHITESPACE else b""
+        yield from map(int, fields)
+    if pending:
+        yield int(pending)
 
 
 def main():
-    # the input is parsed line by line instead of all at once, and the answers
-    # go out in batches of 1024 lines
-    numbers = (int(token) for line in sys.stdin.buffer for token in line.split())
-    n = next(numbers)
+    # Parse bounded blocks with C-level split/map, retaining only a partial token.
+    values = numbers()
+    n = next(values)
     # before[i] is the sum of the first i readings
     before = [0] * (n + 1)
     for i in range(1, n + 1):
-        before[i] = before[i - 1] + next(numbers)
+        before[i] = before[i - 1] + next(values)
     answers = []
-    for _ in range(next(numbers)):
-        i, j = next(numbers), next(numbers)
+    for _ in range(next(values)):
+        i, j = next(values), next(values)
         answers.append(str(before[j] - before[i - 1]))
         if len(answers) == BATCH_SIZE:
             sys.stdout.write("\n".join(answers) + "\n")
