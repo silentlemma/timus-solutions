@@ -91,6 +91,10 @@ compradores de todo que vuelven a llamar tras cada compra pequeña.
 
 ## Soluciones optimizadas
 
+`1795_hashing_simulation.cpp`. Conserva la simulación de visitas al mostrador. La entrada por bloques resuelve cada nombre mediante unordered_map con capacidad reservada, en lugar de un árbol; las colisiones se verifican con igualdad exacta de cadenas. No cambian el stock cero de productos desconocidos, los intercambios, las llamadas repetidas ni el último cliente. La búsqueda hash es lineal esperada en los bytes de nombres, sin garantía constante en el peor caso. Con P productos, C clientes e I bytes y nombres acotados: tiempo peor O(C²+(P+C)P+I), esperado O(C²+P+C+I); espacio O(P+C) más búfer fijo. Se conservan la variante con mapa ordenado y los fuentes didácticos con sus métricas.
+
+Accepted del fuente exacto #11326987: 0.015 s / 264 KB. Grupo guardado de compiladores C/C++ actuales, 2026-11-20: tiempo 1/54, memoria 1/54.
+
 Se conserva la simulación del mostrador, resolviendo nombres de productos a IDs enteros solo durante la lectura. La cola usa arreglos y un índice frontal. Intercambiar con el siguiente cliente es un intercambio in situ, no una inserción o borrado que desplaza la cola. Los productos ausentes tienen stock nulo. Se preservan visitas y cambios de stock, eliminando búsquedas repetidas, copias de cola y retención de toda la entrada.
 
 - `1795_simulation_optimized.cpp`: 0.031 s / 272 KB; base `1795_simulation.cpp`: 0.031 s / 552 KB; cambio respecto a la base: tiempo -0.0%, memoria -50.7%.
@@ -101,9 +105,9 @@ Se conserva la simulación del mostrador, resolviendo nombres de productos a IDs
 
 ## Notas por lenguaje
 
-Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
+Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Una muestra sin envíos comparables de otros autores no confirma un puesto.
 
-- C++: base didáctica preferida `1795_simulation.cpp`; versión que cubre `1795_simulation_optimized.cpp`; puestos tiempo/memoria 47/1, registros de otros autores 53/53.
+- C++: Accepted del fuente exacto #11326987: 0.015 s / 264 KB. Grupo guardado de compiladores C/C++ actuales, 2026-11-20: tiempo 1/54, memoria 1/54. `1795_simulation.cpp` → `1795_hashing_simulation.cpp`.
 
 - Go: base didáctica preferida `1795_simulation.go`; versión que cubre `1795_simulation.go`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
@@ -131,6 +135,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
+| [1795_hashing_simulation.cpp](1795_hashing_simulation.cpp) | G++ 13.2 x64 | hashing, simulation | Expected O(C²+P+C+I); worst O(C²+(P+C)P+I) | AC | 0.015 s | 264 KB | 11326987 |
 | [1795_simulation_optimized.cpp](1795_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 272 KB | 11308816 |
 | [1795_simulation_optimized.go](1795_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 1132 KB | 11308817 |
 | [1795_simulation_optimized.java](1795_simulation_optimized.java) | Java 1.8 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.093 s | 1076 KB | 11308818 |

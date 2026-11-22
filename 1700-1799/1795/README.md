@@ -88,6 +88,10 @@ who call again after every small purchase.
 
 ## Optimized solutions
 
+`1795_hashing_simulation.cpp`. The finite counter-visit simulation is unchanged. Block input resolves product names once through a reserved unordered_map instead of a tree map; string equality still checks collisions exactly. Unknown products retain the zero-stock entry, and swaps, repeated calls and the final customer follow the same rules. Expected name lookup is linear in total name bytes; worst-case hashing is not guaranteed constant time. With P products, C customers and I input bytes, worst-case total time is O(C²+(P+C)P+I) for bounded-length names, expected O(C²+P+C+I); storage O(P+C) plus the fixed input buffer. The older ordered-map optimized version and all teaching files remain with their own measurements.
+
+Exact-source Accepted #11326987: 0.015 s / 264 KB. Saved current C/C++ compiler cohort, 2026-11-20: time rank 1/54, memory rank 1/54.
+
 Keep the counter-visit simulation but resolve product names to integer IDs only while reading. Represent the waiting customers by arrays and a front index. A customer swapping with the next one is an in-place swap, not an insertion or removal that shifts the remaining queue. Missing products use a zero-stock entry. This preserves every visit and stock update while removing repeated string lookup, queue copying and full-input retention.
 
 - `1795_simulation_optimized.cpp`: 0.031 s / 272 KB; base `1795_simulation.cpp`: 0.031 s / 552 KB; relative change: time -0.0%, memory -50.7%.
@@ -98,9 +102,9 @@ Keep the counter-visit simulation but resolve product names to integer IDs only 
 
 ## Language notes
 
-The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
+The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. An empty competitor sample leaves competitive rank unverified.
 
-- C++: preferred teaching base `1795_simulation.cpp`; covering source `1795_simulation_optimized.cpp`; time/memory places 47/1, other-author entries 53/53.
+- C++: Exact-source Accepted #11326987: 0.015 s / 264 KB. Saved current C/C++ compiler cohort, 2026-11-20: time rank 1/54, memory rank 1/54. `1795_simulation.cpp` → `1795_hashing_simulation.cpp`.
 
 - Go: preferred teaching base `1795_simulation.go`; covering source `1795_simulation.go`; time/memory places 1/1, other-author entries 0/0.
 
@@ -128,6 +132,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
+| [1795_hashing_simulation.cpp](1795_hashing_simulation.cpp) | G++ 13.2 x64 | hashing, simulation | Expected O(C²+P+C+I); worst O(C²+(P+C)P+I) | AC | 0.015 s | 264 KB | 11326987 |
 | [1795_simulation_optimized.cpp](1795_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 272 KB | 11308816 |
 | [1795_simulation_optimized.go](1795_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 1132 KB | 11308817 |
 | [1795_simulation_optimized.java](1795_simulation_optimized.java) | Java 1.8 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.093 s | 1076 KB | 11308818 |

@@ -68,6 +68,10 @@ m（1 ≤ m ≤ 1000）行 "amount of name"，然后 n（1 ≤ n ≤ 1000）行�
 
 ## 优化解法
 
+`1795_hashing_simulation.cpp`. 保留原柜台访问模拟。分块输入用预留容量的 unordered_map 一次性将名称映射为商品编号，替代有序树；哈希冲突仍由精确字符串相等检查。未知商品对应零库存，交换位置、再次打电话和最后一位顾客的规则不变。按总名称长度计，哈希查找期望线性，并非保证最坏常数。P 种商品、C 位顾客、I 输入字节且名称长度有界时，最坏时间 O(C²+(P+C)P+I)，期望 O(C²+P+C+I)；空间 O(P+C) 加固定输入缓冲。保留原有有序映射优化版和全部教学源代码及其指标。
+
+精确源代码 Accepted #11326987：0.015 s / 264 KB。2026-11-20 保存的当前 C/C++ 编译器组：时间排名 1/54，内存排名 1/54。
+
 仍模拟柜台访问，但只在读入时把商品名映射为整数编号。顾客队列用数组和头下标表示，与下一位交换可原地进行，无需插入删除后移动整个队列。不存在的商品使用零库存项。所有访问及库存更新不变，消除重复字符串查找、队列复制和全输入保存。
 
 - `1795_simulation_optimized.cpp`: 0.031 s / 272 KB; 基础版 `1795_simulation.cpp`: 0.031 s / 552 KB; 相对基础版的变化: 时间 -0.0%, 内存 -50.7%.
@@ -78,9 +82,9 @@ m（1 ≤ m ≤ 1000）行 "amount of name"，然后 n（1 ≤ n ≤ 1000）行�
 
 ## 语言说明
 
-使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
+使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，没有其他作者的可比提交时，无法确认竞赛排名。
 
-- C++: 优先教学基础版 `1795_simulation.cpp`; 覆盖实现 `1795_simulation_optimized.cpp`; 时间/内存名次 47/1, 其他作者记录 53/53.
+- C++: 精确源代码 Accepted #11326987：0.015 s / 264 KB。2026-11-20 保存的当前 C/C++ 编译器组：时间排名 1/54，内存排名 1/54。 `1795_simulation.cpp` → `1795_hashing_simulation.cpp`.
 
 - Go: 优先教学基础版 `1795_simulation.go`; 覆盖实现 `1795_simulation.go`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
@@ -108,6 +112,7 @@ m（1 ≤ m ≤ 1000）行 "amount of name"，然后 n（1 ≤ n ≤ 1000）行�
 
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
+| [1795_hashing_simulation.cpp](1795_hashing_simulation.cpp) | G++ 13.2 x64 | hashing, simulation | Expected O(C²+P+C+I); worst O(C²+(P+C)P+I) | AC | 0.015 s | 264 KB | 11326987 |
 | [1795_simulation_optimized.cpp](1795_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 272 KB | 11308816 |
 | [1795_simulation_optimized.go](1795_simulation_optimized.go) | Go 1.14 x64 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.031 s | 1132 KB | 11308817 |
 | [1795_simulation_optimized.java](1795_simulation_optimized.java) | Java 1.8 | simulation | O(N^2+(M+N) log(M+2)) | AC | 0.093 s | 1076 KB | 11308818 |
