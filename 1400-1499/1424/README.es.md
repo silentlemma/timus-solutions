@@ -75,13 +75,17 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1424_sorting_greedy_optimized.cpp`. Conserva la asignación voraz por destino creciente. Guarda el último destino de cada asiento en un arreglo ordenado. upper_bound encuentra el asiento disponible que se liberó más tarde; al aceptar el viaje, memmove quita esa entrada y añade su destino al final, pues los destinos se procesan en orden. Se conserva 1424_sorting_greedy.cpp con árbol y sus propias métricas Accepted. Con M≤1000, los desplazamientos contiguos resultaron más rápidos y pequeños pese a O(M) por viaje aceptado. Peor tiempo O(N+M+KM), espacio O(N+M+K) más búferes fijos; el árbol mantiene O(N+M+K log M).
+
+Accepted del fuente exacto #11326980: 0.015 s / 920 KB. Comparación G++ 13.2 guardada el 2026-11-20: tiempo 1/43, memoria 3/43.
+
 Se procesan los viajes por destino creciente. Se asigna el asiento que se liberó más tarde entre los que ya están libres al subir el pasajero.
 
 Los viajes se agrupan por parada de origen en arreglos compactos. Cada clave del montículo contiene el destino y el número del pasajero para poder descartar el viaje más lejano.
 
 **Envíos de las versiones optimizadas en Timus**
 
-`1424_sorting_greedy.cpp` (G++ 13.2 x64) №11317526 · `1424_greedy_optimized.go` (Go 1.14 x64) №11317540 · `1424_greedy_optimized.java` (Java 1.8) №11317543 · `1424_greedy_optimized.py` (Python 3.12 x64) №11317528 · `1424_greedy_optimized.rs` (Rust 1.75 x64) №11317532.
+`1424_sorting_greedy_optimized.cpp` (G++ 13.2 x64) №11326980 · `1424_sorting_greedy.cpp` (G++ 13.2 x64) №11317526 · `1424_greedy_optimized.go` (Go 1.14 x64) №11317540 · `1424_greedy_optimized.java` (Java 1.8) №11317543 · `1424_greedy_optimized.py` (Python 3.12 x64) №11317528 · `1424_greedy_optimized.rs` (Rust 1.75 x64) №11317532.
 
 **Envíos de las versiones sencillas en Timus**
 
@@ -103,6 +107,7 @@ G++ 13.2 x64 №11322134 · Go 1.14 x64 №11322135 · Java 1.8 №11322136 · P
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
+| [1424_sorting_greedy_optimized.cpp](1424_sorting_greedy_optimized.cpp) | G++ 13.2 x64 | sorting, greedy | O(N+M+KM) time; O(N+M+K) space | AC | 0.015 s | 920 KB | 11326980 |
 | [1424_sorting_greedy.cpp](1424_sorting_greedy.cpp) \* | G++ 13.2 x64 | sorting, greedy | O(N + M + K log M) | AC | 0.078 s | 1032 KB | 11317526 |
 | [1424_greedy_optimized.py](1424_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.203 s | 3804 KB | 11317528 |
 | [1424_greedy_optimized.rs](1424_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 1752 KB | 11317532 |

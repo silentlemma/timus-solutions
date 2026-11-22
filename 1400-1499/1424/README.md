@@ -72,13 +72,17 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1424_sorting_greedy_optimized.cpp`. Keep destination-ordered greedy seat assignment. Store the sorted last destination of each seat in a flat array. upper_bound finds the latest seat available at the requested start; an accepted trip removes that entry with memmove and appends its destination, which is maximal because destinations are processed in order. The ordered-tree implementation 1424_sorting_greedy.cpp remains with its own Accepted metrics. With M≤1000, contiguous shifts measured faster and used less memory despite O(M) work per accepted trip. Worst-case time O(N+M+KM), space O(N+M+K), plus fixed I/O buffers; the original tree version retains O(N+M+K log M).
+
+Exact-source Accepted #11326980: 0.015 s / 920 KB. Saved G++ 13.2 comparison, 2026-11-20: time rank 1/43, memory rank 3/43.
+
 Process trips by increasing destination. Assign each to the seat whose last trip finished latest among the seats free at its start.
 
 Group trips by start stop in compact arrays. A single heap key stores both destination and passenger number, so the farthest active trip can be removed when seats run out.
 
 **Timus submissions for the optimized versions**
 
-`1424_sorting_greedy.cpp` (G++ 13.2 x64) №11317526 · `1424_greedy_optimized.go` (Go 1.14 x64) №11317540 · `1424_greedy_optimized.java` (Java 1.8) №11317543 · `1424_greedy_optimized.py` (Python 3.12 x64) №11317528 · `1424_greedy_optimized.rs` (Rust 1.75 x64) №11317532.
+`1424_sorting_greedy_optimized.cpp` (G++ 13.2 x64) №11326980 · `1424_sorting_greedy.cpp` (G++ 13.2 x64) №11317526 · `1424_greedy_optimized.go` (Go 1.14 x64) №11317540 · `1424_greedy_optimized.java` (Java 1.8) №11317543 · `1424_greedy_optimized.py` (Python 3.12 x64) №11317528 · `1424_greedy_optimized.rs` (Rust 1.75 x64) №11317532.
 
 **Timus submissions for the simple versions**
 
@@ -100,6 +104,7 @@ G++ 13.2 x64 №11322134 · Go 1.14 x64 №11322135 · Java 1.8 №11322136 · P
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
+| [1424_sorting_greedy_optimized.cpp](1424_sorting_greedy_optimized.cpp) | G++ 13.2 x64 | sorting, greedy | O(N+M+KM) time; O(N+M+K) space | AC | 0.015 s | 920 KB | 11326980 |
 | [1424_sorting_greedy.cpp](1424_sorting_greedy.cpp) \* | G++ 13.2 x64 | sorting, greedy | O(N + M + K log M) | AC | 0.078 s | 1032 KB | 11317526 |
 | [1424_greedy_optimized.py](1424_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + K log K) | AC | 0.203 s | 3804 KB | 11317528 |
 | [1424_greedy_optimized.rs](1424_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N + K log K) | AC | 0.046 s | 1752 KB | 11317532 |
