@@ -69,7 +69,7 @@
 
 `1087_games_optimized.go`. 保留同一必败取末游戏 DP，包括零状态为胜及首个获胜走法处停止。以 uint64 每状态一位替代 bool，保留 K 个可选步长。N 个石子下 O(NK) 时间、O(N/64+K) 字存储。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
 
-与 `1087_games.go` 相比：时间 0.031 s → 0.015 s；内存 1092 KB → 284 KB。
+与 `1087_games.go` 相比：时间 0.031 s → 0.015 s；内存 1092 KB → 324 KB。
 
 Python 位集算法不在每个状态逐一枚举所有步长，而是按递增顺序处理必败状态。一次大整数移位把可一步到达该必败状态的位置标为必胜。更小的位置均已确定，因此保持普通博弈 DP 的逆推不变量。不能把空局面加入必胜转移：取走最后石子者输。最小步长归一化沿用基础解的证明。
 
@@ -113,6 +113,6 @@ N' 为归一化石子数，M 为步长数，L 为必败位置数，w 为大整�
 | [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.093 s | 400 KB | 11326947 |
 | [1087_games_bitmask.py](1087_games_bitmask.py) | Python 3.12 x64 | games, bitmask | O((M+L) ceil(N'/w)) | AC | 0.062 s | 456 KB | 11309361 |
 | [1087_games_optimized.rs](1087_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n·m) | AC | 0.031 s | 88 KB | 11325083 |
-| [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 284 KB | 11325650 |
+| [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 324 KB | 11328263 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

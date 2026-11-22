@@ -77,7 +77,7 @@ Accepted de fuente exacto Java 1.8 #11326947: 0.093 s / 400 KB. Comparación gua
 
 `1087_games_optimized.go`. Mantiene DP misère, incluido estado cero ganador y corte en primer movimiento ganador. Un bit por posición en palabras uint64 sustituye bool; conserva K movimientos. O(NK) tiempo y O(N/64+K) palabras para N piedras. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
 
-Frente a `1087_games.go`: tiempo 0.031 s → 0.015 s; memoria 1092 KB → 284 KB.
+Frente a `1087_games.go`: tiempo 0.031 s → 0.015 s; memoria 1092 KB → 324 KB.
 
 El método Python con bits procesa las posiciones perdedoras en orden creciente en vez de recorrer cada jugada en cada estado. Un desplazamiento de entero grande marca como ganadoras todas las posiciones que permiten llegar a una perdedora. Las posiciones menores ya están clasificadas, conservando la inducción de la DP escalar. El estado vacío no genera transiciones ganadoras: retirar la última piedra pierde. La normalización por la jugada mínima usa la prueba de la solución simple.
 
@@ -121,6 +121,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.093 s | 400 KB | 11326947 |
 | [1087_games_bitmask.py](1087_games_bitmask.py) | Python 3.12 x64 | games, bitmask | O((M+L) ceil(N'/w)) | AC | 0.062 s | 456 KB | 11309361 |
 | [1087_games_optimized.rs](1087_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n·m) | AC | 0.031 s | 88 KB | 11325083 |
-| [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 284 KB | 11325650 |
+| [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 324 KB | 11328263 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
