@@ -122,7 +122,7 @@ Rust 保持排序双指针贪心及原交换论证：最小与最大不能同乘
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1224 KB | 11291214 |
+| [1901_greedy.cpp](1901_greedy.cpp) | G++ 13.2 x64 | greedy | O(n log n) | AC | 0.031 s | 1200 KB | 11328318 |
 | [1901_greedy.go](1901_greedy.go) | Go 1.14 x64 | greedy | O(n log n) | AC | 0.046 s | 5640 KB | 11291215 |
 | [1901_greedy.java](1901_greedy.java) \* | Java 1.8 | greedy | O(n log n) | AC | 0.125 s | 6444 KB | 11291218 |
 | [1901_greedy.py](1901_greedy.py) \* | Python 3.12 x64 | greedy | O(n log n) | AC | 0.281 s | 11644 KB | 11291216 |

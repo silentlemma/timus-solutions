@@ -35,9 +35,11 @@ int main() {
     int n, capacity;
     cin >> n >> capacity;
     vector<int> values(n);
-    for (int& value : values) cin >> value;
+    for (int &value : values)
+        cin >> value;
     auto result = arrange(move(values), capacity);
     cout << result.first << '\n';
-    for (int i = 0; i < n; ++i) cout << (i ? " " : "") << result.second[i];
+    for (int i = 0; i < n; ++i)
+        cout << (i ? " " : "") << result.second[i];
     cout << '\n';
 }

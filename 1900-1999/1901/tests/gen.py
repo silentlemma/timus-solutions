@@ -48,8 +48,7 @@ def generate(seed, mode):
         values = [capacity // 2 + (index % 2) for index in range(count)]
     elif mode == MODE_STAR:
         capacity = STAR_CAPACITY
-        values = [STAR_LARGE if index % STAR_PERIOD == 0 else STAR_SMALL
-                  for index in range(count)]
+        values = [STAR_LARGE if index % STAR_PERIOD == 0 else STAR_SMALL for index in range(count)]
     elif mode == MODE_UNIT:
         capacity, values = 1, [1] * count
     elif mode == MODE_EXTREMES:
