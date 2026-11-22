@@ -73,6 +73,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1272_dsu_optimized.py`. Conserva unión por tamaño y compresión por mitades. La red completa es conexa por contrato: puentes pagados mínimos son componentes de túneles menos uno, independientes de extremos de puentes. Un vértice o ningún túnel devuelve N−1 sin DSU; termina al quedar un componente. Lee tokens necesarios en bloques de 1024 bytes, omite sufijo de puentes. Peor caso O(N+K·α(N)) tiempo y O(N) DSU más búferes acotados; salidas tempranas pueden ahorrar más.
+
+Accepted exacto Python 3.12 x64 #11327776: 0.078 s / 784 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/99, memoria 2/99. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304489 era 0.109 s / 1076 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1272_dsu_optimized.py`: 0.078 s / 784 KB; base didáctica conservada `1272_dsu.py`: 0.093 s / 3328 KB.
+
 `1272_dsu_optimized.java`. Conserva el DSU de túneles: inicia N grupos, reduce solo al unir raíces distintas y emite groups-1. La conectividad conjunta garantiza que bastan esos puentes. Como en la base, solo necesita extremos de túneles; no retiene ni sigue leyendo puentes al conocer la respuesta. Conserva enlaces sin rango y reducción de caminos a la mitad: cambia el ingreso, no el algoritmo de conectividad. Espacio O(N); cota directa conservadora O(N+K·N), hasta N enlaces por find. Bytes fijos sustituyen StreamTokenizer.
 
 Frente a `1272_dsu.java`: tiempo 0.140 s → 0.109 s; memoria 488 KB → 512 KB.
@@ -88,11 +94,6 @@ La solución optimizada en Go analiza los números byte a byte desde el
 `uint16`, que admite números de isla hasta 10 000, en lugar de `int`.
 Además lee los puentes hasta el final, cosa que la solución sencilla no
 hace: {1272_dsu_optimized.go}.
-
-La solución optimizada en Python lee la entrada en trozos de 8 KB y
-convierte los tokens trozo a trozo, saltando los puentes según llegan,
-en lugar de partir toda la entrada en una lista de una vez:
-{1272_dsu_optimized.py}.
 
 La solución optimizada en Rust analiza los números a mano desde un búfer
 de 4 KB que se rellena desde la entrada estándar, en lugar de leer toda
@@ -111,9 +112,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1272_dsu_optimized.go`: reducción de tiempo -106.67%; reducción de
   memoria +35.85%; base: `1272_dsu.go`.
-
-- `1272_dsu_optimized.py`: reducción de tiempo -17.20%; reducción de
-  memoria +67.67%; base: `1272_dsu.py`.
 
 - `1272_dsu_optimized.rs`: reducción de tiempo +0.00%; reducción de
   memoria +63.93%; base: `1272_dsu.rs`.
@@ -144,7 +142,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1272_dsu_optimized.cpp](1272_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N + M) | AC | 0.015 s | 116 KB | 11304487 |
 | [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
-| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
+| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O(N+K·α(N)) time; O(N) plus bounded token buffers | AC | 0.078 s | 784 KB | 11327776 |
 | [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
 | [1272_dsu_optimized.java](1272_dsu_optimized.java) \* | Java 1.8 | dsu | O(N+K·N) conservative worst case | AC | 0.109 s | 512 KB | 11325012 |
 

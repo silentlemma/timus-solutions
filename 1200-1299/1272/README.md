@@ -71,6 +71,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1272_dsu_optimized.py`. Keep union by size with path halving. The promised complete network is connected, so the minimum paid bridges is the number of tunnel components minus one; bridge endpoints never change this count. With one vertex or no tunnels, return N−1 without allocating DSU. Stop when tunnel unions reach one component. Parse only needed tokens in 1024-byte chunks; the unused bridge suffix need not be read. O(N+K·α(N)) worst-case algorithmic time and O(N) DSU storage plus bounded parsing buffers; early exits can use less.
+
+Exact-source Python 3.12 x64 Accepted #11327776: 0.078 s / 784 KB. Saved 2026-11-20 compiler-cohort comparison: time 3/99, memory 2/99. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304489 was 0.109 s / 1076 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1272_dsu_optimized.py`: 0.078 s / 784 KB; retained teaching base `1272_dsu.py`: 0.093 s / 3328 KB.
+
 `1272_dsu_optimized.java`. Keep the tunnel-component DSU: initialize N groups, decrement only on a union of distinct roots, then output groups-1. The promise that all links connect the town makes that many bridges sufficient. As in the base, only the tunnel endpoints are needed; bridge records need not be retained or consumed after the answer is known. The same unranked root linking and path halving remain, so this is an input-runtime change, not a new connectivity algorithm. Storage O(N); a direct conservative worst-case bound is O(N+K·N), charging at most N parent links to each find. Fixed byte input replaces StreamTokenizer.
 
 Compared with `1272_dsu.java`: time 0.140 s → 0.109 s; memory 488 KB → 512 KB.
@@ -86,11 +92,6 @@ The optimized Go solution parses the numbers byte by byte from the
 which holds island numbers up to 10 000, instead of `int`. It also reads
 the bridges to the end, which the simple solution leaves unread:
 {1272_dsu_optimized.go}.
-
-The optimized Python solution reads the input in 8 KB chunks and
-converts the tokens chunk by chunk, skipping the bridges as they come,
-instead of splitting the whole input into a list at once:
-{1272_dsu_optimized.py}.
 
 The optimized Rust solution parses the numbers by hand from a 4 KB
 buffer refilled from standard input instead of reading the whole input
@@ -109,9 +110,6 @@ asterisk concerns the rating target only.
 
 - `1272_dsu_optimized.go`: time reduction -106.67%; memory reduction
   +35.85%; base: `1272_dsu.go`.
-
-- `1272_dsu_optimized.py`: time reduction -17.20%; memory reduction
-  +67.67%; base: `1272_dsu.py`.
 
 - `1272_dsu_optimized.rs`: time reduction +0.00%; memory reduction
   +63.93%; base: `1272_dsu.rs`.
@@ -142,7 +140,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1272_dsu_optimized.cpp](1272_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N + M) | AC | 0.015 s | 116 KB | 11304487 |
 | [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
-| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
+| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O(N+K·α(N)) time; O(N) plus bounded token buffers | AC | 0.078 s | 784 KB | 11327776 |
 | [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
 | [1272_dsu_optimized.java](1272_dsu_optimized.java) \* | Java 1.8 | dsu | O(N+K·N) conservative worst case | AC | 0.109 s | 512 KB | 11325012 |
 

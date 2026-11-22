@@ -63,6 +63,12 @@ N、K 和 M，然后是 K 条隧道和 M 座桥，每条用两个 1 到 N 之间
 
 ## 优化解法
 
+`1272_dsu_optimized.py`. 保留按大小合并与路径折半。题目保证完整网络连通，收费桥数为隧道连通分量数减一，桥端点不影响此数。单顶点或无隧道直接返回 N−1，无需分配 DSU；合并到一个分量即可结束。1024 字节分块只读所需 token，无需解析剩余桥记录。算法最坏 O(N+K·α(N)) 时间、O(N) DSU 加有界解析缓冲；提前返回可更省。
+
+精确源代码 Python 3.12 x64 Accepted #11327776：0.078 s / 784 KB。2026-11-20 保存的编译器组比较：时间 3/99、内存 2/99。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304489 为 0.109 s / 1076 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1272_dsu_optimized.py`: 0.078 s / 784 KB; 保留教学基础版 `1272_dsu.py`: 0.093 s / 3328 KB.
+
 `1272_dsu_optimized.java`. 保留隧道分量 DSU：初始 N 组，仅当根不同才减少，输出 groups-1。所有连接共同连通的保证使这么多桥足够。与基础版一样，只需隧道端点，得到答案后无需保留或继续读桥记录。仍为无秩根合并和路径减半，是输入运行开销改进，不是新的连通算法。空间 O(N)，直接保守最坏界 O(N+K·N)，每次 find 至多 N 个父链接。固定字节输入替代 StreamTokenizer。
 
 与 `1272_dsu.java` 相比：时间 0.140 s → 0.109 s；内存 488 KB → 512 KB。
@@ -75,9 +81,6 @@ N、K 和 M，然后是 K 条隧道和 M 座桥，每条用两个 1 到 N 之间
 `uint16` 而不是 `int` 存放父节点，`uint16` 足以容纳不超过 10 000 的岛屿编号。它
 还会把桥一直读到末尾，而简单解法不读它们：{1272_dsu_optimized.go}。
 
-优化的 Python 解法按 8 KB 分块读入，逐块转换其中的词，边读边跳过桥，而不是一次把
-整个输入切分成列表：{1272_dsu_optimized.py}。
-
 优化的 Rust 解法从由标准输入反复填充的 4 KB 缓冲区中手工解析数字，而不是把整个输
 入读进 `String`，因此内存中只剩父节点数组和缓冲区：{1272_dsu_optimized.rs}。
 
@@ -88,8 +91,6 @@ N、K 和 M，然后是 K 条隧道和 M 座桥，每条用两个 1 到 N 之间
 - `1272_dsu_optimized.cpp`: 时间降低 +51.61%; 内存降低 +49.12%; 基础版本: `1272_dsu.cpp`.
 
 - `1272_dsu_optimized.go`: 时间降低 -106.67%; 内存降低 +35.85%; 基础版本: `1272_dsu.go`.
-
-- `1272_dsu_optimized.py`: 时间降低 -17.20%; 内存降低 +67.67%; 基础版本: `1272_dsu.py`.
 
 - `1272_dsu_optimized.rs`: 时间降低 +0.00%; 内存降低 +63.93%; 基础版本: `1272_dsu.rs`.
 
@@ -119,7 +120,7 @@ N、K 和 M，然后是 K 条隧道和 M 座桥，每条用两个 1 到 N 之间
 |---|---|---|---|---|---|---|---|
 | [1272_dsu_optimized.cpp](1272_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O((N + K) log N + M) | AC | 0.015 s | 116 KB | 11304487 |
 | [1272_dsu_optimized.go](1272_dsu_optimized.go) | Go 1.14 x64 | dsu | O((N + K) log N + M) | AC | 0.031 s | 916 KB | 11304488 |
-| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((N + K) log N + M) | AC | 0.109 s | 1076 KB | 11304489 |
+| [1272_dsu_optimized.py](1272_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O(N+K·α(N)) time; O(N) plus bounded token buffers | AC | 0.078 s | 784 KB | 11327776 |
 | [1272_dsu_optimized.rs](1272_dsu_optimized.rs) | Rust 1.75 x64 | dsu | O((N + K) log N + M) | AC | 0.046 s | 264 KB | 11304490 |
 | [1272_dsu_optimized.java](1272_dsu_optimized.java) \* | Java 1.8 | dsu | O(N+K·N) conservative worst case | AC | 0.109 s | 512 KB | 11325012 |
 
