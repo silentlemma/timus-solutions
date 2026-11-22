@@ -6,7 +6,10 @@ const TOP: usize = 10000; // the largest vertex number
 fn main() {
     let mut text = String::new();
     io::stdin().read_to_string(&mut text).unwrap();
-    let nums: Vec<usize> = text.split_ascii_whitespace().map(|w| w.parse().unwrap()).collect();
+    let nums: Vec<usize> = text
+        .split_ascii_whitespace()
+        .map(|w| w.parse().unwrap())
+        .collect();
     let n = nums[0];
     let chain = &nums[1..=n];
     let end = chain[n - 1];

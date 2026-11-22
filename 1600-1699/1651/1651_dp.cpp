@@ -3,7 +3,7 @@
 using namespace std;
 
 const int INF = 1 << 30;
-const int TOP = 10000;  // the largest vertex number
+const int TOP = 10000; // the largest vertex number
 
 int main() {
     int n;

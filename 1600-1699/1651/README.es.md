@@ -85,11 +85,11 @@ Las implementaciones base aceptadas [1651_dp.java](1651_dp.java), [1651_dp.py](1
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1448 KB | 11288521 |
+| [1651_dp.cpp](1651_dp.cpp) | G++ 13.2 x64 | dp | O(n) | AC | 0.062 s | 1424 KB | 11328287 |
 | [1651_dp.go](1651_dp.go) | Go 1.14 x64 | dp | O(n) | AC | 0.078 s | 4176 KB | 11288522 |
 | [1651_dp.java](1651_dp.java) | Java 1.8 | dp | O(n) | AC | 0.125 s | 2188 KB | 11288524 |
 | [1651_dp.py](1651_dp.py) \* | Python 3.12 x64 | dp | O(n) | AC | 0.156 s | 16708 KB | 11288523 |
-| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.031 s | 3840 KB | 11288525 |
+| [1651_dp.rs](1651_dp.rs) | Rust 1.75 x64 | dp | O(n) | AC | 0.046 s | 3836 KB | 11328288 |
 
 ### Optimizadas
 
