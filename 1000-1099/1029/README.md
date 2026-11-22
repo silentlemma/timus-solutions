@@ -99,6 +99,10 @@ Pitfalls:
 
 ## Optimized solutions
 
+The C++ revision keeps the floor DP and byte-sized predecessor directions. Fixed 16 KB buffers parse fees and print the reconstructed route; the vertical and two horizontal passes and O(M·N) time are unchanged.
+
+Exact-source Accepted (G++ 13.2 x64, #11326645: 0.015 s / 164 KB); teaching base `1029_dp.cpp`: 0.046 s / 1160 KB. The previous optimized measurement was 0.046 s / 240 KB. In the saved 20 November 2026 comparison, time place is 1/101, memory place 1/101; below 1 MiB the policy evaluates the time rank only.
+
 The C++ and Rust versions use the same three passes per floor. The row of costs is updated in place, and the fees for the current floor are reused during the two horizontal passes. Each office stores one byte for the predecessor direction. After choosing the cheapest top-floor office, follow the directions back and print the recorded room numbers in reverse. The running time remains O(M·N).
 
 The accepted base implementations [1029_dp.go](1029_dp.go), [1029_dp.java](1029_dp.java), [1029_dp.py](1029_dp.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
@@ -127,7 +131,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1029_dp_optimized.cpp](1029_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(M·N) | AC | 0.046 s | 240 KB | 11310383 |
+| [1029_dp_optimized.cpp](1029_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.015 s | 164 KB | 11326645 |
 | [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

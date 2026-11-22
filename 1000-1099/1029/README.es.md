@@ -105,6 +105,10 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+La revisión C++ conserva la DP por plantas y las direcciones predecesoras de un byte. Búferes fijos de 16 KB leen los costes e imprimen la ruta reconstruida; no cambian el barrido vertical, los dos horizontales ni el tiempo O(M·N).
+
+Accepted del fuente exacto (G++ 13.2 x64, #11326645: 0.015 s / 164 KB); base didáctica `1029_dp.cpp`: 0.046 s / 1160 KB. La medición optimizada anterior era 0.046 s / 240 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 1/101 y de memoria 1/101; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
+
 Las versiones en C++ y Rust hacen las mismas tres pasadas por planta. La fila de costes se actualiza en el sitio y las tarifas de la planta actual se reutilizan en ambas pasadas horizontales. Cada oficina guarda en un byte la dirección de su predecesora. Desde la oficina más barata de la última planta se siguen las direcciones hacia atrás y se imprimen los números en orden inverso. El tiempo sigue siendo O(M·N).
 
 Las implementaciones base aceptadas [1029_dp.go](1029_dp.go), [1029_dp.java](1029_dp.java), [1029_dp.py](1029_dp.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
@@ -133,7 +137,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1029_dp_optimized.cpp](1029_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(M·N) | AC | 0.046 s | 240 KB | 11310383 |
+| [1029_dp_optimized.cpp](1029_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(M·N) | AC | 0.015 s | 164 KB | 11326645 |
 | [1029_dp_optimized.rs](1029_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(M·N) | AC | 0.046 s | 372 KB | 11310382 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
