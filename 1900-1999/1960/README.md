@@ -107,9 +107,13 @@ tree rather than enumerating their quadratic number of occurrences.
 
 ## Optimized solutions
 
-The new C++, Go and Rust eertrees retain lengths, suffix links and the two roots, but store only existing transitions. Every nonempty palindrome has one unique inner palindrome and wrapping letter, hence one incoming edge. Store that edge’s letter and next-sibling index in the child node itself, and a first-child index in the parent. Transition lookup scans at most 26 children. The original suffix-link argument is unchanged, so time is O(26n), linear for this alphabet. A node has four 32-bit fields and one byte instead of 26 native-index slots. Node identifiers are at most 100001; lengths range from −1 to 100000. Counts are emitted as prefixes are processed, without a separate answer vector. All dense simple versions remain; Java and Python reuse admitted bases in the fast set.
+The C++ revision keeps the sparse eertree, suffix links and child-list transitions. A fixed 16 KB output buffer writes the count for every prefix instead of printf per character. It still stores no answer vector; time is O(26n), linear for the fixed alphabet.
 
-The accepted G++ 13.2 x64 run takes 0.046 s versus 0.031 s for the base and uses 2 160 KB versus 11464 KB.
+Exact-source Accepted (G++ 13.2 x64, #11326638: 0.031 s / 2164 KB); teaching base `1960_strings.cpp`: 0.031 s / 11464 KB. The previous optimized measurement was 0.046 s / 2160 KB. In the saved 20 November 2026 comparison, time place is 9/83, memory place 1/83; below 1 MiB the policy evaluates the time rank only.
+
+The Java teaching source keeps its dense-transition eertree and changes only indentation. The formatting revalidation is its own Accepted #11327083: 0.14 s / 15240 KB. Those paired figures replace the former Java row; the algorithm is unchanged.
+
+The new C++, Go and Rust eertrees retain lengths, suffix links and the two roots, but store only existing transitions. Every nonempty palindrome has one unique inner palindrome and wrapping letter, hence one incoming edge. Store that edge’s letter and next-sibling index in the child node itself, and a first-child index in the parent. Transition lookup scans at most 26 children. The original suffix-link argument is unchanged, so time is O(26n), linear for this alphabet. A node has four 32-bit fields and one byte instead of 26 native-index slots. Node identifiers are at most 100001; lengths range from −1 to 100000. Counts are emitted as prefixes are processed, without a separate answer vector. All dense simple versions remain; Java and Python reuse admitted bases in the fast set.
 
 The accepted base implementations [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
@@ -131,7 +135,7 @@ resource measurements.
 |---|---|---|---|---|---|---|---|
 | [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
 | [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
-| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB | 11292175 |
+| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.14 s | 15240 KB | 11327083 |
 | [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
 | [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
 
@@ -139,7 +143,7 @@ resource measurements.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(26n) | AC | 0.046 s | 2160 KB | 11315098 |
+| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
 | [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
 | [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
 

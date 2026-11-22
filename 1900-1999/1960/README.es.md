@@ -98,9 +98,13 @@ otra posición. Enumerar todas las ocurrencias puede ser cuadrático.
 
 ## Soluciones optimizadas
 
-Los eertrees C++, Go y Rust mantienen longitudes, enlaces de sufijo y dos raíces, almacenando solo transiciones existentes. Cada palíndromo no vacío tiene un interior y letra envolvente únicos: una sola arista entrante. Su letra y enlace al siguiente hermano viven en el propio hijo; el padre guarda el primer hijo. Buscar una transición recorre como máximo 26 hijos. La prueba de enlaces de sufijo se conserva: O(26n), lineal con este alfabeto. Cada nodo usa cuatro campos de 32 bits y un byte en vez de 26 índices nativos. Identificadores ≤100001, longitudes −1..100000. Se emiten conteos al procesar prefijos, sin vector de respuestas. Se conservan las bases densas; Java y Python reutilizan las admitidas en el conjunto rápido.
+La revisión C++ conserva el eertree disperso, enlaces de sufijo y listas de hijos. Un búfer de salida de 16 KB escribe el conteo por prefijo en vez de printf por carácter. Sigue sin almacenar un vector de respuestas; el tiempo O(26n) es lineal para el alfabeto fijo.
 
-El envío aceptado en G++ 13.2 x64 tarda 0.046 s frente a 0.031 s de la base y usa 2 160 KB frente a 11464 KB.
+Accepted del fuente exacto (G++ 13.2 x64, #11326638: 0.031 s / 2164 KB); base didáctica `1960_strings.cpp`: 0.031 s / 11464 KB. La medición optimizada anterior era 0.046 s / 2160 KB. En la comparación guardada del 20 de noviembre de 2026, el puesto de tiempo es 9/83 y de memoria 1/83; por debajo de 1 MiB la regla evalúa solo el puesto de tiempo.
+
+La versión didáctica Java conserva el eertree de transiciones densas y solo cambia la sangría. La revalidación del formato tiene su propio Accepted #11327083: 0.14 s / 15240 KB. Estas métricas emparejadas sustituyen la antigua fila Java; el algoritmo no cambia.
+
+Los eertrees C++, Go y Rust mantienen longitudes, enlaces de sufijo y dos raíces, almacenando solo transiciones existentes. Cada palíndromo no vacío tiene un interior y letra envolvente únicos: una sola arista entrante. Su letra y enlace al siguiente hermano viven en el propio hijo; el padre guarda el primer hijo. Buscar una transición recorre como máximo 26 hijos. La prueba de enlaces de sufijo se conserva: O(26n), lineal con este alfabeto. Cada nodo usa cuatro campos de 32 bits y un byte en vez de 26 índices nativos. Identificadores ≤100001, longitudes −1..100000. Se emiten conteos al procesar prefijos, sin vector de respuestas. Se conservan las bases densas; Java y Python reutilizan las admitidas en el conjunto rápido.
 
 Las implementaciones base aceptadas [1960_strings.java](1960_strings.java), [1960_strings.py](1960_strings.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
@@ -121,7 +125,7 @@ Se selecciona CPython mediante pruebas de recursos.
 |---|---|---|---|---|---|---|---|
 | [1960_strings.cpp](1960_strings.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 11464 KB | 11292170 |
 | [1960_strings.go](1960_strings.go) | Go 1.14 x64 | strings | O(n) | AC | 0.062 s | 26104 KB | 11292171 |
-| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.125 s | 15252 KB | 11292175 |
+| [1960_strings.java](1960_strings.java) | Java 1.8 | strings | O(n) | AC | 0.14 s | 15240 KB | 11327083 |
 | [1960_strings.py](1960_strings.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.296 s | 23012 KB | 11292174 |
 | [1960_strings.rs](1960_strings.rs) | Rust 1.75 x64 | strings | O(n) | AC | 0.046 s | 22956 KB | 11292176 |
 
@@ -129,7 +133,7 @@ Se selecciona CPython mediante pruebas de recursos.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(26n) | AC | 0.046 s | 2160 KB | 11315098 |
+| [1960_strings_optimized.cpp](1960_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(26n) | AC | 0.031 s | 2164 KB | 11326638 |
 | [1960_strings_optimized.go](1960_strings_optimized.go) \* | Go 1.14 x64 | strings | O(26n) | AC | 0.031 s | 2452 KB | 11315115 |
 | [1960_strings_optimized.rs](1960_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(26n) | AC | 0.031 s | 2292 KB | 11315106 |
 
