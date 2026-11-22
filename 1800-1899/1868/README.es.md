@@ -106,6 +106,12 @@ en 150 concursos aleatorios.
 
 ## Soluciones optimizadas
 
+`1868_implementation_optimized.java`. Mantiene la igualdad exacta de medallistas/premios y solo la mejor puntuación y sus empates. Un analizador ASCII de 1024 bytes sustituye StringTokenizer por línea. El nuevo envío da 0.078 s / 956 KB: más rápido que el anterior optimizado de 0.109 s / 900 KB, con algo más de memoria. La base Java conservada da 0.093 s / 1196 KB; no se afirma ahorro de memoria frente a la revisión optimizada anterior.
+
+Accepted de fuente exacto Java 1.8 #11326969: 0.078 s / 956 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 2/57, memoria 9/57. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1868_implementation_optimized.java`: 0.078 s / 956 KB; base didáctica conservada `1868_implementation.java`: 0.093 s / 1196 KB; cambio de tiempo -16.1%; cambio de memoria -20.1%.
+
 La solución optimizada en C++ guarda los doce nombres en arreglos fijos
 de `char` de 31 bytes, ya que un nombre tiene como mucho 30 caracteres,
 lee cada apuesta con `scanf` en búferes de 31 y 7 bytes (el nombre de
@@ -151,8 +157,6 @@ implementación para alcanzar el objetivo.
 
 - [1868_implementation.go](1868_implementation.go).
 
-Asociar los medallistas con sus premios y evaluar las predicciones por líneas, guardando solo la mejor puntuación y el número de empates. El envío aceptado 11305926 tardó 0.109 s y usó 900 KB. La versión sencilla tardó 0.093 s y usó 1196 KB. El tiempo registrado es mayor que el de la versión sencilla.
-
 ## Soluciones
 
 ### Sencillas
@@ -172,6 +176,6 @@ Asociar los medallistas con sus premios y evaluar las predicciones por líneas, 
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
-| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.109 s | 900 KB | 11305926 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.

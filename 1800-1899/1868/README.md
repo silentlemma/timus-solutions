@@ -104,6 +104,12 @@ random contests.
 
 ## Optimized solutions
 
+`1868_implementation_optimized.java`. Keep exact medallist-to-medal lookup and only the best forecast score and its tie count. A 1024-byte ASCII token parser replaces per-line StringTokenizer objects; full name and medal equality still decide matches. The new run measures 0.078 s / 956 KB: faster than the previous 0.109 s / 900 KB optimized run, with slightly more memory. The retained simple Java version is 0.093 s / 1196 KB. No false memory gain over the previous optimized revision is claimed.
+
+Exact-source Java 1.8 Accepted #11326969: 0.078 s / 956 KB. Saved current-Java comparison, 2026-11-20: time rank 2/57, memory rank 9/57. With memory below 1024 KB, strict admission uses time only.
+
+- `1868_implementation_optimized.java`: 0.078 s / 956 KB; retained teaching base `1868_implementation.java`: 0.093 s / 1196 KB; time change -16.1%; memory change -20.1%.
+
 The optimized C++ solution keeps the twelve names in fixed `char` arrays
 of 31 bytes, since a name has at most 30 characters, reads each guess
 with `scanf` into buffers of 31 and 7 bytes (a medal word has at most 6
@@ -147,8 +153,6 @@ implementation for these languages.
 
 - [1868_implementation.go](1868_implementation.go).
 
-Map the medallists to their awards and evaluate forecasts a line at a time, retaining only the best score and its tie count. Accepted submission 11305926 took 0.109 s and used 900 KB. The simple version took 0.093 s and used 1196 KB. The recorded runtime is higher than for the simple version.
-
 ## Solutions
 
 ### Simple
@@ -168,6 +172,6 @@ Map the medallists to their awards and evaluate forecasts a line at a time, reta
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
-| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.109 s | 900 KB | 11305926 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

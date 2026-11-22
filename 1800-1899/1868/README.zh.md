@@ -87,6 +87,12 @@ Nizhny_Novgorod_SU : silver
 
 ## 优化解法
 
+`1868_implementation_optimized.java`. 保留获奖者到奖牌的精确映射，仅保留预测最高分及并列人数。1024 字节 ASCII token 解析替代逐行 StringTokenizer，仍按完整姓名及奖牌相等判定。新提交为 0.078 s / 956 KB，比旧优化版 0.109 s / 900 KB 快，但稍增内存。保留的简单 Java 版为 0.093 s / 1196 KB；不声称相对旧优化版节省内存。
+
+精确源代码 Java 1.8 Accepted #11326969：0.078 s / 956 KB。2026-11-20 保存的当前 Java 比较：时间排名 2/57，内存排名 9/57。内存低于 1024 KB，严格收录只看时间。
+
+- `1868_implementation_optimized.java`: 0.078 s / 956 KB; 保留的教学基础版 `1868_implementation.java`: 0.093 s / 1196 KB; 时间变化 -16.1%; 内存变化 -20.1%.
+
 优化的 C++ 解法把十二个队名存放在每个 31 字节的固定 `char` 数组中（因为队名至多
 30 个字符），用 `scanf` 把每条猜测读进 31 字节和 7 字节的缓冲区（奖牌名至多 6 个
 字母），并用 `strcmp` 与十二个队名逐一比较，而不是用 `string` 组成的 `map`。它边
@@ -118,8 +124,6 @@ Nizhny_Novgorod_SU : silver
 
 - [1868_implementation.go](1868_implementation.go).
 
-建立获奖者到奖牌的映射，逐行处理预测，只保留最高分及并列人数。通过的提交 11305926 用时 0.109 秒、占用 900 KB；简单版用时 0.093 秒、占用 1196 KB。记录的运行时间高于简单版。
-
 ## 解答
 
 ### 简单版本
@@ -139,6 +143,6 @@ Nizhny_Novgorod_SU : silver
 | [1868_implementation_optimized.cpp](1868_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n k) | AC | 0.015 s | 108 KB | 11305924 |
 | [1868_implementation_optimized.py](1868_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n k) | AC | 0.093 s | 400 KB | 11305927 |
 | [1868_implementation_optimized.rs](1868_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n k) | AC | 0.015 s | 212 KB | 11305928 |
-| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.109 s | 900 KB | 11305926 |
+| [1868_implementation_optimized.java](1868_implementation_optimized.java) \* | Java 1.8 | implementation | O(n k) | AC | 0.078 s | 956 KB | 11326969 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
