@@ -59,9 +59,11 @@ L 不起作用，因为书总能放在书架上。`O(1)`。
 
 ## 优化解法
 
-`1753_geometry_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+`1753_geometry_optimized.java`. Java 保留相同解析最优点。底端距离为 x、r=hypot(x,h) 时，位移为 x*(H/(2*r)-1)，导数为 H*h*h/(2*r^3)-1。H<=2*h 时最大值为零；否则 r=cbrt(H*h*h/2)、x=sqrt(r*r-h*h) 给出最大点。此处 x<H<L，故书架长度不限制答案，无需解析。原有 cbrt/sqrt 双精度计算不变。Double.toString 输出可精确还原该 double 的十进制表示，无需初始化 Formatter 或 Locale。时间与辅助空间 O(1)，包括固定 1024 字节输入缓冲区；保留浮点教学版。
 
-与 `1753_geometry.java` 相比：时间 0.109 s → 0.125 s；内存 1816 KB → 984 KB。
+精确源代码 Java 1.8 Accepted #11327331：0.109 s / 572 KB。2026-11-20 保存的编译器组比较：时间 10/37、内存 4/37。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324797 为 0.125 s / 984 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1753_geometry_optimized.java`: 0.109 s / 572 KB; 保留教学基础版 `1753_geometry.java`: 0.109 s / 1816 KB.
 
 Go 和 Rust 用比值 q = cbrt(H/(2h)) 改写同一最优公式。H ≤ 2h 时位移为零。否则令 f = (q−1)(q+1)，计算 h·f·sqrt(f)。公共因子只算一次，也避免了两个较大长度平方相减。结果直接保留六位小数输出。两个版本都使用固定字节缓冲区，先舍入到百万分之一，再写出十进制数字。Go 直接访问标准句柄。Rust 通过 C main 启动，通过 C 运行库传输缓冲区。
 
@@ -93,6 +95,6 @@ Go 和 Rust 用比值 q = cbrt(H/(2h)) 改写同一最优公式。H ≤ 2h 时�
 |---|---|---|---|---|---|---|---|
 | [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
 | [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
-| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 984 KB | 11324797 |
+| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

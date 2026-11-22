@@ -1,5 +1,3 @@
-
-
 public class Main {
 
     private static final class FastInput {
@@ -123,6 +121,6 @@ public class Main {
             double x = Math.sqrt(r * r - rim * rim);
             shift = x * (book / (2 * r) - 1);
         }
-        System.out.printf(java.util.Locale.US, "%.6f%n", shift);
+        System.out.println(Double.toString(shift));
     }
 }

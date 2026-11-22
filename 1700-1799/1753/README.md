@@ -73,9 +73,11 @@ more.
 
 ## Optimized solutions
 
-`1753_geometry_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+`1753_geometry_optimized.java`. Java keeps the same analytic optimum. For foot distance x and r=hypot(x,h), displacement is x*(H/(2*r)-1), whose derivative is H*h*h/(2*r^3)-1. Thus the maximum is zero when H<=2*h; otherwise r=cbrt(H*h*h/2) and x=sqrt(r*r-h*h) give the maximizing displacement. At that point x<H<L, so shelf length does not constrain the result and need not be parsed. The existing cbrt/sqrt double computation is unchanged. Double.toString emits its round-trip decimal without Formatter or Locale initialization. Time and auxiliary space O(1), including the fixed 1024-byte input buffer; the original floating-point teaching source is preserved.
 
-Compared with `1753_geometry.java`: time 0.109 s → 0.125 s; memory 1816 KB → 984 KB.
+Exact-source Java 1.8 Accepted #11327331: 0.109 s / 572 KB. Saved 2026-11-20 compiler-cohort comparison: time 10/37, memory 4/37. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324797 was 0.125 s / 984 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1753_geometry_optimized.java`: 0.109 s / 572 KB; retained teaching base `1753_geometry.java`: 0.109 s / 1816 KB.
 
 Go and Rust rewrite the same optimum using the ratio q = cbrt(H/(2h)). When H ≤ 2h the displacement is zero. Otherwise set f = (q−1)(q+1) and compute h·f·sqrt(f). This uses the shared factor once and avoids subtracting two large squared lengths. The result is printed directly with six decimal places. Both versions use fixed byte buffers and round to millionths before writing decimal digits. Go uses the standard handles directly. Rust enters through C main and transfers its buffers through the C runtime.
 
@@ -84,8 +86,6 @@ The accepted base implementations [1753_geometry.cpp](1753_geometry.cpp), [1753_
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
-
-`1753_geometry_optimized.java`: time place 19/37, memory place 9/37 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -107,6 +107,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1753_geometry_optimized.go](1753_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.015 s | 284 KB | 11311227 |
 | [1753_geometry_optimized.rs](1753_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.015 s | 56 KB | 11311226 |
-| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 984 KB | 11324797 |
+| [1753_geometry_optimized.java](1753_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 572 KB | 11327331 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
