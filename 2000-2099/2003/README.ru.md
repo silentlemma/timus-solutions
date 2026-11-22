@@ -122,7 +122,7 @@ CPython выбран после измерения полной программ
 |---|---|---|---|---|---|---|---|
 | [2003_number_theory.cpp](2003_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 568 KB | 11292449 |
 | [2003_number_theory.go](2003_number_theory.go) | Go 1.14 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.078 s | 2048 KB | 11292450 |
-| [2003_number_theory.java](2003_number_theory.java) \* | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.156 s | 1480 KB | 11292452 |
+| [2003_number_theory.java](2003_number_theory.java) \* | Java 1.8 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.14 s | 1416 KB | 11328333 |
 | [2003_number_theory.py](2003_number_theory.py) \* | Python 3.12 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.578 s | 2024 KB | 11292451 |
 | [2003_number_theory.rs](2003_number_theory.rs) | Rust 1.75 x64 | number_theory | O(B log log(B+2) + n pi(B) + n log(A+1)) | AC | 0.031 s | 1008 KB | 11292453 |
 
