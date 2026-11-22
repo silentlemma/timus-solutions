@@ -70,9 +70,11 @@ resultado devolvió cada vez el par original.
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee la entrada en bloques de 1 KB y
-analiza los dos números a mano en lugar de usar `Scanner`: 384 KB en
-lugar de 1584 KB, con el mismo tiempo.
+`1214_math_optimized.java`. Conserva involución: intercambia solo si ambos son positivos y de paridad distinta. Rango ±32000 permite magnitudes int. Lee con 64 bytes; serializa y luego x hacia atrás en 32 bytes, con signos, espacio y salto. Elimina formateador long general y arreglo de cifras. Escribe y vacía todo antes de System.exit(0). Aritmética/estado constantes para estos límites; base intacta. Nuevo par 0.093 s/436 KB usa más memoria que 0.109 s/384 KB; admisión estricta por ranking, sin afirmar mejora de recursos del 30%.
+
+Accepted exacto Java 1.8 #11327866: 0.093 s / 436 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/75, memoria 4/75. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303725 era 0.109 s / 384 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1214_math_optimized.java`: 0.093 s / 436 KB; base didáctica conservada `1214_math.java`: 0.125 s / 1584 KB.
 
 `1214_math_optimized.py`. Conserva la misma involución: intercambia los valores solo si ambos son positivos y su suma es impar. Cero o valores negativos evitan el intercambio. Los valores impresos tienen valor absoluto hasta 32000, por lo que la suma cabe en i64. Tiempo y estado aritmético O(1). Analiza tokens de bytes en vez de una línea decodificada y prueba la paridad con bits, sin simular el procedimiento. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -108,7 +110,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 384 KB | 11303725 |
+| [1214_math_optimized.java](1214_math_optimized.java) \* | Java 1.8 | math | O(1) bounded arithmetic and storage | AC | 0.093 s | 436 KB | 11327866 |
 | [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
 | [1214_math_optimized.rs](1214_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
 

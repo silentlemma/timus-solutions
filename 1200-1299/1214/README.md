@@ -68,9 +68,11 @@ result gave back the original pair each time.
 
 ## Optimized solutions
 
-The optimized Java solution reads the input in 1 KB blocks and parses
-the two numbers by hand instead of using `Scanner`: 384 KB instead of
-1584 KB, with the same time.
+`1214_math_optimized.java`. Keep the same involution: swap exactly when both signed inputs are positive and have opposite parity. Values stay within ±32000, so int magnitudes are safe. Read through a 64-byte buffer; serialize y then x backwards into a 32-byte answer buffer, including signs, space and newline. This removes the general long formatter and separate digit array. Write and flush the complete answer before System.exit(0). Constant arithmetic/state for this bounded input. The teaching implementation remains. The new 0.093 s/436 KB pair uses more memory than the old 0.109 s/384 KB pair; strict admission comes from rank, not a claimed 30% resource gain.
+
+Exact-source Java 1.8 Accepted #11327866: 0.093 s / 436 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/75, memory 4/75. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303725 was 0.109 s / 384 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1214_math_optimized.java`: 0.093 s / 436 KB; retained teaching base `1214_math.java`: 0.125 s / 1584 KB.
 
 `1214_math_optimized.py`. Keep the same involution: swap the two values exactly when both are positive and their sum is odd. Zero or a negative value bypasses the swap. The printed values are bounded by 32000 in absolute value, so the sum is safe in i64. Time and arithmetic state O(1). Parse byte tokens instead of decoded line input; test oddness with a bit operation, without simulating the procedure. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -106,7 +108,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1214_math_optimized.java](1214_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 384 KB | 11303725 |
+| [1214_math_optimized.java](1214_math_optimized.java) \* | Java 1.8 | math | O(1) bounded arithmetic and storage | AC | 0.093 s | 436 KB | 11327866 |
 | [1214_math_optimized.py](1214_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 204 KB | 11324914 |
 | [1214_math_optimized.rs](1214_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 60 KB | 11324868 |
 
