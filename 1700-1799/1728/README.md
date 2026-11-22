@@ -88,9 +88,11 @@ The preferred simpler C++, Go and Rust variants use two sets of third surnames. 
 
 ## Optimized solutions
 
-`1728_implementation_optimized.java`. Java retains the algorithm and its data structures described for the simple version. A fixed byte buffer and FastInput replace Scanner and its regular-expression and locale machinery. Integer tokens are parsed directly; strings still use UTF-8 decoding when requested, and decimal tokens retain explicit numeric conversion. Lookahead keeps a token only when needed. The output algorithm is unchanged. This removes general-purpose parsing overhead; the table describes algorithmic work, with input scanning linear in the number of bytes and a bounded input buffer.
+`1728_implementation_optimized.java`. Keep the map of previous pair/triple participation and the maximum eligible team-strength scan. Reuse byte and character token scratch arrays for ASCII names, copying each into an immutable String; non-ASCII names retain UTF-8 decoding. Emit Win/Fail and the selected name as bytes. With I input bytes, U distinct retained names of T total characters and token scratch capacity L, expected time is O(I+N+M) and stored text/state is O(T+U+L). HashMap bounds are expected, not worst-case guarantees.
 
-Compared with `1728_implementation.java`: time 0.140 s → 0.125 s; memory 2172 KB → 928 KB.
+Exact-source Java 1.8 Accepted #11327746: 0.093 s / 508 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/19, memory 3/19. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324823 was 0.125 s / 928 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1728_implementation_optimized.java`: 0.093 s / 508 KB; retained teaching base `1728_implementation.java`: 0.14 s / 2172 KB.
 
 The fast Go version keeps the two surname sets and uses direct standard handles, fixed input and output buffers, and a 50-byte token buffer. Fast Rust reads names through standard C input and stores both team-size flags in one fixed open-addressed table. It compares the full names on collisions. The C++ surname sets also provide fast coverage. Java and Python reuse their admitted original programs. The older C++, Go and Rust programs that store canonical lineups are listed under Other Accepted approaches. A star marks a fast source below its language-specific rating target.
 
@@ -99,8 +101,6 @@ The accepted base implementations [1728_implementation.java](1728_implementation
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
-
-`1728_implementation_optimized.java`: time place 15/19, memory place 9/19 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -130,6 +130,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
 | [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
-| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.125 s | 928 KB | 11324823 |
+| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | Expected O(I+N+M); stored names and token scratch | AC | 0.093 s | 508 KB | 11327746 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

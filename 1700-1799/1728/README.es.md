@@ -88,9 +88,11 @@ Las variantes didácticas C++, Go y Rust usan dos conjuntos de terceros apellido
 
 ## Soluciones optimizadas
 
-`1728_implementation_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
+`1728_implementation_optimized.java`. Conserva mapa de participaciones previas en parejas/tríos y máximo de fuerza elegible. Reutiliza arreglos temporales de bytes/caracteres para nombres ASCII y copia a String inmutable; otros nombres conservan UTF-8. Emite Win/Fail y nombre en bytes. Para I bytes, tiempo esperado O(I+N+M); espacio según longitud total de nombres retenidos y búfer temporal. HashMap tiene cota esperada, no garantía de peor caso.
 
-Frente a `1728_implementation.java`: tiempo 0.140 s → 0.125 s; memoria 2172 KB → 928 KB.
+Accepted exacto Java 1.8 #11327746: 0.093 s / 508 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/19, memoria 3/19. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324823 era 0.125 s / 928 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1728_implementation_optimized.java`: 0.093 s / 508 KB; base didáctica conservada `1728_implementation.java`: 0.14 s / 2172 KB.
 
 La versión rápida de Go conserva los dos conjuntos de apellidos y usa los descriptores estándar, búferes fijos de entrada y salida y un búfer de 50 bytes por apellido. Rust rápido lee los apellidos por la entrada estándar de C y guarda ambas marcas de tamaño en una tabla fija con direccionamiento abierto. Si hay una colisión, compara los apellidos completos. Los conjuntos de apellidos en C++ también cubren la versión rápida. Java y Python reutilizan los programas originales admitidos. Los programas anteriores de C++, Go y Rust con formaciones canónicas figuran en Otros enfoques aceptados. El asterisco marca una versión rápida por debajo de su objetivo de clasificación.
 
@@ -99,8 +101,6 @@ Las implementaciones base aceptadas [1728_implementation.java](1728_implementati
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
-
-`1728_implementation_optimized.java`: puesto de tiempo 15/19 y de memoria 9/19 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -130,6 +130,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
 | [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
-| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.125 s | 928 KB | 11324823 |
+| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | Expected O(I+N+M); stored names and token scratch | AC | 0.093 s | 508 KB | 11327746 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

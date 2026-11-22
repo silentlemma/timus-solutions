@@ -82,9 +82,11 @@ Fail
 
 ## 优化解法
 
-`1728_implementation_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
+`1728_implementation_optimized.java`. 保留历史双人/三人参与映射及最大合法队伍实力扫描。ASCII 名称复用字节和字符临时数组，再复制为不可变 String；非 ASCII 仍按 UTF-8 解码。以字节输出 Win/Fail 及名称。I 为输入字节数时，期望 O(I+N+M) 时间；存储取决于所留名称总长及临时容量。HashMap 复杂度为期望而非最坏保证。
 
-与 `1728_implementation.java` 相比：时间 0.140 s → 0.125 s；内存 2172 KB → 928 KB。
+精确源代码 Java 1.8 Accepted #11327746：0.093 s / 508 KB。2026-11-20 保存的编译器组比较：时间 2/19、内存 3/19。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324823 为 0.125 s / 928 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1728_implementation_optimized.java`: 0.093 s / 508 KB; 保留教学基础版 `1728_implementation.java`: 0.14 s / 2172 KB.
 
 Go 快速版使用相同的两个姓氏集合、标准句柄、固定输入输出缓冲区以及 50 字节单词缓冲区。 Rust 快速版通过 C 标准输入读取姓氏，在一张固定大小的开放寻址表中存储两种队伍标志。哈希冲突时比较完整姓氏。 C++ 的姓氏集合实现也覆盖快速版本。Java 和 Python 复用已达标的原程序。旧 C++、Go 和 Rust 的完整队伍实现列在其他已通过方法中。星号表示快速源码尚未达到该语言的排名目标。
 
@@ -124,6 +126,6 @@ Go 快速版使用相同的两个姓氏集合、标准句柄、固定输入输�
 |---|---|---|---|---|---|---|---|
 | [1728_hashing_optimized.go](1728_hashing_optimized.go) \* | Go 1.14 x64 | hashing | O((n + m)L) | AC | 0.031 s | 320 KB | 11315884 |
 | [1728_hashing_optimized.rs](1728_hashing_optimized.rs) \* | Rust 1.75 x64 | hashing | O((n + m)L) | AC | 0.031 s | 60 KB | 11315888 |
-| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | O(n + m) | AC | 0.125 s | 928 KB | 11324823 |
+| [1728_implementation_optimized.java](1728_implementation_optimized.java) \* | Java 1.8 | implementation | Expected O(I+N+M); stored names and token scratch | AC | 0.093 s | 508 KB | 11327746 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
