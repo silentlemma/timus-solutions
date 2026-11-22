@@ -89,25 +89,31 @@ Pitfalls:
 
 ## Optimized solutions
 
-`1574_strings_optimized.java`. Count occurrences of the minimum prefix balance online, and return zero unless the final balance is zero. For a balanced string the minimum is nonpositive, so initializing lowest=0 without counting the empty prefix gives the same cyclic-shift count. Java reads bracket bytes directly and needs only fixed input storage rather than retaining the line. Python removes the list of all prefix sums but still reads the whole byte string: its total storage remains O(n), while Java auxiliary storage is O(1). Both take O(n) time. The Python variant flushes its answer before os._exit(0); that runtime change does not change the algorithmic bound.
+`1574_strings_optimized.java`. Java keeps the online balance, minimum prefix balance and number of visits to that minimum. Scan input in 16384-byte blocks, ignoring non-bracket separators. A new minimum resets the count to one; an equal minimum increments it. If final balance is nonzero, return zero. Otherwise prefixes of lengths 1..N count exactly the valid cyclic cuts: the full prefix replaces the empty prefix, which is the same cut. No bracket string or prefix array is retained. Time O(N), auxiliary space O(1) with fixed buffering; counters fit int for N<=100000. The teaching prefix-array version and the separately documented Python implementation remain available.
 
-Compared with `1574_strings.java`: time 0.125 s → 0.125 s; memory 1196 KB → 480 KB.
+Exact-source Java 1.8 Accepted #11327330: 0.109 s / 560 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/22, memory 2/22. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11325019 was 0.125 s / 480 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
 
-`1574_strings_optimized.py`. Count occurrences of the minimum prefix balance online, and return zero unless the final balance is zero. For a balanced string the minimum is nonpositive, so initializing lowest=0 without counting the empty prefix gives the same cyclic-shift count. Java reads bracket bytes directly and needs only fixed input storage rather than retaining the line. Python removes the list of all prefix sums but still reads the whole byte string: its total storage remains O(n), while Java auxiliary storage is O(1). Both take O(n) time. The Python variant flushes its answer before os._exit(0); that runtime change does not change the algorithmic bound.
+- `1574_strings_optimized.java`: 0.109 s / 560 KB; retained teaching base `1574_strings.java`: 0.125 s / 1196 KB.
 
-Compared with `1574_strings.py`: time 0.093 s → 0.14 s; memory 5252 KB → 1 412 KB.
+`1574_strings_optimized.py`. Keep online balance, lowest prefix and the count of visits to that minimum; a nonzero final balance yields zero. For a balanced string, excluding the empty prefix still counts exactly the valid cyclic shifts. Python now reads fixed B=4096-byte blocks instead of the whole bracket string, retaining no input-length array or string. Both time O(N) and O(B) buffered storage hold, plus bounded counters; flush before direct exit. Java already streams, and the teaching prefix-array solution remains.
+
+Exact-source CPython 3.12 Accepted #11326664: 0.093 s / 676 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/45, memory rank 9/45. Below 1024 KB, strict admission uses time only.
+
+- `1574_strings_optimized.py`: 0.093 s / 676 KB; retained teaching base `1574_strings.py` (Python 3.12 x64): 0.093 s / 5252 KB; time change +0.0%; memory change -87.1%.
+
+`1574_strings_optimized.cpp`. Keep the exact online minimum-prefix-balance count. Read brackets in 16 KiB blocks with fread instead of one locked getchar call per character. A new lower balance resets the count to one; an equal minimum increments it. Ignore non-bracket separators as before, and output zero unless the final balance is zero. The nonempty full-length prefix represents the cyclic cut at the start. Time O(n), fixed auxiliary storage.
+
+Exact-source Accepted #11326997: 0.015 s / 92 KB. Saved G++ 13.2 sample, 2026-11-20: time rank 1/58, memory rank 1/56. Teaching sources remain unchanged.
+
+Earlier documented Python measurement: Compared with `1574_strings.py`: time 0.093 s → 0.14 s; memory 5252 KB → 1 412 KB.
 
 The C++, Go and Rust variants count occurrences of the minimum prefix balance while reading the input. When a lower balance appears, reset the count to one. Count the prefixes of lengths 1 through n. When the final balance is zero, the length-n prefix replaces the empty prefix and the two represent the same cyclic cut. C++ uses buffered standard I/O, Go reads fixed-size blocks and Rust reads through the standard input buffer. Each takes O(n) time and O(1) extra space.
 
-The accepted base implementations [1574_strings.java](1574_strings.java), [1574_strings.py](1574_strings.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+The retained accepted base implementations [1574_strings.rs](1574_strings.rs) also meet strict fast-set admission in the saved comparison: top ten or top 15% for the required metrics. They are reused without identical copies; the other teaching sources remain. An asterisk denotes the separate language rating target.
 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1574_strings_optimized.java`: time place 13/22, memory place 2/22 in this comparable sample.
-
-`1574_strings_optimized.py`: time place 28/45, memory place 25/45 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -127,10 +133,10 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1574_strings_optimized.cpp](1574_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n) | AC | 0.031 s | 88 KB | 11310381 |
+| [1574_strings_optimized.cpp](1574_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.015 s | 92 KB | 11326997 |
 | [1574_strings_optimized.go](1574_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n) | AC | 0.031 s | 824 KB | 11310380 |
 | [1574_strings_optimized.rs](1574_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(n) | AC | 0.015 s | 208 KB | 11310379 |
-| [1574_strings_optimized.java](1574_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.125 s | 480 KB | 11325019 |
-| [1574_strings_optimized.py](1574_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(n) | AC | 0.14 s | 1412 KB | 11325071 |
+| [1574_strings_optimized.java](1574_strings_optimized.java) \* | Java 1.8 | strings | O(N) time; O(1) auxiliary space | AC | 0.109 s | 560 KB | 11327330 |
+| [1574_strings_optimized.py](1574_strings_optimized.py) \* | Python 3.12 x64 | strings | O(N) time; O(B) buffer space | AC | 0.093 s | 676 KB | 11326664 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
