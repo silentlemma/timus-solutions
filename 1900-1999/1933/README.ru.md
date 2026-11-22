@@ -97,7 +97,7 @@ R строк без пробелов в конце.
 | [1933_constructive.cpp](1933_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.015 s | 492 KB | 11291736 |
 | [1933_constructive.go](1933_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.031 s | 1836 KB | 11291741 |
 | [1933_constructive.java](1933_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.125 s | 2592 KB | 11291752 |
-| [1933_constructive.py](1933_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.109 s | 744 KB | 11291745 |
+| [1933_constructive.py](1933_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.093 s | 700 KB | 11328323 |
 | [1933_constructive.rs](1933_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 640 KB | 11291760 |
 
 ### Оптимизированные

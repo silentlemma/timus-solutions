@@ -4,10 +4,7 @@ import sys
 def build_schedule(cannons):
     size = 2 * cannons + 1
     return [
-        [
-            0 if row == column else (row + column + size - 1) % size + 1
-            for column in range(size)
-        ]
+        [0 if row == column else (row + column + size - 1) % size + 1 for column in range(size)]
         for row in range(size)
     ]
 
