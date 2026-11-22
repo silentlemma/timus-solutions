@@ -88,6 +88,12 @@ binary searches for the shift, on 300 random exams and on every test.
 
 ## Optimized solutions
 
+`1193_greedy_sorting.java`. The same readiness-ordered exam simulation uses direct-address ordering instead of comparison sorting: all T1 are distinct integers in 0..600. Store (T2<<10)|T3 in the T1 slot; T2≥1 makes zero an unoccupied marker and T3≤600 fits ten bits. Scan occupied slots in increasing time, updating finish=max(finish,T1)+T2 and worst lateness. O(N+601) time and 601 integer slots, with a 256-byte decimal output buffer. This distinct ordering implementation is named greedy_sorting; the readable sort and prior optimized alternative remain.
+
+Exact-source Java 1.8 Accepted #11327835: 0.078 s / 356 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/42; 1/42. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics rank first; no asterisk. The preserved previous variant has its own paired receipt #11307308 (Java 1.8): 0.125 s / 376 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1193_greedy_sorting.java`: 0.078 s / 356 KB; retained teaching base `1193_greedy.java` (Java 1.8): 0.14 s / 3776 KB.
+
 The optimized C++ solution keeps the students in a static array of
 40 records, enough since `N ≤ 40`, instead of a vector of tuples
 allocated on the heap; the sort and the simulation are the same:
@@ -143,6 +149,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
 | [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
+| [1193_greedy_sorting.java](1193_greedy_sorting.java) | Java 1.8 | greedy, sorting | O(N+601) time; 601 integer slots | AC | 0.078 s | 356 KB | 11327835 |
 | [1193_greedy_optimized.rs](1193_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

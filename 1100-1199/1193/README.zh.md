@@ -80,6 +80,12 @@
 
 ## 优化解法
 
+`1193_greedy_sorting.java`. 相同的就绪顺序考试模拟用直接寻址替代比较排序：T1 是 0..600 中互不相同的整数。T1 槽存 (T2<<10)|T3；T2≥1 使零可标空，T3≤600 容于十位。按时间扫描非空槽，更新 finish=max(finish,T1)+T2 及最大迟到。O(N+601) 时间、601 个整数槽及 256 字节输出缓冲。不同排序实现命名 greedy_sorting；保留易懂排序和旧优化版。
+
+精确源码：Java 1.8 Accepted #11327835: 0.078 s / 356 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/42; 1/42。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11307308 (Java 1.8): 0.125 s / 376 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1193_greedy_sorting.java`: 0.078 s / 356 KB; 保留教学版 `1193_greedy.java` (Java 1.8): 0.14 s / 3776 KB.
+
 优化的 C++ 解法把学生存在有 40 条记录的静态数组中（因为 `N ≤ 40`，这已足够），而
 不是存在堆上分配的元组向量里；排序和模拟都不变：{1193_greedy_optimized.cpp}。
 
@@ -126,6 +132,7 @@
 |---|---|---|---|---|---|---|---|
 | [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
 | [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
+| [1193_greedy_sorting.java](1193_greedy_sorting.java) | Java 1.8 | greedy, sorting | O(N+601) time; 601 integer slots | AC | 0.078 s | 356 KB | 11327835 |
 | [1193_greedy_optimized.rs](1193_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

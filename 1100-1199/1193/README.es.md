@@ -91,6 +91,12 @@ pruebas.
 
 ## Soluciones optimizadas
 
+`1193_greedy_sorting.java`. La misma simulación por disponibilidad usa direccionamiento directo en vez de comparaciones: T1 distintos en 0..600. Guarda (T2<<10)|T3 en ranura T1; T2≥1 deja cero como vacío y T3≤600 cabe en diez bits. Recorre ranuras por tiempo, finish=max(finish,T1)+T2 y máximo retraso. O(N+601), 601 enteros y búfer decimal de 256 bytes. Implementación distinta llamada greedy_sorting; conserva ordenación didáctica y alternativa anterior.
+
+Fuente exacto: Java 1.8 Accepted #11327835: 0.078 s / 356 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/42; 1/42. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11307308 (Java 1.8): 0.125 s / 376 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1193_greedy_sorting.java`: 0.078 s / 356 KB; base didáctica conservada `1193_greedy.java` (Java 1.8): 0.14 s / 3776 KB.
+
 La solución optimizada en C++ guarda a los estudiantes en un arreglo
 estático de 40 registros, suficiente porque `N ≤ 40`, en lugar de un
 vector de tuplas reservado en el montículo; la ordenación y la
@@ -146,6 +152,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1193_greedy_optimized.cpp](1193_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N log N) | AC | 0.015 s | 116 KB | 11307306 |
 | [1193_greedy_optimized.java](1193_greedy_optimized.java) | Java 1.8 | greedy | O(N²) | AC | 0.125 s | 376 KB | 11307308 |
+| [1193_greedy_sorting.java](1193_greedy_sorting.java) | Java 1.8 | greedy, sorting | O(N+601) time; 601 integer slots | AC | 0.078 s | 356 KB | 11327835 |
 | [1193_greedy_optimized.rs](1193_greedy_optimized.rs) \* | Rust 1.75 x64 | greedy | O(N log N) | AC | 0.046 s | 76 KB | 11325093 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
