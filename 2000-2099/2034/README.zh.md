@@ -86,7 +86,7 @@
 
 `2034_bfs_dp_optimized.go`. 保留两次 BFS 与只沿 s 距离加一的边进行的瓶颈 DP。按 BFS 顺序，best[v] 是最短 s 到 v 路径可达到的最大最小 r 距离；向 u 传播 min(best[v],clearance[u]) 并取最大。读边时直接构造扁平 int32 first/to/next，去掉原先独立端点对列表及嵌套原生 int 切片。距离、队列与 DP 用 int32，n,m<=100000 时安全；两次 BFS 仍各自分配数组。图连通，所需距离均存在。时间及空间 O(n+m)。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
-与 `2034_bfs_dp.go` 相比：时间 0.109 s → 0.046 s；内存 11080 KB → 5 264 KB。
+与 `2034_bfs_dp.go` 相比：时间 0.109 s → 0.031 s；内存 11080 KB → 5244 KB。
 
 先计算第一个起点的距离，再把第二次 BFS 与最短路层上的瓶颈 DP 合并。FIFO 保证弹出顶点时所有前驱层已完成，因此其最佳值已经确定。必须在目标弹出时停止，不能在首次发现时停止。扁平邻接和可复用队列替代嵌套容器，紧凑距离及评分数组仍实现同一线性图算法。
 
@@ -121,7 +121,7 @@
 |---|---|---|---|---|---|---|---|
 | [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
 | [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
-| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.046 s | 5264 KB | 11325053 |
+| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.031 s | 5244 KB | 11328337 |
 | [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) \* | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

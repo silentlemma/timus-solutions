@@ -99,7 +99,7 @@ Frente a `2034_bfs_dp.rs`: tiempo 0.078 s → 0.062 s; memoria 13112 KB → 3 44
 
 `2034_bfs_dp_optimized.go`. Conserva dos BFS y la DP de cuello de botella por aristas que aumentan en uno la distancia desde s. En orden BFS, best[v] maximiza la mínima distancia desde r entre caminos mínimos s-v; propaga min(best[v],clearance[u]) y maximiza en u. Construye al leer arreglos planos int32 first/to/next, sin lista separada de pares ni listas anidadas de int nativo. Distancias, colas y DP usan int32, seguro con n,m<=100000; ambas BFS aún asignan sus propios arreglos. El grafo conexo define todas las distancias necesarias. Tiempo y espacio O(n+m). os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `2034_bfs_dp.go`: tiempo 0.109 s → 0.046 s; memoria 11080 KB → 5 264 KB.
+Frente a `2034_bfs_dp.go`: tiempo 0.109 s → 0.031 s; memoria 11080 KB → 5244 KB.
 
 Tras obtener distancias desde el primer origen, el segundo BFS se fusiona con la DP de cuello de botella por capas de caminos mínimos. FIFO garantiza que al extraer un vértice sus capas predecesoras estén completas y su valor sea definitivo. Se para al extraer el destino, no al descubrirlo. Adyacencia plana, cola reutilizada y distancias compactas conservan el mismo algoritmo lineal.
 
@@ -134,7 +134,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [2034_bfs_dp_optimized.cpp](2034_bfs_dp_optimized.cpp) | G++ 13.2 x64 | bfs, dp | O(N+M) | AC | 0.031 s | 3228 KB | 11309340 |
 | [2034_bfs_dp_optimized.py](2034_bfs_dp_optimized.py) \* | Python 3.12 x64 | bfs, dp | O(N+M) | AC | 0.468 s | 4072 KB | 11309323 |
-| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.046 s | 5264 KB | 11325053 |
+| [2034_bfs_dp_optimized.go](2034_bfs_dp_optimized.go) \* | Go 1.14 x64 | bfs, dp | O(n+m) | AC | 0.031 s | 5244 KB | 11328337 |
 | [2034_bfs_dp_optimized.rs](2034_bfs_dp_optimized.rs) \* | Rust 1.75 x64 | bfs, dp | O(N+M) time; O(N+M) space | AC | 0.062 s | 3448 KB | 11325553 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
