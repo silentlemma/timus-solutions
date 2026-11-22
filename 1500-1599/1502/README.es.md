@@ -53,11 +53,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1502_math_optimized.py`. Conserva fórmula exacta N(N+1)(N+2)/2, divide producto par N(N+1) antes de multiplicar. Lee/escribe descriptores binarios directamente al nivel de módulo, sin imports ni salida anticipada explícita. Sin tabla ni flotantes. N≤10000 implica trabajo aritmético constante y enteros acotados; conserva fórmula didáctica.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327845: 0.062 s / 284 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 2/76; 11/76. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11302199 (Python 3.12 x64): 0.078 s / 320 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1502_math_optimized.py`: 0.062 s / 284 KB; base didáctica conservada `1502_math.py`: 0.078 s / 368 KB.
+
 La solución optimizada en Java usa la misma fórmula y analiza el número
 byte a byte desde `System.in` en lugar de usar `Scanner`: 0.078 s en
 lugar de 0.125 s y 344 KB en lugar de 1584 KB.
-
-Leer el entero del flujo de bytes y usar la misma fórmula para el total de puntos. El envío aceptado 11302199 tardó 0.078 s y usó 320 KB. La versión sencilla tardó 0.078 s y usó 368 KB.
 
 ## Soluciones
 
@@ -76,6 +80,6 @@ Leer el entero del flujo de bytes y usar la misma fórmula para el total de punt
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
-| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11302199 |
+| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

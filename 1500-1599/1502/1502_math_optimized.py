@@ -1,11 +1,4 @@
-import sys
-
-
-def main():
-    n = int(sys.stdin.buffer.read())
-    # each number of dots v sits on n + 2 ends: on the tiles v-w for every w,
-    # and twice on the double v-v; so the dots add up to (n + 2) * (0 + ... + n)
-    print((n + 2) * n * (n + 1) // 2)
-
-
-main()
+n = int(open(0, "rb", buffering=0).read())
+# Consecutive factors make this division exact before the final product.
+answer = n * (n + 1) // 2 * (n + 2)
+open(1, "wb", buffering=0).write((str(answer) + "\n").encode())

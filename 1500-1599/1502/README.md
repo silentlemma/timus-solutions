@@ -52,11 +52,15 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1502_math_optimized.py`. Keep the exact formula N(N+1)(N+2)/2, dividing the even product N(N+1) before the last multiplication. Read/write binary file descriptors directly at module scope, without imports or an explicit early interpreter exit. No answer table or floating point. For N≤10000, constant arithmetic work and bounded-size integer state; the readable formula version remains.
+
+Exact-source Python 3.12 x64 Accepted #11327845: 0.062 s / 284 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 2/76; 11/76. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11302199 (Python 3.12 x64): 0.078 s / 320 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1502_math_optimized.py`: 0.062 s / 284 KB; retained teaching base `1502_math.py`: 0.078 s / 368 KB.
+
 The optimized Java solution uses the same formula and parses the number
 byte by byte from `System.in` instead of using `Scanner`: 0.078 s
 instead of 0.125 s and 344 KB instead of 1584 KB.
-
-Parse the integer from the byte stream and use the same formula for the total number of dots. Accepted submission 11302199 took 0.078 s and used 320 KB. The simple version took 0.078 s and used 368 KB.
 
 ## Solutions
 
@@ -75,6 +79,6 @@ Parse the integer from the byte stream and use the same formula for the total nu
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1502_math_optimized.java](1502_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.078 s | 344 KB | 11303756 |
-| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 320 KB | 11302199 |
+| [1502_math_optimized.py](1502_math_optimized.py) \* | Python 3.12 x64 | math | O(1) bounded arithmetic | AC | 0.062 s | 284 KB | 11327845 |
 
 \* The marked solutions can improve their target rankings.
