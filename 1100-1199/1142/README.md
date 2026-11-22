@@ -83,11 +83,9 @@ Compared with `1142_combinatorics.py`: time 0.031 s → 0.125 s; memory 436 KB �
 
 Compared with `1142_combinatorics.rs`: time 0.001 s → 0.001 s; memory 220 KB → 44 KB.
 
-The optimized Java solution reads the queries with `StreamTokenizer`
-over a `BufferedReader` instead of `Scanner`, whose regular-expression
-machinery costs time and memory to load, and prints each answer through
-a buffered `PrintWriter` at once instead of collecting all of them in a
-`StringBuilder`: {1142_combinatorics_optimized.java}.
+`1142_combinatorics_optimized.java`. Keep the ordered-partition recurrence. Read integers from a 1 KB byte buffer and retain only ways[0..L], L=10; generate each binomial coefficient multiplicatively instead of keeping a Pascal matrix. This removes StreamTokenizer, BufferedReader and PrintWriter. Answers are accumulated in a StringBuilder until a negative query or EOF, then printed together. For Q queries, time is O(L²+Q) and storage O(L+Q), including the buffered output; output storage is not constant. The simple version remains.
+
+Exact-source Accepted #11326631: 0.046 s / 336 KB. In the saved Java 1.8 sample of 2026-11-20: time rank 3/44, memory rank 2/44. The asterisk still denotes the separate language rating target.
 
 ### Measured gains
 
@@ -96,8 +94,7 @@ least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
-- `1142_combinatorics_optimized.java`: time reduction -34.41%; memory
-  reduction +74.81%; base: `1142_combinatorics.java`.
+- `1142_combinatorics_optimized.java`: time reduction +50.54%; memory reduction +79.05%; base: `1142_combinatorics.java`.
 
 ## Language notes
 
@@ -125,7 +122,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
 | [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
 | [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
 | [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |

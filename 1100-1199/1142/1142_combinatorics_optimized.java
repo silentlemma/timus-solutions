@@ -1,41 +1,42 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StreamTokenizer;
-
 public class Main {
-    // inputs are at most this
-    static final int LARGEST = 10;
-
-    public static void main(String[] args) throws IOException {
-        // a(n) counts weak orders of n objects: the k objects tied for the
-        // smallest place are any k of them, followed by a weak order of the rest
-        long[][] binom = new long[LARGEST + 1][LARGEST + 1];
-        long[] a = new long[LARGEST + 1];
-        a[0] = 1;
-        for (int n = 0; n <= LARGEST; n++) {
-            binom[n][0] = 1;
-            binom[n][n] = 1;
-            for (int k = 1; k < n; k++) {
-                binom[n][k] = binom[n - 1][k - 1] + binom[n - 1][k];
-            }
+    static final int BUFFER_SIZE = 1024, BYTE_MASK = 255, LARGEST = 10;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
+        return buffer[position++] & BYTE_MASK;
+    }
+    static int next() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        if (c < 0 || c == '-')
+            return -1;
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = value * 10 + c - '0';
+            c = read();
+        }
+        return value;
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        long[] ways = new long[LARGEST + 1];
+        ways[0] = 1;
         for (int n = 1; n <= LARGEST; n++) {
+            long choose = 1;
             for (int k = 1; k <= n; k++) {
-                a[n] += binom[n][k] * a[n - k];
+                choose = choose * (n - k + 1) / k;
+                ways[n] += choose * ways[n - k];
             }
         }
-        // tokenization avoids scanner's regular-expression and locale machinery.
-        StreamTokenizer in =
-            new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
-        java.io.PrintWriter out = new java.io.PrintWriter(System.out);
-        while (in.nextToken() != StreamTokenizer.TT_EOF) {
-            int n = (int)in.nval;
-            if (n < 0) {
-                break;
-            }
-            out.println(a[n]);
-        }
-        out.flush();
+        StringBuilder output = new StringBuilder();
+        for (int n; (n = next()) >= 0;)
+            output.append(ways[n]).append('\n');
+        System.out.print(output);
     }
 }

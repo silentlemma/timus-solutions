@@ -80,16 +80,15 @@
 
 与 `1142_combinatorics.rs` 相比：时间 0.001 s → 0.001 s；内存 220 KB → 44 KB。
 
-优化的 Java 解法用基于 `BufferedReader` 的 `StreamTokenizer` 读入询问，而不是
-`Scanner`，后者的正则表达式机制加载起来既费时间又占内存；每个答案都立即通过带缓
-冲的 `PrintWriter` 输出，而不是先把全部答案收集到 `StringBuilder` 中：
-{1142_combinatorics_optimized.java}。
+`1142_combinatorics_optimized.java`. 保留有序划分递推。使用 1 KB 字节缓冲区读取整数，只保留 ways[0..L]，其中 L=10；逐项乘除生成二项式系数，不保存 Pascal 矩阵。移除 StreamTokenizer、BufferedReader 和 PrintWriter。答案累积在 StringBuilder 中，遇到负数询问或 EOF 后统一输出。Q 个询问的时间为 O(L²+Q)，空间为 O(L+Q)，包含输出缓冲；输出空间不是常数。基础版本保留。
+
+精确源代码的 Accepted #11326631：0.046 s / 336 KB。2026-11-20 保存的 Java 1.8 样本中，时间排名 3/44，内存排名 2/44。星号仍表示单独的语言排名目标。
 
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
-- `1142_combinatorics_optimized.java`: 时间降低 -34.41%; 内存降低 +74.81%; 基础版本: `1142_combinatorics.java`.
+- `1142_combinatorics_optimized.java`: 时间降低 +50.54%; 内存降低 +79.05%; 基础版本: `1142_combinatorics.java`.
 
 ## 各语言说明
 
@@ -117,7 +116,7 @@
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
 | [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
 | [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
 | [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |

@@ -85,12 +85,9 @@ Frente a `1142_combinatorics.py`: tiempo 0.031 s → 0.125 s; memoria 436 KB →
 
 Frente a `1142_combinatorics.rs`: tiempo 0.001 s → 0.001 s; memoria 220 KB → 44 KB.
 
-La solución optimizada en Java lee las consultas con `StreamTokenizer`
-sobre un `BufferedReader` en lugar de `Scanner`, cuya maquinaria de
-expresiones regulares tarda en cargarse y ocupa memoria, e imprime cada
-respuesta en el acto mediante un `PrintWriter` con búfer en lugar de
-juntarlas todas en un `StringBuilder`:
-{1142_combinatorics_optimized.java}.
+`1142_combinatorics_optimized.java`. Conserva la recurrencia de particiones ordenadas. Lee enteros con un búfer de bytes de 1 KB y guarda solo ways[0..L], L=10; genera cada coeficiente binomial por multiplicaciones y divisiones sucesivas, sin matriz de Pascal. Elimina StreamTokenizer, BufferedReader y PrintWriter. Acumula las respuestas en StringBuilder hasta una consulta negativa o EOF y luego las imprime juntas. Para Q consultas, tiempo O(L²+Q) y espacio O(L+Q), incluida la salida almacenada; ese espacio no es constante. Se conserva la versión simple.
+
+Accepted del fuente exacto #11326631: 0.046 s / 336 KB. En la muestra Java 1.8 guardada el 2026-11-20: puesto de tiempo 3/44, de memoria 2/44. El asterisco sigue indicando el objetivo de clasificación propio del lenguaje.
 
 ### Mejora medida
 
@@ -99,8 +96,7 @@ al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
-- `1142_combinatorics_optimized.java`: reducción de tiempo -34.41%;
-  reducción de memoria +74.81%; base: `1142_combinatorics.java`.
+- `1142_combinatorics_optimized.java`: reducción de tiempo +50.54%; reducción de memoria +79.05%; base: `1142_combinatorics.java`.
 
 ## Notas por lenguaje
 
@@ -128,7 +124,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
 | [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
 | [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
 | [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |

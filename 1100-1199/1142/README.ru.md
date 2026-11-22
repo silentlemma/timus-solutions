@@ -85,11 +85,9 @@
 
 По сравнению с `1142_combinatorics.rs`: время 0.001 s → 0.001 s; память 220 KB → 44 KB.
 
-Оптимизированное решение на Java читает запросы через `StreamTokenizer`
-поверх `BufferedReader` вместо `Scanner`, чей механизм регулярных
-выражений долго загружается и занимает память, и сразу печатает каждый
-ответ через буферизованный `PrintWriter`, а не собирает все ответы в
-`StringBuilder`: {1142_combinatorics_optimized.java}.
+`1142_combinatorics_optimized.java`. Сохраняется рекуррентная формула упорядоченных разбиений. Числа читаются из байтового буфера 1 КБ, хранится только ways[0..L], L=10; биномиальный коэффициент вычисляется последовательно умножением, без матрицы Паскаля. Исключены StreamTokenizer, BufferedReader и PrintWriter. Ответы собираются в StringBuilder до отрицательного запроса или EOF и выводятся вместе. Для Q запросов время O(L²+Q), память O(L+Q), включая буфер ответа; память вывода не константна. Простая версия сохранена.
+
+Accepted точного исходника №11326631: 0.046 s / 336 KB. В сохранённой выборке Java 1.8 от 2026-11-20: место по времени 3/44, по памяти 2/44. Звёздочка по-прежнему относится к отдельной рейтинговой цели языка.
 
 ### Измеренный выигрыш
 
@@ -98,8 +96,7 @@
 Базовые исходники сохранены. Отрицательное сокращение означает рост
 расхода. Звёздочка относится только к рейтинговой цели.
 
-- `1142_combinatorics_optimized.java`: сокращение времени -34.41%;
-  сокращение памяти +74.81%; база: `1142_combinatorics.java`.
+- `1142_combinatorics_optimized.java`: сокращение времени +50.54%; сокращение памяти +79.05%; база: `1142_combinatorics.java`.
 
 ## Особенности языков
 
@@ -127,7 +124,7 @@
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(1) per query | AC | 0.125 s | 404 KB | 11305854 |
+| [1142_combinatorics_optimized.java](1142_combinatorics_optimized.java) \* | Java 1.8 | combinatorics | O(L²+Q) time; O(L+Q) space | AC | 0.046 s | 336 KB | 11326631 |
 | [1142_combinatorics_optimized.py](1142_combinatorics_optimized.py) \* | PyPy 3.10 x64 | combinatorics | O(L²+I+O) time; O(L+I+O) space | AC | 0.125 s | 220 KB | 11325472 |
 | [1142_combinatorics_optimized.rs](1142_combinatorics_optimized.rs) \* | Rust 1.75 x64 | combinatorics | O(L²+Q) time; O(L) space | AC | 0.001 s | 44 KB | 11325499 |
 | [1142_combinatorics_optimized.go](1142_combinatorics_optimized.go) \* | Go 1.14 x64 | combinatorics | O(L²+Q) time; O(L²) space | AC | 0.015 s | 272 KB | 11325652 |
