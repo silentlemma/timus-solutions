@@ -61,6 +61,12 @@
 
 ## 优化解法
 
+`1087_games_optimized.java`. 保留逐状态必败游戏 DP 和排序后的步长。取走最后一石会输，因此 take>=left 时停止，不把空状态当成有利后继；找到首个可到达的非空必败状态即可。4096 字节整数输入替代字符解码与 tokenizer。时间 O(SK+K log K)，空间 O(S+K) 加固定缓冲，保留教学版本。
+
+精确源代码 Java 1.8 Accepted #11326947：0.093 s / 400 KB。2026-11-20 保存的当前 Java 比较：时间排名 6/60，内存排名 2/60。内存低于 1024 KB，严格收录只看时间。
+
+- `1087_games_optimized.java`: 0.093 s / 400 KB; 保留的教学基础版 `1087_games.java`: 0.109 s / 1652 KB; 时间变化 -14.7%; 内存变化 -75.8%.
+
 `1087_games_optimized.go`. 保留同一必败取末游戏 DP，包括零状态为胜及首个获胜走法处停止。以 uint64 每状态一位替代 bool，保留 K 个可选步长。N 个石子下 O(NK) 时间、O(N/64+K) 字存储。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
 
 与 `1087_games.go` 相比：时间 0.031 s → 0.015 s；内存 1092 KB → 284 KB。
@@ -70,7 +76,7 @@ Python 位集算法不在每个状态逐一枚举所有步长，而是按递增�
 N' 为归一化石子数，M 为步长数，L 为必败位置数，w 为大整数机器字宽度。
 
 - `1087_games_optimized.cpp`: 0.015 s / 132 KB; 基础版 `1087_games.cpp`: 0.015 s / 204 KB; 相对基础版的变化: 时间 -0.0%, 内存 -35.3%.
-- `1087_games_optimized.java`: 0.125 s / 440 KB; 基础版 `1087_games.java`: 0.109 s / 1652 KB; 相对基础版的变化: 时间 +14.7%, 内存 -73.4%.
+
 - `1087_games_bitmask.py`: 0.062 s / 456 KB; 基础版 `1087_games.py`: 0.093 s / 568 KB; 相对基础版的变化: 时间 -33.3%, 内存 -19.7%.
 
 `1087_games_optimized.rs`. 保留逐状态博弈 DP 及 win[0]=true 的终止约定：拿走最后一颗石子者输。只保存 m 个步长和 n+1 个布尔状态，去掉存储全部解析输入的额外向量。时间 O(n·m)，工作空间 O(n+m)；这是同一递推的精简实现，不是其他部分语言采用的位集算法。 Rust 版本通过 C 运行库读写，不保留解码后的输入 String，也不构造格式化的输出 String。保留简单版本及其 Accepted。
@@ -104,7 +110,7 @@ N' 为归一化石子数，M 为步长数，L 为必败位置数，w 为大整�
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1087_games_optimized.cpp](1087_games_optimized.cpp) | G++ 13.2 x64 | games | O((M+L) ceil(N'/w)) | AC | 0.015 s | 132 KB | 11308397 |
-| [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.125 s | 440 KB | 11308400 |
+| [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.093 s | 400 KB | 11326947 |
 | [1087_games_bitmask.py](1087_games_bitmask.py) | Python 3.12 x64 | games, bitmask | O((M+L) ceil(N'/w)) | AC | 0.062 s | 456 KB | 11309361 |
 | [1087_games_optimized.rs](1087_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n·m) | AC | 0.031 s | 88 KB | 11325083 |
 | [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 284 KB | 11325650 |

@@ -69,6 +69,12 @@ sin cambios las cinco bases Accepted originales.
 
 ## Soluciones optimizadas
 
+`1087_games_optimized.java`. Conserva el DP escalar misère y las jugadas ordenadas. Tomar la última piedra pierde: se detiene en take>=left, sin usar el estado vacío como continuación ganadora. Basta la primera jugada hacia una posición no vacía perdedora. Un búfer numérico de 4096 bytes sustituye decodificación y tokenizer. Tiempo O(SK+K log K), espacio O(S+K) y búfer fijo; conserva la base.
+
+Accepted de fuente exacto Java 1.8 #11326947: 0.093 s / 400 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 6/60, memoria 2/60. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1087_games_optimized.java`: 0.093 s / 400 KB; base didáctica conservada `1087_games.java`: 0.109 s / 1652 KB; cambio de tiempo -14.7%; cambio de memoria -75.8%.
+
 `1087_games_optimized.go`. Mantiene DP misère, incluido estado cero ganador y corte en primer movimiento ganador. Un bit por posición en palabras uint64 sustituye bool; conserva K movimientos. O(NK) tiempo y O(N/64+K) palabras para N piedras. Buffers acotados de entrada de 256 bytes y salida de 64 usan syscall.Read/Write de Go 1.14, reintentan EINTR/escrituras parciales y tratan EOF de cero bytes. Elimina inicialización fmt/bufio/os.File. Pruebas Linux y compilación cruzada Windows validan funcionamiento y construcción; las métricas pareadas siguientes vienen de nuestro Accepted exacto en juez Windows. Se conserva fuente didáctica legible.
 
 Frente a `1087_games.go`: tiempo 0.031 s → 0.015 s; memoria 1092 KB → 284 KB.
@@ -78,7 +84,7 @@ El método Python con bits procesa las posiciones perdedoras en orden creciente 
 N' es la cantidad normalizada de piedras, M el número de jugadas, L las posiciones perdedoras y w la anchura de palabra del entero grande.
 
 - `1087_games_optimized.cpp`: 0.015 s / 132 KB; base `1087_games.cpp`: 0.015 s / 204 KB; cambio respecto a la base: tiempo -0.0%, memoria -35.3%.
-- `1087_games_optimized.java`: 0.125 s / 440 KB; base `1087_games.java`: 0.109 s / 1652 KB; cambio respecto a la base: tiempo +14.7%, memoria -73.4%.
+
 - `1087_games_bitmask.py`: 0.062 s / 456 KB; base `1087_games.py`: 0.093 s / 568 KB; cambio respecto a la base: tiempo -33.3%, memoria -19.7%.
 
 `1087_games_optimized.rs`. Conserva el DP escalar del juego y win[0]=true: quien toma la última piedra pierde. Guarda solo los m movimientos y n+1 estados booleanos, sin otro vector con toda la entrada analizada. Tiempo O(n·m), espacio de trabajo O(n+m); reduce la misma recurrencia, no utiliza el algoritmo de bits de algunas otras lenguas. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
@@ -112,7 +118,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1087_games_optimized.cpp](1087_games_optimized.cpp) | G++ 13.2 x64 | games | O((M+L) ceil(N'/w)) | AC | 0.015 s | 132 KB | 11308397 |
-| [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.125 s | 440 KB | 11308400 |
+| [1087_games_optimized.java](1087_games_optimized.java) \* | Java 1.8 | games | O((M+L) ceil(N'/w)) | AC | 0.093 s | 400 KB | 11326947 |
 | [1087_games_bitmask.py](1087_games_bitmask.py) | Python 3.12 x64 | games, bitmask | O((M+L) ceil(N'/w)) | AC | 0.062 s | 456 KB | 11309361 |
 | [1087_games_optimized.rs](1087_games_optimized.rs) \* | Rust 1.75 x64 | games | O(n·m) | AC | 0.031 s | 88 KB | 11325083 |
 | [1087_games_optimized.go](1087_games_optimized.go) \* | Go 1.14 x64 | games | O(NK) time; O(N/64+K) space | AC | 0.015 s | 284 KB | 11325650 |
