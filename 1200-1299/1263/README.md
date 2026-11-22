@@ -69,9 +69,9 @@ same count share the formatted line. The lines go out one by one through
 the buffered `sys.stdout.write` instead of being joined first: 856 KB
 instead of 1948 KB, with the same time.
 
-The optimized C++ solution parses the numbers with `getchar` instead of
-`scanf` and counts the votes in a fixed array of 16-bit counters: 128 KB
-instead of 252 KB, with the same time. The optimized Rust solution
+The C++ version uses 16 KB input/output buffers and fixed 16-bit vote counters. It formats each distinct count only once with snprintf, preserving the original floating-point rounding. The exact-source Accepted is 0.015 s / 160 KB, compared with 0.031 s / 252 KB for the teaching base. The previous optimized run used 0.031 s / 128 KB: the new paired measurement uses 32 KB more memory.
+
+The optimized Rust solution
 parses the numbers by hand from the bytes of the locked standard input
 instead of reading the whole input into a string, counts in 16-bit
 counters and writes through a 1 KB buffered writer: 252 KB instead of
@@ -100,9 +100,6 @@ counters and writes through a 1 KB buffered writer: 252 KB instead of
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [1263_implementation_optimized.cpp](1263_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.031 s | 128 KB | 11303730 |
+| [1263_implementation_optimized.cpp](1263_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.015 s | 160 KB | 11326634 |
 | [1263_implementation_optimized.py](1263_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N + M) | AC | 0.078 s | 856 KB | 11303586 |
 | [1263_implementation_optimized.rs](1263_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N + M) | AC | 0.015 s | 252 KB | 11303731 |
-
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.

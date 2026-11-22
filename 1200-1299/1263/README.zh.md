@@ -62,8 +62,9 @@ N 行百分数。
 数只格式化一次百分比，票数相同的候选人共用同一行结果。各行通过带缓冲的
 `sys.stdout.write` 逐行输出，而不是先拼接起来：856 KB，而不是 1948 KB，时间不变。
 
-优化的 C++ 解法用 `getchar` 而不是 `scanf` 解析数字，并用定长的 16 位计数器数组
-计票：128 KB，而不是 252 KB，时间不变。优化的 Rust 解法从加锁标准输入的字节中手
+C++ 版本使用各 16 KB 的输入、输出缓冲区和定长 16 位计票数组。每种不同票数仅用 snprintf 格式化一次，保留原有浮点舍入方式。精确源代码的 Accepted 指标为 0.015 s / 160 KB，教学基础版为 0.031 s / 252 KB。此前优化版本的指标为 0.031 s / 128 KB；新提交的配对指标使用了额外 32 KB 内存。
+
+优化的 Rust 解法从加锁标准输入的字节中手
 工解析数字，而不是把整个输入读成字符串，用 16 位计数器计票，并通过 1 KB 的带缓冲
 写入器输出：252 KB，而不是 468 KB，时间不变。
 
@@ -89,8 +90,6 @@ N 行百分数。
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
-| [1263_implementation_optimized.cpp](1263_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.031 s | 128 KB | 11303730 |
+| [1263_implementation_optimized.cpp](1263_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N + M) | AC | 0.015 s | 160 KB | 11326634 |
 | [1263_implementation_optimized.py](1263_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N + M) | AC | 0.078 s | 856 KB | 11303586 |
 | [1263_implementation_optimized.rs](1263_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N + M) | AC | 0.015 s | 252 KB | 11303731 |
-
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
