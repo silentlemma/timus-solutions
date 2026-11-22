@@ -73,7 +73,7 @@ lots
 
 `1785_implementation_optimized.go`. 保留九个固定军队名区间及包含式下界，用递减条件分支替代并行阈值、名称数组及下标查找，取首个匹配，含边界5,10,20,50,100,250,500,1000。不引入通用排序或搜索。输入1..2000、固定九种情况使时间和状态均为 O(1)，单词拼写不变。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
-与 `1785_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1080 KB → 796 KB。
+与 `1785_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1080 KB → 820 KB。
 
 `1785_implementation_optimized.py`. 保留九个固定军队名区间及包含式下界，用递减条件分支替代并行阈值、名称数组及下标查找，取首个匹配，含边界5,10,20,50,100,250,500,1000。不引入通用排序或搜索。输入1..2000、固定九种情况使时间和状态均为 O(1)，单词拼写不变。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
 
@@ -113,7 +113,7 @@ lots
 |----|----|----|-----|------|----|----|------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
-| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 820 KB | 11328304 |
 | [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

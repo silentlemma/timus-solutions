@@ -80,7 +80,7 @@ en cada n de 1 a 2000.
 
 `1785_implementation_optimized.go`. Conserva los nueve intervalos de nombres con iguales límites inferiores inclusivos. Usa condiciones descendentes en vez de arreglos paralelos e índice; elige la primera válida, incluidas fronteras5,10,20,50,100,250,500,1000. No introduce ordenación ni búsqueda general. Dominio1..2000 y nueve casos fijos dan O(1) tiempo y estado, con idénticas palabras. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
-Frente a `1785_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1080 KB → 796 KB.
+Frente a `1785_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1080 KB → 820 KB.
 
 `1785_implementation_optimized.py`. Conserva los nueve intervalos de nombres con iguales límites inferiores inclusivos. Usa condiciones descendentes en vez de arreglos paralelos e índice; elige la primera válida, incluidas fronteras5,10,20,50,100,250,500,1000. No introduce ordenación ni búsqueda general. Dominio1..2000 y nueve casos fijos dan O(1) tiempo y estado, con idénticas palabras. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
@@ -122,7 +122,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
-| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 820 KB | 11328304 |
 | [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

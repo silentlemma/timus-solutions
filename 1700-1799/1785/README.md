@@ -79,7 +79,7 @@ n from 1 to 2000.
 
 `1785_implementation_optimized.go`. Keep the nine fixed army-name intervals with the same inclusive lower bounds. Use descending conditional branches instead of parallel threshold/name arrays and an index search; choose the first matching word, including exact boundaries 5,10,20,50,100,250,500,1000. No general sorting or search algorithm is introduced. The domain 1..2000 and fixed nine cases give O(1) time and state; output spelling is unchanged. Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
 
-Compared with `1785_implementation.go`: time 0.031 s → 0.015 s; memory 1080 KB → 796 KB.
+Compared with `1785_implementation.go`: time 0.031 s → 0.015 s; memory 1080 KB → 820 KB.
 
 `1785_implementation_optimized.py`. Keep the nine fixed army-name intervals with the same inclusive lower bounds. Use descending conditional branches instead of parallel threshold/name arrays and an index search; choose the first matching word, including exact boundaries 5,10,20,50,100,250,500,1000. No general sorting or search algorithm is introduced. The domain 1..2000 and fixed nine cases give O(1) time and state; output spelling is unchanged. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -121,7 +121,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
-| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
+| [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 820 KB | 11328304 |
 | [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
