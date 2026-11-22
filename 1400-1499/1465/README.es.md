@@ -104,13 +104,17 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-Go calcula los mismos primeros200 Grundy y conserva el plegado periódico de la base Accepted. Un arreglo booleano256 sustituye el mapa por mex. Hasta200 posiciones hay hasta200 movimientos: mex≤200 y XOR de bytes≤255. Todo se calcula al ejecutar, sin lista de ganadores ni hipótesis periódica nueva. E/S acotada sustituye fmt. La precomputación fija no depende de N: consulta y espacio O(1). Se conservan bases; las otras cuatro familias reutilizan las admitidas.
+Go calcula los mismos primeros200 Grundy y conserva el plegado periódico de la base Accepted. Un arreglo booleano256 sustituye el mapa por mex. Hasta200 posiciones hay hasta200 movimientos: mex≤200 y XOR de bytes≤255. Todo se calcula al ejecutar, sin lista de ganadores ni hipótesis periódica nueva. E/S acotada sustituye fmt. La precomputación fija no depende de N: consulta y espacio O(1).
 
-Las implementaciones base aceptadas [1465_games.cpp](1465_games.cpp), [1465_games.java](1465_games.java), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Las implementaciones base aceptadas [1465_games.cpp](1465_games.cpp), [1465_games.py](1465_games.py), [1465_games.rs](1465_games.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
 `1465_games_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
 
 Frente a `1465_games.java`: tiempo 0.140 s → 0.14 s; memoria 1720 KB → 668 KB.
+
+`1465_games_bitmask.java`. El generador calcula los valores de Grundy para cada longitud. Examina las jugadas legales, combina mediante XOR los valores de los dos segmentos restantes y toma el mex de los resultados alcanzables. Verifica el período de 34 desde la longitud 52 hasta el paso inductivo. Para filas mayores, añadir o quitar 34 columnas en un segmento suficientemente largo conserva su valor de Grundy y empareja las opciones en ambos sentidos. Las negras ganan para los residuos 4, 8, 20, 24 y 28 módulo 34 y para dos longitudes adicionales, 14 y 34. Java lee la anchura y comprueba un bit de la máscara en tiempo y espacio O(1). [Generador de la máscara y las dos excepciones](1465_games_bitmask_table.py).
+
+En Java 1.8, la versión sencilla empleó 0.140 s y 1720 KB, y la versión con búfer empleó 0.14 s y 668 KB. El envío #11328151 registró 0.093 s y 340 KB. Frente a los otros 24 autores de la muestra de Java 1.8, ocupa el puesto 1/25 en tiempo y el 1/25 en memoria, contando los empates en el mismo puesto.
 
 ## Soluciones
 
@@ -130,5 +134,6 @@ Frente a `1465_games.java`: tiempo 0.140 s → 0.14 s; memoria 1720 KB → 668 K
 |---|---|---|---|---|---|---|---|
 | [1465_games_optimized.go](1465_games_optimized.go) \* | Go 1.14 x64 | games | O(1) | AC | 0.031 s | 308 KB | 11315353 |
 | [1465_games_optimized.java](1465_games_optimized.java) \* | Java 1.8 | games | O(1) | AC | 0.14 s | 668 KB | 11324821 |
+| [1465_games_bitmask.java](1465_games_bitmask.java) | Java 1.8 | games, bitmask | O(1) | AC | 0.093 s | 340 KB | 11328151 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
