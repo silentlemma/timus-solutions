@@ -59,6 +59,12 @@ exacta.
 
 ## Soluciones optimizadas
 
+`1404_implementation_optimized.py`. Python conserva las primeras diferencias inversas in situ. Recorre desde el último byte cifrado hacia el primero para no sobrescribir el anterior; reduce diferencias módulo 26 y deshace el desplazamiento inicial de cinco en la primera letra. Entrada binaria y bytearray sustituyen Unicode y recodificación; añade salto de línea, escribe una vez y sale dentro de main sin impresión TextIO. Tiempo y espacio O(N). Sin listas de enteros de zip ni tablas de respuestas; conserva la base didáctica.
+
+Accepted exacto Python 3.12 x64 #11327543: 0.062 s / 648 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/66, memoria 47/66. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324337 (Python 3.12 x64) era 0.078 s / 316 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1404_implementation_optimized.py`: 0.062 s / 648 KB; base didáctica conservada `1404_implementation.py`: 0.078 s / 352 KB.
+
 Las soluciones optimizadas (C++, Java) descifran las letras una a una a
 medida que las leen con `getchar` y `System.in.read` en lugar de
 `iostream` y `Scanner`, sin guardar la palabra como cadena: C++ imprime
@@ -67,8 +73,6 @@ cada letra enseguida con `putchar`, Java las reúne en un arreglo de
 `(code − previous + 26) % 26`, que nunca es negativa. C++ ocupa 84 KB en
 lugar de 360 KB y Java 328 KB en lugar de 1612 KB, ambas con el mismo
 tiempo.
-
-Decodificar el arreglo de bytes de derecha a izquierda para que el byte codificado anterior siga disponible cuando se necesita. El envío aceptado 11324337 tardó 0.078 s y usó 316 KB. La versión sencilla tardó 0.078 s y usó 352 KB.
 
 ## Soluciones
 
@@ -88,6 +92,6 @@ Decodificar el arreglo de bytes de derecha a izquierda para que el byte codifica
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 316 KB | 11324337 |
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

@@ -53,13 +53,17 @@ secret
 
 ## 优化解法
 
+`1404_implementation_optimized.py`. Python 保留原地逆序一阶差分。从最后一个密文字节向前处理，保证前一密文字节未被改写；差值模 26，首字母另去掉初始偏移五。二进制输入和 bytearray 替代 Unicode 解码与重新编码；加换行后一次写出，并在 main 内退出，不使用 TextIO 打印或刷新。时间 O(N)，存储 O(N)。不创建 zip 整数列表或答案表，保留教学版。
+
+精确源代码 Python 3.12 x64 Accepted #11327543：0.062 s / 648 KB。2026-11-20 保存的编译器组比较：时间 1/66、内存 47/66。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324337（Python 3.12 x64）为 0.078 s / 316 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1404_implementation_optimized.py`: 0.062 s / 648 KB; 保留教学基础版 `1404_implementation.py`: 0.078 s / 352 KB.
+
 优化解法（C++、Java）用 `getchar` 和 `System.in.read`（而不是 `iostream` 和
 `Scanner`）一边读一边逐个解密字母，不把单词存成字符串：C++ 用 `putchar` 立即输出
 每个字母，Java 把它们收集到 101 字节的数组中一次写出。模 26 的差取为
 `(code − previous + 26) % 26`，它永远不会是负数。C++ 为 84 KB，而不是 360 KB；
 Java 为 328 KB，而不是 1612 KB；两者时间都不变。
-
-从右向左原地解码字节数组，保证用到的前一个编码字节尚未被覆盖。通过的提交 11324337 用时 0.078 秒、占用 316 KB；简单版用时 0.078 秒、占用 352 KB。
 
 ## 解答
 
@@ -79,6 +83,6 @@ Java 为 328 KB，而不是 1612 KB；两者时间都不变。
 |----|----|----|-----|------|----|----|------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 316 KB | 11324337 |
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。

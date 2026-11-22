@@ -59,6 +59,12 @@ comparison.
 
 ## Optimized solutions
 
+`1404_implementation_optimized.py`. Python keeps reverse in-place first differences. Work from the last encrypted byte toward the first so the preceding encrypted value is still intact; reduce each difference modulo 26, then undo the initial shift of five on the first letter. Binary input and a bytearray replace Unicode decoding and re-encoding; append a newline, write the bytes once and exit inside main without TextIO printing or flushing. Time O(N), storage O(N). No zip-created integer lists or answer lookup are used; the teaching version remains.
+
+Exact-source Python 3.12 x64 Accepted #11327543: 0.062 s / 648 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/66, memory 47/66. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11324337 (Python 3.12 x64) was 0.078 s / 316 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1404_implementation_optimized.py`: 0.062 s / 648 KB; retained teaching base `1404_implementation.py`: 0.078 s / 352 KB.
+
 The optimized solutions (C++, Java) decode the letters one by one as
 they are read with `getchar` and `System.in.read` instead of `iostream`
 and `Scanner`, without storing the word as a string: C++ prints each
@@ -67,8 +73,6 @@ letter at once with `putchar`, Java collects them in a byte array of
 as `(code − previous + 26) % 26`, which is never negative. C++ takes
 84 KB instead of 360 KB and Java 328 KB instead of 1612 KB, both with
 the same time.
-
-Decode the byte array from right to left so each preceding encoded byte is still available when it is needed. Accepted submission 11324337 took 0.078 s and used 316 KB. The simple version took 0.078 s and used 352 KB.
 
 ## Solutions
 
@@ -88,6 +92,6 @@ Decode the byte array from right to left so each preceding encoded byte is still
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 316 KB | 11324337 |
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
 
 \* The marked solutions can improve their target rankings.
