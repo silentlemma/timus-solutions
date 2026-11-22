@@ -81,7 +81,11 @@
 
 ## 优化解法
 
-紧凑的 Python 版本使用相同的前缀和算法。用稠密数组记录首次出现的位置，零表示余数尚未出现。位置和输入值都可用 16 位无符号整数保存。读到首个重复余数时输出对应的连续区间。时间和额外空间均为 O(N)。通过评测的提交使用 1068 KB，基础版使用 2608 KB，内存减少 59.0%。耗时从 0.093 秒增至 0.109 秒。
+`1032_prefix_sums_optimized.py`. Python 保留首个重复前缀余数算法。首次位置和已读数值均用 unsigned-short 数组：N<=10000、数值<=15000，偏移位置也可放入 16 位。零表示未出现，预先记录空前缀。相同余数给出和能被 N 整除的连续证据区间。输出长度，再以至多 512 项分块输出，限制临时拼接字符串，不构建完整证据字符串。在 main 内退出前刷新 stdout，此时两数组仍存活。时间 O(N)，存储 O(N) 加有界输出块。教学版不变。
+
+精确源代码 Python 3.12 x64 Accepted #11327433：0.078 s / 820 KB。2026-11-20 保存的编译器组比较：时间 1/51、内存 1/51。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11310314（Python 3.12 x64）为 0.109 s / 1068 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1032_prefix_sums_optimized.py`: 0.078 s / 820 KB; 保留教学基础版 `1032_prefix_sums.py`: 0.093 s / 2608 KB.
 
 已通过评测的基础实现 [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
@@ -111,7 +115,7 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) time; O(N) storage + bounded output chunk | AC | 0.078 s | 820 KB | 11327433 |
 | [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

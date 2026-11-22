@@ -89,7 +89,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La versión compacta en Python usa el mismo algoritmo de sumas de prefijos. Un arreglo denso guarda las primeras posiciones y reserva el cero para restos aún no vistos. Las posiciones y los valores caben en enteros sin signo de 16 bits. Lee hasta el primer resto repetido e imprime el bloque correspondiente. El tiempo y el espacio adicional son O(N). El envío aceptado usó 1068 KB en lugar de 2608 KB, un 59,0% menos. El tiempo subió de 0,093 s a 0,109 s.
+`1032_prefix_sums_optimized.py`. Python conserva el primer resto prefijo repetido módulo N. Guarda posiciones iniciales y valores en arreglos unsigned-short: N<=10000, valores<=15000 y posiciones desplazadas caben en 16 bits. Cero significa no visto y registra antes el prefijo vacío. Restos iguales dan un bloque contiguo cuya suma es divisible por N. Imprime longitud y valores en bloques de hasta 512, sin construir toda la cadena del testigo. Vacía stdout antes de salir dentro de main con ambos arreglos vivos. Tiempo O(N), espacio O(N) más bloque de salida acotado. La base didáctica no cambia.
+
+Accepted exacto Python 3.12 x64 #11327433: 0.078 s / 820 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/51, memoria 1/51. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11310314 (Python 3.12 x64) era 0.109 s / 1068 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1032_prefix_sums_optimized.py`: 0.078 s / 820 KB; base didáctica conservada `1032_prefix_sums.py`: 0.093 s / 2608 KB.
 
 Las implementaciones base aceptadas [1032_prefix_sums.cpp](1032_prefix_sums.cpp), [1032_prefix_sums.go](1032_prefix_sums.go), [1032_prefix_sums.java](1032_prefix_sums.java), [1032_prefix_sums.rs](1032_prefix_sums.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
@@ -119,7 +123,7 @@ La misma pasada en todos los lenguajes.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N) | AC | 0.109 s | 1068 KB | 11310314 |
+| [1032_prefix_sums_optimized.py](1032_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N) time; O(N) storage + bounded output chunk | AC | 0.078 s | 820 KB | 11327433 |
 | [1032_prefix_sums_optimized.java](1032_prefix_sums_optimized.java) \* | Java 1.8 | prefix_sums | O(N) | AC | 0.109 s | 592 KB | 11325005 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
