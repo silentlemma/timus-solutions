@@ -56,6 +56,12 @@ m 块牌分成 n − m + 1 组，所以相邻相同的对数至少为 max(0, 2m 
 
 ## 优化解法
 
+`1604_constructive.py`. 不同构造算法无需堆。选最高频类别 A。f_A≤ceil(T/2) 时先填 A 的偶数槽，其他类别填剩余偶数/奇数槽；频次均≤f_A，跨越的组不会邻接自身偶数段。A 占多数时先输出 2f_A−T 个 A，再将每个其他标志与 A 交替，恰达不可避免下界 max(0,2f_A−T−1) 相邻相同。接受任意最优见证，不限堆顺序。K,T≤10000，计数与编号容于 uint16；512 字节输入和 128 编号输出块限制临时内存。O(K+T) 时间空间，无排序索引数组。保留教学堆与优化堆版。所选精确 CPython 为 0.062 s/944 KB。
+
+精确源码：Python 3.12 x64 Accepted #11327876: 0.062 s / 944 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/112; 1/112。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11304460 (Python 3.12 x64): 0.093 s / 1028 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1604_constructive.py`: 0.062 s / 944 KB; 保留教学版 `1604_greedy.py` (Python 3.12 x64): 0.093 s / 1776 KB.
+
 优化的 C++ 解法把种类和它的剩余数量压进一个 `int`：数量·2¹⁴ + 种类。两者都不超
 过 10000，小于 2¹⁴ = 16384，所以两个字段不会重叠，比较压缩后的数就是先比数量、再
 比种类，与比较二元组相同。堆是一个容纳 10000 个这种数的固定数组，用
@@ -115,6 +121,7 @@ lambda 第一次使用时会加载运行时的额外机制。放置一个种类�
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
 | [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
+| [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
 | [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -69,6 +69,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1604_constructive.py`. A different constructive algorithm avoids the heap. Choose a most numerous kind A. When f_A≤ceil(T/2), place its copies in even slots first and fill the remaining even/odd slots by the other kinds; each remaining frequency is at most f_A, so a wrapped group cannot meet its own even segment. When A dominates, begin with 2f_A−T copies of A, then alternate each remaining sign with A; the equal-neighbor count is exactly max(0,2f_A−T−1), matching the unavoidable lower bound. This linear construction accepts any optimal witness, not only the heap order. Uint16 counters and answer IDs fit because K,T≤10000; 512-byte input blocks and 128-ID output blocks bound temporary memory. O(K+T) time and O(K+T) storage, with no sorted index array. Preserve both heap teaching and optimized heap sources. The selected exact CPython receipt is 0.062 s/944 KB.
+
+Exact-source Python 3.12 x64 Accepted #11327876: 0.062 s / 944 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 1/112; 1/112. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. Both metrics rank first; no asterisk. The preserved previous variant has its own paired receipt #11304460 (Python 3.12 x64): 0.093 s / 1028 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1604_constructive.py`: 0.062 s / 944 KB; retained teaching base `1604_greedy.py` (Python 3.12 x64): 0.093 s / 1776 KB.
+
 The optimized C++ solution packs a kind and its count into one `int`,
 count·2¹⁴ + kind: both are at most 10000, below 2¹⁴ = 16384, so the two
 fields never overlap, and comparing the packed numbers compares first
@@ -146,6 +152,7 @@ asterisk concerns the rating target only.
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
 | [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
+| [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
 | [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

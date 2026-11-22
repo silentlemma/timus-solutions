@@ -70,6 +70,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1604_constructive.py`. Construcción distinta sin heap. Elige clase A más frecuente. Si f_A≤ceil(T/2), coloca A primero en posiciones pares y otros en pares/impares restantes; frecuencias≤f_A evitan que grupo que cruza toque su propio tramo par. Si domina, empieza con 2f_A−T copias de A y alterna cada otro signo con A: logra cota inevitable max(0,2f_A−T−1) vecinos iguales. Cualquier testigo óptimo sirve, sin exigir orden del heap. K,T≤10000 caben en contadores/IDs uint16; entrada de 512 bytes y salida por 128 IDs acotan temporales. O(K+T) tiempo/espacio, sin índice ordenado. Conserva heap didáctico y optimizado. CPython elegido 0.062 s/944 KB.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327876: 0.062 s / 944 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/112; 1/112. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11304460 (Python 3.12 x64): 0.093 s / 1028 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1604_constructive.py`: 0.062 s / 944 KB; base didáctica conservada `1604_greedy.py` (Python 3.12 x64): 0.093 s / 1776 KB.
+
 La solución optimizada en C++ empaqueta un tipo y su cuenta en un solo
 `int`, cuenta·2¹⁴ + tipo: los dos valen como mucho 10000, menos que
 2¹⁴ = 16384, así que los campos no se solapan, y comparar los números
@@ -147,6 +153,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1604_greedy_optimized.go](1604_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n log k) | AC | 0.015 s | 1108 KB | 11304458 |
 | [1604_greedy_optimized.java](1604_greedy_optimized.java) \* | Java 1.8 | greedy | O(n log k) | AC | 0.125 s | 1232 KB | 11304459 |
 | [1604_greedy_optimized.py](1604_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(n log k) | AC | 0.093 s | 1028 KB | 11304460 |
+| [1604_constructive.py](1604_constructive.py) | Python 3.12 x64 | constructive | O(K+T) time and storage | AC | 0.062 s | 944 KB | 11327876 |
 | [1604_greedy_optimized.rs](1604_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(n log k) | AC | 0.062 s | 452 KB | 11304461 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
