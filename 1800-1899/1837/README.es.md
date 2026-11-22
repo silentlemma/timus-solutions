@@ -80,6 +80,12 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`1837_bfs_optimized.py`. Conserva BFS exacto entre compañeros y salida ordenada por apellido. Apellidos como bytes, tokens por flujo y sets para deduplicar aristas reales; lista creciente de descubrimientos como cola. Sin autoaristas para las tres personas distintas de un equipo válido. Desconectados undefined; sin Isenbaev no inicia BFS. O(V+E) esperado más O(V log V) ordenación con nombres acotados; mantiene versión legible.
+
+Accepted exacto CPython 3.12 #11326689: 0.078 s / 648 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 5/106, memoria 31/106. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1837_bfs_optimized.py`: 0.078 s / 648 KB; base didáctica conservada `1837_bfs.py` (Python 3.12 x64): 0.093 s / 604 KB; cambio de tiempo -16.1%; cambio de memoria +7.3%.
+
 Las soluciones optimizadas en C++, Java y Rust hacen la misma búsqueda
 en anchura, pero sobre números en lugar de nombres. Cada nombre recibe
 un número la primera vez que aparece, guardado en un mapa ordenado para
@@ -97,8 +103,6 @@ sobre un búfer de 1 KB en lugar de `fmt.Fscan` y los numera en una tabla
 hash, así que el grafo guarda `int` en lugar de cadenas, y ordena los
 nombres antes de imprimir: 964 KB en lugar de 1420 KB, con el mismo
 tiempo.
-
-Guardar los compañeros de equipo en listas y añadir cada vértice descubierto a la lista que sirve de cola del BFS. El envío aceptado 11302148 tardó 0.093 s y usó 532 KB. La versión sencilla tardó 0.093 s y usó 604 KB.
 
 ## Soluciones
 
@@ -120,7 +124,6 @@ Guardar los compañeros de equipo en listas y añadir cada vértice descubierto 
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
-| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 532 KB | 11302148 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.078 s | 648 KB | 11326689 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

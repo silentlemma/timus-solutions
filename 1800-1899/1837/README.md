@@ -78,6 +78,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1837_bfs_optimized.py`. Keep exact teammate BFS and surname-sorted output. Retain surnames as bytes, stream team tokens, and use sets to deduplicate actual teammate edges; the BFS queue is a growing discovery list. No self edges are introduced for the three distinct people of a valid team. Disconnected contestants retain undefined, and a missing Isenbaev starts no BFS. Expected O(V+E) graph work plus O(V log V) sorting with bounded name lengths; retain the readable string version.
+
+Exact-source CPython 3.12 Accepted #11326689: 0.078 s / 648 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 5/106, memory rank 31/106. Below 1024 KB, strict admission uses time only.
+
+- `1837_bfs_optimized.py`: 0.078 s / 648 KB; retained teaching base `1837_bfs.py` (Python 3.12 x64): 0.093 s / 604 KB; time change -16.1%; memory change +7.3%.
+
 The optimized C++, Java and Rust solutions run the same breadth-first
 search, but on numbers instead of names. Each name gets a number the
 first time it is seen, kept in an ordered map so that the output stays
@@ -93,8 +99,6 @@ The optimized Go solution reads the names with a word scanner over a
 1 KB buffer instead of `fmt.Fscan` and numbers them in a hash map, so
 the graph holds `int`s instead of strings, and sorts the names before
 printing: 964 KB instead of 1420 KB, with the same time.
-
-Store team neighbours in lists and append discoveries to the list used as the BFS queue. Accepted submission 11302148 took 0.093 s and used 532 KB. The simple version took 0.093 s and used 604 KB.
 
 ## Solutions
 
@@ -116,7 +120,6 @@ Store team neighbours in lists and append discoveries to the list used as the BF
 | [1837_bfs_optimized.go](1837_bfs_optimized.go) | Go 1.14 x64 | bfs | O(n log n) | AC | 0.031 s | 964 KB | 11303796 |
 | [1837_bfs_optimized.java](1837_bfs_optimized.java) | Java 1.8 | bfs | O(n log n) | AC | 0.109 s | 656 KB | 11303642 |
 | [1837_bfs_optimized.rs](1837_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(n log n) | AC | 0.031 s | 264 KB | 11303643 |
-| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.093 s | 532 KB | 11302148 |
+| [1837_bfs_optimized.py](1837_bfs_optimized.py) \* | Python 3.12 x64 | bfs | O(n log n) | AC | 0.078 s | 648 KB | 11326689 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

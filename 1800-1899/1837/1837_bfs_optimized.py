@@ -1,29 +1,34 @@
 import sys
 
-CHAMPION = "Isenbaev"
-TEAM = 3
+CHAMPION = b"Isenbaev"
 
 
 def main():
-    tokens = sys.stdin.buffer.read().decode().split()
-    teams = int(tokens[0])
-    members = tokens[1:]
+    source = sys.stdin.buffer
+    teams = int(source.readline())
     mates = {}
-    for t in range(teams):
-        team = members[TEAM * t : TEAM * (t + 1)]
-        for name in team:
-            mates.setdefault(name, []).extend(team)
-    # breadth-first search from the champion over shared teams
-    number = {}
+    tokens = (word for line in source for word in line.split())
+    for _ in range(teams):
+        a, b, c = next(tokens), next(tokens), next(tokens)
+        mates.setdefault(a, set()).update((b, c))
+        mates.setdefault(b, set()).update((a, c))
+        mates.setdefault(c, set()).update((a, b))
+    distance = {}
     if CHAMPION in mates:
-        number[CHAMPION] = 0
+        distance[CHAMPION] = 0
         queue = [CHAMPION]
         for name in queue:
+            next_distance = distance[name] + 1
             for mate in mates[name]:
-                if mate not in number:
-                    number[mate] = number[name] + 1
+                if mate not in distance:
+                    distance[mate] = next_distance
                     queue.append(mate)
-    print("\n".join(f"{name} {number.get(name, 'undefined')}" for name in sorted(mates)))
+    output = []
+    for name in sorted(mates):
+        value = distance.get(name)
+        text = b"undefined" if value is None else str(value).encode()
+        output.append(name + b" " + text)
+    sys.stdout.buffer.write(b"\n".join(output) + b"\n")
 
 
 main()
