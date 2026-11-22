@@ -61,6 +61,18 @@
 
 ## 优化解法
 
+`1079_number_theory.java`. 以 Stern 序列二进制前缀搜索替代整段 DP。相邻值 (a,b) 遇零变 (a,a+b)，遇一变 (a+b,b)。较小前缀分支用 Fibonacci 系数求余位最大值，也包含最终精确前缀。17 位上界仅需十九个 Fibonacci 数，并非答案表。每查询 O(log N) 算术，O(log Nmax) 小型预处理及 4096 字节有界输入输出。保留旧 DP。
+
+精确源码：Java 1.8 Accepted #11327743: 0.093 s / 408 KB。2026-11-20 保存的编译器组排名，时间然后内存：17/298; 1/298。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11304027 (Java 1.8): 0.109 s / 728 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1079_number_theory.java`: 0.093 s / 408 KB; 保留教学版 `1079_dp.java` (Java 1.8): 0.125 s / 2364 KB.
+
+`1079_number_theory.py`. 独立数论算法以 O(log n) 求 Stern 前缀最大值，不建 100000 项 DP。沿 n 的二进制前缀跟踪相邻 Stern 数；遇到一位时，较小的零分支不再受约束，其最大值是相邻数的 Fibonacci 加权组合。继续一分支用 a+=b，零位用 b+=a；末位后包括精确端点。n<=99999 只需按递推生成 19 个 Fibonacci 数，并非答案表；查询输入输出存储另计。保留原 DP 和压缩优化 DP。
+
+精确源代码 CPython 3.12 Accepted #11326678：0.062 s / 456 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/97，内存排名 1/97。低于 1024 KB，严格收录只看时间。
+
+- `1079_number_theory.py`: 0.062 s / 456 KB; 保留的教学基础版 `1079_dp.py` (Python 3.12 x64): 0.125 s / 3280 KB; 时间变化 -50.4%; 内存变化 -86.1%.
+
 优化的 C++ 解法只保存下标不超过 50 000 的项，因为下标不超过 99 999 的递推式不会
 用到更靠后的项；项和前缀最大值都用 16 位整数存储，这就够了，因为 99 999 以内没有
 超过 2584 的项：{1079_dp_optimized.cpp}。
@@ -120,6 +132,8 @@
 | [1079_dp_optimized.cpp](1079_dp_optimized.cpp) \* | G++ 13.2 x64 | dp | O(N) | AC | 0.031 s | 416 KB | 11304025 |
 | [1079_dp_optimized.go](1079_dp_optimized.go) \* | Go 1.14 x64 | dp | O(N) | AC | 0.031 s | 1224 KB | 11304026 |
 | [1079_dp_optimized.java](1079_dp_optimized.java) \* | Java 1.8 | dp | O(N) | AC | 0.109 s | 728 KB | 11304027 |
+| [1079_number_theory.java](1079_number_theory.java) \* | Java 1.8 | number_theory | O(log N) per query; O(log Nmax) precomputation | AC | 0.093 s | 408 KB | 11327743 |
+| [1079_number_theory.py](1079_number_theory.py) | Python 3.12 x64 | number_theory | O(log n) per query; O(log max n) algorithm state | AC | 0.062 s | 456 KB | 11326678 |
 | [1079_dp_optimized.py](1079_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.140 s | 772 KB | 11304028 |
 | [1079_dp_optimized.rs](1079_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 520 KB | 11304337 |
 
