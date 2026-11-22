@@ -27,8 +27,6 @@ Se compara el valor numérico con la tolerancia indicada y las cotas de redondeo
 
 - `1984_geometry_optimized.cpp` (G++ 13.2 x64): 16 pruebas del repositorio.
 
-- `1984_geometry_optimized.java` (Java 1.8): 16 pruebas del repositorio.
-
 - `1984_geometry_optimized.py` (PyPy 3.10 x64): 16 pruebas del repositorio; 10 comparaciones adicionales de fuente exacta.
 
 ## Ejemplos
@@ -82,10 +80,16 @@ Trampas:
 
 ## Soluciones optimizadas
 
+`1984_geometry_optimized.java`. Conserva radio 1 para N=1 y 1+1/sin(π/N) con el mismo Math.sin. Analiza el entero acotado y emite la representación double reversible, sin inicializar Formatter/Locale. No cambia geometría ni sustituye seno por aproximación. Trabajo/estado numérico O(1); conserva la fórmula sencilla.
+
+Accepted de fuente exacto Java 1.8 #11326960: 0.078 s / 460 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 1/53, memoria 2/53. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `1984_geometry_optimized.java`: 0.078 s / 460 KB; base didáctica conservada `1984_geometry.java`: 0.125 s / 1796 KB; cambio de tiempo -37.6%; cambio de memoria -74.4%.
+
 El radio sigue siendo 1 si N = 1, o 1 + 1/sin(pi/N). C++/Java reducen E/S manteniendo la fórmula de biblioteca. Python evalúa el seno hasta x^13 en forma Horner, con seis cocientes factoriales constantes, no una tabla de respuestas. Para 2 <= N <= 10, 0 < x<=pi/2 y el siguiente término alterno x^15/15!<7e-10; sin(pi/N)>=sin(pi/10)>0,3, así que el error del radio<10^-8. Seis decimales por salida entera añaden como máximo medio micro: sigue dentro de 10^-6 absoluto. Los diez N legales se contrastaron con seno de biblioteca independiente. Límites fijos: O(1) de tiempo y espacio, conservando N=1.
 
 - `1984_geometry_optimized.cpp`: 0.015 s / 120 KB; base `1984_geometry.cpp`: 0.015 s / 444 KB; cambio respecto a la base: tiempo -0.0%, memoria -73.0%.
-- `1984_geometry_optimized.java`: 0.125 s / 540 KB; base `1984_geometry.java`: 0.125 s / 1796 KB; cambio respecto a la base: tiempo -0.0%, memoria -69.9%.
+
 - `1984_geometry_optimized.py`: 0.109 s / 276 KB; base `1984_geometry.py`: 0.078 s / 396 KB; cambio respecto a la base: tiempo +39.7%, memoria -30.3%.
 
 `1984_geometry_optimized.rs`. Conserva la fórmula del radio para colocar los círculos: un círculo requiere radio 1; en otro caso, 1+1/sin(PI/N). Calcula en f64 e imprime diez decimales directamente con estado numérico constante. Tiempo y espacio auxiliar O(1). Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
@@ -117,7 +121,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1984_geometry_optimized.cpp](1984_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 120 KB | 11308253 |
-| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 540 KB | 11308258 |
+| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.078 s | 460 KB | 11326960 |
 | [1984_geometry_optimized.py](1984_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.109 s | 276 KB | 11309752 |
 | [1984_geometry_optimized.rs](1984_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 88 KB | 11325118 |
 

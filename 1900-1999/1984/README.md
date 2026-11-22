@@ -27,8 +27,6 @@ Compare numerical output with the stated tolerance, including the rounding bound
 
 - `1984_geometry_optimized.cpp` (G++ 13.2 x64): 16 repository cases.
 
-- `1984_geometry_optimized.java` (Java 1.8): 16 repository cases.
-
 - `1984_geometry_optimized.py` (PyPy 3.10 x64): 16 repository cases; 10 additional source-bound comparisons.
 
 ## Examples
@@ -83,10 +81,16 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1984_geometry_optimized.java`. Keep radius 1 for N=1 and 1+1/sin(π/N) otherwise, using the same Math.sin. Parse the bounded integer directly and print the round-trip double representation instead of initializing Formatter/Locale. This avoids decimal-format machinery without changing the geometry or replacing library sine by an approximation. O(1) numeric work/state; retain the simple formula source.
+
+Exact-source Java 1.8 Accepted #11326960: 0.078 s / 460 KB. Saved current-Java comparison, 2026-11-20: time rank 1/53, memory rank 2/53. With memory below 1024 KB, strict admission uses time only.
+
+- `1984_geometry_optimized.java`: 0.078 s / 460 KB; retained teaching base `1984_geometry.java`: 0.125 s / 1796 KB; time change -37.6%; memory change -74.4%.
+
 The computed radius is 1 for N=1, otherwise 1 + 1/sin(pi/N). C++/Java reduce standard input/output overhead while retaining the library formula. Python evaluates the sine polynomial through x^13 in Horner form, using six fixed factorial-ratio denominators, not an answer table. For 2 <= N <= 10, 0 < x<=pi/2 and the next alternating term x^15/15! is below 7e-10; sin(pi/N)>=sin(pi/10)>0.3, so radius error is below 10^-8. Six-decimal integer output adds at most half a micro-unit, remaining within 10^-6 absolute tolerance. All ten legal N were checked against an independent library-sine oracle. Fixed bounds give O(1) time and storage; the N = 1 exception remains explicit.
 
 - `1984_geometry_optimized.cpp`: 0.015 s / 120 KB; base `1984_geometry.cpp`: 0.015 s / 444 KB; relative change: time -0.0%, memory -73.0%.
-- `1984_geometry_optimized.java`: 0.125 s / 540 KB; base `1984_geometry.java`: 0.125 s / 1796 KB; relative change: time -0.0%, memory -69.9%.
+
 - `1984_geometry_optimized.py`: 0.109 s / 276 KB; base `1984_geometry.py`: 0.078 s / 396 KB; relative change: time +39.7%, memory -30.3%.
 
 `1984_geometry_optimized.rs`. Retain the circle-packing radius formula: one circle needs radius 1; otherwise use 1+1/sin(PI/N). Compute in f64 and print ten fractional digits directly, with constant numeric state. Time and auxiliary space are O(1). Rust uses the C runtime for input/output, avoiding full decoded input/output String values and Rust formatting. The simple accepted source remains unchanged.
@@ -118,7 +122,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1984_geometry_optimized.cpp](1984_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 120 KB | 11308253 |
-| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 540 KB | 11308258 |
+| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.078 s | 460 KB | 11326960 |
 | [1984_geometry_optimized.py](1984_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.109 s | 276 KB | 11309752 |
 | [1984_geometry_optimized.rs](1984_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 88 KB | 11325118 |
 

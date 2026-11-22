@@ -24,8 +24,6 @@
 
 - `1984_geometry_optimized.cpp` (G++ 13.2 x64): 16个仓库测试.
 
-- `1984_geometry_optimized.java` (Java 1.8): 16个仓库测试.
-
 - `1984_geometry_optimized.py` (PyPy 3.10 x64): 16个仓库测试; 10个额外精确源码比较.
 
 ## 样例
@@ -64,10 +62,16 @@
 
 ## 优化解法
 
+`1984_geometry_optimized.java`. 保留 N=1 时半径 1，否则 1+1/sin(π/N)，仍用 Math.sin。直接解析有界整数，以可往返还原的 double 表示输出，不初始化 Formatter/Locale。省去通用十进制格式子系统，不改变几何，也不替换库正弦为近似。数值工作和状态 O(1)，保留简单公式版。
+
+精确源代码 Java 1.8 Accepted #11326960：0.078 s / 460 KB。2026-11-20 保存的当前 Java 比较：时间排名 1/53，内存排名 2/53。内存低于 1024 KB，严格收录只看时间。
+
+- `1984_geometry_optimized.java`: 0.078 s / 460 KB; 保留的教学基础版 `1984_geometry.java`: 0.125 s / 1796 KB; 时间变化 -37.6%; 内存变化 -74.4%.
+
 半径公式仍为N=1时1，否则1+1/sin(pi/N)。C++/Java减少标准I/O开销，保留库公式。Python用Horner形式算到x^13的正弦多项式，只含六个固定阶乘比，并非答案表。2<=N<=10时0<x<=pi/2，下个交错项x^15/15!<7e-10；sin(pi/N)>=sin(pi/10)>0.3，因此半径误差<10^-8。六位十进制整数输出再增加至多半个百万分之一，仍满足10^-6绝对容差。全部十个合法N与独立库正弦对照。固定边界下时间、空间O(1)，明确保留N=1特例。
 
 - `1984_geometry_optimized.cpp`: 0.015 s / 120 KB; 基础 `1984_geometry.cpp`: 0.015 s / 444 KB; 相对变化: 时间 -0.0%, 内存 -73.0%.
-- `1984_geometry_optimized.java`: 0.125 s / 540 KB; 基础 `1984_geometry.java`: 0.125 s / 1796 KB; 相对变化: 时间 -0.0%, 内存 -69.9%.
+
 - `1984_geometry_optimized.py`: 0.109 s / 276 KB; 基础 `1984_geometry.py`: 0.078 s / 396 KB; 相对变化: 时间 +39.7%, 内存 -30.3%.
 
 `1984_geometry_optimized.rs`. 保留圆形排列的半径公式：一个圆时半径为 1，否则为 1+1/sin(PI/N)。使用 f64 计算并直接输出十位小数，只保存常数数值状态。时间及额外空间均为 O(1)。 Rust 通过 C 运行库输入输出，避免完整的解码输入输出 String 和 Rust 格式化。简单且已通过评测的源代码保持不变。
@@ -99,7 +103,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1984_geometry_optimized.cpp](1984_geometry_optimized.cpp) | G++ 13.2 x64 | geometry | O(1) | AC | 0.015 s | 120 KB | 11308253 |
-| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 540 KB | 11308258 |
+| [1984_geometry_optimized.java](1984_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.078 s | 460 KB | 11326960 |
 | [1984_geometry_optimized.py](1984_geometry_optimized.py) \* | PyPy 3.10 x64 | geometry | O(1) | AC | 0.109 s | 276 KB | 11309752 |
 | [1984_geometry_optimized.rs](1984_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 88 KB | 11325118 |
 
