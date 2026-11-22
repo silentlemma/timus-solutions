@@ -1,11 +1,14 @@
-import os
-from sys import stdout
+from os import _exit, write
 
-size, first, second = open(0, "rb", buffering=0).read().split()
-size = int(size)
-offset = (first + first).find(second)
-print(-1 if offset < 0 else (size - offset) % size)
 
-# Flush the complete answer before skipping interpreter teardown.
-stdout.flush()
-os._exit(0)
+def main():
+    values = open(0, "rb", buffering=0).read().split()
+    size = int(values[0])
+    first, second = values[1], values[2]
+    offset = (first + first).find(second)
+    answer = -1 if offset < 0 else (size - offset) % size
+    write(1, (str(answer) + "\n").encode())
+    _exit(0)
+
+
+main()

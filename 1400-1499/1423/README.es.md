@@ -71,13 +71,21 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1423_strings_optimized.py`. Conserva búsqueda exacta de bytes en S+S. T en desplazamiento izquierdo p da giro derecho (N−p) mod N; si no existe, −1. Cualquier giro válido sirve, también con periodicidad. Lee/split binario completo, bytes.find y salida corta antes de os._exit(0). Retiene O(N) bytes. Tiempo de E/S lineal más búsqueda del runtime, sin bucle Python por carácter. Este CPython es primero en ambas métricas; 1592 KB aún superan 1372 KB de la base.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327848: 0.062 s / 1592 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 1/55; 1/55. Admisión estricta usa tiempo y memoria con 1024 KB o más: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Ambas son primeras, sin asterisco. La variante anterior conservada tiene su par propio #11325463 (Python 3.12 x64): 0.093 s / 1592 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1423_strings_optimized.py`: 0.062 s / 1592 KB; base didáctica conservada `1423_strings.py`: 0.109 s / 1372 KB.
+
+`1423_strings_optimized.java`. Conserva KMP de bytes y el desplazamiento a la derecha. Lee ambas palabras de N bytes directamente a sus arreglos finales con búfer de 4096 bytes, sin copia de entrada completa ni char decodificados. Prefijos int y cursor circular sustituyen módulo en el recorrido doble virtual. La igualdad de bytes preserva valores 33…255. Tiempo y espacio O(N); conserva la versión legible.
+
+Accepted de fuente exacto Java 1.8 #11326951: 0.109 s / 1920 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 2/99, memoria 1/99. Con al menos 1024 KB, se exigen ambos criterios estrictos; pasan los dos.
+
+- `1423_strings_optimized.java`: 0.109 s / 1920 KB; base didáctica conservada `1423_strings.java`: 0.156 s / 5744 KB; cambio de tiempo -30.1%; cambio de memoria -66.6%.
+
 `1423_strings_optimized.rs`. Conserva KMP por bytes e índice de rotación derecha. Prefijos u32 y recorrido de s seguido de s sin último byte eliminan módulo por posición sin duplicar cadena. Tokens de bytes conservan caracteres33…255. O(N) tiempo/espacio, salida directa en vez de formato Rust.
 
 Frente a `1423_strings.rs`: tiempo 0.031 s → 0.031 s; memoria 3052 KB → 1 804 KB.
-
-`1423_strings_optimized.py`. Conserva búsqueda en bytes duplicados y giro derecho(n-offset) mod n, o -1 si falta. Lee tres tokens con archivo binario sin búfer y vacía antes de os._exit(0). Sigue almacenando O(n) bytes; E/S y salida del intérprete no cambian el orden. La búsqueda adaptativa/Two-Way de CPython 3.12 mantiene O(n): [fuente](https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/stringlib/fastsearch.h). Este Accepted usa más memoria y no mejora del 30%; entra por la regla separada de primer 30% con mejor puesto, conservando asterisco.
-
-Frente a `1423_strings.py`: tiempo 0.109 s → 0.093 s; memoria 1372 KB → 1 592 KB.
 
 La solución optimizada en C++ guarda la función de prefijos en campos de
 18 bits empaquetados en un arreglo de palabras de 32 bits, porque cada
@@ -95,12 +103,6 @@ con `io.ReadFull`, contando con que ambas cadenas tienen longitud N, en
 lugar de leer toda la entrada y partirla en campos:
 {1423_strings_optimized.go}.
 
-La solución optimizada en Java lee la entrada en bruto en bloques de
-64 KB y recorta de ella S y T a mano como arreglos `byte`, comparando
-bytes, en lugar de decodificar las líneas con `BufferedReader` en
-arreglos `char`, que ocupan dos bytes por carácter:
-{1423_strings_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y cumple un criterio de clasificación
@@ -114,14 +116,9 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1423_strings_optimized.go`: reducción de tiempo +0.00%; reducción de
   memoria +40.39%; base: `1423_strings.go`.
 
-- `1423_strings_optimized.java`: reducción de tiempo +19.87%; reducción
-  de memoria +39.97%; base: `1423_strings.java`.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1423_strings_optimized.py`: puesto de tiempo 11/55 y de memoria 1/55 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -143,8 +140,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
 | [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
-| [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
-| [1423_strings_optimized.py](1423_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 1592 KB | 11325463 |
+| [1423_strings_optimized.java](1423_strings_optimized.java) \* | Java 1.8 | strings | O(N) | AC | 0.109 s | 1920 KB | 11326951 |
+| [1423_strings_optimized.py](1423_strings_optimized.py) | Python 3.12 x64 | strings | Linear I/O plus runtime substring search; O(N) bytes | AC | 0.062 s | 1592 KB | 11327848 |
 | [1423_strings_optimized.rs](1423_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -62,13 +62,21 @@ N；若不出现，答案为 −1。查找用 Knuth–Morris–Pratt 算法和 T
 
 ## 优化解法
 
+`1423_strings_optimized.py`. 保留 S+S 中精确字节子串搜索。T 位于左偏移 p 时返回右移 (N−p) mod N，否则 −1；周期字符串允许任意有效位移。完整读取并 split 二进制输入，以 bytes.find 搜索，在 os._exit(0) 前输出短答案。保留 O(N) 字节。时间为线性输入输出加运行时子串搜索，无 Python 逐字符循环。此 CPython 记录两项第一，但 1592 KB 仍高于教学版 1372 KB。
+
+精确源码：Python 3.12 x64 Accepted #11327848: 0.062 s / 1592 KB。2026-11-20 保存的编译器组排名，时间然后内存：1/55; 1/55。严格收录采用达到 1024 KB 时要求时间和内存：前十或前 15%，同值共享名次，百分比向上取整。两项第一，无需星号。保留的旧版本有自己的配对指标 #11325463 (Python 3.12 x64): 0.093 s / 1592 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1423_strings_optimized.py`: 0.062 s / 1592 KB; 保留教学基础版 `1423_strings.py`: 0.109 s / 1372 KB.
+
+`1423_strings_optimized.java`. 保留字节 KMP 和右旋转下标。两段定长 N 字节词直接读入最终数组，使用 4096 字节缓冲，不保存完整输入副本或解码 char 数组。int 前缀数组及回绕游标替代虚拟双倍首词扫描中的取模，字节相等支持全部允许值 33…255。时间、空间 O(N)，保留易读字符串版。
+
+精确源代码 Java 1.8 Accepted #11326951：0.109 s / 1920 KB。2026-11-20 保存的当前 Java 比较：时间排名 2/99，内存排名 1/99。内存至少 1024 KB，因此两个严格指标都必须通过；两项均已通过。
+
+- `1423_strings_optimized.java`: 0.109 s / 1920 KB; 保留的教学基础版 `1423_strings.java`: 0.156 s / 5744 KB; 时间变化 -30.1%; 内存变化 -66.6%.
+
 `1423_strings_optimized.rs`. 保留字节 KMP 及右旋索引。前缀长度用 u32，扫描 s 接 s 去末字节的切片链，替代每位置取模而不分配双倍字符串。字节词保留33…255 字符。O(N) 时间空间，直接输出替代 Rust 格式化。
 
 与 `1423_strings.rs` 相比：时间 0.031 s → 0.031 s；内存 3052 KB → 1 804 KB。
-
-`1423_strings_optimized.py`. 保留双倍字节串搜索及左偏移转右移公式(n-offset) mod n，不存在则-1。从无缓冲二进制文件读三个记号，刷新后 os._exit(0)。仍保存 O(n) 字节，输入和退出改进不改变算法阶。CPython 3.12 的自适应/Two-Way 搜索保持 O(n)：[运行时源码](https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/stringlib/fastsearch.h)。此 Accepted 比基础版占更多内存，未改善30%；按排名改善且双指标前30%的独立规则收录，目标星号仍保留。
-
-与 `1423_strings.py` 相比：时间 0.109 s → 0.093 s；内存 1372 KB → 1 592 KB。
 
 优化的 C++ 解法把前缀函数存成打包在 32 位字数组中的 18 位字段，因为每个值都小于
 N ≤ 250 000 < 2^18，读取时一次从相邻的两个字中取出字段；每次访问多花几次移位，但
@@ -80,10 +88,6 @@ N ≤ 250 000 < 2^18，读取时一次从相邻的两个字中取出字段；每
 N ≤ 250 000，并依据两个字符串的长度都是 N，用 `io.ReadFull` 把 S 和 T 直接读进恰
 好 N 字节的数组，而不是读入全部输入再按字段切分：{1423_strings_optimized.go}。
 
-优化的 Java 解法按 64 KB 分块读取原始输入，手工从中切出 S 和 T 作为 `byte` 数组
-并按字节比较，而不是用 `BufferedReader` 把各行解码成每个字符占两字节的 `char` 数
-组：{1423_strings_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，并满足排名或资源改进准入条件。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
@@ -91,8 +95,6 @@ N ≤ 250 000，并依据两个字符串的长度都是 N，用 `io.ReadFull` �
 - `1423_strings_optimized.cpp`: 时间降低 -106.67%; 内存降低 +40.82%; 基础版本: `1423_strings.cpp`.
 
 - `1423_strings_optimized.go`: 时间降低 +0.00%; 内存降低 +40.39%; 基础版本: `1423_strings.go`.
-
-- `1423_strings_optimized.java`: 时间降低 +19.87%; 内存降低 +39.97%; 基础版本: `1423_strings.java`.
 
 ## 各语言说明
 
@@ -120,8 +122,8 @@ N ≤ 250 000，并依据两个字符串的长度都是 N，用 `io.ReadFull` �
 |---|---|---|---|---|---|---|---|
 | [1423_strings_optimized.cpp](1423_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(N) | AC | 0.031 s | 1148 KB | 11307257 |
 | [1423_strings_optimized.go](1423_strings_optimized.go) | Go 1.14 x64 | strings | O(N) | AC | 0.031 s | 2544 KB | 11307255 |
-| [1423_strings_optimized.java](1423_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.125 s | 3448 KB | 11307317 |
-| [1423_strings_optimized.py](1423_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.093 s | 1592 KB | 11325463 |
+| [1423_strings_optimized.java](1423_strings_optimized.java) \* | Java 1.8 | strings | O(N) | AC | 0.109 s | 1920 KB | 11326951 |
+| [1423_strings_optimized.py](1423_strings_optimized.py) | Python 3.12 x64 | strings | Linear I/O plus runtime substring search; O(N) bytes | AC | 0.062 s | 1592 KB | 11327848 |
 | [1423_strings_optimized.rs](1423_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(N) time; O(N) space | AC | 0.031 s | 1804 KB | 11325527 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
