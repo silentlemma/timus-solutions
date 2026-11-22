@@ -81,6 +81,12 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 
 ## 优化解法
 
+`1944_implementation_bitmask.java`. 固定掩码网格替代打包点排序，201 行每行四个 long。直接标点，输出框包含原点，再让置位星号覆盖坐标轴。掩码 6432 字节，完整输出至多 40602 字节，一次写出。K 为标记格、W/H 为输出尺寸，工作 O(N+WH+4H+K)，存储 O(201*4+WH)。重复点幂等。implementation_bitmask 以固定网格/完整输出换取旧稀疏排序与行复用；两者及教学源码均保留。
+
+精确源码：Java 1.8 Accepted #11327417: 0.109 s / 440 KB。2026-11-20 保存的编译器组排名，时间然后内存：8/48; 1/48。严格收录采用低于 1024 KB 只看时间：前十或前 15%，同值共享名次，百分比向上取整。单独语言目标为两项第一，故保留星号。保留的旧版本有自己的配对指标 #11308715 (Java 1.8): 0.125 s / 476 KB，不混合测量或运行时。教学源码保持不变。
+
+- `1944_implementation_bitmask.java`: 0.109 s / 440 KB; 保留教学版 `1944_implementation.java` (Java 1.8): 0.125 s / 844 KB.
+
 `1944_implementation_sorting.rs`. 以互异点按 y 降、x 升排序，替代 W×H 绘图及完整输出缓冲。一次遍历输出坐标并推进点指针，先处理星号，再原点和轴。点用两个 i16，题定 [-100,100] 安全，边界始终含原点。O(n log n+WH) 时间、O(n) 空间，用排序换取不分配网格/整段输出。不同排序实现有独立文件名，保留简单网格版。
 
 与 `1944_implementation.rs` 相比：时间 0.031 s → 0.015 s；内存 348 KB → 68 KB。
@@ -119,6 +125,7 @@ H(W+1)≤40602个ASCII字节，小于64 KiB。普通有符号整数足够表示�
 |---|---|---|---|---|---|---|---|
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) \* | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
 | [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 

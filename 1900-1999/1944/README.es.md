@@ -95,6 +95,12 @@ marcos o márgenes.
 
 ## Soluciones optimizadas
 
+`1944_implementation_bitmask.java`. Usa cuadrícula fija de máscaras en vez de ordenar puntos empaquetados: cuatro long por cada una de 201 filas. Marca directo, incluye origen en el rectángulo y pinta bits sobre ejes, dando prioridad a estrellas. Máscaras 6432 bytes y salida completa hasta 40602 para una escritura. Con K celdas marcadas y dimensiones W/H, O(N+WH+4H+K) trabajo y O(201*4+WH) espacio. Duplicados idempotentes. implementation_bitmask cambia cuadrícula fija/salida completa por la alternativa dispersa ordenada con filas reutilizadas; ambas y la base se conservan.
+
+Fuente exacto: Java 1.8 Accepted #11327417: 0.109 s / 440 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 8/48; 1/48. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11308715 (Java 1.8): 0.125 s / 476 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1944_implementation_bitmask.java`: 0.109 s / 440 KB; base didáctica conservada `1944_implementation.java` (Java 1.8): 0.125 s / 844 KB.
+
 `1944_implementation_sorting.rs`. Sustituye dibujo W×H y buffer completo ordenando puntos distintos por y descendente y x ascendente. Recorre coordenadas con cursor de puntos, estrella antes que origen/ejes. Guarda dos i16 por punto, seguros en [-100,100], y límites incluyendo origen. O(n log n+WH) tiempo, O(n) espacio; intercambia ordenar por eliminar grid/salida completos. Implementación distinta de ordenación con nombre separado; conserva sencilla con grid.
 
 Frente a `1944_implementation.rs`: tiempo 0.031 s → 0.015 s; memoria 348 KB → 68 KB.
@@ -133,6 +139,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 |---|---|---|---|---|---|---|---|
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) \* | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
 | [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 

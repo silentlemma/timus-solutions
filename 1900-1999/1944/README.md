@@ -95,6 +95,12 @@ numeric labels, spaces, extra borders or margins.
 
 ## Optimized solutions
 
+`1944_implementation_bitmask.java`. Use a fixed bitmask grid instead of sorting packed points. Each of 201 rows has four long words; set each point directly, render the bounding box including the origin, then paint set bits over the axes so stars take precedence. The masks occupy 6432 bytes; retain the complete output of at most 40602 bytes for one write. With K marked cells, W/H output dimensions and 64-bit words, work is O(N+WH+4H+K), storage O(201*4+WH). Duplicate points are idempotent. This implementation_bitmask approach trades a fixed grid/full output for the retained sparse sorted-point implementation with reusable rows; both and the teaching source remain.
+
+Exact-source Java 1.8 Accepted #11327417: 0.109 s / 440 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 8/48; 1/48. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11308715 (Java 1.8): 0.125 s / 476 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1944_implementation_bitmask.java`: 0.109 s / 440 KB; retained teaching base `1944_implementation.java` (Java 1.8): 0.125 s / 844 KB.
+
 `1944_implementation_sorting.rs`. Replace the allocated W×H drawing and complete output buffer by sorting the distinct points by decreasing y, then increasing x. Walk output coordinates once alongside a point cursor, emitting a star for a point before considering origin or axes. Store points as two i16 coordinates, safe for the promised [-100,100] range, and retain bounds that include the origin. Time O(n log n+WH), space O(n), trading sorting for removal of the grid/output allocations. This different sorting implementation has a separate filename; preserve the simple grid source.
 
 Compared with `1944_implementation.rs`: time 0.031 s → 0.015 s; memory 348 KB → 68 KB.
@@ -133,6 +139,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 |---|---|---|---|---|---|---|---|
 | [1944_implementation_optimized.cpp](1944_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N log N+WH) | AC | 0.015 s | 116 KB | 11308709 |
 | [1944_implementation_optimized.java](1944_implementation_optimized.java) | Java 1.8 | implementation | O(N log N+WH) | AC | 0.125 s | 476 KB | 11308715 |
+| [1944_implementation_bitmask.java](1944_implementation_bitmask.java) \* | Java 1.8 | implementation, bitmask | O(N+WH+4H+K) time; fixed grid + O(WH) output | AC | 0.109 s | 440 KB | 11327417 |
 | [1944_implementation_optimized.py](1944_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(N log N+WH) | AC | 0.140 s | 332 KB | 11309399 |
 | [1944_implementation_sorting.rs](1944_implementation_sorting.rs) \* | Rust 1.75 x64 | implementation, sorting | O(n log n+WH) time; O(n) space | AC | 0.015 s | 68 KB | 11325552 |
 
