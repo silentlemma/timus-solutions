@@ -97,10 +97,10 @@ func selectMedian(values []entry, target int) entry {
 			a, b = b, a
 		}
 		if angleBefore(c, b) {
-			b, c = c, b
+			b = c
 		}
 		if angleBefore(b, a) {
-			a, b = b, a
+			b = a
 		}
 		pivot := b
 		i, j := left, right
