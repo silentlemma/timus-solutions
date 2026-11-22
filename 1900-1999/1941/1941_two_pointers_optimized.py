@@ -1,35 +1,49 @@
-from array import array
 import sys
 
-SYMBOL_COUNT = 90
-ALPHABET_SIZE = SYMBOL_COUNT**3
+
+BLOCK_SIZE = 16384
+WHITESPACE = 32
+
+
+def tokens(source):
+    pending = b""
+    while True:
+        block = source.read(BLOCK_SIZE)
+        if not block:
+            break
+        fields = (pending + block).split()
+        pending = fields.pop() if block[-1] > WHITESPACE else b""
+        yield from fields
+    if pending:
+        yield pending
+
+
+SYMBOLS = 90
 LOWEST_SYMBOL = 33
-WHITESPACE_MAX = 32
-TRIPLET_SIZE = 3
+ALPHABET = SYMBOLS**3
+
+
+def encode(token):
+    return (
+        ((token[0] - LOWEST_SYMBOL) * SYMBOLS + token[1] - LOWEST_SYMBOL) * SYMBOLS
+        + token[2]
+        - LOWEST_SYMBOL
+    )
 
 
 def main():
-    pattern = sys.stdin.buffer.readline().split()
+    source = sys.stdin.buffer
+    pattern = source.readline().split()
     size = len(pattern)
-    deficit = array("h", [0]) * ALPHABET_SIZE
+    # A list avoids boxing/unboxing a signed-short cell at every window update.
+    deficit = [0] * ALPHABET
     for token in pattern:
-        letter = (
-            (token[0] - LOWEST_SYMBOL) * SYMBOL_COUNT + token[1] - LOWEST_SYMBOL
-        ) * SYMBOL_COUNT
-        letter += token[2] - LOWEST_SYMBOL
-        deficit[letter] += 1
+        deficit[encode(token)] += 1
     del pattern
-    ring = array("I", [0]) * size
+    ring = [0] * size
     missing, position, filled, answer = size, 0, 0, 0
-    text = sys.stdin.buffer.read()
-    cursor = 0
-    while cursor < len(text):
-        if text[cursor] <= WHITESPACE_MAX:
-            cursor += 1
-            continue
-        letter = (text[cursor] - LOWEST_SYMBOL) * SYMBOL_COUNT + text[cursor + 1] - LOWEST_SYMBOL
-        letter = letter * SYMBOL_COUNT + text[cursor + 2] - LOWEST_SYMBOL
-        cursor += TRIPLET_SIZE
+    for token in tokens(source):
+        letter = encode(token)
         if filled == size:
             old = ring[position]
             if deficit[old] >= 0:
@@ -39,7 +53,6 @@ def main():
             filled += 1
         if deficit[letter] > 0:
             missing -= 1
-        # Both frequencies are at most size <= 8000, so signed shorts cannot overflow.
         deficit[letter] -= 1
         ring[position] = letter
         position += 1

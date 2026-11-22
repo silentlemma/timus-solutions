@@ -77,11 +77,15 @@ so the upper bound must be clamped to zero.
 
 ## Optimized solutions
 
-The new Go, Python and Rust sources keep the exact base-90 triplet encoding and missing-occurrence invariant. Since both pattern and current-window frequencies lie in 0..m and m≤8000, every deficit fits signed 16 bits, halving the 729000-entry table to 1458000 bytes. The ring stores exact triplet codes in 32 bits. Go and Rust stream triplets through bounded buffers, with O(U+m) total storage. Python retains the text bytes but parses triplets directly, avoiding a list of up to 500000 bytes objects; its total space remains O(U+m+n), with much smaller constants. Removal tests ≥0 and insertion >0 before updating the deficit. The first newline still separates the pattern from the text, including CRLF input. All simple sources remain; C++ and Java reuse admitted bases in the fast set.
+`1941_two_pointers_optimized.py`. Keep exact base-90 triplet codes and the same missing-occurrence sliding-window invariant. Use a Python list for the 729000 deficits and another for the ring, rather than packed array cells; this avoids conversion at each update. Stream text tokens through a 16 KiB split buffer instead of retaining all text. Removal checks deficit>=0 and insertion checks deficit>0 before updates. Time O(U+m+n), auxiliary state O(U+m) plus the bounded token buffer, with U=90^3. This is an exact representation/I/O tradeoff, not hashing or a new window algorithm; teaching sources remain.
 
-The accepted Python 3.12 x64 run takes 0.89 s versus 0.734 s for the base and uses 8 604 KB versus 33664 KB.
+Exact-source PyPy 3.10 x64 Accepted #11326701: 0.234 s / 17756 KB. Saved 2026-11-20 comparison of current Python-family compilers: time 2/16, memory 2/16; both strict top-ten criteria pass. Memory is at least 1024 KB, so time and memory are both required. The separate first-place-in-both language target is not met: keep the asterisk. Previously documented optimized CPython 3.12 run #11314998: 0.89 s / 8604 KB. The selected PyPy run has lower recorded time but higher memory; these are independent paired runs on different interpreters, not an algorithm-only speed claim or mixed minima. Current retained simple CPython Accepted #11327563: 0.781 s / 33640 KB. No extra source copy or repeat submission is needed.
 
-The accepted base implementations [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Own Accepted after formatting only: `1941_two_pointers.py` #11327563. The basic algorithms and all other source files remain.
+
+The new Go, Python and Rust sources keep the exact base-90 triplet encoding and missing-occurrence invariant. In Go and Rust, pattern and current-window frequencies lie in 0..m and m≤8000, so packed signed-16-bit deficits halve the 729000-entry table to 1458000 bytes; their rings store exact triplet codes in 32 bits. Go and Rust stream triplets through bounded buffers, with O(U+m) total storage. Python uses integer lists for deficits and the ring, trading their larger storage for faster updates; it streams text tokens through a bounded 16 KiB buffer, for O(U+m) state plus bounded input storage. Removal tests ≥0 and insertion >0 before updating the deficit. The first newline still separates the pattern from the text, including CRLF input. All simple sources remain; C++ and Java reuse admitted bases in the fast set.
+
+Retained accepted bases [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) also meet strict top-ten or top-15% admission for the required metrics in the saved comparison. They are reused without identical optimized copies. Their current exact paired measurements are in the table; an asterisk denotes the separate language target. Formatting changes no algorithm and is not credited with speed improvements.
 
 ## Language notes
 
@@ -102,7 +106,7 @@ once and iterates slices. No probabilistic fingerprint or map is needed.
 | [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB | 11291874 |
 | [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB | 11291875 |
 | [1941_two_pointers.java](1941_two_pointers.java) \* | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB | 11291879 |
-| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB | 11291878 |
+| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.781 s | 33640 KB | 11327563 |
 | [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB | 11291881 |
 
 ### Optimized
@@ -110,7 +114,7 @@ once and iterates slices. No probabilistic fingerprint or map is needed.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1941_two_pointers_optimized.go](1941_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 1864 KB | 11315003 |
-| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.89 s | 8604 KB | 11314998 |
+| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | PyPy 3.10 x64 | two_pointers | O(U+m+n) time; O(U+m) space plus bounded input | AC | 0.234 s | 17756 KB | 11326701 |
 | [1941_two_pointers_optimized.rs](1941_two_pointers_optimized.rs) \* | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.015 s | 1364 KB | 11315010 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

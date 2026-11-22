@@ -8,8 +8,7 @@ ALPHABET_SIZE = SYMBOL_COUNT * SYMBOL_COUNT * SYMBOL_COUNT
 
 def encode(token):
     return (
-        ((token[0] - LOWEST_SYMBOL) * SYMBOL_COUNT + token[1] - LOWEST_SYMBOL)
-        * (SYMBOL_COUNT)
+        ((token[0] - LOWEST_SYMBOL) * SYMBOL_COUNT + token[1] - LOWEST_SYMBOL) * (SYMBOL_COUNT)
         + token[2]
         - LOWEST_SYMBOL
     )

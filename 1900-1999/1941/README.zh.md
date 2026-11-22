@@ -65,11 +65,15 @@ aaa aaa bbb ccc aaa zzz aaa bbb ccc
 
 ## 优化解法
 
-新 Go、Python、Rust 保留精确的 90 进制三元组编码及缺失次数不变量。模式与当前窗口的频数均在 0..m，m≤8000，故差值可用有符号 16 位。729000 项表减至 1458000 字节，环形缓冲用 32 位保存精确编码。Go、Rust 用有界缓冲流式读入，总空间 O(U+m)。Python 保留文本字节，但直接解析三元组，避免最多 500000 个 bytes 对象的列表；总空间仍为 O(U+m+n)，常数更小。修改前，删除检查 ≥0，插入检查 >0。第一换行仍区分模式与文本，包括 CRLF。保留全部简单版；C++、Java 复用合格基础版覆盖快速集合。
+`1941_two_pointers_optimized.py`. 保留精确 90 进制三元组编码和缺失次数滑窗不变量。729000 项差值及环形队列使用 Python 列表替代压缩 array 单元，避免每次更新的转换。文本经 16 KiB split 缓冲流式分词，不保留整段文本。更新前删除检查 deficit>=0，插入检查 deficit>0。时间 O(U+m+n)，状态 O(U+m) 加有界词缓冲，U=90^3。这是精确表示与输入输出权衡，并非哈希或新窗口算法；保留教学版。
 
-通过评测的 Python 3.12 x64 版本耗时 0.89 秒，基础版为 0.734 秒，内存为 8 604 KB，基础版为 33664 KB。
+精确源代码 PyPy 3.10 x64 Accepted #11326701：0.234 s / 17756 KB。2026-11-20 保存的当前 Python 语言族编译器比较：时间 2/16、内存 2/16，两项严格前十均通过。内存至少 1024 KB，故必须同时满足时间和内存。单独的两项第一语言目标未满足，保留星号。此前记录的优化 CPython 3.12 #11314998 为 0.89 s / 8604 KB。所选 PyPy 记录时间更低、内存更高；这是不同解释器的独立成对测量，并非纯算法加速或混合最小值。保留的简单 CPython 版当前 Accepted #11327563：0.781 s / 33640 KB。无需额外源代码副本或重复提交。
 
-已通过评测的基础实现 [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+仅格式化后的自身 Accepted：`1941_two_pointers.py` #11327563。保留基础算法及其余源文件。
+
+新 Go、Python、Rust 保留精确的 90 进制三元组编码及缺失次数不变量。Go、Rust 中模式与窗口频数在 0..m、m≤8000，用压缩有符号 16 位差值将 729000 项表降至 1458000 字节；其环形缓冲用 32 位精确编码。Go、Rust 用有界缓冲流式读入，总空间 O(U+m)。Python 以整数列表保存差值和环形队列，以更大存储换更快更新；文本词经有界 16 KiB 缓冲流式输入，状态 O(U+m) 加有界输入空间。修改前，删除检查 ≥0，插入检查 >0。第一换行仍区分模式与文本，包括 CRLF。保留全部简单版；C++、Java 复用合格基础版覆盖快速集合。
+
+保留的 Accepted 基础版 [1941_two_pointers.cpp](1941_two_pointers.cpp), [1941_two_pointers.java](1941_two_pointers.java) 在保存比较中满足所需指标的严格前十或前 15% 收录，不增加相同优化副本。表为当前精确成对测量，星号表示单独语言目标。格式化不改算法，不将速度变化归功于格式化。
 
 ## 各语言说明
 
@@ -88,7 +92,7 @@ Rust只保存一次输入并迭代切片。不使用概率指纹或字典，比�
 | [1941_two_pointers.cpp](1941_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(U+m+n) | AC | 0.046 s | 2996 KB | 11291874 |
 | [1941_two_pointers.go](1941_two_pointers.go) | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.062 s | 21096 KB | 11291875 |
 | [1941_two_pointers.java](1941_two_pointers.java) \* | Java 1.8 | two_pointers | O(U+m+n) | AC | 0.187 s | 3336 KB | 11291879 |
-| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.734 s | 33664 KB | 11291878 |
+| [1941_two_pointers.py](1941_two_pointers.py) | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.781 s | 33640 KB | 11327563 |
 | [1941_two_pointers.rs](1941_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 6000 KB | 11291881 |
 
 ### 优化版本
@@ -96,7 +100,7 @@ Rust只保存一次输入并迭代切片。不使用概率指纹或字典，比�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1941_two_pointers_optimized.go](1941_two_pointers_optimized.go) \* | Go 1.14 x64 | two_pointers | O(U+m+n) | AC | 0.031 s | 1864 KB | 11315003 |
-| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(U+m+n) | AC | 0.89 s | 8604 KB | 11314998 |
+| [1941_two_pointers_optimized.py](1941_two_pointers_optimized.py) \* | PyPy 3.10 x64 | two_pointers | O(U+m+n) time; O(U+m) space plus bounded input | AC | 0.234 s | 17756 KB | 11326701 |
 | [1941_two_pointers_optimized.rs](1941_two_pointers_optimized.rs) \* | Rust 1.75 x64 | two_pointers | O(U+m+n) | AC | 0.015 s | 1364 KB | 11315010 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
