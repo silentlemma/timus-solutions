@@ -71,9 +71,11 @@ Pitfalls:
 
 ## Optimized solutions
 
-`1925_math_optimized.py`. Keep the balance equation current-2+sum(displayed-entered-2). Process every historical pair before deciding: an intermediate negative balance may recover later. Print the final integer including zero, or exactly Big Bang! only if it is negative. Time O(N), constant arithmetic state under the input limits. Inline the accumulator instead of calling required_input through a pair generator. The byte input tokens still need O(N) storage; this is not a streaming constant-space parser. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+`1925_math_optimized.py`. Keep current-2+sum(displayed-entered-2). Accumulate directly in a local loop instead of a separate helper and pair generator. Decide only after every pair: an intermediate negative value may recover; zero is valid. Print the final value or exactly Big Bang!. O(N) time and token storage under the bounded integer widths; O(1) arithmetic state. The teaching helper remains.
 
-Compared with `1925_math.py`: time 0.093 s → 0.156 s; memory 504 KB → 232 KB.
+Reused exact historical CPython 3.12 Accepted #11302116: 0.078 s / 436 KB. In the saved 2026-11-20 comparable compiler cohort: time rank 2/59, memory rank 31/59. Below 1024 KB, strict admission uses time only and passes. The asterisk follows the separate language rating target. These are paired measurements of this source, not a new submission or a guaranteed portable speedup. This version uses normal interpreter exit.
+
+- `1925_math_optimized.py`: 0.078 s / 436 KB; retained teaching base `1925_math.py` (Python 3.12 x64): 0.093 s / 504 KB. Both base time and memory remain documented even where one metric increases.
 
 `1925_math_optimized.rs`. Keep the balance equation current-2+sum(displayed-entered-2). Process every historical pair before deciding: an intermediate negative balance may recover later. Print the final integer including zero, or exactly Big Bang! only if it is negative. Time O(N), constant arithmetic state under the input limits. Read and add each pair directly, removing the stored history vector and decoded input. Auxiliary state O(1). The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
 
@@ -91,8 +93,6 @@ instead of 1796 KB.
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1925_math_optimized.py`: time place 57/59, memory place 1/59 in this comparable sample.
 
 `1925_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -116,7 +116,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
 | [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |
-| [1925_math_optimized.py](1925_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.156 s | 232 KB | 11324844 |
+| [1925_math_optimized.py](1925_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 436 KB | 11302116 |
 | [1925_math_optimized.rs](1925_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.062 s | 56 KB | 11324855 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -70,9 +70,11 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-`1925_math_optimized.py`. Conserva current-2+sum(displayed-entered-2). Procesa todas las parejas antes de decidir: un saldo negativo intermedio puede recuperarse. Emite el entero final, incluido cero, o exactamente Big Bang! solo si resulta negativo. Tiempo O(N), estado aritmético constante bajo los límites. Incluye el acumulador sin llamada a required_input mediante generador de parejas. Los tokens de entrada aún ocupan O(N); no es un analizador en flujo de espacio constante. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+`1925_math_optimized.py`. Conserva current-2+sum(displayed-entered-2). Acumula en un bucle local sin auxiliar ni generador de parejas. Decide después de todas: un saldo negativo intermedio puede recuperarse y cero es válido. Imprime el valor final o exactamente Big Bang!. O(N) tiempo/tokens con enteros acotados, estado aritmético O(1). Conserva el auxiliar didáctico.
 
-Frente a `1925_math.py`: tiempo 0.093 s → 0.156 s; memoria 504 KB → 232 KB.
+Reutiliza el fuente histórico exacto CPython 3.12 Accepted #11302116: 0.078 s / 436 KB. En el grupo comparable guardado el 2026-11-20: tiempo 2/59, memoria 31/59. Bajo 1024 KB, admisión estricta solo por tiempo, superada. El asterisco sigue la meta separada del lenguaje. Son medidas emparejadas de este fuente, no nuevo envío ni garantía portátil. Usa finalización normal del intérprete.
+
+- `1925_math_optimized.py`: 0.078 s / 436 KB; base didáctica conservada `1925_math.py` (Python 3.12 x64): 0.093 s / 504 KB. Ambas medidas de la base quedan explícitas aunque una aumente.
 
 `1925_math_optimized.rs`. Conserva current-2+sum(displayed-entered-2). Procesa todas las parejas antes de decidir: un saldo negativo intermedio puede recuperarse. Emite el entero final, incluido cero, o exactamente Big Bang! solo si resulta negativo. Tiempo O(N), estado aritmético constante bajo los límites. Lee y suma cada pareja directamente, eliminando vector histórico y entrada decodificada. Estado auxiliar O(1). La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
@@ -90,8 +92,6 @@ en lugar de 1796 KB.
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1925_math_optimized.py`: puesto de tiempo 57/59 y de memoria 1/59 en esta muestra comparable.
 
 `1925_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -115,7 +115,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1925_math_optimized.cpp](1925_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 124 KB | 11303650 |
 | [1925_math_optimized.java](1925_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.078 s | 364 KB | 11303789 |
-| [1925_math_optimized.py](1925_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.156 s | 232 KB | 11324844 |
+| [1925_math_optimized.py](1925_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.078 s | 436 KB | 11302116 |
 | [1925_math_optimized.rs](1925_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.062 s | 56 KB | 11324855 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
