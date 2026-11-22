@@ -22,7 +22,10 @@ fn distances(adj: &[Vec<usize>], start: usize) -> Vec<i32> {
 fn main() {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input).unwrap();
-    let v: Vec<usize> = input.split_ascii_whitespace().map(|t| t.parse().unwrap()).collect();
+    let v: Vec<usize> = input
+        .split_ascii_whitespace()
+        .map(|t| t.parse().unwrap())
+        .collect();
     let (n, p) = (v[0], v[1]);
     let mut adj = vec![Vec::new(); p + 1];
     for k in 0..n {
@@ -72,7 +75,11 @@ fn main() {
             let dist = distances(&adj, root);
             for u in 1..=p {
                 if dist[u] >= 0 {
-                    years[u] = if k == 0 { 1 + dist[u] % 2 } else { LONGEST - dist[u] % 2 };
+                    years[u] = if k == 0 {
+                        1 + dist[u] % 2
+                    } else {
+                        LONGEST - dist[u] % 2
+                    };
                 }
             }
         }

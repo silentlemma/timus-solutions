@@ -86,11 +86,11 @@ Go、Rust 每个邻接集合只用一个 64 位字，因为 p≤50。BFS 按整�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1888_bfs.cpp](1888_bfs.cpp) | G++ 13.2 x64 | bfs | O(p (p + n)) | AC | 0.015 s | 204 KB | 11291113 |
+| [1888_bfs.cpp](1888_bfs.cpp) | G++ 13.2 x64 | bfs | O(p (p + n)) | AC | 0.015 s | 184 KB | 11328316 |
 | [1888_bfs.go](1888_bfs.go) | Go 1.14 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 1196 KB | 11291114 |
-| [1888_bfs.java](1888_bfs.java) | Java 1.8 | bfs | O(p (p + n)) | AC | 0.109 s | 716 KB | 11291116 |
-| [1888_bfs.py](1888_bfs.py) \* | Python 3.12 x64 | bfs | O(p (p + n)) | AC | 0.109 s | 760 KB | 11291115 |
-| [1888_bfs.rs](1888_bfs.rs) | Rust 1.75 x64 | bfs | O(p (p + n)) | AC | 0.062 s | 256 KB | 11291117 |
+| [1888_bfs.java](1888_bfs.java) | Java 1.8 | bfs | O(p (p + n)) | AC | 0.109 s | 640 KB | 11328380 |
+| [1888_bfs.py](1888_bfs.py) \* | Python 3.12 x64 | bfs | O(p (p + n)) | AC | 0.078 s | 712 KB | 11328319 |
+| [1888_bfs.rs](1888_bfs.rs) | Rust 1.75 x64 | bfs | O(p (p + n)) | AC | 0.031 s | 248 KB | 11328320 |
 
 ### 优化版本
 

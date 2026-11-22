@@ -36,17 +36,17 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StreamTokenizer in = new StreamTokenizer(reader);
         in.nextToken();
-        int n = (int) in.nval;
+        int n = (int)in.nval;
         in.nextToken();
-        p = (int) in.nval;
+        p = (int)in.nval;
         for (int i = 0; i <= p; i++) {
             adj.add(new ArrayList<>());
         }
         for (int k = 0; k < n; k++) {
             in.nextToken();
-            int a = (int) in.nval;
+            int a = (int)in.nval;
             in.nextToken();
-            int b = (int) in.nval;
+            int b = (int)in.nval;
             adj.get(a).add(b);
             adj.get(b).add(a);
         }

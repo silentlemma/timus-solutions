@@ -18,7 +18,7 @@ def distances(adj, start):
 
 def main():
     v = list(map(int, sys.stdin.read().split()))
-    n, p = v[0], v[1]
+    _flight_count, p = v[0], v[1]
     adj = [[] for _ in range(p + 1)]
     pairs = iter(v[2:])
     for a, b in zip(pairs, pairs):

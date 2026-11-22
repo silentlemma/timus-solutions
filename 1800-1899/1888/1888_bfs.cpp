@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int LONGEST = 50;  // experience is from 1 to 50 years
+const int LONGEST = 50; // experience is from 1 to 50 years
 
 int p;
 vector<vector<int>> adj;
@@ -28,7 +28,8 @@ vector<int> distances(int start) {
 
 int main() {
     int n;
-    if (scanf("%d %d", &n, &p) != 2) return 0;
+    if (scanf("%d %d", &n, &p) != 2)
+        return 0;
     adj.assign(p + 1, {});
     for (int k = 0; k < n; k++) {
         int a, b;
@@ -42,10 +43,12 @@ int main() {
     vector<int> comp(p + 1, -1);
     vector<int> roots;
     for (int s = 1; s <= p; s++) {
-        if (comp[s] >= 0) continue;
+        if (comp[s] >= 0)
+            continue;
         vector<int> dist = distances(s);
         for (int u = 1; u <= p; u++) {
-            if (dist[u] < 0) continue;
+            if (dist[u] < 0)
+                continue;
             comp[u] = roots.size();
             for (int v : adj[u]) {
                 if ((dist[u] - dist[v]) % 2 == 0) {
@@ -62,10 +65,12 @@ int main() {
         for (int s = 1; s <= p; s++) {
             vector<int> dist = distances(s);
             int far = 0;
-            for (int u = 1; u <= p; u++) far = max(far, dist[u]);
+            for (int u = 1; u <= p; u++)
+                far = max(far, dist[u]);
             if (far > spread) {
                 spread = far;
-                for (int u = 1; u <= p; u++) years[u] = 1 + dist[u];
+                for (int u = 1; u <= p; u++)
+                    years[u] = 1 + dist[u];
             }
         }
         printf("%d\n", spread);
@@ -74,12 +79,14 @@ int main() {
         for (size_t k = 0; k < roots.size(); k++) {
             vector<int> dist = distances(roots[k]);
             for (int u = 1; u <= p; u++) {
-                if (dist[u] < 0) continue;
+                if (dist[u] < 0)
+                    continue;
                 years[u] = k == 0 ? 1 + dist[u] % 2 : LONGEST - dist[u] % 2;
             }
         }
         printf("%d\n", LONGEST - 1);
     }
-    for (int u = 1; u <= p; u++) printf("%d%c", years[u], u < p ? ' ' : '\n');
+    for (int u = 1; u <= p; u++)
+        printf("%d%c", years[u], u < p ? ' ' : '\n');
     return 0;
 }

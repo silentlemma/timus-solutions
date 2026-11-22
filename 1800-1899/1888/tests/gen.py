@@ -90,7 +90,9 @@ def main():
     flights = flights[:MOST_FLIGHTS]
     rng.shuffle(flights)
     print(len(flights), p)
-    print("\n".join("%d %d" % (a, b) if rng.random() < 0.5 else "%d %d" % (b, a) for a, b in flights))
+    print(
+        "\n".join("%d %d" % (a, b) if rng.random() < 0.5 else "%d %d" % (b, a) for a, b in flights)
+    )
 
 
 main()
