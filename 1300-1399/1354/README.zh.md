@@ -85,6 +85,12 @@ reverse(T) + `#` + T 计算前缀函数，最后一个值就是最长这种后�
 
 ## 优化解法
 
+`1354_strings_optimized.py`. 保留字节 KMP：逆序词的前缀函数，再匹配原词的真后缀。排除首字节使原词已为回文时仍需非空扩展。原生列表替代 array("H") 前缀项，避免 short 到 int 的重复转换；是速度/存储取舍，不再是 16 位表。追加未匹配的逆序后缀。时间、空间 O(N)，保留易读构造。
+
+精确源代码 CPython 3.12 Accepted #11326670：0.078 s / 892 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 1/69，内存排名 1/69。低于 1024 KB，严格收录只看时间。
+
+- `1354_strings_optimized.py`: 0.078 s / 892 KB; 保留的教学基础版 `1354_strings.py` (Python 3.12 x64): 0.109 s / 1216 KB; 时间变化 -28.4%; 内存变化 -26.6%.
+
 优化的 C++ 解法不构造长约 2·|S1| 的字符串 reverse(T) + `#` + T。它只对
 reverse(S1) 求前缀函数，通过 S1 的倒序下标读取字母，然后以 T 为文本运行
 Knuth–Morris–Pratt 的匹配阶段：读完最后一个字母时的匹配长度就是 L。表用
@@ -104,12 +110,6 @@ Knuth–Morris–Pratt 的匹配阶段：读完最后一个字母时的匹配长
 `char[]`，每项两个字节，因为单词最多 10 000 个字母，匹配长度最多 9999；答案通过
 `BufferedWriter` 写出，不再拼成字符串：{1354_strings_optimized.java}。
 
-优化的 Python 解法不构造长约 2·|S1| 的字符串 reverse(T) + `#` + T。它只对
-reverse(S1) 求前缀函数，然后以 T 为文本运行 Knuth–Morris–Pratt 的匹配阶段：读完
-最后一个字母时的匹配长度就是 L。它处理的是 `bytes`，表是每项两个字节的
-`array("H")`，而不是整数对象的列表，因为单词最多 10 000 个字母，匹配长度最多
-9999：{1354_strings_optimized.py}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
@@ -120,7 +120,7 @@ reverse(S1) 求前缀函数，然后以 T 为文本运行 Knuth–Morris–Pratt
 
 - `1354_strings_optimized.java`: 时间降低 +26.90%; 内存降低 +30.42%; 基础版本: `1354_strings.java`.
 
-- `1354_strings_optimized.py`: 时间降低 +0.00%; 内存降低 +57.57%; 基础版本: `1354_strings.py`.
+
 
 ## 各语言说明
 
@@ -145,6 +145,6 @@ reverse(S1) 求前缀函数，然后以 T 为文本运行 Knuth–Morris–Pratt
 | [1354_strings_optimized.cpp](1354_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 128 KB | 11304449 |
 | [1354_strings_optimized.go](1354_strings_optimized.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 960 KB | 11304450 |
 | [1354_strings_optimized.java](1354_strings_optimized.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.125 s | 668 KB | 11304452 |
-| [1354_strings_optimized.py](1354_strings_optimized.py) \* | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 516 KB | 11304453 |
+| [1354_strings_optimized.py](1354_strings_optimized.py) | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.078 s | 892 KB | 11326670 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

@@ -1,4 +1,3 @@
-from array import array
 import sys
 
 
@@ -6,8 +5,8 @@ def main():
     word = sys.stdin.buffer.readline().strip()
     pattern = word[::-1]
     n = len(word)
-    # n <= 10000; unsigned shorts store all prefix lengths without integer objects.
-    border = array("H", [0]) * n
+    # Native list cells avoid repeated short-to-Python-int conversions in KMP.
+    border = [0] * n
     for i in range(1, n):
         k = border[i - 1]
         while k and pattern[i] != pattern[k]:

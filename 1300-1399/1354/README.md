@@ -95,6 +95,12 @@ checked for being palindromes with no shorter addition.
 
 ## Optimized solutions
 
+`1354_strings_optimized.py`. Keep byte KMP: build the prefix function of the reversed word, then match against the proper tail of the original word. Excluding its first byte forces a nonempty extension even when it is already a palindrome. Native list cells replace array("H") prefix entries to avoid repeated short-to-int conversion; this is a speed/storage tradeoff, not a 16-bit table. Append the unmatched reversed suffix. O(N) time and space; the readable construction remains.
+
+Exact-source CPython 3.12 Accepted #11326670: 0.078 s / 892 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/69, memory rank 1/69. Below 1024 KB, strict admission uses time only.
+
+- `1354_strings_optimized.py`: 0.078 s / 892 KB; retained teaching base `1354_strings.py` (Python 3.12 x64): 0.109 s / 1216 KB; time change -28.4%; memory change -26.6%.
+
 The optimized C++ solution never builds the string reverse(T) + `#` + T
 of about 2·|S1| letters. It computes the prefix function of reverse(S1)
 alone, reading the letters through reversed indices of S1, and then runs
@@ -123,14 +129,6 @@ per entry, since a matched length is at most 9999 for a word of at most
 10 000 letters, and the answer is written through a `BufferedWriter`
 without building it as a string: {1354_strings_optimized.java}.
 
-The optimized Python solution never builds the string reverse(T) + `#` +
-T of about 2·|S1| letters. It computes the prefix function of
-reverse(S1) alone and then runs the matching phase of Knuth–Morris–Pratt
-with T as the text: the length matched after the last letter is L. It
-works on `bytes`, and the table is an `array("H")` of two-byte entries
-instead of a list of integer objects, since a matched length is at most
-9999 for a word of at most 10 000 letters: {1354_strings_optimized.py}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -147,8 +145,7 @@ asterisk concerns the rating target only.
 - `1354_strings_optimized.java`: time reduction +26.90%; memory
   reduction +30.42%; base: `1354_strings.java`.
 
-- `1354_strings_optimized.py`: time reduction +0.00%; memory reduction
-  +57.57%; base: `1354_strings.py`.
+
 
 ## Language notes
 
@@ -174,6 +171,6 @@ asterisk concerns the rating target only.
 | [1354_strings_optimized.cpp](1354_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 128 KB | 11304449 |
 | [1354_strings_optimized.go](1354_strings_optimized.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 960 KB | 11304450 |
 | [1354_strings_optimized.java](1354_strings_optimized.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.125 s | 668 KB | 11304452 |
-| [1354_strings_optimized.py](1354_strings_optimized.py) \* | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 516 KB | 11304453 |
+| [1354_strings_optimized.py](1354_strings_optimized.py) | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.078 s | 892 KB | 11326670 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

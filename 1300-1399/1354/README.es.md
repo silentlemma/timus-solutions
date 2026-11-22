@@ -97,6 +97,12 @@ adición más corta.
 
 ## Soluciones optimizadas
 
+`1354_strings_optimized.py`. Conserva KMP de bytes: prefijos de la palabra invertida y emparejamiento con la cola propia de la original. Excluir el primer byte obliga extensión no vacía incluso si ya era palíndromo. Celdas de lista nativa sustituyen array("H"), evitando conversión short-int; compromiso de velocidad/almacenamiento, no tabla de 16 bits. Añade el sufijo invertido pendiente. O(N) tiempo/espacio, conserva construcción legible.
+
+Accepted exacto CPython 3.12 #11326670: 0.078 s / 892 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/69, memoria 1/69. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1354_strings_optimized.py`: 0.078 s / 892 KB; base didáctica conservada `1354_strings.py` (Python 3.12 x64): 0.109 s / 1216 KB; cambio de tiempo -28.4%; cambio de memoria -26.6%.
+
 La solución optimizada en C++ nunca construye la cadena
 reverse(T) + `#` + T de unas 2·|S1| letras. Calcula la función de
 prefijos solo de reverse(S1), leyendo las letras de S1 con índices
@@ -127,15 +133,6 @@ dos bytes por entrada, porque una longitud emparejada no pasa de 9999 en
 una palabra de hasta 10 000 letras, y la respuesta se escribe con un
 `BufferedWriter` sin armarla como cadena: {1354_strings_optimized.java}.
 
-La solución optimizada en Python nunca construye la cadena reverse(T) +
-`#` + T de unas 2·|S1| letras. Calcula la función de prefijos solo de
-reverse(S1) y después ejecuta la fase de búsqueda de Knuth–Morris–Pratt
-con T como texto: la longitud emparejada tras la última letra es L.
-Trabaja con `bytes`, y la tabla es un `array("H")` de entradas de dos
-bytes en lugar de una lista de objetos enteros, porque una longitud
-emparejada no pasa de 9999 en una palabra de hasta 10 000 letras:
-{1354_strings_optimized.py}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -152,8 +149,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1354_strings_optimized.java`: reducción de tiempo +26.90%; reducción
   de memoria +30.42%; base: `1354_strings.java`.
 
-- `1354_strings_optimized.py`: reducción de tiempo +0.00%; reducción de
-  memoria +57.57%; base: `1354_strings.py`.
+
 
 ## Notas por lenguaje
 
@@ -179,6 +175,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | [1354_strings_optimized.cpp](1354_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(len(S1)) | AC | 0.015 s | 128 KB | 11304449 |
 | [1354_strings_optimized.go](1354_strings_optimized.go) | Go 1.14 x64 | strings | O(len(S1)) | AC | 0.031 s | 960 KB | 11304450 |
 | [1354_strings_optimized.java](1354_strings_optimized.java) | Java 1.8 | strings | O(len(S1)) | AC | 0.125 s | 668 KB | 11304452 |
-| [1354_strings_optimized.py](1354_strings_optimized.py) \* | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.109 s | 516 KB | 11304453 |
+| [1354_strings_optimized.py](1354_strings_optimized.py) | Python 3.12 x64 | strings | O(len(S1)) | AC | 0.078 s | 892 KB | 11326670 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
