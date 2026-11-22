@@ -63,6 +63,12 @@ knuth dijkstra bellman
 
 ## 优化解法
 
+`1208_backtracking_bitmask_optimized.java`. 保留有限的独立集选/不选搜索、冲突掩码、度数启发式和最优值剪枝。预处理把精确姓名映射为编号及所属队伍掩码；每队三个掩码取 OR 得到冲突，替代所有姓名对比较。HashMap 用精确 String 相等处理冲突，不依赖概率哈希相等。预处理期望 O(I+K)，搜索 O(K·2^K)，空间 O(I+K)，I 为姓名字节。保留原成对预处理搜索及全掩码教学 DP；同一搜索的快速实现加 _optimized。
+
+精确源代码 Java 1.8 Accepted #11326964：0.093 s / 456 KB。2026-11-20 保存的当前 Java 比较：时间排名 1/40，内存排名 1/40。内存低于 1024 KB，严格收录只看时间。
+
+- `1208_backtracking_bitmask_optimized.java`: 0.093 s / 456 KB; 保留的教学基础版 `1208_bitmask.java`: 0.109 s / 2688 KB; 时间变化 -14.7%; 内存变化 -83.0%.
+
 **C++, Go, Java, Rust.** 新算法搜索包含/排除树，不保存每个掩码的答案。状态为剩余掩码与已选队数，
 剩余队伍均与已选队伍相容，另保存目前最好的可行答案。
 `selected + popcount(mask)` 即使忽略剩余内部冲突也仍是上界，
@@ -122,6 +128,7 @@ Java 记录时间较高，为 0.125 秒对 0.109 秒，但内存减少 83.3%；
 |---|---|---|---|---|---|---|---|
 | [1208_backtracking_bitmask.cpp](1208_backtracking_bitmask.cpp) \* | G++ 13.2 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 176 KB | 11308198 |
 | [1208_backtracking_bitmask.go](1208_backtracking_bitmask.go) | Go 1.14 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.031 s | 1104 KB | 11308199 |
+| [1208_backtracking_bitmask_optimized.java](1208_backtracking_bitmask_optimized.java) | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.093 s | 456 KB | 11326964 |
 | [1208_backtracking_bitmask.java](1208_backtracking_bitmask.java) \* | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.125 s | 448 KB | 11308200 |
 | [1208_backtracking_bitmask.rs](1208_backtracking_bitmask.rs) | Rust 1.75 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 224 KB | 11308202 |
 | [1208_bitmask_dp.py](1208_bitmask_dp.py) \* | PyPy 3.10 x64 | bitmask, dp | O(K^2 + 2^(K/2)) time, O(2^(K/2)+K) memory | AC | 0.125 s | 296 KB | 11309782 |

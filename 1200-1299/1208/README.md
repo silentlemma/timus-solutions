@@ -68,6 +68,12 @@ conflict; an identical team listed twice cannot be selected twice.
 
 ## Optimized solutions
 
+`1208_backtracking_bitmask_optimized.java`. Keep the bounded include/exclude independent-set search, conflict masks, degree heuristic and incumbent pruning. Preprocessing now maps each exact participant name to an integer and its owner-team mask; OR the three owner masks to obtain each team conflict mask, rather than compare all pairs of names. HashMap resolves collisions by exact String equality, not by a probabilistic hash match. Expected preprocessing O(I+K), search O(K·2^K), storage O(I+K) with I name bytes. The older pair-comparison search and whole-mask teaching DP remain; this faster implementation of the same search adds _optimized.
+
+Exact-source Java 1.8 Accepted #11326964: 0.093 s / 456 KB. Saved current-Java comparison, 2026-11-20: time rank 1/40, memory rank 1/40. With memory below 1024 KB, strict admission uses time only.
+
+- `1208_backtracking_bitmask_optimized.java`: 0.093 s / 456 KB; retained teaching base `1208_bitmask.java`: 0.109 s / 2688 KB; time change -14.7%; memory change -83.0%.
+
 **C++, Go, Java, Rust.** The new algorithm searches an include/exclude tree without storing
 answers for all masks. Its state is the remaining mask and the number
 already selected; the mask contains only teams compatible with that
@@ -135,6 +141,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1208_backtracking_bitmask.cpp](1208_backtracking_bitmask.cpp) \* | G++ 13.2 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 176 KB | 11308198 |
 | [1208_backtracking_bitmask.go](1208_backtracking_bitmask.go) | Go 1.14 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.031 s | 1104 KB | 11308199 |
+| [1208_backtracking_bitmask_optimized.java](1208_backtracking_bitmask_optimized.java) | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.093 s | 456 KB | 11326964 |
 | [1208_backtracking_bitmask.java](1208_backtracking_bitmask.java) \* | Java 1.8 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.125 s | 448 KB | 11308200 |
 | [1208_backtracking_bitmask.rs](1208_backtracking_bitmask.rs) | Rust 1.75 x64 | backtracking, bitmask | O(K 2^K + K^2) | AC | 0.015 s | 224 KB | 11308202 |
 | [1208_bitmask_dp.py](1208_bitmask_dp.py) \* | PyPy 3.10 x64 | bitmask, dp | O(K^2 + 2^(K/2)) time, O(2^(K/2)+K) memory | AC | 0.125 s | 296 KB | 11309782 |
