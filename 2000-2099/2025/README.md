@@ -65,15 +65,19 @@ Pitfalls:
 
 ## Optimized solutions
 
-The optimized C++ solution uses the same formula, but reads and writes
-with `scanf` and `printf` instead of `iostream`: 128 KB instead of
-444 KB, with the same time.
+`2025_math_optimized.java`. Java keeps the balanced-group formula. Let q=N/K and r=N%K; r groups have q+1 people and K-r have q. The answer is (N*N-((K-r)*q*q+r*(q+1)*(q+1)))/2, computed in long. With N<=10000 it is at most 49995000, so the final int conversion is exact. Raw 128-byte input/output buffers avoid BufferedInputStream, StringBuilder and per-answer strings. At most ten answers use at most 90 bytes; the output helper also flushes safely if full. Time O(T), auxiliary space O(1), with O(1) arithmetic per test.
+
+Exact-source Java 1.8 Accepted #11327424: 0.093 s / 344 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/650, memory 4/650. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11302162 was 0.14 s / 372 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `2025_math_optimized.java`: 0.093 s / 344 KB; retained teaching base `2025_math.java`: 0.125 s / 1628 KB.
+
+`2025_math_optimized.cpp`. Keep the balanced-group sum-of-squares formula with exact long long arithmetic. Replace scanf with a 256-byte refillable input buffer plus a sentinel byte; tokens crossing a refill are still read fully. Collect answers in a fixed 128-byte output buffer and write once instead of calling printf for every test. At most ten answers are needed, each at most 49995000, so at most 90 output bytes fit. O(1) arithmetic per test, O(T) total and fixed auxiliary storage. The simple mathematical version remains unchanged.
+
+Exact-source G++ 13.2 x64 Accepted #11327412: 0.015 s / 76 KB. The complete public rating downloaded on 2026-11-21 contains 3066 rows. After excluding our author and selecting current C/C++ compilers, time rank is 1/463 and memory rank 2/463; equal measurements share a rank and times below 0.015 s use the 0.015 s floor. Both top-ten targets pass, so no asterisk. With memory below 1024 KB, strict admission also permits time only. The prior optimized run #11303661 was 0.031 s / 128 KB; the retained simple C++ run #11292869 is 0.031 s / 444 KB. These are separate paired measurements, not mixed minima. No repeat submission was needed.
 
 ## Language notes
 
 No language needs anything special.
-
-Read the integers directly as bytes, compute the balanced group sizes, and buffer the answers. Accepted submission 11302162 took 0.140 s and used 372 KB. The simple version took 0.125 s and used 1628 KB. The recorded runtime is higher than for the simple version.
 
 Subtract the within-group pairs from the total. Count the extra pairs contributed by the larger groups separately. Accepted submission 11324249 took 0.140 s and used 224 KB. The simple version took 0.078 s and used 448 KB. The recorded runtime is higher than for the simple version.
 
@@ -93,9 +97,8 @@ Subtract the within-group pairs from the total. Count the extra pairs contribute
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
-| [2025_math_optimized.cpp](2025_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 128 KB | 11303661 |
-| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 372 KB | 11302162 |
+| [2025_math_optimized.cpp](2025_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11327412 |
+| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
 | [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

@@ -65,15 +65,19 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La solución optimizada en C++ usa la misma fórmula, pero lee y escribe
-con `scanf` y `printf` en lugar de `iostream`: 128 KB en lugar de
-444 KB, con el mismo tiempo.
+`2025_math_optimized.java`. Java conserva la fórmula de grupos equilibrados. Sean q=N/K y r=N%K: r grupos tienen q+1 personas y K-r tienen q. Calcula en long (N*N-((K-r)*q*q+r*(q+1)*(q+1)))/2. Con N<=10000, el resultado no supera 49995000 y la conversión final a int es exacta. Búferes directos de entrada y salida de 128 bytes evitan BufferedInputStream, StringBuilder y cadenas por respuesta. Hasta diez respuestas ocupan como máximo 90 bytes; el emisor también vacía el búfer de forma segura si se llena. Tiempo O(T), aritmética O(1) por caso y espacio auxiliar O(1).
+
+Accepted exacto Java 1.8 #11327424: 0.093 s / 344 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/650, memoria 4/650. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11302162 era 0.14 s / 372 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2025_math_optimized.java`: 0.093 s / 344 KB; base didáctica conservada `2025_math.java`: 0.125 s / 1628 KB.
+
+`2025_math_optimized.cpp`. Conserva la fórmula de suma de cuadrados de grupos equilibrados con long long exacto. Sustituye scanf por entrada recargable de 256 bytes y un byte centinela; lee completos los números que cruzan recargas. Reúne respuestas en un búfer fijo de 128 bytes y escribe una vez, sin printf por caso. Como máximo diez respuestas de hasta 49995000 ocupan 90 bytes. Aritmética O(1) por caso, O(T) total y espacio auxiliar fijo; conserva la versión matemática simple.
+
+Accepted exacto G++ 13.2 x64 #11327412: 0.015 s / 76 KB. La clasificación pública completa descargada el 2026-11-21 contiene 3066 filas. Excluido nuestro autor y elegidos compiladores C/C++ actuales, el tiempo ocupa 1/463 y la memoria 2/463; empates comparten puesto y tiempos inferiores a 0.015 s usan ese mínimo. Ambas metas de diez primeros pasan, sin asterisco; bajo 1024 KB la admisión estricta permite tiempo solo. El registro optimizado anterior #11303661 era 0.031 s / 128 KB; la base C++ conservada #11292869 es 0.031 s / 444 KB. Son pares independientes, sin mezclar mínimos. No fue necesario reenviar.
 
 ## Notas por lenguaje
 
 Ningún lenguaje necesita nada especial.
-
-Leer los enteros directamente de los bytes, calcular los tamaños equilibrados de los grupos y acumular las respuestas. El envío aceptado 11302162 tardó 0.140 s y usó 372 KB. La versión sencilla tardó 0.125 s y usó 1628 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 Restar del total las parejas del mismo grupo. Contar por separado las parejas adicionales de los grupos mayores. El envío aceptado 11324249 tardó 0.140 s y usó 224 KB. La versión sencilla tardó 0.078 s y usó 448 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
@@ -93,9 +97,8 @@ Restar del total las parejas del mismo grupo. Contar por separado las parejas ad
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [2025_math_optimized.cpp](2025_math_optimized.cpp) \* | G++ 13.2 x64 | math | O(1) | AC | 0.031 s | 128 KB | 11303661 |
-| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.140 s | 372 KB | 11302162 |
+| [2025_math_optimized.cpp](2025_math_optimized.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 76 KB | 11327412 |
+| [2025_math_optimized.java](2025_math_optimized.java) \* | Java 1.8 | math | O(T) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327424 |
 | [2025_math_optimized.py](2025_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.140 s | 224 KB | 11324249 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
