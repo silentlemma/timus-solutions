@@ -76,6 +76,8 @@ en cada n de 1 a 2000.
 
 ## Soluciones optimizadas
 
+`1785_implementation_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327034 mide 0.078 s / 704 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 18/582, memoria 494/582. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325075, 0.14 s / 196 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1785_implementation_optimized.go`. Conserva los nueve intervalos de nombres con iguales límites inferiores inclusivos. Usa condiciones descendentes en vez de arreglos paralelos e índice; elige la primera válida, incluidas fronteras5,10,20,50,100,250,500,1000. No introduce ordenación ni búsqueda general. Dominio1..2000 y nueve casos fijos dan O(1) tiempo y estado, con idénticas palabras. os.Stdin.Read/os.Stdout.Write portables y conversión entera directa usan búferes fijos de entrada y salida de 4096 bytes. Se atienden escrituras parciales antes de reutilizar el búfer de salida. Se conserva la fuente sencilla original con Accepted.
 
 Frente a `1785_implementation.go`: tiempo 0.031 s → 0.015 s; memoria 1080 KB → 796 KB.
@@ -98,7 +100,7 @@ Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 d
 
 `1785_implementation_optimized.go`: puesto de tiempo 1/21 y de memoria 1/21 en esta muestra comparable.
 
-`1785_implementation_optimized.py`: puesto de tiempo 566/582 y de memoria 2/582 en esta muestra comparable.
+Comparación PyPy anterior: `1785_implementation_optimized.py`: puesto de tiempo 566/582 y de memoria 2/582 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -121,6 +123,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
 | [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
-| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 196 KB | 11325075 |
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

@@ -69,6 +69,8 @@ lots
 
 ## 优化解法
 
+`1785_implementation_optimized.py` 逐字节复用，不增加源文件，也不引入新算法。精确源代码的 CPython 3.12 Accepted #11327034 为 0.078 s / 704 KB。2026-11-20 保存的当前 Python 语言族编译器组中，时间排名 18/582、内存排名 494/582。本次内存低于 1024 KB，因此严格前十名或前 15% 标准只看时间；星号仍表示单独的语言排名目标。同一未改动文件另有早先的 PyPy 3.10 Accepted #11325075：0.14 s / 196 KB。这些是不同运行各自成对的指标：选择 CPython 的时间与排名，PyPy 的内存更低。本节早先的省内存说明指此 PyPy 测量，不是 CPython 表格行。全部教学源代码保持不变。
+
 `1785_implementation_optimized.go`. 保留九个固定军队名区间及包含式下界，用递减条件分支替代并行阈值、名称数组及下标查找，取首个匹配，含边界5,10,20,50,100,250,500,1000。不引入通用排序或搜索。输入1..2000、固定九种情况使时间和状态均为 O(1)，单词拼写不变。 可移植的 os.Stdin.Read/os.Stdout.Write 与直接整数转换使用各 4096 字节的固定输入输出缓冲区。重复使用输出缓冲区前会处理部分写入。保留原有简单 Accepted 版本。
 
 与 `1785_implementation.go` 相比：时间 0.031 s → 0.015 s；内存 1080 KB → 796 KB。
@@ -89,7 +91,7 @@ lots
 
 `1785_implementation_optimized.go`：在该可比样本中，时间名次 1/21，内存名次 1/21。
 
-`1785_implementation_optimized.py`：在该可比样本中，时间名次 566/582，内存名次 2/582。
+早先的 PyPy 比较：`1785_implementation_optimized.py`：在该可比样本中，时间名次 566/582，内存名次 2/582。
 
 星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
@@ -112,6 +114,6 @@ lots
 | [1785_implementation_optimized.cpp](1785_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 116 KB | 11303636 |
 | [1785_implementation_optimized.java](1785_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.093 s | 340 KB | 11303777 |
 | [1785_implementation_optimized.go](1785_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 796 KB | 11325055 |
-| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 196 KB | 11325075 |
+| [1785_implementation_optimized.py](1785_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 704 KB | 11327034 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
