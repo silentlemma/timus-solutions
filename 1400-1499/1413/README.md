@@ -68,14 +68,15 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1413_simulation_optimized.java`. Java keeps integer counts of keypad directions and stops at the first zero, reading 4096-byte blocks. Each coordinate is straight+diagonal/sqrt(2). It represents the diagonal coefficient by C/10^18 with C=707106781186547524=floor(10^18/sqrt(2)), then emits eighteen fractional digits using integer arithmetic. Splitting C into 707106781*10^9+186547524 keeps products in long; floorDiv/floorMod preserve signs and borrows even near zero. With at most 10^6 moves, coefficient error contributes less than 1e-12, below the required 1e-10; no double conversion is used. The coefficient is a defined mathematical constant, not stored answers. Time O(I) for bytes read, fixed auxiliary storage. The short floating-point base remains.
+
+Exact-source Java 1.8 Accepted #11327528: 0.093 s / 376 KB. Saved 2026-11-20 compiler-cohort comparison: time 3/49, memory 1/49. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11307336 was 0.109 s / 936 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1413_simulation_optimized.java`: 0.093 s / 376 KB; retained teaching base `1413_simulation.java`: 0.093 s / 5804 KB.
+
 The optimized Go solution counts the keys in a reusable 4 KB buffer
 instead of reading all the up to 10⁶ keys into memory at once:
 {1413_simulation_optimized.go}.
-
-The optimized Java solution counts the keys straight from the bytes of a
-`BufferedInputStream` and stops at the first 0, instead of decoding the
-input into `String` lines of up to a million characters with
-`BufferedReader`: {1413_simulation_optimized.java}.
 
 The optimized Python solution reads the input in 8 KB chunks and counts
 the digits of each chunk with `bytes.count`, instead of reading all the
@@ -96,18 +97,15 @@ asterisk concerns the rating target only.
 - `1413_simulation_optimized.go`: time reduction +0.00%; memory
   reduction +68.46%; base: `1413_simulation.go`.
 
-- `1413_simulation_optimized.java`: time reduction -17.20%; memory
-  reduction +83.87%; base: `1413_simulation.java`.
-
 - `1413_simulation_optimized.py`: time reduction +16.13%; memory
   reduction +82.94%; base: `1413_simulation.py`.
 
 - `1413_simulation_optimized.rs`: time reduction +0.00%; memory
   reduction +88.58%; base: `1413_simulation.rs`.
 
-`1413_simulation_optimized.cpp`. Preserve the nine direction counts and combine integer axis/diagonal contributions only once. Read characters directly with getchar and stop at the first zero rather than retaining a string token and continuing after termination. Multiply diagonal counts by sqrt(1/2) only for the final coordinates. The stream is processed in O(n) time with nine counters and O(1) auxiliary space.
+`1413_simulation_optimized.cpp`. Count direction keys in reusable 8 KB blocks and stop counting at the first zero. Keep the nine counters and combine integer axis and diagonal contributions only once; the diagonal scale is sqrt(1/2). Time is O(n), auxiliary space O(1); no full input string is retained.
 
-Compared with `1413_simulation.cpp`: time 0.015 s → 0.031 s; memory 1832 KB → 100 KB.
+Compared with `1413_simulation.cpp`: time 0.015 s → 0.015 s; memory 1832 KB → 92 KB.
 
 ## Solutions
 
@@ -126,9 +124,9 @@ Compared with `1413_simulation.cpp`: time 0.015 s → 0.031 s; memory 1832 KB �
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1413_simulation_optimized.go](1413_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 1008 KB | 11307331 |
-| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
+| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(I) time; O(1) auxiliary space | AC | 0.093 s | 376 KB | 11327528 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
-| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 92 KB | 11326635 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

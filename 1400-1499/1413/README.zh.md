@@ -61,12 +61,14 @@ X 和 Y，向东和向北的位移。
 
 ## 优化解法
 
+`1413_simulation_optimized.java`. Java 保留键盘方向的整数计数，读 4096 字节块并在首个零处停止。每个坐标为 straight+diagonal/sqrt(2)。用 C/10^18 表示对角系数，C=707106781186547524=floor(10^18/sqrt(2))，再以整数运算输出十八位小数。将 C 拆成 707106781*10^9+186547524，保证乘积可用 long；floorDiv/floorMod 正确处理符号与近零借位。至多 10^6 步时系数误差小于 1e-12，低于 1e-10 要求，无 double 转换。系数是定义明确的数学常数，不是预存答案。按读入字节计时间 O(I)，辅助存储固定。保留简短浮点教学版。
+
+精确源代码 Java 1.8 Accepted #11327528：0.093 s / 376 KB。2026-11-20 保存的编译器组比较：时间 3/49、内存 1/49。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11307336 为 0.109 s / 936 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1413_simulation_optimized.java`: 0.093 s / 376 KB; 保留教学基础版 `1413_simulation.java`: 0.093 s / 5804 KB.
+
 优化的 Go 解法在一个可重复使用的 4 KB 缓冲区中统计按键，而不是把多达 10⁶ 次按键
 一次全部读入内存：{1413_simulation_optimized.go}。
-
-优化的 Java 解法直接按 `BufferedInputStream` 的字节统计按键，并在第一个 0 处停
-止，而不是用 `BufferedReader` 把输入解码成长达一百万个字符的 `String` 行：
-{1413_simulation_optimized.java}。
 
 优化的 Python 解法按 8 KB 分块读取输入，并用 `bytes.count` 统计每块中的各个数
 字，而不是把多达 10⁶ 次按键一次全部读入内存；第一个 0 之后的输入照常读取但不再计
@@ -81,15 +83,13 @@ X 和 Y，向东和向北的位移。
 
 - `1413_simulation_optimized.go`: 时间降低 +0.00%; 内存降低 +68.46%; 基础版本: `1413_simulation.go`.
 
-- `1413_simulation_optimized.java`: 时间降低 -17.20%; 内存降低 +83.87%; 基础版本: `1413_simulation.java`.
-
 - `1413_simulation_optimized.py`: 时间降低 +16.13%; 内存降低 +82.94%; 基础版本: `1413_simulation.py`.
 
 - `1413_simulation_optimized.rs`: 时间降低 +0.00%; 内存降低 +88.58%; 基础版本: `1413_simulation.rs`.
 
-`1413_simulation_optimized.cpp`. 保留九个方向计数，最终一次合并整数轴向及对角贡献。用 getchar 直接读取字符，在首个零处停止，无需保存字符串记号或继续读取结束符后的内容。仅在最终坐标计算时把对角计数乘以 sqrt(1/2)。时间 O(n)，九个计数器，额外空间 O(1)。
+`1413_simulation_optimized.cpp`. 用可复用的 8 KB 缓冲区分块统计方向键，在首个零处停止计数。保留九个计数器，最后一次合并整数轴向与对角贡献，对角线系数为 sqrt(1/2)。时间 O(n)，额外空间 O(1)，不保存完整输入字符串。
 
-与 `1413_simulation.cpp` 相比：时间 0.015 s → 0.031 s；内存 1832 KB → 100 KB。
+与 `1413_simulation.cpp` 相比：时间 0.015 s → 0.015 s；内存 1832 KB → 92 KB。
 
 ## 解答
 
@@ -108,9 +108,9 @@ X 和 Y，向东和向北的位移。
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1413_simulation_optimized.go](1413_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 1008 KB | 11307331 |
-| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
+| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(I) time; O(1) auxiliary space | AC | 0.093 s | 376 KB | 11327528 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
-| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 92 KB | 11326635 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

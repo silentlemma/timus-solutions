@@ -69,14 +69,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1413_simulation_optimized.java`. Java conserva contadores enteros de direcciones del teclado y se detiene en el primer cero, leyendo bloques de 4096 bytes. Cada coordenada es straight+diagonal/sqrt(2). Representa el coeficiente por C/10^18, C=707106781186547524=floor(10^18/sqrt(2)), y emite dieciocho decimales con enteros. Dividir C en 707106781*10^9+186547524 mantiene los productos en long; floorDiv/floorMod conservan signo y préstamo cerca de cero. Hasta 10^6 movimientos, el error es menor que 1e-12 frente al límite 1e-10, sin conversión double. Es una constante matemática definida, no respuestas guardadas. Tiempo O(I) en bytes leídos y almacenamiento auxiliar fijo. Conserva la base corta de coma flotante.
+
+Accepted exacto Java 1.8 #11327528: 0.093 s / 376 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 3/49, memoria 1/49. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11307336 era 0.109 s / 936 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1413_simulation_optimized.java`: 0.093 s / 376 KB; base didáctica conservada `1413_simulation.java`: 0.093 s / 5804 KB.
+
 La solución optimizada en Go cuenta las teclas en un búfer reutilizable
 de 4 KB en lugar de leer de una vez a memoria las hasta 10⁶ pulsaciones:
 {1413_simulation_optimized.go}.
-
-La solución optimizada en Java cuenta las teclas directamente sobre los
-bytes de un `BufferedInputStream` y se detiene en el primer 0, en lugar
-de decodificar la entrada en líneas `String` de hasta un millón de
-caracteres con `BufferedReader`: {1413_simulation_optimized.java}.
 
 La solución optimizada en Python lee la entrada en trozos de 8 KB y
 cuenta los dígitos de cada trozo con `bytes.count`, en lugar de leer de
@@ -97,18 +98,15 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1413_simulation_optimized.go`: reducción de tiempo +0.00%; reducción
   de memoria +68.46%; base: `1413_simulation.go`.
 
-- `1413_simulation_optimized.java`: reducción de tiempo -17.20%;
-  reducción de memoria +83.87%; base: `1413_simulation.java`.
-
 - `1413_simulation_optimized.py`: reducción de tiempo +16.13%; reducción
   de memoria +82.94%; base: `1413_simulation.py`.
 
 - `1413_simulation_optimized.rs`: reducción de tiempo +0.00%; reducción
   de memoria +88.58%; base: `1413_simulation.rs`.
 
-`1413_simulation_optimized.cpp`. Conserva los nueve conteos de dirección y combina una vez las contribuciones enteras axiales y diagonales. Lee caracteres directamente con getchar y se detiene en el primer cero, sin guardar una cadena ni seguir leyendo tras terminar. Multiplica los conteos diagonales por sqrt(1/2) solo al calcular las coordenadas finales. Tiempo O(n), nueve contadores y O(1) espacio auxiliar.
+`1413_simulation_optimized.cpp`. Cuenta las teclas de dirección en bloques reutilizables de 8 KB y deja de contar en el primer cero. Conserva los nueve contadores y combina una vez las contribuciones enteras axiales y diagonales, con factor sqrt(1/2) para las diagonales. Tiempo O(n), espacio auxiliar O(1), sin guardar toda la entrada en una cadena.
 
-Frente a `1413_simulation.cpp`: tiempo 0.015 s → 0.031 s; memoria 1832 KB → 100 KB.
+Frente a `1413_simulation.cpp`: tiempo 0.015 s → 0.015 s; memoria 1832 KB → 92 KB.
 
 ## Soluciones
 
@@ -127,9 +125,9 @@ Frente a `1413_simulation.cpp`: tiempo 0.015 s → 0.031 s; memoria 1832 KB → 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1413_simulation_optimized.go](1413_simulation_optimized.go) | Go 1.14 x64 | simulation | O(n) | AC | 0.015 s | 1008 KB | 11307331 |
-| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(n) | AC | 0.109 s | 936 KB | 11307336 |
+| [1413_simulation_optimized.java](1413_simulation_optimized.java) \* | Java 1.8 | simulation | O(I) time; O(1) auxiliary space | AC | 0.093 s | 376 KB | 11327528 |
 | [1413_simulation_optimized.py](1413_simulation_optimized.py) | Python 3.12 x64 | simulation | O(n) | AC | 0.078 s | 524 KB | 11307334 |
 | [1413_simulation_optimized.rs](1413_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 244 KB | 11307332 |
-| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 100 KB | 11325057 |
+| [1413_simulation_optimized.cpp](1413_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 92 KB | 11326635 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
