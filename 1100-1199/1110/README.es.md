@@ -62,19 +62,26 @@ multiplicaciones para cada `X`.
 
 ## Soluciones optimizadas
 
+`1110_bruteforce_optimized.java`. Java conserva la búsqueda exhaustiva de raíces modulares por cuadrados sucesivos, pero empareja x con M-x: sus potencias son iguales si N es par y opuestas módulo M si es impar. Una exponenciación comprueba ambos residuos; trata el cero aparte y Y>=M no tiene raíces. Un arreglo booleano marca las raíces y un búfer de bytes acotado las emite en orden creciente, o -1. Con M<999 cada raíz usa como máximo tres cifras, así que bastan 4*M bytes de respuesta. Tiempo O(M log N), espacio auxiliar O(M). Conserva el análisis directo de enteros; no introduce tablas de respuestas ni otro método teórico de raíces.
+
+Accepted exacto Java 1.8 #11327344: 0.078 s / 304 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/228, memoria 1/228. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11303558 era 0.109 s / 412 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1110_bruteforce_optimized.java`: 0.078 s / 304 KB; base didáctica conservada `1110_bruteforce.java`: 0.109 s / 1568 KB.
+
+`1110_bruteforce_optimized.py`. Mantiene la enumeración exhaustiva mediante potencias modulares. Agrupa raíces crecientes en una salida, sin print por raíz; conserva -1 si no hay. Vacía antes de salir directamente. No cambia pruebas ni base, sin test probabilístico de raíces.
+
+Accepted exacto CPython 3.12 #11327010: 0.062 s / 656 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 4/147, memoria 118/147. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1110_bruteforce_optimized.py`: 0.062 s / 656 KB; base didáctica conservada `1110_bruteforce.py` (Python 3.12 x64): 0.078 s / 352 KB; cambio de tiempo -20.5%; cambio de memoria +86.4%.
+
 La solución optimizada en C++ imprime cada raíz en cuanto la encuentra en
 lugar de juntar las raíces en un vector: 128 KB en lugar de 196 KB, con
-el mismo tiempo. La solución optimizada en Java lee los tres números
-byte a byte de `System.in` en lugar de crear un `Scanner`, que por sí
-solo ocupa más de un megabyte: 412 KB en lugar de 1568 KB, con el mismo
-tiempo.
+el mismo tiempo.
 
 ## Notas por lenguaje
 
 - Python usa el `pow` de tres argumentos incorporado; los demás lenguajes
   llevan una pequeña función de potencia.
-
-Recorrer los candidatos dentro de una función e imprimir cada raíz modular en cuanto se encuentra. El envío aceptado 11324304 tardó 0.078 s y usó 344 KB. La versión sencilla tardó 0.078 s y usó 352 KB.
 
 ## Soluciones
 
@@ -93,7 +100,7 @@ Recorrer los candidatos dentro de una función e imprimir cada raíz modular en 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
-| [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) | AC | 0.109 s | 412 KB | 11303558 |
-| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.078 s | 344 KB | 11324304 |
+| [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) time; O(M) auxiliary space | AC | 0.078 s | 304 KB | 11327344 |
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

@@ -26,20 +26,46 @@ public class Main {
         return result;
     }
 
-    public static void main(String[] args) throws java.io.IOException {
-        int exponent = nextInt(), modulus = nextInt(), remainder = nextInt();
-        StringBuilder roots = new StringBuilder();
-        // only M candidates; a Y of M or more is never a remainder
+    static final int DECIMAL = 10, DIGITS = 3;
+
+    static boolean[] findRoots(int exponent, int modulus, int remainder) {
+        boolean[] roots = new boolean[modulus];
         if (remainder < modulus) {
-            for (int x = 0; x < modulus; ++x) {
-                if (power(x, exponent, modulus) == remainder) {
-                    if (roots.length() > 0) {
-                        roots.append(' ');
-                    }
-                    roots.append(x);
-                }
+            roots[0] = remainder == 0;
+            // Each pair x and M-x needs only one modular exponentiation.
+            for (int x = 1; x <= modulus / 2; x++) {
+                int value = power(x, exponent, modulus);
+                roots[x] = value == remainder;
+                int opposite = (exponent & 1) == 0 || value == 0 ? value : modulus - value;
+                roots[modulus - x] = opposite == remainder;
             }
         }
-        System.out.println(roots.length() > 0 ? roots.toString() : "-1");
+        return roots;
+    }
+
+    public static void main(String[] args) throws java.io.IOException {
+        int exponent = nextInt(), modulus = nextInt(), remainder = nextInt();
+        boolean[] roots = findRoots(exponent, modulus, remainder);
+        byte[] answer = new byte[(DIGITS + 1) * modulus], digits = new byte[DIGITS];
+        int length = 0;
+        for (int x = 0; x < modulus; x++) {
+            if (!roots[x])
+                continue;
+            if (length > 0)
+                answer[length++] = ' ';
+            int value = x, count = 0;
+            do {
+                digits[count++] = (byte)('0' + value % DECIMAL);
+                value /= DECIMAL;
+            } while (value > 0);
+            while (count > 0)
+                answer[length++] = digits[--count];
+        }
+        if (length == 0) {
+            answer[length++] = '-';
+            answer[length++] = '1';
+        }
+        answer[length++] = '\n';
+        System.out.write(answer, 0, length);
     }
 }

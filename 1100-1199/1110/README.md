@@ -61,19 +61,26 @@ multiplications for every `X`.
 
 ## Optimized solutions
 
+`1110_bruteforce_optimized.java`. Java keeps exhaustive modular root search with repeated squaring, but pairs x with M-x: their Nth powers are equal for even N and opposite modulo M for odd N. One exponentiation therefore checks both residues; zero is handled separately, and Y>=M has no roots. A boolean array records the roots, then a bounded raw byte buffer emits them in increasing order, or -1. Since M<999, each root has at most three decimal digits and a 4*M byte answer buffer suffices. Time O(M log N), auxiliary space O(M). The direct integer parser remains; no answer table or new number-theoretic solver is introduced.
+
+Exact-source Java 1.8 Accepted #11327344: 0.078 s / 304 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/228, memory 1/228. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. Both metrics rank first, so the separate language target also passes; no asterisk. The previously documented optimized run #11303558 was 0.109 s / 412 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1110_bruteforce_optimized.java`: 0.078 s / 304 KB; retained teaching base `1110_bruteforce.java`: 0.109 s / 1568 KB.
+
+`1110_bruteforce_optimized.py`. Keep the exhaustive modular-power root scan. Collect roots in increasing order and emit one joined answer instead of one print per root; retain -1 for no root. Flush before direct exit. Every modular test and the teaching source remain unchanged; no probabilistic root test is introduced.
+
+Exact-source CPython 3.12 Accepted #11327010: 0.062 s / 656 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 4/147, memory rank 118/147. Below 1024 KB, strict admission uses time only.
+
+- `1110_bruteforce_optimized.py`: 0.062 s / 656 KB; retained teaching base `1110_bruteforce.py` (Python 3.12 x64): 0.078 s / 352 KB; time change -20.5%; memory change +86.4%.
+
 The optimized C++ solution prints every root as soon as it is found
 instead of collecting the roots in a vector: 128 KB instead of 196 KB,
-with the same time. The optimized Java solution reads the three numbers
-byte by byte from `System.in` instead of creating a `Scanner`, which
-alone costs more than a megabyte: 412 KB instead of 1568 KB, with the
-same time.
+with the same time.
 
 ## Language notes
 
 - Python uses the built-in three-argument `pow`; the other languages
   carry a small power function.
-
-Scan the candidate values inside a function and print each modular root as soon as it is found. Accepted submission 11324304 took 0.078 s and used 344 KB. The simple version took 0.078 s and used 352 KB.
 
 ## Solutions
 
@@ -92,7 +99,7 @@ Scan the candidate values inside a function and print each modular root as soon 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1110_bruteforce_optimized.cpp](1110_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(M log N) | AC | 0.015 s | 128 KB | 11303557 |
-| [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) | AC | 0.109 s | 412 KB | 11303558 |
-| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.078 s | 344 KB | 11324304 |
+| [1110_bruteforce_optimized.java](1110_bruteforce_optimized.java) | Java 1.8 | bruteforce | O(M log N) time; O(M) auxiliary space | AC | 0.078 s | 304 KB | 11327344 |
+| [1110_bruteforce_optimized.py](1110_bruteforce_optimized.py) \* | Python 3.12 x64 | bruteforce | O(M log N) | AC | 0.062 s | 656 KB | 11327010 |
 
 \* The marked solutions can improve their target rankings.
