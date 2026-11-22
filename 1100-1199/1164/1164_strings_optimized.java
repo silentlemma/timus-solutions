@@ -1,5 +1,3 @@
-
-
 public class Main {
 
     private static final class FastInput {
@@ -106,6 +104,16 @@ public class Main {
             return negative ? value : -value;
         }
 
+        void countLetters(int[] counts, int change) {
+            int character = read();
+            while (character >= 0 && character <= ' ')
+                character = read();
+            while (character > ' ') {
+                counts[character - 'A'] += change;
+                character = read();
+            }
+        }
+
         int nextInt() { return (int)nextLong(); }
         double nextDouble() { return Double.parseDouble(next()); }
         FastInput useLocale(java.util.Locale ignored) { return this; }
@@ -119,16 +127,10 @@ public class Main {
         // the words take their letters out of the grid one cell each, so what
         // is left does not depend on where they lie
         int[] left = new int[LETTERS];
-        for (int i = 0; i < n; i++) {
-            for (char c : in.next().toCharArray()) {
-                left[c - 'A']++;
-            }
-        }
-        for (int i = 0; i < p; i++) {
-            for (char c : in.next().toCharArray()) {
-                left[c - 'A']--;
-            }
-        }
+        for (int i = 0; i < n; i++)
+            in.countLetters(left, 1);
+        for (int i = 0; i < p; i++)
+            in.countLetters(left, -1);
         StringBuilder answer = new StringBuilder();
         for (int c = 0; c < LETTERS; c++) {
             for (int k = 0; k < left[c]; k++) {

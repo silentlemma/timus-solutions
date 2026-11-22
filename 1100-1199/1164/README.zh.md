@@ -66,6 +66,12 @@ EEG
 
 ## 优化解法
 
+`1164_strings_optimized.java`. Java 保留 26 个字母余额：累加网格字母，减去所有单词字母，再按字母顺序输出正余额。合法放置总消耗同一多重集合，无需搜索路径。countLetters 直接在可重填的 1024 字节缓冲区中计数大写记号字节，避免单词字符串、UTF-8 解码和字符数组。答案仍使用 StringBuilder。W 为单词总字母数、A 为输出字母数时，时间 O(N*M+W+A)，辅助空间 O(A+26) 加固定输入缓冲区。保留教学版本。
+
+精确源代码 Java 1.8 Accepted #11327328：0.093 s / 456 KB。2026-11-20 保存的编译器组比较：时间 4/32、内存 2/32。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324785 为 0.109 s / 500 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1164_strings_optimized.java`: 0.093 s / 456 KB; 保留教学基础版 `1164_strings.java`: 0.109 s / 1640 KB.
+
 `1164_strings_optimized.rs`. 保留 26 字母余额：加网格、减单词。直接流式读行和词，按序输出剩余字母，不存整段输入或答案字符串。I 个输入字节、A 个输出字母下 O(I+A) 时间，常数字母表存储。
 
 与 `1164_strings.rs` 相比：时间 0.015 s → 0.015 s；内存 220 KB → 60 KB。
@@ -74,10 +80,6 @@ EEG
 
 - `1164_strings_optimized.cpp`: 0.015 s / 104 KB; 基础 `1164_strings.cpp`: 0.015 s / 380 KB; 相对变化: 时间 -0.0%, 内存 -72.6%.
 - `1164_strings_optimized.py`: 0.109 s / 260 KB; 基础 `1164_strings.py`: 0.078 s / 436 KB; 相对变化: 时间 +39.7%, 内存 -40.4%.
-
-`1164_strings_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
-
-与 `1164_strings.java` 相比：时间 0.109 s → 0.109 s；内存 1640 KB → 500 KB。
 
 ## 各语言说明
 
@@ -105,7 +107,7 @@ EEG
 |---|---|---|---|---|---|---|---|
 | [1164_strings_optimized.cpp](1164_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(N M + W) | AC | 0.015 s | 104 KB | 11308330 |
 | [1164_strings_optimized.py](1164_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(N M + W) | AC | 0.109 s | 260 KB | 11309679 |
-| [1164_strings_optimized.java](1164_strings_optimized.java) \* | Java 1.8 | strings | O(N M + W) | AC | 0.109 s | 500 KB | 11324785 |
+| [1164_strings_optimized.java](1164_strings_optimized.java) \* | Java 1.8 | strings | O(N M + W + A) time; O(A + 26) space + fixed buffer | AC | 0.093 s | 456 KB | 11327328 |
 | [1164_strings_optimized.rs](1164_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(I+A) time; O(26) space | AC | 0.015 s | 60 KB | 11325544 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

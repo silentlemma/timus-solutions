@@ -75,6 +75,12 @@ las cinco fuentes Accepted originales.
 
 ## Soluciones optimizadas
 
+`1164_strings_optimized.java`. Java conserva 26 balances de letras: añade la cuadrícula, resta las palabras y emite los saldos positivos alfabéticamente. Toda colocación válida consume el mismo multiconjunto, sin buscar caminos. countLetters recorre directamente los bytes mayúsculos del token en un búfer recargable de 1024 bytes, sin cadenas por palabra, decodificación UTF-8 ni arreglos de caracteres. La respuesta aún usa StringBuilder. Con W letras de palabras y A letras de salida: tiempo O(N*M+W+A), espacio auxiliar O(A+26) más el búfer fijo. Conserva las bases didácticas.
+
+Accepted exacto Java 1.8 #11327328: 0.093 s / 456 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/32, memoria 2/32. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324785 era 0.109 s / 500 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1164_strings_optimized.java`: 0.093 s / 456 KB; base didáctica conservada `1164_strings.java`: 0.109 s / 1640 KB.
+
 `1164_strings_optimized.rs`. Conserva 26 balances: añade letras del tablero y resta palabras. Procesa en flujo y emite restantes en orden sin texto completo ni cadena de respuesta. O(I+A) tiempo para I bytes y A letras, alfabeto constante.
 
 Frente a `1164_strings.rs`: tiempo 0.015 s → 0.015 s; memoria 220 KB → 60 KB.
@@ -84,15 +90,9 @@ Toda colocación consume el mismo multiconjunto de letras. Se conservan los cont
 - `1164_strings_optimized.cpp`: 0.015 s / 104 KB; base `1164_strings.cpp`: 0.015 s / 380 KB; cambio respecto a la base: tiempo -0.0%, memoria -72.6%.
 - `1164_strings_optimized.py`: 0.109 s / 260 KB; base `1164_strings.py`: 0.078 s / 436 KB; cambio respecto a la base: tiempo +39.7%, memoria -40.4%.
 
-`1164_strings_optimized.java`. Java conserva el algoritmo y las estructuras descritas para la versión sencilla. Un búfer fijo de bytes y FastInput sustituyen Scanner y su maquinaria de expresiones regulares y configuración regional. Los enteros se analizan directamente; las cadenas siguen decodificándose como UTF-8 cuando se solicitan y los decimales mantienen conversión numérica explícita. La anticipación guarda un token solo cuando hace falta. El algoritmo de salida no cambia. Se elimina el coste del análisis general; la tabla describe el trabajo algorítmico, con lectura lineal en bytes y un búfer acotado.
-
-Frente a `1164_strings.java`: tiempo 0.109 s → 0.109 s; memoria 1640 KB → 500 KB.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1164_strings_optimized.java`: puesto de tiempo 12/32 y de memoria 2/32 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -114,7 +114,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1164_strings_optimized.cpp](1164_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(N M + W) | AC | 0.015 s | 104 KB | 11308330 |
 | [1164_strings_optimized.py](1164_strings_optimized.py) \* | PyPy 3.10 x64 | strings | O(N M + W) | AC | 0.109 s | 260 KB | 11309679 |
-| [1164_strings_optimized.java](1164_strings_optimized.java) \* | Java 1.8 | strings | O(N M + W) | AC | 0.109 s | 500 KB | 11324785 |
+| [1164_strings_optimized.java](1164_strings_optimized.java) \* | Java 1.8 | strings | O(N M + W + A) time; O(A + 26) space + fixed buffer | AC | 0.093 s | 456 KB | 11327328 |
 | [1164_strings_optimized.rs](1164_strings_optimized.rs) \* | Rust 1.75 x64 | strings | O(I+A) time; O(26) space | AC | 0.015 s | 60 KB | 11325544 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
