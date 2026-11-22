@@ -13,7 +13,8 @@ public class Main {
         StringTokenizer st = new StringTokenizer(text.toString());
         int n = Integer.parseInt(st.nextToken()), m = Integer.parseInt(st.nextToken());
         long[] plan = new long[n + m - 1];
-        for (int i = 0; i < plan.length; i++) plan[i] = Long.parseLong(st.nextToken());
+        for (int i = 0; i < plan.length; i++)
+            plan[i] = Long.parseLong(st.nextToken());
         long stock = 0;
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < n; i++) {
@@ -23,7 +24,8 @@ public class Main {
             for (int t = 1; t <= m; t++) {
                 x = Math.max(x, -Math.floorDiv(stock - plan[i + t - 1], t));
             }
-            if (i > 0) out.append(' ');
+            if (i > 0)
+                out.append(' ');
             out.append(x);
             stock += x;
         }

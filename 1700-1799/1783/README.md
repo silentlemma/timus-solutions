@@ -67,9 +67,15 @@ spiky plans.
 
 ## Optimized solutions
 
+Formatting-only accepted revisions: `1783_simulation.java` #11327472, `1783_simulation.cpp` #11327473, `1783_simulation.py` #11327474, `1783_simulation.rs` #11327475. Each table row uses that exact file revision and its own paired time/memory; no performance improvement is attributed to formatting.
+
+`1783_simulation_optimized.cpp`. Keep the exact maximum of signed ceilings over the same ring of at most 50 future plans. For each candidate delta/t, compute the division only if delta>best*t: for integer best this is equivalent to ceil(delta/t)>best, even for negative delta. Nonnegative division uses (delta+t-1)/t; negative division truncates toward zero. With plan and stock in 0..100000 and t<=50, best*t fits signed int. Fixed 16 KiB input/output buffers accompany the same O(nm) algorithm and O(m) plan storage.
+
+Exact-source G++ 13.2 x64 Accepted #11326998: 0.015 s / 104 KB. Saved 2026-11-20 compiler comparison: time 1/43, memory 1/43; top-ten targets pass in both metrics, so no asterisk. Below 1024 KB, strict admission uses time only. Previous optimized run #11315303: 0.031 s / 88 KB. These are independent paired runs; the new recorded memory is higher. The retained teaching C++ source's own current Accepted #11327473 is 0.031 s / 264 KB; its algorithm is unchanged.
+
 C++/Go keep exactly the original maximum of m signed ceilings, but stream future plans through a ring of at most50 integers. Initially read m plans; after each actual order replace the expired slot with the next plan and advance the head. The ring therefore contains precisely the current lookahead window. Walk it with a wrapped index rather than a remainder per item. Nonnegative deltas use (delta+t−1)/t; negative deltas use truncation toward zero, which is their ceiling. Plans and resulting stock stay between0 and100000, so signed32-bit arithmetic suffices. Time remains O(nm); plan storage drops from O(n+m) to O(m), with bounded I/O. All ordinary files remain; Java, Python and Rust reuse their admitted bases.
 
-The accepted base implementations [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
+Retained accepted teaching sources [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) also meet the strict top-ten or top-15% criterion on the required metrics in the saved comparison. The current exact paired measurements are in the table, including the formatting-only revisions. Their algorithms are unchanged and no identical optimized copies are added. The asterisk denotes the separate language rating target.
 
 ## Solutions
 
@@ -77,17 +83,17 @@ The accepted base implementations [1783_simulation.java](1783_simulation.java), 
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 280 KB | 11289782 |
+| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 264 KB | 11327473 |
 | [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
-| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.156 s | 2388 KB | 11289785 |
-| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2472 KB | 11289784 |
-| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.046 s | 840 KB | 11289786 |
+| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
+| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
+| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.031 s | 88 KB | 11315303 |
+| [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.015 s | 104 KB | 11326998 |
 | [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -69,9 +69,15 @@ planes aleatorios, ondulados y con picos raros.
 
 ## Soluciones optimizadas
 
+Revisiones Accepted solo de formato: `1783_simulation.java` #11327472, `1783_simulation.cpp` #11327473, `1783_simulation.py` #11327474, `1783_simulation.rs` #11327475. Cada fila usa esa revisión exacta y su propio par tiempo/memoria; no se atribuye una mejora de rendimiento al formato.
+
+`1783_simulation_optimized.cpp`. Conserva el máximo exacto de techos con signo sobre el mismo anillo de hasta 50 planes futuros. Solo divide delta/t si delta>best*t: para best entero equivale a ceil(delta/t)>best, incluso con delta negativo. Usa (delta+t-1)/t para no negativos y truncamiento hacia cero para negativos. Planes y existencias en 0..100000, t<=50: best*t cabe en int con signo. Búferes de entrada/salida de 16 KiB, mismo algoritmo O(nm) y espacio de planes O(m).
+
+Accepted exacto G++ 13.2 x64 #11326998: 0.015 s / 104 KB. Comparación guardada del 2026-11-20: tiempo 1/43, memoria 1/43; ambas metas de diez primeros cumplidas, sin asterisco. Bajo 1024 KB la admisión estricta usa solo tiempo. Ejecución optimizada anterior #11315303: 0.031 s / 88 KB. Son pares independientes; la memoria registrada nueva es mayor. El C++ didáctico conservado tiene su propio Accepted actual #11327473: 0.031 s / 264 KB, sin cambiar su algoritmo.
+
 C++/Go conservan el máximo exacto de m techos, pero leen los planes en un anillo de hasta50 enteros. Tras cada orden real se sustituye el elemento vencido y avanza la cabeza, conservando la ventana exacta. El índice se envuelve por límite, sin resto por elemento. Delta no negativo usa (delta+t−1)/t; negativo usa truncamiento hacia cero, su techo. Planes y existencias permanecen en0…100000: bastan32 bits con signo. Tiempo O(nm), planes O(m) frente a O(n+m), E/S acotada. Se conservan bases; Java, Python y Rust reutilizan las admitidas.
 
-Las implementaciones base aceptadas [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Los fuentes didácticos Accepted conservados [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) cumplen diez primeros o 15% superior en las métricas exigidas de la comparación guardada. La tabla contiene sus pares actuales exactos, incluidas revisiones solo de formato. Algoritmos intactos y sin copias optimizadas idénticas; el asterisco indica la meta propia del lenguaje.
 
 ## Soluciones
 
@@ -79,17 +85,17 @@ Las implementaciones base aceptadas [1783_simulation.java](1783_simulation.java)
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 280 KB | 11289782 |
+| [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 264 KB | 11327473 |
 | [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
-| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.156 s | 2388 KB | 11289785 |
-| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2472 KB | 11289784 |
-| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.046 s | 840 KB | 11289786 |
+| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
+| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
+| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.031 s | 88 KB | 11315303 |
+| [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.015 s | 104 KB | 11326998 |
 | [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

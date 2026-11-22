@@ -4,7 +4,7 @@ import sys
 def main():
     data = sys.stdin.read().split()
     n, m = int(data[0]), int(data[1])
-    plan = [int(v) for v in data[2:2 + n + m - 1]]
+    plan = [int(v) for v in data[2 : 2 + n + m - 1]]
     stock = 0
     orders = []
     for i in range(n):
