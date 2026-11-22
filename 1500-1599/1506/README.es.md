@@ -74,6 +74,8 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1506_implementation_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327027 mide 0.046 s / 720 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 1/291, memoria 285/291. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325476, 0.125 s / 248 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1506_implementation_optimized.py`. Mantiene height=ceil(n/k) y distribución por columnas. Analiza números una vez y recorre row,row+height,..., emitiendo una fila de campos de ancho cuatro alineados a la derecha. Elimina todas las filas formateadas acumuladas y la lista cortada de textos numéricos. Conserva la lista de enteros: O(n) tiempo y espacio. El relleno inicial y los saltos son significativos. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `1506_implementation.py`: tiempo 0.093 s → 0.125 s; memoria 460 KB → 248 KB.
@@ -111,7 +113,7 @@ Frente a `1506_implementation.rs`: tiempo 0.015 s → 0.031 s; memoria 252 KB �
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1506_implementation_optimized.py`: puesto de tiempo 279/291 y de memoria 2/291 en esta muestra comparable.
+Comparación PyPy anterior: `1506_implementation_optimized.py`: puesto de tiempo 279/291 y de memoria 2/291 en esta muestra comparable.
 
 `1506_implementation_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -136,6 +138,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
 | [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
-| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(n) space | AC | 0.125 s | 248 KB | 11325476 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(n) space | AC | 0.046 s | 720 KB | 11327027 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

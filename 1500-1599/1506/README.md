@@ -72,6 +72,8 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1506_implementation_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327027 measures 0.046 s / 720 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 1/291, memory rank 285/291. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325476, 0.125 s / 248 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1506_implementation_optimized.py`. Keep height=ceil(n/k) and the same column-major layout. Parse the numbers once and visit indices row,row+height,... directly, emitting one right-justified width-four row at a time. This removes the list of all formatted output rows and the sliced string-number list. The numeric input list remains: O(n) time and O(n) storage. Leading padding and line breaks are meaningful. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1506_implementation.py`: time 0.093 s → 0.125 s; memory 460 KB → 248 KB.
@@ -109,7 +111,7 @@ Compared with `1506_implementation.rs`: time 0.015 s → 0.031 s; memory 252 KB 
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1506_implementation_optimized.py`: time place 279/291, memory place 2/291 in this comparable sample.
+Earlier PyPy comparison: `1506_implementation_optimized.py`: time place 279/291, memory place 2/291 in this comparable sample.
 
 `1506_implementation_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -134,6 +136,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1506_implementation_optimized.cpp](1506_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.015 s | 100 KB | 11304437 |
 | [1506_implementation_optimized.java](1506_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 424 KB | 11304438 |
 | [1506_implementation_optimized.rs](1506_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 52 KB | 11325099 |
-| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) time; O(n) space | AC | 0.125 s | 248 KB | 11325476 |
+| [1506_implementation_optimized.py](1506_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) time; O(n) space | AC | 0.046 s | 720 KB | 11327027 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
