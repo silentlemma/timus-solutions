@@ -114,7 +114,7 @@ Fuente exacto: Python 3.12 x64 Accepted #11327877: 0.062 s / 572 KB. Puestos gua
 
 La fórmula no cambia: factorizar los diez valores, sumar exponentes y multiplicar exponente+1 módulo diez. Se retira toda la potencia de dos y luego solo se prueban divisores impares; el residuo mayor que uno es primo. Go usa exponentes uint8 y una lista de primos tocados; Java conserva diez residuos y usa el recorrido compartido descrito arriba. El máximo 10*floor(log2(10000))=130 cabe en uint8 de Go; Java suma exponentes en int. Seis primos distintos ya multiplican 30030: cada entrada aporta como máximo cinco. Los arreglos de Go requieren O(V) inicialización/espacio y sus diez factorizaciones O(C sqrt(V)). Python conserva un pequeño diccionario y operaciones de bits; el intercambio de tiempo por memoria se declara aparte.
 
-- `1049_number_theory_optimized.go`: 0.015 s / 292 KB; base `1049_number_theory.go`: 0.031 s / 1108 KB; cambio respecto a la base: tiempo -51.6%, memoria -73.6%.
+- `1049_number_theory_optimized.go`: 0.015 s / 308 KB; base `1049_number_theory.go`: 0.031 s / 1108 KB; cambio respecto a la base: tiempo -51.6%, memoria -72.2%.
 
 `1049_number_theory_optimized.rs`. Factoriza los diez números al leerlos y acumula exponentes primos en un arreglo fijo de bytes. Cada exponente es como máximo 130 al ser los valores de hasta 10000, por lo que cabe en un byte. Multiplica exponente+1 módulo diez recorriendo el arreglo. La factorización cuesta O(10√M) y el recorrido final O(M), con M=10000; se usan M+1 bytes y estado constante. Rust usa el entorno de C para entrada y salida, evitando cadenas String completas decodificadas y el formato de Rust. La fuente sencilla aceptada se conserva sin cambios.
 
@@ -144,7 +144,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 292 KB | 11309757 |
+| [1049_number_theory_optimized.go](1049_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(C sqrt(V)+V) time; O(V) space | AC | 0.015 s | 308 KB | 11328262 |
 | [1049_number_theory_optimized.java](1049_number_theory_optimized.java) | Java 1.8 | number_theory | O(C sqrt(V)+C^2) time; O(C) space | AC | 0.062 s | 316 KB | 11328052 |
 | [1049_number_theory_optimized.py](1049_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(C sqrt(V)) time; O(C log V) prime records | AC | 0.062 s | 572 KB | 11327877 |
 | [1049_number_theory_optimized.rs](1049_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(10√M+M), M=10000 | AC | 0.015 s | 52 KB | 11325082 |

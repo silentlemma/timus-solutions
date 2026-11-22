@@ -6,7 +6,6 @@ import (
 
 const rawInputSize = 256
 const rawOutputSize = 128
-const decimalSize = 32
 const radix = 10
 
 var rawInput [rawInputSize]byte
@@ -56,21 +55,6 @@ func byteOut(ch byte) {
 	}
 	rawOutput[rawUsed] = ch
 	rawUsed++
-}
-func numberOut(value int64) {
-	var digits [decimalSize]byte
-	at := len(digits)
-	for {
-		at--
-		digits[at] = byte(value%radix) + '0'
-		value /= radix
-		if value == 0 {
-			break
-		}
-	}
-	for ; at < len(digits); at++ {
-		byteOut(digits[at])
-	}
 }
 
 const count = 10
