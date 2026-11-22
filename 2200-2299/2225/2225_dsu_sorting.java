@@ -33,13 +33,13 @@ public class Main {
         int[] size = new int[n];
         for (int i = 0; i < n; ++i) {
             // The index breaks ties without changing the height order.
-            order[i] = (long) nextInt() * n + i;
+            order[i] = (long)nextInt() * n + i;
             parent[i] = i;
         }
         Arrays.sort(order);
         long answer = 0;
         for (int position = n - 1; position >= 0; --position) {
-            int vertex = (int) (order[position] % n);
+            int vertex = (int)(order[position] % n);
             long height = order[position] / n;
             size[vertex] = 1;
             answer += height;

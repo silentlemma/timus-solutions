@@ -93,7 +93,7 @@ Las implementaciones base aceptadas [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp)
 |---|---|---|---|---|---|---|---|
 | [2225_dsu_sorting.cpp](2225_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(N log N) | AC | 0.031 s | 1788 KB | 11295843 |
 | [2225_dsu_sorting.go](2225_dsu_sorting.go) | Go 1.14 x64 | dsu, sorting | O(N log N) | AC | 0.125 s | 5764 KB | 11295845 |
-| [2225_dsu_sorting.java](2225_dsu_sorting.java) \* | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.187 s | 2624 KB | 11295850 |
+| [2225_dsu_sorting.java](2225_dsu_sorting.java) \* | Java 1.8 | dsu, sorting | O(N log N) | AC | 0.14 s | 2776 KB | 11328353 |
 | [2225_dsu_sorting.py](2225_dsu_sorting.py) \* | PyPy 3.10 x64 | dsu, sorting | O(N log N) | AC | 0.359 s | 19808 KB | 11295847 |
 | [2225_dsu_sorting.rs](2225_dsu_sorting.rs) \* | Rust 1.75 x64 | dsu, sorting | O(N log N) | AC | 0.062 s | 4660 KB | 11295852 |
 
