@@ -97,6 +97,12 @@ graphs with up to 14 edges.
 
 ## Optimized solutions
 
+`1320_dsu_optimized.py`. Keep the disjoint-set parity algorithm: every connected component must have an even edge count. A negative root packs -(2*size+parity); path halving and union by size retain amortized O((V+E)*alpha(V)) work. Track the number of odd components as edges merge roots or toggle a component parity. The current source reads/splits the bounded complete input and passes its integer iterator to decomposable: storage is O(V+I), not streaming O(V). It needs no pypyjit configuration and is measured on CPython. The top-level raw write and os._exit(0) follow the function return; do not assume the parent array remains live until exit.
+
+Exact-source Python 3.12 x64 Accepted #11327483: 0.078 s / 808 KB. Saved 2026-11-20 compiler-cohort comparison: time 6/42, memory 13/42. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11309751 (PyPy 3.10 x64) was 0.156 s / 436 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1320_dsu_optimized.py`: 0.078 s / 808 KB; retained teaching base `1320_dsu.py`: 0.093 s / 656 KB.
+
 `1320_dsu_optimized.go`. Stream edges into DSU with path halving. Fixed arrays of 1001 uint16 parents and component-edge parity replace retained endpoints and integer edge counts. XOR parities on merge and toggle for every edge, including loops and repeated edges. V=1000 fits uint16. No union-by-rank is added: O(EV+V) is a conservative bound, with O(V) storage. Use bounded 256-byte input and 64-byte output buffers with Go 1.14 syscall.Read/Write, retrying EINTR and partial writes and handling zero-byte EOF. This removes fmt/bufio/os.File initialization overhead. Linux tests and Windows cross-builds establish functional/build checks; the paired memory figures below come from our own exact Windows judge Accepted. Preserve the readable teaching source.
 
 Compared with `1320_dsu.go`: time 0.015 s → 0.015 s; memory 1112 KB → 336 KB.
@@ -107,10 +113,9 @@ Compared with `1320_dsu.rs`: time 0.015 s → 0.015 s; memory 264 KB → 68 KB.
 
 Keep the original clear DSU sources. Pairing edges is possible exactly when each connected component has even edge count. Java stores positive parent links and root parity 0/-1 in one zero-initialized short array. An internal edge toggles parity; a merge takes both parities XOR one. Path shortening preserves components; labels 1..1000 fit short. A 512 byte buffer on standard input safely refills even inside a four-digit label, accepts arbitrary valid whitespace and EOF, and writes bytes directly. Python independently packs size and edge parity into a negative root value -(2*size+parity), uses size-based merging and maintains the number of odd components. Compare each exact source with its current same-language base. Java: O((V+M)log V)amortized/O(V)storage; Python: O((V+M)alpha(V))amortized, O(V+M)including input tokens.
 
-PyPy also suppresses JIT compilation to reduce its code-cache memory; this can increase runtime.
+Historical measurements of previous revisions: PyPy also suppresses JIT compilation to reduce its code-cache memory; this can increase runtime.
 
 - `1320_dsu_optimized.java`: 0.093 s / 408 KB; base `1320_dsu.java`: 0.109 s / 420 KB; relative change: time -14.7%, memory -2.9%.
-- `1320_dsu_optimized.py`: 0.156 s / 436 KB; base `1320_dsu.py`: 0.093 s / 656 KB; relative change: time +67.7%, memory -33.5%.
 
 ## Language notes
 
@@ -124,7 +129,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 
 - Java: preferred teaching base `1320_dsu.java`; covering source `1320_dsu_optimized.java`; time/memory places 1/1, other-author entries 5/5.
 
-- Python/PyPy: preferred teaching base `1320_dsu.py`; covering source `1320_dsu_optimized.py`; time/memory places 34/1, other-author entries 34/34.
+Historical measurements of previous revisions: - Python/PyPy: preferred teaching base `1320_dsu.py`; covering source `1320_dsu_optimized.py`; time/memory places 34/1, other-author entries 34/34.
 
 - Rust: preferred teaching base `1320_dsu.rs`; covering source `1320_dsu.rs`; time/memory places 1/1, other-author entries 0/0.
 
@@ -145,7 +150,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1320_dsu_optimized.java](1320_dsu_optimized.java) | Java 1.8 | dsu | O((V+M) log V) amortized; O(V) storage | AC | 0.093 s | 408 KB | 11310097 |
-| [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | PyPy 3.10 x64 | dsu | O((V+M) alpha(V)) amortized; O(V+L) space, L=max line tokens | AC | 0.156 s | 436 KB | 11309751 |
+| [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((V+E) alpha(V)) amortized; O(V+I) storage | AC | 0.078 s | 808 KB | 11327483 |
 | [1320_dsu_optimized.go](1320_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 336 KB | 11325655 |
 | [1320_dsu_optimized.rs](1320_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
 

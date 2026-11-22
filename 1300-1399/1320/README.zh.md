@@ -83,6 +83,12 @@
 
 ## 优化解法
 
+`1320_dsu_optimized.py`. 保留并查集奇偶算法：每个连通分量的边数必须为偶数。负根编码 -(2*size+parity)，路径折半与按大小合并给出摊还 O((V+E)*alpha(V)) 工作。合并根或翻转分量奇偶时维护奇分量计数。当前源码一次读入并 split 有界完整输入，把整数迭代器交给 decomposable：存储 O(V+I)，不是流式 O(V)。不需 pypyjit 设置，当前指标来自 CPython。顶层直接写出及 os._exit(0) 在函数返回后执行，不能假定 parent 数组一直存活到退出。
+
+精确源代码 Python 3.12 x64 Accepted #11327483：0.078 s / 808 KB。2026-11-20 保存的编译器组比较：时间 6/42、内存 13/42。低于 1024 KB 严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11309751（PyPy 3.10 x64）为 0.156 s / 436 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1320_dsu_optimized.py`: 0.078 s / 808 KB; 保留教学基础版 `1320_dsu.py`: 0.093 s / 656 KB.
+
 `1320_dsu_optimized.go`. 边直接进入路径折半 DSU。1001 格 uint16 父节点及分量边数奇偶替代保留端点及整数计数。合并时异或奇偶，每条边含自环、重边均翻转。V=1000 适合 uint16。未加入按秩合并：保守 O(EV+V) 时间、O(V) 存储。 以 Go 1.14 syscall.Read/Write 使用有界 256 字节输入及 64 字节输出缓冲，重试 EINTR、部分写入并处理零字节 EOF，移除 fmt/bufio/os.File 初始化开销。Linux 测试和 Windows 交叉构建验证功能及构建；下列配对内存指标来自我们精确源在 Windows 评测的 Accepted。保留清晰教学源。
 
 与 `1320_dsu.go` 相比：时间 0.015 s → 0.015 s；内存 1112 KB → 336 KB。
@@ -93,10 +99,9 @@
 
 保留清晰原DSU。边可配对当且仅当每个连通分量边数偶数。Java在初始零short数组中存正父链接和根奇偶0/-1；内部边翻转奇偶，合并取两奇偶异或1。路径缩短保持分量，1..1000标签适合short。512字节标准输入缓冲可在四位标签中间安全补充，处理任意合法空白及EOF，直接输出字节。Python另把大小及边奇偶编码为负根-(2*size+parity)，按大小合并并维护奇分量数。各源码与同语言当前基础比较。Java摊还O((V+M)log V)、空间O(V)；Python摊还O((V+M)alpha(V))，含输入词元空间O(V+M)。
 
-PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
+旧版本历史测量：PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
 
 - `1320_dsu_optimized.java`: 0.093 s / 408 KB; 基础 `1320_dsu.java`: 0.109 s / 420 KB; 相对变化: 时间 -14.7%, 内存 -2.9%.
-- `1320_dsu_optimized.py`: 0.156 s / 436 KB; 基础 `1320_dsu.py`: 0.093 s / 656 KB; 相对变化: 时间 +67.7%, 内存 -33.5%.
 
 ## 各语言说明
 
@@ -110,7 +115,7 @@ PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
 
 - Java: 首选教学基础 `1320_dsu.java`; 覆盖源码 `1320_dsu_optimized.java`; 时间/内存名次 1/1, 其他作者记录 5/5.
 
-- Python/PyPy: 首选教学基础 `1320_dsu.py`; 覆盖源码 `1320_dsu_optimized.py`; 时间/内存名次 34/1, 其他作者记录 34/34.
+旧版本历史测量：- Python/PyPy: 首选教学基础 `1320_dsu.py`; 覆盖源码 `1320_dsu_optimized.py`; 时间/内存名次 34/1, 其他作者记录 34/34.
 
 - Rust: 首选教学基础 `1320_dsu.rs`; 覆盖源码 `1320_dsu.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
@@ -131,7 +136,7 @@ PyPy也关闭JIT以减少代码缓存内存，耗时可能增加。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1320_dsu_optimized.java](1320_dsu_optimized.java) | Java 1.8 | dsu | O((V+M) log V) amortized; O(V) storage | AC | 0.093 s | 408 KB | 11310097 |
-| [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | PyPy 3.10 x64 | dsu | O((V+M) alpha(V)) amortized; O(V+L) space, L=max line tokens | AC | 0.156 s | 436 KB | 11309751 |
+| [1320_dsu_optimized.py](1320_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O((V+E) alpha(V)) amortized; O(V+I) storage | AC | 0.078 s | 808 KB | 11327483 |
 | [1320_dsu_optimized.go](1320_dsu_optimized.go) \* | Go 1.14 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 336 KB | 11325655 |
 | [1320_dsu_optimized.rs](1320_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(EV+V) time; O(V) space | AC | 0.015 s | 68 KB | 11325501 |
 
