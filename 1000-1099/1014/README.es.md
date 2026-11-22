@@ -89,6 +89,8 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1014_greedy_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327014 mide 0.078 s / 724 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 6/482, memoria 448/482. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11325471, 0.125 s / 240 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1014_greedy_optimized.py`. Conserva la factorización voraz de 9 a 2 y la inversión de dígitos. Cero da 10, uno da 1 y un factor restante da -1. Entrada por bytes y ejecución directa sustituyen input() y la función envolvente. Tiempo y almacenamiento de dígitos siguen O(log(N+2)); no se afirma mejora asintótica. La fila Accepted indica el runtime real y sus medidas emparejadas. Vacía salida antes de os._exit(0), que omite cierre del intérprete; la mejora medida de memoria depende del runtime y no implica aceleración asintótica.
 
 Frente a `1014_greedy.py`: tiempo 0.093 s → 0.125 s; memoria 444 KB → 240 KB.
@@ -108,7 +110,7 @@ Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 d
 
 `1014_greedy_optimized.go`: puesto de tiempo 4/12 y de memoria 1/12 en esta muestra comparable.
 
-`1014_greedy_optimized.py`: puesto de tiempo 442/482 y de memoria 2/482 en esta muestra comparable.
+Comparación PyPy anterior: `1014_greedy_optimized.py`: puesto de tiempo 442/482 y de memoria 2/482 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -130,6 +132,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
 | [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
-| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log(N+2)) | AC | 0.125 s | 240 KB | 11325471 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

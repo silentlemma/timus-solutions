@@ -88,6 +88,8 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1014_greedy_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327014 measures 0.078 s / 724 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 6/482, memory rank 448/482. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11325471, 0.125 s / 240 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1014_greedy_optimized.py`. Keep the same greedy factorization by digits 9 down to 2 and reverse the collected digits. Zero gives 10, one gives 1, and a remaining factor gives -1. Byte input and a standalone execution path replace input() and the wrapper function. Time and auxiliary digit storage remain O(log(N+2)); no new asymptotic speedup is claimed. The Accepted row identifies the actual judge runtime and its paired time/memory. Output is flushed before os._exit(0) skips interpreter teardown; the measured memory improvement is runtime-specific and does not imply an asymptotic speedup.
 
 Compared with `1014_greedy.py`: time 0.093 s → 0.125 s; memory 444 KB → 240 KB.
@@ -107,7 +109,7 @@ The added sources are compared using the 18 November 2026 snapshot of other auth
 
 `1014_greedy_optimized.go`: time place 4/12, memory place 1/12 in this comparable sample.
 
-`1014_greedy_optimized.py`: time place 442/482, memory place 2/482 in this comparable sample.
+Earlier PyPy comparison: `1014_greedy_optimized.py`: time place 442/482, memory place 2/482 in this comparable sample.
 
 An asterisk marks a missed rating target: C++ requires top ten or top 15% in both metrics; other families require first place in both. A source can still be admitted under the separate ranking or improvement rule, including at least 30% less time or memory.
 
@@ -129,6 +131,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
 | [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 788 KB | 11325442 |
-| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(log(N+2)) | AC | 0.125 s | 240 KB | 11325471 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
