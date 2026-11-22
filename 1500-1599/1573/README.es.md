@@ -63,20 +63,18 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1573_math_optimized.java`. Conserva el producto de elecciones independientes de las bolsas de colores distintos requeridos. Iniciales B/R/Y identifican Blue/Red/Yellow; omite el resto sin crear cadenas de receta. Entrada de 1024 bytes y salida numérica directa reducen costes. Como máximo tres factores de hasta 100 caben en int: O(K) trabajo para K colores y espacio auxiliar fijo. Conserva la demostración combinatoria y fuente simple.
+
+Accepted exacto Java 1.8 #11327456: 0.093 s / 344 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 12/82, memoria 2/82. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304267 era 0.109 s / 328 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1573_math_optimized.java`: 0.093 s / 344 KB; base didáctica conservada `1573_math.java`: 0.125 s / 1628 KB.
+
 La solución optimizada en C++ lee con `scanf` en lugar de `iostream` y
 elige la bolsa por la primera letra del color, ya que Blue, Red y Yellow
 empiezan por letras distintas, en lugar de buscar el nombre en un
 `std::map` de cadenas. Cada color se lee en un búfer de 7 bytes,
 suficiente para el nombre más largo, Yellow, y el producto se guarda en
 `int`, que basta porque no pasa de 10⁶: {1573_math_optimized.cpp}.
-
-La solución optimizada en Java analiza los números cifra a cifra
-directamente desde `System.in` en lugar de crear un `Scanner`, y elige
-la bolsa por la primera letra del color, saltándose el resto de la
-palabra, ya que Blue, Red y Yellow empiezan por letras distintas, en
-lugar de buscar el nombre en un `HashMap` de valores `Long`
-empaquetados. El producto se guarda en `int`, que basta porque no pasa
-de 10⁶: {1573_math_optimized.java}.
 
 La solución optimizada en Rust guarda los tamaños de las tres bolsas en
 tres variables y elige uno con un `match` sobre el nombre del color en
@@ -91,9 +89,6 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 - `1573_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +69.23%; base: `1573_math.cpp`.
-
-- `1573_math_optimized.java`: reducción de tiempo +12.80%; reducción de
-  memoria +79.85%; base: `1573_math.java`.
 
 - `1573_math_optimized.rs`: reducción de tiempo -206.67%; reducción de
   memoria +45.10%; base: `1573_math.rs`.
@@ -127,7 +122,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
-| [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) | AC | 0.109 s | 328 KB | 11304267 |
+| [1573_math_optimized.java](1573_math_optimized.java) \* | Java 1.8 | math | O(K) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327456 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
 | [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
 

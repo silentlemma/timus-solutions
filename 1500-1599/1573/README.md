@@ -61,20 +61,18 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1573_math_optimized.java`. Keep the product of independent choices from the distinct required color bags. Initials B/R/Y identify the promised Blue/Red/Yellow tokens; skip the rest without allocating recipe strings. A 1024-byte input buffer and raw numeric output reduce runtime overhead. At most three factors of at most 100 fit int; O(K) work for K recipe colors and fixed auxiliary storage. The combinatorial argument and simple source remain unchanged.
+
+Exact-source Java 1.8 Accepted #11327456: 0.093 s / 344 KB. Saved 2026-11-20 compiler-cohort comparison: time 12/82, memory 2/82. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304267 was 0.109 s / 328 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1573_math_optimized.java`: 0.093 s / 344 KB; retained teaching base `1573_math.java`: 0.125 s / 1628 KB.
+
 The optimized C++ solution reads with `scanf` instead of `iostream` and
 picks the bag by the first letter of the color, since Blue, Red and
 Yellow start with different letters, instead of looking the name up in a
 `std::map` of strings. A color goes into a buffer of 7 bytes, enough for
 the longest name, Yellow, and the product is kept in `int`, which holds
 it since it is at most 10⁶: {1573_math_optimized.cpp}.
-
-The optimized Java solution parses the numbers digit by digit straight
-from `System.in` instead of creating a `Scanner`, and picks the bag by
-the first letter of the color, skipping the rest of the word, since
-Blue, Red and Yellow start with different letters, instead of looking
-the name up in a `HashMap` of boxed `Long` values. The product is kept
-in `int`, which holds it since it is at most 10⁶:
-{1573_math_optimized.java}.
 
 The optimized Rust solution keeps the three bag sizes in three variables
 and selects one with a `match` on the color name instead of building a
@@ -89,9 +87,6 @@ asterisk concerns the rating target only.
 
 - `1573_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +69.23%; base: `1573_math.cpp`.
-
-- `1573_math_optimized.java`: time reduction +12.80%; memory reduction
-  +79.85%; base: `1573_math.java`.
 
 - `1573_math_optimized.rs`: time reduction -206.67%; memory reduction
   +45.10%; base: `1573_math.rs`.
@@ -125,7 +120,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
-| [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) | AC | 0.109 s | 328 KB | 11304267 |
+| [1573_math_optimized.java](1573_math_optimized.java) \* | Java 1.8 | math | O(K) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327456 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
 | [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
 

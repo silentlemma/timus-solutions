@@ -57,15 +57,16 @@ Blue
 
 ## 优化解法
 
+`1573_math_optimized.java`. 保留所需不同颜色袋中独立选择数的乘积。首字母 B/R/Y 唯一标识保证的 Blue/Red/Yellow，跳过剩余字符而不创建配方字符串。1024 字节输入缓冲及原始数值输出降低开销。至多三个不超过 100 的因子适合 int；K 种配方颜色需 O(K) 工作及固定辅助空间。计数证明和简单源代码不变。
+
+精确源代码 Java 1.8 Accepted #11327456：0.093 s / 344 KB。2026-11-20 保存的编译器组比较：时间 12/82、内存 2/82。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11304267 为 0.109 s / 328 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1573_math_optimized.java`: 0.093 s / 344 KB; 保留教学基础版 `1573_math.java`: 0.125 s / 1628 KB.
+
 优化的 C++ 解法用 `scanf` 代替 `iostream` 读入，并按颜色的首字母选择袋子（Blue、
 Red 和 Yellow 的首字母各不相同），而不是在以字符串为键的 `std::map` 中查找名称。
 颜色读入 7 字节的缓冲区，足以容纳最长的名称 Yellow；乘积用 `int` 保存，因为它不
 超过 10⁶：{1573_math_optimized.cpp}。
-
-优化的 Java 解法直接从 `System.in` 逐位解析数字，而不是创建 `Scanner`；并按颜色
-的首字母选择袋子、跳过单词的其余部分（Blue、Red 和 Yellow 的首字母各不相同），而
-不是在存放装箱 `Long` 值的 `HashMap` 中查找名称。乘积用 `int` 保存，因为它不超过
-10⁶：{1573_math_optimized.java}。
 
 优化的 Rust 解法把三个袋子的大小放在三个变量中，用对颜色名称的 `match` 选出其中
 一个，而不是构建 `HashMap`：{1573_math_optimized.rs}。
@@ -75,8 +76,6 @@ Red 和 Yellow 的首字母各不相同），而不是在以字符串为键的 `
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
 
 - `1573_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +69.23%; 基础版本: `1573_math.cpp`.
-
-- `1573_math_optimized.java`: 时间降低 +12.80%; 内存降低 +79.85%; 基础版本: `1573_math.java`.
 
 - `1573_math_optimized.rs`: 时间降低 -206.67%; 内存降低 +45.10%; 基础版本: `1573_math.rs`.
 
@@ -109,7 +108,7 @@ Red 和 Yellow 的首字母各不相同），而不是在以字符串为键的 `
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1573_math_optimized.cpp](1573_math_optimized.cpp) | G++ 13.2 x64 | math | O(K) | AC | 0.015 s | 128 KB | 11304264 |
-| [1573_math_optimized.java](1573_math_optimized.java) | Java 1.8 | math | O(K) | AC | 0.109 s | 328 KB | 11304267 |
+| [1573_math_optimized.java](1573_math_optimized.java) \* | Java 1.8 | math | O(K) time; O(1) auxiliary space | AC | 0.093 s | 344 KB | 11327456 |
 | [1573_math_optimized.rs](1573_math_optimized.rs) | Rust 1.75 x64 | math | O(K) | AC | 0.046 s | 224 KB | 11304268 |
 | [1573_math_optimized.py](1573_math_optimized.py) \* | PyPy 3.10 x64 | math | O(K) | AC | 0.109 s | 232 KB | 11324919 |
 

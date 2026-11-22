@@ -1,39 +1,76 @@
 public class Main {
-    // parse positive decimal tokens directly to avoid scanner allocations.
-    private static int nextInt() throws java.io.IOException {
-        int c;
-        do {
-            c = System.in.read();
-        } while (c <= ' ' && c != -1);
-        int value = 0;
-        while (c > ' ') {
-            value = value * 10 + c - '0';
-            c = System.in.read();
+
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
-        return value;
+        return input[position++];
+    }
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = value * DECIMAL + c - '0';
+            c = read();
+        }
+        return negative ? -value : value;
+    }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
+
+    static void text(String value) {
+        for (int i = 0; i < value.length(); i++)
+            write(value.charAt(i));
     }
 
+    static int initial() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        int first = c;
+        while (c > ' ')
+            c = read();
+        return first;
+    }
     public static void main(String[] args) throws java.io.IOException {
-        int blue = nextInt(), red = nextInt(), yellow = nextInt();
-        int count = nextInt();
-        // one reagent from each needed bag, chosen independently
-        // three distinct colors with at most 100 choices give at most 1000000.
-        int ways = 1;
+        int blue = nextInt(), red = nextInt(), yellow = nextInt(), count = nextInt(), ways = 1;
         for (int i = 0; i < count; i++) {
-            int c;
-            do {
-                c = System.in.read();
-            } while (c <= ' ' && c != -1);
-            // the three color names have different initials.
-            if (c == 'B')
-                ways *= blue;
-            else if (c == 'R')
-                ways *= red;
-            else
-                ways *= yellow;
-            while (c > ' ')
-                c = System.in.read();
+            int c = initial();
+            ways *= c == 'B' ? blue : c == 'R' ? red : yellow;
         }
-        System.out.println(ways);
+        number(ways);
+        write('\n');
+        finish();
     }
 }
