@@ -91,17 +91,19 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2002_implementation_optimized.py`. Python conserva el diccionario y la prioridad de errores: comprueba contraseña antes de la sesión ya activa. Tokeniza una vez como bytes hasta 100 solicitudes y consume todos los argumentos incluso al fallar. Guarda nombres, contraseñas, estado y lista de respuestas; une y escribe una sola vez. Retiene deliberadamente entrada y salida, a diferencia de Java/Rust en flujo: trabajo hash y E/S esperado O(I+O), espacio O(I+O+A) para datos de cuentas A. Sale dentro de main antes de destruir esos locales. Los mensajes fijos vienen del enunciado, no de una tabla de soluciones. Mantiene las bases.
+
+Accepted exacto Python 3.12 x64 #11327495: 0.078 s / 848 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/69, memoria 66/69. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324845 (PyPy 3.10 x64) era 0.109 s / 252 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `2002_implementation_optimized.py`: 0.078 s / 848 KB; base didáctica conservada `2002_implementation.py`: 0.093 s / 576 KB.
+
 `2002_implementation_optimized.rs`. Conserva HashMap de cuentas y máquina de login, incluida precedencia de errores. Procesa cada comando al leer, guarda nombres/contraseñas byte solo registrados y emite respuesta fija. Sin historial ni cadenas de respuesta. Hash aleatorio estándar: tiempo esperado O(I+O) para bytes de E/S, espacio O(A+T) para cuentas A y comando máximo T.
 
 Frente a `2002_implementation.rs`: tiempo 0.046 s → 0.015 s; memoria 460 KB → 280 KB.
 
-`2002_implementation_optimized.java`. Conserva mapa y prioridad de errores, comprobando contraseña antes de sesión ya activa. Procesa y responde cada solicitud sin guardar todas las órdenes, respuestas ni cadena unida. Java usa un Account por nombre y búferes fijos; Python usa claves/contraseñas bytes sin decodificar ASCII y elimina listas acumuladas. Espacio O(U) registros y solicitud actual acotada, U<=n. Con nombres/contraseñas de hasta 30 caracteres, el procesamiento hash esperado es O(n), sin prometer peor caso. Fallos no cambian estado; registro queda desconectado. Python vacía la salida antes de os._exit(0).
+`2002_implementation_optimized.java`. Conserva mapa y prioridad de errores, comprobando contraseña antes de sesión ya activa. Procesa y responde cada solicitud sin guardar todas las órdenes, respuestas ni cadena unida. Java usa un Account por nombre y búferes fijos. Espacio O(U) registros y solicitud actual acotada, U<=n. Con nombres/contraseñas de hasta 30 caracteres, el procesamiento hash esperado es O(n), sin prometer peor caso. Fallos no cambian estado; registro queda desconectado.
 
 Frente a `2002_implementation.java`: tiempo 0.140 s → 0.109 s; memoria 664 KB → 640 KB.
-
-`2002_implementation_optimized.py`. Conserva mapa y prioridad de errores, comprobando contraseña antes de sesión ya activa. Procesa y responde cada solicitud sin guardar todas las órdenes, respuestas ni cadena unida. Java usa un Account por nombre y búferes fijos; Python usa claves/contraseñas bytes sin decodificar ASCII y elimina listas acumuladas. Espacio O(U) registros y solicitud actual acotada, U<=n. Con nombres/contraseñas de hasta 30 caracteres, el procesamiento hash esperado es O(n), sin prometer peor caso. Fallos no cambian estado; registro queda desconectado. Python vacía la salida antes de os._exit(0).
-
-Frente a `2002_implementation.py`: tiempo 0.093 s → 0.109 s; memoria 576 KB → 252 KB.
 
 La solución optimizada en C++ lee las palabras con `scanf` en búferes de
 31 bytes en lugar de `iostream` y responde a cada petición en el acto,
@@ -118,8 +120,6 @@ lugar de 0.046 s y 936 KB en lugar de 1124 KB.
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
 `2002_implementation_optimized.java`: puesto de tiempo 26/249 y de memoria 29/249 en esta muestra comparable.
-
-`2002_implementation_optimized.py`: puesto de tiempo 47/69 y de memoria 2/69 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -142,7 +142,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [2002_implementation_optimized.cpp](2002_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n L) | AC | 0.015 s | 212 KB | 11303656 |
 | [2002_implementation_optimized.go](2002_implementation_optimized.go) | Go 1.14 x64 | implementation | O(n L) | AC | 0.015 s | 936 KB | 11303790 |
 | [2002_implementation_optimized.java](2002_implementation_optimized.java) \* | Java 1.8 | implementation | O(n) expected | AC | 0.109 s | 640 KB | 11325028 |
-| [2002_implementation_optimized.py](2002_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) expected | AC | 0.109 s | 252 KB | 11324845 |
+| [2002_implementation_optimized.py](2002_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(I + O) expected time; O(I + O + A) storage | AC | 0.078 s | 848 KB | 11327495 |
 | [2002_implementation_optimized.rs](2002_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | Expected O(I+O) time; O(A+T) space | AC | 0.015 s | 280 KB | 11325537 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
