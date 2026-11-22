@@ -262,8 +262,11 @@ def run_problem(problem, only, pypy):
     if judging == "checker":
         # Stored solutions must pass; explicit format illustrations need not.
         verdicts = check(problem, tests_dir, base, expected)
-        bad = [n for n in cases if n not in generated and n not in illustrations
-               and verdicts.get(n, [1])[0] != 0]
+        bad = [
+            n
+            for n in cases
+            if n not in generated and n not in illustrations and verdicts.get(n, [1])[0] != 0
+        ]
         if bad:
             print("%s: stored outputs rejected by checker.py: %s" % (problem, ", ".join(bad)))
             ok = False

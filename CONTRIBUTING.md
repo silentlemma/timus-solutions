@@ -298,6 +298,68 @@ Prints one test input to standard output. It is deterministic: the same
 arguments always give the same input (seeded randomness only). The expected
 output is produced by the `reference` solution when the tests are run.
 
+## Formatting and linting
+
+Requirements are Docker with Linux containers, Python 3.8+ and GNU Make.
+The commands build a cached amd64 tool image on first use and run all
+formatters and checks inside it.
+
+```bash
+make format
+make lint
+make lint-comments
+make format PROBLEMS="1352 1700 1981 2148"
+make lint PROBLEMS="1352 1700 1981 2148"
+make lint LANGUAGES="python rust" JOBS=2
+```
+
+The image definition pins its base images by digest and its additional
+tools by version. The golangci-lint archive is verified against its
+published SHA-256. Updating tools is an explicit repository change.
+The runtime uses Debian Bookworm to keep GCC 13.2 headers compatible with glibc.
+
+| Language | Compiler/runtime | Formatter | Lint |
+|----------|------------------|-----------|------|
+| C++ | GCC 13.2.0 | clang-format 23.1.3 | compiler warnings as errors |
+| Go | Go 1.14.15 | matching gofmt | golangci-lint 1.40.1 with govet, staticcheck, ineffassign and unused |
+| Java | Java 8 | clang-format 23.1.3 | javac -Xlint:all -Werror |
+| Python | CPython 3.12 | Ruff 0.15.18 | ruff check |
+| Rust | Rust 1.75.0 | matching rustfmt | compiler warnings as errors |
+
+With no problem filter, the commands cover every problem, its generators
+and checkers, the Python entry points, and the quality tools themselves.
+Solutions are checked independently because many files share a main
+entry point. Hidden work and cache directories are excluded.
+
+Selected files are sent to an isolated container workspace in one archive.
+This avoids slow per-file operations on Windows Docker mounts. Lint leaves
+the original files untouched. Format results are applied atomically per
+file after validating their hashes and the unchanged input snapshot.
+Executable modes are retained. Containers run sequentially with one CPU,
+a 1 GiB memory limit and network access disabled. JOBS controls the number
+of checks inside that limit. The host requires no language
+compilers, formatters or linter packages. Credentials are not passed into
+the container. The authenticated metrics auditor lives in the private
+education repository.
+
+Formatting retains comments and verifies that comment words survive.
+Code files use UTF-8 and LF, as declared by .gitattributes. Formatter
+configuration explicitly selects LF, and the runner normalizes remaining
+CRLF line endings when formatting. Escaped string contents are preserved.
+A lint run reports CRLF without modifying the source.
+
+Comments and Python docstrings must use English. Comment scanning handles
+quoted and raw strings, Rust lifetimes and nested Rust block comments.
+String literals are excluded so that required non-English output remains
+valid. Non-English scripts and confidently identified non-English prose
+are reported. Short technical labels and ambiguous language detections
+still require human review. Lingua 2.1.1 supplies the offline classifier.
+
+Each invocation writes a report under .run/code-quality/. The formatting
+report records old and new SHA-256 values for changed files. Changes to an
+Accepted source require exact-source acceptance evidence before its
+documented submission and measurement pair can be updated.
+
 ## Running the tests
 
 Requirements: [Docker](https://www.docker.com) and Python 3.8+.

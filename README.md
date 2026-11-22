@@ -40,6 +40,19 @@ Each folder `1000-1099/1005/` holds the write-ups (`README.md`,
 The best way to use this repository is to try a problem on Timus first, then
 read the write-up, and only then the code.
 
+## Formatting and linting
+
+```bash
+make format
+make lint
+make lint-comments
+make lint PROBLEMS="1000 1001"
+```
+
+These commands run pinned Docker tools for all five languages, preserve
+comments, and check that comment prose uses English. See [Formatting and linting](CONTRIBUTING.md#formatting-and-linting)
+for dependencies, language filters and reports.
+
 ## Running the tests
 
 Requirements: [Docker](https://www.docker.com) and Python 3.8+.
