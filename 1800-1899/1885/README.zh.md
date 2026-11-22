@@ -56,11 +56,13 @@ h, t, v, x（5000 ≤ h ≤ 12 000，50 ≤ t ≤ 1200，1 ≤ x < v ≤ 100，h
 
 ## 优化解法
 
-`1885_math_optimized.java`. 完整保留极值公式 max(0,h-t*x)/(v-x)、min(t,h/x)，使用 double、六位小数。Java 用缓冲整数输入代替 Scanner，保留 Locale.US 格式。Rust 通过检查返回值的 C scanf 读四个 double，再 printf 输出，去掉输入 String、数值向量及 Rust 格式化机制。固定 C 格式与有效 f64 指针、提升后的 double 参数匹配，不使用可变格式串。这是输入输出及运行时改进，不是另一数学算法；时间、辅助空间仍 O(1)。x<v 保证分母正，保留 1e-6 数值容差。
+`1885_math_optimized.java`. Java 保留最小值与上界公式 max(0,h-t*x)/(v-x)、min(t,h/x)，采用精确整数分子与分母。长除法直接将十二位小数写入 64 字节输出缓冲区，避免 double 转换、Locale.US 与通用格式化。截断误差小于 1e-12，满足 1e-6 容差。x<v 保证首个分母为正；分母至多 99，余数乘十小于 1000，每个答案至多 t<=1200，所以两个结果均能放入缓冲区。固定输入界与十二位小数使时间及辅助空间均为 O(1)。教学浮点版本及独立 Rust 实现保持不变。
 
-与 `1885_math.java` 相比：时间 0.109 s → 0.125 s；内存 1788 KB → 976 KB。
+精确源代码 Java 1.8 Accepted #11327530：0.078 s / 336 KB。2026-11-20 保存的编译器组比较：时间 2/41、内存 1/41。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11324784 为 0.125 s / 976 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
 
-`1885_math_optimized.rs`. 完整保留极值公式 max(0,h-t*x)/(v-x)、min(t,h/x)，使用 double、六位小数。Java 用缓冲整数输入代替 Scanner，保留 Locale.US 格式。Rust 通过检查返回值的 C scanf 读四个 double，再 printf 输出，去掉输入 String、数值向量及 Rust 格式化机制。固定 C 格式与有效 f64 指针、提升后的 double 参数匹配，不使用可变格式串。这是输入输出及运行时改进，不是另一数学算法；时间、辅助空间仍 O(1)。x<v 保证分母正，保留 1e-6 数值容差。
+- `1885_math_optimized.java`: 0.078 s / 336 KB; 保留教学基础版 `1885_math.java`: 0.109 s / 1788 KB.
+
+`1885_math_optimized.rs`. 完整保留极值公式 max(0,h-t*x)/(v-x)、min(t,h/x)，使用 double、六位小数。Rust 通过检查返回值的 C scanf 读四个 double，再 printf 输出，去掉输入 String、数值向量及 Rust 格式化机制。固定 C 格式与有效 f64 指针、提升后的 double 参数匹配，不使用可变格式串。这是输入输出及运行时改进，不是另一数学算法；时间、辅助空间仍 O(1)。x<v 保证分母正，保留 1e-6 数值容差。
 
 与 `1885_math.rs` 相比：时间 0.046 s → 0.046 s；内存 248 KB → 104 KB。
 
@@ -95,7 +97,7 @@ h, t, v, x（5000 ≤ h ≤ 12 000，50 ≤ t ≤ 1200，1 ≤ x < v ≤ 100，h
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
-| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 976 KB | 11324784 |
+| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 336 KB | 11327530 |
 | [1885_math_optimized.rs](1885_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -74,11 +74,13 @@ en todas las pruebas.
 
 ## Soluciones optimizadas
 
-`1885_math_optimized.java`. Mantiene exactamente max(0,h-t*x)/(v-x) y min(t,h/x), aritmética double y seis decimales. Java cambia Scanner por lectura entera con búfer y conserva Locale.US. Rust lee cuatro doubles con scanf comprobado e imprime con printf, sin String de entrada, vector ni formato de Rust. Los formatos C estáticos corresponden a punteros f64 válidos y argumentos double promovidos; no hay formatos variables. Mejora E/S y ejecución, sin cambiar el algoritmo matemático: tiempo y espacio auxiliar O(1). x<v hace positivo el denominador; conserva tolerancia numérica 1e-6.
+`1885_math_optimized.java`. Java conserva las fórmulas del mínimo y del límite superior, max(0,h-t*x)/(v-x) y min(t,h/x), con numeradores y denominadores enteros exactos. La división larga emite doce decimales directamente en 64 bytes, sin conversión double, Locale.US ni formato general. El error de truncado es menor que 1e-12 y cumple la tolerancia 1e-6. x<v hace positivo el primer denominador; los denominadores no superan 99, cada resto multiplicado por diez es menor que 1000 y cada respuesta es como máximo t<=1200, por lo que caben ambas. Los límites fijos y doce cifras dan tiempo y espacio auxiliar O(1). Las bases de coma flotante y la implementación independiente de Rust permanecen intactas.
 
-Frente a `1885_math.java`: tiempo 0.109 s → 0.125 s; memoria 1788 KB → 976 KB.
+Accepted exacto Java 1.8 #11327530: 0.078 s / 336 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/41, memoria 1/41. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11324784 era 0.125 s / 976 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
 
-`1885_math_optimized.rs`. Mantiene exactamente max(0,h-t*x)/(v-x) y min(t,h/x), aritmética double y seis decimales. Java cambia Scanner por lectura entera con búfer y conserva Locale.US. Rust lee cuatro doubles con scanf comprobado e imprime con printf, sin String de entrada, vector ni formato de Rust. Los formatos C estáticos corresponden a punteros f64 válidos y argumentos double promovidos; no hay formatos variables. Mejora E/S y ejecución, sin cambiar el algoritmo matemático: tiempo y espacio auxiliar O(1). x<v hace positivo el denominador; conserva tolerancia numérica 1e-6.
+- `1885_math_optimized.java`: 0.078 s / 336 KB; base didáctica conservada `1885_math.java`: 0.109 s / 1788 KB.
+
+`1885_math_optimized.rs`. Mantiene exactamente max(0,h-t*x)/(v-x) y min(t,h/x), aritmética double y seis decimales. Rust lee cuatro doubles con scanf comprobado e imprime con printf, sin String de entrada, vector ni formato de Rust. Los formatos C estáticos corresponden a punteros f64 válidos y argumentos double promovidos; no hay formatos variables. Mejora E/S y ejecución, sin cambiar el algoritmo matemático: tiempo y espacio auxiliar O(1). x<v hace positivo el denominador; conserva tolerancia numérica 1e-6.
 
 Frente a `1885_math.rs`: tiempo 0.046 s → 0.046 s; memoria 248 KB → 104 KB.
 
@@ -89,8 +91,6 @@ Se conservan las fórmulas del mínimo y supremo. Calcular numeradores exactos y
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1885_math_optimized.java`: puesto de tiempo 28/41 y de memoria 14/41 en esta muestra comparable.
 
 `1885_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -113,7 +113,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1885_math_optimized.py](1885_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 272 KB | 11309564 |
-| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 976 KB | 11324784 |
+| [1885_math_optimized.java](1885_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.078 s | 336 KB | 11327530 |
 | [1885_math_optimized.rs](1885_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 104 KB | 11325115 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
