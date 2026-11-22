@@ -52,11 +52,15 @@
 
 ## 优化解法
 
-新 Go、Python、Rust 版仍对不断缩小的余数试除至立方根并提取偶数次幂。若输入或除去因子后的余数为完全平方，可直接返回整个余数作为其最大平方因子。Python 不再建立百万项筛表，而逐个尝试奇数，使代码更短、辅助空间为常数。试除次数仍为 O(n^(1/3))；去除较小素因子后，合数试除值不可能再整除余数。Python 使用精确 isqrt，Go、Rust 用上界 10⁹ 的整数二分平方根。即使下一次 1000001 的立方检查也能放入有符号 64 位整数，累计平方因子始终整除原始 n。Go 使用标准句柄，Rust 用 C 入口与有界字符输入输出。保留所有旧代码，包括 Python 筛法基础版；C++、Java 的合格基础版继续覆盖快速集合。
+`1854_number_theory_optimized.py`. 保留保证为奇数输入的最大平方因子精确分解。先除尽三，再只测试 6k-1 和 6k+1 因子。每次去掉素数幂后用精确 isqrt 检查，平方余数可立即返回；缩小立方根循环后仅平方余数有贡献。无筛表或预存答案。n<10^18 时 O(n^(1/3)) 次试除和常量算术状态；保留易读的 Python 筛法。
 
-通过评测的 Python 3.12 x64 版本耗时 0.203 秒，基础版为 0.171 秒，内存为 392 KB，基础版为 1968 KB。
+精确源代码 PyPy 3.10 x64 Accepted #11327061：0.125 s / 1068 KB。2026-11-20 保存的当前 Python 语言族编译器比较：时间 2/23、内存 7/23，两项严格前十均通过。内存至少 1024 KB，故必须同时满足时间和内存。单独的两项第一语言目标未满足，保留星号。此前记录的优化 CPython 3.12 #11314964 为 0.203 s / 392 KB。所选 PyPy 记录时间更低、内存更高；这是不同解释器的独立成对测量，并非纯算法加速或混合最小值。保留的简单 CPython 版当前 Accepted #11327562：0.171 s / 1928 KB。无需额外源代码副本或重复提交。
 
-已通过评测的基础实现 [1854_number_theory.cpp](1854_number_theory.cpp), [1854_number_theory.java](1854_number_theory.java) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+仅格式化后的自身 Accepted：`1854_number_theory.java` #11327560, `1854_number_theory.cpp` #11327561, `1854_number_theory.py` #11327562。保留基础算法及其余源文件。
+
+新 Go、Python、Rust 版仍对不断缩小的余数试除至立方根并提取偶数次幂。若输入或除去因子后的余数为完全平方，可直接返回整个余数作为其最大平方因子。Python 不建立百万项筛表，先除尽三，再仅测试 6k±1，算术状态为常数。试除次数仍为 O(n^(1/3))；去除较小素因子后，合数试除值不可能再整除余数。Python 使用精确 isqrt，Go、Rust 用上界 10⁹ 的整数二分平方根。即使下一次 1000001 的立方检查也能放入有符号 64 位整数，累计平方因子始终整除原始 n。Go 使用标准句柄，Rust 用 C 入口与有界字符输入输出。保留所有旧代码，包括 Python 筛法基础版；C++、Java 的合格基础版继续覆盖快速集合。
+
+保留的 Accepted 基础版 [1854_number_theory.cpp](1854_number_theory.cpp), [1854_number_theory.java](1854_number_theory.java) 在保存比较中满足所需指标的严格前十或前 15% 收录，不增加相同优化副本。表为当前精确成对测量，星号表示单独语言目标。格式化不改算法，不将速度变化归功于格式化。
 
 ## 解答
 
@@ -64,10 +68,10 @@
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1854_number_theory.cpp](1854_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n^(1/3)) | AC | 0.015 s | 128 KB | 11290772 |
+| [1854_number_theory.cpp](1854_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n^(1/3)) | AC | 0.015 s | 112 KB | 11327561 |
 | [1854_number_theory.go](1854_number_theory.go) | Go 1.14 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 1160 KB | 11290776 |
-| [1854_number_theory.java](1854_number_theory.java) | Java 1.8 | number_theory | O(n^(1/3)) | AC | 0.093 s | 488 KB | 11290779 |
-| [1854_number_theory.py](1854_number_theory.py) | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.171 s | 1968 KB | 11290778 |
+| [1854_number_theory.java](1854_number_theory.java) \* | Java 1.8 | number_theory | O(n^(1/3)) | AC | 0.125 s | 488 KB | 11327560 |
+| [1854_number_theory.py](1854_number_theory.py) | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.171 s | 1928 KB | 11327562 |
 | [1854_number_theory.rs](1854_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n^(1/3)) | AC | 0.062 s | 224 KB | 11290781 |
 
 ### 优化版本
@@ -75,7 +79,7 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1854_number_theory_optimized.go](1854_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 280 KB | 11314959 |
-| [1854_number_theory_optimized.py](1854_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.203 s | 392 KB | 11314964 |
+| [1854_number_theory_optimized.py](1854_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(n^(1/3)) trial divisions; O(1) arithmetic state | AC | 0.125 s | 1068 KB | 11327061 |
 | [1854_number_theory_optimized.rs](1854_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 48 KB | 11314970 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

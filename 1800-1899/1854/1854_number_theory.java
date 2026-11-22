@@ -7,7 +7,7 @@ public class Main {
 
     // the integer square root, corrected after the floating-point guess
     static long isqrt(long n) {
-        long r = (long) Math.sqrt((double) n);
+        long r = (long)Math.sqrt((double)n);
         while (r * r > n) {
             r--;
         }

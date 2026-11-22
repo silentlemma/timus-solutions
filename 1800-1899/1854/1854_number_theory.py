@@ -1,7 +1,7 @@
 import sys
 from math import isqrt
 
-ROOT = 10 ** 6  # the cube root of the largest n
+ROOT = 10**6  # the cube root of the largest n
 FIRST_ODD_PRIME = 3  # n is odd
 
 
@@ -13,7 +13,7 @@ def main():
     sieve[0] = sieve[1] = 0
     for p in range(2, isqrt(ROOT) + 1):
         if sieve[p]:
-            sieve[p * p::p] = bytearray(len(range(p * p, ROOT + 1, p)))
+            sieve[p * p :: p] = bytearray(len(range(p * p, ROOT + 1, p)))
     best = 1
     for p in range(FIRST_ODD_PRIME, ROOT + 1, 2):
         if p * p * p > n:

@@ -69,11 +69,15 @@ productos de muchos primos pequeños.
 
 ## Soluciones optimizadas
 
-Go, Python y Rust mantienen la división de prueba hasta la raíz cúbica del resto decreciente. Si la entrada o el resto tras quitar un factor es cuadrado, puede devolverse entero como su mayor divisor cuadrado. Python elimina la criba de un millón de elementos y prueba impares: código más corto y espacio auxiliar constante, con O(n^(1/3)) pruebas. Un divisor compuesto no divide el resto una vez quitados sus factores primos menores. Python usa isqrt exacto; Go y Rust, raíz cuadrada binaria entera acotada por 10⁹. Incluso el siguiente cubo en 1000001 cabe en 64 bits con signo; el factor cuadrado acumulado divide el n original. Go usa manejadores estándar y Rust una entrada C con E/S de caracteres acotada. Se conservan las bases, incluida la criba Python; C++ y Java reutilizan las ya admitidas para la cobertura rápida.
+`1854_number_theory_optimized.py`. Conserva la factorización exacta del mayor divisor cuadrado para la entrada impar garantizada. Quita todos los factores tres y prueba solo divisores 6k-1 y 6k+1. Tras quitar cada potencia prima, isqrt exacto permite devolver un resto cuadrado; al terminar el bucle hasta la raíz cúbica decreciente solo un resto cuadrado contribuye. Sin criba ni respuestas guardadas. O(n^(1/3)) divisiones y estado aritmético constante para n<10^18; conserva la base Python legible con criba.
 
-El envío aceptado en Python 3.12 x64 tarda 0.203 s frente a 0.171 s de la base y usa 392 KB frente a 1968 KB.
+Accepted exacto PyPy 3.10 x64 #11327061: 0.125 s / 1068 KB. Comparación guardada del 2026-11-20 de compiladores Python actuales: tiempo 2/23, memoria 7/23; ambas metas estrictas de diez primeros pasan. Desde 1024 KB se exigen tiempo y memoria. No cumple la meta propia de primero en ambas: conserva el asterisco. Registro optimizado CPython 3.12 anterior #11314964: 0.203 s / 392 KB. El PyPy elegido registra menor tiempo pero más memoria; son pares independientes en intérpretes distintos, sin atribuir toda mejora al algoritmo ni mezclar mínimos. La base CPython conservada tiene Accepted actual #11327562: 0.171 s / 1928 KB. No necesita copia extra ni reenvío.
 
-Las implementaciones base aceptadas [1854_number_theory.cpp](1854_number_theory.cpp), [1854_number_theory.java](1854_number_theory.java) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+Accepted propios tras cambiar solo formato: `1854_number_theory.java` #11327560, `1854_number_theory.cpp` #11327561, `1854_number_theory.py` #11327562. Conserva algoritmos básicos y todos los demás fuentes.
+
+Go, Python y Rust mantienen la división de prueba hasta la raíz cúbica del resto decreciente. Si la entrada o el resto tras quitar un factor es cuadrado, puede devolverse entero como su mayor divisor cuadrado. Python elimina la criba de un millón de elementos, quita por separado el factor tres y prueba solo 6k±1: estado aritmético constante y O(n^(1/3)) pruebas. Un divisor compuesto no divide el resto una vez quitados sus factores primos menores. Python usa isqrt exacto; Go y Rust, raíz cuadrada binaria entera acotada por 10⁹. Incluso el siguiente cubo en 1000001 cabe en 64 bits con signo; el factor cuadrado acumulado divide el n original. Go usa manejadores estándar y Rust una entrada C con E/S de caracteres acotada. Se conservan las bases, incluida la criba Python; C++ y Java reutilizan las ya admitidas para la cobertura rápida.
+
+Las bases Accepted conservadas [1854_number_theory.cpp](1854_number_theory.cpp), [1854_number_theory.java](1854_number_theory.java) cumplen diez primeros o 15% superior en las métricas exigidas de la comparación guardada, sin copias optimizadas idénticas. La tabla contiene pares actuales exactos; el asterisco indica la meta propia del lenguaje. El formato no cambia algoritmos ni recibe crédito por mejoras de velocidad.
 
 ## Soluciones
 
@@ -81,10 +85,10 @@ Las implementaciones base aceptadas [1854_number_theory.cpp](1854_number_theory.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1854_number_theory.cpp](1854_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n^(1/3)) | AC | 0.015 s | 128 KB | 11290772 |
+| [1854_number_theory.cpp](1854_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n^(1/3)) | AC | 0.015 s | 112 KB | 11327561 |
 | [1854_number_theory.go](1854_number_theory.go) | Go 1.14 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 1160 KB | 11290776 |
-| [1854_number_theory.java](1854_number_theory.java) | Java 1.8 | number_theory | O(n^(1/3)) | AC | 0.093 s | 488 KB | 11290779 |
-| [1854_number_theory.py](1854_number_theory.py) | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.171 s | 1968 KB | 11290778 |
+| [1854_number_theory.java](1854_number_theory.java) \* | Java 1.8 | number_theory | O(n^(1/3)) | AC | 0.125 s | 488 KB | 11327560 |
+| [1854_number_theory.py](1854_number_theory.py) | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.171 s | 1928 KB | 11327562 |
 | [1854_number_theory.rs](1854_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n^(1/3)) | AC | 0.062 s | 224 KB | 11290781 |
 
 ### Optimizadas
@@ -92,7 +96,7 @@ Las implementaciones base aceptadas [1854_number_theory.cpp](1854_number_theory.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1854_number_theory_optimized.go](1854_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 280 KB | 11314959 |
-| [1854_number_theory_optimized.py](1854_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(n^(1/3)) | AC | 0.203 s | 392 KB | 11314964 |
+| [1854_number_theory_optimized.py](1854_number_theory_optimized.py) \* | PyPy 3.10 x64 | number_theory | O(n^(1/3)) trial divisions; O(1) arithmetic state | AC | 0.125 s | 1068 KB | 11327061 |
 | [1854_number_theory_optimized.rs](1854_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n^(1/3)) | AC | 0.031 s | 48 KB | 11314970 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
