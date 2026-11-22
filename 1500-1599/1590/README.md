@@ -64,13 +64,19 @@ Clones copy transitions and inherit the old suffix link.
 
 ## Optimized solutions
 
-The preferred teaching algorithm sorts suffixes and subtracts adjacent longest common prefixes from the number of substring occurrences. The compact C++ variant sorts suffix starting positions without copying every suffix, reducing storage while retaining its worst-case quadratic-comparison cost. Separate suffix-automaton variants compress transitions into flat edge lists; a cloned state needs its own copied edge list before redirection. These are different algorithms and their names and measured comparisons remain separate. A memory saving may come with slower time, or the reverse.
+`1590_strings_optimized.py`. Keep the suffix automaton, exact clone redirection and sum len(v)−len(link(v)). For N<=5000, at most 2N+1 states fit 16-bit indices. Store the fixed alphabet’s 26 transitions per state in one dense unsigned-16-bit array, with zero for missing transitions; lengths and signed suffix links use separate 16-bit arrays. Cloning copies exactly 26 transitions. The transition table is at most 520052 bytes; this is not total process memory. Time/space O(26N) for the fixed alphabet. The run uses 1120 KB versus the prior optimized 1084 KB, while time improves; retain all suffix-sorting and readable automaton versions.
+
+Exact-source CPython 3.12 Accepted #11326686: 0.093 s / 1120 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 4/64, memory rank 1/64. At least 1024 KB: both strict metrics are required and pass.
+
+- `1590_strings_optimized.py`: 0.093 s / 1120 KB; retained teaching base `1590_sorting_strings.py` (Python 3.12 x64): 0.109 s / 14664 KB; time change -14.7%; memory change -92.4%.
+
+The preferred teaching algorithm sorts suffixes and subtracts adjacent longest common prefixes from the number of substring occurrences. The compact C++ variant sorts suffix starting positions without copying every suffix, reducing storage while retaining its worst-case quadratic-comparison cost. The compact Java and Rust suffix automata use flat edge lists; each clone copies its own list before redirection. The current Python compact automaton instead uses the dense 16-bit transition table described above. These are different algorithms and their names and measured comparisons remain separate. A memory saving may come with slower time, or the reverse.
 
 - `1590_strings.java`: 0.093 s / 2412 KB; base `1590_sorting_strings.java`: 0.187 s / 28464 KB; relative change: time -50.3%, memory -91.5%.
 - `1590_strings.py`: 0.109 s / 3132 KB; base `1590_sorting_strings.py`: 0.109 s / 14664 KB; relative change: time -0.0%, memory -78.6%.
 - `1590_strings.rs`: 0.015 s / 2272 KB; base `1590_sorting_strings.rs`: 0.046 s / 300 KB; relative change: time -67.4%, memory +657.3%.
 - `1590_strings_optimized.java`: 0.109 s / 748 KB; base `1590_sorting_strings.java`: 0.187 s / 28464 KB; relative change: time -41.7%, memory -97.4%.
-- `1590_strings_optimized.py`: 0.109 s / 1084 KB; base `1590_sorting_strings.py`: 0.109 s / 14664 KB; relative change: time -0.0%, memory -92.6%.
+
 - `1590_strings_optimized.rs`: 0.015 s / 504 KB; base `1590_sorting_strings.rs`: 0.046 s / 300 KB; relative change: time -67.4%, memory +68.0%.
 - `1590_sorting_strings_optimized.cpp`: 0.031 s / 152 KB; base `1590_sorting_strings.cpp`: 0.015 s / 508 KB; relative change: time +106.7%, memory -70.1%.
 
@@ -84,7 +90,7 @@ The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% 
 
 - Java: preferred teaching base `1590_sorting_strings.java`; covering source `1590_strings.java`; time/memory places 1/1, other-author entries 2/2.
 
-- Python/PyPy: preferred teaching base `1590_sorting_strings.py`; covering source `1590_strings.py`; time/memory places 19/15, other-author entries 60/60.
+- Python/PyPy: Exact-source CPython 3.12 Accepted #11326686: 0.093 s / 1120 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 4/64, memory rank 1/64. At least 1024 KB: both strict metrics are required and pass.
 
 - Rust: preferred teaching base `1590_sorting_strings.rs`; covering source `1590_sorting_strings.rs`; time/memory places 1/1, other-author entries 0/0.
 
@@ -112,7 +118,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1590_strings.py](1590_strings.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 3132 KB | 11287994 |
 | [1590_strings.rs](1590_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 2272 KB | 11287999 |
 | [1590_strings_optimized.java](1590_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.109 s | 748 KB | 11308188 |
-| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1084 KB | 11308180 |
+| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(26N) time and space | AC | 0.093 s | 1120 KB | 11326686 |
 | [1590_strings_optimized.rs](1590_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 504 KB | 11308189 |
 | [1590_sorting_strings_optimized.cpp](1590_sorting_strings_optimized.cpp) \* | G++ 13.2 x64 | sorting, strings | O(N^2 log N) | AC | 0.031 s | 152 KB | 11309286 |
 

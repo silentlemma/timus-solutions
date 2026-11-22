@@ -57,13 +57,19 @@ Python 对前缀相等性二分搜索 LCP，使用 C 层字节比较，仍满足
 
 ## 优化解法
 
-教学基础算法排序后缀，用子串出现总数减去相邻后缀的最长公共前缀。紧凑 C++ 只排序后缀起点，不复制每个后缀，减少存储，但最坏长字符串比较成本不变。另一些后缀自动机把转移存入扁平边表；克隆状态必须先复制自己的边表再重定向。它们是不同算法，命名和测量比较分别保留。节省内存可能伴随时间增加，反之亦然。
+`1590_strings_optimized.py`. 保留后缀自动机、精确克隆重定向及 len(v)−len(link(v)) 求和。N<=5000 时至多 2N+1 个状态适合 16 位编号。每状态固定 26 转移放在一个稠密无符号 16 位数组，零为缺失；长度及有符号后缀链接另用 16 位数组。克隆正好复制 26 项。转移表最多 520052 字节，并非进程总内存。固定字母表时间/空间 O(26N)。本次 1120 KB，旧优化版 1084 KB，但时间更快；保留所有后缀排序和易读自动机版。
+
+精确源代码 CPython 3.12 Accepted #11326686：0.093 s / 1120 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 4/64，内存排名 1/64。至少 1024 KB：两个严格指标均须通过，两项已通过。
+
+- `1590_strings_optimized.py`: 0.093 s / 1120 KB; 保留的教学基础版 `1590_sorting_strings.py` (Python 3.12 x64): 0.109 s / 14664 KB; 时间变化 -14.7%; 内存变化 -92.4%.
+
+教学基础算法排序后缀，用子串出现总数减去相邻后缀的最长公共前缀。紧凑 C++ 只排序后缀起点，不复制每个后缀，减少存储，但最坏长字符串比较成本不变。紧凑 Java、Rust 自动机使用扁平边表，克隆须先复制自己的表再重定向。当前紧凑 Python 自动机则改用上述稠密 16 位转移表。它们是不同算法，命名和测量比较分别保留。节省内存可能伴随时间增加，反之亦然。
 
 - `1590_strings.java`: 0.093 s / 2412 KB; 基础版 `1590_sorting_strings.java`: 0.187 s / 28464 KB; 相对基础版的变化: 时间 -50.3%, 内存 -91.5%.
 - `1590_strings.py`: 0.109 s / 3132 KB; 基础版 `1590_sorting_strings.py`: 0.109 s / 14664 KB; 相对基础版的变化: 时间 -0.0%, 内存 -78.6%.
 - `1590_strings.rs`: 0.015 s / 2272 KB; 基础版 `1590_sorting_strings.rs`: 0.046 s / 300 KB; 相对基础版的变化: 时间 -67.4%, 内存 +657.3%.
 - `1590_strings_optimized.java`: 0.109 s / 748 KB; 基础版 `1590_sorting_strings.java`: 0.187 s / 28464 KB; 相对基础版的变化: 时间 -41.7%, 内存 -97.4%.
-- `1590_strings_optimized.py`: 0.109 s / 1084 KB; 基础版 `1590_sorting_strings.py`: 0.109 s / 14664 KB; 相对基础版的变化: 时间 -0.0%, 内存 -92.6%.
+
 - `1590_strings_optimized.rs`: 0.015 s / 504 KB; 基础版 `1590_sorting_strings.rs`: 0.046 s / 300 KB; 相对基础版的变化: 时间 -67.4%, 内存 +68.0%.
 - `1590_sorting_strings_optimized.cpp`: 0.031 s / 152 KB; 基础版 `1590_sorting_strings.cpp`: 0.015 s / 508 KB; 相对基础版的变化: 时间 +106.7%, 内存 -70.1%.
 
@@ -77,7 +83,7 @@ Python 对前缀相等性二分搜索 LCP，使用 C 层字节比较，仍满足
 
 - Java: 优先教学基础版 `1590_sorting_strings.java`; 覆盖实现 `1590_strings.java`; 时间/内存名次 1/1, 其他作者记录 2/2.
 
-- Python/PyPy: 优先教学基础版 `1590_sorting_strings.py`; 覆盖实现 `1590_strings.py`; 时间/内存名次 19/15, 其他作者记录 60/60.
+- Python/PyPy: 精确源代码 CPython 3.12 Accepted #11326686：0.093 s / 1120 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 4/64，内存排名 1/64。至少 1024 KB：两个严格指标均须通过，两项已通过。
 
 - Rust: 优先教学基础版 `1590_sorting_strings.rs`; 覆盖实现 `1590_sorting_strings.rs`; 时间/内存名次 1/1, 其他作者记录 0/0.
 
@@ -105,7 +111,7 @@ Python 对前缀相等性二分搜索 LCP，使用 C 层字节比较，仍满足
 | [1590_strings.py](1590_strings.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 3132 KB | 11287994 |
 | [1590_strings.rs](1590_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 2272 KB | 11287999 |
 | [1590_strings_optimized.java](1590_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.109 s | 748 KB | 11308188 |
-| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1084 KB | 11308180 |
+| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(26N) time and space | AC | 0.093 s | 1120 KB | 11326686 |
 | [1590_strings_optimized.rs](1590_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 504 KB | 11308189 |
 | [1590_sorting_strings_optimized.cpp](1590_sorting_strings_optimized.cpp) \* | G++ 13.2 x64 | sorting, strings | O(N^2 log N) | AC | 0.031 s | 152 KB | 11309286 |
 

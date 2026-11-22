@@ -63,13 +63,19 @@ Los clones copian transiciones y heredan el enlace de sufijo anterior.
 
 ## Soluciones optimizadas
 
-El algoritmo didáctico preferido ordena sufijos y resta sus prefijos comunes adyacentes del número de ocurrencias de subcadenas. El C++ compacto ordena posiciones iniciales sin copiar cada sufijo, reduciendo memoria pero conservando el coste de comparaciones largas en el peor caso. Los autómatas de sufijos compactos guardan transiciones en listas de aristas planas; cada clon copia su lista antes de redirigir. Son algoritmos distintos, con nombres y comparaciones separados. Menor memoria puede implicar más tiempo, o al contrario.
+`1590_strings_optimized.py`. Mantiene autómata de sufijos, redirección exacta de clones y suma len(v)−len(link(v)). N<=5000 da hasta 2N+1 estados con índices de 16 bits. Las 26 transiciones van en un arreglo denso unsigned16, cero ausente; longitudes/enlaces signed16 separados. Clonar copia 26 entradas. La tabla ocupa hasta 520052 bytes, no memoria total del proceso. O(26N) tiempo/espacio con alfabeto fijo. Usa 1120 KB frente a 1084 KB antes, pero mejora tiempo; conserva ordenación de sufijos y autómatas legibles.
+
+Accepted exacto CPython 3.12 #11326686: 0.093 s / 1120 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 4/64, memoria 1/64. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
+
+- `1590_strings_optimized.py`: 0.093 s / 1120 KB; base didáctica conservada `1590_sorting_strings.py` (Python 3.12 x64): 0.109 s / 14664 KB; cambio de tiempo -14.7%; cambio de memoria -92.4%.
+
+El algoritmo didáctico preferido ordena sufijos y resta sus prefijos comunes adyacentes del número de ocurrencias de subcadenas. El C++ compacto ordena posiciones iniciales sin copiar cada sufijo, reduciendo memoria pero conservando el coste de comparaciones largas en el peor caso. Los autómatas compactos Java/Rust usan listas planas, copiadas para cada clon antes de redirigir. El Python compacto actual usa en cambio la tabla densa de 16 bits descrita arriba. Son algoritmos distintos, con nombres y comparaciones separados. Menor memoria puede implicar más tiempo, o al contrario.
 
 - `1590_strings.java`: 0.093 s / 2412 KB; base `1590_sorting_strings.java`: 0.187 s / 28464 KB; cambio respecto a la base: tiempo -50.3%, memoria -91.5%.
 - `1590_strings.py`: 0.109 s / 3132 KB; base `1590_sorting_strings.py`: 0.109 s / 14664 KB; cambio respecto a la base: tiempo -0.0%, memoria -78.6%.
 - `1590_strings.rs`: 0.015 s / 2272 KB; base `1590_sorting_strings.rs`: 0.046 s / 300 KB; cambio respecto a la base: tiempo -67.4%, memoria +657.3%.
 - `1590_strings_optimized.java`: 0.109 s / 748 KB; base `1590_sorting_strings.java`: 0.187 s / 28464 KB; cambio respecto a la base: tiempo -41.7%, memoria -97.4%.
-- `1590_strings_optimized.py`: 0.109 s / 1084 KB; base `1590_sorting_strings.py`: 0.109 s / 14664 KB; cambio respecto a la base: tiempo -0.0%, memoria -92.6%.
+
 - `1590_strings_optimized.rs`: 0.015 s / 504 KB; base `1590_sorting_strings.rs`: 0.046 s / 300 KB; cambio respecto a la base: tiempo -67.4%, memoria +68.0%.
 - `1590_sorting_strings_optimized.cpp`: 0.031 s / 152 KB; base `1590_sorting_strings.cpp`: 0.015 s / 508 KB; cambio respecto a la base: tiempo +106.7%, memoria -70.1%.
 
@@ -83,7 +89,7 @@ Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15%
 
 - Java: base didáctica preferida `1590_sorting_strings.java`; versión que cubre `1590_strings.java`; puestos tiempo/memoria 1/1, registros de otros autores 2/2.
 
-- Python/PyPy: base didáctica preferida `1590_sorting_strings.py`; versión que cubre `1590_strings.py`; puestos tiempo/memoria 19/15, registros de otros autores 60/60.
+- Python/PyPy: Accepted exacto CPython 3.12 #11326686: 0.093 s / 1120 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 4/64, memoria 1/64. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
 
 - Rust: base didáctica preferida `1590_sorting_strings.rs`; versión que cubre `1590_sorting_strings.rs`; puestos tiempo/memoria 1/1, registros de otros autores 0/0.
 
@@ -111,7 +117,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1590_strings.py](1590_strings.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 3132 KB | 11287994 |
 | [1590_strings.rs](1590_strings.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 2272 KB | 11287999 |
 | [1590_strings_optimized.java](1590_strings_optimized.java) | Java 1.8 | strings | O(N) | AC | 0.109 s | 748 KB | 11308188 |
-| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(N) | AC | 0.109 s | 1084 KB | 11308180 |
+| [1590_strings_optimized.py](1590_strings_optimized.py) \* | Python 3.12 x64 | strings | O(26N) time and space | AC | 0.093 s | 1120 KB | 11326686 |
 | [1590_strings_optimized.rs](1590_strings_optimized.rs) | Rust 1.75 x64 | strings | O(N) | AC | 0.015 s | 504 KB | 11308189 |
 | [1590_sorting_strings_optimized.cpp](1590_sorting_strings_optimized.cpp) \* | G++ 13.2 x64 | sorting, strings | O(N^2 log N) | AC | 0.031 s | 152 KB | 11309286 |
 
