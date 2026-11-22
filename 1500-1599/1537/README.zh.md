@@ -68,7 +68,7 @@ m ≥ 1 时 g(m) = B(2m) / 2。这些计数大到无法精确保存，所以递�
 
 `1537_dp_optimized.go`. 保留模 P 递推 g(m)=g(m-1)+g(floor(m/2))。不同于另行保留的 Python 尾段代数求和版本，Go、Rust 仍遍历至 T=floor(K/2) 的全部 m。用 floor(floor(T/2)/2)+1 个紧凑 32 位余数的环形数组替代完整前缀。g(j) 最后在 2j+1 使用，读完后才复用槽位，使 DP 存储再约减半；时间仍 O(K)，渐近空间仍 O(K)。P<=10^9 时余数适合 32 位，加法用 64 位。保留 K<2、P=1 情形。
 
-与 `1537_dp.go` 相比：时间 0.109 s → 0.093 s；内存 11700 KB → 6 320 KB。
+与 `1537_dp.go` 相比：时间 0.109 s → 0.078 s；内存 11700 KB → 6252 KB。
 
 `1537_dp_optimized.rs`. 保留模 P 递推 g(m)=g(m-1)+g(floor(m/2))。不同于另行保留的 Python 尾段代数求和版本，Go、Rust 仍遍历至 T=floor(K/2) 的全部 m。用 floor(floor(T/2)/2)+1 个紧凑 32 位余数的环形数组替代完整前缀。g(j) 最后在 2j+1 使用，读完后才复用槽位，使 DP 存储再约减半；时间仍 O(K)，渐近空间仍 O(K)。P<=10^9 时余数适合 32 位，加法用 64 位。保留 K<2、P=1 情形。
 
@@ -117,7 +117,7 @@ answer = g(T) mod P
 | 解法 | 语言 | 方法 | 复杂度 | 结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
-| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.093 s | 6320 KB | 11325049 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
 | [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

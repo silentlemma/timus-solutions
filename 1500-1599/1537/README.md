@@ -77,7 +77,7 @@ Pitfalls:
 
 `1537_dp_optimized.go`. Keep g(m)=g(m-1)+g(floor(m/2)) modulo P. Unlike the separately retained Python optimization that sums a final range algebraically, these Go and Rust variants still visit every m through T=floor(K/2). A ring of floor(floor(T/2)/2)+1 packed 32-bit residues replaces the full stored prefix. State g(j) is last consumed at 2j+1, and each slot is reused only after that read. This roughly halves DP storage again, without changing O(K) time or O(K) asymptotic space. Residues fit 32 bits for P<=10^9; sums use 64 bits. K<2 and P=1 retain their original answers.
 
-Compared with `1537_dp.go`: time 0.109 s → 0.093 s; memory 11700 KB → 6 320 KB.
+Compared with `1537_dp.go`: time 0.109 s → 0.078 s; memory 11700 KB → 6252 KB.
 
 `1537_dp_optimized.rs`. Keep g(m)=g(m-1)+g(floor(m/2)) modulo P. Unlike the separately retained Python optimization that sums a final range algebraically, these Go and Rust variants still visit every m through T=floor(K/2). A ring of floor(floor(T/2)/2)+1 packed 32-bit residues replaces the full stored prefix. State g(j) is last consumed at 2j+1, and each slot is reused only after that read. This roughly halves DP storage again, without changing O(K) time or O(K) asymptotic space. Residues fit 32 bits for P<=10^9; sums use 64 bits. K<2 and P=1 retain their original answers.
 
@@ -126,7 +126,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
-| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.093 s | 6320 KB | 11325049 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
 | [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

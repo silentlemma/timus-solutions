@@ -79,7 +79,7 @@ Detalles a tener en cuenta:
 
 `1537_dp_optimized.go`. Conserva g(m)=g(m-1)+g(floor(m/2)) módulo P. A diferencia del Python retenido que suma algebraicamente el tramo final, Go y Rust visitan todo m hasta T=floor(K/2). Un anillo de floor(floor(T/2)/2)+1 residuos de 32 bits sustituye el prefijo completo. g(j) se lee por última vez en 2j+1 y la celda se reutiliza después. Reduce aproximadamente a la mitad la memoria del DP, manteniendo tiempo O(K) y espacio asintótico O(K). P<=10^9 permite residuos de 32 bits; suma en 64 bits. Conserva K<2 y P=1.
 
-Frente a `1537_dp.go`: tiempo 0.109 s → 0.093 s; memoria 11700 KB → 6 320 KB.
+Frente a `1537_dp.go`: tiempo 0.109 s → 0.078 s; memoria 11700 KB → 6252 KB.
 
 `1537_dp_optimized.rs`. Conserva g(m)=g(m-1)+g(floor(m/2)) módulo P. A diferencia del Python retenido que suma algebraicamente el tramo final, Go y Rust visitan todo m hasta T=floor(K/2). Un anillo de floor(floor(T/2)/2)+1 residuos de 32 bits sustituye el prefijo completo. g(j) se lee por última vez en 2j+1 y la celda se reutiliza después. Reduce aproximadamente a la mitad la memoria del DP, manteniendo tiempo O(K) y espacio asintótico O(K). P<=10^9 permite residuos de 32 bits; suma en 64 bits. Conserva K<2 y P=1.
 
@@ -128,7 +128,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1537_dp_optimized.py](1537_dp_optimized.py) \* | Python 3.12 x64 | dp | O(K) | AC | 0.656 s | 5276 KB | 11309315 |
-| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.093 s | 6320 KB | 11325049 |
+| [1537_dp_optimized.go](1537_dp_optimized.go) \* | Go 1.14 x64 | dp | O(K) | AC | 0.078 s | 6252 KB | 11328276 |
 | [1537_dp_optimized.rs](1537_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(K) | AC | 0.015 s | 4792 KB | 11325101 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
