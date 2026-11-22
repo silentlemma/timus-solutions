@@ -84,17 +84,18 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1446_implementation_optimized.py`. Keep one bytearray per house and the original order within each house. Cache the bound binary readline method; preserve inner name spaces by stripping only CR/LF, and retain streaming input rather than splitting the whole file. Flush the grouped answer before direct interpreter exit. Time O(I+O) for input/output bytes, stored names O(I); the readable grouping source remains.
+
+Exact-source CPython 3.12 Accepted #11327052: 0.062 s / 812 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 6/107, memory rank 27/107. Below 1024 KB, strict admission uses time only.
+
+- `1446_implementation_optimized.py`: 0.062 s / 812 KB; retained teaching base `1446_implementation.py` (Python 3.12 x64): 0.062 s / 1520 KB; time change +0.0%; memory change -46.6%.
+
 The optimized Rust solution needs no map from house names. It reads the
 input line by line instead of all at once, finds the house in the list
 of four, and appends each name straight to the byte buffer of its house:
 492 KB instead of 980 KB, with the same time.
 
-The optimized Java solution reads the input in 4 KB blocks, recognizes a
-house by its first letter, which differs for all four, and copies the
-names as bytes into one byte stream per house, with no `String` objects:
-0.062 s instead of 0.125 s and 1180 KB instead of 2324 KB. The optimized
-Python solution reads the lines as bytes and gathers the names of each
-house in one `bytearray`: 812 KB instead of 1520 KB, with the same time.
+The retained `1446_implementation_optimized.java` reads 4 KB blocks, recognizes each house by its distinct first letter, and copies names as bytes into a per-house stream without String objects. Its own measurement remains 0.062 s / 1180 KB versus the Java base 0.125 s / 2324 KB. The current Python grouping and its separate metrics are described above.
 
 Store names in fixed character arrays and group pointers to the names by house. Accepted submission 11303747 took 0.001 s and used 416 KB. The simple version took 0.031 s and used 520 KB.
 
@@ -115,9 +116,8 @@ Store names in fixed character arrays and group pointers to the names by house. 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
-| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
 | [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

@@ -79,14 +79,17 @@ Tatiana Henrihovna Grotter
 
 ## 优化解法
 
+`1446_implementation_optimized.py`. 保留每学院一个 bytearray 和学院内原姓名顺序。缓存二进制 readline 绑定方法，只去掉 CR/LF 而保留姓名内部空格；逐行读取，不拆分完整文件。刷新分组输出后直接退出。输入/输出字节 I、O 下时间 O(I+O)，姓名存储 O(I)，保留易读版。
+
+精确源代码 CPython 3.12 Accepted #11327052：0.062 s / 812 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 6/107，内存排名 27/107。低于 1024 KB，严格收录只看时间。
+
+- `1446_implementation_optimized.py`: 0.062 s / 812 KB; 保留的教学基础版 `1446_implementation.py` (Python 3.12 x64): 0.062 s / 1520 KB; 时间变化 +0.0%; 内存变化 -46.6%.
+
 优化的 Rust 解法不需要以学院名称为键的映射。它逐行读取输入而不是一次读完，在四个
 学院的列表中找到学院，并把每个名字直接追加到对应学院的字节缓冲区：492 KB，而不是
 980 KB，时间不变。
 
-优化的 Java 解法按 4 KB 分块读入，按首字母识别学院（四个学院的首字母各不相同），
-并把名字以字节形式复制到各学院自己的字节流中，不创建 `String` 对象：0.062 s，而
-不是 0.125 s；1180 KB，而不是 2324 KB。优化的 Python 解法以字节读取各行，并把每
-个学院的名字收集在一个 `bytearray` 中：812 KB，而不是 1520 KB，时间不变。
+保留的 `1446_implementation_optimized.java` 按 4 KB 分块读取，以各学院不同首字母识别，把姓名字节复制到各学院流而不建 String。其自身指标仍为 0.062 s / 1180 KB，Java 基础版 0.125 s / 2324 KB。当前 Python 分组及独立指标见上。
 
 将姓名保存在定长字符数组中，并按学院分组保存姓名指针。通过的提交 11303747 用时 0.001 秒、占用 416 KB；简单版用时 0.031 秒、占用 520 KB。
 
@@ -107,8 +110,8 @@ Tatiana Henrihovna Grotter
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
-| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
 | [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
-\* 未进入当前评测机上该语言解法的前 10 名或前 15%，可能还能进一步优化。
+\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。

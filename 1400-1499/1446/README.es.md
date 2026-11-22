@@ -85,18 +85,18 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1446_implementation_optimized.py`. Conserva un bytearray por casa y el orden original de nombres. Guarda el método readline binario enlazado; elimina solo CR/LF para preservar espacios internos y lee por líneas, sin dividir el archivo completo. Vacía la salida agrupada antes de salir directamente. Tiempo O(I+O) en bytes de entrada/salida, nombres O(I); conserva la base legible.
+
+Accepted exacto CPython 3.12 #11327052: 0.062 s / 812 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 6/107, memoria 27/107. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1446_implementation_optimized.py`: 0.062 s / 812 KB; base didáctica conservada `1446_implementation.py` (Python 3.12 x64): 0.062 s / 1520 KB; cambio de tiempo +0.0%; cambio de memoria -46.6%.
+
 La solución optimizada en Rust no necesita un mapa por nombre de casa.
 Lee la entrada línea a línea en lugar de toda de una vez, busca la casa
 en la lista de cuatro y añade cada nombre directamente al búfer de bytes
 de su casa: 492 KB en lugar de 980 KB, con el mismo tiempo.
 
-La solución optimizada en Java lee la entrada en bloques de 4 KB,
-reconoce la casa por su primera letra, distinta en las cuatro, y copia
-los nombres como bytes en un flujo de bytes por casa, sin objetos
-`String`: 0.062 s en lugar de 0.125 s y 1180 KB en lugar de 2324 KB. La
-solución optimizada en Python lee las líneas como bytes y reúne los
-nombres de cada casa en un `bytearray`: 812 KB en lugar de 1520 KB, con
-el mismo tiempo.
+El `1446_implementation_optimized.java` conservado lee bloques 4 KB, identifica casas por inicial distinta y copia bytes a un flujo por casa sin String. Conserva su medida de 0.062 s / 1180 KB frente a base Java 0.125 s / 2324 KB. La agrupación Python actual y sus métricas separadas se explican arriba.
 
 Guardar los nombres en arreglos de caracteres de tamaño fijo y agrupar sus punteros por casa. El envío aceptado 11303747 tardó 0.001 s y usó 416 KB. La versión sencilla tardó 0.031 s y usó 520 KB.
 
@@ -117,9 +117,8 @@ Guardar los nombres en arreglos de caracteres de tamaño fijo y agrupar sus punt
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1446_implementation_optimized.java](1446_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.062 s | 1180 KB | 11303748 |
-| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.078 s | 812 KB | 11303749 |
+| [1446_implementation_optimized.py](1446_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) | AC | 0.062 s | 812 KB | 11327052 |
 | [1446_implementation_optimized.rs](1446_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.015 s | 492 KB | 11303607 |
 | [1446_implementation_optimized.cpp](1446_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 416 KB | 11303747 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.

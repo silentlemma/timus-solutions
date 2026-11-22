@@ -1,3 +1,4 @@
+import os
 import sys
 
 HOUSES = (b"Slytherin", b"Hufflepuff", b"Gryffindor", b"Ravenclaw")
@@ -6,13 +7,13 @@ HOUSES = (b"Slytherin", b"Hufflepuff", b"Gryffindor", b"Ravenclaw")
 def main():
     # the lines are read as bytes, and every house gathers its names in one
     # bytearray that is written out as it is
-    input_stream = sys.stdin.buffer
-    n = int(input_stream.readline())
+    read = sys.stdin.buffer.readline
+    n = int(read())
     lists = {house: bytearray() for house in HOUSES}
     for _ in range(n):
         # names keep their inner spaces, so only the line break is dropped
-        name = input_stream.readline().rstrip(b"\r\n")
-        house = input_stream.readline().strip()
+        name = read().rstrip(b"\r\n")
+        house = read().strip()
         lists[house].extend(name)
         lists[house].append(ord("\n"))
     output = sys.stdout.buffer
@@ -24,3 +25,6 @@ def main():
 
 
 main()
+
+sys.stdout.flush()
+os._exit(0)
