@@ -79,7 +79,7 @@ Java переиспользует массивы координат и числ�
 
 **Посылки Timus для простых версий**
 
-Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11328309 · Rust 1.75 x64 №11321919.
 
 Rust проверяет по одной координате в каждом промежутке между фиксированными позициями. В допустимой расстановке на одной линии не может быть трёх картофелин, поэтому достаточно подсчитать соседей по строке и столбцу. Rust 1.75 x64, посылка 11322514. Время 0,062 → 0,046 с, память 236 → 228 КБ.
 
@@ -92,7 +92,7 @@ Rust проверяет по одной координате в каждом п�
 | [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
 | [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
 | [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 848 KB | 11328309 |
 | [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
 
 ### Оптимизированные

@@ -62,7 +62,7 @@ Java 版本在尝试移动一个土豆时复用坐标和邻居计数数组。每
 
 **简单版本的 Timus 提交记录**
 
-Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11328309 · Rust 1.75 x64 №11321919.
 
 Rust 对固定位置之间的每个区间只测试一个坐标。合法布局的同一直线上至多有两个土豆，因此只需统计每个土豆同行或同列的其他土豆。 Rust 1.75 x64（提交 11322514）的运行时间从 0.062 秒变为 0.046 秒，内存从 236 KB 变为 228 KB。
 
@@ -75,7 +75,7 @@ Rust 对固定位置之间的每个区间只测试一个坐标。合法布局的
 | [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
 | [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
 | [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 848 KB | 11328309 |
 | [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
 
 ### 优化版本

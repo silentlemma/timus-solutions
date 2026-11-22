@@ -78,7 +78,7 @@ Java reuses coordinate and neighbour arrays when testing positions for a single 
 
 **Timus submissions for the simple versions**
 
-Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11321918 · Rust 1.75 x64 №11321919.
+Go 1.14 x64 №11321831 · G++ 13.2 x64 №11321917 · Java 1.8 №11321915 · Python 3.12 x64 №11328309 · Rust 1.75 x64 №11321919.
 
 Rust tests one coordinate in every gap between fixed positions. In a valid layout no line can contain three potatoes, so it suffices to count how many other potatoes share a row or column with each one. Rust 1.75 x64, submission 11322514. Time 0.062 → 0.046 s, memory 236 → 228 KB.
 
@@ -91,7 +91,7 @@ Rust tests one coordinate in every gap between fixed positions. In a valid layou
 | [1809_implementation.cpp](1809_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 188 KB | 11321917 |
 | [1809_implementation.go](1809_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11321831 |
 | [1809_implementation.java](1809_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.156 s | 1780 KB | 11321915 |
-| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.093 s | 884 KB | 11321918 |
+| [1809_implementation.py](1809_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.109 s | 848 KB | 11328309 |
 | [1809_implementation.rs](1809_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.062 s | 236 KB | 11321919 |
 
 ### Optimized

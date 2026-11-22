@@ -44,15 +44,15 @@ def main():
     if answer is None:
         # two moves always do: next to the two kept potatoes, or as a pair
         # of their own in rows and columns nobody else uses
-        for k, l in combinations(range(COUNT), 2):
-            kept = [start[i] for i in range(COUNT) if i not in (k, l)]
+        for k, other in combinations(range(COUNT), 2):
+            kept = [start[i] for i in range(COUNT) if i not in (k, other)]
             near = [(x + dx, y + dy) for x, y in kept for dx, dy in STEPS]
             xs = [x for x in range(1, SIDE + 1) if all(x != kx for kx, _ in kept)]
             ys = [y for y in range(1, SIDE) if all(y != ky and y + 1 != ky for _, ky in kept)]
             pairs = [(a, b) for a in near for b in near] + [((xs[0], ys[0]), (xs[0], ys[0] + 1))]
             for a, b in pairs:
                 p = start[:]
-                p[k], p[l] = a, b
+                p[k], p[other] = a, b
                 if answer is None and good(p):
                     answer = p
     print("\n".join("%d %d" % cell for cell in answer))

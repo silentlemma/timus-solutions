@@ -17,9 +17,9 @@ def sees(p, a, b):
     if xa != xb and ya != yb:
         return False
     return not any(
-        k != a and k != b
-        and min(xa, xb) <= x <= max(xa, xb) and min(ya, yb) <= y <= max(ya, yb)
-        for k, (x, y) in enumerate(p))
+        k != a and k != b and min(xa, xb) <= x <= max(xa, xb) and min(ya, yb) <= y <= max(ya, yb)
+        for k, (x, y) in enumerate(p)
+    )
 
 
 def cells(path):
