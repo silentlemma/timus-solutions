@@ -15,8 +15,7 @@ def boundary_count(points):
         else:
             a = tuple(points[0][axis] + points[shift][axis] for axis in range(2))
             remaining = [i for i in range(VERTEX_COUNT) if i not in (0, shift)]
-            b = tuple(points[remaining[0]][axis] + points[remaining[1]][axis]
-                      for axis in range(2))
+            b = tuple(points[remaining[0]][axis] + points[remaining[1]][axis] for axis in range(2))
         dx, dy = b[0] - a[0], b[1] - a[1]
         if dx == dy == 0:
             continue
@@ -41,5 +40,5 @@ def main():
     print(boundary_count(points))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
