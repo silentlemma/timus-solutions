@@ -73,6 +73,14 @@ hasta 10.
 
 ## Soluciones optimizadas
 
+`1260_dp_optimized.java`. Java conserva la misma recurrencia y tres contadores long: desde (-1,0,1), cada paso los sustituye por (old,current,current+older+1). Para N de 1 a 55 realiza como máximo 54 pasos: tiempo O(N) y espacio auxiliar O(1). Búferes fijos de entrada y salida de 1024 bytes y un auxiliar de 20 dígitos sustituyen la lectura carácter a carácter y el formato numérico general. Cada N permitido se comparó con una recurrencia independiente en un arreglo; la enumeración de permutaciones pequeñas comprueba además la interpretación del conteo.
+
+Accepted exacto Java 1.8 #11327453: 0.093 s / 340 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 9/96, memoria 4/96. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11304342 era 0.109 s / 320 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1260_dp_optimized.java`: 0.093 s / 340 KB; base didáctica conservada `1260_dp.java`: 0.093 s / 1568 KB.
+
+`1260_dp_optimized.py` se reutiliza byte por byte, sin otro archivo ni un algoritmo nuevo. Su Accepted de fuente exacto en CPython 3.12 #11327021 mide 0.078 s / 564 KB. En el grupo guardado de compiladores actuales de la familia Python, 2026-11-20: puesto temporal 6/44, memoria 26/44. Al usar menos de 1024 KB, el criterio estricto de diez primeros o 15% superior usa solo tiempo; el asterisco conserva la meta de clasificación propia del lenguaje. El mismo archivo tiene también el Accepted anterior en PyPy 3.10 #11324915, 0.125 s / 200 KB. Son pares medidos en ejecuciones distintas: se elige el tiempo y puesto de CPython, mientras PyPy usa menos memoria. Las observaciones anteriores sobre ahorro de memoria en esta sección se refieren a esa medición PyPy, no a la fila CPython. Todos los fuentes didácticos siguen intactos.
+
 `1260_dp_optimized.py`. Mantiene a(k)=a(k-1)+a(k-3)+1 y el estado inicial (-1,0,1). Conserva tres acumuladores sin otra tabla, avanzando simultáneamente los valores previos. Tiempo O(N), tres enteros acotados. Para N<=55 las cuentas caben en64 bits con signo; basta a(N)<2^N. Lee un token de bytes y ejecuta la recurrencia sin llamada envolvente. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
 Frente a `1260_dp.py`: tiempo 0.109 s → 0.125 s; memoria 404 KB → 200 KB.
@@ -81,11 +89,6 @@ Frente a `1260_dp.py`: tiempo 0.109 s → 0.125 s; memoria 404 KB → 200 KB.
 
 Frente a `1260_dp.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 56 KB.
 
-La solución optimizada en Java lee el único número N cifra a cifra
-directamente desde `System.in` en lugar de crear un `Scanner`, cuya
-preparación cuesta mucho más que la propia recurrencia, de 54 pasos como
-mucho; el cálculo es el mismo: {1260_dp_optimized.java}.
-
 ### Mejora medida
 
 Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
@@ -93,14 +96,11 @@ al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
 
-- `1260_dp_optimized.java`: reducción de tiempo -17.20%; reducción de
-  memoria +79.59%; base: `1260_dp.java`.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
 
-`1260_dp_optimized.py`: puesto de tiempo 37/44 y de memoria 1/44 en esta muestra comparable.
+Comparación PyPy anterior: `1260_dp_optimized.py`: puesto de tiempo 37/44 y de memoria 1/44 en esta muestra comparable.
 
 `1260_dp_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -122,8 +122,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 320 KB | 11304342 |
-| [1260_dp_optimized.py](1260_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 200 KB | 11324915 |
+| [1260_dp_optimized.java](1260_dp_optimized.java) \* | Java 1.8 | dp | O(N) time; O(1) auxiliary space | AC | 0.093 s | 340 KB | 11327453 |
+| [1260_dp_optimized.py](1260_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 564 KB | 11327021 |
 | [1260_dp_optimized.rs](1260_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

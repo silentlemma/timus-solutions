@@ -1,26 +1,64 @@
-import java.io.IOException;
-
 public class Main {
-    public static void main(String[] args) throws IOException {
-        // a single small integer needs no scanner or token allocations.
-        int c;
-        do {
-            c = System.in.read();
-        } while (c >= 0 && c <= ' ');
-        int n = 0;
+
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 20, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(input);
+            position = 0;
+            if (available < 0)
+                return -1;
+        }
+        return input[position++];
+    }
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        int value = 0;
         while (c >= '0' && c <= '9') {
-            n = n * 10 + c - '0';
-            c = System.in.read();
+            value = value * DECIMAL + c - '0';
+            c = read();
         }
-        // rows of the ages 1..k starting with 1: a(k) = a(k-1) + a(k-3) + 1,
-        // with a(1) = 1 and the rule run back to a(0) = 0, a(-1) = -1
-        long older = -1, old = 0, cur = 1;
+        return value;
+    }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(long value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
+
+    static long count(int n) {
+        long older = -1, old = 0, current = 1;
         for (int i = 1; i < n; i++) {
-            long next = cur + older + 1;
+            long next = current + older + 1;
             older = old;
-            old = cur;
-            cur = next;
+            old = current;
+            current = next;
         }
-        System.out.println(cur);
+        return current;
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        number(count(nextInt()));
+        write('\n');
+        finish();
     }
 }

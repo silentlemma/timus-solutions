@@ -73,6 +73,14 @@ The recurrence was compared with listing all permutations for N up to
 
 ## Optimized solutions
 
+`1260_dp_optimized.java`. Java retains the same recurrence and three long counters: starting from (-1,0,1), each step replaces them by (old,current,current+older+1). For N from 1 to 55 it needs at most 54 steps, O(N) time and O(1) auxiliary space. Fixed 1024-byte input/output buffers and a 20-digit scratch buffer replace per-character stream input and general number formatting. Every allowed N was checked against an independent array recurrence; small permutation enumeration also checks the counting interpretation.
+
+Exact-source Java 1.8 Accepted #11327453: 0.093 s / 340 KB. Saved 2026-11-20 compiler-cohort comparison: time 9/96, memory 4/96. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11304342 was 0.109 s / 320 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1260_dp_optimized.java`: 0.093 s / 340 KB; retained teaching base `1260_dp.java`: 0.093 s / 1568 KB.
+
+`1260_dp_optimized.py` is reused byte for byte, without another source file or a new algorithm. Its exact-source CPython 3.12 Accepted #11327021 measures 0.078 s / 564 KB. The saved 2026-11-20 current Python-family compiler cohort gives time rank 6/44, memory rank 26/44. Because this run uses less than 1024 KB, the strict top-ten or top-15% gate uses time only; the asterisk still records the separate language rating target. The same unchanged file also has its earlier PyPy 3.10 Accepted #11324915, 0.125 s / 200 KB. These are paired measurements from different runs: CPython supplies the selected time/rank result, while PyPy uses less memory. Earlier memory-saving observations in this section refer to that PyPy measurement, not to the CPython row. All teaching sources remain unchanged.
+
 `1260_dp_optimized.py`. Keep a(k)=a(k-1)+a(k-3)+1 and the same rolling initial state (-1,0,1). Three accumulators replace no additional table: each iteration simultaneously advances all three old values. Time O(N), three bounded integer slots. With N<=55 the counts fit signed 64 bits; a conservative bound a(N)<2^N suffices. Read one byte token and keep the recurrence at module scope, avoiding the wrapper call. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
 Compared with `1260_dp.py`: time 0.109 s → 0.125 s; memory 404 KB → 200 KB.
@@ -81,11 +89,6 @@ Compared with `1260_dp.py`: time 0.109 s → 0.125 s; memory 404 KB → 200 KB.
 
 Compared with `1260_dp.rs`: time 0.015 s → 0.031 s; memory 232 KB → 56 KB.
 
-The optimized Java solution reads the single number N digit by digit
-straight from `System.in` instead of creating a `Scanner`, whose setup
-costs far more than the recurrence itself, at most 54 steps; the
-computation is the same: {1260_dp_optimized.java}.
-
 ### Measured gains
 
 Each optimized version has Accepted and reduces time or memory by at
@@ -93,14 +96,11 @@ least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
 
-- `1260_dp_optimized.java`: time reduction -17.20%; memory reduction
-  +79.59%; base: `1260_dp.java`.
-
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
 
-`1260_dp_optimized.py`: time place 37/44, memory place 1/44 in this comparable sample.
+Earlier PyPy comparison: `1260_dp_optimized.py`: time place 37/44, memory place 1/44 in this comparable sample.
 
 `1260_dp_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -122,8 +122,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1260_dp_optimized.java](1260_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.109 s | 320 KB | 11304342 |
-| [1260_dp_optimized.py](1260_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.125 s | 200 KB | 11324915 |
+| [1260_dp_optimized.java](1260_dp_optimized.java) \* | Java 1.8 | dp | O(N) time; O(1) auxiliary space | AC | 0.093 s | 340 KB | 11327453 |
+| [1260_dp_optimized.py](1260_dp_optimized.py) \* | Python 3.12 x64 | dp | O(N) | AC | 0.078 s | 564 KB | 11327021 |
 | [1260_dp_optimized.rs](1260_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N) | AC | 0.031 s | 56 KB | 11325091 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
