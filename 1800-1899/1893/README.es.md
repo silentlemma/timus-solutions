@@ -106,6 +106,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1893_implementation_optimized.py`. Conserva tres planos y prioridad de ventana. Analiza la fila desde bytes y clasifica el último byte sin decodificar el asiento. Turista omite I y conserva ventanas A/K. Clasificación O(1); leer L bytes cuesta O(L) tiempo/espacio. Conserva la versión textual legible.
+
+Reutiliza el fuente histórico exacto CPython 3.12 Accepted #11302157: 0.078 s / 436 KB. En el grupo comparable guardado el 2026-11-20: tiempo 1/91, memoria 30/91. Bajo 1024 KB, admisión estricta solo por tiempo, superada. El asterisco sigue la meta separada del lenguaje. Son medidas emparejadas de este fuente, no nuevo envío ni garantía portátil. Usa finalización normal del intérprete.
+
+- `1893_implementation_optimized.py`: 0.078 s / 436 KB; base didáctica conservada `1893_implementation.py` (Python 3.12 x64): 0.109 s / 468 KB. Ambas medidas de la base quedan explícitas aunque una aumente.
+
 La solución optimizada en C++ lee el asiento con `scanf("%d%c")` e
 imprime con `puts` en lugar de usar `iostream` y `std::string`: 120 KB
 en lugar de 348 KB. Las disposiciones son las mismas.
@@ -114,15 +120,9 @@ La solución optimizada en Java lee el asiento byte a byte, las cifras
 dan la fila y el byte siguiente la letra, en lugar de leer una cadena:
 0.109 s en lugar de 0.156 s y 380 KB en lugar de 1580 KB.
 
-`1893_implementation_optimized.py`. Conserva los tres planos y la prioridad de ventana. Analiza la fila acotada desde bytes y compara la última sección de un byte con constantes de ventanas y pasillos, sin decodificar el asiento. Filas válidas 1..65 y una letra mantienen O(1) tiempo y espacio. Turista sigue omitiendo I y con ventanas A/K. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
-
-Frente a `1893_implementation.py`: tiempo 0.109 s → 0.14 s; memoria 468 KB → 232 KB.
-
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1893_implementation_optimized.py`: puesto de tiempo 84/91 y de memoria 2/91 en esta muestra comparable.
 
 Un asterisco indica una meta de clasificación pendiente: C++ exige los diez primeros o el 15% superior en ambas métricas; las demás familias, el primer puesto en ambas. Una fuente aún puede admitirse por el criterio independiente de clasificación o mejora, incluida una reducción de al menos el 30% en tiempo o memoria.
 
@@ -144,6 +144,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
 | [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |
-| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 232 KB | 11325077 |
+| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 436 KB | 11302157 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

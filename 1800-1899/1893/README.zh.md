@@ -99,21 +99,21 @@ neither
 
 ## 优化解法
 
+`1893_implementation_optimized.py`. 保留三种布局与窗口优先规则。从字节解析行号，直接判断最后一个字节切片，不解码座位名。经济舱仍省略 I，窗口为 A/K。分类 O(1)，读取 L 字节需要 O(L) 时间和存储；保留易读文本版。
+
+复用精确历史 CPython 3.12 Accepted #11302157：0.078 s / 436 KB。2026-11-20 保存的可比编译器组中，时间排名 1/91，内存排名 30/91。低于 1024 KB 时严格收录仅看时间，已通过；星号遵循单独的语言排名目标。这些是该源代码的成对测量，并非新提交或跨平台加速保证。本版正常结束解释器。
+
+- `1893_implementation_optimized.py`: 0.078 s / 436 KB；保留教学版 `1893_implementation.py`（Python 3.12 x64）：0.109 s / 468 KB。即使某项增加，也明确保留基础版两项测量。
+
 优化的 C++ 解法用 `scanf("%d%c")` 读入座位、用 `puts` 输出，而不是使用
 `iostream` 和 `std::string`：120 KB，而不是 348 KB。座位排布不变。
 
 优化的 Java 解法逐字节读取座位：数字组成排号，下一个字节是字母，而不是读入字符串：
 0.109 s，而不是 0.156 s；380 KB，而不是 1580 KB。
 
-`1893_implementation_optimized.py`. 保留三种座位布局及窗口优先判断。从座位字节解析有界行号，以最后一个字节切片对比窗口和过道字节常量，不解码座位名。合法行号 1..65 加一个字母使时间和空间为 O(1)。经济舱仍省略 I，窗口为 A/K。 独立评测程序在 os._exit(0) 前显式刷新 stdout，跳过常规解释器清理。其自身 Accepted 记录证明内存收益。单独改变退出方式不改进渐近复杂度，运行环境收益也不保证跨平台成立。简单版本保持不变。
-
-与 `1893_implementation.py` 相比：时间 0.109 s → 0.14 s；内存 468 KB → 232 KB。
-
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
-
-`1893_implementation_optimized.py`：在该可比样本中，时间名次 84/91，内存名次 2/91。
 
 星号表示未达排名目标：C++ 要求时间和内存都位于前十或前 15%，其他语言族要求两项都为第一。代码仍可按独立的排名或改进准则纳入，包括时间或内存至少减少 30%。
 
@@ -135,6 +135,6 @@ neither
 |----|----|----|-----|------|----|----|------|
 | [1893_implementation_optimized.cpp](1893_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 120 KB | 11303647 |
 | [1893_implementation_optimized.java](1893_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303785 |
-| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(1) | AC | 0.14 s | 232 KB | 11325077 |
+| [1893_implementation_optimized.py](1893_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 436 KB | 11302157 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

@@ -1,24 +1,19 @@
-import os
-from sys import stdout
+import sys
 
-LAST_MEDIUM_ROW = 20
+PREMIUM_LAST = 2
+BUSINESS_LAST = 20
 
-
-seat = open(0, "rb", buffering=0).read().strip()
+seat = sys.stdin.buffer.read().strip()
 row, letter = int(seat[:-1]), seat[-1:]
-if row <= 2:
+if row <= PREMIUM_LAST:
     right_window, aisles = b"D", b"BC"
-elif row <= LAST_MEDIUM_ROW:
+elif row <= BUSINESS_LAST:
     right_window, aisles = b"F", b"BCDE"
 else:
     right_window, aisles = b"K", b"CDGH"
-if letter in (b"A", right_window):
+if letter == b"A" or letter == right_window:
     print("window")
 elif letter in aisles:
     print("aisle")
 else:
     print("neither")
-
-# The answer is flushed before interpreter teardown is skipped.
-stdout.flush()
-os._exit(0)
