@@ -86,20 +86,19 @@ N1 + C1·M、N2 + C2·max(0, M − T) 和 N3，都小于 7·10⁷。`O(K)`。
 
 ## 优化解法
 
+`1576_implementation_optimized.java`. Java 将 mm:ss 通话直接读成两个整数，不拆分字符串。至多六秒的通话免费，否则计费分钟为 mm+(ss>0)，仅保存总和。三种资费公式不变并使用 int：至多 1000 次通话、每次至多 60 计费分钟、资费参数至多 1000，使最大费用不超过 60001000。重复使用的各 1024 字节输入输出缓冲区直接输出原有标签、空格与数字，避免 StringBuilder 拼接。时间 O(K)，辅助空间 O(1)。全部 3600 个分秒组合均与按秒向上取整比较。
+
+精确源代码 Java 1.8 Accepted #11327448：0.078 s / 356 KB。2026-11-20 保存的编译器组比较：时间 1/54、内存 1/54。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11304530 为 0.125 s / 376 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1576_implementation_optimized.java`: 0.078 s / 356 KB; 保留教学基础版 `1576_implementation.java`: 0.109 s / 2244 KB.
+
 `1576_implementation_optimized.rs`. 保留至多六秒免费及每个收费电话向上取整分钟。直接流式读取 k 个 mm:ss，整数读取器消费两字段间冒号，不再搜索和切分文本。仅累计收费分钟，保留三套餐公式、标签和对齐空格。O(k) 时间、O(1) 辅助空间，不改变计费规则。
 
 与 `1576_implementation.rs` 相比：时间 0.015 s → 0.015 s；内存 232 KB → 52 KB。
 
-优化的 Java 解法从由 `System.in` 填充的 4 KB 缓冲区中手工解析数字，而不是创建
-`Scanner`，这样 JVM 不必加载扫描器及其正则表达式。它把一次通话读成两个数，冒号结
-束分钟数，而不是按 `:` 切分 `String`；资费参数按 `int` 读入（足以容纳不超过 1000
-的值），之后仍用同样的 `long` 运算：{1576_implementation_optimized.java}。
-
 ### 实测改进
 
 每个优化版本均已获 Accepted，且相对同语言的基础版本，时间或内存至少降低 30%。基础源代码均保留。负的降低比例表示开销增加。星号只表示尚未达到排名目标。
-
-- `1576_implementation_optimized.java`: 时间降低 -14.68%; 内存降低 +83.24%; 基础版本: `1576_implementation.java`.
 
 ## 各语言说明
 
@@ -125,7 +124,7 @@ N1 + C1·M、N2 + C2·max(0, M − T) 和 N3，都小于 7·10⁷。`O(K)`。
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327448 |
 | [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

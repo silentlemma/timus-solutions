@@ -95,17 +95,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1576_implementation_optimized.java`. Java lee cada llamada mm:ss como dos enteros sin dividir cadenas. Las llamadas de hasta seis segundos son gratuitas; las demás pagan mm+(ss>0) minutos. Solo conserva la suma. Las tres fórmulas tarifarias siguen iguales y usan int: hasta 1000 llamadas de 60 minutos facturados y tarifas de hasta 1000 limitan la factura máxima a 60001000. Búferes reutilizables de entrada y salida de 1024 bytes emiten las etiquetas, espacios y números exactos sin concatenación StringBuilder. Tiempo O(K), espacio auxiliar O(1). Los 3600 pares de minutos y segundos se verificaron mediante redondeo desde segundos.
+
+Accepted exacto Java 1.8 #11327448: 0.078 s / 356 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/54, memoria 1/54. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11304530 era 0.125 s / 376 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1576_implementation_optimized.java`: 0.078 s / 356 KB; base didáctica conservada `1576_implementation.java`: 0.109 s / 2244 KB.
+
 `1576_implementation_optimized.rs`. Conserva llamadas gratis de hasta seis segundos y redondeo por llamada facturada. Lee k mm:ss en flujo: el lector entero consume dos puntos, sin buscar ni dividir cadenas. Acumula solo minutos cobrados y conserva tres fórmulas, etiquetas y espacios de alineación. O(k) tiempo, O(1) espacio; mismas reglas de facturación.
 
 Frente a `1576_implementation.rs`: tiempo 0.015 s → 0.015 s; memoria 232 KB → 52 KB.
-
-La solución optimizada en Java analiza los números a mano desde un búfer
-de 4 KB que se llena desde `System.in`, en lugar de crear un `Scanner`,
-así que la JVM no carga el escáner ni sus expresiones regulares. Lee
-cada llamada como dos números, con los dos puntos cerrando los minutos,
-en lugar de partir un `String` por `:`, y lee los números de las tarifas
-como `int`, que admite valores hasta 1000, antes de la misma aritmética
-en `long`: {1576_implementation_optimized.java}.
 
 ### Mejora medida
 
@@ -113,9 +111,6 @@ Cada versión optimizada tiene Accepted y reduce el tiempo o la memoria
 al menos un 30% frente a la versión básica del mismo lenguaje. Se
 conservan los fuentes básicos. Una reducción negativa indica mayor
 coste. El asterisco solo se refiere al objetivo de clasificación.
-
-- `1576_implementation_optimized.java`: reducción de tiempo -14.68%;
-  reducción de memoria +83.24%; base: `1576_implementation.java`.
 
 ## Notas por lenguaje
 
@@ -141,7 +136,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327448 |
 | [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

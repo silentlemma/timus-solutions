@@ -1,52 +1,70 @@
 public class Main {
 
-    // refill a small buffer instead of retaining the input or allocating tokens.
-    static final int BUFFER_SIZE = 4096;
-    static final byte[] BUFFER = new byte[BUFFER_SIZE];
-    static int position, length;
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
     static int read() throws java.io.IOException {
-        if (position == length) {
-            length = System.in.read(BUFFER);
+        if (position == available) {
+            available = System.in.read(input);
             position = 0;
-            if (length < 0)
+            if (available < 0)
                 return -1;
         }
-        return BUFFER[position++];
+        return input[position++];
     }
     static int nextInt() throws java.io.IOException {
-        int c;
-        do {
+        int c = read();
+        while (c >= 0 && c <= ' ')
             c = read();
-        } while (c >= 0 && c <= ' ');
-        int sign = 1;
-        if (c == '-') {
-            sign = -1;
-            c = read();
-        }
         int value = 0;
         while (c >= '0' && c <= '9') {
-            value = value * 10 + c - '0';
+            value = value * DECIMAL + c - '0';
             c = read();
         }
-        return value * sign;
+        return value;
     }
-
-    static final int FREE = 6; // calls of up to six seconds cost nothing
-    static final int MINUTE = 60;
-
-    public static void main(String[] args) throws java.io.IOException {
-        long n1 = nextInt(), c1 = nextInt();
-        long n2 = nextInt(), t = nextInt(), c2 = nextInt();
-        long n3 = nextInt();
-        int k = nextInt();
-        long minutes = 0;
-        for (int i = 0; i < k; i++) {
-            int seconds = nextInt() * MINUTE + nextInt();
-            if (seconds > FREE)
-                minutes += (seconds + MINUTE - 1) / MINUTE; // a started minute counts in full
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
         }
-        System.out.println("Basic:     " + (n1 + c1 * minutes));
-        System.out.println("Combined:  " + (n2 + c2 * Math.max(0, minutes - t)));
-        System.out.println("Unlimited: " + n3);
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
+
+    static final int FREE = 6;
+    static int paid(int minutes, int seconds) {
+        return minutes == 0 && seconds <= FREE ? 0 : minutes + (seconds == 0 ? 0 : 1);
+    }
+    static void bill(String label, int total) {
+        for (int i = 0; i < label.length(); i++)
+            write(label.charAt(i));
+        number(total);
+        write('\n');
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        int n1 = nextInt(), c1 = nextInt();
+        int n2 = nextInt(), included = nextInt(), c2 = nextInt();
+        int n3 = nextInt(), calls = nextInt(), minutes = 0;
+        for (int i = 0; i < calls; i++)
+            minutes += paid(nextInt(), nextInt());
+        bill("Basic:     ", n1 + c1 * minutes);
+        bill("Combined:  ", n2 + c2 * Math.max(0, minutes - included));
+        bill("Unlimited: ", n3);
+        finish();
     }
 }

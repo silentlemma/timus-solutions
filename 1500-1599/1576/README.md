@@ -93,17 +93,15 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1576_implementation_optimized.java`. Java reads each mm:ss call as two integers without splitting a string. Calls of at most six seconds are free; otherwise paid minutes are mm+(ss>0). Only their sum is retained. The same three tariff formulas use int arithmetic: at most 1000 calls of 60 paid minutes and tariff values up to 1000 bound the largest bill by 60001000. Reusable 1024-byte input/output buffers emit the exact labels, spaces and decimal values without StringBuilder concatenation. Time O(K), auxiliary space O(1). All 3600 minute/second pairs were checked against second-based rounding.
+
+Exact-source Java 1.8 Accepted #11327448: 0.078 s / 356 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/54, memory 1/54. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. Both metrics rank first, so the separate language target also passes; no asterisk. The previously documented optimized run #11304530 was 0.125 s / 376 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1576_implementation_optimized.java`: 0.078 s / 356 KB; retained teaching base `1576_implementation.java`: 0.109 s / 2244 KB.
+
 `1576_implementation_optimized.rs`. Keep free calls of at most six seconds and rounding every charged call up to a whole minute. Stream k mm:ss durations directly: the integer reader consumes the colon between the two fields, avoiding token searches and string splits. Accumulate only total charged minutes and preserve all three tariff formulas, labels and alignment spaces. O(k) time, O(1) auxiliary storage; no sorting or change to billing rules.
 
 Compared with `1576_implementation.rs`: time 0.015 s → 0.015 s; memory 232 KB → 52 KB.
-
-The optimized Java solution parses the numbers by hand from a 4 KB
-buffer filled from `System.in` instead of creating a `Scanner`, so the
-JVM does not load the scanner and its regular expressions. It reads a
-call as two numbers, the colon ending the minutes, instead of splitting
-a `String` at `:`, and reads the tariff numbers as `int`, which holds
-values up to 1000, before the same `long` arithmetic:
-{1576_implementation_optimized.java}.
 
 ### Measured gains
 
@@ -111,9 +109,6 @@ Each optimized version has Accepted and reduces time or memory by at
 least 30% against the base version in the same language. The base
 sources are retained. Negative reduction means increased cost. The
 asterisk concerns the rating target only.
-
-- `1576_implementation_optimized.java`: time reduction -14.68%; memory
-  reduction +83.24%; base: `1576_implementation.java`.
 
 ## Language notes
 
@@ -139,7 +134,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) | AC | 0.125 s | 376 KB | 11304530 |
+| [1576_implementation_optimized.java](1576_implementation_optimized.java) | Java 1.8 | implementation | O(K) time; O(1) auxiliary space | AC | 0.078 s | 356 KB | 11327448 |
 | [1576_implementation_optimized.rs](1576_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(k) time; O(1) space | AC | 0.015 s | 52 KB | 11325528 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
