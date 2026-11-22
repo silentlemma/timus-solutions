@@ -67,7 +67,7 @@ Exact-source Java 1.8 Accepted #11327465: 0.093 s / 340 KB. Saved 2026-11-20 com
 
 `1264_math_optimized.go`. Keep the direct count N*(M+1), including zero elements and the value zero among the M+1 possibilities. No array simulation is introduced. With N,M<=40000 the product is at most 1600040000; Go retains int64 arithmetic and Python uses exact integers. Byte-number input and direct output reduce runtime overhead, while time and auxiliary state remain O(1). Portable os.Stdin.Read/os.Stdout.Write and direct integer conversion use fixed 4096-byte input and output buffers. Partial writes are handled before reusing the output buffer. The original simple Accepted source is preserved.
 
-Compared with `1264_math.go`: time 0.031 s → 0.015 s; memory 1060 KB → 796 KB.
+Compared with `1264_math.go`: time 0.031 s → 0.031 s; memory 1060 KB → 820 KB.
 
 `1264_math_optimized.py`. Keep the direct count N*(M+1), including zero elements and the value zero among the M+1 possibilities. No array simulation is introduced. With N,M<=40000 the product is at most 1600040000; Go retains int64 arithmetic and Python uses exact integers. Byte-number input and direct output reduce runtime overhead, while time and auxiliary state remain O(1). The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
@@ -100,7 +100,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1264_math_optimized.java](1264_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 340 KB | 11327465 |
-| [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 796 KB | 11325046 |
+| [1264_math_optimized.go](1264_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 820 KB | 11328270 |
 | [1264_math_optimized.py](1264_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.046 s | 596 KB | 11327022 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
