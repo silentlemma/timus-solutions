@@ -66,6 +66,12 @@ en 50 equipos aleatorios.
 
 ## Soluciones optimizadas
 
+`1880_hashing_optimized.py`. Mantiene la intersección de conjuntos con lector entero de 8192 bytes e iteradores islice, evitando listas completas adicionales. Construye el primer conjunto e intersecta in situ. intersection_update puede parar al encontrar todos los candidatos: agota explícitamente el segundo iterador antes de leer la tercera longitud; si queda vacío, no necesita la tercera entrada. Trabajo hash esperado lineal en la entrada consumida, estado O(tamaño del primer conjunto) más búferes acotados; no es garantía hash del peor caso. main escribe el conteo y llama os._exit(0).
+
+Accepted exacto Python 3.12 x64 #11327481: 0.078 s / 1164 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 4/499, memoria 3/499. Con 1024 KB o más la admisión estricta exige tiempo y memoria: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11301859 (Python 3.12 x64) era 0.093 s / 1400 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1880_hashing_optimized.py`: 0.078 s / 1164 KB; base didáctica conservada `1880_hashing.py`: 0.078 s / 1860 KB.
+
 Las soluciones optimizadas (C++, Rust) guardan una sola lista. Guardan
 la primera lista y luego la intersecan con cada lista siguiente mientras
 la leen, moviendo un puntero por los números guardados; los números
@@ -73,8 +79,6 @@ comunes se escriben sobre el principio del mismo arreglo, y la escritura
 nunca adelanta al puntero. Los números se analizan a mano, con `getchar`
 en C++ y desde un búfer de 1 KB en Rust. Con el mismo tiempo, C++ ocupa
 108 KB en lugar de 240 KB y Rust 228 KB en lugar de 500 KB.
-
-Leer los números por líneas y actualizar el conjunto común in situ, guardando solo la lista adicional en curso. El envío aceptado 11301859 tardó 0.093 s y usó 1400 KB. La versión sencilla tardó 0.078 s y usó 1860 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 ## Soluciones
 
@@ -94,6 +98,6 @@ Leer los números por líneas y actualizar el conjunto común in situ, guardando
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
-| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(n) | AC | 0.093 s | 1400 KB | 11301859 |
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(first set + bounded buffers) storage | AC | 0.078 s | 1164 KB | 11327481 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

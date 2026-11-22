@@ -64,6 +64,12 @@ random teams.
 
 ## Optimized solutions
 
+`1880_hashing_optimized.py`. Keep set intersection, now with an 8192-byte integer-token reader and islice iterators instead of extra complete lists. Build the first set and intersect in place. intersection_update can stop when all candidates are found, so explicitly drain the second iterator before reading the third length; if the intersection is empty, no third input is needed. Expected hash work is linear in consumed input, with O(first-set size) state plus bounded token buffers; this is not a worst-case hash guarantee. main writes the count directly and calls os._exit(0).
+
+Exact-source Python 3.12 x64 Accepted #11327481: 0.078 s / 1164 KB. Saved 2026-11-20 compiler-cohort comparison: time 4/499, memory 3/499. At 1024 KB or above strict admission requires both time and memory: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11301859 (Python 3.12 x64) was 0.093 s / 1400 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1880_hashing_optimized.py`: 0.078 s / 1164 KB; retained teaching base `1880_hashing.py`: 0.078 s / 1860 KB.
+
 The optimized solutions (C++, Rust) keep only one list. They store the
 first list, then intersect it with each next list while reading it,
 moving one pointer through the stored numbers; the common numbers are
@@ -72,8 +78,6 @@ position never runs ahead of the pointer. The numbers are parsed by
 hand, with `getchar` in C++ and from a 1 KB buffer in Rust. With the
 same time, C++ takes 108 KB instead of 240 KB and Rust 228 KB instead of
 500 KB.
-
-Read IDs line by line and update the shared set in place, storing only the current additional list. Accepted submission 11301859 took 0.093 s and used 1400 KB. The simple version took 0.078 s and used 1860 KB. The recorded runtime is higher than for the simple version.
 
 ## Solutions
 
@@ -93,6 +97,6 @@ Read IDs line by line and update the shared set in place, storing only the curre
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
-| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(n) | AC | 0.093 s | 1400 KB | 11301859 |
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(first set + bounded buffers) storage | AC | 0.078 s | 1164 KB | 11327481 |
 
 \* The marked solutions can improve their target rankings.

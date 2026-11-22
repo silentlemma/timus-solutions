@@ -55,12 +55,16 @@
 
 ## 优化解法
 
+`1880_hashing_optimized.py`. 保留集合交集，改用 8192 字节整数读取器和 islice 迭代器，避免额外完整列表。建立首集合并原地求交。intersection_update 找齐候选后可能提前停止，所以在读取第三组长度前显式耗尽第二个迭代器；交集为空则无需第三组输入。期望哈希工作与已消费输入线性相关，状态 O(首集合大小) 加有界 token 缓冲，并非哈希最坏情况保证。main 直接写计数并 os._exit(0)。
+
+精确源代码 Python 3.12 x64 Accepted #11327481：0.078 s / 1164 KB。2026-11-20 保存的编译器组比较：时间 4/499、内存 3/499。内存达到 1024 KB 时严格收录要求时间和内存均达标：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11301859（Python 3.12 x64）为 0.093 s / 1400 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1880_hashing_optimized.py`: 0.078 s / 1164 KB; 保留教学基础版 `1880_hashing.py`: 0.078 s / 1860 KB.
+
 优化解法（C++、Rust）只保存一个列表。它们先保存第一个列表，然后在读取后面每个列
 表的同时与之求交，用一个指针在已保存的数中移动；公共的数写回同一个数组的开头，写
 入位置永远不会超过指针。数字用手工解析：C++ 用 `getchar`，Rust 从 1 KB 的缓冲区
 读取。时间不变，C++ 为 108 KB，而不是 240 KB；Rust 为 228 KB，而不是 500 KB。
-
-逐行读取编号，原地更新交集，只保留当前的另一份列表。通过的提交 11301859 用时 0.093 秒、占用 1400 KB；简单版用时 0.078 秒、占用 1860 KB。记录的运行时间高于简单版。
 
 ## 解答
 
@@ -80,6 +84,6 @@
 |----|----|----|-----|------|----|----|------|
 | [1880_two_pointers_optimized.cpp](1880_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(n) | AC | 0.015 s | 108 KB | 11303644 |
 | [1880_two_pointers_optimized.rs](1880_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(n) | AC | 0.031 s | 228 KB | 11303645 |
-| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(n) | AC | 0.093 s | 1400 KB | 11301859 |
+| [1880_hashing_optimized.py](1880_hashing_optimized.py) \* | Python 3.12 x64 | hashing | O(I) expected time; O(first set + bounded buffers) storage | AC | 0.078 s | 1164 KB | 11327481 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。
