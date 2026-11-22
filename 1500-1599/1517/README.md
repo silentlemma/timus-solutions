@@ -64,27 +64,21 @@ All five readable implementations remain unchanged.
 
 ## Optimized solutions
 
-The optimized programs store only existing transitions in flat arrays:
-each state has a head index; an edge stores its letter, destination and
-next-edge index. A lookup scans at most 26 edges. A clone receives its
-own copied edge list, because later redirections must not mutate the
-original state. State/edge indices and lengths fit 32-bit integers for
-`N ≤ 100000`; Python uses packed integer arrays and a bytearray for letters.
+`1517_suffix_structures_optimized.py`. Keep the suffix automaton, but allocate a dense row of 26 signed 32-bit transition indices for each of at most 2N+1 states. Lengths and suffix links are packed integer arrays. A clone copies its transition row before redirecting links. This removes linked-edge scans and Python dictionaries at the cost of reserving all 26 entries per state. Scan the second string with suffix-link fallback and return one longest common substring. For lengths N and M, time O(26N+M), state O(26N) plus the two input strings. The dictionary-based teaching source remains.
 
-This removes dense 26-column rows and Python dictionary objects without
-changing the suffix-automaton invariant. Time remains `O(N)` for the fixed
-alphabet (with a larger lookup constant), and storage remains `O(N)` with
-a much smaller constant. It is chiefly a memory optimization.
+Exact-source PyPy 3.10 Accepted #11326700: 0.234 s / 25000 KB. Saved current-compiler comparison, 2026-11-20: time rank 1/32, memory rank 9/32. Both required metrics pass the strict top-ten or top-15% rule, with percentage cutoffs rounded up. The asterisk tracks Python's separate first-place target in both metrics.
 
-Measured memory reductions against the unchanged Accepted base: C++ 82.9%, Go 70.6%, Java 81.1%, Python 82.7%, Rust 81.0%. All five qualify by memory. Python is slower: 1.312 s versus 0.500 s, while memory falls from 56240 to 9736 KB. Go is also slower, 0.078 s versus 0.046 s. These are accepted space/time tradeoffs, not claims of universal acceleration. Ranking snapshot: 2 November 2026; starred rows remain below the target.
+The previously documented optimized run #11308173 (Python 3.12 x64) recorded 1.312 s / 9736 KB. The current PyPy 3.10 run has lower recorded time and higher memory. These are separate paired judge measurements; interpreter choice and judge variability are part of the comparison.
+
+- `1517_suffix_structures_optimized.py`: 0.234 s / 25000 KB; retained teaching base `1517_suffix_structures.py` (Python 3.12 x64): 0.5 s / 56240 KB.
+
+The optimized C++, Go, Java and Rust sources keep sparse transition arrays: a head per state and letter, destination and next-edge index per edge. A lookup scans at most 26 edges. Each clone copies its own edge list before redirections. Indices and lengths fit 32 bits for N<=100000. These four implementations retain O(N) work/storage for the fixed alphabet with smaller memory constants. Their previous Accepted measurements and 2 November 2026 comparison remain in the table; Go recorded 0.078 s versus its 0.046 s base, illustrating the time/space tradeoff.
+
+Recorded memory reductions from the table bases: C++ 82.9%, Go 70.6%, Java 81.1%, Python 55.5%, Rust 81.0%.
 
 ## Language notes
 
-Python was compared with an independent quadratic longest-common-substring
-DP on 5,760 pairs. The sparse graph was also checked on 100,000-character
-strings over alphabets of sizes 1, 2 and 26. Each of the five actual
-programs passed 13 repository test inputs through Docker before submission.
-These local checks supplement their own Accepted receipts.
+The current Python program passed 58 local inputs on each of CPython 3.12 and PyPy 3.10 before its own Accepted. Its dense transition representation is described above; the table records the accepted PyPy run.
 
 ## Solutions
 
@@ -105,7 +99,7 @@ These local checks supplement their own Accepted receipts.
 | [1517_suffix_structures_optimized.cpp](1517_suffix_structures_optimized.cpp) | G++ 13.2 x64 | suffix_structures | O(N) | AC | 0.062 s | 4968 KB | 11308174 |
 | [1517_suffix_structures_optimized.go](1517_suffix_structures_optimized.go) | Go 1.14 x64 | suffix_structures | O(N) | AC | 0.078 s | 7356 KB | 11308176 |
 | [1517_suffix_structures_optimized.java](1517_suffix_structures_optimized.java) | Java 1.8 | suffix_structures | O(N) | AC | 0.156 s | 6652 KB | 11308178 |
-| [1517_suffix_structures_optimized.py](1517_suffix_structures_optimized.py) \* | Python 3.12 x64 | suffix_structures | O(N) | AC | 1.312 s | 9736 KB | 11308173 |
+| [1517_suffix_structures_optimized.py](1517_suffix_structures_optimized.py) \* | PyPy 3.10 x64 | suffix_structures | O(26N+M) time; O(26N+M) space | AC | 0.234 s | 25000 KB | 11326700 |
 | [1517_suffix_structures_optimized.rs](1517_suffix_structures_optimized.rs) | Rust 1.75 x64 | suffix_structures | O(N) | AC | 0.062 s | 5408 KB | 11308179 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.
