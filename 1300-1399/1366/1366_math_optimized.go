@@ -3,13 +3,13 @@ package main
 import "syscall"
 
 const (
-	base        int64 = 1000000000
-	limbDigits        = 9
-	maxLimbs          = 334
-	maxDigits         = 3001
-	readSize          = 128
-	decimalBase       = 10
-	firstPair         = 4
+	base        = int64(1000000000)
+	limbDigits  = 9
+	maxLimbs    = 334
+	maxDigits   = 3001
+	readSize    = 128
+	decimalBase = 10
+	firstPair   = 4
 )
 
 func number() int {
