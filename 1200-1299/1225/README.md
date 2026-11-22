@@ -64,6 +64,12 @@ written solution.
 
 ## Optimized solutions
 
+`1225_math.py`. Alternative exact generating-function algorithm: valid flags number 2·Fib(N). With B=2^64, extract coefficient N−1 of 1/(1−x−x²) as floor(B^(N+1)/(B²−B−1)) mod B, then double it. For 1≤N≤45 the coefficients fit a base-B digit and the remaining positive tail is below one, so there is no carry. No floating point or embedded answers. One division on O(N)-bit integers (at most 2945-bit numerator), not constant-cost arithmetic for unbounded N. Keep the readable recurrence.
+
+Exact-source Python 3.12 x64 Accepted #11327782: 0.062 s / 644 KB. Saved 2026-11-20 compiler-cohort ranks, time then memory: 5/366; 329/366. Strict admission uses time only below 1024 KB: top ten or top 15%, ties share rank and percentage cutoff rounds up. An asterisk remains for the separate first-place-in-both language target. The preserved previous variant has its own paired receipt #11324831 (PyPy 3.10 x64): 0.14 s / 224 KB; do not mix measurements or runtimes. All teaching sources remain unchanged.
+
+- `1225_math.py`: 0.062 s / 644 KB; retained teaching base `1225_dp.py` (Python 3.12 x64): 0.093 s / 372 KB.
+
 The optimized Java solution parses the number byte by byte from
 `System.in` instead of using `Scanner`: 0.093 s instead of 0.125 s and
 316 KB instead of 1576 KB.
@@ -98,5 +104,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1225_dp_optimized.java](1225_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 316 KB | 11303728 |
 | [1225_dp_optimized.py](1225_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.14 s | 224 KB | 11324831 |
+| [1225_math.py](1225_math.py) \* | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 644 KB | 11327782 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

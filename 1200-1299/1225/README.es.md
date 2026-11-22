@@ -67,6 +67,12 @@ escrita aparte.
 
 ## Soluciones optimizadas
 
+`1225_math.py`. Alternativa exacta por función generadora: 2·Fib(N) banderas. B=2^64 permite extraer coeficiente N−1 de 1/(1−x−x²) como floor(B^(N+1)/(B²−B−1)) mod B y duplicar. Para 1≤N≤45 coeficientes caben en dígito B y cola positiva menor que uno no acarrea. Sin flotantes ni respuestas incrustadas. Una división de enteros O(N) bits, numerador hasta 2945 bits; no costo constante para N ilimitado. Conserva recurrencia didáctica.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327782: 0.062 s / 644 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 5/366; 329/366. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11324831 (PyPy 3.10 x64): 0.14 s / 224 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1225_math.py`: 0.062 s / 644 KB; base didáctica conservada `1225_dp.py` (Python 3.12 x64): 0.093 s / 372 KB.
+
 La solución optimizada en Java analiza el número byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
 316 KB en lugar de 1576 KB.
@@ -101,5 +107,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1225_dp_optimized.java](1225_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 316 KB | 11303728 |
 | [1225_dp_optimized.py](1225_dp_optimized.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.14 s | 224 KB | 11324831 |
+| [1225_math.py](1225_math.py) \* | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 644 KB | 11327782 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
