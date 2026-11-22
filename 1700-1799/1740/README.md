@@ -82,7 +82,7 @@ asterisk concerns the rating target only.
 
 `1740_math_optimized.py`. Keep the period decomposition l=q*k+r. The shortest time is q*h and the longest is (q+[r!=0])*h. Both extrema are integers; emit integer tokens directly instead of converting them to floats and formatting eight decimals. Numeric judging accepts these equivalent values. Under the statement limits products are at most 10^6, with O(1) time and state. Reuse divmod for quotient and remainder and avoid the decimal-formatting operation. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
 
-Compared with `1740_math.py`: time 0.078 s → 0.125 s; memory 404 KB → 188 KB.
+Compared with `1740_math.py`: time 0.078 s → 0.125 s; memory 384 KB → 188 KB.
 
 `1740_math_optimized.rs`. Keep the period decomposition l=q*k+r. The shortest time is q*h and the longest is (q+[r!=0])*h. Both extrema are integers; emit integer tokens directly instead of converting them to floats and formatting eight decimals. Numeric judging accepts these equivalent values. Under the statement limits products are at most 10^6, with O(1) time and state. Use i64 quotient/remainder and the manual integer writer rather than f64 values and Rust floating-point formatting. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
 
@@ -107,7 +107,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB | 11289483 |
 | [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB | 11289484 |
 | [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1792 KB | 11304069 |
-| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11289486 |
+| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 384 KB | 11328291 |
 | [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 252 KB | 11304070 |
 
 ### Optimized

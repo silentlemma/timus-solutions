@@ -80,7 +80,7 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 `1740_math_optimized.py`. Conserva l=q*k+r. El mínimo es q*h y el máximo (q+[r!=0])*h. Ambos son enteros: emite tokens enteros en vez de convertir a flotantes y dar ocho decimales. La comprobación numérica acepta esos valores equivalentes. Los productos no superan 10^6; tiempo y estado O(1). Reutiliza divmod para cociente y resto y evita el formato decimal. El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
 
-Frente a `1740_math.py`: tiempo 0.078 s → 0.125 s; memoria 404 KB → 188 KB.
+Frente a `1740_math.py`: tiempo 0.078 s → 0.125 s; memoria 384 KB → 188 KB.
 
 `1740_math_optimized.rs`. Conserva l=q*k+r. El mínimo es q*h y el máximo (q+[r!=0])*h. Ambos son enteros: emite tokens enteros en vez de convertir a flotantes y dar ocho decimales. La comprobación numérica acepta esos valores equivalentes. Los productos no superan 10^6; tiempo y estado O(1). Usa cociente y resto i64 y escritura manual de enteros en vez de f64 y formato flotante de Rust. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
@@ -105,7 +105,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1740_math.cpp](1740_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 404 KB | 11289483 |
 | [1740_math.go](1740_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1092 KB | 11289484 |
 | [1740_math.java](1740_math.java) | Java 1.8 | math | O(1) | AC | 0.140 s | 1792 KB | 11304069 |
-| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11289486 |
+| [1740_math.py](1740_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 384 KB | 11328291 |
 | [1740_math.rs](1740_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 252 KB | 11304070 |
 
 ### Optimizadas
