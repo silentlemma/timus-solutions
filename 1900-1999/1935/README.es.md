@@ -64,6 +64,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1935_greedy_optimized.java`. Mantiene suma más máximo en una pasada y lector de 512 bytes. Solo serializa el resultado no negativo directamente en 21 bytes de cifras/salto, sin formato general de enteros. O(N) tiempo y espacio auxiliar fijo; no mezclar tiempo nuevo con memoria del registro anterior. Conserva enseñanza.
+
+Accepted exacto Java 1.8 #11327748: 0.093 s / 344 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 5/171, memoria 4/171. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11302269 era 0.109 s / 340 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1935_greedy_optimized.java`: 0.093 s / 344 KB; base didáctica conservada `1935_greedy.java`: 0.109 s / 1720 KB.
+
 La solución optimizada en C++ lee con `scanf` en lugar de `iostream` y
 calcula la suma y el máximo mientras lee, sin guardar los requisitos:
 124 KB en lugar de 428 KB.
@@ -71,8 +77,6 @@ calcula la suma y el máximo mientras lee, sin guardar los requisitos:
 ## Notas por lenguaje
 
 Ningún lenguaje necesita nada especial.
-
-Leer los enteros con un búfer de bytes pequeño y acumular la suma y el máximo en una sola pasada. El envío aceptado 11302269 tardó 0.109 s y usó 340 KB. La versión sencilla tardó 0.109 s y usó 1720 KB.
 
 Conservar el algoritmo sencillo de suma más máximo y la entrada con búfer. Vaciar la salida antes de terminar directamente con os._exit(0), omitiendo la limpieza del intérprete. El envío aceptado 11324646 tardó 0.140 s y usó 200 KB. La versión sencilla tardó 0.078 s y usó 332 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
@@ -93,7 +97,7 @@ Conservar el algoritmo sencillo de suma más máximo y la entrada con búfer. Va
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
-| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; fixed buffers | AC | 0.093 s | 344 KB | 11327748 |
 | [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

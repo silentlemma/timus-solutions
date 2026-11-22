@@ -56,14 +56,18 @@ Original problem from Open Ural FU Championship 2012 | by Tatiana Sharypova (pre
 
 ## 优化解法
 
+`1935_greedy_optimized.java`. 保留单遍求和加最大值及原 512 字节整数读取器。只改为把非负结果直接写入 21 字节十进制/换行数组，避免通用整数文本格式化。O(N) 时间、固定辅助空间，勿把新时间与旧低内存运行混合。保留教学源码。
+
+精确源代码 Java 1.8 Accepted #11327748：0.093 s / 344 KB。2026-11-20 保存的编译器组比较：时间 5/171、内存 4/171。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11302269 为 0.109 s / 340 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1935_greedy_optimized.java`: 0.093 s / 344 KB; 保留教学基础版 `1935_greedy.java`: 0.109 s / 1720 KB.
+
 优化的 C++ 解法用 `scanf` 代替 `iostream`，边读边求和与最大值，不保存这些要求：
 124 KB，而不是 428 KB。
 
 ## 各语言说明
 
 没有特别需要注意的地方。
-
-使用较小的字节缓冲区读取整数，一次扫描同时求和与最大值。通过的提交 11302269 用时 0.109 秒、占用 340 KB；简单版用时 0.109 秒、占用 1720 KB。
 
 保留简单的总和加最大值算法与缓冲输入，先刷新答案，再调用 os._exit(0) 直接退出，跳过解释器清理。通过的提交 11324646 用时 0.140 秒、占用 200 KB；简单版用时 0.078 秒、占用 332 KB。记录的运行时间高于简单版。
 
@@ -84,7 +88,7 @@ Original problem from Open Ural FU Championship 2012 | by Tatiana Sharypova (pre
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
-| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; fixed buffers | AC | 0.093 s | 344 KB | 11327748 |
 | [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。

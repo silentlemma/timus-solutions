@@ -62,6 +62,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1935_greedy_optimized.java`. Keep the one-pass sum-plus-maximum formula and the existing 512-byte integer reader. Only serialize the resulting nonnegative number directly into a twenty-one-byte decimal/newline array, avoiding general integer text formatting. O(N) time and fixed auxiliary storage; do not mix the new time with the old lower-memory run. Teaching sources remain.
+
+Exact-source Java 1.8 Accepted #11327748: 0.093 s / 344 KB. Saved 2026-11-20 compiler-cohort comparison: time 5/171, memory 4/171. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11302269 was 0.109 s / 340 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1935_greedy_optimized.java`: 0.093 s / 344 KB; retained teaching base `1935_greedy.java`: 0.109 s / 1720 KB.
+
 The optimized C++ solution reads with `scanf` instead of `iostream` and
 takes the sum and the maximum while reading, without storing the
 requirements: 124 KB instead of 428 KB.
@@ -69,8 +75,6 @@ requirements: 124 KB instead of 428 KB.
 ## Language notes
 
 No language needs anything special.
-
-Read integers with a small byte buffer and accumulate the running sum and maximum in one pass. Accepted submission 11302269 took 0.109 s and used 340 KB. The simple version took 0.109 s and used 1720 KB.
 
 Keep the simple sum-plus-maximum algorithm and buffered input. Flush the answer before exiting directly with os._exit(0), skipping interpreter teardown. Accepted submission 11324646 took 0.140 s and used 200 KB. The simple version took 0.078 s and used 332 KB. The recorded runtime is higher than for the simple version.
 
@@ -91,7 +95,7 @@ Keep the simple sum-plus-maximum algorithm and buffered input. Flush the answer 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1935_greedy_optimized.cpp](1935_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 124 KB | 11303651 |
-| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(n) | AC | 0.109 s | 340 KB | 11302269 |
+| [1935_greedy_optimized.java](1935_greedy_optimized.java) \* | Java 1.8 | greedy | O(N) time; fixed buffers | AC | 0.093 s | 344 KB | 11327748 |
 | [1935_greedy_optimized.py](1935_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) | AC | 0.140 s | 200 KB | 11324646 |
 
 \* The marked solutions can improve their target rankings.
