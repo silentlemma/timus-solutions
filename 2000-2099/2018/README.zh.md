@@ -57,6 +57,12 @@
 
 ## 优化解法
 
+`2018_dp_prefix_sums_optimized.py`. 保留精确双滑动和 DP 及有界环形缓冲。下标以比较、归零替代取模。更新窗口严格在 −MOD 与 2*MOD 之间，一次加/减即可回到 [0,MOD)；只有最终答案沿用取模。递推、过期项和边界均不变。时间 O(N)、状态 O(A+B)，不存整个前缀数组；保留易读 DP。
+
+精确源代码 CPython 3.12 Accepted #11326671：0.093 s / 536 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 2/106，内存排名 6/106。低于 1024 KB，严格收录只看时间。
+
+- `2018_dp_prefix_sums_optimized.py`: 0.093 s / 536 KB; 保留的教学基础版 `2018_dp_prefix_sums.py` (Python 3.12 x64): 0.156 s / 8624 KB; 时间变化 -40.4%; 内存变化 -93.8%.
+
 优化的 Java 解法只保存这些和还需要的值：two 的最后 a + 1 个值和 one 的最后 b + 1
 个值，放在环形缓冲区中，同时维护两个窗口和，每个长度把窗口移动一步，而不是用前缀
 和相减。它还手工解析这三个数，而不是使用 `Scanner`：0.093 s，而不是 0.125 s；
@@ -68,8 +74,6 @@
   `rem_euclid`。
 
 维护两个滑动和，用循环缓冲区仅保存将来还需移出窗口的动态规划状态。通过的提交 11292624 用时 0.015 秒、占用 388 KB；简单版用时 0.015 秒、占用 1368 KB。
-
-Python 用两个定长列表实现同一递推式，并在每次更新后按题目要求取模。通过的提交 11292636 用时 0.125 秒、占用 452 KB；简单版用时 0.156 秒、占用 8624 KB。
 
 ## 解答
 
@@ -89,6 +93,6 @@ Python 用两个定长列表实现同一递推式，并在每次更新后按题�
 |----|----|----|-----|------|----|----|------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
 | [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
-| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
 
 \* 带星号的解法尚未达到目标排名，仍可优化。

@@ -66,6 +66,12 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`2018_dp_prefix_sums_optimized.py`. Mantiene DP exacto de dos sumas deslizantes y anillos acotados. Índices avanzan con comparación/vuelta a cero, sin módulo. Ventana actualizada estrictamente entre −MOD y 2*MOD: una suma/resta devuelve [0,MOD); solo la respuesta final conserva módulo. Recurrencia, expiraciones y bordes intactos. O(N) tiempo/O(A+B) estado, sin prefijos completos; conserva DP legible.
+
+Accepted exacto CPython 3.12 #11326671: 0.093 s / 536 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 2/106, memoria 6/106. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `2018_dp_prefix_sums_optimized.py`: 0.093 s / 536 KB; base didáctica conservada `2018_dp_prefix_sums.py` (Python 3.12 x64): 0.156 s / 8624 KB; cambio de tiempo -40.4%; cambio de memoria -93.8%.
+
 La solución optimizada en Java guarda solo los valores que las sumas aún
 necesitan: los últimos a + 1 valores de two y los últimos b + 1 de one,
 en búferes circulares, junto con las dos sumas de ventana, que se
@@ -79,8 +85,6 @@ prefijos. También analiza los tres números a mano en lugar de usar
   módulo antes de volver a tomar el resto, y Rust usa `rem_euclid`.
 
 Mantener las dos sumas deslizantes y guardar en búferes circulares solo los estados que aún deben salir de las ventanas. El envío aceptado 11292624 tardó 0.015 s y usó 388 KB. La versión sencilla tardó 0.015 s y usó 1368 KB.
-
-Python aplica la misma recurrencia con dos listas acotadas y reduce cada suma actualizada al módulo requerido. El envío aceptado 11292636 tardó 0.125 s y usó 452 KB. La versión sencilla tardó 0.156 s y usó 8624 KB.
 
 ## Soluciones
 
@@ -100,6 +104,6 @@ Python aplica la misma recurrencia con dos listas acotadas y reduce cada suma ac
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
 | [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
-| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

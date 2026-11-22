@@ -64,6 +64,12 @@ Pitfalls:
 
 ## Optimized solutions
 
+`2018_dp_prefix_sums_optimized.py`. Keep the exact two sliding-sum DP and bounded ring buffers. Advance ring indices with comparisons and wrap-to-zero instead of modulo. Each updated window lies strictly between −MOD and 2*MOD, so one addition or subtraction restores [0,MOD); only the final answer uses the existing modulo. Recurrence, expired entries and boundary cases remain unchanged. O(N) time and O(A+B) state, with no whole-prefix arrays; retain the readable DP.
+
+Exact-source CPython 3.12 Accepted #11326671: 0.093 s / 536 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 2/106, memory rank 6/106. Below 1024 KB, strict admission uses time only.
+
+- `2018_dp_prefix_sums_optimized.py`: 0.093 s / 536 KB; retained teaching base `2018_dp_prefix_sums.py` (Python 3.12 x64): 0.156 s / 8624 KB; time change -40.4%; memory change -93.8%.
+
 The optimized Java solution keeps only the values the sums still need:
 the last a + 1 values of two and the last b + 1 values of one, in
 circular buffers, together with the two window sums, which are moved one
@@ -78,8 +84,6 @@ instead of 0.125 s and 408 KB instead of 3140 KB.
   `rem_euclid`.
 
 Maintain the two prefix-sum windows and keep only the DP entries that can expire, in circular buffers. Accepted submission 11292624 took 0.015 s and used 388 KB. The simple version took 0.015 s and used 1368 KB.
-
-Python applies the same recurrence with two bounded lists, reducing each updated sum modulo the required constant. Accepted submission 11292636 took 0.125 s and used 452 KB. The simple version took 0.156 s and used 8624 KB.
 
 ## Solutions
 
@@ -99,6 +103,6 @@ Python applies the same recurrence with two bounded lists, reducing each updated
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
 | [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
-| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.125 s | 452 KB | 11292636 |
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
 
 \* The marked solutions can improve their target rankings.
