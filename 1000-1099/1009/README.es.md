@@ -84,9 +84,17 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java analiza los dos números byte a byte desde
-`System.in` en lugar de usar `Scanner`: 0.093 s en lugar de 0.125 s y
-336 KB en lugar de 1576 KB.
+`1009_math.py`. Añade función generadora exacta junto a DP y combinatoria didácticas. q=K−1,B=2^36: cuenta dada por 1/(1−qx−qx²), coeficiente N=floor(B^(N+2)/(B²−qB−q)) mod B. Para todo N≥2,K≥2,N+K≤18, f_j≤K^j y cola fraccional ≤K^(N+1)/(B−K)<1 impiden acarreo. Las 99 parejas contrastadas con conteo binomial independiente en ambos runtimes. Sin flotantes ni respuestas incrustadas. Una división de enteros O(N) bits, numerador hasta 649 bits, no costo constante para N ilimitado. CPython actual 0.062 s/684 KB separado de DP PyPy conservada 0.109 s/196 KB.
+
+Fuente exacto: Python 3.12 x64 Accepted #11327875: 0.062 s / 684 KB. Puestos guardados del grupo de compilador del 2026-11-20, tiempo y luego memoria: 10/175; 153/175. Admisión estricta usa solo tiempo bajo 1024 KB: diez primeros o 15% superior, empates comparten puesto y corte se redondea arriba. Conserva asterisco por la meta propia de primer puesto en ambas. La variante anterior conservada tiene su par propio #11324917 (PyPy 3.10 x64): 0.109 s / 196 KB; no mezclar métricas ni runtimes. Bases didácticas intactas.
+
+- `1009_math.py`: 0.062 s / 684 KB; base didáctica conservada `1009_combinatorics.py` (Python 3.12 x64): 0.078 s / 404 KB.
+
+`1009_dp_optimized.java`. Mantiene DP de dos estados, prefijos acabados en cero/no cero, con la misma transición y long. Lee ambos enteros con 128 bytes y después reutiliza ese arreglo para hasta diecinueve cifras y salto. Sin llamadas de entrada por carácter ni segundo arreglo de respuesta. O(N) tiempo DP, O(1) estado; conserva DP y combinatoria didácticas.
+
+Accepted exacto Java 1.8 #11327757: 0.062 s / 292 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/401, memoria 2/401. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303698 era 0.093 s / 336 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1009_dp_optimized.java`: 0.062 s / 292 KB; base didáctica conservada `1009_dp.java`: 0.125 s / 1576 KB.
 
 `1009_dp_optimized.go`. Go mantiene la DP de dos estados según la última cifra. La entrada por bytes y un búfer fijo de salida sustituyen el análisis y la impresión con fmt; solo se conservan los dos conteos del prefijo anterior. Se realizan O(N) actualizaciones de enteros acotados por el enunciado, con O(1) espacio auxiliar.
 
@@ -119,8 +127,9 @@ Frente a `1009_combinatorics.py`: tiempo 0.078 s → 0.109 s; memoria 404 KB →
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
-| [1009_dp_optimized.java](1009_dp_optimized.java) | Java 1.8 | dp | O(N) | AC | 0.093 s | 336 KB | 11303698 |
+| [1009_dp_optimized.java](1009_dp_optimized.java) \* | Java 1.8 | dp | O(N) DP time; O(1) state | AC | 0.062 s | 292 KB | 11327757 |
 | [1009_dp_optimized.go](1009_dp_optimized.go) | Go 1.14 x64 | dp | O(N) | AC | 0.015 s | 796 KB | 11325041 |
 | [1009_dp.py](1009_dp.py) \* | PyPy 3.10 x64 | dp | O(N) | AC | 0.109 s | 196 KB | 11324917 |
+| [1009_math.py](1009_math.py) \* | Python 3.12 x64 | math | One O(N)-bit integer division; O(N) bits | AC | 0.062 s | 684 KB | 11327875 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
