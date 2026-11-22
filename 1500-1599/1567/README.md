@@ -70,13 +70,17 @@ Pitfalls:
 
 ## Optimized solutions
 
+`1567_implementation_optimized.py`. Derive a 256-byte weight map at startup from the keypad groups in the statement: position in a group is the number of presses. One native bytes.translate pass maps the line to press counts, then native sum adds them, replacing repeated full-line counts. CR/LF map to zero; the allowed letters, punctuation and space retain their exact weights. This is a rule-derived character map, not a precomputed answer table. O(L+256) time/space with an O(L) translated temporary; flush before direct exit. The readable per-character source remains.
+
+Exact-source CPython 3.12 Accepted #11327006: 0.046 s / 604 KB. Comparison saved 2026-11-20 on the current language-family compiler cohort: time rank 1/167, memory rank 129/167. Below 1024 KB, strict admission uses time only.
+
+- `1567_implementation_optimized.py`: 0.046 s / 604 KB; retained teaching base `1567_implementation.py` (Python 3.12 x64): 0.078 s / 380 KB; time change -41.0%; memory change +58.9%.
+
 The optimized C++ solution turns the keys into a table of 256 entries
 that gives the number of presses for every byte, so each character is
 looked up once instead of searching all the keys, and reads the line
 with `getchar` instead of `getline`: 100 KB instead of 376 KB, with the
 same time.
-
-Use byte counts for the characters on each key and multiply by their respective numbers of presses. Accepted submission 11324250 took 0.109 s and used 264 KB. The simple version took 0.078 s and used 380 KB. The recorded runtime is higher than for the simple version.
 
 ## Solutions
 
@@ -95,6 +99,6 @@ Use byte counts for the characters on each key and multiply by their respective 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
-| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.109 s | 264 KB | 11324250 |
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
 
 \* The marked solutions can improve their target rankings.

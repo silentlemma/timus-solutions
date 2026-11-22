@@ -70,13 +70,17 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
+`1567_implementation_optimized.py`. Genera al inicio un mapa de 256 bytes desde los grupos del teclado: posición implica pulsaciones. Una pasada nativa bytes.translate convierte la línea a pesos y sum los agrega, sin repetidos conteos completos. CR/LF valen cero; conserva pesos de letras, puntuación y espacio. Mapa derivado de reglas, no tabla de respuestas. O(L+256) tiempo/espacio con temporal O(L); vacía antes de salir. Conserva la base por carácter.
+
+Accepted exacto CPython 3.12 #11327006: 0.046 s / 604 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 1/167, memoria 129/167. Por debajo de 1024 KB, admisión estricta solo por tiempo.
+
+- `1567_implementation_optimized.py`: 0.046 s / 604 KB; base didáctica conservada `1567_implementation.py` (Python 3.12 x64): 0.078 s / 380 KB; cambio de tiempo -41.0%; cambio de memoria +58.9%.
+
 La solución optimizada en C++ convierte las teclas en una tabla de 256
 entradas con el número de pulsaciones de cada byte, así que cada
 carácter se consulta una sola vez en lugar de buscarlo en todas las
 teclas, y lee la línea con `getchar` en lugar de `getline`: 100 KB en
 lugar de 376 KB, con el mismo tiempo.
-
-Contar los bytes de los caracteres de cada tecla y multiplicarlos por el número de pulsaciones correspondiente. El envío aceptado 11324250 tardó 0.109 s y usó 264 KB. La versión sencilla tardó 0.078 s y usó 380 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 ## Soluciones
 
@@ -95,6 +99,6 @@ Contar los bytes de los caracteres de cada tecla y multiplicarlos por el número
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1567_implementation_optimized.cpp](1567_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303623 |
-| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | PyPy 3.10 x64 | implementation | O(n) | AC | 0.109 s | 264 KB | 11324250 |
+| [1567_implementation_optimized.py](1567_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.046 s | 604 KB | 11327006 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
