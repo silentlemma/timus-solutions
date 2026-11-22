@@ -59,11 +59,15 @@ n（2 ≤ n ≤ 100）。
 
 ## 优化解法
 
-`1789_constructive_optimized.java`. 保留同一双奇偶扫描：2..n-1 后 n-1..2，n=2 特判为 1,1。先以 2(n-2) 得到次数，再随扫描输出位置。Java 去掉装箱列表和完整输出构造器；Rust 去掉整数向量、逐数字符串和拼接行。n<=100 时输出字符数、时间均 O(n)，辅助空间由 O(n) 降至 O(1)。这是同一构造的表示及输出改进，不是另一搜索策略，教学源文件保留。
+`1789_constructive_optimized.java`. 保留 2..N−1 与 N−1..2 两次扫描，以及 N=2 的 1,1。构造 O(N) 时间、固定辅助缓冲。计算所用数值均在输出前读完。复用一个 256 字节数组先输入后输出，每个有符号 int 预留十二字节，只反转刚写的数字。省去独立输入、输出和数字数组，不覆盖算法尚需的数据。解析输出对已消费字节线性，缓冲固定。
 
-与 `1789_constructive.java` 相比：时间 0.125 s → 0.109 s；内存 1604 KB → 504 KB。
+精确源代码 Java 1.8 Accepted #11327766：0.078 s / 368 KB。2026-11-20 保存的编译器组比较：时间 1/35、内存 1/35。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11324970 为 0.109 s / 504 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
 
-`1789_constructive_optimized.rs`. 保留同一双奇偶扫描：2..n-1 后 n-1..2，n=2 特判为 1,1。先以 2(n-2) 得到次数，再随扫描输出位置。Java 去掉装箱列表和完整输出构造器；Rust 去掉整数向量、逐数字符串和拼接行。n<=100 时输出字符数、时间均 O(n)，辅助空间由 O(n) 降至 O(1)。这是同一构造的表示及输出改进，不是另一搜索策略，教学源文件保留。
+- `1789_constructive_optimized.java`: 0.078 s / 368 KB; 保留教学基础版 `1789_constructive.java`: 0.125 s / 1604 KB.
+
+旧版本历史描述及测量：`1789_constructive_optimized.java`. 保留同一双奇偶扫描：2..n-1 后 n-1..2，n=2 特判为 1,1。先以 2(n-2) 得到次数，再随扫描输出位置。Java 去掉装箱列表和完整输出构造器；Rust 去掉整数向量、逐数字符串和拼接行。n<=100 时输出字符数、时间均 O(n)，辅助空间由 O(n) 降至 O(1)。这是同一构造的表示及输出改进，不是另一搜索策略，教学源文件保留。
+
+旧版本历史描述及测量：`1789_constructive_optimized.rs`. 保留同一双奇偶扫描：2..n-1 后 n-1..2，n=2 特判为 1,1。先以 2(n-2) 得到次数，再随扫描输出位置。Java 去掉装箱列表和完整输出构造器；Rust 去掉整数向量、逐数字符串和拼接行。n<=100 时输出字符数、时间均 O(n)，辅助空间由 O(n) 降至 O(1)。这是同一构造的表示及输出改进，不是另一搜索策略，教学源文件保留。
 
 与 `1789_constructive.rs` 相比：时间 0.046 s → 0.046 s；内存 204 KB → 52 KB。
 
@@ -100,7 +104,7 @@ n（2 ≤ n ≤ 100）。
 |---|---|---|---|---|---|---|---|
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
-| [1789_constructive_optimized.java](1789_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 504 KB | 11324970 |
+| [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
 | [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。

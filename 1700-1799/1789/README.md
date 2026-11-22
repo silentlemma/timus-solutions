@@ -74,11 +74,15 @@ sequence exists.
 
 ## Optimized solutions
 
-`1789_constructive_optimized.java`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
+`1789_constructive_optimized.java`. Keep both pedestal sweeps, 2..N−1 then N−1..2, and the N=2 answer 1,1. The construction takes O(N) time and fixed auxiliary buffers. All numeric fields used by the computation are consumed before output. Reuse one 256-byte array for input and then output, reserving twelve bytes per signed int; reverse only its newly written digits. This removes separate input/output/digit arrays without overwriting any value still needed by the algorithm. Time for parsing/output is linear in consumed bytes; buffer storage is fixed.
 
-Compared with `1789_constructive.java`: time 0.125 s → 0.109 s; memory 1604 KB → 504 KB.
+Exact-source Java 1.8 Accepted #11327766: 0.078 s / 368 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/35, memory 1/35. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. Both metrics rank first, so the separate language target also passes; no asterisk. The previously documented optimized run #11324970 was 0.109 s / 504 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
 
-`1789_constructive_optimized.rs`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
+- `1789_constructive_optimized.java`: 0.078 s / 368 KB; retained teaching base `1789_constructive.java`: 0.125 s / 1604 KB.
+
+Historical previous-revision description and measurements: `1789_constructive_optimized.java`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
+
+Historical previous-revision description and measurements: `1789_constructive_optimized.rs`. Keep the same two parity sweeps, 2..n-1 followed by n-1..2, and the special answer 1,1 for n=2. Compute the count as 2(n-2), then emit pedestal numbers as the sweeps run. Java removes boxed list entries and the complete output builder; Rust removes the collected integer vector, per-number strings and joined line. With n<=100, output has O(n) characters and time is O(n), using O(1) auxiliary storage instead of O(n). This is a representation/output improvement of the same construction, not a different search strategy; the teaching sources remain.
 
 Compared with `1789_constructive.rs`: time 0.046 s → 0.046 s; memory 204 KB → 52 KB.
 
@@ -90,8 +94,6 @@ Keep the same parity-catching construction and its proof. For N>2, sweep 2..N-1 
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
-
-`1789_constructive_optimized.java`: time place 14/35, memory place 5/35 in this comparable sample.
 
 `1789_constructive_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -115,7 +117,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
-| [1789_constructive_optimized.java](1789_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 504 KB | 11324970 |
+| [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
 | [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

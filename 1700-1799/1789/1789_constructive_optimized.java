@@ -1,147 +1,88 @@
 public class Main {
+    static final int BUFFER_SIZE = 256, MAX_INTEGER_BYTES = 12, DECIMAL = 10;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available, used;
 
-    private static final class FastInput {
-        private static final int BUFFER_SIZE = 1024;
-        private final java.io.InputStream input;
-        private final byte[] buffer = new byte[BUFFER_SIZE];
-        private int position, length;
-        private String cached;
-
-        FastInput(java.io.InputStream input) { this.input = input; }
-
-        private int read() {
-            if (position == length) {
-                try {
-                    do {
-                        length = input.read(buffer);
-                    } while (length == 0);
-                } catch (java.io.IOException failure) {
-                    throw new IllegalStateException(failure);
-                }
-                position = 0;
-                if (length < 0) {
-                    length = 0;
-                    return -1;
-                }
-            }
-            return buffer[position++] & 255;
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
         }
-
-        private String token() {
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                return null;
-            }
-            byte[] bytes = new byte[32];
-            int size = 0;
-            while (character > ' ') {
-                if (size == bytes.length) {
-                    bytes = java.util.Arrays.copyOf(bytes, 2 * bytes.length);
-                }
-                bytes[size++] = (byte)character;
-                character = read();
-            }
-            return new String(bytes, 0, size, java.nio.charset.StandardCharsets.UTF_8);
-        }
-
-        boolean hasNext() {
-            if (cached == null) {
-                cached = token();
-            }
-            return cached != null;
-        }
-
-        boolean hasNextLong() {
-            if (!hasNext()) {
-                return false;
-            }
-            try {
-                Long.parseLong(cached);
-                return true;
-            } catch (NumberFormatException invalid) {
-                return false;
-            }
-        }
-
-        String next() {
-            String value;
-            if (cached == null) {
-                value = token();
-            } else {
-                value = cached;
-                cached = null;
-            }
-            if (value == null) {
-                throw new java.util.NoSuchElementException();
-            }
-            return value;
-        }
-
-        long nextLong() {
-            if (cached != null) {
-                return Long.parseLong(next());
-            }
-            int character = read();
-            while (character >= 0 && character <= ' ') {
-                character = read();
-            }
-            if (character < 0) {
-                throw new java.util.NoSuchElementException();
-            }
-            boolean negative = character == '-';
-            if (negative || character == '+') {
-                character = read();
-            }
-            long value = 0;
-            while (character >= '0' && character <= '9') {
-                // Negative accumulation also represents Long.MIN_VALUE exactly.
-                value = value * 10 - (character - '0');
-                character = read();
-            }
-            return negative ? value : -value;
-        }
-
-        int nextInt() { return (int)nextLong(); }
-        double nextDouble() { return Double.parseDouble(next()); }
-        FastInput useLocale(java.util.Locale ignored) { return this; }
+        return buffer[position++];
     }
 
-    private static void number(int value) {
-        byte[] digits = new byte[10];
-        int first = digits.length;
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
+        int value = 0;
+        while (c >= '0' && c <= '9') {
+            value = DECIMAL * value + c - '0';
+            c = read();
+        }
+        return negative ? -value : value;
+    }
+
+    static void flush() {
+        System.out.write(buffer, 0, used);
+        used = 0;
+    }
+
+    static void write(int c) {
+        if (used == buffer.length)
+            flush();
+        buffer[used++] = (byte)c;
+    }
+
+    static void number(int value) {
+        if (used + MAX_INTEGER_BYTES > buffer.length)
+            flush();
+        long magnitude = value;
+        if (magnitude < 0) {
+            buffer[used++] = '-';
+            magnitude = -magnitude;
+        }
+        int first = used;
         do {
-            digits[--first] = (byte)('0' + value % 10);
-            value /= 10;
-        } while (value != 0);
-        System.out.write(digits, first, digits.length - first);
+            buffer[used++] = (byte)('0' + magnitude % DECIMAL);
+            magnitude /= DECIMAL;
+        } while (magnitude != 0);
+        for (int left = first, right = used - 1; left < right; left++, right--) {
+            byte temporary = buffer[left];
+            buffer[left] = buffer[right];
+            buffer[right] = temporary;
+        }
     }
 
-    public static void main(String[] args) {
-        int size = new FastInput(System.in).nextInt();
+    static void finish() { flush(); }
+
+    public static void main(String[] args) throws java.io.IOException {
+        int size = nextInt();
         number(size == 2 ? 2 : 2 * (size - 2));
-        System.out.write('\n');
+        write('\n');
         if (size == 2) {
             number(1);
-            System.out.write(' ');
+            write(' ');
             number(1);
         } else {
-            // Sweep both ways to cover the two possible parity classes.
             boolean first = true;
             for (int cell = 2; cell < size; cell++) {
-                if (!first) {
-                    System.out.write(' ');
-                }
+                if (!first)
+                    write(' ');
                 number(cell);
                 first = false;
             }
             for (int cell = size - 1; cell >= 2; cell--) {
-                System.out.write(' ');
+                write(' ');
                 number(cell);
             }
         }
-        System.out.write('\n');
+        write('\n');
+        finish();
     }
 }

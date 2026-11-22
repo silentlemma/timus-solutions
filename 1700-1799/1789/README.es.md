@@ -75,11 +75,15 @@ existe una secuencia más corta.
 
 ## Soluciones optimizadas
 
-`1789_constructive_optimized.java`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
+`1789_constructive_optimized.java`. Conserva barridos 2..N−1 y N−1..2, y 1,1 para N=2. O(N) tiempo y búferes auxiliares fijos. Consume todos los campos numéricos usados antes de emitir. Reutiliza un arreglo de 256 bytes primero para entrada y luego salida, reservando doce bytes por int con signo y revirtiendo solo los dígitos nuevos. Elimina arreglos separados sin sobrescribir datos aún necesarios. Análisis/salida lineales en bytes consumidos, búfer fijo.
 
-Frente a `1789_constructive.java`: tiempo 0.125 s → 0.109 s; memoria 1604 KB → 504 KB.
+Accepted exacto Java 1.8 #11327766: 0.078 s / 368 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/35, memoria 1/35. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11324970 era 0.109 s / 504 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
 
-`1789_constructive_optimized.rs`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
+- `1789_constructive_optimized.java`: 0.078 s / 368 KB; base didáctica conservada `1789_constructive.java`: 0.125 s / 1604 KB.
+
+Descripción y mediciones históricas de la revisión anterior: `1789_constructive_optimized.java`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
+
+Descripción y mediciones históricas de la revisión anterior: `1789_constructive_optimized.rs`. Mantiene los barridos de paridad 2..n-1 y n-1..2, con respuesta especial 1,1 para n=2. Calcula 2(n-2) toques y emite números al recorrerlos. Java elimina la lista con objetos y el constructor completo; Rust elimina el vector, las cadenas individuales y su unión. Con n<=100 la salida y el tiempo son O(n), usando espacio auxiliar O(1) en vez de O(n). Mejora representación y salida de la misma construcción; conserva las fuentes didácticas.
 
 Frente a `1789_constructive.rs`: tiempo 0.046 s → 0.046 s; memoria 204 KB → 52 KB.
 
@@ -91,8 +95,6 @@ Se mantiene la construcción que cubre ambas paridades y su prueba. Para N>2, re
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
-
-`1789_constructive_optimized.java`: puesto de tiempo 14/35 y de memoria 5/35 en esta muestra comparable.
 
 `1789_constructive_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -116,7 +118,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1789_constructive_optimized.cpp](1789_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N) | AC | 0.015 s | 108 KB | 11308552 |
 | [1789_constructive_optimized.py](1789_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N) | AC | 0.156 s | 240 KB | 11309701 |
-| [1789_constructive_optimized.java](1789_constructive_optimized.java) \* | Java 1.8 | constructive | O(n) | AC | 0.109 s | 504 KB | 11324970 |
+| [1789_constructive_optimized.java](1789_constructive_optimized.java) | Java 1.8 | constructive | O(N) time; O(1) auxiliary storage | AC | 0.078 s | 368 KB | 11327766 |
 | [1789_constructive_optimized.rs](1789_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n) | AC | 0.046 s | 52 KB | 11325112 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
