@@ -63,6 +63,12 @@ casillas.
 
 ## Soluciones optimizadas
 
+`1197_implementation_optimized.java`. Java cuenta las mismas ocho jugadas de caballo factorizando elecciones independientes por eje. oneX/twoX cuentan los desplazamientos horizontales válidos de una/dos casillas; oneY/twoY hacen lo mismo en vertical. La respuesta es oneX*twoY+twoX*oneY y ambas formas son disjuntas. Elimina el bucle de saltos y arreglos bidimensionales sin una tabla de respuestas. Un búfer de 256 bytes lee coordenadas directamente. Cada respuesta tiene una cifra: el arreglo de salida ocupa exactamente 2*N bytes con saltos de línea. Tiempo O(N), almacenamiento de respuesta O(N), resto fijo. Conserva las bases de enumeración.
+
+Accepted exacto Java 1.8 #11327340: 0.078 s / 192 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 82/745, memoria 1/745. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303722 era 0.109 s / 296 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1197_implementation_optimized.java`: 0.078 s / 192 KB; base didáctica conservada `1197_implementation.java`: 0.093 s / 1576 KB.
+
 La solución optimizada en C++ lee con `getchar` en lugar de `iostream` y
 cuenta los saltos sin tabla. Un salto mueve una coordenada 1 y la otra 2,
 cada una en cualquier sentido, y las elecciones de las dos coordenadas
@@ -70,11 +76,6 @@ son independientes; por eso la cuenta es
 `ways(x, 1) · ways(y, 2) + ways(x, 2) · ways(y, 1)`, donde `ways(p, s)`
 dice cuántos de `p - s` y `p + s` quedan dentro del tablero. La solución
 ocupa 84 KB en lugar de 396 KB, con el mismo tiempo.
-
-La solución optimizada en Java lee los números y las casillas byte a
-byte desde `System.in` en lugar de usar `Scanner`, y como cada respuesta
-es una sola cifra, escribe dos bytes por casilla en un solo arreglo:
-296 KB en lugar de 1576 KB, con el mismo tiempo.
 
 ## Notas por lenguaje
 
@@ -102,7 +103,7 @@ Consultar la tabla del tablero fijo, generada por 1197_math_table.py a partir de
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
-| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(N) answer space | AC | 0.078 s | 192 KB | 11327340 |
 | [1197_implementation_optimized.go](1197_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
 | [1197_math.py](1197_math.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.093 s | 200 KB | 11324662 |
 

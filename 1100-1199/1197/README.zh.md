@@ -57,15 +57,17 @@ g6
 
 ## 优化解法
 
+`1197_implementation_optimized.java`. Java 仍计数八种马步，但分解独立的坐标轴选择。oneX/twoX 分别为横向一格、两格的合法方向数，oneY/twoY 同理。答案为 oneX*twoY+twoX*oneY，两类步形不重叠。这样去掉步形循环与二维数组，不使用棋盘答案表。256 字节缓冲区直接读取坐标；答案均为一位数字，含换行的输出数组恰为 2*N 字节。时间 O(N)，答案存储 O(N)，其余状态固定。保留易读的枚举教学版。
+
+精确源代码 Java 1.8 Accepted #11327340：0.078 s / 192 KB。2026-11-20 保存的编译器组比较：时间 82/745、内存 1/745。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。单独语言目标要求两项第一，故保留星号。此前记录的优化运行 #11303722 为 0.109 s / 296 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1197_implementation_optimized.java`: 0.078 s / 192 KB; 保留教学基础版 `1197_implementation.java`: 0.093 s / 1576 KB.
+
 优化的 C++ 解法用 `getchar` 代替 `iostream` 读入，并且不用表来数跳法。
 一次跳跃把一个坐标移动 1，另一个移动 2，方向各自任选，两个坐标的选择互相独立；
 所以答案是 `ways(x, 1) · ways(y, 2) + ways(x, 2) · ways(y, 1)`，其中 `ways(p, s)`
 表示 `p - s` 和 `p + s` 中有几个仍在棋盘上。内存为 84 KB，而不是 396 KB，
 时间不变。
-
-优化的 Java 解法直接从 `System.in` 逐字节读取数字和格子，而不是使用 `Scanner`；
-由于每个答案都只有一位数字，它为每个格子写两个字节到同一个数组里：296 KB，而不是
-1576 KB，时间不变。
 
 ## 各语言说明
 
@@ -92,7 +94,7 @@ g6
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1197_implementation_optimized.cpp](1197_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(N) | AC | 0.001 s | 84 KB | 11303578 |
-| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) | AC | 0.109 s | 296 KB | 11303722 |
+| [1197_implementation_optimized.java](1197_implementation_optimized.java) \* | Java 1.8 | implementation | O(N) time; O(N) answer space | AC | 0.078 s | 192 KB | 11327340 |
 | [1197_implementation_optimized.go](1197_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N) | AC | 0.001 s | 908 KB | 11301829 |
 | [1197_math.py](1197_math.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.093 s | 200 KB | 11324662 |
 

@@ -1,46 +1,50 @@
-import java.io.IOException;
-
 public class Main {
-    // the numbers and the squares are read byte by byte from System.in instead
-    // of Scanner
-    private static int readInt() throws IOException {
-        int c;
-        do {
-            c = System.in.read();
-        } while (c <= ' ' && c != -1);
+    static final int SIDE = 8, BUFFER_SIZE = 256, BYTE_MASK = 255;
+    static final byte[] buffer = new byte[BUFFER_SIZE];
+    static int position, available;
+
+    static int read() throws java.io.IOException {
+        if (position == available) {
+            available = System.in.read(buffer);
+            position = 0;
+            if (available < 0)
+                return -1;
+        }
+        return buffer[position++] & BYTE_MASK;
+    }
+
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
         int value = 0;
         while (c >= '0' && c <= '9') {
             value = value * 10 + c - '0';
-            c = System.in.read();
+            c = read();
         }
         return value;
     }
 
-    static final int SIDE = 8;
-    static final int[][] JUMPS = {{1, 2},   {2, 1},   {2, -1}, {1, -2},
-                                  {-1, -2}, {-2, -1}, {-2, 1}, {-1, 2}};
+    static int count(int column, int row) {
+        int oneX = (column > 0 ? 1 : 0) + (column < SIDE - 1 ? 1 : 0);
+        int twoX = (column > 1 ? 1 : 0) + (column < SIDE - 2 ? 1 : 0);
+        int oneY = (row > 0 ? 1 : 0) + (row < SIDE - 1 ? 1 : 0);
+        int twoY = (row > 1 ? 1 : 0) + (row < SIDE - 2 ? 1 : 0);
+        return oneX * twoY + twoX * oneY;
+    }
 
-    public static void main(String[] args) throws IOException {
-        int n = readInt();
-        // every answer is one digit, at most 8, so the output is two bytes per
-        // square, written at once
-        byte[] out = new byte[2 * n];
-        for (int t = 0; t < n; t++) {
-            int c;
-            do {
-                c = System.in.read();
-            } while (c <= ' ');
-            int col = c - 'a', row = System.in.read() - '1', count = 0;
-            // the knight attacks every square one jump away that is on the board
-            for (int[] jump : JUMPS) {
-                int x = col + jump[0], r = row + jump[1];
-                if (x >= 0 && x < SIDE && r >= 0 && r < SIDE) {
-                    count++;
-                }
-            }
-            out[2 * t] = (byte)('0' + count);
-            out[2 * t + 1] = '\n';
+    public static void main(String[] args) throws java.io.IOException {
+        int n = nextInt();
+        byte[] answer = new byte[2 * n];
+        for (int i = 0; i < n; i++) {
+            int c = read();
+            while (c >= 0 && c <= ' ')
+                c = read();
+            int column = c - 'a', row = read() - '1';
+            // The choices of a valid horizontal and vertical shift are independent.
+            answer[2 * i] = (byte)('0' + count(column, row));
+            answer[2 * i + 1] = '\n';
         }
-        System.out.write(out);
+        System.out.write(answer);
     }
 }
