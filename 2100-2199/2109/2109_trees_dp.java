@@ -8,8 +8,7 @@ public class Main {
     private static final int DIGIT_CAPACITY = 10;
 
     private static final class FastInput {
-        private final BufferedInputStream input =
-                new BufferedInputStream(System.in, BUFFER_SIZE);
+        private final BufferedInputStream input = new BufferedInputStream(System.in, BUFFER_SIZE);
         private final byte[] buffer = new byte[BUFFER_SIZE];
         private int position;
         private int length;
@@ -134,7 +133,7 @@ public class Main {
             }
             int start = digits.length;
             do {
-                digits[--start] = (byte) ('0' + answer % 10);
+                digits[--start] = (byte)('0' + answer % 10);
                 answer /= 10;
             } while (answer > 0);
             output.write(digits, start, digits.length - start);

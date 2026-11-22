@@ -117,7 +117,7 @@ The accepted base implementations [2109_trees_dp.cpp](2109_trees_dp.cpp), [2109_
 |---|---|---|---|---|---|---|---|
 | [2109_trees_dp.cpp](2109_trees_dp.cpp) | G++ 13.2 x64 | trees, dp | O(n log n + q) | AC | 0.406 s | 26432 KB | 11294864 |
 | [2109_trees_dp.go](2109_trees_dp.go) | Go 1.14 x64 | trees, dp | O(n log n + q) | AC | 0.296 s | 98064 KB | 11294866 |
-| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.468 s | 17584 KB | 11294871 |
+| [2109_trees_dp.java](2109_trees_dp.java) | Java 1.8 | trees, dp | O(n log n + q) | AC | 0.437 s | 17600 KB | 11328341 |
 | [2109_trees_dp.py](2109_trees_dp.py) | Python 3.12 x64 | trees, dp | O(n log n + q) | AC | 2.875 s | 222288 KB | 11294869 |
 | [2109_trees_dp.rs](2109_trees_dp.rs) \* | Rust 1.75 x64 | trees, dp | O(n log n + q) | AC | 0.359 s | 77192 KB | 11294872 |
 | [2109_trees_segment_tree.cpp](2109_trees_segment_tree.cpp) | G++ 13.2 x64 | trees, segment_tree | O((n + q) log(n + 1)) | AC | 0.953 s | 29604 KB | 11315899 |
