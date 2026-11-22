@@ -60,9 +60,9 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-`1457_math_optimized.py`. Conserva la media que minimiza la suma de distancias cuadradas. Suma exactamente N posiciones enteras y realiza solo la división final flotante con seis decimales. N<=1000 y posiciones<=10^6 acotan la suma a10^9, exacta en f64. Tiempo O(N), mismo significado y precisión. Suma un map de enteros de tokens en bytes, sin entrada decodificada ni otra lista entera; tokens y referencias de la sección siguen ocupando O(N). El programa independiente para el juez vacía stdout antes de os._exit(0), omitiendo la finalización normal del intérprete. Su propio Accepted acredita la mejora de memoria. El cambio de salida por sí solo no mejora la complejidad asintótica y su beneficio de ejecución no se garantiza en otras plataformas. La versión sencilla no cambia.
+`1457_math_optimized.py`. Lee todos los enteros de la entrada binaria en una lista. El primer elemento es el número de posiciones N. La suma comienza en −N para cancelar la cabecera y obtener exactamente la suma de las coordenadas. Así, la función sum recorre la lista sin copiar una porción. Divide el total por N e imprime seis decimales. Tanto el tiempo como el espacio auxiliar son O(N).
 
-Frente a `1457_math.py`: tiempo 0.078 s → 0.156 s; memoria 504 KB → 248 KB.
+La versión sencilla en CPython obtuvo 0.078 s / 504 KB en el envío #11286429. La implementación anterior en PyPy obtuvo 0.156 s / 248 KB en el envío #11324843. El nuevo envío #11328147 en CPython obtuvo 0.062 s / 432 KB.
 
 `1457_math_optimized.rs`. Conserva la media que minimiza la suma de distancias cuadradas. Suma exactamente N posiciones enteras y realiza solo la división final flotante con seis decimales. N<=1000 y posiciones<=10^6 acotan la suma a10^9, exacta en f64. Tiempo O(N), mismo significado y precisión. Acumula al leer, eliminando String y vector. Estado auxiliar O(1); printf emite la única media f64. La versión Rust lee y escribe mediante el entorno de C, sin conservar un String de entrada decodificada ni construir un String de salida con formato. Se conserva la fuente sencilla con Accepted.
 
@@ -76,9 +76,9 @@ mismo tiempo.
 
 ## Notas por lenguaje
 
-Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
+La comparación de Rust usa la muestra del 18 de noviembre de 2026. Ambas muestras consideran otros autores en los compiladores actuales y asignan el mismo puesto a los empates.
 
-`1457_math_optimized.py`: puesto de tiempo 69/71 y de memoria 1/71 en esta muestra comparable.
+`1457_math_optimized.py`. En la muestra del 18 de noviembre de 2026, el envío de CPython ocupa el puesto 3/71 en tiempo y el 23/71 en memoria. Con un consumo de 432 KB, el puesto en tiempo basta para la admisión estricta. El asterisco señala la meta independiente de alcanzar el primer puesto en ambas métricas.
 
 `1457_math_optimized.rs`: no hay suficientes resultados rivales comparables para acreditar un puesto; se admite por la mejora medida respecto de la fuente sencilla.
 
@@ -101,7 +101,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1457_math_optimized.java](1457_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 412 KB | 11303608 |
-| [1457_math_optimized.py](1457_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.156 s | 248 KB | 11324843 |
+| [1457_math_optimized.py](1457_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
 | [1457_math_optimized.rs](1457_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

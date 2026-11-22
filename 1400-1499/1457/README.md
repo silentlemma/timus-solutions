@@ -60,9 +60,9 @@ Pitfalls:
 
 ## Optimized solutions
 
-`1457_math_optimized.py`. Keep the arithmetic mean that minimizes the sum of squared distances. Sum the N integer positions exactly, then perform only the final floating-point division and print six fractional digits. N<=1000 and positions<=10^6 bound the sum by 10^9, exactly representable in f64. Time O(N); numerical meaning and output precision are unchanged. Sum a map of byte-token integers instead of constructing the decoded input and a separate integer-position list. The byte tokens and sliced references still require O(N) storage. The standalone judge program explicitly flushes stdout before os._exit(0), skipping normal interpreter finalization. Its own Accepted measures the memory gain. The exit change alone does not improve asymptotic complexity, and its runtime benefit is not a portable guarantee. The simple version remains unchanged.
+`1457_math_optimized.py`. Read all integer tokens from the binary input stream into one list. Its first element is the count N. Starting the sum at −N cancels that header, so the remaining sum is exactly the sum of the positions. This lets the built-in sum traverse the integer list without slicing it. Divide once by N and print six decimal places. Time and temporary storage are both O(N).
 
-Compared with `1457_math.py`: time 0.078 s → 0.156 s; memory 504 KB → 248 KB.
+The simple CPython run #11286429 used 0.078 s / 504 KB. The earlier PyPy implementation #11324843 used 0.156 s / 248 KB. The new CPython run #11328147 used 0.062 s / 432 KB.
 
 `1457_math_optimized.rs`. Keep the arithmetic mean that minimizes the sum of squared distances. Sum the N integer positions exactly, then perform only the final floating-point division and print six fractional digits. N<=1000 and positions<=10^6 bound the sum by 10^9, exactly representable in f64. Time O(N); numerical meaning and output precision are unchanged. Accumulate positions as they arrive, so the input String and value vector disappear. Auxiliary state O(1); printf emits the one f64 mean. The Rust variant reads and writes through the C runtime, without retaining a decoded input String or building a formatted output String. The simple Accepted source is preserved.
 
@@ -76,9 +76,9 @@ the same time.
 
 ## Language notes
 
-The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
+The Rust comparison below uses the 18 November 2026 snapshot. Both comparisons use other authors on current judge compilers and count ties at the same rank.
 
-`1457_math_optimized.py`: time place 69/71, memory place 1/71 in this comparable sample.
+`1457_math_optimized.py`. The CPython run ranked 3/71 by time and 23/71 by memory in the 18 November 2026 comparison. Its 432 KB footprint makes the time rank sufficient for strict admission. The asterisk marks the separate goal of first place in both metrics.
 
 `1457_math_optimized.rs`: no comparable rival result establishes a ranking; admission follows its measured improvement over the simple source.
 
@@ -101,7 +101,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1457_math_optimized.java](1457_math_optimized.java) | Java 1.8 | math | O(N) | AC | 0.109 s | 412 KB | 11303608 |
-| [1457_math_optimized.py](1457_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.156 s | 248 KB | 11324843 |
+| [1457_math_optimized.py](1457_math_optimized.py) \* | Python 3.12 x64 | math | O(N) | AC | 0.062 s | 432 KB | 11328147 |
 | [1457_math_optimized.rs](1457_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.031 s | 88 KB | 11324854 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

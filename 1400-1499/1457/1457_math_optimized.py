@@ -1,10 +1,7 @@
-import os
-from sys import stdout
+from sys import stdin
 
-tokens = open(0, "rb", buffering=0).read().split()
-count = int(tokens[0])
-print("%.6f" % (sum(map(int, tokens[1 : count + 1])) / count))
-
-# The answer is flushed before interpreter teardown is skipped.
-stdout.flush()
-os._exit(0)
+numbers = list(map(int, stdin.buffer.read().split()))
+count = numbers[0]
+# The header contributes count to the list sum. Cancel it without copying the list.
+total = sum(numbers, -count)
+print(f"{total / count:.6f}")
