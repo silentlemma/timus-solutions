@@ -74,6 +74,12 @@ G++ 13.2 x64 №11321978 · Java 1.8 №11321972 · Python 3.12 x64 №11321979 
 
 ## Optimized solutions
 
+`2081_bitmask_optimized.java`. Keep the exact 60-bit masks of feasible minutes and seconds and greedy greatest-time-below-bound choice. Read the fixed-width dot/lit-cell displays directly as bytes, without reader, decoded strings or encoding conversions; format each result into six output bytes. All bitset feasibility and descending-time rules are unchanged. O(R) time for R bounded-size displays, O(R) output storage plus constant masks/input buffer. Retain the older bitmask implementation and the teaching solution.
+
+Exact-source Java 1.8 Accepted #11326954: 0.125 s / 464 KB. Saved current-Java comparison, 2026-11-20: time rank 10/17, memory rank 1/17. With memory below 1024 KB, strict admission uses time only.
+
+- `2081_bitmask_optimized.java`: 0.125 s / 464 KB; retained teaching base `2081_greedy.java`: 0.14 s / 2372 KB; time change -10.7%; memory change -80.4%.
+
 Bit masks represent feasible minute and second values separately. The highest set bit gives the largest value under the current bound. If the current minute has no feasible second, the algorithm takes the preceding feasible minute and its largest second.
 
 Go 1.14 x64, submission 11322015. Time 0.031 → 0.031 s, memory 1128 → 928 KB.
@@ -99,6 +105,7 @@ Rust maps each lit-cell pattern to a digit mask and selects the greatest time be
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [2081_bitmask.go](2081_bitmask.go) | Go 1.14 x64 | bitmask | O(n) | AC | 0.031 s | 928 KB | 11322015 |
+| [2081_bitmask_optimized.java](2081_bitmask_optimized.java) \* | Java 1.8 | bitmask | O(R) time; O(R) output space | AC | 0.125 s | 464 KB | 11326954 |
 | [2081_bitmask.java](2081_bitmask.java) \* | Java 1.8 | bitmask | O(n) | AC | 0.156 s | 536 KB | 11322017 |
 | [2081_bitmask.rs](2081_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(N) | AC | 0.046 s | 64 KB | 11323256 |
 

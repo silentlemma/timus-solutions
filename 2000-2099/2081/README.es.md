@@ -75,6 +75,12 @@ G++ 13.2 x64 №11321978 · Java 1.8 №11321972 · Python 3.12 x64 №11321979 
 
 ## Soluciones optimizadas
 
+`2081_bitmask_optimized.java`. Conserva máscaras exactas de 60 bits para minutos/segundos y la elección voraz del mayor tiempo bajo el límite. Lee pantallas de ancho fijo como bytes, sin reader, cadenas decodificadas ni recodificación; cada respuesta ocupa seis bytes. No cambian factibilidad ni orden decreciente. Para R pantallas: O(R) tiempo y salida O(R), máscaras/búfer constantes. Conserva la anterior implementación bitmask y la didáctica.
+
+Accepted de fuente exacto Java 1.8 #11326954: 0.125 s / 464 KB. Comparación guardada de Java actual, 2026-11-20: tiempo 10/17, memoria 1/17. Al usar menos de 1024 KB, la admisión estricta usa solo tiempo.
+
+- `2081_bitmask_optimized.java`: 0.125 s / 464 KB; base didáctica conservada `2081_greedy.java`: 0.14 s / 2372 KB; cambio de tiempo -10.7%; cambio de memoria -80.4%.
+
 Dos máscaras de bits representan por separado los minutos y los segundos posibles. El bit activo más alto da el mayor valor dentro del límite actual. Si el minuto actual no admite ningún segundo, se elige el minuto válido anterior y su mayor segundo.
 
 Go 1.14 x64, envío 11322015. Tiempo 0,031 → 0,031 s, memoria 1128 → 928 KB.
@@ -100,6 +106,7 @@ Rust asigna a cada patrón de celdas encendidas una máscara de dígitos y elige
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [2081_bitmask.go](2081_bitmask.go) | Go 1.14 x64 | bitmask | O(n) | AC | 0.031 s | 928 KB | 11322015 |
+| [2081_bitmask_optimized.java](2081_bitmask_optimized.java) \* | Java 1.8 | bitmask | O(R) time; O(R) output space | AC | 0.125 s | 464 KB | 11326954 |
 | [2081_bitmask.java](2081_bitmask.java) \* | Java 1.8 | bitmask | O(n) | AC | 0.156 s | 536 KB | 11322017 |
 | [2081_bitmask.rs](2081_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(N) | AC | 0.046 s | 64 KB | 11323256 |
 
