@@ -8,7 +8,8 @@ const double SURE = 1e-15;
 
 int main() {
     int n;
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1)
+        return 0;
     int m = n - 2;
     // done[i]: the chance that i rockets between two launched ones are all
     // launched within the volleys counted so far; a stretch of i rockets
@@ -25,10 +26,12 @@ int main() {
                 continue;
             }
             double sum = 0;
-            for (int l = 0; l < i; l++) sum += before[l] * before[i - 1 - l];
+            for (int l = 0; l < i; l++)
+                sum += before[l] * before[i - 1 - l];
             done[i] = sum / i;
         }
-        if (1 - done[m] < SURE) break;
+        if (1 - done[m] < SURE)
+            break;
     }
     printf("%.11f\n", SECONDS * volleys);
     return 0;

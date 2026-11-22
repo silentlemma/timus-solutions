@@ -19,7 +19,7 @@ def main():
         before = done
         done = [1.0] * (m + 1)
         for i in range(j + 1, m + 1):
-            done[i] = sum(map(mul, before[:i], before[i - 1::-1])) / i
+            done[i] = sum(map(mul, before[:i], before[i - 1 :: -1])) / i
         if 1 - done[m] < SURE:
             break
     print("%.11f" % (SECONDS * volleys))

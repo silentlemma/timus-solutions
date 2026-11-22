@@ -25,10 +25,12 @@ public class Main {
                     continue;
                 }
                 double sum = 0;
-                for (int l = 0; l < i; l++) sum += before[l] * before[i - 1 - l];
+                for (int l = 0; l < i; l++)
+                    sum += before[l] * before[i - 1 - l];
                 done[i] = sum / i;
             }
-            if (1 - done[m] < SURE) break;
+            if (1 - done[m] < SURE)
+                break;
         }
         System.out.println(String.format(Locale.US, "%.11f", SECONDS * volleys));
     }

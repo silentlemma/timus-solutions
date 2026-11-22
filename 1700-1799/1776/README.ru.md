@@ -87,10 +87,10 @@ done(i, j) = (1/i) · Σ done(l, j − 1) · done(i − 1 − l, j − 1).
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1776_dp.cpp](1776_dp.cpp) | G++ 13.2 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 216 KB | 11289720 |
+| [1776_dp.cpp](1776_dp.cpp) | G++ 13.2 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 192 KB | 11328299 |
 | [1776_dp.go](1776_dp.go) | Go 1.14 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.031 s | 1228 KB | 11289721 |
-| [1776_dp.java](1776_dp.java) | Java 1.8 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.125 s | 1932 KB | 11289725 |
-| [1776_dp.py](1776_dp.py) \* | Python 3.12 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.250 s | 1328 KB | 11289724 |
+| [1776_dp.java](1776_dp.java) | Java 1.8 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.14 s | 1932 KB | 11328301 |
+| [1776_dp.py](1776_dp.py) \* | Python 3.12 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.265 s | 1296 KB | 11328302 |
 | [1776_dp.rs](1776_dp.rs) | Rust 1.75 x64 | dp | O(m^2) per volley, a few dozen volleys | AC | 0.015 s | 240 KB | 11289726 |
 
 ### Оптимизированные
