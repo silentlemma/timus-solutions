@@ -109,11 +109,15 @@ Detalles a tener en cuenta:
 
 ## Soluciones optimizadas
 
-Ambas versiones empaquetan el índice del padre y la paridad de la arista en 16 bits. La paridad ocupa el bit inferior. C++ primero ordena y elimina las posiciones repetidas, luego busca sus índices por búsqueda binaria. Python asigna índices según se necesitan con una tabla hash y reconecta cada nodo visitado con su abuelo usando la paridad combinada. Las ecuaciones se comprueban en orden de entrada.
+`1003_dsu_hashing_optimized.py`. Mantiene DSU exacto de paridad, IDs de coordenadas al vuelo y compresión iterativa por abuelo. Padre/paridad siguen codificados como 2*parent+parity, ahora en una lista nativa en vez de shorts, evitando conversiones por acceso; los rangos siguen en bytearray. No cambian orden, primera contradicción ni consumo posterior. Trabajo esperado O(Q α(Q)) más entrada; estado O(Q) y lectura por líneas.
 
-El envío aceptado en Python 3.12 x64 tarda 0.109 s frente a 0.093 s de la base y usa 1 216 KB frente a 4388 KB.
+Accepted exacto CPython 3.12 #11326679: 0.062 s / 1040 KB. Comparación guardada 2026-11-20 con compiladores actuales de la familia: tiempo 3/35, memoria 1/35. Desde 1024 KB se exigen ambos criterios estrictos; pasan ambos.
 
-Las implementaciones base aceptadas [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
+- `1003_dsu_hashing_optimized.py`: 0.062 s / 1040 KB; base didáctica conservada `1003_dsu_hashing.py` (Python 3.12 x64): 0.093 s / 4388 KB; cambio de tiempo -33.3%; cambio de memoria -76.3%.
+
+Ambas codifican juntos padre y paridad. C++ usa entradas de 16 bits; el Python actual usa enteros normales en lista, no un arreglo de almacenamiento de 16 bits. La paridad ocupa el bit inferior. C++ primero ordena y elimina las posiciones repetidas, luego busca sus índices por búsqueda binaria. Python asigna índices según se necesitan con una tabla hash y reconecta cada nodo visitado con su abuelo usando la paridad combinada. Las ecuaciones se comprueban en orden de entrada.
+
+Las bases Accepted conservadas [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp), [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
 
 ## Notas por lenguaje
 
@@ -146,6 +150,6 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11310464 |
-| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) \* | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.109 s | 1216 KB | 11310465 |
+| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) \* | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
 
 \* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.

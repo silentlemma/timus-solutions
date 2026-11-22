@@ -1,4 +1,3 @@
-from array import array
 from sys import stdin
 
 END_OF_INPUT = -1
@@ -18,7 +17,7 @@ def find(links, node):
 
 def solve(tokens, count):
     ids = {}
-    links = array("H")
+    links = []
     ranks = bytearray()
     answer = count
 

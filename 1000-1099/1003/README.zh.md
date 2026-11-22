@@ -98,11 +98,15 @@
 
 ## 优化解法
 
-两个版本都把父节点编号和边的奇偶性打包到 16 位条目中，最低位保存奇偶性。C++ 先排序并去重所有前缀位置，再二分查找编号。Python 通过哈希表按需分配编号，遍历时把访问到的节点连到祖父，并合并两条边的奇偶性。方程按输入顺序检查。
+`1003_dsu_hashing_optimized.py`. 保留精确前缀奇偶 DSU、按需坐标编号和迭代奇偶路径折半。父节点与边奇偶仍编码为 2*parent+parity，但 Python 改用原生列表替代短整数数组，避免逐次取值转换；秩仍为 bytearray。输入顺序、首个矛盾和剩余语句消费均不变。DSU/哈希期望 O(Q α(Q)) 加输入，状态 O(Q)，逐行读取。
 
-通过评测的 Python 3.12 x64 版本耗时 0.109 秒，基础版为 0.093 秒，内存为 1 216 KB，基础版为 4388 KB。
+精确源代码 CPython 3.12 Accepted #11326679：0.062 s / 1040 KB。2026-11-20 保存的当前语言族编译器组比较：时间排名 3/35，内存排名 1/35。至少 1024 KB：两个严格指标均须通过，两项已通过。
 
-已通过评测的基础实现 [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+- `1003_dsu_hashing_optimized.py`: 0.062 s / 1040 KB; 保留的教学基础版 `1003_dsu_hashing.py` (Python 3.12 x64): 0.093 s / 4388 KB; 时间变化 -33.3%; 内存变化 -76.3%.
+
+两种版本都联合编码父节点与边奇偶性；C++ 使用 16 位条目，当前 Python 则用普通整数列表而非 16 位存储数组；最低位保存奇偶性。C++ 先排序并去重所有前缀位置，再二分查找编号。Python 通过哈希表按需分配编号，遍历时把访问到的节点连到祖父，并合并两条边的奇偶性。方程按输入顺序检查。
+
+保留的 Accepted 基础版 [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp), [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) 在保存比较中也通过所需指标的严格前十或前 15% 标准，直接复用而不复制源文件。保留其余教学版；星号表示单独的语言排名目标。
 
 ## 各语言说明
 
@@ -131,6 +135,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11310464 |
-| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) \* | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.109 s | 1216 KB | 11310465 |
+| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) \* | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。
