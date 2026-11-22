@@ -75,7 +75,7 @@ C++ 教学版按月、日、时、分的顺序为每个可能的分钟键分配�
 |---|---|---|---|---|---|---|---|
 | [2014_segment_tree.cpp](2014_segment_tree.cpp) | G++ 13.2 x64 | segment_tree | O(n log n) | AC | 0.140 s | 6820 KB | 11292513 |
 | [2014_segment_tree.go](2014_segment_tree.go) | Go 1.14 x64 | segment_tree | O(n log n) | AC | 0.093 s | 10724 KB | 11292514 |
-| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.250 s | 14608 KB | 11292516 |
+| [2014_segment_tree.java](2014_segment_tree.java) | Java 1.8 | segment_tree | O(n log n) | AC | 0.265 s | 14584 KB | 11328334 |
 | [2014_segment_tree.py](2014_segment_tree.py) | PyPy 3.10 x64 | segment_tree | O(n log n) | AC | 0.390 s | 21900 KB | 11295869 |
 | [2014_segment_tree.rs](2014_segment_tree.rs) | Rust 1.75 x64 | segment_tree | O(n log n) | AC | 0.046 s | 10268 KB | 11292518 |
 | [2014_segment_tree_prefix_sums.cpp](2014_segment_tree_prefix_sums.cpp) | G++ 13.2 x64 | segment_tree, prefix_sums | O(U + N log U) | AC | 0.14 s | 17048 KB | 11315932 |
