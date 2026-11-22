@@ -84,6 +84,16 @@ computed directly, on every test.
 
 ## Optimized solutions
 
+`1126_two_pointers_optimized.py`. Keep the monotone deque, but encode each entry as (value<<15)|index in one integer: N<=25000 makes 15 index bits sufficient. Integer ordering compares value first and then age, so an equal newer reading replaces the older one. Expire the head, remove dominated tails, and decode the maximum with >>15. Every reading enters and leaves at most once: O(N) amortized deque work, O(M) entries. A 4096-byte reader preserves partial tokens; output batches of 512 answers bound temporary storage. Raw writes and os._exit(0) inside main avoid normal teardown. The readable pair-based teaching source remains.
+
+Exact-source Python 3.12 x64 Accepted #11327503: 0.093 s / 1452 KB. Saved 2026-11-20 compiler-cohort comparison: time 2/54, memory 2/54. At 1024 KB or above strict admission requires both time and memory: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11326680 (Python 3.12 x64) was 0.109 s / 2152 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1126_two_pointers_optimized.py`: 0.093 s / 1452 KB; retained teaching base `1126_two_pointers.py`: 0.14 s / 3448 KB.
+
+Exact-source CPython 3.12 Accepted #11326680: 0.109 s / 2152 KB. Saved current-compiler comparison, 2026-11-20: time rank 6/54, memory rank 4/54. Both required metrics pass the strict top-ten or top-15% rule, with percentage cutoffs rounded up. The asterisk tracks Python's separate first-place target in both metrics.
+
+The previously documented optimized run #11303710 (Python 3.12 x64) recorded 0.125 s / 668 KB. The current CPython 3.12 run has lower recorded time and higher memory. These are separate paired judge measurements; interpreter choice and judge variability are part of the comparison. The 0.016 s difference from the previous optimized run is one timer tick; the saved rankings justify selection.
+
 The optimized solutions (C++, Java) do not store the readings: each one
 joins the deque together with its index as soon as it is read, and the
 maximum of a full window is printed at once. C++ reads with `getchar`;
@@ -92,10 +102,7 @@ Java parses a byte buffer by hand, keeps the deque in a ring buffer of
 through a byte buffer. C++: 224 KB instead of 776 KB, with the same
 time; Java: 0.109 s instead of 0.156 s and 624 KB instead of 2332 KB.
 
-The optimized Python and Rust solutions do not store the readings
-either: they keep only the window. Python keeps it in a circular buffer
-of two `array`s instead of a deque and writes the answers in batches of
-256 lines: 668 KB instead of 3448 KB, with the same time. Rust parses
+Rust parses
 the numbers by hand from a 4 KB buffer instead of reading the whole
 input into a string, and writes each answer through a buffered writer as
 soon as it is known: 332 KB instead of 1192 KB, with the same time.
@@ -123,8 +130,7 @@ soon as it is known: 332 KB instead of 1192 KB, with the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
 | [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
-| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) | AC | 0.125 s | 668 KB | 11303710 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
 | [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

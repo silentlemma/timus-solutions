@@ -85,6 +85,16 @@ directamente, en todas las pruebas.
 
 ## Soluciones optimizadas
 
+`1126_two_pointers_optimized.py`. Mantiene la deque monótona, codificando cada entrada como (value<<15)|index: con N<=25000 bastan 15 bits de índice. El orden entero compara primero valor y luego edad; una lectura igual más reciente sustituye a la antigua. Elimina la cabeza caducada y las colas dominadas, y obtiene el máximo con >>15. Cada entrada entra y sale una vez: O(N) amortizado y O(M) entradas. El lector de 4096 bytes conserva tokens parciales y escribe lotes de 512 respuestas. Las escrituras directas y os._exit(0) dentro de main evitan la limpieza normal. Conserva la base didáctica con parejas.
+
+Accepted exacto Python 3.12 x64 #11327503: 0.093 s / 1452 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 2/54, memoria 2/54. Con 1024 KB o más la admisión estricta exige tiempo y memoria: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11326680 (Python 3.12 x64) era 0.109 s / 2152 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1126_two_pointers_optimized.py`: 0.093 s / 1452 KB; base didáctica conservada `1126_two_pointers.py`: 0.14 s / 3448 KB.
+
+Accepted exacto CPython 3.12 #11326680: 0.109 s / 2152 KB. Comparación guardada 2026-11-20 de compiladores actuales: tiempo 6/54, memoria 4/54. Ambas métricas exigidas pasan diez primeros o 15% superior, redondeando el corte porcentual hacia arriba. El asterisco sigue la meta separada Python de primer puesto en ambas.
+
+El envío optimizado documentado antes #11303710 (Python 3.12 x64) registró 0.125 s / 668 KB. El actual CPython 3.12 registra menor tiempo y mayor memoria. Son medidas emparejadas de ejecuciones distintas; la comparación incluye elección de intérprete y variabilidad del juez. La diferencia de 0.016 s frente al optimizado anterior es un solo tic; la selección se justifica por las clasificaciones guardadas.
+
 Las soluciones optimizadas (C++, Java) no guardan las lecturas: cada una
 entra en la cola doble junto con su índice en cuanto se lee, y el máximo de
 una ventana completa se imprime enseguida. C++ lee con `getchar`; Java
@@ -94,10 +104,6 @@ través de un búfer de bytes. C++: 224 KB en lugar de 776 KB, con el
 mismo tiempo; Java: 0.109 s en lugar de 0.156 s y 624 KB en lugar de
 2332 KB.
 
-Las soluciones optimizadas en Python y Rust tampoco guardan las
-lecturas: solo mantienen la ventana. Python la guarda en un búfer
-circular de dos `array` en lugar de una deque y escribe las respuestas
-en lotes de 256 líneas: 668 KB en lugar de 3448 KB, con el mismo tiempo.
 Rust analiza los números a mano desde un búfer de 4 KB en lugar de leer
 toda la entrada en una cadena, y escribe cada respuesta por una salida
 con búfer en cuanto la conoce: 332 KB en lugar de 1192 KB, con el mismo
@@ -127,8 +133,7 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1126_two_pointers_optimized.cpp](1126_two_pointers_optimized.cpp) | G++ 13.2 x64 | two_pointers | O(N) | AC | 0.015 s | 224 KB | 11303561 |
 | [1126_two_pointers_optimized.java](1126_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(N) | AC | 0.109 s | 624 KB | 11303563 |
-| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) | AC | 0.125 s | 668 KB | 11303710 |
+| [1126_two_pointers_optimized.py](1126_two_pointers_optimized.py) \* | Python 3.12 x64 | two_pointers | O(N) amortized; O(M) deque + bounded buffers | AC | 0.093 s | 1452 KB | 11327503 |
 | [1126_two_pointers_optimized.rs](1126_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(N) | AC | 0.031 s | 332 KB | 11303711 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
