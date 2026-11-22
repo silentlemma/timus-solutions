@@ -70,15 +70,16 @@ random texts.
 
 ## Optimized solutions
 
+`1881_simulation_optimized.java`. Java keeps greedy whole-word wrapping. It counts token bytes directly in the shared 1024-byte input buffer, handling words across refills and the final EOF without allocating word strings. Keep only the occupied width and number of lines; a word that does not fit starts the next line, and the page count is ceil(lines/height). Raw integer output uses fixed buffers. For B input bytes, time O(B) and auxiliary space O(1); no word array or joined text is stored. Independent checks rendered actual lines and covered exact fits, long words, buffer boundaries and a missing final newline.
+
+Exact-source Java 1.8 Accepted #11327457: 0.109 s / 356 KB. Saved 2026-11-20 compiler-cohort comparison: time 21/202, memory 1/202. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. The asterisk remains for the separate language target of first place in both metrics. The previously documented optimized run #11303783 was 0.125 s / 408 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1881_simulation_optimized.java`: 0.109 s / 356 KB; retained teaching base `1881_simulation.java`: 0.109 s / 1336 KB.
+
 The optimized C++ solution never stores a word: it reads each word
 character by character with `getchar` and keeps only its length, which
 is all the line breaking needs. It takes 128 KB instead of 404 KB, with
 the same time.
-
-The optimized Java solution reads the input in 1 KB blocks and only
-measures each word, byte by byte, instead of joining the lines and
-splitting them into strings: 408 KB instead of 1336 KB, with the same
-time.
 
 Consume the words line by line and use only their lengths when fitting them onto pages. Accepted submission 11303784 took 0.093 s and used 488 KB. The simple version took 0.078 s and used 656 KB. The recorded runtime is higher than for the simple version.
 
@@ -99,8 +100,7 @@ Consume the words line by line and use only their lengths when fitting them onto
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
-| [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 408 KB | 11303783 |
+| [1881_simulation_optimized.java](1881_simulation_optimized.java) \* | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
 | [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
 
-\* Not in the top 10 or the top 15% of the solutions in its language on
-the current judge; it may be optimized further.
+\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.

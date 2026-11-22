@@ -1,58 +1,88 @@
 public class Main {
-    private static final int BUFFER_SIZE = 1024;
-    private static final byte[] buffer = new byte[BUFFER_SIZE];
-    private static int position;
-    private static int available;
 
-    // the input is read in 1 KB blocks and each word is only measured, byte by
-    // byte, instead of joining the lines and splitting them into strings
-    private static int read() throws java.io.IOException {
+    static final int INPUT_SIZE = 1024, OUTPUT_SIZE = 1024, DIGITS = 10, DECIMAL = 10;
+    static final byte[] input = new byte[INPUT_SIZE], output = new byte[OUTPUT_SIZE],
+                        digits = new byte[DIGITS];
+    static int position, available, used;
+    static int read() throws java.io.IOException {
         if (position == available) {
-            available = System.in.read(buffer);
+            available = System.in.read(input);
             position = 0;
-            if (available < 0) {
+            if (available < 0)
                 return -1;
-            }
         }
-        return buffer[position++];
+        return input[position++];
     }
-
-    private static int nextInt() throws java.io.IOException {
-        int ch;
-        do {
-            ch = read();
-        } while (ch <= ' ' && ch >= 0);
+    static int nextInt() throws java.io.IOException {
+        int c = read();
+        while (c >= 0 && c <= ' ')
+            c = read();
+        boolean negative = c == '-';
+        if (negative)
+            c = read();
         int value = 0;
-        while (ch >= '0' && ch <= '9') {
-            value = value * 10 + ch - '0';
-            ch = read();
+        while (c >= '0' && c <= '9') {
+            value = value * DECIMAL + c - '0';
+            c = read();
         }
-        return value;
+        return negative ? -value : value;
+    }
+    static void write(int c) {
+        if (used == output.length) {
+            System.out.write(output, 0, used);
+            used = 0;
+        }
+        output[used++] = (byte)c;
+    }
+    static void number(int value) {
+        if (value < 0) {
+            write('-');
+            value = -value;
+        }
+        int length = 0;
+        do {
+            digits[length++] = (byte)('0' + value % DECIMAL);
+            value /= DECIMAL;
+        } while (value != 0);
+        while (length > 0)
+            write(digits[--length]);
+    }
+    static void finish() { System.out.write(output, 0, used); }
+
+    static void text(String value) {
+        for (int i = 0; i < value.length(); i++)
+            write(value.charAt(i));
     }
 
-    public static void main(String[] args) throws java.io.IOException {
-        int height = nextInt();
-        int width = nextInt();
-        int count = nextInt();
-        int lines = 1;
-        int used = -1;
-        for (int i = 0; i < count; ++i) {
-            int ch;
-            do {
-                ch = read();
-            } while (ch <= ' ' && ch >= 0);
-            int length = 0;
-            while (ch > ' ') {
-                ++length;
-                ch = read();
+    static int nextLength() throws java.io.IOException {
+        int length = 0;
+        for (;;) {
+            if (position == available) {
+                available = System.in.read(input);
+                position = 0;
+                if (available < 0)
+                    return length;
             }
-            // a word after another one on the line needs a space before it
+            if (input[position++] <= ' ') {
+                if (length != 0)
+                    return length;
+            } else {
+                length++;
+            }
+        }
+    }
+    public static void main(String[] args) throws java.io.IOException {
+        int height = nextInt(), width = nextInt(), count = nextInt(), lines = 1, used = -1;
+        for (int i = 0; i < count; i++) {
+            int length = nextLength();
             if (used + 1 + length > width) {
-                ++lines;
+                lines++;
                 used = -1;
             }
             used += 1 + length;
         }
-        System.out.println((lines + height - 1) / height);
+        number((lines + height - 1) / height);
+        write('\n');
+        finish();
     }
 }

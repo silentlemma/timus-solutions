@@ -72,14 +72,16 @@ en 100 textos aleatorios.
 
 ## Soluciones optimizadas
 
+`1881_simulation_optimized.java`. Java mantiene el ajuste voraz de palabras completas. Cuenta sus bytes directamente en el búfer compartido de entrada de 1024 bytes, incluso al cruzar recargas y llegar al EOF, sin crear cadenas por palabra. Conserva solo el ancho ocupado y el número de líneas; una palabra que no cabe inicia otra línea y las páginas son ceil(lines/height). Emite el entero mediante búferes fijos. Para B bytes de entrada, tiempo O(B) y espacio auxiliar O(1); no almacena un arreglo de palabras ni texto unido. Las comprobaciones independientes construyeron líneas reales e incluyeron ajustes exactos, palabras largas, límites del búfer y ausencia del salto de línea final.
+
+Accepted exacto Java 1.8 #11327457: 0.109 s / 356 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 21/202, memoria 1/202. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Conserva el asterisco por la meta propia del lenguaje: primer puesto en ambas métricas. El registro optimizado documentado antes #11303783 era 0.125 s / 408 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1881_simulation_optimized.java`: 0.109 s / 356 KB; base didáctica conservada `1881_simulation.java`: 0.109 s / 1336 KB.
+
 La solución optimizada en C++ nunca guarda una palabra: lee cada palabra
 carácter a carácter con `getchar` y conserva solo su longitud, que es
 todo lo que necesita el reparto en líneas. Ocupa 128 KB en lugar de
 404 KB, con el mismo tiempo.
-
-La solución optimizada en Java lee la entrada en bloques de 1 KB y solo
-mide cada palabra, byte a byte, en lugar de unir las líneas y dividirlas
-en cadenas: 408 KB en lugar de 1336 KB, con el mismo tiempo.
 
 Leer las palabras por líneas y usar solo sus longitudes para distribuirlas en páginas. El envío aceptado 11303784 tardó 0.093 s y usó 488 KB. La versión sencilla tardó 0.078 s y usó 656 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
@@ -100,8 +102,7 @@ Leer las palabras por líneas y usar solo sus longitudes para distribuirlas en p
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
-| [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(n) | AC | 0.125 s | 408 KB | 11303783 |
+| [1881_simulation_optimized.java](1881_simulation_optimized.java) \* | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
 | [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
 
-\* No está entre las 10 mejores ni en el 15% mejor de las soluciones de
-su lenguaje en el juez actual; quizá se pueda optimizar más.
+\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
