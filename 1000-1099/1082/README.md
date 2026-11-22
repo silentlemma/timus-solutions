@@ -72,11 +72,11 @@ the count.
 
 ## Optimized solutions
 
-The optimized Java solution reads `N` byte by byte from `System.in`
-instead of creating a `Scanner`, whose regular expressions and locale
-data cost more than printing a thousand numbers; the output is built in
-one `StringBuilder`, as in the simple solution:
-{1082_constructive_optimized.java}.
+`1082_constructive_optimized.java`. Keep the ascending 1..N construction that produces the required quicksort worst case. Emit each integer through a reusable digit array and a 4096-byte output buffer rather than building the complete StringBuilder. Work is proportional to the number of emitted digits, O(N log N); auxiliary output storage is fixed. The constructive argument and teaching source remain.
+
+Exact-source Java 1.8 Accepted #11327337: 0.078 s / 336 KB. Saved 2026-11-20 compiler-cohort comparison: time 1/165, memory 1/165. Below 1024 KB strict admission uses time only: top ten or top 15%, with ties sharing a rank and percentile cutoff rounded up. Both metrics rank first, so the separate language target also passes; no asterisk. The previously documented optimized run #11304423 was 0.109 s / 364 KB; that is a separate historical pair, not this source's current measurement. Teaching sources remain unchanged.
+
+- `1082_constructive_optimized.java`: 0.078 s / 336 KB; retained teaching base `1082_constructive.java`: 0.093 s / 1592 KB.
 
 The Python version writes the same sorted sequence in batches of at most 128 numbers, limiting the size of each temporary string.
 
@@ -84,8 +84,6 @@ The Python version writes the same sorted sequence in batches of at most 128 num
 
 Each optimized version has Accepted and qualifies by ranking or by a reduction of at least 30% in time or memory against the base version. The base sources are retained. The asterisk concerns the rating target only.
 
-- `1082_constructive_optimized.java`: time reduction -17.20%; memory
-  reduction +77.14%; base: `1082_constructive.java`.
 - `1082_constructive_optimized.py` uses 440 KB versus 452 KB for the base, and takes 0.078 s instead of 0.062 s. In the 2026-11-16 ranking for current Python/PyPy interpreters it places 4th by time and 12th by memory out of 45. It qualifies by top 30% on both metrics and improves the base's 15th place in memory.
 
 ## Language notes
@@ -115,7 +113,7 @@ implementation for these languages.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1082_constructive_optimized.java](1082_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11304423 |
+| [1082_constructive_optimized.java](1082_constructive_optimized.java) | Java 1.8 | constructive | O(N log N) time; O(1) auxiliary space | AC | 0.078 s | 336 KB | 11327337 |
 | [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
 
 \* Accepted; the rating target is not yet met. This version may be optimized further.

@@ -62,9 +62,11 @@
 
 ## 优化解法
 
-优化的 Java 解法直接从 `System.in` 逐字节读入 `N`，而不是创建 `Scanner`，后者的
-正则表达式和区域设置数据比输出一千个数还费资源；输出与简单解法一样在一个
-`StringBuilder` 中拼好：{1082_constructive_optimized.java}。
+`1082_constructive_optimized.java`. 保留使快速排序达到所需最坏情形的递增 1..N 构造。用复用数位数组和 4096 字节输出缓冲逐数输出，不建立完整 StringBuilder。工作量与输出数位数成正比，O(N log N)；辅助输出空间固定。保留构造证明和教学源代码。
+
+精确源代码 Java 1.8 Accepted #11327337：0.078 s / 336 KB。2026-11-20 保存的编译器组比较：时间 1/165、内存 1/165。低于 1024 KB 时严格收录只看时间：前十或前 15%，相同指标共享名次，百分比名额向上取整。两项均第一，也满足单独语言目标，无需星号。此前记录的优化运行 #11304423 为 0.109 s / 364 KB，是独立历史指标对，并非本源代码的当前测量。保留教学版不变。
+
+- `1082_constructive_optimized.java`: 0.078 s / 336 KB; 保留教学基础版 `1082_constructive.java`: 0.093 s / 1592 KB.
 
 Python 优化版输出同一有序序列，每批最多 128 个数，从而限制临时字符串的大小。
 
@@ -72,7 +74,6 @@ Python 优化版输出同一有序序列，每批最多 128 个数，从而限�
 
 每个优化版本均已获 Accepted，并且符合排名条件，或相对基础版本减少至少 30% 的时间或内存。基础源代码均保留。星号只表示尚未达到排名目标。
 
-- `1082_constructive_optimized.java`: 时间降低 -17.20%; 内存降低 +77.14%; 基础版本: `1082_constructive.java`.
 - `1082_constructive_optimized.py` 使用 440 KB，基础版本使用 452 KB；用时从 0.062 秒增至 0.078 秒。在 2026 年 11 月 16 日的现行 Python/PyPy 解释器排名中，45 个结果中时间排第 4，内存排第 12。两项均进入前 30%，且内存排名优于基础版本的第 15 名。
 
 ## 各语言说明
@@ -99,7 +100,7 @@ Python 优化版输出同一有序序列，每批最多 128 个数，从而限�
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1082_constructive_optimized.java](1082_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11304423 |
+| [1082_constructive_optimized.java](1082_constructive_optimized.java) | Java 1.8 | constructive | O(N log N) time; O(1) auxiliary space | AC | 0.078 s | 336 KB | 11327337 |
 | [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
 
 \* 已接受；尚未达到排名目标，此版本仍可继续优化。

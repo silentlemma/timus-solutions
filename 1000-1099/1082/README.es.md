@@ -74,11 +74,11 @@ cuenta.
 
 ## Soluciones optimizadas
 
-La solución optimizada en Java lee `N` byte a byte de `System.in` en
-lugar de crear un `Scanner`, cuyas expresiones regulares y datos de
-configuración regional cuestan más que imprimir mil números; la salida
-se arma en un solo `StringBuilder`, como en la solución simple:
-{1082_constructive_optimized.java}.
+`1082_constructive_optimized.java`. Conserva la construcción ascendente 1..N para el peor caso exigido de quicksort. Emite cada entero con un arreglo de dígitos reutilizado y búfer de 4096 bytes, sin construir todo el StringBuilder. Trabajo proporcional a los dígitos emitidos, O(N log N), y espacio auxiliar fijo. Conserva el argumento constructivo y la base didáctica.
+
+Accepted exacto Java 1.8 #11327337: 0.078 s / 336 KB. Comparación guardada del grupo de compiladores del 2026-11-20: tiempo 1/165, memoria 1/165. Bajo 1024 KB la admisión estricta solo usa tiempo: diez primeros o 15% superior, con empates compartidos y corte porcentual redondeado hacia arriba. Ambas métricas son primeras; cumple también la meta propia del lenguaje, sin asterisco. El registro optimizado documentado antes #11304423 era 0.109 s / 364 KB; es un par histórico distinto, no la medición actual de este fuente. Las bases didácticas permanecen intactas.
+
+- `1082_constructive_optimized.java`: 0.078 s / 336 KB; base didáctica conservada `1082_constructive.java`: 0.093 s / 1592 KB.
 
 La versión de Python imprime la misma secuencia ordenada en bloques de hasta 128 números para limitar el tamaño de cada cadena temporal.
 
@@ -86,8 +86,6 @@ La versión de Python imprime la misma secuencia ordenada en bloques de hasta 12
 
 Cada versión optimizada obtuvo Accepted y satisface el criterio de clasificación o reduce al menos un 30% el tiempo o la memoria frente a la versión básica. Se conservan los fuentes básicos. El asterisco solo se refiere al objetivo de clasificación.
 
-- `1082_constructive_optimized.java`: reducción de tiempo -17.20%;
-  reducción de memoria +77.14%; base: `1082_constructive.java`.
 - `1082_constructive_optimized.py` usa 440 KB frente a los 452 KB de la versión básica y tarda 0.078 s en lugar de 0.062 s. En la clasificación del 16 de noviembre de 2026 para los intérpretes vigentes de Python/PyPy ocupa el puesto 4 por tiempo y el 12 por memoria, de 45. Está entre el 30% superior en ambas métricas y mejora el puesto 15 de la versión básica en memoria.
 
 ## Notas por lenguaje
@@ -117,7 +115,7 @@ implementación para alcanzar el objetivo.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1082_constructive_optimized.java](1082_constructive_optimized.java) \* | Java 1.8 | constructive | O(N) | AC | 0.109 s | 364 KB | 11304423 |
+| [1082_constructive_optimized.java](1082_constructive_optimized.java) | Java 1.8 | constructive | O(N log N) time; O(1) auxiliary space | AC | 0.078 s | 336 KB | 11327337 |
 | [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
 
 \* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
