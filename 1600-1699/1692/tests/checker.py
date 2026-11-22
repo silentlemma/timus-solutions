@@ -23,7 +23,7 @@ def check(source, expected, output):
         if pos >= len(words):
             raise Bad("too few numbers")
         size = words[pos]
-        flag = words[pos + 1:pos + 1 + size]
+        flag = words[pos + 1 : pos + 1 + size]
         pos += 1 + size
         if size < 1 or len(flag) != size or len(set(flag)) != size:
             raise Bad("a flag needs distinct colors")

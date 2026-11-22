@@ -74,7 +74,7 @@ Go и Rust формируют каждый флаг сразу по номера
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 232 KB | 11288948 |
+| [1692_constructive.cpp](1692_constructive.cpp) | G++ 13.2 x64 | constructive | O(n) | AC | 0.015 s | 208 KB | 11328290 |
 | [1692_constructive.go](1692_constructive.go) | Go 1.14 x64 | constructive | O(n) | AC | 0.046 s | 1152 KB | 11288949 |
 | [1692_constructive.java](1692_constructive.java) \* | Java 1.8 | constructive | O(n) | AC | 0.125 s | 1796 KB | 11288952 |
 | [1692_constructive.py](1692_constructive.py) \* | Python 3.12 x64 | constructive | O(n) | AC | 0.078 s | 464 KB | 11288950 |

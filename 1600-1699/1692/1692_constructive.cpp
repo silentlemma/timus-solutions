@@ -20,7 +20,7 @@ int main() {
         }
     }
     printf("%d\n", k);
-    for (const auto& flag : flags) {
+    for (const auto &flag : flags) {
         printf("%d", (int)flag.size());
         for (int c : flag) {
             printf(" %d", c);
