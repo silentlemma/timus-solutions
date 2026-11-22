@@ -69,11 +69,15 @@ independiente.
 
 ## Soluciones optimizadas
 
+`1876_math_optimized.py`. Conserva max(2*b+40, 2*a+39). Lee ambos enteros desde entrada binaria dentro de main, sin input() ni cambiar la fórmula. Estado aritmético O(1); leer y dividir L bytes cuesta O(L) tiempo/espacio. Conserva la fórmula didáctica.
+
+Reutiliza el fuente histórico exacto CPython 3.12 Accepted #11302133: 0.078 s / 404 KB. En el grupo comparable guardado el 2026-11-20: tiempo 1/114, memoria 48/114. Bajo 1024 KB, admisión estricta solo por tiempo, superada. El asterisco sigue la meta separada del lenguaje. Son medidas emparejadas de este fuente, no nuevo envío ni garantía portátil. Usa finalización normal del intérprete.
+
+- `1876_math_optimized.py`: 0.078 s / 404 KB; base didáctica conservada `1876_math.py` (Python 3.12 x64): 0.093 s / 376 KB. Ambas medidas de la base quedan explícitas aunque una aumente.
+
 La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.109 s en lugar de 0.140 s y
 412 KB en lugar de 1600 KB.
-
-Seleccionar la cota mayor comparando directamente ambos recuentos. El envío aceptado 11324293 tardó 0.125 s y usó 260 KB. La versión sencilla tardó 0.093 s y usó 376 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
 ## Soluciones
 
@@ -92,6 +96,6 @@ Seleccionar la cota mayor comparando directamente ambos recuentos. El envío ace
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
-| [1876_math_optimized.py](1876_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 260 KB | 11324293 |
+| [1876_math_optimized.py](1876_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
 
 \* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.

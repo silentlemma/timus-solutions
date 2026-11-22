@@ -1,4 +1,14 @@
+import sys
+
 LEGS = 40
 
-left, right = map(int, input().split())
-print(LEGS + (2 * left - 1 if left > right else 2 * right))
+
+def main():
+    a, b = map(int, sys.stdin.buffer.read().split())
+    # either every right slipper turns up while the left legs are dressed,
+    # or 39 rights do, and then every spare left slipper is thrown away
+    # before the last right leg is dressed
+    print(max(2 * b + LEGS, 2 * a + LEGS - 1))
+
+
+main()

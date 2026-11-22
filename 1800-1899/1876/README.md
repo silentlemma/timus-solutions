@@ -66,11 +66,15 @@ for all inputs, and with an independent accepted implementation.
 
 ## Optimized solutions
 
+`1876_math_optimized.py`. Keep max(2*b+40, 2*a+39). Read the two numbers as binary input inside main instead of input(), without changing the formula. Arithmetic state is O(1); reading and splitting L input bytes takes O(L) time and storage. The teaching formula remains.
+
+Reused exact historical CPython 3.12 Accepted #11302133: 0.078 s / 404 KB. In the saved 2026-11-20 comparable compiler cohort: time rank 1/114, memory rank 48/114. Below 1024 KB, strict admission uses time only and passes. The asterisk follows the separate language rating target. These are paired measurements of this source, not a new submission or a guaranteed portable speedup. This version uses normal interpreter exit.
+
+- `1876_math_optimized.py`: 0.078 s / 404 KB; retained teaching base `1876_math.py` (Python 3.12 x64): 0.093 s / 376 KB. Both base time and memory remain documented even where one metric increases.
+
 The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.109 s instead of 0.140 s and
 412 KB instead of 1600 KB.
-
-Select the larger bound by comparing the two counts directly. Accepted submission 11324293 took 0.125 s and used 260 KB. The simple version took 0.093 s and used 376 KB. The recorded runtime is higher than for the simple version.
 
 ## Solutions
 
@@ -89,6 +93,6 @@ Select the larger bound by comparing the two counts directly. Accepted submissio
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
-| [1876_math_optimized.py](1876_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 260 KB | 11324293 |
+| [1876_math_optimized.py](1876_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
 
 \* The marked solutions can improve their target rankings.
