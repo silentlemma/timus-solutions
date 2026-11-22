@@ -88,9 +88,15 @@ MAYBE
 
 ## 优化解法
 
+`1350_bitmask_implementation.java`. 独立位集版本为每位学生以 64 位字保存菜单中的危险产品。开放寻址表在冲突后逐字符精确比较；复用 40 字符 token 缓冲，不为每次出现创建 String，只保留菜单姓名。忽略非菜单项，OR 消除重复。Long.bitCount 统计每人危险集合中不属于学生零危险集合的菜单项，再用相同 YES/NO/MAYBE 判定。P 个不同菜单项、K 位其他学生、W=ceil(P/64)、I 输入字节且名字长度有界时，期望时间 O(I+KW+P)，状态空间 O(P+KW+K)。冲突只影响时间，不影响正确性；保留两种原实现。
+
+精确源代码 Java 1.8 Accepted #11326945：0.109 s / 448 KB。2026-11-20 保存的当前 Java 比较：时间排名 6/29，内存排名 1/29。内存低于 1024 KB，严格收录只看时间。
+
+- `1350_bitmask_implementation.java`: 0.109 s / 448 KB; 保留的教学基础版 `1350_implementation.java`: 0.14 s / 6524 KB; 时间变化 -22.1%; 内存变化 -93.1%.
+
 紧凑版本为菜单上的每种食物分配索引。C++ 和 Rust 在排序数组中查找索引，Go 使用哈希表。Rust 复用同一缓冲区读取每个输入词。数组记录最后提到每种食物的学生，因此同一份名单中的重复名称只计一次。排除第一位学生的危险食物后，只保留每位其他学生的危险且可能入餐的食物数量。读到餐中食物种类数后，这些计数就足够了。
 
-已通过评测的基础实现 [1350_implementation.java](1350_implementation.java), [1350_implementation.py](1350_implementation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
+保留的 Accepted 基础版 [1350_implementation.go](1350_implementation.go) 和 [1350_implementation.py](1350_implementation.py) 在保存的比较中也通过严格前十或前 15% 标准；其时间/内存名次分别为 2/2 和 3/15。Java 教学基础版时间 16/29、内存 27/29，不满足严格快速集合覆盖；上面的独立 Java 位集版本满足。直接复用基础文件，不创建相同副本；星号仍表示单独的语言排名目标。
 
 `1350_implementation_optimized.java`. Java 保留简单版本所述的算法和数据结构。固定字节缓冲区与 FastInput 替代 Scanner 及其正则表达式、区域设置处理。整数记号直接解析；需要字符串时仍进行 UTF-8 解码，十进制记号仍显式转换为数值。仅在需要前瞻时保存一个记号，输出算法不变。这样减少通用解析开销；表中列出算法工作量，输入扫描与字节数成正比，并使用有界输入缓冲区。
 
@@ -121,6 +127,7 @@ MAYBE
 | [1350_implementation_optimized.cpp](1350_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 424 KB | 11310451 |
 | [1350_implementation_optimized.go](1350_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(N·K) expected | AC | 0.031 s | 944 KB | 11310453 |
 | [1350_implementation_optimized.rs](1350_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(N·K·log N) | AC | 0.015 s | 192 KB | 11310869 |
+| [1350_bitmask_implementation.java](1350_bitmask_implementation.java) \* | Java 1.8 | bitmask, implementation | Expected O(I+KW+P) time; O(P+KW+K) space | AC | 0.109 s | 448 KB | 11326945 |
 | [1350_implementation_optimized.java](1350_implementation_optimized.java) \* | Java 1.8 | implementation | O(N·K) | AC | 0.125 s | 3484 KB | 11324808 |
 
 \* Accepted；尚未达到排名目标，该版本仍有优化空间。
