@@ -91,6 +91,14 @@ C++ 和 Go 保存原串与反串，精确比较镜像的两半，并统计相邻
 
 已通过评测的基础实现 [1989_strings.java](1989_strings.java), [1989_strings.rs](1989_strings.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1989_hashing_strings_optimized.rs`. 在线段树中维护每个 64 字符块的正反多项式哈希。不等即可证明 No；相等时必须比较真实镜像字节或使用当前版本的精确区间证明。无更新阶段累积足够扫描后构建 Manacher 半径。真实修改使证明和半径失效，相同字符赋值则保留。哈希碰撞不影响答案，最坏时间仍为 O(nm)，不声称概率性对数保证。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11329033 (Rust 1.75 x64): **0.046 s / 1308 KB**. 历史对照: `1989_strings.rs` (Rust 1.75 x64) — 0.281 s / 5200 KB (#11292377).
+
 ## 解答
 
 ### 简单版本
@@ -99,9 +107,9 @@ C++ 和 Go 保存原串与反串，精确比较镜像的两半，并统计相邻
 |---|---|---|---|---|---|---|---|
 | [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB | 11292373 |
 | [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB | 11292374 |
-| [1989_strings.java](1989_strings.java) \* | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
+| [1989_strings.java](1989_strings.java) | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
 | [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB | 11292375 |
-| [1989_strings.rs](1989_strings.rs) \* | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
+| [1989_strings.rs](1989_strings.rs) | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
 
 ### 优化版本
 
@@ -109,7 +117,8 @@ C++ 和 Go 保存原串与反串，精确比较镜像的两半，并统计相邻
 |---|---|---|---|---|---|---|---|
 | [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
 | [1989_hashing_strings.cpp](1989_hashing_strings.cpp) | G++ 13.2 x64 | hashing, strings | O(N+MN) conservative worst case; O(N) storage | AC | 0.031 s | 516 KB | 11327841 |
-| [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
-| [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_strings_optimized.go](1989_strings_optimized.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
+| [1989_fenwick.py](1989_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_hashing_strings_optimized.rs](1989_hashing_strings_optimized.rs) | Rust 1.75 x64 | hashing, strings | O(nm) worst-case time; O(n+m) space | AC | 0.046 s | 1308 KB | 11329033 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -154,6 +154,14 @@ El envío aceptado en PyPy 3.10 x64 tarda 0.234 s frente a 0.500 s de la base y 
 
 Las implementaciones base aceptadas [1989_strings.java](1989_strings.java), [1989_strings.rs](1989_strings.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1989_hashing_strings_optimized.rs`. Un árbol de segmentos mantiene hashes polinómicos directos e inversos de bloques de 64 caracteres. La desigualdad demuestra No; la igualdad exige comparar los bytes reflejados o un certificado exacto del intervalo y versión. Tras suficientes recorridos sin cambios se calculan radios de Manacher. Un cambio real invalida certificados y radios; asignar el mismo carácter los conserva. Las colisiones no alteran respuestas; el peor caso sigue siendo O(nm), sin prometer una cota logarítmica probabilística. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11329033 (Rust 1.75 x64): **0.046 s / 1308 KB**. Comparación archivada: `1989_strings.rs` (Rust 1.75 x64) — 0.281 s / 5200 KB (#11292377).
+
 ## Soluciones
 
 ### Sencillas
@@ -162,9 +170,9 @@ Las implementaciones base aceptadas [1989_strings.java](1989_strings.java), [198
 |---|---|---|---|---|---|---|---|
 | [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB | 11292373 |
 | [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB | 11292374 |
-| [1989_strings.java](1989_strings.java) \* | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
+| [1989_strings.java](1989_strings.java) | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
 | [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB | 11292375 |
-| [1989_strings.rs](1989_strings.rs) \* | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
+| [1989_strings.rs](1989_strings.rs) | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
 
 ### Optimizadas
 
@@ -172,7 +180,8 @@ Las implementaciones base aceptadas [1989_strings.java](1989_strings.java), [198
 |---|---|---|---|---|---|---|---|
 | [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
 | [1989_hashing_strings.cpp](1989_hashing_strings.cpp) | G++ 13.2 x64 | hashing, strings | O(N+MN) conservative worst case; O(N) storage | AC | 0.031 s | 516 KB | 11327841 |
-| [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
-| [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_strings_optimized.go](1989_strings_optimized.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
+| [1989_fenwick.py](1989_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_hashing_strings_optimized.rs](1989_hashing_strings_optimized.rs) | Rust 1.75 x64 | hashing, strings | O(nm) worst-case time; O(n+m) space | AC | 0.046 s | 1308 KB | 11329033 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

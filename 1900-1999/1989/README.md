@@ -156,6 +156,14 @@ The accepted PyPy 3.10 x64 run takes 0.234 s versus 0.500 s for the base and use
 
 The accepted base implementations [1989_strings.java](1989_strings.java), [1989_strings.rs](1989_strings.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1989_hashing_strings_optimized.rs`. Maintain forward/reverse polynomial hashes of 64-character blocks in a segment tree. Unequal hashes prove No; equality always falls back to exact mirrored bytes or an exact versioned interval certificate. After enough exact scans in an unchanged epoch, build Manacher radii. Real changes invalidate certificates/radii; no-op assignments retain them. Hash collisions cannot change an answer. Worst-case time remains O(nm), rather than a claimed probabilistic logarithmic guarantee. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11329033 (Rust 1.75 x64): **0.046 s / 1308 KB**. Archived comparison: `1989_strings.rs` (Rust 1.75 x64) — 0.281 s / 5200 KB (#11292377).
+
 ## Solutions
 
 ### Simple
@@ -164,9 +172,9 @@ The accepted base implementations [1989_strings.java](1989_strings.java), [1989_
 |---|---|---|---|---|---|---|---|
 | [1989_strings.cpp](1989_strings.cpp) | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.375 s | 1560 KB | 11292373 |
 | [1989_strings.go](1989_strings.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.265 s | 10216 KB | 11292374 |
-| [1989_strings.java](1989_strings.java) \* | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
+| [1989_strings.java](1989_strings.java) | Java 1.8 | strings | O(n+m log n) | AC | 0.14 s | 10412 KB | 11328328 |
 | [1989_strings.py](1989_strings.py) | Python 3.12 x64 | strings | O(n+m+L) | AC | 0.500 s | 9896 KB | 11292375 |
-| [1989_strings.rs](1989_strings.rs) \* | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
+| [1989_strings.rs](1989_strings.rs) | Rust 1.75 x64 | strings | O(n+m+L) | AC | 0.281 s | 5200 KB | 11292377 |
 
 ### Optimized
 
@@ -174,7 +182,8 @@ The accepted base implementations [1989_strings.java](1989_strings.java), [1989_
 |---|---|---|---|---|---|---|---|
 | [1989_strings_optimized.cpp](1989_strings_optimized.cpp) \* | G++ 13.2 x64 | strings | O(n+m+L) | AC | 0.281 s | 280 KB | 11310441 |
 | [1989_hashing_strings.cpp](1989_hashing_strings.cpp) | G++ 13.2 x64 | hashing, strings | O(N+MN) conservative worst case; O(N) storage | AC | 0.031 s | 516 KB | 11327841 |
-| [1989_strings_optimized.go](1989_strings_optimized.go) \* | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
-| [1989_fenwick.py](1989_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_strings_optimized.go](1989_strings_optimized.go) | Go 1.14 x64 | strings | O(n+m+L) | AC | 0.281 s | 1364 KB | 11310442 |
+| [1989_fenwick.py](1989_fenwick.py) | PyPy 3.10 x64 | fenwick | O(n + m log n) | AC | 0.234 s | 11204 KB | 11311248 |
+| [1989_hashing_strings_optimized.rs](1989_hashing_strings_optimized.rs) | Rust 1.75 x64 | hashing, strings | O(nm) worst-case time; O(n+m) space | AC | 0.046 s | 1308 KB | 11329033 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
