@@ -80,6 +80,14 @@ El envío aceptado en Rust 1.75 x64 tarda 0.046 s frente a 0.015 s de la base y 
 
 Las implementaciones base aceptadas [1189_math.cpp](1189_math.cpp), [1189_math.java](1189_math.java), [1189_math.py](1189_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1189_math_optimized.py`. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328517 (Python 3.12 x64): **0.078 s / 736 KB**. Comparación archivada: `1189_math.py` (Python 3.12 x64) — 0.093 s / 448 KB (#11283427).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -96,14 +104,15 @@ Estas notas describen las implementaciones sencillas.
 | [1189_math.cpp](1189_math.cpp) | G++ 13.2 x64 | math | O((log N)^2) | AC | 0.015 s | 188 KB | 11283417 |
 | [1189_math.go](1189_math.go) | Go 1.14 x64 | math | O((log N)^2) | AC | 0.031 s | 1124 KB | 11283420 |
 | [1189_math.java](1189_math.java) | Java 1.8 | math | O((log N)^2) | AC | 0.109 s | 1872 KB | 11283428 |
-| [1189_math.py](1189_math.py) \* | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB | 11283427 |
+| [1189_math.py](1189_math.py) | Python 3.12 x64 | math | O((log N)^2) | AC | 0.093 s | 448 KB | 11283427 |
 | [1189_math.rs](1189_math.rs) | Rust 1.75 x64 | math | O((log N)^2) | AC | 0.015 s | 236 KB | 11283431 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1189_math_optimized.rs](1189_math_optimized.rs) \* | Rust 1.75 x64 | math | O((log N)²) | AC | 0.046 s | 60 KB | 11315434 |
+| [1189_math_optimized.rs](1189_math_optimized.rs) | Rust 1.75 x64 | math | O((log N)²) | AC | 0.046 s | 60 KB | 11315434 |
 | [1189_math_optimized.go](1189_math_optimized.go) \* | Go 1.14 x64 | math | O((log N)²) | AC | 0.015 s | 312 KB | 11315840 |
+| [1189_math_optimized.py](1189_math_optimized.py) | Python 3.12 x64 | math | O((log N)^2) | AC | 0.078 s | 736 KB | 11328517 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
