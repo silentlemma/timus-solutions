@@ -100,6 +100,14 @@ Rust asigna índices compactos a las estaciones y guarda sus vecinos en un únic
 
 Java guarda los índices compactos de las estaciones y los enlaces de adyacencia en arreglos de enteros cortos. El envío 11317252 tardó 0,109 s y usó 636 KB frente a 0,093 s y 2864 KB en la base.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1314_bfs_implementation_optimized.rs`. La adyacencia usa arreglos enlazados, identificadores de vértice de 16 bits e índices next/head con signo, en vez de miles de vectores. Se mantienen las distancias de BFS. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328977 (Rust 1.75 x64): **0.015 s / 556 KB**. Comparación archivada: `1314_bfs.rs` (Rust 1.75 x64) — 0.046 s / 1532 KB (#11322322).
+
 ## Notas por lenguaje
 
 - Los números de estación indexan arreglos directamente, porque son
@@ -128,6 +136,7 @@ G++ 13.2 x64 №11322317 · Go 1.14 x64 №11322318 · Python 3.12 x64 №113217
 | [1314_bfs_optimized.cpp](1314_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O((V + E) log(V + E)) | AC | 0.015 s | 224 KB | 11316949 |
 | [1314_bfs_optimized.go](1314_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(S + V + E) | AC | 0.015 s | 376 KB | 11322926 |
 | [1314_bfs_optimized.rs](1314_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
-| [1314_bfs_optimized.java](1314_bfs_optimized.java) \* | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+| [1314_bfs_optimized.java](1314_bfs_optimized.java) | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+| [1314_bfs_implementation_optimized.rs](1314_bfs_implementation_optimized.rs) | Rust 1.75 x64 | bfs, implementation | O(V + E) | AC | 0.015 s | 556 KB | 11328977 |
 
-\* Aceptada. No hay envíos comparables en Go de otros autores en el corte, así que el objetivo de clasificación sigue abierto. En el corte de clasificación, Rust ocupa el segundo lugar en tiempo y el primero en memoria. La versión cumple el criterio de ahorro de memoria. Java cumple el criterio de mejora de recursos. Su objetivo de clasificación sigue pendiente.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

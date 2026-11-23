@@ -78,6 +78,14 @@ Rust 版本将车站编号映射为紧凑索引，并用一个连续数组保存
 
 Java 版本用短整数数组保存紧凑的车站索引和邻接链接。提交 11317252 耗时 0.109 秒，使用 636 KB；基础版耗时 0.093 秒，使用 2864 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1314_bfs_implementation_optimized.rs`. 用链接数组保存邻接关系，顶点编号为 16 位，next/head 为有符号索引，替代大量独立向量。广度优先距离不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328977 (Rust 1.75 x64): **0.015 s / 556 KB**. 历史对照: `1314_bfs.rs` (Rust 1.75 x64) — 0.046 s / 1532 KB (#11322322).
+
 ## 各语言说明
 
 - 车站编号小于 32 768，直接用作数组下标；Python 则用字典。
@@ -105,6 +113,7 @@ G++ 13.2 x64 №11322317 · Go 1.14 x64 №11322318 · Python 3.12 x64 №113217
 | [1314_bfs_optimized.cpp](1314_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O((V + E) log(V + E)) | AC | 0.015 s | 224 KB | 11316949 |
 | [1314_bfs_optimized.go](1314_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(S + V + E) | AC | 0.015 s | 376 KB | 11322926 |
 | [1314_bfs_optimized.rs](1314_bfs_optimized.rs) \* | Rust 1.75 x64 | bfs | O(S + V + E) | AC | 0.062 s | 320 KB | 11317248 |
-| [1314_bfs_optimized.java](1314_bfs_optimized.java) \* | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+| [1314_bfs_optimized.java](1314_bfs_optimized.java) | Java 1.8 | bfs | O(S + V + E) | AC | 0.109 s | 636 KB | 11317252 |
+| [1314_bfs_implementation_optimized.rs](1314_bfs_implementation_optimized.rs) | Rust 1.75 x64 | bfs, implementation | O(V + E) | AC | 0.015 s | 556 KB | 11328977 |
 
-\* 已通过评测。排名快照中没有其他作者的可比 Go 提交，因而尚未确认达到排名目标。 在排名快照中，Rust 版本的用时排名第二，内存排名第一。该版本满足内存优化标准。 Java 版本满足资源优化标准，尚未达到排名目标。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
