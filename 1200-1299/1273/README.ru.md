@@ -66,6 +66,14 @@ K, затем K пар Y1 Y2.
 
 Принятая версия Rust 1.75 x64 заняла 0.031 с при 0.015 с у базовой и использовала 56 KB при 232 KB у базовой.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1273_dp_binary_search_optimized.py`. Позиция хвоста возрастающей подпоследовательности находится через bisect_left. Инвариант строгого возрастания и время O(n log n) сохранены. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11328532 (Python 3.12 x64): **0.078 s / 712 KB**. Архивное сравнение: `1273_dp.py` (Python 3.12 x64) — 0.093 s / 392 KB (#11284283).
+
 ## Особенности языков
 
 Во всех простых версиях сохранена квадратичная динамика. Новые версии Go и Java упаковывают две сдвинутые координаты в одно число: каждая лежит в 0..2000 и занимает 11 бит. Сортировка чисел упорядочивает левые концы, правый извлекается маской. C++ и Rust используют массивы для K ≤ 100; Python — bisect_left. Go использует стандартные дескрипторы, Rust — ограниченные буферы C runtime и точку входа C.
@@ -88,8 +96,9 @@ K, затем K пар Y1 Y2.
 |---|---|---|---|---|---|---|---|
 | [1273_binary_search_sorting.cpp](1273_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O(K log K) | AC | 0.001 s | 116 KB | 11314674 |
 | [1273_binary_search_sorting.go](1273_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(K log K) | AC | 0.015 s | 260 KB | 11314678 |
-| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
+| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
 | [1273_binary_search_sorting.py](1273_binary_search_sorting.py) \* | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
 | [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) \* | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
+| [1273_dp_binary_search_optimized.py](1273_dp_binary_search_optimized.py) | Python 3.12 x64 | dp, binary_search | O(K log K) time; O(K) space | AC | 0.078 s | 712 KB | 11328532 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

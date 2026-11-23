@@ -61,6 +61,14 @@ K，然后是 K 对 Y1 Y2。
 
 通过评测的 Rust 1.75 x64 版本耗时 0.031 秒，基础版为 0.015 秒，内存为 56 KB，基础版为 232 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1273_dp_binary_search_optimized.py`. 使用 bisect_left 查找严格递增子序列尾值的位置，保持原来的不变量和 O(n log n) 时间。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328532 (Python 3.12 x64): **0.078 s / 712 KB**. 历史对照: `1273_dp.py` (Python 3.12 x64) — 0.093 s / 392 KB (#11284283).
+
 ## 各语言说明
 
 所有简单版本保留平方动态规划。新的 Go 和 Java 实现把两个平移后的坐标打包为一个整数；每个坐标在 0..2000 内，占 11 位。对打包值排序即可按左端点排序，用掩码还原右端点。C++、Rust 使用 K ≤ 100 的定长数组，Python 使用 bisect_left。Go 使用标准句柄，Rust 使用有界 C runtime 输入输出及 C 入口。
@@ -83,8 +91,9 @@ K，然后是 K 对 Y1 Y2。
 |---|---|---|---|---|---|---|---|
 | [1273_binary_search_sorting.cpp](1273_binary_search_sorting.cpp) | G++ 13.2 x64 | binary_search, sorting | O(K log K) | AC | 0.001 s | 116 KB | 11314674 |
 | [1273_binary_search_sorting.go](1273_binary_search_sorting.go) \* | Go 1.14 x64 | binary_search, sorting | O(K log K) | AC | 0.015 s | 260 KB | 11314678 |
-| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) \* | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
+| [1273_binary_search_sorting.java](1273_binary_search_sorting.java) | Java 1.8 | binary_search, sorting | O(K log K) | AC | 0.109 s | 392 KB | 11314681 |
 | [1273_binary_search_sorting.py](1273_binary_search_sorting.py) \* | Python 3.12 x64 | binary_search, sorting | O(K log K) | AC | 0.093 s | 384 KB | 11314686 |
 | [1273_binary_search_sorting.rs](1273_binary_search_sorting.rs) \* | Rust 1.75 x64 | binary_search, sorting | O(K log K) | AC | 0.031 s | 56 KB | 11314875 |
+| [1273_dp_binary_search_optimized.py](1273_dp_binary_search_optimized.py) | Python 3.12 x64 | dp, binary_search | O(K log K) time; O(K) space | AC | 0.078 s | 712 KB | 11328532 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
