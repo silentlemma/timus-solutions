@@ -83,6 +83,14 @@ Go просматривает цифры сбалансированной тро
 
 По сравнению с `1261_number_theory.java`: время 0.125 s → 0.109 s; память 1612 KB → 472 KB.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1261_number_theory_optimized.rs`. Алгоритм и типы целых чисел сохранены. Десятичные токены разбираются напрямую вместо универсального строкового парсера; отрицательное значение накапливается со знаком, поэтому минимальное знаковое число остаётся представимым. Хранение ввода и асимптотика алгоритма прежние.
+
+Accepted #11328531 (Rust 1.75 x64): **0.015 s / 228 KB**. Архивное сравнение: `1261_number_theory.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11284140).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -97,15 +105,14 @@ Go просматривает цифры сбалансированной тро
 |---|---|---|---|---|---|---|---|
 | [1261_number_theory.cpp](1261_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(log N) | AC | 0.015 s | 128 KB | 11284132 |
 | [1261_number_theory.go](1261_number_theory.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 1068 KB | 11284133 |
-| [1261_number_theory.java](1261_number_theory.java) \* | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB | 11284139 |
-| [1261_number_theory.py](1261_number_theory.py) \* | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB | 11284137 |
-| [1261_number_theory.rs](1261_number_theory.rs) \* | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB | 11284140 |
+| [1261_number_theory.java](1261_number_theory.java) | Java 1.8 | number_theory | O(log N) | AC | 0.125 s | 1612 KB | 11284139 |
+| [1261_number_theory.py](1261_number_theory.py) | Python 3.12 x64 | number_theory | O(log N) | AC | 0.078 s | 432 KB | 11284137 |
+| [1261_number_theory.rs](1261_number_theory.rs) | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.046 s | 232 KB | 11284140 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1261_number_theory_optimized.go](1261_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 308 KB | 11311230 |
-| [1261_number_theory_optimized.java](1261_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log N) | AC | 0.109 s | 472 KB | 11324798 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1261_number_theory_optimized.go](1261_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log N) | AC | 0.031 s | 308 KB | 11311230 |
+| [1261_number_theory_optimized.java](1261_number_theory_optimized.java) | Java 1.8 | number_theory | O(log N) | AC | 0.109 s | 472 KB | 11324798 |
+| [1261_number_theory_optimized.rs](1261_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(log N) | AC | 0.015 s | 228 KB | 11328531 |
