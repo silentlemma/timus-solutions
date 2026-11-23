@@ -67,6 +67,14 @@ The optimized C++ solution reads and writes with `scanf` and `printf`
 instead of `iostream`: 132 KB instead of 448 KB. The totals are the
 same.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1991_implementation_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328941 (Rust 1.75 x64): **0.015 s / 388 KB**. Archived comparison: `1991_implementation.rs` (Rust 1.75 x64) — 0.046 s / 480 KB (#11292387).
+
 ## Language notes
 
 No language needs anything special.
@@ -90,6 +98,5 @@ Accumulate the two totals while consuming the integer iterator, without material
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1991_implementation_optimized.cpp](1991_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 132 KB | 11303652 |
-| [1991_implementation_optimized.py](1991_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 984 KB | 11302034 |
-
-\* The marked solutions can improve their target rankings.
+| [1991_implementation_optimized.py](1991_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 984 KB | 11302034 |
+| [1991_implementation_optimized.rs](1991_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.015 s | 388 KB | 11328941 |
