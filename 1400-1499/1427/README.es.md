@@ -77,6 +77,22 @@ C++ y Go amplían el mensaje actual mientras leen el texto. Guardan su longitud 
 
 Las bases aceptadas conservadas [1427_greedy.go](1427_greedy.go), [1427_greedy.java](1427_greedy.java), [1427_greedy.rs](1427_greedy.rs) cumplen la admisión estricta en la comparación guardada: diez primeros puestos o 15% superior en los indicadores requeridos. Se reutilizan sin copias idénticas y se conservan los otros fuentes didácticos. Un asterisco indica el objetivo de clasificación propio del lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1427_greedy_implementation_optimized.go`. El búfer de lectura baja a 8192 bytes y las longitudes de sufijo usan uint32. ReadString sigue leyendo líneas completas y espacios iniciales; no cambia el salto voraz. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11329094 (Go 1.14 x64): **0.015 s / 1668 KB**. Comparación archivada: `1427_greedy.go` (Go 1.14 x64) — 0.031 s / 3196 KB (#11286186).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1427_greedy_implementation_parsing_optimized.rs`. Las longitudes acotadas de rachas de sufijo usan 32 bits en vez del tamaño de máquina. Se conservan la entrada por líneas y el algoritmo de comparación. Se usan lecturas nativas acotadas y escrituras nativas completas, descriptores binarios de Windows y entrada C. Los números se convierten directamente desde bytes a enteros con signo sin reservar tokens; las entradas sensibles a líneas conservan líneas completas.
+
+Accepted #11329172 (Rust 1.75 x64): **0.015 s / 708 KB**. Comparación archivada: `1427_greedy.rs` (Rust 1.75 x64) — 0.031 s / 1252 KB (#11286189).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -93,9 +109,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1427_greedy.cpp](1427_greedy.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.031 s | 924 KB | 11286185 |
 | [1427_greedy.go](1427_greedy.go) | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 3196 KB | 11286186 |
-| [1427_greedy.java](1427_greedy.java) \* | Java 1.8 | greedy | O(L) | AC | 0.093 s | 1612 KB | 11286188 |
-| [1427_greedy.py](1427_greedy.py) \* | Python 3.12 x64 | greedy | O(L) | AC | 0.093 s | 4392 KB | 11286187 |
-| [1427_greedy.rs](1427_greedy.rs) \* | Rust 1.75 x64 | greedy | O(L) | AC | 0.031 s | 1252 KB | 11286189 |
+| [1427_greedy.java](1427_greedy.java) | Java 1.8 | greedy | O(L) | AC | 0.093 s | 1612 KB | 11286188 |
+| [1427_greedy.py](1427_greedy.py) | Python 3.12 x64 | greedy | O(L) | AC | 0.093 s | 4392 KB | 11286187 |
+| [1427_greedy.rs](1427_greedy.rs) | Rust 1.75 x64 | greedy | O(L) | AC | 0.031 s | 1252 KB | 11286189 |
 
 ### Optimizadas
 
@@ -103,6 +119,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.015 s | 88 KB | 11326989 |
 | [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
-| [1427_greedy_optimized.py](1427_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
+| [1427_greedy_optimized.py](1427_greedy_optimized.py) | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
+| [1427_greedy_implementation_optimized.go](1427_greedy_implementation_optimized.go) | Go 1.14 x64 | greedy, implementation | O(L) | AC | 0.015 s | 1668 KB | 11329094 |
+| [1427_greedy_implementation_parsing_optimized.rs](1427_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(L) | AC | 0.015 s | 708 KB | 11329172 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

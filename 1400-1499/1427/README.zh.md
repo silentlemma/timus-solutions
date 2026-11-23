@@ -71,6 +71,22 @@ C++ 和 Go 边读取文本边延长当前消息，只记录长度以及已有字
 
 保留的已接受基础实现 [1427_greedy.go](1427_greedy.go), [1427_greedy.java](1427_greedy.java), [1427_greedy.rs](1427_greedy.rs) 在保存的比较中满足严格快速版本收录：所需指标前十名或前 15%。直接复用，不创建相同副本；其他教学源代码保留。星号表示单独的语言排名目标。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1427_greedy_implementation_optimized.go`. 读取补充缓冲缩至 8192 字节，后缀连续长度改用 uint32。ReadString 仍读取完整合法长度的行及前导空格，贪心跳转规则不变。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11329094 (Go 1.14 x64): **0.015 s / 1668 KB**. 历史对照: `1427_greedy.go` (Go 1.14 x64) — 0.031 s / 3196 KB (#11286186).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1427_greedy_implementation_parsing_optimized.rs`. 有界后缀连续段长度改用 32 位，替代机器字长整数。保留按行读取及原匹配算法。 采用有界原生读取及完整原生写出、Windows 二进制描述符和 C 入口。纯数字输入直接从字节转为有符号整数，不分配词元；依赖行边界的输入保留完整行。
+
+Accepted #11329172 (Rust 1.75 x64): **0.015 s / 708 KB**. 历史对照: `1427_greedy.rs` (Rust 1.75 x64) — 0.031 s / 1252 KB (#11286189).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -87,9 +103,9 @@ C++ 和 Go 边读取文本边延长当前消息，只记录长度以及已有字
 |---|---|---|---|---|---|---|---|
 | [1427_greedy.cpp](1427_greedy.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.031 s | 924 KB | 11286185 |
 | [1427_greedy.go](1427_greedy.go) | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 3196 KB | 11286186 |
-| [1427_greedy.java](1427_greedy.java) \* | Java 1.8 | greedy | O(L) | AC | 0.093 s | 1612 KB | 11286188 |
-| [1427_greedy.py](1427_greedy.py) \* | Python 3.12 x64 | greedy | O(L) | AC | 0.093 s | 4392 KB | 11286187 |
-| [1427_greedy.rs](1427_greedy.rs) \* | Rust 1.75 x64 | greedy | O(L) | AC | 0.031 s | 1252 KB | 11286189 |
+| [1427_greedy.java](1427_greedy.java) | Java 1.8 | greedy | O(L) | AC | 0.093 s | 1612 KB | 11286188 |
+| [1427_greedy.py](1427_greedy.py) | Python 3.12 x64 | greedy | O(L) | AC | 0.093 s | 4392 KB | 11286187 |
+| [1427_greedy.rs](1427_greedy.rs) | Rust 1.75 x64 | greedy | O(L) | AC | 0.031 s | 1252 KB | 11286189 |
 
 ### 优化版本
 
@@ -97,6 +113,8 @@ C++ 和 Go 边读取文本边延长当前消息，只记录长度以及已有字
 |---|---|---|---|---|---|---|---|
 | [1427_greedy_optimized.cpp](1427_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(L) | AC | 0.015 s | 88 KB | 11326989 |
 | [1427_greedy_optimized.go](1427_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(L) | AC | 0.031 s | 912 KB | 11310457 |
-| [1427_greedy_optimized.py](1427_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
+| [1427_greedy_optimized.py](1427_greedy_optimized.py) | PyPy 3.10 x64 | greedy | O(L) time; O(L) input space | AC | 0.14 s | 1852 KB | 11325485 |
+| [1427_greedy_implementation_optimized.go](1427_greedy_implementation_optimized.go) | Go 1.14 x64 | greedy, implementation | O(L) | AC | 0.015 s | 1668 KB | 11329094 |
+| [1427_greedy_implementation_parsing_optimized.rs](1427_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(L) | AC | 0.015 s | 708 KB | 11329172 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
