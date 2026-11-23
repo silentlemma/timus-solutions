@@ -68,6 +68,14 @@ be
 
 逐行读取单词，排版时只使用各单词的长度。通过的提交 11303784 用时 0.093 秒、占用 488 KB；简单版用时 0.078 秒、占用 656 KB。记录的运行时间高于简单版。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1881_simulation_optimized.rs`. 保留相同的数学递推，按字节读取数字并直接输出有界长度的数值答案，避免通用数字格式化。原先更直观的实现仍然保留。
+
+Accepted #11328605 (Rust 1.75 x64): **0.015 s / 220 KB**. 历史对照: `1881_simulation.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11291036).
+
 ## 解答
 
 ### 简单版本
@@ -85,7 +93,8 @@ be
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
-| [1881_simulation_optimized.java](1881_simulation_optimized.java) \* | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
+| [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
 | [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
+| [1881_simulation_optimized.rs](1881_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 220 KB | 11328605 |
 
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

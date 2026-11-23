@@ -83,6 +83,14 @@ the same time.
 
 Consume the words line by line and use only their lengths when fitting them onto pages. Accepted submission 11303784 took 0.093 s and used 488 KB. The simple version took 0.078 s and used 656 KB. The recorded runtime is higher than for the simple version.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1881_simulation_optimized.rs`. Keep the same mathematical recurrence. Read numeric tokens from bytes and write the bounded numeric answer directly, avoiding general-purpose numeric output formatting. The clearer archived implementation remains alongside it.
+
+Accepted #11328605 (Rust 1.75 x64): **0.015 s / 220 KB**. Archived comparison: `1881_simulation.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11291036).
+
 ## Solutions
 
 ### Simple
@@ -100,7 +108,8 @@ Consume the words line by line and use only their lengths when fitting them onto
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
-| [1881_simulation_optimized.java](1881_simulation_optimized.java) \* | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
+| [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
 | [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
+| [1881_simulation_optimized.rs](1881_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 220 KB | 11328605 |
 
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

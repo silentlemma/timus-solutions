@@ -85,6 +85,14 @@ todo lo que necesita el reparto en líneas. Ocupa 128 KB en lugar de
 
 Leer las palabras por líneas y usar solo sus longitudes para distribuirlas en páginas. El envío aceptado 11303784 tardó 0.093 s y usó 488 KB. La versión sencilla tardó 0.078 s y usó 656 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1881_simulation_optimized.rs`. Se conserva la misma recurrencia matemática. Se leen los números desde bytes y se escribe directamente la respuesta numérica de tamaño acotado, evitando el formato numérico general. Se mantiene la implementación más sencilla.
+
+Accepted #11328605 (Rust 1.75 x64): **0.015 s / 220 KB**. Comparación archivada: `1881_simulation.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11291036).
+
 ## Soluciones
 
 ### Sencillas
@@ -102,7 +110,8 @@ Leer las palabras por líneas y usar solo sus longitudes para distribuirlas en p
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1881_simulation_optimized.cpp](1881_simulation_optimized.cpp) \* | G++ 13.2 x64 | simulation | O(n) | AC | 0.031 s | 128 KB | 11303646 |
-| [1881_simulation_optimized.java](1881_simulation_optimized.java) \* | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
+| [1881_simulation_optimized.java](1881_simulation_optimized.java) | Java 1.8 | simulation | O(B) time; O(1) auxiliary space | AC | 0.109 s | 356 KB | 11327457 |
 | [1881_simulation_optimized.py](1881_simulation_optimized.py) \* | Python 3.12 x64 | simulation | O(n) | AC | 0.093 s | 488 KB | 11303784 |
+| [1881_simulation_optimized.rs](1881_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(n) | AC | 0.015 s | 220 KB | 11328605 |
 
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
