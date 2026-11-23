@@ -86,6 +86,22 @@ Each optimized version has Accepted and qualifies by ranking or by a reduction o
 
 - `1082_constructive_optimized.py` uses 440 KB versus 452 KB for the base, and takes 0.078 s instead of 0.062 s. In the 2026-11-16 ranking for current Python/PyPy interpreters it places 4th by time and 12th by memory out of 45. It qualifies by top 30% on both metrics and improves the base's 15th place in memory.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1082_constructive_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328494 (Rust 1.75 x64): **0.031 s / 288 KB**. Archived comparison: `1082_constructive.rs` (Rust 1.75 x64) — 0.046 s / 252 KB (#11279020).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1082_constructive_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328879 (Go 1.14 x64): **0.015 s / 924 KB**. Archived comparison: `1082_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11279017).
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -114,6 +130,6 @@ implementation for these languages.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1082_constructive_optimized.java](1082_constructive_optimized.java) | Java 1.8 | constructive | O(N log N) time; O(1) auxiliary space | AC | 0.078 s | 336 KB | 11327337 |
-| [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1082_constructive_optimized.py](1082_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
+| [1082_constructive_optimized.rs](1082_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 288 KB | 11328494 |
+| [1082_constructive_parsing_optimized.go](1082_constructive_parsing_optimized.go) | Go 1.14 x64 | constructive, parsing | O(N) | AC | 0.015 s | 924 KB | 11328879 |

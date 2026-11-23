@@ -76,6 +76,22 @@ Python 优化版输出同一有序序列，每批最多 128 个数，从而限�
 
 - `1082_constructive_optimized.py` 使用 440 KB，基础版本使用 452 KB；用时从 0.062 秒增至 0.078 秒。在 2026 年 11 月 16 日的现行 Python/PyPy 解释器排名中，45 个结果中时间排第 4，内存排第 12。两项均进入前 30%，且内存排名优于基础版本的第 15 名。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1082_constructive_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328494 (Rust 1.75 x64): **0.031 s / 288 KB**. 历史对照: `1082_constructive.rs` (Rust 1.75 x64) — 0.046 s / 252 KB (#11279020).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1082_constructive_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328879 (Go 1.14 x64): **0.015 s / 924 KB**. 历史对照: `1082_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11279017).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -101,6 +117,6 @@ Python 优化版输出同一有序序列，每批最多 128 个数，从而限�
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1082_constructive_optimized.java](1082_constructive_optimized.java) | Java 1.8 | constructive | O(N log N) time; O(1) auxiliary space | AC | 0.078 s | 336 KB | 11327337 |
-| [1082_constructive_optimized.py](1082_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1082_constructive_optimized.py](1082_constructive_optimized.py) | Python 3.12 x64 | constructive | O(N) | AC | 0.078 s | 440 KB | 11307455 |
+| [1082_constructive_optimized.rs](1082_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(N) | AC | 0.031 s | 288 KB | 11328494 |
+| [1082_constructive_parsing_optimized.go](1082_constructive_parsing_optimized.go) | Go 1.14 x64 | constructive, parsing | O(N) | AC | 0.015 s | 924 KB | 11328879 |
