@@ -71,6 +71,14 @@
 优化的 Python 解法按 16 KB 分块读入并按需解析，最晚开始时间存在 16 位整数的
 `array` 中，而不是列表：980 KB，而不是 14476 KB，但时间从 0.109 s 增加到 0.140 s。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1203_greedy_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328521 (Go 1.14 x64): **0.031 s / 6052 KB**. 历史对照: `1203_greedy.go` (Go 1.14 x64) — 0.125 s / 4420 KB (#11303282).
+
 ## 各语言说明
 
 没有特别需要注意的地方。
@@ -94,3 +102,4 @@
 | [1203_greedy_optimized.cpp](1203_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.001 s | 164 KB | 11303579 |
 | [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.140 s | 980 KB | 11303723 |
 | [1203_greedy_optimized.rs](1203_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.031 s | 276 KB | 11303580 |
+| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.031 s | 6052 KB | 11328521 |

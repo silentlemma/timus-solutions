@@ -84,6 +84,14 @@ analiza a medida que la necesita, y guarda los inicios más tardíos en un
 `array` de números de 16 bits en lugar de una lista: 980 KB en lugar de
 14476 KB, aunque el tiempo sube de 0.109 s a 0.140 s.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1203_greedy_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328521 (Go 1.14 x64): **0.031 s / 6052 KB**. Comparación archivada: `1203_greedy.go` (Go 1.14 x64) — 0.125 s / 4420 KB (#11303282).
+
 ## Notas por lenguaje
 
 Ningún lenguaje necesita nada especial.
@@ -107,3 +115,4 @@ Ningún lenguaje necesita nada especial.
 | [1203_greedy_optimized.cpp](1203_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N + T) | AC | 0.001 s | 164 KB | 11303579 |
 | [1203_greedy_optimized.py](1203_greedy_optimized.py) | Python 3.12 x64 | greedy | O(N + T) | AC | 0.140 s | 980 KB | 11303723 |
 | [1203_greedy_optimized.rs](1203_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(N + T) | AC | 0.031 s | 276 KB | 11303580 |
+| [1203_greedy_optimized.go](1203_greedy_optimized.go) | Go 1.14 x64 | greedy | O(N + T) | AC | 0.031 s | 6052 KB | 11328521 |
