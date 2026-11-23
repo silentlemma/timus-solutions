@@ -99,6 +99,18 @@ Se conservan las bases con raíz cuadrada. two_pointers recorre x=0..R-1 manteni
 - `1490_two_pointers.py`: 0.234 s / 308 KB; base `1490_math.py`: 0.078 s / 472 KB; cambio respecto a la base: tiempo +200.0%, memoria -34.7%.
 - `1490_two_pointers.rs`: 0.031 s / 36 KB; base `1490_math.rs`: 0.031 s / 232 KB; cambio respecto a la base: tiempo -0.0%, memoria -84.5%.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1490_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328559 (Go 1.14 x64): **0.015 s / 944 KB**. Comparación archivada: `1490_math.go` (Go 1.14 x64) — 0.031 s / 1088 KB (#11287183).
+
+`1490_two_pointers_optimized.rs`. Se mantiene la frontera monótona del círculo y se actualizan los cuadrados mediante diferencias impares consecutivas. La E/S compacta de C sustituye los auxiliares anteriores; el tiempo sigue siendo O(r).
+
+Accepted #11328689 (Rust 1.75 x64): **0.015 s / 76 KB**. Comparación archivada: `1490_two_pointers.rs` (Rust 1.75 x64) — 0.031 s / 36 KB (#11309706).
+
 ## Notas por lenguaje
 
 Instantáneas guardadas: 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en ambas métricas; las otras familias exigen el primer puesto en ambas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
@@ -135,5 +147,7 @@ Se usa el perfil guardado de compiladores actuales, sin nuestro autor ni registr
 | [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
 | [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
+| [1490_math_optimized.go](1490_math_optimized.go) | Go 1.14 x64 | math | O(R) | AC | 0.015 s | 944 KB | 11328559 |
+| [1490_two_pointers_optimized.rs](1490_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(r) time; O(1) space | AC | 0.015 s | 76 KB | 11328689 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

@@ -91,6 +91,18 @@ R。
 - `1490_two_pointers.py`: 0.234 s / 308 KB; 基础 `1490_math.py`: 0.078 s / 472 KB; 相对变化: 时间 +200.0%, 内存 -34.7%.
 - `1490_two_pointers.rs`: 0.031 s / 36 KB; 基础 `1490_math.rs`: 0.031 s / 232 KB; 相对变化: 时间 -0.0%, 内存 -84.5%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1490_math_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328559 (Go 1.14 x64): **0.015 s / 944 KB**. 历史对照: `1490_math.go` (Go 1.14 x64) — 0.031 s / 1088 KB (#11287183).
+
+`1490_two_pointers_optimized.rs`. 保留圆边界的单调扫描，用连续奇数差更新坐标平方，减少重复乘法。紧凑 C 输入输出替代原缓冲辅助层，时间仍为 O(r)。
+
+Accepted #11328689 (Rust 1.75 x64): **0.015 s / 76 KB**. 历史对照: `1490_two_pointers.rs` (Rust 1.75 x64) — 0.031 s / 36 KB (#11309706).
+
 ## 各语言说明
 
 保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
@@ -127,5 +139,7 @@ R。
 | [1490_two_pointers_optimized.java](1490_two_pointers_optimized.java) | Java 1.8 | two_pointers | O(R) time; O(1) working state | AC | 0.078 s | 352 KB | 11327524 |
 | [1490_two_pointers.py](1490_two_pointers.py) \* | PyPy 3.10 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.234 s | 308 KB | 11309772 |
 | [1490_two_pointers.rs](1490_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(R) time; O(1) working state | AC | 0.031 s | 36 KB | 11309706 |
+| [1490_math_optimized.go](1490_math_optimized.go) | Go 1.14 x64 | math | O(R) | AC | 0.015 s | 944 KB | 11328559 |
+| [1490_two_pointers_optimized.rs](1490_two_pointers_optimized.rs) | Rust 1.75 x64 | two_pointers | O(r) time; O(1) space | AC | 0.015 s | 76 KB | 11328689 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
