@@ -84,6 +84,14 @@ Go removes both the leaf heap and adjacency sorting. A monotone pointer scans to
 
 The accepted base implementations [1069_trees.cpp](1069_trees.cpp), [1069_trees.java](1069_trees.java), [1069_trees.py](1069_trees.py), [1069_trees.rs](1069_trees.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1069_trees_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328491 (Rust 1.75 x64): **0.046 s / 1204 KB**. Archived comparison: `1069_trees.rs` (Rust 1.75 x64) — 0.062 s / 1188 KB (#11278902).
+
 ## Language notes
 
 C++/Rust retain min-heaps, Java PriorityQueue and sized adjacency arrays, Python heapq. Original Go uses container/heap; new Go uses a monotone leaf pointer and sorted child/parent merging, with uint16 labels/counts and bounded standard-handle I/O.
@@ -97,13 +105,12 @@ C++/Rust retain min-heaps, Java PriorityQueue and sized adjacency arrays, Python
 | [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB | 11278893 |
 | [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB | 11278897 |
 | [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB | 11278900 |
-| [1069_trees.py](1069_trees.py) \* | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
-| [1069_trees.rs](1069_trees.rs) \* | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
+| [1069_trees.py](1069_trees.py) | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
+| [1069_trees.rs](1069_trees.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) \* | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
+| [1069_trees_optimized.rs](1069_trees_optimized.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.046 s | 1204 KB | 11328491 |

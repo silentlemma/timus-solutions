@@ -71,6 +71,14 @@ Go 同时去掉叶堆与邻接排序。单调指针找剩余编码中不再出�
 
 已通过评测的基础实现 [1069_trees.cpp](1069_trees.cpp), [1069_trees.java](1069_trees.java), [1069_trees.py](1069_trees.py), [1069_trees.rs](1069_trees.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1069_trees_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328491 (Rust 1.75 x64): **0.046 s / 1204 KB**. 历史对照: `1069_trees.rs` (Rust 1.75 x64) — 0.062 s / 1188 KB (#11278902).
+
 ## 各语言说明
 
 C++/Rust 保留最小堆，Java 保留 PriorityQueue 与定长邻接数组，Python 保留 heapq；原 Go 用 container/heap，新 Go 用单调叶指针及子列表/父合并，uint16 标签计数与有界标准句柄输入输出。
@@ -84,13 +92,12 @@ C++/Rust 保留最小堆，Java 保留 PriorityQueue 与定长邻接数组，Pyt
 | [1069_trees.cpp](1069_trees.cpp) | G++ 13.2 x64 | trees | O(N log N) | AC | 0.015 s | 420 KB | 11278893 |
 | [1069_trees.go](1069_trees.go) | Go 1.14 x64 | trees | O(N log N) | AC | 0.031 s | 2564 KB | 11278897 |
 | [1069_trees.java](1069_trees.java) | Java 1.8 | trees | O(N log N) | AC | 0.125 s | 1972 KB | 11278900 |
-| [1069_trees.py](1069_trees.py) \* | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
-| [1069_trees.rs](1069_trees.rs) \* | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
+| [1069_trees.py](1069_trees.py) | Python 3.12 x64 | trees | O(N log N) | AC | 0.109 s | 3176 KB | 11278899 |
+| [1069_trees.rs](1069_trees.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.062 s | 1188 KB | 11278902 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) \* | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1069_trees_two_pointers.go](1069_trees_two_pointers.go) | Go 1.14 x64 | trees, two_pointers | O(N) | AC | 0.015 s | 912 KB | 11315466 |
+| [1069_trees_optimized.rs](1069_trees_optimized.rs) | Rust 1.75 x64 | trees | O(N log N) | AC | 0.046 s | 1204 KB | 11328491 |
