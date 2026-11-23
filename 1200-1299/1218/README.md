@@ -88,6 +88,14 @@ The accepted base implementations [1218_graphs.java](1218_graphs.java), [1218_gr
 
 Compared with `1218_graphs.java`: time 0.171 s → 0.109 s; memory 2196 KB → 656 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1218_graphs_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328524 (Rust 1.75 x64): **0.015 s / 292 KB**. Archived comparison: `1218_graphs.rs` (Rust 1.75 x64) — 0.046 s / 288 KB (#11283682).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -103,16 +111,15 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB | 11283678 |
 | [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB | 11283679 |
-| [1218_graphs.java](1218_graphs.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
-| [1218_graphs.py](1218_graphs.py) \* | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
-| [1218_graphs.rs](1218_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
+| [1218_graphs.java](1218_graphs.java) | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
+| [1218_graphs.py](1218_graphs.py) | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
+| [1218_graphs.rs](1218_graphs.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1218_bfs.cpp](1218_bfs.cpp) | G++ 13.2 x64 | bfs | O(N²) | AC | 0.015 s | 112 KB | 11310617 |
-| [1218_bfs.go](1218_bfs.go) \* | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
-| [1218_graphs_optimized.java](1218_graphs_optimized.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.109 s | 656 KB | 11324794 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1218_bfs.go](1218_bfs.go) | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
+| [1218_graphs_optimized.java](1218_graphs_optimized.java) | Java 1.8 | graphs | O(N³) | AC | 0.109 s | 656 KB | 11324794 |
+| [1218_graphs_optimized.rs](1218_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.015 s | 292 KB | 11328524 |

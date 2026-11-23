@@ -79,6 +79,14 @@ C++ 和 Go 先找出一名能到达所有人的绝地武士。维护候选者，
 
 与 `1218_graphs.java` 相比：时间 0.171 s → 0.109 s；内存 2196 KB → 656 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1218_graphs_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328524 (Rust 1.75 x64): **0.015 s / 292 KB**. 历史对照: `1218_graphs.rs` (Rust 1.75 x64) — 0.046 s / 288 KB (#11283682).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -94,16 +102,15 @@ C++ 和 Go 先找出一名能到达所有人的绝地武士。维护候选者，
 |---|---|---|---|---|---|---|---|
 | [1218_graphs.cpp](1218_graphs.cpp) | G++ 13.2 x64 | graphs | O(N³) | AC | 0.031 s | 424 KB | 11283678 |
 | [1218_graphs.go](1218_graphs.go) | Go 1.14 x64 | graphs | O(N³) | AC | 0.031 s | 1188 KB | 11283679 |
-| [1218_graphs.java](1218_graphs.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
-| [1218_graphs.py](1218_graphs.py) \* | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
-| [1218_graphs.rs](1218_graphs.rs) \* | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
+| [1218_graphs.java](1218_graphs.java) | Java 1.8 | graphs | O(N³) | AC | 0.171 s | 2196 KB | 11283681 |
+| [1218_graphs.py](1218_graphs.py) | Python 3.12 x64 | graphs | O(N³) | AC | 0.109 s | 520 KB | 11283680 |
+| [1218_graphs.rs](1218_graphs.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.046 s | 288 KB | 11283682 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1218_bfs.cpp](1218_bfs.cpp) | G++ 13.2 x64 | bfs | O(N²) | AC | 0.015 s | 112 KB | 11310617 |
-| [1218_bfs.go](1218_bfs.go) \* | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
-| [1218_graphs_optimized.java](1218_graphs_optimized.java) \* | Java 1.8 | graphs | O(N³) | AC | 0.109 s | 656 KB | 11324794 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1218_bfs.go](1218_bfs.go) | Go 1.14 x64 | bfs | O(N²) | AC | 0.015 s | 804 KB | 11310879 |
+| [1218_graphs_optimized.java](1218_graphs_optimized.java) | Java 1.8 | graphs | O(N³) | AC | 0.109 s | 656 KB | 11324794 |
+| [1218_graphs_optimized.rs](1218_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N³) | AC | 0.015 s | 292 KB | 11328524 |
