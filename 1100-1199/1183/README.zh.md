@@ -69,6 +69,14 @@
 - `1183_dp_optimized.cpp`: 0.015 s / 80 KB; 基础 `1183_dp.cpp`: 0.015 s / 460 KB; 相对变化: 时间 -0.0%, 内存 -82.6%.
 - `1183_dp_optimized.java`: 0.109 s / 416 KB; 基础 `1183_dp.java`: 0.078 s / 616 KB; 相对变化: 时间 +39.7%, 内存 -32.5%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1183_dp_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328515 (Go 1.14 x64): **0.015 s / 1124 KB**. 历史对照: `1183_dp.go` (Go 1.14 x64) — 0.031 s / 1232 KB (#11283344).
+
 ## 各语言说明
 
 保存的排名快照为 2026 年 11 月 1–2 日。C++ 要求时间和内存均前 15% 或前十名；其他语言均要求两项第一。相等结果并列。空竞争样本只表示形式覆盖。
@@ -103,6 +111,7 @@
 |---|---|---|---|---|---|---|---|
 | [1183_dp_optimized.cpp](1183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 80 KB | 11308418 |
 | [1183_dp_optimized.java](1183_dp_optimized.java) \* | Java 1.8 | dp | O(N^3) time; O(N^2) space | AC | 0.109 s | 416 KB | 11309557 |
-| [1183_dp_optimized.rs](1183_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
+| [1183_dp_optimized.rs](1183_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
+| [1183_dp_optimized.go](1183_dp_optimized.go) | Go 1.14 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 1124 KB | 11328515 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

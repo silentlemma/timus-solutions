@@ -76,6 +76,14 @@ The minimum-insertion interval DP remains unchanged. C++ stores costs as bytes, 
 - `1183_dp_optimized.cpp`: 0.015 s / 80 KB; base `1183_dp.cpp`: 0.015 s / 460 KB; relative change: time -0.0%, memory -82.6%.
 - `1183_dp_optimized.java`: 0.109 s / 416 KB; base `1183_dp.java`: 0.078 s / 616 KB; relative change: time +39.7%, memory -32.5%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1183_dp_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328515 (Go 1.14 x64): **0.015 s / 1124 KB**. Archived comparison: `1183_dp.go` (Go 1.14 x64) — 0.031 s / 1232 KB (#11283344).
+
 ## Language notes
 
 Saved snapshots: 1–2 November 2026. C++ targets the top 15% or the first 10 places in both time and memory; other families target first place in both. Ties share a place. Empty competitor samples establish formal coverage only.
@@ -110,6 +118,7 @@ Use the saved current-compiler profile, exclude our own author and sub-0.015 s l
 |---|---|---|---|---|---|---|---|
 | [1183_dp_optimized.cpp](1183_dp_optimized.cpp) | G++ 13.2 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 80 KB | 11308418 |
 | [1183_dp_optimized.java](1183_dp_optimized.java) \* | Java 1.8 | dp | O(N^3) time; O(N^2) space | AC | 0.109 s | 416 KB | 11309557 |
-| [1183_dp_optimized.rs](1183_dp_optimized.rs) \* | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
+| [1183_dp_optimized.rs](1183_dp_optimized.rs) | Rust 1.75 x64 | dp | O(N³) time; O(N²) space | AC | 0.031 s | 80 KB | 11325520 |
+| [1183_dp_optimized.go](1183_dp_optimized.go) | Go 1.14 x64 | dp | O(N^3) time; O(N^2) space | AC | 0.015 s | 1124 KB | 11328515 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
