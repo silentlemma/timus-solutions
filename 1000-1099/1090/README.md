@@ -74,6 +74,14 @@ The C++ and Go versions keep the Fenwick algorithm and parse input through a fix
 
 The accepted base implementations [1090_fenwick.java](1090_fenwick.java), [1090_fenwick.rs](1090_fenwick.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1090_fenwick_implementation_optimized.rs`. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328959 (Rust 1.75 x64): **0.015 s / 224 KB**. Archived comparison: `1090_fenwick.rs` (Rust 1.75 x64) — 0.015 s / 2120 KB (#11279090).
+
 ## Language notes
 
 The teaching Python version uses a sorted list with binary search and was accepted under PyPy 3.10. The same source under CPython 3.12 exceeded the time limit on test 9 (0.515 s). The optimized Python version uses a Fenwick tree and was also accepted under PyPy 3.10. The table records the actual interpreter of each Accepted submission.
@@ -87,15 +95,14 @@ The teaching Python version uses a sorted list with binary search and was accept
 | [1090_binary_search.py](1090_binary_search.py) | PyPy 3.10 x64 | binary_search | O(K·N^2) | AC | 0.437 s | 20044 KB | 11279088 |
 | [1090_fenwick.cpp](1090_fenwick.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 236 KB | 11279084 |
 | [1090_fenwick.go](1090_fenwick.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.046 s | 1916 KB | 11279085 |
-| [1090_fenwick.java](1090_fenwick.java) \* | Java 1.8 | fenwick | O(K·N log N) | AC | 0.125 s | 512 KB | 11279089 |
-| [1090_fenwick.rs](1090_fenwick.rs) \* | Rust 1.75 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 2120 KB | 11279090 |
+| [1090_fenwick.java](1090_fenwick.java) | Java 1.8 | fenwick | O(K·N log N) | AC | 0.125 s | 512 KB | 11279089 |
+| [1090_fenwick.rs](1090_fenwick.rs) | Rust 1.75 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 2120 KB | 11279090 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1090_fenwick_optimized.cpp](1090_fenwick_optimized.cpp) | G++ 13.2 x64 | fenwick | O(K·N log N) | AC | 0.015 s | 104 KB | 11310324 |
-| [1090_fenwick_optimized.go](1090_fenwick_optimized.go) \* | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.031 s | 816 KB | 11310344 |
-| [1090_fenwick.py](1090_fenwick.py) \* | PyPy 3.10 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 9076 KB | 11310319 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1090_fenwick_optimized.go](1090_fenwick_optimized.go) | Go 1.14 x64 | fenwick | O(K·N log N) | AC | 0.031 s | 816 KB | 11310344 |
+| [1090_fenwick.py](1090_fenwick.py) | PyPy 3.10 x64 | fenwick | O(K·N log N) | AC | 0.156 s | 9076 KB | 11310319 |
+| [1090_fenwick_implementation_optimized.rs](1090_fenwick_implementation_optimized.rs) | Rust 1.75 x64 | fenwick, implementation | O(K·N log N) | AC | 0.015 s | 224 KB | 11328959 |
