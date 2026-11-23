@@ -70,6 +70,14 @@ Mulan
 优化的 Rust 解法和 C++、Java 解法一样逐字节扫描输入中的大写字母，而不是读入名字
 再查表：232 KB，而不是 424 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2023_implementation_parsing_optimized.rs`. C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328981 (Rust 1.75 x64): **0.015 s / 176 KB**. 历史对照: `2023_implementation_optimized.rs` (Rust 1.75 x64) — 0.031 s / 232 KB (#11303793).
+
 ## 各语言说明
 
 没有特别需要注意的地方。
@@ -94,7 +102,8 @@ Mulan
 |----|----|----|-----|------|----|----|------|
 | [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
 | [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
-| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
-| [2023_implementation_optimized.py](2023_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
+| [2023_implementation_optimized.py](2023_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_parsing_optimized.rs](2023_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(n) | AC | 0.015 s | 176 KB | 11328981 |
 
-\* 带星号的解法尚未达到目标排名，仍可优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

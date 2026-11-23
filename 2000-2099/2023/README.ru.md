@@ -79,6 +79,14 @@ C++: 100 КБ вместо 400 КБ при том же времени; Java: 0.0
 заглавных букв, как решения на C++ и Java, вместо чтения имён и поиска
 их в таблице: 232 КБ вместо 424 КБ при том же времени.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`2023_implementation_parsing_optimized.rs`. Точка входа C напрямую вызывает решение и сбрасывает вывод Rust перед возвратом; архивная реализация с обычной точкой входа сохранена.
+
+Accepted #11328981 (Rust 1.75 x64): **0.015 s / 176 KB**. Архивное сравнение: `2023_implementation_optimized.rs` (Rust 1.75 x64) — 0.031 s / 232 KB (#11303793).
+
 ## Особенности языков
 
 Ничего особенного не требуется.
@@ -103,7 +111,8 @@ C++: 100 КБ вместо 400 КБ при том же времени; Java: 0.0
 |---------|------|--------|-------------|---------|-------|--------|---------|
 | [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
 | [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
-| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
-| [2023_implementation_optimized.py](2023_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
+| [2023_implementation_optimized.py](2023_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_parsing_optimized.rs](2023_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(n) | AC | 0.015 s | 176 KB | 11328981 |
 
-\* Отмеченные решения пока не достигли целевого рейтинга.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

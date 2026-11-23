@@ -82,6 +82,14 @@ The optimized Rust solution scans the input byte by byte for capitals,
 as the C++ and Java ones do, instead of reading the names and looking
 them up in a table: 232 KB instead of 424 KB, with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2023_implementation_parsing_optimized.rs`. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328981 (Rust 1.75 x64): **0.015 s / 176 KB**. Archived comparison: `2023_implementation_optimized.rs` (Rust 1.75 x64) — 0.031 s / 232 KB (#11303793).
+
 ## Language notes
 
 No language needs anything special.
@@ -106,7 +114,8 @@ Identify the cabinet from the first byte of each name using the three groups of 
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [2023_implementation_optimized.cpp](2023_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 100 KB | 11303660 |
 | [2023_implementation_optimized.java](2023_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.078 s | 344 KB | 11303663 |
-| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
-| [2023_implementation_optimized.py](2023_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_optimized.rs](2023_implementation_optimized.rs) \* | Rust 1.75 x64 | implementation | O(n) | AC | 0.031 s | 232 KB | 11303793 |
+| [2023_implementation_optimized.py](2023_implementation_optimized.py) | Python 3.12 x64 | implementation | O(n) | AC | 0.078 s | 352 KB | 11301966 |
+| [2023_implementation_parsing_optimized.rs](2023_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(n) | AC | 0.015 s | 176 KB | 11328981 |
 
-\* The marked solutions can improve their target rankings.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
