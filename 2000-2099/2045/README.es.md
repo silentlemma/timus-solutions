@@ -116,6 +116,14 @@ El envío aceptado en Go 1.14 x64 tarda 0.078 s frente a 0.046 s de la base y us
 
 En la instantánea de comparación anterior, las implementaciones base [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) cumplían la regla de inclusión del 15% superior o de las diez primeras posiciones en ambas métricas. Sus mediciones se conservan en la tabla de versiones sencillas.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2045_constructive_parsing_optimized.py`. Se mantienen la palabra periódica mutable y el prefijo creciente. Los lotes se escriben directamente, manejando escrituras parciales y liberando vistas antes de reutilizar el búfer. Los lotes de 8 KiB mantienen pequeño el almacenamiento temporal. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329239 (Python 3.12 x64): **0.078 s / 900 KB**. Comparación archivada: `2045_constructive.py` (Python 3.12 x64) — 0.203 s / 692 KB (#11293460).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -136,8 +144,8 @@ Preparar el sufijo repetido y un búfer de letras para el prefijo. Escribir dire
 |---|---|---|---|---|---|---|---|
 | [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
 | [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
-| [2045_constructive.java](2045_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
-| [2045_constructive.py](2045_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
+| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
 | [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
 
 ### Optimizadas
@@ -147,6 +155,7 @@ Preparar el sufijo repetido y un búfer de letras para el prefijo. Escribir dire
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
-| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_parsing_optimized.py](2045_constructive_parsing_optimized.py) | Python 3.12 x64 | constructive, parsing | O(n^2) | AC | 0.078 s | 900 KB | 11329239 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

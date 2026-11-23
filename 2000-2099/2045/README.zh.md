@@ -73,6 +73,14 @@
 
 在先前的比较快照中，基础实现 [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) 的时间和内存均符合前 15% 或前十名的收录规则。其测量结果保留在简单版本表中。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2045_constructive_parsing_optimized.py`. 保留单个可变周期词和递增常量前缀，直接写出字节批次，完整处理部分写入并在复用缓冲前释放内存视图。 使用8KiB输出批次以限制临时存储。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329239 (Python 3.12 x64): **0.078 s / 900 KB**. 历史对照: `2045_constructive.py` (Python 3.12 x64) — 0.203 s / 692 KB (#11293460).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -89,8 +97,8 @@
 |---|---|---|---|---|---|---|---|
 | [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
 | [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
-| [2045_constructive.java](2045_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
-| [2045_constructive.py](2045_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
+| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
 | [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
 
 ### 优化版本
@@ -100,6 +108,7 @@
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
-| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_parsing_optimized.py](2045_constructive_parsing_optimized.py) | Python 3.12 x64 | constructive, parsing | O(n^2) | AC | 0.078 s | 900 KB | 11329239 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -112,6 +112,14 @@ NO`. Каждое слово должно содержать ровно `n` ст
 
 В прежнем срезе сравнения базовые реализации [2045_constructive.java](2045_constructive.java), [2045_constructive.py](2045_constructive.py) удовлетворяли критерию включения по топ 15% или первым десяти местам по обеим метрикам. Их измерения сохранены в таблице простых решений.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`2045_constructive_parsing_optimized.py`. Единственное изменяемое периодическое слово и растущий постоянный префикс сохранены. Порции байтов записываются напрямую с полной обработкой частичных записей и освобождением представлений памяти до переиспользования буфера. Порции вывода 8 КиБ ограничивают временную память. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11329239 (Python 3.12 x64): **0.078 s / 900 KB**. Архивное сравнение: `2045_constructive.py` (Python 3.12 x64) — 0.203 s / 692 KB (#11293460).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -132,8 +140,8 @@ NO`. Каждое слово должно содержать ровно `n` ст
 |---|---|---|---|---|---|---|---|
 | [2045_constructive.cpp](2045_constructive.cpp) | G++ 13.2 x64 | constructive | O(n^2) | AC | 0.031 s | 1088 KB | 11293451 |
 | [2045_constructive.go](2045_constructive.go) | Go 1.14 x64 | constructive | O(n^2) | AC | 0.046 s | 5888 KB | 11293458 |
-| [2045_constructive.java](2045_constructive.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
-| [2045_constructive.py](2045_constructive.py) \* | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
+| [2045_constructive.java](2045_constructive.java) | Java 1.8 | constructive | O(n^2) | AC | 0.156 s | 5140 KB | 11293464 |
+| [2045_constructive.py](2045_constructive.py) | Python 3.12 x64 | constructive | O(n^2) | AC | 0.203 s | 692 KB | 11293460 |
 | [2045_constructive.rs](2045_constructive.rs) | Rust 1.75 x64 | constructive | O(n^2) | AC | 0.031 s | 956 KB | 11293465 |
 
 ### Оптимизированные
@@ -143,6 +151,7 @@ NO`. Каждое слово должно содержать ровно `n` ст
 | [2045_constructive_optimized.cpp](2045_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(n²) | AC | 0.015 s | 104 KB | 11315321 |
 | [2045_constructive_optimized.go](2045_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(n²) | AC | 0.078 s | 348 KB | 11315327 |
 | [2045_constructive_optimized.rs](2045_constructive_optimized.rs) \* | Rust 1.75 x64 | constructive | O(n²) | AC | 0.015 s | 68 KB | 11315328 |
-| [2045_constructive_optimized.java](2045_constructive_optimized.java) \* | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_optimized.java](2045_constructive_optimized.java) | Java 1.8 | constructive | O(n^2) | AC | 0.140 s | 668 KB | 11324212 |
+| [2045_constructive_parsing_optimized.py](2045_constructive_parsing_optimized.py) | Python 3.12 x64 | constructive, parsing | O(n^2) | AC | 0.078 s | 900 KB | 11329239 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
