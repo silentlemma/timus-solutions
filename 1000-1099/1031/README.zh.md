@@ -93,6 +93,14 @@ Go 和 Rust 为每种票价维护一个向前移动的指针，指向该票可�
 
 已通过评测的基础实现 [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp), [1031_dp_two_pointers.java](1031_dp_two_pointers.java), [1031_dp_two_pointers.py](1031_dp_two_pointers.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1031_dp_two_pointers_optimized.py`. 用无符号 64 位数组存储位置和代价，替代 Python 整数列表；保留票价 DP 及移动指针，64 位覆盖测试中的较大坐标。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328768 (Python 3.12 x64): **0.078 s / 896 KB**. 历史对照: `1031_dp_two_pointers.py` (Python 3.12 x64) — 0.078 s / 1684 KB (#11278428).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -110,14 +118,13 @@ Go 和 Rust 为每种票价维护一个向前移动的指针，指向该票可�
 | [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(N) | AC | 0.015 s | 280 KB | 11278425 |
 | [1031_dp_two_pointers.go](1031_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 1440 KB | 11278427 |
 | [1031_dp_two_pointers.java](1031_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(N) | AC | 0.093 s | 668 KB | 11278429 |
-| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) \* | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB | 11278428 |
+| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB | 11278428 |
 | [1031_dp_two_pointers.rs](1031_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 516 KB | 11278430 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
-| [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) \* | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
+| [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
+| [1031_dp_two_pointers_optimized.py](1031_dp_two_pointers_optimized.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 896 KB | 11328768 |

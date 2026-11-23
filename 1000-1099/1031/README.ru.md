@@ -107,6 +107,14 @@ Go и Rust держат по одному движущемуся указате�
 
 Принятые базовые реализации [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp), [1031_dp_two_pointers.java](1031_dp_two_pointers.java), [1031_dp_two_pointers.py](1031_dp_two_pointers.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1031_dp_two_pointers_optimized.py`. Позиции и стоимости хранятся в массивах беззнаковых 64-битных чисел вместо списков Python. Динамика билетов и движущиеся указатели сохранены; 64 бита покрывают большие координаты из тестов. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11328768 (Python 3.12 x64): **0.078 s / 896 KB**. Архивное сравнение: `1031_dp_two_pointers.py` (Python 3.12 x64) — 0.078 s / 1684 KB (#11278428).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -124,14 +132,13 @@ Go и Rust держат по одному движущемуся указате�
 | [1031_dp_two_pointers.cpp](1031_dp_two_pointers.cpp) | G++ 13.2 x64 | dp, two_pointers | O(N) | AC | 0.015 s | 280 KB | 11278425 |
 | [1031_dp_two_pointers.go](1031_dp_two_pointers.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 1440 KB | 11278427 |
 | [1031_dp_two_pointers.java](1031_dp_two_pointers.java) | Java 1.8 | dp, two_pointers | O(N) | AC | 0.093 s | 668 KB | 11278429 |
-| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) \* | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB | 11278428 |
+| [1031_dp_two_pointers.py](1031_dp_two_pointers.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 1684 KB | 11278428 |
 | [1031_dp_two_pointers.rs](1031_dp_two_pointers.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 516 KB | 11278430 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) \* | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
-| [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) \* | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
-
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+| [1031_dp_two_pointers_optimized.go](1031_dp_two_pointers_optimized.go) | Go 1.14 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 884 KB | 11311110 |
+| [1031_dp_two_pointers_optimized.rs](1031_dp_two_pointers_optimized.rs) | Rust 1.75 x64 | dp, two_pointers | O(N) | AC | 0.031 s | 276 KB | 11310607 |
+| [1031_dp_two_pointers_optimized.py](1031_dp_two_pointers_optimized.py) | Python 3.12 x64 | dp, two_pointers | O(N) | AC | 0.078 s | 896 KB | 11328768 |
