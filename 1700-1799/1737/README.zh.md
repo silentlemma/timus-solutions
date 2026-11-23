@@ -71,6 +71,14 @@ cb
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; 基础版 `1737_strings.py`: 0.109 s / 980 KB; 相对基础版的变化: 时间 -14.7%, 内存 -54.7%.
 - `1737_strings_optimized.rs`: 0.015 s / 196 KB; 基础版 `1737_strings.rs`: 0.015 s / 328 KB; 相对基础版的变化: 时间 -0.0%, 内存 -40.2%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1737_strings_implementation_optimized.py`. 运行时按索引生成字节排列，再以单个二进制块输出。源码没有保存预计算答案表。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329036 (Python 3.12 x64): **0.062 s / 736 KB**. 历史对照: `1737_strings_optimized.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11308821).
+
 ## 语言说明
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
@@ -108,5 +116,6 @@ cb
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
 | [1737_strings_optimized.rs](1737_strings_optimized.rs) | Rust 1.75 x64 | strings | O(output size) | AC | 0.015 s | 196 KB | 11308826 |
+| [1737_strings_implementation_optimized.py](1737_strings_implementation_optimized.py) | Python 3.12 x64 | strings, implementation | O(output size) | AC | 0.062 s | 736 KB | 11329036 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

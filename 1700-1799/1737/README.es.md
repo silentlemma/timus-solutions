@@ -80,6 +80,14 @@ Para longitud al menos dos, las primeras dos letras distintas determinan la pala
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; base `1737_strings.py`: 0.109 s / 980 KB; cambio respecto a la base: tiempo -14.7%, memoria -54.7%.
 - `1737_strings_optimized.rs`: 0.015 s / 196 KB; base `1737_strings.rs`: 0.015 s / 328 KB; cambio respecto a la base: tiempo -0.0%, memoria -40.2%.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1737_strings_implementation_optimized.py`. Las permutaciones de bytes se generan por sus índices al ejecutar y se escriben en un bloque binario. No se almacena una tabla de respuestas precalculadas. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329036 (Python 3.12 x64): **0.062 s / 736 KB**. Comparación archivada: `1737_strings_optimized.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11308821).
+
 ## Notas por lenguaje
 
 Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
@@ -117,5 +125,6 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
 | [1737_strings_optimized.rs](1737_strings_optimized.rs) | Rust 1.75 x64 | strings | O(output size) | AC | 0.015 s | 196 KB | 11308826 |
+| [1737_strings_implementation_optimized.py](1737_strings_implementation_optimized.py) | Python 3.12 x64 | strings, implementation | O(output size) | AC | 0.062 s | 736 KB | 11329036 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

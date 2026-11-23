@@ -79,6 +79,14 @@ For a length of at least two, the first two distinct letters uniquely determine 
 - `1737_strings_optimized.py`: 0.093 s / 444 KB; base `1737_strings.py`: 0.109 s / 980 KB; relative change: time -14.7%, memory -54.7%.
 - `1737_strings_optimized.rs`: 0.015 s / 196 KB; base `1737_strings.rs`: 0.015 s / 328 KB; relative change: time -0.0%, memory -40.2%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1737_strings_implementation_optimized.py`. Generate the byte permutations from their indices at runtime and emit one binary block. No precomputed answer table is stored in the source. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11329036 (Python 3.12 x64): **0.062 s / 736 KB**. Archived comparison: `1737_strings_optimized.py` (Python 3.12 x64) — 0.093 s / 444 KB (#11308821).
+
 ## Language notes
 
 The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
@@ -116,5 +124,6 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1737_strings_optimized.java](1737_strings_optimized.java) | Java 1.8 | strings | O(output size) | AC | 0.093 s | 388 KB | 11308825 |
 | [1737_strings_optimized.py](1737_strings_optimized.py) \* | Python 3.12 x64 | strings | O(output size) | AC | 0.093 s | 444 KB | 11308821 |
 | [1737_strings_optimized.rs](1737_strings_optimized.rs) | Rust 1.75 x64 | strings | O(output size) | AC | 0.015 s | 196 KB | 11308826 |
+| [1737_strings_implementation_optimized.py](1737_strings_implementation_optimized.py) | Python 3.12 x64 | strings, implementation | O(output size) | AC | 0.062 s | 736 KB | 11329036 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
