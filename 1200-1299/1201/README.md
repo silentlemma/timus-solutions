@@ -108,6 +108,14 @@ The accepted base implementations [1201_implementation.java](1201_implementation
 
 Compared with `1201_implementation.java`: time 0.125 s → 0.109 s; memory 1752 KB → 920 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1201_implementation_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328519 (Rust 1.75 x64): **0.015 s / 244 KB**. Archived comparison: `1201_implementation.rs` (Rust 1.75 x64) — 0.046 s / 252 KB (#11283556).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -122,16 +130,15 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
 | [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
-| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
-| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
-| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
-| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
-| [1201_implementation_optimized.java](1201_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+| [1201_implementation_optimized.java](1201_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
+| [1201_implementation_optimized.rs](1201_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.015 s | 244 KB | 11328519 |

@@ -108,6 +108,14 @@ C++ и Go вычисляют первый день недели по григо�
 
 По сравнению с `1201_implementation.java`: время 0.125 s → 0.109 s; память 1752 KB → 920 KB.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1201_implementation_optimized.rs`. Алгоритм и типы целых чисел сохранены. Десятичные токены разбираются напрямую вместо универсального строкового парсера; отрицательное значение накапливается со знаком, поэтому минимальное знаковое число остаётся представимым. Хранение ввода и асимптотика алгоритма прежние.
+
+Accepted #11328519 (Rust 1.75 x64): **0.015 s / 244 KB**. Архивное сравнение: `1201_implementation.rs` (Rust 1.75 x64) — 0.046 s / 252 KB (#11283556).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -122,16 +130,15 @@ C++ и Go вычисляют первый день недели по григо�
 |---|---|---|---|---|---|---|---|
 | [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
 | [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
-| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
-| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
-| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
 
 ### Оптимизированные
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
-| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
-| [1201_implementation_optimized.java](1201_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
-
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+| [1201_implementation_optimized.java](1201_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
+| [1201_implementation_optimized.rs](1201_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.015 s | 244 KB | 11328519 |

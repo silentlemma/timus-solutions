@@ -99,6 +99,14 @@ C++ 和 Go 用公历闰年公式计算当月首日的星期，并直接在固定
 
 与 `1201_implementation.java` 相比：时间 0.125 s → 0.109 s；内存 1752 KB → 920 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1201_implementation_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328519 (Rust 1.75 x64): **0.015 s / 244 KB**. 历史对照: `1201_implementation.rs` (Rust 1.75 x64) — 0.046 s / 252 KB (#11283556).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -113,16 +121,15 @@ C++ 和 Go 用公历闰年公式计算当月首日的星期，并直接在固定
 |---|---|---|---|---|---|---|---|
 | [1201_implementation.cpp](1201_implementation.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 196 KB | 11283545 |
 | [1201_implementation.go](1201_implementation.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 1124 KB | 11283546 |
-| [1201_implementation.java](1201_implementation.java) \* | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
-| [1201_implementation.py](1201_implementation.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
-| [1201_implementation.rs](1201_implementation.rs) \* | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
+| [1201_implementation.java](1201_implementation.java) | Java 1.8 | implementation | O(1) | AC | 0.125 s | 1752 KB | 11283552 |
+| [1201_implementation.py](1201_implementation.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 560 KB | 11283551 |
+| [1201_implementation.rs](1201_implementation.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.046 s | 252 KB | 11283556 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1201_implementation_optimized.cpp](1201_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(1) | AC | 0.015 s | 104 KB | 11311038 |
-| [1201_implementation_optimized.go](1201_implementation_optimized.go) \* | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
-| [1201_implementation_optimized.java](1201_implementation_optimized.java) \* | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1201_implementation_optimized.go](1201_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.015 s | 284 KB | 11311222 |
+| [1201_implementation_optimized.java](1201_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 920 KB | 11324803 |
+| [1201_implementation_optimized.rs](1201_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.015 s | 244 KB | 11328519 |
