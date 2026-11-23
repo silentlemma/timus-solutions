@@ -119,6 +119,14 @@ Ambas codifican juntos padre y paridad. C++ usa entradas de 16 bits; el Python a
 
 Las bases Accepted conservadas [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp), [1003_dsu_hashing.go](1003_dsu_hashing.go), [1003_dsu_hashing.java](1003_dsu_hashing.java), [1003_dsu_hashing.rs](1003_dsu_hashing.rs) pasan también diez primeros o 15% superior en las métricas exigidas de la comparación guardada. Se reutilizan sin duplicados; conserva las demás bases. El asterisco indica la meta propia del lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1003_dsu_hashing_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328483 (Rust 1.75 x64): **0.015 s / 1260 KB**. Comparación archivada: `1003_dsu_hashing.rs` (Rust 1.75 x64) — 0.001 s / 1268 KB (#11277432).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -140,16 +148,15 @@ Estas notas describen las implementaciones sencillas.
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1003_dsu_hashing.cpp](1003_dsu_hashing.cpp) | G++ 13.2 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 632 KB | 11277428 |
-| [1003_dsu_hashing.go](1003_dsu_hashing.go) \* | Go 1.14 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.046 s | 3420 KB | 11277429 |
-| [1003_dsu_hashing.java](1003_dsu_hashing.java) \* | Java 1.8 | dsu, hashing | O(q·α(q)) per test | AC | 0.109 s | 4788 KB | 11277431 |
+| [1003_dsu_hashing.go](1003_dsu_hashing.go) | Go 1.14 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.046 s | 3420 KB | 11277429 |
+| [1003_dsu_hashing.java](1003_dsu_hashing.java) | Java 1.8 | dsu, hashing | O(q·α(q)) per test | AC | 0.109 s | 4788 KB | 11277431 |
 | [1003_dsu_hashing.py](1003_dsu_hashing.py) | Python 3.12 x64 | dsu, hashing | O(q log q) per test | AC | 0.093 s | 4388 KB | 11277430 |
-| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) \* | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.001 s | 1268 KB | 11277432 |
+| [1003_dsu_hashing.rs](1003_dsu_hashing.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.001 s | 1268 KB | 11277432 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1003_dsu_sorting.cpp](1003_dsu_sorting.cpp) | G++ 13.2 x64 | dsu, sorting | O(q log q) per test | AC | 0.015 s | 184 KB | 11310464 |
-| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) \* | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1003_dsu_hashing_optimized.py](1003_dsu_hashing_optimized.py) | Python 3.12 x64 | dsu, hashing | O(q·α(q)) expected per test | AC | 0.062 s | 1040 KB | 11326679 |
+| [1003_dsu_hashing_optimized.rs](1003_dsu_hashing_optimized.rs) | Rust 1.75 x64 | dsu, hashing | O(q·α(q)) per test | AC | 0.015 s | 1260 KB | 11328483 |
