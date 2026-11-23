@@ -151,6 +151,14 @@ Accepted точного исходника (G++ 13.2 x64, #11326653: 0.187 s / 8
 - `1650_segment_tree_optimized.py`: сокращение времени +1.51%;
   сокращение памяти +41.56%; база: `1650_segment_tree.py`.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1650_segment_tree_parsing_optimized.go`. Идентификаторы городов и индексы дней хранятся в 32 битах в пределах ограничений ввода, что уменьшает дерево отрезков. Алгоритм запросов и ответы сохранены. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены.
+
+Accepted #11328883 (Go 1.14 x64): **0.093 s / 15588 KB**. Архивное сравнение: `1650_segment_tree_optimized.go` (Go 1.14 x64) — 0.093 s / 18224 KB (#11307269).
+
 ## Решения
 
 ### Простые
@@ -169,8 +177,9 @@ Accepted точного исходника (G++ 13.2 x64, #11326653: 0.187 s / 8
 |---|---|---|---|---|---|---|---|
 | [1650_segment_tree_optimized.cpp](1650_segment_tree_optimized.cpp) | G++ 13.2 x64 | segment_tree | O((n + k) log C) | AC | 0.187 s | 8912 KB | 11326653 |
 | [1650_segment_tree_optimized.go](1650_segment_tree_optimized.go) \* | Go 1.14 x64 | segment_tree | O((n + k) log C) | AC | 0.093 s | 18224 KB | 11307269 |
-| [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) \* | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
+| [1650_segment_tree_optimized.java](1650_segment_tree_optimized.java) | Java 1.8 | segment_tree | O((n + k) log C) | AC | 0.234 s | 14596 KB | 11307271 |
 | [1650_segment_tree_optimized.py](1650_segment_tree_optimized.py) \* | Python 3.12 x64 | segment_tree | O((n + k) log C) | AC | 1.046 s | 16232 KB | 11307267 |
-| [1650_greedy.py](1650_greedy.py) \* | Python 3.12 x64 | greedy | Expected/amortized O((N+K)log C+C log C); O(N+C) records plus names/output | AC | 0.39 s | 14828 KB | 11327774 |
+| [1650_greedy.py](1650_greedy.py) | Python 3.12 x64 | greedy | Expected/amortized O((N+K)log C+C log C); O(N+C) records plus names/output | AC | 0.39 s | 14828 KB | 11327774 |
+| [1650_segment_tree_parsing_optimized.go](1650_segment_tree_parsing_optimized.go) | Go 1.14 x64 | segment_tree, parsing | O((n + k) log C) | AC | 0.093 s | 15588 KB | 11328883 |
 
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
