@@ -115,6 +115,14 @@ Python 用平坦整数转移数组。这是不同算法，标签为 `dp, strings
 
 实测内存减少：C++ 83.1%、Go 57.0%、Java 89.9%、Python 82.5%、Rust 76.7%。每份源码均有各自的 Accepted，提交 ID 见表。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1002_dp_hashing_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328482 (Rust 1.75 x64): **0.015 s / 2516 KB**. 历史对照: `1002_dp_hashing.rs` (Rust 1.75 x64) — 0.031 s / 2540 KB (#11277427).
+
 ## 各语言说明
 
 Python 候选在 1802 例上与独立的位置 BFS 比较，该 BFS 枚举每个完整字典词。
@@ -152,8 +160,9 @@ Python 候选在 1802 例上与独立的位置 BFS 比较，该 BFS 枚举每个
 |---|---|---|---|---|---|---|---|
 | [1002_dp_strings.cpp](1002_dp_strings.cpp) | G++ 13.2 x64 | dp, strings | O(T + P W) | AC | 0.015 s | 468 KB | 11308088 |
 | [1002_dp_strings.go](1002_dp_strings.go) | Go 1.14 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 1296 KB | 11308089 |
-| [1002_dp_strings.java](1002_dp_strings.java) \* | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
+| [1002_dp_strings.java](1002_dp_strings.java) | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
 | [1002_dp_strings.py](1002_dp_strings.py) | Python 3.12 x64 | dp, strings | O(T + P W) | AC | 0.078 s | 948 KB | 11308086 |
 | [1002_dp_strings.rs](1002_dp_strings.rs) \* | Rust 1.75 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 592 KB | 11308095 |
+| [1002_dp_hashing_optimized.rs](1002_dp_hashing_optimized.rs) | Rust 1.75 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.015 s | 2516 KB | 11328482 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

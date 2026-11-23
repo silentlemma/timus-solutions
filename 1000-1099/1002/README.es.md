@@ -128,6 +128,14 @@ del temporizador no se consideran prueba fiable de aceleración.
 
 Reducción medida de memoria: C++ 83.1%, Go 57.0%, Java 89.9%, Python 82.5%, Rust 76.7%. Cada fuente tiene su propio Accepted con ID en la tabla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1002_dp_hashing_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328482 (Rust 1.75 x64): **0.015 s / 2516 KB**. Comparación archivada: `1002_dp_hashing.rs` (Rust 1.75 x64) — 0.031 s / 2540 KB (#11277427).
+
 ## Notas por lenguaje
 
 Python se comprobó en 1802 casos con un BFS independiente de posiciones
@@ -170,8 +178,9 @@ real. Una muestra vacía no demuestra superioridad competitiva.
 |---|---|---|---|---|---|---|---|
 | [1002_dp_strings.cpp](1002_dp_strings.cpp) | G++ 13.2 x64 | dp, strings | O(T + P W) | AC | 0.015 s | 468 KB | 11308088 |
 | [1002_dp_strings.go](1002_dp_strings.go) | Go 1.14 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 1296 KB | 11308089 |
-| [1002_dp_strings.java](1002_dp_strings.java) \* | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
+| [1002_dp_strings.java](1002_dp_strings.java) | Java 1.8 | dp, strings | O(T + P W) | AC | 0.093 s | 712 KB | 11308092 |
 | [1002_dp_strings.py](1002_dp_strings.py) | Python 3.12 x64 | dp, strings | O(T + P W) | AC | 0.078 s | 948 KB | 11308086 |
 | [1002_dp_strings.rs](1002_dp_strings.rs) \* | Rust 1.75 x64 | dp, strings | O(T + P W) | AC | 0.031 s | 592 KB | 11308095 |
+| [1002_dp_hashing_optimized.rs](1002_dp_hashing_optimized.rs) | Rust 1.75 x64 | dp, hashing | O(T + P W^2) expected | AC | 0.015 s | 2516 KB | 11328482 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
