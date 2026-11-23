@@ -88,6 +88,22 @@ The new C++ and Go versions preserve the same projection onto each shared-border
 
 The accepted base implementations [1202_greedy.java](1202_greedy.java), [1202_greedy.py](1202_greedy.py), [1202_greedy.rs](1202_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1202_greedy_optimized.py`. Reuse the exact existing streaming source on CPython 3.12 instead of PyPy. Rectangle processing and bounded input buffering are unchanged. The new Accepted has a slower recorded time but lower memory; it passes the time-only criterion below 1024 KB. No duplicate source file is added.
+
+Accepted #11328666 (Python 3.12 x64): **0.421 s / 844 KB**. Archived comparison: `1202_greedy_optimized.py` (PyPy 3.10 x64) — 0.203 s / 6920 KB (#11325482).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1202_greedy_parsing_optimized.rs`. Process the rectangle chain as a stream, retaining only adjacent rectangles, the current crossing height and accumulated vertical distance. Clamping only when forced preserves the greedy optimum with constant algorithmic state. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. This alternative retains ordinary Rust startup and cleanup with the same compact algorithmic state.
+
+Accepted #11329005 (Rust 1.75 x64): **0.015 s / 188 KB**. Archived comparison: `1202_greedy.rs` (Rust 1.75 x64) — 0.031 s / 8696 KB (#11283565).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -105,8 +121,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1202_greedy.cpp](1202_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.234 s | 132 KB | 11283557 |
 | [1202_greedy.go](1202_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 1088 KB | 11283561 |
 | [1202_greedy.java](1202_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.140 s | 540 KB | 11283564 |
-| [1202_greedy.py](1202_greedy.py) \* | Python 3.12 x64 | greedy | O(n) | AC | 0.328 s | 39384 KB | 11283563 |
-| [1202_greedy.rs](1202_greedy.rs) \* | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 8696 KB | 11283565 |
+| [1202_greedy.py](1202_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.328 s | 39384 KB | 11283563 |
+| [1202_greedy.rs](1202_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 8696 KB | 11283565 |
 
 ### Optimized
 
@@ -114,6 +130,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1202_greedy_optimized.cpp](1202_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 88 KB | 11315050 |
 | [1202_greedy_optimized.go](1202_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 312 KB | 11315069 |
-| [1202_greedy_optimized.py](1202_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) time; O(B) space | AC | 0.203 s | 6920 KB | 11325482 |
+| [1202_greedy_optimized.py](1202_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n) time; O(B) space | AC | 0.421 s | 844 KB | 11328666 |
+| [1202_greedy_parsing_optimized.rs](1202_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) time; O(1) state + bounded input buffer | AC | 0.015 s | 188 KB | 11329005 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

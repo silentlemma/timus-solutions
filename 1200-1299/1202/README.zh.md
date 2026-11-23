@@ -76,6 +76,22 @@
 
 已通过评测的基础实现 [1202_greedy.java](1202_greedy.java), [1202_greedy.py](1202_greedy.py), [1202_greedy.rs](1202_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1202_greedy_optimized.py`. 在 CPython 3.12 上重新验证现有流式源码，不改动矩形处理及有界输入缓冲。新记录耗时更长但内存更少；内存低于 1024 KB 时，仅比较时间即可通过。不新增重复源码。
+
+Accepted #11328666 (Python 3.12 x64): **0.421 s / 844 KB**. 历史对照: `1202_greedy_optimized.py` (PyPy 3.10 x64) — 0.203 s / 6920 KB (#11325482).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1202_greedy_parsing_optimized.rs`. 流式处理矩形链，仅保留相邻矩形、当前穿越高度和累计竖直距离。只在必要时夹取高度，保持贪心最优性，算法状态为常数。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 此版本保留常规 Rust 启动和清理，同时使用相同的紧凑算法状态。
+
+Accepted #11329005 (Rust 1.75 x64): **0.015 s / 188 KB**. 历史对照: `1202_greedy.rs` (Rust 1.75 x64) — 0.031 s / 8696 KB (#11283565).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -93,8 +109,8 @@
 | [1202_greedy.cpp](1202_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.234 s | 132 KB | 11283557 |
 | [1202_greedy.go](1202_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 1088 KB | 11283561 |
 | [1202_greedy.java](1202_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.140 s | 540 KB | 11283564 |
-| [1202_greedy.py](1202_greedy.py) \* | Python 3.12 x64 | greedy | O(n) | AC | 0.328 s | 39384 KB | 11283563 |
-| [1202_greedy.rs](1202_greedy.rs) \* | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 8696 KB | 11283565 |
+| [1202_greedy.py](1202_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.328 s | 39384 KB | 11283563 |
+| [1202_greedy.rs](1202_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 8696 KB | 11283565 |
 
 ### 优化版本
 
@@ -102,6 +118,7 @@
 |---|---|---|---|---|---|---|---|
 | [1202_greedy_optimized.cpp](1202_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 88 KB | 11315050 |
 | [1202_greedy_optimized.go](1202_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.046 s | 312 KB | 11315069 |
-| [1202_greedy_optimized.py](1202_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(n) time; O(B) space | AC | 0.203 s | 6920 KB | 11325482 |
+| [1202_greedy_optimized.py](1202_greedy_optimized.py) | Python 3.12 x64 | greedy | O(n) time; O(B) space | AC | 0.421 s | 844 KB | 11328666 |
+| [1202_greedy_parsing_optimized.rs](1202_greedy_parsing_optimized.rs) | Rust 1.75 x64 | greedy, parsing | O(n) time; O(1) state + bounded input buffer | AC | 0.015 s | 188 KB | 11329005 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
