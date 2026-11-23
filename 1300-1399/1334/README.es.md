@@ -102,6 +102,14 @@ El envío aceptado en Go 1.14 x64 tarda 0.031 s frente a 0.015 s de la base y us
 
 Las implementaciones base aceptadas [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1334_simulation_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328640 (Java 1.8): **0.093 s / 420 KB**. Comparación archivada: `1334_simulation.java` (Java 1.8) — 0.14 s / 1596 KB (#11285025).
+
 ## Notas por lenguaje
 
 Los archivos originales revisan todo el tablero tras cada jugada. Go y Rust optimizados revisan cuatro direcciones diagonales desde la ficha nueva.
@@ -114,7 +122,7 @@ Los archivos originales revisan todo el tablero tras cada jugada. Go y Rust opti
 |---|---|---|---|---|---|---|---|
 | [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
 | [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
-| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
 | [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
 | [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
 
@@ -122,7 +130,6 @@ Los archivos originales revisan todo el tablero tras cada jugada. Go y Rust opti
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
-| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+| [1334_simulation_optimized.java](1334_simulation_optimized.java) | Java 1.8 | simulation | O(1) | AC | 0.093 s | 420 KB | 11328640 |

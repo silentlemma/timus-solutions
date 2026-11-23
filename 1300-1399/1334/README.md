@@ -101,6 +101,14 @@ The accepted Go 1.14 x64 run takes 0.031 s versus 0.015 s for the base and uses 
 
 The accepted base implementations [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1334_simulation_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328640 (Java 1.8): **0.093 s / 420 KB**. Archived comparison: `1334_simulation.java` (Java 1.8) — 0.14 s / 1596 KB (#11285025).
+
 ## Language notes
 
 The original files scan the whole board after each placement. The optimized Go and Rust files inspect four diagonal directions from the new checker.
@@ -113,7 +121,7 @@ The original files scan the whole board after each placement. The optimized Go a
 |---|---|---|---|---|---|---|---|
 | [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
 | [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
-| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
 | [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
 | [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
 
@@ -121,7 +129,6 @@ The original files scan the whole board after each placement. The optimized Go a
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
-| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+| [1334_simulation_optimized.java](1334_simulation_optimized.java) | Java 1.8 | simulation | O(1) | AC | 0.093 s | 420 KB | 11328640 |

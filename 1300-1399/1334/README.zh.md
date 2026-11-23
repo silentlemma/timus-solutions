@@ -91,6 +91,14 @@ Go/Rust 只查新棋子影响的三元组。未终局时原来没有可吃子；
 
 已通过评测的基础实现 [1334_simulation.cpp](1334_simulation.cpp), [1334_simulation.java](1334_simulation.java), [1334_simulation.py](1334_simulation.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1334_simulation_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328640 (Java 1.8): **0.093 s / 420 KB**. 历史对照: `1334_simulation.java` (Java 1.8) — 0.14 s / 1596 KB (#11285025).
+
 ## 各语言说明
 
 原版每次落子后扫描整个棋盘。优化的 Go 和 Rust 只检查经过新棋子的四条对角方向。
@@ -103,7 +111,7 @@ Go/Rust 只查新棋子影响的三元组。未终局时原来没有可吃子；
 |---|---|---|---|---|---|---|---|
 | [1334_simulation.cpp](1334_simulation.cpp) | G++ 13.2 x64 | simulation | O(1) | AC | 0.015 s | 132 KB | 11285022 |
 | [1334_simulation.go](1334_simulation.go) | Go 1.14 x64 | simulation | O(1) | AC | 0.015 s | 1036 KB | 11285023 |
-| [1334_simulation.java](1334_simulation.java) \* | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
+| [1334_simulation.java](1334_simulation.java) | Java 1.8 | simulation | O(1) | AC | 0.140 s | 1596 KB | 11285025 |
 | [1334_simulation.py](1334_simulation.py) | Python 3.12 x64 | simulation | O(1) | AC | 0.078 s | 536 KB | 11285024 |
 | [1334_simulation.rs](1334_simulation.rs) | Rust 1.75 x64 | simulation | O(1) | AC | 0.046 s | 208 KB | 11285026 |
 
@@ -111,7 +119,6 @@ Go/Rust 只查新棋子影响的三元组。未终局时原来没有可吃子；
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
-| [1334_simulation_optimized.go](1334_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1334_simulation_optimized.rs](1334_simulation_optimized.rs) | Rust 1.75 x64 | simulation | O(M) | AC | 0.062 s | 60 KB | 11315739 |
+| [1334_simulation_optimized.go](1334_simulation_optimized.go) | Go 1.14 x64 | simulation | O(M) | AC | 0.031 s | 276 KB | 11315915 |
+| [1334_simulation_optimized.java](1334_simulation_optimized.java) | Java 1.8 | simulation | O(1) | AC | 0.093 s | 420 KB | 11328640 |
