@@ -72,6 +72,14 @@ Look for second hamburger at computer and chairs.790
 
 Принятые базовые реализации [1094_simulation.java](1094_simulation.java), [1094_simulation.py](1094_simulation.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1094_simulation_parsing_optimized.rs`. Команды терминала обрабатываются ограниченными блоками без проверки пополнения буфера на каждом байте; перемещения и перенос курсора сохранены.
+
+Accepted #11328989 (Rust 1.75 x64): **0.015 s / 52 KB**. Архивное сравнение: `1094_simulation_optimized.rs` (Rust 1.75 x64) — 0.031 s / 52 KB (#11315266).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -88,7 +96,7 @@ Look for second hamburger at computer and chairs.790
 | [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB | 11279111 |
 | [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB | 11279112 |
 | [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB | 11279114 |
-| [1094_simulation.py](1094_simulation.py) \* | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
+| [1094_simulation.py](1094_simulation.py) | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
 | [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB | 11279115 |
 
 ### Оптимизированные
@@ -96,7 +104,8 @@ Look for second hamburger at computer and chairs.790
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
-| [1094_simulation_optimized.go](1094_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
+| [1094_simulation_optimized.go](1094_simulation_optimized.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
 | [1094_simulation_optimized.rs](1094_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
+| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.015 s | 52 KB | 11328989 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

@@ -71,6 +71,14 @@ The new C++, Go and Rust sources consume keys incrementally and keep only the 80
 
 The accepted base implementations [1094_simulation.java](1094_simulation.java), [1094_simulation.py](1094_simulation.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1094_simulation_parsing_optimized.rs`. Process terminal commands in bounded blocks instead of checking the input refill path for every byte; preserve cursor movement and wrapping.
+
+Accepted #11328989 (Rust 1.75 x64): **0.015 s / 52 KB**. Archived comparison: `1094_simulation_optimized.rs` (Rust 1.75 x64) — 0.031 s / 52 KB (#11315266).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -87,7 +95,7 @@ These notes describe the simple implementations.
 | [1094_simulation.cpp](1094_simulation.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.015 s | 376 KB | 11279111 |
 | [1094_simulation.go](1094_simulation.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 1092 KB | 11279112 |
 | [1094_simulation.java](1094_simulation.java) | Java 1.8 | simulation | O(L) | AC | 0.093 s | 564 KB | 11279114 |
-| [1094_simulation.py](1094_simulation.py) \* | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
+| [1094_simulation.py](1094_simulation.py) | Python 3.12 x64 | simulation | O(L) | AC | 0.078 s | 468 KB | 11279113 |
 | [1094_simulation.rs](1094_simulation.rs) | Rust 1.75 x64 | simulation | O(L) | AC | 0.046 s | 204 KB | 11279115 |
 
 ### Optimized
@@ -95,7 +103,8 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1094_simulation_optimized.cpp](1094_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(L) | AC | 0.001 s | 76 KB | 11315263 |
-| [1094_simulation_optimized.go](1094_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
+| [1094_simulation_optimized.go](1094_simulation_optimized.go) | Go 1.14 x64 | simulation | O(L) | AC | 0.015 s | 276 KB | 11315265 |
 | [1094_simulation_optimized.rs](1094_simulation_optimized.rs) \* | Rust 1.75 x64 | simulation | O(L) | AC | 0.031 s | 52 KB | 11315266 |
+| [1094_simulation_parsing_optimized.rs](1094_simulation_parsing_optimized.rs) | Rust 1.75 x64 | simulation, parsing | O(L) | AC | 0.015 s | 52 KB | 11328989 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
