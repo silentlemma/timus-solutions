@@ -104,6 +104,14 @@ G++ 13.2 x64 №11321887 · Go 1.14 x64 №11322221 · Java 1.8 №11322222 · P
 
 Rust comprueba las dos dimensiones menores del ladrillo en décimas y usa una desigualdad entera para el caso girado. Rust 1.75 x64, envío 11323284. Tiempo 0,015 → 0,046 s, memoria 236 → 52 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1234_geometry_parsing_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328646 (Java 1.8): **0.093 s / 416 KB**. Comparación archivada: `1234_geometry.java` (Java 1.8) — 0.109 s / 536 KB (#11322222).
+
 ## Soluciones
 
 ### Sencillas
@@ -124,5 +132,6 @@ Rust comprueba las dos dimensiones menores del ladrillo en décimas y usa una de
 | [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
 | [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
 | [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+| [1234_geometry_parsing_optimized.java](1234_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 416 KB | 11328646 |
 
-\* Las versiones marcadas aún pueden mejorar su clasificación.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

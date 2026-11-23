@@ -95,6 +95,14 @@ G++ 13.2 x64 №11321887 · Go 1.14 x64 №11322221 · Java 1.8 №11322222 · P
 
 Rust 以十分之一为单位读取砖块最小的两个尺寸，并用整数不等式判断旋转后能否通过。 Rust 1.75 x64（提交 11323284）的运行时间从 0.015 秒变为 0.046 秒，内存从 236 KB 变为 52 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1234_geometry_parsing_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328646 (Java 1.8): **0.093 s / 416 KB**. 历史对照: `1234_geometry.java` (Java 1.8) — 0.109 s / 536 KB (#11322222).
+
 ## 解答
 
 ### 简单版本
@@ -115,5 +123,6 @@ Rust 以十分之一为单位读取砖块最小的两个尺寸，并用整数不
 | [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
 | [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
 | [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+| [1234_geometry_parsing_optimized.java](1234_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 416 KB | 11328646 |
 
-\* 带星号的版本仍有提升排名的空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -103,6 +103,14 @@ G++ 13.2 x64 №11321887 · Go 1.14 x64 №11322221 · Java 1.8 №11322222 · P
 
 Rust checks the two smallest brick dimensions in tenths with an integer inequality for the rotated fit. Rust 1.75 x64, submission 11323284. Time 0.015 → 0.046 s, memory 236 → 52 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1234_geometry_parsing_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328646 (Java 1.8): **0.093 s / 416 KB**. Archived comparison: `1234_geometry.java` (Java 1.8) — 0.109 s / 536 KB (#11322222).
+
 ## Solutions
 
 ### Simple
@@ -123,5 +131,6 @@ Rust checks the two smallest brick dimensions in tenths with an integer inequali
 | [1234_geometry_optimized.py](1234_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.062 s | 464 KB | 11318418 |
 | [1234_geometry_optimized.java](1234_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.109 s | 364 KB | 11318424 |
 | [1234_geometry_optimized.rs](1234_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.046 s | 52 KB | 11323284 |
+| [1234_geometry_parsing_optimized.java](1234_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.093 s | 416 KB | 11328646 |
 
-\* The marked versions have room to improve in the ratings.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
