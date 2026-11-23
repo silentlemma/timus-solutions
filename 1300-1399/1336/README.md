@@ -94,6 +94,14 @@ Compared with `1336_math.py`: time 0.062 s → 0.109 s; memory 352 KB → 196 KB
 
 Compared with `1336_math.rs`: time 0.015 s → 0.031 s; memory 240 KB → 60 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1336_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11329107 (Go 1.14 x64): **0.015 s / 792 KB**. Archived comparison: `1336_math.go` (Go 1.14 x64) — 0.031 s / 1068 KB (#11285034).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -123,5 +131,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1336_math_optimized.java](1336_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11304378 |
 | [1336_math_optimized.py](1336_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.109 s | 196 KB | 11324908 |
 | [1336_math_optimized.rs](1336_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.031 s | 60 KB | 11324871 |
+| [1336_parsing_optimized.go](1336_parsing_optimized.go) | Go 1.14 x64 | parsing | O(1) | AC | 0.015 s | 792 KB | 11329107 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
