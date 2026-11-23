@@ -84,6 +84,14 @@ instead of 392 KB, with the same time.
 
 Consume the car counts from the input iterator and retain only the current number of waiting cars. Accepted submission 11324248 took 0.125 s and used 244 KB. The simple version took 0.078 s and used 420 KB. The recorded runtime is higher than for the simple version.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1787_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329124 (Go 1.14 x64): **0.015 s / 796 KB**. Archived comparison: `1787_simulation.go` (Go 1.14 x64) — 0.031 s / 1076 KB (#11289817).
+
 ## Solutions
 
 ### Simple
@@ -101,7 +109,8 @@ Consume the car counts from the input iterator and retain only the current numbe
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
-| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
+| [1787_simulation_optimized.java](1787_simulation_optimized.java) | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
 | [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
+| [1787_parsing_optimized.go](1787_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) | AC | 0.015 s | 796 KB | 11329124 |
 
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

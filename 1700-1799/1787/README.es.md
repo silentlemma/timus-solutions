@@ -88,6 +88,14 @@ cola. C++ lee y escribe con `scanf` y `printf` en lugar de `iostream`:
 
 Consumir los recuentos de coches del iterador y guardar solo el número actual de coches en espera. El envío aceptado 11324248 tardó 0.125 s y usó 244 KB. La versión sencilla tardó 0.078 s y usó 420 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1787_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329124 (Go 1.14 x64): **0.015 s / 796 KB**. Comparación archivada: `1787_simulation.go` (Go 1.14 x64) — 0.031 s / 1076 KB (#11289817).
+
 ## Soluciones
 
 ### Sencillas
@@ -105,7 +113,8 @@ Consumir los recuentos de coches del iterador y guardar solo el número actual d
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1787_simulation_optimized.cpp](1787_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n) | AC | 0.015 s | 124 KB | 11303637 |
-| [1787_simulation_optimized.java](1787_simulation_optimized.java) \* | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
+| [1787_simulation_optimized.java](1787_simulation_optimized.java) | Java 1.8 | simulation | O(N) time; O(1) auxiliary space | AC | 0.109 s | 316 KB | 11327468 |
 | [1787_simulation_optimized.py](1787_simulation_optimized.py) \* | PyPy 3.10 x64 | simulation | O(n) | AC | 0.125 s | 244 KB | 11324248 |
+| [1787_parsing_optimized.go](1787_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) | AC | 0.015 s | 796 KB | 11329124 |
 
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
