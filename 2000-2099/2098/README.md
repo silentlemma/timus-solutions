@@ -85,6 +85,14 @@ Rust compares 100b with the integer surcharge p·k·(2c+d(k+1))/2. Their absolut
 
 The accepted base implementations [2098_math.cpp](2098_math.cpp), [2098_math.go](2098_math.go), [2098_math.java](2098_math.java), [2098_math.py](2098_math.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2098_math_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328655 (Go 1.14 x64): **0.015 s / 928 KB**. Archived comparison: `2098_math.go` (Go 1.14 x64) — 0.031 s / 1080 KB (#11294672).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
@@ -100,9 +108,9 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2098_math.cpp](2098_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 136 KB | 11294670 |
-| [2098_math.go](2098_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
-| [2098_math.java](2098_math.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 1716 KB | 11325556 |
-| [2098_math.py](2098_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
+| [2098_math.go](2098_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
+| [2098_math.java](2098_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1716 KB | 11325556 |
+| [2098_math.py](2098_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
 | [2098_math.rs](2098_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB | 11294676 |
 
 ### Optimized
@@ -110,6 +118,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2098_math_optimized.rs](2098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11311232 |
-| [2098_math_optimized.java](2098_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 904 KB | 11324795 |
+| [2098_math_optimized.java](2098_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 904 KB | 11324795 |
+| [2098_math_optimized.go](2098_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 928 KB | 11328655 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

@@ -85,6 +85,14 @@ Rust compara 100b con el recargo entero p·k·(2c+d(k+1))/2. La diferencia absol
 
 Las implementaciones base aceptadas [2098_math.cpp](2098_math.cpp), [2098_math.go](2098_math.go), [2098_math.java](2098_math.java), [2098_math.py](2098_math.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2098_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328655 (Go 1.14 x64): **0.015 s / 928 KB**. Comparación archivada: `2098_math.go` (Go 1.14 x64) — 0.031 s / 1080 KB (#11294672).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
@@ -100,9 +108,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2098_math.cpp](2098_math.cpp) | G++ 13.2 x64 | math | O(1) | AC | 0.015 s | 136 KB | 11294670 |
-| [2098_math.go](2098_math.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
-| [2098_math.java](2098_math.java) \* | Java 1.8 | math | O(1) | AC | 0.125 s | 1716 KB | 11325556 |
-| [2098_math.py](2098_math.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
+| [2098_math.go](2098_math.go) | Go 1.14 x64 | math | O(1) | AC | 0.031 s | 1080 KB | 11294672 |
+| [2098_math.java](2098_math.java) | Java 1.8 | math | O(1) | AC | 0.125 s | 1716 KB | 11325556 |
+| [2098_math.py](2098_math.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 424 KB | 11294673 |
 | [2098_math.rs](2098_math.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.046 s | 228 KB | 11294676 |
 
 ### Optimizadas
@@ -110,6 +118,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [2098_math_optimized.rs](2098_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 60 KB | 11311232 |
-| [2098_math_optimized.java](2098_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 904 KB | 11324795 |
+| [2098_math_optimized.java](2098_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 904 KB | 11324795 |
+| [2098_math_optimized.go](2098_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 928 KB | 11328655 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
