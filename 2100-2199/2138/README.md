@@ -79,6 +79,14 @@ Every retained optimized version has Accepted. It qualifies through top-ten or t
 - `2138_math_optimized.java`: time reduction +0.00%; memory reduction
   +78.23%; base: `2138_math.java`.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2138_math_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328633 (Rust 1.75 x64): **0.015 s / 224 KB**. Archived comparison: `2138_math.rs` (Rust 1.75 x64) — 0.031 s / 236 KB (#11294921).
+
 ## Language notes
 
 In the rating snapshot of 2026-10-31, the following base implementations
@@ -106,7 +114,6 @@ Extract the four low bytes one at a time and append them to the reversed value u
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2138_math_optimized.java](2138_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
-| [2138_bitmask.py](2138_bitmask.py) \* | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [2138_math_optimized.java](2138_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
+| [2138_bitmask.py](2138_bitmask.py) | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
+| [2138_math_optimized.rs](2138_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB | 11328633 |

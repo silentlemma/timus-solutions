@@ -68,6 +68,14 @@ GOOD 和 BAD 中没有数字，它只需把遇到的所有数字依次拼进 `lo
 
 - `2138_math_optimized.java`: 时间降低 +0.00%; 内存降低 +78.23%; 基础版本: `2138_math.java`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2138_math_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328633 (Rust 1.75 x64): **0.015 s / 224 KB**. 历史对照: `2138_math.rs` (Rust 1.75 x64) — 0.031 s / 236 KB (#11294921).
+
 ## 各语言说明
 
 在 2026-10-31 的排名快照中，下列基础实现已达到时间和内存目标。保留现有基础解法文件；这些语言无需额外实现即可满足排名目标。
@@ -92,7 +100,6 @@ GOOD 和 BAD 中没有数字，它只需把遇到的所有数字依次拼进 `lo
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2138_math_optimized.java](2138_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
-| [2138_bitmask.py](2138_bitmask.py) \* | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [2138_math_optimized.java](2138_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
+| [2138_bitmask.py](2138_bitmask.py) | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
+| [2138_math_optimized.rs](2138_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB | 11328633 |

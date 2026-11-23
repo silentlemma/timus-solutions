@@ -80,6 +80,14 @@ Cada versión optimizada conservada tiene Accepted. Cumple por situarse entre la
 - `2138_math_optimized.java`: reducción de tiempo +0.00%; reducción de
   memoria +78.23%; base: `2138_math.java`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2138_math_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328633 (Rust 1.75 x64): **0.015 s / 224 KB**. Comparación archivada: `2138_math.rs` (Rust 1.75 x64) — 0.031 s / 236 KB (#11294921).
+
 ## Notas por lenguaje
 
 En la clasificación del 2026-10-31, las siguientes implementaciones
@@ -107,7 +115,6 @@ Extraer uno a uno los cuatro bytes inferiores y añadirlos al valor invertido co
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2138_math_optimized.java](2138_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
-| [2138_bitmask.py](2138_bitmask.py) \* | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
-
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+| [2138_math_optimized.java](2138_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 344 KB | 11304333 |
+| [2138_bitmask.py](2138_bitmask.py) | Python 3.12 x64 | bitmask | O(1) | AC | 0.078 s | 348 KB | 11324232 |
+| [2138_math_optimized.rs](2138_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 224 KB | 11328633 |
