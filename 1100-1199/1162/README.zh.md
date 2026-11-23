@@ -145,6 +145,14 @@ C++/Java 改用 `10^9` 进制非负数、九位输入块，复用容量和临时
 
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; 基础 `1162_shortest_paths.py`: 0.078 s / 708 KB; 相对变化: 时间 +100.0%, 内存 -41.2%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1162_parsing_optimized.go`. 两位小数汇率和手续费直接解析为精确 int64 百分单位，避免每条边的临时大整数。保留任意精度初始金额、公共分母 Bellman–Ford 和独立复用的 big.Int，无浮点近似。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329137 (Go 1.14 x64): **0.015 s / 1168 KB**. 历史对照: `1162_shortest_paths.go` (Go 1.14 x64) — 0.031 s / 5436 KB (#11308459).
+
 ## 解答
 
 ### 简单版本
@@ -161,10 +169,11 @@ C++/Java 改用 `10^9` 进制非负数、九位输入块，复用容量和临时
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
-| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_parsing_optimized.go](1162_parsing_optimized.go) | Go 1.14 x64 | parsing | O(P^2 + N(N+M)(P+N)) | AC | 0.015 s | 1168 KB | 11329137 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

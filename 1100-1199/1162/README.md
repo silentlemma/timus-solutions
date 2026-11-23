@@ -173,6 +173,14 @@ reduce constants.
 
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; base `1162_shortest_paths.py`: 0.078 s / 708 KB; relative change: time +100.0%, memory -41.2%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1162_parsing_optimized.go`. Parse two-place rates and fees directly as exact hundredths in int64, avoiding temporary big integers on every edge. Keep arbitrary-precision initial amounts, common-denominator Bellman-Ford and reused independent big.Int buffers; no floating approximation is introduced. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329137 (Go 1.14 x64): **0.015 s / 1168 KB**. Archived comparison: `1162_shortest_paths.go` (Go 1.14 x64) — 0.031 s / 5436 KB (#11308459).
+
 ## Solutions
 
 ### Simple
@@ -189,10 +197,11 @@ reduce constants.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
-| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_parsing_optimized.go](1162_parsing_optimized.go) | Go 1.14 x64 | parsing | O(P^2 + N(N+M)(P+N)) | AC | 0.015 s | 1168 KB | 11329137 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

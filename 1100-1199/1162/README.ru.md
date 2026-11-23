@@ -170,6 +170,14 @@ C++ и Java хранят неотрицательные числа по осно
 
 - `1162_shortest_paths_optimized.py`: 0.156 s / 416 KB; база `1162_shortest_paths.py`: 0.078 s / 708 KB; изменение относительно базы: время +100.0%, память -41.2%.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1162_parsing_optimized.go`. Курсы и комиссии с двумя знаками разбираются прямо в точные сотые int64 без временных длинных целых на каждом ребре. Начальные суммы произвольной точности, общий знаменатель Беллмана—Форда и независимые переиспользуемые big.Int сохранены; приближений нет. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены. Цифровые серии преобразуются внутри текущего блока с локальной позицией до границы токена или блока. Отрицательное накопление поддерживает минимальное знаковое число и устраняет выбор знака либо вызов читателя на каждой цифре; EOF и необязательные знаки сохранены.
+
+Accepted #11329137 (Go 1.14 x64): **0.015 s / 1168 KB**. Архивное сравнение: `1162_shortest_paths.go` (Go 1.14 x64) — 0.031 s / 5436 KB (#11308459).
+
 ## Решения
 
 ### Простые
@@ -186,10 +194,11 @@ C++ и Java хранят неотрицательные числа по осно
 
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
-| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) \* | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
+| [1162_shortest_paths_optimized.cpp](1162_shortest_paths_optimized.cpp) | G++ 13.2 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.001 s | 248 KB | 11326984 |
 | [1162_shortest_paths_optimized.go](1162_shortest_paths_optimized.go) \* | Go 1.14 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.031 s | 1304 KB | 11308453 |
-| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) \* | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
+| [1162_shortest_paths_optimized.java](1162_shortest_paths_optimized.java) | Java 1.8 | shortest_paths | O(P^2+C*(C+M)*(P+C)) digit time; O(C*(P+C)+N+M) storage | AC | 0.093 s | 524 KB | 11327477 |
 | [1162_shortest_paths_optimized.py](1162_shortest_paths_optimized.py) \* | PyPy 3.10 x64 | shortest_paths | O(NM) exact relaxations; O(N+M) records; explicit GC overhead in Python | AC | 0.156 s | 416 KB | 11309920 |
-| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) \* | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_shortest_paths_optimized.rs](1162_shortest_paths_optimized.rs) | Rust 1.75 x64 | shortest_paths | O(N(N+M)D+I) time; O(ND+M+I) space | AC | 0.046 s | 128 KB | 11325629 |
+| [1162_parsing_optimized.go](1162_parsing_optimized.go) | Go 1.14 x64 | parsing | O(P^2 + N(N+M)(P+N)) | AC | 0.015 s | 1168 KB | 11329137 |
 
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
