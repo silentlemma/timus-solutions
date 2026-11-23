@@ -70,6 +70,14 @@ Go 提交 11322439 耗时 0.015 秒，使用 320 KB。简单版本耗时 0.031 s
 
 Go 用小型字节缓冲区读取三个数，并直接写出结果的十进制数字，省去通用的输入输出格式化。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1484_math_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328557 (Java 1.8): **0.093 s / 444 KB**. 历史对照: `1484_math.java` (Java 1.8) — 0.093 s / 1624 KB (#11321717).
+
 ## 解答
 
 ### 简单版本
@@ -86,7 +94,6 @@ Go 用小型字节缓冲区读取三个数，并直接写出结果的十进制�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
-| [1484_math_optimized.py](1484_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
-| [1484_math_optimized.go](1484_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1484_math_optimized.py](1484_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
+| [1484_math_optimized.go](1484_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
+| [1484_math_optimized.java](1484_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 444 KB | 11328557 |

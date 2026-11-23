@@ -77,6 +77,14 @@ Go submission 11322439 took 0.015 s and used 320 KB. The simple version took 0.0
 
 Go reads the three numbers into a small byte buffer and writes the result as decimal digits, avoiding general-purpose input and output formatting.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1484_math_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328557 (Java 1.8): **0.093 s / 444 KB**. Archived comparison: `1484_math.java` (Java 1.8) — 0.093 s / 1624 KB (#11321717).
+
 ## Solutions
 
 ### Simple
@@ -93,7 +101,6 @@ Go reads the three numbers into a small byte buffer and writes the result as dec
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
-| [1484_math_optimized.py](1484_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
-| [1484_math_optimized.go](1484_math_optimized.go) \* | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
-
-\* The marked solutions can improve their target rankings.
+| [1484_math_optimized.py](1484_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.062 s | 420 KB | 11321720 |
+| [1484_math_optimized.go](1484_math_optimized.go) | Go 1.14 x64 | math | O(1) | AC | 0.015 s | 320 KB | 11322439 |
+| [1484_math_optimized.java](1484_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 444 KB | 11328557 |
