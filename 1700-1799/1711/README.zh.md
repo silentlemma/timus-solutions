@@ -118,6 +118,14 @@ IMPOSSIBLE
 
 - `1711_greedy_optimized.cpp`: 时间降低 +51.61%; 内存降低 +74.75%; 基础版本: `1711_greedy.cpp`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1711_greedy_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328588 (Go 1.14 x64): **0.031 s / 976 KB**. 历史对照: `1711_greedy.go` (Go 1.14 x64) — 0.062 s / 1148 KB (#11289207).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -143,7 +151,6 @@ IMPOSSIBLE
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1711_greedy_optimized.cpp](1711_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.015 s | 100 KB | 11304441 |
-| [1711_greedy_optimized.py](1711_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
-| [1711_greedy_optimized.java](1711_greedy_optimized.java) \* | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1711_greedy_optimized.py](1711_greedy_optimized.py) | Python 3.12 x64 | greedy | O(B+nL) | AC | 0.062 s | 776 KB | 11325459 |
+| [1711_greedy_optimized.java](1711_greedy_optimized.java) | Java 1.8 | greedy | O(B+nL) | AC | 0.093 s | 340 KB | 11325999 |
+| [1711_greedy_optimized.go](1711_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 976 KB | 11328588 |
