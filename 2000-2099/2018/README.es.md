@@ -79,6 +79,14 @@ desplazan un paso en cada longitud en lugar de salir de sumas de
 prefijos. También analiza los tres números a mano en lugar de usar
 `Scanner`: 0.093 s en lugar de 0.125 s y 408 KB en lugar de 3140 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2018_parsing_optimized.go`. Se conservan la recurrencia escalar exacta y el anillo acotado uint32. Cursores explícitos avanzan cada coeficiente retrasado, evitando restos por el tamaño variable del anillo dentro del bucle. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329131 (Go 1.14 x64): **0.031 s / 800 KB**. Comparación archivada: `2018_dp_prefix_sums.go` (Go 1.14 x64) — 0.031 s / 2688 KB (#11303351).
+
 ## Notas por lenguaje
 
 - En Python `%` ya da un resto no negativo; C++, Go y Java suman el
@@ -104,6 +112,5 @@ Mantener las dos sumas deslizantes y guardar en búferes circulares solo los est
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
 | [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
-| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
+| [2018_parsing_optimized.go](2018_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(min(n,a+b)) space | AC | 0.031 s | 800 KB | 11329131 |

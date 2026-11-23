@@ -68,6 +68,14 @@
 和相减。它还手工解析这三个数，而不是使用 `Scanner`：0.093 s，而不是 0.125 s；
 408 KB，而不是 3140 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2018_parsing_optimized.go`. 保留精确延迟标量递推及有界 uint32 余数环，以显式游标推进各延迟系数，去掉循环内按可变环大小取余。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329131 (Go 1.14 x64): **0.031 s / 800 KB**. 历史对照: `2018_dp_prefix_sums.go` (Go 1.14 x64) — 0.031 s / 2688 KB (#11303351).
+
 ## 各语言说明
 
 - Python 的 `%` 本来就给出非负余数；C++、Go 和 Java 先加上模数再取余，Rust 使用
@@ -93,6 +101,5 @@
 |----|----|----|-----|------|----|----|------|
 | [2018_dp_prefix_sums_optimized.java](2018_dp_prefix_sums_optimized.java) | Java 1.8 | dp, prefix_sums | O(n) | AC | 0.093 s | 408 KB | 11303659 |
 | [2018_dp_prefix_sums_optimized.cpp](2018_dp_prefix_sums_optimized.cpp) | G++ 13.2 x64 | dp, prefix_sums | O(n) | AC | 0.015 s | 388 KB | 11292624 |
-| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) \* | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [2018_dp_prefix_sums_optimized.py](2018_dp_prefix_sums_optimized.py) | Python 3.12 x64 | dp, prefix_sums | O(n) | AC | 0.093 s | 536 KB | 11326671 |
+| [2018_parsing_optimized.go](2018_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) time; O(min(n,a+b)) space | AC | 0.031 s | 800 KB | 11329131 |
