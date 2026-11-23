@@ -91,6 +91,14 @@ Yes
 
 通过整除和取余计算数位和，无需为相邻票号构造十进制字符串。通过的提交 11302025 用时 0.078 秒、占用 372 KB；简单版用时 0.062 秒、占用 376 KB。记录的运行时间高于简单版。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1493_math_parsing_optimized.go`. 仅计算一次两组三位数位和，以精确进位和借位更新邻号的和并保护六位边界，避免重复计算两个邻号的完整数位和。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11329147 (Go 1.14 x64): **0.015 s / 792 KB**. 历史对照: `1493_implementation.go` (Go 1.14 x64) — 0.031 s / 1064 KB (#11287207).
+
 ## 解答
 
 ### 简单版本
@@ -109,6 +117,5 @@ Yes
 |----|----|----|-----|------|----|----|------|
 | [1493_implementation_optimized.java](1493_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.078 s | 308 KB | 11303750 |
 | [1493_implementation_optimized.rs](1493_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 224 KB | 11303611 |
-| [1493_implementation_optimized.py](1493_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1493_implementation_optimized.py](1493_implementation_optimized.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
+| [1493_math_parsing_optimized.go](1493_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) | AC | 0.015 s | 792 KB | 11329147 |

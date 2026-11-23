@@ -100,6 +100,14 @@ La solución optimizada en Java analiza las seis cifras byte a byte desde
 
 Calcular las sumas de dígitos mediante divisiones y restos, sin construir cadenas decimales de los números vecinos. El envío aceptado 11302025 tardó 0.078 s y usó 372 KB. La versión sencilla tardó 0.062 s y usó 376 KB. El tiempo registrado es mayor que el de la versión sencilla.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1493_math_parsing_optimized.go`. Las sumas de las dos mitades se calculan una vez y se actualizan con acarreos y préstamos exactos, protegiendo los límites de seis cifras y evitando recalcular ambos vecinos. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11329147 (Go 1.14 x64): **0.015 s / 792 KB**. Comparación archivada: `1493_implementation.go` (Go 1.14 x64) — 0.031 s / 1064 KB (#11287207).
+
 ## Soluciones
 
 ### Sencillas
@@ -118,6 +126,5 @@ Calcular las sumas de dígitos mediante divisiones y restos, sin construir caden
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1493_implementation_optimized.java](1493_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.078 s | 308 KB | 11303750 |
 | [1493_implementation_optimized.rs](1493_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(1) | AC | 0.031 s | 224 KB | 11303611 |
-| [1493_implementation_optimized.py](1493_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1493_implementation_optimized.py](1493_implementation_optimized.py) | Python 3.12 x64 | implementation | O(1) | AC | 0.078 s | 372 KB | 11302025 |
+| [1493_math_parsing_optimized.go](1493_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) | AC | 0.015 s | 792 KB | 11329147 |
