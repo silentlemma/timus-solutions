@@ -113,6 +113,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 
 Frente a `1283_math.rs`: tiempo 0.015 s → 0.031 s; memoria 232 KB → 68 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1283_parsing_optimized.go`. Se mantienen productos y comparaciones exactos por pequeños bloques con razón reducida; se especializan las tres entradas enteras y el año final sin conversión genérica de flujos. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329132 (Go 1.14 x64): **0.015 s / 812 KB**. Comparación archivada: `1283_math.go` (Go 1.14 x64) — 0.031 s / 1276 KB (#11284478).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -138,7 +146,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 360 KB | 11304347 |
-| [1283_math_optimized.rs](1283_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
+| [1283_math_optimized.rs](1283_math_optimized.rs) | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
 | [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+1)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
+| [1283_parsing_optimized.go](1283_parsing_optimized.go) | Go 1.14 x64 | parsing | O(Y²) | AC | 0.015 s | 812 KB | 11329132 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

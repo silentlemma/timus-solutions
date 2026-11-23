@@ -99,6 +99,14 @@ L = 0 时，经过任意有限年数，黄金仍为正数，不存在有限答�
 
 与 `1283_math.rs` 相比：时间 0.015 s → 0.031 s；内存 232 KB → 68 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1283_parsing_optimized.go`. 保留约分比例下的精确小数肢乘法及比较，三个整数输入和最终年数使用专门转换，避免通用流处理。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329132 (Go 1.14 x64): **0.015 s / 812 KB**. 历史对照: `1283_math.go` (Go 1.14 x64) — 0.031 s / 1276 KB (#11284478).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -124,7 +132,8 @@ L = 0 时，经过任意有限年数，黄金仍为正数，不存在有限答�
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1283_math_optimized.java](1283_math_optimized.java) | Java 1.8 | math | O(Y²) | AC | 0.109 s | 360 KB | 11304347 |
-| [1283_math_optimized.rs](1283_math_optimized.rs) \* | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
+| [1283_math_optimized.rs](1283_math_optimized.rs) | Rust 1.75 x64 | math | O(Y·D) | AC | 0.031 s | 68 KB | 11325092 |
 | [1283_binary_search_math.py](1283_binary_search_math.py) \* | PyPy 3.10 x64 | binary_search, math | O(log²(Y+1)·M(D)) time; O(D) space | AC | 0.125 s | 264 KB | 11325857 |
+| [1283_parsing_optimized.go](1283_parsing_optimized.go) | Go 1.14 x64 | parsing | O(Y²) | AC | 0.015 s | 812 KB | 11329132 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
