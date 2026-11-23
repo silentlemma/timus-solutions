@@ -83,6 +83,14 @@ C++ 和 Go 从右向左扫描并维护后缀数字和。找到第一个小于九
 
 与 `1406_greedy.java` 相比：时间 0.125 s → 0.109 s；内存 1576 KB → 548 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1406_greedy_implementation_parsing_optimized.rs`. 用有界原生读取和小型栈输出缓冲替代 Rust 全局标准流初始化，C 入口在完整写出后返回。Windows 描述符设为二进制模式，保留 CRLF 及控制字节的原始流含义；数学判定不变。
+
+Accepted #11329159 (Rust 1.75 x64): **0.015 s / 84 KB**. 历史对照: `1406_greedy.rs` (Rust 1.75 x64) — 0.062 s / 200 KB (#11286053).
+
 ## 解答
 
 ### 简单版本
@@ -91,9 +99,9 @@ C++ 和 Go 从右向左扫描并维护后缀数字和。找到第一个小于九
 |---|---|---|---|---|---|---|---|
 | [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB | 11286049 |
 | [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB | 11286050 |
-| [1406_greedy.java](1406_greedy.java) \* | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
-| [1406_greedy.py](1406_greedy.py) \* | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
-| [1406_greedy.rs](1406_greedy.rs) \* | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
+| [1406_greedy.java](1406_greedy.java) | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
+| [1406_greedy.py](1406_greedy.py) | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
+| [1406_greedy.rs](1406_greedy.rs) | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
 
 ### 优化版本
 
@@ -101,6 +109,7 @@ C++ 和 Go 从右向左扫描并维护后缀数字和。找到第一个小于九
 |---|---|---|---|---|---|---|---|
 | [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
 | [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
-| [1406_greedy_optimized.java](1406_greedy_optimized.java) \* | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
+| [1406_greedy_optimized.java](1406_greedy_optimized.java) | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
+| [1406_greedy_implementation_parsing_optimized.rs](1406_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(K) | AC | 0.015 s | 84 KB | 11329159 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

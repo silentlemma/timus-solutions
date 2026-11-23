@@ -89,6 +89,14 @@ C++ и Go идут справа налево, поддерживая сумму 
 
 По сравнению с `1406_greedy.java`: время 0.125 s → 0.109 s; память 1576 KB → 548 KB.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1406_greedy_implementation_parsing_optimized.rs`. Используются ограниченные нативные чтения и небольшой выходной буфер на стеке без инициализации глобальных потоков Rust. Возврат из точки входа C происходит после полной записи вывода. В Windows дескрипторы работают в двоичном режиме для сохранения исходной обработки CRLF и управляющих байтов; математические решения прежние.
+
+Accepted #11329159 (Rust 1.75 x64): **0.015 s / 84 KB**. Архивное сравнение: `1406_greedy.rs` (Rust 1.75 x64) — 0.062 s / 200 KB (#11286053).
+
 ## Решения
 
 ### Простые
@@ -97,9 +105,9 @@ C++ и Go идут справа налево, поддерживая сумму 
 |---|---|---|---|---|---|---|---|
 | [1406_greedy.cpp](1406_greedy.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 376 KB | 11286049 |
 | [1406_greedy.go](1406_greedy.go) | Go 1.14 x64 | greedy | O(K) | AC | 0.031 s | 1088 KB | 11286050 |
-| [1406_greedy.java](1406_greedy.java) \* | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
-| [1406_greedy.py](1406_greedy.py) \* | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
-| [1406_greedy.rs](1406_greedy.rs) \* | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
+| [1406_greedy.java](1406_greedy.java) | Java 1.8 | greedy | O(K) | AC | 0.125 s | 1576 KB | 11286052 |
+| [1406_greedy.py](1406_greedy.py) | Python 3.12 x64 | greedy | O(K) | AC | 0.093 s | 552 KB | 11286051 |
+| [1406_greedy.rs](1406_greedy.rs) | Rust 1.75 x64 | greedy | O(K) | AC | 0.062 s | 200 KB | 11286053 |
 
 ### Оптимизированные
 
@@ -107,6 +115,7 @@ C++ и Go идут справа налево, поддерживая сумму 
 |---|---|---|---|---|---|---|---|
 | [1406_greedy_optimized.cpp](1406_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(K) | AC | 0.015 s | 96 KB | 11310623 |
 | [1406_greedy_optimized.go](1406_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(K) | AC | 0.015 s | 328 KB | 11311213 |
-| [1406_greedy_optimized.java](1406_greedy_optimized.java) \* | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
+| [1406_greedy_optimized.java](1406_greedy_optimized.java) | Java 1.8 | greedy | O(K) | AC | 0.109 s | 548 KB | 11324800 |
+| [1406_greedy_implementation_parsing_optimized.rs](1406_greedy_implementation_parsing_optimized.rs) | Rust 1.75 x64 | greedy, implementation, parsing | O(K) | AC | 0.015 s | 84 KB | 11329159 |
 
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
