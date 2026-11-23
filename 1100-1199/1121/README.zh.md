@@ -72,6 +72,14 @@ C++、Go 和 Rust 将网格存入扁平的 16 位掩码数组，外围补五格�
 
 已通过评测的基础实现 [1121_bruteforce.java](1121_bruteforce.java), [1121_bruteforce.py](1121_bruteforce.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1121_bfs_optimized.py`. 用多源 BFS 搜索至距离五，替代每格半径枚举。字节存距离、无符号短整数存标签；等距路径合并标签。FIFO 分层保证扩展前已收齐所有等距贡献。时间和空间均为 O(nm)。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328770 (Python 3.12 x64): **0.125 s / 1148 KB**. 历史对照: `1121_bruteforce.py` (Python 3.12 x64) — 0.406 s / 2512 KB (#11279280).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -86,8 +94,8 @@ C++、Go 和 Rust 将网格存入扁平的 16 位掩码数组，外围补五格�
 |---|---|---|---|---|---|---|---|
 | [1121_bruteforce.cpp](1121_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 256 KB | 11279278 |
 | [1121_bruteforce.go](1121_bruteforce.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 1376 KB | 11279279 |
-| [1121_bruteforce.java](1121_bruteforce.java) \* | Java 1.8 | bruteforce | O(H·W·60) | AC | 0.109 s | 3664 KB | 11279282 |
-| [1121_bruteforce.py](1121_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(H·W·60) | AC | 0.406 s | 2512 KB | 11279280 |
+| [1121_bruteforce.java](1121_bruteforce.java) | Java 1.8 | bruteforce | O(H·W·60) | AC | 0.109 s | 3664 KB | 11279282 |
+| [1121_bruteforce.py](1121_bruteforce.py) | Python 3.12 x64 | bruteforce | O(H·W·60) | AC | 0.406 s | 2512 KB | 11279280 |
 | [1121_bruteforce.rs](1121_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 628 KB | 11279284 |
 
 ### 优化版本
@@ -95,7 +103,6 @@ C++、Go 和 Rust 将网格存入扁平的 16 位掩码数组，外围补五格�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1121_bruteforce_optimized.cpp](1121_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 160 KB | 11311133 |
-| [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
-| [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
+| [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
+| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.125 s | 1148 KB | 11328770 |

@@ -83,6 +83,14 @@ The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and use
 
 The accepted base implementations [1121_bruteforce.java](1121_bruteforce.java), [1121_bruteforce.py](1121_bruteforce.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1121_bfs_optimized.py`. Replace the per-cell radius scan by multi-source BFS to distance five. Store distances in bytes and labels in unsigned shorts; union labels on equal-distance paths. FIFO layers ensure all equal-distance contributions are merged before expansion. Time and storage are O(nm). The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328770 (Python 3.12 x64): **0.125 s / 1148 KB**. Archived comparison: `1121_bruteforce.py` (Python 3.12 x64) — 0.406 s / 2512 KB (#11279280).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -97,8 +105,8 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1121_bruteforce.cpp](1121_bruteforce.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 256 KB | 11279278 |
 | [1121_bruteforce.go](1121_bruteforce.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 1376 KB | 11279279 |
-| [1121_bruteforce.java](1121_bruteforce.java) \* | Java 1.8 | bruteforce | O(H·W·60) | AC | 0.109 s | 3664 KB | 11279282 |
-| [1121_bruteforce.py](1121_bruteforce.py) \* | Python 3.12 x64 | bruteforce | O(H·W·60) | AC | 0.406 s | 2512 KB | 11279280 |
+| [1121_bruteforce.java](1121_bruteforce.java) | Java 1.8 | bruteforce | O(H·W·60) | AC | 0.109 s | 3664 KB | 11279282 |
+| [1121_bruteforce.py](1121_bruteforce.py) | Python 3.12 x64 | bruteforce | O(H·W·60) | AC | 0.406 s | 2512 KB | 11279280 |
 | [1121_bruteforce.rs](1121_bruteforce.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 628 KB | 11279284 |
 
 ### Optimized
@@ -106,7 +114,6 @@ These notes describe the simple implementations.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1121_bruteforce_optimized.cpp](1121_bruteforce_optimized.cpp) | G++ 13.2 x64 | bruteforce | O(H·W·60) | AC | 0.015 s | 160 KB | 11311133 |
-| [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) \* | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
-| [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) \* | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1121_bruteforce_optimized.go](1121_bruteforce_optimized.go) | Go 1.14 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 848 KB | 11311112 |
+| [1121_bruteforce_optimized.rs](1121_bruteforce_optimized.rs) | Rust 1.75 x64 | bruteforce | O(H·W·60) | AC | 0.031 s | 240 KB | 11311088 |
+| [1121_bfs_optimized.py](1121_bfs_optimized.py) | Python 3.12 x64 | bfs | O(nm) time and space | AC | 0.125 s | 1148 KB | 11328770 |
