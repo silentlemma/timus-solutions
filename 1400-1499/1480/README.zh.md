@@ -106,6 +106,14 @@ C++、Go 以递增小数与递减大数两个计数器输出相同棋盘构造�
 
 已通过评测的基础实现 [1480_constructive.java](1480_constructive.java), [1480_constructive.py](1480_constructive.py), [1480_constructive.rs](1480_constructive.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1480_parsing_implementation_optimized.rs`. 保留棋盘构造，逐个数字写入持续复用的有界缓冲，不保存每格十进制字符串或完整答案。
+
+Accepted #11329180 (Rust 1.75 x64): **0.015 s / 84 KB**. 历史对照: `1480_constructive.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11286708).
+
 ## 解答
 
 ### 简单版本
@@ -114,9 +122,9 @@ C++、Go 以递增小数与递减大数两个计数器输出相同棋盘构造�
 |---|---|---|---|---|---|---|---|
 | [1480_constructive.cpp](1480_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 128 KB | 11286681 |
 | [1480_constructive.go](1480_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.031 s | 1108 KB | 11286689 |
-| [1480_constructive.java](1480_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
+| [1480_constructive.java](1480_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
 | [1480_constructive.py](1480_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.078 s | 432 KB | 11286697 |
-| [1480_constructive.rs](1480_constructive.rs) \* | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
+| [1480_constructive.rs](1480_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
 
 ### 优化版本
 
@@ -124,5 +132,6 @@ C++、Go 以递增小数与递减大数两个计数器输出相同棋盘构造�
 |---|---|---|---|---|---|---|---|
 | [1480_constructive_optimized.cpp](1480_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 100 KB | 11315374 |
 | [1480_constructive_optimized.go](1480_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N²) | AC | 0.015 s | 276 KB | 11315828 |
+| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 84 KB | 11329180 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

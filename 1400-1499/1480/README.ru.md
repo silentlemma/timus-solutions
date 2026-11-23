@@ -132,6 +132,14 @@ C++ и Go выводят ту же шахматную конструкцию д�
 
 Принятые базовые реализации [1480_constructive.java](1480_constructive.java), [1480_constructive.py](1480_constructive.py), [1480_constructive.rs](1480_constructive.rs) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1480_parsing_implementation_optimized.rs`. Шахматная конструкция сохранена, но каждое число записывается в единый постоянный ограниченный буфер. Десятичные строки ячеек и полный ответ не хранятся.
+
+Accepted #11329180 (Rust 1.75 x64): **0.015 s / 84 KB**. Архивное сравнение: `1480_constructive.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11286708).
+
 ## Решения
 
 ### Простые
@@ -140,9 +148,9 @@ C++ и Go выводят ту же шахматную конструкцию д�
 |---|---|---|---|---|---|---|---|
 | [1480_constructive.cpp](1480_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 128 KB | 11286681 |
 | [1480_constructive.go](1480_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.031 s | 1108 KB | 11286689 |
-| [1480_constructive.java](1480_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
+| [1480_constructive.java](1480_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
 | [1480_constructive.py](1480_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.078 s | 432 KB | 11286697 |
-| [1480_constructive.rs](1480_constructive.rs) \* | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
+| [1480_constructive.rs](1480_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
 
 ### Оптимизированные
 
@@ -150,5 +158,6 @@ C++ и Go выводят ту же шахматную конструкцию д�
 |---|---|---|---|---|---|---|---|
 | [1480_constructive_optimized.cpp](1480_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 100 KB | 11315374 |
 | [1480_constructive_optimized.go](1480_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N²) | AC | 0.015 s | 276 KB | 11315828 |
+| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 84 KB | 11329180 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

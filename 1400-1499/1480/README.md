@@ -128,6 +128,14 @@ C++ and Go emit the identical checkerboard construction using only the increasin
 
 The accepted base implementations [1480_constructive.java](1480_constructive.java), [1480_constructive.py](1480_constructive.py), [1480_constructive.rs](1480_constructive.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1480_parsing_implementation_optimized.rs`. Preserve the chessboard construction but write each number into one persistent bounded output buffer. Neither per-cell decimal strings nor the complete answer are stored.
+
+Accepted #11329180 (Rust 1.75 x64): **0.015 s / 84 KB**. Archived comparison: `1480_constructive.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11286708).
+
 ## Solutions
 
 ### Simple
@@ -136,9 +144,9 @@ The accepted base implementations [1480_constructive.java](1480_constructive.jav
 |---|---|---|---|---|---|---|---|
 | [1480_constructive.cpp](1480_constructive.cpp) | G++ 13.2 x64 | constructive | O(N^2) | AC | 0.031 s | 128 KB | 11286681 |
 | [1480_constructive.go](1480_constructive.go) | Go 1.14 x64 | constructive | O(N^2) | AC | 0.031 s | 1108 KB | 11286689 |
-| [1480_constructive.java](1480_constructive.java) \* | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
+| [1480_constructive.java](1480_constructive.java) | Java 1.8 | constructive | O(N^2) | AC | 0.125 s | 1640 KB | 11286700 |
 | [1480_constructive.py](1480_constructive.py) | Python 3.12 x64 | constructive | O(N^2) | AC | 0.078 s | 432 KB | 11286697 |
-| [1480_constructive.rs](1480_constructive.rs) \* | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
+| [1480_constructive.rs](1480_constructive.rs) | Rust 1.75 x64 | constructive | O(N^2) | AC | 0.031 s | 256 KB | 11286708 |
 
 ### Optimized
 
@@ -146,5 +154,6 @@ The accepted base implementations [1480_constructive.java](1480_constructive.jav
 |---|---|---|---|---|---|---|---|
 | [1480_constructive_optimized.cpp](1480_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N²) | AC | 0.015 s | 100 KB | 11315374 |
 | [1480_constructive_optimized.go](1480_constructive_optimized.go) \* | Go 1.14 x64 | constructive | O(N²) | AC | 0.015 s | 276 KB | 11315828 |
+| [1480_parsing_implementation_optimized.rs](1480_parsing_implementation_optimized.rs) | Rust 1.75 x64 | parsing, implementation | O(n^2) time; O(1) state + bounded I/O buffers | AC | 0.015 s | 84 KB | 11329180 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
