@@ -126,6 +126,14 @@ abracadabra
 - `1322_strings_optimized.py`: сокращение времени -39.74%; сокращение
   памяти +84.08%; база: `1322_strings.py`.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1322_strings_implementation_optimized.rs`. Токены читаются через ограниченный нативный байтовый буфер; короткие хранятся внутри объекта, дополнительная память выделяется только длинным. Десятичный разбор сохраняет знаковые границы без хранения всего командного ввода. Точка входа C напрямую вызывает решение и сбрасывает вывод Rust перед возвратом; архивная реализация с обычной точкой входа сохранена.
+
+Accepted #11328949 (Rust 1.75 x64): **0.015 s / 620 KB**. Архивное сравнение: `1322_strings.rs` (Rust 1.75 x64) — 0.031 s / 1108 KB (#11284957).
+
 ## Особенности языков
 
 - Python сортирует позиции встроенной устойчивой сортировкой; остальные
@@ -150,7 +158,8 @@ abracadabra
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1322_strings_optimized.cpp](1322_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.001 s | 588 KB | 11307290 |
-| [1322_strings_optimized.java](1322_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
+| [1322_strings_optimized.java](1322_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
 | [1322_strings_optimized.py](1322_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.109 s | 1004 KB | 11307297 |
+| [1322_strings_implementation_optimized.rs](1322_strings_implementation_optimized.rs) | Rust 1.75 x64 | strings, implementation | O(n) | AC | 0.015 s | 620 KB | 11328949 |
 
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.

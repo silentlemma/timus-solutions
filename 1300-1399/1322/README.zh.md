@@ -91,6 +91,14 @@ Python 则使用内置的稳定比较排序，最坏时间复杂度为 `O(n log 
 
 - `1322_strings_optimized.py`: 时间降低 -39.74%; 内存降低 +84.08%; 基础版本: `1322_strings.py`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1322_strings_implementation_optimized.rs`. 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328949 (Rust 1.75 x64): **0.015 s / 620 KB**. 历史对照: `1322_strings.rs` (Rust 1.75 x64) — 0.031 s / 1108 KB (#11284957).
+
 ## 各语言说明
 
 - Python 用内置的稳定排序对位置排序；其他语言使用计数排序。
@@ -113,7 +121,8 @@ Python 则使用内置的稳定比较排序，最坏时间复杂度为 `O(n log 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1322_strings_optimized.cpp](1322_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.001 s | 588 KB | 11307290 |
-| [1322_strings_optimized.java](1322_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
+| [1322_strings_optimized.java](1322_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
 | [1322_strings_optimized.py](1322_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.109 s | 1004 KB | 11307297 |
+| [1322_strings_implementation_optimized.rs](1322_strings_implementation_optimized.rs) | Rust 1.75 x64 | strings, implementation | O(n) | AC | 0.015 s | 620 KB | 11328949 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

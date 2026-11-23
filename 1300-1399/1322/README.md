@@ -121,6 +121,14 @@ asterisk concerns the rating target only.
 - `1322_strings_optimized.py`: time reduction -39.74%; memory reduction
   +84.08%; base: `1322_strings.py`.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1322_strings_implementation_optimized.rs`. Read tokens through a bounded native byte buffer; short tokens stay inline and only long tokens allocate spill storage. Decimal conversion retains the signed bounds without keeping the full command input. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11328949 (Rust 1.75 x64): **0.015 s / 620 KB**. Archived comparison: `1322_strings.rs` (Rust 1.75 x64) — 0.031 s / 1108 KB (#11284957).
+
 ## Language notes
 
 - Python sorts the positions with the built-in stable sort; the other
@@ -145,7 +153,8 @@ asterisk concerns the rating target only.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1322_strings_optimized.cpp](1322_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.001 s | 588 KB | 11307290 |
-| [1322_strings_optimized.java](1322_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
+| [1322_strings_optimized.java](1322_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
 | [1322_strings_optimized.py](1322_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.109 s | 1004 KB | 11307297 |
+| [1322_strings_implementation_optimized.rs](1322_strings_implementation_optimized.rs) | Rust 1.75 x64 | strings, implementation | O(n) | AC | 0.015 s | 620 KB | 11328949 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

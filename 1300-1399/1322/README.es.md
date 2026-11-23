@@ -128,6 +128,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1322_strings_optimized.py`: reducción de tiempo -39.74%; reducción de
   memoria +84.08%; base: `1322_strings.py`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1322_strings_implementation_optimized.rs`. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328949 (Rust 1.75 x64): **0.015 s / 620 KB**. Comparación archivada: `1322_strings.rs` (Rust 1.75 x64) — 0.031 s / 1108 KB (#11284957).
+
 ## Notas por lenguaje
 
 - Python ordena las posiciones con la ordenación estable incorporada;
@@ -153,7 +161,8 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1322_strings_optimized.cpp](1322_strings_optimized.cpp) | G++ 13.2 x64 | strings | O(n) | AC | 0.001 s | 588 KB | 11307290 |
-| [1322_strings_optimized.java](1322_strings_optimized.java) \* | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
+| [1322_strings_optimized.java](1322_strings_optimized.java) | Java 1.8 | strings | O(n) | AC | 0.093 s | 924 KB | 11307302 |
 | [1322_strings_optimized.py](1322_strings_optimized.py) \* | Python 3.12 x64 | strings | O(n) | AC | 0.109 s | 1004 KB | 11307297 |
+| [1322_strings_implementation_optimized.rs](1322_strings_implementation_optimized.rs) | Rust 1.75 x64 | strings, implementation | O(n) | AC | 0.015 s | 620 KB | 11328949 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
