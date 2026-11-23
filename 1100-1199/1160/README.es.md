@@ -137,6 +137,22 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1160_dsu_optimized.rs`: reducción de tiempo -106.67%; reducción de
   memoria +69.20%; base: `1160_dsu.rs`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1160_dsu_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328510 (Go 1.14 x64): **0.046 s / 2240 KB**. Comparación archivada: `1160_dsu.go` (Go 1.14 x64) — 0.062 s / 1808 KB (#11304467).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1160_dsu_implementation_optimized.rs`. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328948 (Rust 1.75 x64): **0.015 s / 656 KB**. Comparación archivada: `1160_dsu.rs` (Rust 1.75 x64) — 0.015 s / 1104 KB (#11281779).
+
 ## Notas por lenguaje
 
 - Todos los lenguajes ordenan los cables y aplican la misma unión con
@@ -160,7 +176,9 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [1160_dsu_optimized.cpp](1160_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(M log M) | AC | 0.015 s | 208 KB | 11304463 |
 | [1160_dsu_optimized.java](1160_dsu_optimized.java) | Java 1.8 | dsu | O(M log M) | AC | 0.078 s | 752 KB | 11304464 |
-| [1160_dsu_optimized.py](1160_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O(M log M) | AC | 0.093 s | 1596 KB | 11304465 |
+| [1160_dsu_optimized.py](1160_dsu_optimized.py) | Python 3.12 x64 | dsu | O(M log M) | AC | 0.093 s | 1596 KB | 11304465 |
 | [1160_dsu_optimized.rs](1160_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M log M) | AC | 0.031 s | 340 KB | 11304466 |
+| [1160_dsu_optimized.go](1160_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M log² M) | AC | 0.046 s | 2240 KB | 11328510 |
+| [1160_dsu_implementation_optimized.rs](1160_dsu_implementation_optimized.rs) | Rust 1.75 x64 | dsu, implementation | O(M log M) | AC | 0.015 s | 656 KB | 11328948 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

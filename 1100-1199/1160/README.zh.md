@@ -107,6 +107,22 @@ Kruskal 算法即停止，输出经由 `BufWriter`：{1160_dsu_optimized.rs}。
 
 - `1160_dsu_optimized.rs`: 时间降低 -106.67%; 内存降低 +69.20%; 基础版本: `1160_dsu.rs`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1160_dsu_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328510 (Go 1.14 x64): **0.046 s / 2240 KB**. 历史对照: `1160_dsu.go` (Go 1.14 x64) — 0.062 s / 1808 KB (#11304467).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1160_dsu_implementation_optimized.rs`. 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328948 (Rust 1.75 x64): **0.015 s / 656 KB**. 历史对照: `1160_dsu.rs` (Rust 1.75 x64) — 0.015 s / 1104 KB (#11281779).
+
 ## 各语言说明
 
 - 所有语言都对电缆排序，并运行同样的路径减半并查集。
@@ -129,7 +145,9 @@ Kruskal 算法即停止，输出经由 `BufWriter`：{1160_dsu_optimized.rs}。
 |---|---|---|---|---|---|---|---|
 | [1160_dsu_optimized.cpp](1160_dsu_optimized.cpp) | G++ 13.2 x64 | dsu | O(M log M) | AC | 0.015 s | 208 KB | 11304463 |
 | [1160_dsu_optimized.java](1160_dsu_optimized.java) | Java 1.8 | dsu | O(M log M) | AC | 0.078 s | 752 KB | 11304464 |
-| [1160_dsu_optimized.py](1160_dsu_optimized.py) \* | Python 3.12 x64 | dsu | O(M log M) | AC | 0.093 s | 1596 KB | 11304465 |
+| [1160_dsu_optimized.py](1160_dsu_optimized.py) | Python 3.12 x64 | dsu | O(M log M) | AC | 0.093 s | 1596 KB | 11304465 |
 | [1160_dsu_optimized.rs](1160_dsu_optimized.rs) \* | Rust 1.75 x64 | dsu | O(M log M) | AC | 0.031 s | 340 KB | 11304466 |
+| [1160_dsu_optimized.go](1160_dsu_optimized.go) | Go 1.14 x64 | dsu | O(M log² M) | AC | 0.046 s | 2240 KB | 11328510 |
+| [1160_dsu_implementation_optimized.rs](1160_dsu_implementation_optimized.rs) | Rust 1.75 x64 | dsu, implementation | O(M log M) | AC | 0.015 s | 656 KB | 11328948 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
