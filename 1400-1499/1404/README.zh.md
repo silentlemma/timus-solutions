@@ -65,6 +65,14 @@ secret
 `(code − previous + 26) % 26`，它永远不会是负数。C++ 为 84 KB，而不是 360 KB；
 Java 为 328 KB，而不是 1612 KB；两者时间都不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1404_implementation_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328873 (Go 1.14 x64): **0.015 s / 908 KB**. 历史对照: `1404_implementation.go` (Go 1.14 x64) — 0.031 s / 1068 KB (#11286039).
+
 ## 解答
 
 ### 简单版本
@@ -83,6 +91,5 @@ Java 为 328 KB，而不是 1612 KB；两者时间都不变。
 |----|----|----|-----|------|----|----|------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
-
-\* 带星号的解法尚未达到目标排名，仍可优化。
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
+| [1404_implementation_parsing_optimized.go](1404_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n) | AC | 0.015 s | 908 KB | 11328873 |

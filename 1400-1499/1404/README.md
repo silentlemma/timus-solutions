@@ -74,6 +74,14 @@ as `(code − previous + 26) % 26`, which is never negative. C++ takes
 84 KB instead of 360 KB and Java 328 KB instead of 1612 KB, both with
 the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1404_implementation_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments.
+
+Accepted #11328873 (Go 1.14 x64): **0.015 s / 908 KB**. Archived comparison: `1404_implementation.go` (Go 1.14 x64) — 0.031 s / 1068 KB (#11286039).
+
 ## Solutions
 
 ### Simple
@@ -92,6 +100,5 @@ the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
-
-\* The marked solutions can improve their target rankings.
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
+| [1404_implementation_parsing_optimized.go](1404_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n) | AC | 0.015 s | 908 KB | 11328873 |

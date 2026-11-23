@@ -74,6 +74,14 @@ cada letra enseguida con `putchar`, Java las reúne en un arreglo de
 lugar de 360 KB y Java 328 KB en lugar de 1612 KB, ambas con el mismo
 tiempo.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1404_implementation_parsing_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11328873 (Go 1.14 x64): **0.015 s / 908 KB**. Comparación archivada: `1404_implementation.go` (Go 1.14 x64) — 0.031 s / 1068 KB (#11286039).
+
 ## Soluciones
 
 ### Sencillas
@@ -92,6 +100,5 @@ tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1404_implementation_optimized.cpp](1404_implementation_optimized.cpp) | G++ 13.2 x64 | implementation | O(n) | AC | 0.015 s | 84 KB | 11303604 |
 | [1404_implementation_optimized.java](1404_implementation_optimized.java) | Java 1.8 | implementation | O(n) | AC | 0.093 s | 328 KB | 11303464 |
-| [1404_implementation_optimized.py](1404_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1404_implementation_optimized.py](1404_implementation_optimized.py) | Python 3.12 x64 | implementation | O(N) time; O(N) storage | AC | 0.062 s | 648 KB | 11327543 |
+| [1404_implementation_parsing_optimized.go](1404_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(n) | AC | 0.015 s | 908 KB | 11328873 |
