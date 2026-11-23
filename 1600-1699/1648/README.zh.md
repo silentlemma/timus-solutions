@@ -68,6 +68,14 @@ n 和 d（1 ≤ n ≤ 20000，1 ≤ d ≤ 100000），然后是 a₁ … aₙ（
 
 已通过评测的基础实现 [1648_greedy.java](1648_greedy.java), [1648_greedy.py](1648_greedy.py), [1648_greedy.rs](1648_greedy.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1648_greedy_implementation_optimized.py`. 用内置字节 split/map 解析全部数字，替代嵌套流式生成器。以保存完整输入换取较少解释器开销，两次贪心遍历不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329019 (Python 3.12 x64): **0.093 s / 2692 KB**. 历史对照: `1648_greedy.py` (Python 3.12 x64) — 0.109 s / 2968 KB (#11328284).
+
 ## 解答
 
 ### 简单版本
@@ -77,7 +85,7 @@ n 和 d（1 ≤ n ≤ 20000，1 ≤ d ≤ 100000），然后是 a₁ … aₙ（
 | [1648_greedy.cpp](1648_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.031 s | 360 KB | 11288506 |
 | [1648_greedy.go](1648_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.062 s | 1584 KB | 11288507 |
 | [1648_greedy.java](1648_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 688 KB | 11288509 |
-| [1648_greedy.py](1648_greedy.py) \* | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 2968 KB | 11328284 |
+| [1648_greedy.py](1648_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 2968 KB | 11328284 |
 | [1648_greedy.rs](1648_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 840 KB | 11328286 |
 
 ### 优化版本
@@ -85,6 +93,5 @@ n 和 d（1 ≤ n ≤ 20000，1 ≤ d ≤ 100000），然后是 a₁ … aₙ（
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) time; O(N) storage | AC | 0.015 s | 168 KB | 11327771 |
-| [1648_greedy_optimized.go](1648_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1648_greedy_optimized.go](1648_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
+| [1648_greedy_implementation_optimized.py](1648_greedy_implementation_optimized.py) | Python 3.12 x64 | greedy, implementation | O(n) | AC | 0.093 s | 2692 KB | 11329019 |

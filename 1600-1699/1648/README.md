@@ -81,6 +81,14 @@ Historical previous-revision description and measurements: C++ and Go keep only 
 
 The accepted base implementations [1648_greedy.java](1648_greedy.java), [1648_greedy.py](1648_greedy.py), [1648_greedy.rs](1648_greedy.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1648_greedy_implementation_optimized.py`. Parse all numeric tokens with the built-in bytes split/map path instead of nested streaming generators. This trades full-input storage for less interpreter overhead; the two greedy passes are unchanged. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11329019 (Python 3.12 x64): **0.093 s / 2692 KB**. Archived comparison: `1648_greedy.py` (Python 3.12 x64) — 0.109 s / 2968 KB (#11328284).
+
 ## Solutions
 
 ### Simple
@@ -90,7 +98,7 @@ The accepted base implementations [1648_greedy.java](1648_greedy.java), [1648_gr
 | [1648_greedy.cpp](1648_greedy.cpp) | G++ 13.2 x64 | greedy | O(n) | AC | 0.031 s | 360 KB | 11288506 |
 | [1648_greedy.go](1648_greedy.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.062 s | 1584 KB | 11288507 |
 | [1648_greedy.java](1648_greedy.java) | Java 1.8 | greedy | O(n) | AC | 0.109 s | 688 KB | 11288509 |
-| [1648_greedy.py](1648_greedy.py) \* | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 2968 KB | 11328284 |
+| [1648_greedy.py](1648_greedy.py) | Python 3.12 x64 | greedy | O(n) | AC | 0.109 s | 2968 KB | 11328284 |
 | [1648_greedy.rs](1648_greedy.rs) | Rust 1.75 x64 | greedy | O(n) | AC | 0.031 s | 840 KB | 11328286 |
 
 ### Optimized
@@ -98,6 +106,5 @@ The accepted base implementations [1648_greedy.java](1648_greedy.java), [1648_gr
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1648_greedy_optimized.cpp](1648_greedy_optimized.cpp) | G++ 13.2 x64 | greedy | O(N) time; O(N) storage | AC | 0.015 s | 168 KB | 11327771 |
-| [1648_greedy_optimized.go](1648_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1648_greedy_optimized.go](1648_greedy_optimized.go) | Go 1.14 x64 | greedy | O(n) | AC | 0.031 s | 876 KB | 11311107 |
+| [1648_greedy_implementation_optimized.py](1648_greedy_implementation_optimized.py) | Python 3.12 x64 | greedy, implementation | O(n) | AC | 0.093 s | 2692 KB | 11329019 |
