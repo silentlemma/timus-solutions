@@ -115,6 +115,14 @@ n до 3000.
 
 По сравнению с `1295_number_theory.py`: время 0.093 s → 0.125 s; память 464 KB → 200 KB.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1295_number_theory_optimized.go`. Алгоритм и обработка границ сохранены. Вместо сканирования и печати через fmt используются разбор токенов и чисел и повторно используемый выходной буфер. Ввод целиком хранится в байтовом буфере: это обмен памяти под ввод на меньшие накладные расходы универсального ввода-вывода.
+
+Accepted #11328536 (Go 1.14 x64): **0.031 s / 936 KB**. Архивное сравнение: `1295_number_theory.go` (Go 1.14 x64) — 0.031 s / 1080 KB (#11284638).
+
 ## Особенности языков
 
 Новые исходники сравниваются по срезу от 18 ноября 2026 года с другими авторами на текущих компиляторах судьи. Порогов по ID посылки или дате нет. Ничьи делят место, времена меньше 0.015 с при сравнении считаются 0.015 с. Приведённые ниже места относятся к новым версиям; прежние исходники сохраняют собственные исторические метрики Accepted.
@@ -139,8 +147,9 @@ n до 3000.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1295_number_theory_optimized.java](1295_number_theory_optimized.java) | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
-| [1295_math.java](1295_math.java) \* | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
-| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
+| [1295_number_theory_optimized.java](1295_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(log n) | AC | 0.109 s | 324 KB | 11305839 |
+| [1295_math.java](1295_math.java) | Java 1.8 | math | O(1) arithmetic/storage + decimal input | AC | 0.078 s | 340 KB | 11327403 |
+| [1295_number_theory_optimized.py](1295_number_theory_optimized.py) | Python 3.12 x64 | number_theory | O(log n) | AC | 0.062 s | 660 KB | 11327024 |
+| [1295_number_theory_optimized.go](1295_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(log n) | AC | 0.031 s | 936 KB | 11328536 |
 
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
