@@ -71,6 +71,14 @@ Python 执行次数，不是每个编译语言都执行了 28,177 次。
 - `1080_dsu.rs`: 0.046 s / 200 KB; 基础版 `1080_bfs.rs`: 0.031 s / 296 KB; 相对基础版的变化: 时间 +48.4%, 内存 -32.4%.
 - `1080_dsu.go`: 0.031 s / 780 KB; 基础版 `1080_bfs.go`: 0.031 s / 1364 KB; 相对基础版的变化: 时间 -0.0%, 内存 -42.8%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1080_implementation_parsing_optimized.rs`. 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+
+Accepted #11329199 (Rust 1.75 x64): **0.015 s / 152 KB**. 历史对照: `1080_bfs.rs` (Rust 1.75 x64) — 0.031 s / 296 KB (#11279005).
+
 ## 语言说明
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
@@ -107,6 +115,7 @@ Python 执行次数，不是每个编译语言都执行了 28,177 次。
 | [1080_dsu.java](1080_dsu.java) | Java 1.8 | dsu | O((N+M) alpha(N)) | AC | 0.078 s | 348 KB | 11308358 |
 | [1080_dsu.py](1080_dsu.py) \* | Python 3.12 x64 | dsu | O((N+M) alpha(N)) | AC | 0.093 s | 524 KB | 11308342 |
 | [1080_dsu.rs](1080_dsu.rs) \* | Rust 1.75 x64 | dsu | O((N+M) alpha(N)) | AC | 0.046 s | 200 KB | 11308363 |
-| [1080_dsu.go](1080_dsu.go) \* | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_dsu.go](1080_dsu.go) | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_implementation_parsing_optimized.rs](1080_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N + M) | AC | 0.015 s | 152 KB | 11329199 |
 
-\* Accepted；尚未达到排名目标，此实现仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

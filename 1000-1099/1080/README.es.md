@@ -83,6 +83,14 @@ El BFS compacto conserva colores opuestos en los extremos de cada arista, con co
 - `1080_dsu.rs`: 0.046 s / 200 KB; base `1080_bfs.rs`: 0.031 s / 296 KB; cambio respecto a la base: tiempo +48.4%, memoria -32.4%.
 - `1080_dsu.go`: 0.031 s / 780 KB; base `1080_bfs.go`: 0.031 s / 1364 KB; cambio respecto a la base: tiempo -0.0%, memoria -42.8%.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1080_implementation_parsing_optimized.rs`. La salida directa se especializa a los tipos usados, evitando despacho genérico y cadenas temporales. El texto fijo usa escrituras nativas y los números se convierten exactamente con el signo requerido. Se conservan decisiones matemáticas y versiones simples.
+
+Accepted #11329199 (Rust 1.75 x64): **0.015 s / 152 KB**. Comparación archivada: `1080_bfs.rs` (Rust 1.75 x64) — 0.031 s / 296 KB (#11279005).
+
 ## Notas por lenguaje
 
 Se usa la instantánea guardada del 1–2 de noviembre de 2026. C++ exige el 15% superior o los primeros 10 puestos en tiempo y memoria; las demás familias exigen el primer puesto en ambas métricas. Los empates comparten puesto. Las muestras vacías solo acreditan cobertura formal.
@@ -119,6 +127,7 @@ La tabla sencilla incluye las fuentes didácticas preferidas y las alternativas 
 | [1080_dsu.java](1080_dsu.java) | Java 1.8 | dsu | O((N+M) alpha(N)) | AC | 0.078 s | 348 KB | 11308358 |
 | [1080_dsu.py](1080_dsu.py) \* | Python 3.12 x64 | dsu | O((N+M) alpha(N)) | AC | 0.093 s | 524 KB | 11308342 |
 | [1080_dsu.rs](1080_dsu.rs) \* | Rust 1.75 x64 | dsu | O((N+M) alpha(N)) | AC | 0.046 s | 200 KB | 11308363 |
-| [1080_dsu.go](1080_dsu.go) \* | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_dsu.go](1080_dsu.go) | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_implementation_parsing_optimized.rs](1080_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N + M) | AC | 0.015 s | 152 KB | 11329199 |
 
-\* Accepted; todavía no se alcanza el objetivo de clasificación. Esta versión admite mejoras.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

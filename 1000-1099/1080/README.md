@@ -83,6 +83,14 @@ The compact BFS implementation retains the usual opposite-color invariant with b
 - `1080_dsu.rs`: 0.046 s / 200 KB; base `1080_bfs.rs`: 0.031 s / 296 KB; relative change: time +48.4%, memory -32.4%.
 - `1080_dsu.go`: 0.031 s / 780 KB; base `1080_bfs.go`: 0.031 s / 1364 KB; relative change: time -0.0%, memory -42.8%.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1080_implementation_parsing_optimized.rs`. Specialize direct output to the answer types actually used, avoiding generic formatting dispatch and temporary answer strings. Fixed text uses native writes; numeric writers handle the required signed or unsigned magnitudes exactly. Mathematical decisions and archived simple versions are preserved.
+
+Accepted #11329199 (Rust 1.75 x64): **0.015 s / 152 KB**. Archived comparison: `1080_bfs.rs` (Rust 1.75 x64) — 0.031 s / 296 KB (#11279005).
+
 ## Language notes
 
 The saved rating snapshot is from 1–2 November 2026. C++ requires the top 15% or the first 10 places in both time and memory; other families require first place in both. Equal results share a place. Empty competitor samples establish formal coverage only.
@@ -119,6 +127,7 @@ The simple table includes the preferred teaching sources and preserved Accepted 
 | [1080_dsu.java](1080_dsu.java) | Java 1.8 | dsu | O((N+M) alpha(N)) | AC | 0.078 s | 348 KB | 11308358 |
 | [1080_dsu.py](1080_dsu.py) \* | Python 3.12 x64 | dsu | O((N+M) alpha(N)) | AC | 0.093 s | 524 KB | 11308342 |
 | [1080_dsu.rs](1080_dsu.rs) \* | Rust 1.75 x64 | dsu | O((N+M) alpha(N)) | AC | 0.046 s | 200 KB | 11308363 |
-| [1080_dsu.go](1080_dsu.go) \* | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_dsu.go](1080_dsu.go) | Go 1.14 x64 | dsu | O((N+M) alpha(N)) | AC | 0.031 s | 780 KB | 11309360 |
+| [1080_implementation_parsing_optimized.rs](1080_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(N + M) | AC | 0.015 s | 152 KB | 11329199 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
