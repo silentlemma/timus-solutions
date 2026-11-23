@@ -92,6 +92,22 @@ La versión compacta en C++ mantiene la recurrencia de Prim y usa entradas de 16
 
 Las implementaciones base aceptadas [1416_graphs.go](1416_graphs.go), [1416_graphs.java](1416_graphs.java), [1416_graphs.py](1416_graphs.py), [1416_graphs.rs](1416_graphs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1416_graphs_parsing_implementation_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo.
+
+Accepted #11328937 (Go 1.14 x64): **0.031 s / 8892 KB**. Comparación archivada: `1416_graphs.go` (Go 1.14 x64) — 0.203 s / 10568 KB (#11286112).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1416_graphs_implementation_optimized.rs`. Los pesos acotados y los extremos usan 32 bits; los totales de los árboles conservan 64 bits. Se mantienen ambos cálculos y su orden. Se leen tokens con un búfer nativo acotado; los cortos se guardan dentro del objeto y solo los largos reservan espacio extra. La conversión decimal conserva las cotas con signo sin guardar toda la entrada de comandos. La entrada de C llama directamente al solucionador y vacía la salida de Rust antes de volver; se conserva la implementación de entrada habitual.
+
+Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. Comparación archivada: `1416_graphs.rs` (Rust 1.75 x64) — 0.015 s / 9656 KB (#11286115).
+
 ## Soluciones
 
 ### Sencillas
@@ -99,15 +115,15 @@ Las implementaciones base aceptadas [1416_graphs.go](1416_graphs.go), [1416_grap
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs.cpp](1416_graphs.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.187 s | 3448 KB | 11286111 |
-| [1416_graphs.go](1416_graphs.go) \* | Go 1.14 x64 | graphs | O(n^2 + m) | AC | 0.203 s | 10568 KB | 11286112 |
+| [1416_graphs.go](1416_graphs.go) | Go 1.14 x64 | graphs | O(n^2 + m) | AC | 0.203 s | 10568 KB | 11286112 |
 | [1416_graphs.java](1416_graphs.java) | Java 1.8 | graphs | O(n^2 + m) | AC | 0.109 s | 8164 KB | 11286114 |
-| [1416_graphs.py](1416_graphs.py) \* | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.39 s | 44108 KB | 11328275 |
-| [1416_graphs.rs](1416_graphs.rs) \* | Rust 1.75 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 9656 KB | 11286115 |
+| [1416_graphs.py](1416_graphs.py) | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.39 s | 44108 KB | 11328275 |
+| [1416_graphs.rs](1416_graphs.rs) | Rust 1.75 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 9656 KB | 11286115 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs_optimized.cpp](1416_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 1132 KB | 11310409 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.031 s | 8892 KB | 11328937 |
+| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11328963 |

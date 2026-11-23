@@ -84,6 +84,22 @@ heaviest(u, v) = max(heaviest(u, p), c)。`O(n² + m)`。
 
 已通过评测的基础实现 [1416_graphs.go](1416_graphs.go), [1416_graphs.java](1416_graphs.java), [1416_graphs.py](1416_graphs.py), [1416_graphs.rs](1416_graphs.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1416_graphs_parsing_implementation_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328937 (Go 1.14 x64): **0.031 s / 8892 KB**. 历史对照: `1416_graphs.go` (Go 1.14 x64) — 0.203 s / 10568 KB (#11286112).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1416_graphs_implementation_optimized.rs`. 有界边权和端点用 32 位保存，生成树总权仍为 64 位。两次生成树计算及处理顺序不变。 通过有界原生字节缓冲读取词元，短词元内联保存，仅长词元分配额外空间。十进制转换保留有符号边界，不保存完整命令输入。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11328963 (Rust 1.75 x64): **0.031 s / 3908 KB**. 历史对照: `1416_graphs.rs` (Rust 1.75 x64) — 0.015 s / 9656 KB (#11286115).
+
 ## 解答
 
 ### 简单版本
@@ -91,15 +107,15 @@ heaviest(u, v) = max(heaviest(u, p), c)。`O(n² + m)`。
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs.cpp](1416_graphs.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.187 s | 3448 KB | 11286111 |
-| [1416_graphs.go](1416_graphs.go) \* | Go 1.14 x64 | graphs | O(n^2 + m) | AC | 0.203 s | 10568 KB | 11286112 |
+| [1416_graphs.go](1416_graphs.go) | Go 1.14 x64 | graphs | O(n^2 + m) | AC | 0.203 s | 10568 KB | 11286112 |
 | [1416_graphs.java](1416_graphs.java) | Java 1.8 | graphs | O(n^2 + m) | AC | 0.109 s | 8164 KB | 11286114 |
-| [1416_graphs.py](1416_graphs.py) \* | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.39 s | 44108 KB | 11328275 |
-| [1416_graphs.rs](1416_graphs.rs) \* | Rust 1.75 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 9656 KB | 11286115 |
+| [1416_graphs.py](1416_graphs.py) | Python 3.12 x64 | graphs | O(n^2 + m) | AC | 0.39 s | 44108 KB | 11328275 |
+| [1416_graphs.rs](1416_graphs.rs) | Rust 1.75 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 9656 KB | 11286115 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1416_graphs_optimized.cpp](1416_graphs_optimized.cpp) | G++ 13.2 x64 | graphs | O(n^2 + m) | AC | 0.015 s | 1132 KB | 11310409 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1416_graphs_parsing_implementation_optimized.go](1416_graphs_parsing_implementation_optimized.go) | Go 1.14 x64 | graphs, parsing, implementation | O(n^2 + m) | AC | 0.031 s | 8892 KB | 11328937 |
+| [1416_graphs_implementation_optimized.rs](1416_graphs_implementation_optimized.rs) | Rust 1.75 x64 | graphs, implementation | O(n^2 + m) | AC | 0.031 s | 3908 KB | 11328963 |
