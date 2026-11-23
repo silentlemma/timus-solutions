@@ -118,6 +118,14 @@ C++ and Rust count frequencies while reading the word, so the word itself need n
 
 The accepted base implementations [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go), [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java), [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`2024_sorting_combinatorics_optimized.py`. Use the built-in string count for the relevant letter, keeping the original counting formula. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328620 (Python 3.12 x64): **0.078 s / 876 KB**. Archived comparison: `2024_sorting_combinatorics.py` (Python 3.12 x64) — 0.109 s / 776 KB (#11292836).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -137,9 +145,9 @@ linear scan.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB | 11292830 |
-| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) \* | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
-| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) \* | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.093 s | 1224 KB | 11328363 |
-| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) \* | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
+| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
+| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.093 s | 1224 KB | 11328363 |
+| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
 | [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB | 11292855 |
 
 ### Optimized
@@ -148,5 +156,6 @@ linear scan.
 |---|---|---|---|---|---|---|---|
 | [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
 | [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
+| [2024_sorting_combinatorics_optimized.py](2024_sorting_combinatorics_optimized.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.078 s | 876 KB | 11328620 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

@@ -114,6 +114,14 @@ C++ и Rust считают частоты прямо при чтении сло�
 
 Принятые базовые реализации [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go), [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java), [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) также закрывают быстрый набор: в сохранённом срезе сравнения они уже удовлетворяют рейтинговому критерию включения — топ 15% или первые десять мест одновременно по времени и памяти. Используются те же исходники без одинаковых копий. Звёздочка отмечает версию, которая пока не достигла целевого рейтинга своего языка.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`2024_sorting_combinatorics_optimized.py`. Нужная буква подсчитывается встроенным методом строки; итоговая формула прежняя. Самостоятельная программа сбрасывает оба выходных потока перед os._exit(0), чтобы после записи полного ответа не выполнять завершение интерпретатора. Это изменение завершения процесса, а не математического алгоритма; простая версия сохранена.
+
+Accepted #11328620 (Python 3.12 x64): **0.078 s / 876 KB**. Архивное сравнение: `2024_sorting_combinatorics.py` (Python 3.12 x64) — 0.109 s / 776 KB (#11292836).
+
 ## Особенности языков
 
 Эти замечания относятся к базовым реализациям.
@@ -132,9 +140,9 @@ C++, Go и Rust используют 64-битный тип для сочета�
 | Решение | Язык | Подход | Асимптотика | Вердикт | Время | Память | Посылка |
 |---|---|---|---|---|---|---|---|
 | [2024_sorting_combinatorics.cpp](2024_sorting_combinatorics.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 668 KB | 11292830 |
-| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) \* | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
-| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) \* | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.093 s | 1224 KB | 11328363 |
-| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) \* | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
+| [2024_sorting_combinatorics.go](2024_sorting_combinatorics.go) | Go 1.14 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 1772 KB | 11292833 |
+| [2024_sorting_combinatorics.java](2024_sorting_combinatorics.java) | Java 1.8 | sorting, combinatorics | O(n) | AC | 0.093 s | 1224 KB | 11328363 |
+| [2024_sorting_combinatorics.py](2024_sorting_combinatorics.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.109 s | 776 KB | 11292836 |
 | [2024_sorting_combinatorics.rs](2024_sorting_combinatorics.rs) | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 472 KB | 11292855 |
 
 ### Оптимизированные
@@ -143,5 +151,6 @@ C++, Go и Rust используют 64-битный тип для сочета�
 |---|---|---|---|---|---|---|---|
 | [2024_sorting_combinatorics_optimized.cpp](2024_sorting_combinatorics_optimized.cpp) | G++ 13.2 x64 | sorting, combinatorics | O(n) | AC | 0.015 s | 120 KB | 11310461 |
 | [2024_sorting_combinatorics_optimized.rs](2024_sorting_combinatorics_optimized.rs) \* | Rust 1.75 x64 | sorting, combinatorics | O(n) | AC | 0.046 s | 212 KB | 11310463 |
+| [2024_sorting_combinatorics_optimized.py](2024_sorting_combinatorics_optimized.py) | Python 3.12 x64 | sorting, combinatorics | O(n) | AC | 0.078 s | 876 KB | 11328620 |
 
-\* Accepted; рейтинговая цель пока не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
