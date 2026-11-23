@@ -79,6 +79,14 @@ New C++, Go and Rust retain the prime-power exponent sum, but store only one uin
 
 The accepted base implementations [1860_number_theory.java](1860_number_theory.java), [1860_number_theory.py](1860_number_theory.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1860_number_theory_optimized.py`. Keep modular Fibonacci weights in one compact unsigned-int array, reversing it in place rather than copying a second weights sequence. This Accepted was measured on PyPy 3.10, not CPython. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328686 (PyPy 3.10 x64): **0.218 s / 14116 KB**. Archived comparison: `1860_number_theory.py` (PyPy 3.10 x64) — 0.171 s / 34140 KB (#11325600).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
@@ -95,8 +103,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1860_number_theory.cpp](1860_number_theory.cpp) | G++ 13.2 x64 | number_theory | O(n log log n) | AC | 0.031 s | 15492 KB | 11325590 |
 | [1860_number_theory.go](1860_number_theory.go) | Go 1.14 x64 | number_theory | O(n log log n) | AC | 0.046 s | 18860 KB | 11290853 |
-| [1860_number_theory.java](1860_number_theory.java) \* | Java 1.8 | number_theory | O(n log log n) | AC | 0.187 s | 18412 KB | 11325560 |
-| [1860_number_theory.py](1860_number_theory.py) \* | PyPy 3.10 x64 | number_theory | O(n log log n) | AC | 0.171 s | 34140 KB | 11325600 |
+| [1860_number_theory.java](1860_number_theory.java) | Java 1.8 | number_theory | O(n log log n) | AC | 0.187 s | 18412 KB | 11325560 |
+| [1860_number_theory.py](1860_number_theory.py) | PyPy 3.10 x64 | number_theory | O(n log log n) | AC | 0.171 s | 34140 KB | 11325600 |
 | [1860_number_theory.rs](1860_number_theory.rs) | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.046 s | 16684 KB | 11325614 |
 
 ### Optimized
@@ -104,8 +112,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1860_number_theory_optimized.cpp](1860_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(n log log n) | AC | 0.031 s | 3700 KB | 11315295 |
-| [1860_number_theory_optimized.go](1860_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(n log log n) | AC | 0.031 s | 4800 KB | 11315297 |
-| [1860_number_theory_optimized.rs](1860_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.046 s | 3888 KB | 11315298 |
-| [1860_number_theory_optimized.java](1860_number_theory_optimized.java) \* | Java 1.8 | number_theory | O(n log log n) | AC | 0.125 s | 8368 KB | 11325040 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1860_number_theory_optimized.go](1860_number_theory_optimized.go) | Go 1.14 x64 | number_theory | O(n log log n) | AC | 0.031 s | 4800 KB | 11315297 |
+| [1860_number_theory_optimized.rs](1860_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(n log log n) | AC | 0.046 s | 3888 KB | 11315298 |
+| [1860_number_theory_optimized.java](1860_number_theory_optimized.java) | Java 1.8 | number_theory | O(n log log n) | AC | 0.125 s | 8368 KB | 11325040 |
+| [1860_number_theory_optimized.py](1860_number_theory_optimized.py) | PyPy 3.10 x64 | number_theory | O(n log log n) | AC | 0.218 s | 14116 KB | 11328686 |
