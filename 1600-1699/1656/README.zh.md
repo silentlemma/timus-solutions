@@ -75,6 +75,14 @@
 - `1656_constructive_optimized.java`: 0.078 s / 472 KB; 基础版 `1656_constructive.java`: 0.156 s / 4188 KB; 相对基础版的变化: 时间 -50.0%, 内存 -88.7%.
 - `1656_constructive_optimized.py`: 0.109 s / 268 KB; 基础版 `1656_constructive.py`: 0.046 s / 436 KB; 相对基础版的变化: 时间 +137.0%, 内存 -38.5%.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1656_constructive_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328887 (Go 1.14 x64): **0.015 s / 980 KB**. 历史对照: `1656_constructive.go` (Go 1.14 x64) — 0.031 s / 1152 KB (#11288581).
+
 ## 语言说明
 
 使用 2026 年 11 月 1–2 日保存的快照。C++ 要求时间和内存同时进入前 15% 或前 10 名；其他语言族要求两项均第一。相同结果共享名次，无竞争记录的样本只表示形式覆盖。
@@ -110,6 +118,7 @@
 | [1656_constructive_optimized.cpp](1656_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2+H) | AC | 0.001 s | 108 KB | 11308068 |
 | [1656_constructive_optimized.java](1656_constructive_optimized.java) | Java 1.8 | constructive | O(N^2+H) | AC | 0.078 s | 472 KB | 11308073 |
 | [1656_constructive_optimized.py](1656_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N^2+H) time, O(N^2+H+N) compact bytes/counts; H31 | AC | 0.109 s | 268 KB | 11309461 |
-| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
+| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
+| [1656_constructive_parsing_optimized.go](1656_constructive_parsing_optimized.go) | Go 1.14 x64 | constructive, parsing | O(n² log² n) | AC | 0.015 s | 980 KB | 11328887 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

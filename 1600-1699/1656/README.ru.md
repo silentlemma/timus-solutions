@@ -82,6 +82,14 @@
 - `1656_constructive_optimized.java`: 0.078 s / 472 KB; база `1656_constructive.java`: 0.156 s / 4188 KB; изменение относительно базы: время -50.0%, память -88.7%.
 - `1656_constructive_optimized.py`: 0.109 s / 268 KB; база `1656_constructive.py`: 0.046 s / 436 KB; изменение относительно базы: время +137.0%, память -38.5%.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1656_constructive_parsing_optimized.go`. Разбор токенов и числовой вывод специализированы по реально используемым типам; неиспользуемые универсальные ветви удалены, алгоритм и комментарии сохранены.
+
+Accepted #11328887 (Go 1.14 x64): **0.015 s / 980 KB**. Архивное сравнение: `1656_constructive.go` (Go 1.14 x64) — 0.031 s / 1152 KB (#11288581).
+
 ## Особенности языков
 
 Использован сохранённый срез 1–2 ноября 2026 года. Для C++ нужны топ 15% либо первые 10 мест одновременно по времени и памяти; для остальных семейств — первое место по обеим метрикам. Равные результаты делят место. Пустые выборки дают лишь формальное покрытие.
@@ -117,6 +125,7 @@
 | [1656_constructive_optimized.cpp](1656_constructive_optimized.cpp) | G++ 13.2 x64 | constructive | O(N^2+H) | AC | 0.001 s | 108 KB | 11308068 |
 | [1656_constructive_optimized.java](1656_constructive_optimized.java) | Java 1.8 | constructive | O(N^2+H) | AC | 0.078 s | 472 KB | 11308073 |
 | [1656_constructive_optimized.py](1656_constructive_optimized.py) \* | PyPy 3.10 x64 | constructive | O(N^2+H) time, O(N^2+H+N) compact bytes/counts; H31 | AC | 0.109 s | 268 KB | 11309461 |
-| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) \* | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
+| [1656_constructive_sorting.rs](1656_constructive_sorting.rs) | Rust 1.75 x64 | constructive, sorting | O(n⁴+H) time; O(n²+H) space | AC | 0.001 s | 44 KB | 11325532 |
+| [1656_constructive_parsing_optimized.go](1656_constructive_parsing_optimized.go) | Go 1.14 x64 | constructive, parsing | O(n² log² n) | AC | 0.015 s | 980 KB | 11328887 |
 
-\* Accepted; рейтинговая цель ещё не достигнута. Эту версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
