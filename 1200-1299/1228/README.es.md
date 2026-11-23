@@ -100,6 +100,14 @@ Frente a `1228_math.py`: tiempo 0.078 s → 0.109 s; memoria 424 KB → 212 KB.
 
 Frente a `1228_math.rs`: tiempo 0.015 s → 0.015 s; memoria 216 KB → 52 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1228_math_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328526 (Go 1.14 x64): **0.015 s / 956 KB**. Comparación archivada: `1228_math.go` (Go 1.14 x64) — 0.001 s / 1136 KB (#11283735).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -129,6 +137,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | [1228_math_optimized.cpp](1228_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.001 s | 128 KB | 11304270 |
 | [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
 | [1228_math_optimized.py](1228_math_optimized.py) \* | PyPy 3.10 x64 | math | O(n) | AC | 0.109 s | 212 KB | 11325065 |
-| [1228_math_optimized.rs](1228_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.rs](1228_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.go](1228_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 956 KB | 11328526 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

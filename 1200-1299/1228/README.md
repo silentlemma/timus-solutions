@@ -98,6 +98,14 @@ Compared with `1228_math.py`: time 0.078 s → 0.109 s; memory 424 KB → 212 KB
 
 Compared with `1228_math.rs`: time 0.015 s → 0.015 s; memory 216 KB → 52 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1228_math_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328526 (Go 1.14 x64): **0.015 s / 956 KB**. Archived comparison: `1228_math.go` (Go 1.14 x64) — 0.001 s / 1136 KB (#11283735).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -127,6 +135,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | [1228_math_optimized.cpp](1228_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.001 s | 128 KB | 11304270 |
 | [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
 | [1228_math_optimized.py](1228_math_optimized.py) \* | PyPy 3.10 x64 | math | O(n) | AC | 0.109 s | 212 KB | 11325065 |
-| [1228_math_optimized.rs](1228_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.rs](1228_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.go](1228_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 956 KB | 11328526 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

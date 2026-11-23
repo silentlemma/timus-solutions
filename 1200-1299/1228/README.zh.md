@@ -83,6 +83,14 @@
 
 与 `1228_math.rs` 相比：时间 0.015 s → 0.015 s；内存 216 KB → 52 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1228_math_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328526 (Go 1.14 x64): **0.015 s / 956 KB**. 历史对照: `1228_math.go` (Go 1.14 x64) — 0.001 s / 1136 KB (#11283735).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -112,6 +120,7 @@
 | [1228_math_optimized.cpp](1228_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.001 s | 128 KB | 11304270 |
 | [1228_math_optimized.java](1228_math_optimized.java) | Java 1.8 | math | O(n) | AC | 0.062 s | 352 KB | 11304271 |
 | [1228_math_optimized.py](1228_math_optimized.py) \* | PyPy 3.10 x64 | math | O(n) | AC | 0.109 s | 212 KB | 11325065 |
-| [1228_math_optimized.rs](1228_math_optimized.rs) \* | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.rs](1228_math_optimized.rs) | Rust 1.75 x64 | math | O(n) | AC | 0.015 s | 52 KB | 11324870 |
+| [1228_math_optimized.go](1228_math_optimized.go) | Go 1.14 x64 | math | O(n) | AC | 0.015 s | 956 KB | 11328526 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
