@@ -67,6 +67,14 @@ Go 1.14 x64 版本合并两个有序的开区间列表，仅当区间覆盖当�
 
 G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · Python 3.12 x64 №11322076 · Rust 1.75 x64 №11321926.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1884_sorting_implementation_optimized.java`. 每个原始 long 打包禁行区间的两个端点，排序后扫描寻找最早安全出发时间。有符号左端点位于高位字，右端点用显式低位掩码保存；时间单位与相交规则不变。
+
+Accepted #11329022 (Java 1.8): **0.109 s / 432 KB**. 历史对照: `1884_sorting.java` (Java 1.8) — 0.14 s / 3228 KB (#11321925).
+
 ## 解答
 
 ### 简单版本
@@ -84,9 +92,10 @@ G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · P
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |----|----|----|-----|------|----|----|---|
 | [1884_two_pointers.cpp](1884_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n + m) | AC | 0.001 s | 124 KB | 11317001 |
-| [1884_two_pointers.go](1884_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
-| [1884_two_pointers.py](1884_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
-| [1884_two_pointers.rs](1884_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
+| [1884_two_pointers.go](1884_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
+| [1884_two_pointers.py](1884_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
+| [1884_two_pointers.rs](1884_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
 | [1884_two_pointers.java](1884_two_pointers.java) \* | Java 1.8 | two_pointers | O(n + m) | AC | 0.234 s | 392 KB | 11317148 |
+| [1884_sorting_implementation_optimized.java](1884_sorting_implementation_optimized.java) | Java 1.8 | sorting, implementation | O((n + m) log(n + m)) | AC | 0.109 s | 432 KB | 11329022 |
 
-\* Go 版本已通过评测，尚未达到排名目标。 Python 版本已通过评测，尚未达到排名目标。 Rust 版本已通过评测，尚未达到排名目标。 Java 版本已通过评测，尚未达到排名目标。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

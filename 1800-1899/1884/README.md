@@ -91,6 +91,14 @@ Go 1.14 x64 also merges the two ordered lists of open intervals and advances the
 
 G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · Python 3.12 x64 №11322076 · Rust 1.75 x64 №11321926.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1884_sorting_implementation_optimized.java`. Pack both blocked-interval endpoints into each primitive long, sort that array and scan it for the earliest safe start. Signed left endpoints occupy the high word and the right endpoint is preserved by an explicit low-word mask; time units and overlap rules are unchanged.
+
+Accepted #11329022 (Java 1.8): **0.109 s / 432 KB**. Archived comparison: `1884_sorting.java` (Java 1.8) — 0.14 s / 3228 KB (#11321925).
+
 ## Solutions
 
 ### Simple
@@ -108,9 +116,10 @@ G++ 13.2 x64 №11321924 · Java 1.8 №11321925 · Go 1.14 x64 №11322075 · P
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1884_two_pointers.cpp](1884_two_pointers.cpp) | G++ 13.2 x64 | two_pointers | O(n + m) | AC | 0.001 s | 124 KB | 11317001 |
-| [1884_two_pointers.go](1884_two_pointers.go) \* | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
-| [1884_two_pointers.py](1884_two_pointers.py) \* | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
-| [1884_two_pointers.rs](1884_two_pointers.rs) \* | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
+| [1884_two_pointers.go](1884_two_pointers.go) | Go 1.14 x64 | two_pointers | O(n + m) | AC | 0.015 s | 1136 KB | 11317133 |
+| [1884_two_pointers.py](1884_two_pointers.py) | Python 3.12 x64 | two_pointers | O(n + m) | AC | 0.062 s | 552 KB | 11317139 |
+| [1884_two_pointers.rs](1884_two_pointers.rs) | Rust 1.75 x64 | two_pointers | O(n + m) | AC | 0.046 s | 56 KB | 11323323 |
 | [1884_two_pointers.java](1884_two_pointers.java) \* | Java 1.8 | two_pointers | O(n + m) | AC | 0.234 s | 392 KB | 11317148 |
+| [1884_sorting_implementation_optimized.java](1884_sorting_implementation_optimized.java) | Java 1.8 | sorting, implementation | O((n + m) log(n + m)) | AC | 0.109 s | 432 KB | 11329022 |
 
-\* The Go version is accepted and remains outside the rating target. The Python version is accepted and remains outside the rating target. The Rust version is accepted and remains outside the rating target. The Java version is accepted and remains outside the rating target.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
