@@ -66,6 +66,22 @@ Go/Rust 保持 x=2·preorder−999、y=depth。列各异且间隔2，任意点�
 
 已通过评测的基础实现 [1358_graphs.cpp](1358_graphs.cpp), [1358_graphs.java](1358_graphs.java), [1358_graphs.py](1358_graphs.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1358_graphs_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328639 (Java 1.8): **0.109 s / 532 KB**. 历史对照: `1358_graphs.java` (Java 1.8) — 0.14 s / 624 KB (#11285343).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1358_graphs_parsing_optimized.py`. 邻接关系、先序编号及深度使用无符号 16 位数组，DFS 栈只保存顶点编号。头插边再压入链表保持原先序。顶点、边索引及深度加一均不超过 2000，坐标及无交叉证明不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329233 (Python 3.12 x64): **0.078 s / 964 KB**. 历史对照: `1358_graphs.py` (Python 3.12 x64) — 0.093 s / 820 KB (#11285322).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -82,7 +98,7 @@ Go/Rust 保持 x=2·preorder−999、y=depth。列各异且间隔2，任意点�
 | [1358_graphs.cpp](1358_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) | AC | 0.015 s | 260 KB | 11285300 |
 | [1358_graphs.go](1358_graphs.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.031 s | 1208 KB | 11285313 |
 | [1358_graphs.java](1358_graphs.java) | Java 1.8 | graphs | O(N) | AC | 0.140 s | 624 KB | 11285343 |
-| [1358_graphs.py](1358_graphs.py) \* | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
+| [1358_graphs.py](1358_graphs.py) | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
 | [1358_graphs.rs](1358_graphs.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.046 s | 308 KB | 11285353 |
 | [1358_dfs.cpp](1358_dfs.cpp) | G++ 13.2 x64 | dfs | O(N) | AC | 0.015 s | 564 KB | 11315912 |
 
@@ -90,7 +106,7 @@ Go/Rust 保持 x=2·preorder−999、y=depth。列各异且间隔2，任意点�
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
-| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
-| [1358_graphs_optimized.go](1358_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
+| [1358_graphs_optimized.go](1358_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
+| [1358_graphs_optimized.java](1358_graphs_optimized.java) | Java 1.8 | graphs | O(N) | AC | 0.109 s | 532 KB | 11328639 |
+| [1358_graphs_parsing_optimized.py](1358_graphs_parsing_optimized.py) | Python 3.12 x64 | graphs, parsing | O(N) | AC | 0.078 s | 964 KB | 11329233 |

@@ -83,6 +83,22 @@ Go/Rust mantienen x=2·preorden−999, y=profundidad. Columnas distintas separad
 
 Las implementaciones base aceptadas [1358_graphs.cpp](1358_graphs.cpp), [1358_graphs.java](1358_graphs.java), [1358_graphs.py](1358_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1358_graphs_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328639 (Java 1.8): **0.109 s / 532 KB**. Comparación archivada: `1358_graphs.java` (Java 1.8) — 0.14 s / 624 KB (#11285343).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1358_graphs_parsing_optimized.py`. La adyacencia, el preorden y la profundidad usan arreglos de 16 bits sin signo; la pila DFS solo guarda vértices. Insertar aristas al inicio y apilar su cadena conserva el preorden. Identificadores, índices y profundidad más uno no superan 2000; no cambian coordenadas ni prueba de ausencia de cruces. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329233 (Python 3.12 x64): **0.078 s / 964 KB**. Comparación archivada: `1358_graphs.py` (Python 3.12 x64) — 0.093 s / 820 KB (#11285322).
+
 ## Notas por lenguaje
 
 Estas notas describen las implementaciones sencillas.
@@ -101,7 +117,7 @@ Estas notas describen las implementaciones sencillas.
 | [1358_graphs.cpp](1358_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) | AC | 0.015 s | 260 KB | 11285300 |
 | [1358_graphs.go](1358_graphs.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.031 s | 1208 KB | 11285313 |
 | [1358_graphs.java](1358_graphs.java) | Java 1.8 | graphs | O(N) | AC | 0.140 s | 624 KB | 11285343 |
-| [1358_graphs.py](1358_graphs.py) \* | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
+| [1358_graphs.py](1358_graphs.py) | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
 | [1358_graphs.rs](1358_graphs.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.046 s | 308 KB | 11285353 |
 | [1358_dfs.cpp](1358_dfs.cpp) | G++ 13.2 x64 | dfs | O(N) | AC | 0.015 s | 564 KB | 11315912 |
 
@@ -109,7 +125,7 @@ Estas notas describen las implementaciones sencillas.
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
-| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
-| [1358_graphs_optimized.go](1358_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
+| [1358_graphs_optimized.go](1358_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
+| [1358_graphs_optimized.java](1358_graphs_optimized.java) | Java 1.8 | graphs | O(N) | AC | 0.109 s | 532 KB | 11328639 |
+| [1358_graphs_parsing_optimized.py](1358_graphs_parsing_optimized.py) | Python 3.12 x64 | graphs, parsing | O(N) | AC | 0.078 s | 964 KB | 11329233 |

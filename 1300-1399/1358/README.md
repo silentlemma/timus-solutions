@@ -80,6 +80,22 @@ Go and Rust keep x=2·preorder−999 and y=depth. Each vertex has a distinct col
 
 The accepted base implementations [1358_graphs.cpp](1358_graphs.cpp), [1358_graphs.java](1358_graphs.java), [1358_graphs.py](1358_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1358_graphs_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328639 (Java 1.8): **0.109 s / 532 KB**. Archived comparison: `1358_graphs.java` (Java 1.8) — 0.14 s / 624 KB (#11285343).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1358_graphs_parsing_optimized.py`. Store adjacency, preorder and depth in unsigned 16-bit arrays and keep only vertex IDs in the DFS stack. Prepending each edge and pushing its chain preserves the archived preorder. Vertex IDs, edge indices and depth-plus-one fit within 2000; coordinates and noncrossing proof are unchanged. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11329233 (Python 3.12 x64): **0.078 s / 964 KB**. Archived comparison: `1358_graphs.py` (Python 3.12 x64) — 0.093 s / 820 KB (#11285322).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -98,7 +114,7 @@ These notes describe the simple implementations.
 | [1358_graphs.cpp](1358_graphs.cpp) | G++ 13.2 x64 | graphs | O(N) | AC | 0.015 s | 260 KB | 11285300 |
 | [1358_graphs.go](1358_graphs.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.031 s | 1208 KB | 11285313 |
 | [1358_graphs.java](1358_graphs.java) | Java 1.8 | graphs | O(N) | AC | 0.140 s | 624 KB | 11285343 |
-| [1358_graphs.py](1358_graphs.py) \* | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
+| [1358_graphs.py](1358_graphs.py) | Python 3.12 x64 | graphs | O(N) | AC | 0.093 s | 820 KB | 11285322 |
 | [1358_graphs.rs](1358_graphs.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.046 s | 308 KB | 11285353 |
 | [1358_dfs.cpp](1358_dfs.cpp) | G++ 13.2 x64 | dfs | O(N) | AC | 0.015 s | 564 KB | 11315912 |
 
@@ -106,7 +122,7 @@ These notes describe the simple implementations.
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) \* | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
-| [1358_graphs_optimized.go](1358_graphs_optimized.go) \* | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1358_graphs_optimized.rs](1358_graphs_optimized.rs) | Rust 1.75 x64 | graphs | O(N) | AC | 0.015 s | 56 KB | 11315908 |
+| [1358_graphs_optimized.go](1358_graphs_optimized.go) | Go 1.14 x64 | graphs | O(N) | AC | 0.015 s | 324 KB | 11315964 |
+| [1358_graphs_optimized.java](1358_graphs_optimized.java) | Java 1.8 | graphs | O(N) | AC | 0.109 s | 532 KB | 11328639 |
+| [1358_graphs_parsing_optimized.py](1358_graphs_parsing_optimized.py) | Python 3.12 x64 | graphs, parsing | O(N) | AC | 0.078 s | 964 KB | 11329233 |
