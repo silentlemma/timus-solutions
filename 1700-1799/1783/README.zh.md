@@ -63,6 +63,14 @@ C++/Go 保留原有 m 个带符号向上取整的精确最大值，改用至多5
 
 保留的 Accepted 教学源代码 [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) 在保存比较中满足所需指标的严格前十或前 15% 标准。表中为当前精确成对测量，包括仅格式化的版本。算法未变，不增加相同优化副本；星号表示单独语言排名目标。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1783_implementation_parsing_optimized.rs`. 环中仅保存 m 个前瞻值，按月份逻辑顺序扫描两段连续区间，再用下一需求替换最旧值。即使变化为负也保留精确向上取整，直接流式输出订单，存储从完整输入输出降为 O(m)。 按实际答案类型专门化直接输出，避免通用格式分派和临时答案字符串。固定文本采用原生写出，数字输出精确处理所需有符号或无符号值。数学判定及归档简单版本保留。
+
+Accepted #11329204 (Rust 1.75 x64): **0.015 s / 72 KB**. 历史对照: `1783_simulation.rs` (Rust 1.75 x64) — 0.031 s / 828 KB (#11327475).
+
 ## 解答
 
 ### 简单版本
@@ -71,9 +79,9 @@ C++/Go 保留原有 m 个带符号向上取整的精确最大值，改用至多5
 |---|---|---|---|---|---|---|---|
 | [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 264 KB | 11327473 |
 | [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
-| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
-| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
-| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
+| [1783_simulation.java](1783_simulation.java) | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
+| [1783_simulation.py](1783_simulation.py) | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
+| [1783_simulation.rs](1783_simulation.rs) | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
 
 ### 优化版本
 
@@ -81,5 +89,6 @@ C++/Go 保留原有 m 个带符号向上取整的精确最大值，改用至多5
 |---|---|---|---|---|---|---|---|
 | [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.015 s | 104 KB | 11326998 |
 | [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
+| [1783_implementation_parsing_optimized.rs](1783_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(nm) time; O(m) space + bounded I/O buffers | AC | 0.015 s | 72 KB | 11329204 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

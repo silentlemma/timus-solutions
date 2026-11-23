@@ -79,6 +79,14 @@ C++/Go conservan el máximo exacto de m techos, pero leen los planes en un anill
 
 Los fuentes didácticos Accepted conservados [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) cumplen diez primeros o 15% superior en las métricas exigidas de la comparación guardada. La tabla contiene sus pares actuales exactos, incluidas revisiones solo de formato. Algoritmos intactos y sin copias optimizadas idénticas; el asterisco indica la meta propia del lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1783_implementation_parsing_optimized.rs`. Solo se guarda una ventana de m valores en un anillo. Sus dos tramos se recorren en orden mensual y se sustituye el más antiguo. Se conserva el techo exacto incluso para cambios negativos y se escriben las órdenes directamente, usando O(m) en vez de vectores completos. La salida directa se especializa a los tipos usados, evitando despacho genérico y cadenas temporales. El texto fijo usa escrituras nativas y los números se convierten exactamente con el signo requerido. Se conservan decisiones matemáticas y versiones simples.
+
+Accepted #11329204 (Rust 1.75 x64): **0.015 s / 72 KB**. Comparación archivada: `1783_simulation.rs` (Rust 1.75 x64) — 0.031 s / 828 KB (#11327475).
+
 ## Soluciones
 
 ### Sencillas
@@ -87,9 +95,9 @@ Los fuentes didácticos Accepted conservados [1783_simulation.java](1783_simulat
 |---|---|---|---|---|---|---|---|
 | [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 264 KB | 11327473 |
 | [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
-| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
-| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
-| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
+| [1783_simulation.java](1783_simulation.java) | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
+| [1783_simulation.py](1783_simulation.py) | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
+| [1783_simulation.rs](1783_simulation.rs) | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
 
 ### Optimizadas
 
@@ -97,5 +105,6 @@ Los fuentes didácticos Accepted conservados [1783_simulation.java](1783_simulat
 |---|---|---|---|---|---|---|---|
 | [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.015 s | 104 KB | 11326998 |
 | [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
+| [1783_implementation_parsing_optimized.rs](1783_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(nm) time; O(m) space + bounded I/O buffers | AC | 0.015 s | 72 KB | 11329204 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

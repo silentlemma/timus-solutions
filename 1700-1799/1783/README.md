@@ -77,6 +77,14 @@ C++/Go keep exactly the original maximum of m signed ceilings, but stream future
 
 Retained accepted teaching sources [1783_simulation.java](1783_simulation.java), [1783_simulation.py](1783_simulation.py), [1783_simulation.rs](1783_simulation.rs) also meet the strict top-ten or top-15% criterion on the required metrics in the saved comparison. The current exact paired measurements are in the table, including the formatting-only revisions. Their algorithms are unchanged and no identical optimized copies are added. The asterisk denotes the separate language rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1783_implementation_parsing_optimized.rs`. Keep only the m-value lookahead in a ring. Scan its two contiguous parts in logical month order, then replace the oldest value with the next demand. Preserve exact ceiling division even for negative changes and stream orders directly, using O(m) storage instead of full input and answer vectors. Specialize direct output to the answer types actually used, avoiding generic formatting dispatch and temporary answer strings. Fixed text uses native writes; numeric writers handle the required signed or unsigned magnitudes exactly. Mathematical decisions and archived simple versions are preserved.
+
+Accepted #11329204 (Rust 1.75 x64): **0.015 s / 72 KB**. Archived comparison: `1783_simulation.rs` (Rust 1.75 x64) — 0.031 s / 828 KB (#11327475).
+
 ## Solutions
 
 ### Simple
@@ -85,9 +93,9 @@ Retained accepted teaching sources [1783_simulation.java](1783_simulation.java),
 |---|---|---|---|---|---|---|---|
 | [1783_simulation.cpp](1783_simulation.cpp) | G++ 13.2 x64 | simulation | O(n m) | AC | 0.031 s | 264 KB | 11327473 |
 | [1783_simulation.go](1783_simulation.go) | Go 1.14 x64 | simulation | O(n m) | AC | 0.031 s | 1384 KB | 11289783 |
-| [1783_simulation.java](1783_simulation.java) \* | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
-| [1783_simulation.py](1783_simulation.py) \* | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
-| [1783_simulation.rs](1783_simulation.rs) \* | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
+| [1783_simulation.java](1783_simulation.java) | Java 1.8 | simulation | O(n m) | AC | 0.14 s | 2388 KB | 11327472 |
+| [1783_simulation.py](1783_simulation.py) | Python 3.12 x64 | simulation | O(n m) | AC | 0.187 s | 2584 KB | 11327474 |
+| [1783_simulation.rs](1783_simulation.rs) | Rust 1.75 x64 | simulation | O(n m) | AC | 0.031 s | 828 KB | 11327475 |
 
 ### Optimized
 
@@ -95,5 +103,6 @@ Retained accepted teaching sources [1783_simulation.java](1783_simulation.java),
 |---|---|---|---|---|---|---|---|
 | [1783_simulation_optimized.cpp](1783_simulation_optimized.cpp) | G++ 13.2 x64 | simulation | O(n·m) | AC | 0.015 s | 104 KB | 11326998 |
 | [1783_simulation_optimized.go](1783_simulation_optimized.go) \* | Go 1.14 x64 | simulation | O(n·m) | AC | 0.031 s | 300 KB | 11315305 |
+| [1783_implementation_parsing_optimized.rs](1783_implementation_parsing_optimized.rs) | Rust 1.75 x64 | implementation, parsing | O(nm) time; O(m) space + bounded I/O buffers | AC | 0.015 s | 72 KB | 11329204 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
