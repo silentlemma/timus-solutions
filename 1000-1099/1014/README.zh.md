@@ -92,6 +92,14 @@
 加到末尾，最后把字符串反转一次，而不是每次插到开头：380 KB，而不是 1604 KB，时间
 不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1014_greedy_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328485 (Rust 1.75 x64): **0.031 s / 232 KB**. 历史对照: `1014_greedy.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11278114).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -119,7 +127,6 @@
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交编号 |
 |----|----|----|-----|------|----|----|------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
-| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
+| [1014_greedy_optimized.rs](1014_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.031 s | 232 KB | 11328485 |

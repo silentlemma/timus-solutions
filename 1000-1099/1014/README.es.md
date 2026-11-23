@@ -104,6 +104,14 @@ La solución optimizada en Java analiza el número byte a byte desde
 invierte la cadena una sola vez en lugar de insertar cada cifra al
 principio: 380 KB en lugar de 1604 KB, con el mismo tiempo.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1014_greedy_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328485 (Rust 1.75 x64): **0.031 s / 232 KB**. Comparación archivada: `1014_greedy.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11278114).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -131,7 +139,6 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
-| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
+| [1014_greedy_optimized.rs](1014_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.031 s | 232 KB | 11328485 |

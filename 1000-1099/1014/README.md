@@ -103,6 +103,14 @@ The optimized Java solution parses the number byte by byte from
 reverses the string once instead of inserting each digit at the front:
 380 KB instead of 1604 KB, with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1014_greedy_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328485 (Rust 1.75 x64): **0.031 s / 232 KB**. Archived comparison: `1014_greedy.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11278114).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -130,7 +138,6 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1014_greedy_optimized.java](1014_greedy_optimized.java) | Java 1.8 | greedy | O(log N) | AC | 0.109 s | 380 KB | 11303700 |
-| [1014_greedy_optimized.go](1014_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
-| [1014_greedy_optimized.py](1014_greedy_optimized.py) \* | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1014_greedy_optimized.go](1014_greedy_optimized.go) | Go 1.14 x64 | greedy | O(log(N+2)) | AC | 0.031 s | 780 KB | 11328371 |
+| [1014_greedy_optimized.py](1014_greedy_optimized.py) | Python 3.12 x64 | greedy | O(log(N+2)) | AC | 0.078 s | 724 KB | 11327014 |
+| [1014_greedy_optimized.rs](1014_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(log N) | AC | 0.031 s | 232 KB | 11328485 |
