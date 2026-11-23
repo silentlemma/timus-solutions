@@ -74,6 +74,18 @@ dx = first + (k − 1) · W + last
 
 已通过评测的基础实现 [1258_geometry.cpp](1258_geometry.cpp), [1258_geometry.go](1258_geometry.go), [1258_geometry.java](1258_geometry.java), [1258_geometry.rs](1258_geometry.rs) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1258_geometry_implementation_optimized.py`. 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328529 (Python 3.12 x64): **0.062 s / 760 KB**. 历史对照: `1258_geometry_optimized.py` (Python 3.12 x64) — 0.093 s / 396 KB (#11314897).
+
+`1258_geometry_optimized.rs`. 单次扫描统计每个轴的碰撞次数及首末墙，常数状态替代总墙列表和两个筛选副本，展开距离公式不变。
+
+Accepted #11328695 (Rust 1.75 x64): **0.015 s / 244 KB**. 历史对照: `1258_geometry.rs` (Rust 1.75 x64) — 0.046 s / 264 KB (#11284107).
+
 ## 各语言说明
 
 以下说明针对基础实现。
@@ -88,14 +100,16 @@ dx = first + (k − 1) · W + last
 |---|---|---|---|---|---|---|---|
 | [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB | 11284098 |
 | [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB | 11284100 |
-| [1258_geometry.java](1258_geometry.java) \* | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
+| [1258_geometry.java](1258_geometry.java) | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
 | [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB | 11284104 |
-| [1258_geometry.rs](1258_geometry.rs) \* | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
+| [1258_geometry.rs](1258_geometry.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1258_geometry_optimized.py](1258_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(K) | AC | 0.093 s | 396 KB | 11314897 |
+| [1258_geometry_implementation_optimized.py](1258_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(K) | AC | 0.062 s | 760 KB | 11328529 |
+| [1258_geometry_optimized.rs](1258_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.015 s | 244 KB | 11328695 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

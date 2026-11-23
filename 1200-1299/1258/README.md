@@ -84,6 +84,18 @@ The new Python implementation unfolds the path by reflecting its endpoint throug
 
 The accepted base implementations [1258_geometry.cpp](1258_geometry.cpp), [1258_geometry.go](1258_geometry.go), [1258_geometry.java](1258_geometry.java), [1258_geometry.rs](1258_geometry.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1258_geometry_implementation_optimized.py`. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328529 (Python 3.12 x64): **0.062 s / 760 KB**. Archived comparison: `1258_geometry_optimized.py` (Python 3.12 x64) — 0.093 s / 396 KB (#11314897).
+
+`1258_geometry_optimized.rs`. Count the hits and remember the first/last wall for each axis during one pass. This replaces the combined wall list and its two filtered copies with constant state; the unfolded-distance formula is unchanged.
+
+Accepted #11328695 (Rust 1.75 x64): **0.015 s / 244 KB**. Archived comparison: `1258_geometry.rs` (Rust 1.75 x64) — 0.046 s / 264 KB (#11284107).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -98,14 +110,16 @@ These notes describe the simple implementations.
 |---|---|---|---|---|---|---|---|
 | [1258_geometry.cpp](1258_geometry.cpp) | G++ 13.2 x64 | geometry | O(K) | AC | 0.001 s | 220 KB | 11284098 |
 | [1258_geometry.go](1258_geometry.go) | Go 1.14 x64 | geometry | O(K) | AC | 0.031 s | 1120 KB | 11284100 |
-| [1258_geometry.java](1258_geometry.java) \* | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
+| [1258_geometry.java](1258_geometry.java) | Java 1.8 | geometry | O(K) | AC | 0.109 s | 1532 KB | 11284105 |
 | [1258_geometry.py](1258_geometry.py) | Python 3.12 x64 | geometry | O(K) | AC | 0.125 s | 504 KB | 11284104 |
-| [1258_geometry.rs](1258_geometry.rs) \* | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
+| [1258_geometry.rs](1258_geometry.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.046 s | 264 KB | 11284107 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1258_geometry_optimized.py](1258_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(K) | AC | 0.093 s | 396 KB | 11314897 |
+| [1258_geometry_implementation_optimized.py](1258_geometry_implementation_optimized.py) | Python 3.12 x64 | geometry, implementation | O(K) | AC | 0.062 s | 760 KB | 11328529 |
+| [1258_geometry_optimized.rs](1258_geometry_optimized.rs) | Rust 1.75 x64 | geometry | O(K) | AC | 0.015 s | 244 KB | 11328695 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
