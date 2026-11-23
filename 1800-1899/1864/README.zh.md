@@ -95,6 +95,22 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 
 - `1864_math_optimized.cpp`: 时间降低 +0.00%; 内存降低 +45.83%; 基础版本: `1864_math.cpp`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1864_math_parsing_implementation_optimized.py`. 循环中直接计算正贡献，合并完整答案后一次输出。比例份额公式及分母不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11329018 (Python 3.12 x64): **0.062 s / 640 KB**. 历史对照: `1864_math.py` (Python 3.12 x64) — 0.093 s / 412 KB (#11290893).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1864_parsing_optimized.go`. 在 256 字节补充缓冲上直接进行类型化转换，并完整写出紧凑输出。负整数直接以负值累积，覆盖有符号最小值，无需反射式输入或通用输出分派。 复用购买量数组保存正超额，直接追加数值补偿，避免第二个数组及每人一个字符串。 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329136 (Go 1.14 x64): **0.015 s / 804 KB**. 历史对照: `1864_math.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11290890).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -122,8 +138,10 @@ n（2 ≤ n ≤ 100），然后是 a₁, …, aₙ（0 ≤ aᵢ ≤ 100），总
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
-| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
+| [1864_math_optimized.java](1864_math_optimized.java) | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
 | [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
-| [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_optimized.rs](1864_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_parsing_implementation_optimized.py](1864_math_parsing_implementation_optimized.py) | Python 3.12 x64 | math, parsing, implementation | O(n) time and space | AC | 0.062 s | 640 KB | 11329018 |
+| [1864_parsing_optimized.go](1864_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) | AC | 0.015 s | 804 KB | 11329136 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -112,6 +112,22 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1864_math_optimized.cpp`: reducción de tiempo +0.00%; reducción de
   memoria +45.83%; base: `1864_math.cpp`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1864_math_parsing_implementation_optimized.py`. Las contribuciones positivas se calculan directamente en el bucle y se une la respuesta para una sola escritura. No cambian la fórmula proporcional ni el denominador. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11329018 (Python 3.12 x64): **0.062 s / 640 KB**. Comparación archivada: `1864_math.py` (Python 3.12 x64) — 0.093 s / 412 KB (#11290893).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1864_parsing_optimized.go`. Se usa conversión directa por tipos con un búfer recargable de 256 bytes y salida compacta con escrituras completas. Los negativos se acumulan con signo, incluido el mínimo entero, sin reflexión de entrada ni despacho genérico de salida. Se reutiliza el arreglo de compras para los excedentes positivos y se añaden los reembolsos directamente, sin otro arreglo ni una cadena por amigo. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329136 (Go 1.14 x64): **0.015 s / 804 KB**. Comparación archivada: `1864_math.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11290890).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -139,8 +155,10 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
-| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
+| [1864_math_optimized.java](1864_math_optimized.java) | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
 | [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
-| [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_optimized.rs](1864_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_parsing_implementation_optimized.py](1864_math_parsing_implementation_optimized.py) | Python 3.12 x64 | math, parsing, implementation | O(n) time and space | AC | 0.062 s | 640 KB | 11329018 |
+| [1864_parsing_optimized.go](1864_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) | AC | 0.015 s | 804 KB | 11329136 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

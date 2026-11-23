@@ -112,6 +112,22 @@ asterisk concerns the rating target only.
 - `1864_math_optimized.cpp`: time reduction +0.00%; memory reduction
   +45.83%; base: `1864_math.cpp`.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1864_math_parsing_implementation_optimized.py`. Compute positive contributions directly in the loop and join the complete answer for one output call. The proportional-share formula and denominator are unchanged. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11329018 (Python 3.12 x64): **0.062 s / 640 KB**. Archived comparison: `1864_math.py` (Python 3.12 x64) — 0.093 s / 412 KB (#11290893).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1864_parsing_optimized.go`. Use direct typed conversion over a 256-byte refill buffer and compact output with complete writes. Signed integer conversion accumulates negative values directly, including the signed minimum; no reflection-based input or generic output dispatch is needed. Reuse the bought-amount array for positive excesses, then append numeric reimbursements directly instead of allocating another array and one string per friend. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329136 (Go 1.14 x64): **0.015 s / 804 KB**. Archived comparison: `1864_math.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11290890).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -139,8 +155,10 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1864_math_optimized.cpp](1864_math_optimized.cpp) | G++ 13.2 x64 | math | O(n) | AC | 0.015 s | 104 KB | 11307321 |
-| [1864_math_optimized.java](1864_math_optimized.java) \* | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
+| [1864_math_optimized.java](1864_math_optimized.java) | Java 1.8 | math | O(N) time and storage | AC | 0.093 s | 368 KB | 11327834 |
 | [1864_math_optimized.py](1864_math_optimized.py) \* | PyPy 3.10 x64 | math | O(N) | AC | 0.14 s | 212 KB | 11325076 |
-| [1864_math_optimized.rs](1864_math_optimized.rs) \* | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_optimized.rs](1864_math_optimized.rs) | Rust 1.75 x64 | math | O(N) | AC | 0.046 s | 48 KB | 11325116 |
+| [1864_math_parsing_implementation_optimized.py](1864_math_parsing_implementation_optimized.py) | Python 3.12 x64 | math, parsing, implementation | O(n) time and space | AC | 0.062 s | 640 KB | 11329018 |
+| [1864_parsing_optimized.go](1864_parsing_optimized.go) | Go 1.14 x64 | parsing | O(n) | AC | 0.015 s | 804 KB | 11329136 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
