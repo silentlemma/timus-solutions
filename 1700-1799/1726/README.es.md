@@ -113,6 +113,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `1726_sorting_optimized.rs`: reducción de tiempo +0.00%; reducción de
   memoria +79.09%; base: `1726_sorting.rs`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1726_parsing_optimized.rs`. Las coordenadas acotadas usan 32 bits y las sumas de distancias conservan 64 bits. No cambia la fórmula sobre coordenadas ordenadas. Se usan lecturas nativas acotadas y escrituras nativas completas, descriptores binarios de Windows y entrada C. Los números se convierten directamente desde bytes a enteros con signo sin reservar tokens; las entradas sensibles a líneas conservan líneas completas. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329215 (Rust 1.75 x64): **0.015 s / 860 KB**. Comparación archivada: `1726_sorting.rs` (Rust 1.75 x64) — 0.031 s / 4744 KB (#11304064).
+
 ## Soluciones
 
 ### Sencillas
@@ -131,7 +139,8 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 |---|---|---|---|---|---|---|---|
 | [1726_sorting_optimized.cpp](1726_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 888 KB | 11304358 |
 | [1726_sorting_optimized.go](1726_sorting_optimized.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.046 s | 2740 KB | 11304362 |
-| [1726_sorting_optimized.py](1726_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(n log n) | AC | 0.187 s | 6100 KB | 11304360 |
+| [1726_sorting_optimized.py](1726_sorting_optimized.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.187 s | 6100 KB | 11304360 |
 | [1726_sorting_optimized.rs](1726_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 992 KB | 11304361 |
+| [1726_parsing_optimized.rs](1726_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n log n) | AC | 0.015 s | 860 KB | 11329215 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

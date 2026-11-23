@@ -84,6 +84,14 @@ Python 循环计算每个和：排好序后，`n` 个值中的第 `i` 个（从 
 
 - `1726_sorting_optimized.rs`: 时间降低 +0.00%; 内存降低 +79.09%; 基础版本: `1726_sorting.rs`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1726_parsing_optimized.rs`. 有界坐标使用 32 位整数，累计距离仍用 64 位。排序坐标后的距离公式不变。 采用有界原生读取及完整原生写出、Windows 二进制描述符和 C 入口。纯数字输入直接从字节转为有符号整数，不分配词元；依赖行边界的输入保留完整行。 在当前输入块内转换完整数字段，仅在词元或块边界提交局部游标。负值累积支持有符号最小值，去掉逐位符号分支或读取调用，保留 EOF 和可选符号。
+
+Accepted #11329215 (Rust 1.75 x64): **0.015 s / 860 KB**. 历史对照: `1726_sorting.rs` (Rust 1.75 x64) — 0.031 s / 4744 KB (#11304064).
+
 ## 解答
 
 ### 简单版本
@@ -102,7 +110,8 @@ Python 循环计算每个和：排好序后，`n` 个值中的第 `i` 个（从 
 |---|---|---|---|---|---|---|---|
 | [1726_sorting_optimized.cpp](1726_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n log n) | AC | 0.015 s | 888 KB | 11304358 |
 | [1726_sorting_optimized.go](1726_sorting_optimized.go) | Go 1.14 x64 | sorting | O(n log n) | AC | 0.046 s | 2740 KB | 11304362 |
-| [1726_sorting_optimized.py](1726_sorting_optimized.py) \* | Python 3.12 x64 | sorting | O(n log n) | AC | 0.187 s | 6100 KB | 11304360 |
+| [1726_sorting_optimized.py](1726_sorting_optimized.py) | Python 3.12 x64 | sorting | O(n log n) | AC | 0.187 s | 6100 KB | 11304360 |
 | [1726_sorting_optimized.rs](1726_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n log n) | AC | 0.031 s | 992 KB | 11304361 |
+| [1726_parsing_optimized.rs](1726_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(n log n) | AC | 0.015 s | 860 KB | 11329215 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
