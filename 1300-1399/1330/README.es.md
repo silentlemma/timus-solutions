@@ -81,6 +81,14 @@ analiza los números y escribe las respuestas a mano mediante búferes de
 
 La solución optimizada en Java lee la entrada en bloques de 4 KB y la analiza a mano en lugar de usar `StreamTokenizer`, y escribe las respuestas en un búfer de bytes de 4 KB en lugar de construir cadenas: 0.125 s en lugar de 0.156 s y 452 KB en lugar de 7324 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1330_prefix_sums_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328541 (Rust 1.75 x64): **0.015 s / 3676 KB**. Comparación archivada: `1330_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 3736 KB (#11285004).
+
 ## Notas por lenguaje
 
 - La solución sencilla en Java lee con `StreamTokenizer`, que admite las
@@ -104,6 +112,5 @@ La solución optimizada en Java lee la entrada en bloques de 4 KB y la analiza a
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1330_prefix_sums_optimized.cpp](1330_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 132 KB | 11303598 |
 | [1330_prefix_sums_optimized.java](1330_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.125 s | 452 KB | 11303742 |
-| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
-
-\* Accepted; aún no alcanza la meta de clasificación separada: C++ requiere los diez primeros o el 15% superior tanto en tiempo como en memoria; las demás familias de lenguajes requieren el primer puesto en ambas. Esta marca es independiente de los criterios de admisión; la versión admite más optimización.
+| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
+| [1330_prefix_sums_optimized.rs](1330_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 3676 KB | 11328541 |

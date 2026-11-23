@@ -80,6 +80,14 @@ instead of 2784 KB.
 
 The optimized Java solution reads the input in 4 KB blocks and parses it by hand instead of using `StreamTokenizer`, and writes the answers into a 4 KB byte buffer instead of building strings: 0.125 s instead of 0.156 s and 452 KB instead of 7324 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1330_prefix_sums_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328541 (Rust 1.75 x64): **0.015 s / 3676 KB**. Archived comparison: `1330_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 3736 KB (#11285004).
+
 ## Language notes
 
 - The simple Java solution reads with `StreamTokenizer`, which handles
@@ -103,6 +111,5 @@ The optimized Java solution reads the input in 4 KB blocks and parses it by hand
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1330_prefix_sums_optimized.cpp](1330_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 132 KB | 11303598 |
 | [1330_prefix_sums_optimized.java](1330_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.125 s | 452 KB | 11303742 |
-| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
-
-\* Accepted; the separate rating target is not yet met: C++ requires top ten or top 15% in both time and memory, and the other language families require first place in both. This marker is separate from the admission criteria; the version may be optimized further.
+| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
+| [1330_prefix_sums_optimized.rs](1330_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 3676 KB | 11328541 |

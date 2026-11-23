@@ -75,6 +75,14 @@ C++ 通过 4 KB 的缓冲区手工解析数字、手工写出答案，并把前�
 
 优化的 Java 解法按 4 KB 分块读入并手工解析，而不是使用 `StreamTokenizer`，答案写 进 4 KB 的字节缓冲区，而不是拼接字符串：0.125 s，而不是 0.156 s；452 KB，而不是 7324 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1330_prefix_sums_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328541 (Rust 1.75 x64): **0.015 s / 3676 KB**. 历史对照: `1330_prefix_sums.rs` (Rust 1.75 x64) — 0.046 s / 3736 KB (#11285004).
+
 ## 各语言说明
 
 - 简单的 Java 解法用能处理负数读数的 `StreamTokenizer` 读入，并把答案收集成一个
@@ -98,6 +106,5 @@ C++ 通过 4 KB 的缓冲区手工解析数字、手工写出答案，并把前�
 |----|----|----|-----|------|----|----|------|
 | [1330_prefix_sums_optimized.cpp](1330_prefix_sums_optimized.cpp) | G++ 13.2 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 132 KB | 11303598 |
 | [1330_prefix_sums_optimized.java](1330_prefix_sums_optimized.java) | Java 1.8 | prefix_sums | O(N + Q) | AC | 0.125 s | 452 KB | 11303742 |
-| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) \* | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
-
-\* 已通过评测；尚未达到单独排名目标：C++ 要求时间和内存均为前十或前 15%，其他语言类别要求两项均第一。此标记与收录条件分开，该版本仍可进一步优化。
+| [1330_prefix_sums_optimized.py](1330_prefix_sums_optimized.py) | Python 3.12 x64 | prefix_sums | O(N+Q) time; O(N+B+S) space | AC | 0.156 s | 2648 KB | 11326660 |
+| [1330_prefix_sums_optimized.rs](1330_prefix_sums_optimized.rs) | Rust 1.75 x64 | prefix_sums | O(N + Q) | AC | 0.015 s | 3676 KB | 11328541 |
