@@ -70,6 +70,14 @@ C++/Go 将关联词映射为共享整数 ID，每对象保存排序去重的 ID 
 
 将各组关联词存入排序数组，用双指针求交集，并逐条输出查询结果。通过的提交 11324225 用时 0.250 秒、占用 8 536 KB；简单版用时 0.437 秒、占用 12376 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1700_hashing_sorting_optimized.rs`. 为关联词分配字典序编号，从最小集合开始求有序整数集合的交集，每个查询对象仅查找一次。A 为关联条目数，Q 为查询对象名总数，W 为参与集合的长度总和，I/O 为输入输出大小。 C 入口直接调用求解函数，返回前刷新 Rust 输出；保留普通入口的原实现。
+
+Accepted #11329024 (Rust 1.75 x64): **0.046 s / 5216 KB**. 历史对照: `1700_implementation.rs` (Rust 1.75 x64) — 0.593 s / 3584 KB (#11289079).
+
 ## 解答
 
 ### 简单版本
@@ -78,17 +86,16 @@ C++/Go 将关联词映射为共享整数 ID，每对象保存排序去重的 ID 
 |---|---|---|---|---|---|---|---|
 | [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 7788 KB | 11289069 |
 | [1700_implementation.go](1700_implementation.go) | Go 1.14 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.765 s | 8908 KB | 11289071 |
-| [1700_implementation.java](1700_implementation.java) \* | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
+| [1700_implementation.java](1700_implementation.java) | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
 | [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.390 s | 13524 KB | 11289073 |
-| [1700_implementation.rs](1700_implementation.rs) \* | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
+| [1700_implementation.rs](1700_implementation.rs) | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
 
 ### 优化版本
 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
-| [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
-| [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+| [1700_hashing_sorting.go](1700_hashing_sorting.go) | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
+| [1700_implementation_optimized.py](1700_implementation_optimized.py) | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
 | [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
-
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+| [1700_hashing_sorting_optimized.rs](1700_hashing_sorting_optimized.rs) | Rust 1.75 x64 | hashing, sorting | O(A log A + Q log Q + W + I + O) expected time; O(A+I+O) space | AC | 0.046 s | 5216 KB | 11329024 |

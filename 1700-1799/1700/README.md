@@ -78,6 +78,14 @@ In the earlier comparison snapshot, the base implementations [1700_implementatio
 
 Store each association set in a sorted array and intersect the arrays with two pointers. Stream the query answers. Accepted submission 11324225 took 0.250 s and used 8 536 KB. The simple version took 0.437 s and used 12376 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1700_hashing_sorting_optimized.rs`. Intern association words, order their identifiers lexicographically and intersect sorted integer sets, starting with the smallest. Resolve each queried object once. A is the number of association entries, Q the total queried object names, W the summed lengths of participating sets, and I/O the input/output sizes. The C entry calls the solver directly and flushes Rust output before returning; the archived ordinary-entry implementation remains available.
+
+Accepted #11329024 (Rust 1.75 x64): **0.046 s / 5216 KB**. Archived comparison: `1700_implementation.rs` (Rust 1.75 x64) — 0.593 s / 3584 KB (#11289079).
+
 ## Solutions
 
 ### Simple
@@ -86,17 +94,16 @@ Store each association set in a sorted array and intersect the arrays with two p
 |---|---|---|---|---|---|---|---|
 | [1700_implementation.cpp](1700_implementation.cpp) | G++ 13.2 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.359 s | 7788 KB | 11289069 |
 | [1700_implementation.go](1700_implementation.go) | Go 1.14 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.765 s | 8908 KB | 11289071 |
-| [1700_implementation.java](1700_implementation.java) \* | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
+| [1700_implementation.java](1700_implementation.java) | Java 1.8 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.437 s | 12376 KB | 11289075 |
 | [1700_implementation.py](1700_implementation.py) | Python 3.12 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.390 s | 13524 KB | 11289073 |
-| [1700_implementation.rs](1700_implementation.rs) \* | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
+| [1700_implementation.rs](1700_implementation.rs) | Rust 1.75 x64 | implementation | O((n + m · L) · L log(n + L)) | AC | 0.593 s | 3584 KB | 11289079 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1700_hashing_sorting.cpp](1700_hashing_sorting.cpp) | G++ 13.2 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.046 s | 6148 KB | 11315323 |
-| [1700_hashing_sorting.go](1700_hashing_sorting.go) \* | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
-| [1700_implementation_optimized.py](1700_implementation_optimized.py) \* | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
+| [1700_hashing_sorting.go](1700_hashing_sorting.go) | Go 1.14 x64 | hashing, sorting | O(T + nA log A + m(KA + A log A·W)) expected | AC | 0.062 s | 10348 KB | 11315329 |
+| [1700_implementation_optimized.py](1700_implementation_optimized.py) | Python 3.12 x64 | implementation | O(T + m(KA + A log A·W)) expected | AC | 0.343 s | 8920 KB | 11315330 |
 | [1700_sorting.java](1700_sorting.java) | Java 1.8 | sorting | O((n + m · L) · L log(n + L)) | AC | 0.250 s | 8 536 KB | 11324225 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1700_hashing_sorting_optimized.rs](1700_hashing_sorting_optimized.rs) | Rust 1.75 x64 | hashing, sorting | O(A log A + Q log Q + W + I + O) expected time; O(A+I+O) space | AC | 0.046 s | 5216 KB | 11329024 |
