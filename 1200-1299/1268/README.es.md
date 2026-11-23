@@ -103,6 +103,14 @@ Java 1.8, envío 11322014. Tiempo 0,109 → 0,078 s, memoria 2928 → 920 KB.
 
 G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · Python 3.12 x64 №11322244 · Rust 1.75 x64 №11322245.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1268_number_theory_parsing_optimized.py`. Las consultas se leen en un arreglo compacto de enteros sin signo de 16 bits y sus respuestas se guardan al primer uso. Se evita el conjunto temporal, conservando la factorización y la búsqueda de raíces. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328772 (Python 3.12 x64): **0.125 s / 1824 KB**. Comparación archivada: `1268_number_theory_optimized.py` (Python 3.12 x64) — 0.125 s / 2368 KB (#11322010).
+
 ## Soluciones
 
 ### Sencillas
@@ -120,9 +128,10 @@ G++ 13.2 x64 №11322241 · Go 1.14 x64 №11322242 · Java 1.8 №11322243 · P
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1268_number_theory_optimized.py](1268_number_theory_optimized.py) \* | Python 3.12 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.125 s | 2368 KB | 11322010 |
-| [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) \* | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
+| [1268_number_theory_optimized.rs](1268_number_theory_optimized.rs) | Rust 1.75 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 312 KB | 11322011 |
 | [1268_number_theory_optimized.go](1268_number_theory_optimized.go) \* | Go 1.14 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.031 s | 1004 KB | 11322012 |
 | [1268_number_theory_optimized.cpp](1268_number_theory_optimized.cpp) | G++ 13.2 x64 | number_theory | O(L log log L + T · k log N) | AC | 0.015 s | 196 KB | 11326994 |
 | [1268_number_theory_optimized.java](1268_number_theory_optimized.java) | Java 1.8 | number_theory | O(L log log L + T · k log N) | AC | 0.078 s | 920 KB | 11322014 |
+| [1268_number_theory_parsing_optimized.py](1268_number_theory_parsing_optimized.py) | Python 3.12 x64 | number_theory, parsing | O(L log log L + T · k log N) | AC | 0.125 s | 1824 KB | 11328772 |
 
-\* Las versiones marcadas aún pueden mejorar su clasificación.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
