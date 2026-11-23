@@ -88,6 +88,14 @@ The accepted Rust 1.75 x64 run takes 0.031 s versus 0.015 s for the base and use
 
 The accepted base implementations [1904_math_sorting.go](1904_math_sorting.go), [1904_math_sorting.java](1904_math_sorting.java), [1904_math_sorting.py](1904_math_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1904_math_sorting_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328607 (Go 1.14 x64): **0.031 s / 1020 KB**. Archived comparison: `1904_math_sorting.go` (Go 1.14 x64) — 0.031 s / 1252 KB (#11291260).
+
 ## Language notes
 
 These notes describe the simple implementations.
@@ -112,9 +120,9 @@ largest tests have 512 separate intervals.
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1904_math_sorting.cpp](1904_math_sorting.cpp) | G++ 13.2 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 436 KB | 11291258 |
-| [1904_math_sorting.go](1904_math_sorting.go) \* | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
-| [1904_math_sorting.java](1904_math_sorting.java) \* | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.156 s | 2724 KB | 11328321 |
-| [1904_math_sorting.py](1904_math_sorting.py) \* | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
+| [1904_math_sorting.go](1904_math_sorting.go) | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1252 KB | 11291260 |
+| [1904_math_sorting.java](1904_math_sorting.java) | Java 1.8 | math, sorting | O(k 2^k) | AC | 0.156 s | 2724 KB | 11328321 |
+| [1904_math_sorting.py](1904_math_sorting.py) | Python 3.12 x64 | math, sorting | O(k 2^k) | AC | 0.093 s | 540 KB | 11291263 |
 | [1904_math_sorting.rs](1904_math_sorting.rs) | Rust 1.75 x64 | math, sorting | O(k 2^k) | AC | 0.015 s | 260 KB | 11291269 |
 
 ### Optimized
@@ -123,5 +131,6 @@ largest tests have 512 separate intervals.
 |---|---|---|---|---|---|---|---|
 | [1904_math.cpp](1904_math.cpp) | G++ 13.2 x64 | math | O(2^k) | AC | 0.015 s | 76 KB | 11315316 |
 | [1904_math.rs](1904_math.rs) \* | Rust 1.75 x64 | math | O(2^k) | AC | 0.031 s | 52 KB | 11315317 |
+| [1904_math_sorting_optimized.go](1904_math_sorting_optimized.go) | Go 1.14 x64 | math, sorting | O(k 2^k) | AC | 0.031 s | 1020 KB | 11328607 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
