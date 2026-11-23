@@ -79,6 +79,14 @@ La solución optimizada en Java analiza los números byte a byte desde
 `System.in` en lugar de usar `Scanner`: 0.109 s en lugar de 0.140 s y
 412 KB en lugar de 1600 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1876_parsing_optimized.rs`. Los dos recuentos se convierten directamente desde entrada nativa acotada, conservando el máximo exacto de los dos peores casos. La salida decimal usa un pequeño búfer en pila. Los dígitos completos se convierten dentro del bloque, manteniendo local el cursor hasta un límite. La acumulación negativa admite el mínimo con signo y evita una rama o llamada por dígito, conservando EOF y signos opcionales.
+
+Accepted #11329209 (Rust 1.75 x64): **0.031 s / 44 KB**. Comparación archivada: `1876_math.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11303803).
+
 ## Soluciones
 
 ### Sencillas
@@ -96,6 +104,5 @@ La solución optimizada en Java analiza los números byte a byte desde
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
-| [1876_math_optimized.py](1876_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
-
-\* Las soluciones marcadas aún pueden mejorar en la clasificación objetivo.
+| [1876_math_optimized.py](1876_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
+| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 44 KB | 11329209 |

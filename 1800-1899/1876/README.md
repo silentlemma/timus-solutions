@@ -76,6 +76,14 @@ The optimized Java solution parses the numbers byte by byte from
 `System.in` instead of using `Scanner`: 0.109 s instead of 0.140 s and
 412 KB instead of 1600 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1876_parsing_optimized.rs`. Convert the two slipper counts directly from bounded native input and retain the exact maximum of the two worst cases. Decimal output uses a small stack buffer. Convert complete digit runs within the current input block, keeping the cursor local until a token or block boundary. Negative accumulation handles the full signed minimum and removes a sign branch or byte-reader call per digit; EOF and optional signs are preserved.
+
+Accepted #11329209 (Rust 1.75 x64): **0.031 s / 44 KB**. Archived comparison: `1876_math.rs` (Rust 1.75 x64) — 0.046 s / 232 KB (#11303803).
+
 ## Solutions
 
 ### Simple
@@ -93,6 +101,5 @@ The optimized Java solution parses the numbers byte by byte from
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1876_math_optimized.java](1876_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.109 s | 412 KB | 11303781 |
-| [1876_math_optimized.py](1876_math_optimized.py) \* | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
-
-\* The marked solutions can improve their target rankings.
+| [1876_math_optimized.py](1876_math_optimized.py) | Python 3.12 x64 | math | O(1) | AC | 0.078 s | 404 KB | 11302133 |
+| [1876_parsing_optimized.rs](1876_parsing_optimized.rs) | Rust 1.75 x64 | parsing | O(1) | AC | 0.031 s | 44 KB | 11329209 |
