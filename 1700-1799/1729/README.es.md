@@ -87,6 +87,22 @@ El ángulo se convierte en milésimas enteras de grado antes de calcular el núm
 
 Go calcula la distancia con la fórmula de la cuerda y escribe el resultado con precisión fija desde un búfer pequeño. Go 1.14 x64, envío 11322864. Tiempo 0,031 → 0,031 s, memoria 1088 → 304 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1729_geometry_parsing_optimized.rs`. Se sustituye la conversión flotante de entrada por milésimas exactas, conservando la fórmula de cuerdas y la salida C de siete decimales.
+
+Accepted #11328988 (Rust 1.75 x64): **0.015 s / 84 KB**. Comparación archivada: `1729_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11318489).
+
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1729_geometry_parsing_optimized.java`. Las entradas decimales acotadas se leen como milésimas exactas, conservando la fórmula de cuerdas. Se escriben siete decimales directamente, evitando conversiones flotantes generales. El búfer acotado y los métodos de entrada se colocan en Main, eliminando la carga y asignación de una clase auxiliar. No cambian la fórmula completa, la escala ni el formato de punto fijo. Tras escribir la respuesta completa, el programa vacía ambos flujos antes de Runtime.halt(0).
+
+Accepted #11329243 (Java 1.8): **0.078 s / 476 KB**. Comparación archivada: `1729_geometry_optimized.java` (Java 1.8) — 0.125 s / 392 KB (#11322411).
+
 ## Soluciones
 
 ### Sencillas
@@ -105,8 +121,10 @@ Go calcula la distancia con la fórmula de la cuerda y escribe el resultado con 
 |----------|----------|---------|-------------|-----------|--------|---------|---|
 | [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
 | [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
-| [1729_geometry_optimized.py](1729_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
+| [1729_geometry_optimized.py](1729_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
 | [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
 | [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |
+| [1729_geometry_parsing_optimized.rs](1729_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 84 KB | 11328988 |
+| [1729_geometry_parsing_optimized.java](1729_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.078 s | 476 KB | 11329243 |
 
-\* El juez aceptó el envío. Aún queda por alcanzar el objetivo de clasificación de C++.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

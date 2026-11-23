@@ -70,6 +70,22 @@ G++ 13.2 x64 №11322451 · Rust 1.75 x64 №11321953 · Go 1.14 x64 №11322452
 
 Go 用弦长公式计算距离，然后从小缓冲区输出固定精度的结果。 Go 1.14 x64（提交 11322864）的运行时间从 0.031 秒变为 0.031 秒，内存从 1088 KB 变为 304 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1729_geometry_parsing_optimized.rs`. 用精确千分单位替代浮点输入转换，保留弦长公式及七位小数 C 输出。
+
+Accepted #11328988 (Rust 1.75 x64): **0.015 s / 84 KB**. 历史对照: `1729_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11318489).
+
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1729_geometry_parsing_optimized.java`. 把有界小数输入按精确千分单位解析，保留弦长公式，直接输出七位小数，避免通用浮点输入输出转换。 把有界输入缓冲和解析方法直接放入 Main，去掉一个辅助类加载和分配。完整公式、输出精度及定点格式器保持不变。 独立程序完整写出答案后，先刷新两个输出流，再调用 Runtime.halt(0)。
+
+Accepted #11329243 (Java 1.8): **0.078 s / 476 KB**. 历史对照: `1729_geometry_optimized.java` (Java 1.8) — 0.125 s / 392 KB (#11322411).
+
 ## 解答
 
 ### 简单版本
@@ -88,8 +104,10 @@ Go 用弦长公式计算距离，然后从小缓冲区输出固定精度的结�
 |----|----|----|-----|------|----|----|---|
 | [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
 | [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
-| [1729_geometry_optimized.py](1729_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
+| [1729_geometry_optimized.py](1729_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
 | [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
 | [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |
+| [1729_geometry_parsing_optimized.rs](1729_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 84 KB | 11328988 |
+| [1729_geometry_parsing_optimized.java](1729_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.078 s | 476 KB | 11329243 |
 
-\* 已通过评测，尚未达到 C++ 排名目标。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

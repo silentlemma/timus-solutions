@@ -87,6 +87,22 @@ The angle is converted to integer thousandths before computing the number of ful
 
 Go computes the distance with the chord formula and writes a fixed-precision result from a small buffer. Go 1.14 x64, submission 11322864. Time 0.031 → 0.031 s, memory 1088 → 304 KB.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1729_geometry_parsing_optimized.rs`. Replace floating-point input conversion with exact thousandths and retain the chord formula and seven-place C output.
+
+Accepted #11328988 (Rust 1.75 x64): **0.015 s / 84 KB**. Archived comparison: `1729_geometry_optimized.rs` (Rust 1.75 x64) — 0.031 s / 256 KB (#11318489).
+
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1729_geometry_parsing_optimized.java`. Parse the bounded decimal inputs as exact thousandths and retain the chord formula. Write seven fixed decimal places directly, avoiding general floating-point input and output conversion. Place the bounded input buffer and parsing methods directly in Main, removing one helper-class load and allocation. The complete mathematical formula, output scale and fixed-point formatter are unchanged. Flush both output streams before Runtime.halt(0), after the complete standalone answer has been written.
+
+Accepted #11329243 (Java 1.8): **0.078 s / 476 KB**. Archived comparison: `1729_geometry_optimized.java` (Java 1.8) — 0.125 s / 392 KB (#11322411).
+
 ## Solutions
 
 ### Simple
@@ -105,8 +121,10 @@ Go computes the distance with the chord formula and writes a fixed-precision res
 |----------|----------|----------|------------|---------|------|--------|---|
 | [1729_geometry_optimized.cpp](1729_geometry_optimized.cpp) \* | G++ 13.2 x64 | geometry | O(1) | AC | 0.031 s | 136 KB | 11316978 |
 | [1729_geometry_optimized.rs](1729_geometry_optimized.rs) \* | Rust 1.75 x64 | geometry | O(1) | AC | 0.031 s | 256 KB | 11318489 |
-| [1729_geometry_optimized.py](1729_geometry_optimized.py) \* | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
+| [1729_geometry_optimized.py](1729_geometry_optimized.py) | Python 3.12 x64 | geometry | O(1) | AC | 0.078 s | 520 KB | 11318496 |
 | [1729_geometry_optimized.java](1729_geometry_optimized.java) \* | Java 1.8 | geometry | O(1) | AC | 0.125 s | 392 KB | 11322411 |
 | [1729_geometry_optimized.go](1729_geometry_optimized.go) \* | Go 1.14 x64 | geometry | O(1) | AC | 0.031 s | 304 KB | 11322864 |
+| [1729_geometry_parsing_optimized.rs](1729_geometry_parsing_optimized.rs) | Rust 1.75 x64 | geometry, parsing | O(1) | AC | 0.015 s | 84 KB | 11328988 |
+| [1729_geometry_parsing_optimized.java](1729_geometry_parsing_optimized.java) | Java 1.8 | geometry, parsing | O(1) | AC | 0.078 s | 476 KB | 11329243 |
 
-\* Accepted. The C++ rating target is still open.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.
