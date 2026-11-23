@@ -24,7 +24,11 @@ are excluded.
 - If **our submission uses less than 1024 KB**, compare **time only**.
 - At **1024 KB or more**, compare both time and memory.
 - Missing memory is unknown, never zero, and cannot activate the exception.
-- For time comparisons, measurements below **0.015 s** count as **0.015 s**.
+- Exclude rival submissions faster than **0.015 s (15 ms)** before counting
+  rivals, selecting compiler cohorts or comparing either metric. Keep results
+  exactly equal to 0.015 s. Excluded rows do not contribute memory measurements.
+- Our time is still floored at 0.015 s for comparison. The older rival rows are
+  excluded rather than raised to that floor.
 
 The memory exception applies to both the usual ranking rules and the small
 cohort comparison below. It depends on our submission's memory, not the
@@ -58,9 +62,19 @@ If there are **1 through 10 rival submissions on the exact same compiler or
 interpreter version as our submission**, replace the ranking rules above with
 this comparison. A top-ten rank does not provide an alternative way to pass.
 
-Choose the **fastest rival submission**. If several have the same execution
-time, choose the one using the least memory. Take both reference measurements
-from that one submission, rather than selecting independent minima.
+Sort eligible rival submissions by execution time, breaking equal-time ties
+by smaller memory. Select one reference by its position in this ordered list:
+
+| Eligible rivals on the exact version | Reference position |
+| --- | --- |
+| 1 | First |
+| 2 | Second |
+| 3-10 | Third |
+
+The position is `min(3, rival_count)`, counting submissions even when their
+times are tied. Take both reference measurements from that one submission.
+This reduces dependence on one exceptional record. It does not guarantee a
+literal top-three rank: many results may fit within the allowed 15% margin.
 
 Our version qualifies only if:
 
@@ -70,8 +84,9 @@ and, when our_memory >= 1024 KB:
 our_memory <= reference_memory * 1.15
 ```
 
-Apply the 0.015 s time floor to both times before comparison. The 15% boundary
-is inclusive and calculated without binary floating-point rounding.
+The 15% boundary is inclusive and calculated without binary floating-point
+rounding. There is no additional fixed-tick allowance. The selected reference
+already has an eligible time of at least 0.015 s.
 
 | Reference time / memory | Our time / memory | Result |
 | --- | --- | --- |

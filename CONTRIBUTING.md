@@ -147,8 +147,9 @@ Only the languages offered by the problem's submission form are required;
 unavailable languages are excluded and receive no unjudgeable ports.
 
 Use [Rating criteria](RATING_CRITERIA.md) as the source of truth for all five
-languages: top 10 or top 15%, with a comparison against the fastest rival
-instead when the exact compiler version has 1-10 rival submissions. Memory
+languages: top 10 or top 15%, with a comparison against the first, second
+or third eligible rival instead when the exact compiler version has 1-10
+rival submissions. Rival times below 0.015 s are excluded before counting. Memory
 below 1024 KB is excluded from either comparison. The document defines
 reference selection, ties, compiler fallbacks, Accepted evidence and README
 asterisks. Keep the marker and its translated explanation consistent across
