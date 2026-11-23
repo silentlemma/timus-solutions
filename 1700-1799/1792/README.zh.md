@@ -88,6 +88,14 @@
 
 与 `1792_implementation.rs` 相比：时间 0.046 s → 0.046 s；内存 228 KB → 60 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1792_implementation_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328650 (Go 1.14 x64): **0.031 s / 988 KB**. 历史对照: `1792_implementation.go` (Go 1.14 x64) — 0.031 s / 1168 KB (#11289857).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -116,8 +124,9 @@
 |----|----|----|-----|------|----|----|------|
 | [1792_implementation_optimized.cpp](1792_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 84 KB | 11303639 |
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
-| [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
+| [1792_bitmask.rs](1792_bitmask.rs) | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
 | [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
-| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) \* | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
+| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
+| [1792_implementation_optimized.go](1792_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 988 KB | 11328650 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

@@ -103,6 +103,14 @@ el mismo tiempo; Java: 0.109 s en lugar de 0.156 s y 380 KB en lugar de
 
 Frente a `1792_implementation.rs`: tiempo 0.046 s → 0.046 s; memoria 228 KB → 60 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1792_implementation_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328650 (Go 1.14 x64): **0.031 s / 988 KB**. Comparación archivada: `1792_implementation.go` (Go 1.14 x64) — 0.031 s / 1168 KB (#11289857).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -131,8 +139,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1792_implementation_optimized.cpp](1792_implementation_optimized.cpp) \* | G++ 13.2 x64 | implementation | O(1) | AC | 0.031 s | 84 KB | 11303639 |
 | [1792_implementation_optimized.java](1792_implementation_optimized.java) | Java 1.8 | implementation | O(1) | AC | 0.109 s | 380 KB | 11303516 |
-| [1792_bitmask.rs](1792_bitmask.rs) \* | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
+| [1792_bitmask.rs](1792_bitmask.rs) | Rust 1.75 x64 | bitmask | O(1) | AC | 0.046 s | 60 KB | 11324860 |
 | [1792_bitmask.py](1792_bitmask.py) \* | PyPy 3.10 x64 | bitmask | O(1) | AC | 0.14 s | 264 KB | 11325479 |
-| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) \* | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
+| [1792_bitmask_optimized.py](1792_bitmask_optimized.py) | Python 3.12 x64 | bitmask | O(1) logical work; O(L) input time/storage | AC | 0.078 s | 828 KB | 11327532 |
+| [1792_implementation_optimized.go](1792_implementation_optimized.go) | Go 1.14 x64 | implementation | O(1) | AC | 0.031 s | 988 KB | 11328650 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
