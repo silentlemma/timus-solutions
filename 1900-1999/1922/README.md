@@ -110,6 +110,14 @@ The C++ revision keeps the same packed sort and qualifying-prefix test, with 16 
 
 The accepted base implementations [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1922_sorting_optimized.py`. Retain and sort only the reliable prefix of teams. Stream later team records and update the result without storing the full list; the ordering rule is unchanged. The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328776 (Python 3.12 x64): **0.078 s / 1788 KB**. Archived comparison: `1922_sorting.py` (Python 3.12 x64) — 0.093 s / 7584 KB (#11325598).
+
 ## Language notes
 
 Earlier additions were compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. Teaching algorithms are retained. Revalidated basic-source rows use their own new exact-source Accepted metrics and IDs; those checks do not count as optimizations.
@@ -126,8 +134,8 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
 | [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
-| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
-| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
+| [1922_sorting.java](1922_sorting.java) | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
+| [1922_sorting.py](1922_sorting.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
 | [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
 
 ### Optimized
@@ -135,8 +143,7 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 152 KB | 11326637 |
-| [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
-| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
-| [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1922_sorting_optimized.go](1922_sorting_optimized.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
+| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+| [1922_sorting_optimized.java](1922_sorting_optimized.java) | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
+| [1922_sorting_optimized.py](1922_sorting_optimized.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.078 s | 1788 KB | 11328776 |

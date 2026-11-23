@@ -107,6 +107,14 @@ La revisión C++ conserva la ordenación empaquetada y la misma prueba de prefij
 
 Las implementaciones base aceptadas [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1922_sorting_optimized.py`. Solo se guarda y ordena el prefijo fiable de equipos. Los registros posteriores actualizan el resultado al leerse, sin retener la lista completa; la regla de orden no cambia. El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328776 (Python 3.12 x64): **0.078 s / 1788 KB**. Comparación archivada: `1922_sorting.py` (Python 3.12 x64) — 0.093 s / 7584 KB (#11325598).
+
 ## Notas por lenguaje
 
 Las incorporaciones anteriores se compararon con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Conserva los algoritmos didácticos. Las filas básicas revalidadas usan sus nuevas métricas e IDs de Accepted de fuente exacta; estas pruebas no cuentan como optimizaciones.
@@ -123,8 +131,8 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
 | [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
-| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
-| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
+| [1922_sorting.java](1922_sorting.java) | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
+| [1922_sorting.py](1922_sorting.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
 | [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
 
 ### Optimizadas
@@ -132,8 +140,7 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 152 KB | 11326637 |
-| [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
-| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
-| [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1922_sorting_optimized.go](1922_sorting_optimized.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
+| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+| [1922_sorting_optimized.java](1922_sorting_optimized.java) | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
+| [1922_sorting_optimized.py](1922_sorting_optimized.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.078 s | 1788 KB | 11328776 |

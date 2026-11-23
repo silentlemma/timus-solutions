@@ -96,6 +96,14 @@ C++ 修订版保留相同的打包排序和有效前缀判断，并使用各 16 
 
 已通过评测的基础实现 [1922_sorting.java](1922_sorting.java), [1922_sorting.py](1922_sorting.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1922_sorting_optimized.py`. 仅保留并排序可靠队伍前缀，后续队伍流式读取并更新答案，不保存完整列表；排序规则不变。 独立程序先刷新两个输出流，再调用 os._exit(0)，在完整答案写出后跳过解释器清理。这只改变进程结束方式，不改变数学算法；简单版本仍保留。
+
+Accepted #11328776 (Python 3.12 x64): **0.078 s / 1788 KB**. 历史对照: `1922_sorting.py` (Python 3.12 x64) — 0.093 s / 7584 KB (#11325598).
+
 ## 各语言说明
 
 此前新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。保留教学算法。复查的基础代码行使用其自身新精确源代码 Accepted 的指标与 ID；这些检查不算优化。
@@ -112,8 +120,8 @@ C++ 修订版保留相同的打包排序和有效前缀判断，并使用各 16 
 |---|---|---|---|---|---|---|---|
 | [1922_sorting.cpp](1922_sorting.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 1452 KB | 11291505 |
 | [1922_sorting.go](1922_sorting.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.062 s | 5648 KB | 11291507 |
-| [1922_sorting.java](1922_sorting.java) \* | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
-| [1922_sorting.py](1922_sorting.py) \* | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
+| [1922_sorting.java](1922_sorting.java) | Java 1.8 | sorting | O(n*log(n) + R) | AC | 0.109 s | 9504 KB | 11325561 |
+| [1922_sorting.py](1922_sorting.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.093 s | 7584 KB | 11325598 |
 | [1922_sorting.rs](1922_sorting.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 4040 KB | 11291512 |
 
 ### 优化版本
@@ -121,8 +129,7 @@ C++ 修订版保留相同的打包排序和有效前缀判断，并使用各 16 
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1922_sorting_optimized.cpp](1922_sorting_optimized.cpp) | G++ 13.2 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 152 KB | 11326637 |
-| [1922_sorting_optimized.go](1922_sorting_optimized.go) \* | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
-| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) \* | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
-| [1922_sorting_optimized.java](1922_sorting_optimized.java) \* | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
-
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+| [1922_sorting_optimized.go](1922_sorting_optimized.go) | Go 1.14 x64 | sorting | O(n*log(n) + R) | AC | 0.031 s | 932 KB | 11310396 |
+| [1922_sorting_optimized.rs](1922_sorting_optimized.rs) | Rust 1.75 x64 | sorting | O(n*log(n) + R) | AC | 0.015 s | 216 KB | 11310393 |
+| [1922_sorting_optimized.java](1922_sorting_optimized.java) | Java 1.8 | sorting | O(N+S(N)+Z) | AC | 0.125 s | 512 KB | 11325025 |
+| [1922_sorting_optimized.py](1922_sorting_optimized.py) | Python 3.12 x64 | sorting | O(n*log(n) + R) | AC | 0.078 s | 1788 KB | 11328776 |
