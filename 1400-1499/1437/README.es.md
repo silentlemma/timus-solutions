@@ -76,6 +76,18 @@ C++ y Go conservan todos los llenados y trasvases, guardando visitas solo en la 
 
 Las implementaciones base aceptadas [1437_bfs.java](1437_bfs.java), [1437_bfs.py](1437_bfs.py), [1437_bfs.rs](1437_bfs.rs) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1437_bfs_optimized.py`. Tras llenar o verter, cada estado no inicial tiene un recipiente vacío o lleno. Se codifican solo los seis planos frontera en bytes, en vez del cubo completo, manteniendo los movimientos BFS. El límite de estados pasa a O(ab + ac + bc). El programa independiente vacía ambos flujos de salida antes de os._exit(0), evitando la limpieza del intérprete tras escribir la respuesta completa. Cambia el cierre del proceso, no el algoritmo matemático; se conserva la versión sencilla.
+
+Accepted #11328684 (Python 3.12 x64): **0.281 s / 2860 KB**. Comparación archivada: `1437_bfs.py` (Python 3.12 x64) — 0.406 s / 17212 KB (#11286238).
+
+`1437_bfs_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328552 (Rust 1.75 x64): **0.015 s / 3092 KB**. Comparación archivada: `1437_bfs.rs` (Rust 1.75 x64) — 0.062 s / 3104 KB (#11286240).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -92,16 +104,16 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 |---|---|---|---|---|---|---|---|
 | [1437_bfs.cpp](1437_bfs.cpp) | G++ 13.2 x64 | bfs | O(P + S log V) | AC | 0.031 s | 16164 KB | 11286236 |
 | [1437_bfs.go](1437_bfs.go) | Go 1.14 x64 | bfs | O(P) | AC | 0.046 s | 10572 KB | 11286237 |
-| [1437_bfs.java](1437_bfs.java) \* | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB | 11286239 |
-| [1437_bfs.py](1437_bfs.py) \* | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB | 11286238 |
-| [1437_bfs.rs](1437_bfs.rs) \* | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB | 11286240 |
+| [1437_bfs.java](1437_bfs.java) | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB | 11286239 |
+| [1437_bfs.py](1437_bfs.py) | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB | 11286238 |
+| [1437_bfs.rs](1437_bfs.rs) | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB | 11286240 |
 
 ### Optimizadas
 
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1437_bfs_optimized.cpp](1437_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(U² + S) | AC | 0.015 s | 332 KB | 11315367 |
-| [1437_bfs_optimized.go](1437_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
-| [1437_bfs_optimized.java](1437_bfs_optimized.java) \* | Java 1.8 | bfs | O(S) time; O(S/64+B+C) space | AC | 0.109 s | 4004 KB | 11325435 |
-
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+| [1437_bfs_optimized.go](1437_bfs_optimized.go) | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
+| [1437_bfs_optimized.java](1437_bfs_optimized.java) | Java 1.8 | bfs | O(S) time; O(S/64+B+C) space | AC | 0.109 s | 4004 KB | 11325435 |
+| [1437_bfs_optimized.py](1437_bfs_optimized.py) | Python 3.12 x64 | bfs | O(ab + ac + bc) boundary states | AC | 0.281 s | 2860 KB | 11328684 |
+| [1437_bfs_optimized.rs](1437_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(P) | AC | 0.015 s | 3092 KB | 11328552 |

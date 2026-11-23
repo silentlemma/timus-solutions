@@ -75,6 +75,18 @@ C++ and Go keep every original fill/pour transition but store visited states onl
 
 The accepted base implementations [1437_bfs.java](1437_bfs.java), [1437_bfs.py](1437_bfs.py), [1437_bfs.rs](1437_bfs.rs) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1437_bfs_optimized.py`. Every noninitial state after filling or pouring has an empty or full vessel. Encode only the six boundary planes in a byte visited array, rather than the entire volume cube; keep the same BFS moves. The state bound becomes O(ab + ac + bc). The standalone program flushes both output streams before os._exit(0), avoiding interpreter teardown after the complete answer has been written. This changes process shutdown, not the mathematical algorithm; the simple version remains available.
+
+Accepted #11328684 (Python 3.12 x64): **0.281 s / 2860 KB**. Archived comparison: `1437_bfs.py` (Python 3.12 x64) — 0.406 s / 17212 KB (#11286238).
+
+`1437_bfs_optimized.rs`. Retain the archived algorithm and its integer types. Convert decimal integer tokens directly instead of calling the general string parser; negative values are accumulated with their sign so the minimum signed value remains representable. Existing input storage and algorithmic bounds are unchanged.
+
+Accepted #11328552 (Rust 1.75 x64): **0.015 s / 3092 KB**. Archived comparison: `1437_bfs.rs` (Rust 1.75 x64) — 0.062 s / 3104 KB (#11286240).
+
 ## Language notes
 
 The added sources are compared using the 18 November 2026 snapshot of other authors on current judge compilers. There is no submission-ID or date cutoff. Ties share a place, and times below 0.015 s are compared as 0.015 s. The ranks below concern these new sources; existing sources retain their own historical Accepted metrics.
@@ -91,16 +103,16 @@ An asterisk marks a missed rating target: C++ requires top ten or top 15% in bot
 |---|---|---|---|---|---|---|---|
 | [1437_bfs.cpp](1437_bfs.cpp) | G++ 13.2 x64 | bfs | O(P + S log V) | AC | 0.031 s | 16164 KB | 11286236 |
 | [1437_bfs.go](1437_bfs.go) | Go 1.14 x64 | bfs | O(P) | AC | 0.046 s | 10572 KB | 11286237 |
-| [1437_bfs.java](1437_bfs.java) \* | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB | 11286239 |
-| [1437_bfs.py](1437_bfs.py) \* | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB | 11286238 |
-| [1437_bfs.rs](1437_bfs.rs) \* | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB | 11286240 |
+| [1437_bfs.java](1437_bfs.java) | Java 1.8 | bfs | O(P) | AC | 0.156 s | 20420 KB | 11286239 |
+| [1437_bfs.py](1437_bfs.py) | Python 3.12 x64 | bfs | O(P) | AC | 0.406 s | 17212 KB | 11286238 |
+| [1437_bfs.rs](1437_bfs.rs) | Rust 1.75 x64 | bfs | O(P) | AC | 0.062 s | 3104 KB | 11286240 |
 
 ### Optimized
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1437_bfs_optimized.cpp](1437_bfs_optimized.cpp) | G++ 13.2 x64 | bfs | O(U² + S) | AC | 0.015 s | 332 KB | 11315367 |
-| [1437_bfs_optimized.go](1437_bfs_optimized.go) \* | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
-| [1437_bfs_optimized.java](1437_bfs_optimized.java) \* | Java 1.8 | bfs | O(S) time; O(S/64+B+C) space | AC | 0.109 s | 4004 KB | 11325435 |
-
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+| [1437_bfs_optimized.go](1437_bfs_optimized.go) | Go 1.14 x64 | bfs | O(U² + S) | AC | 0.015 s | 1140 KB | 11315371 |
+| [1437_bfs_optimized.java](1437_bfs_optimized.java) | Java 1.8 | bfs | O(S) time; O(S/64+B+C) space | AC | 0.109 s | 4004 KB | 11325435 |
+| [1437_bfs_optimized.py](1437_bfs_optimized.py) | Python 3.12 x64 | bfs | O(ab + ac + bc) boundary states | AC | 0.281 s | 2860 KB | 11328684 |
+| [1437_bfs_optimized.rs](1437_bfs_optimized.rs) | Rust 1.75 x64 | bfs | O(P) | AC | 0.015 s | 3092 KB | 11328552 |
