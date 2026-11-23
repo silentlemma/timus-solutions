@@ -88,6 +88,14 @@ N ≥ 1 都互不相同。所以答案总是存在，`No solution` 不会出现�
 
 与 `1335_math.rs` 相比：时间 0.046 s → 0.015 s；内存 244 KB → 56 KB。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1335_math_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。
+
+Accepted #11328885 (Go 1.14 x64): **0.015 s / 908 KB**. 历史对照: `1335_math.go` (Go 1.14 x64) — 0.031 s / 1064 KB (#11285028).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -114,8 +122,9 @@ N ≥ 1 都互不相同。所以答案总是存在，`No solution` 不会出现�
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
+| [1335_math_optimized.java](1335_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
 | [1335_math_optimized.py](1335_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 168 KB | 11324910 |
-| [1335_math_optimized.rs](1335_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
+| [1335_math_optimized.rs](1335_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
+| [1335_math_parsing_optimized.go](1335_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) | AC | 0.015 s | 908 KB | 11328885 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

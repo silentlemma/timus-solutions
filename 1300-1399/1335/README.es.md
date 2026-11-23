@@ -97,6 +97,14 @@ Frente a `1335_math.py`: tiempo 0.078 s → 0.125 s; memoria 392 KB → 168 KB.
 
 Frente a `1335_math.rs`: tiempo 0.046 s → 0.015 s; memoria 244 KB → 56 KB.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1335_math_parsing_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios.
+
+Accepted #11328885 (Go 1.14 x64): **0.015 s / 908 KB**. Comparación archivada: `1335_math.go` (Go 1.14 x64) — 0.031 s / 1064 KB (#11285028).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -123,8 +131,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [1335_math_optimized.java](1335_math_optimized.java) \* | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
+| [1335_math_optimized.java](1335_math_optimized.java) | Java 1.8 | math | O(1) | AC | 0.093 s | 356 KB | 11327452 |
 | [1335_math_optimized.py](1335_math_optimized.py) \* | PyPy 3.10 x64 | math | O(1) | AC | 0.125 s | 168 KB | 11324910 |
-| [1335_math_optimized.rs](1335_math_optimized.rs) \* | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
+| [1335_math_optimized.rs](1335_math_optimized.rs) | Rust 1.75 x64 | math | O(1) | AC | 0.015 s | 56 KB | 11325094 |
+| [1335_math_parsing_optimized.go](1335_math_parsing_optimized.go) | Go 1.14 x64 | math, parsing | O(1) | AC | 0.015 s | 908 KB | 11328885 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.
