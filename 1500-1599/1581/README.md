@@ -61,6 +61,14 @@ of the input instead of splitting a `String`. Java: 0.093 s instead of
 0.125 s and 436 KB instead of 2404 KB; Rust: 208 KB instead of 308 KB,
 with the same time.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1581_implementation_parsing_optimized.go`. Specialize token conversion and numeric output to the types actually used, removing unused generic branches while retaining the algorithm and comments. Use an 8192-byte refillable input buffer instead of retaining the entire input. Tokens and partial/EOF reads retain their original meaning.
+
+Accepted #11328906 (Go 1.14 x64): **0.015 s / 1044 KB**. Archived comparison: `1581_implementation.go` (Go 1.14 x64) — 0.031 s / 1268 KB (#11287898).
+
 ## Solutions
 
 ### Simple
@@ -79,3 +87,4 @@ with the same time.
 |----------|----------|----------|------------|---------|------|--------|------------|
 | [1581_implementation_optimized.java](1581_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 436 KB | 11303624 |
 | [1581_implementation_optimized.rs](1581_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 208 KB | 11303625 |
+| [1581_implementation_parsing_optimized.go](1581_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(N) | AC | 0.015 s | 1044 KB | 11328906 |

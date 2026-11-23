@@ -63,6 +63,14 @@ la entrada en lugar de partir un `String`. Java: 0.093 s en lugar de
 0.125 s y 436 KB en lugar de 2404 KB; Rust: 208 KB en lugar de 308 KB,
 con el mismo tiempo.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1581_implementation_parsing_optimized.go`. Se especializan la conversión de tokens y la salida numérica para los tipos usados, eliminando ramas generales innecesarias y conservando algoritmo y comentarios. Un búfer recargable de 8192 bytes sustituye el almacenamiento de toda la entrada, manteniendo tokens, lecturas parciales y fin de archivo.
+
+Accepted #11328906 (Go 1.14 x64): **0.015 s / 1044 KB**. Comparación archivada: `1581_implementation.go` (Go 1.14 x64) — 0.031 s / 1268 KB (#11287898).
+
 ## Soluciones
 
 ### Sencillas
@@ -81,3 +89,4 @@ con el mismo tiempo.
 |----------|----------|---------|-------------|-----------|--------|---------|-------|
 | [1581_implementation_optimized.java](1581_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 436 KB | 11303624 |
 | [1581_implementation_optimized.rs](1581_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 208 KB | 11303625 |
+| [1581_implementation_parsing_optimized.go](1581_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(N) | AC | 0.015 s | 1044 KB | 11328906 |

@@ -56,6 +56,14 @@ N，然后是 N 个数。
 直接从输入的字节中解析，而不是切分 `String`。Java 为 0.093 s，而不是 0.125 s；
 436 KB，而不是 2404 KB。Rust 为 208 KB，而不是 308 KB，时间不变。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1581_implementation_parsing_optimized.go`. 词元转换及数值输出按实际类型专门化，移除未使用的通用分支，保留算法和注释。 使用可补充的 8192 字节输入缓冲，避免保留完整输入，保持词元及部分读取、EOF 的语义。
+
+Accepted #11328906 (Go 1.14 x64): **0.015 s / 1044 KB**. 历史对照: `1581_implementation.go` (Go 1.14 x64) — 0.031 s / 1268 KB (#11287898).
+
 ## 解答
 
 ### 简单版本
@@ -74,3 +82,4 @@ N，然后是 N 个数。
 |----|----|----|-----|------|----|----|------|
 | [1581_implementation_optimized.java](1581_implementation_optimized.java) | Java 1.8 | implementation | O(N) | AC | 0.093 s | 436 KB | 11303624 |
 | [1581_implementation_optimized.rs](1581_implementation_optimized.rs) | Rust 1.75 x64 | implementation | O(N) | AC | 0.031 s | 208 KB | 11303625 |
+| [1581_implementation_parsing_optimized.go](1581_implementation_parsing_optimized.go) | Go 1.14 x64 | implementation, parsing | O(N) | AC | 0.015 s | 1044 KB | 11328906 |
