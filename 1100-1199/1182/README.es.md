@@ -108,6 +108,14 @@ Go y Rust conservan bipartición y mochila de orientaciones. Una pareja es incom
 
 Las implementaciones base aceptadas [1182_graphs.cpp](1182_graphs.cpp), [1182_graphs.java](1182_graphs.java), [1182_graphs.py](1182_graphs.py) también cubren el conjunto rápido: en la instantánea de comparación guardada ya cumplen la regla de inclusión por estar en el 15% superior o en los diez primeros puestos, tanto en tiempo como en memoria. Se reutilizan los mismos fuentes sin copias idénticas. Un asterisco señala una versión que todavía no alcanza el objetivo de clasificación de su lenguaje.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1182_graphs_optimized.java`. Se conserva el algoritmo y se sustituye Scanner por entrada de bytes con búfer. Cuando basta la conversión numérica normal, la salida evita Formatter. El fin de archivo funciona también sin salto de línea final; se conserva la versión sencilla.
+
+Accepted #11328638 (Java 1.8): **0.109 s / 652 KB**. Comparación archivada: `1182_graphs.java` (Java 1.8) — 0.171 s / 5732 KB (#11283340).
+
 ## Notas por lenguaje
 
 Las bases usan matriz y mochila escalar. Go/Rust nuevos usan filas e historias empaquetadas; Go maneja desplazamientos sobre64 bits y Rust u128. La recuperación conserva miembros y excluye equipos vacíos.
@@ -120,7 +128,7 @@ Las bases usan matriz y mochila escalar. Go/Rust nuevos usan filas e historias e
 |---|---|---|---|---|---|---|---|
 | [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB | 11283330 |
 | [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB | 11283331 |
-| [1182_graphs.java](1182_graphs.java) \* | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
+| [1182_graphs.java](1182_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
 | [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB | 11283339 |
 | [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB | 11283341 |
 
@@ -129,6 +137,7 @@ Las bases usan matriz y mochila escalar. Go/Rust nuevos usan filas e historias e
 | Solución | Lenguaje | Enfoque | Complejidad | Veredicto | Tiempo | Memoria | Envío |
 |---|---|---|---|---|---|---|---|
 | [1182_graphs_bitmask.go](1182_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(N²) | AC | 0.031 s | 816 KB | 11315485 |
-| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_optimized.java](1182_graphs_optimized.java) | Java 1.8 | graphs | O(N²) | AC | 0.109 s | 652 KB | 11328638 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

@@ -103,6 +103,14 @@ Go and Rust keep the same complement-graph bipartition and component-orientation
 
 The accepted base implementations [1182_graphs.cpp](1182_graphs.cpp), [1182_graphs.java](1182_graphs.java), [1182_graphs.py](1182_graphs.py) also cover the fast set: they already meet the top-15% or top-ten ranking admission rule for both time and memory in the saved comparison snapshot. Their source files are reused without identical copies. A star marks a version that still falls short of its language’s rating target.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1182_graphs_optimized.java`. Retain the archived algorithm, replacing Scanner with buffered byte input. Output avoids Formatter where ordinary numeric conversion suffices. EOF is stable even without a final newline; the simple source remains unchanged.
+
+Accepted #11328638 (Java 1.8): **0.109 s / 652 KB**. Archived comparison: `1182_graphs.java` (Java 1.8) — 0.171 s / 5732 KB (#11283340).
+
 ## Language notes
 
 Original ports keep the acquaintance matrix and scalar knapsack. New Go/Rust use packed rows and reachability histories; Go explicitly handles shifts across64 bits, Rust uses u128. Reconstruction retains component membership, tests mutual acquaintance, and excludes empty teams.
@@ -115,7 +123,7 @@ Original ports keep the acquaintance matrix and scalar knapsack. New Go/Rust use
 |---|---|---|---|---|---|---|---|
 | [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB | 11283330 |
 | [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB | 11283331 |
-| [1182_graphs.java](1182_graphs.java) \* | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
+| [1182_graphs.java](1182_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
 | [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB | 11283339 |
 | [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB | 11283341 |
 
@@ -124,6 +132,7 @@ Original ports keep the acquaintance matrix and scalar knapsack. New Go/Rust use
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1182_graphs_bitmask.go](1182_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(N²) | AC | 0.031 s | 816 KB | 11315485 |
-| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_optimized.java](1182_graphs_optimized.java) | Java 1.8 | graphs | O(N²) | AC | 0.109 s | 652 KB | 11328638 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

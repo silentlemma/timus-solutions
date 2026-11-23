@@ -93,6 +93,14 @@ Go、Rust 保持不兼容补图二分与分量方向背包；必须双向认识�
 
 已通过评测的基础实现 [1182_graphs.cpp](1182_graphs.cpp), [1182_graphs.java](1182_graphs.java), [1182_graphs.py](1182_graphs.py) 也满足快速版本的要求：在保存的比较快照中，时间和内存均符合前 15% 或前十名的排名收录规则。直接复用这些源文件，不创建相同副本。星号标记尚未达到该语言目标排名的版本。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1182_graphs_optimized.java`. 算法不变，用带缓冲的字节输入替代 Scanner；能使用普通数值转换时避免 Formatter。即使末尾没有换行，也能稳定处理 EOF。简单版本保持不变。
+
+Accepted #11328638 (Java 1.8): **0.109 s / 652 KB**. 历史对照: `1182_graphs.java` (Java 1.8) — 0.171 s / 5732 KB (#11283340).
+
 ## 各语言说明
 
 原版本用认识矩阵和标量背包；新 Go/Rust 用压缩行及可达历史，Go 显式处理跨64位移位，Rust 用 u128。恢复保留分量成员，检查双向认识并排除空队。
@@ -105,7 +113,7 @@ Go、Rust 保持不兼容补图二分与分量方向背包；必须双向认识�
 |---|---|---|---|---|---|---|---|
 | [1182_graphs.cpp](1182_graphs.cpp) | G++ 13.2 x64 | graphs | O(N²) | AC | 0.015 s | 280 KB | 11283330 |
 | [1182_graphs.go](1182_graphs.go) | Go 1.14 x64 | graphs | O(N²) | AC | 0.031 s | 1400 KB | 11283331 |
-| [1182_graphs.java](1182_graphs.java) \* | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
+| [1182_graphs.java](1182_graphs.java) | Java 1.8 | graphs | O(N²) | AC | 0.171 s | 5732 KB | 11283340 |
 | [1182_graphs.py](1182_graphs.py) | Python 3.12 x64 | graphs | O(N²) | AC | 0.078 s | 1332 KB | 11283339 |
 | [1182_graphs.rs](1182_graphs.rs) | Rust 1.75 x64 | graphs | O(N²) | AC | 0.046 s | 384 KB | 11283341 |
 
@@ -114,6 +122,7 @@ Go、Rust 保持不兼容补图二分与分量方向背包；必须双向认识�
 | 代码 | 语言 | 方法 | 复杂度 | 评测结果 | 时间 | 内存 | 提交 |
 |---|---|---|---|---|---|---|---|
 | [1182_graphs_bitmask.go](1182_graphs_bitmask.go) \* | Go 1.14 x64 | graphs, bitmask | O(N²) | AC | 0.031 s | 816 KB | 11315485 |
-| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) \* | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_bitmask.rs](1182_graphs_bitmask.rs) | Rust 1.75 x64 | graphs, bitmask | O(N²) | AC | 0.015 s | 204 KB | 11315493 |
+| [1182_graphs_optimized.java](1182_graphs_optimized.java) | Java 1.8 | graphs | O(N²) | AC | 0.109 s | 652 KB | 11328638 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
