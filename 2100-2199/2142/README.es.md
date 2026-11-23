@@ -98,6 +98,14 @@ coste. El asterisco solo se refiere al objetivo de clasificación.
 - `2142_greedy_optimized.java`: reducción de tiempo +12.80%; reducción
   de memoria +76.67%; base: `2142_greedy.java`.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`2142_greedy_optimized.rs`. Se mantienen el algoritmo y los tipos enteros. Los tokens decimales se convierten directamente; los negativos se acumulan con su signo para representar también el mínimo entero con signo. No cambian el almacenamiento de entrada ni la complejidad del algoritmo.
+
+Accepted #11328634 (Rust 1.75 x64): **0.015 s / 196 KB**. Comparación archivada: `2142_greedy.rs` (Rust 1.75 x64) — 0.046 s / 228 KB (#11304056).
+
 ## Notas por lenguaje
 
 Las nuevas fuentes se comparan con la instantánea del 18 de noviembre de 2026 de otros autores en compiladores actuales del juez. No hay corte por ID ni fecha. Los empates comparten puesto y los tiempos inferiores a 0.015 s se comparan como 0.015 s. Los puestos siguientes corresponden a las nuevas versiones; las fuentes existentes conservan sus propias métricas Accepted históricas.
@@ -124,8 +132,9 @@ Un asterisco indica una meta de clasificación pendiente: C++ exige los diez pri
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
-| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
+| [2142_greedy_optimized.java](2142_greedy_optimized.java) | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
 | [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
+| [2142_greedy_optimized.rs](2142_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(1) | AC | 0.015 s | 196 KB | 11328634 |
 
-\* Accepted; aún no se alcanza la meta de clasificación. Esta versión admite más optimización.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

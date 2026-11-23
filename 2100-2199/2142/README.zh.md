@@ -80,6 +80,14 @@ There are no miracles in life
 
 - `2142_greedy_optimized.java`: 时间降低 +12.80%; 内存降低 +76.67%; 基础版本: `2142_greedy.java`.
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`2142_greedy_optimized.rs`. 保留原有算法及整数类型，直接转换十进制词元，避免通用字符串解析。负数按负值累积，因此最小有符号整数也不会在取绝对值时溢出。输入存储和算法复杂度不变。
+
+Accepted #11328634 (Rust 1.75 x64): **0.015 s / 196 KB**. 历史对照: `2142_greedy.rs` (Rust 1.75 x64) — 0.046 s / 228 KB (#11304056).
+
 ## 各语言说明
 
 新增代码按 2026 年 11 月 18 日的快照，与其他作者在当前评测编译器上的结果比较，不设提交编号或日期门槛。相同指标并列，低于 0.015 s 的时间按 0.015 s 比较。下面的名次仅针对新增版本，原有代码仍保留各自历史 Accepted 提交的指标。
@@ -106,8 +114,9 @@ There are no miracles in life
 
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
-| [2142_greedy_optimized.java](2142_greedy_optimized.java) \* | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
-| [2142_greedy_optimized.go](2142_greedy_optimized.go) \* | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
+| [2142_greedy_optimized.java](2142_greedy_optimized.java) | Java 1.8 | greedy | O(1) | AC | 0.109 s | 364 KB | 11304424 |
+| [2142_greedy_optimized.go](2142_greedy_optimized.go) | Go 1.14 x64 | greedy | O(1) | AC | 0.031 s | 840 KB | 11328343 |
 | [2142_greedy_optimized.py](2142_greedy_optimized.py) \* | PyPy 3.10 x64 | greedy | O(1) | AC | 0.125 s | 208 KB | 11324931 |
+| [2142_greedy_optimized.rs](2142_greedy_optimized.rs) | Rust 1.75 x64 | greedy | O(1) | AC | 0.015 s | 196 KB | 11328634 |
 
-\* Accepted；尚未达到排名目标，该版本仍有优化空间。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。
