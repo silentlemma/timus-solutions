@@ -114,6 +114,14 @@ IMPOSSIBLE
 - `1155_constructive_optimized.rs`: 时间降低 +0.00%; 内存降低 +50.46%; 基础版本: `1155_constructive.rs`.
 - `1155_constructive_optimized.py` 用时 0.078 秒，占用 580 KB；基础版本为 0.078 秒和 612 KB。在现行 Python/PyPy 解释器的排名中，时间在 131 个结果中排第 18，内存在 131 个结果中排第 18，基础版本分别排第 18 和第 24。
 
+### 新的已通过版本
+
+以下版本使用统一的[排名标准](../../RATING_CRITERIA.md)，并具有精确源码的 Accepted 证据。此前的性能讨论记录历史提交及快照，不构成另一套现行准入规则。有意义的简单版本及此前不同的实现均保留。
+
+`1155_constructive_optimized.go`. 保留原有算法和边界处理，用数字及词元转换和可复用输出缓冲区替代 fmt。整个输入保存在字节缓冲区中，以存储输入的空间换取较少的通用输入输出开销。
+
+Accepted #11328508 (Go 1.14 x64): **0.015 s / 984 KB**. 历史对照: `1155_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11281106).
+
 ## 各语言说明
 
 - 所有语言按相同顺序处理各棱，并输出相同的操作。
@@ -135,8 +143,9 @@ IMPOSSIBLE
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
-| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
-| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.go](1155_constructive_optimized.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.015 s | 984 KB | 11328508 |
 
-\* 已接受；尚未达到排名目标，此版本仍可继续优化。
+\* Accepted；尚未达到 [RATING_CRITERIA.md](../../RATING_CRITERIA.md) 中的排名目标，可继续优化。

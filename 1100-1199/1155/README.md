@@ -136,6 +136,14 @@ Each optimized version has Accepted and qualifies by ranking or by a reduction o
   reduction +50.46%; base: `1155_constructive.rs`.
 - `1155_constructive_optimized.py`: 0.078 s and 580 KB, versus 0.078 s and 612 KB for the simple version. On current Python/PyPy interpreters it ranks 18/131 by time and 18/131 by memory, versus 18/131 and 24/131 for the simple version.
 
+### Accepted source update
+
+The entries below use the shared [rating criteria](../../RATING_CRITERIA.md) and exact-source Accepted evidence. Earlier performance discussions describe historical runs and snapshots, not a separate current admission rule. Meaningful simple versions and earlier distinct implementations remain available.
+
+`1155_constructive_optimized.go`. Keep the archived algorithm and its boundary rules. Replace fmt scanning and printing with decimal/token conversion and a reused output buffer. Input is read into a byte buffer, trading full-input storage for less general-purpose I/O overhead.
+
+Accepted #11328508 (Go 1.14 x64): **0.015 s / 984 KB**. Archived comparison: `1155_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11281106).
+
 ## Language notes
 
 - All languages go over the edges in the same order and print the same
@@ -158,8 +166,9 @@ Each optimized version has Accepted and qualifies by ranking or by a reduction o
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
-| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
-| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.go](1155_constructive_optimized.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.015 s | 984 KB | 11328508 |
 
-\* Accepted; the rating target is not yet met. This version may be optimized further.
+\* Accepted; the rating target under [RATING_CRITERIA.md](../../RATING_CRITERIA.md) is not yet met. This version may be optimized further.

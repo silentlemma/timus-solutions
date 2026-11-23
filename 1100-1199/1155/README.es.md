@@ -139,6 +139,14 @@ Cada versión optimizada obtuvo Accepted y satisface el criterio de clasificaci�
   reducción de memoria +50.46%; base: `1155_constructive.rs`.
 - `1155_constructive_optimized.py` usa 580 KB y tarda 0.078 s, frente a 612 KB y 0.078 s de la versión básica. En la clasificación de los intérpretes vigentes de Python/PyPy ocupa el puesto 18 de 131 por tiempo y el 18 de 131 por memoria. La versión básica ocupa los puestos 18 y 24, respectivamente.
 
+### Nuevas versiones aceptadas
+
+Estas versiones usan los [criterios compartidos](../../RATING_CRITERIA.md) y Accepted del código exacto. Las discusiones anteriores describen ejecuciones y comparaciones históricas, no otra regla vigente. Se conservan las versiones sencillas y las implementaciones anteriores distintas.
+
+`1155_constructive_optimized.go`. Se conservan el algoritmo y sus casos límite. Se sustituye fmt por conversión de números y palabras y un búfer de salida reutilizable. La entrada completa se guarda en bytes: se intercambia ese espacio por un menor coste de la E/S general.
+
+Accepted #11328508 (Go 1.14 x64): **0.015 s / 984 KB**. Comparación archivada: `1155_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11281106).
+
 ## Notas por lenguaje
 
 - Todos los lenguajes recorren las aristas en el mismo orden e imprimen
@@ -161,8 +169,9 @@ Cada versión optimizada obtuvo Accepted y satisface el criterio de clasificaci�
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
-| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
-| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.go](1155_constructive_optimized.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.015 s | 984 KB | 11328508 |
 
-\* Aceptada; aún no cumple el objetivo de clasificación. Puede optimizarse más.
+\* Accepted; aún no se alcanza el objetivo de [RATING_CRITERIA.md](../../RATING_CRITERIA.md). Esta versión puede optimizarse más.

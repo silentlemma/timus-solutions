@@ -136,6 +136,14 @@ IMPOSSIBLE
   сокращение памяти +50.46%; база: `1155_constructive.rs`.
 - `1155_constructive_optimized.py`: 0,078 с и 580 КБ против 0,078 с и 612 КБ у простой версии. В зачёте действующих интерпретаторов Python/PyPy занимает 18-е место из 131 по времени и 18-е из 131 по памяти. У простой версии 18-е и 24-е места соответственно.
 
+### Новые принятые версии
+
+Для версий ниже применяются единые [рейтинговые критерии](../../RATING_CRITERIA.md) и Accepted точного исходника. Более ранние обсуждения производительности описывают исторические посылки и срезы, а не отдельное действующее правило допуска. Содержательные простые и прежние отличающиеся реализации сохранены.
+
+`1155_constructive_optimized.go`. Алгоритм и обработка границ сохранены. Вместо сканирования и печати через fmt используются разбор токенов и чисел и повторно используемый выходной буфер. Ввод целиком хранится в байтовом буфере: это обмен памяти под ввод на меньшие накладные расходы универсального ввода-вывода.
+
+Accepted #11328508 (Go 1.14 x64): **0.015 s / 984 KB**. Архивное сравнение: `1155_constructive.go` (Go 1.14 x64) — 0.031 s / 1116 KB (#11281106).
+
 ## Особенности языков
 
 - Во всех языках рёбра проходятся в одном порядке и выводятся одни и те
@@ -158,8 +166,9 @@ IMPOSSIBLE
 | Solution | Language | Approach | Complexity | Verdict | Time | Memory | Submission |
 |---|---|---|---|---|---|---|---|
 | [1155_constructive_optimized.cpp](1155_constructive_optimized.cpp) \* | G++ 13.2 x64 | constructive | O(total) | AC | 0.031 s | 100 KB | 11307258 |
-| [1155_constructive_optimized.java](1155_constructive_optimized.java) \* | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
+| [1155_constructive_optimized.java](1155_constructive_optimized.java) | Java 1.8 | constructive | O(total) | AC | 0.093 s | 456 KB | 11307261 |
 | [1155_constructive_optimized.rs](1155_constructive_optimized.rs) | Rust 1.75 x64 | constructive | O(total) | AC | 0.015 s | 216 KB | 11307262 |
-| [1155_constructive_optimized.py](1155_constructive_optimized.py) \* | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.py](1155_constructive_optimized.py) | Python 3.12 x64 | constructive | O(total) | AC | 0.078 s | 580 KB | 11323578 |
+| [1155_constructive_optimized.go](1155_constructive_optimized.go) | Go 1.14 x64 | constructive | O(total) | AC | 0.015 s | 984 KB | 11328508 |
 
-\* Принято; рейтинговая цель ещё не достигнута. Версию можно оптимизировать дальше.
+\* Accepted; рейтинговая цель по [RATING_CRITERIA.md](../../RATING_CRITERIA.md) пока не достигнута. Версию можно оптимизировать дальше.
